@@ -45,3 +45,15 @@ import JacobiAsym
 #print axioms JacobiAsym.ratio_upper_of_deriv
 #print axioms JacobiAsym.rpow_neg_hasDerivAt
 #print axioms JacobiAsym.neg_slowAtom_deriv
+#print axioms JacobiAsym.heineK_slow_le
+#print axioms JacobiAsym.slow_bdd
+#print axioms JacobiAsym.SlowFactor.slowAtom_anti
+#print axioms JacobiAsym.cutAtom_head
+#print axioms JacobiAsym.cutAtom_tail
+#print axioms JacobiAsym.SlowFactor.cutAtom_pos
+#print axioms JacobiAsym.SlowFactor.slowAtom_div_L
+#print axioms JacobiAsym.SlowFactor.cutAtom_tail_le
+#print axioms JacobiAsym.cutAtom_head_ge
+#print axioms JacobiAsym.SlowFactor.cut_pair_bound
+#print axioms JacobiAsym.head_term_bound
+#print axioms JacobiAsym.U_pos_of_w
