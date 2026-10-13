@@ -89,3 +89,16 @@
   - Re φ̃ > 0 on the lens contours is missing;
   - behaviour at 0, the origin perturbation estimate and test B's circularity, plus six more missing steps.
 - **Positive.** p = 1 test A matches WLXZ's N^{−1/2} scaling exactly. WLXZ's D works for p = 1 because n/z² is even.
+
+## Option 1: p = 1, r = 3/2 via Tricomi–Carlitz (RH_p1.md)
+
+- **Identification (exact).** σ_{1,3/2} = TC(α = 1) with masses multiplied by √(2π)H(k), where
+  H(t) = Γ(t+1)e^t/(√(2π)t^{t+½}) = 1 + 1/(12t) + O(t⁻²).
+- **Numerics** (`checks/check_p1_tc.out`). b_n/b_n^{TC} − 1 and a_n/a_n^{TC} − 1 are O(n⁻²): −1.65e−5 at n = 50,
+  −2.5e−8 at n = 1500. K-stable to 6e−12.
+- **Lemma W1.** The weight perturbation by H_n = H(n/z²) passes through WLXZ's analysis via one extra Szegő
+  conjugation D_H. All errors are unchanged: O(1/n) and O(e^{−cn}).
+- **Theorem RH₁ (pointwise Law P for σ_{1,3/2}, with O(1/n) rate):** PROVED-mod-cite (WLXZ §§2–6), pending Rule R.
+- **Ruling.** The p = 1 full proof is done by perturbing WLXZ's TC analysis rather than re-deriving it. Our nodes are
+  TC's with α = 1, and the weights differ by the analytic factor H → 1. This avoids the review's missing steps 2, 3 and
+  5 entirely. Cost if wrong: it depends on WLXZ's analysis being correct, which is a published proof that we cite.
