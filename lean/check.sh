@@ -11,7 +11,7 @@ bad=$(echo "$out" | grep -o "depends on axioms: \[[^]]*\]" | tr -d '[]' | sed 's
       | tr ',' '\n' | sed 's/ //g' | grep -v -E '^(propext|Classical.choice|Quot.sound)?$' || true)
 if [ -n "$bad" ]; then echo "FAIL: non-standard axioms: $bad"; exit 1; fi
 if echo "$out" | grep -qi "error"; then echo "FAIL: errors"; exit 1; fi
-need="card_pairs heineTerm_nonneg heineK_mono_K heineK_mono_w heineK_smul_w orderEmb_ge heineTerm_le_of_pair_le heineTerm_le_of_pair_le_split heineTerm_ge_of_pair_ge sum_prod_powersetCard_le factorial_le_prod_succ heineK_tail_split ratio_bounds_of_deriv diff_le_of_L_mono weighted_cesaro_slow slow_shift neg_mul_log_le phi_bound heineK_pos heineD_pos TheoremHPure.uniform_upper SlowFactor.logL_slow SlowFactor.exists_rhoMin SlowFactor.lower_pair SlowFactor.upper_pair heineK_slow_le slow_bdd exponent_identity log_upperTerm_le HL_upper"
+need="card_pairs heineTerm_nonneg heineK_mono_K heineK_mono_w heineK_smul_w orderEmb_ge heineTerm_le_of_pair_le heineTerm_le_of_pair_le_split heineTerm_ge_of_pair_ge sum_prod_powersetCard_le factorial_le_prod_succ heineK_tail_split ratio_bounds_of_deriv diff_le_of_L_mono weighted_cesaro_slow slow_shift neg_mul_log_le phi_bound heineK_pos heineD_pos TheoremHPure.uniform_upper SlowFactor.logL_slow SlowFactor.exists_rhoMin SlowFactor.lower_pair SlowFactor.upper_pair heineK_slow_le slow_bdd exponent_identity log_upperTerm_le HL_upper rhoSeq_mono HL_lower"
 for t in $need; do
   echo "$out" | grep -q "JacobiAsym.$t'" || { echo "FAIL: $t not audited"; exit 1; }
 done

@@ -66,3 +66,6 @@ import JacobiAsym
 #print axioms JacobiAsym.upperTerm_pos
 #print axioms JacobiAsym.tendsto_log_div_nat
 #print axioms JacobiAsym.tendsto_log_succ_div_sq
+#print axioms JacobiAsym.rhoSeq_mono
+#print axioms JacobiAsym.HL_lower
+#print axioms JacobiAsym.cesaro_weighted_zero

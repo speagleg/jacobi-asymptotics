@@ -12,3 +12,4 @@ import JacobiAsym.PairBounds
 import JacobiAsym.UpperChain
 import JacobiAsym.Exponent
 import JacobiAsym.UpperBound
+import JacobiAsym.LowerBound
