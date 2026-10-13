@@ -11,7 +11,7 @@ Research: research/G3prime, G2, G1.
   lower bound holds under a small-gaps hypothesis (SG). Counting-function information provably cannot give the lower
   bound (Prop N). Stop condition: an unconditional lower bound needs multiplicity/small-gap input beyond the
   literature read. See research/G3prime/PROOF.md.
-- G2 (Plan 8; pending Rule R review): Theorem H (the averaged Law P) is proved for **every p > 0**, in
+- G2 (Plan 8; Rule R REVIEWED): Theorem H (the averaged Law P) is proved for **every p > 0**, in
   research/G2/PROOF.md. The n² constant is identified as an explicitly solvable constrained logarithmic equilibrium,
   whose optimizer is a superposition of the Weyl-law arcsine measures. A corollary is the n² asymptotics of the
   Haynes–Zudilin determinants det ζ(a(i+j)+b) for all a ≥ 1.

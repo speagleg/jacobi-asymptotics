@@ -25,3 +25,10 @@
 **Overall: ACCEPT WITH FIXES.** No mathematical error breaks Theorem H_all or Corollary HZ.
 
 (Condensed from the reviewer's full report, as relayed in the session.)
+
+## Re-check (commit f3ee265): A-L steps 1–4 and the B* optimality paragraph
+
+**ACCEPT.** Every inequality was re-derived. All first-pass fixes are present. Three cosmetic items were applied:
+- r_{j+1} → u_j ≤ (j+1)/(d_U n) in 3(c);
+- the i = 1 diagonal uses log(1/min) ≤ log(1/u) + log(1/v);
+- the HZ status row now reads a > 0.

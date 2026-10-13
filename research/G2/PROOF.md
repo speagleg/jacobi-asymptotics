@@ -18,7 +18,7 @@ the same optimizer (CITATIONS.md (M)).
 | A-U | limsup (1/n²)[log D_n + p n² log n] ≤ E_p | PROVED (uses A1, B*-scaling; algebra of item 11 H7) |
 | A-L | liminf ≥ κ_p (= I(μ*_u)) | PROVED (citation-free: uses B*(i) and the value in B*(iii)) |
 | **H_all** | **for every p > 0, C > 0, regularly spaced atoms, and weights with Σw < ∞ and w_k ≥ c₁k^{−s}: log D_n = −pn² log n + (κ_p + log C)n² + o(n²)** | PROVED-mod-cite (P) |
-| HZ | log det_{1≤i,j≤n} ζ(a(i+j)+b) = −an² log n + (3a/2 + log c(a))n² + o(n²), for integer a ≥ 1 and real b > 1 − 2a | PROVED-mod-cite (P) |
+| HZ | log det_{1≤i,j≤n} ζ(a(i+j)+b) = −an² log n + (3a/2 + log c(a))n² + o(n²), for real a > 0 (in particular integer a ≥ 1) and real b > 1 − 2a | PROVED-mod-cite (P) |
 
 Notation:
 - p > 0 is fixed. g(u) := u^{−p} on (0, ∞).
@@ -230,10 +230,12 @@ The upper bound needs only W < ∞. It needs no polynomial upper bound on the we
        b^p − a^p ≤ max(1,p)(1 − a/b) ≤ 2 max(1,p)(b − a) and b − a ≤ 3/(d_U n l_j). So err ≤ C_U/(j − i − 2).
      - Summed: Σ_{i<j}[C_U/(i+1) + C_U/(j−i−2)] = O_U(n log n).
    - **(c) The h part, i < j ≤ i + 2.** The average is ≤ 0, since h ≤ 0. At the point,
-     1 − (u_i/u_j)^p ≥ min(1,p)(u_j − u_i)/u_j ≥ min(1,p)·(1/n)/r_{j+1} ≥ min(1,p)d_U/(j+1). So
+     1 − (u_i/u_j)^p ≥ min(1,p)(u_j − u_i)/u_j ≥ min(1,p)·(1/n)/u_j ≥ min(1,p)d_U/(j+1), using
+     u_j ≤ r_j + 1/(2n) ≤ (j+1)/(d_U n). So
      err ≤ log(j + 1) + C_U. There are ≤ 2n such pairs, costing O_U(n log n).
    - **(d) Diagonal blocks** (upper bound). |g(u) − g(v)| ≤ g(min(u,v)), so
-     n²∬_{B_i²} ≤ p·avg_{B_i} log(1/u) ≤ p log(n/(i−1)) for i ≥ 2, and ≤ p(log n + 1) for i = 1. The sum over i is
+     n²∬_{B_i²} ≤ p·avg log(1/min(u,v)) ≤ p log(n/(i−1)) for i ≥ 2. For i = 1, use
+     log(1/min(u,v)) ≤ log(1/u) + log(1/v), which gives ≤ 2p(log n + 1). The sum over i is
      p[(n−1) log n − log (n−1)!] + O(log n) = O(n).
    - Hence Σ_{i≠j} log|g(u_i) − g(u_j)| ≥ n²I(ν) − O_U(n log n).
 4. **Weights.** Π_{k∈S*} w_k ≥ c₁^n (U′n + 1)^{−sn}.
