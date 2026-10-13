@@ -1,0 +1,64 @@
+> Adapted from math-pursuits VERIFICATION_POLICY.md (commit f5f6aef). Changes for this repo: the label
+> PROVED-mod-input (proved modulo a named Lean/structure input listed in lean/JacobiAsym/Inputs.lean) is added;
+> "item" means a research problem under research/ (G3prime, G2, G1) or a toolkit module.
+
+# Verification policy — math-pursuits
+
+Adopted 2026-10-07. Replaces the 8-section audit used in the source repos, whose failure modes
+are documented in `reviews/`. Each rule below exists because the old pipeline let a specific
+error through.
+
+## Labels
+| Label | Meaning | Required evidence |
+|---|---|---|
+| PROVED | Complete proof, every step checked | Written proof; every external theorem quoted with hypotheses (rule C); adversarial pass logged (rule A); second-reader review |
+| CERTIFIED | Finite computation with rigorous error control | Interval/ball arithmetic over every operation, explicit truncation/tail bounds, no hard-coded flags, reproducible script (rule N) |
+| NUMERICAL | Strong numerical evidence | High-precision computation, precision-doubling stability, stated precision |
+| CONJECTURE | Supported pattern | State the evidence and its limits |
+| KNOWN | Already in the literature | Reference to the exact statement |
+| RETRACTED | Found false | Counterexample or identified error |
+
+Novelty is a separate field: NEW / POSSIBLY-NEW / KNOWN / UNCHECKED. Default is UNCHECKED.
+
+## Rule C — citations
+1. Quote each external theorem verbatim (or precisely paraphrased), with every hypothesis, plus
+   source and theorem number, from a source the agent has actually read.
+2. Check that each hypothesis holds in the application, explicitly.
+3. "Classical", "well known" and "standard" are not citations.
+4. Watchlist of previously misused results: Hutchinson; Pólya 1918/1926; Newman 1976; Karlin TP₂;
+   Prékopa–Leindler; Laguerre–Pólya / Pólya–Jensen criterion (all degrees, all shifts, using
+   γ_k = k!·a_k); Griffin–Ono–Rolen–Zagier (fixed d, large n); Chasse 2013; Calegari–Geraghty;
+   Kim–Shahidi / Gelbart–Jacquet / Newton–Thorne; Montgomery 1988; Liouville's approximation theorem;
+   Mineyev–Yu / Kadison–Kaplansky; Ostrik rank-2 classification; Freedman–Larsen–Wang.
+
+## Rule N — numerics
+1. "Certified" requires enclosures (Arb, `mpmath.iv`, Mathematica `Interval[]`, exact PARI). A
+   difference between two precisions is not an error bound.
+2. Finite checks of a universally quantified statement are NUMERICAL, unless an analytic bound
+   covers the rest and that bound is itself proved with explicit constants.
+3. Pass/fail values must be computed, never typed into an export.
+4. Saddle-point and asymptotic arguments must state the saddle equation exactly and give explicit
+   error bounds. (A wrong saddle produced errors of 10³–10³⁷⁰ in the source corpus.)
+5. Normalisations must be written out (k! vs (2k)! vs γ_k; Γ_R(s)=π^{−s/2}Γ(s/2), Γ_C(s)=2(2π)^{−s}Γ(s)).
+
+## Rule A — adversarial pass
+Before PROVED, for each lemma: try to construct a counterexample (small cases, degenerate
+parameters, two-point measures, step functions); test the converse if it is used; check every
+"by symmetry" and "the cross term vanishes". Log attempts.
+
+## Rule X — circularity
+Inputs that presuppose the conclusion (zeros placed on the line; PSLQ fitted to the formula being
+tested; identities that are the definition rewritten) cannot be evidence. State the data provenance.
+
+## Rule L — literature
+Before NEW or POSSIBLY-NEW: check all item README §4 references, search arXiv/MathSciNet-style for
+the precise statement, and record queries and findings in LOG.md. One web search is not a check.
+
+## Rule R — review
+DONE requires REVIEWED: a human or a second independent agent re-derives the key steps from the
+write-up alone and re-runs the checks. LLM self-review does not count as the second reader.
+
+## Optional — formalisation
+For short statements, write a Lean 4 / Mathlib statement in the style of the openai/math "comparator
+challenges": a small human-audited statement file, the proof kept separately, allowed axioms
+`propext`, `Quot.sound`, `Classical.choice`. Lean is not installed yet; installing it needs human approval.

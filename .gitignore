@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+csrc/build/
+data/raw/
+*.npy
+*.npz
+!tests/data/*.npz
+*.gz
+.pytest_cache/
+lean/.lake
+tmp/
+.superpowers/

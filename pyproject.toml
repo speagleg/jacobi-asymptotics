@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jacobi-asym"
+version = "0.1.0"
+description = "Jacobi-coefficient and Hankel-determinant asymptotics for discrete measures accumulating at 0"
+requires-python = ">=3.12"
+dependencies = ["numpy>=2.0", "scipy>=1.13", "mpmath>=1.3", "sympy>=1.12"]
+
+[project.optional-dependencies]
+certify = ["python-flint==0.9.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m 'not slow'"
+markers = [
+  "slow: long-running regression (run with -m slow)",
+  "data: needs data fetched by data/fetch.py (skipped if absent)",
+]
