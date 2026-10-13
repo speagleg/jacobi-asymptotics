@@ -14,3 +14,4 @@ import JacobiAsym.Exponent
 import JacobiAsym.UpperBound
 import JacobiAsym.LowerBound
 import JacobiAsym.TheoremHL
+import JacobiAsym.LemmaP
