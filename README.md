@@ -7,6 +7,10 @@ x_k ↓ 0, and the "Law P" asymptotics b_n/x_n → c(p) = ¼(π/(2I(p)))^p for x
 Status: toolkit done (Plan 1). Lean: Theorem H_L and Corollary H_L-ζ (smooth ζ model, stated for the Hankel
 determinant, and in its b_j form (2/n²)Σ(n−j)log(b_j/x_j) → log(π²/16)) proved from the named input Theorem H, plus Lemma P, Cauchy–Binet/Andreief and the Toeplitz eigenvalue count (S4) (Plans 2–6, lean/README.md). The Lean bridge plans are complete.
 Research: research/G3prime, G2, G1.
+- G3′ (true zeros, Plan 7; pending Rule R review): the upper bound is unconditional (mod the cited S(T) bound) and the
+  lower bound holds under a small-gaps hypothesis (SG). Counting-function information provably cannot give the lower
+  bound (Prop N). Stop condition: an unconditional lower bound needs multiplicity/small-gap input beyond the
+  literature read. See research/G3prime/PROOF.md.
 
 ## Setup
     scripts/setup_env.sh
