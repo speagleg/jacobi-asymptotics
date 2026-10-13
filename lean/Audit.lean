@@ -22,3 +22,6 @@ import JacobiAsym
 #print axioms JacobiAsym.heineTerm_tail_pointwise
 #print axioms JacobiAsym.ratio_bounds_of_deriv
 #print axioms JacobiAsym.diff_le_of_L_mono
+#print axioms JacobiAsym.weighted_cesaro_slow
+#print axioms JacobiAsym.slow_shift
+#print axioms JacobiAsym.sum_log_div_le
