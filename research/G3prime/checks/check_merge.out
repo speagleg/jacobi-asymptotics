@@ -1,0 +1,20 @@
+[1] smooth model J=200000, double zeros at every m-th index (fraction phi = 1/m of indices repeated)
+    phi=0 S_n: n=250:-0.10123  n=500:-0.08638  n=1000:-0.07456  n=2000:-0.06516  n=4000:-0.05764
+    phi=0.100 pred 2log(1-phi)=-0.2107  shift: n=250:-0.1700  n=500:-0.1670  n=1000:-0.1674  n=2000:-0.1695  n=4000:-0.1722   (8s)
+    phi=0.250 pred 2log(1-phi)=-0.5754  shift: n=250:-0.4148  n=500:-0.4289  n=1000:-0.4426  n=2000:-0.4553  n=4000:-0.4666   (7s)
+    phi=0.500 pred 2log(1-phi)=-1.3863  shift: n=250:-0.9757  n=500:-1.0242  n=1000:-1.0649  n=2000:-1.0992  n=4000:-1.1282   (5s)
+[2] double zeros only in index window [1000, 2000) (every 2nd index there)
+    shift: n=500:+0.00000  n=1000:+0.00000  n=1500:-0.00008  n=2000:-0.01809  n=3000:-0.11826  n=4000:-0.17875  n=8000:-0.22023
+[3] true zeros, Odlyzko M=2000000
+    rkpw time 963s; distinct true atoms 2003384 (incl. tail)
+    n=   100  S_smooth=-0.126275  S_true(x_true)=-0.127394  S_true(x_smooth)=-0.126644  diff(true x)=-1.12e-03  diff(smooth x)=-3.70e-04
+    n=  1000  S_smooth=-0.074559  S_true(x_true)=-0.074720  S_true(x_smooth)=-0.074643  diff(true x)=-1.61e-04  diff(smooth x)=-8.38e-05
+    n=  5000  S_smooth=-0.055537  S_true(x_true)=-0.055574  S_true(x_smooth)=-0.055559  diff(true x)=-3.67e-05  diff(smooth x)=-2.13e-05
+    n= 10000  S_smooth=-0.049831  S_true(x_true)=-0.049851  S_true(x_smooth)=-0.049843  diff(true x)=-1.93e-05  diff(smooth x)=-1.15e-05
+    n= 20000  S_smooth=-0.045129  S_true(x_true)=-0.045139  S_true(x_smooth)=-0.045135  diff(true x)=-9.95e-06  diff(smooth x)=-6.07e-06
+    normalized gaps: min=0.00545 at k=1115578; repeated ordinates: 0
+    fraction of normalized gaps < 0.01: 1.000e-06
+    fraction of normalized gaps < 0.05: 1.275e-04
+    fraction of normalized gaps < 0.1: 9.115e-04
+    max |gamma_k - gamma~_k| = 0.9937
+DONE

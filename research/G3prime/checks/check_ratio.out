@@ -1,0 +1,4 @@
+[1] 2piE(T)/log(T/4pi) on [1e6, 1e300]: max 2.6613 at T=1.000e+06; monotone decreasing: True; value at 1e300 0.7395 (limit 2pi*0.111=0.6974)
+[2] max |gamma_k - gamma~_k| over k <= 2001052: 0.9937 (k=34); over gamma_k >= 1e6: 0.6838; C0 used = 2.7
+[3] Z2 checked on 42000000 pairs (near: a<200000, b-a<=200; far: 2000000 random): violations 0, min slack rho - ratio = 4.861e-05
+    adjacent-pair ratio (x_a - x_a+1)/(x~_a - x~_a+1): max 3.111, min 2.19e-02
