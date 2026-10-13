@@ -25,3 +25,5 @@ import JacobiAsym
 #print axioms JacobiAsym.weighted_cesaro_slow
 #print axioms JacobiAsym.slow_shift
 #print axioms JacobiAsym.sum_log_div_le
+#print axioms JacobiAsym.neg_mul_log_le
+#print axioms JacobiAsym.phi_bound
