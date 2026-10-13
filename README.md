@@ -5,7 +5,7 @@ x_k ↓ 0, and the "Law P" asymptotics b_n/x_n → c(p) = ¼(π/(2I(p)))^p for x
 (c(2) = π²/16). Continues math-pursuits item 11.
 
 Status: toolkit done (Plan 1). Lean: Theorem H_L and Corollary H_L-ζ (smooth ζ model, stated for the Hankel
-determinant) proved from the named input Theorem H, plus Lemma P and Cauchy–Binet/Andreief (Plans 2–4, lean/README.md).
+determinant, and in its b_j form (2/n²)Σ(n−j)log(b_j/x_j) → log(π²/16)) proved from the named input Theorem H, plus Lemma P and Cauchy–Binet/Andreief (Plans 2–4, lean/README.md).
 Research: research/G3prime, G2, G1.
 
 ## Setup

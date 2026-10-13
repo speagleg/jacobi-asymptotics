@@ -29,9 +29,14 @@ remains a named input.
 | `hankel`, `heineD_eq_det`, `heineK_bdd_of_summable` | H1, K → ∞ | heineD = det(∑' w x^{i+j}) for summable w ≥ 0, bounded x |
 | `N0`, `zetaGamma`, `zetaGamma_spec`, `zetaGamma_hasDerivAt` | smooth ζ model | γ = N₀⁻¹(ξ − ½) without Lambert W; γ ≥ 9, derivative 2π/log(γ/2π) |
 | `zetaL`, `zetaL_eps_eq`, `zetaL_slowFactor` | Cor. H_L-ζ hypotheses | exact ε = (ℓ/2 + 2γ² − (11π/2)γ)/(ℓ(γ²+¼)); SlowFactor 2 instance |
+| `DMeasure`, `dip`, `mom`, `dip_self_eq_zero`, `hankel_det_pos` | (S1)–(S2) | discrete inner product, positive definiteness, D_n > 0 |
+| `opoly`, `dip_opoly_pow`, `dip_opoly_pow_self`, `opoly_monic` | monic OPs | determinant formula; orthogonality; ⟨P_k, X^k⟩ = D_{k+1}/D_k |
+| `jb2`, `ja`, `opoly_recurrence` | three-term recurrence | X P_k = P_{k+1} + a_k P_k + b_k² P_{k−1}, b_k² = D_{k+1}D_{k−1}/D_k² |
+| `hankel_det_eq_prod` | H2 | D_n = m₀ⁿ Π_{j<n} (b_j²)^{n−j} |
+| `sum_log_weighted_asymp` | (Stirling-type sum) | Σ_{j<n}(n−j) log j = n²/2 log n − 3n²/4 + o(n²) |
+| **`smoothZeta_bLaw`** | **b_j form of Cor. H_L-ζ** | **(2/n²)Σ(n−j) log(b_j/x_j) → log(π²/16); PROVED-mod-input (TheoremHPure 2 κ 2, κ = 3 + log(π²/16))** |
 | **`smoothZeta_HL`, `smoothZeta_HL_det`** | **Corollary H_L-ζ** | **smooth-ζ measure, Hankel-determinant form; PROVED-mod-input (TheoremHPure 2 κ 2)** |
 
-Not here: orthogonal polynomials, the three-term recurrence and H2 (law in b_j form) — Plan 5; Toeplitz eigenvalue
-count — Plan 6. The true-zero measure (G3′) is research.
+Not here: the Toeplitz eigenvalue count (Plan 6). The true-zero measure (G3′) is research.
 
 Check: `./check.sh` (build + axioms audit + completeness list; prints AUDIT OK).

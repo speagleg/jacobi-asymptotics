@@ -26,3 +26,4 @@ import JacobiAsym.OrthoPoly
 import JacobiAsym.Recurrence
 import JacobiAsym.H2
 import JacobiAsym.SuperFactorial
+import JacobiAsym.BLaw

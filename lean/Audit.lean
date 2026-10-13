@@ -153,3 +153,7 @@ import JacobiAsym
 #print axioms JacobiAsym.g2_deriv
 #print axioms JacobiAsym.log_monoOn
 #print axioms JacobiAsym.xlogx_monoOn
+#print axioms JacobiAsym.zeta_DMeasure
+#print axioms JacobiAsym.smoothZeta_bLaw
+#print axioms JacobiAsym.log_hankel_eq
+#print axioms JacobiAsym.log_zetaL_eq
