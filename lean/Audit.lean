@@ -20,3 +20,5 @@ import JacobiAsym
 #print axioms JacobiAsym.pairs_filter_tail
 #print axioms JacobiAsym.pairs_filter_cross
 #print axioms JacobiAsym.heineTerm_tail_pointwise
+#print axioms JacobiAsym.ratio_bounds_of_deriv
+#print axioms JacobiAsym.diff_le_of_L_mono
