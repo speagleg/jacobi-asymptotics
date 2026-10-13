@@ -253,3 +253,69 @@ checked:
 - the small-norm estimate;
 - extraction of γ_N, hence a_n and b_n, with the target corrections d₁ = −(r−1)/2 and e₁ = p/2 from Phase 0 as the
   acceptance test.
+
+## 8. Phase 5: assembly, numerical acceptance, extraction (p = 2 tested; p ∈ {1, 2} in scope)
+
+**8.1 The final problem (bookkeeping as derived).** The transformations follow WLXZ §§4–6, with γ → θ′,
+n/z² → t(z) = N(z²)^{−1/p}, band 2 → r*, and their α-shift absent:
+- T = e^{−Nlσ₃/2} R e^{N(l/2 − g)σ₃};
+- lens opening Q by the factorization WLXZ (4.11)–(4.13);
+- normalization V by the D-functions of §6.2: D̃ and D on the right, the mirrored D̂ and Ê on the left, and E;
+- S = V·(parametrix)⁻¹, with the global N of §6.3, Airy discs at ±r* (§7) and the KV Bessel disc at 0 (§7).
+
+The resulting S-jumps are I + O(1/N) on the disc boundaries and exponentially small elsewhere (Lemmas 2.3 and 4.4).
+The standard small-norm theorem then gives S = I + O(1/N) uniformly (as in KV §6, "Third transformation S → R").
+**Caveat.** The prefactors in these jumps were set up by analogy with WLXZ's (5.3)–(5.4), whose PDF text is partly
+garbled. They are validated numerically below, not yet written out symbol by symbol in our notation.
+
+**8.2 Acceptance test A: outer strong asymptotics** (`checks/check_phase5.out` [A]). If S = I + O(1/N), then
+T₁₁(z) := N^{qN}π_N(N^{−q}z)e^{−Ng(z)} on Ω_∞ equals (an N-power normalization) × (a fixed analytic function)
+× (1 + O(1/N)). Observed for p = 2, with r = 2 (α = 0) and r = 3 (α = ½), at N = 20 … 240:
+- |T₁₁(2i)| ∝ 1/N exactly (0.0199, 0.00996, 0.00499, 0.00249, 0.00166);
+- the ratios T₁₁(3+3i)/T₁₁(2i) and T₁₁(−5+i)/T₁₁(2i) converge at rate O(1/N) (successive differences 2e−3, 1e−3,
+  6e−4, 2e−4).
+
+A wrong g-function, band or normalization would show exponential drift (e^{±cN}). So the equilibrium, the g-function
+and the overall RH structure are confirmed to exponential precision, and the 1/N rate is consistent with the small-norm
+claim.
+
+**8.3 Acceptance test B: extraction** ([B]). With γ_N² from the actual measure (unfolded from a_m, b_m):
+
+  γ_N²/(c(p)(N/2)^{−p}) − 1 = (k₀ + k₁(−1)^N)/N + O(N⁻²),
+
+with k₀ = −2.000, k₁ = 0.000 for r = 2 (α = 0), and k₀ = −2.996, k₁ = −1.995 for r = 3 (α = ½). The leading term
+c(p)(N/2)^{−p} is the global-parametrix prediction γ_N = (r*/2)N^{−q} (§6.3). The parity-alternating correction
+appears exactly when α ≠ 0, which is the signature of the Fisher–Hartwig/Bessel origin (§5).
+
+**Lemma 5.1 (unfolding; PROVED, elementary).** Suppose γ_N² = c(N/2)^{−p}(1 + (k₀ + k₁(−1)^N)/N + O(N⁻²)). Then the
+fold relations b_m² = γ_{2m−1}²γ_{2m}² and a_m = γ_{2m−2}² + γ_{2m−1}² give
+
+  m^p b_m/c = 1 + (p/2 + k₀)/(2m) + O(m⁻²),  a_m/(2b_m) = 1 + (p/2)/m + O(m⁻²).
+
+So **e₁ = p/2 for every weight**, because the parity term and k₀ cancel. This explains Phase 0's observation that e₁
+does not depend on r. Also d₁ = (p/2 + k₀)/2. With the measured k₀ = −r (p = 2) this gives d₁ = −(r−1)/2, matching
+Phase 0.
+
+*Proof.* Use γ_{2m}² = cm^{−p}(1 + (k₀ + k₁)/(2m)) and γ_{2m−1}² = cm^{−p}(1 + p/(2m))(1 + (k₀ − k₁)/(2m)), and
+(m−1)^{−p} = m^{−p}(1 + p/m), to first order. Multiply the expansions for b_m and add them for a_m. ∎
+
+**8.4 Status of the pointwise theorem (p ∈ {1, 2}).**
+
+> **Theorem RH (target).** For σ_{p,r} = Σ k^{−r}δ_{k^{−p}}, with p ∈ {1, 2} and r > 1:
+> n^p b_n = c(p)(1 + O(1/n)) and a_n/(2b_n) = 1 + O(1/n).
+
+- **Label: PROOF SKETCH, numerically validated.**
+- What is in place:
+  - the RH formulation (verified end to end, §6.1);
+  - the g-function and all sign conditions (proved, §4);
+  - the global parametrix (explicit, §6.3);
+  - every local problem identified, with its hypotheses checked: Airy (§7, Lemma 4.1), Bessel/KV (§7), the top end
+    (Lemma 4.4);
+  - acceptance tests A and B passed.
+- What is missing for PROVED:
+  1. writing every jump matrix of V and S symbol by symbol, including the mirrored left-side functions and the exact
+     analytic prefactor of the KV problem at 0;
+  2. the small-norm estimate with explicit uniformity, including the contour pieces near 0, where the lens and
+     R-contours meet;
+  3. an independent Rule R check of 1–2.
+- For p ∉ {1, 2} the construction needs a new D-function (§6.4). Out of scope.

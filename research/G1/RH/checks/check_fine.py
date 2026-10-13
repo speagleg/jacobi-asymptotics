@@ -28,28 +28,29 @@ def fit(n, y, deg=3):
     return np.linalg.lstsq(A, y, rcond=None)[0]
 
 
-# exact anchor
-N = 3000
-a_ex, b2_ex = lommel_coeffs(0.5, N)
-n = np.arange(1, N + 1, dtype=float)
-b_ex = np.sqrt(np.array([float(v) for v in b2_ex])); a_ex = np.array([float(v) for v in a_ex])
-beta = n ** 2 * b_ex * np.pi ** 2 / c_p(2.0)     # atoms (k pi)^-2: C = 1/pi^2
-r = a_ex / (2 * b_ex)
-m = (n >= 200)
-print(f"[Lommel nu=1/2 exact] d = {np.round(fit(n[m], beta[m]-1), 4)}   e = {np.round(fit(n[m], r[m]-1), 4)}")
+if __name__ == "__main__":
+    # exact anchor
+    N = 3000
+    a_ex, b2_ex = lommel_coeffs(0.5, N)
+    n = np.arange(1, N + 1, dtype=float)
+    b_ex = np.sqrt(np.array([float(v) for v in b2_ex])); a_ex = np.array([float(v) for v in a_ex])
+    beta = n ** 2 * b_ex * np.pi ** 2 / c_p(2.0)     # atoms (k pi)^-2: C = 1/pi^2
+    r = a_ex / (2 * b_ex)
+    m = (n >= 200)
+    print(f"[Lommel nu=1/2 exact] d = {np.round(fit(n[m], beta[m]-1), 4)}   e = {np.round(fit(n[m], r[m]-1), 4)}")
 
-CASES = [(2.0, 2.0, 30_000, 1500), (2.0, 3.0, 30_000, 1500), (2.0, 4.0, 30_000, 1500), (2.0, 6.0, 30_000, 1500),
-         (3.0, 3.0, 10_000, 1200), (3.0, 4.0, 10_000, 1200), (3.0, 6.0, 10_000, 1200),
-         (1.5, 1.5, 50_000, 1000), (1.5, 3.0, 50_000, 1000)]
-for p, s, K, nhi in CASES:
-    res = []
-    for KK in (K, 2 * K):
-        mu = power_with_tail(p, s, KK)
-        jc = jacobi_coeffs(mu, nhi + 1, prec="ld")
-        a = np.asarray(jc.a, float)[:nhi]; b = np.asarray(jc.b, float)[:nhi]
-        nn = np.arange(1, nhi + 1, dtype=float)
-        bet = nn ** p * b / c_p(p); rr = a / (2 * b)
-        mm = (nn >= 150) & (nn <= nhi)
-        res.append((fit(nn[mm], bet[mm] - 1), fit(nn[mm], rr[mm] - 1)))
-    (d, e), (d2, e2) = res
-    print(f"p={p} s={s}: d = {np.round(d, 4)}  e = {np.round(e, 4)}   (2K: d1={d2[0]:.4f}, e1={e2[0]:.4f})")
+    CASES = [(2.0, 2.0, 30_000, 1500), (2.0, 3.0, 30_000, 1500), (2.0, 4.0, 30_000, 1500), (2.0, 6.0, 30_000, 1500),
+             (3.0, 3.0, 10_000, 1200), (3.0, 4.0, 10_000, 1200), (3.0, 6.0, 10_000, 1200),
+             (1.5, 1.5, 50_000, 1000), (1.5, 3.0, 50_000, 1000)]
+    for p, s, K, nhi in CASES:
+        res = []
+        for KK in (K, 2 * K):
+            mu = power_with_tail(p, s, KK)
+            jc = jacobi_coeffs(mu, nhi + 1, prec="ld")
+            a = np.asarray(jc.a, float)[:nhi]; b = np.asarray(jc.b, float)[:nhi]
+            nn = np.arange(1, nhi + 1, dtype=float)
+            bet = nn ** p * b / c_p(p); rr = a / (2 * b)
+            mm = (nn >= 150) & (nn <= nhi)
+            res.append((fit(nn[mm], bet[mm] - 1), fit(nn[mm], rr[mm] - 1)))
+        (d, e), (d2, e2) = res
+        print(f"p={p} s={s}: d = {np.round(d, 4)}  e = {np.round(e, 4)}   (2K: d1={d2[0]:.4f}, e1={e2[0]:.4f})")

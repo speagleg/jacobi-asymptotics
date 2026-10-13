@@ -66,3 +66,14 @@
   complement gives clean exponential decay.
 - **Gate 4: GO for p ∈ {1, 2}.** Phase 5 (bookkeeping, small norm, extraction, acceptance test against Phase 0's
   d₁ and e₁) is next.
+
+## Phase 5: assembly and acceptance (RH.md §8)
+
+- **Test A (outer strong asymptotics, p = 2, r = 2 and 3, N up to 240).** No exponential drift; the ratios converge
+  at O(1/N); |T₁₁| ∝ 1/N. The g-function and RH structure are confirmed.
+- **Test B (extraction).** The leading γ_N² = c(N/2)^{−p} is confirmed. The corrections are (k₀ + k₁(−1)^N)/N with
+  k₁ = 0 iff α = 0 (the Bessel/Fisher–Hartwig signature).
+- **Lemma 5.1 (unfolding).** e₁ = p/2 for every weight, and d₁ = (p/2 + k₀)/2. This explains Phase 0 exactly.
+- **Status.** Theorem RH for p ∈ {1, 2} is a PROOF SKETCH, numerically validated. To reach PROVED it still needs
+  symbol-by-symbol jump bookkeeping, explicit small-norm uniformity, and Rule R.
+- **Housekeeping.** check_fine.py now has a `__main__` guard, because importing it from check_phase5 re-ran Phase 0.
