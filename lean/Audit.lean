@@ -27,3 +27,4 @@ import JacobiAsym
 #print axioms JacobiAsym.sum_log_div_le
 #print axioms JacobiAsym.neg_mul_log_le
 #print axioms JacobiAsym.phi_bound
+#print axioms JacobiAsym.heineTerm_le_of_pair_le_split

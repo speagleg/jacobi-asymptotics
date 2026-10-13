@@ -302,8 +302,10 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 **Interfaces:**
 - Consumes: `pairs`, `heineTerm`, `card_pairs` (Task 2).
 - Produces:
-  - `heineTerm_le_of_pair_le`: a uniform pair factor `lam` gives `lam ^ (n*(n-1))`. This is the upper bound of
-    Theorem H_L, with `lam = B'·L(Mn)` in Plan 3.
+  - `heineTerm_le_of_pair_le`: a uniform pair factor `lam` gives `lam ^ (n*(n-1))`. **Correction (final review,
+    Important #1):** a uniform `lam = B'·L(Mn)` would cost `n(n-1) log B'`, i.e. Θ(n²). The H_L upper bound must use
+    `heineTerm_le_of_pair_le_split` (added in the fix pass), where `B'` applies only to pairs with smaller index
+    `< a0`, giving `B'^(2 a0 n)`.
   - `heineTerm_ge_of_pair_ge`: a monotone pair factor `ρ` evaluated at the *smaller* index gives
     `∏_{i<n} ρ i ^ (2(n-1-i))`. This is the lower bound of Theorem H_L: in item 11's 1-based language, k_i ≥ i and
     pair (i, j) contributes ρ(k_i)².
