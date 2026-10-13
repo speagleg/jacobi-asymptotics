@@ -112,3 +112,23 @@
       and WLXZ's lips approach 0 inside sectors); iℝ (cut, never crossed);
     - risk: D-functions designed around the TC Gamma structure. Resolved: D̃ ≡ 1/H_n, so the residual weight changes
       only by H_n² = 1 + O(z²/n).
+
+## Plan 11 (2026-10-13): RH₁ for general r (p = 1)
+
+- **Numerics** (`checks/check_p1_general_r.out`). Nβ_N − 1 = (k₀ + k₁(−1)^N)/N + O(N⁻²), stable under K-doubling.
+  - k₀ = ½ − r (conjecture).
+  - k₁ ≈ −3a with a = r − 3/2. The p = 2 fits gave ≈ −4a, suggesting the conjecture k₁ = −(p+2)a.
+  - The (−1)^N term is the FH-at-band-centre signature.
+- **Proof** (RH_p1_general.md). σ_r = TC(1)·F with F = H_n(z²)^a.
+  - Global N_r carries the Szegő function (z/Φ)^a·D_Q.
+  - The Airy discs reduce to RH₁ via A = Ng^{σ₃}N^{−1}.
+  - The origin gets a KV/Vanlessen Bessel parametrix with h₀ = e^L(4 − z²)Q_m. Q_m is the Stirling truncation of
+    H_n² (H_n has poles on iℝ accumulating at 0, so it cannot go into W).
+  - Lemma M: the mismatch is structured (diagonal on the band, ∝ J_Ψ − I on the lips) with amplification ≤ ρ^{−2|a|}.
+    m ≥ (|a| − 1)/2 makes it O(1/n) uniformly.
+- **Checks** (`checks/check_general_r_parametrix.out`):
+  - Szegő product to 1e−16;
+  - κ_n remainder constants 1/6, 1/180, 1/630, independent of n;
+  - Ψ amplification ≈ ρ^{−2|a|} for a ∈ {−0.4, …, 2.5}.
+- **Ruling.** The identification step (Lemma O / (Y4)_r) is done at WLXZ's level of rigour, as in RH₁, and is flagged
+  for Rule R. Cost if wrong: the label drops to PROVED-mod-(Y4)_r.

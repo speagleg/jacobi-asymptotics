@@ -56,3 +56,33 @@ The arXiv v1 PDF was read via pdftotext. The Anal. Appl. 14 (2016) version was n
 > (5.11.1) "As z → ∞ in the sector |ph z| ≤ π − δ, Ln Γ(z) ∼ (z − ½) ln z − z + ½ ln(2π) + Σ_{k=1}^∞ B_{2k}/(2k(2k−1)
 > z^{2k−1})." §5.11(ii): for complex z the remainder after truncation is bounded by "sec^{2n}(½ ph z)" times the first
 > neglected term.
+
+## (Van) M. Vanlessen, arXiv:math/0212014 — READ (§1, §4.1–4.3), for RH₁(r)
+"Strong asymptotics of the recurrence coefficients of orthogonal polynomials associated to the generalized Jacobi weight"
+(J. Approx. Theory 125 (2003)). KV's reference [38].
+
+> (1.1) "w(x) = (1 − x)^α(1 + x)^β h(x) Π_{ν=1}^{n0} |x − x_ν|^{2λ_ν}, for x ∈ (−1, 1), where n0 is a fixed number, with
+> −1 < x1 < x2 < · · · < x_{n0} < 1, 2λ_ν > −1, λ_ν ≠ 0, α, β > −1, and with h real analytic and strictly positive on
+> [−1, 1]."
+>
+> "Theorem 1.1 The recurrence coefficients a_n and b_n of orthogonal polynomials associated to the generalized Jacobi
+> weight (1.1) have a complete asymptotic expansion of the form a_n ∼ 1/2 + Σ_{k≥1} A_k(n)/n^k, b_n ∼ Σ_{k≥1} B_k(n)/n^k
+> … A_1(n) = −(1/2)Σ_ν λ_ν √(1 − x_ν²) cos(2n arccos x_ν − Φ_ν)" (1.3)–(1.4).
+>
+> (§4.1, p. 18) "W_{xν}(z) = (1 − z)^{α/2}(1 + z)^{β/2} h^{1/2}(z) Π (z − x_k)^{λ_k} Π (x_l − z)^{λ_l} …" (the analytic
+> factor h is absorbed into W).
+>
+> (4.42) "P_{xν}(z) = E_{n,xν}(z)Ψ_{λν}(n f_{xν}(z))W_{xν}(z)^{−σ3}ϕ(z)^{−nσ3}"; "We let λ > −1/2" (§4.2).
+>
+> (4.43) "Ψ_{λν}(ζ) = (1/√2)[[1, −i], [−i, 1]](I + O(1/ζ))e^{πiσ3/4}e^{−iζσ3}e^{−λν πiσ3/2}, uniformly for ζ in the
+> first quadrant", and similarly in (4.44)–(4.46) for the other quadrants.
+>
+> (4.53) "det P_{xν} ≡ 1" ("Using the behavior of Ψλν near 0 … the isolated singularity of det Ψλν at 0 has to be
+> removable … By Liouville's theorem we then have that det Ψλν ≡ 1").
+
+**Used in:** RH_p1_general.md §5 (Lemmas B, M).
+- Theorem 1.1 itself is **not** applied: our weight is n-dependent after rescaling and the problem is discrete.
+- We use only the local construction, its hypotheses, and these facts:
+  - an interior FH point with exponent λ = a > −1/2;
+  - the analytic, nonvanishing factor h₀, absorbed into W;
+  - the Ψ asymptotics.
