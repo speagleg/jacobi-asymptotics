@@ -134,3 +134,8 @@ import JacobiAsym
 #print axioms JacobiAsym.opolyCof_last
 #print axioms JacobiAsym.opoly_natDegree_le
 #print axioms JacobiAsym.opoly_coeff_self
+#print axioms JacobiAsym.jb2_pos
+#print axioms JacobiAsym.opoly_recurrence
+#print axioms JacobiAsym.dip_opoly_of_coeff
+#print axioms JacobiAsym.eq_zero_of_orth
+#print axioms JacobiAsym.dip_opoly_self
