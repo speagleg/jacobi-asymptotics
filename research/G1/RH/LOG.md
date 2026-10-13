@@ -213,3 +213,11 @@
   - It reproduces 4c(p) for pure powers.
   - For σ_ζ, b_N/(β_N/4) − 1 = O(1/N), with N·dev ≈ −1.1 … −1.4.
   - The 1/log term is entirely the finite-N equilibrium.
+- **Canonical edge equation** (constraint only on the monotone branch x ≤ x_e = 1/(4π² + ¼)): b_N = (β_N/4)(1 + 0.27/N)
+  (check_z_edge2.out).
+- **κ derivation** (regular variation): κ = −2(2J′(2)/J(2) + log J(2)) = −0.2895. The edge equation alone gives a
+  log N-coefficient converging slowly (−0.38 → −0.32 for N = 10² … 10¹⁵; the extrapolated a + b/log N fit gives
+  ≈ −0.300). Check: check_z_kappa.out.
+- **Phase 1 write-up:** RH_zeta.md, Lemma E1, the Abel-inversion generalization of G2 B*.
+- **Phase 2 obstruction found.** t(x) is non-monotone beyond x_e (N₀'s minimum at γ = 2π), which puts a spurious
+  pole of D at x_s. A fix is proposed: split Ω_∞, plus a far-field scalar Ξ.
