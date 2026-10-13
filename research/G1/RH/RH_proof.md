@@ -95,6 +95,10 @@ Lemma 2.1), uniformly on compacts away from 0 and ±r*. Hence E ≤ −c·y for 
 the arcs are chosen at height ≤ δ(K) there. Near 0, −2πy/|z|² = −2π sin β/|z| on a ray at angle β, which tends to −∞,
 while 2Re g − l stays bounded. Near ±r* the arcs enter the Airy discs. ∎
 
+*Numerical check* (`checks/check_P2.out`). max_x E < 0 on every strip y ∈ {0.02, 0.05, 0.1, 0.2, 0.4} over
+|x| ≤ 0.95r* (x ≠ 0). The worst values, −0.0044 … −0.093, occur near the band edge and agree with the first-order
+2πy(ψ − 1/x²) to within 6% at y = 0.4.
+
 ## 4. Lens opening: T → Q
 
 On the band, (T-a) factorizes as
