@@ -1,6 +1,17 @@
 # G1: the pointwise Law P — reductions and status
 
-Status: draft, written 2026-10-13. NOT REVIEWED (Rule R is Task 5 of Plan 9). Time-boxed per spec §7; stop report in §4.
+Status: REVIEWED 2026-10-13 (Rule R: `review/REVIEW_G1.md`, ACCEPT WITH FIXES; fixes applied). Time-boxed per spec
+§7; stop report in §4.
+
+**Labels.** GAP means a precise unproved statement, with no claim about its difficulty. CONDITIONAL means proved
+assuming a stated hypothesis that is not a named Lean input.
+
+**Notation.** σ is the spectral measure here, but G2's constraint measure in A3. β_j is n^p b_n here, but G2's β_t
+in A3. ω is the oscillation modulus here, but an arcsine law in A3. Each use is local.
+
+**Novelty: UNCHECKED.** G1-T and G1-L are discrete versions of the classical Landau / Hardy–Littlewood Tauberian
+lemmas: F = o(x²) together with slow oscillation of F″ gives F″ → 0, and a one-sided bound gives F′. The technique is
+known; its application here to Law P is what is new.
 
 ## 0. Status
 
@@ -8,11 +19,11 @@ Status: draft, written 2026-10-13. NOT REVIEWED (Rule R is Task 5 of Plan 9). Ti
 |---|---|---|
 | K | second difference of G(n) := Σ_{j<n}(n−j)u_j over ±h = triangle-kernel sum of u, of total mass h² | PROVED |
 | **G1-T** | H_all + (T3) slow oscillation of β_n ⇒ β_n → 1, i.e. n^p b_n → c(p)C | PROVED-mod-cite (G2 (P)) |
-| **G1-L** | H_all + a one-sided bound (sup β_n < ∞ or inf β_n > 0) ⇒ (1/n)Σ_{j≤n} log(j^p b_j) → log(c(p)C) | PROVED-mod-cite (G2 (P)) |
+| **G1-L** | H_all + a one-sided bound (sup β_n < ∞ or inf β_n > 0) ⇒ (1/n)Σ_{j<n} log(j^p b_j) → log(c(p)C) | PROVED-mod-cite (G2 (P)) |
 | A1 | J ≥ 0 ⇒ sine-weighted window averages of a_j are ≥ 2cos(π/(L+1))·min b over the window. Hence, if b is regular, liminf of window averages of a_j/(2b_j) ≥ 1 | PROVED |
-| A2 | p > 1: Σ_{j≥n} a_j = 𝔼_n[Σ_{k∉S} x_k] (Heine ensemble) | PROVED |
-| A3 | Q_p := ∫ x d(σ − μ*) = 2c(p)/(p−1) | PROVED-mod-cite (G2 B*) |
-| A4 | (CL) ⇒ tail-Cesàro a-law; with β_n → 1, a_j/(2b_j) → 1 in density | PROVED-mod-input (CL) |
+| A2 | p > 1: Σ_{j>n} a_j = 𝔼_n[Σ_{k∉S} x_k] (Heine ensemble) | PROVED |
+| A3 | Q_p := ∫ x d(σ − μ*) = 2c(p)/(p−1) | PROVED (uses only G2 B*(i) and the definition of μ*, both citation-free) |
+| A4 | (CL) ⇒ tail-Cesàro a-law; with β_n → 1, block-Cesàro ratios Σa/Σ2b → 1 and window averages → 1 in b-weighted density (pointwise density NOT proved) | CONDITIONAL on (CL) |
 | G1-R | (T3) from the atoms alone; (CL) | GAP (see §4) |
 
 Setting:
@@ -35,11 +46,14 @@ Setting:
 
   (T3) ω(δ) := limsup_{n→∞} sup_{n≤m≤(1+δ)n} |β_m/β_n − 1| → 0 as δ ↓ 0.
 
-Then β_n → 1, i.e. n^p b_n → c(p)C. No bound on β_n, no a_n hypothesis and no monotonicity are assumed.
+Here (T3) means only the slow-oscillation part of item 11's (T3), which also includes two-sided bounds. Then
+β_n → 1, i.e. n^p b_n → c(p)C. No bound on β_n, no a_n hypothesis and no monotonicity are assumed: boundedness of u
+comes out of the identity itself.
 
 *Proof.*
 1. **(T3) gives a two-sided additive modulus.** For m ∈ [(1−δ)n, n] we have n ≤ (1 + δ/(1−δ))m. So for all
-   |m − n| ≤ δn, |u_m − u_n| ≤ ω̃(δ) + o(1), where ω̃(δ) := −log(1 − ω(δ/(1−δ))) → 0.
+   |m − n| ≤ δn, |u_m − u_n| ≤ ω̃(δ) + o(1), where ω̃(δ) := −log(1 − ω(δ/(1−δ))) → 0. This needs
+   ω(δ/(1−δ)) < 1, i.e. δ small, and uses that ω is nondecreasing.
 2. **Window average.** Fix δ ∈ (0, ½) and put h := ⌊δn⌋. By Lemma K,
 
      u_n = h⁻²[G(n+h) − 2G(n) + G(n−h)] − h⁻² Σ_j (h − |j−n|)⁺(u_j − u_n).
@@ -48,10 +62,15 @@ Then β_n → 1, i.e. n^p b_n → c(p)C. No bound on β_n, no a_n hypothesis and
    absolute value, by step 1 and because the kernel has mass h².
 3. **Conclusion.** limsup |u_n| ≤ ω̃(δ) for every δ. Let δ → 0. ∎
 
-*Compared with item 11's Theorem C′.* C′ needed (T1)–(T4) and Wiener's Tauberian theorem, and gave β_n → 1 only under
-monotonicity (T4). G1-T needs only (T3), because H_all (G2) already supplies the averaged statement for every p.
-Numerically, (T4) fails for parity-oscillating weights (`check_regularity.out`) while (T3) appears to hold
-asymptotically. So the reduction is a genuine improvement. The b_n half of G1 is now equivalent to (T3), given H_all.
+*Compared with item 11's Theorem C′.* C′ needed:
+- (T2) a_n ~ 2b_n;
+- the two-sided bounds of (T3);
+- Wiener's Tauberian theorem;
+- (T4), a δn-scale monotonicity: b_m < b_n eventually for m ≥ (1+δ)n.
+
+G1-T needs only slow oscillation, because H_all (G2) already supplies the averaged statement for every p. (T4) then
+becomes a consequence, holding automatically once β_n → 1. (The step-to-step non-monotonicity seen for parity weights
+in `check_regularity.out` is not a failure of (T4), which is a δn-scale condition.) The b_n half of G1 is now equivalent to (T3), given H_all.
 Conversely, β_n → 1 implies (T3) trivially.
 
 **Theorem G1-L (single Cesàro mean).** Assume H_all's hypotheses and sup_n β_n < ∞ (or inf_n β_n > 0). Then
@@ -59,10 +78,10 @@ Conversely, β_n → 1 implies (T3) trivially.
 
 *Proof (Landau).* Assume u_j ≤ M; the case u_j ≥ −M is symmetric. Put A(n) := Σ_{j<n}u_j, so that
 G(n+1) − G(n) = A(n+1).
-- Since u ≤ M, we have A(n+i) ≤ A(n) + Mi. Summing over i = 1…h gives
-  G(n+h+1) − G(n+1) ≤ hA(n) + Mh(h+1)/2. So
-  A(n) ≥ [G(n+h+1) − G(n+1)]/h − M(h+1)/2.
-- Similarly A(n−i) ≥ A(n) − Mi gives A(n) ≤ [G(n+1) − G(n−h+1)]/h + M(h+1)/2.
+- Since u ≤ M, A(n+i) ≤ A(n) + Mi. Also Σ_{i=1}^{h} A(n+i) = G(n+h) − G(n). So
+  G(n+h) − G(n) ≤ hA(n) + Mh(h+1)/2, i.e. A(n) ≥ [G(n+h) − G(n)]/h − M(h+1)/2.
+- Similarly A(n−i) ≥ A(n) − Mi, and G(n) − G(n−h) = Σ_{i=0}^{h−1} A(n−i) ≥ hA(n) − Mh(h−1)/2. So
+  A(n) ≤ [G(n) − G(n−h)]/h + M(h−1)/2.
 - Take h = ⌊δn⌋. Then G = o(n²) gives |A(n)|/n ≤ o(1)/δ + Mδ/2 + o(1). Let δ → 0. ∎
 
 ## 3. The a_n side
@@ -73,7 +92,8 @@ for n ≤ j < n + L. Then
   Σ_{j=n}^{n+L−1} a_j s_j² ≥ 2cos(π/(L+1))·(min_{n≤j<n+L−1} b_j)·Σ_j s_j².
 
 In particular, assume b is regular on windows: max_{n≤j<n+L_n}|b_j/b_n − 1| → 0 for some L_n → ∞. This holds when
-β_n → 1 (G1-T) and L_n = o(n). Then liminf_n Σ_j (a_j/(2b_j)) s_j²/Σ_j s_j² ≥ 1.
+β_n → 1 (G1-T) and L_n = o(n). Then liminf_n Σ_j (a_j/(2b_j)) s_j²/Σ_j s_j² ≥ 1. This uses a_j ≥ 0 (from J ≥ 0) to
+pass to Σ_j(a_j/2b_j)s_j² ≥ Σ_j a_j s_j²/(2 max b), and min b/max b → 1 over the window.
 
 *Proof.* Take v_j := (−1)^j s_j on the window and 0 elsewhere. Then
 0 ≤ ⟨v, Jv⟩ = Σ a_j s_j² − 2Σ_j b_j s_j s_{j+1}. The sine vector satisfies s_{j−1} + s_{j+1} = 2cos(π/(L+1))s_j, with
@@ -84,13 +104,19 @@ A1 is the windowed, limit-free form of item 11's Lemma P: a_n ≥ 2b_n on averag
 (limsup ≤ 1) is the remaining a_n gap; see §4.
 
 **Proposition A2 (tail identity, p > 1).** Let p > 1, so that Σ_k x_k < ∞, J ≥ 0 is trace class, and
-Σ_j a_j = Tr J = Σ_k x_k. Let ℙ_n be the Heine probability on n-subsets S ⊂ ℕ, with ℙ_n(S) ∝ Π_{k∈S} w_k·V(S). Then
+Σ_j a_j = Tr J = Σ_k x_k. Let ℙ_n be the Heine probability on n-subsets S ⊂ ℕ, with ℙ_n(S) ∝ Π_{k∈S} w_k·V(S) and
+V(S) := Π_{i<j}(x_{k_i} − x_{k_j})². Then, in item 11's indexing (a_1 is the first diagonal entry),
 
-  Σ_{j≥n} a_j = 𝔼_n[Σ_{k∉S} x_k].
+  Σ_{j>n} a_j = 𝔼_n[Σ_{k∉S} x_k].
 
-*Proof.* Σ_{j<n} a_j = Tr J_n is the sum of the zeros of P_n. By Heine's formula, P_n(z) = 𝔼_n[Π_{k∈S}(z − x_k)]. The
+*Proof.* Σ_{j≤n} a_j = Tr J_n is the sum of the zeros of P_n.
+- *Heine's formula*, P_n(z) = 𝔼_n[Π_{k∈S}(z − x_k)]. P_n(z) is the bordered Hankel determinant
+  det[m_{i+j} | z^i]/D_n. Expanding it by multilinearity over atoms, as in item 11's H1 (Andreief), and symmetrising
+  gives D_n⁻¹ Σ_{ordered n-tuples} Π w·Δ(x)²·Π(z − x_k). Tuples with a repeated atom vanish, which leaves n-subsets.
+  (The reviewer checked this by brute force: 9 atoms, dps 40, n ≤ 4.) The
 coefficient of z^{n−1} is linear in the atoms, so the sum of the zeros is 𝔼_n[Σ_{k∈S} x_k]. Subtract this from
-Tr J = Σ_k x_k. ∎
+Tr J = Σ_k x_k. ∎ (The tail Σ_{j≥n} a_j used below is the same identity with 𝔼_{n−1}; the shift is immaterial for
+asymptotics.)
 
 **Proposition A3 (the equilibrium value).** Let p > 1 and C = 1. With μ*, σ and c = c(p) as in G2 §1,
 
@@ -109,7 +135,7 @@ parts for R ≥ 4c.
 - So F(R) = κ′R^{1−1/p} + 2c/(p−1) for some constant κ′. Since F is constant in R, κ′ = 0 and F ≡ 2c/(p−1). ∎
 
 Numerically (`checks/check_tailsum.out`), Q_p − 2c/(p−1) = 0 to 8 digits for p ∈ {1.5, 2, 3, 4}. The actual tail sums
-n^{p−1}Σ_{j≥n} a_j converge to Q_p: for p = 2, 1.2430 → 1.2363 → 1.2343 at n = 100, 400, 1600, against 1.2337.
+n^{p−1}Σ_{j≥n} a_j converge to Q_p: for p = 2, 1.2430 → 1.2360 → 1.2343 at n = 100, 400, 1600, against 1.2337.
 
 **Theorem A4 (conditional a_n law, p > 1).** Assume H_all's hypotheses with exact pure-power atoms x_k = k^{−p} (C = 1),
 and the concentration lemma
@@ -118,14 +144,19 @@ and the concentration lemma
 
 Then n^{p−1}Σ_{j≥n} a_j → 2c(p)/(p−1), which is the tail-Cesàro form of a_n ~ 2c(p)n^{−p}. If in addition β_n → 1
 (e.g. under (T3), by G1-T), then:
-- Σ_{j≥n}(a_j − 2b_j) = o(n^{1−p});
-- with Prop A1, a_j/(2b_j) → 1 *in density*: for every η > 0, the set {j : |a_j/(2b_j) − 1| > η} has
-  Σ_{j∈set, j≥n} j^{−p} = o(n^{1−p}), on the positive side directly and on the negative side in window average.
+- (i) Σ_{j≥n}(a_j − 2b_j) = o(n^{1−p}), and for every δ > 0 the block ratio
+  Σ_{n≤j<(1+δ)n} a_j / Σ_{n≤j<(1+δ)n} 2b_j → 1;
+- (ii) the sine-weighted window averages of a_j/(2b_j), over windows of length L_n → ∞ with L_n = o(n), tend to 1 in
+  b-weighted density.
+
+*A pointwise density statement does NOT follow.* The reviewer's counterexample is b_j = j^{−2},
+a_j = 2b_j(1 + 0.3(−1)^j). It satisfies A1 (the alternating part is invisible to sine windows) and the tail equality,
+yet |a_j/(2b_j) − 1| = 0.3 for every j. Full J ≥ 0 excludes this example, so a variational argument might do better,
+but none is given.
 
 *Proof.* Combine A2, A3 and (CL). Then subtract Σ_{j≥n} 2b_j = (2c/(p−1))n^{1−p}(1 + o(1)), which holds when β_n → 1.
-For the density statement:
-- the positive part (a_j − 2b_j)⁺ is controlled by the tail equality together with A1's lower bound on window averages;
-- the negative part is controlled by A1 directly. ∎
+- (i) The block ratio follows by differencing the tail asymptotics at n and (1+δ)n.
+- (ii) The tail equality bounds the total positive excess of the window averages, and A1 bounds them below. ∎
 
 *Status of (CL).* (CL) is the statement that the Heine ensemble's complement measure (1/n)Σ_{k∉S}δ_{k/n} converges to
 (1 − ρ*(u))du, tested against u^{−p}. The integrand is singular at u = 0, inside the saturated region.
@@ -145,13 +176,15 @@ For the density statement:
 - *b_n side.* Pointwise b_n ⟺ (T3) slow oscillation of β_n, given H_all (G1-T). Unconditionally, the single
   geometric Cesàro mean converges under a one-sided bound (G1-L).
 - *a_n side.* The lower half holds unconditionally in window average (A1). For p > 1, the upper half holds in
-  tail-Cesàro and density form, conditional on (CL) (A4).
+  tail-Cesàro form, with block-Cesàro ratios and window-average density, conditional on (CL) (A4). Pointwise density
+  is not proved.
+- G1-L needs a one-sided bound on β_n; it is not unconditional.
 
 **Missing statements (precise).**
 - (T3) for β_n := n^p b_n/(c(p)C), from atom regularity (H-a) and weight conditions.
 - (CL) for p > 1: n^{p−1}𝔼_n[Σ_{k∉S} x_k] → Q_p, i.e. saturation exactness of the Heine ensemble against u^{−p}.
 
-**Why the tools here stop short.**
+**Why the tools here stop short** (methodological explanations, heuristic; not theorems about all such methods).
 1. *Energy / large-deviation methods* (G2 Part A, H7, Lemma K) control log D_n to o(n²). Second differences over
    windows of width h therefore control only *window averages* of log b_j, with error o(n²)/h². That is exactly
    G1-T's input. (T3) is a statement about the variation of b_j *inside* windows. Through
@@ -159,7 +192,8 @@ For the density statement:
    (CL) likewise needs single-atom exclusion probabilities. Those cost O(n) in log V, below n² resolution.
 2. *Riemann–Hilbert steepest descent* gives pointwise asymptotics of discrete orthogonal polynomials, including
    saturated regions, for finite node sets with analytic data (BKMM). Infinite nodes with an accumulation point are
-   handled only for the explicit Tricomi–Carlitz family (WLXZ). The literature read has no RH analysis for general
+   handled only for the explicit Tricomi–Carlitz family (WLXZ; nodes ±(k+α)^{−1/2}, i.e. p = 1 in the squared
+   variable), within the literature read. The literature read has no RH analysis for general
    nodes x_k = f(k) accumulating at 0 with merely polynomially sandwiched (non-analytic) weights. Weight regularity
    genuinely matters: item 11's Prop D (exponentially small weights break the law) and test A3 (parity weights give
    power-rate coefficient oscillations; also `checks/check_regularity.out`).
