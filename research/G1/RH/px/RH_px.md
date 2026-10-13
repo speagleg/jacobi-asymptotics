@@ -1,6 +1,6 @@
 # RH_px: pointwise Law P for σ_{p,s} = Σ k^{−s} δ_{k^{−p}}, p > 1, in the x-variable (Plan 12)
 
-Status: **IN PROGRESS** (Phases 0–2 done, Gates 1–2 GO; Phase 3 next). Not reviewed. No PROVED labels.
+Status: **IN PROGRESS** (Phases 0–3 done, Gates 1–3 GO; Phase 4 next). Not reviewed. No PROVED labels.
 
 ## 0. Model, target, baseline
 
@@ -84,11 +84,88 @@ Mirror statements hold in ℂ₋.
 
 Near the hard edge Re φ̃ is large (e.g. 1.15 at x = 0.01·4c, p = 1.5), because ρ ≫ ψ.
 
-## 3. Next (Phase 3)
+## 3. D-functions, the scalar function F, global parametrix (Phase 3; Gate 3 GO)
 
-- D̃ := exp(−μ(t)), where μ is the Binet function (lnΓ(t) = (t − ½)ln t − t + ½ln 2π + μ(t)). D := D̃/(1 − e^{∓2iθ})
-  in ℂ±.
-- Find the jump of D on (−∞, 0).
-- Build the scalar Szegő function for the band weight together with the (−∞, 0) jump, with a power normalization at ∞.
-- Build the global parametrix.
-- Gate 3.
+**Definitions** (p > 1, on the slit plane ℂ ∖ (−∞, 0]):
+- D̃(z) := √(2π)t^{t−½}e^{−t}/Γ(t) = exp(−μ(t)), where μ is Binet's function;
+- D(z) := D̃(z)/(1 − e^{∓2iθ(z)}) in ℂ± (the WLXZ (4.16) pattern).
+
+**Lemma 3.1.**
+- (i) D̃ is analytic and nonvanishing on the slit plane (Lemma 1.1). D is analytic in ℂ± and nonvanishing.
+- (ii) On (4c, ∞) away from nodes, D₊/D₋ = −e^{2iθ}.
+- (iii) On (−∞, 0), D₋ = conj(D₊), so D₊/D₋ = e^{iℓ̂(x)} with ℓ̂ := 2arg D₊ real and continuous.
+  - ℓ̂(0⁻) = 0. More precisely, ℓ̂ = O(|x|^{1/p}/N) as x → 0⁻ (Binet).
+  - ℓ̂(−∞) = π/p − π, from D₊ ~ −i t₊^{−1/2}/√(2π) as t → 0.
+- (iv) |D(z)| ~ |t|^{−1/2}/√(2π) as z → ∞, i.e. ∝ |z|^{1/(2p)}.
+
+*Proof.*
+- (ii) Use (1 − e^{2iθ})/(1 − e^{−2iθ}) = −e^{2iθ}.
+- (iii) Reflection symmetry.
+- (iv) 1/Γ(t) ~ t and 1 − e^{∓2πit} ~ ±2πit as t → 0.
+
+Checks (`checks/check_px_phase3a.out`, p ∈ {1.5, 2, 3}, N ∈ {20, 80}): |D₊/D₋| = 1 exactly; arg D₊ runs monotonically
+from 0 to π/(2p) − π/2; |D|·|t|^{1/2}√(2π) → 1.
+
+**The Binet cut is absorbed exactly** (this replaces RH₁(r)'s Stirling truncation, which fails for 1/p ∉ ℤ).
+
+  S(z) := exp( −(1/2πi)∫_{−∞}^0 iℓ̂(y)[1/(y − z) − 1/(y − 1)]dy ).
+
+**Lemma 3.2.**
+- (i) S is analytic and nonvanishing off (−∞, 0], with S₊/S₋ = D₋/D₊ on (−∞, 0). So DS has **no jump** on (−∞, 0).
+- (ii) S is continuous and nonzero up to 0, because ℓ̂ is Hölder with ℓ̂(0⁻) = 0.
+- (iii) S ~ C z^{½−1/(2p)} at ∞, because ℓ̂(−∞) = π/p − π.
+- (iv) On compacts, S/S(1) = 1 + O(1/N). The contributions are: |y| ≲ N^p, where ℓ̂ = O(|y|^{1/p}/N) and the kernel is
+  O(|y|^{−2}); and |y| ≳ N^p, where ℓ̂ = O(1) and the kernel integrates to O(N^{−p}).
+- (v) **Near the hard edge**, D̃S has jump (1 − e^{−2iθ₊})/(1 − e^{2iθ₋}) = 1 + O(exp(−2πN sin(π/p)|x|^{−1/p})) on
+  (−δ, 0). This is super-exponentially small, although D̃ alone jumps by O(|x|^{1/p}/N).
+
+**Normalization.** Put E(z) := (4c − z)^{−1/2} (principal: cut [4c, ∞), with jump −1 there) and
+
+  F := D·S·E  (in Ω_∞ and the saturated regions),  F̃ := D̃·S·E  (in the band lens).
+
+**Lemma 3.3.**
+- (i) F has no jump on (−∞, 0).
+- (ii) F₊/F₋ = e^{2iθ} on (4c, ∞) off nodes. So V := Q F^{σ₃} removes T's jump diag(e^{−2iθ}, e^{2iθ}) on the
+  saturated region and beyond the top node.
+- (iii) F → F_∞ ≠ 0 at ∞. The exponents are D ~ z^{1/(2p)}, S ~ z^{½−1/(2p)} and E ~ z^{−½}.
+
+Checks (`checks/check_px_phase3b.out`, p = 2, N = 20): |(DS)₊/(DS)₋ − 1| ≤ 1e−10 at x = −10⁻³, −1, −10³, −10⁶ (the
+residual is the finite offset); S(0) = 0.9958, the same from all directions; F(z) → 0.0079247 in all directions as
+|z| → ∞; |F₊/F₋e^{−2iθ} − 1| ≤ 2e−11 on (4c, ∞).
+
+**Why the normalization closes only through S** (a Rule A note). D alone has monodromy e^{iπ/p} at ∞. E's half-integer
+power cannot cancel it unless 1/p ∈ ℤ, which is why WLXZ needed no S at p = 1. S carries exactly the complementary
+z^{½−1/(2p)}.
+
+**Band weight and global parametrix.** In the band lens, conjugation by F̃^{σ₃} turns the band jump into
+[[0, w₀], [−1/w₀, 0]] with
+
+  w₀(x) = W(x)(4c − x)/(D̃(x)²S(x)²) = C_N·x^{α_x}(4c − x)·h_N(x),  h_N = (1 + O(1/N))/(D̃S/(D̃S)(1))².
+
+Here h_N is analytic on a neighbourhood of (0, 4c], positive up to a constant phase, and continuous at 0.
+- The **global parametrix** is the standard one for a Jacobi-type weight on [0, 4c]: N = D_{w,∞}^{σ₃}N₀D_w^{−σ₃}, with
+  a(z) = ((z − 4c)/z)^{1/4} and Szegő function D_w.
+- At 4c the weight vanishes linearly, exactly like WLXZ's (4 − z²)^{2α−1} at α = 1. So the band–saturated Airy
+  construction of WLXZ §6.1 applies verbatim in structure.
+- **The band jump is exact.** There is no H_n-type mismatch: D̃ enters w₀ exactly, and its N-dependence is carried by
+  h_N.
+- Leading order: the band [0, 4c] gives b_n → 4c/4 = c in rescaled units, i.e. n^p b_n → c(p), which is Law P.
+
+**Gate 3: GO.** Outside the discs at 0 and 4c (and the top-end segments):
+- the band jump is exact;
+- the lips are O(e^{−cN}) by Lemma 2.2;
+- D/D̃ − 1 = O(e^{−2|Im θ|}) is exponentially small off ℝ;
+- the Σ^△ lips are O(e^{−cN}) by Lemma 2.1(iii) and Lemma 2.2;
+- there is no jump on (−∞, 0).
+
+## 4. Next (Phase 4)
+
+- **Hard-edge Bessel parametrix at 0** (KMVV §6, (6.16)–(6.33), read). ζ = N²f(x), with the band mapped to arg ζ = π.
+  Take W := (C_N x^{α_x}(4c − x)h_N)^{1/2}, analytic across (−δ, 0) up to the super-small jump of Lemma 3.2(v).
+  - Mismatches: D/D̃ on the lips; the upper-right e^{−2Nφ̃} terms; the (−δ, 0) jump. All are super-exponentially
+    small near 0 (Re φ̃ ~ π sin(arg z/p)|z|^{−1/p} → ∞), so they beat polynomial Bessel amplification. No truncation is
+    needed.
+  - Identification: the RH₁(r) §6 route, i.e. (Y4)-type bounds, un-lensing, X̃ and circle integrals.
+- **Airy at 4c:** WLXZ §6.1 in x.
+- **Top end:** WLXZ reliance.
+- Small norm, extraction, Rule R.

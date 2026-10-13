@@ -168,3 +168,12 @@
   - Lip signs: ∂_y Re φ = −πψ and ∂_y Re φ̃ = π(ρ − ψ). This gives the REVIEW_RH item-4 condition Re φ̃ > 0 on the
     band lips.
   - Checked for p ∈ {1.5, 2, 3}.
+- **Phase 3, Gate 3 GO.**
+  - D on the slit plane: D₊/D₋ is unimodular on (−∞, 0), with arg running 0 → π/(2p) − π/2.
+  - A scalar S cancels D's (−∞, 0) jump exactly, and S ~ z^{½−1/(2p)}.
+  - F = D·S·(4c − z)^{−1/2} → const at ∞. This needs S: D alone has monodromy e^{iπ/p}, which E cannot cancel unless
+    1/p ∈ ℤ.
+  - The band jump is exact, with weight x^{α_x}(4c − x)h_N.
+  - Near the hard edge, D̃S jumps only super-exponentially, so the Binet non-analyticity is absorbed with **no Stirling
+    truncation**.
+  - Checks: check_px_phase3a.out and check_px_phase3b.out.
