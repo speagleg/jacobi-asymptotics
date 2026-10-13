@@ -3,7 +3,10 @@ tend = 1e16.  Symmetric recurrence beta_N (unfolded from a_m, b_m) fitted as
    N beta_N - 1 ... more precisely  beta_N / (c(1)(N/2)^{-1}) - 1 = (k0 + k1 (-1)^N)/N + (k2 + k3 (-1)^N)/N^2.
 Predictions: k0 = 1 - r - p/2 = 1/2 - r (Phase 0 + Lemma 5.1); k1 = -4 alpha, alpha = r - 3/2 (Vanlessen Thm 1.1:
 interior singularity |x|^{2 lambda} at x = 0 gives a_n = 1/2 - lambda (-1)^n / n + O(n^-2) for the orthonormal
-recurrence on [-1,1], i.e. beta_N relative correction -4 lambda (-1)^N / N)."""
+recurrence on [-1,1], i.e. beta_N relative correction -4 lambda (-1)^N / N).
+NOTE (Rule R F10): the printed "pred" for k1 is that fixed-weight -4a heuristic, which the data REJECT (observed
+k1 ~ -3a); it is kept only for comparison. The 2K column is not an independent stability test: with the
+Euler-Maclaurin tail to 1e16, K and 2K agree by construction."""
 import sys
 import numpy as np
 sys.path.insert(0, "research/G1/RH/checks")

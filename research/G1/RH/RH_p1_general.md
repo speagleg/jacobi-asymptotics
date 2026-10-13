@@ -1,6 +1,6 @@
 # Theorem RH₁(r): pointwise Law P for σ_r = Σ k^{−r} δ_{1/k}, every r > 1 (p = 1)
 
-Status: **DRAFT, pending Rule R** (2026-10-13, plan-11). This extends Theorem RH₁ (RH_p1.md, REVIEWED; r = 3/2) to all r > 1.
+Status: **Rule R: ACCEPT WITH FIXES** (review/REVIEW_RH1r.md, 2026-10-13). F1–F11 applied; re-check pending (plan-11). This extends Theorem RH₁ (RH_p1.md, REVIEWED; r = 3/2) to all r > 1.
 Requested label after review: PROVED-mod-cite (WLXZ v1 §§2–6; KV §5; Vanlessen math/0212014 §4).
 
 Notation is RH_p1.md's:
@@ -39,9 +39,11 @@ this family. At r = 3/2 (a = 0) it reduces to RH₁.
 | 2.5  | 1     | −1.9992 | −2.9988 |
 | 3    | 1.5   | −2.4980 | −4.4972 |
 
-The fits are stable under K-doubling. So the rate O(1/N) is sharp.
+The fits agree under K-doubling, but that is weak evidence: with the Euler–Maclaurin tail to 1e16 they agree by
+construction (Rule R F10). A different tail cut-off or fit window would be a real test. Still, k₀ ≠ 0, so the rate
+O(1/N) cannot be improved in general.
 - **k₀ = ½ − r** (to fit accuracy; conjecture).
-- **k₁ ≈ −3a.** This is a conjecture. The earlier p = 2 fits gave ≈ −4a, which suggests k₁ = −(p+2)a.
+- **k₁ ≈ −3a.** This is a conjecture. It agrees to < 0.1% except at r = 1.25, where +0.7407 vs +0.75 is 1.2% off. The earlier p = 2 fits gave ≈ −4a, which suggests k₁ = −(p+2)a.
 - The (−1)^N term is the expected signature of a Fisher–Hartwig point at the band centre (compare Vanlessen
   Theorem 1.1, A₁(n) ∝ λ cos(2n arccos 0)). Vanlessen's fixed-weight constant does not transfer directly, because here
   the weight is n-dependent after rescaling.
@@ -87,7 +89,7 @@ used below.
 
 ## 3. Global parametrix with the Fisher–Hartwig factor
 
-- **Stirling truncation.** Fix an integer m ≥ max(0, (|a| − 1)/2). Define the entire, nonvanishing function
+- **Stirling truncation.** Fix the integer m := ⌈|a|/2⌉, so that δ := 4m + 2 − 2|a| ≥ 2. (F2 needs δ > 0; §6 needs δ > 1/2. Any larger m also works.) Define the entire, nonvanishing function
 
     Q_m(z) := exp( 2 Σ_{k=1}^{m} B_{2k}/(2k(2k−1)) · (z²/n)^{2k−1} ),
 
@@ -140,17 +142,19 @@ used below.
 
 Let P^{(3/2)} be RH₁'s local parametrix at ±2 (RH_p1.md §2, step 4). It has exactly the jumps of V_{σ_{3/2}} in
 U(±2, ε), and P^{(3/2)}N^{−1} = I + O(1/n) on ∂U(±2, ε).
-- In U(±2, ε), f(z) := (z²)^a is analytic and nonvanishing, since |z| ≈ 2. V_{σ_r} has the jumps of
-  V_{σ_{3/2}}·f^{−σ₃/2} (§2 bookkeeping).
-- Put g := (fQ_m)^{1/2}/D. Then g₊g₋ = 1 on the band, so N g^{σ₃} has the same band jump as N (an off-diagonal J
+- In U(±2, ε), q(z) := (z²)^a is analytic and nonvanishing, since |z| ≈ 2. V_{σ_r} has the jumps of
+  V_{σ_{3/2}}·q^{−σ₃/2} (§2 bookkeeping).
+- Put g := (qQ_m)^{1/2}/D. Then g₊g₋ = 1 on the band, so N g^{σ₃} has the same band jump as N (an off-diagonal J
   satisfies g₋^{−σ₃}Jg₊^{σ₃} = J when g₊g₋ = 1). Hence A := N g^{σ₃}N^{−1} has no jump in U(±2, ε).
-- At ±2, |A| = O(|z∓2|^{−1/2}), since N = O(|z∓2|^{−1/4}) and g is bounded by Lemma G(v). So the singularity is
+- At ±2, |A| = O(|z∓2|^{−1/2}). By WLXZ (5.11) at α_W = 1, N's first column is O(|z∓2|^{−3/4}) and its second
+  O(|z∓2|^{1/4}). Each term of A = N g^{σ₃}N^{−1} pairs a column of N with the matching row of N^{−1} = adj N, so the
+  exponents add to −3/4 + 1/4 = −1/2. g is bounded by Lemma G(v). So the singularity is
   removable. A is analytic, with A and A^{−1} bounded uniformly in n.
-- Define P_r := D_{Q,∞}^{σ₃}·A·P^{(3/2)}·f^{−σ₃/2}. It has V_{σ_r}'s jumps exactly. On ∂U(±2, ε),
+- Define P_r := D_{Q,∞}^{σ₃}·A·P^{(3/2)}·q^{−σ₃/2}. It has V_{σ_r}'s jumps exactly. On ∂U(±2, ε),
 
-    P_rN_r^{−1} = D_{Q,∞}^{σ₃}·A(I + O(1/n))·N(f^{−1/2}D)^{σ₃}N^{−1}·D_{Q,∞}^{−σ₃}.
+    P_rN_r^{−1} = D_{Q,∞}^{σ₃}·A(I + O(1/n))·N(q^{−1/2}D)^{σ₃}N^{−1}·D_{Q,∞}^{−σ₃}.
 
-  Since f^{−1/2}D = Q_m^{1/2}/g, the middle factor is A^{−1}·N Q_m^{σ₃/2}N^{−1} = A^{−1}(I + O(1/n)). So
+  Since q^{−1/2}D = Q_m^{1/2}/g, the middle factor is A^{−1}·N Q_m^{σ₃/2}N^{−1} = A^{−1}(I + O(1/n)). So
 
     P_rN_r^{−1} = I + O(1/n). ∎
 
@@ -162,11 +166,12 @@ U(±2, ε), and P^{(3/2)}N^{−1} = I + O(1/n) on ∂U(±2, ε).
   imaginary there.
 - With KV's convention φ_KV := −φ (see the dictionary below), set f(z) := iφ_KV(z) − iφ_KV,₊(0) in ℂ₊ and −iφ_KV(z) − iφ_KV,₊(0)
   in ℂ₋ (KV (5.6)). Then f(x) = π∫₀^x ψ and f′(0) = πψ(0) > 0 (KV (5.7)–(5.8)).
-- **Parity.** ψ is even, so f is odd and real on ℝ, hence f(iℝ) ⊂ iℝ. So KV's Σ₃ ∪ Σ₇ = iℝ ∩ U(0, ε) exactly, and
-  KV's Σ₁ ∪ Σ₅ is the band.
+- **Parity (cosmetic, F8).** ψ is even, so f is odd and real on ℝ, hence f(iℝ) ⊂ iℝ. So KV's Σ₃ ∪ Σ₇ = iℝ ∩ U(0, ε),
+  and KV's Σ₁ ∪ Σ₅ is the band. This is not load-bearing: KV's W (5.9) is defined by sectors of arg f wherever
+  f^{−1}(iℝ) lies, and V has no jump near iℝ (iℝ lies in Ω_∞, where D has no cut).
 - Inside U(0, ε), deform WLXZ's lips Σ_{l,±}, Σ_{r,±} to KV's Σ₂, Σ₄, Σ₆, Σ₈ = f^{−1}(arg ζ = ±π/4, ±3π/4). For
   small ε these lie in |arg(±z)| ∈ [π/4 − η, π/4 + η]. That is inside WLXZ's admissible sectors (away from both ℝ and
-  iℝ), and there Re φ < 0 (WLXZ (4.33); Re φ = −Im f·(1 + o(1))).
+  iℝ), and there Re φ < 0 (WLXZ (4.33); exactly, Re φ = −Im f in ℂ₊ and Re φ = Im f in ℂ₋).
 
 **Dictionary WLXZ → KV.**
 - WLXZ (6.24)/(5.3) on the band reads [[0, −m], [1/m, 0]], and on the lips [[1, 0], [−e^{2nφ}/m, 1]] plus terms that
@@ -175,7 +180,9 @@ U(±2, ε), and P^{(3/2)}N^{−1} = I + O(1/n) on ∂U(±2, ε).
   constant conjugation, harmless) puts us in KV's frame.
 
 **Local model jumps.**
-- h₀(z) := e^L(4 − z²)Q_m(z) is analytic and nonvanishing in U(0, ε).
+- h₀(z) := e^L(4 − z²)Q_m(z) is analytic and nonvanishing in U(0, ε). (F9: Vanlessen assumes h has positive real
+  part; h₀ need not, since e^L is not real here. That hypothesis is used only to choose h^{1/2}. Here we use only an
+  analytic, nonvanishing branch of h₀^{1/2} on the simply connected disc U(0, ε), which exists.)
 - The model jumps are those with m = m_r = h₀|x|^{2a} on the band, and lower-triangular lip jumps with h₀(z²)^{a}.
 - The true jumps of V_{σ_r} differ from these in two ways:
   - (J1) multiplicatively, by κ_n on the band (in the off-diagonal entries) and by κ_n^{−1} in the lip lower-left
@@ -196,7 +203,7 @@ where:
 - (i) P₀ has exactly the model jumps in U(0, ε).
 - (ii) det P₀ ≡ 1.
 - (iii) E_n is analytic in U(0, ε). E_n and E_n^{−1} are bounded uniformly in n.
-- (iv) P₀N_r^{−1} = I + O(1/n) uniformly on ∂U(0, ε).
+- (iv) P₀(σ₃N_rσ₃)^{−1} = I + O(1/n) uniformly on ∂U(0, ε). (P₀ lives in KV's frame. Undoing V ↦ σ₃Vσ₃, the WLXZ-frame parametrix is σ₃P₀σ₃, and it matches N_r.)
 
 *Proof.*
 - (i) This is KV (5.10)–(5.24). The analytic h₀ enters only through W_h, exactly as in Vanlessen's W_{x_ν} (his p. 18:
@@ -214,12 +221,13 @@ where:
 
   |J_H − I| ≤ C n^{−1}  (uniformly, including at 0),  and  ‖J_H − I‖_{L¹∩L²∩L^∞} = O(1/n).
 
-*Proof.* J_H = P₀₋ (J_V J_{P₀}^{−1}) P₀₋^{−1}. Write P₀ = E_n Ψ_a(nf) Λ, with Λ := W_h^{−σ₃}e^{−nφ_KVσ₃}, which is
+*Proof.* Everything below is in KV's frame (V means σ₃Vσ₃). J_H = P₀₋ (J_V J_{P₀}^{−1}) P₀₋^{−1}. Write P₀ = E_n Ψ_a(nf) Λ, with Λ := W_h^{−σ₃}e^{−nφ_KVσ₃}, which is
 analytic across the lips and the band. Let ζ = nf(z) and ρ = |ζ| ≍ n|z|.
 
-- **(J1), band.** J_V J_P^{−1} = diag(κ_n^{−1}, κ_n), which commutes with Λ₋. So
+- **(J1), band.** J_V J_P^{−1} = diag(κ_n, κ_n^{−1}) (in WLXZ's frame; after the σ₃ conjugation it is the same), which
+  commutes with Λ₋. So
 
-    J_H − I = E_nΨ₋ M Ψ₋^{−1}E_n^{−1},  M = diag(κ_n^{−1} − 1, κ_n − 1).
+    J_H − I = E_nΨ₋ M Ψ₋^{−1}E_n^{−1},  M = diag(κ_n − 1, κ_n^{−1} − 1).
 
   M is a combination of I and σ₃ with coefficients O(|κ_n − 1|).
 - **(J1), lips.** J_V J_P^{−1} − I is lower-triangular. After conjugation by Λ₋ it is (κ_n^{−1} − 1)(J_Ψ − I), where
@@ -231,16 +239,23 @@ analytic across the lips and the band. Let ζ = nf(z) and ρ = |ζ| ≍ n|z|.
 
     |Ψσ₃Ψ^{−1}| + |Ψ₊Ψ₋^{−1} − I| ≤ C·(1 + ρ^{−2|a|}(1 + |log ρ|)²).
 
-  - For ρ ≥ 1: Ψ = B(I + O(1/ζ))e^{−iζσ₃}C, where C is diagonal or anti-diagonal, so Cσ₃C^{−1} = ±σ₃ commutes with
-    e^{−iζσ₃}. Also Ψ₊Ψ₋^{−1} − I = O(1/ζ).
+  (The log² padding is needed only at a = 0. For a ≠ 0 the growth is the pure power ρ^{−2|a|}.)
+
+  - For ρ ≥ R₀: Ψ = B(I + O(1/ζ))e^{−iζσ₃}C, where C is diagonal or anti-diagonal, so Cσ₃C^{−1} = ±σ₃ commutes with
+    e^{−iζσ₃}. Also Ψ₊Ψ₋^{−1} − I = O(1/ζ). (4.43)–(4.46) are "as ζ → ∞" statements; for 1 ≤ ρ ≤ R₀ the bound follows
+    from continuity.
   - For ρ ≤ 1: the entries are O(ρ^{−|a|}) (log at a = 0) and det = 1.
-  - Numerically ([3], a ∈ {−0.4, 0, 0.5, 1.5, 2.5}, ρ ∈ [1e−6, 1e2]): the band amplification is ≈ ρ^{−2|a|}
-    (e.g. 4.07e31 at a = 2.5, ρ = 1e−6), with ratio to the weight ≤ 1.3 for ρ ≤ 1e−2 and ≤ 68 at ρ = 1. The lip
-    amplification is ≤ C for ρ ≥ 1 and decays like e^{−2ρ sin(π/4)}.
+  - Numerically ([3], a ∈ {−0.4, 0, 0.5, 1.5, 2.5}, ρ ∈ [1e−6, 1e2]; sector I only, i.e. the band ray arg 0⁺ and
+    the lip ray arg π/4⁻; the other sectors follow by KV's symmetries):
+    - the band amplification is C_a·ρ^{−2|a|}, with a constant C_a up to ≈ 40 (4.07e31 at a = 2.5, ρ = 1e−6, against
+      ρ^{−5} = 1e30);
+    - the printed ratios (≤ 1.3 for ρ ≤ 1e−2, ≤ 68 at ρ = 1) are against ρ^{−2|a|}(1 + |log ρ|)², not ρ^{−2|a|};
+    - the lip amplification is ≤ C for ρ ≥ 1 and decays like e^{−2ρ sin(π/4)}.
 - **Combining with Lemma S.**
   - For ρ ≥ 1: |J_H − I| ≤ C(|z|²/n)^{2m+1} ≤ Cn^{−2m−1}.
   - For ρ ≤ 1, i.e. |z| ≲ 1/n: |J_H − I| ≤ C(|z|²/n)^{2m+1}(n|z|)^{−2|a|}log² ≤ C n^{−2m−1−2|a|}|z|^{4m+2−2|a|}log².
-    This is ≤ Cn^{−1} because 4m + 2 ≥ 2|a| (the choice of m).
+    This is ≤ Cn^{−1}, and → 0 at z = 0, because δ = 4m + 2 − 2|a| > 0 (the choice of m). Explicitly,
+    |J_H(z) − I| ≤ C n^{−1}·min(1, (n|z|)^δ) near 0, which is used in §6.
 - **(J2).** The discarded lip terms are O(e^{−cn/|z|²}). By (4.29)–(4.30), φ̂ = φ ∓ (1/z² − 1)πi, and D̃ = D(1 − e^{∓2iθ})
   (4.16) with θ = πn/z² + O(1). On rays with |arg(±z)| ∈ [π/4 − η, π/4 + η], |e^{∓2πin/z²}| = e^{−2πn|sin 2arg z|/|z|²}
   in the relevant half-plane: this is WLXZ's "exponentially small … so long as arg z keeps a distance to ±π/2" made
@@ -249,46 +264,141 @@ analytic across the lips and the band. Let ζ = nf(z) and ρ = |ζ| ≍ n|z|.
     O(n^{−K}) for every K once ε³ < c/(4C).
 - **L¹ and L².** Σ ∩ U(0, ε) has length O(1), so these follow from the uniform bound. ∎
 
-**Remark (the role of m).** For |a| ≤ 1, i.e. 1 < r ≤ 5/2, m = 0 works, so Q ≡ 1 and κ_n = H_n². For larger a, the
+**Remark (the role of m).** Lemma M alone needs only δ > 0, and §6 needs δ > 1/2. So m = 0 suffices for |a| < 3/4,
+i.e. 3/4 < r < 9/4. (The choice m = ⌈|a|/2⌉ above is a uniform safe choice.) In the m = 0 case, so Q ≡ 1 and κ_n = H_n². For larger a, the
 truncation Q_m is needed: the bare H_n² − 1 = O(|z|²/n) is not small enough against the (n|z|)^{−2a} growth of
 Ψ_a near 0. Q_m cannot be replaced by H_n² itself, since H_n has poles on iℝ accumulating at 0 (Γ(t+1) at t = −1, −2, …).
 
-## 6. Behaviour at 0 and identification (Lemma O)
+## 6. Behaviour at 0 and identification (Lemma O; rewritten per F1, F3, F4)
 
-**(Y4)_r.** As z → 0 with δ ≤ |arg(±z)| ≤ π/2 (δ > 0 fixed),
+**(Y4)_r.** Fix δ₀ ∈ (0, π/4). As z → 0:
+- (a) for δ₀ ≤ |arg(±z)| ≤ π/2,
 
-  Y(z) = O([[1, 1 + |z|^{2a}(1 + |log|z||)], [1, 1 + |z|^{2a}(1 + |log|z||)]]),
+    Y(z) = O([[1, 1 + |z|^{2a}ℓ(z)], [1, 1 + |z|^{2a}ℓ(z)]]),  ℓ := 1 + |log|z|| (only needed at a = 0);
 
-and the same holds in the sectors |arg(±z)| ≤ δ for R (the pole-free transform).
+- (b) the same bound holds for R (WLXZ (3.11), the pole-free transform) in the lens sectors |arg(±z)| < δ₀, up to
+  the boundary values on the band.
+
+The constants may depend on n; only fixed-n bounds are needed here.
 
 *Proof.*
-- **Sectors away from ℝ.** Y₁₂(z) = Σ_k μ_k π_n(x_k)/(z − x_k) with μ_k ≍ k^{−r} (both signs of nodes), and π_n is
-  bounded near 0. For such z, |z − x_k| ≥ c_δ max(|x_k|, |z|) with x_k ≍ k^{−1/2}. So
+- **(a) Sectors away from ℝ.** Y₁₂(z) = Σ_k μ_k π_n(x_k)/(z − x_k), with μ_k ≍ k^{−r} (nodes of both signs), and π_n
+  is bounded near 0. For such z, |z − x_k| ≥ c max(|x_k|, |z|), with x_k ≍ k^{−1/2}. For k ≤ |z|^{−2} the max is
+  ≍ k^{−1/2}; for k > |z|^{−2} it is |z|. So (F4)
 
-    |Y₁₂| ≤ C Σ_k k^{−r}/max(k^{−1/2}, |z|) ≤ C(Σ_{k≤|z|^{−2}} k^{−r}|z|^{−1} + Σ_{k>|z|^{−2}} k^{1/2−r}).
+    |Y₁₂| ≤ C( Σ_{k≤|z|^{−2}} k^{1/2−r} + |z|^{−1} Σ_{k>|z|^{−2}} k^{−r} ) = O(1 + |z|^{2r−3}ℓ) = O(1 + |z|^{2a}ℓ).
 
-  This is O(1 + |z|^{2r−3}) = O(1 + |z|^{2a}), with a log at a = 0 and at r = 3/2. Row 2 is the same with π_{n−1}.
-- **Lens sectors.** In Ω_{r,±}, WLXZ (3.12) gives R₁₂ = U₁₂ − U₁₁(w/Π)e^{±iθ}, which is pole-free. By the residue
-  identity behind (3.13), the representation
+  Row 2 is the same with π_{n−1}. Y₁₁ and Y₂₁ are polynomials.
+- **(b) Lens sectors** (F3). Take z ∈ Ω_{r,+} ∩ U(0, ε); the other three lens sectors are symmetric. Here R₁₂ =
+  U₁₂ − K₋(z), with K_±(s) := U₁₁(s)(wF/Π)(s)e^{±iθ(s)} (WLXZ (3.11)–(3.12)).
+  - **Residues.** By (3.13), K_± has a simple pole at each node X_k > 0 with residue μ_kU₁₁(X_k).
+  - **Size.** θ = πn/s² + O(1) gives Im θ < 0 in the upper right quadrant. So |e^{−iθ}/sin θ| ≍ e^{2Im θ} =
+    O(e^{−cn/|s|²}) there, and symmetrically K₊ is O(|θ′||wF|e^{−cn/|s|²}) in the lower right quadrant.
+  - **Difference.** K₋ − K₊ = U₁₁(wF/Π)(e^{−iθ} − e^{iθ}) = −2iU₁₁wFθ′ is pole-free. Its size is
+    |wF| ≍ |s|^{3+2a} times |θ′| ≍ n|s|^{−3}, i.e. O(|s|^{2a}).
+  - Let G := {0 < |s| < b, |arg s| < φ₀}, with φ₀ larger than the lens angle and b between two nodes. Let Γ_± be its
+    boundary rays arg s = ±φ₀ and C_b its arc. The residue theorem gives
 
-    R₁₂(z) = −(1/2πi)∫_{Γ_z} U₁₁(s)(w(s)/Π(s))e^{±iθ(s)} ds/(s − z)
+      Σ_{0<X_k<b} μ_kU₁₁(X_k)/(z − X_k) − K₋(z) = −(1/2πi)∮_{∂G} K₋(s) ds/(s − z).
 
-  holds. Here Γ_z runs from 0 to 2 through the opposite half of the lens sector, where |e^{±iθ}/Π| = |θ′|·O(e^{−2|Im θ|})
-  is small; in the opposite half-plane, that factor is O(|θ′|e^{−cn/|s|²}). Its weight factor is O(|s|^{2a}·|s|^{−3}).
-  This gives the same bound.
+    On the lower part of ∂G write K₋ = K₊ + (K₋ − K₊). The contributions are:
+    - Γ₊ with K₋, and Γ₋ with K₊: O(e^{−cn/|s|²}), so negligible;
+    - Γ₋ with −2iU₁₁wFθ′: since |s − z| ≥ c max(|s|, |z|) on Γ₋, ∫_{Γ₋}|s|^{2a}|ds|/max(|s|,|z|) = O(1 + |z|^{2a}ℓ);
+    - C_b: bounded.
+  - **Remaining part of U₁₂.** The nodes X_k < 0 accumulate at 0, but z lies in the right sector, so
+    |z − X_k| ≥ c max(|z|, |X_k|) and the estimate of (a) applies. The nodes in [b, k_n] are finitely many for fixed n,
+    so they contribute a bounded amount.
+  - So R₁₂ = O(1 + |z|^{2a}ℓ), and the same for R₂₂ with π_{n−1}. R₁₁ = U₁₁ and R₂₁ are polynomials. ∎
 
-**Ruling (identification of V with the small-norm solution).** WLXZ (and RH₁, inheriting it) identify the transformed Y
-with the parametrix solution via (Y4) and Fokas–Its–Kitaev uniqueness (their Theorem 2.3, (2.17)). We do the same, with
-(Y4) replaced by (Y4)_r.
+**Bounds on V and P₀ near 0.** For fixed n, all explicit factors between R and V (WLXZ (5.1)) are bounded with bounded
+inverses in U(0, ε):
+- e^{ngσ₃} and the e^{nlσ₃/2} normalisations;
+- E, which is analytic at 0;
+- D, D̃, D̂ in their regions. In Ω_∞ (which contains iℝ near 0), D ≈ 1 by Stirling, since there −n/z² lies in
+  |ph| < π − δ. In the lens regions, D̃ = 1/H_n and D̂ are bounded in |arg(±z)| < π/2 − δ.
+- the lens factors I − (e^{2nφ}/m_σ)e₂₁, with |e^{2nφ}| ≤ 1. These are bounded except through 1/m_σ ≍ |z|^{−2a}, which is
+  treated below.
 
-At the origin, H := VP₀^{−1} has jumps J_H with |J_H − I| = O(|z|^{4m+2−2|a|}) → 0 at 0 (Lemma M). (Y4)_r together
-with KV (5.4)–(5.5) for P₀ gives |H| = O(|z|^{−2|a|−}) in every sector.
-- For |a| < 1/4 this is in E² near 0, and the L² theory applies directly.
-- For larger |a| we use the KV device, as in their removability argument: the column structure of (Y4)_r matches that of
-  KV (5.4)–(5.5) (the second column carries the |z|^{2a}). So the entries of H = V P₀^{−1} are O(|z|^{−1+}) in fact.
+Write V = V^u·L_V inside the lens and V = V^u outside, where V^u is R times the bounded factors, and
+L_V := I + (e^{2nφ}/m_σ)e₂₁ in WLXZ's convention. Similarly write P₀ = P^u·L_P with L_P := I + (e^{2nφ}/m_r)e₂₁, where
+P^u is the analytic continuation of P₀ from outside the lens.
 
-*Rigour level.* This is the step at which RH₁ also relied on WLXZ. It is **flagged for the reviewer.** Cost if wrong:
-the label becomes PROVED-mod-(Y4)_r-identification, and Lemmas S, G, B, M and the numerics are unaffected.
+**Lemma O1 (H on small circles).** Let H := VP₀^{−1} (KV frame). As z → 0, uniformly in arg z,
+- (i) for a ≥ 0, H = O(ℓ(z)²);
+- (ii) for −1/2 < a < 0, H = O(|z|^{2a}).
+
+*Proof.*
+- **(i) Un-lensing, a ≥ 0.**
+  - Outside the lens, V = O(ℓ) by (Y4)_r(a): the second column O(1 + |z|^{2a}ℓ) is O(ℓ) since a ≥ 0. P₀ = O(1), with
+    P₀^{−1} = adj P₀ = O(1), by KV (5.5) "outside the lens".
+  - Inside the lens,
+
+      H = V^u (L_V L_P^{−1})(P^u)^{−1},  L_V L_P^{−1} = I + (e^{2nφ}/m_r)(κ_n^{−1} − 1)e₂₁ = I + O(|z|^{δ}).
+
+    Here |1/m_r| ≍ |z|^{−2a}, κ_n^{−1} − 1 = O(|z|^{4m+2}) by Lemma S, and δ > 0 by F2.
+  - V^u = O(ℓ) by (Y4)_r(b).
+  - P^u = O(1) with O(1) inverse. P^u = E_nΨ^u(nf)Λ, where Ψ^u is the continuation of Ψ_a across the lip rays Γ₂, Γ₄,
+    Γ₆, Γ₈ into the lens sectors I, IV, V, VIII from the neighbouring sectors II, III, VI, VII. KV (5.22) gives the
+    columns O(|ζ|^{a}) and O(|ζ|^{−a}) in II, III, VI, VII. The continuation is a combination of the same Bessel
+    functions (KV (5.23) and its sector versions; the lip jumps are constant and lower-triangular), so it keeps the
+    columns O(|ζ|^{a}), O(|ζ|^{−a}). Λ = W_h^{−σ₃}e^{−nφσ₃} contributes |z|^{∓a}, so the column exponents cancel.
+- **(ii) a < 0.** By KV (5.4), P₀ = O([[1, |z|^{2a}], [1, |z|^{2a}]]) in all directions. By (Y4)_r, together with the
+  bounded factors and lens factors (now 1/m_σ ≍ |z|^{2|a|} → 0), V has the same column structure. So
+
+    H = V·adj(P₀) = V_{·1}(P₀₂₂, −P₀₁₂) + V_{·2}(−P₀₂₁, P₀₁₁) = O(|z|^{2a}). ∎
+
+**Lemma X (a local solution of the inverse jump).** Fix a small ε₁ ∈ (0, ε) and let Γ := Σ ∩ U(0, ε₁): six analytic
+arcs (two band half-rays and four lips) meeting at 0. For n large there is X̃, analytic in U(0, ε₁) ∖ Γ, with
+
+  X̃₊ = J_H^{−1}X̃₋ on Γ  (so HX̃ has no jump on Γ),
+
+such that:
+- (i) |X̃(z) − I| ≤ C n^{−1}(1 + dist(z, Γ)^{−1/2}) and |X̃(z) − I| ≤ C_n|z|^{δ}dist(z, Γ)^{−1/2} near 0;
+- (ii) det X̃ is analytic in U(0, ε₁/2) and det X̃ = 1 + O(1/n) there;
+- (iii) X̃₋ − I ∈ L²(Γ ∩ U(0, ε₁/2)).
+
+*Proof.*
+- **Existence.** X̃ᵀ solves the right-multiplicative problem with jump J_H^{−T}. By Lemma M (|J_H − I| ≤ Cn^{−1}
+  everywhere, and ≤ C_n|s|^δ near 0, with δ ≥ 2), ‖J_H^{−T} − I‖_{L²∩L^∞(Γ)} = O(1/n). The Cauchy operator is bounded
+  on L²(Γ), since Γ is a finite union of analytic arcs meeting transversally (the same fact the global small-norm step
+  uses). So μ = I + C₋(μ(J_H^{−T} − I)) has a unique solution with μ − I ∈ L²(Γ) and ‖μ‖ = O(1). Set
+  X̃ᵀ := I + C(μ(J_H^{−T} − I)). This gives (iii).
+- **(i)** follows from Cauchy–Schwarz, |X̃ − I| ≤ ‖μ‖_{L²}(∫_Γ|J − I|²|s − z|^{−2}|ds|)^{1/2}, with the two bounds on
+  |J − I|.
+- **(ii).** det J_H = 1, so det X̃ has no jump on Γ. It is analytic in U(0, ε₁/2) ∖ {0}.
+  - Sub-mean-value bound. dist(·, Γ)^{−1} is area-integrable near Γ. So averaging over discs of radius |z|/4 (which
+    avoid 0) turns the pointwise bound |det X̃ − 1| ≤ C|X̃ − I|(1 + |X̃ − I|) into
+
+      |det X̃(z) − 1| ≤ C_n(|z|^{δ−1/2} + |z|^{2δ−1})
+
+    on |z| = r. This is bounded since δ > 1/2, so the singularity at 0 is removable.
+  - Averaging over discs of fixed radius with the n^{−1} bound of (i) gives det X̃ = 1 + O(1/n) on U(0, ε₁/4). ∎
+
+**Identification.**
+- G := HX̃ has no jump in U(0, ε₁/4) ∖ {0}, so it has an isolated singularity at 0.
+- Its Laurent coefficients satisfy |c_{−k}| ≤ (1/2π) r^{k−1}∫_{|z|=r}|G||dz|. By Lemma O1 and Lemma X(i), using
+  ∫_{|z|=r}dist(z, Γ)^{−1/2}|dz| = O(r^{1/2}) (the arcs leave 0 at fixed angles),
+
+    ∫_{|z|=r}|G||dz| ≤ sup_{|z|=r}|H|·∫_{|z|=r}|X̃||dz| ≤ C_n r^{min(0,2a)}ℓ(r)²·(r + r^{δ+1/2}).
+
+  This tends to 0 as r → 0, because 1 + 2a > 0 and δ ≥ 2.
+- So every c_{−k} = 0, G is analytic and bounded near 0, and
+
+    H = G·X̃^{−1} = G·adj(X̃)/det X̃.
+
+  det X̃ = 1 + O(1/n) is nonvanishing near 0 (Lemma X(ii)), and adj X̃₋ ∈ I + L² (Lemma X(iii)). So H₋ ∈ L² near 0.
+- Consequently the global S := V·(parametrices)^{−1} has L² boundary values near 0, and it satisfies the small-norm
+  RHP of §7. By uniqueness in the L² class (S·S_sn^{−1} has no jumps, lies locally in E¹, and → I at ∞, hence ≡ I),
+  it equals the small-norm solution.
+- Away from 0, S's special points (±2 and the disc boundaries) are handled exactly as in RH₁.
+
+*Rigour level.* At the origin this is now standard RHP rigour:
+- (Y4)_r is proved by elementary sums and one residue identity;
+- removability is by circle integrals, with a local inverse-jump solution X̃;
+- the remaining dependence on WLXZ is the same as RH₁'s (their transformations and the uniform O(e^{−cn}) up to k_n).
+
+The one step argued only by a structural continuation, rather than quoted, is "Ψ^u keeps the outside-lens column
+exponents" in O1(i). It follows from the Bessel-function formulas behind KV (5.23) ([38] (4.26)–(4.33), via KV).
 
 ## 7. Small norm and extraction
 

@@ -22,6 +22,37 @@ arXiv:math-ph/0305044 (Commun. Math. Phys. 243 (2003)).
 ψ(0) > 0, a band jump with |x|^{2α} times an analytic nonvanishing factor, lens jumps of the (5.1) form, and four lens
 contours meeting at 0.
 
+**Additional verbatim quotes** (added for RH₁(r), Rule R F11; read in kv.txt §5):
+
+> (5.4) "For α < 0, the matrix function P(z) has the following behavior as z → 0: P(z) = O([[1, |z|^{2α}], [1,
+> |z|^{2α}]]), as z → 0."
+>
+> (5.5) "For α > 0, the matrix function P(z) has the following behavior as z → 0: P(z) = O([[1, 1], [1, 1]]), as z → 0
+> from outside the lens, P(z) = O([[|z|^{−2α}, 1], [|z|^{−2α}, 1]]), as z → 0 from inside the lens."
+>
+> (5.9) "In order to transform to constant jumps we use a piecewise analytic function W corresponding to the analytic
+> continuation of |x|^{2α}. For z ∈ Uδ, we define W(z) = z^α, if π/2 < |arg f(z)| < π, (−z)^α, if 0 < |arg f(z)| <
+> π/2, with principal branches of powers. Then W is defined and analytic in Uδ \ (Σ1 ∪ Σ3 ∪ Σ5 ∪ Σ7)."
+>
+> (5.10) "P(z) = E_n(z)P^{(1)}(z)W(z)^{−σ3}e^{−nφ(z)σ3}. Here the matrix valued function E_n is analytic in a
+> neighborhood of Uδ".
+>
+> (5.21) "For α < 0 the matrix function Ψα(ζ) has the following behavior as ζ → 0: Ψα(ζ) = O([[|ζ|^α, |ζ|^α],
+> [|ζ|^α, |ζ|^α]])"; (5.22) "For α > 0 … Ψα(ζ) = O([[|ζ|^α, |ζ|^{−α}], [|ζ|^α, |ζ|^{−α}]]), as ζ → 0 with ζ ∈ II, III,
+> VI, VII, Ψα(ζ) = O([[|ζ|^{−α}, |ζ|^{−α}], [|ζ|^{−α}, |ζ|^{−α}]]), as ζ → 0 with ζ ∈ I, IV, V, VIII."
+>
+> (5.23) "Ψα(ζ) = ½√π ζ^{1/2} [[H^{(2)}_{α+½}(ζ), −iH^{(1)}_{α+½}(ζ)], [H^{(2)}_{α−½}(ζ), −iH^{(1)}_{α−½}(ζ)]]
+> e^{−(α+¼)πiσ3}, for 0 < arg ζ < π/4."
+>
+> (5.26)–(5.27) "En(z) = E(z)e^{nφ₊(0)σ3}e^{−πiσ3/4}(1/√2)[[1, i], [i, 1]], where the matrix valued function E is given
+> by E(z) = P^{(∞)}(z)W(z)^{σ3}e^{½απiσ3}, for z ∈ f^{−1}(I ∪ II)"; (5.28) "E(z) = P^{(∞)}(z)W(z)^{σ3}e^{−½απiσ3},
+> for z ∈ f^{−1}(III ∪ IV)"; (5.29) "E(z) = P^{(∞)}(z)W(z)^{σ3}[[0, 1], [−1, 0]]e^{−½πiασ3}, for z ∈ f^{−1}(V ∪ VI)";
+> (5.30) "E(z) = P^{(∞)}(z)W(z)^{σ3}[[0, 1], [−1, 0]]e^{½πiασ3}, for z ∈ f^{−1}(VII ∪ VIII)."
+>
+> (p. 19) "Following the proof of [38, Proposition 4.5], we obtain that E is analytic in a full neighborhood of Uδ.
+> Here we need the fact that D(z)/W(z) and W(z)/D(z) remain bounded as z → 0, which follows from (5.9) and Lemma 4.2.
+> Then we see from (5.26) that En is also analytic in a neighborhood of Uδ."
+
 ## (WLXZ-v1) Wu–Lin–Xu–Zhao, arXiv:1410.3948v1 — READ (§§1–7), for Theorem RH₁
 
 The arXiv v1 PDF was read via pdftotext. The Anal. Appl. 14 (2016) version was not read. Hypothesis throughout:
@@ -54,8 +85,11 @@ The arXiv v1 PDF was read via pdftotext. The Anal. Appl. 14 (2016) version was n
 ## (DLMF) NIST DLMF §5.11 — READ (web page)
 
 > (5.11.1) "As z → ∞ in the sector |ph z| ≤ π − δ, Ln Γ(z) ∼ (z − ½) ln z − z + ½ ln(2π) + Σ_{k=1}^∞ B_{2k}/(2k(2k−1)
-> z^{2k−1})." §5.11(ii): for complex z the remainder after truncation is bounded by "sec^{2n}(½ ph z)" times the first
-> neglected term.
+> z^{2k−1})." §5.11(ii), verbatim (re-read 2026-10-13 for RH₁(r), Rule R F9): the sums are "terminated at k=n−1 (k≥0)", and
+> "If z is complex, then the remainder terms are bounded in magnitude by sec^{2n}(½ ph z) for (5.11.1), and
+> sec^{2n+1}(½ ph z) for (5.11.2), times the first neglected terms." (The page states no further phase restriction
+> beyond the sector |ph z| ≤ π − δ of 5.11.1. sec(½ph z) is finite for |ph z| < π. RH₁(r) Lemma S uses
+> |ph t| ≤ 2π/3, n = m + 1, with sec(π/3) = 2.)
 
 ## (Van) M. Vanlessen, arXiv:math/0212014 — READ (§1, §4.1–4.3), for RH₁(r)
 "Strong asymptotics of the recurrence coefficients of orthogonal polynomials associated to the generalized Jacobi weight"
@@ -76,6 +110,9 @@ The arXiv v1 PDF was read via pdftotext. The Anal. Appl. 14 (2016) version was n
 >
 > (4.43) "Ψ_{λν}(ζ) = (1/√2)[[1, −i], [−i, 1]](I + O(1/ζ))e^{πiσ3/4}e^{−iζσ3}e^{−λν πiσ3/2}, uniformly for ζ in the
 > first quadrant", and similarly in (4.44)–(4.46) for the other quadrants.
+>
+> (§4.1, Rule R F9) "Since h is analytic in U with positive real part": this is used only to fix the branch of h^{1/2}.
+> RH₁(r) uses an analytic nonvanishing branch of h₀^{1/2} on the disc instead.
 >
 > (4.53) "det P_{xν} ≡ 1" ("Using the behavior of Ψλν near 0 … the isolated singularity of det Ψλν at 0 has to be
 > removable … By Liouville's theorem we then have that det Ψλν ≡ 1").
