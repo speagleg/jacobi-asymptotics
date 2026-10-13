@@ -139,3 +139,7 @@ import JacobiAsym
 #print axioms JacobiAsym.dip_opoly_of_coeff
 #print axioms JacobiAsym.eq_zero_of_orth
 #print axioms JacobiAsym.dip_opoly_self
+#print axioms JacobiAsym.hankel_det_eq_prod
+#print axioms JacobiAsym.hankel_one_det
+#print axioms JacobiAsym.hratio_eq
+#print axioms JacobiAsym.prod_pow_step
