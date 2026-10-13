@@ -69,3 +69,4 @@ import JacobiAsym
 #print axioms JacobiAsym.rhoSeq_mono
 #print axioms JacobiAsym.HL_lower
 #print axioms JacobiAsym.cesaro_weighted_zero
+#print axioms JacobiAsym.theoremHL
