@@ -158,3 +158,5 @@ import JacobiAsym
 #print axioms JacobiAsym.smoothZeta_bLaw
 #print axioms JacobiAsym.log_hankel_eq
 #print axioms JacobiAsym.log_zetaL_eq
+#print axioms JacobiAsym.toeplitz_eigen
+#print axioms JacobiAsym.toepVec_ne_zero
