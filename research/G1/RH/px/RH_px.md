@@ -1,6 +1,6 @@
 # RH_px: pointwise Law P for σ_{p,s} = Σ k^{−s} δ_{k^{−p}}, p > 1, in the x-variable (Plan 12)
 
-Status: **IN PROGRESS** (Phases 0–3 done, Gates 1–3 GO; Phase 4 next). Not reviewed. No PROVED labels.
+Status: **DRAFT, pending Rule R** (Phases 0–5 written, Gates 1–4 GO). Not reviewed. No PROVED labels yet. Not reviewed. No PROVED labels.
 
 ## 0. Model, target, baseline
 
@@ -158,14 +158,154 @@ Here h_N is analytic on a neighbourhood of (0, 4c], positive up to a constant ph
 - the Σ^△ lips are O(e^{−cN}) by Lemma 2.1(iii) and Lemma 2.2;
 - there is no jump on (−∞, 0).
 
-## 4. Next (Phase 4)
+## 4. Local parametrices (Phase 4; Gate 4 GO)
 
-- **Hard-edge Bessel parametrix at 0** (KMVV §6, (6.16)–(6.33), read). ζ = N²f(x), with the band mapped to arg ζ = π.
-  Take W := (C_N x^{α_x}(4c − x)h_N)^{1/2}, analytic across (−δ, 0) up to the super-small jump of Lemma 3.2(v).
-  - Mismatches: D/D̃ on the lips; the upper-right e^{−2Nφ̃} terms; the (−δ, 0) jump. All are super-exponentially
-    small near 0 (Re φ̃ ~ π sin(arg z/p)|z|^{−1/p} → ∞), so they beat polynomial Bessel amplification. No truncation is
-    needed.
-  - Identification: the RH₁(r) §6 route, i.e. (Y4)-type bounds, un-lensing, X̃ and circle integrals.
-- **Airy at 4c:** WLXZ §6.1 in x.
-- **Top end:** WLXZ reliance.
-- Small norm, extraction, Rule R.
+### 4.1 Hard edge x = 0: Bessel parametrix (KMVV §6, read; CITATIONS (KMVV))
+
+**Conformal map.** Put f(z) := (φ(z) ± iπ)²/4 in ℂ±.
+
+**Lemma 4.1.** f is analytic in a disc U(0, δ), with f(0) = 0 and f′(0) < 0. f is negative on (0, δ) and positive on
+(−δ, 0). So ζ := N²f(z) maps the band to arg ζ = π and the outside segment to ζ > 0, which is KMVV's orientation after
+reflection.
+
+*Proof.*
+- φ = l/2 − g, with g(0±) = U*(0) ± iπ, so φ(0±) = ∓iπ.
+- Across the band, φ₊ = −φ₋ (Lemma 2.1(i)), so (φ₊ + iπ)² = (φ₋ − iπ)².
+- Across (−δ, 0), g₊ − g₋ = 2πi (total mass 1), so φ₊ + iπ = φ₋ − iπ.
+- Hence f has no jumps, and it is bounded, so 0 is removable. φ ± iπ ~ c√z because ψ ~ Cx^{−1/2} (hard edge). So
+  f ~ −κz with κ > 0.
+- On the band φ₊ ∈ iℝ, so f < 0. On (−δ, 0), Im φ₊ = −π, so f = (Re φ)²/4 > 0. ∎
+
+Check ([1] of `checks/check_px_phase4.out`, p = 2): |f₊ − f₋| ≤ 2e−26 on both segments, and f(z)/z = −0.10132… at
+complex z near 0. The constant is 1/π² to 4 digits.
+
+**W and the model jumps.** In U(0, δ), V's jumps are:
+- band [[0, w₀], [−1/w₀, 0]], with w₀ = C_N x^{α_x}(4c − x)h_N (§3);
+- lips [[D/D̃, *], [−(DD̃ … )e^{2Nφ}, D̃/D]], the WLXZ (5.4) pattern;
+- no jump on (−δ, 0) (Lemma 3.3(i)).
+
+Define
+
+  W(z) := (C_N z^{α_x}(4c − z)h_N(z))^{1/2},  h_N := (const)/(D̃S)²,
+
+with z^{α_x} cut along the band [0, δ). By Lemma 3.2(v), W is analytic across (−δ, 0) up to a factor
+1 + O(e^{−2πN sin(π/p)|x|^{−1/p}}).
+
+The **model problem** at 0 is KMVV's RHP for P (their (6.1)–(6.6)):
+- off-diagonal band jump with weight W₊W₋ = w₀;
+- lower-triangular lip jumps with e^{2Nφ}/W²;
+- no jump outside the band.
+
+The true jumps differ from it by:
+- (h1) diag(D/D̃) − I and the upper-right e^{−2Nφ̃}-entries on the lips;
+- (h2) the super-small jump of W on (−δ, 0).
+
+**Construction** (KMVV (6.27), (6.31), with Ψ from (6.23)–(6.25), Bessel order α_x > −1):
+
+  P₀ := E_N Ψ(N²f(z)) W(z)^{−σ₃} e^{−Nφ(z)σ₃}·(the constant sign conventions of Lemma 4.1).
+
+Here E_N := N(z)W(z)^{σ₃}(1/√2)[[1, −i], [−i, 1]] f(z)^{σ₃/4}(2πN)^{σ₃/2}. Also e^{2Nf^{1/2}} = ±e^{Nφ} (from
+f^{1/2} = (φ ± iπ)/2), and e^{Nφ} is single-valued because N ∈ ℤ.
+
+**Lemma 4.2 (Bessel parametrix).**
+- (i) P₀ has exactly the model jumps.
+- (ii) det P₀ ≡ 1.
+- (iii) E_N is analytic in U(0, δ) up to the factor of (h2), and bounded with bounded inverse uniformly in N.
+  KMVV's removability needs W/D_w and D_w/W bounded at 0 (their Lemma 6.4 pattern). Here both are x^{α_x/2} times
+  bounded continuous factors, because h_N is continuous and nonzero at 0 (Lemma 3.2(ii)).
+- (iv) P₀N^{−1} = I + O(1/N) on ∂U(0, δ), by KMVV (6.28)–(6.32).
+
+**Lemma 4.3 (hard-edge mismatch).** With H := VP₀^{−1}, on Σ ∩ U(0, δ) and for every K,
+
+  |J_H − I| ≤ C_K N^{−K}·min(1, |z|^K).
+
+*Proof.*
+- The (h1) and (h2) entries carry e^{−2|Im θ|}, e^{−2N Re φ̃} or e^{−2πN sin(π/p)|x|^{−1/p}}. On the lips (leaving 0
+  at the angles ±π/3, by Lemma 4.1) and on (−δ, 0), each is ≤ exp(−c N|z|^{−1/p}).
+  - Re φ̃ ~ π sin(arg z/p)|z|^{−1/p}, from iθ/N = iπz^{−1/p}.
+- The amplification by P₀ is at most poly(N, |z|^{−1}) (KMVV (6.4)–(6.6) for ζ ≤ 1, (6.28) for ζ ≥ 1), together with
+  e^{2N|Re φ|} ≤ e^{CN|z|^{1/2}}.
+- exp(−cN|z|^{−1/p}) beats both: it is ≤ C_K(N|z|^{−1/p})^{−2K} and dominates e^{CN|z|^{1/2}} for small δ.
+
+Check ([3]): log₁₀ of mismatch × amplification (α = 3) ≤ −84 at |z| = 0.1, N = 20, decreasing with N and as z → 0. ∎
+
+**No Stirling truncation.** Unlike RH₁(r) (Lemma S, Q_m), all mismatches here are super-exponentially small. The
+Binet non-analyticity sits in h_N, which is continuous at 0. Its cut is cancelled exactly by S, and the Bessel model
+needs h only through W (KMVV).
+
+### 4.2 Soft edge 4c: Airy parametrix (WLXZ §6.1 in x)
+
+- Near 4c, our V-jumps have exactly WLXZ's (6.4) form with (w̃, D̃, φ̃) ↦ ours:
+  - band (4c − ε, 4c) with weight w₀/D̃²;
+  - lower-triangular on (4c, 4c + ε) with D̃²e^{2Nφ̃}/w̃;
+  - upper-triangular on the vertical segments.
+- E = (4c − z)^{−1/2} reproduces WLXZ's (z² − 4)^{(1/2−α)σ₃} behaviour at α = 1.
+- φ̃ = −κ̃(z − 4c)^{3/2}(1 + O(z − 4c)) with κ̃ > 0. Check ([2]): φ̃/(z − 4c)^{3/2} → −0.1720, and Re φ̃ < 0 to the
+  right. This holds because ρ − ψ ~ √(4c − x) on the band side (1 − I_y(1/p + ½, ½) ~ C√(1 − y)).
+- The construction (6.5)–(6.21) needs only that w̃ and D̃ are analytic and nonvanishing in U(4c, ε). That holds:
+  t ≈ N(4c)^{−1/p} is large there, and D̃ = exp(−μ(t)). It gives V_r with exact jumps and V_rN^{−1} = I + O(1/N).
+
+### 4.3 Top end (x ≈ N^p)
+
+- Beyond the top node, F removes T's jump exactly (Lemma 3.3(ii)).
+- On the Σ^△ lips and the closing vertical segment at Re z = N^p + δ′, every non-identity entry is polynomial in N
+  times e^{2N Re φ̃} (or e^{−2N Re φ̂}-type).
+- Re φ̃(x) = log c + p − U*(x) ≤ −(1/2)log x for x ≥ x₀, since U*(x) = log x + o(1). So the entries are
+  ≤ poly(N)·N^{−pN}.
+- Unlike RH₁, this is not a reliance on WLXZ: the bound is explicit. (The precise entry list of the segment jumps,
+  the WLXZ (3.22) analogue, is in §1.)
+
+**Gate 4: GO.**
+
+## 5. Identification, small norm, extraction (Phase 5)
+
+**(Y4)_x (behaviour at the hard edge).** For z → 0 with δ₀ ≤ |arg z| ≤ π,
+
+  Y₁₂, Y₂₂ = O(1 + |z|^{α_x}ℓ(z)).
+
+*Proof.* Σ_k k^{−s}/max(|z|, k^{−p}) = Σ_{k^{−p}≥|z|} k^{p−s} + |z|^{−1}Σ_{k^{−p}<|z|} k^{−s}, which is
+O(1 + |z|^{(s−1)/p−1}), and (s−1)/p − 1 = α_x. In the lens sectors use the K_± representation of RH₁(r) §6(b),
+with |wθ′| ≍ |z|^{α_x}. ∎
+
+**Identification.** The argument of RH_p1_general.md §6 transfers:
+- Lemma O1 (un-lensing for α_x ≥ 0; O(|z|^{α_x}) for α_x ∈ (−1, 0)), using KMVV (6.4)–(6.6) for P₀;
+- Lemma X, solving the inverse jump X̃₊ = J_H^{−1}X̃₋. Its δ is now arbitrary, by Lemma 4.3;
+- circle-integral removability: ∫_{|z|=r}|HX̃| ≤ C r^{min(0,α_x)}(r + r^{K+1/2}) → 0, because α_x > −1. Note that
+  α_x ∈ (−1, −½] needs Lemma X, since H is then not L²;
+- L² uniqueness.
+
+**Small norm.**
+- J_S − I = O(1/N) on ∂U(0, δ) and ∂U(4c, ε) (Lemma 4.2(iv) and §4.2);
+- J_S − I = O(e^{−cN}) on the lips and the saturated pieces outside the discs (Lemma 2.2 and Lemma 2.1(iii));
+- J_S − I = O(N^{−K}) inside U(0, δ) (Lemma 4.3);
+- J_S − I = O(N^{−pN}poly) at the top (§4.3).
+
+The contour pieces near the top have length ≍ N^p, which is absorbed by the N^{−pN} factor. So S = I + O(1/N).
+
+**Extraction** (directly in x, no fold). With U = N^{pNσ₃}Y(·/N^p):
+- (U₁)₁₂(U₁)₂₁ = N^{2p}b_N²;
+- a_N is obtained from Y₁ and Y₂ by the standard formula a_N = (Y₂)₁₂/(Y₁)₁₂ − (Y₁)₂₂, rescaled by N^p.
+
+For the global parametrix of a Jacobi-type weight on [0, 4c]:
+- (N₁)₁₂(N₁)₂₁ = (4c/4)² = c²; the Szegő conjugation does not change it (as in RH₁(r) §3);
+- the a-functional of N equals the band centre 2c.
+
+Hence N^p b_N = c(p)(1 + O(1/N)) and N^p a_N = 2c(p)(1 + O(1/N)), so a_N/(2b_N) = 1 + O(1/N).
+
+## 6. Statement
+
+**Theorem RH_p (claimed, pending Rule R).** For p > 1 and s > 1, σ_{p,s} = Σ k^{−s}δ_{k^{−p}} satisfies
+
+  n^p b_n = c(p)(1 + O(1/n))  and  a_n/(2b_n) = 1 + O(1/n).
+
+Together with RH₁(r) (p = 1, every r > 1), this gives the pointwise Law P with a rate for all pure powers with power
+weights, p ≥ 1. That includes the Haynes–Zudilin measures and Lommel (p = 2).
+
+**Open:** 0 < p < 1, where Γ's poles enter the slit plane on arg z = ±pπ (Lemma 1.1).
+
+**Reliance and gaps to be checked by Rule R:**
+- (a) KMVV §6 used with an h that is analytic only up to a super-small jump and continuous at 0. KMVV assume h
+  analytic in a disc.
+- (b) WLXZ §6.1 reused at 4c.
+- (c) The top-end segment jumps, written out only by analogy with WLXZ (3.22).
+- (d) The a_N extraction formula and its global value 2c.

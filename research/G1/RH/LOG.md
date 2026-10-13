@@ -177,3 +177,12 @@
   - Near the hard edge, D̃S jumps only super-exponentially, so the Binet non-analyticity is absorbed with **no Stirling
     truncation**.
   - Checks: check_px_phase3a.out and check_px_phase3b.out.
+- **Phase 4, Gate 4 GO** (`checks/check_px_phase4.out`).
+  - **Hard edge.** f := (φ ± iπ)²/4 is analytic at 0, with f′(0) = −0.10132 ≈ −1/π² at p = 2. The KMVV Bessel
+    parametrix uses W := (C x^{α_x}(4c − x)h_N)^{1/2}.
+  - **Mismatch.** Every mismatch is super-exponentially small (exp(−cN|z|^{−1/p})). It beats the Bessel amplification
+    (log₁₀ ≤ −84 at α = 3, N = 20), so **no truncation is needed**.
+  - **Soft edge.** φ̃/(z − 4c)^{3/2} → −0.172. WLXZ §6.1 transfers, with E = (4c − z)^{−1/2} playing WLXZ's α = 1 role.
+  - **Top end.** Explicit bound: Re φ̃ ≤ −½log x, so the jumps there are N^{−pN}·poly.
+- **Phase 5.** Identification via the RH₁(r) §6 route; small norm; extraction in x.
+  - Theorem RH_p is claimed: for p > 1, s > 1, n^p b_n = c(1 + O(1/n)) and a_n/(2b_n) = 1 + O(1/n). Pending Rule R.

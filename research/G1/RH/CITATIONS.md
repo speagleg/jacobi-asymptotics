@@ -135,3 +135,40 @@ The arXiv v1 PDF was read via pdftotext. The Anal. Appl. 14 (2016) version was n
   - an interior FH point with exponent λ = a > −1/2;
   - the analytic, nonvanishing factor h₀, absorbed into W;
   - the Ψ asymptotics.
+
+## (KMVV) Kuijlaars–McLaughlin–Van Assche–Vanlessen, arXiv:math/0111252v2 — READ (§1, §6), for Plan 12 (RH_px)
+"The Riemann–Hilbert approach to strong asymptotics for orthogonal polynomials on [−1, 1]" (Adv. Math. 188 (2004)).
+
+> (1.1) "w(x) = (1 − x)^α(1 + x)^β h(x), x ∈ [−1, 1], where α, β > −1 and h(x) is real analytic and strictly positive
+> on [−1, 1]."
+>
+> (§6, RHP for P) "(b) P(z) satisfies the following jump relations on Uδ ∩ Σ°: P₊(z) = P₋(z)[[1, 0], [w(z)^{−1}ϕ(z)^{−2n},
+> 1]], for z ∈ Uδ ∩ (Σ°₁ ∪ Σ°₃), (6.1); P₊(x) = P₋(x)[[0, w(x)], [−w(x)^{−1}, 0]], for x ∈ Uδ ∩ Σ°₂. (6.2) (c) On ∂Uδ
+> we have, as n → ∞, P(z)N^{−1}(z) = I + O(1/n) … (6.3) (d) For α < 0 … P(z) = O([[1, |z − 1|^α], [1, |z − 1|^α]]) …
+> (6.4); For α = 0 … O(log |z − 1|) … (6.5); For α > 0 … O([[1, 1], [1, 1]]) as z → 1 outside the lens,
+> O([[|z − 1|^{−α}, 1], [|z − 1|^{−α}, 1]]) as z → 1 inside the lens. (6.6)"
+>
+> "RHP for Ψ … contour ΣΨ consisting of three infinite rays, γ1: arg ζ = 2π/3, γ2: arg ζ = π, γ3: arg ζ = −2π/3 …
+> Ψ₊ = Ψ₋[[1, 0], [e^{απi}, 1]] on γ1 (6.16), Ψ₊ = Ψ₋[[0, 1], [−1, 0]] on γ2 (6.17), Ψ₊ = Ψ₋[[1, 0], [e^{−απi}, 1]] on γ3
+> (6.18)"; the behaviour (6.19)–(6.21) at 0; "Theorem 6.3 The matrix valued function Ψ(ζ), defined in (6.23)–(6.25),
+> is a solution of the RHP for Ψ."
+>
+> (6.27) "P(z) = E_n(z)Ψ(n²f(z))W(z)^{−σ3}ϕ(z)^{−nσ3}, with E_n an analytic matrix valued function in U_{δ0}";
+> (6.28) "Ψ(ζ) = (2πζ^{1/2})^{−σ3/2}(1/√2)[[1 + O(ζ^{−1/2}), i + O(ζ^{−1/2})], [i + O(ζ^{−1/2}),
+> 1 + O(ζ^{−1/2})]]e^{2ζ^{1/2}σ3}" uniformly as ζ → ∞; (6.31) "E_n(z) = N(z)W(z)^{σ3}(1/√2)[[1, −i], [−i, 1]]
+> f(z)^{σ3/4}(2πn)^{σ3/2}"; (6.33) "det E_n(z) = 1".
+>
+> (removability, p. 29) "N(z)W(z)^{σ3} = D∞ [a-matrix] (W(z)/D(z))^{σ3} = O(|z − 1|^{−1/4}) … Since f has a simple zero
+> at 1 we also have f(z)^{σ3/4} = O(diag(|z − 1|^{1/4}, |z − 1|^{−1/4}))". This uses only that W/D is bounded; the
+> sharper Lemma 6.4, "W(z)/D(z) = 1 + O(|z − 1|^{1/2})", relies on the analyticity of h.
+
+**Used in:** RH_px §4.1, Lemmas 4.2 and 4.3, and §5. Our hard edge is at x = 0, with the band to the right. The
+reflection z ↦ −z is absorbed in f (f′(0) < 0).
+
+**Hypothesis gap, flagged.** KMVV assume h is real analytic on the closed interval. Our h_N is analytic on (0, δ),
+continuous and nonzero at 0, and analytic across (−δ, 0) only up to a super-small jump. The construction uses only:
+- W analytic off the band, up to that jump;
+- W₊W₋ = w₀;
+- W/D_w bounded above and below at 0.
+
+Everything else enters as mismatch (Lemma 4.3).
