@@ -1,6 +1,7 @@
 # Theorem RH₁: pointwise Law P for σ = Σ k^{−3/2} δ_{1/k}, by perturbing WLXZ (Tricomi–Carlitz, α = 1)
 
-Status: written 2026-10-13. NOT REVIEWED. This is option 1 of the post-review plan (RH review, REVIEW_RH.md): finish
+Status: written 2026-10-13. Rule R (`review/REVIEW_RH1.md`): ACCEPT WITH FIXES; fixes F1–F7 and the Rule C quotes
+applied (D_H dropped, so F1/F3 are moot). This is option 1 of the post-review plan (RH review, REVIEW_RH.md): finish
 p = 1 first, starting with the regular weight r = 3/2.
 
 ## 0. Statement
@@ -20,8 +21,10 @@ where a^{TC}, b^{TC} are the explicit Tricomi–Carlitz (α = 1) coefficients:
 
 This is the **pointwise Law P** for σ, with a rate.
 
-Numerically (`checks/check_p1_tc.out`) the true deviation is O(n⁻²): b_n/b_n^{TC} − 1 = −1.65e−5, −4.2e−6, −1.06e−6,
-−2.7e−7, −7.4e−8 and −2.5e−8 at n = 50 … 1500, with a_n the same to two digits and K-doubling stable to 6e−12.
+Numerically (`checks/check_p1_tc.out`, fix F7) the true deviation is O(n⁻²). Both measures go through the same
+pipeline, which is validated against TC's exact coefficients (bias 3e−10 at tail cut-off 1e16). The comparison gives
+n²(b_n^σ/b_n^{TC} − 1) = −0.0413, −0.0416, −0.0416, −0.0417 at n = 50, 200, 800, 1500, and the same for a_n. This is
+consistent with a limit −1/24 (conjecture, not proved).
 
 ## 1. Identification with Tricomi–Carlitz (PROVED)
 
@@ -43,55 +46,73 @@ Numerically (`checks/check_p1_tc.out`) the true deviation is O(n⁻²): b_n/b_n^
 
 ## 2. Weight-perturbation lemma
 
-**Lemma W1.** Let w be WLXZ's rescaled weight for TC(α), and let H_n(z) := H(n/z²). Then WLXZ's steepest-descent
-analysis (their §§3–6) goes through for the weight w·H_n, with the same error term O(1/n) in (6.34)–(6.36).
+Source: WLXZ arXiv:1410.3948**v1**, quoted in CITATIONS.md (Rule C). The Anal. Appl. version was not read.
 
-*Proof.* We follow WLXZ's transformations and record where the weight enters.
-1. **IP and R** (WLXZ (2.14)–(3.22)). The weight appears only through w in the factors U_±, U^△_± and in the jumps
-   2iγw and 2iγ/w. Replacing w by wH_n is purely algebraic. The pole cancellation (3.13)–(3.18) uses only the residue
-   identity Res = w(node). That still holds, because H_n is analytic and nonzero at the nodes (n/X_k² = k + α ≥ 1).
-   H_n is analytic on ℂ ∖ iℝ, which is the same domain as WLXZ's w_d.
-2. **T, Q** ((4.1)–(4.13)). These are unchanged, with w → wH_n. The g-function and φ do not involve the weight.
-3. **V (the D-functions, (4.14)–(5.4)).** WLXZ's D, D̃, D̂, E depend only on the nodes (via n/z² and α) and are
-   unchanged. Add one more conjugation, V^H := V·D_H^{σ₃}, where D_H is the Szegő function of H_n on [−2, 2]:
-   D_{H,+}D_{H,−} = H_n on (−2, 2), D_H analytic and nonvanishing on ℂ ∖ [−2, 2], D_H → D_{H,∞} at ∞. On a fixed
-   neighbourhood 𝒰 of [−2, 2] (avoiding iℝ ∖ {0}), log H_n(z) = O(|z|²/n) uniformly, by Stirling, since |n/z²| ≥ n/R²
-   and |arg(n/z²)| ≤ π − ε on 𝒰. Hence D_H = 1 + O(1/n) uniformly on compact subsets of ℂ ∖ [−2, 2], and
-   D_{H,±} = H_n^{±1/2}(1 + O(1/n)) on the band.
-4. **Jumps of V^H.**
-   - (a) Band (−2, 2): WLXZ's jump [[0, w₀/D̃²], [−D̃²/w₀, 0]] becomes [[0, w₀H_n/D̃²], …]. After conjugation by
-     D_H^{σ₃} it is exactly WLXZ's jump again, because D_{H,+}D_{H,−} = H_n.
-   - (b) Every other jump (lens lips, saturated part, vertical segments, disc interiors) is WLXZ's jump with its
-     off-diagonal entries multiplied by H_n^{±1}D_H^{∓2} (or D_{H,±}^{∓2} on the real axis).
-     - On |z| ≤ R these factors are 1 + O(1/n).
-     - On the long saturated pieces R ≤ |x| ≤ k_n, the factors are bounded and bounded below. There t = n/x² ≥ 1,
-       so H_n and 1/H_n are bounded, and D_H is bounded since it is close to 1 off [−2, 2].
-     - The entries they multiply are O(e^{−cn}) there (WLXZ (6.34), "otherwise").
-   - So the modified jumps are I + O(1/n) where WLXZ's were, and I + O(e^{−cn}) where WLXZ's were.
-5. **Global parametrix.** N^H := D_{H,∞}^{σ₃} N D_H^{−σ₃}, with N WLXZ's global parametrix. It solves the
-   modified band jump exactly.
-6. **Local parametrices** (WLXZ §6.1, 6.2). Use V_l^H := D_{H,∞}^{σ₃}V_l D_H^{−σ₃} (and the same for V_r and V₀).
-   - They satisfy the modified jumps up to factors I + O(1/n), because H_n and D_H are 1 + O(1/n) on the discs around
-     ±2 and 0, all inside |z| ≤ R.
-   - They match N^H on the disc boundaries to I + O(1/n), since WLXZ's matching is conjugated by bounded diagonal
-     factors that tend to constants.
-   - Inside the discs the residual jump is I + O(1/n). Absorb it as in WLXZ Remark 6.1 (single-layer small norm).
-7. **Small norm.** S^H := V^H·(Ṽ^H)⁻¹ has J_{S^H} = I + O(1/n) in L² ∩ L^∞(Σ_S), as in WLXZ (6.34)–(6.35). So
-   S^H = I + O(1/n), as in (6.36). ∎
+**Facts at α = 1.**
+- (i) WLXZ's D̃ (their (4.15)) equals 1/H_n identically. This was verified with mpmath to 30 digits for n = 10, 100,
+  1000 at real and complex z.
+- (ii) σ's rescaled weight is w·H_n = n^{1/2}(e/√(2π))t^{−3/2} with t = n/z², a pure power.
+- (iii) The residual band weight is w₀/D̃² = −e^L(4 − z²)·H_n for TC. For σ it is −e^L(4 − z²)·H_n².
 
-## 3. Extraction (PROVED from W1)
+So WLXZ's own band jump for TC already differs from their model (global-parametrix) jump by the factor H_n. Their
+(6.34) absorbs exactly this as "I + O(1/n) on (−2+ε, −ε) ∪ (ε, 2−ε)".
 
-- In the outer region, U = e^{nlσ₃/2}·(const)·S^H·N^H·(D-factors)^{−σ₃}·e^{n(g−l/2)σ₃}.
-- At ∞ the D-factors and D_H tend to constants, and constant diagonal conjugations leave (U₁)₁₂(U₁)₂₁ unchanged.
-- D_H(z)^{−σ₃} = D_{H,∞}^{−σ₃}(I + O(1/z)) is diagonal, so it changes only the 1/z² terms of the off-diagonal entries.
-- Hence (U₁)₁₂(U₁)₂₁ = (𝒩₁)₁₂(𝒩₁)₂₁ + O(1/n), where 𝒩 is the global parametrix of the problem without D_H.
+**Stirling with a sectorial bound** (DLMF 5.11.1 and §5.11(ii), read).
+ln Γ(z) = (z − ½)ln z − z + ½ln(2π) + Σ_{k<m} B_{2k}/(2k(2k−1)z^{2k−1}) + R_m. For complex z, |R_m| is at most
+sec^{2m}(½ ph z) times the first neglected term. Hence H(t) = 1 + O(1/|t|) uniformly in |ph t| ≤ π − ε. In the
+z-variable this means uniformly in the sectors |arg(±z)| ≤ π/2 − ε/2. WLXZ's band, lens lips, discs and saturated
+contours lie in these sectors, near the real axis.
 
-The same expression with S^{TC} (also I + O(1/n), by WLXZ) gives TC's coefficient. So
+**Lemma W1.** Run WLXZ's steepest-descent analysis (§§3–6, α = 1) **verbatim** with weight w·H_n in place of w:
+- the same transformations R, T, Q, V;
+- the same g, φ, D, D̃, D̂ and E (they depend only on n/z² and α);
+- the same global parametrix N;
+- local parametrices built from σ's own weight.
 
-  γ_n²(σ_sym) = γ_n²(TC_sym)·(1 + O(1/n)).
+Then the final S-jumps satisfy J_S = I + O(1/n) on the disc boundaries and band pieces, and I + O(e^{−cn}) elsewhere,
+exactly as in (6.34). Hence S = I + O(1/n) (6.37), with S₁ = O(1/n).
 
-The fold relations (RH.md §1) carry this to a_m, b_m with relative error O(1/m). They are algebraic, and every factor
-is 1 + O(1/m): b_m² = γ_{2m−1}²γ_{2m}², a_m = γ_{2m−2}² + γ_{2m−1}², and both terms are positive and comparable. ∎
+*Proof.*
+1. **R, T, Q.** These are algebraic in w. H_n is analytic and nonvanishing on all Ω-regions (off iℝ, with
+   |arg(±z)| < π/2) and at the nodes (t = k + 1 ≥ 1). So pole removal (3.13)–(3.18) holds. g and φ do not involve
+   the weight.
+2. **V.** Built with WLXZ's D-functions, which are unchanged. The residual weights acquire factors H_n^{±1} relative to
+   TC. On the long saturated pieces, Σ^△ and the vertical segments up to ±k_n, t = n/x² ≥ ½. There H_n and 1/H_n are
+   bounded (|H| ∈ [1.00, 1.17] on Re t ≥ ½, checked by the reviewer). So entries that are O(e^{−cn}) for TC stay
+   O(e^{−cn}) for σ, with the sign conditions (5.8) unchanged.
+3. **Band, outside the discs.** The S-jump is N₋·M·N₋^{−1}, where M differs from the identity by the factor
+   H_n² = 1 + O(z²/n) in the off-diagonal model jump. So it is I + O(1/n) uniformly on (ε, 2−ε) and (−2+ε, −ε).
+   This is the same mechanism as WLXZ's own H_n mismatch for TC.
+4. **Airy discs U(±2, ε)** (fix F2). Build V_r and V_l from σ's own weight: WLXZ (6.5)–(6.21) with w → wH_n. That
+   construction needs w̃ and ŵ analytic and nonvanishing in U(±2, ε), which holds because t ≈ n/4 there. Then the
+   local jumps are matched exactly. The matching (6.14) holds with I + O(1/n), because D̃²/w̃ equals TC's quantity times
+   H_n^{±1}, and H_n^{±1} = 1 + O(1/n) on ∂U(±2, ε), and E_r stays analytic. No residual jump is left inside the discs.
+5. **Origin U(0, ε).** Define V₀ as WLXZ (6.26) and Remark 6.1. Their (6.27) holds for σ:
+   - the band-jump ratio is H_n² = 1 + O(z²/n);
+   - the lip entries are bounded, since Re φ < 0;
+   - the upper-right Σ_r entries are super-exponentially small in the sectors.
+
+   Remark 6.1's single-layer argument then gives V₀ = V_loc⁰(I + O(1/n)).
+6. **Small norm** (fix F6). ‖J_S − I‖_{L²∩L^∞(Σ_S)} = O(1/n) as in (6.35), and ‖J_S − I‖_{L¹(Σ_S)} = O(1/n),
+   because the bounded pieces are O(1/n) and the long pieces of length ≍ √n are O(e^{−cn}). So S = I + O(1/n) (6.37),
+   and S₁ = −(1/2πi)∫S₋(J_S − I) = O(1/n). ∎
+
+**Behaviour at 0 ((Y4) for σ).** The masses of σ are comparable to TC's (ratio → √(2π)·e·const). So the discrete
+Cauchy transforms satisfy Y₁₂, Y₂₂ = O(log|z|) at 0, exactly as WLXZ (2.17). Their Theorem 2.3 (Fokas–Its–Kitaev
+uniqueness) applies.
+
+## 3. Extraction (PROVED from W1; fix F5)
+
+- **Notation.** β_n := ‖π_n‖²/‖π_{n−1}‖², the squared recurrence coefficient. (WLXZ's γ_n is a *leading coefficient*,
+  their (1.9). We avoid the symbol γ.) WLXZ (2.18) gives Y₂₁ = π_{n−1}/‖π_{n−1}‖², so
+  (Y₁)₁₂(Y₁)₂₁ = β_n. The rescaling (3.1) gives (U₁)₁₂(U₁)₂₁ = n·β_n.
+- **Global value.** From WLXZ (5.11) at α = 1: N₁₂ ∼ −ie^L/z and N₂₁ ∼ ie^{−L}/z, so (N₁)₁₂(N₁)₂₁ = 1. Consistently,
+  nβ_n^{TC} = n/(n+1) → 1.
+- **Invariance.** The diagonal conjugations (e^{nlσ₃/2}, n^{(α−½)σ₃}, (DE)^{σ₃}, e^{ngσ₃}) have determinant 1 or tend
+  to constants, so they do not change the product. Hence nβ_n = (N₁)₁₂(N₁)₂₁ + O(1/n) = 1 + O(1/n) for σ, using S₁ from
+  W1. The same holds for TC. So β_n(σ) = β_n(TC)(1 + O(1/n)).
+- **Fold.** a_m = β_{2m−2} + β_{2m−1} (positive terms) and b_m² = β_{2m−1}β_{2m}. Relative O(1/m) errors are
+  preserved. ∎
 
 ## 4. What is cited, what is new
 
@@ -103,8 +124,10 @@ is 1 + O(1/m): b_m² = γ_{2m−1}²γ_{2m}², a_m = γ_{2m−2}² + γ_{2m−1}
   - small norm (6.29)–(6.36).
 
   Behaviour at 0 is inherited: H_n is bounded near 0, since n/z² → ∞ there and H → 1.
-- **New here:** the identification of §1 (exact), Lemma W1 (the weight perturbation, an extra Szegő conjugation),
-  and the extraction comparison §3.
+- **New here:** the identification of §1 (exact), Lemma W1 (running WLXZ verbatim with weight wH_n; no extra
+  conjugation), and the extraction comparison §3.
+- **Reliance noted.** WLXZ assert, without full detail, that the jumps are O(e^{−cn}) uniformly up to k_n. RH₁
+  depends on WLXZ for this point.
 - **What remains unproved** (review missing steps 2, 3, 5 for general p or r): nothing for this theorem *provided WLXZ's
   analysis is correct*. Their α > 0 covers α = 1. The p = 2 issues (two-sided D, odd θ) do not arise, because p = 1
   is WLXZ's own geometry. The Fisher–Hartwig issue does not arise either, because r = 3/2 gives α_FH = 0.

@@ -102,3 +102,13 @@
 - **Ruling.** The p = 1 full proof is done by perturbing WLXZ's TC analysis rather than re-deriving it. Our nodes are
   TC's with α = 1, and the weights differ by the analytic factor H → 1. This avoids the review's missing steps 2, 3 and
   5 entirely. Cost if wrong: it depends on WLXZ's analysis being correct, which is a published proof that we cite.
+- **Rule R on RH₁** (review/REVIEW_RH1.md): ACCEPT WITH FIXES.
+  - Fixes applied: D_H dropped (WLXZ run verbatim with weight wH_n); Airy parametrices built from σ's own weight;
+    extraction notation and the L¹ bound; WLXZ v1 and DLMF quotes; same-pipeline numerics with exact-TC validation
+    (n²·dev → −0.0417, plausibly −1/24).
+  - **Rule A pass for W1:**
+    - every place the weight enters WLXZ was enumerated (R and V factors, residual weights, local parametrices);
+    - degenerate regions checked: the top node (t ≈ 1; H(1) = e/√(2π), bounded); z → 0 (H → 1 in the sectors only,
+      and WLXZ's lips approach 0 inside sectors); iℝ (cut, never crossed);
+    - risk: D-functions designed around the TC Gamma structure. Resolved: D̃ ≡ 1/H_n, so the residual weight changes
+      only by H_n² = 1 + O(z²/n).
