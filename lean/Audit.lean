@@ -13,3 +13,5 @@ import JacobiAsym
 #print axioms JacobiAsym.prod_eq_prod_orderEmb
 #print axioms JacobiAsym.card_filter_gt_orderEmb
 #print axioms JacobiAsym.prod_pairs_fst
+#print axioms JacobiAsym.sum_prod_powersetCard_le
+#print axioms JacobiAsym.factorial_le_prod_succ
