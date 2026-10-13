@@ -158,3 +158,12 @@ import JacobiAsym
 #print axioms JacobiAsym.smoothZeta_bLaw
 #print axioms JacobiAsym.log_hankel_eq
 #print axioms JacobiAsym.log_zetaL_eq
+#print axioms JacobiAsym.toeplitz_eigen
+#print axioms JacobiAsym.toepVec_ne_zero
+#print axioms JacobiAsym.toeplitz_isRoot
+#print axioms JacobiAsym.toepEig_injOn
+#print axioms JacobiAsym.toeplitz_charpoly_roots
+#print axioms JacobiAsym.toeplitz_eigCount
+#print axioms JacobiAsym.toeplitz_eigCount_zero
+#print axioms JacobiAsym.cos_count
+#print axioms JacobiAsym.toeplitz_count
