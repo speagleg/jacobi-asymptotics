@@ -15,3 +15,8 @@ import JacobiAsym
 #print axioms JacobiAsym.prod_pairs_fst
 #print axioms JacobiAsym.sum_prod_powersetCard_le
 #print axioms JacobiAsym.factorial_le_prod_succ
+#print axioms JacobiAsym.heineK_tail_split
+#print axioms JacobiAsym.pairs_filter_head
+#print axioms JacobiAsym.pairs_filter_tail
+#print axioms JacobiAsym.pairs_filter_cross
+#print axioms JacobiAsym.heineTerm_tail_pointwise
