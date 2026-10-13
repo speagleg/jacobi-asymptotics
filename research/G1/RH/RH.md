@@ -137,3 +137,64 @@ Near z = 0 the jumps involve w/Π = wθ′/sin θ. Here w(z) ∝ (z²)^{r/p} and
   composed with the WLXZ triangular factors. **Not yet read: a citation task for Phase 4.**
 - **Suggested order.** Phases 3–5 first for the regular family r = 1 + p/2 (every p ≥ 1). Then the general r via the
   Bessel parametrix. Phase 0's d₁ = −(r−1)/2 becomes −p/4 on the regular family.
+
+## 6. Phase 3: R-jumps, D-functions, global parametrix — and a scope finding
+
+**6.1 The R-problem, verified end to end** (`checks/check_phase3a.out`). I built Y from the actual symmetric OPs of ν
+(p = 2, r = 2, N = 24, 8000 nodes, dps 60), rescaled it to U, and applied the WLXZ upper-right factor.
+- Approaching the band node Z₃₀ = 0.8, |U₁₂| grows like 1/dist (2.5e14 → 2.5e18), while |R₁₂| → 3.1175e13 and
+  |R₂₂| → 5.219e−14 converge. So the poles are removed.
+- The real-axis jumps of R have WLXZ (3.19)–(3.22) form with γ → θ′ and w → our w. The band jump is
+  [[1, W], [0, 1]] with W := 2iθ′w on (0, r*), and the mirrored form on (−r*, 0). So the effective weight on the whole
+  band is −2i|θ′|w.
+
+**Lemma 3.1 (constant band weight; PROVED, checked).**
+
+  |θ′(x)|w(x) = (π/p)·N^{1+q−r}·|x|^{2(r−1)/p−1}.
+
+On the regular family r = 1 + p/2, this is the constant π/p. The check gives W ≡ −i·2π/p, i.e. −πi for p = 2, to 12
+digits at x = 0.4, 1.3 and 2.9. So the band problem is of Legendre type, and after the E-normalization of a Jacobi type
+with an explicit Szegő function.
+
+**6.2 D-functions.** With t := θ/π:
+- D̃(z) := √(2π) t^{t−½} e^{−t}/Γ(t), so that D̃ = 1 + O(1/t) by Stirling;
+- D := D̃/(1 − e^{∓2iθ}) in ℂ±, which has poles at the nodes;
+- E(z) := (z² − r*²)^{(p−1)/(2p)}(r*² − z²)^{−1/2}. This generalizes WLXZ (4.19): the second factor gives the −1 jump
+  across |x| > r*, and the first restores DE → const at ∞ for p ≠ 1.
+
+Checks for p = 2 (`checks/check_phase3b.out`):
+- D₊E₊ = D₋E₋e^{2iθ} on x > k_N to 1e−26, which matches the T-jump diag(e^{−2iθ}, e^{2iθ}) there;
+- |DE| → 1/√(2πN) at infinity in every direction (0.0892 at N = 20, 0.0631 at N = 40);
+- D̃ − 1 = O(1/N) on compacts (4e−3 → 2e−3).
+
+The left half needs the mirrored functions (D̂, Ê, built from −z, as in WLXZ (4.22)–(4.25)). The check confirms
+that the right-side functions do not serve there (error 1.8).
+
+**6.3 Global parametrix (regular family, p ∈ {1, 2}).** After the D/E normalizations the band jump is
+[[0, w₀/D̃²], [−D̃²/w₀, 0]], with w₀ := W/E² and D̃² = 1 + O(1/N). On the regular family W is constant, so
+w₀ ∝ (r*² − x²)^{1/2}·(phases from the branches) on the band: a Jacobi-type weight. The global parametrix is the
+standard
+
+  N(z) = F_∞^{σ₃} N₀(z) F(z)^{−σ₃},  N₀ = [[(a + a⁻¹)/2, (a − a⁻¹)/(2i)], [−(a − a⁻¹)/(2i), (a + a⁻¹)/2]],
+  a(z) = ((z − r*)/(z + r*))^{1/4},
+
+where F is the (explicit) Szegő function of w₀ on [−r*, r*]. Leading-order output: γ_N = (r*/2)N^{−q}(1 + o(1)), so
+γ_N² = c(p)(N/2)^{−p}, which is Law P (§1). This is the global-parametrix level only. The local parametrices (Phase 4)
+and the small-norm argument (Phase 5) are still needed for a proof.
+
+**6.4 Scope finding (Gate 3).** The D-functions need t(z) = θ(z)/π to be single-valued in each half-plane off the real
+axis. In the symmetric variable, t(z) = N(z²)^{−1/p} is single-valued on ℂ ∖ {0} **iff 2/p ∈ ℤ**: N/z² for p = 1
+(WLXZ) and N/z for p = 2. For other p ≥ 1, t has a branch cut on the imaginary axis, *inside* ℂ±, where the D-functions
+and the global transformation must be analytic. So the WLXZ machinery does not transfer verbatim. Options for general
+p:
+- (a) work in x (option (ii)), where t = Nx^{−1/p} has its cut on (−∞, 0], away from all nodes. This costs a new edge
+  parametrix at the accumulation point x = 0, and a check of D's jump on (−∞, 0];
+- (b) a sectorial construction of D (separate functions in |arg z| < π/2 and in the left sectors, matched on the
+  imaginary axis).
+
+**Gate 3: GO for p ∈ {1, 2}; general p deferred with the precise obstruction above.**
+
+**What p ∈ {1, 2} buys.** Theorem H itself was already known for p ∈ {1, 2} (item 11), and the regular weights
+r = 1 + p/2 are the exactly solvable families. So the new content of the RH route for p ∈ {1, 2} is the *pointwise*
+law for weights r ≠ 1 + p/2. That needs the Fisher–Hartwig/Bessel origin parametrix (§5) with α = (2r − 2 − p)/(2p).
+This includes the Haynes–Zudilin a = 2 measures (r = 4 + b ≥ 5, α = (r − 2)/2 ≥ 3/2) and Monien's a = 1 measures.

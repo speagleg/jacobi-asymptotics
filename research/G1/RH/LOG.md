@@ -40,3 +40,15 @@
 - **Structural finding (RH.md §5).** The origin is regular iff r = 1 + p/2 (α = 0); otherwise there is a Fisher–Hartwig
   |z|^{2α} singularity at 0, which needs a Bessel parametrix. Ruling: Phases 3–5 are done first on the regular family
   r = 1 + p/2, then extended.
+
+## Phase 3: R-jumps, D-functions, global parametrix (RH.md §6)
+
+- **End-to-end check** (actual OPs, N = 24): the poles are removed (|U₁₂| ~ 1/dist; R bounded). The band weight is
+  exactly the constant −2πi/p on the regular family (Lemma 3.1).
+- **D-functions for p = 2.** The jump identity holds to 1e−26 on the right; normalization |DE| → 1/√(2πN); D̃ − 1 = O(1/N).
+  The left side needs mirrored functions (as WLXZ).
+- **Scope finding.** The WLXZ D-function construction needs t(z) single-valued in ℂ±. In the symmetric variable that
+  holds iff 2/p ∈ ℤ (p = 1, 2). General p needs option (ii) (x-variable, edge parametrix) or a sectorial D.
+- **Gate 3: GO for p ∈ {1, 2}**; general p deferred. The new content for p ∈ {1, 2} is the pointwise law for weights
+  r ≠ 1 + p/2, which needs the Bessel/Fisher–Hartwig origin parametrix. This covers Haynes–Zudilin a = 2 and
+  Monien a = 1.
