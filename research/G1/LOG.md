@@ -14,3 +14,10 @@
     n ≈ 400. No conclusion for p = 1 at large n.
   - **Conclusion (NUMERICAL).** No non-convergence was seen. In every class tested the pointwise law looks true, with
     power-rate convergence; the parity class is the slowest.
+- **Rule A, Task 2** (`checks/check_tauberian.out`).
+  - Lemma K holds to 4e−13.
+  - A fast-oscillating u_j = (−1)^j has G(n) = O(n), yet u_n does not tend to 0, so (T3) cannot be dropped from G1-T.
+  - A slowly oscillating u_j = 1/log j has G/n² and u_n → 0 together.
+  - Prop A1 on real data (p = 2, parity weights, L = 20): the minimum window average of a/(2b) is 1.0012, against the
+    bound 0.9888.
+- **Ruling.** Prop A1 (Task 3 material) was written together with Task 2, since it shares the window/kernel technique.
