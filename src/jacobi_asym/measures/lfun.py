@@ -47,6 +47,16 @@ def _atoms(g, mult=None):
     return x, (2 * x if mult is None else 2 * x * mult)
 
 
+def merge_repeats(gammas, idx):
+    """Synthetic double zeros: gamma[k+1] := gamma[k] for k in idx (0-based, non-adjacent)."""
+    g = np.array(gammas, float, copy=True)
+    idx = np.sort(np.asarray(idx, int))
+    if idx.size and (np.any(np.diff(idx) < 2) or idx[-1] + 1 >= g.size):
+        raise ValueError("idx must be non-adjacent and < len(gammas) - 1")
+    g[idx + 1] = g[idx]
+    return g
+
+
 def zero_measure(gammas, q=1, tail=True, label="", **tailkw) -> DiscreteMeasure:
     g = np.asarray(gammas, float)
     x, w = _atoms(g)
