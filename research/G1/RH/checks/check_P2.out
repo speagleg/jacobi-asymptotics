@@ -1,0 +1,5 @@
+y=0.02: max_x E = -0.004407 at x/r* = -0.95   first-order 2 pi y (psi - 1/x^2) there = -0.004405
+y=0.05: max_x E = -0.01104 at x/r* = -0.95   first-order 2 pi y (psi - 1/x^2) there = -0.01101
+y=0.1: max_x E = -0.02222 at x/r* = -0.95   first-order 2 pi y (psi - 1/x^2) there = -0.02203
+y=0.2: max_x E = -0.04526 at x/r* = -0.95   first-order 2 pi y (psi - 1/x^2) there = -0.04405
+y=0.4: max_x E = -0.09324 at x/r* = -0.95   first-order 2 pi y (psi - 1/x^2) there = -0.0881
