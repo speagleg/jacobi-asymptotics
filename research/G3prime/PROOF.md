@@ -17,6 +17,11 @@ nothing here is evidence about where the zeros lie.
 | G3′-L | liminf (1/n²)[log D_n(σ) − Φ_n] ≥ 0 under (SG) | PROVED-mod-cite + mod-input (SG), Theorem H + REVIEWED | Z1, S, W, H5, H6 |
 | N | doubled-smooth sequences: same counting function, law fails by 2 log(1−1/m) | PROVED-mod-input Theorem H + REVIEWED | Theorem H_L, item 11 H6 |
 | N′ | positive density of repeated ordinates ⇒ the law fails (general deletion lemma) | GAP | — |
+| R, K | pair factors under thinning; concentration (from H7) | PROVED-mod-input Theorem H + REVIEWED | H5, H7 |
+| T | thinning of convergent density: the own-normalized law survives | PROVED-mod-input Theorem H + REVIEWED | R, K, H6, H7 |
+| T′ | robustness: density band ±η gives error ω(η) → 0 | PROVED-mod-input Theorem H + REVIEWED | T |
+| G3′*-U | own-normalized upper bound under (D∞) | PROVED-mod-cite + mod-input (D∞), Theorem H + REVIEWED | Z2, T |
+| G3′*-L | own-normalized law under (D∞) + (SG*) | PROVED-mod-cite + mod-input (D∞), (SG*), Theorem H + REVIEWED | Z1, T′, K |
 
 Here Φ_n := −2n² log n + 2Σ_{j<n}(n−j) log L(j) + κn², with L(j) := j² x̃_j and κ := 3 + log(π²/16). This is the
 right-hand side of the sum form of Corollary H_L-ζ (Lean: `smoothZeta_HL_sumForm`).
@@ -336,8 +341,8 @@ results for the true zeros are G3′*-U and G3′*-L in §7.
 ## 7. Theorem T (thinning) and G3′* for the true zeros — PROVED-mod-input Theorem H (via item 11 H5, H6, H7)
 
 Rule R: `review/REVIEW_T.md`. Theorem T, Lemmas R and K, Remark T′ and G3′*-U are ACCEPT WITH FIXES, fixes applied, so
-REVIEWED. G3′*-L was REJECTED as first written (order-of-limits gap). It is repaired below by a two-scale split and is
-pending re-review.
+REVIEWED. G3′*-L was REJECTED as first written (order-of-limits gap). It was repaired by a two-scale split, then
+re-reviewed: ACCEPT WITH FIXES, fixes applied, so REVIEWED.
 
 Notation as in §1. Write f(ξ) := 1/(γ(ξ)² + ¼), so that x̃_k = f(k) = k⁻²L(k), and use item 11's H5(i) with a₀ = 1:
 
@@ -481,7 +486,8 @@ must re-check this.
 - **Right-hand sides.** L_y(j)/L̃_E(j) → 1 by Z1′, so the right-hand sides agree up to o(n²). ∎
 
 **Theorem G3′*-L.** Under (D∞) and (SG*): liminf (1/n²)[log D_n(σ) − Φ*_n] ≥ 0. Hence, under (D∞) and (SG*), the
-own-normalized law (2/n²)Σ_{j<n}(n−j) log(b_j/y_j) → log(π²/16) holds. *(Repaired after Rule R; pending re-review.)*
+own-normalized law (2/n²)Σ_{j<n}(n−j) log(b_j/y_j) → log(π²/16) holds. *(Repaired after the first Rule R pass;
+ACCEPT WITH FIXES on re-review; REVIEWED.)*
 
 *Proof.*
 1. **Delete the bad set.** Fix η, take δ = δ(η) from (SG*), and delete B_δ. The remaining distinct indices J′ have
@@ -500,24 +506,28 @@ own-normalized law (2/n²)Σ_{j<n}(n−j) log(b_j/y_j) → log(π²/16) holds. *
      - *Near-long* (γ̃_{π′(b)} − γ̃_{π′(a)} ≥ 4C₀): by Z1 the true difference is ≥ ½ the smooth one. With the lower-Z2
        factors, F_true ≥ ½(1 − o(1))·3c₀θ′/16. This is a **δ-free** bounded loss. These pairs are counted as in
        Theorem T at scale M₁: ≤ ε M₁n² + (t₀(M₁)n)².
-     - *Near-short* (γ̃_{π′(b)} − γ̃_{π′(a)} < 4C₀): these have b − a ≤ C log π′(a). Write γ_A := γ*_{a}, γ_B := γ*_{b}
-       for the J′-atoms. Consecutive J′-elements are separated by at least the forward gap of the earlier one, so
+     - *Near-short* (γ̃_{π′(b)} − γ̃_{π′(a)} < 4C₀): these have b − a ≤ C log π′(a). Write γ_A := γ*_{π_J(a)} = γ_{π′(a)} and
+       γ_B := γ*_{π_J(b)} = γ_{π′(b)}, since a and b are J′-ranks. Consecutive J′-elements are separated by at least the forward gap of the earlier one, so
        γ_B − γ_A ≥ (b − a)·2πδ/log(γ_B/2π). Then:
        - y′_a − y′_b ≥ (γ_B − γ_A)·2γ_A/(γ_B² + ¼)², with γ_B/γ_A ≤ 2;
        - a⁻² − b⁻² ≤ 2(b − a)/a³;
        - a ≍ θ′N(γ_A) ≍ θ′γ_A log(γ_A/2π)/2π, with θ′ ∈ [θ(1−η), θ];
        - L_{y′}(a) = a²y′_a ≍ a²/γ_A².
 
-       So F ≥ c·θ′δ, and the loss is ≤ log(1/(cθ′δ)) per pair.
+       So F ≥ c·θ′δ, and the loss is ≤ log(1/(cθ′δ)) per pair. (π′(a) ≥ N(γ_A − 0) ≍ γ_A log(γ_A/2π)/2π by Z1/(C1),
+       and a ≥ θ(1−η)(1−o(1))π′(a).)
        - Pairs with a ≤ M₂n: at most C log(M₂n) such pairs per element, so ≤ n·C log(M₂n) = o(n²) in total.
        - Pairs with a > M₂n: both elements lie beyond M₂n, so there are ≤ (t₀(M₂)n)² on 𝒮.
    - *Weights.* 2m_j y_j ≥ 2y_j ≥ c j⁻², the lower half of (Hw).
+   - *Normalization.* F_true is normalised by L_{y′}(a), whereas Lemma R uses L_{E′}(a) = a²x̃_{π′(a)}. Their ratio is
+     x̃_{π′(a)}/x_{π′(a)} → 1 by Z1′. It is absorbed in the (1 − o(1)) factors and in the o(n²) of step 4.
 4. **Collect the losses.**
 
      log D_n(σ|_{J′}) ≥ −2n² log n + 2Σ(n−j) log L_{y′}(j) + κn²
                         − [ω₁(η, M₁) + log(1/(cθδ))·t₀(M₂)²] n² − o(n²),
 
-   with ω₁(η, M₁) := C(η^{1/3}M₁ + A²/log² M₁)(1 + C_θ) + Cη, which is δ-free. **Order of limits:** n → ∞; then
+   with ω₁(η, M₁) := C(η^{1/3}M₁ + A²/log² M₁)(1 + C_θ) + Cη. Here C_θ := log(32/(3c₀θ′)), using θ′ ≥ θ/2, is the
+   near-long constant (with the extra ½). It depends on neither η nor δ, so ω₁ is δ-free. **Order of limits:** n → ∞; then
    M₂ → ∞, which kills the δ-dependent term for fixed η; then minimise over M₁; then η → 0.
 5. **Back to the full sequence.** Only the "≥" direction is needed. y′_j = y_{π_J(j)} with π_J(j) ≤ (1 + 2η)j
    eventually. So log(j²y′_j) ≥ log L_y(π_J(j)) − 2 log(1+2η). Also L_y(π_J(j))/L_y(j) ≥ 1 − o(1), because L∘k is
@@ -528,7 +538,7 @@ own-normalized law (2/n²)Σ_{j<n}(n−j) log(b_j/y_j) → log(π²/16) holds. *
 | Form | Unconditional | Conditional |
 |---|---|---|
 | multiplicity-normalized (Φ_n) | upper bound (G3′-U), REVIEWED | lower bound under (SG) (G3′-L), REVIEWED |
-| own-normalized (Φ*_n) | — | upper under (D∞) (G3′*-U), REVIEWED; lower under (D∞) + (SG*) (G3′*-L), repaired and pending re-review |
+| own-normalized (Φ*_n) | — | upper under (D∞) (G3′*-U), REVIEWED; law under (D∞) + (SG*) (G3′*-L), REVIEWED |
 
 The log-periodic numerics of §6 suggest (NUMERICAL, smooth model) that some regularity hypothesis such as (D∞) is
 needed for the own-normalized law. Neither (D∞) nor (SG*) is reached by the literature read in CITATIONS.md: (C3) gives

@@ -22,3 +22,15 @@
 **Overall.** ACCEPT WITH FIXES for everything except G3′*-L, which needs re-review after the two-scale repair.
 
 (Condensed from the reviewer's full report, as relayed in the session.)
+
+## Re-review (second pass, commit af28c61)
+
+- **G3′*-L: ACCEPT WITH FIXES.** The two-scale repair closes the order-of-limits gap. Checks (a)–(d) passed: the
+  split and counts, the F ≥ cθ′δ bound, 𝒮 via Lemma K at M₁ and M₂, and the order of limits.
+- **First-pass fixes.** All present and correct.
+- **Remaining editorial fixes, applied:**
+  1. J′-rank indexing of γ_A and γ_B.
+  2. L_{y′}/L_{E′} → 1 by Z1′.
+  3. C_θ = log(32/(3c₀θ′)) is η- and δ-free.
+  4. Status-table rows and a LOG entry.
+- **Overall.** All of §6–§7 is ACCEPT WITH FIXES, with fixes applied, so REVIEWED.

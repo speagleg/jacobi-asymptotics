@@ -51,3 +51,18 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
   analytic C₀, all-k form); Z2 (small indices for all b > a); G3′-L (ℓ_n bound with the (1+log n)² term and the
   min(n−1, ·) near count, e^{−C(1+log n)²} weights, π(j) ≤ C_η j, lower sum/denominator factors, far-partner case
   split); N ((log h)′ proof, sup domain, |π − ψ| ≤ 1); N′ and stop-condition framing corrected.
+
+## 2026-10-13: G3′* (own-atom normalization)
+
+- **Probes** (`star/`, NUMERICAL).
+  - Thinning with convergent density keeps the own-normalized law.
+  - Log-periodic holes break it, with a shift that does not decay.
+  - Near-duplicates down to 10⁻⁵ of the spacing are harmless.
+- **Theorem T** (thinning, convergent density), **G3′*-U** under (D∞), **G3′*-L** under (D∞) + (SG*): §7.
+- **Rule R, first pass** (`review/REVIEW_T.md`). Accept with fixes for everything except G3′*-L, which was rejected
+  for an order-of-limits gap. Repaired with a two-scale near-pair split (Lemma K at M₁ and M₂).
+- **Rule R, re-review.** G3′*-L: ACCEPT WITH FIXES (editorial: J′-rank indexing, L_{y′} vs L_{E′} normalization, the
+  C_θ constant, status rows). Applied, so all of §6–§7 is REVIEWED.
+- **Outcome.** No unconditional proof. The obstruction is relocated from "density-one simplicity" (SG) to
+  (D∞) + (SG*), which allow multiple zeros and off-line symmetric pairs at any convergent density. Neither (D∞) nor
+  (SG*) is supplied by the literature read; (C3) gives only liminf N_d/N ≥ 0.4075.
