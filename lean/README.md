@@ -17,8 +17,14 @@ passage K → ∞ to D_n of the infinite measure are NOT proved here.
 | `ratio_bounds_of_deriv`, `diff_le_of_L_mono` | MVT step of H4/H5(i) | Cauchy-MVT ratio bounds; monotone-L upper bound (the Heine-level H4 comparison and the H5(ii) split at a₀ are Plan 3) |
 | `weighted_cesaro_slow`, `slow_shift`, `sum_log_div_le` | H6(b), H6(d) | slow-variation limits |
 | `neg_mul_log_le`, `phi_bound` | H7 steps 5–6 | the penalty φ_M ≤ A²/(4p log M) |
+| `heineD`, `TheoremHPure` (NAMED INPUT), `hnorm` | Thm H (input) | D_n = sup_K heineK; Theorem H for pure powers as hypothesis |
+| `SlowFactor`, `logL_slow`, `exists_rhoMin`, `lower_pair`, `upper_pair`, `cutAtom` | (L1)–(L3), H5, H6(a) | hypotheses on L and pair bounds |
+| `heineK_slow_le`, `slow_bdd`, `exponent_identity`, `log_upperTerm_le`, `HL_upper` | H7 + H_L upper | upper half |
+| `rhoSeq`, `cesaro_weighted_zero`, `HL_lower` | H_L lower | lower half |
+| **`theoremHL`** | **Theorem H_L** | **PROVED-mod-input (TheoremHPure)** |
+| `lemmaP` | Lemma P | α ≥ 2β |
 
-Not here (Plan 3): asymptotic assembly of Theorem H_L with Theorem H as a named input; Lemma P; Toeplitz count.
-Not here (later): Andreief/Cauchy–Binet (heineK = Hankel determinant) and H2 (Hankel = Π b_j^{2(n-j)}).
+Not here: Toeplitz eigenvalue count (Theorem B); Andreief/H2 and the K → ∞ identification of heineD with the Hankel
+determinant of the infinite measure; the smooth-ζ instance of `SlowFactor`.
 
 Check: `./check.sh` (build + axioms audit + completeness list; prints AUDIT OK).
