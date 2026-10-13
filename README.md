@@ -24,7 +24,10 @@ Research: research/G3prime, G2, G1.
   (PROVED-mod-cite, REVIEWED).
   - Plan 11 extends it to **every r > 1**: Theorem RH₁(r) for Σ k^{−r}δ_{1/k}, using a Fisher–Hartwig Bessel parametrix
     at the band centre (RH/RH_p1_general.md; PROVED-mod-cite, REVIEWED).
-  - p = 2 remains a proof sketch, with the missing steps listed in RH/review/REVIEW_RH.md.
+  - Plan 12 covers **every p > 1** (Theorem RH_p, RH/px/RH_px.md; PROVED-mod-cite, REVIEWED). It works in the
+    unsymmetrized x-variable, with an exact Binet-cut scalar and a hard-edge Bessel parametrix.
+  - Together these give the pointwise Law P with an O(1/n) rate for all pure powers with power weights, p ≥ 1.
+  - Open: 0 < p < 1.
 
 ## Setup
     scripts/setup_env.sh

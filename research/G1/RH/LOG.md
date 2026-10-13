@@ -154,3 +154,50 @@
   - R4: Vanlessen (4.27)–(4.34) cited for the continuation of Ψ;
   - R5: the Remark range corrected to 1 < r < 9/4.
 - **Theorem RH₁(r): PROVED-mod-cite + REVIEWED.**
+
+## Plan 12 (2026-10-13): RH in the x-variable, p > 1 (research/G1/RH/px/)
+
+- **Phase 0.** Reused Plan 10's numerics: d₁ = −(s−1)/2 and e₁ = p/2 for p ∈ {1.5, 2, 3}.
+- **Phase 1, Gate 1 GO.**
+  - The IP is rescaled with nodes X_k = (N/k)^p and t = N z^{−1/p}. For p > 1, |arg t| < π on the slit plane.
+  - Pole removal is checked at a band node and at a saturated node (p = 2, s = 3, N = 12).
+  - The band weight is |W| = (2π/p)N^{1+p−s}x^{α_x}, so x = 0 is a hard edge with exponent α_x = (s−1−p)/p.
+- **Phase 2, Gate 2 GO.**
+  - g, φ = l/2 − g and φ̃ = φ ± iθ/N, with l = 2(log c + p).
+  - Strictness on the saturated region comes from Re g′ > 0 there (closes REVIEW_RH Lemma 2.2's fix).
+  - Lip signs: ∂_y Re φ = −πψ and ∂_y Re φ̃ = π(ρ − ψ). This gives the REVIEW_RH item-4 condition Re φ̃ > 0 on the
+    band lips.
+  - Checked for p ∈ {1.5, 2, 3}.
+- **Phase 3, Gate 3 GO.**
+  - D on the slit plane: D₊/D₋ is unimodular on (−∞, 0), with arg running 0 → π/(2p) − π/2.
+  - A scalar S cancels D's (−∞, 0) jump exactly, and S ~ z^{½−1/(2p)}.
+  - F = D·S·(4c − z)^{−1/2} → const at ∞. This needs S: D alone has monodromy e^{iπ/p}, which E cannot cancel unless
+    1/p ∈ ℤ.
+  - The band jump is exact, with weight x^{α_x}(4c − x)h_N.
+  - Near the hard edge, D̃S jumps only super-exponentially, so the Binet non-analyticity is absorbed with **no Stirling
+    truncation**.
+  - Checks: check_px_phase3a.out and check_px_phase3b.out.
+- **Phase 4, Gate 4 GO** (`checks/check_px_phase4.out`).
+  - **Hard edge.** f := (φ ± iπ)²/4 is analytic at 0, with f′(0) = −0.10132 ≈ −1/π² at p = 2. The KMVV Bessel
+    parametrix uses W := (C x^{α_x}(4c − x)h_N)^{1/2}.
+  - **Mismatch.** Every mismatch is super-exponentially small (exp(−cN|z|^{−1/p})). It beats the Bessel amplification
+    (log₁₀ ≤ −84 at α = 3, N = 20), so **no truncation is needed**.
+  - **Soft edge.** φ̃/(z − 4c)^{3/2} → −0.172. WLXZ §6.1 transfers, with E = (4c − z)^{−1/2} playing WLXZ's α = 1 role.
+  - **Top end.** Explicit bound: Re φ̃ ≤ −½log x, so the jumps there are N^{−pN}·poly.
+- **Phase 5.** Identification via the RH₁(r) §6 route; small norm; extraction in x.
+  - Theorem RH_p is claimed: for p > 1, s > 1, n^p b_n = c(1 + O(1/n)) and a_n/(2b_n) = 1 + O(1/n). Pending Rule R.
+- **Rule R** (px/review/REVIEW_RHpx.md): ACCEPT WITH FIXES.
+  - End-to-end probe P1 (true OPs vs the global parametrix): error C/N with N·error stable, at three (p, s) pairs.
+    This validates Phases 1–3.
+  - F1 (blocking): the hard edge is KMVV's *left* endpoint (the old P₀ matching error was 10⁵ → 10¹³).
+  - F2: the saturated-region bookkeeping.
+  - F3–F10.
+- **Fixes applied.** The left-endpoint P₀ matches at O(1/N) in all five sectors (check_px_bessel.out, lens points
+  0.029 → 0.014). Lemma 3.4 (the Hölder endpoint bound) is self-contained. Re-check of F1 and F2 dispatched.
+- **Re-check: CONFIRMED** subject to R1–R4, which are applied:
+  - R1: the θ′ power in the saturated and top entries;
+  - R2: the Φ endpoint;
+  - R3: the Hölder proof for log h_N;
+  - R4: a rename.
+- **Theorem RH_p** (every p > 1, s > 1): PROVED-mod-cite + REVIEWED.
+- **Deferred minor:** R5, a numerical test of the Ψ phases at α_x ≠ 0.
