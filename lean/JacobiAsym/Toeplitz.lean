@@ -87,4 +87,75 @@ For real symmetric matrices (all eigenvalues real) this is the spectral count `N
 noncomputable def eigCount {ℓ : ℕ} (M : Matrix (Fin ℓ) (Fin ℓ) ℝ) (μ : ℝ) : ℕ :=
   (M.charpoly.roots.filter (fun t => μ < t)).card
 
+/-- Each `λ_i` (`1 ≤ i ≤ ℓ`) is a root of the characteristic polynomial. -/
+theorem toeplitz_isRoot {ℓ i : ℕ} (A B : ℝ) (hi1 : 1 ≤ i) (hiℓ : i ≤ ℓ) :
+    (toeplitzTri ℓ A B).charpoly.IsRoot (toepEig ℓ A B i) := by
+  rw [IsRoot, eval_charpoly, ← exists_mulVec_eq_zero_iff]
+  refine ⟨toepVec ℓ i, toepVec_ne_zero hi1 hiℓ, ?_⟩
+  rw [sub_mulVec, toeplitz_eigen]
+  funext k
+  simp [Matrix.scalar_apply]
+
+/-- For `B > 0`, `i ↦ λ_i` is injective on `[1, ℓ]` (cos is injective on `[0, π]`). -/
+theorem toepEig_injOn (ℓ : ℕ) (A B : ℝ) (hB : 0 < B) : Set.InjOn (toepEig ℓ A B) (Icc 1 ℓ) := by
+  intro i hi i' hi' h
+  simp only [coe_Icc, Set.mem_Icc] at hi hi'
+  have hc : Real.cos (Real.pi * i / (ℓ + 1)) = Real.cos (Real.pi * i' / (ℓ + 1)) := by
+    unfold toepEig at h
+    have h2 : 2 * B * Real.cos (Real.pi * i / (ℓ + 1)) = 2 * B * Real.cos (Real.pi * i' / (ℓ + 1)) := by linarith
+    exact mul_left_cancel₀ (by positivity) h2
+  have hmem : ∀ m : ℕ, m ≤ ℓ → Real.pi * m / (ℓ + 1) ∈ Set.Icc 0 Real.pi := by
+    intro m hm
+    have hml : (m : ℝ) ≤ ℓ := by exact_mod_cast hm
+    refine ⟨by positivity, ?_⟩
+    rw [div_le_iff₀ (by positivity)]
+    nlinarith [Real.pi_pos]
+  have ha := Real.injOn_cos (hmem i hi.2) (hmem i' hi'.2) hc
+  have : (i : ℝ) = i' := by
+    have hp : (0 : ℝ) < Real.pi / (ℓ + 1) := by positivity
+    have : Real.pi / (ℓ + 1) * i = Real.pi / (ℓ + 1) * i' := by
+      rw [div_mul_eq_mul_div, div_mul_eq_mul_div, mul_comm _ (i : ℝ), mul_comm _ (i' : ℝ),
+        mul_comm (i : ℝ), mul_comm (i' : ℝ)]; exact ha
+    exact mul_left_cancel₀ hp.ne' this
+  exact_mod_cast this
+
+theorem toeplitz_charpoly_roots (ℓ : ℕ) (A B : ℝ) (hB : 0 < B) :
+    (toeplitzTri ℓ A B).charpoly.roots = ((Icc 1 ℓ).image (toepEig ℓ A B)).val := by
+  set S := (Icc 1 ℓ).image (toepEig ℓ A B)
+  have hmon := charpoly_monic (toeplitzTri ℓ A B)
+  have hle : S.val ≤ (toeplitzTri ℓ A B).charpoly.roots := by
+    rw [Multiset.le_iff_subset S.nodup]
+    intro x hx
+    obtain ⟨i, hi, rfl⟩ := mem_image.1 (show x ∈ S from hx)
+    rw [mem_Icc] at hi
+    exact (mem_roots hmon.ne_zero).2 (toeplitz_isRoot A B hi.1 hi.2)
+  have hcardS : S.card = ℓ := by
+    rw [card_image_of_injOn (toepEig_injOn ℓ A B hB), Nat.card_Icc]; omega
+  have hcard : Multiset.card (toeplitzTri ℓ A B).charpoly.roots ≤ Multiset.card S.val := by
+    calc Multiset.card (toeplitzTri ℓ A B).charpoly.roots ≤ (toeplitzTri ℓ A B).charpoly.natDegree :=
+          card_roots' _
+      _ = Multiset.card S.val := by rw [charpoly_natDegree_eq_dim, Fintype.card_fin, card_val, hcardS]
+  exact (Multiset.eq_of_le_of_card_le hle hcard).symm
+
+theorem toeplitz_eigCount (ℓ : ℕ) (A B μ : ℝ) (hB : 0 < B) :
+    eigCount (toeplitzTri ℓ A B) μ = ((Icc 1 ℓ).filter (fun i => μ < toepEig ℓ A B i)).card := by
+  unfold eigCount
+  rw [toeplitz_charpoly_roots ℓ A B hB, ← filter_val, card_val, filter_image,
+    card_image_of_injOn ((toepEig_injOn ℓ A B hB).mono (by intro i hi; exact (mem_filter.1 hi).1))]
+
+theorem toeplitz_eigCount_zero (ℓ : ℕ) (A μ : ℝ) :
+    eigCount (toeplitzTri ℓ A 0) μ = if μ < A then ℓ else 0 := by
+  have hT : toeplitzTri ℓ A 0 = diagonal (fun _ => A) := by
+    ext i j
+    simp only [toeplitzTri, of_apply, diagonal_apply]
+    split_ifs <;> rfl
+  unfold eigCount
+  rw [hT, charpoly_diagonal, prod_const, card_univ, Fintype.card_fin, roots_pow, roots_X_sub_C,
+    Multiset.nsmul_singleton]
+  split_ifs with h
+  · rw [Multiset.filter_eq_self.2 (fun a ha => by rw [Multiset.eq_of_mem_replicate ha]; exact h),
+      Multiset.card_replicate]
+  · rw [Multiset.filter_eq_nil.2 (fun a ha => by rw [Multiset.eq_of_mem_replicate ha]; exact h)]
+    rfl
+
 end JacobiAsym

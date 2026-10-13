@@ -160,3 +160,8 @@ import JacobiAsym
 #print axioms JacobiAsym.log_zetaL_eq
 #print axioms JacobiAsym.toeplitz_eigen
 #print axioms JacobiAsym.toepVec_ne_zero
+#print axioms JacobiAsym.toeplitz_isRoot
+#print axioms JacobiAsym.toepEig_injOn
+#print axioms JacobiAsym.toeplitz_charpoly_roots
+#print axioms JacobiAsym.toeplitz_eigCount
+#print axioms JacobiAsym.toeplitz_eigCount_zero
