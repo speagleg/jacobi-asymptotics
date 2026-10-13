@@ -4,8 +4,9 @@ open Finset Filter Topology
 
 namespace JacobiAsym
 
-/-- `D_n` of the infinite measure `∑_k w k δ_{x k}`: supremum of the truncated Heine sums (meaningful only
-under `BddAbove`; otherwise Lean's junk value 0). -/
+/-- Heine-sum surrogate for `D_n` of `∑_k w k δ_{x k}`: the supremum of the truncated Heine sums (meaningful only
+under `BddAbove`; otherwise Lean's junk value 0). It equals `det (m_{i+j})` by Andreief + `K → ∞`; that identity is
+proved separately (`heineD_eq_det`, Plan 4), not by this definition. -/
 noncomputable def heineD (x w : ℕ → ℝ) (n : ℕ) : ℝ := ⨆ K, heineK x w K n
 
 /-- Pure-power sequence `(k+1)^{-p}` (0-based index `k` = item-11 atom `k+1`). -/
@@ -16,7 +17,9 @@ noncomputable def hnorm (p κ : ℝ) (D ℓ : ℕ → ℝ) (n : ℕ) : ℝ :=
   (Real.log (D n) - (-p * (n : ℝ) ^ 2 * Real.log n + (n : ℝ) ^ 2 * ℓ n + κ * (n : ℝ) ^ 2)) / (n : ℝ) ^ 2
 
 /-- NAMED INPUT — item 11 Theorem H for atoms `(k+1)^{-p}`, weights `(k+1)^{-s}` (PROVED in item 11 via the
-Lommel / Tricomi–Carlitz families; NOT formalized): bounded in `K`, and `log D_n = -p n² log n + κ n² + o(n²)`. -/
+Lommel / Tricomi–Carlitz families; NOT formalized): bounded in `K`, and `log D_n = -p n² log n + κ n² + o(n²)`.
+This is item 11's Theorem H transported to `heineD` via H1. Item 11 supplies it only for `p ∈ {1, 2}` and
+`s ≥ s0(p)` (`s0(2) = 2`, `s0(1) = 3/2`), with `κ = 3p/2 + log c(p)`. -/
 structure TheoremHPure (p κ s : ℝ) : Prop where
   bdd : ∀ n, BddAbove (Set.range fun K => heineK (powSeq p) (powSeq s) K n)
   asymp : Tendsto (hnorm p κ (heineD (powSeq p) (powSeq s)) (fun _ => 0)) atTop (𝓝 0)

@@ -7,8 +7,10 @@ namespace JacobiAsym
 
 /-- **Item 11 Theorem H_L (PROVED-mod-input).**  Atoms `(k+1)^{-p} L(k+1)` with `L` slowly varying
 (`SlowFactor`), weights sandwiched `c1 (k+1)^{-s} ≤ w k ≤ c2 (k+1)^{-s0} U(k+1)`; given the named input
-Theorem H for the pure powers with exponents `s` and `s0` and constant `κ = 3p/2 + log c(p)`:
-`log D_n = -p n² log n + n² log L(n) + κ n² + o(n²)`. -/
+Theorem H for the pure powers with exponents `s` and `s0` and constant `κ`:
+`log D_n = -p n² log n + n² log L(n) + κ n² + o(n²)`.  `κ` is the constant of the input; item 11 supplies
+`TheoremHPure p κ s` only for `p ∈ {1, 2}`, `s ≥ s0(p)`, with `κ = 3p/2 + log c(p)`, so the theorem is *usable*
+only there.  `hU1`/`Monotone U` lose no generality (replace `U` by `t ↦ U (max t 1) / U 1`, or a running max). -/
 theorem theoremHL {p κ s s0 c1 c2 : ℝ} {L L' E U : ℝ → ℝ} {a0 : ℕ} {w : ℕ → ℝ}
     (hL : SlowFactor p L L' E a0) (hHlo : TheoremHPure p κ s) (hHup : TheoremHPure p κ s0)
     (hc1 : 0 < c1) (hc2 : 0 < c2)

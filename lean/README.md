@@ -21,7 +21,7 @@ passage K → ∞ to D_n of the infinite measure are NOT proved here.
 | `SlowFactor`, `logL_slow`, `exists_rhoMin`, `lower_pair`, `upper_pair`, `cutAtom` | (L1)–(L3), H5, H6(a) | hypotheses on L and pair bounds |
 | `heineK_slow_le`, `slow_bdd`, `exponent_identity`, `log_upperTerm_le`, `HL_upper` | H7 + H_L upper | upper half |
 | `rhoSeq`, `cesaro_weighted_zero`, `HL_lower` | H_L lower | lower half |
-| **`theoremHL`** | **Theorem H_L** | **PROVED-mod-input (TheoremHPure)** |
+| **`theoremHL`** | **Theorem H_L** | **PROVED-mod-input (TheoremHPure; input available for p ∈ {1,2}, s ≥ s0(p))** |
 | `lemmaP` | Lemma P | α ≥ 2β |
 
 Not here: Toeplitz eigenvalue count (Theorem B); Andreief/H2 and the K → ∞ identification of heineD with the Hankel

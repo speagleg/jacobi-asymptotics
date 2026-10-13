@@ -8,7 +8,8 @@ namespace JacobiAsym
 noncomputable def slowAtom (p : ℝ) (L : ℝ → ℝ) (t : ℝ) : ℝ := t ^ (-p) * L t
 
 /-- Item 11 hypotheses (L1)–(L3) on `[1, ∞)`. `E` is an antitone majorant of `|ε|`, `ε(t) = t L'(t)/L(t)`
-(so `E ≥ ε*`). `f_dec` is `f' < 0`. -/
+(so `E ≥ ε*`). `f_dec` is `f' < 0`. `L_deriv` is two-sided at `t = 1` (item 11 needs one-sided C¹ only):
+extend `L` past 1 when instantiating. -/
 structure SlowFactor (p : ℝ) (L L' E : ℝ → ℝ) (a0 : ℕ) : Prop where
   p_pos : 0 < p
   L_pos : ∀ t, 1 ≤ t → 0 < L t
