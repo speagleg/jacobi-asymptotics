@@ -201,3 +201,15 @@
   - R4: a rename.
 - **Theorem RH_p** (every p > 1, s > 1): PROVED-mod-cite + REVIEWED.
 - **Deferred minor:** R5, a numerical test of the Ψ phases at α_x ≠ 0.
+
+## Plan 13 (2026-10-13): smooth-ζ model, pointwise (research/G1/RH/zeta/)
+
+- **Phase 0** (check_z_phase0.out):
+  - b_n/x_n − π²/16 ≈ −0.226/log n (slow);
+  - a_n/(2b_n) − 1 ≈ 0.7/n–0.84/n;
+  - stable under J-halving.
+- **Edge equation** (check_z_edge.out): ∫_β^∞ √(x/(x − β))ρ_N = 1, from the Abel inversion of G2's arcsine
+  superposition.
+  - It reproduces 4c(p) for pure powers.
+  - For σ_ζ, b_N/(β_N/4) − 1 = O(1/N), with N·dev ≈ −1.1 … −1.4.
+  - The 1/log term is entirely the finite-N equilibrium.
