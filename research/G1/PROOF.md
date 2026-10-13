@@ -1,6 +1,6 @@
 # G1: the pointwise Law P — reductions and status
 
-Status: draft, written 2026-10-13. NOT REVIEWED (Rule R is Task 5 of Plan 9).
+Status: draft, written 2026-10-13. NOT REVIEWED (Rule R is Task 5 of Plan 9). Time-boxed per spec §7; stop report in §4.
 
 ## 0. Status
 
@@ -141,4 +141,40 @@ For the density statement:
 
 ## 4. G1-R: what remains (stop report)
 
-Written in Task 4.
+**Where G1 stands after Plan 9.**
+- *b_n side.* Pointwise b_n ⟺ (T3) slow oscillation of β_n, given H_all (G1-T). Unconditionally, the single
+  geometric Cesàro mean converges under a one-sided bound (G1-L).
+- *a_n side.* The lower half holds unconditionally in window average (A1). For p > 1, the upper half holds in
+  tail-Cesàro and density form, conditional on (CL) (A4).
+
+**Missing statements (precise).**
+- (T3) for β_n := n^p b_n/(c(p)C), from atom regularity (H-a) and weight conditions.
+- (CL) for p > 1: n^{p−1}𝔼_n[Σ_{k∉S} x_k] → Q_p, i.e. saturation exactness of the Heine ensemble against u^{−p}.
+
+**Why the tools here stop short.**
+1. *Energy / large-deviation methods* (G2 Part A, H7, Lemma K) control log D_n to o(n²). Second differences over
+   windows of width h therefore control only *window averages* of log b_j, with error o(n²)/h². That is exactly
+   G1-T's input. (T3) is a statement about the variation of b_j *inside* windows. Through
+   2 log b_n = Δ² log D_n, it needs log D_n to o(1) precision in second differences, far beyond any n²-speed method.
+   (CL) likewise needs single-atom exclusion probabilities. Those cost O(n) in log V, below n² resolution.
+2. *Riemann–Hilbert steepest descent* gives pointwise asymptotics of discrete orthogonal polynomials, including
+   saturated regions, for finite node sets with analytic data (BKMM). Infinite nodes with an accumulation point are
+   handled only for the explicit Tricomi–Carlitz family (WLXZ). The literature read has no RH analysis for general
+   nodes x_k = f(k) accumulating at 0 with merely polynomially sandwiched (non-analytic) weights. Weight regularity
+   genuinely matters: item 11's Prop D (exponentially small weights break the law) and test A3 (parity weights give
+   power-rate coefficient oscillations; also `checks/check_regularity.out`).
+3. *Tauberian methods* (item 11's C′, and G1-T) need an a priori regularity input. Neither the atoms nor the
+   averaged law supplies it.
+
+**Stop condition.** The remaining G1 statements (T3) and (CL) are not reached by the methods developed here. The
+only route found in the literature read (RH for discrete OPs) is established only for finite node sets (BKMM) and for
+one explicit accumulating family (WLXZ). Adapting it to general accumulating nodes with analytic weights is a
+plausible but substantial project, far outside this time box. For non-analytic sandwiched weights, no method is known
+to us. This is recorded as **GAP**: "as hard as an open problem" is *not* claimed, because no source states the
+general problem as open. The precise missing statements are (T3) and (CL) above.
+
+**Most promising next step (not attempted).** An RH analysis à la BKMM/WLXZ for x_k = k^{−p} with weights k^{−s}.
+Analytic node density and analytic weights put it in the regime where the steepest-descent machinery should apply.
+The saturated region (u < u_s) and the explicit equilibrium μ* of G2 give the needed g-function. A result for this
+model family would prove the pointwise law for pure powers with power weights, the case of Haynes–Zudilin and
+item 11's references.

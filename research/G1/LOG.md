@@ -27,3 +27,9 @@
   - **Missing lemma (CL):** saturation exactness of the Heine ensemble. Single-atom exclusions in the saturated
     region must be rare enough that the u^{−p}-weighted deficit vanishes. This is invisible to n²-speed large
     deviations.
+- **Task 4 (G1-R, time-boxed).**
+  - Literature read (CITATIONS.md): BKMM, where RH pointwise asymptotics need finite node sets; WLXZ, where accumulating
+    nodes are handled only for Tricomi–Carlitz.
+  - The windowed-energy attempt shows that energy methods control only window averages (o(n²)/h²), not (T3).
+  - Stop report in PROOF.md §4: GAP with precise missing statements (T3) and (CL), and a suggested RH project for pure
+    powers with power weights. "As hard as an open problem" is **not** claimed.
