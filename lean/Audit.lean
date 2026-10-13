@@ -71,3 +71,6 @@ import JacobiAsym
 #print axioms JacobiAsym.cesaro_weighted_zero
 #print axioms JacobiAsym.theoremHL
 #print axioms JacobiAsym.lemmaP
+#print axioms JacobiAsym.det_mul_cauchyBinet
+#print axioms JacobiAsym.det_mul_expand
+#print axioms JacobiAsym.det_submatrix_of_not_injective
