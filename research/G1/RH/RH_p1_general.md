@@ -1,7 +1,8 @@
 # Theorem RH₁(r): pointwise Law P for σ_r = Σ k^{−r} δ_{1/k}, every r > 1 (p = 1)
 
-Status: **Rule R: ACCEPT WITH FIXES** (review/REVIEW_RH1r.md, 2026-10-13). F1–F11 applied; re-check pending (plan-11). This extends Theorem RH₁ (RH_p1.md, REVIEWED; r = 3/2) to all r > 1.
-Requested label after review: PROVED-mod-cite (WLXZ v1 §§2–6; KV §5; Vanlessen math/0212014 §4).
+Status: **REVIEWED** 2026-10-13 (Rule R, review/REVIEW_RH1r.md: ACCEPT WITH FIXES. F1–F11 applied; the re-check
+CONFIRMED subject to R1–R5, which are applied.) Label: **PROVED-mod-cite** (WLXZ v1 §§2–6; KV §5; Vanlessen
+math/0212014 §4, incl. (4.26)–(4.34); DLMF 5.11). The reliance on WLXZ is the same as RH₁'s. This extends Theorem RH₁ (RH_p1.md, REVIEWED; r = 3/2) to all r > 1.
 
 Notation is RH_p1.md's:
 - WLXZ = Wu–Lin–Xu–Zhao, arXiv:1410.3948v1, run at their α = 1 (written α_W below);
@@ -264,8 +265,8 @@ analytic across the lips and the band. Let ζ = nf(z) and ρ = |ζ| ≍ n|z|.
     O(n^{−K}) for every K once ε³ < c/(4C).
 - **L¹ and L².** Σ ∩ U(0, ε) has length O(1), so these follow from the uniform bound. ∎
 
-**Remark (the role of m).** Lemma M alone needs only δ > 0, and §6 needs δ > 1/2. So m = 0 suffices for |a| < 3/4,
-i.e. 3/4 < r < 9/4. (The choice m = ⌈|a|/2⌉ above is a uniform safe choice.) In the m = 0 case, so Q ≡ 1 and κ_n = H_n². For larger a, the
+**Remark (the role of m).** Lemma M alone needs only δ > 0, and §6 needs δ > 1/2. So m = 0 (Q ≡ 1, κ_n = H_n²)
+suffices for |a| < 3/4, i.e. 1 < r < 9/4. (The choice m = ⌈|a|/2⌉ above is a uniform safe choice.) For larger |a| the
 truncation Q_m is needed: the bare H_n² − 1 = O(|z|²/n) is not small enough against the (n|z|)^{−2a} growth of
 Ψ_a near 0. Q_m cannot be replaced by H_n² itself, since H_n has poles on iℝ accumulating at 0 (Γ(t+1) at t = −1, −2, …).
 
@@ -301,6 +302,8 @@ The constants may depend on n; only fixed-n bounds are needed here.
 
       Σ_{0<X_k<b} μ_kU₁₁(X_k)/(z − X_k) − K₋(z) = −(1/2πi)∮_{∂G} K₋(s) ds/(s − z).
 
+    (R3) Read this with the poles near 0 cut off: replace the tip of G by an arc |s| = η_j through a midpoint between
+    consecutive nodes, η_j → 0. The arc contributes O(η_j^{1+2a}) → 0, since |K_±| = O(|s|^{2a}) on such midpoint arcs.
     On the lower part of ∂G write K₋ = K₊ + (K₋ − K₊). The contributions are:
     - Γ₊ with K₋, and Γ₋ with K₊: O(e^{−cn/|s|²}), so negligible;
     - Γ₋ with −2iU₁₁wFθ′: since |s − z| ≥ c max(|s|, |z|) on Γ₋, ∫_{Γ₋}|s|^{2a}|ds|/max(|s|,|z|) = O(1 + |z|^{2a}ℓ);
@@ -308,6 +311,8 @@ The constants may depend on n; only fixed-n bounds are needed here.
   - **Remaining part of U₁₂.** The nodes X_k < 0 accumulate at 0, but z lies in the right sector, so
     |z − X_k| ≥ c max(|z|, |X_k|) and the estimate of (a) applies. The nodes in [b, k_n] are finitely many for fixed n,
     so they contribute a bounded amount.
+  - The part of the lens with δ₀ ≤ |arg z| < lens angle is covered both by (a), for U = Y there, and by this
+    representation. The two agree because R = U there up to a factor that is O(e^{−cn/|z|²}).
   - So R₁₂ = O(1 + |z|^{2a}ℓ), and the same for R₂₂ with π_{n−1}. R₁₁ = U₁₁ and R₂₁ are polynomials. ∎
 
 **Bounds on V and P₀ near 0.** For fixed n, all explicit factors between R and V (WLXZ (5.1)) are bounded with bounded
@@ -338,10 +343,14 @@ P^u is the analytic continuation of P₀ from outside the lens.
     Here |1/m_r| ≍ |z|^{−2a}, κ_n^{−1} − 1 = O(|z|^{4m+2}) by Lemma S, and δ > 0 by F2.
   - V^u = O(ℓ) by (Y4)_r(b).
   - P^u = O(1) with O(1) inverse. P^u = E_nΨ^u(nf)Λ, where Ψ^u is the continuation of Ψ_a across the lip rays Γ₂, Γ₄,
-    Γ₆, Γ₈ into the lens sectors I, IV, V, VIII from the neighbouring sectors II, III, VI, VII. KV (5.22) gives the
-    columns O(|ζ|^{a}) and O(|ζ|^{−a}) in II, III, VI, VII. The continuation is a combination of the same Bessel
-    functions (KV (5.23) and its sector versions; the lip jumps are constant and lower-triangular), so it keeps the
-    columns O(|ζ|^{a}), O(|ζ|^{−a}). Λ = W_h^{−σ₃}e^{−nφσ₃} contributes |z|^{∓a}, so the column exponents cancel.
+    Γ₆, Γ₈ into the lens sectors I, IV, V, VIII from the neighbouring sectors II, III, VI, VII.
+    - Source (R4). Vanlessen (4.27)–(4.28) and (4.31)–(4.32) write Ψ in II, III, VI, VII through
+      ζ^{1/2}I_{a±½}(ζe^{∓πi/2}) and ζ^{1/2}K_{a±½}(ζe^{∓πi/2}). By his proof of Theorem 4.2 ("defined and analytic in
+      the complex plane with a branch cut along the negative real axis"), these formulas continue analytically across
+      Γ₂, Γ₄, Γ₆, Γ₈ into the adjacent lens sectors; (4.34) gives the continuation across Γ₂ explicitly.
+    - The small-argument expansions (A&S 9.6.7, 9.6.9, which Vanlessen cites for condition (c)) give columns O(|ζ|^{a})
+      and O(|ζ|^{−a}) for a > 0.
+    - Λ = W_h^{−σ₃}e^{−nφσ₃} contributes |z|^{∓a}, so the column exponents cancel.
 - **(ii) a < 0.** By KV (5.4), P₀ = O([[1, |z|^{2a}], [1, |z|^{2a}]]) in all directions. By (Y4)_r, together with the
   bounded factors and lens factors (now 1/m_σ ≍ |z|^{2|a|} → 0), V has the same column structure. So
 
@@ -353,7 +362,7 @@ arcs (two band half-rays and four lips) meeting at 0. For n large there is X̃, 
   X̃₊ = J_H^{−1}X̃₋ on Γ  (so HX̃ has no jump on Γ),
 
 such that:
-- (i) |X̃(z) − I| ≤ C n^{−1}(1 + dist(z, Γ)^{−1/2}) and |X̃(z) − I| ≤ C_n|z|^{δ}dist(z, Γ)^{−1/2} near 0;
+- (i) |X̃(z) − I| ≤ C n^{−1}(1 + dist(z, Γ)^{−1/2}), and near 0, |X̃(z)| ≤ C_n(1 + |z|^{δ}dist(z, Γ)^{−1/2}). (R1: X̃(0) is generically a nonzero constant ≠ I, contributed by the far part of Γ.)
 - (ii) det X̃ is analytic in U(0, ε₁/2) and det X̃ = 1 + O(1/n) there;
 - (iii) X̃₋ − I ∈ L²(Γ ∩ U(0, ε₁/2)).
 
@@ -363,16 +372,16 @@ such that:
   on L²(Γ), since Γ is a finite union of analytic arcs meeting transversally (the same fact the global small-norm step
   uses). So μ = I + C₋(μ(J_H^{−T} − I)) has a unique solution with μ − I ∈ L²(Γ) and ‖μ‖ = O(1). Set
   X̃ᵀ := I + C(μ(J_H^{−T} − I)). This gives (iii).
-- **(i)** follows from Cauchy–Schwarz, |X̃ − I| ≤ ‖μ‖_{L²}(∫_Γ|J − I|²|s − z|^{−2}|ds|)^{1/2}, with the two bounds on
-  |J − I|.
+- **(i)** follows from Cauchy–Schwarz, |X̃ − I| ≤ ‖μ‖_{L²}(∫_Γ|J − I|²|s − z|^{−2}|ds|)^{1/2}. For the second bound,
+  split Γ into |s| ≤ 2|z|, where |J − I| ≤ C_n|s|^δ gives C_n|z|^δ dist^{−1/2}, and |s| > 2|z|, where |s − z| ≍ |s|
+  gives O(1).
 - **(ii).** det J_H = 1, so det X̃ has no jump on Γ. It is analytic in U(0, ε₁/2) ∖ {0}.
-  - Sub-mean-value bound. dist(·, Γ)^{−1} is area-integrable near Γ. So averaging over discs of radius |z|/4 (which
-    avoid 0) turns the pointwise bound |det X̃ − 1| ≤ C|X̃ − I|(1 + |X̃ − I|) into
-
-      |det X̃(z) − 1| ≤ C_n(|z|^{δ−1/2} + |z|^{2δ−1})
-
-    on |z| = r. This is bounded since δ > 1/2, so the singularity at 0 is removable.
-  - Averaging over discs of fixed radius with the n^{−1} bound of (i) gives det X̃ = 1 + O(1/n) on U(0, ε₁/4). ∎
+  - Sub-mean-value bound (R2). |det X̃ − 1|^{1/2} is subharmonic, and pointwise
+    |det X̃ − 1| ≤ C|X̃ − I|(1 + |X̃ − I|). By (i), |det X̃ − 1|^{1/2} is bounded by C_n(1 + |z|^{δ}dist^{−1/2}), and
+    by Cn^{−1/2}(1 + dist^{−1/2}). dist(·, Γ)^{−1/2} is area-integrable near Γ (dist^{−1} is not).
+    - Averaging |det X̃ − 1|^{1/2} over discs of radius |z|/4, which avoid 0, gives |det X̃(z) − 1| ≤ C_n(1 + |z|^{2δ−1}).
+      This is bounded since δ ≥ 2 > 1/2, so the singularity of det X̃ at 0 is removable.
+    - Averaging over discs of fixed radius with the n^{−1} bound gives det X̃ = 1 + O(1/n) on U(0, ε₁/4). ∎
 
 **Identification.**
 - G := HX̃ has no jump in U(0, ε₁/4) ∖ {0}, so it has an isolated singularity at 0.
@@ -386,7 +395,7 @@ such that:
 
     H = G·X̃^{−1} = G·adj(X̃)/det X̃.
 
-  det X̃ = 1 + O(1/n) is nonvanishing near 0 (Lemma X(ii)), and adj X̃₋ ∈ I + L² (Lemma X(iii)). So H₋ ∈ L² near 0.
+  det X̃ = 1 + O(1/n) is nonvanishing near 0 (Lemma X(ii)), and adj X̃₋ ∈ I + L² (Lemma X(iii)). So H₋ ∈ L² near 0. More precisely, H lies locally in E², since X̃ − I is a Cauchy integral of an L² density. That is what the uniqueness step uses.
 - Consequently the global S := V·(parametrices)^{−1} has L² boundary values near 0, and it satisfies the small-norm
   RHP of §7. By uniqueness in the L² class (S·S_sn^{−1} has no jumps, lies locally in E¹, and → I at ∞, hence ≡ I),
   it equals the small-norm solution.

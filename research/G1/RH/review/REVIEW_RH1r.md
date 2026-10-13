@@ -253,3 +253,101 @@ With (a) and (b) written out, the identification is at standard RHP rigour (stro
 - **F10:** the numerics caveats; the script docstring.
 - **F11:** the KV quotes (5.4), (5.5), (5.9), (5.10), (5.21)–(5.23), (5.26)–(5.30) and p. 19; the Vanlessen
   positive-real-part sentence (van.txt l. 896).
+
+## Re-check (commit 7290167): CONFIRMED subject to two local text fixes (R1, R2)
+
+Same reviewer, the same adversarial standard. I read the rewritten §6, the m choice in §3, Lemma M and the Remark, the
+§4/§5 edits, and the new CITATIONS quotes. The quotes were checked against kv.txt and van.txt, including Vanlessen
+(4.26)–(4.34) for item 2. No repo file was edited except this one.
+
+**1. (Y4)_r(b), lens representation. CORRECT.**
+- In Ω_{r,+}, WLXZ (3.11) uses U₋, so R₁₂ = U₁₂ − K₋.
+- K₋ is small in the upper-right quadrant: Im θ < 0 there, and |e^{−iθ}/sin θ| ≍ e^{−2|Im θ|}. K₊ is small in the
+  lower-right quadrant.
+- At the nodes e^{iθ} = e^{−iθ} = ±1, so both have residue μ_kU₁₁(X_k).
+- The difference K₋ − K₊ = −2iU₁₁wFθ′ is pole-free and O(|s|^{2a}).
+- The switch K₋ = K₊ + (K₋ − K₊) is applied only on the lower ray. It is pure algebra on the integrand, so the residue
+  bookkeeping is unaffected.
+- The orientation and sign of "Σ − K₋(z) = −(1/2πi)∮K₋/(s − z)" are right.
+- The remaining nodes are treated correctly: negative nodes by the max(|s|, |z|) estimate, and [b, k_n] finitely many
+  for fixed n.
+- Minor (R3), no re-check needed:
+  - (i) Poles accumulate at the vertex 0 of G. The residue theorem should be applied on G ∩ {|s| > η_j}, with arcs
+    |s| = η_j through midpoints between nodes, where e^{∓iθ}/sin θ is bounded. Those arcs contribute O(η_j^{1+2a}) → 0,
+    since 1 + 2a > 0.
+  - (ii) (b) covers |arg z| < δ₀, but the lens reaches angle ≈ π/4. In the strip δ₀ ≤ |arg z| < π/4 of the lens, R₁₂ = U₁₂ − K₋
+    with U₁₂ bounded by (a) and K₋ = O(|z|^{2a}e^{−cn/|z|²}). Say this in one line.
+
+**2. Lemma O1(i), un-lensing and P^u. ACCEPTABLE; a precise source exists.**
+- V = V^u L_V with L_V the exact lens factor, and L_VL_P^{−1} = I + (e^{2nφ}/m_r)(κ_n^{−1} − 1)e₂₁ = I + O(|z|^δ).
+  Both are right.
+- The column claim for Ψ^u is not just structural. Vanlessen (4.27) gives, in sector II,
+  - first column √π ζ^{1/2}I_{λ±½}(ζe^{−πi/2}) (up to constants);
+  - second column ζ^{1/2}K_{λ±½}(ζe^{−πi/2}) (up to constants).
+
+  These functions are "defined and analytic in the complex plane with a branch cut along the negative real axis"
+  (proof of his Theorem 4.2). For ζ in I ∪ II the argument ζe^{−πi/2} stays in −π/2 < arg < 0, so the same formula is
+  the continuation into sector I. Vanlessen (4.34) displays exactly this identity on Γ₂: "Ψ_{λ,11,−}(ζ) +
+  e^{−2πiλ}Ψ_{λ,12,−}(ζ) = … = √π ζ^{1/2}I_{λ+½}(ζe^{−πi/2})e^{−λπi/2}".
+- The small-argument behaviour (A&S 9.6.7, 9.6.9) gives column 1 O(|ζ|^λ) and column 2 O(|ζ|^{−λ}) (with a log only at
+  λ = 0 or ½, which is subdominant). The other lips use (4.28), (4.31), (4.32) in the same way.
+- Recommended: replace "structural" by a citation of Vanlessen (4.27)–(4.28), (4.31)–(4.32), (4.34) and the
+  branch-cut sentence. Add these to CITATIONS (Van). Minor (R4).
+
+**3. Lemma X. The inverse-jump idea is correct, but two statements are false as written (R1, R2).**
+- Correct parts:
+  - Solving X̃₊ = J_H^{−1}X̃₋ (via the transpose, as a right-multiplicative problem) does make G = HX̃ jump-free, and it
+    avoids X^{−1} on the circles. This is a good deviation.
+  - Existence, (iii), and the first bound of (i) are correct.
+- **R1 (important): the second bound in (i) is false.**
+  - |X̃ − I| ≤ C_n|z|^δ dist(z, Γ)^{−1/2} would force X̃(z) → I as z → 0. But X̃(z) − I → (1/2πi)∫_Γ f(s)ds/s,
+    with f = μ(J_H^{−T} − I), which is generically nonzero.
+  - Split f at |s| = 2|z|:
+    - the far part is bounded, by ∫|s|^{δ−1}|μ| ≤ ‖μ‖_{L²}(∫|s|^{2δ−2})^{1/2} < ∞, since δ > 1/2;
+    - the near part is ≤ C_n|z|^δ dist^{−1/2}, by Cauchy–Schwarz.
+  - So the correct statement is |X̃(z) − I| ≤ C_n(1 + |z|^δ dist(z, Γ)^{−1/2}).
+  - The Identification step uses only ∫_{|z|=r}|X̃||dz| ≤ C_n(r + r^{δ+½}), which **is** what the corrected bound
+    gives. So the conclusion G ≡ analytic stands.
+- **R2 (important): "dist(·, Γ)^{−1} is area-integrable" is false.** Across an arc, ∬dx dy/|y| diverges
+  logarithmically. So the sub-mean-value step for g := det X̃ − 1 is invalid as written, because the quadratic term
+  |X̃ − I|² ≲ dist^{−1}. The repair is to use subharmonicity of |g|^{1/2} instead of |g|:
+  - |g|^{1/2} ≤ C(|X̃ − I| + |X̃ − I|²)^{1/2} ≲ C_n(1 + |z|^{δ}dist^{−1/2}) + C_n^{1/2}(1 + |z|^{δ/2}dist^{−1/4}), and
+    dist^{−1/2} *is* area-integrable.
+  - Averaging over B(z, |z|/4) gives |g(z)|^{1/2} ≤ C_n(1 + |z|^{δ−1/2}), which is bounded since δ ≥ 2. So 0 is removable.
+  - Averaging over discs of fixed radius with the n-uniform bound |X̃ − I| ≤ Cn^{−1}(1 + dist^{−1/2}) gives
+    |g|^{1/2} ≤ C n^{−1/2}. Hence det X̃ = 1 + O(1/n) on U(0, ε₁/4).
+- **Is "H₋ = G·adj(X̃₋)/det X̃ ∈ L²" valid? Yes.** G is analytic and bounded at 0, det X̃ is analytic and ≥ ½ near 0
+  for n large, and adj X̃₋ ∈ I + L² by (iii). Moreover, X̃ − I is a Cauchy integral of an L² density, so H ∈ E²
+  locally. That is what the uniqueness step actually needs; add the half-sentence.
+
+**4. Circle-integral removability and L² uniqueness. CORRECT.**
+- The input sup_{|z|=r}|H| ≤ C_n r^{min(0,2a)}ℓ² comes from O1, uniformly in arg z including boundary values.
+- With ∫_{|z|=r}dist^{−½}|dz| = O(r^{½}), this gives ∫|G| ≤ C_n r^{1+min(0,2a)}ℓ² → 0, since 1 + 2a > 0. So all
+  c_{−k} = 0.
+- G is jump-free in the L¹ sense (H has continuous boundary values off 0, and X̃ has L² ones). Morera makes it analytic.
+- Uniqueness: S·S_sn^{−1} is jump-free and in E¹ of each sector at 0, so it equals its Cauchy integral over an outer
+  circle, hence is analytic. It tends to I at ∞, so it is ≡ I. This is standard.
+- The a = 0 case (ℓ²) is covered.
+
+**5. m := ⌈|a|/2⌉. CONSISTENT.**
+- δ = 4m + 2 − 2|a| ≥ 2 for all a. Lemma M's explicit bound min(1, (n|z|)^δ)·n^{−1} is right: for ρ ≤ 1 the bound is
+  ≤ n^{−3}(n|z|)^δ.
+- Lemma X needs δ > ½ (for the far-part bound and R2), and §6 needs 1 + 2a + δ + ½ > 0. Both hold.
+- The Remark's "m = 0 suffices for |a| < 3/4" (δ = 2 − 2|a| > ½) is right. Two corrections:
+  - write the r range as 1 < r < 9/4, since r > 1 anyway;
+  - fix the garbled sentence "In the m = 0 case, so Q ≡ 1 and κ_n = H_n²".
+
+  Minor (R5).
+
+**Other fixes.**
+- F4–F11 are applied correctly. The new KV quotes (5.4), (5.5), (5.9), (5.10), (5.21)–(5.23), (5.26)–(5.30) and p. 19
+  match kv.txt verbatim, up to matrix transcription. The Vanlessen §4.1 sentence matches van.txt.
+- The DLMF quote I could not re-open (it is a web page). Its content is consistent with the standard Stieltjes bound,
+  which holds for |ph z| < π.
+
+**Verdict: CONFIRMED, conditional on R1 and R2.** These are local text corrections: restate X(i)'s second bound, and
+replace the area-integrability step with the |g|^{1/2} argument. R3–R5 are optional wording. No structural change and
+no further Rule R round is needed. The coordinator can verify the R1/R2 edits against the text above.
+
+**Final label (once R1, R2 are in):** PROVED-mod-cite (WLXZ v1 §§2–6; KV §5; Vanlessen math/0212014 §4, incl.
+(4.26)–(4.34); DLMF 5.11), REVIEWED. The reliance on WLXZ's uniform O(e^{−cn}) up to k_n is the same as RH₁'s.

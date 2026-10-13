@@ -147,3 +147,10 @@
 - **Ruling.** Lemma X uses the inverse-jump problem rather than the reviewer's X with X^{−1}. Reason: the circle
   integral of |X^{−1}| = |adj X|/|det X| needs det X control, and the inverse jump avoids that. Cost if wrong: the
   re-check flags it, with no effect on Lemmas S, G, B or M.
+- **Re-check: CONFIRMED** subject to R1–R5, which are applied:
+  - R1: X̃ → a constant at 0, not I; the near-0 bound corrected;
+  - R2: the sub-mean-value argument run on |det X̃ − 1|^{1/2}, since dist^{−1/2} is area-integrable and dist^{−1} is not;
+  - R3: midpoint arcs at the tip of G;
+  - R4: Vanlessen (4.27)–(4.34) cited for the continuation of Ψ;
+  - R5: the Remark range corrected to 1 < r < 9/4.
+- **Theorem RH₁(r): PROVED-mod-cite + REVIEWED.**

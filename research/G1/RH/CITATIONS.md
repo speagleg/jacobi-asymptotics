@@ -111,6 +111,18 @@ The arXiv v1 PDF was read via pdftotext. The Anal. Appl. 14 (2016) version was n
 > (4.43) "Ψ_{λν}(ζ) = (1/√2)[[1, −i], [−i, 1]](I + O(1/ζ))e^{πiσ3/4}e^{−iζσ3}e^{−λν πiσ3/2}, uniformly for ζ in the
 > first quadrant", and similarly in (4.44)–(4.46) for the other quadrants.
 >
+> (4.27) "For ζ ∈ II, Ψλ(ζ) = [[√π ζ^{1/2} I_{λ+½}(ζe^{−πi/2}), −(1/√π) ζ^{1/2} K_{λ+½}(ζe^{−πi/2})],
+> [−i√π ζ^{1/2} I_{λ−½}(ζe^{−πi/2}), −(i/√π) ζ^{1/2} K_{λ−½}(ζe^{−πi/2})]] e^{−½λπiσ3}"; (4.28), (4.31), (4.32) are the
+> analogues in III, VI, VII.
+>
+> (Theorem 4.2, proof) "The functions I_{λ±1/2}, K_{λ±1/2}, H^{(1)}_{λ±1/2} and H^{(2)}_{λ±1/2} are defined and
+> analytic in the complex plane with a branch cut along the negative real axis. … Condition (c) follows easily from
+> [1, formulas 9.1.9, 9.6.7 and 9.6.9]."
+>
+> (4.34) "… = √π ζ^{1/2} I_{λ+½}(ζe^{−πi/2}) e^{−½λπi}" (the continuation across Γ₂).
+>
+> **Used in:** RH₁(r) Lemma O1(i) (Rule R re-check R4).
+>
 > (§4.1, Rule R F9) "Since h is analytic in U with positive real part": this is used only to fix the branch of h^{1/2}.
 > RH₁(r) uses an analytic nonvanishing branch of h₀^{1/2} on the disc instead.
 >
