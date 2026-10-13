@@ -76,3 +76,7 @@ import JacobiAsym
 #print axioms JacobiAsym.det_submatrix_of_not_injective
 #print axioms JacobiAsym.heineK_eq_det
 #print axioms JacobiAsym.heineTerm_map_strictMono
+#print axioms JacobiAsym.heineK_bdd_of_summable
+#print axioms JacobiAsym.heineD_eq_det
+#print axioms JacobiAsym.moment_summable
+#print axioms JacobiAsym.heineK_tendsto_det
