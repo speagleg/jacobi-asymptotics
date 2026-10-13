@@ -15,6 +15,10 @@ Research: research/G3prime, G2, G1.
   research/G2/PROOF.md. The n² constant is identified as an explicitly solvable constrained logarithmic equilibrium,
   whose optimizer is a superposition of the Weyl-law arcsine measures. A corollary is the n² asymptotics of the
   Haynes–Zudilin determinants det ζ(a(i+j)+b) for all a ≥ 1.
+- G1 (Plan 9, time-boxed; pending Rule R): the pointwise law is reduced to a single a priori regularity statement
+  for b_n (slow oscillation, (T3)), via the averaged law and a windowed Tauberian argument. The a_n side has a lower
+  bound and, for p > 1, a conditional upper bound via a Heine-ensemble tail identity. Stop report: GAP, with missing
+  statements (T3) and (CL). See research/G1/PROOF.md §4.
 
 ## Setup
     scripts/setup_env.sh

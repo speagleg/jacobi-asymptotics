@@ -128,6 +128,7 @@ balls, and only those may be described as certified.
 > Plan 6 done: Toeplitz eigenvalue count (S4) in `Toeplitz.lean` (planned as WeylToeplitz.lean). Lean bridge complete.
 > Plan 7 (G3′): U unconditional (mod-cite), L mod (SG), Prop N (counting info insufficient), GAP N′; stop condition recorded in research/G3prime/LOG.md.
 > Plan 8 (G2): Theorem H for all p > 0 via the explicit constrained equilibrium μ* = ∫ω_{[0,4c t^{−p}]}dt (E_p = κ_p); Haynes–Zudilin corollary; Rule R REVIEWED (Monien p = 1 prior art recorded).
+> Plan 9 (G1): G1-T (H_all + (T3) ⇒ pointwise b-law), G1-L, A1–A4 (a-side, A4 mod (CL)); stop report GAP ((T3), (CL)); pending Rule R.
 
 **Toolchain.** Lean 4.34.1 and Mathlib v4.34.1, the same versions math-pursuits uses. The Mathlib build cache is
 reused through a `.lake` symlink, so Mathlib is not downloaded again. `autoImplicit` is off.
