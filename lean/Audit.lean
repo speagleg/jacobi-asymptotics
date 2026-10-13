@@ -57,3 +57,6 @@ import JacobiAsym
 #print axioms JacobiAsym.SlowFactor.cut_pair_bound
 #print axioms JacobiAsym.head_term_bound
 #print axioms JacobiAsym.U_pos_of_w
+#print axioms JacobiAsym.log_factorial_ge
+#print axioms JacobiAsym.exponent_identity
+#print axioms JacobiAsym.log_upperTerm_le

@@ -10,3 +10,4 @@ import JacobiAsym.Inputs
 import JacobiAsym.SlowFactor
 import JacobiAsym.PairBounds
 import JacobiAsym.UpperChain
+import JacobiAsym.Exponent
