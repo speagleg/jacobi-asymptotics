@@ -122,3 +122,15 @@ import JacobiAsym
 #print axioms JacobiAsym.dip_self_eq_zero
 #print axioms JacobiAsym.hankel_eq_mom
 #print axioms JacobiAsym.hankel_det_pos
+#print axioms JacobiAsym.opoly_zero
+#print axioms JacobiAsym.dip_opoly_pow
+#print axioms JacobiAsym.dip_opoly_pow_self
+#print axioms JacobiAsym.opoly_monic
+#print axioms JacobiAsym.opoly_natDegree
+#print axioms JacobiAsym.rowMat_det_eq
+#print axioms JacobiAsym.opolyMat_det_eq
+#print axioms JacobiAsym.dip_opolyMat_det
+#print axioms JacobiAsym.opoly_eq_sum
+#print axioms JacobiAsym.opolyCof_last
+#print axioms JacobiAsym.opoly_natDegree_le
+#print axioms JacobiAsym.opoly_coeff_self
