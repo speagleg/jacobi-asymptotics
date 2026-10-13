@@ -165,3 +165,5 @@ import JacobiAsym
 #print axioms JacobiAsym.toeplitz_charpoly_roots
 #print axioms JacobiAsym.toeplitz_eigCount
 #print axioms JacobiAsym.toeplitz_eigCount_zero
+#print axioms JacobiAsym.cos_count
+#print axioms JacobiAsym.toeplitz_count

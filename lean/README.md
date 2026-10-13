@@ -37,7 +37,9 @@ remains a named input.
 | `smoothZeta_HL_sumForm` | Cor. H_L-ζ, sum form | log D_n = −2n² log n + 2Σ_{j=1}^{n−1}(n−j) log L(j) + κn² + o(n²); PROVED-mod-input |
 | **`smoothZeta_bLaw`** | **b_j form of Cor. H_L-ζ** | **(2/n²)Σ(n−j) log(b_j/x_j) → log(π²/16); PROVED-mod-input (TheoremHPure 2 κ 2, κ = 3 + log(π²/16))** |
 | **`smoothZeta_HL`, `smoothZeta_HL_det`** | **Corollary H_L-ζ** | **smooth-ζ measure, Hankel-determinant form; PROVED-mod-input (TheoremHPure 2 κ 2)** |
+| `toeplitzTri`, `toeplitz_eigen`, `toeplitz_charpoly_roots` | (S4) | T_ℓ(A,B) has eigenvalues A + 2B cos(πi/(ℓ+1)), sine eigenvectors |
+| **`eigCount`, `toeplitz_count`** | **(S4) Toeplitz count** | **\|N(T_ℓ(A,B); μ) − (ℓ/π)θ\| ≤ 1, B ≥ 0; `eigCount` counts charpoly roots > μ with multiplicity (= spectral count for symmetric T)** |
 
-Not here: the Toeplitz eigenvalue count (Plan 6). The true-zero measure (G3′) is research.
+Not here: the true-zero measure (G3′) is research; the forward Weyl law (Theorem B) itself is not formalized.
 
 Check: `./check.sh` (build + axioms audit + completeness list; prints AUDIT OK).

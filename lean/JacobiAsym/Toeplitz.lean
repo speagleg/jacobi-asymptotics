@@ -158,4 +158,100 @@ theorem toeplitz_eigCount_zero (ℓ : ℕ) (A μ : ℝ) :
   · rw [Multiset.filter_eq_nil.2 (fun a ha => by rw [Multiset.eq_of_mem_replicate ha]; exact h)]
     rfl
 
+/-- Weyl angle `θ = arccos(clip((μ - A)/(2B)))`, with `θ = π·1{μ < A}` when `B = 0`. -/
+noncomputable def weylAngle (A B μ : ℝ) : ℝ :=
+  if B = 0 then (if μ < A then Real.pi else 0) else Real.arccos (max (-1) (min 1 ((μ - A) / (2 * B))))
+
+/-- Counting lemma: `#{i ∈ [1, ℓ] : s < cos(π i/(ℓ+1))}` is within 1 of `ℓ · arccos(clip s)/π`. -/
+theorem cos_count (ℓ : ℕ) (s : ℝ) :
+    |(((Icc 1 ℓ).filter (fun i : ℕ => s < Real.cos (Real.pi * i / (ℓ + 1)))).card : ℝ) -
+      ℓ / Real.pi * Real.arccos (max (-1) (min 1 s))| ≤ 1 := by
+  set c := max (-1) (min 1 s) with hc
+  have hc1 : -1 ≤ c := le_max_left _ _
+  have hc2 : c ≤ 1 := max_le (by norm_num) (min_le_left _ _)
+  set θ := Real.arccos c with hθ
+  have hθ0 : 0 ≤ θ := Real.arccos_nonneg c
+  have hθπ : θ ≤ Real.pi := Real.arccos_le_pi c
+  have hN : (0 : ℝ) < ℓ + 1 := by positivity
+  set y := θ * (ℓ + 1) / Real.pi with hy
+  have hy0 : 0 ≤ y := by positivity
+  have hyN : y ≤ ((ℓ + 1 : ℕ) : ℝ) := by
+    rw [hy, div_le_iff₀ Real.pi_pos]; push_cast; nlinarith
+  set m := ⌈y⌉₊ with hm
+  have hmN : m ≤ ℓ + 1 := Nat.ceil_le.2 hyN
+  have hpred : ∀ i ∈ Icc 1 ℓ, (s < Real.cos (Real.pi * i / (ℓ + 1)) ↔ i < m) := by
+    intro i hi
+    rw [mem_Icc] at hi
+    have hi1 : (1 : ℝ) ≤ i := by exact_mod_cast hi.1
+    have hil : (i : ℝ) ≤ ℓ := by exact_mod_cast hi.2
+    set φ := Real.pi * i / (ℓ + 1) with hφ
+    have hφ0 : 0 < φ := by positivity
+    have hφπ : φ < Real.pi := by rw [hφ, div_lt_iff₀ hN]; nlinarith [Real.pi_pos]
+    have hφmem : φ ∈ Set.Icc 0 Real.pi := ⟨hφ0.le, hφπ.le⟩
+    have hcos1 : Real.cos φ < 1 := by
+      have := Real.strictAntiOn_cos ⟨le_refl 0, Real.pi_pos.le⟩ hφmem hφ0
+      rwa [Real.cos_zero] at this
+    have hcosm1 : -1 < Real.cos φ := by
+      have := Real.strictAntiOn_cos hφmem ⟨Real.pi_pos.le, le_refl _⟩ hφπ
+      rwa [Real.cos_pi] at this
+    have h1 : s < Real.cos φ ↔ c < Real.cos φ := by
+      rcases le_or_gt 1 s with hs | hs
+      · have : c = 1 := by rw [hc, min_eq_left hs]; norm_num
+        rw [this]; constructor <;> intro h <;> linarith
+      rcases lt_or_ge s (-1) with hs' | hs'
+      · have : c = -1 := by rw [hc, min_eq_right hs.le]; exact max_eq_left hs'.le
+        rw [this]; constructor <;> intro _ <;> linarith
+      · have : c = s := by rw [hc, min_eq_right hs.le]; exact max_eq_right hs'
+        rw [this]
+    have h2 : c < Real.cos φ ↔ φ < θ := by
+      have hcc := Real.cos_arccos hc1 hc2
+      rw [← hθ] at hcc
+      conv_lhs => rw [← hcc]
+      exact Real.strictAntiOn_cos.lt_iff_gt ⟨hθ0, hθπ⟩ hφmem
+    have h3 : φ < θ ↔ (i : ℝ) < y := by
+      rw [hφ, hy, div_lt_iff₀ hN, lt_div_iff₀ Real.pi_pos]
+      constructor <;> intro h <;> linarith
+    rw [h1, h2, h3, Nat.lt_ceil]
+  rw [filter_congr hpred]
+  have hset : (Icc 1 ℓ).filter (fun i => i < m) = Ico 1 m := by
+    ext i; simp only [mem_filter, mem_Icc, mem_Ico]; omega
+  rw [hset, Nat.card_Ico]
+  have hey : (ℓ : ℝ) / Real.pi * θ = y - θ / Real.pi := by
+    rw [hy]; field_simp; ring
+  have ht1 : θ / Real.pi ≤ 1 := by rw [div_le_one Real.pi_pos]; exact hθπ
+  have ht0 : 0 ≤ θ / Real.pi := by positivity
+  rw [hey, abs_le]
+  rcases Nat.eq_zero_or_pos m with h0 | hpos
+  · have : y ≤ 0 := Nat.ceil_eq_zero.1 h0
+    rw [h0]; simp only [Nat.zero_sub, Nat.cast_zero]
+    constructor <;> linarith
+  · have hle : y ≤ m := Nat.le_ceil y
+    have hlt : (m : ℝ) < y + 1 := Nat.ceil_lt_add_one hy0
+    rw [Nat.cast_sub hpos]; push_cast
+    constructor <;> linarith
+
+/-- **Item 11 (S4)**: `|N(T_ℓ(A,B); μ) - (ℓ/π) θ| ≤ 1`. -/
+theorem toeplitz_count (ℓ : ℕ) (A B μ : ℝ) (hB : 0 ≤ B) :
+    |(eigCount (toeplitzTri ℓ A B) μ : ℝ) - ℓ / Real.pi * weylAngle A B μ| ≤ 1 := by
+  rcases eq_or_lt_of_le hB with h0 | hpos
+  · subst h0
+    rw [toeplitz_eigCount_zero]
+    unfold weylAngle
+    simp only [↓reduceIte]
+    split_ifs
+    · rw [div_mul_cancel₀ _ Real.pi_ne_zero, sub_self, abs_zero]; norm_num
+    · simp
+  · rw [toeplitz_eigCount ℓ A B μ hpos]
+    unfold weylAngle
+    simp only [hpos.ne', ↓reduceIte]
+    have hf : (Icc 1 ℓ).filter (fun i => μ < toepEig ℓ A B i) =
+        (Icc 1 ℓ).filter (fun i : ℕ => (μ - A) / (2 * B) < Real.cos (Real.pi * i / (ℓ + 1))) := by
+      apply filter_congr
+      intro i _
+      unfold toepEig
+      rw [div_lt_iff₀ (by positivity)]
+      constructor <;> intro h <;> linarith
+    rw [hf]
+    exact cos_count ℓ _
+
 end JacobiAsym

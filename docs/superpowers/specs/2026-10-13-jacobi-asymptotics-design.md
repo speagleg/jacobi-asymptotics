@@ -125,6 +125,7 @@ balls, and only those may be described as certified.
 > Plan 3 done: theoremHL, lemmaP. The Toeplitz count and the smooth-ζ `SlowFactor` instance moved to the bridge plan.
 > Plan 4 done: Cauchy–Binet, Andreief, K → ∞, smooth-ζ instance, Corollary H_L-ζ (Hankel-determinant form).
 > Plan 5 done: orthogonal polynomials, three-term recurrence, H2, b_j form of Corollary H_L-ζ.
+> Plan 6 done: Toeplitz eigenvalue count (S4) in `Toeplitz.lean` (planned as WeylToeplitz.lean). Lean bridge complete.
 
 **Toolchain.** Lean 4.34.1 and Mathlib v4.34.1, the same versions math-pursuits uses. The Mathlib build cache is
 reused through a `.lake` symlink, so Mathlib is not downloaded again. `autoImplicit` is off.
