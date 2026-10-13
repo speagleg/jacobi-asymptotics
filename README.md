@@ -19,6 +19,10 @@ Research: research/G3prime, G2, G1.
   for b_n (slow oscillation, (T3)), via the averaged law and a windowed Tauberian argument. The a_n side has a lower
   bound and, for p > 1, a conditional upper bound via a Heine-ensemble tail identity. Stop report: GAP, with missing
   statements (T3) and (CL). See research/G1/PROOF.md §4.
+- RH program (Plan 10; research/G1/RH): **Theorem RH₁**, the pointwise Law P with an O(1/n) rate for
+  Σ k^{−3/2}δ_{1/k}, is proved via a Riemann–Hilbert perturbation of Wu–Lin–Xu–Zhao's Tricomi–Carlitz analysis
+  (PROVED-mod-cite, REVIEWED). Other weight exponents (p = 1) and p = 2 remain proof sketches, with the missing steps
+  listed in RH/review/REVIEW_RH.md.
 
 ## Setup
     scripts/setup_env.sh

@@ -16,3 +16,8 @@
 after a re-check.
 
 (Condensed from the reviewer's full report, as relayed in the session.)
+
+## Re-check (commit 1d78a2c): CONFIRMED
+
+Every required fix is in place, and Theorem RH₁ may carry PROVED-mod-cite (WLXZ v1 §§2–6). Three optional wording
+fixes were applied: the label line, (6.37) together with the sector qualifier, and the mass-ratio sentence.

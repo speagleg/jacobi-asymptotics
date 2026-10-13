@@ -1,7 +1,7 @@
 # Theorem RH₁: pointwise Law P for σ = Σ k^{−3/2} δ_{1/k}, by perturbing WLXZ (Tricomi–Carlitz, α = 1)
 
-Status: written 2026-10-13. Rule R (`review/REVIEW_RH1.md`): ACCEPT WITH FIXES; fixes F1–F7 and the Rule C quotes
-applied (D_H dropped, so F1/F3 are moot). This is option 1 of the post-review plan (RH review, REVIEW_RH.md): finish
+Status: **REVIEWED** 2026-10-13 (Rule R `review/REVIEW_RH1.md`: ACCEPT WITH FIXES, all fixes applied, re-check
+CONFIRMED). Label: PROVED-mod-cite (WLXZ v1 §§2–6). This is option 1 of the post-review plan (RH review, REVIEW_RH.md): finish
 p = 1 first, starting with the regular weight r = 3/2.
 
 ## 0. Statement
@@ -97,7 +97,7 @@ exactly as in (6.34). Hence S = I + O(1/n) (6.37), with S₁ = O(1/n).
    because the bounded pieces are O(1/n) and the long pieces of length ≍ √n are O(e^{−cn}). So S = I + O(1/n) (6.37),
    and S₁ = −(1/2πi)∫S₋(J_S − I) = O(1/n). ∎
 
-**Behaviour at 0 ((Y4) for σ).** The masses of σ are comparable to TC's (ratio → √(2π)·e·const). So the discrete
+**Behaviour at 0 ((Y4) for σ).** The mass ratio k^{−3/2}/w_d(node) = (√(2π)/e)·H(k) is bounded above and below. So the discrete
 Cauchy transforms satisfy Y₁₂, Y₂₂ = O(log|z|) at 0, exactly as WLXZ (2.17). Their Theorem 2.3 (Fokas–Its–Kitaev
 uniqueness) applies.
 
@@ -121,9 +121,10 @@ uniqueness) applies.
   - R, T, Q, V (§§3–5);
   - the global parametrix (§5);
   - the local parametrices at ±2 (Airy, §6.1) and 0 (§6.2, with Remark 6.1);
-  - small norm (6.29)–(6.36).
+  - small norm (6.29)–(6.37).
 
-  Behaviour at 0 is inherited: H_n is bounded near 0, since n/z² → ∞ there and H → 1.
+  Behaviour at 0 is inherited: H_n is bounded near 0 within the sectors |arg(±z)| ≤ π/2 − ε, since n/z² → ∞ there
+  and H → 1.
 - **New here:** the identification of §1 (exact), Lemma W1 (running WLXZ verbatim with weight wH_n; no extra
   conjugation), and the extraction comparison §3.
 - **Reliance noted.** WLXZ assert, without full detail, that the jumps are O(e^{−cn}) uniformly up to k_n. RH₁
@@ -131,7 +132,7 @@ uniqueness) applies.
 - **What remains unproved** (review missing steps 2, 3, 5 for general p or r): nothing for this theorem *provided WLXZ's
   analysis is correct*. Their α > 0 covers α = 1. The p = 2 issues (two-sided D, odd θ) do not arise, because p = 1
   is WLXZ's own geometry. The Fisher–Hartwig issue does not arise either, because r = 3/2 gives α_FH = 0.
-- **Label: PROVED-mod-cite (WLXZ §§2–6)**, pending Rule R.
+- **Label: PROVED-mod-cite (WLXZ v1 §§2–6), REVIEWED** (review/REVIEW_RH1.md, re-check passed).
 
 ## 5. Scope
 
