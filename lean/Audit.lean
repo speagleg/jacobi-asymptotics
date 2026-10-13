@@ -95,3 +95,14 @@ import JacobiAsym
 #print axioms JacobiAsym.zetaGamma_strictMonoOn'
 #print axioms JacobiAsym.zetaGamma_gt_two_pi
 #print axioms JacobiAsym.zetaGamma_continuousAt
+#print axioms JacobiAsym.zetaEll_pos
+#print axioms JacobiAsym.zetaL_hasDerivAt
+#print axioms JacobiAsym.zetaL_eps_eq
+#print axioms JacobiAsym.zetaL_pos
+#print axioms JacobiAsym.zetaL_eps_bounds
+#print axioms JacobiAsym.zetaE_nonneg
+#print axioms JacobiAsym.zetaE_anti
+#print axioms JacobiAsym.zetaE_tendsto
+#print axioms JacobiAsym.zetaL'_continuousOn
+#print axioms JacobiAsym.zetaL_monotoneOn
+#print axioms JacobiAsym.zetaL_slowFactor

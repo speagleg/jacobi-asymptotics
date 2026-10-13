@@ -19,3 +19,4 @@ import JacobiAsym.CauchyBinet
 import JacobiAsym.Andreief
 import JacobiAsym.HankelLimit
 import JacobiAsym.ZetaSmooth
+import JacobiAsym.ZetaSlowFactor
