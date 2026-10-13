@@ -4,7 +4,8 @@ Jacobi coefficients (a_n, b_n) and Hankel determinants of discrete positive meas
 x_k ↓ 0, and the "Law P" asymptotics b_n/x_n → c(p) = ¼(π/(2I(p)))^p for x_k ~ C k^{-p}
 (c(2) = π²/16). Continues math-pursuits item 11.
 
-Status: toolkit under construction (Plan 1). Lean core: Plan 2. Research: research/G3prime, G2, G1.
+Status: toolkit done (Plan 1). Lean foundations done (Plan 2, lean/README.md); Lean assembly of Theorem H_L: Plan 3.
+Research: research/G3prime, G2, G1.
 
 ## Setup
     scripts/setup_env.sh
