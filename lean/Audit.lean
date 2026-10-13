@@ -60,3 +60,9 @@ import JacobiAsym
 #print axioms JacobiAsym.log_factorial_ge
 #print axioms JacobiAsym.exponent_identity
 #print axioms JacobiAsym.log_upperTerm_le
+#print axioms JacobiAsym.HL_upper
+#print axioms JacobiAsym.SlowFactor.slowAtom_strictAnti
+#print axioms JacobiAsym.log_sum_le_of_log_le
+#print axioms JacobiAsym.upperTerm_pos
+#print axioms JacobiAsym.tendsto_log_div_nat
+#print axioms JacobiAsym.tendsto_log_succ_div_sq

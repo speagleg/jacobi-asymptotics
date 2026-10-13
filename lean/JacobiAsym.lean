@@ -11,3 +11,4 @@ import JacobiAsym.SlowFactor
 import JacobiAsym.PairBounds
 import JacobiAsym.UpperChain
 import JacobiAsym.Exponent
+import JacobiAsym.UpperBound
