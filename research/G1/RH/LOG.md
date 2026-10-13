@@ -16,3 +16,14 @@
   coefficients depend on both p and s.
 - **Gate 0: GO.** The corrections have the form 1 + c/n + O(n⁻²), with no log terms and no oscillation. The RH analysis
   must reproduce d₁ = −(s−1)/2 and e₁ = p/2. Equivalently, b_n ≈ c(p)(n + (s−1)/(2p))^{−p}.
+
+## Phase 1: interpolation problem → RHP (RH.md §1–3)
+
+- **Option (i), symmetrization, chosen.** WLXZ's origin parametrix is elementary when the accumulation point is
+  interior to the band (their (6.24)–(6.28), read).
+- **Lemma 1.1, checked to 30 digits** (`checks/check_phase1.out`): θ(±Z_k) = πk; Π′(±Z_k) = (−1)^k; residues cancel;
+  the nodes are the only zeros of sin θ off the cut (argument principle 280.000 = 280 for p = 1, 2, 3); the decay
+  sectors match WLXZ.
+- **Band.** r* = 2^{1+q}√c(p) reproduces WLXZ's (−2, 2) at p = 1, a consistency check of the scaling.
+- **Gate 1: GO for p ≥ 1.** For p < 1, θ is real on extra rays, which is deferred. Open for Phase 2: the
+  saturated-region sign conventions.

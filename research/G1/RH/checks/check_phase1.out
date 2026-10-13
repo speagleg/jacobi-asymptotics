@@ -1,0 +1,18 @@
+p=1: max|theta(Z_k)-pi k|=3.16e-30  max|Pi(Z_k)|=5.68e-31  max|Pi'(Z_k)-(-1)^k|=1.97e-31
+      zeros of sin(theta) in box (arg principle) = 280.0 (+ i 3.2e-29)   nodes in box = 280
+      upper-right: |e^(-i theta)| = 2.75e-28   |e^(+i theta)| = 3.64e+27
+      upper-left : |e^(-i theta)| = 3.64e+27   |e^(+i theta)| = 2.75e-28
+      lower-right: |e^(-i theta)| = 3.64e+27   |e^(+i theta)| = 2.75e-28
+      lower-left : |e^(-i theta)| = 2.75e-28   |e^(+i theta)| = 3.64e+27
+p=2: max|theta(Z_k)-pi k|=0  max|Pi(Z_k)|=2.16e-30  max|Pi'(Z_k)-(-1)^k|=9.86e-32
+      zeros of sin(theta) in box (arg principle) = 280.0 (+ i 3.2e-29)   nodes in box = 280
+      upper-right: |e^(-i theta)| = 9.54e-16   |e^(+i theta)| = 1.05e+15
+      upper-left : |e^(-i theta)| = 1.05e+15   |e^(+i theta)| = 9.54e-16
+      lower-right: |e^(-i theta)| = 1.05e+15   |e^(+i theta)| = 9.54e-16
+      lower-left : |e^(-i theta)| = 9.54e-16   |e^(+i theta)| = 1.05e+15
+p=3: max|theta(Z_k)-pi k|=7.89e-31  max|Pi(Z_k)|=7.48e-29  max|Pi'(Z_k)-(-1)^k|=1.97e-31
+      zeros of sin(theta) in box (arg principle) = 280.0 (+ i -1.6e-29)   nodes in box = 280
+      upper-right: |e^(-i theta)| = 5.77e-11   |e^(+i theta)| = 1.73e+10
+      upper-left : |e^(-i theta)| = 1.73e+10   |e^(+i theta)| = 5.77e-11
+      lower-right: |e^(-i theta)| = 1.73e+10   |e^(+i theta)| = 5.77e-11
+      lower-left : |e^(-i theta)| = 5.77e-11   |e^(+i theta)| = 1.73e+10
