@@ -38,3 +38,10 @@ import JacobiAsym
 #print axioms JacobiAsym.SlowFactor.R_pos
 #print axioms JacobiAsym.SlowFactor.logL_slow
 #print axioms JacobiAsym.SlowFactor.exists_rhoMin
+#print axioms JacobiAsym.slowAtom_hasDerivAt
+#print axioms JacobiAsym.SlowFactor.lower_pair
+#print axioms JacobiAsym.SlowFactor.upper_pair
+#print axioms JacobiAsym.ratio_lower_of_deriv
+#print axioms JacobiAsym.ratio_upper_of_deriv
+#print axioms JacobiAsym.rpow_neg_hasDerivAt
+#print axioms JacobiAsym.neg_slowAtom_deriv
