@@ -21,8 +21,10 @@ Research: research/G3prime, G2, G1.
   statements (T3) and (CL). See research/G1/PROOF.md §4.
 - RH program (Plan 10; research/G1/RH): **Theorem RH₁**, the pointwise Law P with an O(1/n) rate for
   Σ k^{−3/2}δ_{1/k}, is proved via a Riemann–Hilbert perturbation of Wu–Lin–Xu–Zhao's Tricomi–Carlitz analysis
-  (PROVED-mod-cite, REVIEWED). Other weight exponents (p = 1) and p = 2 remain proof sketches, with the missing steps
-  listed in RH/review/REVIEW_RH.md.
+  (PROVED-mod-cite, REVIEWED).
+  - Plan 11 extends it to **every r > 1**: Theorem RH₁(r) for Σ k^{−r}δ_{1/k}, using a Fisher–Hartwig Bessel parametrix
+    at the band centre (RH/RH_p1_general.md; PROVED-mod-cite, REVIEWED).
+  - p = 2 remains a proof sketch, with the missing steps listed in RH/review/REVIEW_RH.md.
 
 ## Setup
     scripts/setup_env.sh

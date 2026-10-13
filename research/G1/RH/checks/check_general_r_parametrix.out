@@ -1,0 +1,45 @@
+[1] Szego function D_a(z) = (z/Phi(z))^a
+  a=-0.40: max|D+D-/|x|^2a - 1| = 8.55e-17   |D(1e8)-1| = 3.67e-17   |D|/|z|^a in [1.0, 1.002]
+  a=+0.50: max|D+D-/|x|^2a - 1| = 1.6e-25   |D(1e8)-1| = 4.59e-17   |D|/|z|^a in [0.9975, 1.0]
+  a=+1.50: max|D+D-/|x|^2a - 1| = 2.88e-17   |D(1e8)-1| = 1.38e-16   |D|/|z|^a in [0.9925, 1.0]
+  a=+2.50: max|D+D-/|x|^2a - 1| = 6.89e-17   |D(1e8)-1| = 2.29e-16   |D|/|z|^a in [0.9876, 1.0]
+[2] kappa = H(n/z^2)^2/Q_m(z): max |kappa-1| / (|z|^2/n)^(2m+1), z in |arg z| <= pi/3, |z| <= 0.5
+  n=100: m=0: 0.1667   m=1: 0.005556   m=2: 0.001587
+  n=1000: m=0: 0.1667   m=1: 0.005556   m=2: 0.001587
+  n=10000: m=0: 0.1667   m=1: 0.005556   m=2: 0.001587
+[3] Psi_a amplification (sector I, KV (5.23))
+  a=-0.40:
+    rho=  1e-06  det=(1.0 - 8.11562e-153j)  A_band=  3.994e+4  A_lip=  1.997e+4  A/weight: 0.00288, 0.00144
+    rho=  1e-04  det=(1.0 + 1.80296e-151j)  A_band=    1006.0  A_lip=     502.9  A/weight: 0.00609, 0.00304
+    rho=  1e-02  det=(1.0 + 5.51812e-152j)  A_band=     27.04  A_lip=      13.6  A/weight: 0.0216, 0.0109
+    rho=  1e+00  det=(1.0 - 1.15904e-152j)  A_band=     1.517  A_lip=    0.3059  A/weight: 1.52, 0.306
+    rho=  1e+01  det=(1.0 - 2.76497e-152j)  A_band=     1.043  A_lip=    7.4e-7  A/weight: 1.04, 7.4e-7
+    rho=  1e+02  det=(1.0 + 2.13718e-152j)  A_band=     1.004  A_lip= 3.825e-62  A/weight: 1.0, 3.82e-62
+  a=+0.00:
+    rho=  1e-06  det=(1.0 + 1.05067e-152j)  A_band=       1.0  A_lip=       1.0  A/weight: 0.00456, 0.00456
+    rho=  1e-04  det=(1.0 - 1.34841e-152j)  A_band=       1.0  A_lip=    0.9999  A/weight: 0.00959, 0.00959
+    rho=  1e-02  det=(1.0 + 1.47787e-152j)  A_band=       1.0  A_lip=     0.986  A/weight: 0.0318, 0.0314
+    rho=  1e+00  det=(1.0 + 4.66947e-152j)  A_band=       1.0  A_lip=    0.2431  A/weight: 1.0, 0.243
+    rho=  1e+01  det=(1.0 - 2.20765e-152j)  A_band=       1.0  A_lip=  7.214e-7  A/weight: 1.0, 7.21e-7
+    rho=  1e+02  det=(1.0 - 6.11847e-153j)  A_band=       1.0  A_lip= 3.815e-62  A/weight: 1.0, 3.81e-62
+  a=+0.50:
+    rho=  1e-06  det=(1.0 + 4.18419e-154j)  A_band=  6.366e+5  A_lip=  3.183e+5  A/weight: 0.0029, 0.00145
+    rho=  1e-04  det=(1.0 + 1.35029e-152j)  A_band=    6372.0  A_lip=    3186.0  A/weight: 0.00611, 0.00306
+    rho=  1e-02  det=(1.0 + 3.17298e-152j)  A_band=      66.7  A_lip=     33.35  A/weight: 0.0212, 0.0106
+    rho=  1e+00  det=(1.0 - 6.56184e-152j)  A_band=     1.683  A_lip=    0.3349  A/weight: 1.68, 0.335
+    rho=  1e+01  det=(1.0 - 2.68721e-152j)  A_band=     1.054  A_lip=  7.473e-7  A/weight: 1.05, 7.47e-7
+    rho=  1e+02  det=(1.0 + 1.79967e-153j)  A_band=     1.005  A_lip= 3.828e-62  A/weight: 1.01, 3.83e-62
+  a=+1.50:
+    rho=  1e-06  det=(1.0 + 5.7651e-140j)  A_band= 2.546e+18  A_lip= 1.273e+18  A/weight: 0.0116, 0.0058
+    rho=  1e-04  det=(1.0 - 1.41299e-144j)  A_band= 2.547e+12  A_lip= 1.273e+12  A/weight: 0.0244, 0.0122
+    rho=  1e-02  det=(1.0 - 3.44733e-148j)  A_band=  2.559e+6  A_lip=   1.28e+6  A/weight: 0.0815, 0.0407
+    rho=  1e+00  det=(1.0 + 1.08554e-151j)  A_band=     6.406  A_lip=     1.664  A/weight: 6.41, 1.66
+    rho=  1e+01  det=(1.0 + 2.5047e-152j)  A_band=      1.17  A_lip=  8.927e-7  A/weight: 1.17, 8.93e-7
+    rho=  1e+02  det=(1.0 + 5.09709e-152j)  A_band=     1.015  A_lip= 3.897e-62  A/weight: 1.02, 3.9e-62
+  a=+2.50:
+    rho=  1e-06  det=(1.0 + 1.08972e-127j)  A_band= 4.074e+31  A_lip= 2.037e+31  A/weight: 0.186, 0.0928
+    rho=  1e-04  det=(1.0 + 5.94716e-135j)  A_band= 4.074e+21  A_lip= 2.037e+21  A/weight: 0.391, 0.195
+    rho=  1e-02  det=(1.0 - 4.08713e-143j)  A_band= 4.085e+11  A_lip= 2.042e+11  A/weight: 1.3, 0.65
+    rho=  1e+00  det=(1.0 - 4.95089e-151j)  A_band=     68.33  A_lip=      25.0  A/weight: 68.3, 25.0
+    rho=  1e+01  det=(1.0 + 3.27773e-152j)  A_band=     1.303  A_lip=  1.231e-6  A/weight: 1.3, 1.23e-6
+    rho=  1e+02  det=(1.0 + 2.99444e-153j)  A_band=     1.025  A_lip= 4.023e-62  A/weight: 1.03, 4.02e-62
