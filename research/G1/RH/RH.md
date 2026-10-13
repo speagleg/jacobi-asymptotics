@@ -1,6 +1,12 @@
 # RH analysis for pure powers (Plan 10)
 
-Status: Phases 0–1 written 2026-10-13. NOT REVIEWED. Notation: the weight exponent is **r** (r > 1), to avoid a clash
+Status: Phases 0–5 written 2026-10-13. Rule R (`review/REVIEW_RH.md`): ACCEPT WITH FIXES at the PROOF SKETCH label.
+§6.2–6.3 are REJECTED for p = 2 (D one-sided, E cut on iℝ, normalization contradicted by test A's N^{−1}). Corrections
+noted inline below are binding:
+- φ̃ = φ ± iθ/N in ℂ±;
+- p = 2 uses the odd branch θ = πN/z;
+- test B is circular (Rule X), not an acceptance test;
+- BKMM must not be cited for Airy. Notation: the weight exponent is **r** (r > 1), to avoid a clash
 with the symmetric variable s.
 
 ## 0. Model and target

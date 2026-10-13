@@ -77,3 +77,15 @@
 - **Status.** Theorem RH for p ∈ {1, 2} is a PROOF SKETCH, numerically validated. To reach PROVED it still needs
   symbol-by-symbol jump bookkeeping, explicit small-norm uniformity, and Rule R.
 - **Housekeeping.** check_fine.py now has a `__main__` guard, because importing it from check_phase5 re-ran Phase 0.
+
+## Rule R (review/REVIEW_RH.md)
+
+- **Verdict.** ACCEPT WITH FIXES at the PROOF SKETCH level. §6.2–6.3 are REJECTED for p = 2.
+- **Withdrawn.** RH_proof.md's PROVED-mod-cite label.
+- **Key findings:**
+  - the D/E normalization for p = 2 is wrong: D is one-sided and E has a cut on iℝ. Test A's N^{−1} scaling is the
+    square of the predicted N^{−1/2}, consistent with a needed two-sided D;
+  - the φ̃ sign was wrong;
+  - Re φ̃ > 0 on the lens contours is missing;
+  - behaviour at 0, the origin perturbation estimate and test B's circularity, plus six more missing steps.
+- **Positive.** p = 1 test A matches WLXZ's N^{−1/2} scaling exactly. WLXZ's D works for p = 1 because n/z² is even.

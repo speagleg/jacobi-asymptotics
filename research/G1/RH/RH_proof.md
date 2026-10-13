@@ -1,7 +1,15 @@
 # Theorem RH for p = 2: full steepest-descent bookkeeping
 
-Status: written 2026-10-13. NOT REVIEWED. This upgrades RH.md §8.4 from a proof sketch: every transformation, jump
-and estimate is written out. The local parametrices are cited constructions (Airy: WLXZ §6.1; Bessel: KV §5), with
+Status: **DRAFT — NOT a proof.** Written 2026-10-13. The Rule R review of the RH work (`review/REVIEW_RH.md`) found
+issues this document inherits:
+- §5 uses a one-sided D and an E with a cut on iℝ; a two-sided construction is needed for odd θ = πN/z;
+- φ̃ must be φ ± iθ/N, not ∓;
+- the condition Re φ̃ > 0 on the band-lens contours is missing;
+- the behaviour at z = 0 is unproved;
+- the origin perturbation estimate is missing.
+
+The PROVED-mod-cite label below is **withdrawn**; the status is PROOF SKETCH. Original intent: every transformation,
+jump and estimate written out. The local parametrices are cited constructions (Airy: WLXZ §6.1; Bessel: KV §5), with
 their hypotheses verified here. Notation follows RH.md, with p = 2 and q = 1. For p = 1 replace t(z) = N/z by N/z²
 (see §9).
 
@@ -219,4 +227,4 @@ parities. With r* = π (p = 2) this is γ_N² = (π²/4)N^{−2} = c(2)(N/2)^{�
   - the E factors and conjugation constants are polynomial in N.
 
   So the saturated jump entries are O(N^K e^{−c(δ)N}) uniformly. RH.md Lemma 4.4's numbers illustrate this.
-- **Label:** PROVED-mod-cite (WLXZ §6.1, KV §§4–6), pending Rule R.
+- **Label:** ~~PROVED-mod-cite~~ **PROOF SKETCH** (see the status line and review/REVIEW_RH.md, missing steps 1–9).
