@@ -106,3 +106,9 @@ import JacobiAsym
 #print axioms JacobiAsym.zetaL'_continuousOn
 #print axioms JacobiAsym.zetaL_monotoneOn
 #print axioms JacobiAsym.zetaL_slowFactor
+#print axioms JacobiAsym.smoothZeta_HL
+#print axioms JacobiAsym.smoothZeta_HL_det
+#print axioms JacobiAsym.zetaAtom_eq
+#print axioms JacobiAsym.zetaAtom_pos
+#print axioms JacobiAsym.zetaAtom_le_one
+#print axioms JacobiAsym.zetaAtom_summable

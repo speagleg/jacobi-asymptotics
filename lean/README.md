@@ -23,8 +23,14 @@ passage K → ∞ to D_n of the infinite measure are NOT proved here.
 | `rhoSeq`, `cesaro_weighted_zero`, `HL_lower` | H_L lower | lower half |
 | **`theoremHL`** | **Theorem H_L** | **PROVED-mod-input (TheoremHPure; input available for p ∈ {1,2}, s ≥ s0(p))** |
 | `lemmaP` | Lemma P | α ≥ 2β |
+| `det_mul_cauchyBinet` | (Cauchy–Binet) | det(AB) = Σ_S det A_S det B_S for rectangular real matrices |
+| `hankelK`, `heineK_eq_det` | H1 (Andreief/Heine) | truncated Heine sum = Hankel determinant of the truncated measure |
+| `hankel`, `heineD_eq_det`, `heineK_bdd_of_summable` | H1, K → ∞ | heineD = det(∑' w x^{i+j}) for summable w ≥ 0, bounded x |
+| `N0`, `zetaGamma`, `zetaGamma_spec`, `zetaGamma_hasDerivAt` | smooth ζ model | γ = N₀⁻¹(ξ − ½) without Lambert W; γ ≥ 9, derivative 2π/log(γ/2π) |
+| `zetaL`, `zetaL_eps_eq`, `zetaL_slowFactor` | Cor. H_L-ζ hypotheses | exact ε = (ℓ/2 + 2γ² − (11π/2)γ)/(ℓ(γ²+¼)); SlowFactor 2 instance |
+| **`smoothZeta_HL`, `smoothZeta_HL_det`** | **Corollary H_L-ζ** | **smooth-ζ measure, Hankel-determinant form; PROVED-mod-input (TheoremHPure 2 κ 2)** |
 
-Not here: Toeplitz eigenvalue count (Theorem B); Andreief/H2 and the K → ∞ identification of heineD with the Hankel
-determinant of the infinite measure; the smooth-ζ instance of `SlowFactor`.
+Not here: orthogonal polynomials, the three-term recurrence and H2 (law in b_j form) — Plan 5; Toeplitz eigenvalue
+count — Plan 6. The true-zero measure (G3′) is research.
 
 Check: `./check.sh` (build + axioms audit + completeness list; prints AUDIT OK).
