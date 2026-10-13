@@ -6,3 +6,10 @@ import JacobiAsym
 #print axioms JacobiAsym.heineK_mono_K
 #print axioms JacobiAsym.heineK_mono_w
 #print axioms JacobiAsym.heineK_smul_w
+#print axioms JacobiAsym.orderEmb_ge
+#print axioms JacobiAsym.heineTerm_le_of_pair_le
+#print axioms JacobiAsym.heineTerm_ge_of_pair_ge
+#print axioms JacobiAsym.two_mul_card_pairs
+#print axioms JacobiAsym.prod_eq_prod_orderEmb
+#print axioms JacobiAsym.card_filter_gt_orderEmb
+#print axioms JacobiAsym.prod_pairs_fst
