@@ -279,3 +279,57 @@ a deletion lemma for arbitrary index sets E of positive lower co-density: limsup
 N proves this only for evenly spread E. For clustered E the pairwise comparison used in (ii-b) fails, because
 π(b) − π(a) is not comparable to b − a. The numerics in `check_merge.out` [1] cover evenly spread E only; [2] (a
 localized defect) shows the shift appears once n exceeds the defect's index scale. This is NUMERICAL only.
+
+## 6. Own-atom normalization (G3′*): exploration, 2026-10-13 — NOT REVIEWED
+
+**Question.** Item 11's Law P is a statement about the atoms of a spectral measure, and those are distinct points.
+Normalizing by the measure's own distinct atoms y_1 > y_2 > … (merged weights) gives
+
+  (G3′*)  log D_n(σ) = −2n² log n + 2Σ_{j<n}(n−j) log(j² y_j) + κn² + o(n²).
+
+Exact repeats, whether multiple zeros or symmetric pairs off the line, then become a single atom. Does this remove the
+obstruction of §5?
+
+**What is proved.** For the doubled sequences σ^{(m)} of §5, G3′* holds. This is Prop N (ii-a, ii-b) read in own
+normalization: z_j = j⁻²L_z(j) with y_j/z_j → 1. So the specific counterexamples of Prop N are artefacts of the
+multiplicity normalization. (PROVED-mod-input Theorem H; follows directly from the reviewed proof of N.)
+
+**What the numerics show** (NUMERICAL, `star/check_thinning.out` and `star/check_neardouble.out`):
+
+| Perturbation of the smooth model | Own-normalized shift, n = 250 → 16000 |
+|---|---|
+| random thinning, keep 50% | ±0.006, near 0 |
+| every 2nd index removed in [2^k, 1.5·2^k) | ±0.008, oscillating, small |
+| **all** indices removed in [2^k, 1.5·2^k) (log-periodic holes) | −0.03 → −0.08, **not decaying** |
+| **all** indices removed in [2^k, 1.8·2^k) | −0.12 → −0.25, **not decaying** |
+| near-duplicate atom beside every 4th, gap 0.5 → 10⁻⁵ of the spacing | −0.013 → −0.002, decaying like 1/n |
+
+**Reading.**
+- *Microscopic* irregularity is harmless in own normalization: random or interleaved thinning, and near-duplicates
+  down to 10⁻⁵ of the spacing.
+- *Macroscopic* irregularity breaks the law: an atom density that oscillates log-periodically is not slowly varying, so
+  (L2) of H_L fails. The n² constant is then not the linear functional Σ(n−j) log L_y(j).
+- Theory suggests near-duplicates matter only when log(1/gap) is comparable to n, i.e. gaps of size e^{−cn}. Below
+  that, including both atoms costs less than dropping one. This is a heuristic; the numerics are consistent with it.
+
+**Consequence for an unconditional proof.** In either normalization, the law for the true zeros depends on how
+repeated (or super-close) ordinates are distributed:
+- *Multiplicity normalization:* repeats must have density 0 (Prop N; necessity would follow from GAP N′).
+- *Own normalization:* the proportion of distinct ordinates, N_d(T)/N(T), must vary slowly (no macroscopic
+  oscillation). Also, super-close distinct pairs (gaps ≈ e^{−cN}) must not have positive density.
+
+Unconditionally, (C3) gives only N_d(T) ≥ 0.4075·N(T)(1 + o(1)), since distinct zeros that are simple and on the line
+have distinct ordinates. Nothing read controls the regularity of N_d/N or the separation of distinct zeros. Even the
+local count N(t + h) − N(t) is known only up to O(log t), so zeros are not known to be spread at the scale of the mean
+spacing. So **G3′* is not provable unconditionally with the inputs available.** The obstruction moves from
+"density-one simplicity" to "regularity of the repeated-ordinate density plus sparse super-close pairs". Both are
+statements about the fine distribution of zeros that no surveyed result reaches.
+
+**Conjecture T (thinning lemma, deterministic; open).** Let E ⊂ ℕ have a slowly varying density:
+d(j) := |E ∩ [1, j]|/j is bounded below and d(λj)/d(j) → 1 for each λ > 0. Then σ̃|_E satisfies G3′* (own
+normalization). Supported by the random and interleaved rows above. Prop N proves it for evenly spread E.
+
+**Conditional statement (target, not proved).** Assume (D): N_d(T)/N(T) is slowly varying. Assume (WS): the
+super-close distinct pairs (log(1/normalized gap) ≥ εN) have density 0 for every ε > 0. Then Conjecture T together with
+the G3′-U/L machinery (§3, §4) would give G3′*. Both (D) and (WS) are weaker than (SG): (SG) ⇒ (D) with N_d/N → 1,
+and (SG) ⇒ (WS).
