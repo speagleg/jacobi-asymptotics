@@ -112,3 +112,13 @@ import JacobiAsym
 #print axioms JacobiAsym.zetaAtom_pos
 #print axioms JacobiAsym.zetaAtom_le_one
 #print axioms JacobiAsym.zetaAtom_summable
+#print axioms JacobiAsym.dip_summable
+#print axioms JacobiAsym.dip_comm
+#print axioms JacobiAsym.dip_add_left
+#print axioms JacobiAsym.dip_smul_left
+#print axioms JacobiAsym.dip_sum_left
+#print axioms JacobiAsym.dip_X_mul
+#print axioms JacobiAsym.dip_pow_pow
+#print axioms JacobiAsym.dip_self_eq_zero
+#print axioms JacobiAsym.hankel_eq_mom
+#print axioms JacobiAsym.hankel_det_pos
