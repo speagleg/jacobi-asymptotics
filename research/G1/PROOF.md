@@ -10,7 +10,10 @@ Status: draft, written 2026-10-13. NOT REVIEWED (Rule R is Task 5 of Plan 9).
 | **G1-T** | H_all + (T3) slow oscillation of β_n ⇒ β_n → 1, i.e. n^p b_n → c(p)C | PROVED-mod-cite (G2 (P)) |
 | **G1-L** | H_all + a one-sided bound (sup β_n < ∞ or inf β_n > 0) ⇒ (1/n)Σ_{j≤n} log(j^p b_j) → log(c(p)C) | PROVED-mod-cite (G2 (P)) |
 | A1 | J ≥ 0 ⇒ sine-weighted window averages of a_j are ≥ 2cos(π/(L+1))·min b over the window. Hence, if b is regular, liminf of window averages of a_j/(2b_j) ≥ 1 | PROVED |
-| G1-R | (T3) from the atoms alone; the upper half of a_n ~ 2b_n | GAP (see §4) |
+| A2 | p > 1: Σ_{j≥n} a_j = 𝔼_n[Σ_{k∉S} x_k] (Heine ensemble) | PROVED |
+| A3 | Q_p := ∫ x d(σ − μ*) = 2c(p)/(p−1) | PROVED-mod-cite (G2 B*) |
+| A4 | (CL) ⇒ tail-Cesàro a-law; with β_n → 1, a_j/(2b_j) → 1 in density | PROVED-mod-input (CL) |
+| G1-R | (T3) from the atoms alone; (CL) | GAP (see §4) |
 
 Setting:
 - J > 0 is the Jacobi matrix of σ = Σ w_k δ_{x_k}, with x_k = f(k) regularly spaced with index −p and constant C
@@ -79,6 +82,62 @@ gives Σ b_j s_j s_{j+1} ≥ (min b)·cos(π/(L+1))Σ s_j². ∎
 
 A1 is the windowed, limit-free form of item 11's Lemma P: a_n ≥ 2b_n on average. The matching upper bound
 (limsup ≤ 1) is the remaining a_n gap; see §4.
+
+**Proposition A2 (tail identity, p > 1).** Let p > 1, so that Σ_k x_k < ∞, J ≥ 0 is trace class, and
+Σ_j a_j = Tr J = Σ_k x_k. Let ℙ_n be the Heine probability on n-subsets S ⊂ ℕ, with ℙ_n(S) ∝ Π_{k∈S} w_k·V(S). Then
+
+  Σ_{j≥n} a_j = 𝔼_n[Σ_{k∉S} x_k].
+
+*Proof.* Σ_{j<n} a_j = Tr J_n is the sum of the zeros of P_n. By Heine's formula, P_n(z) = 𝔼_n[Π_{k∈S}(z − x_k)]. The
+coefficient of z^{n−1} is linear in the atoms, so the sum of the zeros is 𝔼_n[Σ_{k∈S} x_k]. Subtract this from
+Tr J = Σ_k x_k. ∎
+
+**Proposition A3 (the equilibrium value).** Let p > 1 and C = 1. With μ*, σ and c = c(p) as in G2 §1,
+
+  Q_p := ∫ x d(σ − μ*)(x) = ∫_0^∞ u^{−p}(1 − ρ*(u)) du = 2c(p)/(p − 1).
+
+This is the value the tail sums must take if a_j ~ 2c(p)j^{−p}, since n^{p−1}Σ_{j≥n} 2c j^{−p} → 2c/(p−1).
+
+*Proof.* σ − μ* vanishes on [4c, ∞) (G2 B*(i)), so F(R) := ∫_0^R x d(σ − μ*) is constant for R ≥ 4c. Compute the two
+parts for R ≥ 4c.
+- ∫_0^R xσ(dx) = R^{1−1/p}/(p−1).
+- Write μ* = ∫_0^1 ω_{β_t}dt and put t_R := (4c/R)^{1/p}.
+  - For t ≥ t_R (β_t ≤ R), ∫ x dω_{β_t} = β_t/2 = 2c t^{−p}. These t contribute 2c(t_R^{1−p} − 1)/(p−1).
+  - For t < t_R, the substitution t = t_R s gives β_t = R s^{−p}, and these t contribute R t_R M_p with
+    M_p := ∫_0^1∫_0^1 y dω_{[0,s^{−p}]}(y) ds < ∞.
+  - Both t-ranges give terms proportional to R^{1−1/p}, plus the constant −2c/(p−1).
+- So F(R) = κ′R^{1−1/p} + 2c/(p−1) for some constant κ′. Since F is constant in R, κ′ = 0 and F ≡ 2c/(p−1). ∎
+
+Numerically (`checks/check_tailsum.out`), Q_p − 2c/(p−1) = 0 to 8 digits for p ∈ {1.5, 2, 3, 4}. The actual tail sums
+n^{p−1}Σ_{j≥n} a_j converge to Q_p: for p = 2, 1.2430 → 1.2363 → 1.2343 at n = 100, 400, 1600, against 1.2337.
+
+**Theorem A4 (conditional a_n law, p > 1).** Assume H_all's hypotheses with exact pure-power atoms x_k = k^{−p} (C = 1),
+and the concentration lemma
+
+  (CL) n^{p−1}𝔼_n[Σ_{k∉S} x_k] → Q_p.
+
+Then n^{p−1}Σ_{j≥n} a_j → 2c(p)/(p−1), which is the tail-Cesàro form of a_n ~ 2c(p)n^{−p}. If in addition β_n → 1
+(e.g. under (T3), by G1-T), then:
+- Σ_{j≥n}(a_j − 2b_j) = o(n^{1−p});
+- with Prop A1, a_j/(2b_j) → 1 *in density*: for every η > 0, the set {j : |a_j/(2b_j) − 1| > η} has
+  Σ_{j∈set, j≥n} j^{−p} = o(n^{1−p}), on the positive side directly and on the negative side in window average.
+
+*Proof.* Combine A2, A3 and (CL). Then subtract Σ_{j≥n} 2b_j = (2c/(p−1))n^{1−p}(1 + o(1)), which holds when β_n → 1.
+For the density statement:
+- the positive part (a_j − 2b_j)⁺ is controlled by the tail equality together with A1's lower bound on window averages;
+- the negative part is controlled by A1 directly. ∎
+
+*Status of (CL).* (CL) is the statement that the Heine ensemble's complement measure (1/n)Σ_{k∉S}δ_{k/n} converges to
+(1 − ρ*(u))du, tested against u^{−p}. The integrand is singular at u = 0, inside the saturated region.
+- On u ≥ θ the test function is bounded. There, (CL) would follow from concentration of the empirical measure at speed
+  n² (an LDP upper bound). That bound is plausibly provable from G2 Part A and the energy-distance form of B*(iii), but
+  it is not written here.
+- On u < θ < u_s (saturated), (CL) needs E[(1/n)Σ_{k≤θn, k∉S}(k/n)^{−p}] → 0: a *saturation-exactness* statement. The
+  n²-speed bound cannot see single-atom exclusions, which cost only O(n) in log V. Heuristically each exclusion costs
+  e^{−2n(U*(x_k) − ℓ)} (swap a saturated atom for a free one), and U* − ℓ > 0 on the saturated region. A proof needs
+  mesoscopic control of the empirical potential.
+- **(CL) is the precise missing lemma for the a_n side (p > 1).** For p ≤ 1, J is not trace class and A2 does not apply
+  as stated.
 
 ## 4. G1-R: what remains (stop report)
 

@@ -21,3 +21,9 @@
   - Prop A1 on real data (p = 2, parity weights, L = 20): the minimum window average of a/(2b) is 1.0012, against the
     bound 0.9888.
 - **Ruling.** Prop A1 (Task 3 material) was written together with Task 2, since it shares the window/kernel technique.
+- **Task 3 (a_n side).** A1 (window lower bound) is PROVED. A2 (Heine tail identity, p > 1) is PROVED. A3
+  (Q_p = 2c(p)/(p−1)) is PROVED by a cancellation argument and checked numerically to 8 digits. A4 is conditional on
+  the concentration lemma (CL). The tail sums of a_j converge to Q_p numerically (`checks/check_tailsum.out`).
+  - **Missing lemma (CL):** saturation exactness of the Heine ensemble. Single-atom exclusions in the saturated
+    region must be rare enough that the u^{−p}-weighted deficit vanishes. This is invisible to n²-speed large
+    deviations.
