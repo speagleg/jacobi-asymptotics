@@ -27,3 +27,16 @@
 - **Band.** r* = 2^{1+q}√c(p) reproduces WLXZ's (−2, 2) at p = 1, a consistency check of the scaling.
 - **Gate 1: GO for p ≥ 1.** For p < 1, θ is real on extra rays, which is deferred. Open for Phase 2: the
   saturated-region sign conventions.
+
+## Phase 2: g-function and signs (RH.md §4)
+
+- **Density.** ψ matches WLXZ (2.1) at p = 1 to 10 digits, and g′ matches WLXZ (4.2) in the right half-plane.
+- **Variational conditions.** Equality on the band to 7e−13; strict inequality on the saturated part.
+- **Lens signs.** Re φ < 0 over the band, by an exact identity. Re φ̃ < 0 on the saturated part (checked for
+  p = 1, 2, 3).
+- **Bug found and fixed.** The node-density normalization in the check was off by a factor 2: (1/q)|x|^{−1−1/q}, not
+  half of it. The ratio ψ/constraint is now exactly 1 on the saturated part.
+- **Gate 2: GO.**
+- **Structural finding (RH.md §5).** The origin is regular iff r = 1 + p/2 (α = 0); otherwise there is a Fisher–Hartwig
+  |z|^{2α} singularity at 0, which needs a Bessel parametrix. Ruling: Phases 3–5 are done first on the regular family
+  r = 1 + p/2, then extended.

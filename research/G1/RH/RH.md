@@ -85,3 +85,55 @@ phases:
 - the extra θ-real rays for p < 1;
 - the sign conventions of g₊ + g₋ − l on the saturated part (Phase 2; WLXZ (4.4) is written for their normalization);
 - the end of the node set at |Z| = N^q (Review Focus 4).
+
+## 4. Phase 2: g-function, φ-functions, sign structure
+
+**Definitions.**
+
+  g(z) := ∫ log(z − y) dμ*_sym(y) = ∫_0^1 log((z + z√(1 − ρ_t²/z²))/2) dt,
+  g′(z) = ∫_0^1 dt/(z√(1 − ρ_t²/z²)),
+
+with ρ_t = r* t^{−q} and branches ∼ log z and 1/z at ∞. The Lagrange constant is l := 2Re g(0⁺). Put φ := l/2 − g on
+ℂ±. On the saturated part, put φ̃ := φ ∓ iθ/N (+ const), as in WLXZ (2.4) (their 2πi/s³ is −iθ′/n for θ = nπ/s²).
+
+**Lemma 2.1 (density; PROVED).** μ*_sym has density
+
+  ψ(x) = (1/π)∫_0^{min(1,t_x)} dt/√(ρ_t² − x²),  t_x = (r*/|x|)^{1/q}.
+
+On |x| ≥ r* it equals the node density (1/q)|x|^{−1−1/q} (N nodes, mass 1/N each); on |x| < r* it is strictly smaller.
+This is G2 B*(i) pushed forward under x ↦ ±√x, since each arcsine law on [0, β] maps to the arcsine law on [−√β, √β].
+For p = 1, ψ coincides with WLXZ (2.1) (checked to 10 digits).
+
+**Lemma 2.2 (variational conditions; PROVED).**
+- For a symmetric measure, ∫ log|Z − Y| dμ*_sym(Y) = ½U*(Z²) after rescaling. So G2 B*(ii) gives
+  g₊ + g₋ = 2Re g = l on the band, and > l on the saturated part.
+- Numerically: |2Re g − l| ≤ 7e−13 on the band, and 2Re g − l = 0.0037, 0.75, 3.03 (p = 1) at x/r* = 1.01, 1.5, 4.
+
+**Lemma 2.3 (lens signs; PROVED).**
+- **Over the band** (|x| < r*): Re φ(x + iy) = −½∫ log(1 + y²/(x − s)²) dμ*_sym(s) < 0 for every y ≠ 0, because
+  Re g(x) = l/2 on the band. So the lens factors e^{2Nφ} are exponentially small on the lens boundaries away from the
+  real axis. Numerically, Re φ = −0.017, −0.008, −0.004 at y = ±0.05 (p = 1, 2, 3).
+- **Over the saturated part:** φ̃ has no jump across it, because −g′ ∓ iθ′/N removes the jump −2πiψ, where ψ equals
+  the node density there. Re φ̃(x) = l/2 − Re g(x) < 0 strictly there, with values −0.02, −0.72, −2.48 (p = 1) at
+  x/r* = 1.05, 2, 10. By continuity Re φ̃ < 0 in a thin lens, uniformly away from ±r*. The growth of 2Re g − l as
+  |x| → ∞ keeps this uniform up to the top node N^q.
+
+**Gate 2: GO.** All sign conditions needed for lens opening hold, with strict signs away from ±r*. The left
+half-plane is handled by symmetry. My transcription of WLXZ (4.2) used the principal √(z² − 4), which behaves like −z
+for Re z < 0; this caused the apparent g′ mismatch at −1.5 + 2i. Their branch behaves like +z. Our t-integral uses the
+correct branch.
+
+## 5. Structure found for Phases 3–4: the origin is a Fisher–Hartwig point unless r = 1 + p/2
+
+Near z = 0 the jumps involve w/Π = wθ′/sin θ. Here w(z) ∝ (z²)^{r/p} and θ′(z) ∝ z(z²)^{−1/p−1}, so
+
+  wθ′ ∝ z^{−1}(z²)^{(r−1)/p} ∝ |z|^{2α}·(sign factors),  α := (2r − 2 − p)/(2p).
+
+- **α = 0, i.e. r = 1 + p/2.** The power cancels, and the origin is regular, exactly as in WLXZ. This holds for
+  Tricomi–Carlitz (p = 1, r = 3/2) and for Lommel ν = ½ (p = 2, r = 2). There the elementary WLXZ origin parametrix
+  (I + O(z²/N) matching) should carry over directly.
+- **α ≠ 0.** The weight has a root-type (Fisher–Hartwig) singularity |z|^{2α} at the interior band point 0. The
+  standard remedy is a Bessel-function local parametrix (Kuijlaars–Vanlessen type, for |x|^{2α} at an interior point),
+  composed with the WLXZ triangular factors. **Not yet read: a citation task for Phase 4.**
+- **Suggested order.** Phases 3–5 first for the regular family r = 1 + p/2 (every p ≥ 1). Then the general r via the
+  Bessel parametrix. Phase 0's d₁ = −(r−1)/2 becomes −p/4 on the regular family.
