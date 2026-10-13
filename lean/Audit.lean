@@ -28,3 +28,9 @@ import JacobiAsym
 #print axioms JacobiAsym.neg_mul_log_le
 #print axioms JacobiAsym.phi_bound
 #print axioms JacobiAsym.heineTerm_le_of_pair_le_split
+#print axioms JacobiAsym.heineK_zero_card
+#print axioms JacobiAsym.heineK_pos
+#print axioms JacobiAsym.heineK_le_heineD
+#print axioms JacobiAsym.heineD_le
+#print axioms JacobiAsym.heineD_pos
+#print axioms JacobiAsym.TheoremHPure.uniform_upper
