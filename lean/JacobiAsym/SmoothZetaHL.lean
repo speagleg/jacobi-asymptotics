@@ -70,7 +70,8 @@ theorem zetaAtom_summable : Summable zetaAtom := by
             field_simp]
         rw [e, Real.rpow_neg ht.le]
 
-/-- **Corollary H_L-ζ** (PROVED-mod-input `TheoremHPure 2 κ 2`). -/
+/-- **Corollary H_L-ζ** (PROVED-mod-input `TheoremHPure 2 κ 2`). Item 11 instantiates `κ = 3 + log(π²/16)`
+(`κ = 3p/2 + log c(2)`, `C = 1`). Only the `log D_n` form is stated; the doubly-Cesàro `b_j` form needs H2 (Plan 5). -/
 theorem smoothZeta_HL {κ : ℝ} (hH : TheoremHPure 2 κ 2) :
     Tendsto (hnorm 2 κ (heineD zetaAtom (fun k => 2 * zetaAtom k)) (fun n => Real.log (zetaL n)))
       atTop (𝓝 0) := by

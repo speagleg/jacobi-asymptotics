@@ -12,7 +12,7 @@ noncomputable def heineTerm (x w : ℕ → ℝ) (S : Finset ℕ) : ℝ :=
   (∏ i ∈ S, w i) * ∏ p ∈ pairs S, (x p.1 - x p.2) ^ 2
 
 /-- Heine sum over `n`-subsets of `range K` (= the `n × n` Hankel determinant of `∑_{k<K} w k δ_{x k}`,
-by Andreief; that identity is NOT used or proved here). -/
+by Andreief; proved later as `heineK_eq_det`). -/
 noncomputable def heineK (x w : ℕ → ℝ) (K n : ℕ) : ℝ :=
   ∑ S ∈ (range K).powersetCard n, heineTerm x w S
 

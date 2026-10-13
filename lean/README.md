@@ -1,9 +1,10 @@
 # JacobiAsym (Lean 4.34.1, Mathlib v4.34.1)
 
 Sorry-free foundations for the deduction Theorem H (pure powers) ⇒ Theorem H_L (slowly varying atoms) of
-math-pursuits item 11 (work/proof/PROOF.md §7b). The Hankel determinant of the truncation Σ_{k<K} w_k δ_{x_k} is
-represented by the finite Heine sum `heineK x w K n`; the identity heineK = Hankel determinant (Andreief) and the
-passage K → ∞ to D_n of the infinite measure are NOT proved here.
+math-pursuits item 11 (work/proof/PROOF.md §7b). D_n is represented by the Heine sum `heineK x w K n` (truncation to range K) and its supremum `heineD`. The
+identities heineK = Hankel determinant of the truncation (`heineK_eq_det`, Andreief) and heineD = Hankel determinant
+of the infinite measure (`heineD_eq_det`, K → ∞) are proved here. Only Theorem H for pure powers (`TheoremHPure`)
+remains a named input.
 
 | Lean | Item 11 | Content |
 |---|---|---|
