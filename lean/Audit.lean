@@ -143,3 +143,13 @@ import JacobiAsym
 #print axioms JacobiAsym.hankel_one_det
 #print axioms JacobiAsym.hratio_eq
 #print axioms JacobiAsym.prod_pow_step
+#print axioms JacobiAsym.sum_log_weighted_asymp
+#print axioms JacobiAsym.mvt_step
+#print axioms JacobiAsym.telescope_bounds
+#print axioms JacobiAsym.sum_weighted_eq_double
+#print axioms JacobiAsym.sum_shift
+#print axioms JacobiAsym.sum_Ico_id
+#print axioms JacobiAsym.g1_deriv
+#print axioms JacobiAsym.g2_deriv
+#print axioms JacobiAsym.log_monoOn
+#print axioms JacobiAsym.xlogx_monoOn
