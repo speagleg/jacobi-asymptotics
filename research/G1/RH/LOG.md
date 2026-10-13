@@ -154,3 +154,17 @@
   - R4: Vanlessen (4.27)–(4.34) cited for the continuation of Ψ;
   - R5: the Remark range corrected to 1 < r < 9/4.
 - **Theorem RH₁(r): PROVED-mod-cite + REVIEWED.**
+
+## Plan 12 (2026-10-13): RH in the x-variable, p > 1 (research/G1/RH/px/)
+
+- **Phase 0.** Reused Plan 10's numerics: d₁ = −(s−1)/2 and e₁ = p/2 for p ∈ {1.5, 2, 3}.
+- **Phase 1, Gate 1 GO.**
+  - The IP is rescaled with nodes X_k = (N/k)^p and t = N z^{−1/p}. For p > 1, |arg t| < π on the slit plane.
+  - Pole removal is checked at a band node and at a saturated node (p = 2, s = 3, N = 12).
+  - The band weight is |W| = (2π/p)N^{1+p−s}x^{α_x}, so x = 0 is a hard edge with exponent α_x = (s−1−p)/p.
+- **Phase 2, Gate 2 GO.**
+  - g, φ = l/2 − g and φ̃ = φ ± iθ/N, with l = 2(log c + p).
+  - Strictness on the saturated region comes from Re g′ > 0 there (closes REVIEW_RH Lemma 2.2's fix).
+  - Lip signs: ∂_y Re φ = −πψ and ∂_y Re φ̃ = π(ρ − ψ). This gives the REVIEW_RH item-4 condition Re φ̃ > 0 on the
+    band lips.
+  - Checked for p ∈ {1.5, 2, 3}.
