@@ -19,8 +19,8 @@ for a, b in [(3, 1), (4, 1), (3, 2)]:
             for j in range(n):
                 M[i, j] = mp.zeta(a * (i + j + 2) + b)
         lhs = mp.log(mp.det(M))
-        # D_n = m0^n prod_{j<n} b_j^{2(n-j)}, b2[i] = b_{i+1}^2 ; m0 = zeta(s) (full measure; K=4000 truncation is
-        # negligible at this precision only for the moments used by mp? use exact m0)
+        # H2: D_n = m0^n prod_{j<n} b_j^{2(n-j)}, with b2[i] = b_{i+1}^2 from the K=4000 truncated measure and the exact
+        # total mass m0 = zeta(s); the truncation error is far below the 12 printed digits for these n.
         m0 = mp.zeta(s)
         rhs = n * mp.log(m0) + sum((n - j) * mp.log(mp.mpf(jc.b2[j - 1])) for j in range(1, n))
         print(f"[1] a={a} b={b} n={n}: log det zeta = {mp.nstr(lhs, 12)}  log D_n(toolkit, K=4000) = {mp.nstr(rhs, 12)}")

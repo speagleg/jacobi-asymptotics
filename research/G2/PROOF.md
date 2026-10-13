@@ -1,17 +1,22 @@
 # G2: Theorem H for every p > 0
 
-Status: draft, written 2026-10-13. NOT REVIEWED (Rule R is Task 6 of Plan 8). No RH framing applies here: the measures
-are explicit power laws.
+Status: REVIEWED 2026-10-13 (Rule R: `review/REVIEW_G2.md`, ACCEPT WITH FIXES; fixes applied). No RH framing applies
+here: the measures are explicit power laws.
+
+**Labels.** "PROVED-mod-cite (X)" means proved from explicitly cited external results X that were read and quoted with
+their hypotheses in CITATIONS.md (item 11's convention, which VERIFICATION_POLICY.md's PROVED-mod-input generalizes).
+**Prior art:** for p = 1, Monien (arXiv:0901.1883 §3) set up the same constrained maximization heuristically and found
+the same optimizer (CITATIONS.md (M)).
 
 ## 0. Status
 
 | Result | Statement | Label |
 |---|---|---|
 | B0 | arcsine potential: ∫ log\|x−y\| dω_{[0,β]} = log(β/4) on [0,β], and ≥ log(β/4) on [β,∞) | PROVED |
-| B* | E_p := sup_{μ∈𝒜} I(μ) = κ_p := 3p/2 + log c(p), uniquely attained at μ* = ∫_0^1 ω_{[0,4c(p)t^{−p}]} dt | PROVED-mod-cite (P) |
+| B* | E_p := sup_{μ∈𝒜} I(μ) = κ_p := 3p/2 + log c(p), uniquely attained at μ* = ∫_0^1 ω_{[0,4c(p)t^{−p}]} dt | PROVED-mod-cite (P); the value I(μ*) = κ_p is citation-free |
 | A1 | discretization: point energy ≤ n²·(smeared energy) + C_M n log n, for subsets of [1, Mn] | PROVED |
 | A-U | limsup (1/n²)[log D_n + p n² log n] ≤ E_p | PROVED (uses A1, B*-scaling; algebra of item 11 H7) |
-| A-L | liminf ≥ E_p | PROVED (uses B*) |
+| A-L | liminf ≥ κ_p (= I(μ*_u)) | PROVED (citation-free: uses B*(i) and the value in B*(iii)) |
 | **H_all** | **for every p > 0, C > 0, regularly spaced atoms, and weights with Σw < ∞ and w_k ≥ c₁k^{−s}: log D_n = −pn² log n + (κ_p + log C)n² + o(n²)** | PROVED-mod-cite (P) |
 | HZ | log det_{1≤i,j≤n} ζ(a(i+j)+b) = −an² log n + (3a/2 + log c(a))n² + o(n²), for integer a ≥ 1 and real b > 1 − 2a | PROVED-mod-cite (P) |
 
@@ -46,8 +51,9 @@ U_β ≥ log(β/4) on [0, ∞).
 *Proof.* Write x = (β/2)(1 − cos φ) and y = (β/2)(1 − cos θ). Then dω_β = dθ/π on [0, π], and
 log|x − y| = log(β/4) + log|2(cos θ − cos φ)|. Also
 log|2(cos θ − cos φ)| = log|2 sin((θ+φ)/2)| + log|2 sin((θ−φ)/2)| = −Σ_{k≥1}(2/k) cos kθ cos kφ, using
-log|2 sin(α/2)| = −Σ_{k≥1} cos(kα)/k. Integrating dθ/π over [0, π] kills every term. (The series converges in L¹,
-which justifies termwise integration.) For x > β, U_β′(x) = ∫ dω_β(y)/(x − y) > 0, and U_β is continuous at β. ∎
+log|2 sin(α/2)| = −Σ_{k≥1} cos(kα)/k. Integrating dθ/π over [0, π] kills every term. (The series converges in L²[0, π], hence in
+L¹, which justifies termwise integration.) For x > β, U_β′(x) = ∫ dω_β(y)/(x − y) > 0. U_β is continuous at β: near
+y = β the integrand is dominated by |log s|·s^{−1/2} (with s = β − y), so dominated convergence applies. ∎
 
 **Definition.** Put β_t := 4c(p) t^{−p} for t ∈ (0, 1], and μ* := ∫_0^1 ω_{β_t} dt, a probability measure in the x
 variable. Write μ*_u := (g⁻¹)_*μ* for the same measure in u.
@@ -70,8 +76,11 @@ on (0, u_s] with u_s := (4c(p))^{−1/p}, and density < 1 on (u_s, ∞).
   - For x < 4c (t_x > 1), the s-integral stops at 1/t_x < 1, so dμ*/dx < σ(x).
   - The total mass is ∫_0^1 dt = 1.
   - Also ∫ log(1 + x) dμ* < ∞, since σ(x) log x is integrable at ∞.
+  - *Closed form* (from the reviewer; substitute v = s^p): dμ*/dσ = I_{min(1, x/4c)}(1/p + ½, ½), the regularized
+    incomplete beta function.
 
-(ii) By Fubini (U_{β_t}(x) is bounded by C(1 + |log x| + log β_t), which is integrable in t),
+(ii) By Fubini: ∫|log|x − y|| dω_{β_t}(y) ≤ C(1 + |log x| + log β_t), an absolute-integrability bound that is
+  integrable in t ∈ (0, 1]. So
   U*(x) = ∫_0^1 U_{β_t}(x) dt. For x ≤ 4c we have x ≤ β_t for every t, so by B0
   U* = ∫_0^1 log(c t^{−p}) dt = log c + p. For all x, B0 gives U_{β_t} ≥ log(β_t/4), so U* ≥ log c + p.
 
@@ -80,10 +89,19 @@ on (0, u_s] with u_s := (4c(p))^{−1/p}, and density < 1 on (u_s, ∞).
 
     I(μ*_u) = ∫_0^1∫_0^1 [log c − p log min(s,t)] ds dt = log c − p·∫_0^1 2(1−m) log m dm = log c + 3p/2 = κ_p,
 
-  using E[log min] = −3/2. Fubini is justified because every term is bounded by C(1 + |log s| + |log t|).
+  using E[log min] = −3/2. Fubini is justified because ∬|log|x − y|| dω_{β_s}dω_{β_t} ≤ C(1 + |log s| + |log t|), an
+  absolute bound.
 
-**Optimality.** Let μ ∈ 𝒜 with I(μ) > −∞, and put μ^x := g_*μ ≤ σ. Then μ^x and μ* are positive, of mass 1, have finite
-energy, and satisfy ∫ log(1+x) < ∞ (both are ≤ σ near ∞). So both lie in M(ℂ) of (P). Expanding with ν := μ^x − μ*:
+**Optimality.**
+- **E_p is finite.** I(μ) < +∞ for every μ ∈ 𝒜, since log|x − y| ≤ log(1+x) + log(1+y) and μ^x ≤ σ has a finite log
+  moment. The case I(μ) = −∞ is trivial.
+- **Setup.** Let μ ∈ 𝒜 with I(μ) > −∞, and put μ^x := g_*μ ≤ σ. Then μ^x and μ* are positive, of mass 1, have finite
+  energy in the sense of (P) (I_{(P)} = −I < ∞), and satisfy ∫ log(1+x) < ∞, both being ≤ σ near ∞. So both lie in
+  M(ℂ) of (P).
+- **Mutual energy.** It is finite by (P) §1 (the bound after (1.13), and 2I(μ̃,ν̃) ≤ I(μ̃) + I(ν̃)), so ∫U* dμ^x is
+  finite and the bilinear expansion below is legitimate.
+
+Expanding with ν := μ^x − μ*:
 
     I(μ) = I(μ*_u) + 2∫ U* dν + ∬ log|x − y| dν dν.
 
@@ -94,11 +112,18 @@ energy, and satisfy ∫ log(1+x) < ∞ (both are ≤ σ near ∞). So both lie i
   Therefore I(μ) ≤ κ_p, with equality iff μ^x = μ*. ∎
 
 *Remarks.*
+- **Prior art.** For p = 1, μ*_u is exactly Monien's density (arXiv:0901.1883, Theorem 3.1):
+  (2/π)(arctan(1/√(2x−1)) − √(2x−1)/(2x)) for x > ½, saturated on [0, ½]. The reviewer checked numerically that it
+  coincides with I_{1/(2x)}(3/2, ½). Monien's treatment is heuristic: existence is assumed, only stationarity is
+  checked, and there is no upper bound or discretization argument. B* proves optimality and uniqueness for every p > 0.
 - μ* is the average of the arcsine laws that the forward Weyl law (item 11 Theorem B) assigns to a Jacobi matrix with
   b_j = c(p)j^{−p} and a_j = 2b_j. The saturation identity (i) is exactly the defining equation of c(p). This explains
   why Law P's constant is the constrained-equilibrium constant.
-- Numerics (`checks/check_energy.out`): density/σ, the potential, and a Monte Carlo I(μ*) agree with (i)–(iii) for
-  p ∈ {0.5, 1, 1.5, 2, 3, 4, 6}.
+- Numerics (`checks/check_energy.out`): density/σ and a Monte Carlo I(μ*) agree with (i) and (iii) for
+  p ∈ {0.5, 1, 1.5, 2, 3, 4, 6}. Two caveats:
+  - The value 0.9862 at p = 0.5, x = 1000·4c is quadrature error. The closed form gives exactly 1.
+  - The U* rows are circular (Rule X): inside the support they plug B0's value into a t-quadrature. B0 itself was
+    checked independently by direct quadrature in the reviewer's scratch run.
 - For C ≠ 1 (atoms Ck^{−p}), I gains log C.
 
 ---
@@ -125,7 +150,8 @@ where u_i = k_i/n and μ̄_S ∈ 𝒜_{N/n} has density 1 on ∪_{k∈S} A_k, wi
   c₀ := ∫_0^1∫_1^2 log(v − u) du dv. The excess is ≤ (p+1) log 2 − c₀.
 - *Diagonal.* On A_k², |g(u) − g(v)| ≥ |g′(k/n)||u − v|, so n²∬_{A_k²} log|g(u) − g(v)| ≥ log|g′(k/n)| − log n − 3/2.
   For k ≤ Mn this is ≥ log p − (p+1) log M − log n − 3/2.
-- *Summing.* For fixed i, the partners have distinct index distances, so Σ_j 1/(l − k − 1) ≤ 2 + log n. Collecting,
+- *Summing.* The harmonic bound is one-sided: for fixed i, the partners to the right have distinct index distances,
+  so their sum is ≤ 2 + log n. The factor 2 below accounts for ordered pairs. Collecting,
   Σ_{i≠j} log|g(u_i) − g(u_j)| ≤ n²I(μ̄_S) + 2n(2 + log n + (p+1) log 2 − c₀) + N((p+1) log M + log n + 3/2 − log p).
   ∎
 
@@ -152,37 +178,70 @@ So D_n ≤ Σ_{m=0}^n T_m with
 
   log T_m ≤ n log W − 2pm log N! − pN² log N + E_pN² − pm(m−1) log(Mn) + C′_M n log n.
 
-The algebra of H7 steps 5–6, with κ_p replaced by E_p, gives log T_m + pn² log n − E_pn² ≤ n²φ_M(m/n) + O_M(n log n),
-where φ_M(t) ≤ A t − p t² log M and A := 4p + 2|E_p|. Hence
+*The φ_M derivation* (item 11 H7 steps 5–6, written out with E_p in place of κ_p). Put t := m/n, so N = (1−t)n.
+1. Use log N! ≥ N log N − N, together with log N = log n + log(1−t) and log(Mn) = log n + log M.
+2. The log n terms combine to −p(2mN + N² + m²) log n = −pn² log n.
+3. The remaining terms are
+   n²[−2pt(1−t) log(1−t) + 2pt(1−t) − p(1−t)² log(1−t) + E_p((1−t)² − 1) − pt² log M] + O_M(n log n).
+4. With −(1−t) log(1−t) ≤ t, this is ≤ n²[(p(1+t) + 2p + 2|E_p|)t − pt² log M] ≤ n²[At − pt² log M], with
+   A := 4p + 2|E_p|.
+5. For N = 0 (t = 1), (1−t)² log(1−t) → 0 and the bound is unchanged.
+
+So log T_m + pn² log n − E_pn² ≤ n²φ_M(m/n) + O_M(n log n), with φ_M(t) ≤ At − pt² log M. Hence
 limsup (1/n²)[log D_n + pn² log n] ≤ E_p + A²/(4p log M). Let M → ∞. ∎
 
 The upper bound needs only W < ∞. It needs no polynomial upper bound on the weights, and no s₀.
 
-**Theorem A-L.** liminf_n (1/n²)[log D_n + p n² log n] ≥ E_p.
+**Theorem A-L.** liminf_n (1/n²)[log D_n + p n² log n] ≥ κ_p = I(μ*_u). The proof is citation-free.
 
-*Proof.* Fix ε > 0.
-1. **A compact admissible approximant.** μ*_u has a continuous positive density on (0, ∞): it equals 1 on (0, u_s],
-   and on (u_s, ∞) it is the formula of B*(i) pulled back. Choose U with I(μ*_u|_{(0,U]}) ≥ κ_p − ε and mass m_U ≥ 1 − ε,
-   which is possible by dominated convergence, since I(μ*_u) is finite. Apply the scaling map with τ := 1/m_U to
-   μ_U := μ*_u|_{(0,U]}: ν(B) := τ·μ_U(B/τ). Then ν has mass 1 and density ρ*(u m_U) ∈ [d_U, 1] on its support
-   (0, U′], with U′ := U/m_U, where d_U := min_{(0,U]} ρ* > 0. So ν ∈ 𝒜, and
-   I(ν) = m_U⁻²(I(μ_U) + p log m_U) ≥ κ_p − 3ε for small ε.
-2. **Quantile configuration.** Let q_i := F_ν⁻¹((i − ½)/n) and k_i := ⌈n q_i⌉. The density is ≤ 1, so
-   q_{i+1} − q_i ≥ 1/n and the k_i are distinct. The density is ≥ d_U, so q_{i+1} − q_i ≤ 1/(d_U n).
-   Put S* := {k_i} ⊂ [1, U′n + 1].
-3. **Energy comparison.** Let B_i be the ν-quantile blocks of mass 1/n, of u-width in [1/n, 1/(d_U n)], and note
-   k_i/n ∈ B_i + [0, 1/n].
-   - *Pairs with |i − j| ≥ 3.* The perturbation argument of A1, with widths ≤ C_U/n, bounds the point value from below
-     by n²∬_{B_i×B_j} log|g − g| dν dν − C_U(1/(|i − j| − 2) + 1/min(i,j)).
-   - *Pairs with |i − j| ≤ 2.* The point value is ≥ log(|g′(k_j/n)|/n) and the block average is
-     ≤ log(|g′(q_{i−½})|·3/(d_U n)). The difference is bounded by C_U, because q_j/q_i is bounded for neighbouring
-     blocks: q_i ≥ (i − ½)/n.
-   - *Diagonal blocks.* n²∬_{B_i²} log|g(u) − g(v)| dν dν ≤ log(|g′(q_{i−½})|/(d_U n)), and
-     Σ_i[(p+1) log(n/(i − ½)) − log n] = O(n).
-   - Summing, Σ_{i≠j} log|g(u_i) − g(u_j)| ≥ n²I(ν) − C_U n log n.
+*Proof.* Fix η > 0.
+1. **A compact admissible approximant.** μ*_u has a continuous positive density ρ* on (0, ∞): it equals 1 on
+   (0, u_s], and on (u_s, ∞) it is given by B*(i) pulled back.
+   - Put μ_U := μ*_u|_{(0,U]}, of mass m_U. |log|g(u) − g(v)|| is μ*_u⊗μ*_u-integrable: the positive part by
+     (1.12)-type log moments, and the negative part because I(μ*_u) is finite. So I(μ_U) → I(μ*_u) = κ_p and
+     m_U → 1 as U → ∞, by dominated convergence.
+   - Scale a mass-m measure by μ_τ(B) := τμ(B/τ), which gives I(μ_τ) = τ²(I(μ) − p m² log τ). With τ := 1/m_U, the
+     measure ν := (μ_U)_τ has mass 1 and density ρ*(u m_U) ∈ [d_U, 1] on its support (0, U′], where U′ := U/m_U and
+     d_U := min_{(0,U]} ρ* > 0. So ν ∈ 𝒜, and
+
+       I(ν) = m_U⁻² I(μ_U) + p log m_U ≥ κ_p − η  for U large.
+
+2. **Quantile configuration.** Let F be the distribution function of ν, with blocks B_i := [l_i, r_i] :=
+   [F⁻¹((i−1)/n), F⁻¹(i/n)], q_i := F⁻¹((i − ½)/n) ∈ B_i, and k_i := ⌈n q_i⌉, u_i := k_i/n ∈ [q_i, q_i + 1/n].
+   - Since ν ≤ Lebesgue: |B_i| ≥ 1/n, l_i ≥ (i−1)/n, r_i ≥ i/n, and r_i − q_i ≥ 1/(2n). Hence u_i ≤ r_{i+1}, and
+     q_{i+1} − q_i ≥ 1/n, so the k_i are distinct, k_i ≥ 1, and u_j − u_i ≥ 1/n for i < j.
+   - Since density ≥ d_U: |B_i| ≤ 1/(d_U n), so r_i ≤ i/(d_U n).
+   - Put S* := {k_i} ⊂ [1, U′n + 1].
+3. **Energy comparison.** Write n²I(ν) = Σ_{i≠j} n²∬_{B_i×B_j} + Σ_i n²∬_{B_i²} (all w.r.t. ν⊗ν, integrand
+   log|g(u) − g(v)|). For i < j, u ∈ B_i and v ∈ B_j, write log(g(u) − g(v)) = −p log u + h(u/v), where
+   h(r) := log(1 − r^p) is decreasing on (0, 1). We show that each point value is at least the block average minus
+   err_{ij}, where Σ_{i<j} err_{ij} = O_U(n log n).
+   - **(a) The −p log u part.** point − average = −p·avg_{B_i} log(u_i/u), and u_i ≤ r_{i+1}, u ≥ l_i.
+     - For i ≥ 2: log(r_{i+1}/l_i) ≤ (r_{i+1} − l_i)/l_i ≤ (2/(d_U n))/((i−1)/n). So the cost is ≤ 2p/(d_U(i−1)).
+     - For i = 1: avg_{B_1} log(1/u) ≤ n∫_0^{1/n} log(1/u) du = log n + 1, because ν ≤ Lebesgue and ν(B_1) = 1/n. Also
+       log u_1 ≤ log r_2 ≤ log(2/(d_U n)). So the cost is ≤ p(log(2/d_U) + 1).
+     - Summed over the partners j > i: ≤ n·C_U/i, and over i: O_U(n log n).
+   - **(b) The h part, j ≥ i + 3.** The average is ≤ h(a) with a := l_i/r_j. The point value is ≥ h(b) with
+     b := r_{i+1}/l_j < 1, because l_j ≥ r_{i+2} > r_{i+1}. Then h(a) − h(b) ≤ (b^p − a^p)/(1 − b^p).
+     - *If b ≤ ½:* 1 − b^p ≥ 1 − 2^{−p}, and b^p − a^p ≤ 1 − (a/b)^p ≤ max(1,p)(1 − a/b). Also
+       1 − a/b ≤ (r_{i+1} − l_i)/r_{i+1} + (r_j − l_j)/r_j ≤ 3/(d_U(i+1)). So err ≤ C_U/(i+1).
+     - *If b > ½:* 1 − b^p ≥ min(1,p)(1 − b) ≥ min(1,p)(l_j − r_{i+1})/l_j ≥ min(1,p)(j − i − 2)/(n l_j), since
+       there are j − i − 2 intermediate blocks, each of width ≥ 1/n. Also
+       b^p − a^p ≤ max(1,p)(1 − a/b) ≤ 2 max(1,p)(b − a) and b − a ≤ 3/(d_U n l_j). So err ≤ C_U/(j − i − 2).
+     - Summed: Σ_{i<j}[C_U/(i+1) + C_U/(j−i−2)] = O_U(n log n).
+   - **(c) The h part, i < j ≤ i + 2.** The average is ≤ 0, since h ≤ 0. At the point,
+     1 − (u_i/u_j)^p ≥ min(1,p)(u_j − u_i)/u_j ≥ min(1,p)·(1/n)/r_{j+1} ≥ min(1,p)d_U/(j+1). So
+     err ≤ log(j + 1) + C_U. There are ≤ 2n such pairs, costing O_U(n log n).
+   - **(d) Diagonal blocks** (upper bound). |g(u) − g(v)| ≤ g(min(u,v)), so
+     n²∬_{B_i²} ≤ p·avg_{B_i} log(1/u) ≤ p log(n/(i−1)) for i ≥ 2, and ≤ p(log n + 1) for i = 1. The sum over i is
+     p[(n−1) log n − log (n−1)!] + O(log n) = O(n).
+   - Hence Σ_{i≠j} log|g(u_i) − g(u_j)| ≥ n²I(ν) − O_U(n log n).
 4. **Weights.** Π_{k∈S*} w_k ≥ c₁^n (U′n + 1)^{−sn}.
 
-So log D_n ≥ log(Π w) + log V(S*) ≥ −p n² log n + n²(κ_p − 3ε) − O_U(n log n). Let n → ∞, then ε → 0. ∎
+So log D_n ≥ log(Π w) + log V(S*) ≥ −p n² log n + n²(κ_p − η) − O_U(n log n). Let n → ∞, then η → 0. ∎
+
+*Rule A* (reviewer's scratch `al.py`, NUMERICAL). The quantile configuration of the untruncated μ*_u gives
+Σ_{i≠j}/n² − κ_p = +0.0018, −0.0012 and −0.013 for p = 0.5, 1 and 3 at n = 1600, decaying like O(log n/n).
 
 ---
 
@@ -196,18 +255,21 @@ w_k ≥ c₁k^{−s}. Then
 
 Equivalently, (2/n²)Σ_{j<n}(n−j) log(j^p b_j) → log(c(p)C).
 
-*Proof.* Theorem A gives the case f(ξ) = Cξ^{−p}, with the constant E_p + log C = κ_p + log C by Theorem B*. Item 11's
+*Proof.* Theorems A-U and A-L, with E_p = κ_p (Theorem B*), give the case f(ξ) = Cξ^{−p}, with constant κ_p + log C
+(the C-scaling is item 11's H3). Note that f′ < 0 everywhere: f′ is continuous, never 0 (|f′|ξ^{p+1} is bounded
+below), and has a negative limit. So H4 applies. Item 11's
 Lemma H4 (PROVED for any p and any weights) transfers it to regularly spaced f. The b_j form follows from H2 and
 2pΣ_{j<n}(n−j) log j = pn² log n − (3p/2)n² + O(n log n). ∎
 
-*Compared with item 11's Theorem H:*
+*Compared with item 11's Theorem H* (the error term is now only o(n²); item 11 had O(n log n) for exact pure powers
+with p ∈ {1, 2}, so for those cases this is a weakening):
 - every p > 0 is covered, not only p ∈ {1, 2};
 - the weight condition is now just Σw < ∞ plus a polynomial lower bound (the s₀(p) restriction is gone; item 11's
   numerics had suggested it was technical);
 - no exactly solvable reference family (Lommel, Tricomi–Carlitz) is needed. The p = 1 case therefore no longer depends
   on the Carlitz citation (gap G4 in item 11).
 
-**Corollary HZ.** Let a ≥ 1 be an integer and b real with 2a + b > 1. Then
+**Corollary HZ.** Let a > 0 (in particular any integer a ≥ 1) and b real, with 2a + b > 1. Then
 
   log det_{1≤i,j≤n} ζ(a(i+j) + b) = −a n² log n + (3a/2 + log c(a)) n² + o(n²).
 
@@ -215,10 +277,15 @@ Lemma H4 (PROVED for any p and any weights) transfers it to regularly spaced f. 
 m_r = Σ_k k^{−(2a+b)}(k^{−a})^r, i.e. of Σ_k k^{−(2a+b)} δ_{k^{−a}}, with Σ_k k^{−(2a+b)} < ∞. Apply H_all with p = a,
 C = 1. ∎
 
-This confirms the expectation quoted in (HZ) for all positive integers a, b, with the explicit n² constant. The proved
+This proves the expectation quoted in (HZ) for all positive integers a, b, with an explicit n² constant. The proved
 bound in (HZ) was the weaker upper bound −(a/2)n² log n + O(n²). Examples:
 - a = 3: constant 4.5 + log c(3) = 4.12779…
-- a = 1 (Monien, any r > −1): −n² log n + (3/2 − log 2)n² + o(n²).
+- a = 1 (H_n^{(r)} = det ζ(i+j+r), any r > −1): −n² log n + (3/2 − log 2)n² + o(n²). Monien (CITATIONS.md (M))
+  states the weak asymptotic log H_n^{(r)} ∼ −n²(log 2n − 3/2), derived heuristically for r = 0, 1. Per (HZ) he
+  rigorously justified the leading-order asymptotics for r = 0 in later work. For a = 1, G2's contribution is a
+  rigorous proof of the n² constant (this was already item 11 Theorem H, p = 1, mod Carlitz). For a ≥ 2 it is the
+  general-p equilibrium.
 
-*Novelty is UNCHECKED*: no literature search for the general-p constrained-equilibrium identification has been done
-beyond item 11's `lit` report, which found general-p Law P "not found in print".
+*Novelty is UNCHECKED.* Known prior art: Monien's p = 1 equilibrium (heuristic). No literature search for the
+general-p constrained-equilibrium identification has been done beyond item 11's `lit` report, which found general-p
+Law P "not found in print". The search must be rerun before any claim beyond UNCHECKED.
