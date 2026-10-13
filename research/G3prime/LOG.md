@@ -33,16 +33,21 @@
   same counting information, yet the law fails by 2 log(1 − 1/m). The general converse (GAP N′) needs a deletion lemma
   for clustered index sets; it is not proved.
 
-## Stop condition (AGENTS.md: "a step is as hard as an open problem")
+## Stop: the unconditional lower bound needs inputs beyond (C1) (Prop N); hardness not established (GAP N′)
 
-The unconditional lower bound of G3′ needs information about multiplicities or small gaps of the zeros that counting
-does not give (Prop N). The sufficient input (SG) implies that almost all ordinates are simple values. In the
+The unconditional lower bound of G3′ needs information that the counting function does not give (Prop N), for example
+about multiplicities or small gaps. The sufficient input (SG) implies that almost all ordinates are simple values
+(horizontal multiplicity 1, (C3) §1.3). In the
 literature read (CITATIONS.md (C3)), the best unconditional simple-zero proportion is > 40.75%, and no surveyed
 result, conditional or not, reaches proportion one. G3′ is therefore closed in the following form:
 
 - **G3′-U:** unconditional (PROVED-mod-cite (C1) on top of item 11).
 - **G3′-L:** PROVED-mod-input (SG).
 - **Prop N:** counting information is insufficient (PROVED-mod-input Theorem H).
-- **GAP N′:** the precise missing step for "G3′ ⇔ density-one simplicity".
+- **GAP N′:** general deletion. It would make density-zero repeated ordinates necessary. Together with (SG) being
+  sufficient, this sandwiches G3′; it is not an equivalence.
 
-Everything is pending Rule R (Task 7).
+- **Rule R (2026-10-13):** ACCEPT WITH FIXES (`review/REVIEW_G3prime.md`). Fixes applied the same day: Z1 (2E bound,
+  analytic C₀, all-k form); Z2 (small indices for all b > a); G3′-L (ℓ_n bound with the (1+log n)² term and the
+  min(n−1, ·) near count, e^{−C(1+log n)²} weights, π(j) ≤ C_η j, lower sum/denominator factors, far-partner case
+  split); N ((log h)′ proof, sup domain, |π − ψ| ≤ 1); N′ and stop-condition framing corrected.

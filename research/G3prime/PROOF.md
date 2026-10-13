@@ -1,6 +1,7 @@
 # G3′: averaged Law P for the true-zero measure
 
-Status: draft, written 2026-10-13. Nothing in this file is REVIEWED yet (Rule R is Task 7 of Plan 7).
+Status: REVIEWED 2026-10-13 (Rule R: `review/REVIEW_G3prime.md`, ACCEPT WITH FIXES; fixes applied) for Z1, Z2, G3′-U,
+S, W, G3′-L and N. N′ remains GAP.
 Framing (AGENTS.md rule 3): the ordinates are inputs. They are taken as real numbers, listed with multiplicity, and
 nothing here is evidence about where the zeros lie.
 
@@ -8,14 +9,14 @@ nothing here is evidence about where the zeros lie.
 
 | Result | Statement (short) | Label | Depends on |
 |---|---|---|---|
-| Z1 | \|γ_k − γ̃_k\| ≤ C₀ for k ≥ k₁ | PROVED-mod-cite | (C1) |
-| Z2 | pair ratio (x_a − x_b)/(x̃_a − x̃_b) ≤ (1 + C₀ log(γ̃_b/2π)/(π(b−a)))(1 + 2C₀/γ̃_a)⁵ | PROVED-mod-cite | Z1 |
-| G3′-U | limsup (1/n²)[log D_n(σ) − Φ_n] ≤ 0 | PROVED-mod-cite | Z2, item 11 H5/H6/H7, Theorem H (p = 2) |
-| S | index shift: π(a)⁻² − π(b)⁻² ≥ (1+η)⁻³(a⁻² − b⁻²) | PROVED | — |
-| W | log D_n(Σ k⁻ˢ δ_{Ck⁻²}) ≥ Λ_n − (s−3)K n log n, uniformly in s ≥ 4 | PROVED (from item 11 §7) | Theorem A refs, H3 |
-| G3′-L | liminf (1/n²)[log D_n(σ) − Φ_n] ≥ 0 under (SG) | PROVED-mod-cite + mod-input (SG) | Z1, S, W, H5, H6 |
-| N | doubled-smooth sequences: same counting function, law fails by 2 log(1−1/m) | PROVED-mod-input | Theorem H_L, item 11 H6 |
-| N′ | positive density of repeats ⇒ the law fails (general deletion lemma) | GAP | — |
+| Z1 | \|γ_k − γ̃_k\| ≤ C₀ for k ≥ k₁ (≤ C₀′ for all k) | PROVED-mod-cite + REVIEWED | (C1) |
+| Z2 | pair ratio (x_a − x_b)/(x̃_a − x̃_b) ≤ (1 + C₀ log(γ̃_b/2π)/(π(b−a)))(1 + 2C₀/γ̃_a)⁵ | PROVED-mod-cite + REVIEWED | Z1 |
+| G3′-U | limsup (1/n²)[log D_n(σ) − Φ_n] ≤ 0 | PROVED-mod-cite + mod-input Theorem H (Lean `TheoremHPure`) + REVIEWED | Z2, item 11 H5/H6/H7, Theorem H (p = 2) |
+| S | index shift: π(a)⁻² − π(b)⁻² ≥ (1+η)⁻³(a⁻² − b⁻²) | PROVED + REVIEWED | — |
+| W | log D_n(Σ k⁻ˢ δ_{Ck⁻²}) ≥ Λ_n − (s−3)K n log n, uniformly in s ≥ 4 | PROVED (from item 11 §7) + REVIEWED | Theorem A refs, H3 |
+| G3′-L | liminf (1/n²)[log D_n(σ) − Φ_n] ≥ 0 under (SG) | PROVED-mod-cite + mod-input (SG), Theorem H + REVIEWED | Z1, S, W, H5, H6 |
+| N | doubled-smooth sequences: same counting function, law fails by 2 log(1−1/m) | PROVED-mod-input Theorem H + REVIEWED | Theorem H_L, item 11 H6 |
+| N′ | positive density of repeated ordinates ⇒ the law fails (general deletion lemma) | GAP | — |
 
 Here Φ_n := −2n² log n + 2Σ_{j<n}(n−j) log L(j) + κn², with L(j) := j² x̃_j and κ := 3 + log(π²/16). This is the
 right-hand side of the sum form of Corollary H_L-ζ (Lean: `smoothZeta_HL_sumForm`).
@@ -36,17 +37,22 @@ right-hand side of the sum form of Corollary H_L-ζ (Lean: `smoothZeta_HL_sumFor
   because x_j/x̃_j → 1 by Z1 and Cesàro averaging. In b_j form, by H2, it reads
   (2/n²)Σ(n−j) log(b_j/x_j) → log(π²/16).
 - **Facts about N₀** (elementary). N₀′(T) = (1/2π) log(T/2π) > 0 for T > 2π, so N₀ is increasing there and γ̃ is
-  increasing. (N₀⁻¹)′ = 2π/log(T/2π) is decreasing, so k ↦ γ̃_k is concave in this sense: γ̃_b − γ̃_a lies between
+  increasing. (N₀⁻¹)′(y) = 2π/log(N₀⁻¹(y)/2π) is decreasing, so k ↦ γ̃_k is concave in this sense: γ̃_b − γ̃_a lies between
   2π(b−a)/log(γ̃_b/2π) and 2π(b−a)/log(γ̃_a/2π).
 
 ## 2. Lemma Z1 (ordinate comparison) — PROVED-mod-cite (C1)
 
 **Lemma Z1.** Let E(T) := 0.111 log T + 0.275 log log T + 2.524. There is k₁ such that for all k ≥ k₁,
 
-  |γ_k − γ̃_k| ≤ 2π E(γ_k)/log(γ_k/(4π)) ≤ C₀,  where C₀ := sup_{T ≥ 10⁶} 2πE(T)/log(T/4π) ≤ 2.7
+  |γ_k − γ̃_k| ≤ 2π E(γ_k)/log(γ_k/(4π)) ≤ C₀,  where C₀ := sup_{T ≥ 10⁶} 2πE(T)/log(T/4π) = 2.6613… ≤ 2.7.
 
-(the numerical value is from `checks/check_ratio.out` [1]). Also γ_k → ∞, and for each k the number of indices sharing
-the value γ_k is at most 2E(γ_k) + 1.
+The ratio is decreasing in T, so the sup is its value at T = 10⁶. To see this, put u = log T and c = log 4π. Then
+d/du[E/(u − c)] has the sign of E′(u)(u − c) − E(u) = −0.111c − 0.275c/u − 0.275 log u − 2.524 + 0.275 < 0.
+`checks/check_ratio.out` [1] is a numerical cross-check only.
+
+Also γ_k → ∞, and for each k the number of indices sharing the value γ_k is at most 2E(γ_k). For all k ≥ 1,
+|γ_k − γ̃_k| ≤ C₀′ := max(C₀, max_{k<k₁}|γ_k − γ̃_k|) < ∞. Only the finiteness of C₀′ is used for small k (Review
+Focus 2).
 
 *Proof.*
 1. By (C1), N(T ± 0) ≤ N₀(T) + E(T) < ∞ for every T ≥ e, so only finitely many γ_k lie below any T. Hence γ_k → ∞.
@@ -79,8 +85,8 @@ side is 0. Otherwise compare the three factors:
 - **Denominators.** For each of a, b, (γ̃² + ¼)/(γ² + ¼) ≤ (γ̃/(γ̃ − C₀))² ≤ (1 + 2C₀/γ̃)², using γ ≥ γ̃ − C₀ > 0 and
   γ̃ ≥ 2C₀. Since γ̃_b ≥ γ̃_a, the two together are ≤ (1 + 2C₀/γ̃_a)⁴. ∎
 
-Small indices. For a < k₂ < b there is B ≥ 1 with x_a − x_b ≤ x_a ≤ B(x̃_a − x̃_{a+1}) ≤ B(x̃_a − x̃_b), so put
-ρ := B for such pairs. B exists because finitely many a are involved and x̃ is strictly decreasing.
+Small indices. For a < k₂ and every b > a, there is B ≥ 1 with x_a − x_b ≤ x_a ≤ B(x̃_a − x̃_{a+1}) ≤ B(x̃_a − x̃_b),
+so put ρ := B for such pairs. This covers head pairs with b ≤ k₂ and the cross pairs alike. B exists because finitely many a are involved and x̃ is strictly decreasing.
 
 **Theorem G3′-U.** limsup_n (1/n²)[log D_n(σ) − Φ_n] ≤ 0.
 
@@ -107,7 +113,7 @@ Small indices. For a < k₂ < b there is B ≥ 1 with x_a − x_b ≤ x_a ≤ B(
 4. **Heine comparison.** Let w_k = 2x_k ≤ 2c x̃_k ≤ 2cL(k) k⁻² by Z1′. Every term of the Heine sum of σ is then at most
    e^{O(n log² n)} Λ^{n(n−1)} times the corresponding term of the Heine sum of ν := Σ_k w_k δ_{G(k)}. Hence
    log D_n(σ) ≤ n(n−1) log Λ + log D_n(ν) + O(n log² n).
-5. **Lemma H7** (item 11 §7b; p = 2). ν satisfies its hypotheses: (Hw) holds with s = s₀ = 2, c₁ = 2 min_k(x_k k²) > 0,
+5. **Lemma H7** (item 11 §7b; p = 2). ν satisfies its hypotheses: (Hw) holds with s = s₀ = 2, c₁ = 2 min_k(x_k k²) > 0 (attained, since k²x_k → ∞), c₂ = 2cL(1),
    U = L/L(1) nondecreasing and log U = O(log log k). So
    log D_n(ν) ≤ −2n² log n + κn² + (A₂²/(8 log M)) n² + o(n²).
 6. **The constant Λ.** λ/L(Mn) = x_{Mn}/x̃_{Mn} → 1, by Z1′. So log Λ = log L(Mn) + o(1). By item 11 Lemma H6(d),
@@ -142,8 +148,11 @@ is K such that for all s ≥ 4 and n ≥ 2,
   log D_n(Σ_k k⁻ˢ δ_{Ck⁻²}) ≥ Λ_n − (s − 3) K n log n.
 
 *Proof.* Item 11 §7 (p = 2, "References") gives log D_n(Σ k⁻⁴δ_{Ck⁻²}) = Λ_n + O(n log n), and the same with weights
-k⁻² (the reference there has weights equal to k⁻² up to a bounded factor, which changes log D_n by O(n)). Let K bound
-both O(n log n) terms. For s > 4 put θ := (s−4)/(s−2), so that k⁻⁴ = (k⁻²)^θ (k⁻ˢ)^{1−θ}. Log-convexity (item 11 H3)
+k⁻². After rescaling the atoms by π²C, the reference weights are exactly π⁻²k⁻² and π⁻⁴k⁻⁴, which changes log D_n by
+2n log π or 4n log π. The uniformity is the point of this lemma. The reference coefficients b_j = π²C c_{2j−2}c_{2j−1}
+are explicit and positive, with |log(j²b_j) − log(c(2)C)| ≤ K′/j for all j ≥ 1. With H2 and
+4Σ_{j<n}(n−j) log j = 2n² log n − 3n² + O(n log n), this gives |log D_n − Λ_n| ≤ K n log n for all n ≥ 2, with one K
+for both references. For s > 4 put θ := (s−4)/(s−2), so that k⁻⁴ = (k⁻²)^θ (k⁻ˢ)^{1−θ}. Log-convexity (item 11 H3)
 gives
 
   log D_n(k⁻ˢ) ≥ [log D_n(k⁻⁴) − θ log D_n(k⁻²)]/(1 − θ) ≥ Λ_n − ((1+θ)/(1−θ)) K n log n,
@@ -159,19 +168,26 @@ and (1+θ)/(1−θ) = s − 3. For s = 4 the bound is the reference itself. ∎
 3. **Pair ratios on E (lower).** Let a < b be in E.
    - b > a and g_a ≥ δ give γ_b − γ_a ≥ γ_{a+1} − γ_a ≥ 2πδ/log(γ_a/2π).
    - By Z1, γ_b − γ_a ≥ γ̃_b − γ̃_a − 2C₀.
-   - The sum and denominator factors are ≥ (1 + 2C₀/γ̃_a)⁻⁵, as in Z2.
+   - The sum and denominator factors are ≥ (1 + 2C₀/γ̃_a)⁻⁵, by the following lower analogue of Z2:
+     - *Sum.* γ̃_a + γ̃_b ≥ 2γ̃_a gives (γ_a + γ_b)/(γ̃_a + γ̃_b) ≥ 1 − C₀/γ̃_a ≥ (1 + 2C₀/γ̃_a)⁻¹, using
+       1 − u/2 ≥ 1/(1+u) for u = 2C₀/γ̃_a ≤ 1.
+     - *Denominators.* (γ̃² + ¼)/(γ² + ¼) ≥ (γ̃/(γ̃ + C₀))² ≥ (1 + 2C₀/γ̃)⁻².
    - *Far pair* (γ̃_b − γ̃_a ≥ 4C₀): the difference ratio is ≥ 1 − 2C₀/(γ̃_b − γ̃_a) ≥ ½, so its log is
      ≥ −4C₀/(γ̃_b − γ̃_a).
    - *Near pair* (γ̃_b − γ̃_a < 4C₀): the difference ratio is ≥ (2πδ/log(γ_a/2π))/(4C₀). For fixed a there are at most
      1 + (2C₀/π) log((γ̃_a + 4C₀)/2π) = O(log γ̃_a) such b, by §1.
-4. **Per-element cost.** For a ∈ S, the m-th far partner b > a has b ≥ a + m, so
-   γ̃_b − γ̃_a ≥ 2πm/log(γ̃_{a+n}/2π). Also log γ̃_{a+n} ≤ log γ̃_a + log(n+1) + O(1), because γ̃_k ≍ k/log k. So the
-   pairs (a, ·) cost at most
+4. **Per-element cost.** Fix a ∈ S and let b be its m-th far partner.
+   - If b ≤ a + n, then b − a ≥ m, and concavity gives γ̃_b − γ̃_a ≥ 2πm/log(γ̃_{a+n}/2π).
+   - If b > a + n, then γ̃_b − γ̃_a ≥ γ̃_{a+n} − γ̃_a ≥ 2πn/log(γ̃_{a+n}/2π) ≥ 2πm/log(γ̃_{a+n}/2π).
 
-     ℓ_n(a) := C[(log γ̃_a + log n)(1 + log n) + log γ̃_a · log(log γ̃_a/δ) + n/γ̃_a]  (in log, doubled for squares),
+   Also log γ̃_{a+n} ≤ log γ̃_a + log(n+1) + O(1), because γ̃_k ≍ k/log k. The number of near partners of a inside an
+   n-subset is ≤ t_a := min(n − 1, 1 + (2C₀/π) log((γ̃_a + 4C₀)/2π)), and each costs ≤ log(C log γ̃_a/δ). Put
+   t ≍ log a. If t ≤ n, the near cost is ≤ C t(log(C/δ) + log n). If t > n, it is ≤ n(log(C/δ) + log t)
+   ≤ t log(C/δ) + t log n, since log t/t ≤ log n/n for t ≥ n ≥ 3. So the pairs (a, ·) cost at most
 
-   with C depending only on C₀. In particular ℓ_n(a) ≤ C′(1 + log a)(1 + log n) + 2Cn/γ̃_a for a ≥ k₂, with C′
-   depending on δ.
+     ℓ_n(a) ≤ C′(1 + log a)(1 + log n) + C′(1 + log n)² + 2Cn/γ̃_a  (in log, doubled for squares),
+
+   for a ≥ k₂, with C′ depending on C₀ and δ. The term C′(1 + log n)² comes from the far partners of small a.
 5. **Comparison with the smooth atoms.** By Z1′, w_a ≥ c⁻¹·2x̃_a. Hence
    D_n(σ) ≥ c^{−n} D_n(Σ_{a∈E} 2x̃_a e^{−ℓ_n(a)} δ_{x̃_a}), dropping the n/γ̃_a part into a global
    e^{−O(n log² n)}. That part sums to ≤ 2Cn Σ_{i≤n} 1/γ̃_i over S, since the i-th element of S is ≥ i.
@@ -180,8 +196,9 @@ and (1+θ)/(1−θ) = s − 3. For s = 4 the bound is the reference itself. ∎
    - this is ≥ (1 − ε*(j)/2)·L(j)·(1+2η)⁻³·(j⁻² − i⁻²), by L nondecreasing, ε* nonincreasing and Lemma S.
 
    For j < j₀ the ratio (y_j − y_i)/(j⁻² − i⁻²) is bounded below by a positive constant (finitely many j). The weights
-   satisfy 2x̃_{π(j)} e^{−ℓ_n(π(j))} ≥ c₃ n^{−C″} j^{−s_n}, with s_n := 4 + C″(1 + log n), using
-   π(j) ≤ (1+2η)j + j₀. Hence
+   satisfy 2x̃_{π(j)} e^{−ℓ_n(π(j))} ≥ c₃ e^{−C″(1+log n)²} j^{−s_n}, with s_n := 4 + C″(1 + log n), using
+   π(j) ≤ C_η j for all j. (This holds because π(j) ≤ (1+2η)j for j ≥ j₀, and π(j) ≤ π(j₀) for j < j₀.) The global
+   factor costs n·C″(1 + log n)² = O(n log² n). For j < j₀, the positive constant is (y_j − y_{j+1}) j² > 0. Hence
 
      log D_n(σ) ≥ log D_n(Σ_j j^{−s_n} δ_{j⁻²}) + 2Σ_{j<n}(n−j)[log L(j) + log(1 − ε*(j)/2)]
                   − 3n² log(1+2η) − O(n log² n).
@@ -196,7 +213,7 @@ true-zero measure.
 
 Every input to G3′-U is a statement about the counting function: Z1 comes from |N − N₀| = O(log T). The next
 proposition shows that no argument using only such information can give the lower bound. Sequences with the same
-counting function, and repeated values spread at positive density, violate the law.
+counting function up to O(1), and repeated values spread at positive density, violate the law.
 
 **Construction.** Fix an integer m ≥ 2 and put φ := 1/m. Define γ^{(m)} from the smooth ordinates by making every m-th
 one a double value: γ^{(m)}_{km+2} := γ̃_{km+1} for k ≥ 0, and γ^{(m)}_i := γ̃_i otherwise. This is `merge_repeats`
@@ -204,9 +221,9 @@ with idx = 0, m, 2m, … (0-based). Let σ^{(m)} := Σ_i 2x^{(m)}_i δ_{x^{(m)}_
 indexed with multiplicity as in §1.
 
 **Proposition N.** For every m ≥ 2:
-- (i) **Same counting information.** |γ^{(m)}_i − γ̃_i| ≤ max_k(γ̃_{k+1} − γ̃_k) ≤ 2π/log(γ̃_1/2π) for all i, and
-  N^{(m)}(T ± 0) differs from #{i : γ̃_i < T (resp. ≤ T)} by at most 1. So Z1 holds with a better constant, and
-  every step of G3′-U applies to σ^{(m)}.
+- (i) **Same counting information.** |γ^{(m)}_i − γ̃_i| ≤ γ̃_i − γ̃_{i−1} ≤ 2π/log(γ̃_{i−1}/2π), which tends to 0.
+  N^{(m)}(T ± 0) differs from #{i : γ̃_i < T (resp. ≤ T)} by at most 1. So Z1 holds for σ^{(m)} for k ≥ k₁ (with any
+  constant > 0 for large k), and every step of G3′-U applies to σ^{(m)}.
 - (ii) **The law fails.** log D_n(σ^{(m)}) = Φ_n + 2n² log(1 − φ) + o(n²). Equivalently,
   (2/n²)Σ_{j<n}(n−j) log(b_j/x^{(m)}_j) → log(π²/16) + 2 log(1 − 1/m).
 
@@ -214,7 +231,8 @@ indexed with multiplicity as in §1.
 - (i) Each γ^{(m)}_i is γ̃_i or γ̃_{i−1}. Moving one value down by one place changes counts by at most 1.
 - (ii) **Distinct atoms.** The distinct atoms are y_j := x̃_{π(j)}, where π enumerates the 1-based index set
   E := ℕ ∖ {km + 2 : k ≥ 0}. Their weights are 2x̃_{π(j)} or 4x̃_{π(j)}, by the Heine convention of §1. With
-  ψ(ξ) := ξm/(m−1), we have |π(j) − ψ(j)| ≤ 2 for all j.
+  ψ(ξ) := ξm/(m−1), we have |π(j) − ψ(j)| ≤ 1 for all j. Indeed #(E ∩ [1, K]) = K − ⌊(K−2)/m⌋ − 1 for K ≥ 2, so
+π(j) − jm/(m−1) lies in [−1, 1].
 - (ii-a) **Smooth comparison measure.** Let f(ξ) := 1/(γ(ξ)² + ¼), with γ(ξ) = N₀⁻¹(ξ − ½), so x̃_k = f(k). Put
   z_j := f(ψ(j)) = j⁻²L_z(j), with L_z(ξ) := (1−φ)²L(ψ(ξ)).
   - L_z satisfies (L1)–(L3). The map ψ is linear, ξL_z′/L_z = ε(ψ(ξ)) → 0, and L_z is nondecreasing.
@@ -224,10 +242,14 @@ indexed with multiplicity as in §1.
   - Now 2Σ_{j<n}(n−j) log L_z(j) = 2n(n−1) log(1−φ) + 2Σ(n−j) log L(ψ(j)). By H6(a),
     |log L(ψ(j)) − log L(j)| ≤ ε*(j) log(m/(m−1)) → 0, so the last sum is 2Σ(n−j) log L(j) + o(n²). Hence
     log D_n(Σ w_jδ_{z_j}) = Φ_n + 2n² log(1−φ) + o(n²).
-- (ii-b) **y against z.** Write h := −f′ > 0. On [1, ∞), h(ξ) ≍ ξ⁻³L(ξ) and (log h)′ = O(1/ξ), from the expansion in
-  the hypothesis check of Corollary H_L-ζ. Put u = π(a), v = π(b), u′ = ψ(a), v′ = ψ(b) for a < b, so that
-  |u − u′|, |v − v′| ≤ 2. Then
-  - |∫_{u′}^{v′} h − ∫_u^v h| ≤ 2 sup_{|t−u|≤2} h(t) + 2 sup_{|t−v|≤2} h(t) ≤ C h(u);
+- (ii-b) **y against z.** Write h := −f′ > 0. On [1, ∞), h(ξ) ≍ ξ⁻³L(ξ) and (log h)′ = O(1/ξ). For the second
+  claim, differentiate directly. With γ = γ(ξ), γ′ = 2π/ℓ and ℓ = log(γ/2π),
+  h = 2γγ′/(γ² + ¼)², so (log h)′ = γ′/γ − (γ′/γ)/ℓ − 4γγ′/(γ² + ¼).
+  Each term is O(γ′/γ) = O(1/(γℓ)) = O(1/ξ), because ξ = N₀(γ) + ½ ≤ γℓ/2π + O(1) on γ ≥ γ̃_1 > 2π. (The reviewer
+  measured ξ(log h)′ ∈ [−2.94, −1.96] on [1, 10¹⁵].) Put u = π(a), v = π(b), u′ = ψ(a), v′ = ψ(b) for a < b, so that
+  |u − u′|, |v − v′| ≤ 1. Taking sups over the interval I_u between u and u′ (respectively I_v between v and v′), both of
+  which lie in [1, ∞),
+  - |∫_{u′}^{v′} h − ∫_u^v h| ≤ sup_{I_u} h + sup_{I_v} h ≤ C h(u);
   - ∫_u^v h ≥ min(v − u, u)·h(2u) ≥ c·min(b − a, a)·h(u).
 
   So (y_a − y_b)/(z_a − z_b) = 1 + O(1/(b − a) + 1/a), and it is bounded above and below for all pairs. In a Heine
@@ -235,17 +257,24 @@ indexed with multiplicity as in §1.
   O(n log n), so log D_n(σ^{(m)}) = log D_n(Σ w_jδ_{z_j}) + O(n log n). ∎
 
 **Consequence (stop condition, written up in LOG.md).** G3′-U holds for σ (unconditional) and for every σ^{(m)}. The
-lower bound holds for σ under (SG), and fails for σ^{(m)}. So the lower bound for the true ordinates depends on how
-often repeated (or nearly repeated) ordinates occur, which the counting function cannot see. Any proof must use
-multiplicity or small-gap information about the actual zeros, at least something like the density-zero part of (SG).
-- (SG) implies that almost all ordinates are simple values. The results surveyed in CITATIONS.md (C3) reach only
+lower bound holds for σ under (SG), and fails for σ^{(m)}. Any proof of the lower bound must therefore use information
+beyond (C1), for example multiplicity or small-gap information about the actual zeros. *(Heuristic, not proved:* the
+lower bound depends on how often repeated or nearly repeated ordinates occur, which the counting function cannot
+see.)
+- (SG) implies that almost all ordinates are simple values: almost all zeros have horizontal multiplicity H(γ) = 1 in
+  the sense of (C3) §1.3, so in particular almost all zeros are simple. A repeated ordinate is not the same as a
+  multiple zero, because distinct zeros on one horizontal line also repeat an ordinate. The results surveyed in CITATIONS.md (C3) reach only
   "more than 40.75%" of zeros simple (and on the line) unconditionally, and about 70% under RH. No surveyed result
   reaches proportion one.
-- The unconditional lower bound is therefore not reachable with the inputs available here. G3′ stops at:
+- The unconditional lower bound needs inputs beyond (C1) (Prop N). The sufficient input (SG) implies a statement that
+  no result surveyed in (C3) reaches. Hardness is not established (GAP N′). G3′ (multiplicity normalization) stops
+  at:
   **U (unconditional) + L (mod (SG)) + N (counting information is insufficient)**.
 
 **Not proved (GAP N′, general deletion).** A converse would read: "if the repeated indices of the true ordinates have
-positive lower density, the law fails". That would make G3′ equivalent to a density-one simplicity statement. It needs
+positive lower density, the law fails". N′ would show that density-zero repeated ordinates (almost all zeros of
+horizontal multiplicity 1, in the sense of (C3) §1.3) is necessary, while G3′-L shows that (SG) is sufficient. This
+sandwiches G3′; it is not an equivalence. It needs
 a deletion lemma for arbitrary index sets E of positive lower co-density: limsup (1/n²)[log D_n(σ̃|_E) − Φ_n] < 0. Prop
 N proves this only for evenly spread E. For clustered E the pairwise comparison used in (ii-b) fails, because
 π(b) − π(a) is not comparable to b − a. The numerics in `check_merge.out` [1] cover evenly spread E only; [2] (a
