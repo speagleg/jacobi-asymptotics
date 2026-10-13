@@ -368,3 +368,113 @@ geometry is KMVV's left endpoint.**
 - **F9:** the one-sided (Y4)_x lens representation, with η_j-arcs.
 - **F10:** the upper lip maps to γ₃; P̃'s behaviour is quoted.
 - **Probe P1** is committed as `checks/check_px_e2e.py` with its three outputs.
+
+## Re-check (commit 4fcd82f): CONFIRMED subject to three local text fixes (R1–R3)
+
+Same reviewer, the same adversarial standard. I read the rewritten §3–§5, the new CITATIONS quotes for KMVV
+(6.42)–(6.53), Prop. 6.5, and WLXZ (3.10)–(6.12), and check_px_bessel.py. I edited no repo file except this one.
+
+**1. F1, the new §4.1 / Lemma 4.2. CORRECT.**
+- **Band-jump identity.** It checks by hand:
+  - N₋J W̃₊^{σ₃} = N₋W̃₋^{σ₃}J₀, using W̃₊W̃₋ = w₀;
+  - J₀M = [[i, 1], [−1, −i]]/√2 = M·diag(i, −i);
+  - f₊^{1/4} = −if₋^{1/4}, since ℂ₊ maps to the lower ζ-half-plane and f < 0 on the band;
+  - so Ẽ₋^{−1}Ẽ₊ = f₋^{−σ₃/4}diag(i, −i)diag(−i, i)f₋^{σ₃/4} = I.
+- **Exponential bookkeeping.** The principal f^{1/2} = −(φ ± iπ)/2 gives e^{2Nf^{1/2}} = (−1)^N e^{−Nφ}. So (6.28)
+  turns Ẽ_Nσ₃Ψσ₃ into (−1)^N N W̃^{σ₃}e^{−Nφσ₃}(I + O(1/N)), and the factor (−1)^N W̃^{−σ₃}e^{+Nφσ₃} returns N.
+  - The jump of e^{Nφ} on (−δ, 0) is e^{−2πiN} = 1.
+  - The lip entry is ϕ̃^{−2n} ↔ e^{2Nφ}, as required.
+- **W̃ branch.** The principal (−z)^{α_x} gives W̃±² ∝ x^{α_x}e^{∓iπα_x}, so W̃₊W̃₋ = w₀. This matches KMVV (6.45)–(6.46).
+- **Hankel-sector Ψ in check_px_bessel.py.** It agrees entry by entry with KMVV (6.23)–(6.25):
+  - In (6.24)/(6.25) the second row equals 2πiζ·d/dζ of the first. With (−ζ)^{1/2} = ∓iζ^{1/2} in ℂ±, this gives
+    +πζ^{1/2}H₁′ and πζ^{1/2}H₂′ (upper), and −πζ^{1/2}H₂′ and +πζ^{1/2}H₁′ (lower). These are exactly the coded
+    entries.
+  - H′ = (H_{a−1} − H_{a+1})/2 and K′ = −(K_{a−1} + K_{a+1})/2 are correct.
+  - The phases e^{±aπi/2}σ₃ are placed as in KMVV.
+  - The lens points ±0.15π map to arg ζ = ∓0.85π, i.e. the Hankel sectors. The result 0.029 → 0.014 shows O(1/N)
+    matching in all five sectors.
+  - Caveat: only a = α_x = 0 is run, so the e^{±aπi/2} phases are untested. Optional: add one run at α_x ≠ 0 (R5).
+- **Lemma 4.2(iii), the splitting Ẽ_N = E^a + Φ.** The idea is right. **R2 (minor, local):** as written, Φ integrates
+  over (−δ, 0). There the density E_{N,−}(J_E − I) is ≍ e^{−cNδ^{−1/p}} ≠ 0 at y = −δ, so Φ has a logarithmic
+  singularity at z = −δ, which lies **on ∂U(0, δ)**. So "Φ bounded" is false at that point.
+  - Fix: define Ẽ_N on U(0, δ₀) with δ₀ > δ (KMVV's "analytic in U_{δ0}") and integrate over (−δ₀, 0). Then Φ is
+    bounded and O(e^{−c′N}) on the closed disc U(0, δ).
+  - Also, the heading "Ẽ_N is analytic" should read "Ẽ_N = analytic + O(e^{−c′N})", as the body already says.
+
+**2. F2, the §3 transformations. Structure CORRECT; one entry wrong (R1).**
+- Q with V^△ (WLXZ (4.12)–(4.13), as quoted), V with F in Ω_∞ and F̃ in Ω_{b,±} ∪ Ω^△_±, the identity
+  Π^{−σ₃}V^△₊ = (D/D̃)^{σ₃}, and the diagonal −I·(−1 from K) = I on (4c, N^p) are all right. Lemma 3.3(ii)'s
+  restriction to (N^p + δ′, ∞) is right.
+- **R1 (important, local): the stated (4c, N^p) entry has the wrong θ′ power.**
+  - J_Q = (−V^△₋)^{−1}J_T V^△₊, so (J_Q)₂₁ = −(J_T)₂₁/(2iθ′)² = −(2iθ′/w)e^{2Nφ̃}/(2iθ′)² = −e^{2Nφ̃}/(2iθ′w)
+    = −e^{2Nφ̃}/W.
+  - Then (J_V)₂₁ = (J_Q)₂₁F̃₊F̃₋, with K₊K₋ = (x − 4c)^{−1} = −K² (K² := 1/(4c − x), continued). So
+    (J_V)₂₁ = D̃²B²K²e^{2Nφ̃}/W, i.e. **[[1, 0], [e^{2Nφ̃}/w₀(x), 1]]** with w₀ := W/(D̃BK)² continued to x > 4c.
+  - The doc's (2iθ′/w)D̃²B²K²e^{2Nφ̃} is the R-level entry before conjugation by V^△. It is off by the factor (2iθ′)².
+  - This agrees with the newly quoted WLXZ (6.4) on (2, 2 + ε), [[1, 0], [D̃²e^{2nφ̃}/w̃, 1]], with w̃ = −2iγw/E²
+    ∝ 1/(γw)-type entry.
+  - The same slip appears:
+    - in §4.3: the top/Σ^△ entry should be F F̃e^{2Nφ}/W, as in WLXZ (5.4)'s DD̃e^{2nφ}/w₀, not (2iθ′/w)FF̃e^{2Nφ};
+    - in §4.2's dictionary "w̃ ↦ w/(2iθ′)", which should be w̃ ↦ −2iθ′w = −W, with K absorbed in F̃.
+  - All bounds survive, since |1/W| = (p/2π)N^{s−1−p}x^{−α_x} is polynomial on the relevant ranges. So this is a
+    formula fix, not a gap.
+
+**3. Lemma 3.4 (Hölder endpoint bound). ADEQUATE as a sketch, with one missing link (R3).**
+- The subtraction argument is sound.
+  - (1/π)∫dx/(√(x(4c − x))(z − x)) = 1/√(z(z − 4c)) is correct.
+  - When x₀ ≍ |z| one gets |z|^{1/2}x₀^{ν−1/2} ≲ |z|^ν (with a log at ν = ½, harmless).
+  - The case x₀ ≪ |z| needs the two-sided bound |z − x| ≳ |z| + |x − Re z|, valid for Re z ≤ 0 and for |Im z| ≍ |z|.
+    The text's "|z − x| ≥ |z|/2" alone is not enough for x ≍ |z|. Say this.
+  - The half-line case is fine.
+  - This replaces the Muskhelishvili citation legitimately.
+- **R3 (important, local):** Lemma 3.4 proves **boundedness** of log B, not Hölder continuity. But its *Consequence*
+  needs q = log h_N − log h_N(0) to be Hölder on the band side [0, η], and log h_N contains −2log B and −2log D̃.
+  Lemma 3.2(ii)'s "log B is Hölder-ν … (Lemma 3.4)" therefore does not follow from Lemma 3.4. One-line fix:
+  - for x ∈ (0, η), d/dx log B(x) = −(1/2π)∫ℓ̂(y)(y − x)^{−2}dy, and |ℓ̂(y)| ≤ C|y|^{1/p} for |y| ≤ 1, so
+    |(log B)′(x)| ≤ C∫₀^∞u^{1/p}(u + x)^{−2}du + C ≤ C x^{1/p−1};
+  - similarly (μ(Nx^{−1/p}))′ = O(x^{1/p−1}/N);
+  - integrating gives Hölder-1/p on [0, η], and the existence of h_N(0).
+- **Is ν = min(1/p, ½) justified?** Yes: Hölder-1/p implies Hölder-ν for every ν ≤ 1/p on a bounded set, and the cap
+  at ½ is harmless (Lemma 3.4 needs only some ν > 0). ℓ̂ itself is Hölder-1/p on [−1, 0]: it is
+  Λ(y/N^p) = c₁(|y|/N^p)^{1/p} + O(|y|^{2/p}/N²), with ℓ̂′ = O(|y|^{1/p−1}).
+
+**4. Lemma 3.5 and the extraction invariance lemma. CORRECT.**
+- V = C_∞e^{−Nlσ₃/2}(Uz^{−Nσ₃})e^{Nlσ₃/2}κ^{−σ₃} follows from e^{Nφ} = z^{−N}e^{Nl/2}e^{−N(g − log z)}.
+- κ has no jump on (N^p + δ′, ∞) or on (−∞, 0), and |z| > N^p + δ′ lies in Ω_∞. So κ is analytic at ∞, and C_∞ = κ_∞^{σ₃}.
+  (The "·const" in the display is superfluous.)
+- Invariance: (CYk^{σ₃})₁₂ picks up the factor k^{−1}, which shifts (Y₂)₁₂ by −k₁(Y₁)₁₂; (Y₁)₂₂ shifts by −k₁. These
+  cancel in a(·). The product is invariant. This is right, and it covers both the Szegő conjugation of N and κ.
+
+**5. F3–F10 spot check.**
+- F3: done, including the D_{w,∞} frame.
+- F4(a): done, modulo R2. F4(b): see R3.
+- F5: the quotes match 1410.3948.txt and kmvv.txt; the KMVV Prop. 6.5 sentence is now verbatim, and the
+  interpretation is labelled as ours.
+- F6: done, modulo R1.
+- F7: done.
+- F8: done. However, (Y4)_x's "K_±(s) := U₁₁(wθ′/sin θ)e^{±iθ}" now clashes with K = (4c − z)^{−1/2}; rename it (R4,
+  cosmetic).
+- F9: the representation is rebuilt correctly (switch on the lower ray, η_j-arcs O(η_j^{1+α_x}), left half-plane
+  node-free).
+- F10: done.
+
+**Verdict: CONFIRMED, conditional on R1–R3.**
+- These are local text corrections:
+  - R1: the θ′ power in three displayed entries;
+  - R2: δ₀ > δ for Φ;
+  - R3: the derivative bound giving Hölder-1/p of log B and log D̃ on the band side.
+- Each is stated precisely above, so the coordinator can verify the edits. No structural change and no further Rule R
+  round is needed. R4 and R5 are optional.
+
+**Final label (once R1–R3 are in):** PROVED-mod-cite (WLXZ v1 §§3–5 and §6.1; KMVV §6 incl. (6.42)–(6.53) and
+Prop. 6.5; G2 PROOF.md μ*, B*), REVIEWED. Lemma 3.4 is self-contained, so no Muskhelishvili reliance remains.
+
+## R1–R4 applied (author)
+
+- **R1.** θ′-power corrected: the (4c, N^p) entry is e^{2Nφ̃}/w₀ = D̃²B²K²e^{2Nφ̃}/W; the top entry is
+  F F̃ e^{2Nφ}/W; w̃ ↦ −2iθ′w.
+- **R2.** Φ now integrates over (−δ₀, 0) with δ₀ > δ; the heading of Lemma 4.2(iii) is reworded.
+- **R3.** The Hölder-ν property of log h_N is proved via the derivative bounds x^{1/p−1}. The two-sided bound in
+  Lemma 3.4 for x₀ ≪ |z| is spelled out.
+- **R4.** K_± in (Y4)_x is renamed 𝒦_±.
+- **R5** (optional: phase test at α_x ≠ 0) is deferred.

@@ -131,6 +131,7 @@ balls, and only those may be described as certified.
 > Plan 9 (G1): G1-T (H_all + (T3) ⇒ pointwise b-law), G1-L, A1–A4 (a-side, A4 mod (CL)); stop report GAP ((T3), (CL)); Rule R REVIEWED (A4 density claim withdrawn).
 > Plan 10 (RH): Theorem RH₁ (pointwise Law P, p = 1, r = 3/2) PROVED-mod-cite + REVIEWED; general r and p = 2 are proof sketches (review lists the missing steps).
 > Plan 11 (RH general r): Theorem RH₁(r), pointwise Law P with O(1/n) rate for all r > 1 at p = 1, PROVED-mod-cite + REVIEWED (RH/RH_p1_general.md). p = 2 still a sketch.
+> Plan 12 (RH general p): Theorem RH_p, pointwise Law P with O(1/n) rate for all p > 1, s > 1 (x-variable, hard-edge Bessel), PROVED-mod-cite + REVIEWED (RH/px/RH_px.md). Open: 0 < p < 1.
 
 **Toolchain.** Lean 4.34.1 and Mathlib v4.34.1, the same versions math-pursuits uses. The Mathlib build cache is
 reused through a `.lake` symlink, so Mathlib is not downloaded again. `autoImplicit` is off.

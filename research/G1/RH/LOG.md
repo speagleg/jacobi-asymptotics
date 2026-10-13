@@ -194,3 +194,10 @@
   - F3–F10.
 - **Fixes applied.** The left-endpoint P₀ matches at O(1/N) in all five sectors (check_px_bessel.out, lens points
   0.029 → 0.014). Lemma 3.4 (the Hölder endpoint bound) is self-contained. Re-check of F1 and F2 dispatched.
+- **Re-check: CONFIRMED** subject to R1–R4, which are applied:
+  - R1: the θ′ power in the saturated and top entries;
+  - R2: the Φ endpoint;
+  - R3: the Hölder proof for log h_N;
+  - R4: a rename.
+- **Theorem RH_p** (every p > 1, s > 1): PROVED-mod-cite + REVIEWED.
+- **Deferred minor:** R5, a numerical test of the Ψ phases at α_x ≠ 0.

@@ -1,6 +1,6 @@
 # RH_px: pointwise Law P for σ_{p,s} = Σ k^{−s} δ_{k^{−p}}, p > 1, in the x-variable (Plan 12)
 
-Status: **Rule R: ACCEPT WITH FIXES** (review/REVIEW_RHpx.md). F1–F10 applied; re-check of F1–F2 pending. Label now: PROOF SKETCH (strong), NUMERICALLY VALIDATED END TO END (probe P1).
+Status: **Rule R: ACCEPT WITH FIXES** (review/REVIEW_RHpx.md). F1–F10 applied; the re-check CONFIRMED subject to R1–R4, which are applied. **Label: PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6 incl. (6.42)–(6.53) and Prop. 6.5; G2 PROOF.md μ*, B*), REVIEWED.** Numerically validated end to end (probe P1).
 
 ## 0. Model, target, baseline
 
@@ -150,9 +150,10 @@ Checks: `checks/check_px_phase3b.out`.
   the probe could use F in Ω_∞ unchanged.
 - On (4c, N^p) the real-axis jump of V is lower-triangular:
 
-    [[1, 0], [(2iθ′/w)D̃²B²K²e^{2Nφ̃}, 1]],  K² = 1/(4c − x),
+    [[1, 0], [D̃²B²K²e^{2Nφ̃}/W, 1]] = [[1, 0], [e^{2Nφ̃}/w₀, 1]],  K² = 1/(4c − x),  W = 2iθ′w,
 
-  as in WLXZ (5.4) on (2, k_n). Here Re φ̃ < 0 (Lemma 2.1(iii)).
+  as in WLXZ (5.4) on (2, k_n) and (6.4). Conjugation by V^△ divides by (2iθ′)²; Rule R re-check R1 corrected the
+  power of θ′. Here Re φ̃ < 0 (Lemma 2.1(iii)).
 - On (N^p + δ′, ∞) there is no jump (Lemma 3.3(ii) together with T's diag(e^{−2iθ}, e^{2iθ})).
 
 **Lemma 3.4 (Hölder endpoint bound; self-contained, replacing a Muskhelishvili citation, F4(b)).** Let q be Hölder-ν
@@ -172,11 +173,18 @@ integral defining log B, with q = ℓ̂ on (−∞, 0].
     C|z|^{1/2}∫_0^{η}|x − x₀|^{ν−1}x^{−1/2}dx + C|z|^{1/2}(far part)
     ≤ C|z|^{1/2}(x₀^{ν−1/2} + 1) ≤ C|z|^{ν} + C.
 
-  Here x₀ ≍ |z| when z is near the band. When x₀ ≪ |z|, use |z − x| ≥ |z|/2 instead.
+  Here x₀ ≍ |z| when z is near the band. When x₀ ≪ |z| (z away from the band), use the two-sided bound
+  |z − x| ≥ c(|z| + |x − Re z|), for x ≥ 0 and arg z bounded away from 0. Then |q(x)| ≤ Cx^ν gives
+  C|z|^{1/2}∫_0^η x^{ν−1/2}(|z| + x)^{−1}dx ≤ C|z|^ν.
 - The half-line case is identical with the kernel 1/(y − z) − 1/(y − 1) and no square-root factor. ∎
 
 *Consequence.*
-- log h_N = log h_N(0) + q with q Hölder-ν. So the Szegő function D_w of w₀ = C_N x^{α_x}(4c − x)h_N satisfies
+- **log h_N is Hölder-ν on [0, η]** (re-check R3). log h_N = const − 2log D̃ − 2log B.
+  - On (0, η], |(log D̃)′(x)| = |μ′(t)||t′(x)| ≤ C t^{−2}·N x^{−1/p−1}/p = O(x^{1/p−1}/N).
+  - Likewise |(log B)′(x)| ≤ C∫_{−∞}^0 |ℓ̂(y)|/|y − x|²dy ≤ C x^{1/p−1}, using |ℓ̂(y)| ≤ C|y|^{1/p} near 0 and bounded
+    far away.
+  - Integrating gives Hölder-1/p, and the cap ν = min(1/p, ½) costs nothing.
+- So log h_N = log h_N(0) + q with q Hölder-ν. So the Szegő function D_w of w₀ = C_N x^{α_x}(4c − x)h_N satisfies
   D_w(z)/((−z)^{α_x/2}(4c − z)^{1/2}h_N(z)^{1/2}) bounded above and below near 0. The constant part of log h_N gives an
   exact constant, and Q is bounded.
 - This is exactly what KMVV's removability argument for E_N uses (§4.1).
@@ -258,10 +266,11 @@ KMVV (6.44)–(6.46)). Then W̃₊W̃₋ = w₀ on the band.
   - Check [A] of `check_px_bessel.out`: E_−^{−1}E_+ = I to 1e−19 with M₊ = [[1, i], [i, 1]]. It equals −I with
     KMVV (6.31)'s [[1, −i], [−i, 1]], which was the F1(a) error.
 - (ii) det P₀ ≡ 1 (as KMVV (6.33)).
-- (iii) **Ẽ_N is analytic in U(0, δ) and bounded with bounded inverse** (F4(a)).
+- (iii) **Ẽ_N = (analytic in U(0, δ)) + O(e^{−c′N}), bounded with bounded inverse** (F4(a); heading per re-check R2).
   - Ẽ_N has no band jump by (i).
-  - On (−δ, 0) it has the super-small jump J_E − I = O(exp(−cN|y|^{−1/p})), inherited from W̃ (Lemma 3.2(v)).
-  - Write Ẽ_N = E^a + Φ with Φ := (1/2πi)∫_{−δ}^0 Ẽ_{N,−}(y)(J_E(y) − I)dy/(y − z). The density is
+  - On (−δ₀, 0), with δ₀ > δ, it has the super-small jump J_E − I = O(exp(−cN|y|^{−1/p})), inherited from W̃ (Lemma 3.2(v)).
+  - Write Ẽ_N = E^a + Φ with Φ := (1/2πi)∫_{−δ₀}^0 Ẽ_{N,−}(y)(J_E(y) − I)dy/(y − z).
+    Integrating to −δ₀ keeps Φ's endpoint log singularity at −δ₀, off ∂U(0, δ). The density is
     O(|y|^{−1/2}e^{−cN|y|^{−1/p}}), so Φ is bounded, continuous and O(e^{−c′N}).
   - E^a is analytic in the punctured disc, and O(|z|^{−1/2}) at 0 by Lemma 3.4's consequence: KMVV's (6.37)–(6.38)
     pattern, "all entries of E_n(z) have at most a square-root singularity … Since we already know that E_n is
@@ -286,7 +295,7 @@ h_N is Hölder and enters only through Lemma 3.4.
 
 ### 4.2 Soft edge 4c: Airy parametrix (WLXZ §6.1 in x)
 
-- Near 4c the V-jumps are WLXZ (6.4) with D̃ ↦ F̃ = D̃BK and their w̃ ↦ w/(2iθ′):
+- Near 4c the V-jumps are WLXZ (6.4) with D̃ ↦ F̃ = D̃BK and their w̃ ↦ −2iθ′w (re-check R1):
   - band (4c − ε, 4c) with weight w₀;
   - lower-triangular on (4c, 4c + ε) (the explicit entry of §3);
   - upper-triangular w̃e^{−2Nφ̃}/F̃² on the vertical segments 4c ± i(0, δ), where Re φ̃ > 0 because
@@ -302,12 +311,13 @@ h_N is Hölder and enters only through Lemma 3.4.
   (WLXZ (3.20)–(3.21)).
 - After Q and V, the jump on the Σ^△ lips and on the closing segment N^p + δ′ + i(0, ±δ) is
 
-    J_V = I + (2iθ′/w)·F F̃·e^{2Nφ}·e₂₁  (the lower-triangular Σ^△ entry of WLXZ (5.4) with our functions).
+    J_V = I + (F F̃/W)·e^{2Nφ}·e₂₁,  W = 2iθ′w  (the lower-triangular Σ^△ entry of WLXZ (5.4) with our functions;
+    θ′ power corrected per re-check R1).
 
 - Bounds on that segment:
   - |D| ≤ CN^p/δ′, since |1 − e^{∓2iθ}| ≍ δ′/(pN^p);
   - |D̃|, |B|, |K| ≤ poly(N);
-  - |θ′/w| ≤ poly(N);
+  - |1/W| = |1/(2θ′w)| ≤ poly(N);
   - |e^{2Nφ}| = |e^{2Nφ̃}||e^{∓2iθ}| ≤ e^{2N Re φ̃}e^{2|Im θ|}, with |Im θ| = O(1) there;
   - Re φ̃(x) = log c + p − U*(x) ≤ −½log x for x ≥ x₀, since U*(x) = log x + o(1).
 - Hence |J_V − I| ≤ poly(N)·N^{−pN} on the top pieces, whose length is O(N^p).
@@ -322,12 +332,12 @@ h_N is Hölder and enters only through Lemma 3.4.
 
 *Proof.*
 - **Away from the band**: Σ_k k^{−s}/max(|z|, k^{−p}) = O(1 + |z|^{(s−1)/p−1}), and (s−1)/p − 1 = α_x.
-- **In the lens sectors** 0 < arg z < δ₀ (and the mirror image): R₁₂ = U₁₂ − K₋(z) with K_±(s) := U₁₁(wθ′/ sin θ)e^{±iθ}.
-  - K_± has residue μ_kU₁₁(X_k) at each node.
-  - K₋ is O(e^{−cN|s|^{−1/p}}) in the upper right quadrant, since Im θ < 0 there.
-  - K₋ − K₊ = −2iU₁₁wθ′ = O(|s|^{α_x}).
-  - Integrate K₋/(s − z) over the boundary of G = {|arg s| < φ₀, η_j < |s| < b}, where η_j are midpoints between
-    consecutive nodes. On the lower ray switch to K₊ + (K₋ − K₊).
+- **In the lens sectors** 0 < arg z < δ₀ (and the mirror image): R₁₂ = U₁₂ − 𝒦₋(z) with 𝒦_±(s) := U₁₁(wθ′/ sin θ)e^{±iθ}.
+  - 𝒦_± has residue μ_kU₁₁(X_k) at each node.
+  - 𝒦₋ is O(e^{−cN|s|^{−1/p}}) in the upper right quadrant, since Im θ < 0 there.
+  - 𝒦₋ − 𝒦₊ = −2iU₁₁wθ′ = O(|s|^{α_x}).
+  - Integrate 𝒦₋/(s − z) over the boundary of G = {|arg s| < φ₀, η_j < |s| < b}, where η_j are midpoints between
+    consecutive nodes. On the lower ray switch to 𝒦₊ + (𝒦₋ − 𝒦₊).
   - The η_j-arcs contribute O(η_j^{1+α_x}) → 0, since α_x > −1.
   - The lower-ray integral of −2iU₁₁wθ′/(s − z) is O(1 + |z|^{α_x}ℓ).
   - The remaining nodes in [b, N^p] are finitely many.
@@ -366,7 +376,7 @@ O(|z + 1|^{−β}, 1) inside", F10):
 
 ## 6. Statement
 
-**Theorem RH_p (pending re-check of F1–F2).** For p > 1 and s > 1, σ_{p,s} = Σ k^{−s}δ_{k^{−p}} satisfies
+**Theorem RH_p (PROVED-mod-cite, REVIEWED).** For p > 1 and s > 1, σ_{p,s} = Σ k^{−s}δ_{k^{−p}} satisfies
 
   n^p b_n = c(p)(1 + O(1/n))  and  a_n/(2b_n) = 1 + O(1/n).
 
