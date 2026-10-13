@@ -325,11 +325,157 @@ spacing. So **G3′* is not provable unconditionally with the inputs available.*
 "density-one simplicity" to "regularity of the repeated-ordinate density plus sparse super-close pairs". Both are
 statements about the fine distribution of zeros that no surveyed result reaches.
 
-**Conjecture T (thinning lemma, deterministic; open).** Let E ⊂ ℕ have a slowly varying density:
-d(j) := |E ∩ [1, j]|/j is bounded below and d(λj)/d(j) → 1 for each λ > 0. Then σ̃|_E satisfies G3′* (own
-normalization). Supported by the random and interleaved rows above. Prop N proves it for evenly spread E.
+**Thinning.** The deterministic thinning question is settled for index sets with convergent density by Theorem T in
+§7. The log-periodic rows of the table above have non-convergent density, which Theorem T excludes. The conditional
+results for the true zeros are G3′*-U and G3′*-L in §7.
 
-**Conditional statement (target, not proved).** Assume (D): N_d(T)/N(T) is slowly varying. Assume (WS): the
-super-close distinct pairs (log(1/normalized gap) ≥ εN) have density 0 for every ε > 0. Then Conjecture T together with
-the G3′-U/L machinery (§3, §4) would give G3′*. Both (D) and (WS) are weaker than (SG): (SG) ⇒ (D) with N_d/N → 1,
-and (SG) ⇒ (WS).
+## 7. Theorem T (thinning) and G3′* for the true zeros — PROVED-mod-input Theorem H, NOT REVIEWED
+
+Notation as in §1. Write f(ξ) := 1/(γ(ξ)² + ¼), so that x̃_k = f(k) = k⁻²L(k), and use item 11's H5(i) with a₀ = 1:
+
+  (1 − ε*(u)/2) L(u) ≤ r(u,v) := (f(u) − f(v))/(u⁻² − v⁻²) ≤ L(u)  for 1 ≤ u < v.
+
+Put c₀ := 1 − sup ε/2 > 0, which holds because sup ε < 2. Let A := A₂ be the constant of item 11's Lemma H7, so that
+φ_M(t) ≤ At − 2t² log M.
+
+**Setting T.** Let E ⊂ ℕ be infinite, with increasing enumeration π, and let d(K) := |E ∩ [1, K]|/K.
+- Assume d(K) → θ ∈ (0, 1].
+- Put y_j := f(π(j)) and L_E(j) := j²y_j = L(π(j))(j/π(j))².
+- Let the weights v_j > 0 satisfy (Hw) in the index j: c₁j⁻ˢ ≤ v_j ≤ c₂j⁻²U(j), with U nondecreasing,
+  log U = o(j) and Σv_j < ∞.
+- Let ν := Σ_j v_j δ_{j⁻²} be the comparison pure power.
+
+**Theorem T.** Under Setting T,
+
+  log D_n(Σ_j v_j δ_{y_j}) = −2n² log n + 2Σ_{j<n}(n−j) log L_E(j) + κn² + o(n²).
+
+That is, own-normalized Law P survives any thinning of convergent density.
+
+**Preliminaries.**
+- (P1) π(j)/j → 1/θ, since d(π(j)) = j/π(j).
+- (P2) log L_E(j) = log L(π(j)) + 2 log θ + o(1).
+- (P3) 2Σ_{j<n}(n−j) log L_E(j) = n² log L_E(n) + o(n²). The proof is as for H6(b): by H6(a),
+  |log L(π(n)) − log L(π(j))| ≤ ε*(π(j)) log(π(n)/π(j)), and π(n)/π(j) ≤ Cn/j by (P1).
+- (P4) L_E(Mn)/L_E(n) → 1 for fixed M, by H6(a) with π(Mn)/π(n) → M, and by (P1).
+
+**Lemma R (pair factors).** Define F(a,b) := (y_a − y_b)/(L_E(a)(a⁻² − b⁻²)). For ε ∈ (0, ½) there is a_ε such that
+for all a_ε ≤ a < b:
+- (far, b ≥ (1+ε)a): (1 − ε*(π(a))/2)(1 − ε) ≤ F(a,b) ≤ 1 + ε;
+- (near, b < (1+ε)a): F(a,b) ≥ 3c₀θ/16, and F(a,b) ≤ 5εa/(b − a).
+
+*Proof.* Write t := π(b)/π(a) and s := b/a. Then
+F = [r(π(a),π(b))/L(π(a))]·[(1 − t⁻²)/(1 − s⁻²)], and the first bracket lies in [1 − ε*(π(a))/2, 1].
+- Choose a_ε so that |θπ(j)/j − 1| ≤ ε³/8 for j ≥ a_ε. Then t/s ∈ [1 − ε³/3, 1 + ε³/3].
+- *Far.* |t⁻² − s⁻²| ≤ s⁻²·ε³ and 1 − s⁻² ≥ 1 − (1+ε)⁻² ≥ ε. So the second bracket is 1 ± ε².
+- *Near, upper.* 1 − t⁻² ≤ 2(t − 1) = 2(π(b) − π(a))/π(a). Also π(b) − π(a) ≤ π(⌈(1+ε)a⌉) − π(a) ≤ 2εa/θ for
+  a ≥ a_ε, and 1 − s⁻² ≥ (s − 1)(s + 1)/s² ≥ (8/9)(b − a)/a. So the second bracket is
+  ≤ (9/2)·(εa/(b − a))·(a/(θπ(a))) ≤ 5εa/(b − a).
+- *Near, lower.* π is strictly increasing and integer-valued, so t − 1 ≥ (b − a)/π(a). Since t ≤ 2,
+  1 − t⁻² ≥ (3/4)(t − 1). Also 1 − s⁻² ≤ 2(b − a)/a. So the second bracket is ≥ (3/8)·a/π(a) ≥ 3θ/16. ∎
+
+**Lemma K (concentration, from H7).** Fix M ≥ 2 and put t₀ := A/log M. The Heine terms of ν over index sets S with
+|S ∩ (Mn, ∞)| ≥ t₀n sum to ≤ exp(−2n² log n + κn² − (A²/log M)n² + o(n²)). This is a fraction o(1) of D_n(ν).
+
+*Proof.* Item 11's H7 proof, steps 1–6, bounds the sum over S with exactly m tail elements by T_m. With t = m/n it
+gives log T_m ≤ −2n² log n + κn² + n²φ_M(t) + o(n²), uniformly in m. For t ≥ t₀,
+φ_M(t) ≤ At − 2t² log M ≤ −At ≤ −A²/log M. Summing over the n + 1 values of m costs log(n+1). Theorem H (lower half,
+weights ≥ c₁j⁻ˢ) gives log D_n(ν) ≥ −2n² log n + κn² − o(n²). ∎
+
+*Proof of Theorem T, upper bound.* Fix M ≥ 2 and ε. Put λ := L_E(Mn). Define G(j) := j⁻² for j ≤ Mn and G(j) := y_j/λ
+for j > Mn. For a_ε ≤ a ≤ Mn, (P1) gives L_E(a) ≤ (1 + ε)λ. Then in a Heine term:
+- *Head pair* (b ≤ Mn): y_a − y_b ≤ max(F, 1)(1+ε)λ(G(a) − G(b)).
+- *Cross pair* (a ≤ Mn < b): y_a − y_b = (y_a − y_{Mn}) + λ(G(Mn) − G(b)) ≤ max(F(a,Mn), 1)(1+ε)λ(G(a) − G(b)).
+- *Tail pair:* exact.
+- *a < a_ε:* y_a − y_b ≤ y_a ≤ Bλ(a⁻² − b⁻²), with B depending on a_ε. These cost O(n).
+
+By Lemma R, the far factors cost ≤ log(1 + ε) per pair. For a head element a, the near factors cost
+Σ_{m=1}^{⌈εa⌉} log⁺(5εa/m) ≤ 3εa ≤ 3εMn. The cross factors cost the same per tail element. So
+
+  log D_n(y) ≤ n(n−1) log((1+ε)²λ) + C(ε + εM)n² + O(n) + log D_n(Σ v_j δ_{G(j)}).
+
+Item 11's H7 bounds the last term by −2n² log n + κn² + (A²/(8 log M))n² + o(n²), since (Hw) holds. By (P4) and
+(P3), n² log λ = 2Σ(n−j) log L_E(j) + o(n²). Let ε → 0, then M → ∞. ∎
+
+*Proof of Theorem T, lower bound.* Fix M and ε. By Lemma K, D_n(y) ≥ Σ_{S ∈ 𝒮} term_y(S), where 𝒮 is the family of
+index sets with fewer than t₀n elements beyond Mn, and Σ_𝒮 term_ν(S) ≥ (1 − o(1))D_n(ν). For S = {k_1 < … < k_n} ∈ 𝒮:
+
+  term_y(S) = term_ν(S)·Π_{i<j}[F(k_i, k_j)·L_E(k_i)]².
+
+- **Far pairs.** log F ≥ log(1 − ε*(π(k_i))/2) + log(1 − ε). Since π(k_i) ≥ i and ε* is nonincreasing, these sum to
+  ≥ 2Σ(n−i) log(1 − ε*(i)/2) − n² log(1/(1−ε)), which is −o(n²) − O(ε)n².
+- **Near pairs.** log F ≥ −C_θ with C_θ := log(16/(3c₀θ)).
+  - Pairs whose smaller element is in the head: ≤ Σ_{a ≤ Mn} min(n, εa) ≤ εMn².
+  - Pairs with both elements beyond Mn: ≤ (t₀n)².
+- **The L_E factors.** L_E(k_i) ≥ (1 − 3ε)L_E(i) for i ≥ a_ε. This uses k_i ≥ i, L∘π nondecreasing and (P1).
+- **Small a < a_ε.** inf_{b>a} F(a,b) ≥ (y_a − y_{a+1})a²/L_E(a) > 0, so these cost O(n).
+
+Hence log D_n(y) ≥ log D_n(ν) + 2Σ(n−i) log L_E(i) − [O(ε) + C_θ(εM + A²/log² M)]n² − o(n²). Theorem H (lower half)
+gives log D_n(ν) ≥ −2n² log n + κn² − o(n²). Let ε → 0, then M → ∞. ∎
+
+**Remark T′ (robustness).** Suppose d(K) ∈ [θ(1−η), θ(1+η)] for all large K, instead of d → θ. The same proof gives
+limsup |log D_n(y) − RHS_E|/n² ≤ ω(η) with ω(η) → 0 as η → 0. Take ε = η^{1/3} in Lemma R: t/s is then within 1 ± 3η,
+and the far bracket within 1 ± 3η/ε. Then let M → ∞ slowly as η → 0.
+
+### 7.1 G3′* for the true zeros
+
+- **Setting.** γ*_1 < γ*_2 < … are the distinct ordinates, with multiplicity m_j in the ordinate list of §1.
+  k(j) is the index of the first occurrence, so γ*_j = γ_{k(j)}.
+- **Atoms and weights.** y_j := 1/(γ*_j² + ¼), with weights 2m_j y_j (the merged measure σ). Then L_y(j) := j²y_j.
+- **Counting.** N_d(T) := #{j : γ*_j ≤ T}.
+
+**Hypotheses.**
+- **(D∞)** N_d(T)/N(T) → θ ∈ (0, 1].
+
+  Unconditionally liminf N_d/N ≥ 0.4075, because distinct zeros that are simple and on the line have distinct
+  ordinates ((C3), PRZD20).
+- **(SG\*)** For every η > 0 there is δ > 0 such that the upper density in j of
+  B_δ := {j : (γ*_{j+1} − γ*_j)·log(γ*_j/2π)/2π < δ} is at most η.
+
+  Unlike (SG), this concerns gaps between distinct ordinates only. Multiple zeros and repeated ordinates are allowed at
+  any density.
+
+**Theorem G3′*-U.** Under (D∞): limsup (1/n²)[log D_n(σ) − Φ*_n] ≤ 0, where
+Φ*_n := −2n² log n + 2Σ_{j<n}(n−j) log L_y(j) + κn².
+
+*Proof.* Compare y_j with the smooth thinned atoms ỹ_j := x̃_{k(j)}. The set E := {k(j)} has density
+d(K) = N_d(γ_K)/K → θ. This uses (D∞) and K = N(γ_K) + O(log γ_K), from Z1/(C2).
+- Z2 at indices k(a) < k(b), with k(b) − k(a) ≥ b − a, gives y_a − y_b ≤ ρ(k(a),k(b))(ỹ_a − ỹ_b). Over head pairs
+  (b ≤ Mn) the factors cost O(n log² n), exactly as in G3′-U step 3, because γ̃_{k(Mn)} ≤ γ̃_{CMn}.
+- Run the upper-bound proof of Theorem T for ỹ, with the tail of G built from the true atoms: G(j) := y_j/λ_y for
+  j > Mn, λ_y := L_y(Mn). Tail pairs are then exact.
+- Head and cross pairs take the Z2 factor times the Theorem T factor. λ_y/L̃_E(Mn) = y_{Mn}/ỹ_{Mn} → 1 by Z1′.
+- The weights satisfy (Hw): m_j ≤ 2E(γ*_j) = O(log j), which is absorbed into U.
+- Finally L_y(j)/L̃_E(j) → 1 by Z1′, so the right-hand sides agree up to o(n²). ∎
+
+**Theorem G3′*-L.** Under (D∞) and (SG*): liminf (1/n²)[log D_n(σ) − Φ*_n] ≥ 0. Hence, under (D∞) and (SG*), the
+own-normalized law (2/n²)Σ_{j<n}(n−j) log(b_j/y_j) → log(π²/16) holds.
+
+*Proof.*
+1. **Delete the bad set.** Fix η, take δ from (SG*), and delete B_δ. The remaining distinct indices J′ have density in
+   J within [1 − η − o(1), 1]. So the index set E′ := k(J′) has density in [θ(1 − η), θ] up to o(1), which is the
+   setting of Remark T′.
+2. **Restriction.** D_n(σ) ≥ D_n(σ|_{J′}), since all Heine terms are ≥ 0.
+3. **Own-atom comparison.** Run the lower-bound proof of Theorem T directly on the true atoms y′ of σ|_{J′}, against
+   the pure power, with π′ the enumeration of E′.
+   - *Far pairs.* γ*_j = γ_{k(j)} = γ̃_{k(j)} + O(1) by Z1, so y′ = f∘π′·(1 + O(1/γ̃)) in the far-pair ratios. The far
+     bounds of Lemma R hold with an extra factor 1 + O(1/γ̃_{π′(a)}). These sum to O(n log² n), as in G3′-U.
+   - *Near pairs.* Consecutive elements of J′ are separated by at least the forward gap of the earlier one, which is
+     ≥ 2πδ/log(γ/2π). So for near pairs (b < (1+ε)a, in J′-index), γ*_b − γ*_a ≥ (b − a)·2πδ/log(γ*_b/2π). The mean
+     spacing of J′-ordinates at height γ is 2π/(θ′ log(γ/2π)) with θ′ ∈ [θ(1−η), θ]. Hence F(a,b) ≥ c(θ)·δ for
+     a ≥ a_ε, which is again a bounded loss per near pair. The counting of near pairs (head: ≤ εMn²; deep: ≤ (t₀n)²)
+     and Lemma K are unchanged.
+   - *Weights.* 2m_j y_j ≥ 2y_j ≥ c j⁻² satisfies the lower half of (Hw).
+4. **Back to the full sequence.** This gives log D_n(σ|_{J′}) ≥ −2n² log n + 2Σ(n−j) log(j²y′_j) + κn² − ω(η)n² − o(n²).
+   Now y′_j = y_{π_J(j)}, with π_J(j) ≤ (1 + 2η)j eventually. So log(j²y′_j) ≥ log L_y(j) − 2 log(1+2η) − o(1),
+   because L_y is slowly varying, by Z1′ and Theorem T's (P2) applied to E. Let η → 0. ∎
+
+**Status of G3′ after §7.**
+
+| Form | Unconditional | Conditional |
+|---|---|---|
+| multiplicity-normalized (Φ_n) | upper bound (G3′-U) | lower bound under (SG) (G3′-L) |
+| own-normalized (Φ*_n) | — | upper under (D∞) (G3′*-U); law under (D∞) + (SG*) (G3′*-L) |
+
+The log-periodic numerics of §6 show that some regularity hypothesis such as (D∞) is genuinely needed for the
+own-normalized law (NUMERICAL). Neither (D∞) nor (SG*) is reached by the literature read in CITATIONS.md: (C3) gives
+only liminf N_d/N ≥ 0.4075.
