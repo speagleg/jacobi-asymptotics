@@ -1,0 +1,33 @@
+p=1.5 s=3.0 N=10: alpha_x=0.3333  Finf(2 dirs)=['(0.044472895 - 2.4934912e-9j)', '(0.044472892 + 1.5271509e-9j)']  Dinf=(0.561749 - 0.561749j)
+   N^p b_N/c = 0.9089022199   N^p a_(N-1)/(2c) = 0.9755473228
+   z=          (1.2 + 1.0j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.071956   N*err =  0.71956  |detV-1|=1.1e-31
+   z=          (0.5 + 0.8j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.052995   N*err =  0.52995  |detV-1|=2.1e-31
+   z=         (-1.0 + 0.5j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.036035   N*err =  0.36035  |detV-1|=1.8e-32
+   z=     (-1.5 + 1.0e-40j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.038449   N*err =  0.38449  |detV-1|=9.9e-32
+   z=          (0.0 + 2.5j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.032533   N*err =  0.32533  |detV-1|=9.9e-32
+   z=          (4.5 + 1.5j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.039437   N*err =  0.39437  |detV-1|=1.1e-32
+   z=          (3.0 - 1.2j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.074852   N*err =  0.74852  |detV-1|=2.0e-31
+   z=         (15.0 + 8.0j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =  0.0072166   N*err = 0.072166  |detV-1|=1.4e-31
+   z=         (-6.0 - 3.0j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.012622   N*err =  0.12622  |detV-1|=1.0e-31
+p=1.5 s=3.0 N=20: alpha_x=0.3333  Finf(2 dirs)=['(0.026540356 - 4.6154779e-9j)', '(0.02654035 + 2.8267715e-9j)']  Dinf=(0.470379 - 0.470379j)
+   N^p b_N/c = 0.9523402797   N^p a_(N-1)/(2c) = 0.9876477813
+   z=          (1.2 + 1.0j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.036622   N*err =  0.73243  |detV-1|=3.4e-33
+   z=          (0.5 + 0.8j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.027267   N*err =  0.54535  |detV-1|=1.1e-31
+   z=         (-1.0 + 0.5j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.019027   N*err =  0.38054  |detV-1|=2.0e-31
+   z=     (-1.5 + 1.0e-40j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.020262   N*err =  0.40524  |detV-1|=4.8e-34
+   z=          (0.0 + 2.5j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.017182   N*err =  0.34364  |detV-1|=2.0e-32
+   z=          (4.5 + 1.5j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.021694   N*err =  0.43389  |detV-1|=2.1e-31
+   z=          (3.0 - 1.2j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.041488   N*err =  0.82975  |detV-1|=2.8e-32
+   z=         (15.0 + 8.0j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =  0.0038923   N*err = 0.077846  |detV-1|=4.6e-33
+   z=         (-6.0 - 3.0j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =  0.0067278   N*err =  0.13456  |detV-1|=5.5e-33
+p=1.5 s=3.0 N=40: alpha_x=0.3333  Finf(2 dirs)=['(0.015810994 - 8.2915599e-9j)', '(0.015810983 + 5.0782026e-9j)']  Dinf=(0.394707 - 0.394707j)
+   N^p b_N/c = 0.9756011205   N^p a_(N-1)/(2c) = 0.9937888872
+   z=          (1.2 + 1.0j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.018478   N*err =   0.7391  |detV-1|=1.3e-31
+   z=          (0.5 + 0.8j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.013837   N*err =  0.55347  |detV-1|=2.1e-31
+   z=         (-1.0 + 0.5j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =  0.0097884   N*err =  0.39154  |detV-1|=9.6e-32
+   z=     (-1.5 + 1.0e-40j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.010413   N*err =  0.41652  |detV-1|=3.9e-31
+   z=          (0.0 + 2.5j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =  0.0088345   N*err =  0.35338  |detV-1|=5.3e-32
+   z=          (4.5 + 1.5j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.011417   N*err =  0.45668  |detV-1|=6.1e-32
+   z=          (3.0 - 1.2j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =   0.021885   N*err =  0.87542  |detV-1|=8.6e-32
+   z=         (15.0 + 8.0j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =  0.0020251   N*err = 0.081003  |detV-1|=2.0e-31
+   z=         (-6.0 - 3.0j): max|Dinf^-s3 (V N^-1 - I) Dinf^s3| =  0.0034776   N*err =   0.1391  |detV-1|=2.5e-31

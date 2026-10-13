@@ -186,3 +186,11 @@
   - **Top end.** Explicit bound: Re φ̃ ≤ −½log x, so the jumps there are N^{−pN}·poly.
 - **Phase 5.** Identification via the RH₁(r) §6 route; small norm; extraction in x.
   - Theorem RH_p is claimed: for p > 1, s > 1, n^p b_n = c(1 + O(1/n)) and a_n/(2b_n) = 1 + O(1/n). Pending Rule R.
+- **Rule R** (px/review/REVIEW_RHpx.md): ACCEPT WITH FIXES.
+  - End-to-end probe P1 (true OPs vs the global parametrix): error C/N with N·error stable, at three (p, s) pairs.
+    This validates Phases 1–3.
+  - F1 (blocking): the hard edge is KMVV's *left* endpoint (the old P₀ matching error was 10⁵ → 10¹³).
+  - F2: the saturated-region bookkeeping.
+  - F3–F10.
+- **Fixes applied.** The left-endpoint P₀ matches at O(1/N) in all five sectors (check_px_bessel.out, lens points
+  0.029 → 0.014). Lemma 3.4 (the Hölder endpoint bound) is self-contained. Re-check of F1 and F2 dispatched.

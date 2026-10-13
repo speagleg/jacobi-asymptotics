@@ -158,17 +158,56 @@ The arXiv v1 PDF was read via pdftotext. The Anal. Appl. 14 (2016) version was n
 > 1 + O(ζ^{−1/2})]]e^{2ζ^{1/2}σ3}" uniformly as ζ → ∞; (6.31) "E_n(z) = N(z)W(z)^{σ3}(1/√2)[[1, −i], [−i, 1]]
 > f(z)^{σ3/4}(2πn)^{σ3/2}"; (6.33) "det E_n(z) = 1".
 >
-> (removability, p. 29) "N(z)W(z)^{σ3} = D∞ [a-matrix] (W(z)/D(z))^{σ3} = O(|z − 1|^{−1/4}) … Since f has a simple zero
-> at 1 we also have f(z)^{σ3/4} = O(diag(|z − 1|^{1/4}, |z − 1|^{−1/4}))". This uses only that W/D is bounded; the
-> sharper Lemma 6.4, "W(z)/D(z) = 1 + O(|z − 1|^{1/2})", relies on the analyticity of h.
+> (Prop. 6.5, proof) "Thus by (6.31), (6.37), and (6.38) we have that all entries of En(z) have at most a square-root
+> singularity at z = 1. Since we already know that En is analytic in a punctured neighborhood of 1, the isolated
+> singularity at 1 is removable. Thus, En is analytic in U \ (−∞, −1]."
+>
+> (§6, endpoint −1, added for Rule R F1) "ϕ̃(z) = ϕ(−z) = −ϕ(z), (6.42) … ϕ̃₊(x)ϕ̃₋(x) = 1, for x ∈ (−1, 1). (6.43) The
+> function W̃(z) = ((1 − z)^α(−1 − z)^β h(z))^{1/2}, for z ∈ U \ [−1, ∞), (6.44) is analytic in U \ [−1, ∞), and
+> satisfies W̃²(z) = e^{−βπi}w(z) for Im z > 0, e^{βπi}w(z) for Im z < 0. (6.45) … W̃₊(x)W̃₋(x) = w(x) (6.46)";
+> "P̃(z) = Ẽn(z)P̃^{(1)}(z)W̃(z)^{−σ3}ϕ̃(z)^{−nσ3} (6.47)"; "f̃(z) = g̃²(z)/4 (6.50). Then ζ = f̃(z) is a one-to-one
+> conformal mapping of Ũδ onto a neighborhood of ζ = 0. However the ordering is reversed. Thus if z < −1, then ζ > 0,
+> while if z > −1, then ζ < 0. The contours Σ1 and Σ3 are chosen such that f̃(Σ1 ∩ Ũδ) is part of the ray γ3, and
+> f̃(Σ3 ∩ Ũδ) is part of the ray γ1"; "The reversal of the directions is taken care of by conjugating with the Pauli
+> matrix σ3. Thus we take Ψ̃(ζ) = σ3Ψ(ζ; α → β)σ3, (6.51)"; "P̃(z) = Ẽn(z)Ψ̃(n²f̃(z))ϕ̃(z)^{−nσ3}W̃(z)^{−σ3}, (6.52)";
+> "Ẽn(z) = N(z)W̃(z)^{σ3}(1/√2)[[1, i], [i, 1]]f̃(z)^{σ3/4}(2πn)^{σ3/2}, for z ∈ Ũδ. (6.53) Similar reasoning as before
+> shows that Ẽn is analytic in U \ [1, ∞), and that the matching condition is satisfied."
 
-**Used in:** RH_px §4.1, Lemmas 4.2 and 4.3, and §5. Our hard edge is at x = 0, with the band to the right. The
-reflection z ↦ −z is absorbed in f (f′(0) < 0).
+**Used in:** RH_px §4.1 (corrected per Rule R F1), Lemmas 4.2 and 4.3, and §5. Our hard edge is at x = 0 with the band
+to the right, which is KMVV's endpoint −1. The reversal is absorbed by (6.51) and (6.53), not by f.
 
-**Hypothesis gap, flagged.** KMVV assume h is real analytic on the closed interval. Our h_N is analytic on (0, δ),
-continuous and nonzero at 0, and analytic across (−δ, 0) only up to a super-small jump. The construction uses only:
-- W analytic off the band, up to that jump;
-- W₊W₋ = w₀;
-- W/D_w bounded above and below at 0.
+**Hypothesis gap (flagged; addressed by RH_px Lemma 3.4).** KMVV assume h is real analytic on the closed interval. Our
+h_N is analytic on (0, 4c + ε) and Hölder-ν at 0, and W̃ jumps super-exponentially little on (−δ, 0). The
+removability step (Prop. 6.5, quoted above) needs:
+- E_n analytic in a punctured disc — RH_px Lemma 4.2(iii) splits off the super-small jump;
+- at most square-root growth — RH_px Lemma 3.4 gives D_w/W̃ bounded for Hölder h.
 
-Everything else enters as mismatch (Lemma 4.3).
+(This reading of what the step needs is ours, not KMVV's.)
+
+## (WLXZ-v1, additional quotes for RH_px; Rule R F5) — read in 1410.3948.txt
+
+> (3.10) "U^△_±(z) := Π(z)^{−σ3}[[1, 0], [−(1/(Π(z)w(z)))e^{±iθ(z)}, 1]]"; (3.11) "R(z) := U(z) × {U₊(z), z ∈ Ω_{l,+} ∪
+> Ω_{r,−}; U₋(z), z ∈ Ω_{l,−} ∪ Ω_{r,+}; U^△₊(z), z ∈ Ω^△_{l,+} ∪ Ω^△_{r,−}; U^△₋(z), z ∈ Ω^△_{l,−} ∪ Ω^△_{r,+}; I, z ∈ Ω∞}";
+> (3.12) "R11(z) = U11(z), R12(z) = U12(z) − U11(z)(w(z)/Π(z))e^{±iθ(z)}"; (3.15) "R11(z) = U11(z)Π(z)^{−1} −
+> w(z)^{−1}U12(z)e^{±iθ(z)}, R12(z) = U12(z)Π(z)".
+>
+> (4.1) "T(z) := e^{(−nl/2)σ3}R(z)e^{(−ng(z)+nl/2)σ3}"; (4.4) "g₊(x) + g₋(x) = l, x ∈ (−2, 2); > l, x ∈ (−∞, −2) ∪ (2,
+> +∞)"; (4.10), on (2, k_n): "[[e^{−2i(θ(z)+πα)}, 0], [(2iγ(z)/w(z))e^{n(l−g₊(z)−g₋(z))}, e^{2i(θ(z)+πα)}]]", and on
+> (k_n, +∞): "[[e^{−2nπi/z²}, 0], [0, e^{2nπi/z²}]]".
+>
+> (4.12) "Q(z) := T(z) × {−V₋(z), z ∈ Ω_{l,+} ∪ Ω_{r,−}; V^△₊(z), z ∈ Ω^△_{l,−} ∪ Ω^△_{r,+}; V₊(z), …; V₋(z), z ∈
+> Ω_{l,−} ∪ Ω_{r,+}; I, z ∈ Ω∞}"; (4.13) "V±(z) := [[1, 0], [±(e^{2nφ(z)}/(2iγ(z)w(z))), 1]] and V^△±(z) :=
+> [[(1/(2iγ(z)))e^{±iθ(z)}, 0], [0, 2iγ(z)e^{∓iθ(z)}]]"; and "for z ∈ Σ^△_{r,±}, since 1 − e^{∓2iθ(z)} = O(1) when
+> z = O(k_n), the jump matrix J_Q(z) ≁ I near the critical point z = k_n."
+>
+> (5.1) "V(z) := n^{(α−1/2)σ3}Q(z)E(z)^{σ3} × {D̂(z)^{σ3}, z ∈ Ω_{l,±} ∪ Ω^△_{l,±}; D̃(z)^{σ3}, z ∈ Ω_{r,±} ∪
+> Ω^△_{r,±}; D(z)^{σ3}, z ∈ Ω∞}"; (5.7) "V(z) = O(1)(z² − 4)^{(1/2−α)σ3}" as z → ±2; (5.9) "N₊(x) = N₋(x)[[0,
+> −(4 − x²)^{2α−1}e^L], [(4 − x²)^{1−2α}e^{−L}, 0]]"; (5.11), the explicit N.
+>
+> (6.4) the local jumps near 2 (band [[0, w₀/D̃²], [−D̃²/w₀, 0]]; vertical segments [[1, w̃/(D̃²e^{2nφ̃})], [0, 1]];
+> (2, 2 + ε) [[1, 0], [D̃²e^{2nφ̃}/w̃, 1]]); (6.5) "P(z) = V_loc(z) × (w̃^{1/2}/D̃)^{σ3}e^{−nφ̃(z)σ3} for z ∈ U(2, ε)";
+> (6.10) "f̃_n(z) = (−(3/2)nφ̃(z))^{2/3}"; (6.11) "φ̃(z) = −(2/3)(z − 2)^{3/2} + O((z − 2)²)"; (6.12)
+> "V_r(z) = E_r(z)σ2Ψ(f̃_n(z))σ2e^{nφ̃σ3}(D̃/w̃^{1/2})^{σ3}".
+
+**Used in:** RH_px §3 (transformations, V^△, F2), §4.2 (Airy) and §4.3 (the Σ^△ entries). In x: γ ↦ θ′, there is no
+α-shift in θ, and the region is one-sided.

@@ -1,0 +1,18 @@
+[A] E_N band jump at x (alpha_x = 0):
+   x=0.05 doc  [[1,-i],[-i,1]]      : E_-^-1 E_+ = [['(-1.0 - 1.00341e-19j)', '0.0'], ['0.0', '(-1.0 + 1.00341e-19j)']]
+   x=0.05 KMVV(6.53) [[1,i],[i,1]]  : E_-^-1 E_+ = [['(1.0 + 1.00341e-19j)', '0.0'], ['0.0', '(1.0 - 1.00341e-19j)']]
+   x=0.2 doc  [[1,-i],[-i,1]]      : E_-^-1 E_+ = [['(-1.0 - 2.53527e-20j)', '0.0'], ['0.0', '(-1.0 + 2.53527e-20j)']]
+   x=0.2 KMVV(6.53) [[1,i],[i,1]]  : E_-^-1 E_+ = [['(1.0 + 2.53527e-20j)', '0.0'], ['0.0', '(1.0 - 2.53527e-20j)']]
+[B] matching on |z| = delta = 0.4 (outside the lens: arg +-0.5pi, +-0.8pi; inside the lens: arg +-0.15pi)
+   N=20 arg z=0.5pi: max|P N^-1 - I| -> doc: 1.121e+5   KMVV(-1): 0.04918
+   N=20 arg z=0.8pi: max|P N^-1 - I| -> doc: 4.791e+6   KMVV(-1): 0.06548
+   N=20 arg z=-0.5pi: max|P N^-1 - I| -> doc: 1.121e+5   KMVV(-1): 0.04918
+   N=20 arg z=-0.8pi: max|P N^-1 - I| -> doc: 4.791e+6   KMVV(-1): 0.06548
+   N=20 arg z=0.15pi: max|P N^-1 - I| -> doc: 42.67   KMVV(-1): 0.029
+   N=20 arg z=-0.15pi: max|P N^-1 - I| -> doc: 42.67   KMVV(-1): 0.029
+   N=40 arg z=0.5pi: max|P N^-1 - I| -> doc: 1.149e+10   KMVV(-1): 0.02502
+   N=40 arg z=0.8pi: max|P N^-1 - I| -> doc: 1.913e+13   KMVV(-1): 0.03352
+   N=40 arg z=-0.5pi: max|P N^-1 - I| -> doc: 1.149e+10   KMVV(-1): 0.02502
+   N=40 arg z=-0.8pi: max|P N^-1 - I| -> doc: 1.913e+13   KMVV(-1): 0.03352
+   N=40 arg z=0.15pi: max|P N^-1 - I| -> doc: 2068.0   KMVV(-1): 0.01421
+   N=40 arg z=-0.15pi: max|P N^-1 - I| -> doc: 2068.0   KMVV(-1): 0.01421
