@@ -74,3 +74,5 @@ import JacobiAsym
 #print axioms JacobiAsym.det_mul_cauchyBinet
 #print axioms JacobiAsym.det_mul_expand
 #print axioms JacobiAsym.det_submatrix_of_not_injective
+#print axioms JacobiAsym.heineK_eq_det
+#print axioms JacobiAsym.heineTerm_map_strictMono
