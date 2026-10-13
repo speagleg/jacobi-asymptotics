@@ -52,3 +52,17 @@
 - **Gate 3: GO for p ∈ {1, 2}**; general p deferred. The new content for p ∈ {1, 2} is the pointwise law for weights
   r ≠ 1 + p/2, which needs the Bessel/Fisher–Hartwig origin parametrix. This covers Haynes–Zudilin a = 2 and
   Monien a = 1.
+
+## Phase 4: local parametrices (RH.md §7)
+
+- **Airy edges.** Square-root vanishing proved, with an explicit constant √(r*² − x²)/(πq r*²) (numerics match for
+  p = 1, 2, 3).
+- **Origin.** A regular interior point, ψ(0) = 1/(πr*(q+1)). KV §5 (read) is the local problem, with Fisher–Hartwig
+  exponent α = (2r − 2 − p)/(2p): structure verified, prefactor bookkeeping pending.
+- **Top end.** The saturated jump is exponentially small uniformly up to k_N (raw entry 3e−14 at N = 160), so no
+  parametrix is needed.
+- **First run of the top-end check (recorded honestly).** Taking the sup over [1.05r*, k_N] grew with N, because the
+  sup sat inside the would-be Airy disc and the raw entry carries polynomial N-factors. Restricting to a fixed disc
+  complement gives clean exponential decay.
+- **Gate 4: GO for p ∈ {1, 2}.** Phase 5 (bookkeeping, small norm, extraction, acceptance test against Phase 0's
+  d₁ and e₁) is next.

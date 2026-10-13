@@ -198,3 +198,58 @@ p:
 r = 1 + p/2 are the exactly solvable families. So the new content of the RH route for p ∈ {1, 2} is the *pointwise*
 law for weights r ≠ 1 + p/2. That needs the Fisher–Hartwig/Bessel origin parametrix (§5) with α = (2r − 2 − p)/(2p).
 This includes the Haynes–Zudilin a = 2 measures (r = 4 + b ≥ 5, α = (r − 2)/2 ≥ 3/2) and Monien's a = 1 measures.
+
+## 7. Phase 4: local parametrices (p ∈ {1, 2})
+
+**Lemma 4.1 (square-root edges; PROVED).** Near x = r*,
+
+  (node density − ψ)(x) = √(r*² − x²)/(πq r*²)·(1 + O(r* − x)).
+
+*Proof.* For x < r* near r*, the difference is (1/π)∫_1^{t_x} dt/√(ρ_t² − x²). Linearize
+ρ_t² − x² ≈ (r*² − x²) − 2qr*²(t − 1); the endpoint t_x − 1 is where this vanishes. The integral equals
+2√(r*² − x²)/(2qr*²) to leading order. ∎
+
+Numerically, the ratio to √(r* − x) converges to √2/(πq r*^{3/2}): 0.318, 0.0808 and 0.0295 for p = 1, 2, 3
+(`checks/check_phase4.out` [1]). So the band–saturated edges ±r* are of standard square-root type. **Airy
+parametrices** apply there, in the band–saturated form of WLXZ §6.1, with f̃ = (−(3/2)Nφ̃)^{2/3} (their (2.5)).
+
+**Lemma 4.2 (regular origin; PROVED).** ψ(0) = (1/π)∫_0^1 dt/ρ_t = 1/(πr*(q+1)) > 0. Checked to 10 digits for
+p = 1, 2, 3. So 0 is an interior band point, and KV's conformal map f(z) = ±iφ(z) − iφ₊(0), with f′(0) = πψ(0), is
+available.
+
+**Proposition 4.3 (origin = KV local problem).** Near 0:
+- the band jump is [[0, w₀/D̃²], [−D̃²/w₀, 0]], with w₀ ∝ |x|^{2α}h(x), h analytic and nonvanishing near 0
+  (Lemma 3.1, E analytic near 0, D̃ = 1 + O(z/N));
+- the lens and R-contours near 0 carry WLXZ (6.24)-type jumps [[1, 0], [c(z)e^{2Nφ}, 1]], with c analytic, on four
+  contours meeting at 0.
+
+This is the KV §5 local problem ((5.1)–(5.2)) with α = (2r − 2 − p)/(2p), after the analytic factor h is absorbed
+into the Szegő function, as KV do for |x|^{2α}e^{−nV}. KV build its solution from Bessel functions of order α ± ½
+(their §5, via Vanlessen [38]), with matching I + O(1/N). For α = 0 it reduces to WLXZ's elementary §6.2 parametrix.
+
+*Status.* The structural hypotheses are verified (Lemmas 3.1, 4.2 and the jump forms). The exact analytic prefactors
+near 0 in our notation still need full bookkeeping (Phase 5) before this is a proof. Label: **STRUCTURE VERIFIED,
+mod-cite (KV §5)**.
+
+**Lemma 4.4 (top of the node set: no parametrix).** On the saturated part outside a fixed disc around r*, up to the
+last node k_N = N^q, the lower-triangular saturated jump entry is exponentially small. Even the *raw* entry, before
+the Szegő/E normalization and with polynomial N-factors, gives
+
+  sup |θ′/w|·|D̃|²·e^{N(l − 2Re g)} = 0.0795, 2.9e−3, 9.9e−7, 2.7e−14 (r = 2) and 1.9, 0.28, 3.8e−4, 4.2e−11 (r = 4)
+
+for N = 20, 40, 80, 160 (p = 2, x ∈ [1.3r*, k_N]). The decay comes from l − 2Re g < 0 (Lemma 2.2), which grows in
+magnitude towards the top, while D̃ stays bounded at t ≈ 1 (√(2π)e^{−1} ≈ 0.92). Beyond k_N the DE functions remove
+the jump exactly (§6.2). NUMERICAL, supporting Review Focus 4.
+
+**Gate 4: GO (p ∈ {1, 2}).** Every local problem is identified with a cited construction whose hypotheses are
+checked:
+- Airy at ±r*: square-root vanishing (Lemma 4.1);
+- Bessel (KV §5) at 0: regular interior point (Lemma 4.2), Fisher–Hartwig exponent α (Lemma 3.1);
+- none at the top: exponential smallness (Lemma 4.4).
+
+**Remaining for Phase 5:**
+- exact jump bookkeeping in our notation (the V-jumps, the WLXZ (5.3)–(5.4) analogues with the mirrored left-side
+  functions);
+- the small-norm estimate;
+- extraction of γ_N, hence a_n and b_n, with the target corrections d₁ = −(r−1)/2 and e₁ = p/2 from Phase 0 as the
+  acceptance test.
