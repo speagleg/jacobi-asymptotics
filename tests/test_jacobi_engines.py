@@ -29,11 +29,12 @@ def test_rkpw_matches_mp_random_measure():
 def test_rkpw_long_double_and_quad_keep_precision_type():
     mu = pure_power(2, 2000)
     rd, rl, rq = (jacobi_rkpw(mu, 100, prec=p) for p in ("d", "ld", "q"))
-    assert rl.a.dtype == np.longdouble and rq.b2.dtype == np.longdouble
+    assert rl.a.dtype == np.longdouble and rq.b2.dtype == object
     # the extra bits must survive parsing (a float64 round-trip would make this exactly 0)
     assert np.max(np.abs(rl.b2 - rl.b2.astype(np.float64).astype(np.longdouble))) > 0
     assert np.max(np.abs(rd.b2 / rl.b2.astype(np.float64) - 1)) < 1e-11
-    assert np.max(np.abs(rl.b2 / rq.b2 - 1)) < 1e-14
+    rq_ld = np.array([np.longdouble(mp.nstr(v, 25)) for v in rq.b2])
+    assert np.max(np.abs(rl.b2 / rq_ld - 1)) < 1e-14
 
 
 @pytest.mark.parametrize("engine", ["rkpw", "mp"])
@@ -48,3 +49,15 @@ def test_missing_kernel_message(monkeypatch, tmp_path):
     monkeypatch.setattr(R, "BIN_DIR", tmp_path)
     with pytest.raises(R.KernelMissing, match="make -C csrc"):
         jacobi_rkpw(pure_power(2, 10), 3)
+
+
+def test_quad_precision_is_actually_delivered():
+    # binary128 must deliver ~1e-30, not long-double accuracy (final review, Important #1)
+    rng = np.random.default_rng(5)
+    mu = DiscreteMeasure.from_atoms(rng.uniform(0.01, 1, 40), rng.uniform(0.1, 2, 40))
+    a_ref, b2_ref = jacobi_mp(mu, 20, dps=60)
+    rq = jacobi_rkpw(mu, 20, prec="q")
+    assert max(abs(rq.b2[i] / b2_ref[i] - 1) for i in range(20)) < 1e-25
+    assert max(abs(rq.a[i] / a_ref[i] - 1) for i in range(20)) < 1e-25
+    with mp.workdps(40):
+        assert abs(rq.b[3] - mp.sqrt(b2_ref[3])) / abs(rq.b[3]) < 1e-25

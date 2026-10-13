@@ -24,7 +24,7 @@
 #ifdef QUAD
 #include <quadmath.h>
 typedef __float128 real;
-#define FMT(buf, v) quadmath_snprintf(buf, sizeof buf, "%.21Qe", v)
+#define FMT(buf, v) quadmath_snprintf(buf, sizeof buf, "%.36Qe", v)
 #elif defined(LD)
 typedef long double real;
 #define FMT(buf, v) snprintf(buf, sizeof buf, "%.21Le", v)

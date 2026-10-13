@@ -3,6 +3,7 @@ import os
 import subprocess
 import tempfile
 from pathlib import Path
+import mpmath as mp
 import numpy as np
 from ..measures.base import DiscreteMeasure
 from .result import JacobiCoeffs
@@ -27,7 +28,14 @@ def jacobi_rkpw(mu: DiscreteMeasure, n: int, prec: str = "d") -> JacobiCoeffs:
         fin, fout = os.path.join(td, "atoms.bin"), os.path.join(td, "out.txt")
         np.stack([mu.atoms, mu.weights], 1).astype("<f8").tofile(fin)
         subprocess.run([str(exe), fin, str(n + 1), fout], check=True)
-        dt = np.float64 if prec == "d" else np.longdouble
-        d = np.loadtxt(fout, dtype=dt, ndmin=2)
-    alpha, beta = d[:, 1], d[:, 2]
+        if prec == "q":
+            # binary128 output (36 digits) is parsed to mpf: np.longdouble would round it to 64 bits
+            with mp.workdps(40):
+                rows = [l.split() for l in open(fout) if l.strip()]
+                alpha = np.array([mp.mpf(r[1]) for r in rows], dtype=object)
+                beta = np.array([mp.mpf(r[2]) for r in rows], dtype=object)
+        else:
+            dt = np.float64 if prec == "d" else np.longdouble
+            d = np.loadtxt(fout, dtype=dt, ndmin=2)
+            alpha, beta = d[:, 1], d[:, 2]
     return JacobiCoeffs(a=alpha[:n].copy(), b2=beta[1:n + 1].copy(), method="rkpw", prec=prec, mass=float(beta[0]))

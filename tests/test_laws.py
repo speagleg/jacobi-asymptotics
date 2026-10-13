@@ -43,3 +43,11 @@ def test_averaged_law_on_exact_ratio():
         assert v == pytest.approx(-np.log(c_p(2)) / n, abs=1e-13)
     with pytest.raises(ValueError):
         averaged_law(b, x, 2, [600])
+
+
+def test_predict_b_slowly_decaying_atoms():
+    # final review, Important #2: f = xi^-0.25 at n = 2 used to raise scipy's opaque bracket error
+    f = lambda xi: np.asarray(xi, float) ** -0.25
+    finv = lambda B: B ** -4.0
+    b = predict_b(2, f, finv)
+    assert 0 < b < f(0.5) / 4      # the smoothed inversion integrates xi over [1/2, oo), so B = 4b may exceed f(1)

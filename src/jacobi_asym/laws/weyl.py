@@ -45,9 +45,16 @@ def _n_of_B(B, f, finv):
 
 
 def predict_b(n: int, f, finv) -> float:
-    """b_n^W from the smoothed Weyl inversion (P).  f: decreasing atom function on xi >= 1/2, finv its inverse."""
+    """b_n^W from the smoothed Weyl inversion (P).  f: decreasing atom function on xi >= 1/2, finv its inverse.
+    f must accept numpy arrays (it is evaluated on arrays of nodes)."""
     if n < 2:
         raise ValueError("predict_b needs n >= 2 (the bracket degenerates at n = 1)")
     g = lambda lB: _n_of_B(np.exp(lB), f, finv) - n
-    lB = brentq(g, np.log(f(2.0 * n + 2)), np.log(f(1.0)), xtol=1e-14)
+    lo = np.log(f(2.0 * n + 2))                      # count there is >= n + 1 > n
+    hi = np.log(f(1.0))
+    if g(hi) >= 0:                                   # slowly decaying f: push xi_B down towards 1/2
+        hi = np.log(f(0.5 + 1e-6))
+        if g(hi) >= 0:
+            raise ValueError(f"predict_b: cannot bracket n = {n} for this f (n(B) >= n already at xi_B ~ 1/2)")
+    lB = brentq(g, lo, hi, xtol=1e-14)
     return float(np.exp(lB) / 4)
