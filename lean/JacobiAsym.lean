@@ -7,3 +7,4 @@ import JacobiAsym.RatioBounds
 import JacobiAsym.SlowVariation
 import JacobiAsym.Penalty
 import JacobiAsym.Inputs
+import JacobiAsym.SlowFactor

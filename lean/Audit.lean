@@ -34,3 +34,7 @@ import JacobiAsym
 #print axioms JacobiAsym.heineD_le
 #print axioms JacobiAsym.heineD_pos
 #print axioms JacobiAsym.TheoremHPure.uniform_upper
+#print axioms JacobiAsym.SlowFactor.L_cont
+#print axioms JacobiAsym.SlowFactor.R_pos
+#print axioms JacobiAsym.SlowFactor.logL_slow
+#print axioms JacobiAsym.SlowFactor.exists_rhoMin
