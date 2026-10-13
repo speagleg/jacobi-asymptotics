@@ -34,6 +34,7 @@ remains a named input.
 | `jb2`, `ja`, `opoly_recurrence` | three-term recurrence | X P_k = P_{k+1} + a_k P_k + b_k² P_{k−1}, b_k² = D_{k+1}D_{k−1}/D_k² |
 | `hankel_det_eq_prod` | H2 | D_n = m₀ⁿ Π_{j<n} (b_j²)^{n−j} |
 | `sum_log_weighted_asymp` | (Stirling-type sum) | Σ_{j<n}(n−j) log j = n²/2 log n − 3n²/4 + o(n²) |
+| `smoothZeta_HL_sumForm` | Cor. H_L-ζ, sum form | log D_n = −2n² log n + 2Σ_{j=1}^{n−1}(n−j) log L(j) + κn² + o(n²); PROVED-mod-input |
 | **`smoothZeta_bLaw`** | **b_j form of Cor. H_L-ζ** | **(2/n²)Σ(n−j) log(b_j/x_j) → log(π²/16); PROVED-mod-input (TheoremHPure 2 κ 2, κ = 3 + log(π²/16))** |
 | **`smoothZeta_HL`, `smoothZeta_HL_det`** | **Corollary H_L-ζ** | **smooth-ζ measure, Hankel-determinant form; PROVED-mod-input (TheoremHPure 2 κ 2)** |
 

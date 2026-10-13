@@ -43,6 +43,51 @@ theorem log_zetaL_eq {j : ℕ} (hj : 1 ≤ j) :
   rw [div_eq_mul_one_div, Real.log_mul (by positivity) (by positivity), Real.log_pow]
   push_cast; ring
 
+/-- **Sum form of Corollary H_L-ζ** (PROVED-mod-input; item 11 §7b first form):
+`log D_n = -2 n² log n + 2 ∑_{j=1}^{n-1} (n-j) log L(j) + κ n² + o(n²)`. -/
+theorem smoothZeta_HL_sumForm {κ : ℝ} (hH : TheoremHPure 2 κ 2) :
+    Tendsto (fun n : ℕ => (Real.log (hankel zetaAtom (fun k => 2 * zetaAtom k) n).det -
+      (-2 * (n : ℝ) ^ 2 * Real.log n + 2 * ∑ j ∈ Ico 1 n, ((n : ℝ) - j) * Real.log (zetaL j) +
+        κ * (n : ℝ) ^ 2)) / (n : ℝ) ^ 2) atTop (𝓝 0) := by
+  obtain ⟨L', E, a0, hL⟩ := zetaL_slowFactor
+  set ℓ : ℝ → ℝ := fun t => Real.log (zetaL t) with hℓ
+  have h1 := smoothZeta_HL_det hH
+  have h2 := weighted_cesaro_slow hL.E_nonneg hL.E_anti hL.E_lim hL.logL_slow
+  have h5 : Tendsto (fun n : ℕ => ℓ n / n) atTop (𝓝 0) := by
+    have hb : Tendsto (fun n : ℕ => (|ℓ 1| + E 1 * Real.log n) / n) atTop (𝓝 0) := by
+      have := (tendsto_const_div_atTop_nhds_zero_nat |ℓ 1|).add (tendsto_log_div_nat.const_mul (E 1))
+      simp only [mul_zero, add_zero] at this
+      refine this.congr' ?_
+      filter_upwards [eventually_ge_atTop 1] with n hn
+      field_simp
+    apply squeeze_zero_norm' _ hb
+    filter_upwards [eventually_ge_atTop 1] with n hn
+    have hnr : (1 : ℝ) ≤ n := by exact_mod_cast hn
+    have h := hL.logL_slow 1 n le_rfl hnr
+    rw [div_one] at h
+    rw [Real.norm_eq_abs, abs_div, abs_of_pos (by positivity : (0:ℝ) < n)]
+    apply div_le_div_of_nonneg_right _ (by positivity)
+    have := abs_sub_abs_le_abs_sub (ℓ n) (ℓ 1)
+    simp only [hℓ] at this ⊢
+    linarith
+  have hall := (h1.sub h2).add h5
+  simp only [sub_zero, add_zero] at hall
+  refine hall.congr' ?_
+  filter_upwards [eventually_ge_atTop 1] with n hn
+  have hnr : (1 : ℝ) ≤ n := by exact_mod_cast hn
+  have hn0 : (n : ℝ) ≠ 0 := by linarith
+  have hsumw : ∑ j ∈ Ico 1 n, ((n : ℝ) - j) = (n : ℝ) * ((n : ℝ) - 1) / 2 := by
+    rw [sum_sub_distrib, sum_const, Nat.card_Ico, nsmul_eq_mul, sum_Ico_id, Nat.cast_sub hn]
+    push_cast; ring
+  have hsplit : ∑ j ∈ Ico 1 n, ((n : ℝ) - j) * ℓ j =
+      ∑ j ∈ Ico 1 n, ((n : ℝ) - j) * (ℓ j - ℓ n) + ℓ n * ∑ j ∈ Ico 1 n, ((n : ℝ) - j) := by
+    rw [mul_sum, ← sum_add_distrib]; apply sum_congr rfl; intro j _; ring
+  simp only [hℓ] at hsplit hsumw ⊢
+  rw [hsplit, hsumw]
+  unfold hnorm
+  field_simp
+  ring
+
 /-- **b_j form of Corollary H_L-ζ** (PROVED-mod-input): the doubly-Cesàro geometric mean of `b_j / x_j`
 tends to `π²/16`; `x_j = zetaAtom (j-1)` is the `j`-th atom. -/
 theorem smoothZeta_bLaw (hH : TheoremHPure 2 (3 + Real.log (Real.pi ^ 2 / 16)) 2) :
