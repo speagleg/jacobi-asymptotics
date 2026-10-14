@@ -698,8 +698,8 @@ multiplicity-normalized averaged law holds for the true zeros.
 *Proof.* Let g_k be the normalized gaps of §4 (consecutive ordinates with multiplicity; g_k = 0 at repeats). Fix
 δ ∈ (0, 1).
 - **Repeats.** GLSS Theorem 1's proof shows that PCC implies N^⊛(T) = TL + o(TL), i.e. HMH. Then
-  #{k ≤ N(T) : g_k = 0} ≤ Σ_ρ(H(γ) − 1) = N^⊛(T) − N(T) + o(TL)... more precisely Σ(H − 1) ≤ N^⊛ − N = o(TL). So
-  repeats have density 0.
+  #{k ≤ N(T) : g_k = 0} = Σ_{distinct lines}(H − 1) ≤ Σ_ρ(H(γ) − 1) = N^⊛(T) − N(T) = o(TL), using N(T) = TL + o(TL)
+  (GLSS (3.7)). So repeats have density 0.
 - **Small positive gaps.** Each k with 0 < g_k < δ gives a pair (ρ_k, ρ_{k+1}) with 0 < (γ_{k+1} − γ_k)L ≤ δ(1 + o(1)).
   These pairs are distinct for distinct k. So #{k ≤ N(T) : 0 < g_k < δ} ≤ N(2δ) ≪ δ³TL by GLSS's PCC estimate. (Apply
   it at height T, with the local normalization log(γ_k/2π)/2π = L(1 + o(1)) on dyadic blocks.)
