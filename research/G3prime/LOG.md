@@ -154,12 +154,12 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
 ## 2026-10-14 — Plan 23 (residual N′ case closed: Theorem N″)
 - **Idea.** The Heine index sets of σ that contain a collision pair vanish.
   - A move map plus the pure-power head of G3′-U's comparison measure ν turns this into a deletion bound.
-  - Hadamard's inequality on det(I − K_E) shows that deletion costs add up.
+  - Hadamard's inequality on det(I − K_E) shows that deletion costs are superadditive (they at least add up).
   - A Lagrange test polynomial (Christoffel) shows that head atoms are saturated, at cost ≥ 2n·g(k/n).
   - Result: d̄(E) > 0 ⇒ liminf ≤ −0.2397·d̄(E). Hence G3′ ⇒ d(E) = 0.
 - **Rule A.** Long-double deletion numerics disagreed with 300-digit values by up to about 20%. All recorded evidence
   is now exact mp (`checks/check_npp`).
-- **Rule R:** pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan23.md). F1–F8 applied (in the plan-24 worktree, together with the N‴ θ₀ fix). Re-check pending.
 
 ## 2026-10-14 — Plan 24 (Theorem N‴; the sufficiency obstruction)
 - **N‴.** Gaps ≤ e^{−βk} at positive upper density break G3′.

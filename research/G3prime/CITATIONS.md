@@ -236,3 +236,9 @@ Goldston–Montgomery [18] has NOT been read, and Goldston's (4.4) itself has no
 > (9.7) LHS: "∫_0^∞(Σ_{y<n≤y+y/T}Λ(n)a_n(x) − x∫_{xe^{−κ}}^{x}a_v(y) dv/v)² dy/y".
 
 **Used in:** rhfree/RH99.md (Lemmas 9.7* and 9.9*).
+
+## Classical facts (no citation needed; one-line proofs in PROOF.md §5.2) — used in Plans 23–24
+- Sylvester's determinant identity det(I − VᵀV) = det(I − VVᵀ).
+- Hadamard's inequality for positive semidefinite matrices.
+- Christoffel's variational characterization 1/K_n(x, x) = min{∫P²dμ : deg P < n, P(x) = 1}.
+- The Gram/Hankel identity D_n(μ) = Π h_j.
