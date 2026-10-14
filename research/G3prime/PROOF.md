@@ -719,6 +719,27 @@ and W := [k₂, K].
   - 𝒞 is pair-based, not gap-based. A cluster of m ≍ log k points at mutual distance ε costs about m²log(1/ε), not
     (m − 1)log(1/ε).
 
+### 5.5 Theorem Ch's criterion on the zeta ordinates (Plan 31) — NUMERICAL
+
+Taking T = all indices gives 𝒞(K) ≤ P(K) := Σ_{a<b≤K, d_ab<1} log(1/d_ab). Every pair at normalized distance < 1 is
+near in the sense of §5.4, since 4C₀ ≫ 1 spacing. On Odlyzko's first 2,001,052 zeros
+(`checks/check_zeta_energy.out`):
+
+| K | 10³ | 10⁴ | 10⁵ | 10⁶ | 2.0·10⁶ |
+|---|---|---|---|---|---|
+| P(K)/K | 0.2031 | 0.2125 | 0.2203 | 0.2257 | 0.2269 |
+| 𝒞(K)/K² ≤ | 2.0·10⁻⁴ | 2.1·10⁻⁵ | 2.2·10⁻⁶ | 2.3·10⁻⁷ | 1.1·10⁻⁷ |
+
+- **Per-zero pair energy.** P(K)/K increases slowly towards the GUE value
+  c_GUE := ∫_0^1 log(1/u)(1 − (sin πu/πu)²)du = 0.2410, consistent with finite-height corrections. Under GUE pair
+  statistics, P(K) ≈ c_GUE·K, so 𝒞(K)/K² = O(1/K) → 0. That is, **G3′ holds** by Theorem Ch (mod Theorem H), as also
+  follows from PCC (Theorem C).
+- **Smallest gaps.** The smallest normalized gap among these zeros is 5.45·10⁻³ (k = 1,115,578), so the maximal single
+  pair energy is 5.2. There are 255 gaps < 0.05, against the small-gap GUE proxy N·(π²/9)·0.05³ ≈ 274.
+- **No proof.** Proving 𝒞(K) = o(K²) for ζ unconditionally would imply proportion-one distinct ordinates (N″), which
+  is beyond the results surveyed in (C3)/(C6). The data say only that the zeros sit comfortably inside the criterion:
+  about 0.23 units of pair energy per zero, against the o(K) per zero that Ch allows.
+
 **G3′ status after N′ (the sandwich).**
 - **(U)** limsup ≤ 0, unconditionally (G3′-U).
 - **(L)** liminf ≥ 0 under (SG) (G3′-L).
