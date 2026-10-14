@@ -178,4 +178,4 @@
   not needed" confirmed). F1 (cross-reference to §3.11 Lemma LRa: same Toda form, constant 1 in R2a, ε₀ = I/8 possible;
   R2a and ε₀ = I/16 kept), F2 (Lemma LP′ weak form stated and cited), F3 (H 1-Lipschitz), F4 (wording; joint-law remark),
   F5 (interleaving HEURISTIC; A4′ label), F6 (quoted range 0.1069; script label [10, 99], .out regenerated; [3]/[4]
-  marked not K-checked), F7 (N₀ not explicit) applied. Re-check pending.
+  marked not K-checked), F7 (N₀ not explicit) applied. Re-check ACCEPT — REVIEWED.
