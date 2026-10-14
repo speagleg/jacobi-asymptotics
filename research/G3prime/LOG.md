@@ -78,7 +78,7 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan17.md).
   - F1 (major): Caro–Wei sets need not have a convergent density, so the Theorem T route has a gap. Repaired by
     Fix A: run the §4 G3′-L proof on the separated subset, with Lemma S at a constant C.
-  - F2–F9 (minor) applied. Re-check pending.
+  - F2–F9 (minor) applied. Re-check: ACCEPT (N1–N2 wording applied). Theorems B, C REVIEWED.
 - **Outcome:**
   - unconditionally, D := liminf (1/n²)[log D_n − Φ_n] ∈ [−3 log C, 0];
   - G3′ ⇐ PCC (no RH);

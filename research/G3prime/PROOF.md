@@ -17,8 +17,8 @@ nothing here is evidence about where the zeros lie.
 | G3′-L | liminf (1/n²)[log D_n(σ) − Φ_n] ≥ 0 under (SG) | PROVED-mod-cite + mod-input (SG), Theorem H + REVIEWED | Z1, S, W, H5, H6 |
 | N | doubled-smooth sequences: same counting function, law fails by 2 log(1−1/m) | PROVED-mod-input Theorem H + REVIEWED | Theorem H_L, item 11 H6 |
 | N′ | repeated indices containing a positive-density subset (d_*(E) > 0) ⇒ the law fails, limsup ≤ 2 log(1 − d_*(E)) | PROVED-mod-cite + mod-input Theorem H + REVIEWED; residual GAP: positive lower density with d_*(E) = 0 | G3′*-U proof, Z1, Z2, T (P1), H6 |
-| B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; re-check pending | GLSS (6.1), Caro–Wei, §4 proof |
-| C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; re-check pending | GLSS, G3′-L |
+| B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED | GLSS (6.1), Caro–Wei, §4 proof |
+| C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED | GLSS, G3′-L |
 | R, K | pair factors under thinning; concentration (from H7) | PROVED-mod-input Theorem H + REVIEWED | H5, H7 |
 | T | thinning of convergent density: the own-normalized law survives | PROVED-mod-input Theorem H + REVIEWED | R, K, H6, H7 |
 | T′ | robustness: density band ±η gives error ω(η) → 0 | PROVED-mod-input Theorem H + REVIEWED | T |
@@ -616,7 +616,7 @@ The log-periodic numerics of §6 suggest (NUMERICAL, smooth model) that some reg
 needed for the own-normalized law. Neither (D∞) nor (SG*) is reached by the literature read in CITATIONS.md: (C3) gives
 only liminf N_d/N ≥ 0.4075.
 
-## 8. Plan 17: an unconditional bounded defect, and the pair-correlation conditional — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan17.md); F1 via Fix A and F2–F9 applied, re-check pending
+## 8. Plan 17: an unconditional bounded defect, and the pair-correlation conditional — REVIEWED (review/REVIEW_Plan17.md: ACCEPT WITH FIXES, then re-check ACCEPT; F1 via Fix A, F2–F9, N1–N2 applied)
 
 Inputs: GLSS (C5) and, for context, Lamzouri (C6), both read 2026-10-14. Notation is as in §§1–7. L(T) := (1/2π)log T.
 "Normalized distance" between ordinates γ, γ′ ∈ (T, 2T] means |γ − γ′|L(2T). Zeros are counted with multiplicity
@@ -663,9 +663,9 @@ so C is not computed here (Remark B3).
      a convergent density.
 5. **Run the proof of Theorem G3′-L (§4) on E**, with these changes:
    - **Step 1:** the good set is E (not {g_k ≥ δ}), with π(j) ≤ Cj in place of π(j) ≤ (1+2η)j.
-   - **Step 3 (near pairs):** for a < b in E the separation is direct, γ_b − γ_a ≥ (½ + o(1))·2π/log(γ_a/2π) by Step 3
-     above. This is §4's bound with δ = ½ − o(1), so the near-pair ratio and the count O(log γ̃_a) of near partners
-     are unchanged. Far pairs are unchanged.
+   - **Step 3 (near pairs):** first drop the finitely many elements of E below k₂, or where the o(1) of Step 3
+     exceeds ¼ (Rule R N1). Then for a < b in E, γ_b − γ_a ≥ ¼·2π/log(γ_a/2π). This is §4's bound with the fixed
+     δ := ¼, so the near-pair ratio and the count O(log γ̃_a) of near partners are unchanged. Far pairs are unchanged.
    - **Steps 4–5** are unchanged.
    - **Step 6:** Lemma S with 1 + η := C gives π(j)⁻² − π(i)⁻² ≥ C⁻³(j⁻² − i⁻²) for i > j ≥ j₀. Also L(π(j)) ≥ L(j)
      (L nondecreasing, π(j) ≥ j), and the weight bound uses π(j) ≤ C_E j for all j (C_E := max(C, π(j₀))). So the term
@@ -706,8 +706,9 @@ multiplicity-normalized averaged law holds for the true zeros.
   - These pairs (ρ_k, ρ_{k+1}) are distinct for distinct k. So #{k ≤ N(T) : 0 < g_k < δ, γ_k > T/R} ≤ N(2δ).
   - PCC at the fixed λ = 2δ gives N(2δ) = TL∫_0^{2δ}(1 − (sin πα/πα)²)dα + o(TL) ≤ (8π²/9)δ³TL + o(TL), since
     1 − (sin x/x)² ≤ x²/3.
-- So the upper density of {k : g_k < δ} is ≤ (8π²/9)δ³ + 1/R. Given η > 0, take R := 2/η and δ := (9η/(16π²))^{1/3}.
-  This is (SG). ∎
+- With K = N(T) (indices and heights correspond via (C1)), #{k ≤ K : g_k < δ} ≤ (1/R + (8π²/9)δ³ + o(1))K.
+  Given η > 0, take R := 3/η and δ := (3η/(8π²))^{1/3}, so that the bound is ≤ (2η/3 + o(1))K ≤ ηK for K ≥ K₀.
+  This is (SG) (Rule R N2). ∎
 
 **Remarks.**
 - **C1.** By GLSS Theorem 1, PCC also gives 100% simple and critical zeros, consistent with N′'s necessary condition
@@ -720,6 +721,6 @@ multiplicity-normalized averaged law holds for the true zeros.
 | Statement | Status |
 |---|---|
 | limsup (1/n²)[log D_n − Φ_n] ≤ 0 | unconditional (G3′-U), REVIEWED |
-| liminf ≥ −3 log C > −∞ | **unconditional (Theorem B)**, mod-input Theorem H; re-check pending |
-| liminf ≥ 0, i.e. G3′ | under (SG) (G3′-L), REVIEWED; under PCC (Theorem C, no RH), mod-input Theorem H; re-check pending |
+| liminf ≥ −3 log C > −∞ | **unconditional (Theorem B)**, mod-input Theorem H; REVIEWED |
+| liminf ≥ 0, i.e. G3′ | under (SG) (G3′-L), REVIEWED; under PCC (Theorem C, no RH), mod-input Theorem H; REVIEWED |
 | G3′ ⇒ d_*(E) = 0 | N′, REVIEWED |

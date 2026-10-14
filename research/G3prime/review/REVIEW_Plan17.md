@@ -187,3 +187,50 @@ Make the theorem statement and Remark B2 consistent with it. B2's interval becom
 - **Theorem C.** PROVED-mod-cite (C1), (C5) + mod-input PCC (GLSS form, no RH) and Theorem H; REVIEWED after F5.
   Novelty: UNCHECKED.
 - **Remarks B1–B3, C1–C2.** Fine after F8 and F9.
+
+## Re-check (commit 05dcfdb)
+
+Reviewer: the same independent agent. Date: 2026-10-14. Read: `git show 05dcfdb` (PROOF.md §0 and §8, CITATIONS.md
+(C5), LOG.md).
+
+**Verdict: ACCEPT.** All findings are resolved. Two nits remain (N1, N2). Neither affects correctness.
+
+- **F1 (Fix A): resolved.**
+  - **Step 3.**
+    - I_T ≥ M_T/(A²(A+1)) = 4c₀M_T. After the O(log T) boundary deletion, ≥ 2c₀M_T. ✓
+    - Separation: adjacent-block elements are > 1/L(4T) apart. That is in fact (1 − o(1))·2π/log(γ/2π). The stated
+      (½ + o(1)) is weaker, so it is valid. ✓
+  - **Step 4 (dyadic → index).** I checked the argument line by line.
+    - Every element of S in (2^{m−1}T₀, 2^mT₀] has first-occurrence index ≤ N(2^mT₀) ≤ K.
+    - (N(2X) − N(X))/N(2X) → ½ and N(2X)/N(X) → 2, both from (C1).
+    - Maximality of m gives K < N(2^{m+1}T₀) ≤ (2 + o(1))N(2^mT₀).
+    - So |E ∩ [1, K]| ≥ 2c₀·(½)·(½)K(1 − o(1)) = (c₀/2 − o(1))K, and π(j) ≤ (2/c₀ + o(1))j ≤ Cj. ✓
+  - **Step 5.**
+    - Lemma S holds for every η ≥ 0, so 1 + η := C is legitimate.
+    - §4 steps 3–7 use π only through π(j) ≤ C_E j and the forward-gap bound.
+    - L(π(j)) ≥ L(j) holds. Lemma W is unchanged.
+    - liminf ≥ −3 log C follows. ✓
+  - **N1 (nit).** Step 5 writes "δ = ½ − o(1)". §4 needs a fixed δ, and E ⊂ [k₂, ∞). Say "δ := ¼, after discarding
+    the finitely many elements of E below an index where the o(1) is ≤ ¼ and below k₂". Removing finitely many elements
+    keeps π(j) ≤ C′j.
+- **F2: resolved.** (6.1) is used at 2T only, and the normalization L(2T) is consistent. ✓
+- **F3: moot.** The G3′*-L transfer was removed. ✓
+- **F4: resolved.** Prop 2 is flagged as secondary, and the quote now matches the PDF ("…for the 2k-th moments."). ✓
+- **F5: resolved.**
+  - log(γ_k/2π) ≥ log T − log(2πR) for γ_k > T/R, so the ratio to L(T) is 1 − o(1) for fixed R. ✓
+  - Constant: (sin x/x)² ≥ (1 − x²/6)² ≥ 1 − x²/3 for x ≤ √6, and for x > √6 the bound 1 − (sin x/x)² ≤ 1 < x²/3 is
+    trivial. With x = πα, ∫_0^{2δ}π²α²/3 dα = (8π²/9)δ³. ✓
+  - **N2 (nit).** With R = 2/η and (8π²/9)δ³ = η/2, the bound is η + o(1), not ≤ η. Use R := 3/η and
+    δ := (3η/(8π²))^{1/3}, so the total is (2/3)η + o(1) ≤ η for K ≥ K₀. Also add the K ↔ N(γ_K) conversion
+    (K ≤ N(γ_K) ≤ K + 2E(γ_K), Z1) in one clause.
+- **F6: resolved.** Rows B and C were added to §0. §8.3 notes mod-input Theorem H. ✓ Replace "re-check pending" with
+  REVIEWED in the §0 rows, the §8 header and §8.3.
+- **F7: resolved.** LOG.md has a Plan 17 Rule A entry and the Rule R outcome. ✓
+- **F8, F9: resolved.** B2 is now [−3 log C, 0] = [2 log θ₀, 0]. B3 is consistent. ✓
+
+### Final labels
+
+- **Theorem B:** PROVED-mod-cite (C1), (C5; Fujii's Prop. 2 secondary) + mod-input Theorem H; **REVIEWED**. Novelty
+  UNCHECKED.
+- **Theorem C:** PROVED-mod-cite (C1), (C5) + mod-input PCC (GLSS form, no RH) and Theorem H; **REVIEWED** (N2 is
+  cosmetic). Novelty UNCHECKED.

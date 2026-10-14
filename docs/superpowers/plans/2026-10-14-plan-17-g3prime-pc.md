@@ -36,4 +36,4 @@ Rule C; Rule R before REVIEWED; commit prefix `G3p:`.
 - [x] CITATIONS entries (GLSS, Lamzouri).
 - [x] Theorem B write-up (G3prime PROOF.md §8). Ruling: θ₀ is not explicit, because Fujii's O-constant is not explicit in GLSS.
 - [x] Theorem C write-up.
-- [ ] Rule R (opus), apply fixes, re-check.
+- [x] Rule R (opus): ACCEPT WITH FIXES (F1 major → Fix A); re-check ACCEPT; Theorems B, C REVIEWED.
