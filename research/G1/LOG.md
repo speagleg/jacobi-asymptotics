@@ -75,3 +75,13 @@
 - An earlier forward-recurrence attempt overflowed in the saturated region; Lanczos with reorthogonalization is
   stable.
 - **Rule R:** pending.
+
+## 2026-10-14 — Plan 29 ((T3) for decaying roughness)
+- **Theorem T3-conv.** Let w = k^{−s}ψ with ψ_k → L.
+  - Integrate Lemma FV along w(t) = vψ^t, with g = log ψ − log L.
+  - The head (k < k_ε) has exponentially small μ_m mass by Lemma Sat_p⁺, which extends Sat_p to 0 < p < 1 at a
+    factor 1/p per term.
+  - So log b_n²(w) − log b_n²(v) → 0, and the pure-power pointwise law (RH_p etc.) transfers.
+- Slowly varying Ψ without a limit needs upper-tail localization of w p_n² (OPEN; the averaged version follows from
+  Lemma K).
+- **Rule R:** pending.

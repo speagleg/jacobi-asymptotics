@@ -29,6 +29,7 @@ known; its application here to Law P is what is new.
 | G1-R | (T3) from the atoms alone; (CL) (proved for pure-power atoms with rough weights, p > 1: Theorem CL; open for general nodes or p ≤ 1) | GAP for (T3) (see §4) |
 | FV | first variation: d/dt log b_n²(v e^{tf}) = ⟨f, μ_n − μ_{n−1}⟩, μ_n := w p_n² (§3.2) | PROVED; Rule R pending |
 | Conj R | (T3) — hence the pointwise b-law — FAILS for some weights e^{−ε}k^{−s} ≤ w_k ≤ e^{ε}k^{−s} (§3.2, Plan 28) | CONJECTURE; NUMERICAL evidence |
+| **T3-conv** | pointwise b-law (hence (T3)) for x_k = k^{−p} (p > 0), w_k = k^{−s}ψ_k (s > 1) with **ψ_k → L ∈ (0, ∞)** (rough at finite scales, decaying roughness): n^p b_n → c(p) (§3.3, Plan 29) | PROVED-mod-cite (RH_p / RH₁(r) / RH_p seam for the pure power; Lemma FV; Lemma Sat_p⁺) + Rule R pending; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -333,6 +334,58 @@ sparse sequence N_i) such that w = k^{−2}e^{f} satisfies limsup_n |β_n/β_{n�
     w p_n² puts mass 1 − o(1) on indices [n/M, Mn], uniformly in the sandwich class.
   - The lower side is Lemma Sat_p (§3.1), which gives exponentially small mass in the saturated head.
   - The upper tail is open: numerics [2] show 99% within 6.2n.
+
+### 3.3 Theorem T3-conv (Plan 29): decaying roughness does not break the pointwise law — PROVED-mod-cite; Rule R pending
+
+**Lemma Sat_p⁺ (all p > 0).** For 1 ≤ k < n and θ := k/n:
+  1 − ρ_n(k) ≤ (W/w_k)·e^{−2n·g_p⁺(θ)},
+where g_p⁺ := g_p for p ≥ 1 and g_p⁺ := g_p − log(1/p) for 0 < p < 1. In all cases g_p⁺(θ) → +∞ as θ → 0 (since
+g_p(θ) ≥ p·log(1/θ) − O(1)).
+
+*Proof.* As for Lemma Sat_p (§3.1), with one change for p < 1. Concavity gives j^p − k^p ≥ p·j^{p−1}(j − k) (j > k)
+and k^p − j^p ≥ p·k^{p−1}(k − j) (j < k). Each of the n − 1 factors therefore gains at most 1/p, so the product bound
+is multiplied by at most p^{−(n−1)}. ∎
+
+**Theorem T3-conv.** Let x_k = k^{−p} (p > 0) and w_k = k^{−s}ψ_k with s > 1, where ψ_k > 0 and ψ_k → L ∈ (0, ∞).
+Then, with v_k := k^{−s},
+
+  log b_n²(w) − log b_n²(v) → 0,  hence n^p b_n(w) → c(p),
+
+by the pointwise law for the pure power v:
+- RH_p for p > 1;
+- RH₁(r) for p = 1 (r = s);
+- the RH_p seam construction for 0 < p < 1.
+
+In particular β_n → 1, so (T3) holds.
+
+*Proof.*
+1. **Path.** w(t) := v·ψ^t for t ∈ [0, 1]. Since ψ is bounded above and below (it converges to L > 0 and is positive),
+   every w(t) lies in a fixed sandwich c·k^{−s} ≤ w_k(t) ≤ C·k^{−s}, with W(t) ≤ C·ζ(s).
+   - b_n²(t) is a smooth function of t, since D_m(t) is a convergent sum of smooth functions.
+   - Lemma FV gives log b_n²(1) − log b_n²(0) = ∫_0^1⟨f, μ_n^{(t)} − μ_{n−1}^{(t)}⟩dt, with f := log ψ.
+2. **Centering.** Σ_kμ_n^{(t)}(k) = Σ_kμ_{n−1}^{(t)}(k) = 1, so f may be replaced by g := log ψ − log L. Then
+   |g| ≤ G everywhere, and for every ε > 0 there is k_ε with |g_k| ≤ ε for k ≥ k_ε.
+3. **Head.** μ_m^{(t)}(k) = ρ_{m+1}^{(t)}(k) − ρ_m^{(t)}(k) ≤ 1 − ρ_m^{(t)}(k). For k < k_ε and m large (k/m ≤ θ₁, where
+   g_p⁺ ≥ 1 on (0, θ₁]), Lemma Sat_p⁺ gives μ_m^{(t)}(k) ≤ (C/c)k^s·e^{−2m}, uniformly in t.
+4. **Estimate.** |⟨g, μ_n^{(t)} − μ_{n−1}^{(t)}⟩| ≤ ε·Σ_{k≥k_ε}(μ_n + μ_{n−1})(k) + G·Σ_{k<k_ε}(μ_n + μ_{n−1})(k)
+   ≤ 2ε + 2G(C/c)k_ε^{s+1}e^{−2(n−1)}. Integrate over t, let n → ∞, then ε → 0. ∎
+
+**Remarks.**
+- **T3c1 (the dichotomy).**
+  - *Decaying* roughness (ψ_k → L, arbitrarily rough at finite scales, e.g. ψ_k = 1 + (−1)^k/log k) preserves the
+    pointwise b-law: Theorem T3-conv.
+  - *Non-decaying* roughness of size ε can break it: Conjecture R (§3.2, numerical).
+  - The proof uses no localization of μ_n at large k. Only the saturated head matters, because g → 0 at ∞.
+- **T3c2 (slowly varying Ψ).** For ψ = Ψ slowly varying without a limit (e.g. Ψ(k) = 2 + sin(log log k)), the same
+  argument needs the upper-tail localization μ_n((Mn, ∞)) ≤ ε(M), uniformly along the path. Numerically 99% of the
+  mass lies within 6.2n (§3.2 [2]). A pointwise-in-n proof is OPEN. The averaged version (over n ∈ [N, 2N]) follows
+  from Lemma K, since Σ_{m=N}^{2N}μ_m(A) ≤ 𝔼#_{2N+1}(S ∩ A).
+- **T3c3 (a_n).** The a_n half would need the first variation of a_n = ⟨xp_n, p_n⟩, a covariance-type expression.
+  Not done.
+- **NUMERICAL** (`checks/check_t3_conv.out`, p = 2, long double RKPW):
+  - |β_n(ψ)/β_n(1) − 1| for ψ = 1 + ½(−1)^k/log(k+1) goes 3.9·10⁻³ → 8.2·10⁻⁴ (n = 250 → 3600).
+  - For random ±½/√log and block-sign ±½/log variants it is ≤ 2.3·10⁻³ and decreasing.
+  - Control: non-decaying parity gives 2.8·10⁻² → 4.6·10⁻³ (it also decays; parity is not adversarial, cf. §3.2).
 
 ## 4. G1-R: what remains (stop report)
 
