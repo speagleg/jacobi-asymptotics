@@ -198,3 +198,63 @@ Lemma Sat_p is elementary.
 - **G1-R:** GAP for (T3); also state the scope of (CL) (F5).
 - **Plan doc:** T5 stays open until the fixes are applied and re-checked. The Review focus list is accurate. Add "uniformity
   of c′ in R/M" (F1).
+
+## Re-check (fixes at b94785e), 2026-10-14
+
+Same reviewer. I read the rewritten §3.1, the table rows, the file header, §3 "Status of (CL)", §4, README, LOG, the
+plan doc and the re-indexed check. The re-run values in `check_cl_rough.out` (smooth 1.0007/1.0007, parity
+1.0119/0.9909, random 0.9993/1.0067) agree with my scratch `idx.py`. The tail sums are unchanged.
+
+**Verdict: ACCEPT.** All of F1–F7 are resolved. The four items below are cosmetic and do not block REVIEWED.
+
+**F1 (Lemma WC): resolved.**
+- *Step 1, the uniform gap over B ⊂ 𝒜 with no support restriction.* Each part checks out:
+  - Tightness at ∞ comes from σ([X, ∞)) = X^{−1/p}.
+  - Prokhorov applies on [0, ∞).
+  - Upper semicontinuity: min(k, L) is u.s.c. and bounded above, so Portmanteau applies to μ_k^x ⊗ μ_k^x → ν ⊗ ν. Also
+    ∬min(k, L)dν² ≤ I(ν).
+  - The bound on (k − L)⁺ is uniform: (a + b − L)⁺ ≤ (2a − L)⁺ + (2b − L)⁺, and μ^x ≤ σ gives a uniformly small log
+    tail.
+  - An atom at 0 forces I(ν) = −∞, a contradiction. So ν({0}) = 0.
+  - ν ≤ σ holds, from open sets plus regularity. Mass 1 is preserved, so ν pulls back into 𝒜, and B*(iii) gives
+    ν = μ*.
+  - φ∘g⁻¹ extends continuously by 0 at x = 0, so ⟨φ, μ_k⟩ converges. This contradicts badness.
+  - c′ now depends only on (φ, δ).
+- *Step 2, the order of constants.* t₀ is chosen from (c′, φ, δ) alone, and t₀ ≤ 1 − 1/√2 gives τ² ≥ ½. Then M is
+  chosen with p·t₀·log M ≥ 2A and M ≥ R_φ. The circularity is gone.
+  - A = 4p + 2|κ_p| matches G2 A-U, with E_p = κ_p.
+- *Steps 3–4.*
+  - T ⊂ (Mn, ∞) lies outside supp φ.
+  - The φ-comparison uses only u ≤ R_φ/τ ≤ √2·R_φ ≤ 2R_φ, so it does not depend on M.
+  - The energy drop of c′n² is correct.
+  - The two exponents combine with A-L as before.
+
+**F2–F7: resolved.**
+- F2: the step was removed.
+- F3: the split is now χ + (1 − χ).
+  - Part (b) implicitly uses 0 ≤ 1 − χ ≤ 1 and λ_n − m_n ≥ 0, which is fine.
+  - It uses k < θn ≤ n/2, so g_p(k/n) ≥ 1.
+- F4:
+  - The header and §4 are updated.
+  - §3 "Status of (CL)" is kept as historical Plan 9 text, with a "superseded" tag. That is acceptable.
+- F5: the CL, A4 and G1-R rows, CL4 and the README scope are fixed.
+- F6: the check is re-indexed, re-run and annotated.
+- F7: done.
+
+**Residual items (cosmetic, optional):**
+1. *WC step 1.* If B = ∅ or sup_B I = −∞, then c′ = +∞. Define c′ := min(1, (κ_p − sup_B I)/2). Also write
+   ∬…dμ_k^x dμ_k^x, using the x-measures, in the u.s.c. bullet.
+2. *WC step 4.* "On the bad event μ′ ∈ B" needs δ − ω_φ(1/n) − δ/4 ≥ δ/4, i.e. n large. Say "for n ≥ n₀(φ, δ)".
+3. *Plan doc Review focus.* It still mentions "support ⊂ [0, 2R]" and "layer remainders". It could note the F1 rewrite.
+   T5 can be ticked after this re-check.
+4. *G1 LOG Plan-27 entry.*
+   - The bullet "upper semicontinuity of I on bounded-support 𝒜" is superseded by the x-compactness gap.
+   - "G1-R is reduced to (T3) alone" should add "for pure-power atoms, p > 1", matching CL4 and the G1-R row.
+
+**Final labels.**
+- Lemma Sat_p: **PROVED + REVIEWED**.
+- Lemma WC, Theorem CL, Corollary A4′: **PROVED-mod-cite (P)** (through G2 B*(iii); internal inputs G2 A1, A-U, A-L,
+  B*(i); G3′ §5.2 Lemma Sat) **+ REVIEWED**; novelty UNCHECKED.
+- A4: tail-Cesàro part unconditional for pure-power atoms with p > 1 (by Theorem CL); (i)–(ii) CONDITIONAL on
+  β_n → 1.
+- G1-R: GAP for (T3). (CL) remains open for general regularly spaced nodes and for p ≤ 1.

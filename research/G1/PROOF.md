@@ -1,7 +1,7 @@
 # G1: the pointwise Law P — reductions and status
 
 Status: REVIEWED 2026-10-13 (Rule R: `review/REVIEW_G1.md`, ACCEPT WITH FIXES; fixes applied). §3.1 (Plan 27, Theorem CL)
-has its own status: Rule R ACCEPT WITH FIXES (`review/REVIEW_Plan27.md`), fixes applied, re-check pending. Time-boxed per spec
+has its own status: Rule R ACCEPT WITH FIXES (`review/REVIEW_Plan27.md`), fixes applied, re-check ACCEPT — REVIEWED. Time-boxed per spec
 §7; stop report in §4.
 
 **Labels.** GAP means a precise unproved statement, with no claim about its difficulty. CONDITIONAL means proved
@@ -24,8 +24,8 @@ known; its application here to Law P is what is new.
 | A1 | J ≥ 0 ⇒ sine-weighted window averages of a_j are ≥ 2cos(π/(L+1))·min b over the window. Hence, if b is regular, liminf of window averages of a_j/(2b_j) ≥ 1 | PROVED |
 | A2 | p > 1: Σ_{j>n} a_j = 𝔼_n[Σ_{k∉S} x_k] (Heine ensemble) | PROVED |
 | A3 | Q_p := ∫ x d(σ − μ*) = 2c(p)/(p−1) | PROVED (uses only G2 B*(i) and the definition of μ*, both citation-free) |
-| A4 | (CL) ⇒ tail-Cesàro a-law; with β_n → 1, block-Cesàro ratios Σa/Σ2b → 1 and window averages → 1 in b-weighted density (pointwise density NOT proved) | CONDITIONAL on (CL). (CL) is proved for pure-power atoms by Theorem CL (§3.1, in review), so the tail-Cesàro part is unconditional there; (i)–(ii) still need β_n → 1 |
-| **CL** | (CL) for pure-power atoms k^{−p}, p > 1, and ROUGH weights (Σw < ∞, w_k ≥ c₁k^{−s}): n^{p−1}𝔼_n[Σ_{k∉S}x_k] → Q_p. Hence n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p−1) unconditionally (§3.1, Plan 27) | PROVED-mod-cite (P) (through G2 B*(iii); internal inputs: G2 A1, A-U, A-L; G3′ §5.2 Lemma Sat); Rule R ACCEPT WITH FIXES, re-check pending; novelty UNCHECKED |
+| A4 | (CL) ⇒ tail-Cesàro a-law; with β_n → 1, block-Cesàro ratios Σa/Σ2b → 1 and window averages → 1 in b-weighted density (pointwise density NOT proved) | CONDITIONAL on (CL). (CL) is proved for pure-power atoms by Theorem CL (§3.1, REVIEWED), so the tail-Cesàro part is unconditional there; (i)–(ii) still need β_n → 1 |
+| **CL** | (CL) for pure-power atoms k^{−p}, p > 1, and ROUGH weights (Σw < ∞, w_k ≥ c₁k^{−s}): n^{p−1}𝔼_n[Σ_{k∉S}x_k] → Q_p. Hence n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p−1) unconditionally (§3.1, Plan 27) | PROVED-mod-cite (P) (through G2 B*(iii); internal inputs: G2 A1, A-U, A-L; G3′ §5.2 Lemma Sat); REVIEWED; novelty UNCHECKED |
 | G1-R | (T3) from the atoms alone; (CL) (proved for pure-power atoms with rough weights, p > 1: Theorem CL; open for general nodes or p ≤ 1) | GAP for (T3) (see §4) |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6) + REVIEWED |
@@ -179,7 +179,7 @@ k^{−p}, p > 1, with rough weights).* (CL) is the statement that the Heine ense
 - **(CL) is the precise missing lemma for the a_n side (p > 1).** For p ≤ 1, J is not trace class and A2 does not apply
   as stated.
 
-### 3.1 Theorem CL (Plan 27): saturation exactness and concentration — (CL) holds for rough weights — Lemma Sat_p PROVED; Lemma WC, Theorem CL, A4′ PROVED-mod-cite (P) (through G2 B*(iii)); Rule R ACCEPT WITH FIXES, re-check pending
+### 3.1 Theorem CL (Plan 27): saturation exactness and concentration — (CL) holds for rough weights — Lemma Sat_p PROVED; Lemma WC, Theorem CL, A4′ PROVED-mod-cite (P) (through G2 B*(iii)); Rule R ACCEPT WITH FIXES, re-check ACCEPT — REVIEWED; novelty UNCHECKED
 
 Setting: x_k = k^{−p} with p > 1, weights w_k > 0 with W := Σw_k < ∞ and w_k ≥ c₁k^{−s}. P_n is the Heine measure
 on n-subsets S (item 11 H1), with ρ_n(k) := P_n(k ∈ S) = w_kK_n(x_k, x_k). Put
@@ -222,7 +222,8 @@ P_n(|⟨φ, ν_S⟩ − ⟨φ, μ*_u⟩| > δ) ≤ e^{−c(φ,δ)n² + o(n²)}. 
      preserved on open sets.
    - Hence ν = g_*μ with μ ∈ 𝒜, and I(μ) ≥ κ_p, so μ = μ*_u by G2 B*(iii).
    - But φ∘g^{−1} ∈ C_c((0, ∞)), so ⟨φ, μ_k⟩ → ⟨φ, μ*_u⟩, contradicting μ_k ∈ B.
-   - Put c′ := (κ_p − sup_B I)/2 > 0. (This replaces the earlier 𝒜^R u.s.c. step and its corner issue, F2.)
+   - Put c′ := min(1, (κ_p − sup_B I)/2) > 0 (B may be empty, or have sup −∞). The u.s.c. integrals above are against
+     the x-measures μ_k^x. (This replaces the earlier 𝒜^R u.s.c. step and its corner issue, F2.)
 2. **Constants, in order.** Let R_φ ≥ 1 with supp φ ⊂ (0, R_φ].
    - Choose t₀ ∈ (0, 1 − 1/√2] (so τ² ≥ ½) with At₀ ≤ c′/2 and (1 − τ)‖φ‖_∞ + ω_φ(2R_φ(1 − τ)) ≤ δ/4 for all τ ∈ [1 − t₀, 1].
      Here A = 4p + 2|κ_p| is G2 A-U's constant.
@@ -235,7 +236,7 @@ P_n(|⟨φ, ν_S⟩ − ⟨φ, μ*_u⟩| > δ) ≤ e^{−c(φ,δ)n² + o(n²)}. 
      the smeared measure of G2 Lemma A1, τ = N/n.
 4. **Bad heads.** Write μ̄_H = (μ′)_τ with μ′ ∈ 𝒜 (G2 scaling).
    - ⟨φ, μ̄_H⟩ = τ⟨φ(τ·), μ′⟩, and |φ(τu) − φ(u)| ≤ ω_φ(2R_φ(1 − τ)) wherever either side is nonzero (u ≤ R_φ/τ). So
-     |⟨φ, μ′⟩ − ⟨φ, μ̄_H⟩| ≤ δ/4, and on the bad event μ′ ∈ B.
+     |⟨φ, μ′⟩ − ⟨φ, μ̄_H⟩| ≤ δ/4. So on the bad event μ′ ∈ B, for n ≥ n₀(φ, δ) (so that ω_φ(1/n) ≤ δ/4).
    - Hence I(μ̄_H) = τ²(I(μ′) − p log τ) ≤ τ²(κ_p − p log τ) − 2τ²c′ ≤ τ²(κ_p − p log τ) − c′ (τ² ≥ ½, since
      t₀ ≤ 1 − 1/√2).
    - Inserting this into G2 Lemma A1 and the A-U chain lowers the head bound by c′n². So
