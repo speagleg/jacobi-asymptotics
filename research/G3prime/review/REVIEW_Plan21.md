@@ -252,3 +252,40 @@ half-sentence saying so.
 - Theorem V⁺: PROVED-mod-cite (P1–P3, including the sketched (9.9) full-range error; (C1)) + mod-input RH, (V⁺),
   Theorem H. Novelty: UNCHECKED.
 - §5: NUMERICAL, with the truncation caveat (F6).
+
+## Re-check (commit a02aa4d)
+
+Diff 754997a..a02aa4d read in full: RHPRIME.md, CITATIONS.md, LOG.md. Each finding was checked against the fix.
+
+| Finding | Status | Note |
+|---|---|---|
+| F1 | RESOLVED | Main error is now O(x log x + 1 + T log x/Λ), with the exact ∫_0^x(log²t + 2 log t) = x log²x stated. The ΛT tail and boundary also produce T log²T/(Λx²). That piece is not in the new O-term, but it is (spike)/Λ, so it lies inside the spike's (1 + o(1)) (nit R2). |
+| F2 | RESOLVED, with residual R1 | The P1 and Theorem V⁺ rows name the sketch dependence, and V5 records the self-contained proof as OPEN. |
+| F3 | RESOLVED | The (9.7) quote reads dy/y. (Source brackets are round; the |·|² rendering is acceptable.) |
+| F4, F11 | RESOLVED | The "Equivalently" claim is removed. "Slightly larger (log-padded) ranges" is added. |
+| F5 | RESOLVED | V1 shows RH + (V) ⇒ SPC ⇒ (V⁺) via Theorem 7 forward with B₁ = 1/M, B₂ = 1. Nit R3: RH + (V) ⇒ SPC also uses the secondary Saffari–Vaughan h ↔ δ step, as in Corollary P step 1. Saying "as used in Corollary P" covers this implicitly. |
+| F6 | RESOLVED | The truncation caveat is added, with the 2/4/7% figures and the statement that the trend is not evidence. |
+| F7 | RESOLVED | A uniformity line for (4.4) is added. Cosmetic: "Let Λ := log²T. Then" is now at the end of the F7 bullet. Move it back after the bullets. |
+| F8 | RESOLVED | |
+| F9 | RESOLVED | The ∫_{−∞}^{∞} limits are restored. The "Used in" additions for (C3), (C6) and (C1) are collected under the (C8) Plan-21 addendum, not under each entry. That is acceptable. The PROOF.md status row is still pending (T7), to be done at promotion. |
+| F10 | RESOLVED | V4 cites (C8) §8 Heath-Brown. |
+| F12 | RESOLVED | |
+
+**Residuals.**
+- **R1 (Rule C; one line; required before REVIEWED).** The new labels assert that "the L ↔ I step is not covered by
+  [18]". That sentence is a claim from the source, but it is quoted nowhere: neither in RHPRIME P1's Inputs nor in
+  CITATIONS (C8) Plan-21. Add the verbatim quote (Goldston §9): "All the details may be found in [18] except how
+  L(x, T) is related to I(X, δ), since the proof there proceeds from (2.14) rather than Proposition 1."
+- **R2, R3 (nits).** Optional; see the table.
+
+**Re-check verdict: ACCEPT** (once R1 is applied; R2, R3 and the F7 cosmetic are optional).
+
+**Final labels.**
+- (V⁺): HYPOTHESIS (with RH), implied by RH + SPC and hence by Corollary P's input.
+- Lemma P1: PROVED-mod-cite ((C8) (9.7)–(9.9); (9.9) and its full-range error are sketched in (C8), and the L ↔ I step
+  is not in [18]) + mod-input RH, (V⁺). REVIEWED.
+- Lemma P2: PROVED-mod-cite ((C8) (4.2)–(4.4), (C3) (3.5), (C1)) + mod-input RH. REVIEWED.
+- Lemma P3: PROVED-mod-cite ((C6) §3 algebra) + mod-input RH, (V⁺). REVIEWED.
+- Theorem V⁺: PROVED-mod-cite (P1–P3, including the sketched full-range (9.9); (C1)) + mod-input RH, (V⁺), Theorem H.
+  Novelty UNCHECKED. REVIEWED.
+- V5 (self-contained (9.9)): OPEN. §5: NUMERICAL (with the truncation caveat).

@@ -1,4 +1,4 @@
-# RHPRIME: RH + a one-sided prime-variance bound ⇒ (SG) ⇒ G3′ (Plan 21) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan21.md); F1–F12 applied, re-check pending
+# RHPRIME: RH + a one-sided prime-variance bound ⇒ (SG) ⇒ G3′ (Plan 21) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan21.md); F1–F12 applied, re-check ACCEPT — REVIEWED
 
 Answers RHFREE.md §6 and RHFREE2.md §4 ((Q1) of PROOF.md §9.3). On RH, the Tauberian obstruction of RHFREE2 §4 is
 **avoided**, not overcome: the Fejér weight in Goldston's R(x, T) is kept throughout. On RH every pair term is
@@ -8,10 +8,10 @@ needed only RH-free, where it stays OPEN.)
 | Item | Content | Label |
 |---|---|---|
 | (V⁺) | One-sided prime variance on a bounded δ-range | HYPOTHESIS (with RH); implied by RH + SPC (V1) |
-| Lemma P1 | RH + (V⁺) ⇒ G(T^α) ≤ (1 + o(1))N_Ψ on [1, M] | PROVED-mod-cite ((C8) (9.7)–(9.9): (9.9) and its full-range error are both only sketched in (C8), and the L ↔ I step is not covered by [18] either (F2)) + mod-input RH, (V⁺) |
-| Lemma P2 | RH ⇒ G(T^α) = N_Ψ(T^{−2α}log T + α) + O(T^α log T) + o(N_Ψ) on [0, 1] | PROVED-mod-cite ((C8) (4.2)–(4.4), (C3) (3.5), (C1)) + mod-input RH |
-| Lemma P3 | weighted K² sum: S_Ψ ≤ N_Ψ(1 + D(η)) + o(N_Ψ) | PROVED-mod-cite ((C6) §3 algebra) + mod-input RH, (V⁺) |
-| Theorem V⁺ | RH + (V⁺) ⇒ (SG) with rate δ³ ⇒ G3′ | PROVED-mod-cite (P1–P3, including the sketched full-range (9.9) of (C8); (C1)) + mod-input RH, (V⁺), Theorem H; novelty UNCHECKED |
+| Lemma P1 | RH + (V⁺) ⇒ G(T^α) ≤ (1 + o(1))N_Ψ on [1, M] | PROVED-mod-cite ((C8) (9.7)–(9.9): (9.9) and its full-range error are both only sketched in (C8), and the L ↔ I step is not covered by [18] either (F2)) + mod-input RH, (V⁺); REVIEWED |
+| Lemma P2 | RH ⇒ G(T^α) = N_Ψ(T^{−2α}log T + α) + O(T^α log T) + o(N_Ψ) on [0, 1] | PROVED-mod-cite ((C8) (4.2)–(4.4), (C3) (3.5), (C1)) + mod-input RH; REVIEWED |
+| Lemma P3 | weighted K² sum: S_Ψ ≤ N_Ψ(1 + D(η)) + o(N_Ψ) | PROVED-mod-cite ((C6) §3 algebra) + mod-input RH, (V⁺); REVIEWED |
+| Theorem V⁺ | RH + (V⁺) ⇒ (SG) with rate δ³ ⇒ G3′ | PROVED-mod-cite (P1–P3, including the sketched full-range (9.9) of (C8); (C1)) + mod-input RH, (V⁺), Theorem H; REVIEWED; novelty UNCHECKED |
 
 ## 0. Setting (RH is assumed throughout this file, as a labelled hypothesis)
 
@@ -47,6 +47,7 @@ I(X, δ) ≤ (½ + ε)δX²log(1/δ) for all X ≥ X₀ and X^{−1} ≤ δ ≤ 
 - (9.9): "L(x, T) = 4x³∫_x^∞ I(y, δ)dy/y⁵ + O(x²(log T)²/T³)". Goldston adds that "the error term in (9.9) can be
   replaced by O(x(log x)⁴/T^{3/2})" on the full range. That claim is stated with a sketch ("Stieltjes integration and the
   PNT with the RH error (3.4) … Cauchy Schwarz"), not a full proof. **It is used here as cited.**
+- Goldston, (C8) §9: "All the details may be found in [18] except how L(x, T) is related to I(X, δ), since the proof there proceeds from (2.14) rather than Proposition 1."
 
 **Lemma P1.** Assume RH + (V⁺). Then for each M, uniformly for 1 ≤ α ≤ M: G(T^α) ≤ (1 + o(1))·(T/2)log T.
 
@@ -76,7 +77,9 @@ I(X, δ) ≤ (½ + ε)δX²log(1/δ) for all X ≥ X₀ and X^{−1} ≤ δ ≤ 
 *Proof.* Put H(t) := (2/π)∫_0^t|S_x(u)|²du. By (4.4), H(t) = F(x, t) + O(log³t).
 - (4.4) is displayed for fixed x and T, but its O-term is uniform in x > 0 and holds at every height t ≥ 2 (F7).
 - On RH |x^{iγ}| = 1, so the difference between (2/π)∫_ℝ|Σ_{0<γ≤t}…|² and (2/π)∫_0^t|Σ_γ…|² is bounded by sums of
-  c(u − γ)c(u − γ′) over pairs with an ordinate outside (0, t] or with u ∉ [0, t]. These do not involve x. Let Λ := log²T. Then
+  c(u − γ)c(u − γ′) over pairs with an ordinate outside (0, t] or with u ∉ [0, t]. These do not involve x.
+
+Let Λ := log²T. Then 
 G = ∫_0^x φ dH + ∫_x^{ΛT} φ dH + ∫_{ΛT}^∞ φ|S_x|²(2/π)dt.
 
 - **Tail.** Using |S_x(t)| ≤ Σ_γ c(t − γ) ≪ log t, the last integral is ≪ ∫_{ΛT}^∞ T²t^{−2}log²t dt ≪ T log²T/Λ = O(T).
@@ -95,7 +98,7 @@ G = ∫_0^x φ dH + ∫_x^{ΛT} φ dH + ∫_{ΛT}^∞ φ|S_x|²(2/π)dt.
       o of the spike term (T log²T)/(2x²).
   - **Main.** ∫_x^{ΛT}φM′dt = ∫_x^{ΛT}φ(t)[(log²t + 2 log t)/(2πx²) + (log x)/2π]dt.
     - Since ∫_0^∞ φ = π/κ, ∫_0^∞ φ(t)log t dt = (π/κ)(log(1/κ) + O(1)), and φ(t) ≤ 4/(κt)², this equals
-      (T log²T/2x²)(1 + o(1)) + (T/2)log x + O(x log x + 1 + T log x/Λ).
+      (T log²T/2x²)(1 + o(1)) + (T/2)log x + O(x log x + 1 + T log x/Λ + T log²T/(Λx²)); the last term is absorbed by the spike's (1 + o(1)).
       Here ∫_0^x(log²t + 2 log t)dt = x log²x exactly, so the omitted piece [0, x] costs O(log²x/x + x log x) (F1;
       the earlier O(x log²T) was too weak). The boundary term φ(ΛT)M(ΛT) is O(T log T/Λ).
 - **N_Ψ.** Σ_γ c(t − γ)² = ∫c(t − u)²dN(u). Using N(u) = (u/2π)log(u/2πe) + O(log u) (C1) and integrating by parts
@@ -153,8 +156,8 @@ z := i(ρ − ρ′)L = −(γ − γ′)L is real, and K(z)² ≥ 0.
 **Remarks.**
 - **V1 (what is weakened, relative to Corollary P (§9.1)).**
   - Corollary P assumes RH + the *two-sided* asymptotic (V) (equivalently SPC on all of [1, ∞)).
-  - **(V⁺) is implied by Corollary P's input (F5).** RH + (V) ⇒ SPC ((C8) Theorem 7's converse, as used in
-    Corollary P). Then SPC ⇒ (9.1) uniformly on δ ∈ [X^{−1}, X^{−1/M}], by Theorem 7's forward direction with
+  - **(V⁺) is implied by Corollary P's input (F5).** RH + (V) ⇒ SPC ((C8) Theorem 7's converse, together with the secondary
+    Saffari–Vaughan step, as in Corollary P step 1). Then SPC ⇒ (9.1) uniformly on δ ∈ [X^{−1}, X^{−1/M}], by Theorem 7's forward direction with
     B₁ = 1/M and B₂ = 1 (up to its log paddings). This gives (V⁺).
   - Theorem V⁺ assumes RH + an *upper* bound only, on δ ∈ [X^{−1}, X^{−1/M}] for each M. For a given (SG) tolerance η
     one needs M ≍ η^{−1/3}.

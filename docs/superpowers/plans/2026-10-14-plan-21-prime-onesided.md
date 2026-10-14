@@ -13,7 +13,7 @@
 - [x] **T4.** Lemma P3: weighted K² sum ≤ N_Ψ(1 + D), via the (C6) weight removal.
 - [x] **T5.** Theorem V⁺: counting by positivity (RH), Ψ ≥ 0.7 on the bulk, then (SG) ⇒ G3′.
 - [x] **T6.** Numerics `checks/check_weighted_pc.py` on the Odlyzko zeros.
-- [ ] **T7.** Rule R review: fixes, then re-check, then labels; CITATIONS (C8) Plan-21 addendum; LOG; PROOF.md row.
+- [x] **T7.** Rule R review: fixes, then re-check, then labels; CITATIONS (C8) Plan-21 addendum; LOG; PROOF.md row.
 
 ## Review focus
 - (9.7)'s Σ_γ ranges over all zeros. Is G's pair form (with t ≥ 0 only) exactly Goldston's R/(2xκ²)?

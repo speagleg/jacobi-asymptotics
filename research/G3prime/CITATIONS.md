@@ -218,6 +218,7 @@ Goldston–Montgomery [18] has NOT been read, and Goldston's (4.4) itself has no
 > + O((log T)²/T)", assuming RH. "(9.8) L(x, T) = R(x, T)".
 > Full-range error: "the error term in (9.9) can be replaced by O(x(log x)⁴/T^{3/2}). This suffices for the full range."
 > This is stated with a sketch only.
+> §9: "All the details may be found in [18] except how L(x, T) is related to I(X, δ), since the proof there proceeds from (2.14) rather than Proposition 1."
 
 **Used in:** rhfree/RHPRIME.md (Lemmas P1 and P2; Theorem V⁺).
 

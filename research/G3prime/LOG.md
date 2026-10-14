@@ -140,5 +140,4 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
 - **Rule A.** The sinc² oscillation breaks a naive Stieltjes integration by parts at infinity. Fixed by truncating at
   ΛT = T log²T, with dyadic variation bounds.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan21.md). F1 (medium: main-term error near α = 1) fixed. F2
-  (medium: P1 depends on a sketched (9.9)) relabelled; a self-contained proof is OPEN (V5). F3–F12 applied. Re-check
-  pending.
+  (medium: P1 depends on a sketched (9.9)) relabelled; a self-contained proof is OPEN (V5). F3–F12 applied. Re-check: ACCEPT (R1 quote added; R2, R3 applied). REVIEWED.
