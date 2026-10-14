@@ -779,3 +779,35 @@ large α, which is dual to prime-pair errors cancelling on average over shifts u
   variance–F(α) equivalence does not transfer verbatim.
 - An RH-free (V) ⇒ PCC would need the GLSS idea (horizontal multiplicity) combined with an unconditional prime-variance
   identity. **Not attempted.**
+
+### 9.4 Numerical sanity (NUMERICAL; `checks/check_pc_numerics.py` → `.out`; Odlyzko's first 2,001,052 zeros)
+
+These are statements about a finite sample, not evidence about the asymptotics (AGENTS.md rule 3).
+
+**[1] Repulsion: the content of (SG).** Normalized gaps g_k (§4) for k ≤ 2·10⁶ (γ ≤ 1.13·10⁶). The mean is 1.00000 and
+the minimum is 0.0055.
+
+| δ | #{g_k < δ}/K | GUE NN CDF (Wigner surmise) | PCC ∫_0^δ(1 − sinc²) |
+|---|---|---|---|
+| 0.02 | 8.50e−6 | 8.64e−6 | 8.77e−6 |
+| 0.05 | 1.27e−4 | 1.35e−4 | 1.37e−4 |
+| 0.10 | 9.12e−4 | 1.07e−3 | 1.09e−3 |
+| 0.20 | 7.14e−3 | 8.39e−3 | 8.50e−3 |
+| 0.50 | 1.02e−1 | 1.12e−1 | 1.13e−1 |
+
+- The small-gap fraction follows the δ³ law. At small δ, pairs within β are essentially only nearest neighbours.
+- The ≈10–15% deficit at moderate δ is the known finite-height effect at γ ~ 10⁶. It is consistent with
+  arithmetic corrections and is not analysed here.
+
+**[2] G3′ defect, true zeros against the smooth model.** D(n) := (2/n²)Σ_{j<n}(n−j)log(b_j/x̃_j) − log(π²/16), for the
+true-zero measure (toolkit `true_zeta`, J = 4·10⁵ with tail) and for the smooth model:
+
+| n | 100 | 200 | 400 | 800 | 1600 | 3200 |
+|---|---|---|---|---|---|---|
+| D_true | −0.12664 | −0.10701 | −0.09097 | −0.07817 | −0.06801 | −0.05991 |
+| D_smooth | −0.12627 | −0.10674 | −0.09080 | −0.07807 | −0.06796 | −0.05988 |
+| difference | −3.7e−4 | −2.6e−4 | −1.7e−4 | −1.0e−4 | −5.8e−5 | −3.2e−5 |
+
+- Both drift to 0 like the smooth model's slow 1/log term (RH_ζ's κ).
+- The true-minus-smooth difference shrinks roughly like n^{−0.8}. This is consistent with G3′, i.e. a defect of 0,
+  well inside Theorem B's interval [−3 log C, 0].

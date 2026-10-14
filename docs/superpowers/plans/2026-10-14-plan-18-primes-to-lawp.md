@@ -28,7 +28,7 @@
 **Constraints.** AGENTS.md: no RH framing. RH appears only as a labelled hypothesis of a conditional theorem, never as
 something supported or tested. Rule C; Rule R; commit prefix `G3p:`.
 
-- [ ] CITATIONS (C7) M–S, (C8) Goldston notes, (C9) MRT.
-- [ ] §9 Theorem P and Proposition P′.
-- [ ] Numerical checks (gap profile, G3′ defect on true zeros).
+- [x] CITATIONS (C7) M–S, (C8) Goldston notes, (C9) MRT.
+- [x] §9 Theorem P and Proposition P′.
+- [x] Numerical checks (gap profile, G3′ defect on true zeros).
 - [ ] Rule R; fixes; re-check.
