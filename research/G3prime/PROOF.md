@@ -724,3 +724,58 @@ multiplicity-normalized averaged law holds for the true zeros.
 | liminf ≥ −3 log C > −∞ | **unconditional (Theorem B)**, mod-input Theorem H; REVIEWED |
 | liminf ≥ 0, i.e. G3′ | under (SG) (G3′-L), REVIEWED; under PCC (Theorem C, no RH), mod-input Theorem H; REVIEWED |
 | G3′ ⇒ d_*(E) = 0 | N′, REVIEWED |
+
+## 9. Plan 18: from prime pairs to Law P (the primes–zeros duality) — pending Rule R
+
+Inputs: (C7) Montgomery–Soundararajan, (C8) Goldston's notes, (C9) MRT, together with §8 (Theorem C). RH enters
+**only as a stated hypothesis** of conditional results (AGENTS.md rule 3).
+
+### 9.1 Theorem P (prime variance ⇒ Law P for the true zeros)
+
+**Theorem P.** Assume RH and
+
+  (V) ∫_1^X(ψ(x + h) − ψ(x) − h)²dx ∼ hX log(X/h), uniformly for 1 ≤ h ≤ X^{1−ε}, for every ε > 0.
+
+Then log D_n(σ) = Φ_n + o(n²). Equivalently, (2/n²)Σ_{j<n}(n−j)log(b_j/x̃_j) → log(π²/16) for the true-zero measure.
+
+*Proof.* The chain is:
+1. **(V) ⇒ SPC.** Goldston–Montgomery (C8, Theorem 7 and (9.3); RH assumed). (V) for h ≤ X^{1−ε} gives
+   F(x, T) ∼ (T/2π)log T for T^{A₁} ≤ X ≤ T^{A₂} for all fixed 1 ≤ A₁ ≤ A₂, i.e. F(α) = 1 + o(1) on 1 ≤ α ≤ M.
+2. **SPC ⇒ PCC** (Goldston's form: N(T, β) ∼ ∫_0^β(1 − (sin πu/πu)²)du for each fixed β > 0) by (C8) Theorem 4.
+   - On RH all ordinates are imaginary parts of critical zeros, so this is GLSS's PCC.
+   - Uniformity on compact β-intervals, as GLSS require, follows from monotonicity of N(T, ·) and continuity of the
+     limit (Pólya's argument).
+3. **PCC ⇒ (SG) ⇒ G3′:** Theorem C (§8.2), then G3′-L and G3′-U. ∎
+
+### 9.2 Proposition P′ (why prime-pair asymptotics alone are not the right input)
+
+**(a) Pointwise Hardy–Littlewood pairs ("twin-prime type").**
+- The pair conjecture Σ_{n≤N}Λ(n)Λ(n + k) = S(k)N + O(N^{1/2+ε}), uniformly in 0 < k ≤ N, yields (V) only for
+  h ≤ X^{1/2−ε}, hence SPC only for 1 ≤ α ≤ 2 − ε (C8 §9; equivalently (C7) Theorem 3 with K = 2, range H ≤ N^{1/2}).
+- That range gives F(α) on [0, 2 − ε]. This improves the constants in Theorem B and the simple-zero proportions, but
+  cannot give N(T, β) → 0 as β → 0, i.e. (SG), which needs F(α) for all bounded α.
+- So **no pointwise prime-pair statement of this type implies G3′ by this route.** (This is a statement about the
+  route, not a theorem that such an implication is impossible.)
+
+**(b) Averaged prime pairs (MRT, unconditional).**
+- In M_2(X; H) = Σ_n(ψ(n + H) − ψ(n) − H)², the pair sums enter as Σ_{|d|<H}(H − |d|)E_2(X; {0, d}). (The main terms
+  combine to H·X log(X/H) through M–S (16): the −h log h term.)
+- (V) at H therefore needs the weighted error average to be o(HX log(X/H)), i.e. an average error o(X log X/H) per
+  shift. For H = X^η that is a power saving.
+- MRT save an arbitrary power of log X on average, for X^{8/33+ε} ≤ H ≤ X^{1−ε}. That is far short of X^{−η}.
+- The gap is quantitative: the best unconditional averaged prime-pair results fall short of what G3′ needs by a power
+  of X.
+
+**(c) The duality made explicit.** Small gaps between zeros (the content of (SG), hence of G3′) are dual to F(α) at
+large α, which is dual to prime-pair errors cancelling on average over shifts up to X^{1−ε}.
+- Repulsion of zeros corresponds to the negative secondary term −h log h in Σ_{d≤h}S(d) (C7 (16)).
+- Twin-prime-type existence results (bounded gaps) push the other way: they produce clustering.
+
+### 9.3 Stretch: can RH be removed? (open)
+
+- Step 3 is RH-free: GLSS and Theorem C.
+- Steps 1–2 use RH through Goldston–Montgomery's explicit-formula identity for F(x, T) with real ordinates.
+- BGST's unconditional F(α) has complex weights x^{ρ−ρ′}W(ρ − ρ′). Off-line pairs make it indefinite, so the
+  variance–F(α) equivalence does not transfer verbatim.
+- An RH-free (V) ⇒ PCC would need the GLSS idea (horizontal multiplicity) combined with an unconditional prime-variance
+  identity. **Not attempted.**

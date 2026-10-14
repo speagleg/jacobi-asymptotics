@@ -100,3 +100,41 @@ Theorem C uses PCC ⇒ N(λ0) = O(λ0³TL) and N^⊛(T) = TL + o(TL).
 
 **Used in:** PROOF.md §8 remarks only (distinct *zeros* are not distinct *ordinates*; off-line pairs share ordinates).
 It updates (C3)'s 0.4075 to 0.6725 for "simple and on the line".
+
+## (C7) Montgomery–Soundararajan, "Primes in short intervals", arXiv:math/0409258 — READ (§0), for Plan 18
+
+> "(18) M_K(N; H) = Σ_{n=1}^N (ψ(n + H) − ψ(n) − H)^K". "Theorem 3. Let E_k(x; D) be defined by the relation
+> Σ_{n≤x}Π_{i=1}^k Λ(n + d_i) = S(D)x + E_k(x; D), and suppose that (20) E_k(x; D) ≪ N^{1/2+ε} uniformly for 1 ≤ k ≤ K,
+> 0 ≤ x ≤ N, and distinct d_i satisfying 1 ≤ d_i ≤ H. Then M_K(N; H) = µ_K H^{K/2}∫_1^N(log x/H + B)^{K/2}dx + O(…)
+> uniformly for log N ≤ H ≤ N^{1/K}". "In the case k = 1 … the hypothesis that E_1(N; {1}) ≪ N^{1/2+ε} is equivalent to
+> the Riemann Hypothesis (RH)." "Conjecture 1. For each positive integer K, M_K(N; H) = (µ_K + o(1))N(H log N/H)^{K/2}
+> uniformly for (log N)^{1+δ} ≤ H ≤ N^{1−δ}." "We recall that Goldston & Montgomery [8] showed that if RH is true, then
+> the stronger form (F(α) ∼ 1) of the Pair Correlation Conjecture as formulated by Montgomery [13] is equivalent to the
+> case K = 2 of the Conjecture above." Also (16): "R2(h) = −h log h + Ah + O(h^{1/2+ε})".
+
+**Used in:** G3prime PROOF.md §9 (Theorem P, Proposition P′).
+
+## (C8) Goldston, "Notes on pair correlation of zeros and prime numbers", arXiv:math/0412313 — READ (§§4–6, 9), for Plan 18
+
+> "Strong Pair Correlation Conjecture (SPC). For any fixed bounded M, (6.6) F(α) = 1 + o(1), for 1 ≤ α ≤ M."
+> "Pair Correlation Conjecture (PCC). For any fixed β > 0, (6.7) N(T, β) := (T log T/2π)^{−1}Σ_{0<γ,γ′≤T,
+> 0<γ′−γ≤2πβ/log T} 1 ∼ ∫_0^β(1 − (sin πu/πu)²)du."
+> "Theorem 4. Assume the Riemann Hypothesis. SPC implies PCC and SZC." (proof given via (6.12)–(6.15)).
+> "Theorem 7. Assume the Riemann Hypothesis. … Conversely, if 1 ≤ A1 ≤ A2 < ∞, then (9.2) [F(x, T) ∼ (T/2π)log T]
+> holds uniformly for T^{A1} ≤ X ≤ T^{A2} provided that (9.1) holds uniformly for X^{−1/A1}(log x)^{−3} ≤ δ ≤
+> X^{−1/A2}(log x)³." "In particular, one can prove on RH that SPC is equivalent to (9.3) ∫_1^X(ψ(x + h) − ψ(x) − h)²dx ∼
+> hX log(X/h) for 1 ≤ h ≤ X^{1−ε}". "it is a straightforward exercise to show that the twin prime conjecture in the
+> form (6.3) implies (9.1) and (9.3) in the ranges X^{−1} ≤ δ ≤ X^{−1/2−ε} and 1 ≤ h ≤ X^{1/2−ε} respectively, and
+> consequently we again obtain that (6.3) implies SPC in the range 1 ≤ α ≤ 2 − ε." (6.3): "Σ_{n≤N}Λ(n)Λ(n + k) = S(k)N +
+> O(N^{1/2+ε})".
+
+**Used in:** §9. Theorem 7 is Goldston–Montgomery's (Goldston is a co-author). The SPC ⇔ (9.3) step via Saffari–Vaughan
+is stated, not proved, in the notes, so it is a **secondary statement** here.
+
+## (C9) Matomäki–Radziwiłł–Tao, arXiv:1707.01315v3 — READ (abstract), context for Plan 18
+
+> "Our main result is that the expected asymptotic for the first three sums [incl. Σ_{X<n≤2X}Λ(n)Λ(n+h)] holds for
+> almost all h ∈ [−H, H], provided that X^{σ+ε} ≤ H ≤ X^{1−ε} for some ε > 0, where σ := 8/33 = 0.2424…, with an error
+> term saving on average an arbitrary power of the logarithm over the trivial bound."
+
+**Used in:** §9 Proposition P′(b): log-power savings are insufficient for (V).
