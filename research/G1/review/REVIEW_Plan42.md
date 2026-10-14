@@ -172,3 +172,80 @@ sequence, the neighbours are needed for right limits, the bound-free case is ope
 | RL3 | reformulation of RL (PROVED) after F6; the a priori bound for non-power nodes is open |
 | Simon citation | READ, quotes verified verbatim; attribution only, which is correct |
 | Numerics | NUMERICAL (float64; K-doubling only); re-run byte-identical; summary text to be corrected (F4) |
+
+## Re-check (fix commit 502a6ba; diff 7b5b987..502a6ba)
+
+Reviewer: same second reader, 2026-10-14. I re-ran `check_rl.py` from jacobi-asymptotics. The output, including the
+new [4], is byte-identical to the committed `check_rl.out`.
+
+**Verdict: ACCEPT.** The mathematics is correct, including the new material. Three label and wording items remain
+(R1–R3, all Low/Nit). Fix them before the REVIEWED stamp; no further review round is needed.
+
+| Finding | Status |
+|---|---|
+| F1 bound dropped in row/heading/LOG/plan | **Fixed** (§0 row, §3.13 heading, LOG title, plan goal) |
+| F2 RL2 wording, bound, label | **Fixed** (β_n ↛ 1, no positive limit; T3a step 1 cited; PROVED-mod-cite inheriting Theorem R) |
+| F3 Hilbert–Schmidt | **Partially fixed.** The statement is now precise, with its hypotheses. The label is questionable; see R1 |
+| F4 numerics text | **Fixed.** I checked all quoted values against `.out`; one nit remains in the LOG (R3) |
+| F5 LP is a special case | **Fixed** in RL1; one residual sentence remains in the §3.13 opening (R3) |
+| F6 RL3 monotone argument, C | **Fixed.** The argument is correct: n + 1 ≤ λn ⇔ n ≥ 1/(λ − 1). C points to §1 (item 11 (H-a)), line 59 |
+| F7 RL-n2, check [4], RL-loc weakening | **Fixed.** Verified below. Label nit in R1, γ range in R2 |
+| F8 scale ratios | **Fixed** (≤ ℓ/2, ≤ 3, ≤ 2: all correct) |
+| F9 novelty fields | **Fixed** (RL-n2 is missing from the heading's list; nit) |
+| F10 "refined" | **Fixed** |
+| F11 nits | **Fixed** (⟨n⟩^p, M, "modulo TeX markup") |
+
+**Verification of the RL-loc weakening.** The new hypotheses are: ℓ = 1, 2, 4 at n, and ℓ = 1, 2 at n ± 1. The proof
+uses ℓ = 1 at n + i (D_{n+i} → 0) and ℓ = 2 at n + i. That gives boundedness of u_{n−1}, …, u_{n+2}, with u_{n+2}
+coming from s_{n+1}²b_{n+2}² ≤ ∫y²dν_{n+1}, and the three pair sums. The proof uses ℓ = 4 only at n, in step 3. Step 4
+needs only these. **Correct.** The RL-n parenthesis was updated to match ("cannot both have arcsine 1st/2nd moments")
+and is correct under the weakened lemma.
+
+**Verification of RL-n2.** At n: u_n + u_{n+1} = 2 and u_{n+1}u_{n+2} + u_{n−1}u_n = γ(2 − γ) + γX = 2. At n + 1:
+u_{n+1} + u_{n+2} = 2 and u_{n+2}u_{n+3} + u_nu_{n+1} = γX + γ(2 − γ) = 2. Here γX = (γ − 1)² + 1. So (∗) and (∗∗)
+hold exactly at both indices, and step 3 gives the limits 2, 6, 70 while n_j^pb_{n_j} = √γ. Correct. Check [4] confirms
+this: relative errors ≤ 3e−4 at n_j = 9995 and ≤ 3e−3 at n_j = 1000, with O(1/n) decay.
+
+**Remaining items.**
+
+- **R1 (Low; Rule C / labels; RL-n, RL-b, RL-n2).**
+  - The fix labels RL-n and RL-b "PROVED-mod-cite (Hilbert–Schmidt)", but nothing was read or quoted, and there is no
+    CITATIONS.md entry.
+  - VERIFICATION_POLICY defines PROVED-mod-cite (X) as "proved from explicitly cited external results X, each read and
+    quoted with its hypotheses in a CITATIONS.md". The current label therefore does not match its own definition.
+  - The repo's actual practice, accepted in earlier Rule R reviews, is: textbook facts stated precisely with their
+    hypotheses and marked "textbook-standard, not checked against a specific source" keep PROVED. This covers TL's
+    Markov/Chebyshev (§0 row TL), LP's method of moments (§3.8, REVIEW_Plan35 l.200) and FV's inputs (§3.4 l.473).
+  - My original F3 was stricter than that precedent. Either of these complies:
+    - (a) return RL-n, RL-b and RL-n2 to **PROVED**, with "Hilbert–Schmidt theorem: textbook-standard, stated with
+      hypotheses above, not checked against a specific source", as for TL and LP; or
+    - (b) keep PROVED-mod-cite and add a CITATIONS.md entry quoted from a source actually read (e.g. Teschl, *Jacobi
+      Operators*, free PDF).
+  - Either way, **RL-n2 must carry the same label as RL-n**. It currently says "PROVED for general measures" while its
+    text uses the same spectral-theorem step "mod Hilbert–Schmidt".
+  - Recommended: (a).
+- **R2 (Low; RL-n2).** The text says "(γ > 0)". It must be **0 < γ < 2**, since u_{n+1} = 2 − γ must be > 0 for
+  b_{n+1} > 0. The numerics use γ ∈ {0.5, 0.8, 1.3}, which is fine.
+- **R3 (Nit).**
+  - The §3.13 opening sentence still says "Lemma LP (§3.8) is the forward direction for the pure power". Align it with
+    RL1 ("a special case of").
+  - The LOG numerics bullet still says "Slowly varying Ψ: rdev, rmom ~ 1e−5". rmom is 3–7e−5.
+  - RL3's monotone argument evaluates f at λn, which is not an integer. Say "f decreasing on [1, ∞)", or use
+    f(⌈λn⌉).
+  - The §3.13 heading's novelty list omits RL-n2 (UNCHECKED).
+
+## Final labels
+
+| Item | Label |
+|---|---|
+| Lemma RL | PROVED (self-contained) + REVIEWED; novelty not claimed |
+| Lemma RL-loc (weakened form) | PROVED + REVIEWED; novelty UNCHECKED |
+| Remark RL-n | PROVED (Hilbert–Schmidt textbook-standard, per precedent; R1(a)) + REVIEWED, or PROVED-mod-cite (Hilbert–Schmidt) + REVIEWED if a CITATIONS entry is added (R1(b)); novelty UNCHECKED |
+| Remark RL-n2 | same label as RL-n (general measures; positivity open, not claimed), with 0 < γ < 2 (R2); novelty UNCHECKED |
+| Remark RL-b | same label as RL-n; novelty not claimed |
+| Remark RL-UI | open (GAP) |
+| RL1 | PROVED (internal: RL, T3a step 1 / Sat_p⁺) + REVIEWED |
+| RL2 | PROVED-mod-cite (inherits Theorem R: RH_px, RH₁(r), RH_plt1b) + REVIEWED |
+| RL3 | PROVED (reformulation of RL with the monotone ratio argument) + REVIEWED; the a priori bound for non-power nodes is open |
+| Simon citation | READ, verbatim (modulo TeX markup), attribution only |
+| Numerics [1]–[4] | NUMERICAL (float64; reproducible, byte-identical re-run) |

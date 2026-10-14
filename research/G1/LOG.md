@@ -170,10 +170,11 @@
 - **Open:** RL-UI, i.e. whether weak convergence without the a priori bound suffices.
 - **Corollaries.** Localization ⟺ Law P for pure powers with sandwiched weights (the a priori bound is T3a step 1).
   For Theorem R weights, ν_n does not converge to arcsine.
-- **Numerics** (`checks/check_rl.out`): (M) to 10 digits. Slowly varying Ψ: rdev, rmom ~ 1e−5. Theorem-R-type windows:
+- **Numerics** (`checks/check_rl.out`): (M) to 10 digits. Slowly varying Ψ: rdev ~ 1e−5, rmom 3–7e−5. Theorem-R-type windows:
   rdev ≈ 6e−2 and rmom up to 1e−1 at N − 2 … N, versus ≤ 3e−2 elsewhere. RL-b and RL-n are confirmed on the explicit
   parameters.
-- **Labels:** RL, RL-loc PROVED; RL-n, RL-b PROVED-mod-cite (Hilbert–Schmidt); RL2 PROVED-mod-cite (inherits
+- **Labels:** RL, RL-loc PROVED; RL-n, RL-b, RL-n2 PROVED (spectral theorem for compact self-adjoint operators:
+  textbook-standard, stated precisely, not checked against a specific source); RL2 PROVED-mod-cite (inherits
   Theorem R). Novelty: not claimed for RL, RL-b; UNCHECKED for RL-loc, RL-n, RL-n2.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan42.md; math correct). Fixes applied:
   - F1: the a priori bound / "in moments" was added to the §0 row, §3.13 heading, this title and the plan goal.
@@ -186,4 +187,11 @@
     open) and check_rl [4] were added; RL-loc is weakened to ℓ = 1, 2 at n ± 1.
   - F8–F11 nits.
 
-  Re-check pending.
+  Re-check: ACCEPT. R1–R3 applied:
+  - R1 (option (a)): RL-n, RL-b and RL-n2 are back to PROVED, with the spectral theorem marked textbook-standard per
+    the repo's precedent (TL, LP).
+  - R2: RL-n2 needs 0 < γ < 2.
+  - R3: LP is called "a special case" in the §3.13 opening; this LOG's rmom is corrected; RL3 assumes f decreasing on
+    [1, ∞); RL-n2 is added to the novelty list.
+
+  Rule R ACCEPT WITH FIXES (review/REVIEW_Plan42.md), fixes applied, re-check ACCEPT — REVIEWED.

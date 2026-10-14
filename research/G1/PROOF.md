@@ -46,7 +46,7 @@ known; its application here to Law P is what is new.
 | **Thm L** | localization at scale Mn: limsup sup_t μ_m^{(t)}((Mn, ∞)) ≤ e^{4G}F_p(M) for bounded slowly varying Ψ (§3.8) | PROVED-mod-cite (as LP; internal TV, Sat_p⁺) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-all** | for w = k^{−s}Ψ with Ψ bounded and **slowly varying** (δ_n(λ) → 0): n^pb_n → c(p) and n^pa_n → 2c(p) for **all n** — the full pointwise Law P; contains T3-conv, T3-sv, T3-avg (§3.8, Plan 35) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, L) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-log** | for w = k^{−s}Ψ with Ψ **log-type slowly varying** (slowly varying, and D(γ) < ∞; e.g. (log k)^α, any α ∈ ℝ): the full pointwise Law P, all n; contains T3-all (§3.9, Plan 36) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, TL(w), L, T3-all) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
-| **RL** | Lemma RL: for any σ with infinite support (any nodes x_k ↓ 0) and scales s_n (s_{n+1}/s_n → 1, e.g. n^p): s_na_n → α, s_nb_n → β ⟺ the 1st, 2nd, 4th moments of ν_n := (x ↦ s_nx)_*μ_n tend to those of arcsine on [α−2β, α+2β] ⟺ ν_n → that law weakly + an a priori bound sup s_n(\|a_n\| + b_n) < ∞ (or UI of y⁴). Law P (constant c) ⟺ ν_n → arcsine on [0, 4c] weakly **with sup n^p(a_n + b_n) < ∞** (equivalently: moments ℓ = 1, 2, 4 converge to 2c, 6c², 70c⁴). RL-loc: indices n−1, n, n+1 suffice for right limits; RL-n: index n alone does not (explicit J_t); RL-n2: {n, n+1} does not for moments 1, 2, 4 (general measures); RL-b: the b-law alone is not enough (§3.13, Plan 42) | RL, RL-loc PROVED (self-contained; method of Simon 2004 Thm 3.2, read and quoted, CITATIONS.md (Simon), attribution only); RL-n, RL-b PROVED-mod-cite (Hilbert–Schmidt); RL2 PROVED-mod-cite (inherits Theorem R); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan42.md), fixes applied, re-check pending; novelty not claimed (RL, RL-b), UNCHECKED (RL-loc, RL-n, RL-n2). Open: weak convergence without the bound (RL-UI) |
+| **RL** | Lemma RL: for any σ with infinite support (any nodes x_k ↓ 0) and scales s_n (s_{n+1}/s_n → 1, e.g. n^p): s_na_n → α, s_nb_n → β ⟺ the 1st, 2nd, 4th moments of ν_n := (x ↦ s_nx)_*μ_n tend to those of arcsine on [α−2β, α+2β] ⟺ ν_n → that law weakly + an a priori bound sup s_n(\|a_n\| + b_n) < ∞ (or UI of y⁴). Law P (constant c) ⟺ ν_n → arcsine on [0, 4c] weakly **with sup n^p(a_n + b_n) < ∞** (equivalently: moments ℓ = 1, 2, 4 converge to 2c, 6c², 70c⁴). RL-loc: indices n−1, n, n+1 suffice for right limits; RL-n: index n alone does not (explicit J_t); RL-n2: {n, n+1} does not for moments 1, 2, 4 (general measures); RL-b: the b-law alone is not enough (§3.13, Plan 42) | RL, RL-loc PROVED (self-contained; method of Simon 2004 Thm 3.2, read and quoted, CITATIONS.md (Simon), attribution only); RL-n, RL-b, RL-n2 PROVED (spectral theorem for compact self-adjoint operators: textbook-standard, not checked against a specific source); RL2 PROVED-mod-cite (inherits Theorem R); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan42.md), fixes applied, re-check ACCEPT — REVIEWED; novelty not claimed (RL, RL-b), UNCHECKED (RL-loc, RL-n, RL-n2). Open: weak convergence without the bound (RL-UI) |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1 §§2–6) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; G2 PROOF.md μ*, B* — only μ* and B*(i)–(ii), which do not use (P)) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -956,9 +956,9 @@ M₁n ≤ n^γ (step 2) and T″ ≤ n^γ (step 3); both hold for n large. For n
   with halving ratios 2.16–2.25 per doubling (n·log n·deviation/|α| ≈ 0.46–0.49, consistent with |α|/(n log n)),
   in exact proportion 1 : 2 : 3 to |α|; K-converged (K = 1.2·10⁵ vs 2.4·10⁵).
 
-### 3.13 Lemma RL (Plan 42): Law P ⟺ the rescaled μ_n converge to the arcsine law with sup n^p(a_n + b_n) < ∞ (equivalently, in moments ℓ = 1, 2, 4) — RL, RL-loc PROVED (self-contained; the method is Simon 2004 Thm 3.2's, read and quoted in CITATIONS.md (Simon)); Remarks RL-b, RL-n PROVED-mod-cite (Hilbert–Schmidt theorem); RL2 PROVED-mod-cite (inherits Theorem R); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan42.md), fixes applied, re-check pending; novelty not claimed for RL and RL-b (scaled transcription of Simon's argument), UNCHECKED for RL-loc and RL-n
+### 3.13 Lemma RL (Plan 42): Law P ⟺ the rescaled μ_n converge to the arcsine law with sup n^p(a_n + b_n) < ∞ (equivalently, in moments ℓ = 1, 2, 4) — RL, RL-loc PROVED (self-contained; the method is Simon 2004 Thm 3.2's, read and quoted in CITATIONS.md (Simon)); Remarks RL-b, RL-n, RL-n2 PROVED (spectral theorem for compact self-adjoint operators: textbook-standard, stated precisely, not checked against a specific source); RL2 PROVED-mod-cite (inherits Theorem R); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan42.md), fixes applied, re-check ACCEPT — REVIEWED; novelty not claimed for RL and RL-b (scaled transcription of Simon's argument), UNCHECKED for RL-loc, RL-n and RL-n2
 
-Target T0′ of `research/program/outline_A_nodes.md`. Lemma LP (§3.8) is the forward direction for the pure power. Here
+Target T0′ of `research/program/outline_A_nodes.md`. Lemma LP (§3.8) is a special case of the forward direction for the pure power. Here
 both directions are proved for **any** measure, in particular any discrete σ = Σ w_kδ_{x_k} with x_k ↓ 0 (any nodes),
 and the outline's statement is refined: the hypothesis "every fixed j" is redundant for the full sequence, the
 neighbours are needed for right limits (RL-loc, RL-n), the bound-free case is open (RL-UI), and the b-law alone fails
@@ -1067,8 +1067,7 @@ So the outline's hypothesis "for every fixed j ∈ ℤ, μ_{n+j} rescaled by f(n
 follows from the hypothesis at index n + j, since s_{n+j}/s_n → 1), and for right limits the three indices
 n − 1, n, n + 1 suffice. The middle index alone does not:
 
-**Remark RL-n (the neighbours cannot be dropped; PROVED-mod-cite (Hilbert–Schmidt theorem, in the realization step);
-novelty UNCHECKED).** Weak convergence of ν_n along a
+**Remark RL-n (the neighbours cannot be dropped; PROVED (spectral theorem for compact self-adjoint operators: textbook-standard, stated precisely, not checked against a specific source); novelty UNCHECKED).** Weak convergence of ν_n along a
 sparse N₀ — even convergence of *all* moments — does not force the parameters at n ∈ N₀, already for positive
 discrete measures with x_k ↓ 0 and α = 2β (Law P's case).
 - *Doubly infinite model.* For t ∈ (0, 1) let J_t be the doubly infinite Jacobi matrix with diagonal α, bonds
@@ -1089,10 +1088,10 @@ discrete measures with x_k ↓ 0 and α = 2β (Law P's case).
   With L the lower-bidiagonal matrix with diagonal ℓ_m and subdiagonal k_m (m ≥ 1), J = LLᵀ + k_0²e_0e_0ᵀ, so J ≥ 0.
   J is injective: Ju = 0 gives ‖Lᵀu‖² + k_0²u_0² = 0, so u_0 = 0 and ℓ_mu_m + k_{m+1}u_{m+1} = 0 with all ℓ, k > 0,
   so u = 0. Its entries tend to 0, so J is compact (a norm limit of its finite truncations). Let σ be the spectral
-  measure of e_0 for J. By the Hilbert–Schmidt theorem (spectral theorem for compact self-adjoint
-  operators on a separable Hilbert space: an orthonormal eigenbasis of (ker J)^⊥ with real eigenvalues λ_k → 0; **cited,
-  not quoted** — no source was read verbatim for this plan, hence the label PROVED-mod-cite (Hilbert–Schmidt), Rule C;
-  F3), σ = Σ_k|⟨e_0, φ_k⟩|²δ_{λ_k} over an orthonormal eigenbasis
+  measure of e_0 for J. By the spectral theorem for compact self-adjoint operators (Hilbert–Schmidt;
+  textbook-standard, stated precisely, not checked against a specific source — as for TL's Markov/Chebyshev and LP's
+  method of moments): a compact self-adjoint operator on a separable Hilbert space has an orthonormal eigenbasis of
+  (ker J)^⊥ with real eigenvalues λ_k → 0. Hence σ = Σ_k|⟨e_0, φ_k⟩|²δ_{λ_k} over an orthonormal eigenbasis
   (J is injective), with eigenvalues λ_k > 0 (J ≥ 0, injective) accumulating only at 0. After that only polynomial
   functional calculus on the eigenbasis is used. With P_m defined by the recurrence with these
   a_m, b_m, induction on the recurrence gives P_m(J)e_0 = e_m, so ∫P_mP_{m′}dσ = ⟨e_m, e_{m′}⟩ = δ_{mm′}: the P_m are
@@ -1105,8 +1104,7 @@ discrete measures with x_k ↓ 0 and α = 2β (Law P's case).
   n_j^pb_{n_j} → β√(2t) ≠ β for t ≠ ½. (By RL-loc, ν_{n_j−1} and ν_{n_j+1} cannot both have arcsine 1st/2nd moments in
   the limit; indeed the 2nd moment of ν_{n_j−1} tends to α² + (1 + 2t)β².)
 
-**Remark RL-b (the b-law alone is not enough; PROVED-mod-cite (Hilbert–Schmidt theorem, realization as in RL-n);
-novelty not claimed).** Law P needs both halves: there are positive discrete measures
+**Remark RL-b (the b-law alone is not enough; PROVED (spectral theorem for compact self-adjoint operators: textbook-standard, stated precisely, not checked against a specific source; realization as in RL-n); novelty not claimed).** Law P needs both halves: there are positive discrete measures
 with x_k ↓ 0, n^pb_n → c, and ν_n → arcsine on [c, 5c] (not [0, 4c]). Take a_m := 3c⟨m⟩^{−p}, b_m := cm^{−p}. Then
 ⟨u, Ju⟩ ≥ Σ_m(a_m − b_m − b_{m+1})u_m² ≥ cΣ⟨m⟩^{−p}u_m² (2|b_mu_{m−1}u_m| ≤ b_m(u_{m−1}² + u_m²); b_m + b_{m+1} ≤ 2c⟨m⟩^{−p}),
 so J is positive definite and compact, and as in RL-n its e_0-spectral measure is discrete with atoms x_k ↓ 0 and has
@@ -1132,8 +1130,8 @@ Sat_p⁺, gives a_n, b_n ≤ 2M^p(n − 1)^{−p} for large n (M the head margin
   **not** converge weakly to arcsine on [0, 4c(p)]. By RL-loc this failure is visible near any subsequence along which
   β_n stays away from 1.
 - **RL3 (any nodes).** RL needs nothing about the nodes beyond s_{n+1}/s_n → 1. Let x_k = f(k) with f regularly
-  varying with index −p and constant C as in the Setting of this file (item 11 (H-a)), and s_n = 1/f(n). Then
-  s_{n+1}/s_n → 1: x_k ↓ 0 makes f decreasing, so for λ > 1 and n ≥ 1/(λ − 1), f(λn)/f(n) ≤ f(n + 1)/f(n) ≤ 1, whence
+  varying with index −p and constant C as in the Setting of this file (item 11 (H-a)), f decreasing on [1, ∞), and
+  s_n = 1/f(n). Then s_{n+1}/s_n → 1: for λ > 1 and n ≥ 1/(λ − 1), f(λn)/f(n) ≤ f(n + 1)/f(n) ≤ 1, whence
   λ^{−p} ≤ liminf f(n + 1)/f(n) ≤ 1; let λ ↓ 1. So "Law P (constant c(p)C)" ⟺ "ν_n (rescaling by 1/f(n)) → arcsine on
   [0, 4c(p)C], with the a priori bound". The a priori bound for nodes other than pure powers needs a substitute for Sat_p⁺ (outline A, T0).
 
@@ -1161,13 +1159,13 @@ single-index counterexample like J_t was not seen in the sources read).
   scaled), and 4th moment α⁴ + 12α²β² + 4β⁴ + 2β_1²β_2² ≠ α⁴ + 12α²β² + 6β⁴ unless β_1 = β_2.
 - *Neighbours:* RL-n shows that the index set {n} alone fails; {n − 1, n, n + 1} suffices (RL-loc).
   **Remark RL-n2 (the pair {n, n + 1} does not suffice for moments 1, 2, 4; reviewer's construction, Rule R F7;
-  PROVED for general measures, positivity open; check_rl [4] NUMERICAL).** Take β = 1, α = 2 and at a sparse N₀ the
-  scaled bond values u_n = u_{n+2} = γ, u_{n+1} = 2 − γ, u_{n−1} = u_{n+3} = ((γ − 1)² + 1)/γ (γ > 0), all other
+  PROVED for general measures (spectral theorem for compact self-adjoint operators: textbook-standard, stated precisely, not checked against a specific source), positivity open; novelty UNCHECKED; check_rl [4] NUMERICAL).** Take β = 1, α = 2 and at a sparse N₀ the
+  scaled bond values u_n = u_{n+2} = γ, u_{n+1} = 2 − γ, u_{n−1} = u_{n+3} = ((γ − 1)² + 1)/γ (0 < γ < 2, so that all b > 0), all other
   u = 1, and diagonal α (scaled as in RL-n: a_m = α⟨m⟩^{−p}, b_m = √u·m^{−p}). Then (∗) and (∗∗) hold exactly at n
   and at n + 1: u_n + u_{n+1} = u_{n+1} + u_{n+2} = 2, and u_{n+1}u_{n+2} + u_{n−1}u_n = u_{n+2}u_{n+3} + u_nu_{n+1}
   = γ(2 − γ) + (γ − 1)² + 1 = 2. So the scaled moments ℓ = 1, 2, 4 of ν_n and ν_{n+1} tend to 2, 6, 70 (step 3's
   expansion), while u_n → γ ≠ 1 for γ ≠ 1. RL does not need positivity, so the e_0-spectral measure of this bounded
-  Jacobi matrix (as in RL-n, mod Hilbert–Schmidt / the spectral theorem) is an admissible σ. Whether a version with
+  Jacobi matrix (as in RL-n, via the spectral theorem) is an admissible σ. Whether a version with
   x_k > 0 exists is **not claimed**: the reviewer found the local model's smallest truncated eigenvalue +5.6e−5 at
   γ = 1.3 (consistent with the free edge) but −0.016 at γ = 0.8.
 - *Scale ratios:* every use of s_n/s_m → 1 is for |m − n| bounded by a constant depending only on ℓ (≤ ℓ/2 in
