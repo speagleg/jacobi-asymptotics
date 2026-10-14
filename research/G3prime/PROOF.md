@@ -1,7 +1,7 @@
 # G3′: averaged Law P for the true-zero measure
 
 Status: REVIEWED 2026-10-13 (Rule R: `review/REVIEW_G3prime.md`, ACCEPT WITH FIXES; fixes applied) for Z1, Z2, G3′-U,
-S, W, G3′-L and N. N′ remains GAP.
+S, W, G3′-L and N. N′ is proved for d_*(E) > 0 (Plan 16, REVIEWED); the residual case is GAP.
 Framing (AGENTS.md rule 3): the ordinates are inputs. They are taken as real numbers, listed with multiplicity, and
 nothing here is evidence about where the zeros lie.
 
@@ -16,7 +16,7 @@ nothing here is evidence about where the zeros lie.
 | W | log D_n(Σ k⁻ˢ δ_{Ck⁻²}) ≥ Λ_n − (s−3)K n log n, uniformly in s ≥ 4 | PROVED (from item 11 §7) + REVIEWED | Theorem A refs, H3 |
 | G3′-L | liminf (1/n²)[log D_n(σ) − Φ_n] ≥ 0 under (SG) | PROVED-mod-cite + mod-input (SG), Theorem H + REVIEWED | Z1, S, W, H5, H6 |
 | N | doubled-smooth sequences: same counting function, law fails by 2 log(1−1/m) | PROVED-mod-input Theorem H + REVIEWED | Theorem H_L, item 11 H6 |
-| N′ | positive density of repeated ordinates ⇒ the law fails (general deletion lemma) | GAP | — |
+| N′ | repeated indices containing a positive-density subset (d_*(E) > 0) ⇒ the law fails, limsup ≤ 2 log(1 − d_*(E)) | PROVED-mod-cite + mod-input Theorem H + REVIEWED; residual GAP: positive lower density with d_*(E) = 0 | G3′*-U proof, Z1, Z2, T (P1), H6 |
 | R, K | pair factors under thinning; concentration (from H7) | PROVED-mod-input Theorem H + REVIEWED | H5, H7 |
 | T | thinning of convergent density: the own-normalized law survives | PROVED-mod-input Theorem H + REVIEWED | R, K, H6, H7 |
 | T′ | robustness: density band ±η gives error ω(η) → 0 | PROVED-mod-input Theorem H + REVIEWED | T |
@@ -272,18 +272,88 @@ see.)
   "more than 40.75%" of zeros simple (and on the line) unconditionally, and about 70% under RH. No surveyed result
   reaches proportion one.
 - The unconditional lower bound needs inputs beyond (C1) (Prop N). The sufficient input (SG) implies a statement that
-  no result surveyed in (C3) reaches. Hardness is not established (GAP N′). G3′ (multiplicity normalization) stops
+  no result surveyed in (C3) reaches. Theorem N′ below shows that excluding positive-density repeats is necessary, in the sense d_*(E) = 0. G3′ (multiplicity normalization) stops
   at:
-  **U (unconditional) + L (mod (SG)) + N (counting information is insufficient)**.
+  **U (unconditional) + L (mod (SG)) + N (counting information is insufficient) + N′ (d_*(E) = 0 is necessary)**.
 
-**Not proved (GAP N′, general deletion).** A converse would read: "if the repeated indices of the true ordinates have
-positive lower density, the law fails". N′ would show that density-zero repeated ordinates (almost all zeros of
-horizontal multiplicity 1, in the sense of (C3) §1.3) is necessary, while G3′-L shows that (SG) is sufficient. This
-sandwiches G3′; it is not an equivalence. It needs
-a deletion lemma for arbitrary index sets E of positive lower co-density: limsup (1/n²)[log D_n(σ̃|_E) − Φ_n] < 0. Prop
-N proves this only for evenly spread E. For clustered E the pairwise comparison used in (ii-b) fails, because
-π(b) − π(a) is not comparable to b − a. The numerics in `check_merge.out` [1] cover evenly spread E only; [2] (a
-localized defect) shows the shift appears once n exceeds the defect's index scale. This is NUMERICAL only.
+**Theorem N′ (positive-density repeats break the law; Plan 16) — PROVED-mod-cite + mod-input Theorem H + REVIEWED
+(review/REVIEW_Nprime.md, ACCEPT WITH FIXES, F1–F8 applied).**
+
+*Setting.* Let E := {k ≥ 2 : γ_k = γ_{k−1}} be the set of **repeated indices** of the true ordinates (listed with
+multiplicity, §1). For a set A ⊂ ℕ write d(A) := lim |A ∩ [1, K]|/K when the limit exists, and put
+
+  d_*(E) := sup{d(E′) : E′ ⊂ E, d(E′) exists}.
+
+**Theorem N′.** If d_*(E) > 0, then
+
+  limsup_n (1/n²)[log D_n(σ) − Φ_n] ≤ 2 log(1 − d_*(E)) < 0.
+
+So the multiplicity-normalized averaged law (G3′) fails.
+
+*Proof.*
+1. **Enlarge.** Fix E′ ⊂ E with 0 < d(E′) = δ′ < 1 (Rule R F5). A set of density δ ∈ (0, 1] contains subsets of
+   every density in [0, δ], by the greedy rule of the Remarks. For each k ∈ E ∖ E′, add an atom at γ⁺_k := γ_k + η_k with weight
+   2/(γ⁺_k² + ¼).
+   - Explicitly (Rule R F4): η_k := min(1, g/2)·i/(m + 1) for the i-th re-added repeat in a block of multiplicity m
+     whose forward gap to the next distinct ordinate is g. So 0 < η_k ≤ 1, all atoms are distinct, and their order
+     agrees with the index order.
+   - Call the result σ⁺. Every atom of σ, with its merged weight, is an atom of σ⁺, so σ ≤ σ⁺ as measures.
+   - Every Heine term is nonnegative, so D_n(σ) ≤ D_n(σ⁺).
+2. **σ⁺ is a Z1-thinning of convergent density.** The atoms of σ⁺ sit at positions γ⁺_k (γ⁺_k := γ_k for k ∉ E), for
+   k in the index set K⁺ := ℕ ∖ E′, with d(K⁺) = 1 − δ′.
+   - Z1 holds for these positions with C₀ + 1 (and C₀′ + 1 for all k). Z2 is derived from Z1 alone, so it holds with
+     the same change of constant, after re-choosing k₂ so that γ̃_k ≥ 2(C₀ + 1).
+   - Weights (Rule R F8): each first-occurrence atom keeps its full merged weight 2m_jy_j, so the re-added mass is
+     counted twice. This is harmless. The upper half of (Hw) is weight ≤ 4E(γ)·cx̃_{π(j)} ≤ C log(j+2)·L(Cj)·j⁻²,
+     using j ≤ π(j) ≤ Cj. The lower half is weight ≥ 2c⁻¹x̃_{π(j)} ≥ c′j⁻². This is the U(j) of G3′*-U.
+3. **G3′*-U for σ⁺.** The proof of Theorem G3′*-U (§7.1) uses only the following:
+   - the enumeration k(j) of the atom indices, here K⁺;
+   - the convergence of its density, here 1 − δ′ directly, in place of "(D∞) gives d → θ";
+   - Z1, Z1′ and Z2 for the atom positions;
+   - (Hw).
+   So it applies verbatim to σ⁺:
+
+     limsup (1/n²)[log D_n(σ⁺) − Φ*_n(σ⁺)] ≤ 0,  Φ*_n(σ⁺) = −2n² log n + 2Σ_{j<n}(n−j) log L⁺(j) + κn²,
+
+   with L⁺(j) := j²·(j-th atom of σ⁺).
+4. **Compare normalizations.**
+   - Let π enumerate K⁺. Then π(j)/j → 1/(1 − δ′) (Theorem T (P1)), and L⁺(j) = L(π(j))(j/π(j))²(1 + o(1)) by Z1′.
+   - Since π(j) ≤ Cj and L is slowly varying (H6(a)), log L(π(j)) − log L(j) → 0.
+   - So log L⁺(j) − log L(j) → 2 log(1 − δ′), and Φ*_n(σ⁺) − Φ_n = 2n² log(1 − δ′) + o(n²).
+5. Combining 1–4: limsup (1/n²)[log D_n(σ) − Φ_n] ≤ 2 log(1 − δ′). Let δ′ ↑ d_*(E), with log 0 := −∞. ∎
+
+**Remarks.**
+- **Relation to Prop N** (Rule R F3). The proof of N′ uses only three inputs: Z1 for the positions, a multiplicity bound
+  m_j = O(log γ), and convergence of d(E′).
+  - σ^{(m)} of Prop N has all three: Prop N(i), and multiplicity ≤ 2. Its repeated-index set {km + 2} (written
+    ℕ ∖ E in Prop N's notation) has density 1/m.
+  - So the same argument gives Prop N's upper half, limsup ≤ 2 log(1 − 1/m). Prop N also gives equality.
+  - N′ therefore holds for any ordinate list with Z1 and that multiplicity bound.
+- **When is d_*(E) > 0?** For example, when E has positive *window lower density*: there is δ > 0 with
+  |E ∩ (K′, K]| ≥ δ(K − K′) − o(K) for all K′ < K.
+  - Then the greedy rule "add k ∈ E iff |E′ ∩ [1, k)| < δ′k" with δ′ < δ yields d(E′) = δ′.
+  - Plain positive lower density is not enough. Let E := ⋃_m[a_m, 2a_m) with a_{m+1} ≥ 4a_m (Rule R F7), so
+    E ∩ [2a_m, 4a_m) = ∅. If E′ ⊂ E had density δ′, then |E′ ∩ [1, 4a_m)| = |E′ ∩ [1, 2a_m)|, which forces
+    δ′ = δ′/2. So d_*(E) = 0, although liminf |E ∩ [1, K]|/K > 0.
+  - This residual case (positive lower density but d_*(E) = 0) is the only part of the former GAP N′ left open.
+    Whether the law fails there is not known either way. *(Heuristic:* it would need a thinning law for oscillating
+    densities, which Theorem T excludes; cf. the log-periodic rows of §6.)
+
+**G3′ status after N′ (the sandwich).**
+- **(U)** limsup ≤ 0, unconditionally (G3′-U).
+- **(L)** liminf ≥ 0 under (SG) (G3′-L).
+- **(N′)** If the law holds, then d_*(E) = 0: no positive-density family of repeated ordinates.
+
+A repeated ordinate comes from a multiple zero or from two distinct zeros on one horizontal line.
+- The unconditional input surveyed in (C3) gives only N_d(T) ≥ 0.4075·N(T)(1 + o(1)) ((C3), PRZD20 via the survey).
+  This uses two steps: simple zeros on the line have pairwise distinct ordinates, so N_d ≥ #(simple, on the line); and
+  K ≤ N(γ_K + 0) ≤ K + 2E(γ_K).
+- Hence |E ∩ [1, K]| ≤ K − N_d(γ_K) + 1 ≤ 0.5925K(1 + o(1)), which does not exclude d_*(E) > 0.
+
+So an unconditional proof of G3′ must exclude positive-density repeated ordinates, a statement about the fine
+structure of the ordinates that no surveyed result reaches. **G3′ closes as: U unconditional; L under (SG); necessity
+of d_*(E) = 0 by N′.** "As hard as a known open problem" is still *not* claimed: no surveyed source states "d_*(E) = 0"
+as open in this form.
 
 ## 6. Own-atom normalization (G3′*): exploration, 2026-10-13 — NOT REVIEWED
 
@@ -320,10 +390,10 @@ Rule N caveat: check_thinning has no precision or truncation doubling. check_nea
 - Theory suggests near-duplicates matter only when log(1/gap) is comparable to n, i.e. gaps of size e^{−cn}. Below
   that, including both atoms costs less than dropping one. This is a heuristic; the numerics are consistent with it.
 
-**Consequence for an unconditional proof (heuristic and NUMERICAL; necessity is not proved).** In either
+**Consequence for an unconditional proof (heuristic and NUMERICAL for the own normalization; for the multiplicity normalization, necessity of d_*(E) = 0 is Theorem N′).** In either
 normalization, the law for the true zeros appears to depend on how repeated (or super-close) ordinates are
 distributed:
-- *Multiplicity normalization:* repeats would need density 0 (Prop N; necessity would follow from GAP N′).
+- *Multiplicity normalization:* repeats would need d_*(E) = 0 (Prop N; necessity proved by Theorem N′ in §5).
 - *Own normalization:* the proportion of distinct ordinates, N_d(T)/N(T), would need to vary slowly (no macroscopic
   oscillation; smooth-model numerics above), and super-close distinct pairs (gaps ≈ e^{−cN}) would need to be rare.
 
