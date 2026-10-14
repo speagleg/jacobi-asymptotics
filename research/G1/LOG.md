@@ -108,7 +108,6 @@
   uniformity. Full pointwise Law P therefore holds for polynomially slowly varying weights.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan32.md). F1–F8 and F10 applied; numerics re-run with an n-scan and
   K-doubling. Re-check: ACCEPT (R1 applied). REVIEWED.
-- **Rule R:** pending.
 
 ## 2026-10-14 — Plan 33 (Conjecture R proved: Theorem R)
 - **Lemma R2.** |F_N''| ≤ 16‖f‖². The key is K_mq_m = 0, which makes the cross term a negative semidefinite form.
@@ -117,7 +116,7 @@
   - the recurrence then concentrates μ_{N−1} near {a − 2b, a, a + 2b};
   - free-Jacobi moments (2, 6, 20) give m₄ − 4m₂ → −2 ≠ 0.
 - **Theorem R.** Windows ε·sign(Δ²μ) at polynomially separated good scales. Cross-scale independence comes from Sat_p⁺
-  (head) and Lemma TL (tail). So limsup |log(β_n²/β_{n−1}²)| ≥ εη/4.
-- **G1-R as posed is FALSE.** Dichotomy: decaying or polynomially slowly varying roughness keeps the pointwise law;
+  (head) and Lemma TL (tail). So limsup |log(β_n²/β_{n−1}²)| ≥ εη/2.
+- **The (T3) half of G1-R is REFUTED** (the (CL) half is unaffected). Dichotomy: decaying or polynomially slowly varying roughness keeps the pointwise law;
   fixed-size roughness can break it.
-- **Rule R:** pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan33.md). F1–F10 applied. Re-check ACCEPT (r1–r3 status/header polish applied; r4 notation clash J deferred) — REVIEWED.
