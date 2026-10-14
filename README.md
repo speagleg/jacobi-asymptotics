@@ -46,12 +46,19 @@ means Riemann–Hilbert. The Riemann Hypothesis occurs only as a labelled hypoth
   - The Theorem H input of every G3′ result is p = 2, s ≥ 2 only, supplied citation-free by item 11, so no G3′ result
     depends on G2's citation (P) (THEOREMS.md §3.3).
 
+**Plans 39–44 (2026-10-14, all REVIEWED; THEOREMS.md §2.6):** Conjecture R in window form for ε ≤ ε₀ (Theorem RW);
+linear response with sharp ε² remainder (Lemma LR); rough weights also break the pointwise a-law (Theorem Ra); Law P ⟺
+arcsine limit of the rescaled μ_n, given an a priori bound (Lemma RL); the law for every slowly varying weight,
+conditional on one localization hypothesis QL (Theorem B-cond); G3′ is at least as hard as "100% of zeros simple and on
+the critical line", and d̄(E) ≤ 0.3275 unconditionally (G3′ §5.6). Novelty first pass and research program:
+research/program/RESEARCH_PROGRAM.md.
+
 **Open** (details in THEOREMS.md §4):
-- G3′ with no hypothesis, i.e. 𝒞(K) = o(K²) for the ζ ordinates. By N″ this implies proportion-one distinct ordinates,
-  beyond the best unconditional results read (Lamzouri 2026: 67.25% simple and on the line).
+- G3′ with no hypothesis, i.e. 𝒞(K) = o(K²) for the ζ ordinates. It implies that 100% of zeros are simple and on the
+  critical line (§5.6), beyond the best unconditional results read (Lamzouri 2026: 67.25%).
 - An explicit constant in Theorem B.
-- G1: slowly varying Ψ with D(γ) = ∞ (e.g. exp(√log k)); nodes other than pure powers; (CL) for general nodes or
-  p ≤ 1; pointwise a_n for rough weights.
+- G1: slowly varying Ψ with D(γ) = ∞ (e.g. exp(√log k); reduced to hypothesis QL); nodes other than pure powers; (CL)
+  for general nodes or p ≤ 1; density-one law for rough weights; sharp constants in Theorems R/RW/Ra.
 - Lean: Theorem H_all (and with it the discharge of `TheoremHPure`) is not formalized.
 
 ## Setup

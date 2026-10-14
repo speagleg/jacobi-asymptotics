@@ -250,6 +250,20 @@ Hypotheses (not results): (SG), (LG*), PCC (GLSS form), SPC_ℂ⁺, SPC_ℂ⁺(f
 
 ---
 
+### 2.6 Additions after Plan 37 (Plans 39–44, all REVIEWED 2026-10-14)
+
+Labels abbreviated; the verbatim labels are in the §0 rows of research/G1/PROOF.md (RW, LR / LRa, Ra, RL, B-cond) and
+research/G3prime/PROOF.md (Pos). Novelty UNCHECKED unless stated.
+
+| Name | Short statement | Label | Location |
+|---|---|---|---|
+| Thm RW | Conjecture R in window form: for every window [aN, bN] with b > u_s(p) (incl. [0.6N, 1.6N], all p > 0), explicit η_W, ε₀ = η_W/16; for ε ≤ ε₀ a pointwise-sign f with \|f\| ≤ ε gives limsup (β_n/β_{n−1} − 1) ≥ εη_W/4 (separation → ∞) or εη_W/8 (fixed ratio R_W) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b) | G1 §3.10 |
+| Lemma LR / LR′ / LRa | linear response with remainder ε² (ratio form 2ε²; a_n form (e^ε − 1 − ε)(b_n + b_{n+1})), ε = ½ osc f, any finite-moment base; constants absolute and numerically sharp; Cor LR-law | PROVED; LR-law PROVED-mod-cite | G1 §3.11 |
+| Thm Ra | fixed-size rough weights break the pointwise **a-law**, explicit η_a = c(p)I/2, ε₀ = I/16 (Toda form, R2a, R1a, LP′) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b) | G1 §3.12 |
+| Lemma RL | for any nodes: s_na_n → α, s_nb_n → β ⟺ moments 1, 2, 4 of ν_n → arcsine moments ⟺ ν_n → arcsine weakly + a priori bound; Law P ⟺ arcsine limit with sup n^p(a_n + b_n) < ∞; RL-n/RL-n2: one index (or two, moments 1,2,4) do not suffice | PROVED (spectral theorem textbook-standard); RL2 PROVED-mod-cite | G1 §3.13 |
+| Thm B-cond | pure-power nodes, any slowly varying Ψ (sequence form): unconditional head/bulk/tail bounds; QL ⇒ full pointwise Law P | CONDITIONAL (QL₀, implied by QL) + PROVED-mod-cite; no new case of the law | G1 §3.14 |
+| Pos (Plan 43) | d(E) = 0 ⟺ 100% of zeros simple and on the critical line; G3′ ⇒ that (G3′ at least as hard); d̄(E) ≤ 1 − C_Lz ≈ 0.3275 unconditionally (Lamzouri, arXiv preprint); G3′ ⟺ d(E) = 0 ∧ 𝒞_dist = o(K²); G3′ ⇒ HMH not established | PROVED-mod-cite (C1), (C5), (C6) + mod-input Theorem H | G3′ §5.6 |
+
 ## 3. Dependency summary
 
 ### 3.1 External citations → results
@@ -345,7 +359,8 @@ and asked for item 11 to be named as the primary route. That changes no label; i
    (O(n²)) with no hypothesis on the zeros, mod (C1), (C5), Theorem H (p = 2 input supplied citation-free by item 11, §3.3); G3′ under (SG), PCC, SPC_ℂ⁺, SPC_ℂ⁺(full), RH + (V⁺), RH + (V).
    By N″, G3′ ⇒ d(E) = 0 (proportion-one distinct ordinates). Best unconditional input read: (C3) N_d ≥ 0.4075N;
    Lamzouri (C6) 67.25% simple and on the line. Numerically 𝒞(K)/K² ≤ 1.1·10⁻⁷ at K = 2·10⁶ (§5.5). The repo says
-   explicitly that "as hard as a known open problem" is *not* claimed (§5.5).
+   explicitly that "as hard as a known open problem" is *not* claimed (§5.5). *Update (Plan 43, §5.6):* G3′ ⇒ 100% of
+   zeros simple and on the critical line, so G3′ is at least as hard as that statement; d̄(E) ≤ 0.3275 unconditionally.
 2. **Explicit constant in Theorem B.** Needs an explicit O-constant in Fujii's second moment (GLSS (6.1)); not in what
    was read (§8.1 Remark B3).
 3. **(Q1)** Does (V) on a restricted range, or a one-sided variance bound, give (SG) without RH (§9.3)? RH-free route
@@ -357,26 +372,31 @@ and asked for item 11 to be named as the primary route. That changes no label; i
 **G1 (pointwise law)**
 7. **Slowly varying Ψ with D(γ) = ∞** (e.g. exp(√log k)): "here the truncated weight is not uniformly sandwiched and the
    Grönwall factor e^{4G} of Theorem L diverges" (§3.9 log1; §4). Known: bounded slowly varying (T3-all), log-type
-   (T3-log).
+   (T3-log). *Update (Plan 44, §3.14):* reduced to the single hypothesis **QL** (log-moment localization along vΨ^t);
+   QL is open for D(γ) = ∞ (at t = 0 it is a uniform-in-M form of Lemma LP).
 8. **Nodes other than pure powers.** "Other nodes x_k = f(k) need a substitute for the pure-power law in Lemma LP"
    (§3.8 L4; §4). The analytic families done are pure powers (all p > 0) and the smooth-ζ model (README). The literature
    read has no RH analysis for general nodes accumulating at 0 with merely sandwiched weights (§4 point 2).
 9. **(CL) for general nodes or p ≤ 1** (§3.1 CL4; §4). For p ≤ 1, J is not trace class and A2 does not apply as stated.
-10. **Conjecture R, window form**: (T3) failure on windows [0.6N, 1.6N] "remains NUMERICAL" (§3.2); Theorem R uses
-    windows [θN, N^{κ+1}]. Lead: transport of localization for |f| ≤ ε, "not examined" (§3.8 L2′).
+10. ~~**Conjecture R, window form**~~: PROVED for ε ≤ ε₀ (Theorem RW, §3.10, Plan 39). Still NUMERICAL: the every-ε /
+    absolute-constant form, and small fixed scale ratios (e.g. ×4); proved constants are tiny (η_W ≈ 10⁻⁷ at p = 2).
 11. **Density-one law for rough (Theorem R-type) weights**: "whether a density-one law holds for such weights is open"
     (§3.7 avg1).
 
 **Additional open items**
-12. Pointwise a_n for rough weights: A4/A4′ give only tail/block/b-weighted-density forms; "A pointwise density
+12. Pointwise a_n for rough weights: *now REFUTED in general* (Theorem Ra, §3.12, Plan 41: fixed-size rough weights
+    break the pointwise a-law). Earlier text: A4/A4′ give only tail/block/b-weighted-density forms; "A pointwise density
     statement does NOT follow" (§3, A4 text). For slowly varying Ψ the a-law is proved (T3a, T3-all, T3-log; A1 note).
 13. Second-order constants for pure powers: RH₁ n²(b_n^σ/b_n^{TC} − 1) → −1/24 "conjecture, not proved"
     (RH_p1.md §0); d₁ = −(s−1)/2, e₁ = p/2 are NUMERICAL Phase-0 fits (RH.md §0, RH_px §0); RH_p proves only O(1/n).
-14. Lemma R1's η, J are non-explicit (proof by contradiction) (§3.6 R-b).
-15. Novelty searches (Rule L) not done for any result; prior-art pointers recorded but unread (G2 §3; G1 CL3, R-d, TL).
+14. Lemma R1's η, J are non-explicit (proof by contradiction) (§3.6 R-b). *Update:* explicit (but tiny) constants in the
+    window version R1W (§3.10) and for the a-law R1a (§3.12); sharp constants (phase model 4/π, 8/π²) open.
+15. Novelty searches (Rule L): first pass done 2026-10-14 (research/program/novelty_*.md; summary in
+    research/program/RESEARCH_PROGRAM.md §1); gating unread items listed there. Earlier text: not done for any result; prior-art pointers recorded but unread (G2 §3; G1 CL3, R-d, TL).
 16. Lean: Theorem H / H_all (`TheoremHPure`, supplied on paper by G2 Cor. H-input) and the forward Weyl law are not
     formalized (lean/README).
-17. In review: none on master.
+17. In review: none on master. New (Plan 42): **RL-UI** — whether weak convergence ν_n → arcsine *without* the a priori
+    bound implies Law P (§3.13).
 
 ---
 
