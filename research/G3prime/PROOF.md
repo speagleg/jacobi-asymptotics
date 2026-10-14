@@ -18,7 +18,7 @@ nothing here is evidence about where the zeros lie.
 | N | doubled-smooth sequences: same counting function, law fails by 2 log(1−1/m) | PROVED-mod-input Theorem H + REVIEWED | Theorem H_L, item 11 H6 |
 | N′ | repeated indices containing a positive-density subset (d_*(E) > 0) ⇒ the law fails, limsup ≤ 2 log(1 − d_*(E)) | PROVED-mod-cite + mod-input Theorem H + REVIEWED; residual case closed by N″ (§5.2) | G3′*-U proof, Z1, Z2, T (P1), H6 |
 | N″ | repeated indices of positive **upper** density ⇒ the law fails, liminf ≤ −0.2397·d̄(E) (§5.2); hence G3′ ⇒ d(E) = 0 | PROVED-mod-cite (C1) + mod-input Theorem H (via G3′-U steps 1–5, item 11 H5–H7); REVIEWED; novelty UNCHECKED | Hadamard, Christoffel, G3′-U |
-| N‴ | normalized gaps g_k ≤ e^{−βk} (incl. repeats) at positive upper density ⇒ the law fails (§5.3); hence G3′ ⇒ d(T_β) = 0 for every β > 0 | PROVED-mod-cite (C1) + mod-input Theorem H; Rule R ACCEPT WITH FIXES, re-check pending; novelty UNCHECKED | N″ (Lemma H, Lemma Sat, move map), G3′-U, Z1, Z2 |
+| N‴ | normalized gaps g_k ≤ e^{−βk} (incl. repeats) at positive upper density ⇒ the law fails (§5.3); hence G3′ ⇒ d(T_β) = 0 for every β > 0 | PROVED-mod-cite (C1) + mod-input Theorem H; REVIEWED; novelty UNCHECKED | N″ (Lemma H, Lemma Sat, move map), G3′-U, Z1, Z2 |
 | B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED | GLSS (6.1), Caro–Wei, §4 proof |
 | C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED | GLSS, G3′-L |
 | P | RH + prime short-interval variance (V) ⇒ G3′ (§9.1; corollary of KNOWN (C8) + Theorem C) | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; REVIEWED (Rule R, review/REVIEW_Plan18.md); novelty UNCHECKED (RH + (V) ⇒ PCC is KNOWN) | §8.2 |
@@ -460,7 +460,7 @@ NUMERICAL (exact, 300 digits; `checks/check_npp.out`):
 - **N″3.** Theorem N″ uses no hypothesis on the zeros beyond (C1), plus Theorem H through G3′-U.
   - Novelty: UNCHECKED. Lemma H is a standard determinantal fact; Lemma Sat is elementary.
 
-### 5.3 Theorem N‴ (Plan 24): exponentially small gaps at positive density also break the law — PROVED-mod-cite (C1) + mod-input Theorem H; depends on §5.2 (REVIEWED) and G3′-U; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan24.md), fixes applied, re-check pending; novelty UNCHECKED
+### 5.3 Theorem N‴ (Plan 24): exponentially small gaps at positive density also break the law — PROVED-mod-cite (C1) + mod-input Theorem H; depends on §5.2 (REVIEWED) and G3′-U; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan24.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED
 
 For β > 0 put T_β := {k : g_k ≤ e^{−βk}}, with g_k the normalized gap of §4. T_β ⊇ E − 1 = {k : γ_{k+1} = γ_k} (g_k = 0), which has the same density as
 the repeated-index set E (F1).
@@ -508,20 +508,20 @@ with g as in §5.2. Hence **G3′ ⇒ d(T_β) = 0 for every β > 0.**
   theorem (F9). Spacing ≥ 2 in T′ would suffice for the move map and improve ηθ/6 to ηθ/4 (F10); this is not used.
 - **N‴1 (what is left between necessity and sufficiency; updated by Plan 25).**
   - Necessary for G3′: repeats *and* gaps ≤ e^{−βk} have density 0, for every β > 0 (N″, N‴).
-  - Sufficient: (SG) (G3′-L), and more generally (LG*) (Theorem L′, §4.1, Plan 25). (LG*) allows small positive gaps
+  - Sufficient: (SG) (G3′-L), and more generally (LG*) (Theorem L′, §4.1, Plan 25; carries Plan 25's own Rule R status). (LG*) allows small positive gaps
     at any density when Σ log⁺(1/g) = o(K²/log K) off a small deletable set.
   - Open: the window between those two conditions.
   - *Heuristic:* a near-twin pair should cost at most about the merged deletion cost of the slot, and that cost is
     ≳ n only for k < θ₀n (Lemma Sat). This suggests a sharp condition of the form
     Σ_{k≤K}min(log⁺(1/g_k), K) = o(K²). That condition already implies d(E) = 0 (F7). Not proved.
   - History (F2): Plan 24 first recorded an obstacle to the *G3′-L step-6 route*, not to every proof. Near costs were
-    folded into weights j^{−s_n}, and a crude truncation needed log N ≳ n log n. Plan 25's Lemma Tr (§4.1) removes it.
+    folded into weights j^{−s_n}, and a crude truncation needed log N ≳ n log n. Plan 25's Lemma Tr (§4.1; Plan 25's own Rule R status) removes it.
   - NUMERICAL illustration only (exact, `checks/check_twins.out`; F4).
     - At n = 20, the atom of index k + 1 is moved to x_k(1 − ε), where ε is the relative atom gap, not the normalized
       gap g.
     - Increments of the loss between ε = 10⁻² and 10⁻⁸ are close to 2 log(1/ε)'s increment. For example, at k = 3 the
-      loss rises by 27.3, against 27.6 for 2 log(1/ε). Absolute values are not 2 log(1/ε): at ε = 10⁻², moving the atom
-      up even *gains*.
+      loss rises by 27.3, against 27.6 for 2 log(1/ε). Absolute values are not 2 log(1/ε): at ε = 10⁻², for k = 3 and 6, moving the
+      atom up even *gains*.
     - For tiny ε the loss saturates at 77.68 (k = 3) and 35.69 (k = 6). This is the cost of deleting index k + 1 with
       its weight merged into atom k; compare C(k+1, n) = 78.13 and 36.24.
 - **N‴2.** No hypothesis on the zeros beyond (C1) is used, plus Theorem H through G3′-U. Novelty: UNCHECKED.

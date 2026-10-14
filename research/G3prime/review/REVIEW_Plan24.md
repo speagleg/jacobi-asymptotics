@@ -192,3 +192,50 @@ After F1–F9 (F10–F11 optional):
 - Remark N‴1: the necessity/sufficiency summary is PROVED (N″, N‴, G3′-L); the near-twin cost and the "sharp condition"
   stay **Heuristic**; the sufficiency obstruction is an **obstacle to the G3′-L route** (LOG), not a no-go result.
 - check_twins: **NUMERICAL (exact mpmath, 300 digits)**, illustration only.
+
+## Re-check (commit 831394a, worktree ja-plan24, branch plan-24-nppp)
+
+Scope: §5.3 (all), the §0 N‴ row, LOG Plan-24 entry, README N‴ lines, checks/check_twins.py and .out. I re-ran
+`check_twins.py` from jacobi-asymptotics. The output is byte-identical to the committed `.out`, and its numbers
+match my scratch values (C(k+1,n) = 78.13, 36.24, 8.75; saturation 77.68, 35.69, 8.15).
+
+| # | Status | Note |
+|---|---|---|
+| F1 | RESOLVED | "T_β ⊇ E − 1 = {k : γ_{k+1} = γ_k}, same density as E". Correct. |
+| F2 | RESOLVED (see R1) | N‴1 now says the obstacle is to the G3′-L step-6 route only. The LOG labels the attempt "route via G3′-L step 6 only" and corrects the requirement to log N ≳ n log n. |
+| F3 | RESOLVED | New bullets: the uniform-in-S bound on a sum of nonnegative 2 log ρ* terms survives, and k+1 ≤ θn < Mn makes {k, k+1} a head pair. Matches my derivation. |
+| F4 | RESOLVED (R3 nit) | The text now uses increments (27.3 vs 27.6 at k = 3), saturation = merged deletion of k+1 (77.68 / 35.69 vs C(k+1,n) = 78.13 / 36.24), and says ε ≠ g. All checked against the .out. |
+| F5 | RESOLVED | θ₁n − O(1) ≤ k ≤ θn − 1. |
+| F6 | RESOLVED | The docstring describes what the code computes, and C(k+1,n) is printed. One stale inline comment remains ("twin: atom k+... inserted"); harmless. |
+| F7 | RESOLVED | The "sharp condition" no longer has the redundant clause, says it implies d(E) = 0, and is marked "Not proved". The cap ≳ n is stated only for k < θ₀n. |
+| F8 | RESOLVED | Row and heading: PROVED-mod-cite (C1) + mod-input Theorem H; depends on §5.2 (REVIEWED) and G3′-U; novelty UNCHECKED. Depends-on column: N″ (Lemma H, Lemma Sat, move map), G3′-U, Z1, Z2. |
+| F9 | RESOLVED | N‴0: "needed for Lemma Sat to give a gain; not claimed necessary for the theorem". F10 is noted as unused. Fine. |
+
+Twin factor with coefficient 2: x_k − x_{k+1} ≤ 2(γ_{k+1} − γ_k)/γ_k³ = 2·2πg_k/(γ_k³ log(γ_k/2π)) = 4πg_k/(γ_k³
+log(γ_k/2π)). ✔ ε_k ≤ C(log k)²g_k. ✔ The rest of the proof (steps 3–6, constants) is unchanged from the version
+reviewed above.
+
+### Residual items
+- **R1 (Minor; but blocking for merge order; N‴1 bullets "Sufficient … (LG*) (Theorem L′, §4.1, Plan 25)" and
+  "History … Plan 25's Lemma Tr (§4.1) removes it"; LOG "(Superseded by Plan 25's Lemma Tr.)").** §4.1, Theorem L′,
+  (LG*) and Lemma Tr do not exist in this worktree (PROOF.md has §4 only), and they are unreviewed. As written, N‴1
+  states "(LG*) is sufficient" as a fact. *Fix:* either merge Plan 25 first, or tag these sentences "(Plan 25, Rule R
+  pending)" until L′ is REVIEWED. I did not assess L′ or Lemma Tr; this re-check accepts nothing about them.
+- **R2 (Nit; LOG Plan-24 entry).** It still says "ε_k ≲ (log k)³g_k" (valid but inconsistent with §5.3's (log k)²) and
+  "Recorded as OPEN (N‴1)", while N‴1 now says the obstacle is superseded. Also the LOG Rule R line needs updating to
+  the re-check outcome. README l. 46 ("gaps between e^{−o(k)} and δ") predates the new N‴1 wording ("the window
+  between those two conditions"); align once Plan 25 lands.
+- **R3 (Nit; N‴1 numerics).** "At ε = 10⁻², moving the atom up even *gains*" holds for k = 3, 6 (loss −13.10, −3.18)
+  but not k = 10 (+1.83). Add "for k = 3, 6".
+
+### Re-check verdict: ACCEPT
+
+The F1–F9 fixes are correct, and the mathematics of Theorem N‴ was already correct. R1 is about cross-references to
+unreviewed Plan 25 material, not about N‴. R2 and R3 are nits.
+
+Final labels:
+- **Theorem N‴ (§5.3): PROVED-mod-cite (C1) + mod-input Theorem H; depends on §5.2 (REVIEWED) and G3′-U; Rule R
+  ACCEPT WITH FIXES (review/REVIEW_Plan24.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED.**
+- Remark N‴1: necessity part PROVED (N″, N‴); the near-twin cost and the sharp condition are **Heuristic**; the
+  references to (LG*)/Theorem L′/Lemma Tr carry **Plan 25's** status, not this review's (R1).
+- check_twins: **NUMERICAL (exact mpmath, 300 digits), illustration only.**

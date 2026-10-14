@@ -163,12 +163,12 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
 
 ## 2026-10-14 — Plan 24 (Theorem N‴; the sufficiency obstruction)
 - **N‴.** Gaps ≤ e^{−βk} at positive upper density break G3′.
-  - Proof: twin pair factor ε_k ≲ (log k)³g_k in G3′-U, then the expansion Π(ε_k² + avoidance).
+  - Proof: twin pair factor ε_k ≲ (log k)²g_k in G3′-U, then the expansion Π(ε_k² + avoidance).
   - The avoidance term uses the §5.2 move map plus Hadamard plus saturation.
 - **Attempted (route via G3′-L step 6 only):** weaken (SG) to "d(E) = 0 + Σ log⁺(1/g) = o(K²/log K)" in G3′-L. This failed.
   - G3′-L folds near costs into weights compared with j^{−s_n} (s_n ~ log n). A per-element cost A log²a is not
     dominated for a ≫ n^{O(1)}.
   - Truncating the comparison measure at N needs Σ_{l>N}w_l·D_{n−1}/D_n ≪ 1, i.e. log N ≳ n log n, which
     reintroduces the cost. (Superseded by Plan 25's Lemma Tr.)
-  - Recorded as OPEN (N‴1).
-- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan24.md). F1–F9 applied. Re-check pending.
+  - Recorded at the time as OPEN (N‴1). Later superseded by Plan 25's Lemma Tr.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan24.md). F1–F9 applied. Re-check: ACCEPT (R1–R3 applied). REVIEWED.
