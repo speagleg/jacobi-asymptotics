@@ -122,10 +122,10 @@
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan33.md). F1–F10 applied. Re-check ACCEPT (r1–r3 status/header polish applied; r4 notation clash J deferred) — REVIEWED.
 
 ## 2026-10-14 — Plan 34 (density-one pointwise law for slowly varying weights)
-- **Lemma TC:** expected tail count beyond Mm ≤ (2A/(p log M))m + o(m), uniformly, from G2 A-U/A-L.
+- **Lemma TC:** expected tail count beyond Mm ≤ (2A/(p log M))m + o(1), uniformly, from G2 A-U/A-L.
 - **Theorem T3-avg.**
   - The tail term in Lemmas FV/FVa telescopes over n ∈ [N, 2N] to 𝔼_{2N+1}#(tail).
-  - Fubini swaps the path integral and the n-average.
-  - Result: the pointwise b- and a-laws hold along a density-one set of n for merely slowly varying Ψ.
+  - A finite-sum/integral interchange swaps the path integral and the n-average.
+  - Result: the pointwise b- and a-laws hold along a density-one set of n for uniformly slowly varying Ψ.
 - **Open:** all-n for uniformly slowly varying Ψ (would follow from Mn localization).
-- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan34.md). F1 (hypothesis restated as uniform slow variation; no UCT citation), F2–F10 applied. Re-check pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan34.md). F1 (hypothesis restated as uniform slow variation; no UCT citation), F2–F10 applied. Re-check ACCEPT (N1–N4 polish applied) — REVIEWED.

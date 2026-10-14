@@ -4,7 +4,7 @@
 - [x] **T1.** Lemma TC (from G2 A-U/A-L).
 - [x] **T2.** Theorem T3-avg (b and a), via averaged tail counts and Fubini.
 - [x] **T3.** Numerics `research/G1/checks/check_sv_density`.
-- [ ] **T4.** Rule R review.
+- [x] **T4.** Rule R review.
 
 ## Review focus
 - Lemma TC: uniformity of the A-U/A-L constants over the sandwich class; the probability bound and the expectation.

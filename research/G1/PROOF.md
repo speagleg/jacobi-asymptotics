@@ -35,8 +35,8 @@ known; its application here to Law P is what is new.
 | **T3-sv** | pointwise b-law for w = k^{−s}Ψ with Ψ bounded and *polynomially slowly varying*: sup_{n/M≤k≤n^γ}\|log Ψ(k) − log Ψ(n)\| → 0 for all M, γ (e.g. Ψ = 2 + sin√(log log k)) (§3.4, Plan 30) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: Lemma FV, Lemma Sat_p⁺, Lemma TL); REVIEWED; novelty UNCHECKED |
 | FVa | first variation of a_n: d/dt a_n(v e^{tf}) = ⟨(x − a_n)f, μ_n⟩ − 2b_n⟨f, q_{n−1}q_n⟩ (q_j = √w p_j) (§3.5) | PROVED (standard; novelty not claimed; self-contained via the proof of Lemma H and Christoffel–Darboux); Rule R ACCEPT WITH FIXES, re-check ACCEPT — REVIEWED |
 | **T3a** | pointwise **a-law** n^p a_n → 2c(p) under T3-sv's hypotheses (Ψ bounded, polynomially slowly varying; includes ψ_k → L), all p > 0, s > 1 (§3.5, Plan 32) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: FVa, Sat_p⁺, TL); REVIEWED; novelty UNCHECKED |
-| TC | tail count: 𝔼_m#(S ∩ (Mm, ∞)) ≤ (2A/(p log M))·m + o(1) uniformly over sandwiched weights, every p > 0 (§3.7) | PROVED-mod-cite (P) (through G2 B*(iii); internal: G2 A1/A2, A-U, A-L) + Rule R ACCEPT WITH FIXES, re-check pending; novelty UNCHECKED |
-| **T3-avg** | for w = k^{−s}Ψ with Ψ bounded and **uniformly slowly varying** (δ_N(M, M′) → 0; e.g. 2 + sin(log log k)): (1/N)Σ_{n=N}^{2N}\|log b_n²(w) − log b_n²(v)\| → 0 and (1/N)Σ n^p\|a_n(w) − a_n(v)\| → 0; hence the full pointwise Law P along a set of n of density one (§3.7, Plan 34) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; (P) via TC) + Rule R ACCEPT WITH FIXES, re-check pending; novelty UNCHECKED |
+| TC | tail count: 𝔼_m#(S ∩ (Mm, ∞)) ≤ (2A/(p log M))·m + o(1) uniformly over sandwiched weights, every p > 0 (§3.7) | PROVED-mod-cite (P) (through G2 B*(iii); internal: G2 A1/A2, A-U, A-L) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
+| **T3-avg** | for w = k^{−s}Ψ with Ψ bounded and **uniformly slowly varying** (δ_N(M, M′) → 0; e.g. 2 + sin(log log k)): (1/N)Σ_{n=N}^{2N}\|log b_n²(w) − log b_n²(v)\| → 0 and (1/N)Σ n^p\|a_n(w) − a_n(v)\| → 0; hence the full pointwise Law P along a set of n of density one (§3.7, Plan 34) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; (P) via TC) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -371,7 +371,7 @@ log Ψ slowly varying.
 - On the head, μ_n = ρ_{n+1} − ρ_n ≤ 1 − ρ_n is exponentially small by Lemma Sat_p (§3.1).
 - So if a **localization lemma** holds, meaning μ_n^{(t)}((Mn, ∞)) + μ_{n−1}^{(t)}((Mn, ∞)) ≤ ε(M) uniformly along the path, then
   b_n(vΨ)/b_n(v) → 1. The pure-power laws (RH_p etc.) then give the pointwise law. That is more than (T3).
-- The upper tail at scale Mn is a GAP. (§3.4, Lemma TL, proves it at polynomial scale n^κ, giving Theorem T3-sv;
+- The upper tail at scale Mn is a GAP (on average over n it is handled by Lemma TC, giving the density-one Theorem T3-avg, §3.7). (§3.4, Lemma TL, proves it at polynomial scale n^κ, giving Theorem T3-sv;
   F12.) Unbounded slowly varying Ψ (e.g. log k) would need additional quantitative tail control.
 - The case Ψ_k → L, where the tail is not needed, is Theorem T3-conv (§3.3, Plan 29).
 
@@ -507,7 +507,7 @@ and centering,
     Mn (OPEN); the density-one version is T3-avg (§3.7).
   - T3-sv contains T3-conv: take Ψ = ψ, since ψ_k → L > 0 is bounded and polynomially slowly varying. Products
     Ψ·χ with χ_k → L are likewise a direct instance (F9).
-- **TL2 (what is open).** Localization at scale Mn, μ_n((Mn, ∞)) ≤ ε(M), is what full slow variation needs.
+- **TL2 (what is open).** Localization at scale Mn, μ_n((Mn, ∞)) ≤ ε(M), would suffice for the all-n law under full slow variation (density-one version: T3-avg, §3.7).
   - Lemma TL loses a polynomial factor. It comes from Markov's inequality (atoms must be n²-dense relative to the
     interval) and the n^{−2} relative extrapolation distance.
   - NUMERICAL (`checks/check_tail_loc.out`, small n, truncation K = 6T″; F10): μ_n has 4.5–9.3% of its mass beyond
@@ -678,7 +678,7 @@ and so does Theorem CL when p > 1 (F1).
   OPUC/OPRL literature (Rakhmanov-type theorems need the perturbation to be "small at infinity" in suitable senses).
   This is a recollection, not cited.
 
-### 3.7 Lemma TC and Theorem T3-avg (Plan 34): density-one pointwise law for slowly varying weights — TC PROVED-mod-cite (P); T3-avg PROVED-mod-cite; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan34.md), fixes applied, re-check pending
+### 3.7 Lemma TC and Theorem T3-avg (Plan 34): density-one pointwise law for slowly varying weights — TC PROVED-mod-cite (P); T3-avg PROVED-mod-cite; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan34.md), fixes applied, re-check ACCEPT — REVIEWED
 
 Setting: x_k = k^{−p} (p > 0), sandwiched weights c·k^{−s} ≤ w_k ≤ C·k^{−s} (s > 1); notation μ_n, ρ_m as in
 §3.2–3.5.

@@ -197,3 +197,78 @@ Neither was searched. *Fix:* add "novelty UNCHECKED" to TC; keep it on T3-avg.
 | avg2 | NUMERICAL (p = s = 2 only) |
 
 A re-check is needed only for F1 (the restated hypothesis and its example) and F5. The other fixes are textual.
+
+## Re-check (commit ce8ffcd; master merged at 7735e8d)
+
+**Verdict: ACCEPT.** Every finding F1–F10 is addressed correctly. A few textual nits remain; none blocks REVIEWED.
+
+**F1 (resolved).** The new Definition "uniformly slowly varying" is exactly the quantity used in step 1. T3-avg's
+hypothesis is now this property, so no uniform convergence theorem (UCT) is needed. The UCT appears only as an unused
+remark, explicitly marked as unread.
+- **Example 2 + sin(log log k), checked.** For n ∈ [N, 2N] and k ∈ [n/M, M′N]:
+  - log log k − log log n ≤ log(log(M′N)/log N) → 0;
+  - log log n − log log k ≤ log(log(2N)/log(N/M)) → 0;
+  - |log Ψ(k) − log Ψ(n)| ≤ |Ψ(k) − Ψ(n)|, since Ψ ≥ 1, and sin is 1-Lipschitz.
+
+  So δ_N → 0. ✓ (log log k is defined for k ≥ n/M once N is large.)
+- **"Polynomially slowly varying ⇒ uniformly slowly varying", checked.** For large n, M′N ≤ M′n ≤ n² (γ = 2), and the
+  supremum over n ∈ [N, 2N] of quantities that tend to 0 individually tends to 0. ✓
+
+**F2 (resolved).** The TC statement, proof bullet and status row all name E_p = κ_p (B*(iii)) and (P).
+- The TC row now reads "PROVED-mod-cite (P) (through G2 B*(iii); internal: …)", with novelty UNCHECKED. ✓
+- The strengthening of the error term to o(1) is correct, since m·(m+1)e^{−At₁m² + o(m²)} → 0. The dependence
+  "on M, p, c, C, s only" is correct. ✓
+
+**F3 (resolved).** M′ ≥ 6, A_N ⊂ ((M′/3)(2N+1), ∞) for N ≥ 1, and TC is applied with the fixed M = M′/3 ≥ 2. ✓
+
+**F4 (resolved).** The constant is (2N+1)/N ≤ 3 times 4A, i.e. 12A, valid for every N ≥ 1, and the middle term is
+2δ_N(N+1)/N. ✓ The continuity justification for swapping the sum over n and ∫dt was added. ✓
+
+**F5 (resolved).**
+- **Blocks to Cesàro.** The dyadic decomposition gives Σ_{n≤Y}X_n ≤ O_{N₀}(1) + 2ηY, and then the density of E_ε is 0 by
+  Chebyshev. ✓ (Cosmetic: the dyadic endpoints Y/2^i need floors, and adjacent blocks [N, 2N] share an endpoint;
+  X ≥ 0, so both are harmless.)
+- **Diagonal construction of J.** Checked.
+  - E_j = E_{1/j} increase in j.
+  - For Y ∈ [N_j, N_{j+1}): the pieces with index i ≤ j lie in E_{i+1} ∩ [1, Y] ⊂ E_{j+1} ∩ [1, Y], so together they
+    have at most Y/j elements; the pieces with i > j start beyond Y. So #(J^c ∩ [1, Y]) ≤ N_1 + Y/j, and J has density
+    one.
+  - For n ∈ J ∩ [N_j, N_{j+1}), n ∉ E_{j+1}, so X_n ≤ 1/(j+1).
+
+  ✓
+- **Combined set.** X_n combines the b and a terms, so one set J serves both laws. The exponential identity transfers
+  the convergence. ✓
+
+**F6 (resolved).** avg1, the LOG "Open" line and §4's Plan 34 line now say "would follow from". ✓
+
+**F7 (resolved).** The Theorem R wording in avg1 is accurate against the reviewed §3.6 (failure along a sparse sequence;
+T3-avg does not apply; density-one law for those weights open). ✓
+
+**F8 (resolved).**
+- §3.3 T3c2 is marked SUPERSEDED and the "p > 1 only" claim is corrected.
+- §3.3 and §3.4 TL1 point to T3-avg.
+- §4 has a Plan 34 line.
+- README mentions Plan 34 "in review" (update to REVIEWED on merge).
+
+**F9 (resolved).** Novelty UNCHECKED is on both rows. **F10 (resolved in text).** avg2 notes that the a-row is printed at
+n = 3199 and that only p = s = 2 is tested. The script is unchanged, which is acceptable.
+
+**Remaining nits (optional, non-blocking).**
+- **N1.** LOG Plan 34 entry:
+  - it still says "+ o(m)" (true, but stale; now o(1));
+  - it says "merely slowly varying Ψ" in the Result line; it should say "uniformly slowly varying";
+  - it says "Fubini" where the step is a finite-sum interchange.
+- **N2.** §3.4 TL2: "Localization at scale Mn … is what full slow variation *needs*" and TL1 "would still *need*" carry
+  the same direction problem as F6. "would suffice for" is accurate. This is pre-existing reviewed text.
+- **N3.** The §3.2 localization reduction ("The upper tail at scale Mn is a GAP …") could add "(density-one version:
+  T3-avg, §3.7)".
+- **N4.** The §3.7 header, status rows, LOG and README should be updated from "re-check pending"/"in review" to
+  "re-check ACCEPT — REVIEWED".
+
+**Final labels.**
+
+| Row | Label |
+|---|---|
+| TC | PROVED-mod-cite (P) (through G2 B*(iii); internal: G2 A1/A2, A-U, A-L); Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
+| T3-avg | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; (P) via TC; internal: FV, FVa, Sat_p⁺, TC); Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
+| avg2 | NUMERICAL (p = s = 2 only) |
