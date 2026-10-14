@@ -136,8 +136,9 @@
 - **Lemma LP:** for the pure power, n^p-rescaled μ_n → arcsine on [0, 4c(p)] by moments (pure-power laws), so
   μ_n((Mn, ∞)) → F_p(M) = (2/π)arcsin√(M^{−p}/(4c(p))).
 - **Theorem L:** Grönwall on √μ transports localization from v to vΨ^t: limsup ≤ e^{4G}F_p(M).
-- **Theorem T3-all:** full pointwise Law P (b and a, all n) for bounded slowly varying Ψ. Contains T3-conv, T3-sv, T3-avg.
+- **Theorem T3-all:** full pointwise Law P (b and a, all n) for bounded slowly varying Ψ (PROVED-mod-cite; pure-power nodes
+  k^{−p}, base k^{−s}). Contains T3-conv, T3-sv, T3-avg.
 - **Numerics** (`checks/check_mn_loc.out`): TV formula vs finite difference 8 digits; pure-power tails match F_p(M) for
   p = 2, 1, 0.5.
 - **Open:** unbounded slowly varying Ψ; other nodes.
-- **Rule R:** pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan35.md). F1 (head margin M₀(p), not n/4) and F2–F8, F10 applied. Re-check pending.

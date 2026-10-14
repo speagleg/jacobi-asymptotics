@@ -2,7 +2,8 @@
 [1] Lemma TV derivative formula vs central finite difference (p = s = 2, random f, n = 100, A = (4n, ∞)).
 [2] Pure power v = k^{-s} (s = 2): μ_n((Mn, ∞)) vs the arcsine limit F_p(M) = (2/π)arcsin(√(M^{-p}/(4c(p)))) (Lemma LP).
 [3] Ψ = 2 + sin(log log(k+2)): μ_n^w((Mn, ∞)) vs μ_n^v((Mn, ∞)) and the Theorem L bound e^{4G}(√μ^v + δ_n + G√h)², with
-    δ_n := max |log Ψ(k) − log Ψ(n)| over k ∈ [n/4, Mn] and h := μ_n^w(k < n/4) (computed, not bounded)."""
+    δ_n := max |log Ψ(k) − log Ψ(n)| over k ∈ [n/4, Mn] and h := μ_n^w(k < n/4) (computed, not bounded). The
+    n/4 head here is only for this p = 2 illustration; the proof uses the p-dependent margin M₀(p) (review F10)."""
 import numpy as np
 from jacobi_asym.laws.weyl import c_p
 

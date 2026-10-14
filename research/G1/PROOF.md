@@ -37,8 +37,8 @@ known; its application here to Law P is what is new.
 | **T3a** | pointwise **a-law** n^p a_n → 2c(p) under T3-sv's hypotheses (Ψ bounded, polynomially slowly varying; includes ψ_k → L), all p > 0, s > 1 (§3.5, Plan 32) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: FVa, Sat_p⁺, TL); REVIEWED; novelty UNCHECKED |
 | TC | tail count: 𝔼_m#(S ∩ (Mm, ∞)) ≤ (2A/(p log M))·m + o(1) uniformly over sandwiched weights, every p > 0 (§3.7) | PROVED-mod-cite (P) (through G2 B*(iii); internal: G2 A1/A2, A-U, A-L) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-avg** | for w = k^{−s}Ψ with Ψ bounded and **uniformly slowly varying** (δ_N(M, M′) → 0; e.g. 2 + sin(log log k)): (1/N)Σ_{n=N}^{2N}\|log b_n²(w) − log b_n²(v)\| → 0 and (1/N)Σ n^p\|a_n(w) − a_n(v)\| → 0; hence the full pointwise Law P along a set of n of density one (§3.7, Plan 34) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; (P) via TC) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
-| **TV** | (d/dt)μ_m(A) = ⟨f1_Aq_m,q_m⟩ − 2⟨1_Aq_m, K_m(fq_m)⟩ − ⟨fq_m,q_m⟩μ_m(A) along w(t) = we^{tf} (§3.8, Plan 35) | PROVED + Rule R pending |
-| **LP** | pure power: μ_n((Mn, ∞)) → F_p(M) = (2/π)arcsin√(M^{−p}/(4c(p))) (§3.8) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b) + Rule R pending |
+| **TV** | (d/dt)μ_m(A) = ⟨f1_Aq_m,q_m⟩ − 2⟨1_Aq_m, K_m(fq_m)⟩ − ⟨fq_m,q_m⟩μ_m(A) along w(t) = we^{tf} (§3.8, Plan 35) | PROVED (standard; novelty not claimed) + Rule R pending |
+| **LP** | pure power: μ_n((Mn, ∞)) → F_p(M) = (2/π)arcsin√(M^{−p}/(4c(p))) (§3.8) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; textbook method of moments) + Rule R pending; novelty not claimed |
 | **Thm L** | localization at scale Mn: limsup sup_t μ_m^{(t)}((Mn, ∞)) ≤ e^{4G}F_p(M) for bounded slowly varying Ψ (§3.8) | PROVED-mod-cite (as LP; internal TV, Sat_p⁺) + Rule R pending; novelty UNCHECKED |
 | **T3-all** | for w = k^{−s}Ψ with Ψ bounded and **slowly varying** (δ_n(λ) → 0): n^pb_n → c(p) and n^pa_n → 2c(p) for **all n** — the full pointwise Law P; contains T3-conv, T3-sv, T3-avg (§3.8, Plan 35) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, L) + Rule R pending; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1) + REVIEWED |
@@ -784,9 +784,9 @@ q̇_j − ½fq_j ∈ span{q_0..q_j} ⊥ q_m) gives ⟨r, q_j⟩ = −⟨fq_m, q_
 −½⟨fq_m, q_m⟩. Hence q̇_m = ½fq_m − K_m(fq_m) − ½⟨fq_m, q_m⟩q_m, and (d/dt)μ_m(A) = 2⟨1_Aq_m, q̇_m⟩ is the formula.
 For f ↦ f + c the three terms change by cμ_m(A), −2c⟨1_Aq_m, K_mq_m⟩ = 0 and −cμ_m(A). ∎
 
-**Lemma LP (localization for the pure power).** For v = k^{−s} and every M > 0,
+**Lemma LP (localization for the pure power).** For v = k^{−s} and every M ≥ 1,
 
-  μ_n^v((Mn, ∞)) → F_p(M) := (2/π)·arcsin√(M^{−p}/(4c(p)))  (n → ∞),
+  μ_n^v((Mn, ∞)) → F_p(M) := (2/π)·arcsin√(min(1, M^{−p}/(4c(p))))  (n → ∞),
 
 and the same holds for μ_{n−1}^v((Mn, ∞)). In particular F_p(M) ~ (1/π)c(p)^{−1/2}M^{−p/2} → 0 as M → ∞.
 
@@ -795,7 +795,10 @@ over lattice paths from n to n of length j, which only use a_m, b_m with |m − 
 (RH₁(r), RH_p, RH_plt1b), n^pa_m → 2c(p) and n^pb_m → c(p) for each such m. So the j-th moment of the image ν_n of
 μ_n^v under x ↦ n^px converges to (J_0^j)_{00}, where J_0 is the doubly infinite free Jacobi matrix with diagonal 2c(p)
 and off-diagonal c(p). The spectral measure of e_0 for J_0 is the arcsine law on [0, 4c(p)], density
-1/(π√(y(4c(p) − y))). It is compactly supported, hence determined by its moments, so ν_n converges weakly to it. The
+1/(π√(y(4c(p) − y))): J_0 = c(p)(2 + S + S*) with S the shift is diagonalized by Fourier series, with symbol
+c(p)(2 + 2cos θ), so (J_0^j)_{00} = (1/2π)∫_0^{2π}(2c(p)(1 + cos θ))^j dθ, and the image of dθ/2π under
+θ ↦ 2c(p)(1 + cos θ) is that arcsine law. It is compactly supported, hence determined by its moments, so ν_n
+converges weakly to it (method of moments; textbook-standard, not separately cited). The
 set {k > Mn} is {n^px_k < M^{−p}}, and the arcsine law has no atoms, so ν_n([0, M^{−p})) → F_p(M). For μ_{n−1}, rescale
 by (n−1)^p; since ((n−1)/n)^p → 1 and F_p is continuous the limit is the same. ∎
 
@@ -803,16 +806,19 @@ by (n−1)^p; since ((n−1)/n)^p → 1 and F_p is continuous the limit is the s
 
   δ_n(λ) := max{|log Ψ(k) − log Ψ(n)| : k ∈ ℕ ∩ [n/λ, λn]} → 0  (n → ∞).
 
-This is implied by ψ_k → L, by polynomial slow variation (§3.4) and by uniform slow variation (§3.7).
+This is implied by ψ_k → L and by polynomial slow variation (§3.4), and it is equivalent to uniform slow variation
+(§3.7).
 
 **Theorem L (localization at scale Mn).** Let w = vΨ with Ψ bounded and slowly varying, G := log(C/c), and
 w(t) = vΨ^t (t ∈ [0, 1]). For every M ≥ 4 and m ∈ {n − 1, n},
 
   limsup_{n→∞} sup_{t∈[0,1]} μ_m^{(t)}((Mn, ∞)) ≤ e^{4G}F_p(M).
 
-*Proof.* Fix n, m ∈ {n−1, n}, and put A := (Mn, ∞), H := {k < n/4} (head), Mid := ℕ ∖ (H ∪ A) ⊂ [n/4, Mn].
+*Proof.* Fix the head margin M₀ = M₀(p) ≥ 4 of T3-sv (g_p⁺ ≥ 1 on (0, 2/M₀]; F1: a fixed margin such as 4 does not
+work for small p, since the saturated region u < u_s(p) can lie below 1/4). Fix n, m ∈ {n−1, n}, and put A := (Mn, ∞),
+H := {k < n/M₀} (head), Mid := ℕ ∖ (H ∪ A) ⊂ [n/M₀, Mn]. Write M₁ := max(M, M₀).
 Apply Lemma TV with f := g_n = log Ψ − log Ψ(n) (allowed: d/dt log w(t) = log Ψ differs from g_n by a constant).
-- |g_n| ≤ G everywhere and |g_n| ≤ δ := δ_n(M) on Mid.
+- |g_n| ≤ G everywhere and |g_n| ≤ δ := δ_n(M₁) on Mid.
 - The head mass η_n := sup_t μ_m^{(t)}(H) is exponentially small in n (Sat_p⁺; the path stays in the sandwich
   [min(1, c), max(1, C)]·v; as in T3-sv step 2).
 - Let y(t) := μ_m^{(t)}(A). The first and third terms of Lemma TV are each ≤ G·y in absolute value. For the second,
@@ -821,32 +827,36 @@ Apply Lemma TV with f := g_n = log Ψ − log Ψ(n) (allowed: d/dt log w(t) = lo
 - Hence ẏ ≤ 4Gy + 2ε_n√y with ε_n := δ + G√η_n. For z := √(y + κ) (κ > 0), ż = ẏ/(2z) ≤ 2Gz + ε_n, so by Grönwall
   z(t) ≤ e^{2Gt}(z(0) + ε_n t). Letting κ → 0:
 
-  √(μ_m^{(t)}(A)) ≤ e^{2G}(√(μ_m^v(A)) + δ_n(M) + G√η_n)  for all t ∈ [0, 1].
+  √(μ_m^{(t)}(A)) ≤ e^{2G}(√(μ_m^v(A)) + δ_n(M₁) + G√η_n)  for all t ∈ [0, 1].
 
-- As n → ∞, δ_n(M) → 0 (slow variation), η_n → 0, and μ_m^v(A) → F_p(M) (Lemma LP). ∎
+- As n → ∞, δ_n(M₁) → 0 (slow variation), η_n → 0, and μ_m^v(A) → F_p(M) (Lemma LP). ∎
 
 **Theorem T3-all (pointwise Law P for bounded slowly varying weights).** Let w = k^{−s}Ψ (s > 1) with Ψ bounded and
 slowly varying (sequence form). Then n^pb_n(w) → c(p) and n^pa_n(w) → 2c(p) as n → ∞ (all n, p > 0).
 
-*Proof.* Fix M ≥ 4; H, Mid, A as in Theorem L.
+*Proof.* Fix M ≥ 4; M₀, M₁, H, Mid, A as in Theorem L.
 1. **b_n.** By Lemma FV, |log b_n²(w) − log b_n²(v)| ≤ ∫_0^1Σ_k|g_n(k)|(μ_n^{(t)} + μ_{n−1}^{(t)})(k)dt
-   ≤ 2δ_n(M) + 2Gη_n + G·sup_t(μ_n^{(t)} + μ_{n−1}^{(t)})(A). By Theorem L the limsup is ≤ 2Ge^{4G}F_p(M). Let M → ∞:
+   ≤ 2δ_n(M₁) + 2Gη_n + G·sup_t(μ_n^{(t)} + μ_{n−1}^{(t)})(A). By Theorem L the limsup is ≤ 2Ge^{4G}F_p(M). Let M → ∞:
    b_n(w)/b_n(v) → 1, and n^pb_n(v) → c(p) by the pure-power laws.
 2. **a_n.** By Lemma FVa (centered), |ȧ_n| ≤ Σ_k|g_n(k)|[|x_k − a_n|μ_n(k) + b_n(μ_{n−1} + μ_n)(k)]. T3a step 1 (which
-   uses only Sat_p⁺) gives a_n^{(t)}, b_n^{(t)} ≤ 2·4^p(n−1)^{−p} uniformly in t for n ≥ n₀. Off the head x_k ≤ (4/n)^p,
-   so n^p|x_k − a_n| ≤ C_p and n^pb_n ≤ C_p there. Hence
-   n^p|a_n(w) − a_n(v)| ≤ 3C_pδ_n(M) + 3C_pG·sup_t(μ_n^{(t)} + μ_{n−1}^{(t)})(A) + O(n^{p}Gη_n),
+   uses only Sat_p⁺, with head margin M₀) gives a_n^{(t)}, b_n^{(t)} ≤ 2M₀^p(n−1)^{−p} uniformly in t for n ≥ n₀. Off
+   the head x_k ≤ (M₀/n)^p, so with C_p := 4M₀^p·2^p (≥ 2M₀^p(n/(n−1))^p + M₀^p for n ≥ 2) we have n^p|x_k − a_n| ≤ C_p
+   and n^pb_n ≤ C_p there. Hence
+   n^p|a_n(w) − a_n(v)| ≤ 3C_pδ_n(M₁) + 3C_pG·sup_t(μ_n^{(t)} + μ_{n−1}^{(t)})(A) + O(n^{p}Gη_n),
    with limsup ≤ 6C_pGe^{4G}F_p(M) → 0 as M → ∞. With n^pa_n(v) → 2c(p) this gives the a-law. ∎
 
 **Remarks.**
 - **L1 (what this closes).** T3-all contains T3-conv, T3-sv and (for all n) T3-avg. With Theorem R the dichotomy for
   bounded weights k^{−s}Ψ is: slowly varying Ψ ⇒ the full pointwise Law P; fixed-size roughness ⇒ it can fail.
-  The (T3) target of G1-R is therefore settled for bounded slowly varying weights. Lemma TC / T3-avg are no longer
+  The (T3) target of G1-R is therefore settled (PROVED-mod-cite) for pure-power nodes k^{−p}, base k^{−s}, and bounded
+  slowly varying Ψ. Lemma TC / T3-avg are no longer
   needed for this conclusion (they remain valid).
 - **L2 (why it works).** Ensemble counts (TC, TL) bound ρ_{n+1} = Σ_{j≤n}μ_j, which is of order n at scale Mn; a single
   μ_n needs a gain of n. Lemma TV gets it from the projection structure: the only non-local term, ⟨1_Aq_m, K_m(fq_m)⟩,
   is controlled by √μ_m(A) times ‖fq_m‖, and ‖fq_m‖ is small where f is small. So localization is *transported* along
   the path from the pure power, whose localization is read off from its pointwise law (Lemma LP).
+- **L2′ (lead, F9).** The same transport works for rough weights with |f| ≤ ε, giving localization up to O(ε) in √μ;
+  whether this reaches the [0.6N, 1.6N]-window form of Conjecture R is not examined.
 - **L3 (constants).** e^{4G} is crude (e.g. 81 for Ψ = 2 + sin(log log k)); numerically μ_n^w(A) ≈ μ_n^v(A).
 - **L4 (open).** Unbounded slowly varying Ψ (e.g. log k): G = ∞ and the Grönwall factor is lost. Other nodes
   x_k = f(k) need a substitute for the pure-power law in Lemma LP.
@@ -870,7 +880,8 @@ slowly varying (sequence form). Then n^pb_n(w) → c(p) and n^pa_n(w) → 2c(p) 
 - *Plan 34:* for Ψ bounded and uniformly slowly varying the full pointwise law holds on a density-one set of n
   (Lemma TC, Theorem T3-avg, §3.7).
 - *Plan 35:* localization at scale Mn holds (Theorem L), so the full pointwise law holds for **all n** for every
-  bounded slowly varying Ψ (Theorem T3-all, §3.8). (T3) is settled for bounded slowly varying weights.
+  bounded slowly varying Ψ (Theorem T3-all, §3.8). (T3) is settled (PROVED-mod-cite) for pure-power nodes k^{−p}, base
+  k^{−s}, and bounded slowly varying Ψ.
 - G1-L needs a one-sided bound on β_n; it is not unconditional.
 
 **Missing statements (precise).** (For *rough* sandwiched weights the (T3) half is refuted by Theorem R, §3.6.)
@@ -894,16 +905,12 @@ slowly varying (sequence form). Then n^pb_n(w) → c(p) and n^pa_n(w) → 2c(p) 
 3. *Tauberian methods* (item 11's C′, and G1-T) need an a priori regularity input. Neither the atoms nor the
    averaged law supplies it.
 
-**Stop condition (Plan 9; updated).** (CL) is now proved (pure-power atoms, rough weights; Theorem CL). The remaining
-statement (T3) is not reached by the methods developed here. The
-only route found in the literature read (RH for discrete OPs) is established only for finite node sets (BKMM) and for
-one explicit accumulating family (WLXZ). Adapting it to general accumulating nodes with analytic weights is a
-plausible but substantial project, far outside this time box. For non-analytic sandwiched weights, no method is known
-to us. This is recorded as **GAP**: "as hard as an open problem" is *not* claimed, because no source states the
-general problem as open. The precise missing statement is (T3) above (and (CL) for general nodes or p ≤ 1).
+**Stop condition (Plan 9; updated through Plan 35).** (CL) is proved for pure-power atoms with rough weights
+(Theorem CL). For pure-power nodes k^{−p} the Plan-9 missing step was supplied in two parts: the RH analyses of the pure
+powers (RH₁(r), RH_p, RH_plt1b; Plans 10–15) and the transport to bounded slowly varying weights (Theorem T3-all,
+Plan 35). For rough weights (T3) is refuted (Theorem R). What remains open: unbounded slowly varying Ψ (e.g. log k),
+nodes other than pure powers, and (CL) for general nodes or p ≤ 1.
 
-**Most promising next step (not attempted).** An RH analysis à la BKMM/WLXZ for x_k = k^{−p} with weights k^{−s}.
-Analytic node density and analytic weights put it in the regime where the steepest-descent machinery should apply.
-The saturated region (u < u_s) and the explicit equilibrium μ* of G2 give the needed g-function. A result for this
-model family would prove the pointwise law for pure powers with power weights, the case of Haynes–Zudilin and
-item 11's references.
+*(Superseded, Plan 9 text, kept for the record.)* (T3) was "not reached by the methods developed here"; the "most
+promising next step" named there, an RH analysis à la BKMM/WLXZ for x_k = k^{−p} with weights k^{−s}, was carried out
+in Plans 10–15.
