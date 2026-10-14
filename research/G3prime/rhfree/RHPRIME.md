@@ -1,4 +1,4 @@
-# RHPRIME: RH + a one-sided prime-variance bound ⇒ (SG) ⇒ G3′ (Plan 21) — NOT REVIEWED (Rule R pending)
+# RHPRIME: RH + a one-sided prime-variance bound ⇒ (SG) ⇒ G3′ (Plan 21) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan21.md); F1–F12 applied, re-check pending
 
 Answers RHFREE.md §6 and RHFREE2.md §4 ((Q1) of PROOF.md §9.3). On RH, the Tauberian obstruction of RHFREE2 §4 is
 **avoided**, not overcome: the Fejér weight in Goldston's R(x, T) is kept throughout. On RH every pair term is
@@ -7,17 +7,17 @@ needed only RH-free, where it stays OPEN.)
 
 | Item | Content | Label |
 |---|---|---|
-| (V⁺) | One-sided prime variance on a bounded δ-range | HYPOTHESIS (with RH) |
-| Lemma P1 | RH + (V⁺) ⇒ G(T^α) ≤ (1 + o(1))N_Ψ on [1, M] | PROVED-mod-cite ((C8) (9.7)–(9.9), with (9.9)'s full-range error as stated, sketch only, in (C8)) + mod-input RH, (V⁺) |
+| (V⁺) | One-sided prime variance on a bounded δ-range | HYPOTHESIS (with RH); implied by RH + SPC (V1) |
+| Lemma P1 | RH + (V⁺) ⇒ G(T^α) ≤ (1 + o(1))N_Ψ on [1, M] | PROVED-mod-cite ((C8) (9.7)–(9.9): (9.9) and its full-range error are both only sketched in (C8), and the L ↔ I step is not covered by [18] either (F2)) + mod-input RH, (V⁺) |
 | Lemma P2 | RH ⇒ G(T^α) = N_Ψ(T^{−2α}log T + α) + O(T^α log T) + o(N_Ψ) on [0, 1] | PROVED-mod-cite ((C8) (4.2)–(4.4), (C3) (3.5), (C1)) + mod-input RH |
 | Lemma P3 | weighted K² sum: S_Ψ ≤ N_Ψ(1 + D(η)) + o(N_Ψ) | PROVED-mod-cite ((C6) §3 algebra) + mod-input RH, (V⁺) |
-| Theorem V⁺ | RH + (V⁺) ⇒ (SG) with rate δ³ ⇒ G3′ | PROVED-mod-cite (above, (C1)) + mod-input RH, (V⁺), Theorem H; novelty UNCHECKED |
+| Theorem V⁺ | RH + (V⁺) ⇒ (SG) with rate δ³ ⇒ G3′ | PROVED-mod-cite (P1–P3, including the sketched full-range (9.9) of (C8); (C1)) + mod-input RH, (V⁺), Theorem H; novelty UNCHECKED |
 
 ## 0. Setting (RH is assumed throughout this file, as a labelled hypothesis)
 
 - Ordinates γ run over all nontrivial zeros, with multiplicity and with both signs.
 - c(u) := 1/(1 + u²) and w(u) := 4/(4 + u²).
-- Goldston ((C8) (4.1)–(4.2), read): "∫|Σ_{0<γ≤T} x^{iγ}/(1 + (t − γ)²)|²dt = (π/2)Σ_{0<γ,γ′≤T}x^{i(γ−γ′)}w(γ − γ′)".
+- Goldston ((C8) (4.1)–(4.2), read): "∫_{−∞}^{∞}|Σ_{0<γ≤T} x^{iγ}/(1 + (t − γ)²)|²dt = (π/2)Σ_{0<γ,γ′≤T}x^{i(γ−γ′)}w(γ − γ′)".
   Equivalently, (2/π)∫_ℝ c(t − γ)c(t − γ′)dt = w(γ − γ′).
 - Fix T. Put δ := 1/T, κ := log(1 + δ), φ(t) := (sin(κt/2)/(κt/2))² and S_x(t) := Σ_γ x^{iγ}c(t − γ). Define
 
@@ -36,8 +36,9 @@ needed only RH-free, where it stays OPEN.)
 **Hypothesis (V⁺) (one-sided, bounded range).** For every M ≥ 1 and ε > 0 there is X₀ such that
 I(X, δ) ≤ (½ + ε)δX²log(1/δ) for all X ≥ X₀ and X^{−1} ≤ δ ≤ X^{−1/M}.
 - This is the upper half of (C8) (9.1) on the range δ ∈ [X^{−1}, X^{−1/M}].
-- Equivalently, by (C8), upper bounds of the shape of (9.3) for 1 ≤ h ≤ X^{1−1/M}. That direction is not used.
-- Theorem 7 of (C8) relates (9.1) on such ranges to SPC on α ∈ [1, M].
+- (C8) states only an *asymptotic* equivalence between (9.1) and (9.3) (via Saffari–Vaughan). No one-sided
+  (9.3)-form is claimed here (F4).
+- Theorem 7 of (C8) relates (9.1), on slightly larger (log-padded) ranges, to SPC on α ∈ [1, M] (F11).
 
 ## 1. Lemma P1 (primes ⇒ upper bound for G on [1, M])
 
@@ -72,7 +73,10 @@ I(X, δ) ≤ (½ + ε)δX²log(1/δ) for all X ≥ X₀ and X^{−1} ≤ δ ≤ 
 - N_Ψ = (T/2)log T·(1 + O(1/log T));
 - G(x) = N_Ψ(T^{−2α}log T(1 + o(1)) + α) + O(T^α log T) + o(N_Ψ).
 
-*Proof.* Put H(t) := (2/π)∫_0^t|S_x(u)|²du. By (4.4), H(t) = F(x, t) + O(log³t). Let Λ := log²T. Then
+*Proof.* Put H(t) := (2/π)∫_0^t|S_x(u)|²du. By (4.4), H(t) = F(x, t) + O(log³t).
+- (4.4) is displayed for fixed x and T, but its O-term is uniform in x > 0 and holds at every height t ≥ 2 (F7).
+- On RH |x^{iγ}| = 1, so the difference between (2/π)∫_ℝ|Σ_{0<γ≤t}…|² and (2/π)∫_0^t|Σ_γ…|² is bounded by sums of
+  c(u − γ)c(u − γ′) over pairs with an ordinate outside (0, t] or with u ∉ [0, t]. These do not involve x. Let Λ := log²T. Then
 G = ∫_0^x φ dH + ∫_x^{ΛT} φ dH + ∫_{ΛT}^∞ φ|S_x|²(2/π)dt.
 
 - **Tail.** Using |S_x(t)| ≤ Σ_γ c(t − γ) ≪ log t, the last integral is ≪ ∫_{ΛT}^∞ T²t^{−2}log²t dt ≪ T log²T/Λ = O(T).
@@ -91,10 +95,14 @@ G = ∫_0^x φ dH + ∫_x^{ΛT} φ dH + ∫_{ΛT}^∞ φ|S_x|²(2/π)dt.
       o of the spike term (T log²T)/(2x²).
   - **Main.** ∫_x^{ΛT}φM′dt = ∫_x^{ΛT}φ(t)[(log²t + 2 log t)/(2πx²) + (log x)/2π]dt.
     - Since ∫_0^∞ φ = π/κ, ∫_0^∞ φ(t)log t dt = (π/κ)(log(1/κ) + O(1)), and φ(t) ≤ 4/(κt)², this equals
-      (T log²T/2x²)(1 + o(1)) + (T/2)log x + O(x log²T + T log²T/Λ).
+      (T log²T/2x²)(1 + o(1)) + (T/2)log x + O(x log x + 1 + T log x/Λ).
+      Here ∫_0^x(log²t + 2 log t)dt = x log²x exactly, so the omitted piece [0, x] costs O(log²x/x + x log x) (F1;
+      the earlier O(x log²T) was too weak). The boundary term φ(ΛT)M(ΛT) is O(T log T/Λ).
 - **N_Ψ.** Σ_γ c(t − γ)² = ∫c(t − u)²dN(u). Using N(u) = (u/2π)log(u/2πe) + O(log u) (C1) and integrating by parts
   against the smooth weight (φ∗c²)(u):
   N_Ψ = (2/π)(π/2)∫_0^∞ φ(t)(log t/2π)dt + O(log T) = (T/2)log T(1 + O(1/log T)).
+- **Error near α = 1 (F12).** The O(T^α log T) term is ≍ N_Ψ pointwise near α = 1. Only its integral against
+  bounded Q is used (Lemma P3), and ∫_0^1 T^α log T dα = O(T) = o(N_Ψ).
 - Collect the terms. ∎
 
 ## 3. Lemma P3 (weighted K² sum)
@@ -145,6 +153,9 @@ z := i(ρ − ρ′)L = −(γ − γ′)L is real, and K(z)² ≥ 0.
 **Remarks.**
 - **V1 (what is weakened, relative to Corollary P (§9.1)).**
   - Corollary P assumes RH + the *two-sided* asymptotic (V) (equivalently SPC on all of [1, ∞)).
+  - **(V⁺) is implied by Corollary P's input (F5).** RH + (V) ⇒ SPC ((C8) Theorem 7's converse, as used in
+    Corollary P). Then SPC ⇒ (9.1) uniformly on δ ∈ [X^{−1}, X^{−1/M}], by Theorem 7's forward direction with
+    B₁ = 1/M and B₂ = 1 (up to its log paddings). This gives (V⁺).
   - Theorem V⁺ assumes RH + an *upper* bound only, on δ ∈ [X^{−1}, X^{−1/M}] for each M. For a given (SG) tolerance η
     one needs M ≍ η^{−1/3}.
   - The Tauberian step of (C8) Theorem 7, which needs both bounds, is bypassed: the zero side is weighted by the same
@@ -158,7 +169,11 @@ z := i(ρ − ρ′)L = −(γ − γ′)L is real, and K(z)² ≥ 0.
     is insufficient.
   - So Theorem V⁺ is **mod-cite on the full-range claim**.
 - **V4.** Novelty: UNCHECKED. The weighted, one-sided transfer might be implicit in [18] (Goldston–Montgomery), which
-  has not been read.
+  has not been read. Compare (C8) §8: Heath-Brown's one-sided transfer uses the same L = R identity in the reverse
+  direction (zeros ⇒ primes, with an upper bound F(α) ≪ 1) (F10).
+- **V5 (making P1 self-contained; OPEN, F2).** Proving (9.9) with its full-range error from (C8) Proposition 1 looks
+  routine: RH prime-number-theorem error plus Cauchy–Schwarz. But the subtracted term x∫… in (9.7) is garbled in the
+  text extraction and must be read from the PDF first. Not attempted.
 
 ## 5. Numerics (NUMERICAL; `checks/check_weighted_pc.py` → `.out`; Odlyzko's first 2,001,052 zeros)
 
@@ -170,5 +185,8 @@ The setup takes Ψ(γ, γ′) ≈ φ((γ + γ′)/2), with T ∈ {2·10⁴, 5·1
   1.7067 / 1.1560 / 1.0238.
 - **Local unfolding:** 1.6844 / 1.1401 / 1.0197. This is within 0.4–1.4% of the GUE value, consistent with lower-order
   corrections at these heights (a recollection, not cited).
-- **N_Ψ against πN(T):** the ratio is 1.18, 1.13 and 1.09 for T = 2·10⁴, 5·10⁴ and 10⁵, consistent with
-  1 + O(1/log T).
+- **N_Ψ against πN(T):** the ratio is 1.18, 1.13 and 1.09 for T = 2·10⁴, 5·10⁴ and 10⁵. Caveat (F6): these numbers
+  are dominated by **truncation** at γ_max = 1.13·10⁶. φ has a heavy T²/t² tail, so the sample misses about 2%, 4% and
+  7% of N_Ψ. A smooth-density model reproduces the truncated values to 4 digits (reviewer's check). The ratios are
+  therefore not evidence for the 1 + O(1/log T) rate. S_Ψ/N_Ψ is affected similarly, since both numerator and
+  denominator are truncated.

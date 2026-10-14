@@ -214,9 +214,14 @@ Goldston–Montgomery [18] has NOT been read, and Goldston's (4.4) itself has no
 > weight (4.1) w(u) = 4/(4 + u²)". "(4.3) F(x, T) ≥ 0, F(x, T) = F(1/x, T)".
 > "(4.4) F(x, T) = (2/π)∫_0^T|Σ_γ x^{iγ}/(1 + (t − γ)²)|²dt + O((log T)³)".
 > (9.4) "e^κ = 1 + δ = 1 + 1/T".
-> (9.7): "∫_0^∞|Σ_{y<n≤y+y/T}Λ(n)a_n(x) − x∫…|² dy/y² = (4xκ²/π)∫_0^∞ (sin(κt/2)/(κt/2))²|Σ_γ x^{iγ}/(1+(t−γ)²)|²dt
+> (9.7): "∫_0^∞|Σ_{y<n≤y+y/T}Λ(n)a_n(x) − x∫…|² dy/y = (4xκ²/π)∫_0^∞ (sin(κt/2)/(κt/2))²|Σ_γ x^{iγ}/(1+(t−γ)²)|²dt
 > + O((log T)²/T)", assuming RH. "(9.8) L(x, T) = R(x, T)".
 > Full-range error: "the error term in (9.9) can be replaced by O(x(log x)⁴/T^{3/2}). This suffices for the full range."
 > This is stated with a sketch only.
 
 **Used in:** rhfree/RHPRIME.md (Lemmas P1 and P2; Theorem V⁺).
+
+**Plan 21 "Used in" additions:**
+- (C3) (3.5): rhfree/RHPRIME.md Lemma P2.
+- (C6) §3 weight-removal algebra: RHPRIME.md Lemma P3.
+- (C1) zero counting: RHPRIME.md (absolute convergence, N_Ψ, Theorem V⁺ normalization).

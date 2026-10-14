@@ -131,3 +131,14 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
     (numerically 2e-31).
   - (NA) for λ ≤ ½ fails numerically (near-completeness). So Proposition Q uses λ_j → ∞.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan20.md). No major findings. F1–F12 applied. Re-check: ACCEPT (R1 quote x²; R2 applied). REVIEWED.
+
+## 2026-10-14 — Plan 21 (RH + one-sided prime variance ⇒ G3′)
+- **Inputs read:** (C8) (4.1)–(4.4) and §9, (9.4)–(9.9) (raw re-extraction confirms the error terms); (C3) (3.5).
+  [18] was NOT read.
+- **Idea.** Keep Goldston's Fejér weight on the zero side, with G = R/(2xκ²) and Ψ ∈ [0, 1], so there is no
+  Tauberian step. On RH, K² ≥ 0, so counting needs positivity only.
+- **Rule A.** The sinc² oscillation breaks a naive Stieltjes integration by parts at infinity. Fixed by truncating at
+  ΛT = T log²T, with dyadic variation bounds.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan21.md). F1 (medium: main-term error near α = 1) fixed. F2
+  (medium: P1 depends on a sketched (9.9)) relabelled; a self-contained proof is OPEN (V5). F3–F12 applied. Re-check
+  pending.
