@@ -60,4 +60,5 @@
   - the A-L lower bound.
 - **Theorem CL:** (CL) holds for pure-power atoms with rough weights, so A4's tail-Cesàro a-law is unconditional.
 - **G1-R** is reduced to (T3) alone.
-- **Rule R:** pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan27.md). F1 (major: circular constants in Lemma WC; fixed by a
+  uniform energy gap via compactness in x with an atom at 0 ⇒ −∞), F2–F7 applied. Re-check pending.

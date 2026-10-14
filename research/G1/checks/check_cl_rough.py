@@ -17,4 +17,4 @@ for name, w in Wts.items():
     a = np.asarray(r.a, float); b = np.sqrt(np.asarray(r.b2, float))
     trJ = np.sum(x) + x[-1]*K/(p-1)
     row = [f"n={n}: {n**(p-1)*(trJ - np.sum(a[:n-1])):.6f}" for n in (100, 400, 1600, 3200)]
-    print(f"{name:7s}: n^(p-1)Σ_(j≥n)a_j  " + "  ".join(row) + f"   target 2c/(p-1)={target:.6f}   a_n/(2b_n) at n=1599,1600: {a[1598]/(2*b[1599]):.4f}, {a[1599]/(2*b[1600]):.4f}")
+    print(f"{name:7s}: n^(p-1)Σ_(j≥n)a_j  " + "  ".join(row) + f"   target 2c/(p-1)={target:.6f}   a_n/(2b_n) at n=1599,1600: {a[1598]/(2*b[1598]):.4f}, {a[1599]/(2*b[1599]):.4f}  (0-based a[i], b[i], as in the other G1 checks)")
