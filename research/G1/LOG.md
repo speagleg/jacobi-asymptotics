@@ -152,6 +152,87 @@
 - **Open:** slowly varying Ψ with D(γ) = ∞ (e.g. exp(√log k)); other nodes.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan36.md). F1 (cutoff h_n·1_{k≤K}, uniform bounds, K → ∞ by moment continuity) and F2–F7 applied. Re-check ACCEPT (N1–N2 polish applied) — REVIEWED.
 
+## 2026-10-14 — Plan 39 (Conjecture R in window form: Lemma R1W, Theorem RW)
+- **Lemma u_s:** u_s(p) = (4c(p))^{−1/p} < 1 for every p > 0 (G2 B*(i): μ*_u has density 1 on (0, u_s], and μ* charges
+  (0, 4c)). So every window [aN, bN] with b ≥ 1, in particular [0.6N, 1.6N], meets the band for every p.
+- **Lemma R1W:** Lemma R1 with every sum restricted to W_N = [aN, bN]. Steps 1–3 (telescoping, moduli, recurrence)
+  localise verbatim; step 4 (moments) is replaced by the weak convergence ν_n → arcsine from the proof of Lemma LP,
+  tested against h·dist(φ_N, Z_N)² with h ≤ 1_{W_N} continuous. Constants are explicit: c_W = (1/π)∫_{Θ_W}
+  dist(2cos θ, {−2, 0, 2})²dθ, δ_W = c_W/32, J_W = ⌈2/δ_W⌉, η_W = δ_W/J_W² (p = 2, [0.6, 1.6]: η_W ≈ 9.8·10⁻⁸); N₀ is not.
+- **Theorem RW:** f = ε·Σ_i sign(Δ²μ^v_{m_i})·1_{[aN_i, bN_i]} gives liminf_i F_{m_i}(w) ≥ εη_W/2 for ε ≤ η_W/16 when
+  N_{i+1}/N_i → ∞, and ≥ εη_W/4 for a fixed explicit ratio R_W (≈ 1.1·10⁸ at p = 2). The proof uses the *direct* path
+  ve^{tf}: R2 bounds the second-order term globally (8ε²), and the cross-window part of the linear term is evaluated at
+  the pure power, where Sat_p⁺ (head) and Lemma LP (tail) apply. The TV/Grönwall transport proposed in
+  outline_C_rough.md §2.1 is not needed.
+- **Gaps (stated in §3.10):** every ε with an absolute c, a realistic η_W (numerically ≈ 1.1 vs 10⁻⁷), and small fixed
+  separation (×4) remain NUMERICAL. All three would follow from a sharp R1W (outline target T6).
+- **Numerics** (`checks/check_rw.out`, 1–2 min): FV vs finite difference to 9 digits; Q_N → c_W (0.2307 vs 0.2345 at
+  p = 2, N = 300); window norms 1.06–1.09; construction at ε = 0.05, 0.2 with scales (30, 240) and (15, 60, 240): spikes
+  match the linear prediction to ≤ 2%, cross-window ≤ 1.4·10⁻³, spikes exceed the off-spike maximum; K-doubling stable.
+- **Rule A:** attempts logged in §3.10 remark RW-e.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan39.md). Fixes applied:
+  - F1: Conjecture R's normalisation is |β_n/β_{n−1} − 1|, with c = η_W/4 (A) and η_W/8 (B). The spikes are one-signed,
+    so e^{x} − 1 ≥ x applies. η_W/2 is the constant for log β².
+  - F2: sign in log(β_m²/β_{m−1}²) = F_m + 2p log(m/(m−1)).
+  - F3: RW-d now says the decay is exponential only below θ₀(p), and o(1) via LP-w between θ₀(p) and u_s.
+  - F4: s_i is the pointwise sign function.
+  - F5: labels for Lemma u_s (PROVED) and LP-w (PROVED-mod-cite); B*(i) is (P)-free; the §0 row now says N ≥ N₀.
+  - F6: the stale "remains NUMERICAL" sentences are dated "as of Plan 33"; the §3.2 header is amended.
+  - F8: "for ε ≤ ε₀" added to the §3.10 header.
+  - F7: no change needed.
+  - Re-check ACCEPT — REVIEWED.
+
+## 2026-10-14 — Plan 40 (Lemma LR: linear response with explicit ε² remainder)
+- **Lemma LR:** for any finite-moment base v and bounded f, ε := ½ osc f:
+  |log b_n²(ve^f) − log b_n²(v) − ⟨f, μ_n^v − μ_{n−1}^v⟩| ≤ ε² (C = 1; the outline's 2 also valid). Proof: Lemma R2 one
+  difference lower, but with Bessel's inequality ‖K_m(fq_m)‖² ≤ Var_{μ_m}(f) in place of R2's crude A/B bounds, giving
+  |ΔV_m| ≤ Var_{μ_m}(f) ≤ ε², hence |(log b_n²)″| ≤ 2ε² at every t along ve^{tf} (uniform: each t is a new base).
+- **Lemma LR′:** ratio form |F_N(w) − F_N(v) − ⟨f, Δ²μ_N^v⟩| ≤ 2ε² (sharpens R2: |F_N″| ≤ 4ε² vs 16‖f‖²).
+- **Lemma LRa:** a_n′ = b_{n+1}γ_n − b_nγ_{n−1} (γ_m = ⟨fq_m, q_{m+1}⟩; FVa via the recurrence), γ_n′ from Lemma TV's
+  q̇_m; |a_n″| ≤ ε²(b_n + b_{n+1}), so |a_n(w) − a_n(v) − L_n^{a,v}(f)| ≤ (e^ε − 1 − ε)(b_n + b_{n+1})(v).
+- **Corollary LR-law** (pure power, PROVED-mod-cite RH_px/RH₁(r)/RH_plt1b): limsup|log β_n²(w)| and limsup|L_n^v(f)| differ
+  by ≤ ε²; exact along rays: L_n^v(f) → 0 iff E(τf) = o(τ). Same for a_n with ½ε²e^ε.
+- **Constants:** absolute — independent of n, p, s, nodes, v.
+- **Not proved:** the fixed-f iff (no ε² band) — needs second-order chirp control (outline §2.5 T7b). Sharpness of the
+  constants is NUMERICAL (reviewer hill-climb: 1.0000 LR, 0.993 LR′, 0.9999 LRa); the pointwise LRa constant 1 is attained
+  (two atoms ±1, sinh θ = ±1).
+- **Numerics** (`checks/check_lr.out`, NUMERICAL): p = s = 2 and p = 1, s = 2, n ≤ 200, random + adversarial f,
+  ε = 0.4 … 0.025: worst |R_b|/ε² = 0.53, |R_F|/ε² = 0.61, |R_a|/bound = 0.19; Rule A exhaustive signs on tiny measures
+  (13000 cases) 0.986 / 0.887; g″(t) formula = finite difference (5 digits) at t = 0, ½, 1; float64 vs longdouble 1e-12.
+- **Rule A:** small cases, m = 0 / n = 0, constant f, no-completeness check (Bessel only), cross-term vanishing — logged in §3.11.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan40.md; no math errors). F1 (sharpness restated as NUMERICAL attained
+  constants + two-atom example), F2 (FV+TV route promoted to main proof of ΔV_m; Heine route = cross-check, Gram form
+  valid for general atoms), F3 (Λ ≤ 2ε, Λ^a ≤ ε, E^a/Λ^a defined, ray bound), F4 (script: R_F for n ≥ 2 = 1.889 ≤ 2,
+  skipped count 0, docstring/runtime; .out regenerated), F5 polish applied. Re-check ACCEPT — REVIEWED.
+
+## 2026-10-14 — Plan 41 (Theorem Ra: fixed-size rough weights break the pointwise a-law)
+- **Lemma Toda:** ȧ_n = ⟨f, ΔE_n⟩, E_n := b_{n+1}q_nq_{n+1}. One line from FVa: multiply the recurrence by q_n, so
+  (x − a_n)μ_n = E_n + E_{n−1}. Independent check via K̇_m = ½[(1−K)fK + Kf(1−K)] and Tr(XK_m) = Σ_{j<m}a_j. Numerics
+  ([1] of `checks/check_ra.out`): finite differences agree to ≤ 1.2·10⁻⁸; Toda vs FVa to 10⁻²⁰.
+- **Lemma R2a:** |ä_n| ≤ 2(b_n + b_{n+1})·inf_c‖f − c‖²_∞. Key: q̇_j = ½(1 − K_{j+1})fq_j − ½K_jfq_j (orthogonal
+  pieces), so ‖q̇_j‖ ≤ ½‖f‖; plus FV for ḃ. Numerically the ratio to the bound is 0.005–0.10.
+- **Lemma R1a:** for the pure power, ‖N^pΔE_N‖₁ + ‖N^pΔE_{N+1}‖₁ ≥ 2c(p)I − o(1), I = (1/π)∫min(1, H(2cos θ))dθ ≈ 0.314.
+  Direct (no contradiction): both differences are exact quadratic forms in (q_N, q_{N+1}); the free forms
+  (2uv − zu², zv² − 2uv) vanish together only for z ∈ {−2, 0, 2}; Lemma LP's weak convergence to the arcsine law
+  (continuous test function; stated as Lemma LP′ after review) finishes. Window 2, explicit η_a = c(p)I/2.
+- **Theorem Ra:** windows (−1)^iε·sign(ΔE^v_{n_i}) on [θn_i, n_i^γ] at polynomially separated good scales, as in Theorem R;
+  b-bound along paths from FV (b ≤ e^ε b(v)); head/tail via Sat_p⁺ and TL. Result: for ε ≤ I/16,
+  limsup (n^pa_n(w) − 2c) ≥ εη_a/2 and liminf ≤ −εη_a/2. Numerics [4]: single-window jumps match first order to ≤ 2%;
+  a two-scale f gives ±0.08c(p) spikes at both scales.
+- **Rule A (adversarial pass, self):** n = 0 (b_0 = 0, E_{−1} = 0) consistent; constant shifts of f leave every quantity
+  unchanged (checked in R2a); degenerate cases u = 0 / v = 0 in the zero set of H handled; atoms with y > 4c and head
+  atoms (z large) are covered because the test function min(1, H) is bounded and continuous on [0, ∞); μ_{N+1} with
+  scaling N^p has the same moment limits; the cross-scale path stays in the sandwich class, where Sat_p⁺, TL and the
+  FV b-bound are uniform. No counterexample found. Self-review only — does not count for Rule R.
+- **Not claimed:** whether the b-law (or a_n/(2b_n) → 1) also fails for the same w. For p > 1 the tail-Cesàro a-law A4′
+  still holds for w (Theorem CL), so pointwise and tail-Cesàro a-laws separate.
+- **Rule R:** pending. Novelty UNCHECKED.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan41.md; no mathematical error, crux "joint law of (q_N, q_{N+1})
+  not needed" confirmed). F1 (cross-reference to §3.11 Lemma LRa: same Toda form, constant 1 in R2a, ε₀ = I/8 possible;
+  R2a and ε₀ = I/16 kept), F2 (Lemma LP′ weak form stated and cited), F3 (H 1-Lipschitz), F4 (wording; joint-law remark),
+  F5 (interleaving HEURISTIC; A4′ label), F6 (quoted range 0.1069; script label [10, 99], .out regenerated; [3]/[4]
+  marked not K-checked), F7 (N₀ not explicit) applied. Re-check ACCEPT — REVIEWED.
+
 ## 2026-10-14 — Plan 42 (Lemma RL: Law P ⟺ rescaled μ_n → arcsine with sup n^p(a_n + b_n) < ∞, equivalently in moments 1, 2, 4; target T0′)
 - **Source.** Simon, JAT 126 (2004), mp_arc 03-341: TeX source fetched from mp_arc and read (§1, §3). Quotes are in
   CITATIONS.md (Simon). Theorem 3.2 (moments ℓ = 1, 2, 4 of p_n²dμ converge ⇒ b_n → b, a_{2n} → a, a_{2n+1} → c) is the

@@ -1,0 +1,27 @@
+[1] Toda form (p = s = 2, K = 20n, central differences h = 1e-5):
+   n= 20: FD -1.014511e-04  Toda -1.014511e-04  FVa -1.014511e-04  rel.err(FD,Toda) 4.7e-10  |Toda−FVa| 2.7e-20  max atomwise residual 8.1e-20
+   n= 60: FD +2.223268e-07  Toda +2.223268e-07  FVa +2.223268e-07  rel.err(FD,Toda) 1.2e-08  |Toda−FVa| 1.1e-20  max atomwise residual 1.5e-20
+   n=150: FD -7.761479e-07  Toda -7.761479e-07  FVa -7.761479e-07  rel.err(FD,Toda) 1.6e-10  |Toda−FVa| 3.4e-21  max atomwise residual 1.9e-21
+[2] Lemma R2a: |ä_n| / (2(b_n + b_{n+1})‖f‖²_∞) (second central differences, h = 1e-3; must be ≤ 1):
+   n= 20 random ±1         : ratio 0.078
+   n= 20 sign(ΔE_n)        : ratio 0.102
+   n= 20 sign(q_n q_{n+1}) : ratio 0.096
+   n= 60 random ±1         : ratio 0.018
+   n= 60 sign(ΔE_n)        : ratio 0.005
+   n= 60 sign(q_n q_{n+1}) : ratio 0.019
+   n=150 random ±1         : ratio 0.043
+   n=150 sign(ΔE_n)        : ratio 0.020
+   n=150 sign(q_n q_{n+1}) : ratio 0.007
+[3] H(−2), H(0), H(2) = [4.4408921e-16 0.0000000e+00 4.4408921e-16];  I = (1/π)∫min(1,H(2cosθ))dθ = 0.3140
+   p=2.0: c(p)=0.6169, η_a = c I/2 = 0.0968 (η_a/c = 0.1570);  ‖n^pΔE_n^v‖₁/c(p):  n=100: 0.873  n=101: 0.820  n=200: 0.814  n=201: 0.772
+   p=1.0: c(p)=0.5000, η_a = c I/2 = 0.0785 (η_a/c = 0.1570);  ‖n^pΔE_n^v‖₁/c(p):  n=100: 0.779  n=101: 0.829  n=200: 0.808  n=201: 0.796
+   p=0.5: c(p)=0.4082, η_a = c I/2 = 0.0641 (η_a/c = 0.1570);  ‖n^pΔE_n^v‖₁/c(p):  n=60: 0.769  n=61: 0.829
+[4] a-law failure (p = s = 2, K = 20n, f = ±ε·sign(ΔE_n^v) on W = [θn, K], θ = 1/4):
+   n=100 ε=0.05: first order ±ε‖n^pΔE|_W‖₁ = ±0.0269;  +: n^pΔa_n = +0.0269  −: n^pΔa_n = -0.0269;  guaranteed εη_a/2 = 0.0024;  n^p a_n(v)/(2c) − 1 = -1.4e-02
+   n=100 ε=0.2: first order ±ε‖n^pΔE|_W‖₁ = ±0.1077;  +: n^pΔa_n = +0.1067  −: n^pΔa_n = -0.1069;  guaranteed εη_a/2 = 0.0097;  n^p a_n(v)/(2c) − 1 = -1.4e-02
+   n=200 ε=0.05: first order ±ε‖n^pΔE|_W‖₁ = ±0.0251;  +: n^pΔa_n = +0.0250  −: n^pΔa_n = -0.0251;  guaranteed εη_a/2 = 0.0024;  n^p a_n(v)/(2c) − 1 = -7.0e-03
+   n=200 ε=0.2: first order ±ε‖n^pΔE|_W‖₁ = ±0.1004;  +: n^pΔa_n = +0.0985  −: n^pΔa_n = -0.1003;  guaranteed εη_a/2 = 0.0097;  n^p a_n(v)/(2c) − 1 = -7.0e-03
+[4b] two scales on one measure (K = 8000, n₁ = 40 on [10, 99], n₂ = 400 on [100, K], signs +, −; ε = 0.1):
+   n=40: n^p(a_n(w) − a_n(v))/c(p) = +0.0801
+   n=400: n^p(a_n(w) − a_n(v))/c(p) = -0.0829
+   max over n∈[10,401] of n^p|a_n(w) − a_n(v)|/c(p): 0.0829; median 0.0040; εη_a/(2c) = 0.0078
