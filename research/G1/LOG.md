@@ -74,4 +74,7 @@
   regular weights, which reduces to a localization lemma for w p_n². The upper tail is open.
 - An earlier forward-recurrence attempt overflowed in the saturated region; Lanczos with reorthogonalization is
   stable.
-- **Rule R:** pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan28.md).
+  - F1: the ratio's first variation is the second difference.
+  - F2: TV ↛ 0 is not by itself evidence (Chebyshev); the evidence is locality plus cross-scale independence.
+  - F3–F11 applied; numerics rewritten. Re-check: ACCEPT (R1–R3 applied). REVIEWED.
