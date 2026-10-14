@@ -249,4 +249,4 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
   - F8: P3 reworded around the quotes.
   - F9: optimality remark at Cor Lz.
   - F10: sharpness of the middle inequality; counting example rephrased.
-  Re-check pending.
+  Re-check ACCEPT — REVIEWED.

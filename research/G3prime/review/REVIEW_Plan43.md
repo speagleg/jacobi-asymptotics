@@ -180,3 +180,68 @@ h" is cleaner.
   "G3′ ⇒ SZC" stay GAP (not established).
 - §5.6 heading and §0 row: replace "Rule R pending" with "Rule R ACCEPT WITH FIXES (review/REVIEW_Plan43.md)". After a
   re-check of F1–F8, use REVIEWED.
+
+## Re-check (2026-10-14; commits 785dce8 and 2b2571e)
+
+**Verdict: ACCEPT.** F1–F10 are all resolved. Nothing blocks promotion to REVIEWED.
+
+How I checked: I read `git diff a1b6455..HEAD` for PROOF.md, LOG.md and research/program/, then grepped for stale
+symbols and status markers ("1 − C₀", "0.6725", "only from PCC", "Rule R pending").
+
+- **F1: resolved.** The §5.5 note, Remark P2 and the LOG entry now say "only under hypotheses". They list PCC/HMH (GLSS
+  Theorems 1–2), RH + SPC ((C8) Theorem 4 via SZC, with "under RH every zero is critical"), Theorem S and Corollary P,
+  and add "None of them proves it unconditionally". This is accurate.
+- **F2: resolved.** Dated correction notes were added without rewriting history:
+  - outline_D_G3p.md: after §1 item 2, which sits directly below item 1's "this is GLSS's HMH"; after §1.2's
+    "Consequence", with the corrected chain; in §1.3, with "HMH should read d(E) = 0"; after the §1.4 table; under D1;
+    and in the paper-outline bullet;
+  - RESEARCH_PROGRAM.md §D;
+  - novelty_G3p.md (the F5 companion).
+
+  All of these notes are correct.
+- **F3: resolved.** Lamzouri's constant is C_Lz everywhere in PROOF.md and LOG.md. C₀ now means only Z1's constant
+  (2.66…), which Lemma D uses. "C0" remains only inside verbatim quotes in CITATIONS.md, as it should. The plan doc's
+  T5 line still reads "1 − C₀". That line is a historical task list, so I leave it alone (nit N1).
+- **F4: resolved.** The qualifier on §5.5's "not claimed" sentence is precise. G3′ ⇒ (100%-SC) ⇒ N_s/N → 1, which is
+  the simplicity conjecture attributed to Montgomery in the GLSS abstract. The open status rests only on quotes.
+- **F5: resolved.** The LOG now says "corrected", with the right reason.
+- **F6: resolved.** The preprint status is noted at Cor Lz, in the §0 row, in the §5.5 note and in P2. Cor Lz also says
+  that the other §5.6 results do not depend on (C6). This is true: Lemma L, CI, Prop I, Lemma D, Sp and Pos do not use
+  (C6).
+- **F7: resolved.** The new label is "PROVED-mod-cite (C5) §2 [(i)–(ii), via Lemma L], (C1) [(iii)]". The proof of
+  (iii) now gets H(v) ≤ N(v + 0) − N(v − 0) ≤ 2E(v) from (C1) for every v ≥ e, notes that all ordinates are > 14, and
+  uses that E is monotone. Correct.
+- **F8: resolved.** P3 now quotes Goldston (2004) and lists (C6)'s RH-conditional proportions without paraphrasing them
+  as "not known". RH appears only as a labelled hypothesis.
+- **F9: resolved.** The optimality remark at Cor Lz matches my check 7. Configurations with no repeats other than lines
+  carrying one simple critical zero plus off-line simple pairs satisfy all four inequalities of (C6) Theorem 1.1. The
+  remark is stated as a limit on what counting can give, with no claim about ζ.
+- **F10: resolved.** Sharpness of the middle inequality was added. The counting example now uses dyadic blocks with a
+  slowly increasing h(T) ≤ 2E(T). Nit N2: the old notation "h_T" survives in "Σ(H − 1) ≈ N/h_T" next to the new "h".
+  This is cosmetic.
+- **New P1 partial-converse label: correct.** The label "PROVED-mod-cite (C1), (C5) (3.7)" is right. The argument uses:
+  - Lemma CI(iii), which itself uses (C1);
+  - log N(T) ~ log T, from (C1);
+  - GLSS (3.7), N(T) = TL + o(TL), which I checked verbatim against the PDF.
+
+  Nothing else is needed.
+
+**Remaining items (non-blocking).**
+- N1: the plan doc's T5 still says "C₀", and T10 is unticked. Tick T10 and optionally add "(C_Lz in PROOF)" when
+  promoting.
+- N2: "h_T" vs "h" in P1's counting example.
+- The status strings "re-check pending" in the §5.6 heading, the §0 row and the LOG should become "re-check ACCEPT —
+  REVIEWED" at promotion.
+
+**Final labels.**
+- Lemma L: PROVED-mod-cite (C5) §2; REVIEWED.
+- Lemma CI: PROVED-mod-cite (C5) §2 [(i)–(ii)], (C1) [(iii)]; REVIEWED.
+- Proposition I: PROVED-mod-cite (C1), (C5) §2; REVIEWED; novelty UNCHECKED.
+- Corollary Lz: PROVED-mod-cite (C6) Thm 1.1 (arXiv v2 preprint, refereeing unknown), (C1), (C5) §2; REVIEWED.
+- Lemma D: PROVED-mod-cite (C1) (through Z1/Z2); REVIEWED.
+- Theorem Sp: PROVED-mod-cite (C1) + mod-input Theorem H (as Ch); REVIEWED; novelty UNCHECKED.
+- Corollary Pos: PROVED-mod-cite (C1), (C5) §2 + mod-input Theorem H (through N″); REVIEWED; novelty UNCHECKED.
+- P1 partial converse: PROVED-mod-cite (C1), (C5) (3.7); REVIEWED.
+- "G3′ ⇒ HMH" and "G3′ ⇒ SZC": GAP (not established).
+- §5.6 heading and §0 row: "Rule R ACCEPT WITH FIXES (review/REVIEW_Plan43.md), fixes applied, re-check ACCEPT —
+  REVIEWED; novelty UNCHECKED".
