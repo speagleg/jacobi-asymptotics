@@ -315,3 +315,37 @@ F ≥ 0 used on RH is unavailable".
 - **P′(c):** HEURISTIC.
 - **§9.3:** OPEN, reframed per F1. Not attempted.
 - **§9.4:** NUMERICAL (finite sample). Add the N1 stability pass to the script and `.out`.
+
+## Re-check (commit ffd8e6c), 2026-10-14
+
+Verdict: **ACCEPT**. All findings are resolved:
+
+- **F1.** Corollary P carries the footnote-6 note, labelled secondary and stated neutrally as a relation between
+  hypotheses. §9.3 is reframed as (Q1) and (Q2).
+- **F2, F3, F10.** P′(a) now assumes RH. It reads "known route" and "the standard kernel method does not give …";
+  it records that the conditional improvements are not carried out, and gives C7 Theorem 3's effective range
+  N^{1/2−ε}.
+- **F4, F11.** (b) and (c) are labelled HEURISTIC. The R_2(h) formula is correct. The bounded-gaps bullet is neutral.
+- **F5.** Step 1 spells out the range map (A₁ = 1, A₂ = M, ε < 1/M) and flags Saffari–Vaughan as secondary.
+- **F6.** The uniformity proof is written out (grid plus monotone sandwich) and is correct.
+- **F7, F8.** §9.4 wording is fixed: the surmise is called an approximation, the ±25% at δ = 0.02 and the
+  7-neighbour cap are stated, the shortfall is "not analysed", the local exponents are 0.49→0.86, the Theorem B
+  comparison is gone, and the κ reference reads "Theorem RH_ζ (G1)".
+- **F9.** The BGST §3 (3.1) quote is in (C3). I checked W(u) = 4/(4 − u²) against the PDF.
+- **F12.** P rows are in §0 and §8.3.
+- **N1–N3.**
+  - The script docstring is fixed.
+  - Part [3] in `.out` matches my independent runs.
+  - The header notes the data and kernel dependency.
+
+Non-blocking nits:
+- (Q2) says "hypothesis-free formulation". It is still a hypothesis (complex-weighted SPC), only RH-free, so
+  "RH-free formulation" is more accurate.
+- Part [3] stops at n = 1600. My runs at n = 3200 (long double, J = 2·10⁵ and 4·10⁵) were also identical.
+
+### Final labels
+- **Corollary P:** PROVED-mod-cite (C8 Thm 7 converse; C8 SPC ⇔ (9.3), secondary; C8 Thm 4; C5; C1) + mod-input RH,
+  (V), Theorem H. **REVIEWED.** Novelty UNCHECKED (the RH + (V) ⇒ PCC part is KNOWN).
+- **P′(a):** KNOWN (C8 §9), plus a remark. **P′(b), (c):** HEURISTIC. **§9.3:** OPEN (Q1, Q2), not attempted.
+- **§9.4:** NUMERICAL (finite sample, stability recorded).
+- Replace "re-check pending" with "REVIEWED" in §0, §8.3 and the §9 heading.

@@ -19,7 +19,7 @@ nothing here is evidence about where the zeros lie.
 | N′ | repeated indices containing a positive-density subset (d_*(E) > 0) ⇒ the law fails, limsup ≤ 2 log(1 − d_*(E)) | PROVED-mod-cite + mod-input Theorem H + REVIEWED; residual GAP: positive lower density with d_*(E) = 0 | G3′*-U proof, Z1, Z2, T (P1), H6 |
 | B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED | GLSS (6.1), Caro–Wei, §4 proof |
 | C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED | GLSS, G3′-L |
-| P | RH + prime short-interval variance (V) ⇒ G3′ (§9.1; corollary of KNOWN (C8) + Theorem C) | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; re-check pending | §8.2 |
+| P | RH + prime short-interval variance (V) ⇒ G3′ (§9.1; corollary of KNOWN (C8) + Theorem C) | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; REVIEWED (Rule R, review/REVIEW_Plan18.md); novelty UNCHECKED (RH + (V) ⇒ PCC is KNOWN) | §8.2 |
 | R, K | pair factors under thinning; concentration (from H7) | PROVED-mod-input Theorem H + REVIEWED | H5, H7 |
 | T | thinning of convergent density: the own-normalized law survives | PROVED-mod-input Theorem H + REVIEWED | R, K, H6, H7 |
 | T′ | robustness: density band ±η gives error ω(η) → 0 | PROVED-mod-input Theorem H + REVIEWED | T |
@@ -725,9 +725,9 @@ multiplicity-normalized averaged law holds for the true zeros.
 | liminf ≥ −3 log C > −∞ | **unconditional (Theorem B)**, mod-input Theorem H; REVIEWED |
 | liminf ≥ 0, i.e. G3′ | under (SG) (G3′-L), REVIEWED; under PCC (Theorem C, no RH), mod-input Theorem H; REVIEWED |
 | G3′ ⇒ d_*(E) = 0 | N′, REVIEWED |
-| G3′ under RH + prime variance (V) | Corollary P (§9.1), re-check pending |
+| G3′ under RH + prime variance (V) | Corollary P (§9.1), REVIEWED |
 
-## 9. Plan 18: from prime pairs to Law P (the primes–zeros duality) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan18.md); F1–F12 applied, re-check pending
+## 9. Plan 18: from prime pairs to Law P (the primes–zeros duality) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan18.md); F1–F12 applied, re-check ACCEPT — REVIEWED
 
 Inputs: (C7) Montgomery–Soundararajan, (C8) Goldston's notes, (C9) MRT, together with §8 (Theorem C). RH enters
 **only as a stated hypothesis** of conditional results (AGENTS.md rule 3).
@@ -795,7 +795,7 @@ By C8 footnote 6, (V) on the full range already implies RH. So "remove RH from C
 question. The open questions are:
 - **(Q1)** Does (V) on a *restricted* range (for example h ≤ X^{θ} with θ < 1, which is not known to imply RH), or a
   one-sided variance bound, still give (SG)?
-- **(Q2)** A hypothesis-free formulation on the zero side: does the strong pair correlation in the unconditional
+- **(Q2)** An RH-free formulation on the zero side: does the strong pair correlation in the unconditional
   complex-weighted form, F(x, T) := Σ x^{ρ−ρ′}W(ρ − ρ′) (BGST arXiv:2501.14545v3 (3.1); W(u) = 4/(4 − u²)), imply (SG)
   without RH?
   - Its weights are complex-valued, so the positivity of individual terms used on RH is unavailable (BGST, proof of
