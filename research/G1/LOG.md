@@ -151,3 +151,22 @@
 - **Numerics** (`checks/check_log_weights.out`): (log(k+e))^α, α = 1, −2, 3: deviations ≈ 0.47|α|/(n log n), 2–6·10⁻⁵ at n = 3200.
 - **Open:** slowly varying Ψ with D(γ) = ∞ (e.g. exp(√log k)); other nodes.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan36.md). F1 (cutoff h_n·1_{k≤K}, uniform bounds, K → ∞ by moment continuity) and F2–F7 applied. Re-check ACCEPT (N1–N2 polish applied) — REVIEWED.
+
+## 2026-10-14 — Plan 40 (Lemma LR: linear response with explicit ε² remainder)
+- **Lemma LR:** for any finite-moment base v and bounded f, ε := ½ osc f:
+  |log b_n²(ve^f) − log b_n²(v) − ⟨f, μ_n^v − μ_{n−1}^v⟩| ≤ ε² (C = 1; the outline's 2 also valid). Proof: Lemma R2 one
+  difference lower, but with Bessel's inequality ‖K_m(fq_m)‖² ≤ Var_{μ_m}(f) in place of R2's crude A/B bounds, giving
+  |ΔV_m| ≤ Var_{μ_m}(f) ≤ ε², hence |(log b_n²)″| ≤ 2ε² at every t along ve^{tf} (uniform: each t is a new base).
+- **Lemma LR′:** ratio form |F_N(w) − F_N(v) − ⟨f, Δ²μ_N^v⟩| ≤ 2ε² (sharpens R2: |F_N″| ≤ 4ε² vs 16‖f‖²).
+- **Lemma LRa:** a_n′ = b_{n+1}γ_n − b_nγ_{n−1} (γ_m = ⟨fq_m, q_{m+1}⟩; FVa via the recurrence), γ_n′ from Lemma TV's
+  q̇_m; |a_n″| ≤ ε²(b_n + b_{n+1}), so |a_n(w) − a_n(v) − L_n^{a,v}(f)| ≤ (e^ε − 1 − ε)(b_n + b_{n+1})(v).
+- **Corollary LR-law** (pure power, PROVED-mod-cite RH_px/RH₁(r)/RH_plt1b): limsup|log β_n²(w)| and limsup|L_n^v(f)| differ
+  by ≤ ε²; exact along rays: L_n^v(f) → 0 iff E(τf) = o(τ). Same for a_n with ½ε²e^ε.
+- **Constants:** absolute — independent of n, p, s, nodes, v.
+- **Not proved:** the fixed-f iff (no ε² band) — needs second-order chirp control (outline §2.5 T7b). Optimality of C = 1
+  is only NUMERICAL (0.986 on 4–6-atom measures).
+- **Numerics** (`checks/check_lr.out`, NUMERICAL): p = s = 2 and p = 1, s = 2, n ≤ 200, random + adversarial f,
+  ε = 0.4 … 0.025: worst |R_b|/ε² = 0.53, |R_F|/ε² = 0.61, |R_a|/bound = 0.19; Rule A exhaustive signs on tiny measures
+  (13000 cases) 0.986 / 0.887; g″(t) formula = finite difference (5 digits) at t = 0, ½, 1; float64 vs longdouble 1e-12.
+- **Rule A:** small cases, m = 0 / n = 0, constant f, no-completeness check (Bessel only), cross-term vanishing — logged in §3.11.
+- **Rule R:** pending.
