@@ -43,7 +43,7 @@ only accumulating case found in the literature read.
 
 B. Simon, "Ratio asymptotics and weak asymptotic measures for orthogonal polynomials on the real line", J. Approx.
 Theory 126 (2004); preprint mp_arc 03-341 (file `simon_ratios.TEX`, AMS-LaTeX source, fetched from
-web.ma.utexas.edu/mp_arc on 2026-10-14 and read; Plan 42). Quotes are verbatim from the TeX source.
+web.ma.utexas.edu/mp_arc on 2026-10-14 and read; Plan 42). Quotes are verbatim from the TeX source, modulo TeX markup ({\rm{(}} → "(", equation labels dropped).
 
 Conventions (§1; note: Simon's b is the **diagonal** and a the **off-diagonal** parameter, the reverse of G1's a_n, b_n,
 and his indices start at 1):

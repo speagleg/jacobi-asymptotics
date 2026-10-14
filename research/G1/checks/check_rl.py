@@ -16,7 +16,8 @@
 [3] Remarks RL-b and RL-loc (§3.13): prescribed Jacobi parameters (exact path sums, no measure computation).
     (b-only) a_m = 3c m^{-p}, b_m = c m^{-p}: the b-law holds, ν_n → arcsine on [c, 5c], not [0, 4c].
     (loc) a_m = 2β m^{-p}·1, b_m = 2β (m−1)^{-p/2}m^{-p/2}cos θ_{m−1} sin θ_m, θ ≡ π/4 except θ_{n_j} = arcsin(√t),
-        t = 1/4: all moments of ν_{n_j} → arcsine moments, but n_j^p b_{n_j}/β → √(2t); neighbours n_j ± 1 deviate."""
+        t = 1/4: all moments of ν_{n_j} → arcsine moments, but n_j^p b_{n_j}/β → √(2t); neighbours n_j ± 1 deviate.
+[4] Remark RL-n2 (Rule R F7): moments 1, 2, 4 at n and n+1 both → 2, 6, 70 while n^p b_n → √γ ≠ 1."""
 import numpy as np
 from math import comb
 from jacobi_asym.laws.weyl import c_p
@@ -136,3 +137,19 @@ Jt = np.diag(a4[:3000]) + np.diag(b4[1:3000], 1) + np.diag(b4[1:3000], -1)
 ev0 = np.linalg.eigvalsh(Jt)[0]
 print(f"    sanity: smallest eigenvalue of the leading 3000x3000 block of J = {ev0:.3e} (positive: {ev0 > 0}; J = LL^T + k_0^2 e_0e_0^T)",
       flush=True)
+
+# [4] Remark RL-n2 (Rule R F7): {n, n+1} does not suffice for moments 1, 2, 4 (general measures; positivity not claimed)
+print("[4] RL-n2: beta = 1, alpha = 2; u_n = u_{n+2} = g, u_{n+1} = 2 - g, u_{n-1} = u_{n+3} = ((g-1)^2+1)/g, u = 1 elsewhere;"
+      " targets 2, 6, 70")
+M4 = 10010; m4 = np.arange(M4, dtype=float); m4[0] = 1.0
+for g in (0.5, 0.8, 1.3):
+    u = np.ones(M4); nj4 = (1000, 10000 - 5)
+    for n in nj4:
+        u[n] = u[n + 2] = g; u[n + 1] = 2 - g; u[n - 1] = u[n + 3] = ((g - 1) ** 2 + 1) / g
+    a5 = 2.0 * m4 ** -p; b5 = np.sqrt(u) * m4 ** -p; b5[0] = 0.0
+    for n in nj4:
+        cells = []
+        for nn in (n, n + 1):
+            cells.append(f"n={nn}: " + " ".join(f"{path_moment(a5, b5, nn, l, nn ** p):.5f}" for l in (1, 2, 4)))
+        print(f"    g={g}: " + "   ".join(cells) + f"   n^p b_n at n={n}: {n ** p * b5[n]:.5f} (sqrt g = {np.sqrt(g):.5f})",
+              flush=True)

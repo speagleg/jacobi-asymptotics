@@ -152,7 +152,7 @@
 - **Open:** slowly varying Ψ with D(γ) = ∞ (e.g. exp(√log k)); other nodes.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan36.md). F1 (cutoff h_n·1_{k≤K}, uniform bounds, K → ∞ by moment continuity) and F2–F7 applied. Re-check ACCEPT (N1–N2 polish applied) — REVIEWED.
 
-## 2026-10-14 — Plan 42 (Lemma RL: Law P ⟺ rescaled μ_n → arcsine; target T0′)
+## 2026-10-14 — Plan 42 (Lemma RL: Law P ⟺ rescaled μ_n → arcsine with sup n^p(a_n + b_n) < ∞, equivalently in moments 1, 2, 4; target T0′)
 - **Source.** Simon, JAT 126 (2004), mp_arc 03-341: TeX source fetched from mp_arc and read (§1, §3). Quotes are in
   CITATIONS.md (Simon). Theorem 3.2 (moments ℓ = 1, 2, 4 of p_n²dμ converge ⇒ b_n → b, a_{2n} → a, a_{2n+1} → c) is the
   unscaled, fixed-J analogue. It does not apply verbatim to the n-dependent n^pJ, so RL is proved self-contained by the
@@ -173,5 +173,17 @@
 - **Numerics** (`checks/check_rl.out`): (M) to 10 digits. Slowly varying Ψ: rdev, rmom ~ 1e−5. Theorem-R-type windows:
   rdev ≈ 6e−2 and rmom up to 1e−1 at N − 2 … N, versus ≤ 3e−2 elsewhere. RL-b and RL-n are confirmed on the explicit
   parameters.
-- **Labels:** RL, RL-loc, RL-b, RL-n PROVED. Novelty: not claimed for RL, UNCHECKED for RL-loc/RL-n.
-- **Rule R:** pending.
+- **Labels:** RL, RL-loc PROVED; RL-n, RL-b PROVED-mod-cite (Hilbert–Schmidt); RL2 PROVED-mod-cite (inherits
+  Theorem R). Novelty: not claimed for RL, RL-b; UNCHECKED for RL-loc, RL-n, RL-n2.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan42.md; math correct). Fixes applied:
+  - F1: the a priori bound / "in moments" was added to the §0 row, §3.13 heading, this title and the plan goal.
+  - F2: RL2 now says β_n ↛ 1, cites T3a step 1, and is labelled PROVED-mod-cite.
+  - F3: no verbatim source for the spectral theorem was read, so RL-n and RL-b are PROVED-mod-cite (Hilbert–Schmidt).
+  - F4: the numerics text is corrected; the N − 1 rows are noted as an instance of RL-n.
+  - F5: LP is a special case of the forward direction.
+  - F6: the monotone argument for s_{n+1}/s_n → 1 was added; C is defined.
+  - F7: Remark RL-n2 (the reviewer's construction: {n, n+1} fails for moments 1, 2, 4; general measures, positivity
+    open) and check_rl [4] were added; RL-loc is weakened to ℓ = 1, 2 at n ± 1.
+  - F8–F11 nits.
+
+  Re-check pending.
