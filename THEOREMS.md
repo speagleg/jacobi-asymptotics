@@ -336,6 +336,8 @@ and asked for item 11 to be named as the primary route. That changes no label; i
 
 ---
 
+*Novelty (first pass, Plan 38) and the research program built on these open problems: `research/program/RESEARCH_PROGRAM.md`.*
+
 ## 4. Open problems (as stated in the repo)
 
 **G3′**

@@ -1,0 +1,7 @@
+n=200: B_n = sum_j |U_j|/j over [n/4,3n] = 1.668; max|U_j| = 7.347 at j/n = 0.635; sum_j U_j/j = -0.289; #(|U_j|>1) = 82
+   j/n in [0.25,0.5): sum|U|/j = 0.096, max|U| = 0.437
+   j/n in [0.5,0.6): sum|U|/j = 0.165, max|U| = 1.767
+   j/n in [0.6,0.7): sum|U|/j = 0.533, max|U| = 7.347
+   j/n in [0.7,1.0): sum|U|/j = 0.721, max|U| = 4.001
+   j/n in [1.0,1.5): sum|U|/j = 0.097, max|U| = 0.527
+   j/n in [1.5,3.0): sum|U|/j = 0.056, max|U| = 0.235
