@@ -296,3 +296,11 @@ local form Ψ = Ψ̂ζ^{−σ₃/4}S for α = −½). RH_plt1.md Lemma 1.1′ (5
 > of ½H^{(1)}_α(2(−ζ)^{1/2}), ½H^{(2)}_α(2(−ζ)^{1/2}) and πζ^{1/2}H′ times e^{½απiσ3}; for −π < arg ζ < −2π/3, (6.25)
 > likewise with e^{−½απiσ3}; "Theorem 6.3 The matrix valued function Ψ(ζ), defined in (6.23)–(6.25), is a solution of
 > the RHP for Ψ."
+
+## (KMVV, angle freedom; Plan 15b) — read in math/0111252v2 (pdftotext), §6 after (6.21)
+
+> "In the above, we have chosen the angle 2π/3 rather arbitrarily. It could be replaced by any angle in (0, π). However,
+> having chosen the angle, we define the contours Σ1 ∩ Uδ and Σ3 ∩ Uδ in Uδ as the preimages of the rays γ1 and γ3 under
+> the mapping ζ = n²f(z) … Note that this definition does not depend on n."
+
+**Used in:** RH_plt1b.md §2. For p ≤ ⅓ the Ψ-rays are taken at angle π − θ_L, so that the lips lie in the inner sector.
