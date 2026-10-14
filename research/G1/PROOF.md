@@ -32,8 +32,8 @@ known; its application here to Law P is what is new.
 | **T3-conv** | pointwise b-law (hence (T3)) for x_k = k^{−p} (p > 0), w_k = k^{−s}ψ_k (s > 1) with **ψ_k → L ∈ (0, ∞)** (rough at finite scales, decaying roughness): n^p b_n → c(p) (§3.3, Plan 29) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: Lemma FV (REVIEWED), Lemma Sat_p⁺); REVIEWED; novelty UNCHECKED (comparison theorems of Máté–Nevai–Totik type may be classical) |
 | TL | polynomial tail localization: for sandwiched weights c k^{−s} ≤ w_k ≤ C k^{−s} (s > 1), 𝔼_{n+1}#(S ∩ (T, ∞)) ≤ ε, hence μ_n((T, ∞)) ≤ ε, for T ≥ A·n^{κ}ε^{−1/(s−1)}, κ = (2 + 2/p)s/(s−1) (§3.4) | PROVED (textbook-standard Markov/Chebyshev inequalities, quoted); REVIEWED; novelty UNCHECKED (pointers: Ehlich–Zeller 1964, Coppersmith–Rivlin 1992, Rakhmanov 2007, Nevai, Máté–Nevai–Totik) |
 | **T3-sv** | pointwise b-law for w = k^{−s}Ψ with Ψ bounded and *polynomially slowly varying*: sup_{n/M≤k≤n^γ}\|log Ψ(k) − log Ψ(n)\| → 0 for all M, γ (e.g. Ψ = 2 + sin√(log log k)) (§3.4, Plan 30) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: Lemma FV, Lemma Sat_p⁺, Lemma TL); REVIEWED; novelty UNCHECKED |
-| FVa | first variation of a_n: d/dt a_n(v e^{tf}) = ⟨(x − a_n)f, μ_n⟩ − 2b_n⟨f, q_{n−1}q_n⟩ (q_j = √w p_j) (§3.5) | PROVED (self-contained via Lemma H, Christoffel–Darboux); Rule R pending |
-| **T3a** | pointwise **a-law** n^p a_n → 2c(p) under T3-sv's hypotheses (Ψ bounded, polynomially slowly varying; includes ψ_k → L), all p > 0, s > 1 (§3.5, Plan 32) | PROVED-mod-cite (pure-power a-laws: RH_px, RH₁(r), RH_plt1b) + Rule R pending; novelty UNCHECKED |
+| FVa | first variation of a_n: d/dt a_n(v e^{tf}) = ⟨(x − a_n)f, μ_n⟩ − 2b_n⟨f, q_{n−1}q_n⟩ (q_j = √w p_j) (§3.5) | PROVED (standard; novelty not claimed; self-contained via the proof of Lemma H and Christoffel–Darboux); Rule R ACCEPT WITH FIXES, re-check ACCEPT — REVIEWED |
+| **T3a** | pointwise **a-law** n^p a_n → 2c(p) under T3-sv's hypotheses (Ψ bounded, polynomially slowly varying; includes ψ_k → L), all p > 0, s > 1 (§3.5, Plan 32) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: FVa, Sat_p⁺, TL); REVIEWED; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -394,7 +394,7 @@ Then, with v_k := k^{−s},
   log b_n²(w) − log b_n²(v) → 0,  hence n^p b_n(w) → c(p),
 
 by the pointwise law for the pure power v:
-- RH_p for p > 1 (`RH/RH_px.md`);
+- RH_p for p > 1 (`RH/px/RH_px.md`);
 - RH₁(r) for p = 1 (r = s);
 - the RH_p seam construction for 0 < p < 1 (`RH/plt1/RH_plt1b.md`).
 
@@ -430,8 +430,7 @@ In particular β_n → 1, so (T3) holds.
     bound needed: the number of points of S beyond Mn is O(n/log M), *uniformly along the path*. G2 A-U gives this
     for p > 1, and G3′ §7 Lemma K for p = 2; nothing is stated for p ≤ 1. (G1's own "Lemma K" is the kernel
     identity, not this.)
-- **T3c3 (a_n).** The a_n half would need the first variation of a_n = ⟨xp_n, p_n⟩, a covariance-type expression.
-  Not done.
+- **T3c3 (a_n).** Done in §3.5 (Lemma FVa, Theorem T3a; Plan 32).
 - **NUMERICAL** (`checks/check_t3_conv.out`, p = 2, long double RKPW):
   - |β_n(ψ)/β_n(1) − 1| for ψ = 1 + ½(−1)^k/log(k+1) goes 3.9·10⁻³ → 8.2·10⁻⁴ (n = 250 → 3600).
   - For random ±½/√log and block-sign ±½/log variants it is ≤ 2.3·10⁻³, not monotone in n (F6). Only p = 2 is
@@ -511,7 +510,7 @@ and centering,
     10n, and 0.002–0.14% beyond T″. The bound of Lemma TL holds with ratio ≤ 8·10⁻¹⁰, so it is very loose.
   - Doubling the truncation leaves the ratio unchanged and moves the mass beyond T″ by about 10% (reviewer's run).
 
-### 3.5 Lemma FVa and Theorem T3a (Plan 32): the a_n half — PROVED / PROVED-mod-cite; Rule R pending
+### 3.5 Lemma FVa and Theorem T3a (Plan 32): the a_n half — PROVED / PROVED-mod-cite; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan32.md), fixes applied, re-check pending
 
 Notation as in §3.2–3.4. Put q_j := √w·p_j on the atoms, so μ_j = q_j², and write K_m(k, l) := Σ_{j<m}q_j(k)q_j(l)
 (a projection matrix). Conventions: a_n = ⟨xq_n, q_n⟩ and b_n = ⟨xq_{n−1}, q_n⟩, so that b_n² = h_n/h_{n−1}.
@@ -527,20 +526,30 @@ The right side is unchanged when f is replaced by f + const.
    X_k := 1[k ∈ S].
 2. **Exponential tilting.** P_{m,t}(S) ∝ Π_{k∈S}w_k(t)V(S), so (d/dt)𝔼_{m,t}F = Cov_{m,t}(F, ⟨f, X⟩) for bounded F
    (dominated convergence, as in Lemma FV).
-3. **Two-point function.** By Lemma H (G3′ §5.2) with E′ = {k, l}, P(k, l ∉ S) = det(I − K_{E′}). Inclusion–exclusion
+3. **Two-point function (F1, F2).** The Gram/Sylvester steps in the *proof* of Lemma H (G3′ §5.2), together with the
+   Heine identification D_m(μ ∖ E′)/D_m(μ) = P(S ∩ E′ = ∅), give the equality P(k, l ∉ S) = det(I − K_{E′}) for
+   E′ = {k, l}. (Lemma H's *statement* records only the inequality and the single-deletion case.) Inclusion–exclusion
    then gives P(k, l ∈ S) = K_m(k,k)K_m(l,l) − K_m(k,l)² for k ≠ l. Since K_m is a projection, Σ_lK_m(k,l)² = K_m(k,k),
-   so Cov_m(⟨g,X⟩, ⟨f,X⟩) = ½Σ_{k,l}(g_k − g_l)(f_k − f_l)K_m(k,l)².
+   so Cov_m(⟨g,X⟩, ⟨f,X⟩) = ½Σ_{k,l}(g_k − g_l)(f_k − f_l)K_m(k,l)². (The diagonal term is
+   Var X_k = K_m(k,k) − K_m(k,k)²; the double sums converge absolutely, since Σ_{k,l}K_m(k,l)² = m and g, f are
+   bounded.)
 4. **Rank-one update.** K_{n+1} = K_n + q_nq_nᵀ, so K_{n+1}² − K_n² = 2K_n(k,l)q_n(k)q_n(l) + q_n(k)²q_n(l)²
    entrywise. With g = x:
    - The second part contributes ½Σ(x_k − x_l)(f_k − f_l)q_n(k)²q_n(l)² = ⟨(x − a_n)f, μ_n⟩.
    - The first part is Σ_{k,l}(x_k − x_l)K_n(k,l)q_n(k)q_n(l)(f_k − f_l). By Christoffel–Darboux,
-     (x_k − x_l)K_n(k,l) = b_n(q_n(k)q_{n−1}(l) − q_{n−1}(k)q_n(l)). Expanding with ⟨q_{n−1}, q_n⟩ = 0 and ⟨q_n, q_n⟩ = 1
-     gives −2b_n⟨f, q_{n−1}q_n⟩.
+     (x_k − x_l)K_n(k,l) = b_n(q_n(k)q_{n−1}(l) − q_{n−1}(k)q_n(l)). This uses the recurrence
+     xp_j = b_{j+1}p_{j+1} + a_jp_j + b_jp_{j−1} (F3).
+   - **Algebra.** The first part equals b_n·Σ_{k,l}A_{kl}(f_k − f_l), with
+     A_{kl} := q_n(k)²q_{n−1}(l)q_n(l) − q_{n−1}(k)q_n(k)q_n(l)².
+     - Σ_{k,l}A_{kl}f_k = ⟨f, q_n²⟩⟨q_{n−1}, q_n⟩ − ⟨f, q_{n−1}q_n⟩·1 = −⟨f, q_{n−1}q_n⟩.
+     - Σ_{k,l}A_{kl}f_l = 1·⟨f, q_{n−1}q_n⟩ − ⟨q_{n−1}, q_n⟩⟨f, q_n²⟩ = ⟨f, q_{n−1}q_n⟩.
+     - So the first part is −2b_n⟨f, q_{n−1}q_n⟩.
+   - For n = 0 (K_0 = 0) the first part vanishes, consistent with b_0 := 0.
 5. **Invariance.** ⟨x − a_n, μ_n⟩ = 0 and ⟨q_{n−1}, q_n⟩ = 0, so constants drop out.
 6. **Toda check.** f = x gives ‖xq_n‖² − a_n² − 2b_n² = b_{n+1}² − b_n², the Toda flow. ∎
 
 NUMERICAL ([1] of `checks/check_alaw.out`):
-- Central differences against the formula, for random f, agree to relative error ≤ 1.3·10⁻⁸ (n = 20, 60, 150).
+- Central differences against the formula, for random f, agree to relative error ≤ 8·10⁻⁸ (n = 20, 60, 150; F6).
 - For f = x the formula equals b_{n+1}² − b_n² (finite-difference error ≤ 2·10⁻⁴, at values of size 10⁻¹¹).
 
 **Theorem T3a.** Under the hypotheses of Theorem T3-sv (x_k = k^{−p}, p > 0; w = k^{−s}Ψ, s > 1; Ψ bounded and
@@ -548,13 +557,15 @@ polynomially slowly varying, including ψ_k → L), n^p a_n(w) → 2c(p). Togeth
 Law P (b- and a-laws) holds for these weights.
 
 *Proof.* Take the path w(t) = vΨ^t and g_n := log Ψ − log Ψ(n), with |g_n| ≤ G. Fix M ≥ 4 as in T3-sv (head margin),
-ε ∈ (0, 1], and γ := κ + 1 (Lemma TL).
+ε ∈ (0, 1], and γ := κ + 1 (Lemma TL). All bounds below hold for n ≥ n₀(M, ε, p, s, sandwich) (F4). The constants are
+generous: about 7 (middle) and 5 (tail) suffice, times (n/(n−1))^p.
 1. **Uniform bounds along the path.** a_n^{(t)} = ⟨x, μ_n⟩ ≤ (M/n)^p + (head mass), since x_k ≤ (M/n)^p for
    k ≥ n/M and x_k ≤ 1. The head mass is exponentially small (Sat_p⁺), so a_n^{(t)} ≤ 2M^pn^{−p} for large n,
    uniformly in t. Also b_n = ⟨xq_{n−1}, q_n⟩ ≤ ½⟨x, μ_{n−1} + μ_n⟩ ≤ ½(a_{n−1} + a_n) ≤ 2M^p(n−1)^{−p}.
 2. **First variation.** By Lemma FVa (centered),
    |(d/dt)a_n| ≤ Σ_k|g_n(k)|·[|x_k − a_n|μ_n(k) + b_n(μ_{n−1} + μ_n)(k)].
-   - **Head** (k < n/M): bounded by (1 + 2)·G·(μ_n + μ_{n−1})(head) = O(n^{O(1)}e^{−2(n−1)}).
+   - **Head** (k < n/M): bounded by (1 + 1)·G·(μ_n + μ_{n−1})(head) = O(n^{O(1)}e^{−2(n−1)}), using |x_k − a_n| ≤ 1
+     and b_n ≤ 1.
    - **Middle** (n/M ≤ k ≤ n^γ): |x_k − a_n| ≤ 3M^pn^{−p} and |g_n| ≤ δ_n(M, γ), so the contribution is
      ≤ 14M^pn^{−p}δ_n.
    - **Tail** (k > n^γ): bounded by G·7M^pn^{−p}·(μ_n + μ_{n−1})(tail), which is ≤ 14GM^pεn^{−p} (Lemma TL for both,
@@ -564,11 +575,15 @@ Law P (b- and a-laws) holds for these weights.
    n^p a_n(v) → 2c(p). ∎
 
 **Remarks.**
-- **T3a1.** Lemma FVa is self-contained: the two-point formula comes from Lemma H, not from a cited determinantal
-  theory. Novelty of the lemma: none claimed (the first variation of Jacobi parameters under weight tilting is
+- **T3a1.** Lemma FVa is self-contained: the two-point formula comes from the proof of Lemma H, not from a cited
+  determinantal theory. Novelty of the lemma: none claimed (the first variation of Jacobi parameters under weight tilting is
   classical; cf. the Toda flow).
-- **T3a2 (NUMERICAL, [2]).** For ψ_k = 1 + ½(−1)^k/log(k+1) (p = 2), |n²a_n(ψ) − n²a_n(1)|/(2c) is 5.3·10⁻³, 2.1·10⁻³
-  and 2.1·10⁻⁵ at n = 250, 1000 and 3600. For non-decaying parity it is 2.6·10⁻², 1.3·10⁻² and 3.5·10⁻³.
+- **T3a2 (NUMERICAL, [2]; F7).** The script reports (n+1)²a_n/(2c) − 1, the a_n index being 0-based, at
+  n = 250, 500, 1000, 2000 and 3600, with K = 120000 and 240000.
+  - For n ≤ 1000, the gap |A(ψ) − A(1)| for ψ_k = 1 + ½(−1)^k/log(k+1) (5.3·10⁻³, 8.6·10⁻⁴, 2.1·10⁻³) is 2–12×
+    smaller than for non-decaying parity at each n. No rate is claimed.
+  - For n ≥ 2000 none of the three runs is K-converged (K-doubling moves them by up to 3.5·10⁻³), so those columns are
+    illustrative only (R1).
 
 ## 4. G1-R: what remains (stop report)
 
@@ -578,6 +593,8 @@ Law P (b- and a-laws) holds for these weights.
 - *a_n side.* The lower half holds unconditionally in window average (A1). For p > 1, the upper half holds in
   tail-Cesàro form. This is unconditional for pure-power atoms with rough weights by Theorem CL (Plan 27). Block-Cesàro
   ratios and window-average density still need β_n → 1 (A4). Pointwise density is not proved.
+- *Plans 29–32:* the full pointwise law (b and a) holds for weights k^{−s}Ψ with Ψ bounded and polynomially slowly
+  varying (T3-conv, T3-sv, T3a). Fixed-size adversarial roughness conjecturally breaks it (Conjecture R).
 - G1-L needs a one-sided bound on β_n; it is not unconditional.
 
 **Missing statements (precise).** (See §3.2: for *rough* weights, (T3) is conjecturally FALSE, Conjecture R.)
