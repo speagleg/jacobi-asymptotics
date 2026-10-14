@@ -185,3 +185,59 @@ will need routine conflict resolution against Plans 39, 41, 42 and 44. No conten
 - **Fixed-f iff:** remains NOT PROVED, as the text says.
 
 No re-check of the mathematics is needed. A quick confirmation that F1–F5 have been applied is enough.
+
+## Re-check (2026-10-14; diff e01a0fc..7bb5cf4)
+
+**Verdict: ACCEPT.** F1–F5 are applied correctly. The new main derivation in step 1 (F2) is correct. Nothing blocking
+remains.
+
+**F2: the new step 1 (FV + TV).** I checked every line.
+- By FV, (log b_n²)′ = α_n − α_{n−1}, so (log b_n²)″ = α_n′ − α_{n−1}′ = ΔV_n − ΔV_{n−1}.
+- α_m = ⟨fq_m, q_m⟩, with f fixed in t. Step 0 makes q_m C¹ as an ℓ²-valued map, so α_m′ = 2⟨fq_m, q̇_m⟩.
+- Substituting q̇_m = ½fq_m − K_m(fq_m) − ½α_mq_m gives ‖fq_m‖² − 2⟨fq_m, K_m(fq_m)⟩ − α_m² = A_m + B_m. ✓
+- The main route never uses the Heine two-point function. The vanishing of the f_k² and f_l² parts is needed only in the
+  cross-check, where it is still stated. Step 2 (Bessel) and LR′ use only ΔV_m = A_m + B_m, so they are unchanged.
+- The Heine cross-check is consistent with this. The added sentence on the generality of G3′ Lemma H (Gram form only)
+  is correct.
+- Polish, optional: the text says TV's q̇_m formula "uses only orthonormality and the C¹ property". Strictly, TV's proof
+  also uses q_j = √w·p_j, with p_j of degree j and C¹ coefficients: that is what puts q̇_j − ½fq_j in span{q_0..q_j}.
+  Those coefficients are C¹ by step 0's Gram–Schmidt, so "orthonormality, the polynomial structure q_j = √w p_j and
+  step 0" would be exact. Not blocking.
+
+**F1.**
+- The sharpness bullet now gives NUMERICAL attained constants, attributed to the reviewer's hill-climb and to [3].
+- The two-atom example is correct. With weights ∝ (e^θ, e^{−θ}) on atoms ±1, a_0 = tanh θ and b_1 = sech θ. Setting
+  f = ±ε moves θ at rate ε. Then |a_0″| = 2ε²|tanh θ|sech²θ = ε²b_1·2|sinh θ|/cosh²θ, with equality iff |sinh θ| = 1.
+- The pointwise LRa constant 1 is therefore attained. The bullet is correctly labelled "proved"; it shows the constant
+  cannot be lowered.
+- Optimality of the integrated constants is correctly left unproved.
+
+**F3.**
+- Λ(f) ≤ 2ε follows from |⟨f − c, μ_n − μ_{n−1}⟩| ≤ 2ε. ✓
+- E^a and Λ^a are now defined. |γ_m| ≤ ε holds by Cauchy–Schwarz with the centred f, and L^{a,v} is shift-invariant.
+  Hence Λ^a(f) ≤ ε, using n^p(b_n + b_{n+1})(v)/(2c(p)) → 1. ✓
+- |E^a(f) − Λ^a(f)| ≤ e^ε − 1 − ε, the ray bound e^{τε} − 1 − τε = O(τ²), and the resulting iff are all ✓.
+
+**F4.** I re-ran the script (`.venv/bin/python ../ja-plan40/research/G1/checks/check_lr.py`).
+- The output is identical to the committed `check_lr.out`, and stderr is empty: no divide-by-zero warnings now.
+- [3] reports 13000 cases with 0 skipped, |R_b|/ε² = 0.9863, |R_F|/ε² = 1.8886 ≤ 2 (n ≥ 2) and |R_a|/bound = 0.8868.
+- The runtime note (30–60 s) is fine.
+- Cosmetic leftovers: the docstring still says "K = 3..6 atoms", but the loop is K = 4, 5, 6. The "Runtime:" line sits
+  between [3] and [4].
+
+**F5.** (a), (b) and (c) are applied. The new LRa bound ≤ (e^ε − 1 − ε)·2c(p)n^{−p}(1 + o(1)) ≤
+(1 + o(1))ε²e^εc(p)n^{−p} is correct.
+
+**Labels.** The status row, the §3.11 heading, the LOG and the plan doc are consistent. "§3.5 step 3 only as a
+cross-check" is accurate.
+
+**Final labels.**
+- **LR, LR′, LRa:** PROVED (internal: FV, FVa, TV) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT —
+  REVIEWED. Novelty UNCHECKED.
+- **Corollary LR-law:** PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b) + Rule R ACCEPT WITH FIXES, fixes applied, re-check
+  ACCEPT — REVIEWED. Novelty UNCHECKED.
+- **Sharpness of the integrated constants:** NUMERICAL.
+- **Pointwise LRa constant 1 attained:** PROVED (two-atom example).
+- **Fixed-f iff:** NOT PROVED.
+
+Remaining items, all optional polish: the TV wording in step 1, and the two docstring nits.

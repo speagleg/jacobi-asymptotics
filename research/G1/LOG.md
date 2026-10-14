@@ -173,4 +173,4 @@
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan40.md; no math errors). F1 (sharpness restated as NUMERICAL attained
   constants + two-atom example), F2 (FV+TV route promoted to main proof of ΔV_m; Heine route = cross-check, Gram form
   valid for general atoms), F3 (Λ ≤ 2ε, Λ^a ≤ ε, E^a/Λ^a defined, ray bound), F4 (script: R_F for n ≥ 2 = 1.889 ≤ 2,
-  skipped count 0, docstring/runtime; .out regenerated), F5 polish applied. Re-check pending.
+  skipped count 0, docstring/runtime; .out regenerated), F5 polish applied. Re-check ACCEPT — REVIEWED.
