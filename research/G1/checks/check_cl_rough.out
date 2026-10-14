@@ -1,0 +1,3 @@
+smooth : n^(p-1)Σ_(j≥n)a_j  n=100: 1.243021  n=400: 1.236015  n=1600: 1.234261  n=3200: 1.233924   target 2c/(p-1)=1.233701   a_n/(2b_n) at n=1599,1600: 1.0007, 1.0007  (0-based a[i], b[i], as in the other G1 checks)
+parity : n^(p-1)Σ_(j≥n)a_j  n=100: 1.243342  n=400: 1.236114  n=1600: 1.234289  n=3200: 1.233941   target 2c/(p-1)=1.233701   a_n/(2b_n) at n=1599,1600: 1.0119, 0.9909  (0-based a[i], b[i], as in the other G1 checks)
+random : n^(p-1)Σ_(j≥n)a_j  n=100: 1.243153  n=400: 1.236055  n=1600: 1.234262  n=3200: 1.233929   target 2c/(p-1)=1.233701   a_n/(2b_n) at n=1599,1600: 0.9993, 1.0067  (0-based a[i], b[i], as in the other G1 checks)
