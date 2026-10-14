@@ -56,6 +56,7 @@ different measure) is not changed. Each changed label says "Rule R ACCEPT WITH F
 | **Ra** | fixed-size rough weights break the pointwise **a-law**: for all p > 0, s > 1 and ε ∈ (0, ε₀], ε₀ = I/16, some \|f\| ≤ ε gives w = k^{−s}e^{f} with limsup (n^pa_n − 2c(p)) ≥ εη_a/2 and liminf ≤ −εη_a/2, η_a = c(p)I/2, I = (1/π)∫min(1, H(2cos θ))dθ > 0 (≈ 0.314, NUMERICAL). Ingredients: Toda form ȧ_n = ⟨f, b_{n+1}q_nq_{n+1} − b_nq_{n−1}q_n⟩; R2a \|ä_n\| ≤ 2(b_n + b_{n+1})‖f‖²; R1a (explicit, window 2) (§3.12, Plan 41) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, TV, LP/LP′, Sat_p⁺, TL). Sub-labels: Toda form, R2a PROVED; R1a PROVED-mod-cite (via LP′). Rule R ACCEPT WITH FIXES (review/REVIEW_Plan41.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **RL** | Lemma RL: for any σ with infinite support (any nodes x_k ↓ 0) and scales s_n (s_{n+1}/s_n → 1, e.g. n^p): s_na_n → α, s_nb_n → β ⟺ the 1st, 2nd, 4th moments of ν_n := (x ↦ s_nx)_*μ_n tend to those of arcsine on [α−2β, α+2β] ⟺ ν_n → that law weakly + an a priori bound sup s_n(\|a_n\| + b_n) < ∞ (or UI of y⁴). Law P (constant c) ⟺ ν_n → arcsine on [0, 4c] weakly **with sup n^p(a_n + b_n) < ∞** (equivalently: moments ℓ = 1, 2, 4 converge to 2c, 6c², 70c⁴). RL-loc: indices n−1, n, n+1 suffice for right limits; RL-n: index n alone does not (explicit J_t); RL-n2: {n, n+1} does not for moments 1, 2, 4 (general measures); RL-b: the b-law alone is not enough (§3.13, Plan 42) | RL, RL-loc PROVED (self-contained; method of Simon 2004 Thm 3.2, read and quoted, CITATIONS.md (Simon), attribution only); RL-n, RL-b, RL-n2 PROVED (spectral theorem for compact self-adjoint operators: textbook-standard, not checked against a specific source); RL2 PROVED-mod-cite (inherits Theorem R); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan42.md), fixes applied, re-check ACCEPT — REVIEWED; novelty not claimed (RL, RL-b), UNCHECKED (RL-loc, RL-n, RL-n2). Open: weak convergence without the bound (RL-UI) |
 | **B-cond** | for x_k = k^{−p} (p > 0), w = k^{−s}Ψ (s > 1) with Ψ **slowly varying in sequence form only** (no boundedness, no D(γ) < ∞; e.g. exp(√log k)): explicit bounds (the displayed bounds are unconditional) \|log b_n²(w) − log b_n²(v)\| ≤ 2δ_n(M₀) + Q_n + o(1), n^p\|a_n(w) − a_n(v)\| ≤ 4M₀^p(2δ_n(M₀) + Q_n) + o(1); hence **QL** (ε_nΛ_n → 0, Λ_n := sup_t max_{m∈{n−1,n}}Σ_{n≤k≤n^γ}log(k/n)μ_m^{(t)}(k), γ > κ) ⇒ n^pb_n → c(p), n^pa_n → 2c(p) along the full sequence. Internal: L0 (dyadic chaining/Potter), FV⁺ (FV/FVa for unbounded f), QLb (power tail ⇒ QL) — PROVED (§3.14, Plan 44) | CONDITIONAL (QL₀, implied by QL; both HYPOTHESIS) + PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal L0, FV⁺, Sat_p⁺, TLw); L0, QLb PROVED; FV⁺ PROVED (standard extension; novelty not claimed); QL proved only in cases already covered (ε_n log n → 0 ⊂ T3-log; bounded Ψ); no new case of the law; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan44.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
+| **RII / B_{p>1}** | Route II (Plan 48): for p > 1, **1 < s < 1 + 2p** and w₁ = k^{−s}exp(L₁(log k)) with L₁ analytic on the half-strip {Re u ≥ 0, \|Im u\| ≤ π/p}, L₁′ → 0 there (H_an): n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n) (Theorem RII; RH_px with the hard edge done by a Conway–Deift comparison, W̃ := D_w; the slowly varying factor costs O(ε₁/n)). With RedA (Gaussian smoothing; sequence form only): **the full pointwise Law P for every sequence-form slowly varying Ψ, incl. D(γ) = ∞ (e.g. exp(√log k)), p > 1, 1 < s < 1 + 2p** (Corollary B_{p>1}; §3.17, `RH/route2/ROUTE2.md`) | RedA PROVED; RII, B_{p>1} PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; C–D Thm 4.4 (+ arguments of 4.7/4.9 as in RH_ζ_close §1); DLMF 1.14, 5.5.3, 5.12, 10.25.2, 10.27.3–4, 10.31.2; G2 μ*, B*(i)–(ii)); Rule R pending; novelty UNCHECKED. GAP: s ≥ 1 + 2p; p ≤ 1; the 1/n coefficient (tilt law: CONJECTURE, NUMERICAL) |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1 §§2–6) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; G2 PROOF.md μ*, B* — only μ* and B*(i)–(ii), which do not use (P)) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -1992,6 +1993,52 @@ m ∈ {n − 1, n} and all real 1 ≤ M ≤ n^{γ−1}: sup_tμ_m^{(t)}(ℕ ∩ 
   smaller the weaker. (e) Does any step need Ψ bounded? Head: W/w_k ≤ n^{s+2η}·const (Potter); tail: TLw's ratio
   ≤ T″^{s+η}k^{η}·const; FVa off-head constants use only Sat_p⁺ — none needs boundedness. (f) m = n − 1 in QL: the sum
   still starts at k = n with log(k/n), matching L0(i) centred at n.
+
+### 3.17 Route II (Plan 48): the pointwise Law P for k^{−s}Ψ, Ψ slowly varying (incl. D(γ) = ∞), p > 1 and 1 < s < 1 + 2p, via a Conway–Deift-type RH analysis — RedA PROVED; Theorem RII and Corollary B_{p>1} PROVED-mod-cite; Rule R pending; novelty UNCHECKED
+
+Full text: `RH/route2/ROUTE2.md` (labels per step there). Source: `research/program/outline_B_sv.md` §5 Route II (WP4, stage 1).
+Numerics: `RH/route2/checks/check_r2_{redA,lw1,coeff,mellin}.py/.out` (NUMERICAL).
+
+**Lemma RedA (PROVED; ROUTE2 §1).** Let Ψ > 0 be slowly varying in sequence form (§3.8/§3.14; nothing else). Let L be the
+piecewise-linear interpolant of (log k, log Ψ(k)), L₁ := L * φ (standard Gaussian), Ψ₁(t) := exp L₁(log t). Then L₁ is
+entire; L₁(log k) − log Ψ(k) → 0; L₁^{(j)}(τ + iσ) → 0 (j ≥ 1) and L₁(τ + iσ) − L₁(τ) → 0 uniformly in |σ| ≤ σ₀; and for all
+p > 0, s > 1, |log b_n²(vΨ) − log b_n²(vΨ₁)| ≤ 2ρ(⌈n/M₀⌉) + O(n^{O(1)}e^{−2n}) and n^p|a_n(vΨ) − a_n(vΨ₁)| = O(ρ(⌈n/M₀⌉)) +
+O(n^{O(1)}e^{−2n}), ρ(m) := sup_{k≥m}|log(Ψ/Ψ₁)(k)| → 0. Proof: local oscillation of L is ≤ 2δ_m(2e²) (sequence form), and
+∫φ^{(j)}(c − y)dy = 0 for complex c; (iii) is T3-conv's proof with base vΨ₁. The outline's claim that T3-conv's proof "never
+uses the base weight" was checked line by line: it holds, except that the head bound (Sat_p⁺) uses W/w_k of the base, for
+which Potter (L0(ii)) gives k^{s+η}. No BGT, no measurability, no representation theorem.
+
+**Theorem RII (PROVED-mod-cite, Rule R pending; ROUTE2 §§2–4).** Let p > 1, 1 < s < 1 + 2p (α_x = (s − 1 − p)/p ∈ (−1, 1)),
+and Ψ₁(t) = exp L₁(log t) with L₁ analytic near {Re u ≥ 0, |Im u| ≤ π/p}, real on ℝ₊, and ε₁(T) := sup{|L₁′(u)| : Re u ≥ T,
+|Im u| ≤ π/p} → 0 (H_an; RedA's L₁ qualifies). Then σ₁ = Σk^{−s}Ψ₁(k)δ_{k^{−p}} satisfies n^pb_n = c(p)(1 + O(1/n)) and
+a_n/(2b_n) = 1 + O(1/n); the slowly varying factor contributes O((ε₁(log n − C) + n^{−2ν}log n)/n), ν = min(1/p, ½).
+- *What changes in RH_px* (ROUTE2 §2 table): only the band weight, w₀ = C_Nx^{α_x}(4c − x)h_N(x)·q_N(x) with
+  q_N(z) = Ψ₁(Nz^{−1/p})/Ψ₁(N), its Szegő function D_w = D_{RH_px}·D_q, poly(N) factors on the saturated/top pieces, and the
+  hard edge. μ*, g, φ, D̃, B, K, F, the normalization at ∞, and the Airy edge are unchanged.
+- *Hard edge (stop condition (i)).* q_N = z^{−ϑ_N/p}e^{ρ_N} is not Fisher–Hartwig; a KMVV parametrix with a glued W̃ (even with
+  the drifting order α_x − ϑ_N/p) leaves a jump 1 + O(ε₁) without rate on (−δ, 0), amplified to O(Nε₁) at the Bessel scale —
+  the obstruction is real for a quotient argument. It is avoided exactly as in RH_ζ_close §1: the comparison Bessel parametrix
+  of fixed order α_x uses W̃ := D_w, so nothing jumps on (−δ, 0); the lip mismatch satisfies **Lemma LW1′** |D_w²/w₀ − c_±| ≤
+  C(|z|^ν log(2/|z|) + ε₁(log N − C)) (NEW: the q_N-part follows from |log q_N(x) − log q_N(z)| ≤ ε₁(π + |log(x/|z|)|)/p and a
+  scale-invariant integral), so ‖v − ṽ‖_∞ → 0 **without a rate**, which is all C–D's resolvent comparison (Theorem C′) needs;
+  the Bessel localization gives the factor 1/N in Proposition D′. **(i) RESOLVED-mod-cite.**
+- *Uniformity in a drifting order (stop condition (ii)):* **MOOT** — the order is the fixed α_x. Not established, not used.
+- *New ingredients for general α_x ∈ (−1, 1):* the local form Ψ = Ψ̂ζ^{ασ₃/2}S (α ∉ ℤ) and Ψ = Ψ̂[[1, κ log ζ], [0, 1]]S
+  (α = 0) from DLMF 10.25.2, 10.27.4, 10.31.2; Lemma UR′ (= RH_ζ_close Lemma UR with Lemma W at a = ±α/2, needing |α| < 1);
+  Lemma W′ (log-commutator on a star, for α = 0; Mellin, DLMF 1.14); (Y4)_x with a Potter loss.
+
+**Corollary B_{p>1} (PROVED-mod-cite, Rule R pending).** For p > 1, 1 < s < 1 + 2p and every Ψ slowly varying in sequence form
+— no boundedness, no D(γ) < ∞, e.g. exp(√log k), exp((log k)^θ) (θ < 1), exp(√log k·sin log log k) — n^pb_n(k^{−s}Ψ) → c(p) and
+n^pa_n(k^{−s}Ψ) → 2c(p), with rate O(1/n + ρ(n/M₀)); rate O(1/n) if Ψ satisfies (H_an) itself. This is the first D(γ) = ∞
+case of Problem B (cf. §3.14 "no case of QL is proved"); it does not go through QL.
+
+**Remaining (GAP).** s ≥ 1 + 2p (α_x ≥ 1: Q̃ ∉ L²_loc at the Bessel scale, the C–D frame fails; ROUTE2 §6); p = 1 and p < 1
+(WP5); the 1/n coefficient (tilt law n^pb_n/c = 1 − (s − 1 − ϑ_n)/(2n) + o(ϑ_n/n), ϑ_n = L₁′(log n): CONJECTURE).
+
+**NUMERICAL (p = s = 2, α_x = −½).** RedA: max_{k≥n}|log Ψ − L₁(log k)| = 8.3e−3 → 8.6e−4 (n = 10² → 10¹², √log); LW1′:
+sup_{lips}|D_q²/q_N − 1|/ε₁-sample = 2.40 → 2.90 (N = 10² → 10¹², bounded; the limit π is the pure-tilt value);
+n(n^pb_n/c − 1) = −0.387 … −0.411 (n = 100 … 800; O(1/n)); drifting-order model k^{−(s−ϑ_n)} explains ≈ 99% of the 1/n effect
+of Ψ (residual n·dev/ϑ_n ≈ −0.006).
 
 ## 4. G1-R: what remains (stop report)
 

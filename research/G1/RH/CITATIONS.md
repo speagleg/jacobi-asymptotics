@@ -304,3 +304,17 @@ local form Ψ = Ψ̂ζ^{−σ₃/4}S for α = −½). RH_plt1.md Lemma 1.1′ (5
 > the mapping ζ = n²f(z) … Note that this definition does not depend on n."
 
 **Used in:** RH_plt1b.md §2. For all 0 < p < 1 the Ψ-rays are taken at angle π − θ_L, θ_L = πp/4, so that the lips lie in the inner sector.
+
+## (DLMF-3) NIST DLMF §§10.25, 10.31 — READ (web pages, 2026-10-14), for Plan 48 (route2/ROUTE2.md §3.2)
+
+> (10.25.2) "I_ν(z) = (½z)^ν Σ_{k=0}^∞ (¼z²)^k/(k! Γ(ν+k+1))"; §10.25(ii): "the principal branch of I_ν(z) … corresponds
+> to the principal value of (½z)^ν, is analytic in ℂ∖(−∞,0], and two-valued and discontinuous on the cut ph z = ±π."
+>
+> (10.31.2) "K_0(z) = −(ln(½z) + γ)I_0(z) + ¼z²/(1!)² + (1 + ½)(¼z²)²/(2!)² + (1 + ½ + ⅓)(¼z²)³/(3!)² + ⋯" (γ Euler's
+> constant; the n = 0 case of 10.31.1, stated for n = 0, 1, 2, …).
+
+**Used in:** route2/ROUTE2.md §3.2: the local form Ψ = Ψ̂ζ^{ασ₃/2}S of KMVV's Bessel matrix (6.23) for every non-integer
+α ∈ (−1, 1) (with 10.27.4, quoted in DLMF-2), and Ψ = Ψ̂[[1, κ log ζ], [0, 1]]S for α = 0. Hypotheses: none beyond the
+principal branches, which match KMVV (6.23) in |arg ζ| < 2π/3. KMVV (6.16)–(6.18), (6.23)–(6.25), (6.28), (6.45), Prop. 6.5
+and C–D Theorem 4.4 / the arguments of 4.7, 4.9 are used as quoted above (KMVV, C–D entries); no new statement of those
+sources is used.

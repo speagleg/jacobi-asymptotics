@@ -301,3 +301,30 @@
   LP constant 0.4156; QL at t = 0 is QLP, unproved), F3 (downward chaining needs ε_{⌈n/λ⌉}), F4 (Cauchy–Schwarz for the FVa
   cross piece), F5 (K-gap grows with n), F6 (QL₀ framing), F7 (labels: FV⁺ standard; L0 in §0; "full sequence"; QL/QL₀
   HYPOTHESIS; tilt law CONJECTURE) applied. Re-check ACCEPT (N1 QL wording, N2 K-qualifier applied) — REVIEWED.
+
+## 2026-10-14 — Plan 48 (Route II, stage 1: RH analysis for slowly varying weights, p > 1)
+- Write-up: `RH/route2/ROUTE2.md`; summary PROOF.md §3.17 and §0 row "RII / B_{p>1}". Plan: docs/superpowers/plans/2026-10-14-plan-48-route2.md.
+- **RedA** (PROVED): Gaussian smoothing of the piecewise-linear interpolant of log Ψ(e^τ); entire L₁, L₁^{(j)} → 0 in strips,
+  Ψ/Ψ₁ → 1, from the sequence form only (local oscillation ≤ 2δ_m(2e²)); base change by T3-conv's proof. The outline's claim
+  "T3-conv's proof never uses the base weight" checked line by line: true except that Sat_p⁺'s ratio W/w_k involves the
+  base; Potter (L0(ii)) supplies k^{s+η}. No BGT/UCT cited or used.
+- **RH set-up** (ROUTE2 §2): only w₀ (factor q_N = Ψ₁(Nz^{−1/p})/Ψ₁(N)), D_w, poly(N) factors on saturated/top pieces, and the
+  hard edge change; μ*, g, φ, D̃, B, K, F, normalization, Airy unchanged.
+- **Stop condition (i): RESOLVED-mod-cite.** The direct (glued-W̃, possibly drifting-order) parametrix does fail: the jump
+  1 + O(ε₁) on (−δ, 0) without rate becomes O(Nε₁) at the Bessel scale. Avoided as in RH_ζ_close §1: fixed-order comparison
+  parametrix with W̃ := D_w; new Lemma LW1′ (lip mismatch ≤ C(|z|^ν log + ε₁(log N − C))) gives ‖v − ṽ‖_∞ → 0 without rate,
+  enough for C–D's resolvent comparison; Proposition D′ gains 1/N from Bessel localization.
+- **Stop condition (ii): MOOT** (fixed order α_x; drifting-order uniformity not established, not used; relevant only for the
+  1/n coefficient).
+- New for general α_x ∈ (−1, 1): local form of KMVV's Ψ (DLMF 10.25.2, 10.31.2 read and quoted in RH/CITATIONS.md "DLMF-3");
+  Lemma UR′ (Lemma W with a = ±α/2); Lemma W′ (log-commutator, α = 0).
+- **Theorem RII** (PROVED-mod-cite): p > 1, 1 < s < 1 + 2p, (H_an) ⇒ n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n).
+  **Corollary B_{p>1}**: Theorem B for p > 1, 1 < s < 1 + 2p, every sequence-form slowly varying Ψ (first D(γ) = ∞ case).
+- **GAP:** s ≥ 1 + 2p (α_x ≥ 1: Q̃ not L²_loc, C–D frame fails); p ≤ 1 (WP5); the 1/n coefficient (tilt law, CONJECTURE).
+- **Rule A attempts** (ROUTE2 §6): Ψ₁ const (reduces to RH_px); Ψ = k^ρ (ε₁ ↛ 0, mismatch ≈ |e^{iπρ/p} − 1|, method
+  correctly inapplicable); α_x → ±1 (constants blow up, consistent with GAP); log-type (consistent with check_log_weights);
+  oscillating L; strip width (only |Im log t| < π/p used); UR′ independent of ε₁. No counterexample found.
+- **Numerics** (`RH/route2/checks/`, p = s = 2): RedA [1]–[3]; LW1′ mismatch/ε₁ = 2.40 → 2.90 (N = 10² → 10¹², → π, the
+  pure-tilt value); n(n^pb_n/c − 1) bounded (−0.39 … −0.41); tilt ratio 0.489 → 0.493; drifting-order model residual
+  n·dev/ϑ_n ≈ −0.006; Lemma W′ Mellin symbol bounded (π² on the diagonal).
+- **Rule R:** pending.
