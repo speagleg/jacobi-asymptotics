@@ -165,3 +165,42 @@ from the rates in the pure-power laws). Ra-b already says this for Ra.
 - I ≈ 0.314: NUMERICAL.
 
 The fixes are wording, cross-references and labels only. A light re-check, a diff read of F1–F7, is enough.
+
+## Re-check (2026-10-14, diff 79c69a7..3ccb3e4)
+
+**Verdict: ACCEPT.** F1–F7 are all applied correctly. No new issues.
+
+- **F1.** The cross-reference paragraph to §3.11 Lemma LRa is added at the head of §3.12. It covers:
+  - the same Toda form;
+  - constant 1 instead of 2, with ε = ½ osc f = inf_c‖f − c‖_∞;
+  - ε₀ = I/8 possible.
+
+  It states that §3.12 does not rely on §3.11. Correct. Keep the section numbering in mind at merge.
+- **F2.** Lemma LP′ is stated: for fixed i ∈ ℤ, μ_{N+i}^v rescaled by N^p converges weakly to ν. The proof is the LP
+  moment argument with |m − N − i| ≤ j and (m/N)^p → 1, re-derived and correct. R1a step 4, the R1a header and the §0
+  row now cite LP′, and the label PROVED-mod-cite (same citations) is right.
+- **F3.** H is now stated to be 1-Lipschitz, with the cos²/sin² reason. Correct.
+- **F4.** In the LOG, "(no atoms)" is replaced by "continuous test function". The new remark (i′) says the joint law of
+  (q_N, q_{N+1}) is not needed. Correct.
+- **F5.**
+  - The interleaving claim is now marked HEURISTIC.
+  - A4′ is now labelled PROVED-mod-cite (P), through G2 B*(iii).
+- **F6.**
+  - The quoted range is now 0.0985…0.1069.
+  - The script label now reads [10, 99]. In check_ra.out only that label line changed.
+  - A not-K-checked note is added for [3] and [4].
+- **F7.** R1a remark (i) now says "N₀ not explicit".
+
+**Remaining items (non-blocking).**
+- Merge order and numbering of §3.10–3.12 relative to Plans 39 and 40.
+- Once all reviews close, update the §0 row, the §3.12 header and plan T7 from "re-check pending" to REVIEWED.
+- Rule L (novelty) has not been run.
+
+**Final labels.**
+- Lemma Toda: PROVED (standard; novelty not claimed) + REVIEWED.
+- Lemma R2a: PROVED + REVIEWED.
+- Lemma LP′: PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b) + REVIEWED.
+- Lemma R1a: PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; via LP′) + REVIEWED.
+- Theorem Ra: PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, TV, LP/LP′, Sat_p⁺, TL) + REVIEWED.
+- Novelty: UNCHECKED.
+- I ≈ 0.314: NUMERICAL.
