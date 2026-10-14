@@ -302,21 +302,30 @@
   cross piece), F5 (K-gap grows with n), F6 (QL₀ framing), F7 (labels: FV⁺ standard; L0 in §0; "full sequence"; QL/QL₀
   HYPOTHESIS; tilt law CONJECTURE) applied. Re-check ACCEPT (N1 QL wording, N2 K-qualifier applied) — REVIEWED.
 
-## 2026-10-14 — Plan 45 (QL numerics N1–N3; outline_B_sv.md WP2) — NUMERICAL; Rule R pending
+## 2026-10-14 — Plan 45 (QL numerics N1–N3; outline_B_sv.md WP2) — NUMERICAL; Rule R ACCEPT WITH FIXES — REVIEWED
 - **Script** `checks/check_ql_numerics.py` / `.out` (≈ 8 min). Model: atoms k ≤ K plus a Gauss–Legendre log-panel tail
   quadrature to 10⁴⁸ (as Plan 10 Phase 0), so the hard-edge region k ≍ n^{1+2/p} is represented at p ≤ 1. RKPW long double;
   μ_m by long-double recurrence above an adaptive start index (long double vs float64 agreement); K_m(fq_m) by streaming.
   Checks: K vs 2K, quad vs long double, Lanczos (full reorthogonalization), TV identity by finite difference in t.
-- **Tooling note.** A fixed head cutoff k0 = θ·m for the recurrence fails (garbage of size 10²⁰–10⁵⁰ for θ below ~0.8 of
+- **Tooling note (exploratory runs, not in the .out).** A fixed head cutoff k0 = θ·m for the recurrence fails (garbage of size 10²⁰–10⁵⁰ for θ below ~0.8 of
   the band edge (4c)^{−1/p}m; the safe θ grows with m); the first adaptive rule (relative agreement only) cut too high
-  (missing mass 10⁻⁷, flagged near zeros of p_m); the final rule (1e−9 relative or 1e−14 absolute) loses ≤ 10⁻¹⁷.
-- **N1:** at p = 1 and ½ the tilt ratio n·dev/ϑ_n rises toward 0.5 (0.466–0.493 at n = 1600) but more slowly than at p = 2;
+  (missing mass 10⁻⁷, flagged near zeros of p_m); the final rule (1e−9 relative or 1e−14 absolute) loses ≤ 5·10⁻¹⁸ where checked (Lanczos, m ≤ 200, K = 2·10⁴, no tail); for m ≤ 1600 with the tail only |1 − Σμ| ≤ 2·10⁻¹³ is shown.
+- **N1:** at p = 1 and ½ the tilt ratio n·dev/ϑ_n rises toward 0.5 (0.465–0.493 at n = 1600) but more slowly than at p = 2;
   the exact pure-power tilt k^{−(s−ϑ_n)} gives 0.5 (d₁ shift confirmed), and dev_w/dev_tilt = 0.93 (p = ½), 0.97 (p = 1),
-  0.99 (p = 2) at n = 1600 with a defect ≈ c_p/log n. Limit 0.5 consistent, not established; tilt law stays CONJECTURE.
+  0.99 (p = 2) at n = 1600 (sqrt only); (1 − dev_w/dev_tilt)·log n decreases for every p, so the defect decays at least like 1/log n. Limit 0.5 consistent, not established; tilt law stays CONJECTURE.
 - **N2:** QL-b power tails with α = min(p/2, 0.8) and C ≈ 0.4–0.6 flat in n and t; arcsine slope −p/2 then far-tail
-  slope −(s − 1) (−0.9 at t = 1), crossover M_x ≈ 3.3n² (p = 1), 0.34n⁴ (p = ½); Λ_n with the tail approaches the LP
+  slope −(s − 1) (−0.9 at t = 1), crossover M_x ≍ n^{2/p} (grid-quantized brackets [1.6, 6.6]n² at p = 1, [0.17, 0.67]n⁴ at p = ½; sqrt only); Λ_n with the tail approaches the LP
   constants 0.4156 / 0.9297 / 2.0762, flat in t; ε_nΛ_n decreasing in every case.
 - **N3 (go/no-go):** R = |⟨1_Aq_m, K_m(g_nq_m)⟩|/μ_m(A) ≤ 0.93·ε_n(1 + log M) on all data (p ∈ {2, 1, ½}, t ∈ {0, ½, 1},
-  n ≤ 400, M ≤ 2²⁹), saturating beyond the hard edge; no μ_m(A)^{−1/2} growth. **Route I′ not dead** (outline stop
-  condition (iii) not triggered); CB plausible numerically, unproved.
+  n ≤ 400, M ≤ 2²⁹, sqrt only). **Route I′ not dead** on the outline's literal criterion; CB plausible numerically
+  (mainly at p = 2, partly p = 1), unproved. (Rule R F1: the saturation beyond the hard edge, R → |P(0)/p_m(0)|, is
+  structural for any f and is not evidence; at p = ½ the tested window cannot separate the CB and Cauchy–Schwarz scales.)
 - No proof claimed; README.md and THEOREMS.md not edited.
+- **Plan 44 correction (F8).** With the tail, sup_tΛ_n is attained at t = 1 in every row; Plan 44's "sup at t = 0" (§3.14
+  Bc2) was a truncation artifact (size ≤ 5·10⁻³; no conclusion changes). Dated note added in Bc2.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan45.md). F1 (saturation structural; p = ½ non-discriminating; verdict on
+  the literal criterion), F2 (R vs mean_A g_n), F3 (one weight in N2–N3), F4 (crossover brackets; exception n ∈ {25, 50};
+  exponent 2/p), F5 (p = 2 plateau −0.3 … −0.8), F6 (defect decays ≥ 1/log n; tilt comparison sqrt only; 0.465; fit bias),
+  F7 (tail-mass K-gap = boundary quantization), F8 (sup at t = 1), F9 (check scope; TV finite-difference check added at
+  p = 1 and ½, agreeing to 5 digits for M = 2 … 2²⁹; script rerun, all other output identical), F10 (tooling note marked
+  exploratory), F11 (QL-b constant uses m = n, t ∈ {0, 1}) applied — REVIEWED.

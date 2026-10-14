@@ -361,21 +361,23 @@ R, _, _, _, _ = R3[(2.0, 1.0, 100000, 100)]; R2, _, _, _, _ = R3[(2.0, 1.0, 2000
 print(f"  K-doubling (p=2, t=1, n=100): max_M |R(K)/R(2K) - 1| = {np.abs(R / R2 - 1).max():.1e}; "
       f"all n: {max(np.abs(R3[(2.0, 1.0, 100000, n)][0] / R3[(2.0, 1.0, 200000, n)][0] - 1).max() for n in NS3):.1e}",
       flush=True)
-# cross-check (b): the TV identity by a central difference in t (p = 2, t = 1/2, n = 100, K = 100000, with tail)
-n, t0, dh = 100, 0.5, 1e-3
-lab, x, w = model(2.0, 100000, L, t0); f = L(lab) - L(float(n))
-a, b2 = rkpw(x, w, n + 2); i0 = rows(x, w, a, b2, (n,), 2.0)[n][0]
-qm, h, _ = kernel_X(x, w, a, b2, n, i0, f); lb = lab[i0:]; mu = qm * qm; fm = float((mu * f[i0:]).sum())
-Mb = 2.0 ** np.array([1, 5, 9, 13, 17, 21])
-muP = {}
-for sg in (+1, -1):
-    _, _, ws = model(2.0, 100000, L, t0 + sg * dh); aa, bb = rkpw(x, ws, n + 2); st = rows(x, ws, aa, bb, (n,), 2.0)[n]
-    muP[sg] = np.array([float(st[1][lab[st[0]:] > M * n].sum()) for M in Mb])
-out = []
-for i, M in enumerate(Mb):
-    A_ = lb > M * n; muA = float(mu[A_].sum())
-    XF = 0.5 * (float((mu * f[i0:])[A_].sum()) - fm * muA - (muP[1][i] - muP[-1][i]) / (2 * dh))
-    XD = float((qm * h)[A_].sum())
-    out.append(f"M=2^{int(np.log2(M))}: X={XD:+.4e} X_FD={XF:+.4e}")
-print("  check (b) TV identity by central difference (p=2, t=1/2, n=100, h=1e-3): " + "; ".join(out), flush=True)
+# cross-check (b): the TV identity by a central difference in t (t = 1/2, n = 100, K = 100000, with tail),
+# at p = 2 and (Plan 45 Rule R, F9) at p = 1/2 and p = 1, where the largest N3 ratios occur
+for pb in (2.0, 0.5, 1.0):
+    n, t0, dh = 100, 0.5, 1e-3
+    lab, x, w = model(pb, 100000, L, t0); f = L(lab) - L(float(n))
+    a, b2 = rkpw(x, w, n + 2); i0 = rows(x, w, a, b2, (n,), pb)[n][0]
+    qm, h, _ = kernel_X(x, w, a, b2, n, i0, f); lb = lab[i0:]; mu = qm * qm; fm = float((mu * f[i0:]).sum())
+    Mb = 2.0 ** np.array([1, 5, 9, 13, 17, 21, 25, 29])
+    muP = {}
+    for sg in (+1, -1):
+        _, _, ws = model(pb, 100000, L, t0 + sg * dh); aa, bb = rkpw(x, ws, n + 2); st = rows(x, ws, aa, bb, (n,), pb)[n]
+        muP[sg] = np.array([float(st[1][lab[st[0]:] > M * n].sum()) for M in Mb])
+    out = []
+    for i, M in enumerate(Mb):
+        A_ = lb > M * n; muA = float(mu[A_].sum())
+        XF = 0.5 * (float((mu * f[i0:])[A_].sum()) - fm * muA - (muP[1][i] - muP[-1][i]) / (2 * dh))
+        XD = float((qm * h)[A_].sum())
+        out.append(f"M=2^{int(np.log2(M))}: X={XD:+.4e} X_FD={XF:+.4e}")
+    print(f"  check (b) TV identity by central difference (p={pb}, t=1/2, n=100, h=1e-3): " + "; ".join(out), flush=True)
 print(f"\ndone {el()}", flush=True)
