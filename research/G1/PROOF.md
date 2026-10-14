@@ -32,7 +32,7 @@ known; its application here to Law P is what is new.
 | Sat_p⁺ | Sat_p for all p > 0, with the extra factor ((n+1)/k)^{2(1−p)₊} and g_p⁺ (§3.3); internal input of T3-conv, T3-sv, T3a, Thm R, L, T3-all, T3-log | no separate label in the §3.3 header (which labels T3-conv); the proof is that of Lemma Sat_p (PROVED) with two elementary changes; Rule R (review/REVIEW_Plan29.md) ACCEPT WITH FIXES, F1 applied — REVIEWED |
 | G1-R | (T3) from the atoms alone; (CL) (proved for pure-power atoms with rough weights, p > 1: Theorem CL; open for general nodes or p ≤ 1) | (T3) half **REFUTED** for sandwiched weights (Theorem R, §3.6); PROVED-mod-cite for pure-power nodes with slowly varying Ψ: bounded Ψ (Theorem T3-all, §3.8; contains T3-conv, T3-sv/T3a, T3-avg) and log-type Ψ (Theorem T3-log, §3.9); open for slowly varying Ψ with D(γ) = ∞ and for nodes other than pure powers. (CL) half: proved for pure powers k^{−p}, p > 1 (Theorem CL); open for general nodes or p ≤ 1 (see §4). *(Row updated by Plan 37, 2026-10-14; previously "proved for polynomially slowly varying weights (T3-sv/T3a); (CL) half unchanged".)* |
 | FV | first variation: d/dt log b_n²(v e^{tf}) = ⟨f, μ_n − μ_{n−1}⟩, μ_n := w p_n² (§3.2) | PROVED (standard; novelty not claimed); REVIEWED |
-| Conj R | (T3) — hence the pointwise b-law — FAILS for some weights e^{−ε}k^{−2} ≤ w_k ≤ e^{ε}k^{−2} (p = s = 2; §3.2, Plan 28) | Proved in modified form as Theorem R (§3.6): ε ≤ ε₀, non-explicit η, windows [θN, N^{κ+1}]. The [0.6N, 1.6N]-window form remains NUMERICAL |
+| Conj R | (T3) — hence the pointwise b-law — FAILS for some weights e^{−ε}k^{−2} ≤ w_k ≤ e^{ε}k^{−2} (p = s = 2; §3.2, Plan 28) | Proved in modified form as Theorem R (§3.6): ε ≤ ε₀, non-explicit η, windows [θN, N^{κ+1}]. The [0.6N, 1.6N]-window form remains NUMERICAL (as of Plan 33). *(Plan 39, 2026-10-14: window form, incl. [0.6N, 1.6N], proved for ε ≤ ε₀ explicit with N_{i+1}/N_i → ∞ — Theorem RW, §3.10, Rule R ACCEPT WITH FIXES, re-check ACCEPT — REVIEWED; every-ε/absolute-c and ×4 forms still NUMERICAL.)* |
 | **Thm R** | Conjecture R proved in modified form (all p > 0, s > 1): there is ε₀ = η/16 such that for every ε ≤ ε₀ there is f with \|f\| ≤ ε such that w = k^{−s}e^{f} has limsup \|log(β_n²/β_{n−1}²)\| ≥ εη/2; so (T3) and the pointwise b-law fail for some weights in [e^{−ε}, e^{ε}]·k^{−s} (§3.6, Plan 33) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: FV, Sat_p⁺, TL, §3.5 two-point formula); proves Conjecture R in modified form; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan33.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED. Sub-labels: R2 PROVED; R1 PROVED-mod-cite |
 | **T3-conv** | pointwise b-law (hence (T3)) for x_k = k^{−p} (p > 0), w_k = k^{−s}ψ_k (s > 1) with **ψ_k → L ∈ (0, ∞)** (rough at finite scales, decaying roughness): n^p b_n → c(p) (§3.3, Plan 29) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: Lemma FV (REVIEWED), Lemma Sat_p⁺); REVIEWED; novelty UNCHECKED (comparison theorems of Máté–Nevai–Totik type may be classical) |
 | TL | polynomial tail localization: for sandwiched weights c k^{−s} ≤ w_k ≤ C k^{−s} (s > 1), 𝔼_{n+1}#(S ∩ (T, ∞)) ≤ ε, hence μ_n((T, ∞)) ≤ ε, for T ≥ A·n^{κ}ε^{−1/(s−1)}, κ = (2 + 2/p)s/(s−1) (§3.4) | PROVED (textbook-standard Markov/Chebyshev inequalities, quoted); REVIEWED; novelty UNCHECKED (pointers: Ehlich–Zeller 1964, Coppersmith–Rivlin 1992, Rakhmanov 2007, Nevai, Máté–Nevai–Totik) |
@@ -46,6 +46,7 @@ known; its application here to Law P is what is new.
 | **Thm L** | localization at scale Mn: limsup sup_t μ_m^{(t)}((Mn, ∞)) ≤ e^{4G}F_p(M) for bounded slowly varying Ψ (§3.8) | PROVED-mod-cite (as LP; internal TV, Sat_p⁺) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-all** | for w = k^{−s}Ψ with Ψ bounded and **slowly varying** (δ_n(λ) → 0): n^pb_n → c(p) and n^pa_n → 2c(p) for **all n** — the full pointwise Law P; contains T3-conv, T3-sv, T3-avg (§3.8, Plan 35) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, L) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-log** | for w = k^{−s}Ψ with Ψ **log-type slowly varying** (slowly varying, and D(γ) < ∞; e.g. (log k)^α, any α ∈ ℝ): the full pointwise Law P, all n; contains T3-all (§3.9, Plan 36) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, TL(w), L, T3-all) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
+| **RW** | Conjecture R in window form (all p > 0, s > 1): for every window [aN, bN] with b > u_s(p) (e.g. [0.6N, 1.6N], admissible for every p), explicit η_W > 0 and ε₀ = η_W/16 such that for ε ≤ ε₀, f(k) := ε·Σ_i sign(Δ²μ^v_{m_i}(k))·1_{[aN_i, bN_i]}(k) (pointwise signs) with N_{i+1}/N_i → ∞ (or > R_W fixed) gives limsup log(β_n²/β_{n−1}²) ≥ εη_W/2 (resp. /4), i.e. limsup (β_n/β_{n−1} − 1) ≥ εη_W/4 (resp. /8); Lemma R1W: for N ≥ N₀, ‖Δ²μ^v_m\|_{[aN,bN]}‖₁ ≥ η_W for some m ∈ [N − J_W + 1, N] (§3.10, Plan 39) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, R2, LP, Sat_p⁺, G2 B*(i) ((P)-free)); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan39.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED. Not proved: every ε with absolute c; ×4 separation (NUMERICAL) |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1 §§2–6) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; G2 PROOF.md μ*, B* — only μ* and B*(i)–(ii), which do not use (P)) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -299,7 +300,7 @@ A4 (i)–(ii) still need β_n → 1, i.e. (T3) via G1-T.
 - **CL4 (scope, F5).** (CL) is proved here for exact pure-power atoms k^{−p} with p > 1 only. It is not proved for
   general regularly spaced nodes f(k), and for p ≤ 1 (CL)/A2 do not apply as stated.
 
-### 3.2 (T3) for rough weights: first variation and counter-evidence (Plan 28) — FV PROVED (standard); Conjecture R NUMERICAL (proved in modified form, §3.6); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan28.md), fixes applied, re-check ACCEPT — REVIEWED
+### 3.2 (T3) for rough weights: first variation and counter-evidence (Plan 28) — FV PROVED (standard); Conjecture R NUMERICAL (modified forms proved: §3.6, §3.10); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan28.md), fixes applied, re-check ACCEPT — REVIEWED
 
 **Lemma FV (first variation; standard, novelty not claimed).** Let w(t) := v·e^{tf}, where v is a weight sequence
 with finite moments and f is bounded, on fixed atoms x_k. Let p_j = p_j^{(t)} be the orthonormal polynomials of w(t),
@@ -354,7 +355,7 @@ perturbation there (Rakhmanov-type theorems; recollection, not cited). The evide
 
 Together these allow a single bounded sequence to keep spiking at sparse scales.
 
-**Conjecture R** (stated for p = s = 2, which is all the numerics test). **Proved for all p > 0, s > 1, in a modified form, as Theorem R (§3.6):** ε ≤ ε₀, non-explicit η, and windows [θN, N^{κ+1}] in place of [0.6N, 1.6N]. The [0.6N, 1.6N] form would need localization at scale Mn and remains NUMERICAL (F2). For every ε > 0 there is f with |f| ≤ ε,
+**Conjecture R** (stated for p = s = 2, which is all the numerics test). **Proved for all p > 0, s > 1, in a modified form, as Theorem R (§3.6):** ε ≤ ε₀, non-explicit η, and windows [θN, N^{κ+1}] in place of [0.6N, 1.6N]. The [0.6N, 1.6N] form would need localization at scale Mn and remains NUMERICAL (F2) (as of Plan 33; superseded by Plan 39 for ε ≤ ε₀). *(Plan 39, 2026-10-14: the window form, including [0.6N, 1.6N] for every p > 0, s > 1, is now proved for ε ≤ ε₀ (explicit) with separation N_{i+1}/N_i → ∞ or a fixed explicit ratio — Theorem RW, §3.10, PROVED-mod-cite, Rule R ACCEPT WITH FIXES, re-check ACCEPT — REVIEWED. The bound for every ε > 0 with absolute c, and ×4 separation, remain NUMERICAL.)* For every ε > 0 there is f with |f| ≤ ε,
 supported on windows [0.6N_i, 1.6N_i] along a sufficiently sparse sequence N_i, such that w = k^{−2}e^{f} satisfies
 limsup_n |β_n/β_{n−1} − 1| ≥ cε, with c > 0 absolute.
 - Then β_n does not converge, so (T3) and the pointwise law n²b_n → c(2) fail.
@@ -954,6 +955,200 @@ M₁n ≤ n^γ (step 2) and T″ ≤ n^γ (step 3); both hold for n large. For n
   |β_n(vΨ)/β_n(v) − 1| and |A_n(vΨ) − A_n(v)| decrease from ≈ 10⁻³ (n = 100) to 2–6·10⁻⁵ (n = 3200),
   with halving ratios 2.16–2.25 per doubling (n·log n·deviation/|α| ≈ 0.46–0.49, consistent with |α|/(n log n)),
   in exact proportion 1 : 2 : 3 to |α|; K-converged (K = 1.2·10⁵ vs 2.4·10⁵).
+
+### 3.10 Theorem RW (Plan 39): Conjecture R in window form, for ε ≤ ε₀ — Lemma u_s PROVED; LP-w, R1W PROVED-mod-cite; RW PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan39.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED
+
+Setting and notation as in §3.6 and §3.8: x_k = k^{−p} (p > 0), v_k := k^{−s} (s > 1), w = v·e^{f} with f bounded;
+q_j = √w p_j, μ_j = q_j², D_m := μ_m − μ_{m−1}, Δ²μ_m := μ_m − 2μ_{m−1} + μ_{m−2}, F_m(w) := log(b_m²/b_{m−1}²). The
+recurrence is b_Nq_N = (x − a_{N−1})q_{N−1} − b_{N−1}q_{N−2}, as in Lemma R1. c = c(p), u_s = u_s(p) := (4c(p))^{−1/p}
+(G2 §1). For a measure-like sequence g and an index set S, g|_S := g·1_S and ‖g‖₁ := Σ_k|g(k)|. Superscript v means
+"computed for the pure power v". Only R2, R1W, FV, LP and Sat_p⁺ are used. Lemma TL and Lemma TV are not needed (see
+remark RW-c).
+
+**Windows.** A *window* is a pair 0 < a < b < ∞, with W_N := ℕ ∩ [aN, bN]. It is *admissible* (for p) if b > u_s(p).
+Put
+
+  I_W := (b^{−p}, a^{−p}) ∩ (0, 4c),  Θ_W := {θ ∈ (0, π) : 2c(1 + cos θ) ∈ I_W},
+  c_W := (1/π)∫_{Θ_W} dist(2cos θ, {−2, 0, 2})² dθ,
+  δ_W := c_W/32,  J_W := ⌈2/δ_W⌉,  η_W := δ_W/J_W²,  ε₀(W) := η_W/16.
+
+The window is admissible iff I_W ≠ ∅ (b^{−p} < 4c ⇔ b > u_s). Then c_W > 0: θ ↦ 2c(1 + cos θ) maps (0, π)
+continuously onto (0, 4c), so Θ_W is a non-empty open set, and the integrand vanishes only where 2cos θ ∈ {−2, 0, 2},
+i.e. at θ ∈ {0, π/2, π}. All of these constants depend only on (p, a, b), not on s. Their values (quadrature; `checks/check_rw.out` [1]): for W = [0.6, 1.6] and p = 2, c_W ≈ 0.2345,
+J_W = 273, η_W ≈ 9.8·10⁻⁸, ε₀ ≈ 6.1·10⁻⁹. These are crude; see remark RW-b.
+
+**Lemma u_s (PROVED; internal input G2 B*(i), whose proof is a direct density computation and does not use (P)).** u_s(p) < 1 for every p > 0. Hence every window with b ≥ 1 is admissible; in particular [0.6, 1.6]
+is admissible for every p > 0.
+
+*Proof.* By G2 B*(i), μ*_u has density 1 on (0, u_s], so μ*_u((0, u_s]) = u_s. In the x-variable, u ≤ u_s is
+x ≥ 4c. μ* is a probability measure, so u_s = 1 − μ*((0, 4c)). Finally μ*((0, 4c)) > 0: μ* = ∫_0^1ω_{β_t}dt, and
+for t ∈ [½, 1] the arcsine law ω_{β_t} on [0, β_t] (distribution function (2/π)arcsin√(y/β_t), no atoms) gives
+mass (2/π)arcsin√(4c/β_t) = (2/π)arcsin(t^{p/2}) ≥ (2/π)arcsin(2^{−p/2}) > 0 to [0, 4c) (β_t = 4ct^{−p}). So
+μ*((0, 4c)) ≥ ½·(2/π)arcsin(2^{−p/2}) > 0. ∎ (Numerically u_s = 0.375, 0.5, 0.637, 0.763 for p = 0.5, 1, 2, 4; the formula
+u_s = 2I(p)/π of G2 B*(i) is not needed.)
+
+**Lemma LP-w (weak form of Lemma LP; PROVED-mod-cite, as Lemma LP: RH_px, RH₁(r), RH_plt1b).** Let ν_n be the image of μ_n^v under x ↦ n^px. Then ν_n → ν weakly as
+n → ∞, where ν is the arcsine law on [0, 4c(p)]: the image of dθ/π on (0, π) under θ ↦ 2c(1 + cos θ). Also
+n^pa_n^v → 2c(p) and n^pb_n^v → c(p).
+
+*Proof.* This is the content of the proof of Lemma LP (§3.8), which states "ν_n converges weakly to it" (method of
+moments, from the pure-power laws RH_px for p > 1, RH₁(r) for p = 1, RH_plt1b for 0 < p < 1). The last two limits are
+those pure-power laws. Index shifts by a bounded amount do not change them, since ((n + j)/n)^p → 1. ∎
+
+**Lemma R1W (window non-degeneracy).** Let W be an admissible window. There is N₀ = N₀(p, s, W) such that for every
+N ≥ N₀ some m ∈ [N − J_W + 1, N] has
+
+  ‖Δ²μ_m^v|_{W_N}‖₁ ≥ η_W.
+
+N₀ is not explicit (it depends on the rate in Lemma LP-w); δ_W, J_W, η_W are explicit.
+
+*Proof.* Write S := W_N, δ := δ_W, J := J_W, η := η_W, and suppose ‖Δ²μ_m|_S‖₁ < η for every m ∈ [N − J + 1, N]
+(all measures are those of v). We show that this fails for N ≥ N₀.
+1. **First differences on S are small.** For m ∈ [N − J, N], D_N − D_m = Σ_{j=m+1}^{N}Δ²μ_j, so
+   ‖(D_N − D_m)|_S‖₁ ≤ (N − m)η. Also μ_N − μ_{N−J} = Σ_{m=N−J+1}^{N}D_m, and ‖(μ_N − μ_{N−J})|_S‖₁ ≤ 2. So
+   J‖D_N|_S‖₁ ≤ 2 + Σ_{m=N−J+1}^{N}(N − m)η = 2 + ηJ(J − 1)/2, i.e. ‖D_N|_S‖₁ ≤ 2/J + (J − 1)η/2. Since
+   D_{N−1} = D_N − Δ²μ_N, ‖D_{N−1}|_S‖₁ ≤ 2/J + (J + 1)η/2. With 2/J ≤ δ and η = δ/J², both are ≤ 2δ (J ≥ 2).
+2. **Moduli nearly agree on S.** Put e := |q_{N−2}| − |q_{N−1}| and e′ := |q_N| − |q_{N−1}|. Since
+   (α − β)² ≤ |α² − β²| for α, β ≥ 0, Σ_{k∈S}e_k² ≤ ‖D_{N−1}|_S‖₁ ≤ 2δ and Σ_{k∈S}e′_k² ≤ ‖D_N|_S‖₁ ≤ 2δ.
+3. **The recurrence on S.** Fix k ∈ S, let σ_k := sign(q_{N−1}(k)q_{N−2}(k)) (+1 if the product vanishes) and
+   t_k := x_k − a_{N−1} − b_{N−1}σ_k. We claim
+     |q_{N−1}(k)|·| |t_k| − b_N | ≤ b_{N−1}|e_k| + b_N|e′_k|.
+   If q_{N−1}(k) = 0 the left side is 0. Otherwise q_{N−2}(k) = σ_k·sgn(q_{N−1}(k))·|q_{N−2}(k)|, so the recurrence
+   gives b_N|q_N| = |(x_k − a_{N−1})|q_{N−1}| − b_{N−1}σ_k|q_{N−2}|| = |t_k|q_{N−1}| − b_{N−1}σ_ke_k|, hence
+   |b_N|q_N| − |t_k||q_{N−1}|| ≤ b_{N−1}|e_k|; and b_N|q_N| = b_N|q_{N−1}| + b_Ne′_k. This proves the claim.
+   - ||t| − b_N| = dist(t, {±b_N}) ≥ dist(x_k − a_{N−1}, Z̃) with Z̃ := {±b_{N−1} ± b_N}. Put b̄ := max(b_N, b_{N−1}),
+     y_k := (x_k − a_{N−1})/b̄ and Z_N := Z̃/b̄. Squaring the claim ((α + β)² ≤ 2α² + 2β²) and summing over S, with
+     step 2:
+       Σ_{k∈S}μ_{N−1}(k)·dist(y_k, Z_N)² ≤ 2(‖e|_S‖₂² + ‖e′|_S‖₂²) ≤ 8δ = c_W/4.   (∗)
+4. **Weak convergence contradicts (∗).** Put n := N − 1 and Y_k := n^px_k. Then y_k = φ_N(Y_k) with
+   φ_N(Y) := (Y − n^pa_{N−1})/(n^pb̄). By Lemma LP-w, n^pa_{N−1} → 2c and n^pb̄ → c, so φ_N → φ(Y) := (Y − 2c)/c
+   uniformly on compact sets, and Z_N → Z := {−2, 0, 2} in the Hausdorff distance d_H. Since dist(·, Z_N) is
+   1-Lipschitz and |dist(y, Z_N) − dist(y, Z)| ≤ d_H(Z_N, Z), dist(φ_N, Z_N)² → dist(φ, Z)² uniformly on compact
+   sets.
+   - Choose a continuous h with 0 ≤ h ≤ 1, compact support in the open interval I_W, and
+     ∫h·dist(φ, Z)²dν ≥ c_W/2. This is possible by monotone convergence (h_j ↑ 1_{I_W}). Note
+     ∫_{I_W}dist(φ, Z)²dν = c_W, since φ(2c(1 + cos θ)) = 2cos θ.
+   - k ∈ S ⇔ aN ≤ k ≤ bN ⇔ Y_k ∈ [(n/(bN))^p, (n/(aN))^p]. These endpoints tend to b^{−p} and a^{−p}, so for N
+     large supp h lies inside this interval, and 1_S(k) ≥ h(Y_k) for all k.
+   - Hence the left side of (∗) is ≥ ∫G_N dν_n with G_N := h·dist(φ_N, Z_N)². G_N → G := h·dist(φ, Z)²
+     uniformly on [0, ∞) (both vanish off supp h), and G is bounded and continuous. So
+     ∫G_Ndν_n = ∫Gdν_n + o(1) → ∫Gdν ≥ c_W/2 by Lemma LP-w.
+   - So for N ≥ N₀ the left side of (∗) exceeds c_W/4, which contradicts (∗). ∎
+
+**Theorem RW (Conjecture R in window form).** Let p > 0, s > 1, let W = (a, b) be an admissible window, and let
+N₀, J_W, η_W, ε₀ := η_W/16 be as above. Let θ₁ = θ₁(p) ∈ (0, ½] be such that g_p⁺ ≥ 1 on (0, θ₁] (Sat_p⁺; it exists
+because g_p⁺(θ) → +∞ as θ → 0). Let N₁ < N₂ < … be integers with N₁ ≥ max(N₀, 2J_W + 2) and bN_i < aN_{i+1}, and
+satisfying either
+- (A) N_{i+1}/N_i → ∞; or
+- (B) N_{i+1} > R_W·N_i for every i, where R_W := max(b/a, 2b/θ₁, M_W/a) and
+  M_W := max(1, (4c(p)·sin²(πη_W/32))^{−1/p}). Then M_W ≥ 1 and F_p(M_W) ≤ η_W/16 (F_p as in Lemma LP; F_p is
+  nonincreasing, and F_p((4c sin²(πη_W/32))^{−1/p}) = (2/π)arcsin(sin(πη_W/32)) = η_W/16 since πη_W/32 < π/2).
+
+For each i pick m_i ∈ [N_i − J_W + 1, N_i] as in Lemma R1W, put W_i := W_{N_i} = ℕ ∩ [aN_i, bN_i] and
+let s_i be the pointwise sign function s_i(k) := sign(Δ²μ_{m_i}^v(k)) ∈ {±1} (with sign 0 := +1), and set
+
+  f(k) := ε·Σ_i s_i(k)·1_{W_i}(k),  w := v·e^{f}.
+
+Then for every ε ∈ (0, ε₀]: |f| ≤ ε, f is supported on ∪_iW_i, e^{−ε}k^{−s} ≤ w_k ≤ e^{ε}k^{−s}, and
+
+  (A): liminf_i F_{m_i}(w) ≥ εη_W/2;  (B): liminf_i F_{m_i}(w) ≥ εη_W/4.
+
+Consequently, with β_n := n^pb_n/c(p), limsup_n log(β_n²/β_{n−1}²) ≥ εη_W/2 (resp. εη_W/4), and in the
+normalisation of Conjecture R (§3.2)
+
+  limsup_n (β_n/β_{n−1} − 1) ≥ e^{εη_W/4} − 1 ≥ εη_W/4  (A);  ≥ e^{εη_W/8} − 1 ≥ εη_W/8  (B).
+
+(The spikes are one-signed, F_{m_i}(w) > 0, so no 1 − e^{−x} loss occurs; review F1.) So β_n does not converge, (T3) fails for w (as in Theorem R), and so does the pointwise b-law. H_all still holds for w, and so does
+Theorem CL when p > 1 (as in Theorem R).
+
+*Proof.* The windows W_i are disjoint (bN_i < aN_{i+1}), so |f| ≤ ε and the sandwich holds. Fix i and m := m_i, and
+put H_i := ∪_{j<i}W_j ⊂ [1, bN_{i−1}] and T_i := ∪_{j>i}W_j ⊂ [aN_{i+1}, ∞).
+1. **Linearisation along the direct path.** Let u(t) := v·e^{tf}, t ∈ [0, 1]. By Lemma FV, (d/dt)F_m(u(t)) =
+   ⟨f, Δ²μ_m^{(t)}⟩, and by Lemma R2 (valid along ve^{tf} for every bounded f and every m), |(d²/dt²)F_m| ≤ 16ε².
+   Taylor's formula with integral remainder, F(1) = F(0) + F′(0) + ∫_0^1(1 − t)F″(t)dt, gives
+     F_m(w) ≥ F_m(v) + ⟨f, Δ²μ_m^v⟩ − 8ε².
+   (t ↦ F_m(u(t)) is C², as in the proofs of Lemma FV and T3-conv step 1.)
+2. **Own window.** ⟨f, Δ²μ_m^v⟩ = ε‖Δ²μ_m^v|_{W_i}‖₁ + ⟨f1_{H_i∪T_i}, Δ²μ_m^v⟩, and the first term is ≥ εη_W by
+   the choice of m (Lemma R1W). The second, the cross-window term, has absolute value
+     E_i ≤ ε·Σ_{m′∈{m, m−1, m−2}} c_{m′}·μ_{m′}^v(H_i ∪ T_i),  (c_m, c_{m−1}, c_{m−2}) = (1, 2, 1).
+3. **Head.** Let m′ ∈ {m, m − 1, m − 2}, so N_i − J_W − 1 ≤ m′ ≤ N_i and m′ ≥ N_i/2 (N_i ≥ 2J_W + 2). For
+   k ∈ H_i, k ≤ bN_{i−1}. In case (A), k/m′ ≤ 2bN_{i−1}/N_i → 0, so k/m′ ≤ θ₁ for i large. In case (B),
+   k/m′ < 2b/R_W ≤ θ₁. Then k < m′ (θ₁ ≤ ½), and μ_{m′} = ρ_{m′+1} − ρ_{m′} ≤ 1 − ρ_{m′} with Lemma Sat_p⁺ (W = ζ(s),
+   w_k = k^{−s}, g_p⁺(k/m′) ≥ 1) give μ_{m′}^v(k) ≤ ζ(s)k^s((m′ + 1)/k)^{2(1−p)₊}e^{−2m′}
+   ≤ ζ(s)(m′ + 1)^{s+2}e^{−2m′}. Summing over k ≤ m′:
+     μ_{m′}^v(H_i) ≤ ζ(s)(m′ + 1)^{s+3}e^{−2m′} → 0  (i → ∞).
+4. **Tail.** In case (A), fix M ≥ 1. For i large, aN_{i+1} > MN_i ≥ Mm′, so T_i ⊂ (Mm′, ∞) and, by Lemma LP (applied
+   with n = m′ → ∞), limsup_i μ_{m′}^v(T_i) ≤ F_p(M). Since M is arbitrary and F_p(M) → 0, μ_{m′}^v(T_i) → 0. In
+   case (B), aN_{i+1} > aR_WN_i ≥ M_Wm′, so limsup_i μ_{m′}^v(T_i) ≤ F_p(M_W) ≤ η_W/16.
+5. **Conclusion.** By steps 3–4, limsup_iE_i = 0 in case (A) and ≤ 4ε·η_W/16 = εη_W/4 in case (B). F_m(v) → 0 by
+   the pure-power b-law (n^pb_n^v → c(p); Lemma LP-w). With ε ≤ η_W/16, 8ε² ≤ εη_W/2. So
+     (A) liminf_iF_{m_i}(w) ≥ εη_W − εη_W/2 = εη_W/2;  (B) liminf_iF_{m_i}(w) ≥ εη_W − εη_W/2 − εη_W/4 = εη_W/4.
+   Finally log(β_m²/β_{m−1}²) = F_m(w) + 2p·log(m/(m − 1)) and the last term → 0 (sign corrected, review F2). Hence
+   liminf_i log(β_{m_i}/β_{m_i−1}) ≥ c′/2 with c′ as below, i.e. β_{m_i}/β_{m_i−1} − 1 ≥ e^{c′/2} − 1 − o(1) ≥ c′/2 − o(1),
+   which is the Conjecture-R normalisation stated in the theorem. If β_n converged to a positive
+   limit, then log(β_n²/β_{n−1}²) → 0, which is false; in particular β_n ↛ 1, i.e. the pointwise b-law fails. Let
+   c′ := εη_W/2 in case (A) and εη_W/4 in case (B). Then |β_{n+1}/β_n − 1| ≥ 1 − e^{−c′/2} − o(1) for infinitely many
+   n, and for n ≥ 1/δ the index n + 1 lies in [n, (1 + δ)n]. So ω(δ) ≥ 1 − e^{−c′/2} > 0 for every δ > 0, and (T3)
+   fails. ∎
+
+**Corollary RW′ (the [0.6N, 1.6N] form).** For every p > 0 and s > 1 the window [0.6N, 1.6N] is admissible (Lemma
+u_s). So Theorem RW holds with W_i = ℕ ∩ [0.6N_i, 1.6N_i], spikes at m_i ∈ [N_i − J_W + 1, N_i], ε₀ = η_W/16 and
+η_W = η_{[0.6,1.6]}(p), under either separation (A) N_{i+1}/N_i → ∞ or (B) N_{i+1} > R_WN_i. For p = s = 2 this is
+Conjecture R (§3.2) restricted to ε ≤ ε₀ ≈ 6.1·10⁻⁹: limsup_n |β_n/β_{n−1} − 1| ≥ cε with c = η_W/4 ≈ 2.5·10⁻⁸ in
+case (A) and c = η_W/8 ≈ 1.2·10⁻⁸ in case (B) (Conjecture R's normalisation); the constant for |log(β_n²/β_{n−1}²)|
+is η_W/2 (A), η_W/4 (B). *(Corrected by review F1; the first version quoted η_W/2 as Conjecture R's c.)*
+
+**What is and is not proved (Conjecture R as stated in §3.2).**
+- PROVED-mod-cite: the window form, for every admissible window (including [0.6N, 1.6N] for all p > 0, s > 1), with
+  separation N_{i+1}/N_i → ∞ or a fixed explicit ratio R_W, for ε ≤ ε₀ (explicit), with an explicit c that
+  depends only on (p, a, b): η_W/2 (A) / η_W/4 (B) for log(β_n²/β_{n−1}²), and η_W/4 (A) / η_W/8 (B) for
+  |β_n/β_{n−1} − 1| (Conjecture R's normalisation).
+- For ε > ε₀ the qualitative failure still holds: the weight built with ε₀ lies in the [e^{−ε}, e^{ε}] sandwich, so
+  for every ε > 0 some |f| ≤ ε breaks the pointwise b-law. The *linear* bound limsup ≥ cε with c independent of ε is
+  not proved for ε > ε₀.
+- NOT proved: (i) the bound for every ε > 0 with an absolute c (numerically the spike is Δ_m ≈ 1.2ε at p = 2 for
+  ε ∈ {0.05, 0.2}, `check_rw.out` [3]); (ii) a realistic size of η_W (numerically ‖Δ²μ_m|_W‖₁ ≈ 1.06–1.09 against the proved
+  η_W ≈ 10⁻⁷; the phase model predicts 1.144); (iii) small fixed ratios such as ×4 or ×8 (R_W ≈ 1.1·10⁸ for p = 2,
+  W = [0.6, 1.6]). Items (ii) and (iii) are both limited by the size of η_W (R_W enters through F_p(M_W) ≤ η_W/16), and
+  both would follow from a sharp R1W (outline target T6: η_W → (8/π)∫_{Θ_W}sin²θ dθ/π). These remain NUMERICAL.
+- N₀ (from LP-w) is not explicit.
+
+**Remarks.**
+- **RW-a (relation to Theorem R).** Theorem R (§3.6) used windows [θN_i, N_i^{κ+1}] and polynomial separation, because
+  at the time only Lemma TL localised the upper tail. RW uses Lemma LP (§3.8), so windows of bounded aspect ratio and
+  separation N_{i+1}/N_i → ∞ suffice, and R1W makes η_W explicit (R1's η is not). Theorem R remains valid as stated.
+  Its ε₀ is non-explicit and is not compared with RW's, so R is not marked SUPERSEDED.
+- **RW-b (constants).** δ_W = c_W/32 and J_W = ⌈2/δ_W⌉ come from the crude contradiction in R1W, which loses a factor
+  J_W² ≈ 7·10⁴. The value of c_W is a quadrature (`check_rw.out` [1]); the proof uses only c_W > 0.
+- **RW-c (why no transport is needed).** outline_C_rough.md §2.1 proposed transporting tail localisation along
+  ve^{f_i} → w by Lemma TV and Grönwall. That is unnecessary: Lemma R2 holds along the direct path ve^{tf} for every
+  bounded f. So only the *linear* term needs localisation, and it is evaluated at the pure power v, where Lemma LP and
+  Sat_p⁺ apply directly. The second-order term costs 8ε² regardless of where f lives.
+- **RW-d (admissibility is necessary for this mechanism).** If b ≤ u_s then μ_m^v(W_N) → 0 for m − N = O(1): by
+  LP-w, since the arcsine law ν has no mass beyond 4c and no atom at 4c, and the image of W_N lies in
+  [(m/(bN))^p, ∞) with (m/(bN))^p → b^{−p} ≥ 4c. This is exponentially fast only when b < θ₀(p), the zero of g_p⁺
+  (Sat_p⁺; θ₀ ≈ 0.056, 0.218, 0.315, 0.427 for p = 0.5, 1, 2, 4, strictly below u_s); for θ₀ ≤ b ≤ u_s it is only
+  o(1). Either way ‖Δ²μ_m^v|_{W_N}‖₁ ≤ 4 max_{m′∈{m,m−1,m−2}} μ_{m′}^v(W_N) → 0, c_W = 0, and the first-order gain
+  vanishes. *(Corrected by review F3; the first version claimed exponential decay for all b ≤ u_s.)*
+- **RW-e (Rule A pass).** Attempts: (1) sign(0) convention: irrelevant, since ⟨f_i, Δ²μ⟩ = ε‖Δ²μ|_W‖₁ either way.
+  (2) The moving window in R1W step 4 is handled by h ≤ 1_S, with no continuity-set argument needed for the lower
+  bound. (3) Distinctness of the m_i is not needed: each i is treated separately, and only m_i ≥ N_i − J_W + 1 → ∞ is
+  used (for F_{m_i}(v) → 0, the head bound and Lemma LP). (4) Off-by-one in step 1 of R1W: Δ²μ_j is needed for j ∈ [N − J + 1, N] only, which is exactly
+  the hypothesis. (5) Index convention of FV/F_m checked numerically against a finite difference (`check_rw.out` [0],
+  9 digits). (6) R2 is used with its stated constant 16; its proof gives 8, which would allow ε₀ = η_W/8 (review F7: no change made).
+  (7) Degenerate windows a ↑ b: c_W → 0 and η_W → 0, so the statement degrades continuously; no false claim.
+- **RW-f (NUMERICAL, `checks/check_rw.out`, float64 Lanczos with full reorthogonalisation).**
+  - [2] The R1W mechanism, pure power, W = [0.6N, 1.6N]: Q_N := ⟨dist(y, Z_N)²1_S, μ_{N−1}⟩ = 0.2264, 0.2293, 0.2307
+    (p = 2, N = 100, 200, 300) against its limit c_W = 0.2345; 0.1217, 0.1245 (p = 1, N = 50, 100) against
+    c_W = 0.1268. min_{m∈[N−7,N]}‖Δ²μ_m|_{W_N}‖₁ = 1.06–1.09 (p = 2) and 0.70–0.76 (p = 1), against phase-model
+    values 1.144 and 0.794 and the proved η_W ≈ 10⁻⁷ / 1.6·10⁻⁸.
+  - [3] The construction, p = s = 2, W = [0.6N, 1.6N], scales (30, 240) and (15, 60, 240), ε = 0.05 and 0.2. The
+    deviation Δ_m := F_m(w) − F_m(v) at each spike m_i equals the linear prediction ⟨f, Δ²μ_m^v⟩ to ≤ 2%
+    (e.g. 0.2389 vs 0.2403 at N = 240, ε = 0.2). The cross-window part is ≤ 1.4·10⁻³ even at ratio 4. Every spike
+    exceeds the off-spike maximum of |Δ_n| (0.020–0.026 vs ≥ 0.060 at ε = 0.05; 0.083–0.103 vs ≥ 0.239 at ε = 0.2). Doubling
+    the truncation K changes the spikes by ≤ 10⁻³.
+  - These runs use ε ≫ ε₀ and small, finitely many scales. They test the mechanism (linearisation, own-window gain,
+    cross-window decoupling), not the proved constants.
 
 ## 4. G1-R: what remains (stop report)
 
