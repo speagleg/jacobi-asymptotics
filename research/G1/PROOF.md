@@ -29,6 +29,7 @@ known; its application here to Law P is what is new.
 | G1-R | (T3) from the atoms alone; (CL) (proved for pure-power atoms with rough weights, p > 1: Theorem CL; open for general nodes or p ≤ 1) | GAP for (T3) (see §4) |
 | FV | first variation: d/dt log b_n²(v e^{tf}) = ⟨f, μ_n − μ_{n−1}⟩, μ_n := w p_n² (§3.2) | PROVED (standard; novelty not claimed); REVIEWED |
 | Conj R | (T3) — hence the pointwise b-law — FAILS for some weights e^{−ε}k^{−2} ≤ w_k ≤ e^{ε}k^{−2} (p = s = 2; §3.2, Plan 28) | CONJECTURE; NUMERICAL (p = s = 2; committed checks: two scales, n ≤ 400, Rule N; reviewer runs in REVIEW_Plan28: three scales, n ≤ 1000, 400-digit mpmath); REVIEWED as a conjecture |
+| **T3-conv** | pointwise b-law (hence (T3)) for x_k = k^{−p} (p > 0), w_k = k^{−s}ψ_k (s > 1) with **ψ_k → L ∈ (0, ∞)** (rough at finite scales, decaying roughness): n^p b_n → c(p) (§3.3, Plan 29) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: Lemma FV (REVIEWED), Lemma Sat_p⁺); Rule R ACCEPT WITH FIXES, re-check pending; novelty UNCHECKED (comparison theorems of Máté–Nevai–Totik type may be classical) |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -363,7 +364,74 @@ log Ψ slowly varying.
 - So if a **localization lemma** holds, meaning μ_n^{(t)}((Mn, ∞)) + μ_{n−1}^{(t)}((Mn, ∞)) ≤ ε(M) uniformly along the path, then
   b_n(vΨ)/b_n(v) → 1. The pure-power laws (RH_p etc.) then give the pointwise law. That is more than (T3).
 - The upper tail is a GAP. Unbounded slowly varying Ψ (e.g. log k) would need additional quantitative tail control.
-- The case Ψ_k → L, where the tail is not needed, is planned work (Plan 29; not part of this section).
+- The case Ψ_k → L, where the tail is not needed, is Theorem T3-conv (§3.3, Plan 29).
+
+### 3.3 Theorem T3-conv (Plan 29): decaying roughness does not break the pointwise law — PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan29.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED
+
+**Lemma Sat_p⁺ (all p > 0).** For 1 ≤ k < n and θ := k/n:
+  1 − ρ_n(k) ≤ (W/w_k)·((n+1)/k)^{2(1−p)₊}·e^{−2n·g_p⁺(θ)},
+where g_p⁺ := g_p for p ≥ 1 and g_p⁺ := g_p − log(1/p) for 0 < p < 1. In all cases g_p⁺(θ) → +∞ as θ → 0 (since
+g_p(θ) ≥ p·log(1/θ) − O(1)).
+
+*Proof.* As for Lemma Sat_p (§3.1), with two changes for p < 1 (F1).
+1. Concavity gives j^p − k^p ≥ p·j^{p−1}(j − k) for j > k, and k^p − j^p ≥ p·k^{p−1}(k − j) for j < k. Each of the
+   n − 1 factors therefore gains at most 1/p, so the product bound is multiplied by at most p^{−(n−1)}.
+2. The j > k product becomes k^{p(n−k)}(n!/k!)^{1−p}/(p^{n−k}(n−k)!). The factor (n!/k!)^{1−p} is now in the
+   numerator, so it needs an *upper* bound. For the increasing function log:
+   Σ_{j=k+1}^n log j ≤ ∫_{k+1}^{n+1}log t dt ≤ ∫_k^n log t dt + log((n+1)/k).
+   - The integral term reproduces the p ≥ 1 computation.
+   - The excess contributes at most ((n+1)/k)^{1−p} to the product, i.e. ((n+1)/k)^{2(1−p)} after squaring.
+∎
+
+**Theorem T3-conv.** Let x_k = k^{−p} (p > 0) and w_k = k^{−s}ψ_k with s > 1, where ψ_k > 0 and ψ_k → L ∈ (0, ∞).
+Then, with v_k := k^{−s},
+
+  log b_n²(w) − log b_n²(v) → 0,  hence n^p b_n(w) → c(p),
+
+by the pointwise law for the pure power v:
+- RH_p for p > 1 (`RH/RH_px.md`);
+- RH₁(r) for p = 1 (r = s);
+- the RH_p seam construction for 0 < p < 1 (`RH/plt1/RH_plt1b.md`).
+
+In particular β_n → 1, so (T3) holds.
+
+*Proof.*
+1. **Path.** w(t) := v·ψ^t for t ∈ [0, 1]. Since ψ is bounded above and below (it converges to L > 0 and is positive),
+   every w(t) lies in a fixed sandwich c·k^{−s} ≤ w_k(t) ≤ C·k^{−s}, with W(t) ≤ C·ζ(s).
+   - b_n²(t) is smooth in t: each Heine term Π_{k∈S}w_k(t)V(S) has t-derivatives bounded by (m‖log ψ‖_∞)^j times
+     itself, so the series for D_m(t) and its derivatives converge uniformly (F4).
+   - Lemma FV gives log b_n²(1) − log b_n²(0) = ∫_0^1⟨f, μ_n^{(t)} − μ_{n−1}^{(t)}⟩dt, with f := log ψ.
+2. **Centering.** Σ_kμ_n^{(t)}(k) = Σ_kμ_{n−1}^{(t)}(k) = 1, so f may be replaced by g := log ψ − log L. Then
+   |g| ≤ G everywhere, and for every ε > 0 there is k_ε with |g_k| ≤ ε for k ≥ k_ε.
+3. **Head.** μ_m^{(t)}(k) = ρ_{m+1}^{(t)}(k) − ρ_m^{(t)}(k) ≤ 1 − ρ_m^{(t)}(k). Take k < k_ε and m large, so that
+   k < m and k/m ≤ θ₁, where g_p⁺ ≥ 1 on (0, θ₁]. Then Lemma Sat_p⁺ gives
+   μ_m^{(t)}(k) ≤ (Cζ(s)/c)k^s(m+1)²·e^{−2m}, uniformly in t (F4: factor ζ(s), using W(t) ≤ Cζ(s)).
+4. **Estimate.** |⟨g, μ_n^{(t)} − μ_{n−1}^{(t)}⟩| ≤ ε·Σ_{k≥k_ε}(μ_n + μ_{n−1})(k) + G·Σ_{k<k_ε}(μ_n + μ_{n−1})(k)
+   ≤ 2ε + 2G(Cζ(s)/c)k_ε^{s+1}(n+1)²e^{−2(n−1)}. Integrate over t, let n → ∞, then ε → 0. ∎
+
+**Remarks.**
+- **T3c1 (the dichotomy).**
+  - *Decaying* roughness (ψ_k → L, arbitrarily rough at finite scales, e.g. ψ_k = 1 + ½(−1)^k/log(k+1)) preserves
+    the pointwise b-law: Theorem T3-conv.
+  - *Non-decaying* roughness of size ε *conjecturally* can break it (F3): Conjecture R (§3.2, numerical evidence
+    only, p = s = 2).
+  - The proof uses no localization of μ_n at large k. Only the saturated head matters, because g → 0 at ∞.
+- **T3c2 (slowly varying Ψ; F2).** For ψ = Ψ slowly varying without a limit (e.g. Ψ(k) = 2 + sin(log log k)), the
+  same argument needs the upper-tail localization μ_n((Mn, ∞)) + μ_{n−1}((Mn, ∞)) ≤ ε(M), uniformly along the path
+  (the §3.2 localization reduction). Numerically 99% of the mass lies within 6.2n (§3.2 [2]). A pointwise-in-n proof
+  is OPEN.
+  - *Averaged version (SKETCH):* Σ_{m=N}^{2N}μ_m(A) ≤ 𝔼#_{2N+1}(S ∩ A) with A = (MN, ∞).
+  - A tail-count bound for the Heine ensemble would then give (1/N)Σ_{n=N}^{2N}|log b_n²(w) − log b_n²(v)| → 0. The
+    bound needed: the number of points of S beyond Mn is O(n/log M), *uniformly along the path*. G2 A-U gives this
+    for p > 1, and G3′ §7 Lemma K for p = 2; nothing is stated for p ≤ 1. (G1's own "Lemma K" is the kernel
+    identity, not this.)
+- **T3c3 (a_n).** The a_n half would need the first variation of a_n = ⟨xp_n, p_n⟩, a covariance-type expression.
+  Not done.
+- **NUMERICAL** (`checks/check_t3_conv.out`, p = 2, long double RKPW):
+  - |β_n(ψ)/β_n(1) − 1| for ψ = 1 + ½(−1)^k/log(k+1) goes 3.9·10⁻³ → 8.2·10⁻⁴ (n = 250 → 3600).
+  - For random ±½/√log and block-sign ±½/log variants it is ≤ 2.3·10⁻³, not monotone in n (F6). Only p = 2 is
+    tested in the repo.
+  - Control: non-decaying parity gives 2.8·10⁻² → 4.6·10⁻³ (it also decays; parity is not adversarial, cf. §3.2).
 
 ## 4. G1-R: what remains (stop report)
 
