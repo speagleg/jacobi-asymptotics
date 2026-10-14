@@ -191,8 +191,10 @@ the t-axis crossing at |γ| = 2πe.
   - D = D̃/(1 − e^{∓2iθ}), with D̃ the continued Stirling–Binet function (§3(b));
   - B_r is the Binet-cut scalar on (−r, 0);
   - K_α = (β̂ − z)^{−1/8}.
-- **Outside C**, F_out := exp(∫_{x_m}^{X_e} t̂(y)dy/(y − z)). It is the exact scalar with jump e^{2πit̂} on
-  (x_m, X_e). It is regular at X_e because t̂(X_e) = 0, and F_out → 1 at ∞.
+- **Outside C**, F_out := exp(∫_{β̂}^{X_e} t̂(y)dy/(y − z)). It is the exact scalar with jump e^{2πit̂}. Only its
+  part outside C is used. The cut starts at β̂ (inside C), so F_out is regular at the crossing x_m; a cut starting at
+  x_m would create a power singularity there. It is regular at X_e because t̂(X_e) = 0, and F_out → 1 at ∞.
+- F_in uses the principal sheet of t in each half-plane. B makes D·B continuous across (−∞, 0).
 - V := Q·F^{σ₃}, with F = F_in or F_out. V then has, besides the local jumps, the explicit diagonal jump
   (F_out/F_in)^{σ₃} on C. The cyclic condition holds at the two crossing points, because both F_in and F_out cancel
   T's real-axis jump there.
@@ -205,7 +207,13 @@ Replacing F by F·Ξ^{∓1} (inside/outside) removes the jump on C. The local we
 near-constant factor Ξ^{±2}, which the Szegő function and the local parametrices absorb exactly.
 
 *What is needed:*
-- (i) the winding of F_in along C (zeros of D̃ ↔ Γ-poles; |arg t| < π on C) — a numerical check is planned;
+- (i) **checked numerically** (checks/check_z_farfield.out, N = 20 and 40; C is a circle through −r, which lies inside
+  the t-axis crossing, and through x_m ∈ (X₁, X_e)):
+  - max |arg t| on C is about 2.86 < π, so the Stirling sector holds;
+  - total winding of F_out/F_in = 0, to 10⁻⁸;
+  - at x_m the ratio is continuous to 10⁻⁸;
+  - at −r the jump of arg(F_out/F_in) is 4.5·10⁻⁴ at distance 10⁻³ and 6·10⁻⁵ at 10⁻⁶ from the axis. The limiting
+    values ±4π give continuity mod 2π; the residual comes from the grid interpolation of ℓ̂.
 - (ii) boundedness at the junctions, which is standard for scalar RHPs whose jump data satisfy the cyclic relation
   and are Hölder.
 
