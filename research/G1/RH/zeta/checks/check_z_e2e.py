@@ -116,12 +116,12 @@ def run(N):
     def Afun(u):  # Lemma E1, x units
         T = tx(u); vmax = mp.sqrt(1 - TMIN / T)
         f = lambda v: 2 * v * T / mp.sqrt(abs(1 - u / xt(T * (1 - v * v))))
-        return mp.quad(f, [0, mp.mpf("0.1"), mp.mpf("0.5"), mp.mpf("0.9"), vmax]) / NN
+        return mp.quad(f, [0, vmax * mp.mpf("0.1"), vmax * mp.mpf("0.5"), vmax * mp.mpf("0.9"), vmax]) / NN  # sorted (Rule R F2)
 
     def Eedge(Tb):
         xT = xt(Tb); vmax = mp.sqrt(1 - TMIN / Tb)
         f = lambda v: 2 * v * Tb / mp.sqrt(abs(1 - xT / xt(Tb * (1 - v * v))))
-        return mp.quad(f, [0, mp.mpf("0.1"), mp.mpf("0.5"), mp.mpf("0.9"), vmax]) / NN
+        return mp.quad(f, [0, vmax * mp.mpf("0.1"), vmax * mp.mpf("0.5"), vmax * mp.mpf("0.9"), vmax]) / NN  # sorted (Rule R F2)
     Tb = mp.findroot(lambda T: Eedge(T) - 1, (NN / (mp.pi / 2) * mp.mpf("0.8"), NN / (mp.pi / 2) * mp.mpf("1.2")),
                      solver="anderson")
     beta = xt(Tb); bh = s * beta

@@ -226,3 +226,12 @@
   - (a) the WLXZ α-shift: the constraint ends at t = 3/8, so α = 5/8 and K = (β̂ − z)^{−1/8};
   - (b) D̃ continued analytically along (−∞, 0) past the t-axis crossing at |γ| = 2πe.
 - **Pipeline validation:** MODEL=pp2 reproduces the reviewer's RH_px probe to 4 digits.
+- **Rule R** (zeta/review/REVIEW_RHzeta.md): ACCEPT WITH FIXES for Phases 1–2.
+  - The headline is confirmed by the absolute test with Ξ explicit (N·err 0.07–0.34, stable for N = 10, 20, 40).
+  - The α-shift, E1, E2, E3 and the extraction are verified.
+  - F1 (major, open): the hard edge carries a log weight, so RH_px §4.1 does not transfer verbatim.
+  - F2: a probe bug, fixed.
+  - F5: t_c is a gauge.
+  - F6: the κ closed form is corrected; a fit to 10⁶⁰ agrees to 1e−5.
+- **Status:** E1–E3 PROVED(-mod-G2); E4 and E5 NUMERICAL; the §4 theorem is a PROOF SKETCH (conditional on the
+  log-weight hard-edge lemma, Lemma Z and uniform Airy).

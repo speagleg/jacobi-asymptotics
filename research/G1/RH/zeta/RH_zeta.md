@@ -1,7 +1,13 @@
 # RH_zeta: pointwise Law P for the smooth-ζ model (Plan 13)
 
-Status: **IN PROGRESS.** Phase 0 is done. Phase 1 is written; it is a proof sketch pending Rule R. **Phase 2 Gate GO:** the
-end-to-end probe is O(1/N) (§3). Phases 3–4 (proofs) are next. No PROVED labels.
+Status: **Rule R: ACCEPT WITH FIXES** for Phases 1–2 (review/REVIEW_RHzeta.md; fixes applied, §5). Labels:
+- E1: PROVED-mod-G2;
+- E2, E3: PROVED;
+- E4: NUMERICAL (convention-dependent);
+- E5: derivation plus NUMERICAL;
+- Phase 2: NUMERICAL, CONFIRMED by the absolute test with Ξ;
+- §4 theorem: **PROOF SKETCH (conditional)**. Open: the log-weight hard-edge lemma (F1), Lemma Z (certified winding
+  plus a uniform bound) and uniform Airy.
 
 ## 0. Model and baseline
 
@@ -63,7 +69,9 @@ substitute x = x(s):
 So **β_N = x(T_N)**, where (1/N)∫_{3/8}^{T_N}(1 − x(T_N)/x(s))^{−1/2}ds = 1.
 
 The hypotheses of E1 for σ_ζ:
-- √x ρ_N ≍ γ²log(γ/2π)/(4πN) is decreasing in x on (0, x_e) (checked: |t′| increases with γ for γ > 2π);
+- √x ρ_N is decreasing in x on (0, x_e). Exactly: with x = 1/(γ² + ¼) and γ′(x) = −1/(2x²γ),
+  √x ρ_N = log(γ/2π)(γ² + ¼)^{3/2}/(4πNγ). Both factors are positive and increasing in γ for γ > 2π, and γ decreases
+  with x (Rule R F8);
 - A(0⁺) = ∞;
 - A(x_e⁻) = 0, since ρ_N vanishes linearly at x_e (t − 3/8 is quadratic in x − x_e);
 - strict monotonicity of A follows from that of √x ρ_N.
@@ -82,7 +90,7 @@ finite-N equilibrium.
 ε(t) := tℓ′(t)/ℓ(t) ~ 2/log t. Regular variation in E3 gives T_N ~ N/J(2 − ε) with
 J(p) := ∫_0^1(1 − u^p)^{−1/2}du = √πΓ(1 + 1/p)/Γ(1/p + ½). Hence
 
-  β_N/(4x_N) = c(2)(1 + κ/log N + o(1/log N)),  κ = −2(2J′(2)/J(2) + log J(2)) = −2(log(π/2) − (1/2)(1 − log 2))
+  β_N/(4x_N) = c(2)(1 + κ/log N + o(1/log N)),  κ = −2(2J′(2)/J(2) + log J(2)) = −2(log(π/2) − (1 − log 2))
   = −0.28946…
 
 Check (checks/check_z_kappa.out, the edge equation alone, N up to 10¹⁵): log N·(β_N/(4x_N c₂) − 1) = −0.381, −0.367,
@@ -95,7 +103,7 @@ N/log N))). At n ≤ 3200 the measured coefficient (−0.226/c₂ = −0.366 rel
 - E4: NUMERICAL.
 - E5: derivation plus NUMERICAL. A rigorous o(1/log N) bound needs a uniform regular-variation lemma, which is routine.
 
-## 2. Phase 2 design note: the far end (new relative to RH_px)
+## 2. Phase 2 design note: the far end (SUPERSEDED by §4.2; kept for the record, Rule R F7)
 
 **The obstruction.** t(x) is analytic across x_e, but there t − 3/8 has a *double zero*. On (x_e, 4) it increases again
 to 11/8, and it crosses t = 1 at a spurious point x_s with no atom. So D := D̃/(1 − e^{∓2iθ}), which has poles where
@@ -187,9 +195,10 @@ a_N/(2b_N) − 1 = 0.063, 0.033, 0.017 (N·dev ≈ 0.63–0.69).
 **4.2 Scalar functions and the far-field lemma.** Fix a closed curve C enclosing the band, the lenses, the saturated
 region up to X₁ + δ′, and (−r, 0). C crosses ℝ at −r and at x_m ∈ (X₁ + δ′, X_e). Take r ≍ x_m ≍ X_e, with r below
 the t-axis crossing at |γ| = 2πe.
-- **Inside C**, F_in := D·B_r·K_α, where:
+- **Inside C**, F_in := D·B·K_α, where:
   - D = D̃/(1 − e^{∓2iθ}), with D̃ the continued Stirling–Binet function (§3(b));
-  - B_r is the Binet-cut scalar on (−r, 0);
+  - B is the **full-axis** Binet-cut scalar on (−∞, 0), built from the continued ℓ̂. A cut only on (−r, 0) would create
+    a power singularity at −r (Rule R F4).
   - K_α = (β̂ − z)^{−1/8}.
 - **Outside C**, F_out := exp(∫_{β̂}^{X_e} t̂(y)dy/(y − z)). It is the exact scalar with jump e^{2πit̂}. Only its
   part outside C is used. The cut starts at β̂ (inside C), so F_out is regular at the crossing x_m; a cut starting at
@@ -201,9 +210,17 @@ the t-axis crossing at |γ| = 2πe.
 
 **Lemma Z (far field; TO PROVE).** log(F_out/F_in) has a continuous, single-valued branch on C. Then
 Ξ := exp(∫_C log(F_out/F_in)dζ/(2πi(ζ − z))) is analytic off C and bounded at the crossing points, and
-Ξ(z) = Ξ(0)(1 + O(|z|/dist(C))) = Ξ(0)(1 + O(log²N/N²)) near the band and both edges.
+Ξ(z) = Ξ(0)(1 + O(|z|·sup_C|log(F_out/F_in)|/dist(C))) = Ξ(0)(1 + O(log^k N/N²)) near the band and both edges.
+- sup_C|log(F_out/F_in)| grows like log N: 3.8, 5.5, 7.1 at N = 20, 40, 80.
+- The measured log Ξ(z) − log Ξ(0) at z = 1.2 + i is 0.0049, 0.0019, 0.00072. It decays by a factor ≈ 2.6 per
+  doubling.
 
-Replacing F by F·Ξ^{∓1} (inside/outside) removes the jump on C. The local weights acquire the analytic,
+Replacing F by **F·Ξ on both sides** (sign corrected, Rule R F4) removes the jump on C.
+- C must also avoid the saddle level curve Im t = 0 that leaves x_e vertically. That curve carries D's poles at
+  t = 0, −1, −2 and ends at the t-axis crossing. The chosen C (N-independent in x-units) stays outside it with margin
+  |z − c₀|/R ≥ 1.21 (checks/check_z_saddle_curve.py).
+- **What remains for a proof:** one N-independent *certified* winding computation (C is fixed in x-units), plus a
+  uniform-in-N perturbation bound for log(F_out/F_in) on C. The local weights acquire the analytic,
 near-constant factor Ξ^{±2}, which the Szegő function and the local parametrices absorb exactly.
 
 *What is needed:*
@@ -218,11 +235,18 @@ near-constant factor Ξ^{±2}, which the Szegő function and the local parametri
   and are Hölder.
 
 **4.3 Local parametrices, uniform in N.**
-- **Hard edge 0:** RH_px §4.1 (the KMVV left endpoint) verbatim. The weight is w₀ = C·x^{α_x}(β̂ − x)^{1/4}h_N, with
-  α_x = −½ + o(1), the effective exponent of masses 2x_j ~ j^{−2}log²j. The mismatches are super-exponentially small,
-  exp(−cN|z|^{−1/2}·log), as in Lemma 4.3. h_N is Hölder at 0 (Lemma 3.4 analogue).
-  - Note: the log factors make t(z) = N₀(γ) + ½ non-power. Lemma 3.4 needs only Hölder continuity of log h_N, which
-    holds with exponent ½ − ε.
+- **Hard edge 0 — OPEN (Rule R F1, major).** This is **not** RH_px §4.1 verbatim.
+  - The band weight is w₀ ∝ z^{−1/2}·log(γ/2π)·(…), with an **unbounded log(1/z) factor** at 0. So h_N := w₀x^{1/2}/
+    (smooth part) is not Hölder at 0. For example, at N = 1000, h_N = 1.21, 1.64, 2.27, 3.55 at x = 10⁻¹, 10⁻³, 10⁻⁶,
+    10⁻¹². That is an O(1) variation at the Bessel scale x ~ N^{−2}.
+  - The continued weight's jump on (−δ, 0) is −(Λ − iπ/2)/(Λ + iπ/2), with Λ = log(γ/2π) ~ log N, not the constant
+    −1 of a pure x^{−1/2}.
+  - So RH_px Lemmas 4.2(iii) and 4.3 do not apply as stated. The probe nonetheless shows O(1/N) near the band. A
+    heuristic says the log-weight effect on b_N is O(1/(N log N)).
+  - Needed: a **log-weight hard-edge lemma**. Candidate routes:
+    - use the Szegő function D_w itself in place of W̃ and prove a lip-mismatch bound;
+    - adapt Conway–Deift (SIGMA 2018), on log-type singular weights at a hard edge. That would need to be read and
+      verified before citing.
 - **Soft edge β̂:** WLXZ §6.1 for general α (here α_W = 5/8). WLXZ treat every α > 0; the local behaviour is
   V = O(1)(z − β̂)^{(1/2−α)σ₃}.
   - Uniformity: φ̃ = −κ̃_N(z − β̂)^{3/2}(1 + O(z − β̂)) with κ̃_N → κ̃_∞ > 0. This holds because the rescaled ρ_N
@@ -240,7 +264,41 @@ b_n/x_n = π²/16·(1 + κ/log n + o(1/log n)), with κ = −0.2895.
 Numerically: N·(b_N/(β_N/4) − 1) ≈ 0.27–0.28 (check_z_edge2.out, N ≤ 3200), and N·(a_N/(2b_N) − 1) ≈ 0.63–0.69
 (check_z_e2e_zeta.out).
 
-**Status:** PROOF SKETCH, numerically validated end to end (§3). The open technical steps for PROVED are:
+**Status:** PROOF SKETCH (conditional), numerically validated end to end (§3, §5). The open technical steps for
+PROVED are the log-weight hard-edge lemma (F1, major) and:
 - Lemma Z (the far field);
 - the uniform-in-N versions of the two edge parametrices — routine, but they must be written;
 - Rule R.
+
+
+## 5. Rule R corrections (review/REVIEW_RHzeta.md), applied
+
+- **Canonical numerical test** (F2, F3). The **absolute** test with Ξ built explicitly is
+  `checks/check_z_e2e_xi.py` (the reviewer's probe, committed) with output `check_z_e2e_xi.out`. It reports
+  max|D_∞^{−σ₃}(VN^{−1} − I)D_∞^{σ₃}| with no free constant. N × error:
+
+  | N  | 1.2+i | 0.5+0.8i | −1+0.5i | −1.5+0.5i | 2.5i | 3−1.2i | 4.5+1.5i |
+  |----|-------|----------|---------|-----------|------|--------|----------|
+  | 10 | 0.228 | 0.178 | 0.070 | 0.066 | 0.093 | 0.281 | 0.141 |
+  | 20 | 0.234 | 0.181 | 0.078 | 0.073 | 0.100 | 0.311 | 0.154 |
+  | 40 | 0.239 | 0.183 | 0.084 | 0.078 | 0.105 | 0.337 | 0.166 |
+
+  - The §3 relative test is blind to constant diagonal factors, and it hid a probe bug.
+  - That bug (F2): `Afun` used unsorted breakpoints. It is fixed in check_z_e2e.py, and check_z_e2e_zeta.out is
+    regenerated.
+  - Ξ is **not** invisible at N ≤ 40: abs(log Ξ(z) − log Ξ(z₀)) ≈ 0.011 at N = 20, the same size as the relative
+    entries. It is asymptotically negligible.
+- **Controls:**
+  - no α-shift (κ_K = −½): the closure jump of log(F_out/F_in) is ≈ (3π/4)i, and N·err = 15–83. This confirms both
+    the α-shift and that Lemma Z's continuity at x_m is the α-shift condition;
+  - pp2 reference: check_px_e2e.py 2 2 → `check_px_e2e_p2s2_reference.out`.
+- **F5 (gauge).** The cut t_c = 3/8 is a gauge, not canonical.
+  - Any (t_c, α_W = 1 − t_c, K = (β̂ − z)^{t_c − 1/2}) works end to end; t_c = ½ with K ≡ 1 also passes.
+  - β_N depends on t_c at O(1/N), so E4's constant 0.27 is the t_c = 3/8 convention (t_c = ½ gives 0.43).
+  - E1's statement "the canonical constraint" should read "a constraint on the monotone branch t ≥ t_c". The O(1/N)
+    claims are gauge-invariant.
+- **F6 (κ).** The closed form is corrected: κ = −2(log(π/2) − (1 − log 2)) = −0.28946. A fit up to N = 10⁶⁰ with
+  the secondary log log N/log N term gives a = −0.289472, agreeing to 1.2·10⁻⁵.
+- **F4.** Lemma Z text corrected: full-axis B, F·Ξ on both sides, the log^k N bound, the saddle curve.
+- **F8.** E3 monotonicity is now explicit. **F7:** §2 is marked superseded.
+- **Labels:** see the status line. The §4 theorem is **not** PROVED.
