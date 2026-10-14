@@ -29,13 +29,17 @@ for n in [20, 60, 150]:
 from jacobi_asym.measures.base import DiscreteMeasure
 from jacobi_asym.jacobi.dispatch import jacobi_coeffs
 from jacobi_asym.laws.weyl import c_p
-p, K = 2.0, 120000
-k = np.arange(1, K+1, dtype=float); x = k**-p; v = k**-2.0
-res = {}
-for name, psi in [("pure", np.ones(K)), ("ψ=1+½(−1)^k/log(k+1)", 1 + 0.5*(-1)**k/np.log(k+1)), ("parity (no decay)", 1 + 0.5*(-1)**k)]:
-    r = jacobi_coeffs(DiscreteMeasure(x, v*psi), 3700, prec="ld"); a = np.asarray(r.a, float)
-    nn = np.arange(len(a)); res[name] = (nn+1)**p*a/(2*c_p(p))   # a[i] pairs with p_i (0-based): index n = i
-print("[2] (n+1)^p a_n/(2c(p)) → 1:")
-for name, A in res.items():
-    print(f"   {name:24s} " + "  ".join(f"n={n}: {A[n]-1:+.2e}" for n in (250, 500, 1000, 2000, 3600)) +
-          "   |A(ψ)−A(1)|: " + ", ".join(f"{abs(A[n]-res['pure'][n]):.1e}" for n in (250, 1000, 3600)))
+p = 2.0
+NS = (250, 500, 1000, 2000, 3600)
+def A_of(K, psi_fn):
+    k = np.arange(1, K+1, dtype=float); x = k**-p; v = k**-2.0
+    r = jacobi_coeffs(DiscreteMeasure(x, v*psi_fn(k)), 3700, prec="ld"); a = np.asarray(r.a, float)
+    nn = np.arange(len(a)); return (nn+1)**p*a/(2*c_p(p))   # (n+1)^p a_n with a[i] ↔ p_i (0-based)
+psis = {"pure": lambda k: np.ones_like(k), "ψ=1+½(−1)^k/log(k+1)": lambda k: 1 + 0.5*(-1)**k/np.log(k+1),
+        "parity (no decay)": lambda k: 1 + 0.5*(-1)**k}
+res = {K: {name: A_of(K, f) for name, f in psis.items()} for K in (120000, 240000)}
+print("[2] (n+1)^p a_n/(2c(p)) − 1 (K = 120000 | 240000), and |A(ψ) − A(1)| at K = 240000:")
+for name in psis:
+    print(f"   {name:24s} " + "  ".join(f"n={n}: {res[120000][name][n]-1:+.2e}|{res[240000][name][n]-1:+.2e}" for n in NS))
+for name in list(psis)[1:]:
+    print(f"   |A({name})−A(1)|: " + ", ".join(f"n={n}: {abs(res[240000][name][n]-res[240000]['pure'][n]):.1e}" for n in NS))
