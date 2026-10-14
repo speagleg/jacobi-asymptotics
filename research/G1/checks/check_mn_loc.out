@@ -1,0 +1,19 @@
+[1] d/dt mu_n(A): finite difference 1.5751659158e-03, Lemma TV formula 1.5751659324e-03
+[2] p=2.0 M= 2: mu_n((Mn,inf)) at n=(100, 200, 400): 0.2100, 0.2061, 0.2065   arcsine limit F_p(M) = 0.2062
+[2] p=2.0 M= 4: mu_n((Mn,inf)) at n=(100, 200, 400): 0.1049, 0.1036, 0.1025   arcsine limit F_p(M) = 0.1018
+[2] p=2.0 M= 8: mu_n((Mn,inf)) at n=(100, 200, 400): 0.0497, 0.0518, 0.0514   arcsine limit F_p(M) = 0.0507
+[2] p=2.0 M=16: mu_n((Mn,inf)) at n=(100, 200, 400): 0.0286, 0.0250, 0.0254   arcsine limit F_p(M) = 0.0253
+[2] p=1.0 M= 2: mu_n((Mn,inf)) at n=(50, 100, 200): 0.3345, 0.3325, 0.3329   arcsine limit F_p(M) = 0.3333
+[2] p=1.0 M= 4: mu_n((Mn,inf)) at n=(50, 100, 200): 0.2301, 0.2329, 0.2313   arcsine limit F_p(M) = 0.2301
+[2] p=1.0 M= 8: mu_n((Mn,inf)) at n=(50, 100, 200): 0.1670, 0.1604, 0.1617   arcsine limit F_p(M) = 0.1609
+[2] p=1.0 M=16: mu_n((Mn,inf)) at n=(50, 100, 200): 0.1110, 0.1151, 0.1114   arcsine limit F_p(M) = 0.1131
+[2] p=0.5 M= 2: mu_n((Mn,inf)) at n=(25, 50, 100): 0.4545, 0.4556, 0.4580   arcsine limit F_p(M) = 0.4572
+[2] p=0.5 M= 4: mu_n((Mn,inf)) at n=(25, 50, 100): 0.3821, 0.3762, 0.3684   arcsine limit F_p(M) = 0.3733
+[2] p=0.5 M= 8: mu_n((Mn,inf)) at n=(25, 50, 100): 0.3024, 0.3025, 0.3021   arcsine limit F_p(M) = 0.3081
+[2] p=0.5 M=16: mu_n((Mn,inf)) at n=(25, 50, 100): 0.2495, 0.2500, 0.2508   arcsine limit F_p(M) = 0.2559
+[3] M= 4 n=100: mu^w=0.1049 mu^v=0.1049 delta_n=0.0236 head=2.2e-32 Theorem L bound=9.780 (holds: True)
+[3] M= 4 n=200: mu^w=0.1036 mu^v=0.1036 delta_n=0.0165 head=1.1e-31 Theorem L bound=9.275 (holds: True)
+[3] M= 4 n=400: mu^w=0.1025 mu^v=0.1025 delta_n=0.0224 head=2.7e-32 Theorem L bound=9.504 (holds: True)
+[3] M=16 n=100: mu^w=0.0286 mu^v=0.0286 delta_n=0.0302 head=2.2e-32 Theorem L bound=3.220 (holds: True)
+[3] M=16 n=200: mu^w=0.0251 mu^v=0.0250 delta_n=0.0430 head=1.1e-31 Theorem L bound=3.279 (holds: True)
+[3] M=16 n=400: mu^w=0.0254 mu^v=0.0254 delta_n=0.0519 head=2.7e-32 Theorem L bound=3.618 (holds: True)

@@ -129,3 +129,15 @@
   - Result: the pointwise b- and a-laws hold along a density-one set of n for uniformly slowly varying Ψ.
 - **Open:** all-n for uniformly slowly varying Ψ (would follow from Mn localization).
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan34.md). F1 (hypothesis restated as uniform slow variation; no UCT citation), F2–F10 applied. Re-check ACCEPT (N1–N4 polish applied) — REVIEWED.
+
+## 2026-10-14 — Plan 35 (localization at scale Mn; all-n law for bounded slowly varying weights)
+- **Lemma TV:** exact derivative of a single tail mass μ_m(A) along w(t) = we^{tf}, via q̇_m = ½fq_m − K_m(fq_m) − ½⟨fq_m,q_m⟩q_m.
+  The non-local term is ≤ 2√μ_m(A)·‖fq_m‖ (projection, Cauchy–Schwarz).
+- **Lemma LP:** for the pure power, n^p-rescaled μ_n → arcsine on [0, 4c(p)] by moments (pure-power laws), so
+  μ_n((Mn, ∞)) → F_p(M) = (2/π)arcsin√(M^{−p}/(4c(p))).
+- **Theorem L:** Grönwall on √μ transports localization from v to vΨ^t: limsup ≤ e^{4G}F_p(M).
+- **Theorem T3-all:** full pointwise Law P (b and a, all n) for bounded slowly varying Ψ. Contains T3-conv, T3-sv, T3-avg.
+- **Numerics** (`checks/check_mn_loc.out`): TV formula vs finite difference 8 digits; pure-power tails match F_p(M) for
+  p = 2, 1, 0.5.
+- **Open:** unbounded slowly varying Ψ; other nodes.
+- **Rule R:** pending.
