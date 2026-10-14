@@ -1,10 +1,11 @@
 """Plan 18 (NUMERICAL, Odlyzko zeros data/raw): sanity checks for the primes–zeros picture behind G3′.
 [1] Small-gap profile: with the normalized gaps g_k = (γ_{k+1} − γ_k) log(γ_k/2π)/2π over k ≤ 2·10⁶,
     the fraction #{g_k < δ}/K against the GUE nearest-neighbour CDF (Wigner surmise, 32/(3π²)δ³ to leading order),
-    and the pair count N(β)/K (all pairs, not only neighbours) against ∫_0^β(1 − (sin πu/πu)²)du ~ (π²/9)β³.
+    and the pair count N(β)/K (forward pairs among the next 7 neighbours; enough for β ≤ 0.5) against ∫_0^β(1 − (sin πu/πu)²)du ~ (π²/9)β³.
     The β³ law is the repulsion that gives (SG).
 [2] G3′ defect for the true-zero measure (toolkit true_zeta): D(n) := (2/n²)Σ_{j<n}(n−j)log(b_j/x̃_j) − log(π²/16),
     against the smooth model (smooth_zeta) at the same n.
+[3] Stability (Rule N): D_true at J = 1e5, 2e5, 4e5 (double) and J = 2e5 (long double), n ≤ 1600.
 NB: the data are a finite sample; this is evidence about the sample, not about the asymptotics (AGENTS.md rule 3)."""
 import numpy as np
 from scipy.integrate import quad
@@ -48,3 +49,18 @@ for n in (100, 200, 400, 800, 1600, 3200):
         Dn = 2.0 / n**2 * np.sum((n - j) * np.log(b / xt[:n])) - np.log(np.pi**2 / 16)
         out.append(Dn)
     print(f"   n={n:5d}: D_true = {out[0]:+.5f}   D_smooth = {out[1]:+.5f}   difference {out[0]-out[1]:+.2e}")
+
+print("[3] stability of D_true(n): J doubling (double) and long double")
+def Dtrue(J, prec, ns):
+    mu = true_zeta(J)
+    r = jacobi_coeffs(mu, max(ns) + 1, prec=prec)
+    b = np.sqrt(r.b2) if hasattr(r, "b2") else np.asarray(r.b)
+    xt_ = np.sort(1 / (model_zeros(J) ** 2 + 0.25))[::-1]
+    out = []
+    for n in ns:
+        j = np.arange(1, n + 1)
+        out.append(2.0 / n**2 * np.sum((n - j) * np.log(np.asarray(b[:n], float) / xt_[:n])) - np.log(np.pi**2 / 16))
+    return out
+ns3 = [100, 400, 1600]
+for J, prec in ((100_000, 'd'), (200_000, 'd'), (400_000, 'd'), (200_000, 'ld')):
+    print(f"   J={J:7d} {prec:2s}: " + "  ".join(f"n={n}: {v:+.6f}" for n, v in zip(ns3, Dtrue(J, prec, ns3))))

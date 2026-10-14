@@ -37,7 +37,10 @@ which equals 2E(γ) = O(log γ), by (C1). See PROOF.md Lemma Z1.
 
 S. A. C. Baluyot, D. A. Goldston, A. I. Suriajaya, C. L. Turnage-Butterbaugh, "Pair correlation of zeros of the
 Riemann zeta function I: proportions of simple zeros and critical zeros", arXiv:2501.14545v3. Read from the arXiv PDF,
-§1 (Introduction).
+§1 (Introduction) and §3 (read 2026-10-14 for Plan 18: "(3.1) F(x, T) := Σ_{ρ,ρ′∈Z(T)} x^{ρ−ρ′}W(ρ − ρ′), where W(u) :=
+4/(4 − u²)"; "While the definition of F(x, T) does not depend on RH, the asymptotic formula Montgomery obtained for
+F(x, T) when 1 ≤ x ≤ T does depend on RH"; proof of Lemma 4: "Since W(ρ−ρ′) is complex-valued we need to remove this
+weight").
 
 > "In 2020 Pratt, Robles, Zaharescu, and Zeindler [PRZD20] proved that more than 41.72% of the zeros are on the
 > critical line and that more than 40.75% of the zeros are on the critical line and simple."
@@ -127,6 +130,8 @@ It updates (C3)'s 0.4075 to 0.6725 for "simple and on the line".
 > form (6.3) implies (9.1) and (9.3) in the ranges X^{−1} ≤ δ ≤ X^{−1/2−ε} and 1 ≤ h ≤ X^{1/2−ε} respectively, and
 > consequently we again obtain that (6.3) implies SPC in the range 1 ≤ α ≤ 2 − ε." (6.3): "Σ_{n≤N}Λ(n)Λ(n + k) = S(k)N +
 > O(N^{1/2+ε})".
+
+Also footnote 6: "If (9.3) holds for this range of h it implies RH."
 
 **Used in:** §9. Theorem 7 is Goldston–Montgomery's (Goldston is a co-author). The SPC ⇔ (9.3) step via Saffari–Vaughan
 is stated, not proved, in the notes, so it is a **secondary statement** here.

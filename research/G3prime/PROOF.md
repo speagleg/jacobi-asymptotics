@@ -19,6 +19,7 @@ nothing here is evidence about where the zeros lie.
 | N′ | repeated indices containing a positive-density subset (d_*(E) > 0) ⇒ the law fails, limsup ≤ 2 log(1 − d_*(E)) | PROVED-mod-cite + mod-input Theorem H + REVIEWED; residual GAP: positive lower density with d_*(E) = 0 | G3′*-U proof, Z1, Z2, T (P1), H6 |
 | B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED | GLSS (6.1), Caro–Wei, §4 proof |
 | C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED | GLSS, G3′-L |
+| P | RH + prime short-interval variance (V) ⇒ G3′ (§9.1; corollary of KNOWN (C8) + Theorem C) | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; re-check pending | §8.2 |
 | R, K | pair factors under thinning; concentration (from H7) | PROVED-mod-input Theorem H + REVIEWED | H5, H7 |
 | T | thinning of convergent density: the own-normalized law survives | PROVED-mod-input Theorem H + REVIEWED | R, K, H6, H7 |
 | T′ | robustness: density band ±η gives error ω(η) → 0 | PROVED-mod-input Theorem H + REVIEWED | T |
@@ -724,70 +725,97 @@ multiplicity-normalized averaged law holds for the true zeros.
 | liminf ≥ −3 log C > −∞ | **unconditional (Theorem B)**, mod-input Theorem H; REVIEWED |
 | liminf ≥ 0, i.e. G3′ | under (SG) (G3′-L), REVIEWED; under PCC (Theorem C, no RH), mod-input Theorem H; REVIEWED |
 | G3′ ⇒ d_*(E) = 0 | N′, REVIEWED |
+| G3′ under RH + prime variance (V) | Corollary P (§9.1), re-check pending |
 
-## 9. Plan 18: from prime pairs to Law P (the primes–zeros duality) — pending Rule R
+## 9. Plan 18: from prime pairs to Law P (the primes–zeros duality) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan18.md); F1–F12 applied, re-check pending
 
 Inputs: (C7) Montgomery–Soundararajan, (C8) Goldston's notes, (C9) MRT, together with §8 (Theorem C). RH enters
 **only as a stated hypothesis** of conditional results (AGENTS.md rule 3).
 
-### 9.1 Theorem P (prime variance ⇒ Law P for the true zeros)
+### 9.1 Corollary P (prime variance ⇒ Law P for the true zeros)
 
-**Theorem P.** Assume RH and
+**Corollary P.** Assume RH and
 
   (V) ∫_1^X(ψ(x + h) − ψ(x) − h)²dx ∼ hX log(X/h), uniformly for 1 ≤ h ≤ X^{1−ε}, for every ε > 0.
 
 Then log D_n(σ) = Φ_n + o(n²). Equivalently, (2/n²)Σ_{j<n}(n−j)log(b_j/x̃_j) → log(π²/16) for the true-zero measure.
 
-*Proof.* The chain is:
-1. **(V) ⇒ SPC.** Goldston–Montgomery (C8, Theorem 7 and (9.3); RH assumed). (V) for h ≤ X^{1−ε} gives
-   F(x, T) ∼ (T/2π)log T for T^{A₁} ≤ X ≤ T^{A₂} for all fixed 1 ≤ A₁ ≤ A₂, i.e. F(α) = 1 + o(1) on 1 ≤ α ≤ M.
-2. **SPC ⇒ PCC** (Goldston's form: N(T, β) ∼ ∫_0^β(1 − (sin πu/πu)²)du for each fixed β > 0) by (C8) Theorem 4.
-   - On RH all ordinates are imaginary parts of critical zeros, so this is GLSS's PCC.
-   - Uniformity on compact β-intervals, as GLSS require, follows from monotonicity of N(T, ·) and continuity of the
-     limit (Pólya's argument).
+- (C8, footnote 6, a secondary claim about how the hypotheses relate: "If (9.3) holds for this range of h it implies
+  RH." So RH is formally redundant beside (V). It is kept because the cited equivalences are stated on RH.)
+- **Novelty.** RH + (V) ⇒ PCC is KNOWN: Goldston–Montgomery with Goldston's Theorem 4 (C8, also cited in C7). The only
+  new step is composing it with Theorem C. Label: corollary; novelty UNCHECKED.
+
+*Proof.*
+1. **(V) ⇒ SPC.** Goldston–Montgomery (C8 Theorem 7, converse direction, RH assumed): (9.1) for
+   X^{−1/A₁}(log x)^{−3} ≤ δ ≤ X^{−1/A₂}(log x)³ gives F(x, T) ∼ (T/2π)log T for T^{A₁} ≤ X ≤ T^{A₂}.
+   - With A₁ = 1 and A₂ = M, the δ-range is covered by (V) once ε < 1/M.
+   - The passage between the h-form (9.3) = (V) and the δ-form (9.1) (Saffari–Vaughan) is **only stated** in C8, so it
+     is a secondary step (Rule R F5).
+   - Hence F(α) = 1 + o(1) on 1 ≤ α ≤ M for every M: this is SPC.
+2. **SPC ⇒ PCC** by (C8) Theorem 4. Goldston's PCC (fixed β, forward pairs 0 < γ′ − γ ≤ 2πβ/log T = β/L, normalization
+   T log T/2π = TL, with multiplicity) is GLSS's N(β) = TL∫_0^β(1 − sinc²) + o(TL). On RH the zero sets coincide.
+   - **Uniformity on [β₀, β₁]** (written out, Rule R F6). N(T, ·)/TL is nondecreasing, and the limit P(β) is continuous
+     and nondecreasing.
+   - Given ε, take a grid β₀ = t₀ < … < t_m = β₁ with P(t_{i+1}) − P(t_i) < ε, and T large so that every grid point
+     is within ε.
+   - For β ∈ [t_i, t_{i+1}]: N(β)/TL − P(β) ≤ N(t_{i+1})/TL − P(t_i) < 2ε, and symmetrically ≥ −2ε.
 3. **PCC ⇒ (SG) ⇒ G3′:** Theorem C (§8.2), then G3′-L and G3′-U. ∎
 
-### 9.2 Proposition P′ (why prime-pair asymptotics alone are not the right input)
+### 9.2 Remarks P′ (prime-pair inputs: what the known routes give)
 
-**(a) Pointwise Hardy–Littlewood pairs ("twin-prime type").**
-- The pair conjecture Σ_{n≤N}Λ(n)Λ(n + k) = S(k)N + O(N^{1/2+ε}), uniformly in 0 < k ≤ N, yields (V) only for
-  h ≤ X^{1/2−ε}, hence SPC only for 1 ≤ α ≤ 2 − ε (C8 §9; equivalently (C7) Theorem 3 with K = 2, range H ≤ N^{1/2}).
-- That range gives F(α) on [0, 2 − ε]. This improves the constants in Theorem B and the simple-zero proportions, but
-  cannot give N(T, β) → 0 as β → 0, i.e. (SG), which needs F(α) for all bounded α.
-- So **no pointwise prime-pair statement of this type implies G3′ by this route.** (This is a statement about the
-  route, not a theorem that such an implication is impossible.)
+**(a) Pointwise Hardy–Littlewood pairs (KNOWN, with a remark).** Assume RH and the pair conjecture
+Σ_{n≤N}Λ(n)Λ(n + k) = S(k)N + O(N^{1/2+ε}), uniformly in 0 < k ≤ N. (Both C8 §9 and C7 Theorem 3 use RH, which is
+C7's k = 1 case.)
+- The known route (C8 §9) then gives (V) for h ≤ X^{1/2−ε}, hence SPC on 1 ≤ α ≤ 2 − ε. Compare C7 Theorem 3 with
+  K = 2, whose effective range is H ≤ N^{1/2−ε}.
+- *Remark (route, not impossibility; Rule R F2).* The standard kernel method (Goldston Thm 4) uses F(α) on every
+  bounded α-range to get PCC. With F known only on [0, 2 − ε], it does not give N(T, β) → 0 as β → 0, and so does not
+  give (SG). Whether some other method could is not addressed.
+- F on [0, 2 − ε] would give *conditional* improvements of simple-zero proportions and a conditional analogue of
+  Theorem B's constant. These are not carried out (Rule R F10).
 
-**(b) Averaged prime pairs (MRT, unconditional).**
-- In M_2(X; H) = Σ_n(ψ(n + H) − ψ(n) − H)², the pair sums enter as Σ_{|d|<H}(H − |d|)E_2(X; {0, d}). (The main terms
-  combine to H·X log(X/H) through M–S (16): the −h log h term.)
-- (V) at H therefore needs the weighted error average to be o(HX log(X/H)), i.e. an average error o(X log X/H) per
-  shift. For H = X^η that is a power saving.
-- MRT save an arbitrary power of log X on average, for X^{8/33+ε} ≤ H ≤ X^{1−ε}. That is far short of X^{−η}.
-- The gap is quantitative: the best unconditional averaged prime-pair results fall short of what G3′ needs by a power
-  of X.
+**(b) Averaged prime pairs: heuristic bookkeeping (HEURISTIC, Rule R F4).**
+- In M_2(X; H) = Σ_n(ψ(n + H) − ψ(n) − H)², the pair errors enter as Σ_{0<|d|<H}(H − |d|)E_2(X; {0, d}). The main terms
+  combine through C7 (16), R_2(h) = Σ_{0<|d|<h}(h − |d|)(S(d) − 1) = −h log h + Ah + O(h^{1/2+ε}), to H·X log(X/H).
+- So (V) at H needs the weighted error average to be o(HX log(X/H)), i.e. an average error o(X log X/H) per shift.
+  For H = X^η that is a power saving.
+- MRT (C9) save an arbitrary power of log X on average over h, for X^{8/33+ε} ≤ H ≤ X^{1−ε}. So, *by this bookkeeping*,
+  the best unconditional averaged prime-pair results fall short of (V) by a power of X.
 
-**(c) The duality made explicit.** Small gaps between zeros (the content of (SG), hence of G3′) are dual to F(α) at
-large α, which is dual to prime-pair errors cancelling on average over shifts up to X^{1−ε}.
-- Repulsion of zeros corresponds to the negative secondary term −h log h in Σ_{d≤h}S(d) (C7 (16)).
-- Twin-prime-type existence results (bounded gaps) push the other way: they produce clustering.
+**(c) The duality (HEURISTIC, Rule R F4, F11).**
+- Small gaps between zeros, the content of (SG), are controlled by F(α) at large α.
+- F(α) at large α is in turn controlled by prime-pair errors cancelling on average over shifts up to X^{1−ε}.
+- Repulsion of zeros corresponds to the negative secondary term in R_2(h) = Σ_{0<|d|<h}(h − |d|)(S(d) − 1) = −h log h +
+  Ah + … (C7 (16)).
+- Existence results for prime clusters (bounded gaps) have no bearing on (V) in the needed range.
 
-### 9.3 Stretch: can RH be removed? (open)
+### 9.3 Open: can the prime input be weakened? (Rule R F1)
 
-- Step 3 is RH-free: GLSS and Theorem C.
-- Steps 1–2 use RH through Goldston–Montgomery's explicit-formula identity for F(x, T) with real ordinates.
-- BGST's unconditional F(α) has complex weights x^{ρ−ρ′}W(ρ − ρ′). Off-line pairs make it indefinite, so the
-  variance–F(α) equivalence does not transfer verbatim.
-- An RH-free (V) ⇒ PCC would need the GLSS idea (horizontal multiplicity) combined with an unconditional prime-variance
-  identity. **Not attempted.**
+By C8 footnote 6, (V) on the full range already implies RH. So "remove RH from Corollary P" is not the right
+question. The open questions are:
+- **(Q1)** Does (V) on a *restricted* range (for example h ≤ X^{θ} with θ < 1, which is not known to imply RH), or a
+  one-sided variance bound, still give (SG)?
+- **(Q2)** A hypothesis-free formulation on the zero side: does the strong pair correlation in the unconditional
+  complex-weighted form, F(x, T) := Σ x^{ρ−ρ′}W(ρ − ρ′) (BGST arXiv:2501.14545v3 (3.1); W(u) = 4/(4 − u²)), imply (SG)
+  without RH?
+  - Its weights are complex-valued, so the positivity of individual terms used on RH is unavailable (BGST, proof of
+    Lemma 4: "Since W(ρ−ρ′) is complex-valued we need to remove this weight").
+  - This is pursued in Plan 19 (research/G3prime/rhfree/).
 
 ### 9.4 Numerical sanity (NUMERICAL; `checks/check_pc_numerics.py` → `.out`; Odlyzko's first 2,001,052 zeros)
 
-These are statements about a finite sample, not evidence about the asymptotics (AGENTS.md rule 3).
+These are statements about a finite sample, not evidence about the asymptotics (AGENTS.md rule 3). The script needs
+`data/raw` (Odlyzko zeros) and the compiled toolkit (main checkout).
 
-**[1] Repulsion: the content of (SG).** Normalized gaps g_k (§4) for k ≤ 2·10⁶ (γ ≤ 1.13·10⁶). The mean is 1.00000 and
-the minimum is 0.0055.
+**[1] Repulsion: the content of (SG).** Normalized gaps g_k (§4) for k ≤ 2·10⁶ (γ ≤ 1.13·10⁶). The mean is 1.00000
+and the minimum is 0.0055.
+- The comparison columns are the Wigner-surmise CDF, an *approximation* to the GUE nearest-neighbour spacing law, and
+  the PCC integral.
+- Only **17** gaps are below δ = 0.02, so that row carries roughly ±25% statistical uncertainty (Rule R F7).
+- The pair count uses forward pairs among the next 7 neighbours, which is adequate for β ≤ 0.5 (offset 2 adds 44 pairs
+  at β = 0.5, offset 3 adds none).
 
-| δ | #{g_k < δ}/K | GUE NN CDF (Wigner surmise) | PCC ∫_0^δ(1 − sinc²) |
+| δ | #{g_k < δ}/K | Wigner-surmise CDF | PCC ∫_0^δ(1 − sinc²) |
 |---|---|---|---|
 | 0.02 | 8.50e−6 | 8.64e−6 | 8.77e−6 |
 | 0.05 | 1.27e−4 | 1.35e−4 | 1.37e−4 |
@@ -795,12 +823,11 @@ the minimum is 0.0055.
 | 0.20 | 7.14e−3 | 8.39e−3 | 8.50e−3 |
 | 0.50 | 1.02e−1 | 1.12e−1 | 1.13e−1 |
 
-- The small-gap fraction follows the δ³ law. At small δ, pairs within β are essentially only nearest neighbours.
-- The ≈10–15% deficit at moderate δ is the known finite-height effect at γ ~ 10⁶. It is consistent with
-  arithmetic corrections and is not analysed here.
+- The small-gap fraction follows the δ³ shape.
+- The 10–15% shortfall at moderate δ is **not analysed**. The reviewer's split by height shows it shrinking with
+  height (internal evidence only).
 
-**[2] G3′ defect, true zeros against the smooth model.** D(n) := (2/n²)Σ_{j<n}(n−j)log(b_j/x̃_j) − log(π²/16), for the
-true-zero measure (toolkit `true_zeta`, J = 4·10⁵ with tail) and for the smooth model:
+**[2] G3′ defect, true zeros against the smooth model.** D(n) := (2/n²)Σ_{j<n}(n−j)log(b_j/x̃_j) − log(π²/16):
 
 | n | 100 | 200 | 400 | 800 | 1600 | 3200 |
 |---|---|---|---|---|---|---|
@@ -808,6 +835,8 @@ true-zero measure (toolkit `true_zeta`, J = 4·10⁵ with tail) and for the smoo
 | D_smooth | −0.12627 | −0.10674 | −0.09080 | −0.07807 | −0.06796 | −0.05988 |
 | difference | −3.7e−4 | −2.6e−4 | −1.7e−4 | −1.0e−4 | −5.8e−5 | −3.2e−5 |
 
-- Both drift to 0 like the smooth model's slow 1/log term (RH_ζ's κ).
-- The true-minus-smooth difference shrinks roughly like n^{−0.8}. This is consistent with G3′, i.e. a defect of 0,
-  well inside Theorem B's interval [−3 log C, 0].
+- **Stability** (Rule N; the reviewer's runs, now built into the script as part [3]): J = 1, 2, 4·10⁵ in double, and
+  J = 2·10⁵ in long double, reproduce every printed digit.
+- Both D's drift to 0 like the smooth model's slow 1/log term (the κ of Theorem RH_ζ, G1).
+- The true-minus-smooth difference shrinks, with local exponents rising from 0.49 to 0.86 over this range. This is
+  consistent with G3′, i.e. a defect of 0.
