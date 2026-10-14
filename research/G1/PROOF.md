@@ -16,19 +16,24 @@ known; its application here to Law P is what is new.
 
 ## 0. Status
 
+*(Plan 47 note, 2026-10-14: G2's citation (P) was replaced by G2 Lemma EP (self-contained). Rows G1-T, G1-L, CL, WC,
+A4′ and TC are relabelled PROVED, and "(P) via TC" is dropped from T3-avg. RH_ζ (G2 optimality for its E1(iv), a
+different measure) is not changed. Each changed label says "Rule R pending (Plan 47)". Table: research/G2/LOG.md
+"Plan 47".)*
+
 | Result | Statement | Label |
 |---|---|---|
 | K | second difference of G(n) := Σ_{j<n}(n−j)u_j over ±h = triangle-kernel sum of u, of total mass h² | PROVED |
-| **G1-T** | H_all + (T3) slow oscillation of β_n ⇒ β_n → 1, i.e. n^p b_n → c(p)C | PROVED-mod-cite (G2 (P)) |
-| **G1-L** | H_all + a one-sided bound (sup β_n < ∞ or inf β_n > 0) ⇒ (1/n)Σ_{j<n} log(j^p b_j) → log(c(p)C) | PROVED-mod-cite (G2 (P)) |
+| **G1-T** | H_all + (T3) slow oscillation of β_n ⇒ β_n → 1, i.e. n^p b_n → c(p)C | PROVED (Plan 47; was PROVED-mod-cite (G2 (P)); only input H_all, now PROVED via G2 Lemma EP); Rule R pending (Plan 47) |
+| **G1-L** | H_all + a one-sided bound (sup β_n < ∞ or inf β_n > 0) ⇒ (1/n)Σ_{j<n} log(j^p b_j) → log(c(p)C) | PROVED (Plan 47; was PROVED-mod-cite (G2 (P)); only input H_all, now PROVED via G2 Lemma EP); Rule R pending (Plan 47) |
 | A1 | J ≥ 0 ⇒ sine-weighted window averages of a_j are ≥ 2cos(π/(L+1))·min b over the window. Hence, if b is regular, liminf of window averages of a_j/(2b_j) ≥ 1 | PROVED |
 | A2 | p > 1: Σ_{j>n} a_j = 𝔼_n[Σ_{k∉S} x_k] (Heine ensemble) | PROVED |
 | A3 | Q_p := ∫ x d(σ − μ*) = 2c(p)/(p−1) | PROVED (uses only G2 B*(i) and the definition of μ*, both citation-free) |
 | A4 | (CL) ⇒ tail-Cesàro a-law; with β_n → 1, block-Cesàro ratios Σa/Σ2b → 1 and window averages → 1 in b-weighted density (pointwise density NOT proved) | CONDITIONAL on (CL). (CL) is proved for pure-power atoms by Theorem CL (§3.1, REVIEWED), so the tail-Cesàro part is unconditional there; (i)–(ii) still need β_n → 1 |
-| **CL** | (CL) for pure-power atoms k^{−p}, p > 1, and ROUGH weights (Σw < ∞, w_k ≥ c₁k^{−s}): n^{p−1}𝔼_n[Σ_{k∉S}x_k] → Q_p. Hence n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p−1) unconditionally (§3.1, Plan 27) | PROVED-mod-cite (P) (through G2 B*(iii); internal inputs: G2 A1, A-U, A-L; G3′ §5.2 Lemma Sat); REVIEWED; novelty UNCHECKED |
+| **CL** | (CL) for pure-power atoms k^{−p}, p > 1, and ROUGH weights (Σw < ∞, w_k ≥ c₁k^{−s}): n^{p−1}𝔼_n[Σ_{k∉S}x_k] → Q_p. Hence n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p−1) unconditionally (§3.1, Plan 27) | PROVED (Plan 47; was PROVED-mod-cite (P) through G2 B*(iii), which now uses G2 Lemma EP; internal inputs: G2 A1, A-U, A-L, B*; G3′ §5.2 Lemma Sat); REVIEWED (proof unchanged); relabel Rule R pending (Plan 47); novelty UNCHECKED |
 | Sat_p | saturation, p ≥ 1: 1 − ρ_n(k) ≤ (W/w_k)e^{−2n·g_p(k/n)} (§3.1) | PROVED (§3.1 header); REVIEWED |
-| WC | concentration at speed n²: P_n(\|⟨φ, ν_S⟩ − ⟨φ, μ*_u⟩\| > δ) ≤ e^{−c(φ,δ)n² + o(n²)} (§3.1) | PROVED-mod-cite (P) (through G2 B*(iii)) (§3.1 header); REVIEWED |
-| A4′ | unconditional tail-Cesàro a-law: x_k = k^{−p} (p > 1), Σw < ∞, w_k ≥ c₁k^{−s}: n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p − 1) (§3.1) | PROVED-mod-cite (P) (through G2 B*(iii)) (§3.1 header); REVIEWED |
+| WC | concentration at speed n²: P_n(\|⟨φ, ν_S⟩ − ⟨φ, μ*_u⟩\| > δ) ≤ e^{−c(φ,δ)n² + o(n²)} (§3.1) | PROVED (Plan 47; was PROVED-mod-cite (P) through G2 B*(iii), which now uses G2 Lemma EP) (§3.1 header); REVIEWED (proof unchanged); relabel Rule R pending (Plan 47) |
+| A4′ | unconditional tail-Cesàro a-law: x_k = k^{−p} (p > 1), Σw < ∞, w_k ≥ c₁k^{−s}: n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p − 1) (§3.1) | PROVED (Plan 47; was PROVED-mod-cite (P) through G2 B*(iii), which now uses G2 Lemma EP) (§3.1 header); REVIEWED (proof unchanged); relabel Rule R pending (Plan 47) |
 | Sat_p⁺ | Sat_p for all p > 0, with the extra factor ((n+1)/k)^{2(1−p)₊} and g_p⁺ (§3.3); internal input of T3-conv, T3-sv, T3a, Thm R, L, T3-all, T3-log | no separate label in the §3.3 header (which labels T3-conv); the proof is that of Lemma Sat_p (PROVED) with two elementary changes; Rule R (review/REVIEW_Plan29.md) ACCEPT WITH FIXES, F1 applied — REVIEWED |
 | G1-R | (T3) from the atoms alone; (CL) (proved for pure-power atoms with rough weights, p > 1: Theorem CL; open for general nodes or p ≤ 1) | (T3) half **REFUTED** for sandwiched weights (Theorem R, §3.6); PROVED-mod-cite for pure-power nodes with slowly varying Ψ: bounded Ψ (Theorem T3-all, §3.8; contains T3-conv, T3-sv/T3a, T3-avg) and log-type Ψ (Theorem T3-log, §3.9); open for slowly varying Ψ with D(γ) = ∞ and for nodes other than pure powers. (CL) half: proved for pure powers k^{−p}, p > 1 (Theorem CL); open for general nodes or p ≤ 1 (see §4). *(Row updated by Plan 37, 2026-10-14; previously "proved for polynomially slowly varying weights (T3-sv/T3a); (CL) half unchanged".)* |
 | FV | first variation: d/dt log b_n²(v e^{tf}) = ⟨f, μ_n − μ_{n−1}⟩, μ_n := w p_n² (§3.2) | PROVED (standard; novelty not claimed); REVIEWED |
@@ -39,8 +44,8 @@ known; its application here to Law P is what is new.
 | **T3-sv** | pointwise b-law for w = k^{−s}Ψ with Ψ bounded and *polynomially slowly varying*: sup_{n/M≤k≤n^γ}\|log Ψ(k) − log Ψ(n)\| → 0 for all M, γ (e.g. Ψ = 2 + sin√(log log k)) (§3.4, Plan 30) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: Lemma FV, Lemma Sat_p⁺, Lemma TL); REVIEWED; novelty UNCHECKED |
 | FVa | first variation of a_n: d/dt a_n(v e^{tf}) = ⟨(x − a_n)f, μ_n⟩ − 2b_n⟨f, q_{n−1}q_n⟩ (q_j = √w p_j) (§3.5) | PROVED (standard; novelty not claimed; self-contained via the proof of Lemma H and Christoffel–Darboux); Rule R ACCEPT WITH FIXES, re-check ACCEPT — REVIEWED |
 | **T3a** | pointwise **a-law** n^p a_n → 2c(p) under T3-sv's hypotheses (Ψ bounded, polynomially slowly varying; includes ψ_k → L), all p > 0, s > 1 (§3.5, Plan 32) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: FVa, Sat_p⁺, TL); REVIEWED; novelty UNCHECKED |
-| TC | tail count: 𝔼_m#(S ∩ (Mm, ∞)) ≤ (2A/(p log M))·m + o(1) uniformly over sandwiched weights, every p > 0 (§3.7) | PROVED-mod-cite (P) (through G2 B*(iii); internal: G2 A1/A2, A-U, A-L) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
-| **T3-avg** | for w = k^{−s}Ψ with Ψ bounded and **uniformly slowly varying** (δ_N(M, M′) → 0; e.g. 2 + sin(log log k)): (1/N)Σ_{n=N}^{2N}\|log b_n²(w) − log b_n²(v)\| → 0 and (1/N)Σ n^p\|a_n(w) − a_n(v)\| → 0; hence the full pointwise Law P along a set of n of density one (§3.7, Plan 34) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; (P) via TC) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
+| TC | tail count: 𝔼_m#(S ∩ (Mm, ∞)) ≤ (2A/(p log M))·m + o(1) uniformly over sandwiched weights, every p > 0 (§3.7) | PROVED (Plan 47; was PROVED-mod-cite (P) through G2 B*(iii), which now uses G2 Lemma EP; internal: G2 A1/A2, A-U, A-L, B*) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED (proof unchanged); relabel Rule R pending (Plan 47); novelty UNCHECKED |
+| **T3-avg** | for w = k^{−s}Ψ with Ψ bounded and **uniformly slowly varying** (δ_N(M, M′) → 0; e.g. 2 + sin(log log k)): (1/N)Σ_{n=N}^{2N}\|log b_n²(w) − log b_n²(v)\| → 0 and (1/N)Σ n^p\|a_n(w) − a_n(v)\| → 0; hence the full pointwise Law P along a set of n of density one (§3.7, Plan 34) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b) (Plan 47: "(P) via TC" removed, TC is now PROVED; Rule R pending (Plan 47)) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **TV** | (d/dt)μ_m(A) = ⟨f1_Aq_m,q_m⟩ − 2⟨1_Aq_m, K_m(fq_m)⟩ − ⟨fq_m,q_m⟩μ_m(A) along w(t) = we^{tf} (§3.8, Plan 35) | PROVED (standard; novelty not claimed) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED |
 | **LP** | pure power: μ_n((Mn, ∞)) → F_p(M) = (2/π)arcsin√(min(1, M^{−p}/(4c(p)))), M ≥ 1 (§3.8; min added by Plan 37 to match §3.8) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; textbook method of moments) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty not claimed |
 | **Thm L** | localization at scale Mn: limsup sup_t μ_m^{(t)}((Mn, ∞)) ≤ e^{4G}F_p(M) for bounded slowly varying Ψ (§3.8) | PROVED-mod-cite (as LP; internal TV, Sat_p⁺) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
@@ -206,6 +211,9 @@ k^{−p}, p > 1, with rough weights).* (CL) is the statement that the Heine ense
   as stated.
 
 ### 3.1 Theorem CL (Plan 27): saturation exactness and concentration — (CL) holds for rough weights — Lemma Sat_p PROVED; Lemma WC, Theorem CL, A4′ PROVED-mod-cite (P) (through G2 B*(iii)); Rule R ACCEPT WITH FIXES, re-check ACCEPT — REVIEWED; novelty UNCHECKED
+
+*(Plan 47 note, 2026-10-14: G2 B*(iii) now uses G2 Lemma EP instead of (P), so Lemma WC, Theorem CL and A4′ are PROVED
+(no external citation); proofs unchanged; relabel Rule R pending (Plan 47). Header kept as history; §0 carries the current labels.)*
 
 Setting: x_k = k^{−p} with p > 1, weights w_k > 0 with W := Σw_k < ∞ and w_k ≥ c₁k^{−s}. P_n is the Heine measure
 on n-subsets S (item 11 H1), with ρ_n(k) := P_n(k ∈ S) = w_kK_n(x_k, x_k). Put
@@ -696,6 +704,9 @@ and so does Theorem CL when p > 1 (F1).
 
 ### 3.7 Lemma TC and Theorem T3-avg (Plan 34): density-one pointwise law for slowly varying weights — TC PROVED-mod-cite (P); T3-avg PROVED-mod-cite; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan34.md), fixes applied, re-check ACCEPT — REVIEWED
 
+*(Plan 47 note, 2026-10-14: G2 B*(iii) now uses G2 Lemma EP instead of (P), so Lemma TC is PROVED (no external
+citation) and T3-avg is PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b) without (P); proofs unchanged; relabel Rule R pending (Plan 47).)*
+
 Setting: x_k = k^{−p} (p > 0), sandwiched weights c·k^{−s} ≤ w_k ≤ C·k^{−s} (s > 1); notation μ_n, ρ_m as in
 §3.2–3.5.
 
@@ -709,7 +720,8 @@ with A := 4p + 2|κ_p| (G2 A-U, using E_p = κ_p from G2 B*(iii)). The o(1) depe
 *Proof.* Let T_j denote the Heine mass of index sets with exactly j elements beyond Mm.
 - G2 Theorem A-U (with its M, valid for every p > 0) gives log T_j ≤ −pm²log m + E_pm² + m²(At − pt²log M)
   + O_M(m log m), with t = j/m. The constants depend on the weights only through W = Σw.
-- G2 B*(iii) gives E_p = κ_p (this is where the external citation (P) enters).
+- G2 B*(iii) gives E_p = κ_p (this is where the external citation (P) entered; since Plan 47, 2026-10-14, B*(iii) uses
+  G2 Lemma EP and no citation).
 - G2 Theorem A-L gives log D_m ≥ −pm²log m + κ_pm² − o(m²); its constants depend on the weights only through c₁ and s.
 - For t ≥ t₁ := 2A/(p log M), the bracket At − pt²log M is ≤ −At₁ (equality at t₁; concave and decreasing beyond
   t₁/2). So P_m(j ≥ t₁m) ≤ (m + 1)e^{−At₁m² + o(m²)}.
@@ -1506,7 +1518,7 @@ some weights in [e^{−ε}, e^{ε}]·k^{−s}, for every ε ∈ (0, ε₀].
   fixed-size sandwiched roughness. It does **not** say whether the b-law also fails for the same w, nor whether
   a_n/(2b_n) → 1 fails: the construction controls a_n only. (HEURISTIC, not proved: running R and Ra on interleaved
   scales should break both at once.) For p > 1, w still satisfies the hypotheses of Theorem CL (Σw < ∞, w_k ≥ e^{−ε}k^{−s}), so the
-  **tail-Cesàro a-law** A4′ (PROVED-mod-cite (P), through G2 B*(iii)), n^{p−1}Σ_{j≥n}a_j(w) → 2c(p)/(p − 1), holds for this w while the pointwise a-law fails
+  **tail-Cesàro a-law** A4′ (PROVED-mod-cite (P), through G2 B*(iii); PROVED since Plan 47, Rule R pending), n^{p−1}Σ_{j≥n}a_j(w) → 2c(p)/(p − 1), holds for this w while the pointwise a-law fails
   — a concrete instance of the A4 remark that the tail-Cesàro form does not imply the pointwise one.
 - **Ra-b (comparison with Theorem R).** R1a is explicit and direct; Theorem R's R1 is by contradiction. The scale
   separation and the head/tail bookkeeping (Sat_p⁺, TL) are copied from Theorem R; step 1 replaces T3a step 1 by FV,

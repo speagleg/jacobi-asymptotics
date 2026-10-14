@@ -2,6 +2,10 @@
 
 Status: REVIEWED 2026-10-13 (Rule R: `review/REVIEW_G2.md`, ACCEPT WITH FIXES; fixes applied). No RH framing applies
 here: the measures are explicit power laws.
+*(Plan 47 note, 2026-10-14: the external citation (P) is no longer needed. B*(iii) now uses Lemma EP (§1, a
+self-contained Fourier proof of energy positivity, ported from papers/paper1/main.tex Lemma 3.3), so B*, H_all, HZ and
+Cor. H-input are relabelled PROVED. The new lemma and the relabels are **Rule R pending (Plan 47)**; the 2026-10-13
+REVIEWED status covers the text as it was before Plan 47. See LOG.md "Plan 47".)*
 
 **Labels.** "PROVED-mod-cite (X)" means proved from explicitly cited external results X that were read and quoted with
 their hypotheses in CITATIONS.md (item 11's convention, which VERIFICATION_POLICY.md's PROVED-mod-input generalizes).
@@ -15,20 +19,22 @@ the same optimizer (CITATIONS.md (M)).
 | Result | Statement | Label |
 |---|---|---|
 | B0 | arcsine potential: ∫ log\|x−y\| dω_{[0,β]} = log(β/4) on [0,β], and ≥ log(β/4) on [β,∞) | PROVED |
-| B* | E_p := sup_{μ∈𝒜} I(μ) = κ_p := 3p/2 + log c(p), uniquely attained at μ* = ∫_0^1 ω_{[0,4c(p)t^{−p}]} dt | PROVED-mod-cite (P); the value I(μ*) = κ_p is citation-free |
+| EP | energy positivity (Plan 47): a finite signed measure ν on ℝ with ν(ℝ) = 0 and ∬\|log\|x−y\|\| d\|ν\|d\|ν\| < ∞ has −∬ log\|x−y\| dν dν = ∫_0^∞ \|ν̂(ξ)\|²/ξ dξ ≥ 0, with equality iff ν = 0 | PROVED (self-contained; ported from Paper 1 Lemma 3.3, refereed CORRECT in papers/paper1/REVIEW_Paper1.md); Rule R pending (Plan 47) |
+| B* | E_p := sup_{μ∈𝒜} I(μ) = κ_p := 3p/2 + log c(p), uniquely attained at μ* = ∫_0^1 ω_{[0,4c(p)t^{−p}]} dt | PROVED (Plan 47, via Lemma EP; was PROVED-mod-cite (P)); Rule R pending (Plan 47). The value I(μ*) = κ_p is citation-free |
 | A1 | discretization: point energy ≤ n²·(smeared energy) + C_M n log n, for subsets of [1, Mn] | PROVED |
 | A2 (Cor.) | head bound: log V(S) ≤ −pN² log N + E_pN² + C′_M n log n for S ⊂ [1, Mn], \|S\| = N | PROVED (uses A1 and the Scaling identity (end of §0); E_p enters only as the sup, not its value) |
 | A-U | limsup (1/n²)[log D_n + p n² log n] ≤ E_p | PROVED (uses A1, B*-scaling; algebra of item 11 H7) |
 | A-L | liminf ≥ κ_p (= I(μ*_u)) | PROVED (citation-free: uses B*(i) and the value in B*(iii)) |
-| **H_all** | **for every p > 0, C > 0, regularly spaced atoms, and weights with Σw < ∞ and w_k ≥ c₁k^{−s}: log D_n = −pn² log n + (κ_p + log C)n² + o(n²)** | PROVED-mod-cite (P) |
-| HZ | log det_{1≤i,j≤n} ζ(a(i+j)+b) = −an² log n + (3a/2 + log c(a))n² + o(n²), for real a > 0 (in particular integer a ≥ 1) and real b > 1 − 2a | PROVED-mod-cite (P) |
+| **H_all** | **for every p > 0, C > 0, regularly spaced atoms, and weights with Σw < ∞ and w_k ≥ c₁k^{−s}: log D_n = −pn² log n + (κ_p + log C)n² + o(n²)** | PROVED (Plan 47; was PROVED-mod-cite (P)); Rule R pending (Plan 47) |
+| HZ | log det_{1≤i,j≤n} ζ(a(i+j)+b) = −an² log n + (3a/2 + log c(a))n² + o(n²), for real a > 0 (in particular integer a ≥ 1) and real b > 1 − 2a | PROVED (Plan 47; was PROVED-mod-cite (P)); Rule R pending (Plan 47) |
 
 Notation:
 - p > 0 is fixed. g(u) := u^{−p} on (0, ∞).
 - c(p) := ¼(π/(2I(p)))^p, with I(p) := (√π/2)Γ(1/p + ½)/Γ(1/p + 1), as in item 11 and `jacobi_asym.laws.weyl`.
 - κ_p := 3p/2 + log c(p).
 - 𝒜_τ is the set of positive Borel measures on (0, ∞) of mass τ with μ ≤ du (Lebesgue), and 𝒜 := 𝒜_1.
-- I(μ) := ∬ log|g(u) − g(v)| dμ(u)dμ(v) ∈ [−∞, ∞). This is the *negative* of the energy convention in (P).
+- I(μ) := ∬ log|g(u) − g(v)| dμ(u)dμ(v) ∈ [−∞, ∞). This is the *negative* of the energy convention in (P). For a
+  signed measure ν (Lemma EP) we write ∬ log|x − y| dν dν directly.
 - In the variable x = g(u), μ ↦ μ^x := g_*μ, and the constraint becomes μ^x ≤ σ(dx) := (1/p)x^{−1−1/p}dx on (0, ∞).
   Then I(μ) = ∬ log|x − y| dμ^x dμ^x.
 
@@ -60,6 +66,72 @@ y = β the integrand is dominated by |log s|·s^{−1/2} (with s = β − y), so
 
 **Definition.** Put β_t := 4c(p) t^{−p} for t ∈ (0, 1], and μ* := ∫_0^1 ω_{β_t} dt, a probability measure in the x
 variable. Write μ*_u := (g⁻¹)_*μ* for the same measure in u.
+
+**Lemma EP (energy positivity; Plan 47, 2026-10-14).** Let ν be a finite signed Borel measure on ℝ with ν(ℝ) = 0 and
+
+  ∬ |log|x − y|| d|ν|(x) d|ν|(y) < ∞.                                                        (EP-int)
+
+Then
+
+  −∬ log|x − y| dν(x)dν(y) = ∫_0^∞ |ν̂(ξ)|²/ξ dξ ≥ 0,  ν̂(ξ) := ∫ e^{iξx} dν(x),
+
+with equality if and only if ν = 0. In G2's sign convention (I = +∬ log, the negative of (P)'s): ∬ log|x − y| dν dν ≤ 0,
+with equality iff ν = 0.
+
+*Source.* Ported verbatim in substance from papers/paper1/main.tex Lemma 3.3 (`lem:positivity`) and its proof, which the
+Paper 1 referee checked (papers/paper1/REVIEW_Paper1.md: "Lemma 3.3: CORRECT"). The proof uses only Fubini, dominated and
+monotone convergence and the Gaussian Fourier transform. It replaces the external citation (P) in B*(iii), and it gives
+more than (P) states (the Fourier identity). Rule R pending (Plan 47).
+
+*Proof.* For 0 < ε < 1 < R and a ∈ ℝ ∖ {0} put K_{ε,R}(a) := ∫_ε^R (cos(aξ) − e^{−ξ}) ξ^{−1} dξ.
+
+1. **A uniform bound.** Three elementary estimates:
+   - (a) for 1 ≤ A < B, |∫_A^B cos t dt/t| ≤ 2/A ≤ 2 (integrate by parts);
+   - (b) for 0 < A < B ≤ 1, ∫_A^B cos t dt/t = log(B/A) − θ with 0 ≤ θ ≤ ∫_A^B (t/2) dt ≤ B²/4 ≤ ¼, because
+     0 ≤ 1 − cos t ≤ t²/2;
+   - (c) ∫_ε^R e^{−ξ} dξ/ξ = log(1/ε) + θ′ with |θ′| ≤ 2.
+
+   Substituting t = |a|ξ, ∫_ε^R cos(aξ) dξ/ξ = ∫_{ε|a|}^{R|a|} cos t dt/t.
+   - If ε|a| < 1 < R|a|: split at t = 1 and use (b), (a), (c): K_{ε,R}(a) = −log|a| + O(1).
+   - If R|a| ≤ 1: by (b) and (c), K_{ε,R}(a) = log R + O(1), and 0 < log R ≤ log(1/|a|).
+   - If ε|a| ≥ 1: by (a) and (c), K_{ε,R}(a) = −log(1/ε) + O(1), and 0 < log(1/ε) ≤ log|a|.
+
+   The O(1) terms are at most 2 + ¼ + 2 in absolute value. In all cases
+
+     |K_{ε,R}(a)| ≤ |log|a|| + 6   (0 < ε < 1 < R, a ≠ 0).                                   (EP-K)
+
+2. **The pointwise limit.** K_{ε,R}(a) − K_{ε,R}(1) = ∫_{ε|a|}^{ε} cos t dt/t + ∫_R^{R|a|} cos t dt/t. As ε → 0 the
+   first integral tends to log(1/|a|), by (b); as R → ∞ the second tends to 0, by (a). Also
+   K_{ε,R}(1) → k₀ := ∫_0^∞ (cos ξ − e^{−ξ}) ξ^{−1} dξ, which converges. Hence K_{ε,R}(a) → k₀ − log|a|. (In fact k₀ = 0,
+   but this is not needed, because ν(ℝ) = 0.) All limits ε → 0, R → ∞ are along arbitrary sequences ε_m ↓ 0, R_m ↑ ∞.
+
+3. **The identity.** (EP-int) forces |ν| ⊗ |ν| to give zero mass to the diagonal {x = y}, where the integrand is +∞.
+   - By (EP-K) and dominated convergence along (ε_m, R_m) (w.r.t. |ν| ⊗ |ν|, dominating function |log|x − y|| + 6,
+     integrable by (EP-int) and finiteness of |ν|), and since ν(ℝ) = 0,
+
+       ∬ K_{ε,R}(x − y) dν dν → k₀ ν(ℝ)² − ∬ log|x − y| dν dν = −∬ log|x − y| dν dν.
+
+   - On the other hand, (ξ, x, y) ↦ (cos((x − y)ξ) − e^{−ξ})/ξ is bounded on [ε, R] × ℝ², so by Fubini,
+     ∬ cos((x − y)ξ) dν dν = Re(ν̂(ξ) conj(ν̂(ξ))) = |ν̂(ξ)|², and ∬ e^{−ξ} dν dν = e^{−ξ}ν(ℝ)² = 0:
+
+       ∬ K_{ε,R}(x − y) dν dν = ∫_ε^R |ν̂(ξ)|²/ξ dξ.
+
+   - Let ε → 0, R → ∞ (monotone convergence on the right). This gives the identity, and in particular ≥ 0.
+
+4. **Equality.** If ∫_0^∞ |ν̂|²/ξ = 0, then ν̂ = 0 on (0, ∞) by continuity of ν̂, hence on ℝ, because
+   ν̂(−ξ) = conj(ν̂(ξ)) and ν̂(0) = ν(ℝ) = 0. Then ν = 0: for the Gaussian G_t(x) := (2πt)^{−1/2}e^{−x²/(2t)} we have
+   G_t(x) = (1/2π)∫ e^{−tξ²/2}e^{−iξx} dξ, so by Fubini (G_t * ν)(x) = (1/2π)∫ e^{−tξ²/2}e^{−iξx}ν̂(ξ) dξ = 0 for all x
+   and t > 0. For bounded continuous ψ, ∫ψ dν = lim_{t→0} ∫(G_t * ψ) dν = lim_{t→0} ∫ψ (G_t * ν) dx = 0, by dominated
+   convergence (G_t * ψ → ψ pointwise, |G_t * ψ| ≤ ‖ψ‖_∞) and Fubini (G_t is even). So ν = 0. ∎
+
+*Rule A (Plan 47).*
+- Hypotheses are necessary as used: dropping ν(ℝ) = 0 fails (ν = ω_8, a probability measure, has −∬ log = −log 2 < 0, by
+  B0); dropping (EP-int) loses the statement (ν = δ_0 − δ_1 has +∞ diagonal energy, so the left side is undefined).
+- `checks/check_positivity.py` (NUMERICAL, `.out` saved): the identity holds for ν = ω_1 − ω_4 (left side log 4 by B0;
+  Fourier side 1.38618 at cut-off 4000, the 1.2·10⁻⁴ gap matching the uncomputed O(1/cut) tail) and for
+  ν = U[0,1] − U[0,2] (both sides 0.693147, gap 5·10⁻⁸). Not a proof.
+- Paper 1's hypotheses are copied unchanged. The application (B*(iii) below) checks (EP-int) for the specific ν through
+  |ν| ≤ μ^x + μ*, exactly as in Paper 1's proof of Theorem 1.3(iii).
 
 **Theorem B\*.** (i) μ*_u ∈ 𝒜, with μ* = σ on [4c(p), ∞) and μ* < σ on (0, 4c(p)). Equivalently, μ*_u has density 1
 on (0, u_s] with u_s := (4c(p))^{−1/p}, and density < 1 on (u_s, ∞).
@@ -95,24 +167,57 @@ on (0, u_s] with u_s := (4c(p))^{−1/p}, and density < 1 on (u_s, ∞).
   using E[log min] = −3/2. Fubini is justified because ∬|log|x − y|| dω_{β_s}dω_{β_t} ≤ C(1 + |log s| + |log t|), an
   absolute bound.
 
-**Optimality.**
+**Optimality** (rewritten by Plan 47, 2026-10-14, to use Lemma EP in place of (P); the 2026-10-13 (P)-based text is
+kept verbatim in the remark after this proof). Rule R pending (Plan 47).
 - **E_p is finite.** I(μ) < +∞ for every μ ∈ 𝒜, since log|x − y| ≤ log(1+x) + log(1+y) and μ^x ≤ σ has a finite log
   moment. The case I(μ) = −∞ is trivial.
-- **Setup.** Let μ ∈ 𝒜 with I(μ) > −∞, and put μ^x := g_*μ ≤ σ. Then μ^x and μ* are positive, of mass 1, have finite
-  energy in the sense of (P) (I_{(P)} = −I < ∞), and satisfy ∫ log(1+x) < ∞, both being ≤ σ near ∞. So both lie in
-  M(ℂ) of (P).
-- **Mutual energy.** It is finite by (P) §1 (the bound after (1.13), and 2I(μ̃,ν̃) ≤ I(μ̃) + I(ν̃)), so ∫U* dμ^x is
-  finite and the bilinear expansion below is legitimate.
+- **Setup.** Let μ ∈ 𝒜 with I(μ) > −∞, and put μ^x := g_*μ ≤ σ. Both μ^x and μ* are positive measures of mass 1 on
+  (0, ∞) with μ^x, μ* ≤ σ, hence with ∫ log(1 + x) < ∞ (on (0, 1) the integrand is ≤ log 2; on [1, ∞) use
+  ∫_1^∞ log(1 + x) σ(dx) < ∞). For x, y > 0, log⁺|x − y| ≤ log(1 + x) + log(1 + y).
+- **Absolute convergence of the three energies.**
+  - ∬|log|x − y|| dμ^x dμ^x < ∞: the positive part is integrable by the log moment, and the negative part because
+    I(μ) > −∞.
+  - ∬|log|x − y|| dμ* dμ* < ∞: shown in **Value** above.
+  - ∬|log|x − y|| dμ*(y) dμ^x(x) < ∞: by |t| = 2t⁺ − t and B*(ii) (U* ≥ log c + p),
+    ∫|log|x − y|| dμ*(y) = 2∫log⁺|x − y| dμ*(y) − U*(x) ≤ 2 log(1 + x) + 2∫log(1 + y) dμ*(y) − (log c + p), and the
+    right side is μ^x-integrable. In particular U* ∈ L¹(μ^x) ∩ L¹(μ*).
+- **Lemma EP applies.** Put ν := μ^x − μ*, a finite signed Borel measure on (0, ∞) ⊂ ℝ with ν(ℝ) = 0. Since
+  |ν| ≤ μ^x + μ*, ∬|log|x − y|| d|ν| d|ν| is at most the sum of the four integrals ∬|log|x − y|| dα dβ,
+  α, β ∈ {μ^x, μ*}, which are finite by the previous bullet. So (EP-int) holds.
 
-Expanding with ν := μ^x − μ*:
+Expanding bilinearly (all terms absolutely convergent, so Fubini applies):
 
     I(μ) = I(μ*_u) + 2∫ U* dν + ∬ log|x − y| dν dν.
 
-  - The last term is −I_{(P)}(ν) ≤ 0, by (P) Lemma 2.1, with equality iff ν = 0.
+  - The last term is ≤ 0, by Lemma EP, with equality iff ν = 0.
   - The middle term: ν has mass 0, so ∫ U* dν = ∫ (U* − log c − p) dν. The integrand is 0 on (0, 4c] and ≥ 0 on
     (4c, ∞), where μ* = σ ≥ μ^x, so ν ≤ 0 there. Hence ∫ U* dν ≤ 0.
 
-  Therefore I(μ) ≤ κ_p, with equality iff μ^x = μ*. ∎
+  Therefore I(μ) ≤ κ_p, with equality iff μ^x = μ*, i.e. (g being a bijection of (0, ∞)) iff μ = μ*_u. ∎
+
+*Remark ((P), retained as history and as an alternative route; Plan 47, 2026-10-14).* Until Plan 47 the optimality step
+read as follows (2026-10-13 text, verbatim). It is still a valid argument, mod-cite (P); B*(iii) no longer depends on it.
+The negative-part statement "−I_{(P)}(ν) ≤ 0" is exactly Lemma EP in (P)'s sign convention (Paper 1 Remark 3.4 checks
+that Lemma EP's positivity is a special case of (P) Lemma 2.1 and conversely that (P) applies here).
+
+> **Optimality.**
+> - **E_p is finite.** I(μ) < +∞ for every μ ∈ 𝒜, since log|x − y| ≤ log(1+x) + log(1+y) and μ^x ≤ σ has a finite log
+>   moment. The case I(μ) = −∞ is trivial.
+> - **Setup.** Let μ ∈ 𝒜 with I(μ) > −∞, and put μ^x := g_*μ ≤ σ. Then μ^x and μ* are positive, of mass 1, have finite
+>   energy in the sense of (P) (I_{(P)} = −I < ∞), and satisfy ∫ log(1+x) < ∞, both being ≤ σ near ∞. So both lie in
+>   M(ℂ) of (P).
+> - **Mutual energy.** It is finite by (P) §1 (the bound after (1.13), and 2I(μ̃,ν̃) ≤ I(μ̃) + I(ν̃)), so ∫U* dμ^x is
+>   finite and the bilinear expansion below is legitimate.
+> 
+> Expanding with ν := μ^x − μ*:
+> 
+>     I(μ) = I(μ*_u) + 2∫ U* dν + ∬ log|x − y| dν dν.
+> 
+>   - The last term is −I_{(P)}(ν) ≤ 0, by (P) Lemma 2.1, with equality iff ν = 0.
+>   - The middle term: ν has mass 0, so ∫ U* dν = ∫ (U* − log c − p) dν. The integrand is 0 on (0, 4c] and ≥ 0 on
+>     (4c, ∞), where μ* = σ ≥ μ^x, so ν ≤ 0 there. Hence ∫ U* dν ≤ 0.
+> 
+>   Therefore I(μ) ≤ κ_p, with equality iff μ^x = μ*. ∎
 
 *Remarks.*
 - **Prior art.** For p = 1, μ*_u is exactly Monien's density (arXiv:0901.1883, Theorem 3.1):
@@ -301,7 +406,7 @@ input `TheoremHPure p κ_p s` (lean/JacobiAsym/Inputs.lean), with κ_p = 3p/2 + 
   ξ^{p+1}f′(ξ) = −p) and w_k = k^{−s} (Σw < ∞, w_k ≥ k^{−s}) gives log D_n = −pn²log n + κ_pn² + o(n²). The 0-based
   `powSeq` indexing (k+1)^{−p} is the same measure.
 
-Label: PROVED-mod-cite (P), as H_all. Consequence for labels elsewhere: wherever a result is labelled "mod-input
+Label: PROVED, as H_all (Plan 47, 2026-10-14; was PROVED-mod-cite (P)); Rule R pending (Plan 47). Consequence for labels elsewhere: wherever a result is labelled "mod-input
 Theorem H" and uses Theorem H only through instances of `TheoremHPure p κ_p s`, that input is discharged. (P) enters
 only where G2 is the sole route, i.e. for instances outside item 11's Theorem H range (p ∉ {1, 2}, or p = 1 with
 s < 3/2, or p = 2 with s < 2). Inside that range item 11's Theorem H supplies the instance (p = 2: PROVED + REVIEWED,
@@ -311,6 +416,10 @@ This does *not* change the Lean labels: Theorem H_all is not formalized, so the 
 `TheoremHPure`. Uses of item 11 results derived *from* Theorem H (H7, Lemma K; H5 and H6 do not use it) are discharged
 only insofar as item 11 derives them from the instances above; THEOREMS.md §3.3 lists the uses checked. *(Reworded
 after Rule R review/REVIEW_Plan37.md F1, F3.)*
+*(Plan 47 note, 2026-10-14: since B*(iii) now uses Lemma EP, H_all and this corollary are PROVED with no external
+citation, so G2 supplies every instance `TheoremHPure p κ_p s` (p > 0, s > 1) citation-free on paper. The sentences
+above about where "(P) enters" describe the pre-Plan-47 state and are kept as history: (P) is now needed nowhere. The
+Lean labels are unchanged, for the reason stated above. Rule R pending (Plan 47).)*
 
 *Novelty is UNCHECKED.* Known prior art: Monien's p = 1 equilibrium (heuristic). No literature search for the
 general-p constrained-equilibrium identification has been done beyond item 11's `lit` report, which found general-p

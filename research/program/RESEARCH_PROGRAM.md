@@ -88,7 +88,7 @@ Probabilities and plan counts are the outline agents' estimates (one "plan" ≈ 
 
 ## 4. Shareable now (after the pre-sharing checklist)
 
-1. **Paper 1 — averaged Law P (G2) + Hankel determinants of zeta values.** Strongest novelty case, one citation (P),
+1. **Paper 1 — averaged Law P (G2) + Hankel determinants of zeta values.** Strongest novelty case, one citation (P) *(Plan 47, 2026-10-14: now none; G2 Lemma EP = Paper 1 Lemma 3.3)*,
    shortest proof. Add the Baricz–Štampach cross-check.
 2. **Paper 2 — Law P for compact Jacobi operators: pure powers (RH) + weight transport + dichotomy** (G1). Needs an expert
    read of the RH analyses (suggested readers: Zhao/Lin/Xu, Dai, Kuijlaars, Van Assche, Bleher–Liechty) and the

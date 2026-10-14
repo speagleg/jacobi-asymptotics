@@ -78,7 +78,8 @@ sup_n n^pb_n < ∞ and (1/n)Σ_{j<n}log(j^pb_j) → log(c(p)C).
 *Chain.* Lemma Sat(ℋ¹) (Sat_p⁺ for ℋ¹ nodes; its proof is Christoffel–Lagrange plus node spacing, which only needs
 spacing bounds ≍ k^{−p−1}). Then T3a step 1 gives sup n^pb_n < ∞, and G1-L + H_all conclude.
 Regularly varying version: H_L (item 11) replaces H_all.
-*Proposed label:* PROVED-mod-cite (P) (through H_all).
+*Proposed label:* PROVED-mod-cite (P) (through H_all). *(Plan 47 note, 2026-10-14: H_all no longer uses (P), so the
+"(P)" part of this proposal no longer applies; the other inputs of the chain are not re-checked here.)*
 *Effort:* 1 plan. *P:* 0.8.
 
 ### T0′. Lemma RL (right-limit reduction; rigorous, cheap, possibly known)

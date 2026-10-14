@@ -1,0 +1,4 @@
+[1] omega_1 - omega_4: LHS = log 4 = 1.386294, Fourier side (cut 4000) = 1.386175, diff = -1.19e-04
+[2] U[0,1] - U[0,2]: LHS = 0.693147, Fourier side (cut 4000) = 0.693147, diff = -4.53e-08
+[3] negative control omega_8 (mass 1): -I = -log 2 = -0.693147 < 0 (Lemma EP needs nu(R) = 0)
+PASS
