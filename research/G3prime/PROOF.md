@@ -11,31 +11,39 @@ nothing here is evidence about where the zeros lie.
 |---|---|---|---|
 | Z1 | \|γ_k − γ̃_k\| ≤ C₀ for k ≥ k₁ (≤ C₀′ for all k) | PROVED-mod-cite + REVIEWED | (C1) |
 | Z2 | pair ratio (x_a − x_b)/(x̃_a − x̃_b) ≤ (1 + C₀ log(γ̃_b/2π)/(π(b−a)))(1 + 2C₀/γ̃_a)⁵ | PROVED-mod-cite + REVIEWED | Z1 |
-| G3′-U | limsup (1/n²)[log D_n(σ) − Φ_n] ≤ 0 | PROVED-mod-cite + mod-input Theorem H (Lean `TheoremHPure`) + REVIEWED | Z2, item 11 H5/H6/H7, Theorem H (p = 2) |
+| G3′-U | limsup (1/n²)[log D_n(σ) − Φ_n] ≤ 0 | PROVED-mod-cite + mod-input Theorem H (Lean `TheoremHPure`) + REVIEWED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | Z2, item 11 H5/H6/H7, Theorem H (p = 2) |
 | S | index shift: π(a)⁻² − π(b)⁻² ≥ (1+η)⁻³(a⁻² − b⁻²) | PROVED + REVIEWED | — |
 | W | log D_n(Σ k⁻ˢ δ_{Ck⁻²}) ≥ Λ_n − (s−3)K n log n, uniformly in s ≥ 4 | PROVED (from item 11 §7) + REVIEWED | Theorem A refs, H3 |
-| G3′-L | liminf (1/n²)[log D_n(σ) − Φ_n] ≥ 0 under (SG) | PROVED-mod-cite + mod-input (SG), Theorem H + REVIEWED | Z1, S, W, H5, H6 |
-| N | doubled-smooth sequences: same counting function, law fails by 2 log(1−1/m) | PROVED-mod-input Theorem H + REVIEWED | Theorem H_L, item 11 H6 |
-| N′ | repeated indices containing a positive-density subset (d_*(E) > 0) ⇒ the law fails, limsup ≤ 2 log(1 − d_*(E)) | PROVED-mod-cite + mod-input Theorem H + REVIEWED; residual case closed by N″ (§5.2) | G3′*-U proof, Z1, Z2, T (P1), H6 |
-| N″ | repeated indices of positive **upper** density ⇒ the law fails, liminf ≤ −0.2397·d̄(E) (§5.2); hence G3′ ⇒ d(E) = 0 | PROVED-mod-cite (C1) + mod-input Theorem H (via G3′-U steps 1–5, item 11 H5–H7); REVIEWED; novelty UNCHECKED | Hadamard, Christoffel, G3′-U |
-| N‴ | normalized gaps g_k ≤ e^{−βk} (incl. repeats) at positive upper density ⇒ the law fails (§5.3); hence G3′ ⇒ d(T_β) = 0 for every β > 0 | PROVED-mod-cite (C1) + mod-input Theorem H; REVIEWED; novelty UNCHECKED | N″ (Lemma H, Lemma Sat, move map), G3′-U, Z1, Z2 |
-| B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED | GLSS (6.1), Caro–Wei, §4 proof |
-| L′ | (LG*): deletable bad set of small upper density + Σ log⁺(1/g) = o(K²/log K) on the rest ⇒ G3′ (§4.1); contains both (SG) and "d(E) = 0 + log-gap" | PROVED-mod-cite (C1) + mod-input (LG*), Theorem H; REVIEWED; novelty UNCHECKED | G3′-L, G3′-U, Lemma Tr, Lemma K, Lemma W |
-| Tr | truncation of the pure-power comparison at J ≥ (M/2)n costs ≤ (C_s n + 2)·E#tail = O(n²/log M) (§4.1) | PROVED-mod-input Theorem H (via Lemma K / item 11 H7); REVIEWED | Lemma H, Lemma K |
-| Ch | **characterization:** G3′ ⟺ 𝒞(K) = o(K²), with 𝒞 the capped near-pair energy (§5.4). Contains N″, N‴, L′ qualitatively | PROVED-mod-cite (C1) + mod-input Theorem H; REVIEWED; novelty UNCHECKED | Lemma H, Lemma Sat, Lemma Tr, Lemma K, Lemma W, Lemma S, Z1, Z2, G3′-U, G3′-L |
-| C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED | GLSS, G3′-L |
-| P | RH + prime short-interval variance (V) ⇒ G3′ (§9.1; corollary of KNOWN (C8) + Theorem C) | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; REVIEWED (Rule R, review/REVIEW_Plan18.md); novelty UNCHECKED (RH + (V) ⇒ PCC is KNOWN) | §8.2 |
-| Thm S | SPC_ℂ⁺ (upper half of the dyadic complex-weighted SPC, BGST F; no RH) ⇒ 100% simple critical, gaps ≪ δ³, (SG) ⇒ G3′ (rhfree/RHFREE.md) | PROVED-mod-cite ((C3), (C6) (2.4), (C1)) + mod-input SPC_ℂ⁺, Theorem H; REVIEWED; novelty UNCHECKED | Lemma PC, Lemma G, G3′-L |
-| Thm S′ | Full window: RH + upper half of Montgomery's SPC ⇒ G3′; RH-free: SPC_ℂ⁺(full) ⇒ G3′ (rhfree/RHFREE2.md §1) | PROVED-mod-cite ((C3) (3.5), (C6), (C1)) + mod-input SPC_ℂ⁺(full), Theorem H; REVIEWED; novelty UNCHECKED | Lemma PC′, Lemma G |
-| Thm V⁺ | RH + one-sided prime variance (upper bound, δ ∈ [X⁻¹, X^{−1/M}]) ⇒ (SG) ⇒ G3′ (rhfree/RHPRIME.md) | PROVED-mod-cite ((C8) Prop. 1 + (3.4) via RH99 (Plan 22, REVIEWED), (C3) (3.5), (C6), (C1)) + mod-input RH, (V⁺), Theorem H; REVIEWED; novelty UNCHECKED | Lemmas P1–P3 |
-| R, K | pair factors under thinning; concentration (from H7) | PROVED-mod-input Theorem H + REVIEWED | H5, H7 |
-| T | thinning of convergent density: the own-normalized law survives | PROVED-mod-input Theorem H + REVIEWED | R, K, H6, H7 |
-| T′ | robustness: density band ±η gives error ω(η) → 0 | PROVED-mod-input Theorem H + REVIEWED | T |
-| G3′*-U | own-normalized upper bound under (D∞) | PROVED-mod-cite + mod-input (D∞), Theorem H + REVIEWED | Z2, T |
-| G3′*-L | own-normalized law under (D∞) + (SG*) | PROVED-mod-cite + mod-input (D∞), (SG*), Theorem H + REVIEWED | Z1, T′, K |
+| G3′-L | liminf (1/n²)[log D_n(σ) − Φ_n] ≥ 0 under (SG) | PROVED-mod-cite + mod-input (SG), Theorem H + REVIEWED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | Z1, S, W, H5, H6 |
+| N | doubled-smooth sequences: same counting function, law fails by 2 log(1−1/m) | PROVED-mod-input Theorem H + REVIEWED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | Theorem H_L, item 11 H6 |
+| N′ | repeated indices containing a positive-density subset (d_*(E) > 0) ⇒ the law fails, limsup ≤ 2 log(1 − d_*(E)) | PROVED-mod-cite + mod-input Theorem H + REVIEWED; residual case closed by N″ (§5.2); Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | G3′*-U proof, Z1, Z2, T (P1), H6 |
+| N″ | repeated indices of positive **upper** density ⇒ the law fails, liminf ≤ −0.2397·d̄(E) (§5.2); hence G3′ ⇒ d(E) = 0 | PROVED-mod-cite (C1) + mod-input Theorem H (via G3′-U steps 1–5, item 11 H5–H7); REVIEWED; novelty UNCHECKED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | Hadamard, Christoffel, G3′-U |
+| N‴ | normalized gaps g_k ≤ e^{−βk} (incl. repeats) at positive upper density ⇒ the law fails (§5.3); hence G3′ ⇒ d(T_β) = 0 for every β > 0 | PROVED-mod-cite (C1) + mod-input Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | N″ (Lemma H, Lemma Sat, move map), G3′-U, Z1, Z2 |
+| B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | GLSS (6.1), Caro–Wei, §4 proof |
+| L′ | (LG*): deletable bad set of small upper density + Σ log⁺(1/g) = o(K²/log K) on the rest ⇒ G3′ (§4.1); contains both (SG) and "d(E) = 0 + log-gap" | PROVED-mod-cite (C1) + mod-input (LG*), Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | G3′-L, G3′-U, Lemma Tr, Lemma K, Lemma W |
+| Tr | truncation of the pure-power comparison at J ≥ (M/2)n costs ≤ (C_s n + 2)·E#tail = O(n²/log M) (§4.1) | PROVED-mod-input Theorem H (via Lemma K / item 11 H7); REVIEWED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | Lemma H, Lemma K |
+| Ch | **characterization:** G3′ ⟺ 𝒞(K) = o(K²), with 𝒞 the capped near-pair energy (§5.4). Contains N″, N‴, L′ qualitatively | PROVED-mod-cite (C1) + mod-input Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | Lemma H, Lemma Sat, Lemma Tr, Lemma K, Lemma W, Lemma S, Z1, Z2, G3′-U, G3′-L |
+| C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | GLSS, G3′-L |
+| P | RH + prime short-interval variance (V) ⇒ G3′ (§9.1; corollary of KNOWN (C8) + Theorem C) | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; REVIEWED (Rule R, review/REVIEW_Plan18.md); novelty UNCHECKED (RH + (V) ⇒ PCC is KNOWN); Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | §8.2 |
+| Thm S | SPC_ℂ⁺ (upper half of the dyadic complex-weighted SPC, BGST F; no RH) ⇒ 100% simple critical, gaps ≪ δ³, (SG) ⇒ G3′ (rhfree/RHFREE.md) | PROVED-mod-cite ((C3), (C6) (2.4), (C1)) + mod-input SPC_ℂ⁺, Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | Lemma PC, Lemma G, G3′-L |
+| Thm S′ | Full window: RH + upper half of Montgomery's SPC ⇒ G3′; RH-free: SPC_ℂ⁺(full) ⇒ G3′ (rhfree/RHFREE2.md §1) | PROVED-mod-cite ((C3) (3.5), (C6), (C1)) + mod-input SPC_ℂ⁺(full), Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | Lemma PC′, Lemma G |
+| Thm V⁺ | RH + one-sided prime variance (upper bound, δ ∈ [X⁻¹, X^{−1/M}]) ⇒ (SG) ⇒ G3′ (rhfree/RHPRIME.md) | PROVED-mod-cite ((C8) Prop. 1 + (3.4) via RH99 (Plan 22, REVIEWED), (C3) (3.5), (C6), (C1)) + mod-input RH, (V⁺), Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | Lemmas P1–P3 |
+| R, K | pair factors under thinning; concentration (from H7) | PROVED-mod-input Theorem H + REVIEWED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | H5, H7 |
+| T | thinning of convergent density: the own-normalized law survives | PROVED-mod-input Theorem H + REVIEWED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | R, K, H6, H7 |
+| T′ | robustness: density band ±η gives error ω(η) → 0 | PROVED-mod-input Theorem H + REVIEWED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | T |
+| G3′*-U | own-normalized upper bound under (D∞) | PROVED-mod-cite + mod-input (D∞), Theorem H + REVIEWED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | Z2, T |
+| G3′*-L | own-normalized law under (D∞) + (SG*) | PROVED-mod-cite + mod-input (D∞), (SG*), Theorem H + REVIEWED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)) | Z1, T′, K |
 
 Here Φ_n := −2n² log n + 2Σ_{j<n}(n−j) log L(j) + κn², with L(j) := j² x̃_j and κ := 3 + log(π²/16). This is the
 right-hand side of the sum form of Corollary H_L-ζ (Lean: `smoothZeta_HL_sumForm`).
+
+*Theorem H input (Plan 37, 2026-10-14).* Every "mod-input Theorem H" above uses Theorem H only at p = 2, C = 1. The
+uses are direct (the lower half for weights ≥ c₁j^{−s}; Theorem H_L in Prop N) or go through item 11 Lemma H7 and
+Lemma K (head bound for weights k^{−2}). Item 11's H5 and H6 do not use Theorem H. G3′-L itself (and the liminf half
+of B) uses no Theorem H instance: its pure-power comparison is Lemma W, which is proved from item 11 §7's explicit
+references. All uses are instances of `TheoremHPure 2 κ s` (s > 1), which G2 Corollary H-input supplies, mod-cite (P).
+The row-by-row check is in THEOREMS.md §3.3. Section headers below keep their original labels; the §0 labels carry the
+discharge note.
 
 ## 1. Setting
 
@@ -1121,6 +1129,9 @@ multiplicity-normalized averaged law holds for the true zeros.
   zeros. It assumes nothing about their horizontal location, and it is not evidence for or against any conjecture.
 
 ### 8.3 G3′ status after Plan 17
+
+*Historical snapshot (Plan 37 note, 2026-10-14): this table is the status after Plan 17 and is not updated. It omits
+N″, N‴, L′, Ch, Thm S, Thm S′ and Thm V⁺. The current status is §0.*
 
 | Statement | Status |
 |---|---|

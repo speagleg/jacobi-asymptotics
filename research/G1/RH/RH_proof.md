@@ -1,5 +1,9 @@
 # Theorem RH for p = 2: full steepest-descent bookkeeping
 
+*Superseded (Plan 37 note, 2026-10-14).* This DRAFT (label withdrawn) is superseded by Theorem RH_p (px/RH_px.md,
+PROVED-mod-cite + REVIEWED), which covers every p > 1 and so p = 2. Kept for the record; nothing here is cited as a
+proof. ("RH" in these file names means Riemann–Hilbert.)
+
 Status: **DRAFT — NOT a proof.** Written 2026-10-13. The Rule R review of the RH work (`review/REVIEW_RH.md`) found
 issues this document inherits:
 - §5 uses a one-sided D and an E with a cut on iℝ; a two-sided construction is needed for odd θ = πN/z;

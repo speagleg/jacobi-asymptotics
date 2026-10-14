@@ -27,8 +27,11 @@ and consequently
 
   n b_n = ½(1 + O(1/n)) = c(1)(1 + O(1/n))  and  a_n/(2b_n) = 1 + O(1/n).
 
-This is the **pointwise Law P for σ_r, with a rate, for every r > 1.** By G1-T and A4 it discharges (T3) and (CL) for
-this family. At r = 3/2 (a = 0) it reduces to RH₁.
+This is the **pointwise Law P for σ_r, with a rate, for every r > 1.** ~~By G1-T and A4 it discharges (T3) and (CL) for
+this family.~~ *(Corrected — Plan 37 note, 2026-10-14: the theorem gives the pointwise b- and a-laws for this family
+directly, so (T3) holds for it. (CL) and A2/A4 are p > 1 statements: for p = 1, J is not trace class and (CL)/A2 "do
+not apply as stated" (G1 PROOF.md §3, "Status of (CL)" after A4; §3.1, CL4). Nothing is claimed about (CL) at p = 1.)* At r = 3/2
+(a = 0) it reduces to RH₁.
 
 **Numerics** (`checks/check_p1_general_r.out`, NUMERICAL). The fit Nβ_N − 1 = (k₀ + k₁(−1)^N)/N + O(N⁻²) gives:
 

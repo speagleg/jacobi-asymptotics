@@ -1,5 +1,10 @@
 # RH analysis for pure powers (Plan 10)
 
+*Superseded (Plan 37 note, 2026-10-14).* This PROOF SKETCH is superseded by the proved results: Theorem RH₁ (RH_p1.md)
+and RH₁(r) (RH_p1_general.md) for p = 1, Theorem RH_p (px/RH_px.md) for every p > 1 (including p = 2), and RH_p for
+0 < p < 1 (plt1/RH_plt1b.md). All are PROVED-mod-cite + REVIEWED (G1 PROOF.md §0). Kept for the record; nothing here is
+cited as a proof. ("RH" in these file names means Riemann–Hilbert.)
+
 Status: Phases 0–5 written 2026-10-13. Rule R (`review/REVIEW_RH.md`): ACCEPT WITH FIXES at the PROOF SKETCH label.
 §6.2–6.3 are REJECTED for p = 2 (D one-sided, E cut on iℝ, normalization contradicted by test A's N^{−1}). Corrections
 noted inline below are binding:

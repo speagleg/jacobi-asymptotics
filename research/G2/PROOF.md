@@ -15,6 +15,7 @@ the same optimizer (CITATIONS.md (M)).
 | B0 | arcsine potential: ∫ log\|x−y\| dω_{[0,β]} = log(β/4) on [0,β], and ≥ log(β/4) on [β,∞) | PROVED |
 | B* | E_p := sup_{μ∈𝒜} I(μ) = κ_p := 3p/2 + log c(p), uniquely attained at μ* = ∫_0^1 ω_{[0,4c(p)t^{−p}]} dt | PROVED-mod-cite (P); the value I(μ*) = κ_p is citation-free |
 | A1 | discretization: point energy ≤ n²·(smeared energy) + C_M n log n, for subsets of [1, Mn] | PROVED |
+| A2 (Cor.) | head bound: log V(S) ≤ −pN² log N + E_pN² + C′_M n log n for S ⊂ [1, Mn], \|S\| = N | PROVED (uses A1 and the Scaling identity (end of §0); E_p enters only as the sup, not its value) |
 | A-U | limsup (1/n²)[log D_n + p n² log n] ≤ E_p | PROVED (uses A1, B*-scaling; algebra of item 11 H7) |
 | A-L | liminf ≥ κ_p (= I(μ*_u)) | PROVED (citation-free: uses B*(i) and the value in B*(iii)) |
 | **H_all** | **for every p > 0, C > 0, regularly spaced atoms, and weights with Σw < ∞ and w_k ≥ c₁k^{−s}: log D_n = −pn² log n + (κ_p + log C)n² + o(n²)** | PROVED-mod-cite (P) |
@@ -158,7 +159,8 @@ where u_i = k_i/n and μ̄_S ∈ 𝒜_{N/n} has density 1 on ∪_{k∈S} A_k, wi
 The diagonal is the only place where k ≤ Mn is used. Without the cap, an isolated far point at k ≫ n makes
 n²I(μ̄_S) → −∞ while the point sum stays bounded. This is why the tail is handled separately below (Review Focus 1).
 
-**Corollary A2 (head bound).** For S ⊂ [1, Mn] with |S| = N:
+**Corollary A2 (head bound) — PROVED (from Lemma A1 and the Scaling identity (end of §0); no citation; label added by
+Plan 37, 2026-10-14).** For S ⊂ [1, Mn] with |S| = N:
 log V(S) ≤ −p N² log N + E_p N² + C′_M n log n.
 
 *Proof.* Lemma A1 and the scaling sup_{𝒜_τ} I = τ²(E_p − p log τ) with τ = N/n give

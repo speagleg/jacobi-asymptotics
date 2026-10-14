@@ -4,7 +4,9 @@ Sorry-free foundations for the deduction Theorem H (pure powers) ⇒ Theorem H_L
 math-pursuits item 11 (work/proof/PROOF.md §7b). D_n is represented by the Heine sum `heineK x w K n` (truncation to range K) and its supremum `heineD`. The
 identities heineK = Hankel determinant of the truncation (`heineK_eq_det`, Andreief) and heineD = Hankel determinant
 of the infinite measure (`heineD_eq_det`, K → ∞) are proved here. Only Theorem H for pure powers (`TheoremHPure`)
-remains a named input.
+remains a named input. On paper, the input `TheoremHPure p κ_p s` (κ_p = 3p/2 + log c(p)) is supplied for all
+p > 0, s > 1 by G2 Corollary H-input (research/G2/PROOF.md §3), mod-cite (P); Theorem H_all is not formalized, so the
+Lean labels below stay PROVED-mod-input.
 
 | Lean | Item 11 | Content |
 |---|---|---|
@@ -22,7 +24,7 @@ remains a named input.
 | `SlowFactor`, `logL_slow`, `exists_rhoMin`, `lower_pair`, `upper_pair`, `cutAtom` | (L1)–(L3), H5, H6(a) | hypotheses on L and pair bounds |
 | `heineK_slow_le`, `slow_bdd`, `exponent_identity`, `log_upperTerm_le`, `HL_upper` | H7 + H_L upper | upper half |
 | `rhoSeq`, `cesaro_weighted_zero`, `HL_lower` | H_L lower | lower half |
-| **`theoremHL`** | **Theorem H_L** | **PROVED-mod-input (TheoremHPure; input available for p ∈ {1,2}, s ≥ s0(p))** |
+| **`theoremHL`** | **Theorem H_L** | **PROVED-mod-input (TheoremHPure; input supplied on paper for all p > 0, s > 1 by G2 Cor. H-input, mod-cite (P); item 11 alone gave p ∈ {1,2}, s ≥ s0(p))** |
 | `lemmaP` | Lemma P | α ≥ 2β |
 | `det_mul_cauchyBinet` | (Cauchy–Binet) | det(AB) = Σ_S det A_S det B_S for rectangular real matrices |
 | `hankelK`, `heineK_eq_det` | H1 (Andreief/Heine) | truncated Heine sum = Hankel determinant of the truncated measure |

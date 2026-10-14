@@ -20,6 +20,15 @@ error through.
 
 Novelty is a separate field: NEW / POSSIBLY-NEW / KNOWN / UNCHECKED. Default is UNCHECKED.
 
+**Labels used in this repo (Plan 37, 2026-10-14; definitions copied from the G1 and G2 PROOF.md headers).**
+| Label | Meaning |
+|---|---|
+| PROVED-mod-cite (X) | Proved from explicitly cited external results X, each read and quoted with its hypotheses in a CITATIONS.md (rule C); the hypotheses are checked in the application. (G2 header; item 11's convention.) |
+| PROVED-mod-input (X) | Proved modulo a named input X listed in `lean/JacobiAsym/Inputs.lean` (e.g. `TheoremHPure`; see the note at the top of this file). Usage note: G3′ also writes "mod-input" for stated hypotheses on the zeros ((SG), (LG*), PCC, SPC_ℂ⁺, RH, (V), (V⁺), (D∞), (SG*)); G1 calls results of that kind CONDITIONAL. |
+| CONDITIONAL | Proved assuming a stated hypothesis that is not a named Lean input. (G1 header.) |
+| GAP | A precise unproved statement, with no claim about its difficulty. (G1 header.) |
+| REVIEWED | Rule R done: an independent second reader re-derived the key steps and the fixes were applied. Combined with the labels above (e.g. "PROVED-mod-cite + REVIEWED"); it does not upgrade them. |
+
 ## Rule C — citations
 1. Quote each external theorem verbatim (or precisely paraphrased), with every hypothesis, plus
    source and theorem number, from a source the agent has actually read.

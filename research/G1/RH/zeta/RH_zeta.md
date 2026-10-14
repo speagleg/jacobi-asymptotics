@@ -238,7 +238,9 @@ near-constant factor Ξ^{±2}, which the Szegő function and the local parametri
   and are Hölder.
 
 **4.3 Local parametrices, uniform in N.**
-- **Hard edge 0 — OPEN (Rule R F1, major).** This is **not** RH_px §4.1 verbatim.
+- **Hard edge 0 — OPEN (Rule R F1, major).** This is **not** RH_px §4.1 verbatim. *(Closed — Plan 37 note, 2026-10-14:
+  the log-weight hard edge is handled in RH_zeta_close.md §1 via the Conway–Deift comparison (Plan 14, REVIEWED); see
+  the status list at the top of this file. Text below kept as written in Plan 13.)*
   - The band weight is w₀ ∝ z^{−1/2}·log(γ/2π)·(…), with an **unbounded log(1/z) factor** at 0. So h_N := w₀x^{1/2}/
     (smooth part) is not Hölder at 0. For example, at N = 1000, h_N = 1.21, 1.64, 2.27, 3.55 at x = 10⁻¹, 10⁻³, 10⁻⁶,
     10⁻¹². That is an O(1) variation at the Bessel scale x ~ N^{−2}.

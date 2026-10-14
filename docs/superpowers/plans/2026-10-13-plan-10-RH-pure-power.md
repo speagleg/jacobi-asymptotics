@@ -13,6 +13,8 @@ Deift–Zhou steepest descent for discrete orthogonal polynomials on infinitely 
 This closes G1 for the cases that matter most: pure powers with power weights, which include the Haynes–Zudilin
 measures (s = 2a + b) and item 11's references. Combined with G1-T and A4 (Plan 9), it also discharges (T3) and (CL)
 for this family.
+*(Corrected — Plan 37 note, 2026-10-14: (CL) and A4 apply only for p > 1 (G1 PROOF.md §3.1, CL4). For p = 1 the RH
+results give the pointwise law directly and nothing is claimed about (CL); for p > 1 (CL) is Theorem CL.)*
 
 **Template and inputs.**
 - WLXZ (arXiv:1410.3948, read in Plan 9). Interpolation problem → RHP via Π(z) = sin θ(z)/γ(z), with nodes = zeros

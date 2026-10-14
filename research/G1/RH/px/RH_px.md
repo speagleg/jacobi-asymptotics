@@ -1,6 +1,6 @@
 # RH_px: pointwise Law P for σ_{p,s} = Σ k^{−s} δ_{k^{−p}}, p > 1, in the x-variable (Plan 12)
 
-Status: **Rule R: ACCEPT WITH FIXES** (review/REVIEW_RHpx.md). F1–F10 applied; the re-check CONFIRMED subject to R1–R4, which are applied. **Label: PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6 incl. (6.42)–(6.53) and Prop. 6.5; G2 PROOF.md μ*, B*), REVIEWED.** Numerically validated end to end (probe P1).
+Status: **Rule R: ACCEPT WITH FIXES** (review/REVIEW_RHpx.md). F1–F10 applied; the re-check CONFIRMED subject to R1–R4, which are applied. **Label: PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6 incl. (6.42)–(6.53) and Prop. 6.5; G2 PROOF.md μ*, B*), REVIEWED.** *(Plan 37 note, 2026-10-14: the G2 input is μ* and B*(i)–(ii) (§2, "Input from G2"), which do not use G2's citation (P); G1 PROOF.md §0 now lists it too.)* Numerically validated end to end (probe P1).
 
 ## 0. Model, target, baseline
 
@@ -383,6 +383,8 @@ O(|z + 1|^{−β}, 1) inside", F10):
 - With RH₁(r) (p = 1, every r > 1), this gives the pointwise Law P with a rate for all pure powers with power weights,
   p ≥ 1, including the Haynes–Zudilin measures and Lommel (p = 2).
 - **Open:** 0 < p < 1, where Γ's poles enter the slit plane (Lemma 1.1).
+  *(Closed, Plan 37 note 2026-10-14: 0 < p < 1 is covered by RH_plt1b.md (Plan 15, seam construction, REVIEWED); see
+  also RH_plt1.md for ½ < p < 1.)*
 - **Cited:**
   - WLXZ v1 §§3–5 and §6.1 (transformations, V^△, the Airy construction);
   - KMVV §6, including (6.42)–(6.53) (the left-endpoint Bessel parametrix and its removability argument);

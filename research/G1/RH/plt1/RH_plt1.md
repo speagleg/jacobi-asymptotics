@@ -187,6 +187,9 @@ The tables give N·max|D_∞^{−σ₃}(VN^{−1} − I)D_∞^{σ₃}|:
 
 ## 6. Open: 0 < p ≤ ½
 
+*(Closed — Plan 37 note, 2026-10-14: the seam construction sketched below was carried out in RH_plt1b.md (Plan 15b,
+REVIEWED, no numerical caveat), which covers every 0 < p < 1. This section is kept as written in Plan 15.)*
+
 For p ≤ ½ the continued D_up has **phantom poles**: t = k (k ∈ ℕ) on the sheet arg t = −2π, i.e. on the rays
 arg z = ±2πp (and further sheets for p < ¼). At p = ½ these rays are the negative axis.
 
