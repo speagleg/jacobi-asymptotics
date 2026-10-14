@@ -49,7 +49,7 @@ Research: research/G3prime, G2, G1.
 - G1-R: (T3) for general, rough (non-analytic) weights and nodes. Plan 28: for *rough* sandwiched weights (T3) is
   conjecturally FALSE (numerical evidence; Conjecture R); the target becomes (T3) for regular weights;
   Plan 29 proves the pointwise b-law for weights k^{−s}ψ_k with ψ_k → L (decaying roughness; Theorem T3-conv, REVIEWED)
-  and Plan 30 for polynomially slowly varying Ψ (Theorem T3-sv, via polynomial tail localization Lemma TL; in review) ((CL) is proved for pure-power atoms k^{−p}, p > 1, with rough
+  and Plan 30 for polynomially slowly varying Ψ (Theorem T3-sv, via polynomial tail localization Lemma TL; REVIEWED) ((CL) is proved for pure-power atoms k^{−p}, p > 1, with rough
   weights: Theorem CL, Plan 27, REVIEWED; not for general nodes or p ≤ 1). The analytic families done are pure powers
   (all p > 0) and the smooth-ζ model.
 

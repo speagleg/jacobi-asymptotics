@@ -98,4 +98,4 @@
 - **Open:** localization at scale Mn (needed for e.g. 2 + sin(log log k)). *Heuristic:* arguments that lose Markov's
   n² factor seem unable to reach it.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan30.md). F1–F13 applied (constants, implicit hypotheses, quoted
-  inequalities, wording). Re-check pending.
+  inequalities, wording). Re-check: ACCEPT (R1–R4 applied). REVIEWED.

@@ -157,3 +157,49 @@ examples and numerics precise. Two are bookkeeping: quoting the two classical in
   ACCEPT WITH FIXES → REVIEWED after re-check; novelty UNCHECKED.
 - **TL1:** the examples hold as stated, after the F8 domain fix. **TL2:** Mn-scale localization stays OPEN;
   the numerics stay NUMERICAL.
+
+## Re-check (commit 032fdd6)
+
+I checked fixes F1–F13 against §3.4, the TL and T3-sv status rows, the §3.2 pointer and the LOG.
+
+**Applied correctly (no further action):**
+- **F1:** G := log(C/c). ✓
+- **F2:** head margin, g_p⁺ ≥ 1 on (0, 2/M], with the explicit n^{s+1}(n+1)²e^{−2(n−1)} bound. ✓
+  - Nit: say M ≥ 4. That makes 2/M ≤ ½, the range where g_p is monotone, and gives k < n/M < n − 1.
+- **F3:** explicit A, 0 < ε ≤ 1, and "in particular T ≥ T″". ✓
+- **F4:** n ≥ 2. ✓
+- **F5:** integer T. ✓
+  - Nit: the parenthetical "for non-integer T, use ⌊T⌋" does not carry the explicit A, which assumes integer T. Either
+    say "integer T" in the ε-threshold sentence too, or note that the ⌊T⌋ version costs a factor 2^{s−1} in A^{s−1}.
+    Not blocking.
+- **F6:** the minimum now runs over [T′, T″], and μ_{n−1} ≤ ρ_n ≤ ρ_{n+1} is stated. ✓
+- **F7:** path sandwich constants max(1, C)/min(1, c), and "any γ > κ". ✓
+- **F8:** domain, lower range, and the O(1)-length window in log log k. The phrase "vanishing local oscillation" is
+  correct, since (√u)′ and (log u)′ → 0. The non-example has δ_n ≥ log 3 − o(1). ✓
+- **F10:** "4.5–9.3%", the truncation K = 6T″, and the doubling note match the `.out` and my run. ✓
+- **F12:** the §3.2 pointer is accurate. ✓
+- **F13:** the LOG line is now marked heuristic. ✓
+
+**Residual items (all minor; none needs another re-check):**
+- **R1 (F9 wording, §3.4 TL1).** "T3-sv contains T3-conv (constant Ψ)" gives the wrong reason. Constant Ψ is the
+  trivial case. T3-conv is contained because a convergent ψ_k → L ∈ (0, ∞) is itself bounded and polynomially slowly
+  varying.
+  - Fix: "T3-sv contains T3-conv (take Ψ = ψ: ψ_k → L > 0 is polynomially slowly varying)".
+- **R2 (F11, citation gate).** The Markov and Chebyshev inequalities are now quoted with hypotheses (deg ≤ n,
+  interval, affine map), but no source is named. AGENTS.md rule 4 asks for a source someone actually read.
+  - Fix: name one, e.g. Borwein–Erdélyi, *Polynomials and Polynomial Inequalities* (GTM 161), or Rivlin, *Chebyshev
+    Polynomials*. Give section or theorem numbers only after checking them.
+  - Alternatively, label them "textbook-standard", as FV is.
+- **R3 (cosmetic, TL1).** Two adjacent bullets now both say 2 + sin(log log k) is not polynomially slowly varying.
+  Merge them.
+- **R4 (bookkeeping).** After R1–R3, set the §3.4 header, the TL and T3-sv rows and the LOG to "re-check ACCEPT —
+  REVIEWED", and tick plan task T3.
+
+**Re-check verdict: ACCEPT** (R1–R4 to apply; they are wording and bookkeeping, with no mathematical content).
+
+**Final labels:**
+- **Lemma TL:** PROVED (standard Markov and Chebyshev inequalities, quoted; source per R2); REVIEWED; novelty
+  UNCHECKED (pointers: Ehlich–Zeller, Coppersmith–Rivlin, Rakhmanov 2007, Nevai, Máté–Nevai–Totik).
+- **Theorem T3-sv:** PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: Lemma FV, Lemma Sat_p⁺, Lemma TL); REVIEWED;
+  novelty UNCHECKED.
+- **TL2:** Mn-scale localization stays OPEN; the numerics stay NUMERICAL.

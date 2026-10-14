@@ -30,8 +30,8 @@ known; its application here to Law P is what is new.
 | FV | first variation: d/dt log b_n²(v e^{tf}) = ⟨f, μ_n − μ_{n−1}⟩, μ_n := w p_n² (§3.2) | PROVED (standard; novelty not claimed); REVIEWED |
 | Conj R | (T3) — hence the pointwise b-law — FAILS for some weights e^{−ε}k^{−2} ≤ w_k ≤ e^{ε}k^{−2} (p = s = 2; §3.2, Plan 28) | CONJECTURE; NUMERICAL (p = s = 2; committed checks: two scales, n ≤ 400, Rule N; reviewer runs in REVIEW_Plan28: three scales, n ≤ 1000, 400-digit mpmath); REVIEWED as a conjecture |
 | **T3-conv** | pointwise b-law (hence (T3)) for x_k = k^{−p} (p > 0), w_k = k^{−s}ψ_k (s > 1) with **ψ_k → L ∈ (0, ∞)** (rough at finite scales, decaying roughness): n^p b_n → c(p) (§3.3, Plan 29) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: Lemma FV (REVIEWED), Lemma Sat_p⁺); REVIEWED; novelty UNCHECKED (comparison theorems of Máté–Nevai–Totik type may be classical) |
-| TL | polynomial tail localization: for sandwiched weights c k^{−s} ≤ w_k ≤ C k^{−s} (s > 1), 𝔼_{n+1}#(S ∩ (T, ∞)) ≤ ε, hence μ_n((T, ∞)) ≤ ε, for T ≥ A·n^{κ}ε^{−1/(s−1)}, κ = (2 + 2/p)s/(s−1) (§3.4) | PROVED (standard Markov/Chebyshev inequalities, quoted); Rule R ACCEPT WITH FIXES, re-check pending; novelty UNCHECKED (pointers: Ehlich–Zeller 1964, Coppersmith–Rivlin 1992, Rakhmanov 2007, Nevai, Máté–Nevai–Totik) |
-| **T3-sv** | pointwise b-law for w = k^{−s}Ψ with Ψ bounded and *polynomially slowly varying*: sup_{n/M≤k≤n^γ}\|log Ψ(k) − log Ψ(n)\| → 0 for all M, γ (e.g. Ψ = 2 + sin√(log log k)) (§3.4, Plan 30) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); Rule R ACCEPT WITH FIXES, re-check pending; novelty UNCHECKED |
+| TL | polynomial tail localization: for sandwiched weights c k^{−s} ≤ w_k ≤ C k^{−s} (s > 1), 𝔼_{n+1}#(S ∩ (T, ∞)) ≤ ε, hence μ_n((T, ∞)) ≤ ε, for T ≥ A·n^{κ}ε^{−1/(s−1)}, κ = (2 + 2/p)s/(s−1) (§3.4) | PROVED (textbook-standard Markov/Chebyshev inequalities, quoted); REVIEWED; novelty UNCHECKED (pointers: Ehlich–Zeller 1964, Coppersmith–Rivlin 1992, Rakhmanov 2007, Nevai, Máté–Nevai–Totik) |
+| **T3-sv** | pointwise b-law for w = k^{−s}Ψ with Ψ bounded and *polynomially slowly varying*: sup_{n/M≤k≤n^γ}\|log Ψ(k) − log Ψ(n)\| → 0 for all M, γ (e.g. Ψ = 2 + sin√(log log k)) (§3.4, Plan 30) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: Lemma FV, Lemma Sat_p⁺, Lemma TL); REVIEWED; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -436,7 +436,7 @@ In particular β_n → 1, so (T3) holds.
     tested in the repo.
   - Control: non-decaying parity gives 2.8·10⁻² → 4.6·10⁻³ (it also decays; parity is not adversarial, cf. §3.2).
 
-### 3.4 Lemma TL and Theorem T3-sv (Plan 30): polynomial tail localization, and (T3) for polynomially slowly varying weights — PROVED / PROVED-mod-cite; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan30.md), fixes applied, re-check pending; novelty UNCHECKED
+### 3.4 Lemma TL and Theorem T3-sv (Plan 30): polynomial tail localization, and (T3) for polynomially slowly varying weights — PROVED / PROVED-mod-cite; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan30.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED
 
 Setting: x_k = k^{−p} (p > 0), weights c·k^{−s} ≤ w_k ≤ C·k^{−s} with s > 1 and 0 < c ≤ C. Notation ρ_m, μ_n as in
 §3.2–3.3.
@@ -449,11 +449,11 @@ Hence, for integer T ≥ T″,
 
   μ_n((T, ∞)) ≤ 𝔼_{n+1}#(S ∩ (T, ∞)) ≤ 1156·(C/c)·T″^sT^{1−s}/(s − 1).
 
-(For non-integer T, use ⌊T⌋; F5.) This is ≤ ε (with 0 < ε ≤ 1) as soon as T ≥ A·n^κ·ε^{−1/(s−1)}, where
+(For non-integer T, use ⌊T⌋; F5.) This is ≤ ε (with 0 < ε ≤ 1) as soon as the integer T satisfies T ≥ A·n^κ·ε^{−1/(s−1)}, where
 κ := (2 + 2/p)s/(s − 1) and A := (8p + 2)^{s/(s−1)}·max{1, 1156(C/c)/(s − 1)}^{1/(s−1)} (F3). In particular T ≥ T″.
 The bound is uniform over the sandwich class. It holds also for μ_{n−1}, since μ_{n−1} ≤ ρ_n ≤ ρ_{n+1}.
 
-*Standard inputs (F11).*
+*Standard inputs (F11; textbook-standard, as for Lemma FV, and not checked against a specific source).*
 - **Markov:** for deg P ≤ n on [a, b], ‖P′‖_{[a,b]} ≤ (2n²/(b − a))‖P‖_{[a,b]}.
 - **Chebyshev:** for deg P ≤ n and x outside [a, b], |P(x)| ≤ |T_n(y)|·‖P‖_{[a,b]}, with y the affine image of x
   under [a, b] → [−1, 1].
@@ -486,7 +486,7 @@ and centering,
   |log b_n²(w) − log b_n²(v)| ≤ sup_t Σ_k|g_n(k)|(μ_n^{(t)} + μ_{n−1}^{(t)})(k)
     ≤ 2δ_n(M, γ) + G·[(μ_n^{(t)} + μ_{n−1}^{(t)})(k < n/M) + (μ_n^{(t)} + μ_{n−1}^{(t)})(k > n^γ)].
 
-- **Head (F2).** Fix M with g_p⁺ ≥ 1 on (0, 2/M]. Then for m ∈ {n−1, n} and k < n/M (so k/m ≤ 2/M), μ_m ≤ 1 − ρ_m and
+- **Head (F2).** Fix M ≥ 4 (so 2/M ≤ ½, where g_p is decreasing, and k < n − 1) with g_p⁺ ≥ 1 on (0, 2/M]. Then for m ∈ {n−1, n} and k < n/M (so k/m ≤ 2/M), μ_m ≤ 1 − ρ_m and
   Lemma Sat_p⁺ give a total head mass ≤ C″n^{s+1}(n+1)²e^{−2(n−1)} → 0.
 - **Tail.** Fix ε ∈ (0, 1] and take γ := κ + 1. Then n^γ ≥ A n^κ ε^{−1/(s−1)} for large n, so Lemma TL (for μ_n and μ_{n−1},
   along the path) gives ≤ 2ε. (Any γ > κ works, so the hypothesis is needed only for some γ > κ; F7.)
@@ -498,11 +498,10 @@ and centering,
     positive values before that; F8) are polynomially slowly varying. On k ∈ [n/M, n^γ], log log k ranges over
     [log log n + log(1 − log M/log n), log log n + log γ], an interval of length O(1). Both functions are uniformly
     continuous in log log k with vanishing local oscillation as log log k → ∞.
-  - 2 + sin(log log k) is not: δ_n ≥ log 3 − o(1) infinitely often.
-  - Ψ(k) = 2 + sin(log log k) is slowly varying but *not* polynomially so. It still needs localization at scale
+  - Ψ(k) = 2 + sin(log log k) is slowly varying but *not* polynomially so (δ_n ≥ log 3 − o(1) infinitely often). It still needs localization at scale
     Mn (OPEN).
-  - T3-sv contains T3-conv (constant Ψ), and products Ψ·χ with χ_k → L are a direct instance (Ψχ is again
-    polynomially slowly varying) (F9).
+  - T3-sv contains T3-conv: take Ψ = ψ, since ψ_k → L > 0 is bounded and polynomially slowly varying. Products
+    Ψ·χ with χ_k → L are likewise a direct instance (F9).
 - **TL2 (what is open).** Localization at scale Mn, μ_n((Mn, ∞)) ≤ ε(M), is what full slow variation needs.
   - Lemma TL loses a polynomial factor. It comes from Markov's inequality (atoms must be n²-dense relative to the
     interval) and the n^{−2} relative extrapolation distance.
