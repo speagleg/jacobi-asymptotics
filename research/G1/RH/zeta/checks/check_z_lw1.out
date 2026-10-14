@@ -1,0 +1,6 @@
+N=1e 2  sup|G^2/Lam-1| lip pi/3:     0.2849  (x logN: 1.312)   lip pi/6:     0.2753  (x logN: 1.268)   band G+G-/Lam-1 (eps=1e-8): 6.3e-10
+N=1e 3  sup|G^2/Lam-1| lip pi/3:      0.206  (x logN: 1.423)   lip pi/6:     0.2039  (x logN: 1.409)   band G+G-/Lam-1 (eps=1e-8): 6.0e-10
+N=1e 4  sup|G^2/Lam-1| lip pi/3:     0.1613  (x logN: 1.485)   lip pi/6:     0.1595  (x logN: 1.469)   band G+G-/Lam-1 (eps=1e-8): 5.3e-10
+N=1e 6  sup|G^2/Lam-1| lip pi/3:     0.1106  (x logN: 1.528)   lip pi/6:     0.1093  (x logN: 1.51)   band G+G-/Lam-1 (eps=1e-8): 4.0e-10
+N=1e 9  sup|G^2/Lam-1| lip pi/3:    0.07438  (x logN: 1.541)   lip pi/6:    0.07417  (x logN: 1.537)   band G+G-/Lam-1 (eps=1e-8): 2.9e-10
+N=1e12  sup|G^2/Lam-1| lip pi/3:    0.05636  (x logN: 1.557)   lip pi/6:    0.05619  (x logN: 1.553)   band G+G-/Lam-1 (eps=1e-8): 2.2e-10

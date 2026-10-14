@@ -211,3 +211,48 @@ removability step (Prop. 6.5, quoted above) needs:
 
 **Used in:** RH_px §3 (transformations, V^△, F2), §4.2 (Airy) and §4.3 (the Σ^△ entries). In x: γ ↦ θ′, there is no
 α-shift in θ, and the region is one-sided.
+
+## (C–D) Conway–Deift, arXiv:1711.01590v4 = SIGMA 14 (2018) 056 — READ (abstract, §§1–5; App. A–C statements), for Plan 14
+"Asymptotics of Polynomials Orthogonal with respect to a Logarithmic Weight". Local text: pdftotext of v4.
+
+> (Abstract) "We use Riemann–Hilbert/steepest-descent methods, but not in the standard way as there is no known
+> parametrix for the Riemann–Hilbert problem in a neighborhood of the logarithmic singularity at x = 1."
+>
+> (§4.1) "The operators C_Σ^± are bounded from L²(Σ) → L²(Σ) (and in fact in L^p(Σ) for all 1 < p < ∞) if and only if
+> Σ is Carleson." "We will say that a pair of functions A± ∈ L^p(Σ) belongs to ∂C(L^p(Σ)) iff A± = C_Σ^± f for some
+> (unique) f ∈ L^p(Σ)."
+>
+> "Theorem 4.4. Suppose v_A, v_B ∈ L^∞(Σ) and A± solves the RHP: A₊(x) = A₋(x)v_A(x), for x ∈ Σ, A± ∈ I + ∂C(L^p(Σ)),
+> and B± the RHP: B₊(x) = B₋(x)v_B(x), for x ∈ Σ, B± ∈ I + ∂C(L^p(Σ)). Suppose further that v_B^{−1} ∈ L^∞(Σ) and
+> B±^{−1} ∈ I + ∂C(L^q(Σ)) where 1/p + 1/q = 1, then if A, B are the analytic extensions of A± and B± respectively,
+> AB^{−1} = I + C_Σ(A₋(v_A v_B^{−1} − I)B₋^{−1})."
+>
+> (§4.2) "(C_h f)(x) = C_Σ^−(f(h − I))(x)"; "If 1 − C_{v_Σ} is an invertible operator from L²(Σ) to L²(Σ), then
+> µ = (1 − C_{v_Σ})^{−1}I (4.3) … the unique solution X to the RHP normalized at infinity with jump v_Σ is given by
+> X(z) = I + C_Σ(µ(v_Σ − I))."
+>
+> "Proposition 4.6. A family of operators (1 − C_{h_n})^{−1} is bounded uniformly with respect to n if and only if the
+> inhomogeneous RHP m₊(s) = m₋(s)h_n(s) + g(s) for s ∈ Σ, m± ∈ ∂C(L²(Σ)) is (uniquely) solvable for all g ∈ L²(Σ) with
+> ||m±||_{L²} ⩽ c||g||_{L²} with c independent of both n and g." (attributed to [10] Deift–Zhou, Prop. 2.14, and [4])
+>
+> (Thm 4.7, proof) "‖v_Σ − ṽ_Σ‖_{L^∞(Σ)} → 0, which, in particular, implies that ‖C_{v_Σ} − C_{ṽ_Σ}‖_{L²→L²} → 0.
+> Combined with Theorem 4.5, we see that ‖(C_{v_Σ} − C_{ṽ_Σ})(1 − C_{ṽ_Σ})^{−1}‖_{L²→L²} → 0. (4.12) Writing
+> (1 − C_{v_Σ})(1 − C_{ṽ_Σ})^{−1} = 1 − (C_{v_Σ} − C_{ṽ_Σ})(1 − C_{ṽ_Σ})^{−1} (4.13) … the series … converges in operator
+> norm … (1 − C_{v_Σ})^{−1} = (1 − C_{ṽ_Σ})^{−1}(1 − (C_{v_Σ} − C_{ṽ_Σ})(1 − C_{ṽ_Σ})^{−1})^{−1}"
+>
+> "Proposition 4.9. Q₁ − Q̃₁ = −∫_Σ µ(v_Σ − ṽ_Σ)µ̃^{−1} đz, (4.14) where µ = (1 − C_{v_Σ})^{−1}I, µ̃ = (1 − C_{ṽ_Σ})^{−1}I.
+> Proof. The functions µ and µ̃ are given in terms of the RHP solutions Q and Q̃ … by µ = Q₋, µ̃ = Q̃₋"
+>
+> "Remark 4.10. … the standard approach of comparing the RHPs for Q, Q̃ by their quotient breaks down."
+>
+> Theorem 4.5 (uniform invertibility for the Legendre comparison) is proved by unwinding to a polynomial moment problem
+> ("As det(∫_{−1}^1 s^{k+j}ds) ≠ 0, equation (4.9) is a system of n independent, linear equations") and the bound
+> "‖p_{n−1}‖_{L²} ⩽ c‖ĝ₂‖_{L²}" with "c … independent of n".
+>
+> Results: (5.5) "Q₁ − Q̃₁ = (3/(16 n log²n))[[−1, i], [i, 1]] + O(1/(n log³n))"; Theorem 1.2: b_{n−1} − b̃_{n−1} =
+> 3/(32 n² log²n) + O(1/(n² log³n)).
+
+**Used in:** RH_zeta_close.md §1 (Plan 14, the hard edge). We use Theorem 4.4 (general) and the *argument* of
+Theorem 4.7 and Proposition 4.9 (reproduced there). We do **not** use Theorem 4.5: its proof is Legendre-specific
+(a polynomial moment problem with Lebesgue measure). Our replacement is Lemma UR, proved from an explicit solution of
+the comparison problem. We use only the easy direction of Proposition 4.6, which is re-proved in §1.4.
