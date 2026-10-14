@@ -1,0 +1,7 @@
+t(x_m) = [0.4153044346 +/- 2.06e-11] (in (3/8, 1));  arc steps 280+1856, axis steps 42950
+tail at eta0 = [3162.28 +/- 2.31e-3]: |mu| <= [8.527e-5 +/- 1.99e-9], |e^(-2 pi i t)| <= [2.846e-7171 +/- 3.13e-7175], ph t = [-1.86255 +/- 4.11e-6]
+Im t < 0 certified on the upper arc: 224 balls on [1e-3, pi] + derivative bound on [0, 1e-3] (t' = [-11.3 +/- 0.0407] + [+/- 0.0283]j)
+lhat_arc(-r)  = [-0.00944078831849753 +/- 4.52e-18]
+lhat_axis(-r) = [-0.00944078831849753 +/- 4.52e-18]
+winding W = [+/- 2.04e-28]
+CERTIFIED: winding number of F_out/F_in around C is 0

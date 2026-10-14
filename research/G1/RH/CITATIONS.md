@@ -209,5 +209,87 @@ removability step (Prop. 6.5, quoted above) needs:
 > (6.10) "f̃_n(z) = (−(3/2)nφ̃(z))^{2/3}"; (6.11) "φ̃(z) = −(2/3)(z − 2)^{3/2} + O((z − 2)²)"; (6.12)
 > "V_r(z) = E_r(z)σ2Ψ(f̃_n(z))σ2e^{nφ̃σ3}(D̃/w̃^{1/2})^{σ3}".
 
+> (re-read 2026-10-14 for Plan 14 §3, general α) Abstract: "… Tricomi–Carlitz polynomials f_n(z) where α is a positive
+> parameter"; §6.1 "(V_loc,4) as z → ±2, V_loc(z) has the behavior V(z) = O(1)(z² − 4)^{(1/2−α)σ3}. (6.3)"; "If we set
+> P(z) = V_loc(z) × (w̃^{1/2}/D̃)^{σ3}e^{−nφ̃(z)σ3} for z ∈ U(2, ε) … then the jump conditions on P(z) become (6.6)–(6.7)
+> [[0, −1], [1, 0]], [[1, 1], [0, 1]], [[1, 0], [1, 1]] … The jumps suggest that P(z) can be constructed by using Airy
+> functions"; (4.19) "E(z) := (√(2π)/Γ(α))(4 − z²)^{1/2−α}" and (4.26) "w₀(z) := 2iγ(z)w(z)/E²(z)" (the α-dependence
+> enters only through E, which is absorbed in w₀, w̃).
+
 **Used in:** RH_px §3 (transformations, V^△, F2), §4.2 (Airy) and §4.3 (the Σ^△ entries). In x: γ ↦ θ′, there is no
 α-shift in θ, and the region is one-sided.
+
+## (C–D) Conway–Deift, arXiv:1711.01590v4 = SIGMA 14 (2018) 056 — READ (abstract, §§1–5; App. A–C statements), for Plan 14
+"Asymptotics of Polynomials Orthogonal with respect to a Logarithmic Weight". Local text: pdftotext of v4.
+
+> (Abstract) "We use Riemann–Hilbert/steepest-descent methods, but not in the standard way as there is no known
+> parametrix for the Riemann–Hilbert problem in a neighborhood of the logarithmic singularity at x = 1."
+>
+> (§4.1) "The operators C_Σ^± are bounded from L²(Σ) → L²(Σ) (and in fact in L^p(Σ) for all 1 < p < ∞) if and only if
+> Σ is Carleson." "We will say that a pair of functions A± ∈ L^p(Σ) belongs to ∂C(L^p(Σ)) iff A± = C_Σ^± f for some
+> (unique) f ∈ L^p(Σ)."
+>
+> "Theorem 4.4. Suppose v_A, v_B ∈ L^∞(Σ) and A± solves the RHP: A₊(x) = A₋(x)v_A(x), for x ∈ Σ, A± ∈ I + ∂C(L^p(Σ)),
+> and B± the RHP: B₊(x) = B₋(x)v_B(x), for x ∈ Σ, B± ∈ I + ∂C(L^p(Σ)). Suppose further that v_B^{−1} ∈ L^∞(Σ) and
+> B±^{−1} ∈ I + ∂C(L^q(Σ)) where 1/p + 1/q = 1, then if A, B are the analytic extensions of A± and B± respectively,
+> AB^{−1} = I + C_Σ(A₋(v_A v_B^{−1} − I)B₋^{−1})."
+>
+> (§4.2) "(C_h f)(x) = C_Σ^−(f(h − I))(x)"; "If 1 − C_{v_Σ} is an invertible operator from L²(Σ) to L²(Σ), then
+> µ = (1 − C_{v_Σ})^{−1}I (4.3) … the unique solution X to the RHP normalized at infinity with jump v_Σ is given by
+> X(z) = I + C_Σ(µ(v_Σ − I))."
+>
+> "Proposition 4.6. A family of operators (1 − C_{h_n})^{−1} is bounded uniformly with respect to n if and only if the
+> inhomogeneous RHP m₊(s) = m₋(s)h_n(s) + g(s) for s ∈ Σ, m± ∈ ∂C(L²(Σ)) is (uniquely) solvable for all g ∈ L²(Σ) with
+> ||m±||_{L²} ⩽ c||g||_{L²} with c independent of both n and g." (attributed to [10] Deift–Zhou, Prop. 2.14, and [4])
+>
+> (Thm 4.7, proof) "‖v_Σ − ṽ_Σ‖_{L^∞(Σ)} → 0, which, in particular, implies that ‖C_{v_Σ} − C_{ṽ_Σ}‖_{L²→L²} → 0.
+> Combined with Theorem 4.5, we see that ‖(C_{v_Σ} − C_{ṽ_Σ})(1 − C_{ṽ_Σ})^{−1}‖_{L²→L²} → 0. (4.12) Writing
+> (1 − C_{v_Σ})(1 − C_{ṽ_Σ})^{−1} = 1 − (C_{v_Σ} − C_{ṽ_Σ})(1 − C_{ṽ_Σ})^{−1} (4.13) … the series … converges in operator
+> norm … (1 − C_{v_Σ})^{−1} = (1 − C_{ṽ_Σ})^{−1}(1 − (C_{v_Σ} − C_{ṽ_Σ})(1 − C_{ṽ_Σ})^{−1})^{−1}"
+>
+> "Proposition 4.9. Q₁ − Q̃₁ = −∫_Σ µ(v_Σ − ṽ_Σ)µ̃^{−1} đz, (4.14) where µ = (1 − C_{v_Σ})^{−1}I, µ̃ = (1 − C_{ṽ_Σ})^{−1}I.
+> Proof. The functions µ and µ̃ are given in terms of the RHP solutions Q and Q̃ … by µ = Q₋, µ̃ = Q̃₋"
+>
+> "Remark 4.10. … the standard approach of comparing the RHPs for Q, Q̃ by their quotient breaks down."
+>
+> Theorem 4.5 (uniform invertibility for the Legendre comparison) is proved by unwinding to a polynomial moment problem
+> ("As det(∫_{−1}^1 s^{k+j}ds) ≠ 0, equation (4.9) is a system of n independent, linear equations") and the bound
+> "‖p_{n−1}‖_{L²} ⩽ c‖ĝ₂‖_{L²}" with "c … independent of n".
+>
+> Results: (5.5) "Q₁ − Q̃₁ = (3/(16 n log²n))[[−1, i], [i, 1]] + O(1/(n log³n))"; Theorem 1.2: b_{n−1} − b̃_{n−1} =
+> 3/(32 n² log²n) + O(1/(n² log³n)).
+
+**Used in:** RH_zeta_close.md §1 (Plan 14, the hard edge). We use Theorem 4.4 (general) and the *argument* of
+Theorem 4.7 and Proposition 4.9 (reproduced there). We do **not** use Theorem 4.5: its proof is Legendre-specific
+(a polynomial moment problem with Lebesgue measure). Our replacement is Lemma UR, proved from an explicit solution of
+the comparison problem. We use only the easy direction of Proposition 4.6, which is re-proved in §1.4.
+
+## (DLMF-2) NIST DLMF §§1.14, 5.5, 5.12, 10.27, 10.39 — READ (web pages, 2026-10-14), for Plan 14 (Rule R F2)
+
+> 1.14(iv): (1.14.32) "ℳf(s) = ∫₀^∞ x^{s−1}f(x)dx"; (1.14.38) (for real f) "∫₀^∞(f(x))²dx = (1/2π)∫_{−∞}^{∞}|ℳf(½ +
+> it)|²dt"; (1.14.39) "(f∗g)(x) = ∫₀^∞f(y)g(x/y)dy/y"; (1.14.40) "∫₀^∞x^{s−1}(f∗g)(x)dx = ℳf(s)ℳg(s)" (for x^{σ−1}f,
+> x^{σ−1}g absolutely integrable).
+(Use in Lemma W: (Tf)(r) = ∫k(ρ/r)f(ρ)dρ/r is a 1.14.39 convolution in the multiplicative variable, so ℳ(Tf)(s) =
+ℳk̃(s)ℳf(s) with k̃(u) := k(1/u)/u. Apply 1.14.38 to the real and imaginary parts of complex f.)
+>
+> (5.5.3) "Γ(z)Γ(1−z) = π/sin(πz), z ≠ 0, ±1, …".
+>
+> (5.12.1) "B(a,b) = ∫₀¹t^{a−1}(1−t)^{b−1}dt = Γ(a)Γ(b)/Γ(a+b)"; (5.12.3) "∫₀^∞ t^{a−1}/(1+t)^{a+b} dt = B(a,b)"; "In
+> (5.12.1)–(5.12.4) it is assumed ℜa > 0 and ℜb > 0."
+>
+> (10.27.3) "K_{−ν}(z) = K_ν(z)"; (10.27.4) "K_ν(z) = ½π(I_{−ν}(z) − I_ν(z))/sin(νπ)".
+>
+> (10.39.1) "I_{1/2}(z) = (2/(πz))^{1/2}sinh z, I_{−1/2}(z) = (2/(πz))^{1/2}cosh z"; (10.39.2) "K_{1/2}(z) = K_{−1/2}(z) =
+> (π/(2z))^{1/2}e^{−z}".
+
+**Used in:** RH_zeta_close.md §1.4 Lemma W (Mellin–Parseval, the PV symbol −π cot πs from 5.12.3 and 5.5.3), and §1.2 (the
+local form Ψ = Ψ̂ζ^{−σ₃/4}S for α = −½).
+
+## (KMVV, additional quotes for Plan 14; Rule R F2) — read in math/0111252v2 (pdftotext)
+
+> "(c) For α < 0, the matrix function Ψ(ζ) has the following behavior as ζ → 0: Ψ(ζ) = O([[|ζ|^{α/2}, |ζ|^{α/2}],
+> [|ζ|^{α/2}, |ζ|^{α/2}]]), as ζ → 0. (6.19)"; "We define Ψ(ζ) for |arg ζ| < 2π/3 as Ψ(ζ) = [[I_α(2ζ^{1/2}),
+> (i/π)K_α(2ζ^{1/2})], [2πiζ^{1/2}I′_α(2ζ^{1/2}), −2ζ^{1/2}K′_α(2ζ^{1/2})]]. (6.23)"; for 2π/3 < arg ζ < π, (6.24) in terms
+> of ½H^{(1)}_α(2(−ζ)^{1/2}), ½H^{(2)}_α(2(−ζ)^{1/2}) and πζ^{1/2}H′ times e^{½απiσ3}; for −π < arg ζ < −2π/3, (6.25)
+> likewise with e^{−½απiσ3}; "Theorem 6.3 The matrix valued function Ψ(ζ), defined in (6.23)–(6.25), is a solution of
+> the RHP for Ψ."

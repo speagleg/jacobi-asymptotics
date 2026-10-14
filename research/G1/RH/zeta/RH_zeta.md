@@ -1,13 +1,16 @@
-# RH_zeta: pointwise Law P for the smooth-ζ model (Plan 13)
+# RH_zeta: pointwise Law P for the smooth-ζ model (Plan 13; closed in Plan 14)
 
 Status: **Rule R: ACCEPT WITH FIXES** for Phases 1–2 (review/REVIEW_RHzeta.md; fixes applied, §5). Labels:
 - E1: PROVED-mod-G2;
 - E2, E3: PROVED;
 - E4: NUMERICAL (convention-dependent);
-- E5: derivation plus NUMERICAL;
+- E5: derivation plus NUMERICAL, now PROVED as Lemma D1 of RH_zeta_close.md;
 - Phase 2: NUMERICAL, CONFIRMED by the absolute test with Ξ;
-- §4 theorem: **PROOF SKETCH (conditional)**. Open: the log-weight hard-edge lemma (F1), Lemma Z (certified winding
-  plus a uniform bound) and uniform Airy.
+- §4 theorem: superseded by **Theorem RH_ζ in RH_zeta_close.md (Plan 14)**. The three open items are closed there:
+  - the log-weight hard edge: §1, via the Conway–Deift comparison;
+  - Lemma Z: §2, certified;
+  - uniform Airy: §3.
+  Theorem RH_ζ is PROVED-mod-cite and REVIEWED (review/REVIEW_RHzeta_close.md).
 
 ## 0. Model and baseline
 
