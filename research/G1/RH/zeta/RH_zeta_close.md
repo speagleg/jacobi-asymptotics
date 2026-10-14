@@ -277,3 +277,91 @@ The (h1) parts and the moment z only improve the bounds. ∎
   N log N·(b_N(σ_ζ)/b_N(σ̃) − 1) = 0.41, 0.44, 0.47, 0.49, 0.50, 0.51, 0.52 for N = 50 … 3200.
 - So the log's effect is ≈ 0.5/(N log N), the order of Proposition D.
 - The a_N/(2b_N) difference is ~10⁻⁴/N, i.e. smaller still.
+
+## 2. Lemma Z (far field) — PROVED, with a CERTIFIED (Arb) sign/winding computation
+
+**Setting** (RH_zeta §4.2). Work in x-units, so C is fixed: the circle through −r and x_m, with r = 0.0017 and
+x_m = 0.015. Then:
+- x₁ = x(1) ≈ 0.00474 < x_m < x_e ≈ 0.02527;
+- r < |x_cross| = 1/(4π²e² − ¼) ≈ 0.00343, the point where t(x) crosses the negative real t-axis.
+
+The two scalars are:
+- inside C, F_in = D·B·K, with D = D̃/(1 − e^{∓2πit}), B the full-axis Binet-cut scalar, and K = (β − x)^{−1/8} up to the
+  constant s^{−1/8};
+- outside C, F_out = exp H, with H(z) := ∫_β^{x_e}t̂(y)dy/(y − z) and t̂ = t − 3/8.
+
+**N-independence.** In x-units, t(x) = N₀(γ(x)) + ½, D̃, D and B (built from ℓ̂ = 2arg D₊ on (−∞, 0)) do not depend on
+N. N enters only through β = β_N → 0 (in H and K) and through the constant s^{−1/8}.
+
+**Lemma Z.**
+- **(i)** F_in is analytic and zero-free in int(C) ∖ ((−∞, 0] ∪ [0, x_m]), with exactly the jumps used in RH_zeta §4.1.
+- **(ii)** L := log(F_out/F_in) has a continuous single-valued determination on C, for every N. Its non-constant part is
+  bounded: sup_C|L − c_N| ≤ C, with c_N = (1/8)log s + const.
+- **(iii)** Ξ(z) := exp((1/2πi)∮_C L(ζ)dζ/(ζ − z)) is analytic off C and bounded near C (L is Lipschitz on C). Inside C,
+  for |x| ≤ 2β_N, Ξ = e^{c_N}Ξ₀(1 + O(β_N)), with β_N = O(log²N/N²). So F·Ξ (on both sides) has no jump on C, and near
+  the band and both edges it differs from a constant by O(log²N/N²). This is absorbed into 𝒵 at that cost.
+
+*Proof of (i).* Im t is harmonic in Ω := ℂ₊ ∩ int(C), and its boundary values satisfy:
+- on (0, x_m), Im t = 0 (t is real on the monotone branch);
+- on (−r, 0), Im t₊ = −(η/2π)log(η/2πe) < 0, with η = (¼ − 1/x)^{1/2} > 2πe because |x| < |x_cross|;
+- on the upper arc of C, Im t < 0. This is **certified** (check_z_Zcert.out): 224 Arb balls on θ ∈ [10⁻³, π], plus a
+  certified derivative bound on [0, 10⁻³] (t′ = −11.3 ± 0.05 at x_m);
+- near 0, Im t → −∞, since arg γ ∈ (−π/2, 0).
+
+So Im t < 0 in Ω by the maximum principle. Hence there:
+- t ∉ (−∞, 0], so μ(t) is analytic;
+- |e^{−2πit}| < 1, so D_up is zero- and pole-free.
+
+The lower half follows by conjugation symmetry, D_low(z̄) = conj D_up(z). ∎
+
+*Proof of (ii).*
+- Parametrize C counterclockwise from x_m. On each open arc, continuous determinations exist for:
+  - H (single-valued off [β, x_e]);
+  - log B (off (−∞, 0]);
+  - log K (off [β, ∞));
+  - log D_up on the upper arc and log D_low on the lower arc (by (i)), each started at x_m from its principal value.
+- R := F_out/F_in has winding −(1/2πi)(J(x_m) + J(−r)), where J(p) is the jump at p of the sum of these determinations.
+
+**At x_m.** The three jumps are:
+- H₊ − H₋ = 2πit̂(x_m) (Plemelj);
+- log D_up − log D_low = Log(1 − e^{2πit}) − Log(1 − e^{−2πit}) = i(2πt − π), at real t = t(x_m) ∈ (3/8, 1) (certified:
+  0.41530…);
+- log K₊ − log K₋ = iπ/4.
+
+So J(x_m) = 2πi(t − 3/8) − i(2πt − π) − iπ/4 = **0 exactly**. This is the α-shift identity; without the shift
+(K = (β − z)^{−1/2}) it is 3πi/4, which is Rule R's control.
+
+**At −r.** H and K are continuous there.
+- log B jumps by +iℓ̂_axis(−r) (Plemelj, with ℓ̂ continued along the axis from 0⁻, where it vanishes).
+- Conjugation symmetry gives log D_low − log D_up = −iℓ̂_arc(−r), with ℓ̂_arc := 2·(arg D_up continued along the upper
+  arc from x_m).
+- So J(−r) = i(ℓ̂_arc − ℓ̂_axis)(−r), and
+
+    **winding(R) = −(ℓ̂_arc(−r) − ℓ̂_axis(−r))/2π.**
+
+**Certification** (`checks/check_z_Zcert.py` → `.out`; Arb, 128 bits; DLMF 5.11 for the tail).
+- Every continuous-arg step is certified to equal the principal Arg of the endpoint ratio. This is done by showing
+  Re(D(Z)/D(z_a)) > 0 on a ball Z covering the step, with t(Z) ∩ (−∞, 0] = ∅.
+  - Steps: 280 + 1856 on the arc, and 42950 on the axis segment [−r, −10⁻⁷] (in log|x|).
+- On (−10⁻⁷, 0), η ≥ 3162.
+  - |μ(t)| ≤ sec²(½ph t)/(12|t|) ≤ 8.6·10⁻⁵ (DLMF 5.11, n = 1) and |e^{−2πit}| ≤ 3·10⁻⁷¹⁷¹ at η₀.
+  - Both decrease in η, since |t| and −Im t increase and ph t moves toward −π/2.
+  - So arg D₊ stays in (−π/2, π/2) and ℓ̂(0⁻) = 0.
+- Result: ℓ̂_arc(−r) = ℓ̂_axis(−r) = −0.00944078831849753 (±5·10⁻¹⁸), so W ∈ [±2·10⁻²⁸]. **The winding is 0.**
+
+**Bound.**
+- The winding is N-independent: every quantity above is N-free in x-units.
+- L − c_N = L₀ + E_N, where L₀ is the β = 0 limit (continuous on C, N-free) and |E_N| ≤ Cβ^{1/2}log(1/β) on C. That
+  bound comes from |∫_0^β t̂/(y − z)| ≤ dist(C, 0)^{−1}∫_0^β|t̂| with t̂ ≍ y^{−1/2}log(1/y), and from
+  (β − x)^{−1/8}/(−x)^{−1/8} = 1 + O(β).
+- This matches the Plan 13 measurement that sup|L| grows like log N (3.8, 5.5, 7.1 at N = 20, 40, 80): that growth is
+  all c_N. ∎
+
+*Proof of (iii).*
+- L is piecewise analytic on C and continuous (by (ii)), hence Lipschitz. So its Cauchy integral is bounded up to C.
+- The constant c_N contributes exactly e^{c_N} inside and 1 outside.
+- For |x| ≤ 2β: |log Ξ(x) − log Ξ(0) − c_N·0| ≤ |x|·sup_C|L − c_N|·|C|/(2π dist(·, C)²) = O(β_N).
+- Derivatives are similar. ∎
+
+Lemma Z is thus **PROVED** (with a certified computation). This closes Rule R F4's open item and RH_zeta §4.2's "What
+remains".
