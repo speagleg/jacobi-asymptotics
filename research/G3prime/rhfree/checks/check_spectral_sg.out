@@ -1,0 +1,44 @@
+[1] D(λ) for η_λ² = (1/λ)cos²(πu/2λ)
+  λ=  0.25  ∫Q=1.000000  Q(0)=3.000000  D=2.103e+00  λ³D=0.03286  bracket 1+D=3.103341
+  λ=  0.50  ∫Q=1.000000  Q(0)=1.500000  D=7.067e-01  λ³D=0.08834  bracket 1+D=1.706682
+  λ=  1.00  ∫Q=1.000000  Q(0)=0.750000  D=1.560e-01  λ³D=0.15602  bracket 1+D=1.156021
+  λ=  2.00  ∫Q=1.000000  Q(0)=0.375000  D=2.382e-02  λ³D=0.19056  bracket 1+D=1.023820
+  λ=  4.00  ∫Q=1.000000  Q(0)=0.187500  D=3.150e-03  λ³D=0.20158  bracket 1+D=1.003150
+  λ=  8.00  ∫Q=1.000000  Q(0)=0.093750  D=3.996e-04  λ³D=0.20458  bracket 1+D=1.000400
+  λ= 16.00  ∫Q=1.000000  Q(0)=0.046875  D=5.014e-05  λ³D=0.20535  bracket 1+D=1.000050
+
+[2]/[3] operator identities and Lemma G on synthetic multisets
+  λ=0.5 poisson   off= 0 dbl=0 N=120 Nd=120 trA−N=+0.0e+00 trA²−S=-1.1e-13 ImS=+0.0e+00 S/N=2.280 small= 15 ≤ rhs=  2458.0 outG1= 92 ≤  92 cond(G)=5.1e+16 OK
+  λ=0.5 poisson   off= 4 dbl=2 N=132 Nd=130 trA−N=+0.0e+00 trA²−S=-5.7e-14 ImS=+2.2e-16 S/N=2.524 small= 15 ≤ rhs=  3227.1 outG1= 92 ≤ 116 cond(G)=7.0e+16 OK
+  λ=0.5 poisson   off=10 dbl=5 N=150 Nd=145 trA−N=+8.5e-14 trA²−S=+6.3e-13 ImS=-7.9e-17 S/N=2.842 small= 15 ≤ rhs=  4440.0 outG1= 92 ≤ 142 cond(G)=1.4e+17 OK
+  λ=0.5 gue       off= 0 dbl=0 N=120 Nd=120 trA−N=-1.4e-14 trA²−S=-1.1e-13 ImS=+0.0e+00 S/N=1.346 small=  0 ≤ rhs=   665.2 outG1= 58 ≤  58 cond(G)=1.7e+02 OK
+  λ=0.5 gue       off= 4 dbl=2 N=132 Nd=130 trA−N=-2.8e-14 trA²−S=-2.3e-13 ImS=+0.0e+00 S/N=1.664 small=  0 ≤ rhs=  1411.4 outG1= 58 ≤  81 cond(G)=3.5e+08 OK
+  λ=0.5 gue       off=10 dbl=5 N=150 Nd=145 trA−N=-8.5e-14 trA²−S=-4.5e-13 ImS=-3.0e-16 S/N=2.152 small=  0 ≤ rhs=  2785.4 outG1= 58 ≤ 113 cond(G)=2.5e+17 OK
+  λ=0.5 clustered off= 0 dbl=0 N=120 Nd=120 trA−N=+1.4e-14 trA²−S=+2.8e-14 ImS=+0.0e+00 S/N=1.999 small= 60 ≤ rhs=  1918.0 outG1=120 ≤ 120 cond(G)=2.8e+08 OK
+  λ=0.5 clustered off= 4 dbl=2 N=132 Nd=130 trA−N=-2.8e-14 trA²−S=-2.8e-13 ImS=-2.1e-16 S/N=2.342 small= 60 ≤ rhs=  2842.5 outG1=120 ≤ 138 cond(G)=3.8e+16 OK
+  λ=0.5 clustered off=10 dbl=5 N=150 Nd=145 trA−N=-2.8e-14 trA²−S=-4.5e-13 ImS=-4.3e-17 S/N=2.803 small= 60 ≤ rhs=  4347.9 outG1=120 ≤ 167 cond(G)=6.8e+17 OK
+  λ=1.0 poisson   off= 0 dbl=0 N=120 Nd=120 trA−N=-5.7e-14 trA²−S=-1.4e-13 ImS=+0.0e+00 S/N=1.875 small= 11 ≤ rhs=  1679.7 outG1= 75 ≤  75 cond(G)=2.3e+14 OK
+  λ=1.0 poisson   off= 4 dbl=2 N=132 Nd=130 trA−N=+2.0e-13 trA²−S=-3.4e-13 ImS=-2.2e-16 S/N=5.039 small= 11 ≤ rhs=  8537.9 outG1= 75 ≤  97 cond(G)=6.6e+14 OK
+  λ=1.0 poisson   off=10 dbl=5 N=150 Nd=145 trA−N=+0.0e+00 trA²−S=-4.5e-13 ImS=-3.4e-16 S/N=5.925 small= 11 ≤ rhs= 11839.5 outG1= 75 ≤ 132 cond(G)=1.7e+16 OK
+  λ=1.0 gue       off= 0 dbl=0 N=120 Nd=120 trA−N=+1.4e-14 trA²−S=+2.8e-14 ImS=+0.0e+00 S/N=1.062 small=  0 ≤ rhs=   119.1 outG1= 14 ≤  14 cond(G)=9.8e+00 OK
+  λ=1.0 gue       off= 4 dbl=2 N=132 Nd=130 trA−N=+5.7e-14 trA²−S=+1.4e-13 ImS=+2.2e-16 S/N=1.737 small=  0 ≤ rhs=  1565.5 outG1= 14 ≤  36 cond(G)=8.5e+02 OK
+  λ=1.0 gue       off=10 dbl=5 N=150 Nd=145 trA−N=-5.7e-14 trA²−S=-1.1e-13 ImS=+4.6e-17 S/N=2.305 small=  0 ≤ rhs=  3151.5 outG1= 14 ≤  69 cond(G)=4.6e+04 OK
+  λ=1.0 clustered off= 0 dbl=0 N=120 Nd=120 trA−N=-4.3e-14 trA²−S=-1.1e-13 ImS=+0.0e+00 S/N=1.995 small= 60 ≤ rhs=  1910.0 outG1=120 ≤ 120 cond(G)=8.1e+06 OK
+  λ=1.0 clustered off= 4 dbl=2 N=132 Nd=130 trA−N=-2.8e-14 trA²−S=-1.1e-13 ImS=+0.0e+00 S/N=2.269 small= 60 ≤ rhs=  2687.3 outG1=120 ≤ 139 cond(G)=4.6e+07 OK
+  λ=1.0 clustered off=10 dbl=5 N=150 Nd=145 trA−N=+2.8e-14 trA²−S=+1.1e-13 ImS=+7.3e-16 S/N=4.089 small= 60 ≤ rhs=  7434.6 outG1=120 ≤ 169 cond(G)=6.9e+07 OK
+  λ=2.0 poisson   off= 0 dbl=0 N=120 Nd=120 trA−N=-8.5e-14 trA²−S=-2.3e-13 ImS=+0.0e+00 S/N=1.323 small=  5 ≤ rhs=   619.5 outG1= 40 ≤  40 cond(G)=6.7e+05 OK
+  λ=2.0 poisson   off= 4 dbl=2 N=132 Nd=130 trA−N=-4.0e-13 trA²−S=+0.0e+00 ImS=-3.3e-16 S/N=97.238 small=  5 ≤ rhs=203263.7 outG1= 40 ≤  59 cond(G)=9.3e+06 OK
+  λ=2.0 poisson   off=10 dbl=5 N=150 Nd=145 trA−N=+9.1e-13 trA²−S=-1.4e-09 ImS=-3.8e-15 S/N=4367.281 small=  5 ≤ rhs=10479095.6 outG1= 40 ≤  95 cond(G)=5.4e+07 OK
+  λ=2.0 gue       off= 0 dbl=0 N=120 Nd=120 trA−N=-4.3e-14 trA²−S=-9.9e-14 ImS=+0.0e+00 S/N=1.016 small=  0 ≤ rhs=    31.0 outG1=  2 ≤   2 cond(G)=1.8e+01 OK
+  λ=2.0 gue       off= 4 dbl=2 N=132 Nd=130 trA−N=-1.1e-13 trA²−S=-4.1e-10 ImS=+7.1e-15 S/N=1808.788 small=  0 ≤ rhs=3818056.3 outG1=  2 ≤  22 cond(G)=1.4e+04 OK
+  λ=2.0 gue       off=10 dbl=5 N=150 Nd=145 trA−N=-4.0e-13 trA²−S=+5.5e-12 ImS=-5.7e-16 S/N=60.045 small=  0 ≤ rhs=141726.8 outG1=  2 ≤  55 cond(G)=2.3e+03 OK
+  λ=2.0 clustered off= 0 dbl=0 N=120 Nd=120 trA−N=+0.0e+00 trA²−S=+5.7e-14 ImS=+0.0e+00 S/N=1.983 small= 47 ≤ rhs=  1888.3 outG1=120 ≤ 120 cond(G)=1.4e+06 OK
+  λ=2.0 clustered off= 4 dbl=2 N=132 Nd=130 trA−N=+6.8e-13 trA²−S=+1.7e-09 ImS=+0.0e+00 S/N=3202.213 small= 47 ≤ rhs=6760970.8 outG1=120 ≤ 139 cond(G)=1.7e+08 OK
+  λ=2.0 clustered off=10 dbl=5 N=150 Nd=145 trA−N=+1.4e-12 trA²−S=-2.9e-10 ImS=+1.5e-14 S/N=1578.579 small= 47 ≤ rhs=3786210.0 outG1=120 ≤ 168 cond(G)=1.1e+08 OK
+
+[3b] Lemma G in a non-trivial regime: GUE-like + m injected near-pairs (gap 0.01), no off-line, λ = 2
+  m= 0 N=200 small=  0 ≤ rhs=   42.3  (S−N)=   2.65  #eig(G1)≤1/4=  0 ≥ p/2  outG1=6  OK
+  m= 2 N=202 small=  2 ≤ rhs=  106.2  (S−N)=   6.64  #eig(G1)≤1/4=  2 ≥ p/2  outG1=10  OK
+  m= 5 N=205 small=  5 ≤ rhs=  202.8  (S−N)=  12.67  #eig(G1)≤1/4=  5 ≥ p/2  outG1=16  OK
+  m=10 N=210 small= 10 ≤ rhs=  378.9  (S−N)=  23.68  #eig(G1)≤1/4= 10 ≥ p/2  outG1=25  OK
+  m=20 N=220 small= 20 ≤ rhs=  705.7  (S−N)=  44.11  #eig(G1)≤1/4= 20 ≥ p/2  outG1=43  OK

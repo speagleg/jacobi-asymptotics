@@ -83,3 +83,34 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
   - unconditionally, D := liminf (1/n²)[log D_n − Φ_n] ∈ [−3 log C, 0];
   - G3′ ⇐ PCC (no RH);
   - G3′ ⇒ d_*(repeats) = 0 (N′).
+
+## 2026-10-14 — Plan 19 (RH-free route to G3′: Theorem S)
+- **Inputs read:**
+  - (C3) BGST arXiv:2501.14545v3: §2.1 multiset Z(T); §3 MT (3.1)–(3.2), corrected errors, dyadic window;
+    positivity (3.6)–(3.7).
+  - (C6) Lamzouri arXiv:2609.02882v2: Prop 2.1 and its proof; §3 Lemmas 3.1–3.2 and (3.2)–(3.3).
+- **First draft (stalled).**
+  - Approach: restrict Goldston's Thm-4 argument to critical–critical pairs, with off-line pairs bounded by a local
+    zero-density "Lemma A′".
+  - Rule A: kernel growth T^{2M|β−½|} beats Selberg-type density for M ≥ ⅛, which is a recollection, not cited. So the
+    route stalls.
+- **Rule A ruling reversed.** Plan 17's Rule A ruled that indefinite complex-weighted sums prevent counting close
+  pairs via Lamzouri's identity. That ruling is superseded for *upper-bound* counting:
+  - individual terms are never used;
+  - Lamzouri's operator A has tr A = N and ‖A‖²_HS = S, so Σ(μ − 1)² = S − 2N + N_d;
+  - near pairs force small Gram eigenvalues (Lemma G, deterministic).
+  Lemma PC bounds S above under the one-sided SPC_ℂ⁺ (exact weight removal, any support).
+- **Rule A pass on Lemma G (before the review):**
+  - Weyl perturbation bound for intervals (2·rank);
+  - zero-eigenvalue bookkeeping;
+  - chain factor 2;
+  - numerics `rhfree/checks/check_spectral_sg.py`.
+  The Rule R reviewer's adversarial search (3000 configurations) found no violation.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan19.md). No major findings. F1–F8 and N1–N2 applied (N3 at promotion). Re-check: ACCEPT (R1–R2 wording applied). REVIEWED. Fixes:
+  - dyadic-SPC wording;
+  - §4 retitled (quasi-RH at most, not RH);
+  - Step 1 made self-contained;
+  - quotes added;
+  - Theorem S(b) details.
+- **Outcome:** SPC_ℂ⁺ (upper half of the dyadic complex-weighted SPC, bounded range per tolerance; no RH) ⇒
+  100% simple critical zeros, small gaps ≪ δ³, (SG), G3′ (mod Theorem H). Novelty UNCHECKED.

@@ -37,7 +37,10 @@ which equals 2E(γ) = O(log γ), by (C1). See PROOF.md Lemma Z1.
 
 S. A. C. Baluyot, D. A. Goldston, A. I. Suriajaya, C. L. Turnage-Butterbaugh, "Pair correlation of zeros of the
 Riemann zeta function I: proportions of simple zeros and critical zeros", arXiv:2501.14545v3. Read from the arXiv PDF,
-§1 (Introduction).
+§1 (Introduction) and §3 (read 2026-10-14 for Plan 18: "(3.1) F(x, T) := Σ_{ρ,ρ′∈Z(T)} x^{ρ−ρ′}W(ρ − ρ′), where W(u) :=
+4/(4 − u²)"; "While the definition of F(x, T) does not depend on RH, the asymptotic formula Montgomery obtained for
+F(x, T) when 1 ≤ x ≤ T does depend on RH"; proof of Lemma 4: "Since W(ρ−ρ′) is complex-valued we need to remove this
+weight").
 
 > "In 2020 Pratt, Robles, Zaharescu, and Zeindler [PRZD20] proved that more than 41.72% of the zeros are on the
 > critical line and that more than 40.75% of the zeros are on the critical line and simple."
@@ -53,6 +56,19 @@ quotes is "more than 40.75%" (simple and on the line), and no result it quotes r
 not. The source does not state in so many words that "density-one simplicity is open". In PROOF.md and LOG.md, that
 status is therefore written as "not among the results surveyed in (C3); the best surveyed unconditional proportion is
 > 40.75%". It is never written as a bare claim.
+
+**Plan 19 addendum (read 2026-10-14, §3).**
+> "Montgomery Theorem (MT). For x ≥ 1 and T ≥ 3, we have F(x, T) ≥ 0, F(x, T) = F(1/x, T), and
+> (3.2) F(x, T) = (T/2πx²) log²T (1 + O(1/√log T)) + (T/2π) log x + O(T √log T), uniformly for 1 ≤ x ≤ T."
+> "the sum F(x, T) above is taken over zeros satisfying T < γ, γ′ ≤ 2T"; "the error terms appearing above have been
+> corrected from those in the original statement"; footnote 2: "All the applications of Theorem 1 in [BGSTB24], such
+> as Lemma 5 and Lemma 7, remain correct".
+
+> §2.1: "Let Z(T) denote the multiset of those ρ ∈ Z for which T < γ ≤ 2T".
+
+**Used in:** rhfree/RHFREE.md:
+- Lemma PC: MT on |α| ≤ 1; positivity F ≥ 0 to bound the Q″ term; evenness F(x, T) = F(1/x, T).
+- §0 and Theorem S: the multiset convention for Z(T).
 
 The secondary-source pointer to Bui–Conrey–Young, arXiv:1002.4127, was checked: its abstract concerns zeros on the
 critical line (> 41%). It is not used.
@@ -100,3 +116,74 @@ Theorem C uses PCC ⇒ N(λ0) = O(λ0³TL) and N^⊛(T) = TL + o(TL).
 
 **Used in:** PROOF.md §8 remarks only (distinct *zeros* are not distinct *ordinates*; off-line pairs share ordinates).
 It updates (C3)'s 0.4075 to 0.6725 for "simple and on the line".
+
+## (C7) Montgomery–Soundararajan, "Primes in short intervals", arXiv:math/0409258 — READ (§0), for Plan 18
+
+> "(18) M_K(N; H) = Σ_{n=1}^N (ψ(n + H) − ψ(n) − H)^K". "Theorem 3. Let E_k(x; D) be defined by the relation
+> Σ_{n≤x}Π_{i=1}^k Λ(n + d_i) = S(D)x + E_k(x; D), and suppose that (20) E_k(x; D) ≪ N^{1/2+ε} uniformly for 1 ≤ k ≤ K,
+> 0 ≤ x ≤ N, and distinct d_i satisfying 1 ≤ d_i ≤ H. Then M_K(N; H) = µ_K H^{K/2}∫_1^N(log x/H + B)^{K/2}dx + O(…)
+> uniformly for log N ≤ H ≤ N^{1/K}". "In the case k = 1 … the hypothesis that E_1(N; {1}) ≪ N^{1/2+ε} is equivalent to
+> the Riemann Hypothesis (RH)." "Conjecture 1. For each positive integer K, M_K(N; H) = (µ_K + o(1))N(H log N/H)^{K/2}
+> uniformly for (log N)^{1+δ} ≤ H ≤ N^{1−δ}." "We recall that Goldston & Montgomery [8] showed that if RH is true, then
+> the stronger form (F(α) ∼ 1) of the Pair Correlation Conjecture as formulated by Montgomery [13] is equivalent to the
+> case K = 2 of the Conjecture above." Also (16): "R2(h) = −h log h + Ah + O(h^{1/2+ε})".
+
+**Used in:** G3prime PROOF.md §9 (Theorem P, Proposition P′).
+
+## (C8) Goldston, "Notes on pair correlation of zeros and prime numbers", arXiv:math/0412313 — READ (§§4–6, 9), for Plan 18
+
+> "Strong Pair Correlation Conjecture (SPC). For any fixed bounded M, (6.6) F(α) = 1 + o(1), for 1 ≤ α ≤ M."
+> "Pair Correlation Conjecture (PCC). For any fixed β > 0, (6.7) N(T, β) := (T log T/2π)^{−1}Σ_{0<γ,γ′≤T,
+> 0<γ′−γ≤2πβ/log T} 1 ∼ ∫_0^β(1 − (sin πu/πu)²)du."
+> "Theorem 4. Assume the Riemann Hypothesis. SPC implies PCC and SZC." (proof given via (6.12)–(6.15)).
+> "Theorem 7. Assume the Riemann Hypothesis. … Conversely, if 1 ≤ A1 ≤ A2 < ∞, then (9.2) [F(x, T) ∼ (T/2π)log T]
+> holds uniformly for T^{A1} ≤ X ≤ T^{A2} provided that (9.1) holds uniformly for X^{−1/A1}(log x)^{−3} ≤ δ ≤
+> X^{−1/A2}(log x)³." "In particular, one can prove on RH that SPC is equivalent to (9.3) ∫_1^X(ψ(x + h) − ψ(x) − h)²dx ∼
+> hX log(X/h) for 1 ≤ h ≤ X^{1−ε}". "it is a straightforward exercise to show that the twin prime conjecture in the
+> form (6.3) implies (9.1) and (9.3) in the ranges X^{−1} ≤ δ ≤ X^{−1/2−ε} and 1 ≤ h ≤ X^{1/2−ε} respectively, and
+> consequently we again obtain that (6.3) implies SPC in the range 1 ≤ α ≤ 2 − ε." (6.3): "Σ_{n≤N}Λ(n)Λ(n + k) = S(k)N +
+> O(N^{1/2+ε})".
+
+Also footnote 6: "If (9.3) holds for this range of h it implies RH."
+
+**Used in:** §9. Theorem 7 is Goldston–Montgomery's (Goldston is a co-author). The SPC ⇔ (9.3) step via Saffari–Vaughan
+is stated, not proved, in the notes, so it is a **secondary statement** here.
+
+## (C9) Matomäki–Radziwiłł–Tao, arXiv:1707.01315v3 — READ (abstract), context for Plan 18
+
+> "Our main result is that the expected asymptotic for the first three sums [incl. Σ_{X<n≤2X}Λ(n)Λ(n+h)] holds for
+> almost all h ∈ [−H, H], provided that X^{σ+ε} ≤ H ≤ X^{1−ε} for some ε > 0, where σ := 8/33 = 0.2424…, with an error
+> term saving on average an arbitrary power of the logarithm over the trivial bound."
+
+**Used in:** §9 Proposition P′(b): log-power savings are insufficient for (V).
+
+### (C6) addendum — READ (§2 Prop 2.1 and its proof; §3 Lemmas 3.1–3.2 and proof), for Plan 19
+
+> "Proposition 2.1. Let λ > 0 be a real number and η ∈ L²(ℝ) be a real valued even function with supp(η) ⊂ (−λ, λ),
+> such that η̂²(0) = 1. Let Z be a non-empty finite multiset of complex numbers which is invariant under complex
+> conjugation. … Then we have (2.4) Σ_{z∈Z∩ℝ, m_z=1} 1 ⩾ 2Σ_{z∈Z} 1 − Σ_{z,s∈Z} K(z − s)², where K is the kernel
+> K(ξ) := η̂²(ξ)."
+
+From the proof:
+- (2.8) "f_z(u) := η(u)e^{−2πiuz}". g_z and h_z are the symmetric and antisymmetric combinations of f_z and its
+  conjugate partner.
+- (2.10) "∫_{−λ}^{λ}|f_x(u)|²du = K(0) = 1".
+- (2.11) "1 = ∫|g_z|² − ∫|h_z|²".
+- (2.12) "Σ_{z,s∈Z} K²(z − s) = … = ∫∫|F(u, v)|² du dv".
+- "f_{x_1}, …, f_{x_{n+r}}, g_{z_1}, …, g_{z_k}, h_{z_1}, …, h_{z_k} are linearly independent over ℂ".
+- (2.15): the inner product of two functions with Φ(u) = conj Φ(−u) is real.
+- (2.21) "Σ_{1⩽j⩽D_W} α_j = Σ m_{x_ℓ} + 2Σ m_{z_ℓ} = Σ_{z∈Z} 1".
+
+From §3:
+- "(3.2) r_{δ,T} := Q_δ − Q″_δ/(4(log T)²)".
+- "Q̂″_δ(z) = (2πiz)²Q̂_δ(z) = −4π²z²K_δ(z)²".
+- (3.3) "K_δ(i(ρ − ρ′)log T/2π)² = r̂_{δ,T}(…)w(ρ − ρ′)".
+
+**Used in:** rhfree/RHFREE.md:
+- Lemma PC: the weight-removal algebra, applied with support 2λ in place of 1. It is pure algebra and does not use the
+  support.
+- Lemma G, Step 1: tr A = N and ‖A‖²_HS = S, via (2.10)–(2.13), (2.15) and (2.21).
+- Theorem S(a): (2.4).
+
+Note: rendering of conjugation bars in the text extraction is lossy. g_z, h_z are reconstructed as
+(f_z ± f_{z̄})/(2 or 2i), consistent with (2.11), (2.14) and the numerics in rhfree/checks.

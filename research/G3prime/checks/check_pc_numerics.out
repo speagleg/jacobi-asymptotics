@@ -1,0 +1,19 @@
+[1] K = 2001051 gaps, γ up to 1132490.7; mean normalized gap 1.00000; min 0.00545
+   δ=β=0.02: #{g<δ}/K = 8.496e-06 (GUE NN CDF 8.643e-06);  N(β)/K = 8.496e-06 (PCC 8.770e-06)
+   δ=β=0.05: #{g<δ}/K = 1.274e-04 (GUE NN CDF 1.348e-04);  N(β)/K = 1.274e-04 (PCC 1.368e-04)
+   δ=β=0.10: #{g<δ}/K = 9.115e-04 (GUE NN CDF 1.073e-03);  N(β)/K = 9.115e-04 (PCC 1.088e-03)
+   δ=β=0.20: #{g<δ}/K = 7.136e-03 (GUE NN CDF 8.387e-03);  N(β)/K = 7.136e-03 (PCC 8.501e-03)
+   δ=β=0.30: #{g<δ}/K = 2.372e-02 (GUE NN CDF 2.725e-02);  N(β)/K = 2.372e-02 (PCC 2.760e-02)
+   δ=β=0.50: #{g<δ}/K = 1.021e-01 (GUE NN CDF 1.120e-01);  N(β)/K = 1.021e-01 (PCC 1.132e-01)
+[2] G3′ defect D(n) = (2/n²)Σ(n−j)log(b_j/x̃_j) − log(π²/16), true zeros vs smooth model
+   n=  100: D_true = -0.12664   D_smooth = -0.12627   difference -3.70e-04
+   n=  200: D_true = -0.10701   D_smooth = -0.10674   difference -2.63e-04
+   n=  400: D_true = -0.09097   D_smooth = -0.09080   difference -1.69e-04
+   n=  800: D_true = -0.07817   D_smooth = -0.07807   difference -1.02e-04
+   n= 1600: D_true = -0.06801   D_smooth = -0.06796   difference -5.81e-05
+   n= 3200: D_true = -0.05991   D_smooth = -0.05988   difference -3.19e-05
+[3] stability of D_true(n): J doubling (double) and long double
+   J= 100000 d : n=100: -0.126644  n=400: -0.090972  n=1600: -0.068015
+   J= 200000 d : n=100: -0.126644  n=400: -0.090972  n=1600: -0.068015
+   J= 400000 d : n=100: -0.126644  n=400: -0.090972  n=1600: -0.068015
+   J= 200000 ld: n=100: -0.126644  n=400: -0.090972  n=1600: -0.068015
