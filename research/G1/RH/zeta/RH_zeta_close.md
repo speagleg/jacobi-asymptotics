@@ -6,7 +6,9 @@ Labels:
 - §2 Lemma Z: PROVED, with an Arb-certified winding;
 - §3: PROVED-mod-cite (WLXZ §6.1);
 - §4: PROVED;
-- **Theorem RH_ζ: PROVED-mod-cite (WLXZ v1 §§3–6.1; KMVV §6; C–D Thm 4.4; DLMF; G2), REVIEWED.**
+- **Theorem RH_ζ: PROVED-mod-cite (WLXZ v1 §§3–6.1; KMVV §6; C–D Thm 4.4; DLMF; G2), REVIEWED.** *(Plan 37 note,
+  2026-10-14: the G2 input is G2's optimality argument, used for E1(iv) only, which RH_zeta.md §1 says is not needed
+  for the RH analysis; see the "Cited" list at the end of this file. G1 PROOF.md §0 carries the same annotation.)*
 
 Novelty is UNCHECKED (no Rule L search). §1 hard edge (C–D comparison), §2 Lemma Z (certified), §3 uniform edges, §4 rate, §5 Theorem RH_ζ.
 

@@ -5,6 +5,8 @@ here: the measures are explicit power laws.
 
 **Labels.** "PROVED-mod-cite (X)" means proved from explicitly cited external results X that were read and quoted with
 their hypotheses in CITATIONS.md (item 11's convention, which VERIFICATION_POLICY.md's PROVED-mod-input generalizes).
+*(Plan 37 note, 2026-10-14: VERIFICATION_POLICY.md now defines PROVED-mod-cite and PROVED-mod-input as distinct labels
+— external citation vs named input — so "generalizes" is no longer accurate.)*
 **Prior art:** for p = 1, Monien (arXiv:0901.1883 §3) set up the same constrained maximization heuristically and found
 the same optimizer (CITATIONS.md (M)).
 
@@ -293,17 +295,22 @@ bound in (HZ) was the weaker upper bound −(a/2)n² log n + O(n²). Examples:
 **Corollary H-input (Plan 37: G2 discharges the named input Theorem H).** For every p > 0 and s > 1 the Lean named
 input `TheoremHPure p κ_p s` (lean/JacobiAsym/Inputs.lean), with κ_p = 3p/2 + log c(p), holds on paper:
 - `bdd`: each truncated Heine sum heineK(powSeq p, powSeq s, K, n) is ≤ (Σ_k(k+1)^{−s})^n, since every Vandermonde
-  factor (x_i − x_j)² ≤ 1 for atoms in (0, 1]; so it is bounded in K.
-- `asymp`: heineD = det(m_{i+j}) (Lean `heineD_eq_det`, PROVED), and Theorem H_all with f(ξ) = ξ^{−p} (C = 1;
+  factor (x_i − x_j)² ≤ 1 for atoms in (0, 1]; so it is bounded in K. (This field is already the sorry-free Lean
+  theorem `heineK_bdd_of_summable` (HankelLimit.lean: w ≥ 0, Summable w, |x| ≤ X), so only `asymp` is paper-only.)
+- `asymp`: heineD = det(m_{i+j}) (Lean `heineD_eq_det`, sorry-free), and Theorem H_all with f(ξ) = ξ^{−p} (C = 1;
   ξ^{p+1}f′(ξ) = −p) and w_k = k^{−s} (Σw < ∞, w_k ≥ k^{−s}) gives log D_n = −pn²log n + κ_pn² + o(n²). The 0-based
   `powSeq` indexing (k+1)^{−p} is the same measure.
 
 Label: PROVED-mod-cite (P), as H_all. Consequence for labels elsewhere: wherever a result is labelled "mod-input
-Theorem H" and uses Theorem H only through an instance of `TheoremHPure p κ_p s` (or of H_all), that input is
-discharged and the result is PROVED-mod-cite (P) together with its other citations. This does *not* change the Lean
-labels: Theorem H_all is not formalized, so the Lean theorems remain PROVED-mod-input `TheoremHPure`. Uses of item 11
-results derived *from* Theorem H (H5–H7, Lemma K) are discharged only insofar as item 11 derives them from the
-instances above; THEOREMS.md §3.3 lists the uses checked.
+Theorem H" and uses Theorem H only through instances of `TheoremHPure p κ_p s`, that input is discharged. (P) enters
+only where G2 is the sole route, i.e. for instances outside item 11's Theorem H range (p ∉ {1, 2}, or p = 1 with
+s < 3/2, or p = 2 with s < 2). Inside that range item 11's Theorem H supplies the instance (p = 2: PROVED + REVIEWED,
+citation-free; p = 1: PROVED-mod-cite, Tricomi–Carlitz citation read), and G2 is an alternative route. Every G3′ use is
+(2, s, 1) with s ≥ 2, so no G3′ result depends on (P); in practice (P) is needed only for Lean `theoremHL` at general p.
+This does *not* change the Lean labels: Theorem H_all is not formalized, so the Lean theorems remain PROVED-mod-input
+`TheoremHPure`. Uses of item 11 results derived *from* Theorem H (H7, Lemma K; H5 and H6 do not use it) are discharged
+only insofar as item 11 derives them from the instances above; THEOREMS.md §3.3 lists the uses checked. *(Reworded
+after Rule R review/REVIEW_Plan37.md F1, F3.)*
 
 *Novelty is UNCHECKED.* Known prior art: Monien's p = 1 equilibrium (heuristic). No literature search for the
 general-p constrained-equilibrium identification has been done beyond item 11's `lit` report, which found general-p

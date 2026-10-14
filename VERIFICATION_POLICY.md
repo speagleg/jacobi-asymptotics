@@ -20,7 +20,9 @@ error through.
 
 Novelty is a separate field: NEW / POSSIBLY-NEW / KNOWN / UNCHECKED. Default is UNCHECKED.
 
-**Labels used in this repo (Plan 37, 2026-10-14; definitions copied from the G1 and G2 PROOF.md headers).**
+**Labels used in this repo (Plan 37, 2026-10-14).** Sources: PROVED-mod-cite from the G2 PROOF.md header; CONDITIONAL
+and GAP from the G1 PROOF.md header; PROVED-mod-input from the note at the top of this file; REVIEWED from Rule R below;
+the remaining rows describe how the labels are used in research/ (revised after Rule R, G2/review/REVIEW_Plan37.md F8).
 | Label | Meaning |
 |---|---|
 | PROVED-mod-cite (X) | Proved from explicitly cited external results X, each read and quoted with its hypotheses in a CITATIONS.md (rule C); the hypotheses are checked in the application. (G2 header; item 11's convention.) |
@@ -28,6 +30,14 @@ Novelty is a separate field: NEW / POSSIBLY-NEW / KNOWN / UNCHECKED. Default is 
 | CONDITIONAL | Proved assuming a stated hypothesis that is not a named Lean input. (G1 header.) |
 | GAP | A precise unproved statement, with no claim about its difficulty. (G1 header.) |
 | REVIEWED | Rule R done: an independent second reader re-derived the key steps and the fixes were applied. Combined with the labels above (e.g. "PROVED-mod-cite + REVIEWED"); it does not upgrade them. |
+| PROVED-mod-G2 | Proved using a result of research/G2 as an internal input (RH_zeta E1); inherits G2's labels. |
+| PROOF SKETCH / DRAFT | A written argument that is not a proof (steps missing or rejected by review); never cited as a proof (e.g. RH.md, RH_proof.md). |
+| REFUTED | A conjectured or hoped-for statement shown false in the stated generality (e.g. (T3) for rough weights, by Theorem R). RETRACTED is reserved for a claim of this repo that was found false. |
+| SUPERSEDED | Still valid, but contained in a later result, or replaced by a later construction; the file says by which. |
+| HYPOTHESIS | A named assumption (e.g. (SG), (NA), (V⁺)), stated precisely and not proved; results using it are mod-input / CONDITIONAL. |
+| OBSTRUCTION | A recorded reason why a specific proof route fails; heuristic unless stated otherwise, and not a claim about all routes. |
+| HEURISTIC | An argument or explanation that is not a proof and is not used as one. |
+| sorry-free | A Lean declaration whose proof contains no `sorry` and passes `lean/check.sh` (axioms audit: only `propext`, `Quot.sound`, `Classical.choice`). PROVED-mod-input Lean theorems are sorry-free modulo their named-input hypotheses. |
 
 ## Rule C — citations
 1. Quote each external theorem verbatim (or precisely paraphrased), with every hypothesis, plus
@@ -71,3 +81,5 @@ write-up alone and re-runs the checks. LLM self-review does not count as the sec
 For short statements, write a Lean 4 / Mathlib statement in the style of the openai/math "comparator
 challenges": a small human-audited statement file, the proof kept separately, allowed axioms
 `propext`, `Quot.sound`, `Classical.choice`. Lean is not installed yet; installing it needs human approval.
+*(Stale — Plan 37 note, 2026-10-14: in this repo Lean 4.34.1 + Mathlib are installed and used; see AGENTS.md
+"Environment" and lean/README.md.)*

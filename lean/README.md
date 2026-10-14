@@ -5,8 +5,10 @@ math-pursuits item 11 (work/proof/PROOF.md §7b). D_n is represented by the Hein
 identities heineK = Hankel determinant of the truncation (`heineK_eq_det`, Andreief) and heineD = Hankel determinant
 of the infinite measure (`heineD_eq_det`, K → ∞) are proved here. Only Theorem H for pure powers (`TheoremHPure`)
 remains a named input. On paper, the input `TheoremHPure p κ_p s` (κ_p = 3p/2 + log c(p)) is supplied for all
-p > 0, s > 1 by G2 Corollary H-input (research/G2/PROOF.md §3), mod-cite (P); Theorem H_all is not formalized, so the
-Lean labels below stay PROVED-mod-input.
+p > 0, s > 1 by G2 Corollary H-input (research/G2/PROOF.md §3), mod-cite (P), and for p ∈ {1, 2}, s ≥ s0(p) by item 11's
+Theorem H (p = 2 citation-free; this covers the `TheoremHPure 2 κ 2` instance of Corollary H_L-ζ). Its `bdd` field is
+already the sorry-free `heineK_bdd_of_summable`. Neither paper proof of `asymp` is formalized, so the Lean labels below
+stay PROVED-mod-input.
 
 | Lean | Item 11 | Content |
 |---|---|---|

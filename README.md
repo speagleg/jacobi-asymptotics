@@ -14,7 +14,8 @@ means Riemann–Hilbert. The Riemann Hypothesis occurs only as a labelled hypoth
 - **Lean** (Plans 2–6, lean/README.md): Theorem H_L (`theoremHL`) and Corollary H_L-ζ (`smoothZeta_HL`,
   `smoothZeta_bLaw`) are PROVED-mod-input `TheoremHPure` (Theorem H for pure powers, a named input). The foundations
   (Andreief/Heine, H2, three-term recurrence, Lemma P, the Toeplitz count (S4)) are sorry-free. On paper, the input
-  is supplied for all p > 0, s > 1 by G2 Corollary H-input, mod-cite (P). That proof is not formalized.
+  is supplied by item 11's Theorem H for p ∈ {1, 2}, s ≥ s₀(p) (p = 2 citation-free, which covers Corollary H_L-ζ),
+  and for all p > 0, s > 1 by G2 Corollary H-input, mod-cite (P). Neither proof is formalized.
 - **G2** (Plan 8, research/G2): **Theorem H_all**, the averaged Law P for every p > 0, is PROVED-mod-cite (P) and
   REVIEWED. The n² constant is an explicitly solvable constrained logarithmic equilibrium, a superposition of arcsine
   laws. Corollary HZ: log det ζ(a(i+j)+b) = −an² log n + (3a/2 + log c(a))n² + o(n²) for real a > 0 and 2a + b > 1
@@ -30,18 +31,20 @@ means Riemann–Hilbert. The Riemann Hypothesis occurs only as a labelled hypoth
   - (CL) and the tail-Cesàro a-law for p > 1 with rough weights (Theorem CL, A4′; PROVED-mod-cite (P), REVIEWED).
 - **G3′, the true ζ-zero measure** (Plans 7, 16–26, research/G3prime; the ordinates are taken as real numbers):
   - **(U)** limsup (1/n²)[log D_n − Φ_n] ≤ 0, with no hypothesis on the zeros. Label: PROVED-mod-cite + mod-input
-    Theorem H (Lean `TheoremHPure`) + REVIEWED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)). The
-    cited input is (C1).
+    Theorem H (Lean `TheoremHPure`) + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H
+    (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)). The cited input is (C1).
   - **(B)** liminf ≥ −3 log C > −∞, so log D_n = Φ_n + O(n²) with no hypothesis on the zeros. Label: PROVED-mod-cite
-    (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED; Theorem H input discharged by G2 Cor.
-    H-input (mod-cite (P)).
+    (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by
+    item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)).
   - **Theorem Ch:** G3′ ⟺ 𝒞(K) = o(K²) (capped near-pair energy of the ordinates). Label: PROVED-mod-cite (C1) +
-    mod-input Theorem H; REVIEWED; Theorem H input discharged by G2 Cor. H-input (mod-cite (P)).
+    mod-input Theorem H; REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED
+    there), and also by G2 Cor. H-input (mod-cite (P)).
   - Necessary conditions: G3′ forces repeated ordinates (N″) and exponentially small gaps (N‴) to have density zero.
     Prop N shows that counting-function information alone cannot decide G3′.
   - Sufficient conditions, each a labelled hypothesis: (SG) (G3′-L), (LG*) (L′), PCC with no RH (Theorem C), SPC_ℂ⁺
     (Theorem S), SPC_ℂ⁺(full) (Theorem S′), RH + (V⁺) (Theorem V⁺), RH + (V) (Corollary P). All are REVIEWED.
-  - The Theorem H input of every G3′ result is p = 2 only (THEOREMS.md §3.3).
+  - The Theorem H input of every G3′ result is p = 2, s ≥ 2 only, supplied citation-free by item 11, so no G3′ result
+    depends on G2's citation (P) (THEOREMS.md §3.3).
 
 **Open** (details in THEOREMS.md §4):
 - G3′ with no hypothesis, i.e. 𝒞(K) = o(K²) for the ζ ordinates. By N″ this implies proportion-one distinct ordinates,
