@@ -142,3 +142,12 @@
   p = 2, 1, 0.5.
 - **Open:** unbounded slowly varying Ψ; other nodes.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan35.md). F1 (head margin M₀(p), not n/4) and F2–F8, F10 applied. Re-check ACCEPT (N1–N3 polish applied) — REVIEWED.
+
+## 2026-10-14 — Plan 36 (unbounded log-type weights: Theorem T3-log)
+- **Lemma TLw:** Lemma TL step 3 in weight-explicit form, ρ_{n+1}^u(k) ≤ 1156u_k/min_{[T′,T″]}u.
+- **Theorem T3-log:** full pointwise Law P (all n) for w = k^{−s}Ψ with Ψ slowly varying and D(γ) < ∞ (e.g. (log k)^α,
+  any α). Truncate Ψ to [n/M₀, n^γ] (uniform sandwich ⇒ Theorem L / T3-all apply uniformly), and control the
+  truncation by Sat_p⁺ (head, exponentially small) and TLw (tail, polynomially small), both robust to polylog losses.
+- **Numerics** (`checks/check_log_weights.out`): (log(k+e))^α, α = 1, −2, 3: deviations ~ |α|/n, 2–6·10⁻⁵ at n = 3200.
+- **Open:** slowly varying Ψ with D(γ) = ∞ (e.g. exp(√log k)); other nodes.
+- **Rule R:** pending.

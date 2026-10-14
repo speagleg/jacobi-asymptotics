@@ -50,7 +50,7 @@ Research: research/G3prime, G2, G1.
   REFUTED for rough sandwiched weights (Theorem R, Plan 33, REVIEWED; earlier Conjecture R); the target becomes (T3) for regular weights;
   Plan 29 proves the pointwise b-law for weights k^{−s}ψ_k with ψ_k → L (decaying roughness; Theorem T3-conv, REVIEWED)
   and Plan 30 for polynomially slowly varying Ψ (Theorem T3-sv, via polynomial tail localization Lemma TL; REVIEWED);
-  the a_n half for the same weights in Plan 32 (Theorem T3a, REVIEWED); Plan 34 gives the full pointwise law on a density-one set of n for bounded, uniformly slowly varying Ψ such as 2 + sin(log log k) (Lemma TC, Theorem T3-avg; REVIEWED); Plan 35 proves localization at scale Mn and hence the full pointwise Law P for **all n** for every bounded slowly varying Ψ (Theorem T3-all; REVIEWED) ((CL) is proved for pure-power atoms k^{−p}, p > 1, with rough
+  the a_n half for the same weights in Plan 32 (Theorem T3a, REVIEWED); Plan 34 gives the full pointwise law on a density-one set of n for bounded, uniformly slowly varying Ψ such as 2 + sin(log log k) (Lemma TC, Theorem T3-avg; REVIEWED); Plan 35 proves localization at scale Mn and hence the full pointwise Law P for **all n** for every bounded slowly varying Ψ (Theorem T3-all; REVIEWED); Plan 36 extends this to unbounded log-type Ψ such as (log k)^α (Theorem T3-log; in review) ((CL) is proved for pure-power atoms k^{−p}, p > 1, with rough
   weights: Theorem CL, Plan 27, REVIEWED; not for general nodes or p ≤ 1). The analytic families done are pure powers
   (all p > 0) and the smooth-ζ model.
 
