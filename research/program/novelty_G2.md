@@ -297,7 +297,8 @@ Essential:
 Framework:
 - Rakhmanov 1996; Dragnev–Saff 1997; Kuijlaars–Van Assche (PLMS 1999) and (JAT 1999, averaged arcsine); Beckermann 2000.
 - Van Assche–Van Baelen 2020 (accumulating q-lattice analogue).
-- Saff–Totik (already in G2 via (P)).
+- Saff–Totik (already in G2 via (P)). *(Plan 47 note, 2026-10-14: G2 no longer uses (P); B*(iii) rests on G2 Lemma EP,
+  a self-contained Fourier proof. Saff–Totik remains a literature pointer.)*
 - Beckermann–Kalyagin–Matos–Wielonsky (already cited).
 
 Context:

@@ -30,7 +30,7 @@ with finite energy, and with ∫ log(1 + x) < ∞.
 *(Plan 47 note, 2026-10-14: no longer used. B*(iii) now rests on PROOF.md Lemma EP, a self-contained Fourier proof
 (ported from papers/paper1/main.tex Lemma 3.3), which also replaces the mutual-energy finiteness quoted from (P) §1 by a
 direct bound through B*(ii). (P) is kept here as an alternative route; the old (P)-based argument is quoted in
-PROOF.md after the proof of B*. Rule R pending (Plan 47).)*
+PROOF.md after the proof of B*. Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED.)*
 
 ## (HZ) Haynes–Zudilin — READ
 

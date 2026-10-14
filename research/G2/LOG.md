@@ -71,8 +71,10 @@ F2/F3 already in the Paper 1 text that was ported). B*(iii)'s optimality step wa
 - The 2026-10-13 (P)-based text is kept verbatim as a remark after the proof (alternative route). CITATIONS.md (P)
   has a dated "no longer used" note.
 
-**Rule A (Lemma EP).** Hypotheses tested: mass zero is needed (ν = ω_8 gives −∬log = −log 2 < 0); (EP-int) is needed
-for the left side to be defined (δ_0 − δ_1). `checks/check_positivity.py` (NUMERICAL, output in `.out`): the Fourier
+**Rule A (Lemma EP).** Hypotheses tested: mass zero is needed (ν = ω_8 gives −∬log = −log 2 < 0); (EP-int) is what makes
+all integrals absolutely convergent; without it both sides can be +∞ (δ_0 − δ_1), so it cannot be dropped from the
+finite-valued statement, but this is not a counterexample to positivity (wording corrected after Rule R F1; the first
+version said the left side is "undefined"). `checks/check_positivity.py` (NUMERICAL, output in `.out`): the Fourier
 identity for ω_1 − ω_4 (log 4; gap 1.2e−4 = uncomputed tail beyond ξ = 4000) and U[0,1] − U[0,2] (log 2; gap 5e−8).
 Paper 1's referee also tested an unbounded-support case (Exp(1) − Exp(2), REVIEW_Paper1.md).
 
@@ -84,18 +86,18 @@ context entries, not proof inputs.
 
 | Result | File | Old label | New label | Inputs checked |
 |---|---|---|---|---|
-| Lemma EP (new) | G2 PROOF.md §1 | — | PROVED; Rule R pending (Plan 47) | Fubini, dominated/monotone convergence, Gaussian Fourier transform |
-| B* | G2 PROOF.md §0, §1 | PROVED-mod-cite (P) | PROVED; Rule R pending (Plan 47) | B0, EP; (i), (ii) and the value were already citation-free |
-| H_all | G2 §0, §3 | PROVED-mod-cite (P) | PROVED; Rule R pending (Plan 47) | A-U (PROVED), A-L (PROVED), B* (now PROVED), item 11 H2–H4 |
-| HZ | G2 §0, §3 | PROVED-mod-cite (P) | PROVED; Rule R pending (Plan 47) | H_all only |
-| Cor. H-input | G2 §3 | PROVED-mod-cite (P), as H_all | PROVED, as H_all; Rule R pending (Plan 47) | H_all; Lean `heineD_eq_det`, `heineK_bdd_of_summable` (sorry-free) |
-| G1-T | G1 PROOF.md §0 | PROVED-mod-cite (G2 (P)) | PROVED; Rule R pending (Plan 47) | H_all (via G2 §3 b_j form), Lemma K; (T3) is the stated hypothesis |
-| G1-L | G1 §0 | PROVED-mod-cite (G2 (P)) | PROVED; Rule R pending (Plan 47) | H_all, Lemma K; one-sided bound is the stated hypothesis |
-| WC | G1 §0, §3.1 | PROVED-mod-cite (P) (through G2 B*(iii)); REVIEWED | PROVED; REVIEWED (proof unchanged); relabel Rule R pending (Plan 47) | G2 A1, A-U, A-L, B*(iii), scaling; Portmanteau (textbook) |
-| CL | G1 §0, §3.1 | PROVED-mod-cite (P) (through G2 B*(iii); internal …); REVIEWED | PROVED; REVIEWED (proof unchanged); relabel Rule R pending (Plan 47) | WC, Sat_p (from G3′ Lemma Sat: Christoffel + Lagrange, elementary), A3, G2 B*(i) |
-| A4′ | G1 §0, §3.1 | PROVED-mod-cite (P) (through G2 B*(iii)); REVIEWED | PROVED; REVIEWED (proof unchanged); relabel Rule R pending (Plan 47) | A2, A3, CL |
-| TC | G1 §0, §3.7 | PROVED-mod-cite (P) (through G2 B*(iii); internal …) + REVIEWED | PROVED; REVIEWED (proof unchanged); relabel Rule R pending (Plan 47) | G2 A-U, A-L, B*(iii) |
-| T3-avg | G1 §0, §3.7 | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; (P) via TC) + REVIEWED | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b) + REVIEWED; relabel Rule R pending (Plan 47) | (P) entered only via TC; the RH citations remain |
+| Lemma EP (new) | G2 PROOF.md §1 | — | PROVED; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED | Fubini, dominated/monotone convergence, Gaussian Fourier transform |
+| B* | G2 PROOF.md §0, §1 | PROVED-mod-cite (P) | PROVED; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED | B0, EP; (i), (ii) and the value were already citation-free |
+| H_all | G2 §0, §3 | PROVED-mod-cite (P) | PROVED; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED | A-U (PROVED), A-L (PROVED), B* (now PROVED), item 11 H2–H4 |
+| HZ | G2 §0, §3 | PROVED-mod-cite (P) | PROVED; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED | H_all only |
+| Cor. H-input | G2 §3 | PROVED-mod-cite (P), as H_all | PROVED, as H_all; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED | H_all; Lean `heineD_eq_det`, `heineK_bdd_of_summable` (sorry-free) |
+| G1-T | G1 PROOF.md §0 | PROVED-mod-cite (G2 (P)) | PROVED; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED | H_all (via G2 §3 b_j form), Lemma K; (T3) is the stated hypothesis |
+| G1-L | G1 §0 | PROVED-mod-cite (G2 (P)) | PROVED; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED | H_all, Lemma K; one-sided bound is the stated hypothesis |
+| WC | G1 §0, §3.1 | PROVED-mod-cite (P) (through G2 B*(iii)); REVIEWED | PROVED; REVIEWED (proof unchanged); relabel Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED | G2 A1, A-U, A-L, B*(iii), scaling; Portmanteau (textbook) |
+| CL | G1 §0, §3.1 | PROVED-mod-cite (P) (through G2 B*(iii); internal …); REVIEWED | PROVED; REVIEWED (proof unchanged); relabel Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED | WC, Sat_p (from G3′ Lemma Sat: Christoffel + Lagrange, elementary), A3, G2 B*(i) |
+| A4′ | G1 §0, §3.1 | PROVED-mod-cite (P) (through G2 B*(iii)); REVIEWED | PROVED; REVIEWED (proof unchanged); relabel Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED | A2, A3, CL |
+| TC | G1 §0, §3.7 | PROVED-mod-cite (P) (through G2 B*(iii); internal …) + REVIEWED | PROVED; REVIEWED (proof unchanged); relabel Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED | G2 A-U, A-L, B*(iii) |
+| T3-avg | G1 §0, §3.7 | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; (P) via TC) + REVIEWED | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b) + REVIEWED; relabel Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED | (P) entered only via TC; the RH citations remain |
 | 19 G3′ §0 rows (all but G3′-L) | G3prime PROOF.md §0 | note "… and also by G2 Cor. H-input (mod-cite (P))" | note "… (PROVED since Plan 47; was mod-cite (P))"; labels unchanged (still mod-input Theorem H) | annotation only; no G3′ result depended on (P) (THEOREMS §3.3) |
 | Lean `theoremHL` | lean/README.md, THEOREMS H6, §2.1 | PROVED-mod-input (… G2 Cor. H-input, mod-cite (P) …) | PROVED-mod-input (… G2 Cor. H-input, citation-free since Plan 47 …) | Lean label unchanged: H_all is not formalized |
 
@@ -110,5 +112,20 @@ context entries, not proof inputs.
 - research/program/outline_A_nodes.md T0 (a proposed label, not a result) and RESEARCH_PROGRAM.md §4: dated notes only.
 - G1 A4 (CONDITIONAL on (CL)): its label never cited (P).
 
-**Status.** Rule R pending (Plan 47): a second reader should check Lemma EP's hypotheses against the measures in B*(iii)
-and the completeness and correctness of the table above (docs/superpowers/plans/2026-10-14-plan-47-noP.md).
+**Status (as committed in 28c6339).** Rule R pending (Plan 47): a second reader should check Lemma EP's hypotheses
+against the measures in B*(iii) and the completeness and correctness of the table above
+(docs/superpowers/plans/2026-10-14-plan-47-noP.md).
+
+### Plan 47 Rule R
+
+`review/REVIEW_Plan47.md`: ACCEPT WITH FIXES (all minor); Lemma EP, the B*(iii) rewrite and the relabel list confirmed
+correct and complete. Fixes applied 2026-10-14:
+- F1: the δ_0 − δ_1 Rule A example reworded (both sides +∞; not a counterexample) in PROOF.md and above.
+- F2: one-line derivations of the B*(ii) and **Value** absolute bounds added (now load-bearing for (EP-int)).
+- F3: Lean docstrings (Inputs.lean `TheoremHPure`, TheoremHL.lean `theoremHL`) updated, comments only; `lean/check.sh`
+  re-run on this branch: build completed, AUDIT OK (only propext, Classical.choice, Quot.sound).
+- F4: dated note at RH_zeta.md E1(iv).
+- F5: check_positivity.py tail comment corrected to (3/(2π))/cut; `.out` regenerated (unchanged).
+- F6–F8 (info): THEOREMS header wording; §3.2 "(internal item 11 inputs, as for A-U)"; dated note at novelty_G2.md.
+All "Rule R pending (Plan 47)" markers replaced by "Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied —
+REVIEWED", as the reviewer recommended. The relabel table above shows the reviewed labels.

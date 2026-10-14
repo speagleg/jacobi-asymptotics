@@ -15,8 +15,9 @@ def fourier_side(nuhat, cut=4000.0):
     f = lambda xi: abs(nuhat(xi)) ** 2 / xi
     edges = np.concatenate(([0.0], np.geomspace(1e-6, cut, 400)))
     tot = sum(integrate.quad(f, a, b, limit=200)[0] for a, b in zip(edges[:-1], edges[1:]))
-    # tail beyond cut not integrated: |nuhat|^2 averages ~ (5/(4 pi))/xi for [1], so the tail is ~ (5/(4 pi))/cut
-    # ~ 1e-4 at cut 4000 (matching the [1] diff); it is O(1/cut^2) for [2]
+    # tail beyond cut not integrated: for [1] |nuhat|^2 averages ~ 5/(2 pi xi) - 1/(pi xi) = 3/(2 pi xi) (the cross
+    # term has a non-oscillating part), so the tail is ~ (3/(2 pi))/cut = 1.19e-4 at cut 4000, matching the [1] diff
+    # (corrected after Rule R, REVIEW_Plan47.md F5; was (5/(4 pi))/cut); it is O(1/cut^2) for [2]
     return tot
 
 

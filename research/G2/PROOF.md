@@ -4,7 +4,7 @@ Status: REVIEWED 2026-10-13 (Rule R: `review/REVIEW_G2.md`, ACCEPT WITH FIXES; f
 here: the measures are explicit power laws.
 *(Plan 47 note, 2026-10-14: the external citation (P) is no longer needed. B*(iii) now uses Lemma EP (§1, a
 self-contained Fourier proof of energy positivity, ported from papers/paper1/main.tex Lemma 3.3), so B*, H_all, HZ and
-Cor. H-input are relabelled PROVED. The new lemma and the relabels are **Rule R pending (Plan 47)**; the 2026-10-13
+Cor. H-input are relabelled PROVED. The new lemma and the relabels are **Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED**; the 2026-10-13
 REVIEWED status covers the text as it was before Plan 47. See LOG.md "Plan 47".)*
 
 **Labels.** "PROVED-mod-cite (X)" means proved from explicitly cited external results X that were read and quoted with
@@ -19,14 +19,14 @@ the same optimizer (CITATIONS.md (M)).
 | Result | Statement | Label |
 |---|---|---|
 | B0 | arcsine potential: ∫ log\|x−y\| dω_{[0,β]} = log(β/4) on [0,β], and ≥ log(β/4) on [β,∞) | PROVED |
-| EP | energy positivity (Plan 47): a finite signed measure ν on ℝ with ν(ℝ) = 0 and ∬\|log\|x−y\|\| d\|ν\|d\|ν\| < ∞ has −∬ log\|x−y\| dν dν = ∫_0^∞ \|ν̂(ξ)\|²/ξ dξ ≥ 0, with equality iff ν = 0 | PROVED (self-contained; ported from Paper 1 Lemma 3.3, refereed CORRECT in papers/paper1/REVIEW_Paper1.md); Rule R pending (Plan 47) |
-| B* | E_p := sup_{μ∈𝒜} I(μ) = κ_p := 3p/2 + log c(p), uniquely attained at μ* = ∫_0^1 ω_{[0,4c(p)t^{−p}]} dt | PROVED (Plan 47, via Lemma EP; was PROVED-mod-cite (P)); Rule R pending (Plan 47). The value I(μ*) = κ_p is citation-free |
+| EP | energy positivity (Plan 47): a finite signed measure ν on ℝ with ν(ℝ) = 0 and ∬\|log\|x−y\|\| d\|ν\|d\|ν\| < ∞ has −∬ log\|x−y\| dν dν = ∫_0^∞ \|ν̂(ξ)\|²/ξ dξ ≥ 0, with equality iff ν = 0 | PROVED (self-contained; ported from Paper 1 Lemma 3.3, refereed CORRECT in papers/paper1/REVIEW_Paper1.md); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED |
+| B* | E_p := sup_{μ∈𝒜} I(μ) = κ_p := 3p/2 + log c(p), uniquely attained at μ* = ∫_0^1 ω_{[0,4c(p)t^{−p}]} dt | PROVED (Plan 47, via Lemma EP; was PROVED-mod-cite (P)); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED. The value I(μ*) = κ_p is citation-free |
 | A1 | discretization: point energy ≤ n²·(smeared energy) + C_M n log n, for subsets of [1, Mn] | PROVED |
 | A2 (Cor.) | head bound: log V(S) ≤ −pN² log N + E_pN² + C′_M n log n for S ⊂ [1, Mn], \|S\| = N | PROVED (uses A1 and the Scaling identity (end of §0); E_p enters only as the sup, not its value) |
 | A-U | limsup (1/n²)[log D_n + p n² log n] ≤ E_p | PROVED (uses A1, B*-scaling; algebra of item 11 H7) |
 | A-L | liminf ≥ κ_p (= I(μ*_u)) | PROVED (citation-free: uses B*(i) and the value in B*(iii)) |
-| **H_all** | **for every p > 0, C > 0, regularly spaced atoms, and weights with Σw < ∞ and w_k ≥ c₁k^{−s}: log D_n = −pn² log n + (κ_p + log C)n² + o(n²)** | PROVED (Plan 47; was PROVED-mod-cite (P)); Rule R pending (Plan 47) |
-| HZ | log det_{1≤i,j≤n} ζ(a(i+j)+b) = −an² log n + (3a/2 + log c(a))n² + o(n²), for real a > 0 (in particular integer a ≥ 1) and real b > 1 − 2a | PROVED (Plan 47; was PROVED-mod-cite (P)); Rule R pending (Plan 47) |
+| **H_all** | **for every p > 0, C > 0, regularly spaced atoms, and weights with Σw < ∞ and w_k ≥ c₁k^{−s}: log D_n = −pn² log n + (κ_p + log C)n² + o(n²)** | PROVED (Plan 47; was PROVED-mod-cite (P)); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED |
+| HZ | log det_{1≤i,j≤n} ζ(a(i+j)+b) = −an² log n + (3a/2 + log c(a))n² + o(n²), for real a > 0 (in particular integer a ≥ 1) and real b > 1 − 2a | PROVED (Plan 47; was PROVED-mod-cite (P)); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED |
 
 Notation:
 - p > 0 is fixed. g(u) := u^{−p} on (0, ∞).
@@ -81,7 +81,7 @@ with equality iff ν = 0.
 *Source.* Ported verbatim in substance from papers/paper1/main.tex Lemma 3.3 (`lem:positivity`) and its proof, which the
 Paper 1 referee checked (papers/paper1/REVIEW_Paper1.md: "Lemma 3.3: CORRECT"). The proof uses only Fubini, dominated and
 monotone convergence and the Gaussian Fourier transform. It replaces the external citation (P) in B*(iii), and it gives
-more than (P) states (the Fourier identity). Rule R pending (Plan 47).
+more than (P) states (the Fourier identity). Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED.
 
 *Proof.* For 0 < ε < 1 < R and a ∈ ℝ ∖ {0} put K_{ε,R}(a) := ∫_ε^R (cos(aξ) − e^{−ξ}) ξ^{−1} dξ.
 
@@ -125,8 +125,11 @@ more than (P) states (the Fourier identity). Rule R pending (Plan 47).
    convergence (G_t * ψ → ψ pointwise, |G_t * ψ| ≤ ‖ψ‖_∞) and Fubini (G_t is even). So ν = 0. ∎
 
 *Rule A (Plan 47).*
-- Hypotheses are necessary as used: dropping ν(ℝ) = 0 fails (ν = ω_8, a probability measure, has −∬ log = −log 2 < 0, by
-  B0); dropping (EP-int) loses the statement (ν = δ_0 − δ_1 has +∞ diagonal energy, so the left side is undefined).
+- Hypotheses: dropping ν(ℝ) = 0 fails (ν = ω_8, a probability measure, has −∬ log = −log 2 < 0, by B0). (EP-int) is
+  what makes every integral absolutely convergent (dominated convergence in Step 3). Without it the left side can be +∞
+  (ν = δ_0 − δ_1: both sides are +∞) or of the form ∞ − ∞. The example shows (EP-int) cannot be dropped from the
+  finite-valued statement; it is not a counterexample to positivity. *(Reworded after Rule R, review/REVIEW_Plan47.md
+  F1; the first version said the left side is "undefined".)*
 - `checks/check_positivity.py` (NUMERICAL, `.out` saved): the identity holds for ν = ω_1 − ω_4 (left side log 4 by B0;
   Fourier side 1.38618 at cut-off 4000, the 1.2·10⁻⁴ gap matching the uncomputed O(1/cut) tail) and for
   ν = U[0,1] − U[0,2] (both sides 0.693147, gap 5·10⁻⁸). Not a proof.
@@ -155,7 +158,10 @@ on (0, u_s] with u_s := (4c(p))^{−1/p}, and density < 1 on (u_s, ∞).
     incomplete beta function.
 
 (ii) By Fubini: ∫|log|x − y|| dω_{β_t}(y) ≤ C(1 + |log x| + log β_t), an absolute-integrability bound that is
-  integrable in t ∈ (0, 1]. So
+  integrable in t ∈ (0, 1]. *(Derivation, added after Rule R review/REVIEW_Plan47.md F2: by |τ| = 2τ⁺ − τ, B0 and
+  |x − y| ≤ x + β on supp ω_β, ∫|log|x − y|| dω_β(y) = 2∫log⁺|x − y| dω_β − U_β(x) ≤ 2 log(1 + x + β) − log(β/4)
+  ≤ 2 log(1 + x + β) + |log(β/4)|; with β = β_t = 4c t^{−p} this is ≤ C(1 + log(1 + x) + |log t|), integrable in t.)*
+  So
   U*(x) = ∫_0^1 U_{β_t}(x) dt. For x ≤ 4c we have x ≤ β_t for every t, so by B0
   U* = ∫_0^1 log(c t^{−p}) dt = log c + p. For all x, B0 gives U_{β_t} ≥ log(β_t/4), so U* ≥ log c + p.
 
@@ -165,10 +171,12 @@ on (0, u_s] with u_s := (4c(p))^{−1/p}, and density < 1 on (u_s, ∞).
     I(μ*_u) = ∫_0^1∫_0^1 [log c − p log min(s,t)] ds dt = log c − p·∫_0^1 2(1−m) log m dm = log c + 3p/2 = κ_p,
 
   using E[log min] = −3/2. Fubini is justified because ∬|log|x − y|| dω_{β_s}dω_{β_t} ≤ C(1 + |log s| + |log t|), an
-  absolute bound.
+  absolute bound. *(Derivation, added after Rule R review/REVIEW_Plan47.md F2: for s ≤ t, by |τ| = 2τ⁺ − τ and B0,
+  ∬|log|x − y|| dω_{β_s}dω_{β_t} = 2∬log⁺|x − y| dω_{β_s}dω_{β_t} − log(β_s/4) ≤ 2 log(1 + β_s + β_t) + |log(β_s/4)|,
+  which is ≤ C(1 + |log s| + |log t|) since β_s = 4c s^{−p}. This bound is used for (EP-int) below.)*
 
 **Optimality** (rewritten by Plan 47, 2026-10-14, to use Lemma EP in place of (P); the 2026-10-13 (P)-based text is
-kept verbatim in the remark after this proof). Rule R pending (Plan 47).
+kept verbatim in the remark after this proof). Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED.
 - **E_p is finite.** I(μ) < +∞ for every μ ∈ 𝒜, since log|x − y| ≤ log(1+x) + log(1+y) and μ^x ≤ σ has a finite log
   moment. The case I(μ) = −∞ is trivial.
 - **Setup.** Let μ ∈ 𝒜 with I(μ) > −∞, and put μ^x := g_*μ ≤ σ. Both μ^x and μ* are positive measures of mass 1 on
@@ -406,7 +414,7 @@ input `TheoremHPure p κ_p s` (lean/JacobiAsym/Inputs.lean), with κ_p = 3p/2 + 
   ξ^{p+1}f′(ξ) = −p) and w_k = k^{−s} (Σw < ∞, w_k ≥ k^{−s}) gives log D_n = −pn²log n + κ_pn² + o(n²). The 0-based
   `powSeq` indexing (k+1)^{−p} is the same measure.
 
-Label: PROVED, as H_all (Plan 47, 2026-10-14; was PROVED-mod-cite (P)); Rule R pending (Plan 47). Consequence for labels elsewhere: wherever a result is labelled "mod-input
+Label: PROVED, as H_all (Plan 47, 2026-10-14; was PROVED-mod-cite (P)); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED. Consequence for labels elsewhere: wherever a result is labelled "mod-input
 Theorem H" and uses Theorem H only through instances of `TheoremHPure p κ_p s`, that input is discharged. (P) enters
 only where G2 is the sole route, i.e. for instances outside item 11's Theorem H range (p ∉ {1, 2}, or p = 1 with
 s < 3/2, or p = 2 with s < 2). Inside that range item 11's Theorem H supplies the instance (p = 2: PROVED + REVIEWED,
@@ -419,7 +427,7 @@ after Rule R review/REVIEW_Plan37.md F1, F3.)*
 *(Plan 47 note, 2026-10-14: since B*(iii) now uses Lemma EP, H_all and this corollary are PROVED with no external
 citation, so G2 supplies every instance `TheoremHPure p κ_p s` (p > 0, s > 1) citation-free on paper. The sentences
 above about where "(P) enters" describe the pre-Plan-47 state and are kept as history: (P) is now needed nowhere. The
-Lean labels are unchanged, for the reason stated above. Rule R pending (Plan 47).)*
+Lean labels are unchanged, for the reason stated above. Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED.)*
 
 *Novelty is UNCHECKED.* Known prior art: Monien's p = 1 equilibrium (heuristic). No literature search for the
 general-p constrained-equilibrium identification has been done beyond item 11's `lit` report, which found general-p

@@ -15,13 +15,13 @@ means Riemann–Hilbert. The Riemann Hypothesis occurs only as a labelled hypoth
   `smoothZeta_bLaw`) are PROVED-mod-input `TheoremHPure` (Theorem H for pure powers, a named input). The foundations
   (Andreief/Heine, H2, three-term recurrence, Lemma P, the Toeplitz count (S4)) are sorry-free. On paper, the input
   is supplied by item 11's Theorem H for p ∈ {1, 2}, s ≥ s₀(p) (p = 2 citation-free, which covers Corollary H_L-ζ),
-  and for all p > 0, s > 1 by G2 Corollary H-input, PROVED since Plan 47 (was mod-cite (P); Rule R pending). Neither
+  and for all p > 0, s > 1 by G2 Corollary H-input, PROVED since Plan 47 (was mod-cite (P); REVIEWED, research/G2/review/REVIEW_Plan47.md). Neither
   proof is formalized.
 - **G2** (Plan 8, research/G2): **Theorem H_all**, the averaged Law P for every p > 0, is PROVED (Plan 47: the citation
-  (P) is replaced by the self-contained Lemma EP; Rule R pending (Plan 47)); previously PROVED-mod-cite (P) and
+  (P) is replaced by the self-contained Lemma EP; Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED); previously PROVED-mod-cite (P) and
   REVIEWED. The n² constant is an explicitly solvable constrained logarithmic equilibrium, a superposition of arcsine
   laws. Corollary HZ: log det ζ(a(i+j)+b) = −an² log n + (3a/2 + log c(a))n² + o(n²) for real a > 0 and 2a + b > 1
-  (PROVED since Plan 47, was PROVED-mod-cite (P); Rule R pending).
+  (PROVED since Plan 47, was PROVED-mod-cite (P); REVIEWED).
 - **G1, pointwise law for pure powers** (Plans 10–15, research/G1/RH): the pointwise Law P with an O(1/n) rate holds
   for every σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, p > 0, s > 1. The results are RH₁(r) (p = 1), RH_p (p > 1) and the seam
   construction (0 < p < 1). For the smooth-ζ model, Theorem RH_ζ gives
@@ -31,7 +31,7 @@ means Riemann–Hilbert. The Riemann Hypothesis occurs only as a labelled hypoth
     (Theorem T3-log), both PROVED-mod-cite + REVIEWED;
   - fixed-size rough weights can break (T3) and the pointwise b-law (Theorem R, PROVED-mod-cite + REVIEWED);
   - (CL) and the tail-Cesàro a-law for p > 1 with rough weights (Theorem CL, A4′; PROVED since Plan 47, was PROVED-mod-cite (P);
-    REVIEWED, relabel Rule R pending).
+    REVIEWED, relabel REVIEWED by research/G2/review/REVIEW_Plan47.md).
 - **G3′, the true ζ-zero measure** (Plans 7, 16–26, research/G3prime; the ordinates are taken as real numbers):
   - **(U)** limsup (1/n²)[log D_n − Φ_n] ≤ 0, with no hypothesis on the zeros. Label: PROVED-mod-cite + mod-input
     Theorem H (Lean `TheoremHPure`) + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H
