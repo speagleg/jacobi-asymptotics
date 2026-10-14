@@ -23,8 +23,9 @@ known; its application here to Law P is what is new.
 | A1 | J ≥ 0 ⇒ sine-weighted window averages of a_j are ≥ 2cos(π/(L+1))·min b over the window. Hence, if b is regular, liminf of window averages of a_j/(2b_j) ≥ 1 | PROVED |
 | A2 | p > 1: Σ_{j>n} a_j = 𝔼_n[Σ_{k∉S} x_k] (Heine ensemble) | PROVED |
 | A3 | Q_p := ∫ x d(σ − μ*) = 2c(p)/(p−1) | PROVED (uses only G2 B*(i) and the definition of μ*, both citation-free) |
-| A4 | (CL) ⇒ tail-Cesàro a-law; with β_n → 1, block-Cesàro ratios Σa/Σ2b → 1 and window averages → 1 in b-weighted density (pointwise density NOT proved) | CONDITIONAL on (CL) |
-| G1-R | (T3) from the atoms alone; (CL) | GAP in general (see §4) |
+| A4 | (CL) ⇒ tail-Cesàro a-law; with β_n → 1, block-Cesàro ratios Σa/Σ2b → 1 and window averages → 1 in b-weighted density (pointwise density NOT proved) | CONDITIONAL on (CL) — **(CL) now PROVED (Theorem CL, §3.1)**, so the tail-Cesàro a-law is unconditional |
+| **CL** | (CL) for pure-power atoms k^{−p}, p > 1, and ROUGH weights (Σw < ∞, w_k ≥ c₁k^{−s}): n^{p−1}𝔼_n[Σ_{k∉S}x_k] → Q_p. Hence n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p−1) unconditionally (§3.1, Plan 27) | PROVED-mod-cite (G2 A1, A-U, A-L, B*; G3′ §5.2 Lemmas H, Sat) + Rule R pending; novelty UNCHECKED |
+| G1-R | (T3) from the atoms alone; ~~(CL)~~ (now Theorem CL) | GAP for (T3) only (see §4) |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -176,6 +177,87 @@ but none is given.
 - **(CL) is the precise missing lemma for the a_n side (p > 1).** For p ≤ 1, J is not trace class and A2 does not apply
   as stated.
 
+### 3.1 Theorem CL (Plan 27): saturation exactness and concentration — (CL) holds for rough weights — PROVED-mod-cite; Rule R pending
+
+Setting: x_k = k^{−p} with p > 1, weights w_k > 0 with W := Σw_k < ∞ and w_k ≥ c₁k^{−s}. P_n is the Heine measure
+on n-subsets S (item 11 H1), with ρ_n(k) := P_n(k ∈ S) = w_kK_n(x_k, x_k). Put
+- m_n := (1/n)Σ_kρ_n(k)δ_{k/n} = 𝔼_n[ν_S], where ν_S := (1/n)Σ_{k∈S}δ_{k/n};
+- λ_n := (1/n)Σ_{k≥1}δ_{k/n}.
+Then 0 ≤ m_n ≤ λ_n. Notation 𝒜, I, μ*_u, ρ*, u_s := (4c(p))^{−1/p} and κ_p is G2's (§1).
+
+**Lemma Sat_p (saturation, any p ≥ 1).** For 1 ≤ k < n, with θ := k/n,
+
+  1 − ρ_n(k) ≤ (W/w_k)·e^{−2n·g_p(θ)},  g_p(θ) := (p − θ)log(1/θ) + (1 − θ)log(1 − θ) − p + (p − 1)θ.
+
+g_p is decreasing on (0, ½) and g_p(θ) → ∞ as θ → 0. (For p = 2 this is G3′ §5.2's g.)
+
+*Proof.* G3′ §5.2 Lemma Sat (Christoffel + Lagrange) gives 1 − ρ_n(k) ≤ (W_{>n}/w_k)·Π_{j≤n,j≠k}(x_j/|x_j − x_k|)².
+Here x_j/|x_j − x_k| = k^p/|k^p − j^p|.
+- For p ≥ 1, j^p − k^p ≥ j^{p−1}(j − k) (j > k) and k^p − j^p ≥ k^{p−1}(k − j) (j < k).
+- So the j < k part of the product is ≤ k^{k−1}/(k−1)! ≤ e^k, and the j > k part is
+  ≤ k^{p(n−k)}/((n−k)!·(n!/k!)^{p−1}).
+- Use log m! ≥ m log m − m and Σ_{k<j≤n}log j ≥ ∫_k^n log t dt. The log n terms cancel (coefficient
+  (p−θ) − (1−θ) − (p−1) = 0), leaving log Π ≤ −n·g_p(θ).
+- Monotonicity: g_p′(θ) = log(θ/(1−θ)) − p/θ + p − 1 < 0 on (0, ½). ∎
+
+**Lemma WC (concentration at speed n²).** For every φ ∈ C_c((0, ∞)) and δ > 0,
+P_n(|⟨φ, ν_S⟩ − ⟨φ, μ*_u⟩| > δ) ≤ e^{−c(φ,δ)n² + o(n²)}. In particular, ⟨φ, m_n⟩ → ⟨φ, μ*_u⟩.
+
+*Proof.*
+1. **Energy gap.** Fix R ≥ 1 with supp φ ⊂ (0, R]. Let 𝒜^R := {μ ∈ 𝒜 : supp μ ⊂ [0, 2R]}.
+   - 𝒜^R is weakly compact: masses are 1, supports are bounded, and density ≤ 1 is closed under weak limits.
+   - I is upper semicontinuous on 𝒜^R. The kernel k(u, v) = log|u^{−p} − v^{−p}| satisfies
+     k⁺ ≤ log 2 + p log⁺(1/min(u, v)), and ∬k⁺1_{k>L} dμdμ → 0 as L → ∞ uniformly on 𝒜^R, by density ≤ 1. So
+     I = inf_{L′}∬max(min(k, L), −L′) up to a uniformly small error. Each truncation is weakly continuous on [0, 2R]²
+     (the cap at L handles u → 0), and an infimum of continuous functions is u.s.c.
+   - By G2 B*(iii), I < κ_p on 𝒜 ∖ {μ*_u}. Hence
+     sup{I(μ) : μ ∈ 𝒜^R, |⟨φ, μ⟩ − ⟨φ, μ*_u⟩| ≥ δ/4} =: κ_p − 2c′ < κ_p.
+2. **Splitting** (G2 Theorem A-U, M := R). Write S = H ∪ T with T := S ∩ (Rn, ∞), m := |T|, N := n − m and
+   t := m/n.
+   - For t ≥ t₀, A-U's bound log T_m ≤ −pn²log n + κ_pn² + n²(At − pt²log R) + O_R(n log n) applies. Its bracket is
+     ≤ −At₀ once pt₀log R ≥ 2A.
+   - For t < t₀, ⟨φ, ν_S⟩ = ⟨φ, ν_H⟩, since T lies outside supp φ. Also |⟨φ, ν_H⟩ − ⟨φ, μ̄_H⟩| ≤ ω_φ(1/n), with μ̄_H
+     the smeared measure of G2 Lemma A1, in 𝒜_τ, τ = N/n.
+3. **Bad heads.** Write μ̄_H = (μ′)_τ with μ′ ∈ 𝒜 (G2 scaling). Then supp μ′ ⊂ [0, R/τ] ⊂ [0, 2R], and
+   |⟨φ, μ′⟩ − ⟨φ, μ̄_H⟩| ≤ (1 − τ)‖φ‖_∞ + ω_φ(2R(1 − τ)) ≤ δ/4 for t₀ small.
+   - So on the bad event I(μ̄_H) = τ²(I(μ′) − p log τ) ≤ τ²(κ_p − p log τ) − c′ (τ² ≥ ½).
+   - Inserting this into G2 Lemma A1 and the A-U chain lowers the head bound by c′n². So
+     Σ_{bad, t<t₀}T_m ≤ exp(−pn²log n + κ_pn² + (At₀ − c′)n² + o(n²)).
+   - Take At₀ ≤ c′/2.
+4. **Compare with A-L,** D_n ≥ exp(−pn²log n + κ_pn² − o(n²)). Then P_n(bad) ≤ e^{−min(c′/2, At₀)n² + o(n²)}.
+   Since φ is bounded, 𝔼|⟨φ, ν_S⟩ − ⟨φ, μ*_u⟩| → 0. ∎
+
+**Theorem CL.** In the setting above, n^{p−1}𝔼_n[Σ_{k∉S}x_k] → Q_p = 2c(p)/(p − 1) (A3).
+
+*Proof.* n^{p−1}Σ_k k^{−p}(1 − ρ_n(k)) = ∫u^{−p}d(λ_n − m_n). Fix θ ≤ min(u_s, ½) with g_p(θ) ≥ 1, and R ≥ 1.
+- (a) **Saturated part.** By Lemma Sat_p, n^{p−1}Σ_{k≤θn}k^{−p}(1 − ρ_n(k)) ≤ n^{p−1}·Σ_k k^{−p}·(W/c₁)k^s·e^{−2n}
+  over k ≤ θn, which is ≤ C n^{p+s}e^{−2n} → 0. In the limit, ρ* = 1 on (0, u_s) ⊃ (0, θ) (G2 B*(i)), so the limit
+  part is also 0.
+- (b) **Middle.** Take χ ∈ C_c((0, ∞)) with χ = 1 on [θ, R] and 0 ≤ χ ≤ 1, supported in [θ(1−ε), R + 1]. Then
+  λ_n → du vaguely and m_n → ρ*du vaguely (Lemma WC). So ∫u^{−p}χ d(λ_n − m_n) → ∫u^{−p}χ(1 − ρ*)du.
+- (c) **Remainders.**
+  - Since 0 ≤ m_n ≤ λ_n, the layer [θ(1−ε), θ) contributes ≤ ∫_{layer}u^{−p}dλ_n ≤ (εθ + 1/n)(θ(1−ε))^{−p}.
+  - The tail (R, ∞) contributes ≤ R^{1−p}/(p−1) + o(1). The limit side has the same bounds.
+- Let n → ∞, then ε → 0 and R → ∞. ∎
+
+**Corollary A4′ (unconditional tail-Cesàro a-law).** For x_k = k^{−p} (p > 1), weights with Σw < ∞ and
+w_k ≥ c₁k^{−s} (no regularity), n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p − 1). This is A4's first conclusion, now without (CL).
+A4 (i)–(ii) still need β_n → 1, i.e. (T3) via G1-T.
+
+**Remarks.**
+- **CL1 (why this was out of reach in Plan 9).** The §4 stop report noted that single-atom exclusions cost only O(n) in
+  log V, below n² resolution. Lemma Sat_p controls them directly through the Christoffel function, with a Lagrange test
+  polynomial. It is not an n² energy argument, so this is the missing mesoscopic input.
+- **CL2.** Rough weights enter only through Σw < ∞, w_k ≥ c₁k^{−s} and log(W/w_k) = O(log k), so parity or random
+  weights are fine.
+  - NUMERICAL (`checks/check_cl_rough.out`, long double RKPW as in `check_tailsum`, p = 2, n ≤ 3200): n·Σ_{j≥n}a_j
+    tends to 2c/(p−1) = 1.233701. For example 1.233924 (smooth), 1.233941 (parity weights k^{−2}(1 + ½(−1)^k)) and
+    1.233929 (random U[½, 3/2] factors) at n = 3200.
+  - Meanwhile the pointwise ratio a_n/(2b_n) for parity weights oscillates (1.0044 vs 0.9799 at n = 1599, 1600). This
+    is consistent with A4 claiming only the tail-Cesàro form.
+- **CL3.** Novelty UNCHECKED. The weak-convergence step (Lemma WC) is the standard large-deviation pattern for
+  Coulomb gases, made explicit for G2's constrained functional.
+
 ## 4. G1-R: what remains (stop report)
 
 **Where G1 stands after Plan 9.**
@@ -188,7 +270,7 @@ but none is given.
 
 **Missing statements (precise).**
 - (T3) for β_n := n^p b_n/(c(p)C), from atom regularity (H-a) and weight conditions.
-- (CL) for p > 1: n^{p−1}𝔼_n[Σ_{k∉S} x_k] → Q_p, i.e. saturation exactness of the Heine ensemble against u^{−p}.
+- ~~(CL) for p > 1~~: now PROVED for pure-power atoms with rough weights (Theorem CL, §3.1, Plan 27).
 
 **Why the tools here stop short** (methodological explanations, heuristic; not theorems about all such methods).
 1. *Energy / large-deviation methods* (G2 Part A, H7, Lemma K) control log D_n to o(n²). Second differences over

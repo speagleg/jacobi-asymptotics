@@ -49,3 +49,15 @@
   - BKMM analyticity and saturation quotes added;
   - numerics truncation caveats added;
   - check_tauberian's "slow" test is only a sanity check, not a test of G1-T.
+
+## 2026-10-14 — Plan 27 (G1-R: (CL) proved for rough weights)
+- **Lemma Sat_p.** The G3′ §5.2 Lagrange/Christoffel bound for x = k^{−p}, any p ≥ 1, gives
+  1 − ρ ≤ (W/w)e^{−2n·g_p(k/n)}. This is the "single-atom exclusion" input that the Plan 9 stop report lacked.
+- **Lemma WC.** n²-speed concentration of the empirical measure at μ*_u. It uses:
+  - G2 A1 and the A-U split;
+  - upper semicontinuity of I on bounded-support 𝒜;
+  - uniqueness (B*(iii));
+  - the A-L lower bound.
+- **Theorem CL:** (CL) holds for pure-power atoms with rough weights, so A4's tail-Cesàro a-law is unconditional.
+- **G1-R** is reduced to (T3) alone.
+- **Rule R:** pending.

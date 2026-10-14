@@ -46,7 +46,8 @@ Research: research/G3prime, G2, G1.
 - ~~Sufficiency gap~~: closed by Theorem Ch (Plan 26, REVIEWED). **G3′ ⟺ 𝒞(K) = o(K²)** (mod Theorem H) (capped near-pair
   energy of the ordinates); what remains is to decide that condition for ζ, which implies proportion-one distinct ordinates.
 - An explicit constant in (B).
-- G1-R: (T3)/(CL) for general, rough (non-analytic) weights and nodes. The analytic families done are pure powers
+- G1-R: (T3) for general, rough (non-analytic) weights and nodes ((CL) is proved for pure-power atoms with rough
+  weights: Theorem CL, Plan 27, in review). The analytic families done are pure powers
   (all p > 0) and the smooth-ζ model.
 
 ## Setup
