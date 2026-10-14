@@ -377,7 +377,7 @@ log Ψ slowly varying.
 - So if a **localization lemma** holds, meaning μ_n^{(t)}((Mn, ∞)) + μ_{n−1}^{(t)}((Mn, ∞)) ≤ ε(M) uniformly along the path, then
   b_n(vΨ)/b_n(v) → 1. The pure-power laws (RH_p etc.) then give the pointwise law. That is more than (T3).
 - The upper tail at scale Mn was a GAP; it is now PROVED (Theorem L, §3.8, Plan 35), giving the all-n law T3-all. (On average over n it is handled by Lemma TC, giving the density-one Theorem T3-avg, §3.7). (§3.4, Lemma TL, proves it at polynomial scale n^κ, giving Theorem T3-sv;
-  F12.) Unbounded slowly varying Ψ (e.g. log k) would need additional quantitative tail control.
+  F12.) Unbounded log-type Ψ (e.g. (log k)^α) is handled by truncation (Theorem T3-log, §3.9).
 - The case Ψ_k → L, where the tail is not needed, is Theorem T3-conv (§3.3, Plan 29).
 
 ### 3.3 Theorem T3-conv (Plan 29): decaying roughness does not break the pointwise law — PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan29.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED
@@ -861,7 +861,8 @@ slowly varying (sequence form). Then n^pb_n(w) → c(p) and n^pa_n(w) → 2c(p) 
 - **L2′ (lead, F9).** The same transport works for rough weights with |f| ≤ ε, giving localization up to O(ε) in √μ;
   whether this reaches the [0.6N, 1.6N]-window form of Conjecture R is not examined.
 - **L3 (constants).** e^{4G} is crude (e.g. 81 for Ψ = 2 + sin(log log k)); numerically μ_n^w(A) ≈ μ_n^v(A).
-- **L4 (open).** Unbounded slowly varying Ψ (e.g. log k): G = ∞ and the Grönwall factor is lost. Other nodes
+- **L4 (open).** Unbounded slowly varying Ψ: G = ∞ and the Grönwall factor is lost. For log-type Ψ (e.g. (log k)^α)
+  this is repaired by truncation (Theorem T3-log, §3.9); general unbounded slowly varying Ψ remains open. Other nodes
   x_k = f(k) need a substitute for the pure-power law in Lemma LP.
 - **L5 (NUMERICAL, `checks/check_mn_loc.out`).**
   - [1] Lemma TV agrees with a central finite difference to 8 digits (p = s = 2, random f, n = 100).
@@ -876,10 +877,11 @@ Setting: x_k = k^{−p} (p > 0), v = k^{−s} (s > 1), w = vΨ with Ψ > 0 *not 
 M₀ = M₀(p) ≥ 4 is the head margin of T3-sv (g_p⁺ ≥ 1 on (0, 2/M₀]), κ := (2 + 2/p)s/(s − 1) as in Lemma TL.
 
 **Definition (log-type slowly varying).** Ψ > 0 on ℕ is *log-type slowly varying* if
-- (i) it is slowly varying (sequence form, §3.8): δ_n(λ) → 0 for every λ ≥ 1; and
-- (ii) for every γ > 1, D(γ) := sup_{n≥2} max{|log Ψ(k) − log Ψ(n)| : k ∈ ℕ ∩ [n, n^γ]} < ∞.
+- (i) it is slowly varying in the sequence form of §3.8 (δ_n(λ) → 0 for every λ ≥ 1), with the boundedness assumed there
+  dropped; and
+- (ii) for every γ > 1 (equivalently, by chaining, for γ = 2), D(γ) := sup_{n≥2} max{|log Ψ(k) − log Ψ(n)| : k ∈ ℕ ∩ [n, n^γ]} < ∞.
 
-Examples: Ψ(k) = (log(k + e))^α (α ∈ ℝ; D(γ) ≤ |α|log(γ + 1)), (log log(k + e^e))^α, products of these with bounded
+Examples: Ψ(k) = (log(k + e))^α (α ∈ ℝ; D(γ) ≤ |α|log γ), (log log(k + e^e))^α (D(γ) ≤ |α|log(1 + log γ)), products of these with bounded
 slowly varying functions. Every bounded slowly varying Ψ qualifies (D(γ) ≤ G), so T3-log contains T3-all. Not
 covered: e.g. exp(√log k), for which D(γ) = ∞.
 
@@ -888,7 +890,7 @@ covered: e.g. exp(√log k), for which D(γ) = ∞.
 
   C_Ψ^{−1}(log(k + 2))^{−β} ≤ Ψ(k) ≤ C_Ψ(log(k + 2))^β  for all k ≥ 1.
 
-**Lemma TLw (weight-explicit form of Lemma TL, step 3).** For any weight u > 0 with Σu < ∞ and k ≥ T″ (T′, T″ as in
+**Lemma TLw (weight-explicit form of Lemma TL, step 3).** For n ≥ 2, any weight u > 0 with Σu < ∞, and k ≥ T″ (T′, T″ as in
 Lemma TL), ρ_{n+1}^u(k) ≤ 1156·u_k/min_{T′≤j≤T″}u_j.
 
 *Proof.* Lemma TL steps 1–3 verbatim: steps 1–2 do not involve the weight, and step 3 gives
@@ -897,10 +899,11 @@ Lemma TL), ρ_{n+1}^u(k) ≤ 1156·u_k/min_{T′≤j≤T″}u_j.
 **Theorem T3-log.** Let w = k^{−s}Ψ (s > 1) with Ψ log-type slowly varying. Then n^pb_n(w) → c(p) and
 n^pa_n(w) → 2c(p) (all n, p > 0).
 
-*Proof.* Fix γ > 2 + 2/p with γ(s − 1) > s(2 + 2/p) + p + 1 (possible since s > 1). For n ≥ 2 let
+*Proof.* Fix γ with γ(s − 1) > s(2 + 2/p) + p (this forces γ > 2 + 2/p). The largeness conditions used below are
+M₁n ≤ n^γ (step 2) and T″ ≤ n^γ (step 3); both hold for n large. For n ≥ 2 let
 π_n(k) := min(max(k, ⌈n/M₀⌉), ⌊n^γ⌋) and Ψ̃_n(k) := Ψ(π_n(k))/Ψ(n). Rescaling a weight by a constant does not change
 (a_n, b_n), so w and w_n := vΨ/Ψ(n) have the same coefficients.
-1. **Uniform sandwich for the truncation.** For n ≥ n₁ (so that ⌈n/M₀⌉ ≤ n ≤ n^γ), |log Ψ̃_n| ≤ D* :=
+1. **Uniform sandwich for the truncation.** |log Ψ̃_n| ≤ D* :=
    sup_{n'}δ_{n'}(M₀) + D(γ) < ∞ (δ_n(M₀) → 0 and each δ_n(M₀) is finite). So every vΨ̃_n^t (t ∈ [0, 1], n ≥ n₁) lies in
    the fixed sandwich class [e^{−D*}, e^{D*}]·v.
 2. **Bounded part (uniform version of Theorem L / T3-all).** The proofs of Theorem L and T3-all use the weight only
@@ -918,26 +921,33 @@ n^pa_n(w) → 2c(p) (all n, p > 0).
      k/m ≤ 2/M₀ for m ∈ {n − 1, n}: (μ_n + μ_{n−1})^{(t)}(H) ≤ n^{O(1)}e^{−2(n−1)}, uniformly in t.
    - *Tail.* By Lemma TLw (μ_m ≤ ρ_{n+1} for m ≤ n), for k > n^γ ≥ T″ (n large; T″ = O(n^{2+2/p})),
      μ_m^{(t)}(k) ≤ 1156(T″/k)^sP_n(k)·max_{T′≤j≤T″}P_n(j) ≤ C(log n)^{O(1)}n^{s(2+2/p)}k^{−s}(log(k + 2))^β.
-   - *b_n.* By Lemma FV, |log b_n²(w_n) − log b_n²(vΨ̃_n)| ≤ sup_tΣ_{k∈H∪T}ℓ_n(k)(μ_n + μ_{n−1})^{(t)}(k)
+   - *Cutoff (F1).* Lemmas FV and FVa are stated for bounded f, and h_n is unbounded on T. For K > n^γ put
+     h_n^K := h_n·1_{k≤K} (bounded) and w_n^K := vΨ̃_ne^{h_n^K}. Every weight on the path vΨ̃_ne^{th_n^K} has the form
+     vΦ_t with Φ_t(k) between Ψ̃_n(k) and Ψ(k)/Ψ(n), so the head and tail bounds above hold for it, uniformly in K and t,
+     and |h_n^K| ≤ ℓ_n. The bounds below are therefore uniform in K. As K → ∞, w_n^K → w_n pointwise, dominated by
+     vΨ̃_n + w_n (summable, with x_k ≤ 1), so every moment ∫x^jdw_n^K converges to ∫x^jdw_n; (a_n, b_n²) are continuous
+     functions of the moments of order ≤ 2n + 1 (ratios of positive Hankel determinants), so the bounds pass to w_n.
+   - *b_n.* By Lemma FV, |log b_n²(w_n^K) − log b_n²(vΨ̃_n)| ≤ sup_tΣ_{k∈H∪T}ℓ_n(k)(μ_n + μ_{n−1})^{(t)}(k)
      ≤ (log log n)·n^{O(1)}e^{−2(n−1)} + C(log n)^{O(1)}n^{s(2+2/p)}Σ_{k>n^γ}k^{−s}(log(k + 2))^{β+1}
      = o(1) + (log n)^{O(1)}n^{s(2+2/p) − γ(s−1)} → 0.
-   - *a_n.* By Lemma FVa, |ȧ_n| ≤ Σ_k|h_n(k)|[|x_k − a_n|μ_n(k) + b_n(μ_{n−1} + μ_n)(k)] ≤ 3Σ_{k∈H∪T}ℓ_n(k)
+   - *a_n.* By Lemma FVa, |ȧ_n| ≤ Σ_k|h_n^K(k)|[|x_k − a_n|μ_n(k) + b_n(μ_{n−1} + μ_n)(k)] ≤ 3Σ_{k∈H∪T}ℓ_n(k)
      (μ_n + μ_{n−1})(k), using x_k, a_n, b_n ≤ 1. Multiplying by n^p, the same bounds give
-     n^p|a_n(w_n) − a_n(vΨ̃_n)| ≤ o(1) + (log n)^{O(1)}n^{p + s(2+2/p) − γ(s−1)} → 0 by the choice of γ.
-4. **Conclusion.** Steps 2–3 give log b_n²(w) − log b_n²(v) → 0 and n^p(a_n(w) − a_n(v)) → 0; the pure-power laws
+     n^p|a_n(w_n^K) − a_n(vΨ̃_n)| ≤ o(1) + (log n)^{O(1)}n^{p + s(2+2/p) − γ(s−1)} → 0 by the choice of γ.
+4. **Conclusion.** Letting K → ∞ in step 3 (uniform bounds, continuity in the moments), steps 2–3 give log b_n²(w) − log b_n²(v) → 0 and n^p(a_n(w) − a_n(v)) → 0; the pure-power laws
    (RH₁(r), RH_p, RH_plt1b) give n^pb_n(v) → c(p) and n^pa_n(v) → 2c(p). ∎
 
 **Remarks.**
 - **log1 (scope).** For pure-power nodes k^{−p} the full pointwise Law P now holds for every weight k^{−s}Ψ with Ψ
-  log-type slowly varying, e.g. k^{−s}(log k)^α for every α ∈ ℝ. (k^{−s}k^{ε} is the pure power with s − ε, so
-  regularly varying weights k^{−s}L(k) with L log-type are covered.) Open: slowly varying Ψ with D(γ) = ∞, e.g.
+  log-type slowly varying, e.g. k^{−s}(log k)^α for every α ∈ ℝ. (A weight k^{−σ}L(k) with σ > 1 and L log-type slowly
+  varying is the case s = σ; general slowly varying L, e.g. exp(√log k), is not covered.) Open: slowly varying Ψ with D(γ) = ∞, e.g.
   exp(√log k); here the truncated weight is not uniformly sandwiched and the Grönwall factor e^{4G} of Theorem L
   diverges.
 - **log2 (why truncation is harmless).** b_n only sees the window [n/M₀, n^γ] up to errors that are exponentially small
   (head, Sat_p⁺) or polynomially small (tail, Lemma TLw); both survive polylogarithmic losses in the weight ratios.
 - **log3 (NUMERICAL, `checks/check_log_weights.out`, p = s = 2 only).** For Ψ = log(k + e)^α, α ∈ {1, −2, 3},
-  |β_n(vΨ)/β_n(v) − 1| and |A_n(vΨ) − A_n(v)| decrease roughly like 1/n from ≈ 10⁻³ (n = 100) to 2–6·10⁻⁵
-  (n = 3200), proportionally to |α|; K-converged (K = 1.2·10⁵ vs 2.4·10⁵).
+  |β_n(vΨ)/β_n(v) − 1| and |A_n(vΨ) − A_n(v)| decrease from ≈ 10⁻³ (n = 100) to 2–6·10⁻⁵ (n = 3200),
+  with halving ratios 2.16–2.25 per doubling (n·log n·deviation/|α| ≈ 0.46–0.49, consistent with |α|/(n log n)),
+  in exact proportion 1 : 2 : 3 to |α|; K-converged (K = 1.2·10⁵ vs 2.4·10⁵).
 
 ## 4. G1-R: what remains (stop report)
 
@@ -958,7 +968,7 @@ n^pa_n(w) → 2c(p) (all n, p > 0).
 - G1-L needs a one-sided bound on β_n; it is not unconditional.
 
 **Missing statements (precise).** (For *rough* sandwiched weights the (T3) half is refuted by Theorem R, §3.6.)
-- ~~(T3) for β_n := n^p b_n/(c(p)C), from atom regularity (H-a) and weight conditions~~: REFUTED in this generality (Theorem R, §3.6). For bounded slowly varying weights (T3) and the full pointwise law are PROVED (Theorem T3-all, §3.8). Unbounded log-type Ψ (e.g. (log k)^α): PROVED (Theorem T3-log, §3.9). Open: slowly varying Ψ with D(γ) = ∞ (e.g. exp(√log k)), and nodes other than pure powers.
+- ~~(T3) for β_n := n^p b_n/(c(p)C), from atom regularity (H-a) and weight conditions~~: REFUTED in this generality (Theorem R, §3.6). For bounded slowly varying weights (T3) and the full pointwise law are PROVED (Theorem T3-all, §3.8). Unbounded log-type Ψ (e.g. (log k)^α): PROVED-mod-cite (Theorem T3-log, §3.9). Open: slowly varying Ψ with D(γ) = ∞ (e.g. exp(√log k)), and nodes other than pure powers.
 - ~~(CL) for p > 1~~: now PROVED for pure-power atoms with rough weights (Theorem CL, §3.1, Plan 27).
 
 **Why the tools here stop short** (methodological explanations, heuristic; not theorems about all such methods).
@@ -978,7 +988,7 @@ n^pa_n(w) → 2c(p) (all n, p > 0).
 3. *Tauberian methods* (item 11's C′, and G1-T) need an a priori regularity input. Neither the atoms nor the
    averaged law supplies it.
 
-**Stop condition (Plan 9; updated through Plan 35).** (CL) is proved for pure-power atoms with rough weights
+**Stop condition (Plan 9; updated through Plan 36).** (CL) is proved for pure-power atoms with rough weights
 (Theorem CL). For pure-power nodes k^{−p} the Plan-9 missing step was supplied in two parts: the RH analyses of the pure
 powers (RH₁(r), RH_p, RH_plt1b; Plans 10–15) and the transport to bounded slowly varying weights (Theorem T3-all,
 Plan 35). For rough weights (T3) is refuted (Theorem R). Unbounded log-type Ψ is covered by T3-log (Plan 36). What remains open: slowly varying Ψ with D(γ) = ∞ (e.g. exp(√log k)),
