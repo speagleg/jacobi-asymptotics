@@ -801,6 +801,12 @@ question. The open questions are:
   - Its weights are complex-valued, so the positivity of individual terms used on RH is unavailable (BGST, proof of
     Lemma 4: "Since W(ρ−ρ′) is complex-valued we need to remove this weight").
   - This is pursued in Plan 19 (research/G3prime/rhfree/).
+  - **Plan 19 result (Rule R pending, NOT REVIEWED): Theorem S.** The one-sided hypothesis SPC_ℂ⁺ (sup over
+    1 ≤ α ≤ M of F(T^α, T)/N_T ≤ 1 + o(1), for each M) implies, without RH:
+    - 100% simple critical zeros;
+    - small gaps ≪ δ³N;
+    - (SG), hence G3′.
+    The proof is a spectral (Hilbert–Schmidt) reading of (C6) Prop. 2.1 (rhfree/RHFREE.md Lemma G).
 
 ### 9.4 Numerical sanity (NUMERICAL; `checks/check_pc_numerics.py` → `.out`; Odlyzko's first 2,001,052 zeros)
 

@@ -57,6 +57,15 @@ not. The source does not state in so many words that "density-one simplicity is 
 status is therefore written as "not among the results surveyed in (C3); the best surveyed unconditional proportion is
 > 40.75%". It is never written as a bare claim.
 
+**Plan 19 addendum (read 2026-10-14, §3).**
+> "Montgomery Theorem (MT). For x ≥ 1 and T ≥ 3, we have F(x, T) ≥ 0, F(x, T) = F(1/x, T), and
+> (3.2) F(x, T) = (T/2πx²) log²T (1 + O(1/√log T)) + (T/2π) log x + O(T √log T), uniformly for 1 ≤ x ≤ T."
+> "the sum F(x, T) above is taken over zeros satisfying T < γ, γ′ ≤ 2T"; "the error terms appearing above have been
+> corrected from those in the original statement"; footnote 2: "All the applications of Theorem 1 in [BGSTB24], such
+> as Lemma 5 and Lemma 7, remain correct".
+
+**Used in:** rhfree/RHFREE.md Lemma PC (MT on |α| ≤ 1; positivity F ≥ 0 to bound the Q″ term).
+
 The secondary-source pointer to Bui–Conrey–Young, arXiv:1002.4127, was checked: its abstract concerns zeros on the
 critical line (> 41%). It is not used.
 
@@ -143,3 +152,34 @@ is stated, not proved, in the notes, so it is a **secondary statement** here.
 > term saving on average an arbitrary power of the logarithm over the trivial bound."
 
 **Used in:** §9 Proposition P′(b): log-power savings are insufficient for (V).
+
+### (C6) addendum — READ (§2 Prop 2.1 and its proof; §3 Lemmas 3.1–3.2 and proof), for Plan 19
+
+> "Proposition 2.1. Let λ > 0 be a real number and η ∈ L²(ℝ) be a real valued even function with supp(η) ⊂ (−λ, λ),
+> such that η̂²(0) = 1. Let Z be a non-empty finite multiset of complex numbers which is invariant under complex
+> conjugation. … Then we have (2.4) Σ_{z∈Z∩ℝ, m_z=1} 1 ⩾ 2Σ_{z∈Z} 1 − Σ_{z,s∈Z} K(z − s)², where K is the kernel
+> K(ξ) := η̂²(ξ)."
+
+From the proof:
+- (2.8) "f_z(u) := η(u)e^{−2πiuz}". g_z and h_z are the symmetric and antisymmetric combinations of f_z and its
+  conjugate partner.
+- (2.10) "∫_{−λ}^{λ}|f_x(u)|²du = K(0) = 1".
+- (2.11) "1 = ∫|g_z|² − ∫|h_z|²".
+- (2.12) "Σ_{z,s∈Z} K²(z − s) = … = ∫∫|F(u, v)|² du dv".
+- "f_{x_1}, …, f_{x_{n+r}}, g_{z_1}, …, g_{z_k}, h_{z_1}, …, h_{z_k} are linearly independent over ℂ".
+- (2.15): the inner product of two functions with Φ(u) = conj Φ(−u) is real.
+- (2.21) "Σ_{1⩽j⩽D_W} α_j = Σ m_{x_ℓ} + 2Σ m_{z_ℓ} = Σ_{z∈Z} 1".
+
+From §3:
+- "(3.2) r_{δ,T} := Q_δ − Q″_δ/(4(log T)²)".
+- "Q̂″_δ(z) = (2πiz)²Q̂_δ(z) = −4π²z²K_δ(z)²".
+- (3.3) "K_δ(i(ρ − ρ′)log T/2π)² = r̂_{δ,T}(…)w(ρ − ρ′)".
+
+**Used in:** rhfree/RHFREE.md:
+- Lemma PC: the weight-removal algebra, applied with support 2λ in place of 1. It is pure algebra and does not use the
+  support.
+- Lemma G, Step 1: tr A = N and ‖A‖²_HS = S, via (2.10)–(2.13), (2.15) and (2.21).
+- Theorem S(a): (2.4).
+
+Note: rendering of conjugation bars in the text extraction is lossy. g_z, h_z are reconstructed as
+(f_z ± f_{z̄})/(2 or 2i), consistent with (2.11), (2.14) and the numerics in rhfree/checks.
