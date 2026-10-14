@@ -180,4 +180,4 @@
   - F6: the stale "remains NUMERICAL" sentences are dated "as of Plan 33"; the §3.2 header is amended.
   - F8: "for ε ≤ ε₀" added to the §3.10 header.
   - F7: no change needed.
-  - Re-check pending.
+  - Re-check ACCEPT — REVIEWED.

@@ -176,3 +176,47 @@ and correct. No fix needed. Optionally note in the statement that ε₀ = η_W/8
 - Conjecture R: "window form (incl. [0.6N, 1.6N]) PROVED-mod-cite for ε ≤ ε₀ with separation → ∞ or ×R_W; every-ε
   with absolute c, and ×4 separation, NUMERICAL". This matches the current text, modulo F1 and F6.
 - The plan's T7 can be ticked once the fixes are applied. A light re-check suffices.
+
+## Re-check (fix commit e20b84f; diff f425b7b..e20b84f)
+
+**Verdict: ACCEPT.** All findings are resolved. Nothing blocking remains.
+
+- **F1 (resolved, and better than the suggested fix).** The author did not use my η_W/5 and η_W/9. Instead they
+  argue that the spikes are one-signed and conclude c = η_W/4 (A) and η_W/8 (B). I checked the one-signedness claim
+  in detail:
+  - The sign function s_i(k) = sign(Δ²μ^v_{m_i}(k)) makes the own-window term +ε‖Δ²μ^v_{m_i}|_{W_i}‖₁ ≥ εη_W.
+    It is a signed quantity, not an absolute value.
+  - Steps 1–5 give a signed lower bound for F_{m_i}(w): the Taylor bound F(1) ≥ F(0) + F′(0) − 8ε² holds with signs,
+    and |E_i| enters with a minus. So liminf_i F_{m_i}(w) ≥ c′ > 0, which is what the theorem already stated.
+  - log(β_m²/β_{m−1}²) = F_m(w) + 2p log(m/(m−1)) ≥ F_m(w), since the correction term is positive after the F2 fix.
+    Hence liminf_i log(β_{m_i}/β_{m_i−1}) ≥ c′/2.
+  - Therefore limsup_n (β_n/β_{n−1} − 1) ≥ e^{c′/2} − 1 ≥ c′/2. That is εη_W/4 in case (A) and εη_W/8 in case (B).
+  - Corollary RW′, the "What is proved" bullet and the §0 RW row now state both normalisations consistently.
+    Values: η_W/4 ≈ 2.46·10⁻⁸ and η_W/8 ≈ 1.23·10⁻⁸ at p = 2.
+  - Cosmetic: step 5 cites "c′ as below" before defining it. The ω(δ) line still uses the weaker
+    1 − e^{−c′/2}, which is valid.
+- **F2 (resolved).** The sign is now +.
+- **F3 (resolved).** RW-d now uses LP-w (no mass beyond 4c and no atom at 4c) for the o(1) statement. It claims
+  exponential decay only for b < θ₀(p), and the θ₀ values match my computation. The bound ≤ 4 max μ_{m′}(W_N) is correct.
+- **F4 (resolved).** s_i(k) is pointwise, both in the statement and in the §0 row.
+- **F5 (resolved).** The labels are in place:
+  - Lemma u_s: PROVED, with B*(i) noted as (P)-free.
+  - LP-w: PROVED-mod-cite.
+  - The §0 row now says "for N ≥ N₀" and "G2 B*(i) ((P)-free)".
+- **F6 (resolved).** The stale sentences are now dated "as of Plan 33", with "superseded by Plan 39 for ε ≤ ε₀" in
+  §3.2. The §3.2 header now reads "modified forms proved: §3.6, §3.10".
+- **F7.** No change, as recommended. RW-e(6) records this.
+- **F8 (resolved).** The §3.10 header now says "for ε ≤ ε₀".
+- **Remaining (optional, non-blocking).** Swap the order of the c′ definition and its use in step 5.
+
+**Final labels.**
+- Lemma u_s: PROVED — REVIEWED.
+- Lemma LP-w: PROVED-mod-cite — REVIEWED.
+- Lemma R1W: PROVED-mod-cite — REVIEWED.
+- Theorem RW and Corollary RW′: PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, R2, LP, Sat_p⁺, G2 B*(i)
+  (P)-free) — REVIEWED; novelty UNCHECKED.
+- Conjecture R: the window form (incl. [0.6N, 1.6N], all p > 0, s > 1) is PROVED-mod-cite for ε ≤ ε₀, with
+  separation → ∞ (c = η_W/4) or ×R_W (c = η_W/8). The every-ε form with an absolute c, and ×4 separation, remain
+  NUMERICAL.
+- The "re-check pending" strings in the §0 rows, the §3.2 pointer, the §3.10 header, LOG and plan T7 can be updated to
+  "re-check ACCEPT — REVIEWED", and T7 ticked.
