@@ -21,7 +21,7 @@
    n=100 ε=0.2: first order ±ε‖n^pΔE|_W‖₁ = ±0.1077;  +: n^pΔa_n = +0.1067  −: n^pΔa_n = -0.1069;  guaranteed εη_a/2 = 0.0097;  n^p a_n(v)/(2c) − 1 = -1.4e-02
    n=200 ε=0.05: first order ±ε‖n^pΔE|_W‖₁ = ±0.0251;  +: n^pΔa_n = +0.0250  −: n^pΔa_n = -0.0251;  guaranteed εη_a/2 = 0.0024;  n^p a_n(v)/(2c) − 1 = -7.0e-03
    n=200 ε=0.2: first order ±ε‖n^pΔE|_W‖₁ = ±0.1004;  +: n^pΔa_n = +0.0985  −: n^pΔa_n = -0.1003;  guaranteed εη_a/2 = 0.0097;  n^p a_n(v)/(2c) − 1 = -7.0e-03
-[4b] two scales on one measure (K = 8000, n₁ = 40 on [10, 100], n₂ = 400 on [100, K], signs +, −; ε = 0.1):
+[4b] two scales on one measure (K = 8000, n₁ = 40 on [10, 99], n₂ = 400 on [100, K], signs +, −; ε = 0.1):
    n=40: n^p(a_n(w) − a_n(v))/c(p) = +0.0801
    n=400: n^p(a_n(w) − a_n(v))/c(p) = -0.0829
    max over n∈[10,401] of n^p|a_n(w) − a_n(v)|/c(p): 0.0829; median 0.0040; εη_a/(2c) = 0.0078

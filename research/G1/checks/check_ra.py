@@ -83,7 +83,7 @@ for n in [100, 200]:
         print(f"   n={n} ε={eps}: first order ±ε‖n^pΔE|_W‖₁ = ±{eps*lin:.4f};  " + "  ".join(out) +
               f";  guaranteed εη_a/2 = {eps*eta/2:.4f};  n^p a_n(v)/(2c) − 1 = {n**p*a0[n]/(2*c)-1:+.1e}", flush=True)
 
-print("[4b] two scales on one measure (K = 8000, n₁ = 40 on [10, 100], n₂ = 400 on [100, K], signs +, −; ε = 0.1):")
+print("[4b] two scales on one measure (K = 8000, n₁ = 40 on [10, 99], n₂ = 400 on [100, K], signs +, −; ε = 0.1):")
 K = 8000; k = np.arange(1, K+1, dtype=float); x = k**-p; v = k**-s; eps = 0.1
 a0, b0, Q = lanczos(x, v, 402)
 f = np.zeros(K)

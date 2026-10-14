@@ -161,7 +161,7 @@
 - **Lemma R1a:** for the pure power, ‖N^pΔE_N‖₁ + ‖N^pΔE_{N+1}‖₁ ≥ 2c(p)I − o(1), I = (1/π)∫min(1, H(2cos θ))dθ ≈ 0.314.
   Direct (no contradiction): both differences are exact quadratic forms in (q_N, q_{N+1}); the free forms
   (2uv − zu², zv² − 2uv) vanish together only for z ∈ {−2, 0, 2}; Lemma LP's weak convergence to the arcsine law
-  (no atoms) finishes. Window 2, explicit η_a = c(p)I/2.
+  (continuous test function; stated as Lemma LP′ after review) finishes. Window 2, explicit η_a = c(p)I/2.
 - **Theorem Ra:** windows (−1)^iε·sign(ΔE^v_{n_i}) on [θn_i, n_i^γ] at polynomially separated good scales, as in Theorem R;
   b-bound along paths from FV (b ≤ e^ε b(v)); head/tail via Sat_p⁺ and TL. Result: for ε ≤ I/16,
   limsup (n^pa_n(w) − 2c) ≥ εη_a/2 and liminf ≤ −εη_a/2. Numerics [4]: single-window jumps match first order to ≤ 2%;
@@ -174,3 +174,8 @@
 - **Not claimed:** whether the b-law (or a_n/(2b_n) → 1) also fails for the same w. For p > 1 the tail-Cesàro a-law A4′
   still holds for w (Theorem CL), so pointwise and tail-Cesàro a-laws separate.
 - **Rule R:** pending. Novelty UNCHECKED.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan41.md; no mathematical error, crux "joint law of (q_N, q_{N+1})
+  not needed" confirmed). F1 (cross-reference to §3.11 Lemma LRa: same Toda form, constant 1 in R2a, ε₀ = I/8 possible;
+  R2a and ε₀ = I/16 kept), F2 (Lemma LP′ weak form stated and cited), F3 (H 1-Lipschitz), F4 (wording; joint-law remark),
+  F5 (interleaving HEURISTIC; A4′ label), F6 (quoted range 0.1069; script label [10, 99], .out regenerated; [3]/[4]
+  marked not K-checked), F7 (N₀ not explicit) applied. Re-check pending.
