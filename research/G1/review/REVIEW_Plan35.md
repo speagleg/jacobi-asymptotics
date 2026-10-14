@@ -172,3 +172,64 @@ H. For p = 2 this is harmless (head ≈ 10⁻³²), but after F1 the docstring s
 - **Thm L:** PROVED-mod-cite (as LP; internal TV, Sat_p⁺ with the p-dependent head margin M₀); novelty UNCHECKED.
 - **T3-all:** PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, L); novelty UNCHECKED.
 - REVIEWED after a re-check confirming F1. F2–F8 are editorial.
+
+## Re-check (HEAD 3855f52)
+
+**Verdict: ACCEPT.** F1–F8 and F10 are fixed; F9 is recorded as Remark L2′. No new errors. The polish items N1–N3
+below are optional and do not block REVIEWED.
+
+**F1: fixed.**
+- *Head and Mid.* Theorem L now fixes the T3-sv head margin M₀(p) ≥ 4 (g_p⁺ ≥ 1 on (0, 2/M₀]). It sets
+  H = {k < n/M₀}, Mid ⊂ [n/M₀, Mn] and M₁ = max(M, M₀).
+  - [n/M₀, Mn] ⊂ [n/M₁, M₁n], so |g_n| ≤ δ_n(M₁) on Mid for both m ∈ {n−1, n}.
+  - δ_n(M₁) → 0, since M₁ is fixed once M is.
+- *Head bound.* For k < n/M₀ and m ≥ n − 1 ≥ 1, θ = k/m ≤ 2/M₀. Sat_p⁺ along the path, with W(t)/w_k(t) ≤
+  (max(1, C)/min(1, c))ζ(s)k^s, gives η_n ≤ poly(n)·e^{−2(n−1)} → 0, exactly as in T3-sv.
+- *Unaffected parts.* The Grönwall step and the limit statement are unchanged and still correct.
+- *T3-all.*
+  - Step 1 uses δ_n(M₁).
+  - Step 2 uses a_n, b_n ≤ 2M₀^p(n−1)^{−p} and x_k ≤ (M₀/n)^p off the head.
+  - C_p := 4·2^pM₀^p bounds n^p|x_k − a_n| ≤ max(M₀^p, 2M₀^p(n/(n−1))^p) and n^pb_n ≤ 2^{p+1}M₀^p for n ≥ 2. ✓
+  - The order of limits is unchanged. ✓
+- The F1 remark (u_s(p) < 1/4 for small p) is accurate.
+
+**F2: fixed.** The statement now reads M ≥ 1 with min(1, ·). Because 4c(p) > 1, the min is idle on that range. ✓
+
+**F3: fixed, with one residual.** The Fourier computation is correct: J_0 = c(2 + S + S*), symbol 2c(1 + cos θ),
+moments (1/2π)∫(2c(1 + cos θ))^j dθ, and the image of dθ/2π is the arcsine law on [0, 4c].
+- *Is "method of moments; textbook-standard, not separately cited" acceptable under AGENTS.md?* Yes. The precedent is
+  TL's Markov/Chebyshev ("textbook-standard, not checked against a specific source"), which passed Rule R.
+- That precedent *quotes the statement*, though, and Hard rule 4 asks for exact hypotheses. **N1 (polish):** add the
+  one line "if every moment of ν_n converges to the corresponding moment of ν and ν is determined by its moments, then
+  ν_n → ν weakly". The hypotheses are met here: all ν_n are probability measures with all moments finite (support
+  ⊂ [0, n^p]), and ν is compactly supported.
+
+**F5: fixed** ("equivalent to uniform slow variation"). ✓
+
+**F6: fixed.** The TV row reads "standard; novelty not claimed". The LP row reads "textbook method of moments … novelty
+not claimed". ✓
+
+**F7: fixed.** The §4 stop text is rewritten. The superseded Plan-9 text is kept and marked. The remaining-open list
+(unbounded sv Ψ, other nodes, (CL) for general nodes or p ≤ 1) matches §3.8 L4 and the table. ✓
+
+**F8: fixed.** Qualifiers ("PROVED-mod-cite; pure-power nodes k^{−p}, base k^{−s}") were added in L1, §4 and the LOG. ✓
+
+**F9: recorded.** Remark L2′ reads "O(ε) in √μ … not examined". It matches the bound
+√μ^w ≤ e^{4ε}(√μ^v + 2ε) and does not overclaim. ✓
+
+**F10: fixed** (docstring). ✓ The numerics are unchanged; the earlier re-run was byte-identical.
+
+**Polish items (non-blocking).**
+- **N1.** Quote the method-of-moments statement in one line (see F3).
+- **N2.** Status row LP still prints arcsin√(M^{−p}/(4c(p))) with no range. Add "M ≥ 1".
+- **N3.** Theorem L proof bullet 2 says "as in T3-sv step 2". T3-sv's proof has a "Head" bullet, not a numbered step 2.
+  Say "as in the T3-sv Head bullet".
+- **Bookkeeping.** At REVIEWED, update the "Rule R pending" status rows (TV, LP, Thm L, T3-all), the §3.8 header and the
+  LOG.
+
+**Final labels.**
+- **TV:** PROVED (standard; novelty not claimed); REVIEWED.
+- **LP:** PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; textbook method of moments); novelty not claimed; REVIEWED.
+- **Thm L:** PROVED-mod-cite (as LP; internal TV, Sat_p⁺ with head margin M₀(p)); novelty UNCHECKED; REVIEWED.
+- **T3-all:** PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, L); pure-power nodes k^{−p}, base
+  k^{−s}, Ψ bounded and slowly varying; novelty UNCHECKED; REVIEWED.

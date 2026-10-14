@@ -37,10 +37,10 @@ known; its application here to Law P is what is new.
 | **T3a** | pointwise **a-law** n^p a_n → 2c(p) under T3-sv's hypotheses (Ψ bounded, polynomially slowly varying; includes ψ_k → L), all p > 0, s > 1 (§3.5, Plan 32) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: FVa, Sat_p⁺, TL); REVIEWED; novelty UNCHECKED |
 | TC | tail count: 𝔼_m#(S ∩ (Mm, ∞)) ≤ (2A/(p log M))·m + o(1) uniformly over sandwiched weights, every p > 0 (§3.7) | PROVED-mod-cite (P) (through G2 B*(iii); internal: G2 A1/A2, A-U, A-L) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-avg** | for w = k^{−s}Ψ with Ψ bounded and **uniformly slowly varying** (δ_N(M, M′) → 0; e.g. 2 + sin(log log k)): (1/N)Σ_{n=N}^{2N}\|log b_n²(w) − log b_n²(v)\| → 0 and (1/N)Σ n^p\|a_n(w) − a_n(v)\| → 0; hence the full pointwise Law P along a set of n of density one (§3.7, Plan 34) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; (P) via TC) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
-| **TV** | (d/dt)μ_m(A) = ⟨f1_Aq_m,q_m⟩ − 2⟨1_Aq_m, K_m(fq_m)⟩ − ⟨fq_m,q_m⟩μ_m(A) along w(t) = we^{tf} (§3.8, Plan 35) | PROVED (standard; novelty not claimed) + Rule R pending |
-| **LP** | pure power: μ_n((Mn, ∞)) → F_p(M) = (2/π)arcsin√(M^{−p}/(4c(p))) (§3.8) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; textbook method of moments) + Rule R pending; novelty not claimed |
-| **Thm L** | localization at scale Mn: limsup sup_t μ_m^{(t)}((Mn, ∞)) ≤ e^{4G}F_p(M) for bounded slowly varying Ψ (§3.8) | PROVED-mod-cite (as LP; internal TV, Sat_p⁺) + Rule R pending; novelty UNCHECKED |
-| **T3-all** | for w = k^{−s}Ψ with Ψ bounded and **slowly varying** (δ_n(λ) → 0): n^pb_n → c(p) and n^pa_n → 2c(p) for **all n** — the full pointwise Law P; contains T3-conv, T3-sv, T3-avg (§3.8, Plan 35) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, L) + Rule R pending; novelty UNCHECKED |
+| **TV** | (d/dt)μ_m(A) = ⟨f1_Aq_m,q_m⟩ − 2⟨1_Aq_m, K_m(fq_m)⟩ − ⟨fq_m,q_m⟩μ_m(A) along w(t) = we^{tf} (§3.8, Plan 35) | PROVED (standard; novelty not claimed) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED |
+| **LP** | pure power: μ_n((Mn, ∞)) → F_p(M) = (2/π)arcsin√(M^{−p}/(4c(p))), M ≥ 1 (§3.8) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; textbook method of moments) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty not claimed |
+| **Thm L** | localization at scale Mn: limsup sup_t μ_m^{(t)}((Mn, ∞)) ≤ e^{4G}F_p(M) for bounded slowly varying Ψ (§3.8) | PROVED-mod-cite (as LP; internal TV, Sat_p⁺) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
+| **T3-all** | for w = k^{−s}Ψ with Ψ bounded and **slowly varying** (δ_n(λ) → 0): n^pb_n → c(p) and n^pa_n → 2c(p) for **all n** — the full pointwise Law P; contains T3-conv, T3-sv, T3-avg (§3.8, Plan 35) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, L) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -765,7 +765,7 @@ g_n := log Ψ − log Ψ(n), with |g_n| ≤ G := log(C/c). Fix M ≥ 4 (the head
   - This is consistent with the pointwise law and is weak evidence only, since Ψ varies slowly over the accessible
     range.
 
-### 3.8 Lemma TV, Lemma LP, Theorem L and Theorem T3-all (Plan 35): localization at scale Mn and the all-n law for bounded slowly varying weights — TV PROVED; LP, L, T3-all PROVED-mod-cite; Rule R pending
+### 3.8 Lemma TV, Lemma LP, Theorem L and Theorem T3-all (Plan 35): localization at scale Mn and the all-n law for bounded slowly varying weights — TV PROVED; LP, L, T3-all PROVED-mod-cite; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED
 
 Setting as in §3.7: x_k = k^{−p} (p > 0), v = k^{−s} (s > 1), sandwiched weights; q_j = √w p_j(x_·) ∈ ℓ²(ℕ) is
 orthonormal, K_m := Σ_{j<m} q_jq_jᵀ is the orthogonal projection onto span{q_0, …, q_{m−1}}, μ_m = q_m², and
@@ -798,7 +798,9 @@ and off-diagonal c(p). The spectral measure of e_0 for J_0 is the arcsine law on
 1/(π√(y(4c(p) − y))): J_0 = c(p)(2 + S + S*) with S the shift is diagonalized by Fourier series, with symbol
 c(p)(2 + 2cos θ), so (J_0^j)_{00} = (1/2π)∫_0^{2π}(2c(p)(1 + cos θ))^j dθ, and the image of dθ/2π under
 θ ↦ 2c(p)(1 + cos θ) is that arcsine law. It is compactly supported, hence determined by its moments, so ν_n
-converges weakly to it (method of moments; textbook-standard, not separately cited). The
+converges weakly to it (method of moments; textbook-standard, not separately cited: if probability measures ν_n have all moments finite and
+these converge to the moments of a probability measure ν determined by its moments, e.g. compactly supported, then
+ν_n → ν weakly). The
 set {k > Mn} is {n^px_k < M^{−p}}, and the arcsine law has no atoms, so ν_n([0, M^{−p})) → F_p(M). For μ_{n−1}, rescale
 by (n−1)^p; since ((n−1)/n)^p → 1 and F_p is continuous the limit is the same. ∎
 
@@ -820,7 +822,7 @@ H := {k < n/M₀} (head), Mid := ℕ ∖ (H ∪ A) ⊂ [n/M₀, Mn]. Write M₁ 
 Apply Lemma TV with f := g_n = log Ψ − log Ψ(n) (allowed: d/dt log w(t) = log Ψ differs from g_n by a constant).
 - |g_n| ≤ G everywhere and |g_n| ≤ δ := δ_n(M₁) on Mid.
 - The head mass η_n := sup_t μ_m^{(t)}(H) is exponentially small in n (Sat_p⁺; the path stays in the sandwich
-  [min(1, c), max(1, C)]·v; as in T3-sv step 2).
+  [min(1, c), max(1, C)]·v; as in the "Head" bullet of the T3-sv proof).
 - Let y(t) := μ_m^{(t)}(A). The first and third terms of Lemma TV are each ≤ G·y in absolute value. For the second,
   ‖K_m‖ ≤ 1 and Cauchy–Schwarz give |2⟨1_Aq_m, K_m(g_nq_m)⟩| ≤ 2√y·‖g_nq_m‖, and
   ‖g_nq_m‖² = Σ_k g_n(k)²μ_m(k) ≤ δ² + G²η_n + G²y, so ‖g_nq_m‖ ≤ δ + G√η_n + G√y.
