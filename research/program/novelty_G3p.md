@@ -205,6 +205,8 @@ not used.
    - Caveat: distinct *zeros* ≠ distinct *ordinates* (the repo already notes this in (C6)). So 83.62% does not
      directly bound d̄(E). The repo's (C3)-based bound |E ∩ [1, K]| ≤ 0.5925K could be improved to ≈ 0.3275K via
      "simple and on the line ≥ 67.25%".
+   - *(Plan 43 note, 2026-10-14: proved as PROOF.md §5.6 Corollary Lz, d̄(E) ≤ 1 − C_Lz = 0.32749… from (C6) Thm 1.1.
+     The update comes from the simple-and-critical proportion, not from 83.62% distinct zeros.)*
 
 ## 5. Search terms used
 - Hankel determinants: "Hankel determinants sums over zeros zeta"; arXiv `abs:Hankel AND abs:"Riemann hypothesis"`;
