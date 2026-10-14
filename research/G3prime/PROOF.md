@@ -23,7 +23,7 @@ nothing here is evidence about where the zeros lie.
 | L′ | (LG*): deletable bad set of small upper density + Σ log⁺(1/g) = o(K²/log K) on the rest ⇒ G3′ (§4.1); contains both (SG) and "d(E) = 0 + log-gap" | PROVED-mod-cite (C1) + mod-input (LG*), Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | G3′-L, G3′-U, Lemma Tr, Lemma K, Lemma W |
 | Tr | truncation of the pure-power comparison at J ≥ (M/2)n costs ≤ (C_s n + 2)·E#tail = O(n²/log M) (§4.1) | PROVED-mod-input Theorem H (via Lemma K / item 11 H7); REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | Lemma H, Lemma K |
 | Ch | **characterization:** G3′ ⟺ 𝒞(K) = o(K²), with 𝒞 the capped near-pair energy (§5.4). Contains N″, N‴, L′ qualitatively | PROVED-mod-cite (C1) + mod-input Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | Lemma H, Lemma Sat, Lemma Tr, Lemma K, Lemma W, Lemma S, Z1, Z2, G3′-U, G3′-L |
-| Pos (§5.6) | Lemma CI / Prop I: ½δ_sc ≤ d̄(E) ≤ δ_sc, so d(E) = 0 ⟺ 100% of zeros simple and on the critical line; Cor Lz: d̄(E) ≤ 1 − C₀ = 0.3275 unconditionally; Lemma D + Thm Sp: G3′ ⟺ d(E) = 0 ∧ 𝒞_dist(K) = o(K²); Cor Pos: G3′ ⇒ 100% simple and critical (G3′ is at least as hard as that); G3′ ⇒ HMH NOT established | PROVED-mod-cite (C1), (C5) §2 + (7.1) + Thm 2, (C6) Thm 1.1 + mod-input Theorem H (Sp, Pos via Ch / N″); Rule R pending; novelty UNCHECKED | Z1, N″, Ch |
+| Pos (§5.6) | Lemma CI / Prop I: ½δ_sc ≤ d̄(E) ≤ δ_sc, so d(E) = 0 ⟺ 100% of zeros simple and on the critical line; Cor Lz: d̄(E) ≤ 1 − C_Lz = 0.3275 unconditionally ((C6) preprint, arXiv v2); Lemma D + Thm Sp: G3′ ⟺ d(E) = 0 ∧ 𝒞_dist(K) = o(K²); Cor Pos: G3′ ⇒ 100% simple and critical (G3′ is at least as hard as that); G3′ ⇒ HMH NOT established | PROVED-mod-cite (C1), (C5) §2 + (7.1) + Thm 2, (C6) Thm 1.1 + mod-input Theorem H (Sp, Pos via Ch / N″); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan43.md), fixes applied, re-check pending; novelty UNCHECKED | Z1, N″, Ch |
 | C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | GLSS, G3′-L |
 | P | RH + prime short-interval variance (V) ⇒ G3′ (§9.1; corollary of KNOWN (C8) + Theorem C) | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; REVIEWED (Rule R, review/REVIEW_Plan18.md); novelty UNCHECKED (RH + (V) ⇒ PCC is KNOWN); Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §8.2 |
 | Thm S | SPC_ℂ⁺ (upper half of the dyadic complex-weighted SPC, BGST F; no RH) ⇒ 100% simple critical, gaps ≪ δ³, (SG) ⇒ G3′ (rhfree/RHFREE.md) | PROVED-mod-cite ((C3), (C6) (2.4), (C1)) + mod-input SPC_ℂ⁺, Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | Lemma PC, Lemma G, G3′-L |
@@ -767,8 +767,9 @@ A repeated ordinate comes from a multiple zero or from two distinct zeros on one
   K ≤ N(γ_K + 0) ≤ K + 2E(γ_K).
 - Hence |E ∩ [1, K]| ≤ K − N_d(γ_K) + 1 ≤ 0.5925K(1 + o(1)), which does not exclude d̄(E) > 0 (so N″ does not apply
   unconditionally).
-- *(Plan 43 note, 2026-10-14; Rule R pending.)* With Lamzouri's unconditional liminf N₀ˢ(T)/N(T) ≥ C₀ = 0.67250…
-  ((C6) Theorem 1.1, simple zeros on the critical line), the same argument gives d̄(E) ≤ 1 − C₀ = 0.32749… (§5.6,
+- *(Plan 43 note, 2026-10-14; Rule R ACCEPT WITH FIXES, review/REVIEW_Plan43.md.)* With Lamzouri's unconditional liminf N₀ˢ(T)/N(T) ≥ C_Lz = 0.67250…
+  ((C6) Theorem 1.1, "C0" there; simple zeros on the critical line; arXiv v2 preprint), the same argument gives
+  d̄(E) ≤ 1 − C_Lz = 0.32749… (§5.6,
   Corollary Lz, which also checks the multiplicity and paired-ordinate conventions). This still does not exclude
   d̄(E) > 0.
 
@@ -776,11 +777,13 @@ So an unconditional proof of G3′ must exclude positive-density repeated ordina
 structure of the ordinates that no surveyed result reaches. **G3′ closes as: U unconditional; L under (SG); necessity
 of d(E) = 0 by N″ (and of d(T_β) = 0 by N‴); exact characterization by Theorem Ch (§5.4).** The (C3) bound above does not exclude d̄(E) > 0. "As hard as a known
 open problem" is still *not* claimed: no surveyed source states "d(E) = 0" as open in this form. *(Plan 43 note, 2026-10-14; Rule R
-pending: §5.6 shows d(E) = 0 ⟺ "asymptotically 100% of the zeros are simple and on the critical line" (Proposition I).
-So G3′ is at least as hard as that statement, which the sources read obtain only from PCC or HMH (GLSS Theorems 1–2,
-(C5)). Status quotes are in §5.6 Remarks P2–P3.)*
+ACCEPT WITH FIXES, review/REVIEW_Plan43.md: the sentence above remains true for "d(E) = 0" as literally phrased. What
+is now claimed is: §5.6 shows d(E) = 0 ⟺ "asymptotically 100% of the zeros are simple and on the critical line"
+(Proposition I), so G3′ ⇒ (100%-SC) ⇒ N_s/N → 1, the simplicity conjecture attributed to Montgomery in the GLSS abstract.
+G3′ is therefore at least as hard as (100%-SC), which the sources read obtain only under hypotheses: PCC or HMH (GLSS Theorems 1–2, (C5)), RH + SPC ((C8) Theorem 4 via SZC; under RH every zero is critical); see also this repo's Theorem S (SPC_ℂ⁺, rhfree/RHFREE.md) and Corollary P (RH + (V) ⇒ G3′, hence (100%-SC) by Corollary Pos). None of them proves it unconditionally. The open status of
+(100%-SC) rests only on the quoted status statements of §5.6 Remarks P2–P3.)*
 
-### 5.6 Positioning G3′ (Plan 43): G3′ is at least as hard as "asymptotically 100% of the zeros are simple and on the critical line" — PROVED-mod-cite (C1), (C5) §2 + (7.1) + Thm 2, (C6) Thm 1.1 + mod-input Theorem H (through Ch, §5.4); Rule R pending; novelty UNCHECKED
+### 5.6 Positioning G3′ (Plan 43): G3′ is at least as hard as "asymptotically 100% of the zeros are simple and on the critical line" — PROVED-mod-cite (C1), (C5) §2 + (7.1) + Thm 2, (C6) Thm 1.1 + mod-input Theorem H (through Ch, §5.4); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan43.md), fixes applied, re-check pending; novelty UNCHECKED
 
 **Framing (AGENTS.md rule 3).** This section is an *obstruction/positioning* result. It shows that an unconditional
 proof of G3′ would also prove a statement about the zeros that is beyond every result in the sources read. It says
@@ -825,7 +828,7 @@ H(v) = c + r, and r = 0 or r ≥ 2. Consequently:
 (This is GLSS's first bullet after (7.1): "If H(γ) = 1, then on the line t = γ, we have one simple zero on the critical
 line.")
 
-**Lemma CI (counting) — PROVED (from Lemma L).** For every T > 0:
+**Lemma CI (counting) — PROVED-mod-cite (C5) §2 [(i)–(ii), via Lemma L], (C1) [(iii)].** For every T > 0:
 - (i) |E ∩ [1, N(T)]| = N(T) − N_dist(T) = Σ_{v≤T}(H(v) − 1);
 - (ii) N(T) − N_dist(T) ≤ N(T) − N₀ˢ(T) ≤ N(T) − A(T) ≤ 2(N(T) − N_dist(T));
 - (iii) N^⊛(T) − N(T) = Σ_{v≤T} H(v)(H(v) − 1) ≤ 2E(T)·|E ∩ [1, N(T)]|, with E(T) the (C1) error term of Z1 (for
@@ -839,7 +842,8 @@ line.")
 - (ii), second: by Lemma L(a), every zero with H(γ) = 1 is simple and critical, so A(T) ≤ N₀ˢ(T).
 - (ii), third: N(T) − A(T) = Σ_{v≤T, H(v)≥2} H(v) ≤ Σ_{H(v)≥2} 2(H(v) − 1) = 2(N(T) − N_dist(T)), using h ≤ 2(h − 1) for
   h ≥ 2.
-- (iii) Σ_ρ H(γ) = Σ_v H(v)·H(v). Each H(v) ≤ 2E(v) ≤ 2E(T) (Z1 step 5, i.e. (C2); E is increasing). Then use (i). ∎
+- (iii) Σ_ρ H(γ) = Σ_v H(v)·H(v). For every v ≥ e, H(v) ≤ N(v + 0) − N(v − 0) ≤ 2E(v) directly from (C1) (this is (C2));
+  all ordinates exceed 14 > e, and E is increasing on [e, ∞), so H(v) ≤ 2E(T) for v ≤ T. Then use (i). ∎
 
 NUMERICAL sanity (exact, toy configurations, not zeta data; `checks/check_positioning.out` [1]): (i)–(ii) and
 Lemma L(a) at every height, on 400 random line configurations that mix critical points of multiplicity 1–4, off-line
@@ -850,7 +854,8 @@ counting:
 - a line with one simple critical zero and one off-line pair of simple zeros (H = 3) has
   (H − 1) = 2 = #(zeros that are not simple-critical), which is equality in the first inequality;
 - an off-line pair of simple zeros alone on its line (H = 2) has #(zeros) = 2 = 2(H − 1), which is equality in the
-  third.
+  third;
+- the middle inequality is an equality when no line with H ≥ 2 carries a simple critical zero.
 
 **Proposition I (index density ⟺ proportion of simple critical zeros) — PROVED-mod-cite (C1), (C5) §2.** Put
 δ_sc := limsup_{T→∞}(1 − N₀ˢ(T)/N(T)), the upper proportion of zeros that are *not* simple-and-critical. Then
@@ -879,13 +884,20 @@ In particular the following are equivalent:
 
 **Corollary Lz (the §5.5 bound improved) — PROVED-mod-cite (C6) Thm 1.1, (C1), (C5) §2.** Unconditionally,
 
-  d̄(E) ≤ 1 − C₀ = 0.32749…,  C₀ := 3/2 − (1/√2)·cot(1/√2) = 0.6725007…
+  d̄(E) ≤ 1 − C_Lz = 0.32749…,  C_Lz := 3/2 − (1/√2)·cot(1/√2) = 0.6725007… ((C6)'s "C0"; renamed to avoid a clash
+  with Z1's C₀ = 2.66…, which Lemma D below uses).
 
-*Proof.* (C6) Theorem 1.1 (unconditional): liminf_T N₀ˢ(T)/N(T) ≥ C₀, with N(T) and N₀ˢ(T) defined as above (C6 §1;
-same N(T) by the Conventions). So δ_sc ≤ 1 − C₀, and Proposition I gives the bound. The value 1 − C₀ = 0.327499296…
-is computed in double precision (`checks/check_positioning.out` [3]); C₀'s closed form is (C6) (1.1). ∎
+(C6) is an arXiv v2 preprint (Sept 2026); its refereeing status is unknown. The other results of §5.6 do not depend
+on (C6).
+
+*Proof.* (C6) Theorem 1.1 (unconditional): liminf_T N₀ˢ(T)/N(T) ≥ C_Lz, with N(T) and N₀ˢ(T) defined as above (C6 §1;
+same N(T) by the Conventions). So δ_sc ≤ 1 − C_Lz, and Proposition I gives the bound. The value 1 − C_Lz = 0.327499296…
+is computed in double precision (`checks/check_positioning.out` [3]); C_Lz's closed form is (C6) (1.1). ∎
 - This replaces §5.5's 0.5925, which came from (C3)'s 0.4075.
 - It still does not exclude d̄(E) > 0, so N″ still does not apply unconditionally.
+- *(Rule R F9.)* 1 − C_Lz is the best bound obtainable from (C6) Theorem 1.1 by counting: lines carrying one simple
+  critical zero plus j ≥ 1 off-line pairs of simple zeros, together with isolated simple critical zeros, meet all four
+  inequalities of (C6) Theorem 1.1 and have d̄(E) = 1 − N₀ˢ/N. An improvement needs new input on ordinate coincidences.
 - (C6)'s other proportion, "at least 83.62% of the zeros are distinct", counts distinct *zeros*. An off-line pair is two
   distinct zeros on one ordinate, so it does not bound N_dist and is not used.
 
@@ -951,12 +963,12 @@ PCC, and of GLSS Theorem 2, derived from HMH.
 - **P1 (named hypotheses; exactly what holds).**
   - **HMH** (GLSS §7, quoted in CITATIONS (C5) addendum): "N^⊛(T) = Σ_ρ H(γ) = (1 + o(1))TL as T → ∞".
     - HMH ⇒ (100%-SC) ⇒ d(E) = 0. This is GLSS Theorem 2 together with Proposition I.
-    - Partial converse, by Lemma CI(iii): if |E ∩ [1, K]| = o(K/log K), then N^⊛(T) − N(T) = o(N(T)), and HMH follows
+    - Partial converse (PROVED-mod-cite (C1), (C5) (3.7)), by Lemma CI(iii): if |E ∩ [1, K]| = o(K/log K), then N^⊛(T) − N(T) = o(N(T)), and HMH follows
       with GLSS (3.7) (N(T) = TL + o(TL)). Here we use E(T) = O(log T) and log N(T) ~ log T.
     - **G3′ ⇒ HMH is NOT established.** d(E) = 0 alone does not control N^⊛: N^⊛ − N = Σ H(H − 1), and lines of
       multiplicity H → ∞ could carry o(N) zeros and still make Σ H(H − 1) ≍ N. Example (an abstract multiset, not ζ):
-      in each window put a proportion 1/h_T of the points on lines of multiplicity h_T, with h_T → ∞ and h_T ≤ 2E(T),
-      and the rest on lines of multiplicity 1. Then Σ(H − 1) ≈ N/h_T = o(N) but Σ H(H − 1) ≈ N, so N^⊛ ≈ 2N. So the
+      take h = h(T) slowly increasing (h(T) ≤ 2E(T)), and on each dyadic block put a proportion 1/h of its points on
+      lines of multiplicity h, and the rest on lines of multiplicity 1. Then Σ(H − 1) ≈ N/h_T = o(N) but Σ H(H − 1) ≈ N, so N^⊛ ≈ 2N. So the
       counting in Lemma CI cannot give the converse.
     - **Correction to research/program/outline_D_G3p.md §1.2:** the "derived here" claim "d(E) = 0 ⟺ … HMH" holds only
       in the direction HMH ⇒ d(E) = 0. The outline's "G3′ sits strictly between PCC and HMH" is replaced by:
@@ -967,17 +979,18 @@ PCC, and of GLSS Theorem 2, derived from HMH.
     "almost all simple" consequence (Corollary Pos), and more (critical).
 - **P2 (status, quoted only).**
   - GLSS abstract (C5): Montgomery "also conjectured that asymptotically 100% of the zeros are simple".
-  - Best unconditional proportions in the sources read: (C6) Theorem 1.1, liminf N₀ˢ/N ≥ C₀ = 0.67250…; (C3)/(C6)
+  - Best unconditional proportions in the sources read: (C6) Theorem 1.1, liminf N₀ˢ/N ≥ C_Lz = 0.67250… (arXiv v2 preprint); (C3)/(C6)
     quote PRZD20, liminf N_crit/N ≥ 0.417293 and liminf N₀ˢ/N ≥ 0.407511.
   - None of the sources read proves (100%-SC), or either half of it, unconditionally.
   - This is recorded as the AGENTS.md stop condition "a step is as hard as an open problem" for an unconditional
     proof of G3′ (LOG, Plan 43). The precise form: an unconditional proof of G3′ would prove (100%-SC), which the
-    sources read state only as a consequence of hypotheses (PCC, HMH) and as Montgomery's conjecture (simplicity part).
+    sources read obtain only under hypotheses: PCC or HMH (GLSS Theorems 1–2, (C5)), RH + SPC ((C8) Theorem 4 via SZC; under RH every zero is critical); see also this repo's Theorem S (SPC_ℂ⁺, rhfree/RHFREE.md) and Corollary P (RH + (V) ⇒ G3′, hence (100%-SC) by Corollary Pos). None of them proves it unconditionally; the GLSS abstract quotes its simplicity part as Montgomery's conjecture.
 - **P3 (conditional on RH, labelled; quoted status only).** Under the hypothesis RH, (100%-SC) reduces to
   N_s/N → 1. Goldston (C8) §5: "It would be a major advance to be able to prove that almost all the zeros are simple,
   even on RH." (2004 notes.) (C6) §1 (2026) quotes 19/27 (Bui–Heath-Brown) and 0.6792 (Chirre–Gonçalves–de Laat) as proportions of simple
-  zeros under RH. So even a proof of G3′ that assumes RH would have to prove a statement that the sources read describe
-  as not known on RH. This is a statement about the difficulty of G3′. It is not a statement about RH.
+  zeros under RH. So even a proof of G3′ that assumes RH would have to prove a statement that Goldston (C8, 2004) calls
+  "a major advance … even on RH", and for which the best RH-conditional proportions quoted in (C6) (2026) are 19/27 and
+  0.6792. This is a statement about the difficulty of G3′. It is not a statement about RH.
 - **P4 (what this does not say).** Corollary Pos is an implication from G3′, which is unproved (Theorem B gives only a
   bounded defect). It is not evidence for (100%-SC), for HMH, or for RH. The §5.5 numerics are about a finite sample and
   do not change this.
