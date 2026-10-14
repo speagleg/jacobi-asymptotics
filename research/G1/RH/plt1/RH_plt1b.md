@@ -34,8 +34,10 @@ Fix θ_s ∈ (0, πp), for instance θ_s := πp/2, and let S_in := {|arg z| < θ
   - (iii) **No winding:** the continuous L± tends to 0 (not 2πik) at ∞.
     - In the variable t (arg t = ∓θ_s/p fixed), D is N-free and B_in/B_out = √(2π)t^{1/2}(1 + O(1/z)) up to the phase. So
       the condition is N-independent as N → ∞.
-    - **NUMERICAL:** the probe's F_∞ agrees in two directions to 10⁻⁸ for N = 10, 20 at p = 0.4. A Lemma Z-type Arb
-      certificate is not yet done.
+    - **NUMERICAL** (`checks/check_plt1_seam_winding.out`): for p = 0.05, 0.10, …, 0.95 and N = 10, 10², 10⁴ (57
+      cases), tracking |z| ∈ [10⁻⁴⁰, 10⁴⁰], every step is < 0.5 rad and the end value is |L| < 2·10⁻³¹. So there is no
+      winding. The probe's F_∞ also agrees in two directions to 10⁻⁸ at p = 0.4. A Lemma Z-type Arb certificate is not yet
+      done.
 - **The seam scalar.** X(z) := (1/2πi)[∫_{Γ₊}L₊(ζ)dζ/(ζ − z) − ∫_{Γ₋}L₋(ζ)dζ/(ζ − z)], with both rays oriented outward.
   - The densities are O(|ζ|^{min(1,1/p)}) at 0 and O(|ζ|^{−1}) at ∞ by (i)–(ii), so X is bounded and Hölder up to the
     seams, X → 0 at ∞, and X is Hölder at 0.
