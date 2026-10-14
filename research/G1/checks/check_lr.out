@@ -41,6 +41,6 @@ p=1 s=2 n=100 advH+(D)   g''(0)/eps^2=-0.902 | 0.4:-0.473/-0.537/-0.024  0.2:-0.
     t=1.0: -0.33463 | -0.33463
 [2] max_t |g''(t)|/eps^2 = 0.4332 (<=2: True)
 [3] Rule A: tiny measures, all sign patterns
-[3] 13000 cases: max |R_b|/eps^2 = 0.9863 (<=1: True); max |R_a|/bound = 0.8868 (<=1: True)
+[3] 13000 cases (0 skipped by exceptions): max |R_b|/eps^2 = 0.9863 (<=1: True); max |R_F|/eps^2 (n>=2) = 1.8886 (<=2: True); max |R_a|/bound = 0.8868 (<=1: True)
 [4] Rule N: p = s = 2, n = 40, K = 800, f = advH+ shape, eps = 0.05: float64 vs longdouble Lanczos
     R_b/eps^2: float64 -0.3856513819  longdouble -0.3856513819  diff 1.2e-12

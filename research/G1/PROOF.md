@@ -46,7 +46,7 @@ known; its application here to Law P is what is new.
 | **Thm L** | localization at scale Mn: limsup sup_t μ_m^{(t)}((Mn, ∞)) ≤ e^{4G}F_p(M) for bounded slowly varying Ψ (§3.8) | PROVED-mod-cite (as LP; internal TV, Sat_p⁺) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-all** | for w = k^{−s}Ψ with Ψ bounded and **slowly varying** (δ_n(λ) → 0): n^pb_n → c(p) and n^pa_n → 2c(p) for **all n** — the full pointwise Law P; contains T3-conv, T3-sv, T3-avg (§3.8, Plan 35) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, L) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-log** | for w = k^{−s}Ψ with Ψ **log-type slowly varying** (slowly varying, and D(γ) < ∞; e.g. (log k)^α, any α ∈ ℝ): the full pointwise Law P, all n; contains T3-all (§3.9, Plan 36) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, TL(w), L, T3-all) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
-| **LR / LRa** | linear response with explicit ε² remainder, any finite-moment base v, ε := ½ osc f: \|log b_n²(ve^f) − log b_n²(v) − ⟨f, μ_n^v − μ_{n−1}^v⟩\| ≤ ε²; ratio form ≤ 2ε²; \|a_n(ve^f) − a_n(v) − L_n^{a,v}(f)\| ≤ (e^ε − 1 − ε)(b_n + b_{n+1})(v); constants independent of n, p, s, v. Corollary LR-law (pure power): limsup\|log β_n²(w)\| and limsup\|L_n^v(f)\| differ by ≤ ε²; L_n^v(f) → 0 iff the b-law defect of ve^{τf} is o(τ), τ ↓ 0 (§3.11, Plan 40) | LR, LR′, LRa PROVED (internal FV, FVa, TV, §3.5 step 3); LR-law PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); Rule R pending; novelty UNCHECKED |
+| **LR / LRa** | linear response with explicit ε² remainder, any finite-moment base v, ε := ½ osc f: \|log b_n²(ve^f) − log b_n²(v) − ⟨f, μ_n^v − μ_{n−1}^v⟩\| ≤ ε²; ratio form ≤ 2ε²; \|a_n(ve^f) − a_n(v) − L_n^{a,v}(f)\| ≤ (e^ε − 1 − ε)(b_n + b_{n+1})(v); constants independent of n, p, s, v. Corollary LR-law (pure power): limsup\|log β_n²(w)\| and limsup\|L_n^v(f)\| differ by ≤ ε²; L_n^v(f) → 0 iff the b-law defect of ve^{τf} is o(τ), τ ↓ 0 (§3.11, Plan 40) | LR, LR′, LRa PROVED (internal FV, FVa, TV); LR-law PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); constants numerically sharp (NUMERICAL); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan40.md), fixes applied, re-check pending; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1 §§2–6) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; G2 PROOF.md μ*, B* — only μ* and B*(i)–(ii), which do not use (P)) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -956,7 +956,7 @@ M₁n ≤ n^γ (step 2) and T″ ≤ n^γ (step 3); both hold for n large. For n
   with halving ratios 2.16–2.25 per doubling (n·log n·deviation/|α| ≈ 0.46–0.49, consistent with |α|/(n log n)),
   in exact proportion 1 : 2 : 3 to |α|; K-converged (K = 1.2·10⁵ vs 2.4·10⁵).
 
-### 3.11 Lemma LR (Plan 40): linear response of log b_n² and a_n with an explicit ε² remainder — LR, LR′, LRa PROVED (self-contained; internal: FV, FVa, TV, §3.5 step 3); Corollary LR-law PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); Rule R pending; novelty UNCHECKED
+### 3.11 Lemma LR (Plan 40): linear response of log b_n² and a_n with an explicit ε² remainder — LR, LR′, LRa PROVED (self-contained; internal: FV, FVa, TV; §3.5 step 3 only as a cross-check); Corollary LR-law PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); sharpness of the constants NUMERICAL; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan40.md), fixes applied, re-check pending; novelty UNCHECKED
 
 Setting (general, no pure-power hypothesis). The atoms x_k (k in a countable index set) are distinct reals, v_k > 0,
 and v has finite moments, Σ_k v_k|x_k|^j < ∞ for all j. f is a bounded real sequence on the atoms, and
@@ -988,7 +988,8 @@ More precisely, |(d²/dt²) log b_n²(w(t))| ≤ Var_{μ_n^{(t)}}(f) + Var_{μ_{
 
 **The constants.** C = 1 in LR (in units of ε = ½ osc f; the outline's 2 is also valid), 2 in LR′, and the factor in
 LRa, are absolute: they do not depend on n, on p or s, on the nodes, or on v (only finite moments are used). For pure
-powers x_k = k^{−p}, LRa's bound is ≈ ε²e^{ε}c(p)n^{−p}, the natural scale of a_n.
+powers x_k = k^{−p}, LRa's bound is ≤ (e^ε − 1 − ε)·2c(p)n^{−p}(1 + o(1)) ≤ (1 + o(1))ε²e^{ε}c(p)n^{−p}, the natural
+scale of a_n (F5).
 
 *Proof.* **0. Reductions and regularity.**
 - Multiplying a weight by a positive constant does not change q_j, μ_j, a_j, b_j. Since ve^{tf} = e^{tc}·ve^{tg},
@@ -998,28 +999,35 @@ powers x_k = k^{−p}, LRa's bound is ≈ ε²e^{ε}c(p)n^{−p}, the natural sc
 - **Uniformity in t.** w(t + h) = w(t)e^{hf}, and w(t) is again a weight with finite moments (w(t) ≤ e^{ε}v after the
   reduction). So every derivative bound proved below "at t = 0 for an arbitrary finite-moment base v" holds at every
   t ∈ [0, 1] with the same ε. All bounds below are of this form; nothing depends on t except through the base.
-- **Smoothness.** D_m(t) = Σ_{|S|=m}Π_{k∈S}w_k(t)V(S) (Heine, as in Lemma FV) is C^∞: the r-th t-derivative of each
-  term is bounded by (m‖f‖_∞)^r times the term times e^{m‖f‖_∞}, so dominated convergence applies. Likewise
+- **Smoothness.** D_m(t) = Σ_{|S|=m}Π_{k∈S}w_k(t)V(S) (Heine, as in Lemma FV) is C^∞: the r-th t-derivative of the
+  S-term is ≤ (m‖f‖_∞)^r e^{m‖f‖_∞}Π_{k∈S}v_kV(S), uniformly in t ∈ [0, 1], so dominated convergence applies (F5). Likewise
   √w(t)x^j = √v e^{tf/2}x^j is C^∞ as an ℓ²-valued map (its r-th derivative is (f/2)^r√w(t)x^j, of ℓ²-norm
   ≤ (‖f‖_∞/2)^r e^{‖f‖_∞}m_{2j}(v)^{1/2}), so q_0, …, q_{n+1} (Gram–Schmidt of finitely many such vectors) are C^∞, as
   in the proof of Lemma TV, which used x_k ≤ 1 only for this step. Hence log b_n², a_n, μ_m and γ_m below are C^∞ in t.
 - **Taylor.** For a C² function φ on [0, 1], φ(1) − φ(0) − φ′(0) = ∫_0^1(1 − t)φ″(t)dt.
 
-**1. Second derivative of log D_m (exponential tilting).** With L_m := log D_m and the Heine ensemble P_m (Lemma FV),
-L_m′ = 𝔼_m⟨f, X⟩ = ⟨f, ρ_m⟩ and L_m″ = Var_m⟨f, X⟩ =: V_m (differentiate the normalised tilted sum once more; same
-domination). Since log b_n² = L_{n+1} − 2L_n + L_{n−1} and ρ_{m+1} − ρ_m = μ_m,
+**1. First and second derivatives (FV + TV; F2).** Put α_m := ⟨f, μ_m⟩ = ⟨fq_m, q_m⟩. By Lemma FV,
+(log b_n²)′ = α_n − α_{n−1}. By step 0, Lemma TV's formula q̇_m = ½fq_m − K_m(fq_m) − ½α_mq_m holds in the present
+general setting (its proof uses only orthonormality and the C¹ property of step 0). Hence
 
-  (d/dt)⟨f, μ_m⟩ = V_{m+1} − V_m =: ΔV_m,  (d²/dt²)log b_n² = ΔV_n − ΔV_{n−1}.
+  ΔV_m := α_m′ = 2⟨fq_m, q̇_m⟩ = ‖fq_m‖² − 2⟨fq_m, K_m(fq_m)⟩ − α_m² = A_m + B_m,  (d²/dt²)log b_n² = ΔV_n − ΔV_{n−1},
 
-**2. The rank-one step, with Bessel's inequality in place of R2's crude bounds.** By §3.5 step 3,
-V_m = ½Σ_{k,l}(f_k − f_l)²K_m(k,l)², and by the rank-one update K_{m+1} = K_m + q_mq_mᵀ (as in the proof of Lemma R2)
-ΔV_m = A_m + B_m with
+with
 
-  A_m = −2⟨fq_m, K_m(fq_m)⟩ = −2‖K_m(fq_m)‖²,  B_m = ½Σ_{k,l}(f_k − f_l)²μ_m(k)μ_m(l) = Var_{μ_m}(f) = ‖fq_m‖² − α_m²,
+  A_m := −2⟨fq_m, K_m(fq_m)⟩ = −2‖K_m(fq_m)‖²,  B_m := ‖fq_m‖² − α_m² = Var_{μ_m}(f)
 
-where α_m := ⟨f, μ_m⟩ = ⟨fq_m, q_m⟩. (A_m: the f_k² and f_l² parts vanish because K_mq_m = 0, and K_m is an orthogonal
-projection, so ⟨u, K_mu⟩ = ‖K_mu‖². Cross-check: Lemma TV with A = all atoms, weighted by f, gives
-(d/dt)⟨f, μ_m⟩ = 2⟨fq_m, q̇_m⟩ = ‖fq_m‖² − 2‖K_m(fq_m)‖² − α_m², the same.)
+(K_m is an orthogonal projection, so ⟨u, K_mu⟩ = ‖K_mu‖²). This is the main proof of the formula for ΔV_m; it does not
+use the Heine two-point function.
+
+*Cross-check (Heine route, as in Lemma R2).* With L_m := log D_m and the Heine ensemble P_m (Lemma FV),
+L_m′ = ⟨f, ρ_m⟩ and L_m″ = Var_m⟨f, X⟩ =: V_m (differentiate the normalised tilted sum once more; same domination), and
+since ρ_{m+1} − ρ_m = μ_m, ΔV_m = V_{m+1} − V_m. By §3.5 step 3, V_m = ½Σ_{k,l}(f_k − f_l)²K_m(k,l)², and the rank-one
+update K_{m+1} = K_m + q_mq_mᵀ gives the same A_m + B_m (the f_k² and f_l² parts of A_m vanish because K_mq_m = 0;
+B_m = ½Σ(f_k − f_l)²μ_m(k)μ_m(l)). §3.5 step 3 is stated in the pure-power setting, but its input — the Gram/Sylvester
+proof of G3′ Lemma H with the Heine identification — uses only the Gram form of D_m, so it holds for any finite-moment
+measure on distinct real atoms.
+
+**2. Bessel's inequality in place of R2's crude bounds.**
 - **Bessel.** q_m is orthogonal to the range of K_m, so fq_m = K_m(fq_m) + α_mq_m + r with the three terms pairwise
   orthogonal. Hence ‖K_m(fq_m)‖² ≤ ‖fq_m‖² − α_m² = B_m. (Only Bessel, not Parseval, is used: completeness of
   {q_j} in ℓ² is not assumed.)
@@ -1074,9 +1082,13 @@ Consequently:
 - (i) |limsup_n |log β_n²(w)| − limsup_n |L_n^v(f)|| ≤ ε². In particular, if L_n^v(f) → 0 then
   limsup_n |log β_n²(w)| ≤ ε²; and if the b-law n^pb_n(w) → c(p) holds then limsup_n |L_n^v(f)| ≤ ε².
 - (ii) **Exact form along rays.** Put E(f) := limsup_n |log β_n²(ve^{f})| and Λ(f) := limsup_n |L_n^v(f)| (a
-  seminorm, by linearity of L_n^v). For every τ > 0, |E(τf) − τΛ(f)| ≤ τ²ε². Hence Λ(f) = lim_{τ↓0}E(τf)/τ, and
+  seminorm, by linearity of L_n^v; finite, since |L_n^v(f)| = |⟨f − c, μ_n − μ_{n−1}⟩| ≤ 2ε, so Λ(f) ≤ 2ε; F3). For every τ > 0, |E(τf) − τΛ(f)| ≤ τ²ε². Hence Λ(f) = lim_{τ↓0}E(τf)/τ, and
   **L_n^v(f) → 0 if and only if the b-law defect of ve^{τf} is o(τ) as τ ↓ 0** (then E(τf) ≤ τ²ε² for every τ > 0).
-- (iii) The a-analogue of (i)–(ii) holds with n^pL_n^{a,v}(f)/(2c(p)) and the ε²-error ½ε²e^{ε} (resp. (e^{τε} − 1 − τε) along rays).
+- (iii) **The a-analogue (F3).** Put E^a(f) := limsup_n |n^pa_n(ve^{f})/(2c(p)) − 1| and
+  Λ^a(f) := limsup_n n^p|L_n^{a,v}(f)|/(2c(p)). By step 4, L_n^{a,v}(f) = b_{n+1}γ_n − b_nγ_{n−1} with |γ_m| ≤ ε, so
+  n^p|L_n^{a,v}(f)|/(2c(p)) ≤ ε·n^p(b_n + b_{n+1})(v)/(2c(p)) → ε, and Λ^a(f) ≤ ε. Then
+  |E^a(f) − Λ^a(f)| ≤ e^ε − 1 − ε ≤ ½ε²e^ε, and along rays |E^a(τf) − τΛ^a(f)| ≤ e^{τε} − 1 − τε = O(τ²); so
+  L_n^{a,v}(f)n^p → 0 iff E^a(τf) = o(τ) as τ ↓ 0.
 - The same statements hold for any base v for which the b-law (resp. a-law) is known, with δ_n, δ_n^a the base's
   defects: e.g. v = k^{−s}Ψ under the hypotheses of T3-all or T3-log.
 
@@ -1090,16 +1102,24 @@ take limsups. (ii): apply (i) to τf, whose osc-radius is τε, and use L_n^v(τ
   ε > 0, LR leaves an ε²-band: L_n^v(f) → 0 gives only limsup|log β_n²(w)| ≤ ε², and conversely. The statement
   "for |f| ≤ ε ≤ ε₁, the b-law holds iff L_n^v(f) → 0" is **not proved** (it would need the second-order term
   ∫(1 − t)(ΔV_n − ΔV_{n−1})dt to tend to 0 whenever the first-order one does; outline_C_rough §2.5 T7b).
-- **Sharpness of C = 1 (NUMERICAL only).** On tiny measures (4–6 atoms) the ratio |R_b|/ε² reaches 0.986
-  (`checks/check_lr.out` [3]), so C = 1 is close to optimal in this generality; no proof of optimality is given. For
-  the pure powers the observed ratios are ≤ 0.53 (p = s = 2 and p = 1, s = 2, n ≤ 200).
+- **Sharpness of the constants (NUMERICAL; F1).** C = 1 in LR, 2 in LR′ and the factor (e^ε − 1 − ε)(b_n + b_{n+1})
+  in LRa are numerically sharp in the general finite-moment class: the Rule R reviewer's adversarial hill-climb on 2–5-atom
+  measures reaches ratio 1.0000 (LR, n = 1, 3 atoms), 0.993 (LR′, n = 2, 5 atoms) and 0.9999 (LRa, n = 0, 2 atoms), and
+  the pointwise inequality |(log b_n²)″| ≤ Var_{μ_n}(f) + Var_{μ_{n−1}}(f) to 0.9995 (review/REVIEW_Plan40.md); our own
+  exhaustive sign search ([3]) reaches 0.986 (LR), 1.889/2 (LR′, n ≥ 2) and 0.887 (LRa). No proof of optimality
+  of the integrated constants is given.
+  - *Pointwise LRa constant attained (proved).* Two atoms ±1, n = 0, weights ∝ (e^{θ}, e^{−θ}): a_0 = tanh θ,
+    b_1 = sech θ, and f = ±ε on the two atoms moves θ at rate ε, so |a_0″| = 2ε²|tanh θ|sech²θ = ε²b_1·(2|sinh θ|/cosh²θ),
+    which equals ε²(b_0 + b_1) at sinh θ = ±1. So the constant 1 in |a_n″| ≤ ε²(b_n + b_{n+1}) cannot be lowered.
+  - For the pure powers the observed ratios are smaller: ≤ 0.53 (LR), 0.61 (LR′), 0.19 (LRa) (p = s = 2 and p = 1, s = 2,
+    n ≤ 200).
 - **The pure-power linear response L_n^v itself is not analysed here** (its locality, size and oscillation; outline
   SOC/FJ). LR only reduces the law for |f| ≤ ε to that linear functional, up to ε².
 
 **Rule A (adversarial pass, logged).**
 - *Small cases.* Exhaustive sign patterns f ∈ {±ε}^K on random measures with K = 4–6 atoms (random nodes in [−1, 1],
-  weights in [0.05, 1]), every n ≤ K − 3, ε ∈ {1, 0.05}: 13000 cases, max |R_b|/ε² = 0.986 ≤ 1 and
-  max |R_a|/bound = 0.887 ≤ 1 ([3]). No counterexample.
+  weights in [0.05, 1]), every n ≤ K − 3, ε ∈ {1, 0.05}: 13000 cases (0 skipped), max |R_b|/ε² = 0.986 ≤ 1,
+  max |R_F|/ε² = 1.889 ≤ 2 (n ≥ 2) and max |R_a|/bound = 0.887 ≤ 1 ([3]). No counterexample.
 - *Degenerate parameters.* m = 0 in step 2: K_0 = 0, so A_0 = 0 and ΔV_0 = B_0 ∈ [0, ε²]; consistent. n = 0 in LRa:
   b_0 = 0, so only Γ_0 enters. Constant f: ε = 0 and both sides vanish (scale invariance, step 0).
 - *"The cross term vanishes."* A_m's f_k² terms vanish by K_mq_m = 0 (q_m ⊥ range K_m), not by symmetry; checked.

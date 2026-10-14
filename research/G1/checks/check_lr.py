@@ -15,7 +15,9 @@ Quantities (eps := (max f - min f)/2, the osc-radius):
 [2] path uniformity: |g''(t)| / eps^2 (g = log b_n^2 along v e^{tf}) at t = 0, 0.5, 1 from the exact formula
     Var-differences, cross-checked by a central second difference; claim |g''(t)| <= 2 eps^2 for every t.
 [3] Rule A: brute force over tiny measures (K = 3..6 atoms, random nodes/weights), all sign patterns f in {+-1}^K,
-    every admissible n: max |R_b|/eps^2, |R_a|/bound.
+    every n with 1 <= n <= K - 3 (Lanczos needs q_0..q_{n+2}): max |R_b|/eps^2, |R_a|/bound, and max |R_F|/eps^2
+    over n >= 2 (R_F needs b_{n-1} > 0). Exceptions are counted and printed (Rule R F4).
+Runtime: about 30-60 s wall (a few CPU-minutes, multithreaded BLAS).
 [4] Rule N: one case recomputed with longdouble Lanczos.
 """
 import numpy as np, itertools, sys
@@ -52,7 +54,8 @@ def rem(x, v, n, f, base=None):
     eps = (f.max() - f.min()) / 2
     mu = [Q[n - i] ** 2 for i in range(3)]
     Rb = np.log(b1[n] ** 2) - np.log(b0[n] ** 2) - f @ (mu[0] - mu[1])
-    RF = (np.log(b1[n] ** 2 / b1[n - 1] ** 2) - np.log(b0[n] ** 2 / b0[n - 1] ** 2)) - f @ (mu[0] - 2 * mu[1] + mu[2])
+    RF = ((np.log(b1[n] ** 2 / b1[n - 1] ** 2) - np.log(b0[n] ** 2 / b0[n - 1] ** 2)) - f @ (mu[0] - 2 * mu[1] + mu[2])
+          if n >= 2 else np.nan)
     La = b0[n + 1] * (f * Q[n]) @ Q[n + 1] - b0[n] * (f * Q[n - 1]) @ Q[n]
     Ra = a1[n] - a0[n] - La
     bnd_a = (np.expm1(eps) - eps) * (b0[n] + b0[n + 1])
@@ -111,7 +114,7 @@ for t in (0.0, 0.5, 1.0):
 print(f"[2] max_t |g''(t)|/eps^2 = {mx:.4f} (<=2: {mx <= 2})", flush=True)
 
 print("[3] Rule A: tiny measures, all sign patterns", flush=True)
-wb = wa = 0.0; cnt = 0
+wb = wa = wF = 0.0; cnt = skipped = 0
 for K in (4, 5, 6):
     for trial in range(25):
         x = np.sort(rng.uniform(-1, 1, K)); v = rng.uniform(0.05, 1, K)
@@ -124,9 +127,11 @@ for K in (4, 5, 6):
                     try:
                         rb, rF, ra, e = rem(x, v, n, eps * f0, base)
                     except Exception:
-                        continue
+                        skipped += 1; continue
                     cnt += 1; wb = max(wb, abs(rb)); wa = max(wa, abs(ra))
-print(f"[3] {cnt} cases: max |R_b|/eps^2 = {wb:.4f} (<=1: {wb <= 1}); max |R_a|/bound = {wa:.4f} (<=1: {wa <= 1})", flush=True)
+                    if n >= 2: wF = max(wF, abs(rF))
+print(f"[3] {cnt} cases ({skipped} skipped by exceptions): max |R_b|/eps^2 = {wb:.4f} (<=1: {wb <= 1}); "
+      f"max |R_F|/eps^2 (n>=2) = {wF:.4f} (<=2: {wF <= 2}); max |R_a|/bound = {wa:.4f} (<=1: {wa <= 1})", flush=True)
 
 print("[4] Rule N: p = s = 2, n = 40, K = 800, f = advH+ shape, eps = 0.05: float64 vs longdouble Lanczos", flush=True)
 n = 40; K = 800; k = np.arange(1, K + 1, dtype=float); x = k ** -2.0; v = k ** -2.0

@@ -163,10 +163,14 @@
 - **Corollary LR-law** (pure power, PROVED-mod-cite RH_px/RH₁(r)/RH_plt1b): limsup|log β_n²(w)| and limsup|L_n^v(f)| differ
   by ≤ ε²; exact along rays: L_n^v(f) → 0 iff E(τf) = o(τ). Same for a_n with ½ε²e^ε.
 - **Constants:** absolute — independent of n, p, s, nodes, v.
-- **Not proved:** the fixed-f iff (no ε² band) — needs second-order chirp control (outline §2.5 T7b). Optimality of C = 1
-  is only NUMERICAL (0.986 on 4–6-atom measures).
+- **Not proved:** the fixed-f iff (no ε² band) — needs second-order chirp control (outline §2.5 T7b). Sharpness of the
+  constants is NUMERICAL (reviewer hill-climb: 1.0000 LR, 0.993 LR′, 0.9999 LRa); the pointwise LRa constant 1 is attained
+  (two atoms ±1, sinh θ = ±1).
 - **Numerics** (`checks/check_lr.out`, NUMERICAL): p = s = 2 and p = 1, s = 2, n ≤ 200, random + adversarial f,
   ε = 0.4 … 0.025: worst |R_b|/ε² = 0.53, |R_F|/ε² = 0.61, |R_a|/bound = 0.19; Rule A exhaustive signs on tiny measures
   (13000 cases) 0.986 / 0.887; g″(t) formula = finite difference (5 digits) at t = 0, ½, 1; float64 vs longdouble 1e-12.
 - **Rule A:** small cases, m = 0 / n = 0, constant f, no-completeness check (Bessel only), cross-term vanishing — logged in §3.11.
-- **Rule R:** pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan40.md; no math errors). F1 (sharpness restated as NUMERICAL attained
+  constants + two-atom example), F2 (FV+TV route promoted to main proof of ΔV_m; Heine route = cross-check, Gram form
+  valid for general atoms), F3 (Λ ≤ 2ε, Λ^a ≤ ε, E^a/Λ^a defined, ray bound), F4 (script: R_F for n ≥ 2 = 1.889 ≤ 2,
+  skipped count 0, docstring/runtime; .out regenerated), F5 polish applied. Re-check pending.
