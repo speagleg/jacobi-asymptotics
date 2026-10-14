@@ -17,7 +17,7 @@ nothing here is evidence about where the zeros lie.
 | G3′-L | liminf (1/n²)[log D_n(σ) − Φ_n] ≥ 0 under (SG) | PROVED-mod-cite + mod-input (SG), Theorem H + REVIEWED | Z1, S, W, H5, H6 |
 | N | doubled-smooth sequences: same counting function, law fails by 2 log(1−1/m) | PROVED-mod-input Theorem H + REVIEWED | Theorem H_L, item 11 H6 |
 | N′ | repeated indices containing a positive-density subset (d_*(E) > 0) ⇒ the law fails, limsup ≤ 2 log(1 − d_*(E)) | PROVED-mod-cite + mod-input Theorem H + REVIEWED; residual case closed by N″ (§5.2) | G3′*-U proof, Z1, Z2, T (P1), H6 |
-| N″ | repeated indices of positive **upper** density ⇒ the law fails, liminf ≤ −0.2397·d̄(E) (§5.2); hence G3′ ⇒ d(E) = 0 | PROVED-mod-cite (C1) + mod-input Theorem H (via G3′-U steps 1–5, item 11 H5–H7); Rule R ACCEPT WITH FIXES, re-check pending | Hadamard, Christoffel, G3′-U |
+| N″ | repeated indices of positive **upper** density ⇒ the law fails, liminf ≤ −0.2397·d̄(E) (§5.2); hence G3′ ⇒ d(E) = 0 | PROVED-mod-cite (C1) + mod-input Theorem H (via G3′-U steps 1–5, item 11 H5–H7); REVIEWED; novelty UNCHECKED | Hadamard, Christoffel, G3′-U |
 | N‴ | normalized gaps g_k ≤ e^{−βk} (incl. repeats) at positive upper density ⇒ the law fails (§5.3); hence G3′ ⇒ d(T_β) = 0 for every β > 0 | PROVED-mod-cite (C1) + mod-input Theorem H; depends on §5.2; Rule R pending | N″, Z2 |
 | B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED | GLSS (6.1), Caro–Wei, §4 proof |
 | C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED | GLSS, G3′-L |
@@ -348,7 +348,7 @@ So the multiplicity-normalized averaged law (G3′) fails.
     (Before Plan 23 this case was open: a thinning law for oscillating densities, which Theorem T excludes, seemed
     necessary. N″ avoids it.)
 
-### 5.2 Theorem N″ (Plan 23): repeated indices of positive upper density break the law — PROVED-mod-cite (C1) + mod-input Theorem H; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan23.md), fixes applied, re-check pending
+### 5.2 Theorem N″ (Plan 23): repeated indices of positive upper density break the law — PROVED-mod-cite (C1) + mod-input Theorem H; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan23.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED
 
 Write d̄(E) := limsup_K |E ∩ [1, K]|/K for the upper density of the repeated-index set E of §5.
 
@@ -438,7 +438,7 @@ NUMERICAL (exact, 300 digits; `checks/check_npp.out`):
    - So term_ν(S) ≤ (k − 1)²·term_ν(S′) per moved element: Π_{m=1}^{k−2}(1 + 1/m)² = (k − 1)².
    - Hence Σ_{S coll.-free}term_ν(S) ≤ e^{O(n log n)}D_n(ν ∖ E′).
 4. **Deletion gain.** By Lemma H and Lemma Sat applied to ν (atoms G(j) = j^{−2} for j ≤ n; tail atoms
-   G(l) ≤ G(n) for l > n; log(W_{>n}/w_k) = O(log n) by (Hw)), and since g decreases on (0, ½]:
+   G(l) < G(n) for l > n; log(W_{>n}/w_k) = O(log n) by (Hw)), and since g decreases on (0, ½]:
    log D_n(ν ∖ E′) ≤ log D_n(ν) − |E′|(2n·g(θ*) − O(log n)) ≤ log D_n(ν) − η′θ*g(θ*)n² + O(n log n).
 5. **Conclude.** As in G3′-U steps 5–7 (item 11 H7 for D_n(ν), H6 for Λ),
    (1/n²)[log D_n(σ) − Φ_n] ≤ A₂²/(8 log M) − η′c* + o(1) along these n.
