@@ -125,3 +125,42 @@ sound, and the constants hold (16 in R2 is valid; 8 also works). The fixes conce
 - REVIEWED once F1–F3 are applied. F4–F9 are editorial and can be checked at re-check.
 
 Reviewer scripts (scratch, not committed): `p33rev/r1.py` (moments and ‖Δ²μ‖), `p33rev/r2.py` (F″ along paths).
+
+## Re-check (2026-10-14, HEAD 049b4a1)
+
+I checked the diff e3f12bd..049b4a1 (PROOF.md, LOG.md, README.md) against F1–F10.
+
+| # | Status | Notes |
+|---|---|---|
+| F1 | Applied | CL is scoped to p > 1 in the Theorem R statement, the §3.2 Conjecture R bullet and R-a. |
+| F2 | Applied | The Conj R row, the §3.2 pointer and the Thm R label column now say "modified form" (ε ≤ ε₀, η non-explicit, windows [θN, N^{κ+1}]). The [0.6N, 1.6N] form remains NUMERICAL. See residual r1. |
+| F3 | Applied | The G1-R row says the (T3) half is REFUTED and the (CL) half is unchanged. §3.2 re-scoping, "What a proof needs", T3c1, R-a, §4 (Plans 29–32 bullet and the "Missing statements" preamble), LOG and README are updated. See residual r3. |
+| F4 | Applied | The stray LOG line is removed. |
+| F5 | Applied | The argument is correct: A ≤ 0 ≤ B, so |A + B| ≤ max(|A|, B) ≤ 2‖f‖²; with the weights 1, 2, 1 summing to 4, |F″| ≤ 8‖f‖². The statement keeps 16 as a valid weaker constant, and the proof uses 8ε² (from 16), which is consistent. |
+| F6 | Applied | D_{N−1} gets the +η. σ_k ∈ {±1}. The Cauchy–Schwarz constant is (2(1 + m₆))^{1/2}. The R1 statement now says "integer window length J", but the same letter J still denotes the Jacobi matrix in step 4. That is acceptable, since the context disambiguates (residual r4). |
+| F7 | Applied | ε₀ = η/16 and limsup ≥ εη/2, consistent with step 4 (εη − 8ε² ≥ εη/2). F_N(v) → 0 is the only fact used. The TL tolerance is ε′. |
+| F8 | Applied | k/m ≤ 2θ for m ∈ {N, N−1, N−2} once N ≥ 4, and μ_{N−2} ≤ ρ_{N−1} ≤ ρ_{N+1}. |
+| F9 | Applied | The status row has sub-labels R2 PROVED and R1 PROVED-mod-cite, and the §3.5 two-point formula is listed as an internal input. |
+| F10 | Applied | R-d has prior-art pointers marked as unverified recollection. README is updated ("in review"). |
+
+**Residual items (editorial, non-blocking; apply when marking REVIEWED).**
+- **r1.** The *statement* column of the status row "Thm R" still says "Conjecture R PROVED … ≥ cε". It should match the
+  label column: "Conjecture R proved in modified form … for ε ≤ ε₀ = η/16, limsup ≥ εη/2".
+- **r2.** The §3.6 header still reads "Conjecture R proved — PROVED-mod-cite; Rule R pending". Change it to "Conjecture R
+  proved in modified form — R2 PROVED; R1, Theorem R PROVED-mod-cite; Rule R ACCEPT WITH FIXES, re-check ACCEPT —
+  REVIEWED". The §3.2 header's "Conjecture R NUMERICAL" could add "(proved in modified form, §3.6)".
+- **r3.** In §4 "Missing statements", the first bullet still lists "(T3) … from atom regularity (H-a) and weight
+  conditions" as missing, although it is now refuted. Mark it "REFUTED (Theorem R); the open target is (T3) for
+  regular weights beyond T3-sv (e.g. localization at scale Mn)".
+- **r4 (optional).** Rename the Jacobi matrix in R1 step 4 (e.g. 𝐉) to remove the J clash.
+
+**Re-check verdict: ACCEPT.** No mathematical issues remain. r1–r3 are label and status text, and the coordinator may
+apply them without a further Rule R pass.
+
+**Final labels.**
+- Lemma R2: PROVED (self-contained given §3.5 step 3 / proof of Lemma H); REVIEWED.
+- Lemma R1: PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); REVIEWED.
+- Theorem R: PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, §3.5 two-point formula, Sat_p⁺, TL). It proves
+  Conjecture R in modified form. REVIEWED; novelty UNCHECKED.
+- Conjecture R, [0.6N, 1.6N]-window form: NUMERICAL (open; needs Mn-localization).
+- G1-R: (T3) half REFUTED (Theorem R); (CL) half unchanged (open for general nodes or p ≤ 1).
