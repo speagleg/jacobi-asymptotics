@@ -1,0 +1,4 @@
+n=20, cluster starting at k=3; slot deletion costs C(k..k+3,n) = 100.89, 78.13, 60.90, 47.28
+  m=2: ε=1e-2: loss= -13.10 [min_s s(s−1)L+ΣC=   9.21]  ε=1e-8: loss=  14.19 [min_s s(s−1)L+ΣC=  36.84]  ε=1e-30: loss=  77.68 [min_s s(s−1)L+ΣC=  78.13]  ε=1e-80: loss=  77.68 [min_s s(s−1)L+ΣC=  78.13]
+  m=3: ε=1e-2: loss= -32.54 [min_s s(s−1)L+ΣC=  27.63]  ε=1e-8: loss=  49.42 [min_s s(s−1)L+ΣC= 110.52]  ε=1e-30: loss= 146.95 [min_s s(s−1)L+ΣC= 139.03]  ε=1e-80: loss= 146.95 [min_s s(s−1)L+ΣC= 139.03]
+  m=4: ε=1e-2: loss= -54.53 [min_s s(s−1)L+ΣC=  55.26]  ε=1e-8: loss=  96.51 [min_s s(s−1)L+ΣC= 175.87]  ε=1e-30: loss= 209.29 [min_s s(s−1)L+ΣC= 186.31]  ε=1e-80: loss= 209.29 [min_s s(s−1)L+ΣC= 186.31]
