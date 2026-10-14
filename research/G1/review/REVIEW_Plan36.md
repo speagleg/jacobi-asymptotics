@@ -190,3 +190,37 @@ unbounded slowly varying Ψ", is a historical entry; leave it.)
   results for log-perturbed weights may be classical for other node sets; no literature check was done.
 - **log3:** NUMERICAL (reproduced exactly by the reviewer).
 - README "in review" → "REVIEWED" after the re-check.
+
+## Re-check (HEAD 99e0487)
+
+**Verdict: ACCEPT.**
+
+- **F1 (resolved).** The new "Cutoff" bullet is correct.
+  - For k ≤ K the path factor Φ_t = Ψ̃_n e^{t·h_n} lies between Ψ̃_n and Ψ/Ψ(n). For k > K it equals Ψ̃_n, an endpoint.
+    So the P_n bound, Sat_p⁺ (head), TLw (tail) and |h_n^K| ≤ ℓ_n all hold uniformly in K and t.
+  - FV and FVa now apply as stated, because h_n^K is bounded.
+  - w_n^K(k) ∈ {vΨ̃_n(k), w_n(k)}, so it is dominated by vΨ̃_n + w_n, which is summable, and x_k ≤ 1. Every moment
+    therefore converges.
+  - b_n² = D_{n+1}D_{n−1}/D_n² and a_n are continuous in the moments of order ≤ 2n + 1, with D_m > 0. The K-uniform
+    bounds on |log b_n²(w_n^K) − log b_n²(vΨ̃_n)| and n^p|a_n(w_n^K) − a_n(vΨ̃_n)| pass to the limit K → ∞.
+  - Step 4 states the limit. ✓
+- **F2 ✓** log1 now says "k^{−σ}L(k), σ > 1, L log-type = the case s = σ; general slowly varying L not covered".
+- **F3 ✓** log3 and LOG give halving ratios 2.16–2.25 and n·log n·dev/|α| ≈ 0.46–0.49. These match my rerun.
+- **F4 ✓** The L4 and §3.2 (l. 380) pointers now refer to §3.9.
+- **F5 ✓** §4 now says PROVED-mod-cite for T3-log, and the stop-condition heading says "through Plan 36". The
+  T3-all "PROVED" shorthand in the same sentence is unchanged; that was optional.
+- **F6 ✓** (i) drops boundedness; (ii) notes the γ = 2 equivalence; the D bounds are |α|log γ and |α|log(1 + log γ).
+- **F7 ✓** TLw states n ≥ 2. γ(s − 1) > s(2 + 2/p) + p is now the only condition. The largeness conditions
+  M₁n ≤ n^γ and T″ ≤ n^γ are named. G := 2D* is kept (harmless).
+
+**Remaining (cosmetic, non-blocking).**
+- N1. Step 1 still has a leftover "n ≥ n₁" in "(t ∈ [0, 1], n ≥ n₁)" (PROOF.md l. 907). n₁ is no longer defined;
+  delete the qualifier.
+- N2. The §3.9 heading, the T3-log status row, LOG and README still say "Rule R pending" / "in review". Update them to
+  the labels below.
+
+**Final labels.**
+- **Lemma TLw:** PROVED.
+- **Theorem T3-log:** PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, TLw, L, T3-all).
+  Rule R ACCEPT WITH FIXES (review/REVIEW_Plan36.md), fixes applied, re-check ACCEPT — REVIEWED. Novelty UNCHECKED.
+- **log3:** NUMERICAL.
