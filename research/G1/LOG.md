@@ -301,3 +301,38 @@
   LP constant 0.4156; QL at t = 0 is QLP, unproved), F3 (downward chaining needs ε_{⌈n/λ⌉}), F4 (Cauchy–Schwarz for the FVa
   cross piece), F5 (K-gap grows with n), F6 (QL₀ framing), F7 (labels: FV⁺ standard; L0 in §0; "full sequence"; QL/QL₀
   HYPOTHESIS; tilt law CONJECTURE) applied. Re-check ACCEPT (N1 QL wording, N2 K-qualifier applied) — REVIEWED.
+
+## 2026-10-14 — Plan 49 (Route I′: commutator lemma CB; CB ⇒ QL ⇒ law) — Rule R pending
+- **Goal** (outline_B_sv.md §5, Route I′): prove CB, |⟨1_Aq_m, K_m(g_nq_m)⟩| ≲ ε_nμ_m(A)(1 + log M), and from it QL. **CB is not
+  proved.** What is proved (§3.18):
+  - **TV⁺** (PROVED, standard extension): Lemma TV for unbounded f under FV⁺'s summability.
+  - **BF** (PROVED): X_A = Σ_{k∈A, l∉A}q_m(k)K_m(k,l)q_m(l)(f(l) − f(k)) (only straddling pairs; uses K_mq_m = 0 and
+    antisymmetry); Cov(f, 1_A) − 2X_A = flux of K_m + K_{m+1}; CD form with the Toda density ψ.
+  - **RF** (PROVED): X_A = Σ_{k∈A}μ_m(k)R_m(x_k), R_m = P_m/p_m — makes exact the Plan 45 review's observation that beyond the
+    hard edge X/μ(A) → R_m(0) for any f; the deep-range part of CB is a bound on R_m on the zero-free interval [0, z₁(m)].
+  - **FM** (PROVED, Fourier): free Toeplitz model: X = (ε/πp)Cl₂(φ), Cov = 2X exactly (TV derivative ≡ 0),
+    X/μ(A) = (ε/p)(1 + log(1/φ)) + O(φ²): the log M in CB is sharp; predicts R/(ε_n(1 + log M)) ≈ 0.72, as observed.
+  - **DB** (PROVED): |X| ≤ Σ_i a_ie_i over dyadic row-blocks of E_d = ⟨1_Aq_m, q_{m−d}⟩ and G_d = ⟨gq_m, q_{m−d}⟩; Jackson form
+    e_i ≤ ℰ_{2^i−1}(g; μ_m); block bounds (OD-E), (OD-F) ⇒ |X| ≤ Cεy(3 + log₂(1/y)).
+  - **NO** (PROVED): Nishida–Ovsyannikov comparison lemma for an ordered scale (only finiteness of the a priori bound used).
+  - **Theorem QL-CB** (PROVED-mod-cite QLP at t = 0 for σ = s + B-cond; CONDITIONAL on CB): CB with a small constant
+    η ≤ η₀(p, s, α) (deeper-layer and M^{−a} terms allowed) ⇒ sup_tμ_m((Mn, ∞)) ≤ CM^{−α} for every α < min(p/2, s − 1) ⇒ QL ⇒
+    Law P. Grönwall in the scale of moments Y_β = Σmax(1, k/n)^βμ_m: the ε log M rate becomes a loss in β (no additive floor,
+    no M^{Cε} blow-up).
+  - **Theorem B-OD** (CONDITIONAL on OD-E, OD-F along the path).
+- **Obstruction (HEURISTIC, Remark CB-ob):** OD-F needs a bounded hard-edge density of μ_m in the arcsine angle (plus
+  smoothness of g in log x), OD-E needs 1/d decay of the spectral-projection row (phase coherence of q_m, q_{m−d}); tail
+  transport only gives tails with a loss M^{Cε}, which re-enters the commutator rate as M^{O(ε)} = n^{O(ε_n)}; the loop
+  closes only for ε_n log n = O(1) (log-type, T3-log). Route-II (hard-edge parametrix along the path) information would
+  supply both. No new case of the law.
+- **Rule A:** constants / A = ∅, all; f ↦ f + c; sharpness of log M (FM); necessity of a small η in QL-CB (needed by the
+  argument, no failure claimed); sign of X (positive, unused); rough f (OD-F fails, consistent with Theorem R); deep tail
+  with small p_m(0) (z₁ > 0); Fubini domains. No counterexample.
+- **Numerics** (`checks/check_cb.py/.out`, ≈ 70 s; p = 2 and 1 only, per REVIEW_Plan45.md; s = 2, exp(√log(k+e))):
+  BF/RF/TV identities to 9–10 digits vs finite differences; FM to 10 digits; R/(ε_n(1 + log M)) ≤ 0.74; R/R_FM 0.86–0.93
+  (p = 2), 0.69–0.88 (p = 1) in the arcsine range; DB/|X| ≤ 1.26; C_E ≤ 1.03, C_F = 0.67 (p = 2), 1.26 (p = 1), flat in n ≤ 400
+  and t; |R_m(0)|/(ε_n log n) = 0.63–0.74 (p = 2), 0.93–1.00 (p = 1); transport defect |T|/(ε_ny(1 + log M)) ≤ 0.05 (p = 2) /
+  0.10 (p = 1) in the arcsine range, ≤ 0.58 beyond the Bessel scale (genuine far-tail tilt). The deep-range saturation is the
+  structural RF limit and is not evidence for the arcsine-range form of CB (REVIEW_Plan45.md); the arcsine-range evidence is
+  the free-model agreement.
+- Note: §3.16 (QLP) is on master (Plan 46, merged); this branch was cut before the merge and cites it by section.
