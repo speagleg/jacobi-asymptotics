@@ -159,7 +159,7 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
   - Result: d̄(E) > 0 ⇒ liminf ≤ −0.2397·d̄(E). Hence G3′ ⇒ d(E) = 0.
 - **Rule A.** Long-double deletion numerics disagreed with 300-digit values by up to about 20%. All recorded evidence
   is now exact mp (`checks/check_npp`).
-- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan23.md). F1–F8 applied (in the plan-24 worktree, together with the N‴ θ₀ fix). Re-check pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan23.md). F1–F10 applied (in the plan-24 worktree, together with the N‴ θ₀ fix). Re-check: ACCEPT (R1–R3 applied). REVIEWED.
 
 ## 2026-10-14 — Plan 24 (Theorem N‴; the sufficiency obstruction)
 - **N‴.** Gaps ≤ e^{−βk} at positive upper density break G3′.

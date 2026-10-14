@@ -190,3 +190,45 @@ tried for the move map (multiplicity ≥ 3, tail ties, dense S near k).
   F1–F4 are applied (re-check needed only for the edited text). Novelty: UNCHECKED.
 - **Theorem N′ row:** drop "residual GAP"; add "residual case closed by N″ (qualitatively)".
 - **G3′ sandwich:** "necessity of d(E) = 0 (N″)".
+
+## Re-check (commit 953ac5a, worktree ja-plan24, branch plan-24-nppp)
+
+Scope: §5.2 and its knock-on text (header, N′/N″ rows, §5 residual remark, G3′ status block, README, CITATIONS
+"Classical facts", LOG Plan-23 entry, check_npp). §5.3 (N‴) is out of scope apart from the θ < θ₀ edit prompted by F4.
+I read `git diff 08edf11 953ac5a` for the files in scope and re-ran `check_npp.py`. The output is byte-identical to
+the committed `check_npp.out`.
+
+| Finding | Status | Note |
+|---|---|---|
+| F1 | RESOLVED | Header l. 3–4, N′ row, §5 remark (the stale "not known either way" sentence is replaced by a historical note), G3′ status block (d̄(E), "necessity of d(E) = 0 by N″", "d(E) = 0 as open") and README (N′/N″/N‴ bullet; residual case closed) all updated. |
+| F2 | RESOLVED | "*qualitative* conclusion"; N′'s limsup bound is stated to be stronger where it applies. |
+| F3 | RESOLVED | Inline proofs of Sylvester (shared nonzero spectrum), Hadamard (D^{1/2}CD^{1/2} + AM–GM; zero-diagonal case) and Christoffel (Cauchy–Schwarz in the p_j basis, with the extremal P) are correct. CITATIONS.md has a "Classical facts" section pointing to them. |
+| F4 | RESOLVED | N″2 now claims saturation only for k < θ₀n (θ₀ = 0.31538, which I confirmed), "εn deletions cost order n²", and says nothing beyond θ₀. N″1's "gap" sentence is marked *(Heuristic)*. |
+| F5 | RESOLVED, with residual R1 | The preamble now asks only for D_n(μ) > 0 and, for Sat, distinct head atoms with 0 < x_l < x_n and ties allowed in the tail. |
+| F6 | RESOLVED | π_j, h_j, p_j and D_n(μ) = Π h_j > 0 are written out. |
+| F7 | RESOLVED | Lemma Sat is stated for 1 ≤ k < n. |
+| F8 | RESOLVED | The weight ratio is 1 exactly, and the per-move bound is (k−1)² = Π(1 + 1/m)². |
+| F9 | RESOLVED | [3] now initialises to −∞, counts only sets with at least one move (3980 sets), compares pair factors (weights cancel because w_k = w_{k−1}) against 2 log(k−1), and gives max −2.390. The k = 8 duplicate is gone. Reproduced exactly. |
+| F10 | RESOLVED, with residual R2 | LOG now says "superadditive (they at least add up)". |
+
+**Residual items (all Info, none blocks):**
+- **R1.** §5.2 proof step 4 still says "tail atoms G(l) ≤ G(n) for l > n", but the new preamble requires 0 < x_l < x_n.
+  It is in fact strict: l⁻² < n⁻² for n < l ≤ Mn, and G(l) ≤ (Mn)⁻² < n⁻² for l > Mn. Suggest "<" for consistency.
+- **R2.** The LOG Plan-23 entry says "F1–F8 applied", but F9 and F10 were applied too; say "F1–F10". The optional
+  Rule A note about the move-map stress cases was not added. That is acceptable, since my cases are recorded in this
+  review.
+- **R3.** Status-row and §5.2-heading labels still read "re-check pending". Update them on promotion.
+
+**§5.3 edit (θ < θ₀), comment only.** The restriction is correct and necessary, since g(θ) ≤ 0 on [θ₀, ½]
+(g(0.4) = −0.44, g(½) = −0.81). Without it the deletion step of N‴ would have no gain. The revised move cost in N‴
+step 4 is consistent with §5.2 step 3: the move is k+1 → k, so the cost is ((k+1)−1)² = k², and the weight ratio
+w_{k+1}/w_k ≤ 1 because x is nonincreasing. I did not review the rest of §5.3.
+
+**Re-check verdict: ACCEPT.** R1–R3 are cosmetic.
+
+**Final labels:**
+- **Lemma H:** PROVED + REVIEWED.
+- **Lemma Sat:** PROVED + REVIEWED.
+- **Theorem N″:** PROVED-mod-cite (C1) + mod-input Theorem H (via G3′-U steps 1–5, item 11 H5–H7) + REVIEWED.
+  Novelty UNCHECKED.
+- **Theorem N′ row:** unchanged (REVIEWED). Its residual case is closed by N″.
