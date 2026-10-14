@@ -1,6 +1,7 @@
 # RH_plt1: pointwise Law P for σ_{p,s}, ½ < p < 1 (Plan 15)
 
-Status: **REVIEWED** (Rule R: ACCEPT WITH FIXES, review/REVIEW_RHplt1.md; F1–F10 applied and re-checked). It
+Status: **REVIEWED** (Rule R: ACCEPT WITH FIXES, review/REVIEW_RHplt1.md; F1–F10 applied and re-checked). Superseded for
+all 0 < p < 1, without the NUMERICAL F4 caveat, by RH_plt1b.md (seam construction, which equals const·D·B for ½ < p < 1). It
 covers ½ < p < 1 and every s > 1, modulo the NUMERICAL no-winding fact of Lemma 1.1′(iii) (F4). The range 0 < p ≤ ½
 is open (§6).
 
@@ -174,6 +175,10 @@ The tables give N·max|D_∞^{−σ₃}(VN^{−1} − I)D_∞^{σ₃}|:
 | (0.6, 2.5) | 40 | 0.724 | 0.775 | 0.623 | 0.761 | 0.333 | 0.247 | 0.405 | 0.058 | 0.129 | 1.245 | 1.970 |
 
 - N·error is stable, so VN^{−1} − I = O(1/N) in Ω_∞, including near the negative axis close to 0.
+- **Correction** (REVIEW_RHplt1b F6). The −1.5 column is a quadrature artifact of this probe: shown for (0.75, 2) (0.283/0.280/0.278);
+  presumably also for (0.6, 2.5) (0.734/0.752/0.761), which was not re-run. The cause: its S(z) quadrature misses the half-residue when the kernel pole is 10⁻⁴⁰ off the contour. The seam
+  construction (RH_plt1b), which equals const·D·B by Liouville, gives 0.161 at (0.75, 2), N = 10, and agrees with this
+  probe to all digits at −1.5 + 0.05i. No proof step depends on the column.
 - N^p b_N/c = 0.925, 0.962, 0.981 at (0.6, 2.5) and N = 10, 20, 40, consistent with d₁ = −(s − 1)/2 = −0.75.
 - N^p b_N/c = 0.952, 0.975, 0.988 at (0.75, 2) and N = 10, 20, 40, consistent with d₁ = −0.5.
 - **Scope** (Rule R F9). This gate tests Ω_∞ only: D's continuation, B, l, w₀/D_w and C_∞. It does **not** test §§2–3
