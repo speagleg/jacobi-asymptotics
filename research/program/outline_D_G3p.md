@@ -28,6 +28,7 @@ under the citation gate, so it must be checked before use; **[heuristic]** = not
    energy of pairs of *distinct* ordinates. The first part is "algebraic" (no coincidences); the second is "metric"
    (no positive-density clustering at super-exponentially small scales). Unconditionally, neither part is known.
    Even on RH + HMH, nothing that was read controls the metric part.
+   *(Correction, Plan 43, 2026-10-14; see research/G3prime/PROOF.md §5.6 and review/REVIEW_Plan43.md: only HMH ⇒ d(E) = 0 holds. d(E) = 0 ⟺ "100% of zeros simple and on the critical line" (Prop I) is NOT HMH. The split is G3′ ⟺ d(E) = 0 ∧ 𝒞_dist(K) = o(K²) (Thm Sp). G3′ ⇒ HMH is NOT established.)*
 3. **Statistically, the criterion is very weak.** Any point process with a log-integrable pair correlation at 0
    satisfies it. Poisson does. GUE/sine does, with about 0.24 units of energy per point, which matches Odlyzko's data
    (§5.5). All the difficulty sits in *excluding pathological arithmetic*, not in *proving repulsion*.
@@ -64,12 +65,15 @@ under the citation gate, so it must be checked before use; **[heuristic]** = not
   - The direction "⇒" is the 2·|E| bound above. (C1) converts index density to height density.
 - **Consequence.** G3′ ⇒ HMH. With Theorem C: PCC ⇒ (SG) ⇒ G3′ ⇒ HMH. G3′ sits strictly between two named
   hypotheses of GLSS (C5), and it is not equivalent to HMH (§1.3).
+- *(Correction, Plan 43, 2026-10-14; see research/G3prime/PROOF.md §5.6 and review/REVIEW_Plan43.md: only HMH ⇒ d(E) = 0 holds. d(E) = 0 ⟺ "100% of zeros simple and on the critical line" (Prop I) is NOT HMH. The split is G3′ ⟺ d(E) = 0 ∧ 𝒞_dist(K) = o(K²) (Thm Sp). G3′ ⇒ HMH is NOT established.)* Corrected chain: PCC ⇒ (SG) ⇒ G3′ ⇒ (100%-SC) ⇐ HMH ⇐ PCC.
 
 ### 1.3 Exact decomposition [derived here, from Ch]
 - Let 𝒞_dist(K) be 𝒞(K) computed on [k₂, K] ∖ E, so that repeats are dropped for free.
 - If d(E) = 0, dropping E costs ≤ K·|E ∩ [1, K]| = o(K²). Hence **G3′ ⟺ d(E) = 0 ∧ 𝒞_dist(K) = o(K²)**.
 - The metric part cannot be omitted. N‴ and the "former sliver" example of §5.4 show that HMH plus gaps
   ≤ e^{−βk} at positive density kill the law, while gaps e^{−k/log k} are harmless.
+- *(Plan 43 note, 2026-10-14: the split d(E) = 0 ∧ 𝒞_dist = o(K²) is proved as PROOF.md §5.6 Lemma D / Theorem Sp, with
+  an exact identity 𝒞 = 𝒞_dist + K·|E ∩ (k₂, K]|. "HMH" in this subsection should read "d(E) = 0".)*
 - Heuristic dictionary [heuristic; it ignores far-zero factors in the Hadamard product]: for an isolated near pair,
   log(1/d_ab) ≈ log(1/|ζ′(ρ_a)|) + O(log log γ_a). So the metric part reads roughly: "for all but o(K) of the first K
   zeros, |ζ′(ρ)| ≥ exp(−o(K))".
@@ -92,6 +96,8 @@ under the citation gate, so it must be checked before use; **[heuristic]** = not
 | Small *gaps exist* (liminf of g_k < c: Conrey–Ghosh–Gonek, Bui–Milinovich–Ng, …) | Opposite direction: G3′ needs small gaps to be *rare*. Existence results are irrelevant except as sanity checks | — |
 | Upper density of small gaps → 0 as δ → 0 (the content of (SG)) | Sufficient. Not necessary (L′ allows any density of positive gaps of size e^{−o(k/log k)}) | Not known even on RH, since F(α) is known only on [0, 1] |
 
+- *(Correction to the table, Plan 43, 2026-10-14: the HMH row's "G3′ ⇒ HMH" is NOT established; only
+  G3′ ⇒ (100%-SC) ⇐ HMH. See PROOF.md §5.6.)*
 - **Citation-gate action.** To log the stop condition, quote a read source that calls "almost all zeros simple" (or
   "on the line") open or conjectural.
 - Candidates already cited: (C8) Theorem 4, "SPC implies PCC and SZC". Check §6 of (C8) for SZC's definition; if it
@@ -126,6 +132,7 @@ REVIEWED result.
   - one more status quote (§1.4).
 - Effort 0.5–1 week. Probability 95%.
 - Publishable as part of the paper (it is the honest positioning of the problem).
+- *(Correction, Plan 43, 2026-10-14; see research/G3prime/PROOF.md §5.6 and review/REVIEW_Plan43.md: only HMH ⇒ d(E) = 0 holds. d(E) = 0 ⟺ "100% of zeros simple and on the critical line" (Prop I) is NOT HMH. The split is G3′ ⟺ d(E) = 0 ∧ 𝒞_dist(K) = o(K²) (Thm Sp). G3′ ⇒ HMH is NOT established.)* Done as Plan 43 (PROOF.md §5.6).
 
 **D2. Quantitative Theorem Ch (two-sided rate).**
 - Target: with c := limsup 𝒞(K)/K² and D := liminf defect, prove −F(c) ≤ D ≤ −θ_c²c, with F(c) → 0 as c → 0.
@@ -345,7 +352,8 @@ New:
 
 **Paper outline (realistic, about 25 pp.):**
 - the averaged Jacobi/Hankel law for zero measures, and Theorem Ch;
-- G3′ ⇒ HMH (positioning);
+- G3′ ⇒ HMH (positioning); *(corrected, Plan 43, 2026-10-14: G3′ ⇒ 100% simple and critical; G3′ ⇒ HMH not
+  established)*
 - the conditional closures that already exist (PCC, SPC_ℂ⁺, RH + (V⁺)), stated as hypotheses;
 - natural decided examples: ζ_K non-abelian (fails), function fields (exact criterion), sine process (holds a.s.),
   optionally H_t (holds);
