@@ -26,10 +26,10 @@ known; its application here to Law P is what is new.
 | A3 | Q_p := ∫ x d(σ − μ*) = 2c(p)/(p−1) | PROVED (uses only G2 B*(i) and the definition of μ*, both citation-free) |
 | A4 | (CL) ⇒ tail-Cesàro a-law; with β_n → 1, block-Cesàro ratios Σa/Σ2b → 1 and window averages → 1 in b-weighted density (pointwise density NOT proved) | CONDITIONAL on (CL). (CL) is proved for pure-power atoms by Theorem CL (§3.1, REVIEWED), so the tail-Cesàro part is unconditional there; (i)–(ii) still need β_n → 1 |
 | **CL** | (CL) for pure-power atoms k^{−p}, p > 1, and ROUGH weights (Σw < ∞, w_k ≥ c₁k^{−s}): n^{p−1}𝔼_n[Σ_{k∉S}x_k] → Q_p. Hence n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p−1) unconditionally (§3.1, Plan 27) | PROVED-mod-cite (P) (through G2 B*(iii); internal inputs: G2 A1, A-U, A-L; G3′ §5.2 Lemma Sat); REVIEWED; novelty UNCHECKED |
-| G1-R | (T3) from the atoms alone; (CL) (proved for pure-power atoms with rough weights, p > 1: Theorem CL; open for general nodes or p ≤ 1) | GAP for (T3) (see §4) |
+| G1-R | (T3) from the atoms alone; (CL) (proved for pure-power atoms with rough weights, p > 1: Theorem CL; open for general nodes or p ≤ 1) | (T3) half **REFUTED** for sandwiched weights (Theorem R, §3.6); proved for polynomially slowly varying weights (T3-sv/T3a); (CL) half unchanged (see §4) |
 | FV | first variation: d/dt log b_n²(v e^{tf}) = ⟨f, μ_n − μ_{n−1}⟩, μ_n := w p_n² (§3.2) | PROVED (standard; novelty not claimed); REVIEWED |
-| Conj R | (T3) — hence the pointwise b-law — FAILS for some weights e^{−ε}k^{−2} ≤ w_k ≤ e^{ε}k^{−2} (p = s = 2; §3.2, Plan 28) | CONJECTURE; NUMERICAL (p = s = 2; committed checks: two scales, n ≤ 400, Rule N; reviewer runs in REVIEW_Plan28: three scales, n ≤ 1000, 400-digit mpmath); REVIEWED as a conjecture |
-| **Thm R** | Conjecture R PROVED (all p > 0, s > 1): for every small ε > 0 there is f with \|f\| ≤ ε such that w = k^{−s}e^{f} has limsup \|log(β_n²/β_{n−1}²)\| ≥ cε; so (T3) and the pointwise b-law fail for some weights in [e^{−ε}, e^{ε}]·k^{−s} (§3.6, Plan 33) | PROVED-mod-cite (pure-power ratio asymptotics RH_px, RH₁(r), RH_plt1b; internal: FV, Sat_p⁺, TL, Lemma H) + Rule R pending; novelty UNCHECKED |
+| Conj R | (T3) — hence the pointwise b-law — FAILS for some weights e^{−ε}k^{−2} ≤ w_k ≤ e^{ε}k^{−2} (p = s = 2; §3.2, Plan 28) | Proved in modified form as Theorem R (§3.6): ε ≤ ε₀, non-explicit η, windows [θN, N^{κ+1}]. The [0.6N, 1.6N]-window form remains NUMERICAL |
+| **Thm R** | Conjecture R proved in modified form (all p > 0, s > 1): there is ε₀ = η/16 such that for every ε ≤ ε₀ there is f with \|f\| ≤ ε such that w = k^{−s}e^{f} has limsup \|log(β_n²/β_{n−1}²)\| ≥ εη/2; so (T3) and the pointwise b-law fail for some weights in [e^{−ε}, e^{ε}]·k^{−s} (§3.6, Plan 33) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: FV, Sat_p⁺, TL, §3.5 two-point formula); proves Conjecture R in modified form; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan33.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED. Sub-labels: R2 PROVED; R1 PROVED-mod-cite |
 | **T3-conv** | pointwise b-law (hence (T3)) for x_k = k^{−p} (p > 0), w_k = k^{−s}ψ_k (s > 1) with **ψ_k → L ∈ (0, ∞)** (rough at finite scales, decaying roughness): n^p b_n → c(p) (§3.3, Plan 29) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: Lemma FV (REVIEWED), Lemma Sat_p⁺); REVIEWED; novelty UNCHECKED (comparison theorems of Máté–Nevai–Totik type may be classical) |
 | TL | polynomial tail localization: for sandwiched weights c k^{−s} ≤ w_k ≤ C k^{−s} (s > 1), 𝔼_{n+1}#(S ∩ (T, ∞)) ≤ ε, hence μ_n((T, ∞)) ≤ ε, for T ≥ A·n^{κ}ε^{−1/(s−1)}, κ = (2 + 2/p)s/(s−1) (§3.4) | PROVED (textbook-standard Markov/Chebyshev inequalities, quoted); REVIEWED; novelty UNCHECKED (pointers: Ehlich–Zeller 1964, Coppersmith–Rivlin 1992, Rakhmanov 2007, Nevai, Máté–Nevai–Totik) |
 | **T3-sv** | pointwise b-law for w = k^{−s}Ψ with Ψ bounded and *polynomially slowly varying*: sup_{n/M≤k≤n^γ}\|log Ψ(k) − log Ψ(n)\| → 0 for all M, γ (e.g. Ψ = 2 + sin√(log log k)) (§3.4, Plan 30) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: Lemma FV, Lemma Sat_p⁺, Lemma TL); REVIEWED; novelty UNCHECKED |
@@ -288,7 +288,7 @@ A4 (i)–(ii) still need β_n → 1, i.e. (T3) via G1-T.
 - **CL4 (scope, F5).** (CL) is proved here for exact pure-power atoms k^{−p} with p > 1 only. It is not proved for
   general regularly spaced nodes f(k), and for p ≤ 1 (CL)/A2 do not apply as stated.
 
-### 3.2 (T3) for rough weights: first variation and counter-evidence (Plan 28) — FV PROVED (standard); Conjecture R NUMERICAL; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan28.md), fixes applied, re-check ACCEPT — REVIEWED
+### 3.2 (T3) for rough weights: first variation and counter-evidence (Plan 28) — FV PROVED (standard); Conjecture R NUMERICAL (proved in modified form, §3.6); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan28.md), fixes applied, re-check ACCEPT — REVIEWED
 
 **Lemma FV (first variation; standard, novelty not claimed).** Let w(t) := v·e^{tf}, where v is a weight sequence
 with finite moments and f is bounded, on fixed atoms x_k. Let p_j = p_j^{(t)} be the orthonormal polynomials of w(t),
@@ -343,11 +343,11 @@ perturbation there (Rakhmanov-type theorems; recollection, not cited). The evide
 
 Together these allow a single bounded sequence to keep spiking at sparse scales.
 
-**Conjecture R** (stated for p = s = 2, which is all the numerics test; **now proved for all p > 0, s > 1 as Theorem R, §3.6**). For every ε > 0 there is f with |f| ≤ ε,
+**Conjecture R** (stated for p = s = 2, which is all the numerics test). **Proved for all p > 0, s > 1, in a modified form, as Theorem R (§3.6):** ε ≤ ε₀, non-explicit η, and windows [θN, N^{κ+1}] in place of [0.6N, 1.6N]. The [0.6N, 1.6N] form would need localization at scale Mn and remains NUMERICAL (F2). For every ε > 0 there is f with |f| ≤ ε,
 supported on windows [0.6N_i, 1.6N_i] along a sufficiently sparse sequence N_i, such that w = k^{−2}e^{f} satisfies
 limsup_n |β_n/β_{n−1} − 1| ≥ cε, with c > 0 absolute.
 - Then β_n does not converge, so (T3) and the pointwise law n²b_n → c(2) fail.
-- H_all (the averaged law) and Theorem CL (the tail-Cesàro a-law) still hold, since the weights are sandwiched.
+- H_all (the averaged law) still holds, since the weights are sandwiched, and so does Theorem CL (the tail-Cesàro a-law) when p > 1 (F1).
 
 **What a proof needs** (F10; ordered by importance).
 - **(iii) Cross-scale independence.** Windows at larger scales perturb β_N only slightly. Numerically ×4 separation
@@ -355,11 +355,12 @@ limsup_n |β_n/β_{n−1} − 1| ≥ cε, with c > 0 absolute.
 - **(i) A lower bound ‖Δ²μ_N‖₁ ≥ c** restricted to the window, for the base measures that arise in the construction
   (not all of the sandwich class). This is pointwise asymptotics of p_N at the atoms.
 - **(ii) Second-order control** of t ↦ log(b_N²/b_{N−1}²) along the perturbation path.
-- None of these is done here.
+- None of these was done in Plan 28. All three are done in §3.6 (Theorem R): (iii) by Sat_p⁺ and Lemma TL, (i) by
+  Lemma R1, (ii) by Lemma R2.
 
 **Re-scoping G1-R (F6).**
-- §4 posed (T3) from atom regularity under the one-sided weight conditions Σw < ∞, w_k ≥ c₁k^{−s}. If Conjecture R
-  holds, it is false a fortiori: Conjecture R refutes β_n → 1 directly.
+- §4 posed (T3) from atom regularity under the one-sided weight conditions Σw < ∞, w_k ≥ c₁k^{−s}. Theorem R (§3.6)
+  refutes this (T3) half directly (β_n does not converge); the (CL) half is unaffected (F3).
 - The positive target becomes (T3) for *regular* weights.
 
 **Localization reduction (F5).** Let w = vΨ with base v = k^{−s} (s > 1) and Ψ bounded above and below with
@@ -421,7 +422,7 @@ In particular β_n → 1, so (T3) holds.
 - **T3c1 (the dichotomy).**
   - *Decaying* roughness (ψ_k → L, arbitrarily rough at finite scales, e.g. ψ_k = 1 + ½(−1)^k/log(k+1)) preserves
     the pointwise b-law: Theorem T3-conv.
-  - *Non-decaying* roughness of size ε *conjecturally* can break it (F3): Conjecture R (§3.2, numerical evidence
+  - *Non-decaying* roughness of size ε ≤ ε₀ can break it: Theorem R (§3.6; earlier Conjecture R, §3.2, numerical evidence
     only, p = s = 2).
   - The proof uses no localization of μ_n at large k. Only the saturated head matters, because g → 0 at ∞.
 - **T3c2 (slowly varying Ψ; F2).** For ψ = Ψ slowly varying without a limit (e.g. Ψ(k) = 2 + sin(log log k)), the
@@ -588,7 +589,7 @@ generous: about 7 (middle) and 5 (tail) suffice, times (n/(n−1))^p.
   - For n ≥ 2000 none of the three runs is K-converged (K-doubling moves them by up to 3.5·10⁻³), so those columns are
     illustrative only (R1).
 
-### 3.6 Theorem R (Plan 33): bounded rough weights can break the pointwise law — Conjecture R proved — PROVED-mod-cite; Rule R pending
+### 3.6 Theorem R (Plan 33): bounded rough weights can break the pointwise law — Conjecture R proved in modified form — PROVED-mod-cite (R2 PROVED; R1 PROVED-mod-cite); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan33.md), fixes applied, re-check ACCEPT — REVIEWED
 
 Setting: x_k = k^{−p} (p > 0), v_k := k^{−s} (s > 1), and w = v·e^{f} with f bounded. Notation q_j = √w·p_j,
 μ_j = q_j² and K_m are as in §3.5. Put F_N(w) := log(b_N²/b_{N−1}²) and Δ²μ_N := μ_N − 2μ_{N−1} + μ_{N−2}.
@@ -605,20 +606,22 @@ Setting: x_k = k^{−p} (p > 0), v_k := k^{−s} (s > 1), and w = v·e^{f} with 
   it, so K_mq_m = 0. Hence the f_k² and f_l² parts of A vanish, and A = −2⟨fq_m, K_m(fq_m)⟩ ∈ [−2‖f‖²_∞, 0].
 - **Bound on B.** 0 ≤ B ≤ 2‖f‖²_∞.
 - **Combine.** F_N is the third difference L_{N+1} − 3L_N + 3L_{N−1} − L_{N−2} of L_m := log D_m. So F_N'' is a second
-  difference of (Var_{m+1} − Var_m), giving |F_N''| ≤ 4·4‖f‖²_∞. ∎
+  difference of (Var_{m+1} − Var_m). Each |Var_{m+1} − Var_m| ≤ |A| + B ≤ 2‖f‖²_∞ (A ≤ 0 ≤ B, so |A + B| ≤
+  max(|A|, B)), and the coefficients of the second difference sum in absolute value to 4. So |F_N''| ≤ 8‖f‖²_∞; the
+  stated 16 is a valid weaker constant (F5). ∎
 
-**Lemma R1 (the pure power keeps a non-degenerate second difference).** For the pure power v there are η > 0, J ∈ ℕ
+**Lemma R1 (the pure power keeps a non-degenerate second difference).** For the pure power v there are η > 0, an integer window length J
 and N₀ such that every N ≥ N₀ has some m ∈ [N − J, N] with ‖Δ²μ_m^{(v)}‖₁ ≥ η.
 
 *Proof (by contradiction).* Suppose that for some (arbitrarily large) N, ‖Δ²μ_m‖₁ < η for all m ∈ [N − J, N]. Put
 D_m := μ_m − μ_{m−1}.
 1. **First differences are small.** ‖D_m − D_N‖₁ ≤ Jη for m ∈ [N − J, N]. Since μ_N − μ_{N−J} = Σ_{m=N−J+1}^{N}D_m
-   has ℓ¹-norm ≤ 2, we get ‖D_N‖₁ ≤ 2/J + Jη. The same holds for D_{N−1}. With J := ⌈2/δ⌉ and η := δ/J², both are
+   has ℓ¹-norm ≤ 2, we get ‖D_N‖₁ ≤ 2/J + Jη, and ‖D_{N−1}‖₁ ≤ 2/J + Jη + η (F6). With J := ⌈2/δ⌉ and η := δ/J², both are
    ≤ 2δ.
 2. **Moduli nearly agree.** (|a| − |b|)² ≤ |a² − b²| gives ‖|q_m| − |q_{m′}|‖₂² ≤ ‖μ_m − μ_{m′}‖₁ ≤ 4δ for
    m, m′ ∈ {N, N−1, N−2}.
 3. **The recurrence forces concentration.** The recurrence b_Nq_N = (x − a_{N−1})q_{N−1} − b_{N−1}q_{N−2} holds at
-   every atom. Let σ_k := sign(q_{N−1}(k)q_{N−2}(k)), and write |q_{N−2}| = |q_{N−1}| + e and |q_N| = |q_{N−1}| + e′,
+   every atom. Let σ_k := sign(q_{N−1}(k)q_{N−2}(k)) ∈ {±1}, choosing +1 where the product vanishes (F6), and write |q_{N−2}| = |q_{N−1}| + e and |q_N| = |q_{N−1}| + e′,
    with ‖e‖₂, ‖e′‖₂ ≤ 2√δ. Then
    |b_N|q_N(k)| − |x_k − a_{N−1} − b_{N−1}σ_k|·|q_{N−1}(k)|| ≤ b_{N−1}|e_k|.
    Hence Σ_kμ_{N−1}(k)(|x_k − a_{N−1} − b_{N−1}σ_k| − b_N)² ≤ 16b̄²δ, with b̄ := max(b_N, b_{N−1}).
@@ -630,15 +633,16 @@ D_m := μ_m − μ_{m−1}.
      RH_plt1b), (J − a_{N−1})/b̄ tends locally to the free Jacobi matrix (zero diagonal, unit off-diagonals). So
      m₂ → 2, m₄ → 6 and m₆ → 20 (central binomial coefficients), and Z → {−2, 0, 2}.
    - Put P(y) := y²(y² − 4), which vanishes on {−2, 0, 2}. Then |P(y)| ≤ C(dist(y, Z) + o(1))(1 + |y|³).
-   - Cauchy–Schwarz gives |m₄ − 4m₂| = |⟨P, μ_{N−1}⟩| ≤ C(4√δ + o(1))(1 + m₆)^{1/2}·C′.
+   - Cauchy–Schwarz gives |m₄ − 4m₂| = |⟨P, μ_{N−1}⟩| ≤ C(4√δ + o(1))(2(1 + m₆))^{1/2}.
    - But m₄ − 4m₂ → 6 − 8 = −2. For δ small and N large this is a contradiction. ∎
 
-**Theorem R.** For every ε ∈ (0, ε₀] (ε₀ := η/32) there is f with |f| ≤ ε such that w := v·e^{f}, which satisfies
+**Theorem R.** For every ε ∈ (0, ε₀] (ε₀ := η/16) there is f with |f| ≤ ε such that w := v·e^{f}, which satisfies
 e^{−ε}k^{−s} ≤ w_k ≤ e^{ε}k^{−s}, has
 
-  limsup_n |log(β_n²/β_{n−1}²)| ≥ εη/4,  β_n := n^p b_n/c(p).
+  limsup_n |log(β_n²/β_{n−1}²)| ≥ εη/2,  β_n := n^p b_n/c(p).
 
-Hence (T3) fails for w, and so does the pointwise b-law (G1-T). H_all and Theorem CL still hold for w.
+Hence (T3) fails for w, directly from its definition in §2, and so does the pointwise b-law. H_all still holds for w,
+and so does Theorem CL when p > 1 (F1).
 
 *Proof.*
 1. **Scales.** Let θ ∈ (0, ½] with g_p⁺ ≥ 1 on (0, 2θ] (Sat_p⁺), and γ := κ + 1 (Lemma TL). Choose good scales
@@ -647,26 +651,30 @@ Hence (T3) fails for w, and so does the pointwise b-law (G1-T). H_all and Theore
    - Put f := Σ_i f_i with f_i := ε·sign(Δ²μ_{N_i}^{(v)}) on W_i. The signs are computed for the *pure power* v.
 2. **Gain at scale N_i.** By Lemma FV, (d/dt)F_N = ⟨f, Δ²μ_N⟩. By Lemma R2,
    F_{N_i}(ve^{f_i}) − F_{N_i}(v) ≥ ε‖Δ²μ_{N_i}^{(v)}|_{W_i}‖₁ − 8ε².
-   - Outside W_i, μ_{N_i}, μ_{N_i−1} and μ_{N_i−2} have mass → 0: the head by Sat_p⁺, the tail by Lemma TL. So
+   - Outside W_i, μ_{N_i}, μ_{N_i−1} and μ_{N_i−2} have mass → 0: the head by Sat_p⁺ (k/m ≤ 2θ for m = N, N−1, N−2 once
+     N ≥ 4), and the tail by Lemma TL (with its own tolerance ε′, not the roughness ε, and μ_{N−2} ≤ ρ_{N−1} ≤ ρ_{N+1})
+     (F7, F8). So
      ‖Δ²μ|_{W_i}‖₁ ≥ η − o(1).
 3. **Cross-scale independence.** The other windows lie in the head (j < i: W_j ⊂ [1, N_{i−1}^γ] ⊂ [1, θN_i)) or in
    the tail (j > i: beyond θN_{i+1} > N_i^γ).
    - Along the path from ve^{f_i} to w, Lemma FV gives |F_{N_i}(w) − F_{N_i}(ve^{f_i})| ≤ ε·sup_t(μ_N + 2μ_{N−1} +
      μ_{N−2})(head ∪ tail) = o(1), uniformly by the sandwich [e^{−ε}, e^{ε}].
 4. **Conclude.** F_{N_i}(v) = −2p log(N_i/(N_i − 1)) + O(1/N_i) → 0 (pure power). So
-   |log(β_{N_i}²/β_{N_i−1}²)| ≥ εη − 8ε² − o(1) ≥ εη/2 − o(1) for ε ≤ η/16, and in particular ≥ εη/4 for large i. ∎
+   |log(β_{N_i}²/β_{N_i−1}²)| ≥ εη − 8ε² − o(1) ≥ εη/2 − o(1) for ε ≤ ε₀ = η/16. Only F_N(v) → 0 is used here (F7). ∎
 
 **Remarks.**
 - **R-a (the dichotomy, now proved).**
   - Decaying roughness (ψ_k → L), and more generally polynomially slowly varying Ψ, preserves the full pointwise law:
     T3-sv and T3a.
   - Bounded roughness of any fixed size ε can destroy it: Theorem R.
-  - Averaged laws (H_all, CL) survive all sandwiched roughness.
-  - G1-R as posed in §4 (pointwise law from sandwiched weights) is therefore **false**.
+  - Averaged laws survive all sandwiched roughness: H_all for all p > 0, and CL for p > 1.
+  - The (T3) half of G1-R as posed in §4 (pointwise law from atom regularity and sandwiched weights) is therefore
+    **refuted**. The (CL) half is unaffected (F3).
 - **R-b.** The constants η and J are not explicit, because Lemma R1 is proved by contradiction. Numerically
   ‖Δ²μ_N‖₁ ≈ 1.2–1.35 at p = s = 2 (§3.2 [1]).
 - **R-c.** The scale separation needed is polynomial (θN_{i+1} > N_i^{κ+1}). Numerically, ×4 suffices (§3.2 [3]).
-- **R-d.** Novelty UNCHECKED. Instability of ratio asymptotics under non-decaying perturbations is consistent with the
+- **R-d.** Novelty UNCHECKED. Possible prior art (reviewer's recollection, unverified): Lubinsky's counterexamples to
+  Freud's conjecture for non-smooth weights; Máté–Nevai–Totik; Simon, *Szegő's Theorem and Its Descendants*. Instability of ratio asymptotics under non-decaying perturbations is consistent with the
   OPUC/OPRL literature (Rakhmanov-type theorems need the perturbation to be "small at infinity" in suitable senses).
   This is a recollection, not cited.
 
@@ -740,11 +748,11 @@ g_n := log Ψ − log Ψ(n), with |g_n| ≤ G := log(C/c). Fix M ≥ 4 (the head
   tail-Cesàro form. This is unconditional for pure-power atoms with rough weights by Theorem CL (Plan 27). Block-Cesàro
   ratios and window-average density still need β_n → 1 (A4). Pointwise density is not proved.
 - *Plans 29–32:* the full pointwise law (b and a) holds for weights k^{−s}Ψ with Ψ bounded and polynomially slowly
-  varying (T3-conv, T3-sv, T3a). Fixed-size adversarial roughness conjecturally breaks it (Conjecture R).
+  varying (T3-conv, T3-sv, T3a). Fixed-size adversarial roughness (ε ≤ ε₀) breaks it (Theorem R, §3.6).
 - G1-L needs a one-sided bound on β_n; it is not unconditional.
 
-**Missing statements (precise).** (See §3.2: for *rough* weights, (T3) is conjecturally FALSE, Conjecture R.)
-- (T3) for β_n := n^p b_n/(c(p)C), from atom regularity (H-a) and weight conditions.
+**Missing statements (precise).** (For *rough* sandwiched weights the (T3) half is refuted by Theorem R, §3.6.)
+- ~~(T3) for β_n := n^p b_n/(c(p)C), from atom regularity (H-a) and weight conditions~~: REFUTED in this generality (Theorem R, §3.6). Open target: (T3) for regular weights beyond T3-sv (§3.4), e.g. via localization at scale Mn.
 - ~~(CL) for p > 1~~: now PROVED for pure-power atoms with rough weights (Theorem CL, §3.1, Plan 27).
 
 **Why the tools here stop short** (methodological explanations, heuristic; not theorems about all such methods).
