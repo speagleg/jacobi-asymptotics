@@ -62,3 +62,16 @@
 - **G1-R** is reduced to (T3) alone, for pure-power atoms with p > 1.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan27.md). F1 (major: circular constants in Lemma WC; fixed by a
   uniform energy gap via compactness in x with an atom at 0 ⇒ −∞), F2–F7 applied. Re-check: ACCEPT (cosmetic items applied). REVIEWED.
+
+## 2026-10-14 — Plan 28 ((T3) for rough weights)
+- **Lemma FV (exact).** d/dt log b_n² = ⟨f, μ_n − μ_{n−1}⟩ with μ_n = w p_n², via Heine plus Christoffel–Darboux.
+- **Numerics** (Lanczos with full reorthogonalization):
+  - TV(μ_n, μ_{n−1}) ≈ 0.4 for all n.
+  - Adversarial bounded weights keep |β_n/β_{n−1} − 1| ≈ 0.6ε, not decaying in n.
+  - A single sequence with separated windows shows repeated jumps.
+  - Generic rough weights decay like n^{−1/2}.
+- **Conjecture R:** (T3) fails for some sandwiched weights, so G1-R as posed is likely false. Re-scoped: (T3) for
+  regular weights, which reduces to a localization lemma for w p_n². The upper tail is open.
+- An earlier forward-recurrence attempt overflowed in the saturated region; Lanczos with reorthogonalization is
+  stable.
+- **Rule R:** pending.
