@@ -1,0 +1,29 @@
+[1] closed form vs direct determinant (b = 2l-2)
+  l=0 b=-2 n=1: closed 0.49770030247074534747  direct 0.49770030247074534747  diff 7.78e-62
+  l=0 b=-2 n=2: closed -0.68907811425253235418  direct -0.68907811425253235418  diff 2.33e-61
+  l=0 b=-2 n=3: closed -6.035191564104331974  direct -6.035191564104331974  diff 3.73e-60
+  l=0 b=-2 n=5: closed -34.781264079643519975  direct -34.781264079643519975  diff -1.39e-53
+  l=0 b=-2 n=8: closed -136.24636548547141311  direct -136.24636548547141311  diff -5.03e-43
+  l=1 b=+0 n=1: closed 0.079109873067335629765  direct 0.079109873067335629765  diff 2.43e-61
+  l=1 b=+0 n=2: closed -2.9613434983486744115  direct -2.9613434983486744115  diff 4.36e-60
+  l=1 b=+0 n=3: closed -10.980841806761580963  direct -10.980841806761580963  diff 6.94e-58
+  l=1 b=+0 n=5: closed -46.67821974095145787  direct -46.67821974095145787  diff 8.63e-52
+  l=1 b=+0 n=8: closed -161.22293933442272999  direct -161.22293933442272999  diff 1.27e-43
+  l=2 b=+2 n=1: closed 0.017194387602658290969  direct 0.017194387602658290969  diff 1.26e-61
+  l=2 b=+2 n=2: closed -4.5869817175197640164  direct -4.5869817175197640164  diff -1.06e-59
+  l=2 b=+2 n=3: closed -15.051023312064930017  direct -15.051023312064930017  diff -1.17e-56
+  l=2 b=+2 n=5: closed -57.353960791498953719  direct -57.353960791498953719  diff -3.15e-50
+  l=2 b=+2 n=8: closed -184.6131976883608007  direct -184.6131976883608007  diff 4.61e-39
+[2] kappa_2 = 3 + log(pi^2/16) = 2.51687104945902
+  l=0 n=100: (log det + 2n^2 log n)/n^2 = 2.45304868284   minus kappa_2 = -0.0638224   times n/log n = -1.38589
+  l=0 n=1000: (log det + 2n^2 log n)/n^2 = 2.50819016165   minus kappa_2 = -0.00868089   times n/log n = -1.25669
+  l=0 n=10000: (log det + 2n^2 log n)/n^2 = 2.51577275015   minus kappa_2 = -0.0010983   times n/log n = -1.19246
+  l=0 n=100000: (log det + 2n^2 log n)/n^2 = 2.51673819424   minus kappa_2 = -0.000132855   times n/log n = -1.15397
+  l=1 n=100: (log det + 2n^2 log n)/n^2 = 2.37547995694   minus kappa_2 = -0.141391   times n/log n = -3.07027
+  l=1 n=1000: (log det + 2n^2 log n)/n^2 = 2.49588288129   minus kappa_2 = -0.0209882   times n/log n = -3.03835
+  l=1 n=10000: (log det + 2n^2 log n)/n^2 = 2.51408225975   minus kappa_2 = -0.00278879   times n/log n = -3.02789
+  l=1 n=100000: (log det + 2n^2 log n)/n^2 = 2.51652310312   minus kappa_2 = -0.000347946   times n/log n = -3.02222
+  l=2 n=100: (log det + 2n^2 log n)/n^2 = 2.29830417004   minus kappa_2 = -0.218567   times n/log n = -4.74612
+  l=2 n=1000: (log det + 2n^2 log n)/n^2 = 2.48358181728   minus kappa_2 = -0.0332892   times n/log n = -4.81911
+  l=2 n=10000: (log det + 2n^2 log n)/n^2 = 2.51239185452   minus kappa_2 = -0.00447919   times n/log n = -4.86322
+  l=2 n=100000: (log det + 2n^2 log n)/n^2 = 2.51630801308   minus kappa_2 = -0.000563036   times n/log n = -4.89047

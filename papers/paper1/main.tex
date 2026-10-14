@@ -1,0 +1,939 @@
+\documentclass[11pt]{amsart}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage[margin=1.15in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\Leb}{\mathrm{Leb}}
+\DeclareMathOperator{\supp}{supp}
+
+\title[Hankel determinants with power-law atoms]{Hankel determinants of discrete measures with power-law atoms, and of zeta values}
+\author{Gordon [surname] (draft)}
+\date{Draft of 14 October 2026}
+
+
+
+\begin{document}
+\begin{abstract}
+Let $\sigma=\sum_{k\ge1}w_k\delta_{x_k}$ be a discrete measure whose atoms are regularly spaced with
+$x_k\sim Ck^{-p}$ for some $p>0$, and whose weights satisfy $\sum_k w_k<\infty$ and $w_k\ge c_1k^{-s}$. We prove that
+the Hankel determinants $D_n=\det(\int x^{i+j}\dd\sigma)_{i,j=0}^{n-1}$ satisfy
+\[
+  \log D_n=-pn^2\log n+\Bigl(\tfrac{3p}{2}+\log\bigl(c(p)C\bigr)\Bigr)n^2+o(n^2),\qquad
+  c(p)=\tfrac14\Bigl(\tfrac{\sqrt\pi\,\Gamma(1/p+1)}{\Gamma(1/p+1/2)}\Bigr)^{p}.
+\]
+The constant comes from an explicitly solvable constrained equilibrium problem: the maximiser of the logarithmic
+energy $\iint\log|u^{-p}-v^{-p}|\dd\mu(u)\dd\mu(v)$ among probability measures $\mu\le\dd u$ on $(0,\infty)$ is
+unique, it is an average of arcsine laws, and its density is a regularised incomplete beta function. As a
+corollary, for every real $a>0$ and real $b$ with $2a+b>1$,
+$\log\det_{1\le i,j\le n}\zeta(a(i+j)+b)=-an^2\log n+(\tfrac{3a}{2}+\log c(a))n^2+o(n^2)$. For positive integers $a,b$
+this gives the leading-order behaviour $-an^2\log n$ expected by Haynes and Zudilin, together with the $n^2$ term.
+\end{abstract}
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+\subsection{Setting and main result}
+For a positive Borel measure $\sigma$ on $\R$ with finite moments $m_r=\int x^r\dd\sigma(x)$, write
+\[
+  D_n(\sigma):=\det\bigl(m_{i+j}\bigr)_{i,j=0}^{n-1}\qquad(n\ge1)
+\]
+for its Hankel determinants. We study discrete measures
+\begin{equation}\label{eq:sigma}
+  \sigma=\sum_{k\ge1}w_k\,\delta_{x_k},\qquad x_k=f(k),
+\end{equation}
+whose atoms accumulate at a single point with polynomial spacing, the model case being $x_k=Ck^{-p}$. Throughout,
+$p>0$ and
+\begin{equation}\label{eq:constants}
+  I(p):=\frac{\sqrt\pi}{2}\,\frac{\Gamma(\frac1p+\frac12)}{\Gamma(\frac1p+1)},\qquad
+  c(p):=\frac14\Bigl(\frac{\pi}{2I(p)}\Bigr)^{p},\qquad
+  \kappa_p:=\frac{3p}{2}+\log c(p).
+\end{equation}
+For instance $I(1)=\pi/4$, $c(1)=\tfrac12$, and $I(2)=1$, $c(2)=\pi^2/16$.
+
+\begin{theorem}\label{thm:main}
+Let $p>0$ and $C>0$. Let $f\in C^1[1,\infty)$ satisfy
+\begin{equation}\label{eq:Ha}
+  \lim_{\xi\to\infty}\xi^{p+1}f'(\xi)=-pC,\qquad
+  0<\inf_{\xi\ge1}\xi^{p+1}|f'(\xi)|\le\sup_{\xi\ge1}\xi^{p+1}|f'(\xi)|<\infty,
+\end{equation}
+and let the weights $w_k\ge0$ satisfy
+\begin{equation}\label{eq:Hw}
+  W:=\sum_{k\ge1}w_k<\infty\qquad\text{and}\qquad w_k\ge c_1k^{-s}\quad(k\ge1)
+\end{equation}
+for some constants $c_1>0$ and $s\in\R$. Then the measure $\sigma$ of \eqref{eq:sigma} satisfies
+\begin{equation}\label{eq:main}
+  \log D_n(\sigma)=-pn^2\log n+\bigl(\kappa_p+\log C\bigr)n^2+o(n^2)\qquad(n\to\infty).
+\end{equation}
+\end{theorem}
+
+Under \eqref{eq:Ha}, $f$ is strictly decreasing with a finite limit $L$, and $f(\xi)-L\sim C\xi^{-p}$; Hankel
+determinants are invariant under translation of $\sigma$ (Lemma~\ref{lem:elem}), so $L$ plays no role. The upper bound
+in \eqref{eq:main} uses only $\sum_kw_k<\infty$; apart from the finiteness of the moments, the lower bound uses only
+$w_k\ge c_1k^{-s}$.
+
+Since $\sigma$ has infinitely many atoms, it has monic orthogonal polynomials of all degrees and a Jacobi matrix with
+off-diagonal entries $b_j>0$ (Lemma~\ref{lem:jacobi}). Theorem~\ref{thm:main} is equivalent to a doubly averaged
+statement about these coefficients.
+
+\begin{corollary}\label{cor:jacobi}
+Under the hypotheses of Theorem~\ref{thm:main},
+\[
+  \frac{2}{n^2}\sum_{j=1}^{n-1}(n-j)\log\bigl(j^pb_j\bigr)\longrightarrow\log\bigl(c(p)C\bigr).
+\]
+\end{corollary}
+
+The constant $\kappa_p$ is the value of a variational problem, which we solve explicitly. Let
+\[
+  \cA:=\bigl\{\mu\ \text{positive Borel measure on }(0,\infty):\ \mu\bigl((0,\infty)\bigr)=1,\ \mu\le\Leb\bigr\},
+\]
+where $\mu\le\Leb$ means $\mu(B)\le|B|$ for every Borel set $B$, and for $\mu\in\cA$ put
+\begin{equation}\label{eq:J}
+  \cJ_p(\mu):=\iint\log\bigl|u^{-p}-v^{-p}\bigr|\dd\mu(u)\dd\mu(v)\in[-\infty,\infty).
+\end{equation}
+For $\beta>0$ let $\omega_\beta$ be the arcsine probability measure on $[0,\beta]$, with density
+$1/(\pi\sqrt{y(\beta-y)})$. For $V\in[0,1]$ and $\alpha,\gamma>0$ let
+$\cB_V(\alpha,\gamma):=B(\alpha,\gamma)^{-1}\int_0^Vs^{\alpha-1}(1-s)^{\gamma-1}\dd s$ be the regularised incomplete beta
+function.
+
+\begin{theorem}\label{thm:equilibrium}
+Let $p>0$ and $c=c(p)$. Let $\mu^*$ be the probability measure on $(0,\infty)$
+\[
+  \mu^*:=\int_0^1\omega_{4ct^{-p}}\dd t,
+\]
+and let $\mu^*_u$ be its image under $x\mapsto x^{-1/p}$. Then:
+\begin{enumerate}
+\item $\mu^*_u\in\cA$, with density
+  $\rho^*(u)=\cB_{\min(1,\,u^{-p}/4c)}\bigl(\tfrac1p+\tfrac12,\tfrac12\bigr)$. In particular $\rho^*=1$ on
+  $(0,u_s]$, where $u_s:=(4c)^{-1/p}=2I(p)/\pi$, and $0<\rho^*<1$ on $(u_s,\infty)$.
+\item The logarithmic potential of $\mu^*$ satisfies $\int\log|x-y|\dd\mu^*(y)=\log c+p$ for $0<x\le4c$, and
+  $\ge\log c+p$ for all $x>0$.
+\item $\cJ_p(\mu^*_u)=\kappa_p$, and $\cJ_p(\mu)<\kappa_p$ for every $\mu\in\cA$ with $\mu\neq\mu^*_u$. Thus
+  $\sup_{\cA}\cJ_p=\kappa_p$, attained only at $\mu^*_u$.
+\end{enumerate}
+\end{theorem}
+
+Applied to the measure $\sum_kk^{-(2a+b)}\delta_{k^{-a}}$, Theorem~\ref{thm:main} gives the asymptotics of Hankel
+determinants of zeta values along arithmetic progressions.
+
+\begin{corollary}\label{cor:zeta}
+Let $a>0$ and $b$ be real numbers with $2a+b>1$. Then
+\[
+  \log\det_{1\le i,j\le n}\zeta\bigl(a(i+j)+b\bigr)=-an^2\log n+\Bigl(\frac{3a}{2}+\log c(a)\Bigr)n^2+o(n^2).
+\]
+In particular, $\log\det_{1\le i,j\le n}\zeta(i+j+b)=-n^2\log n+(\frac32-\log2)n^2+o(n^2)$ for every $b>-1$, and
+$\log\det_{1\le i,j\le n}\zeta(2(i+j)+b)=-2n^2\log n+(3+\log\frac{\pi^2}{16})n^2+o(n^2)$ for every $b>-3$.
+\end{corollary}
+
+\subsection{Context}\label{sec:context}
+\emph{Hankel determinants of zeta values.} Monien~\cite{Monien} studied the Hankel determinants
+$H_n^{(r)}[F]=\det(F(i+j+r))$ of Dirichlet series $F$, gave a multiple-sum formula for them \cite[Thm.~2.1]{Monien},
+and wrote for $F=\zeta$: ``We do not know how to prove the full asymptotic expansions but will describe a method
+that lets one at least understand the weaker asymptotic form $\log H_n^{(0)}[\zeta]\sim\log H_n^{(1)}[\zeta]\sim
+-n^2(\log(2n)-3/2)$.'' He also reports numerical experiments of D.~Zagier consistent with this form. Haynes and
+Zudilin~\cite{HaynesZudilin} wrote: ``for positive integers $a$ and $b$, we expect that $\log\det_{1\le i,j\le n}
+\zeta(a(i+j)+b)=-an^2\log n+O(n^2)$ as $n\to\infty$'', and proved the weaker bound ``$\log\det_{1\le i,j\le n}
+\zeta(a(i+j)+b)\le-(a/2)n^2\log n+O(n^2)$''. They also write
+that ``In [5] Monien developed these ideas further and rigorously justified the above asymptotics in the case
+$r=0$'', their reference [5] being a personal communication \cite[\S1]{HaynesZudilin}. Coons and Sutherland
+\cite[Thm.~1.3]{CoonsSutherland} proved, for every nondegenerate Dirichlet series $F(s)=\sum f(n)n^{-s}$ with
+$f\ge0$ convergent for $\Re s\ge s_0$, that $H_n^{(r)}[F]>0$ for $n\ge1$, $r\ge s_0-2$, and that
+$\log H_n^{(r)}[F]<-cn^2$ for some $c>0$ and all sufficiently large $n$ and $r$.
+
+Corollary~\ref{cor:zeta} therefore proves the asymptotic formula expected in~\cite{HaynesZudilin}, for all positive
+integers $a,b$ and more generally for real $a>0$ and $2a+b>1$, and it identifies the $n^2$ term. For $a=1$ the
+constant $\frac32-\log2$ agrees with Monien's weak asymptotic form, since $-n^2(\log 2n-\frac32)=-n^2\log
+n+(\frac32-\log2)n^2$. For $a=2$ and $b\in\{-2,0,2\}$ the determinants are known in closed form, by results of
+Baricz and \v{S}tampach~\cite{BariczStampach} on Hankel determinants of Rayleigh functions; their asymptotics are
+consistent with Corollary~\ref{cor:zeta} (Remark~\ref{rem:bs}). Apart from these closed-form cases, we have not found in
+the literature a published proof of the leading term $-an^2\log n$ (for $a=1$, $r=0$ see the remark
+of~\cite{HaynesZudilin} quoted above), nor of the $n^2$ term $\frac{3a}{2}+\log c(a)$.
+
+Hankel determinants of zeta-type moments also occur in recent irrationality work: Lai~\cite{Lai} writes that
+``Fauzan's proof uses Hankel determinants, which were previously studied by Haynes--Zudilin [23] and Zudilin [55]''
+(see~\cite{Fauzan}). The present paper is not concerned with arithmetic applications, and its results are logically
+independent of those works.
+
+\emph{The equilibrium problem.} The maximisation of $\cJ_p$ over $\cA$ is a logarithmic energy problem with an
+upper constraint on the measure. % TO VERIFY before submission: [Rakhmanov], [DragnevSaff], [KVA-PLMS] were consulted only through abstracts
+% (and [Rakhmanov] only through the abstract of [CDLO]); see NOTES.md.
+Constrained energy problems of this kind were introduced by Rakhmanov~\cite{Rakhmanov}
+to describe the zero distribution of discrete orthogonal polynomials on a compact interval, and were extended by
+Dragnev and Saff~\cite{DragnevSaff} and Kuijlaars and Van Assche~\cite{KVA-PLMS} (see the summary
+in~\cite{CDLO}). Dragnev and Saff prove existence and uniqueness of the constrained extremal measure, together with
+a characterisation theorem and a saturation result, with explicit results for Krawtchouk polynomials; Kuijlaars and
+Van Assche show that extremal polynomials on infinite discrete sets, such as those of the Meixner and Charlier
+polynomials, are governed by a constrained extremal energy problem that can be solved explicitly. Van Assche and Van Baelen~\cite{VAVB} treat a $q$-lattice
+$\{q^k\}$, which accumulates at $0$. We use no result from this theory: existence, uniqueness and the value of the
+maximum are proved directly in Section~\ref{sec:equilibrium}. We have not found in the literature the problem
+$\sup_\cA\cJ_p$, whose constraint has infinite total mass near the accumulation point, or its solution.
+
+For $p=1$, Monien~\cite[\S3]{Monien} set up a constrained maximisation of this type heuristically: ``We seek a
+continuous test function $\rho(x)$ which maximizes the functional Eq.~3.5 subject to the constraint that $0<\rho(x)\le
+1$ for all $x$ and $\rho(x)=0$ for $x<0$ and Eq.~3.4. We assume that such a continuous functions exists.'' His
+Theorem~3.1 gives the solution of the stationarity condition,
+\[
+  \rho(x)=1\ \ (0\le x\le\tfrac12),\qquad
+  \rho(x)=\tfrac{2}{\pi}\Bigl(\arctan\tfrac{1}{\sqrt{2x-1}}-\tfrac{\sqrt{2x-1}}{2x}\Bigr)\ \ (x>\tfrac12),
+\]
+which coincides with the density $\rho^*$ of Theorem~\ref{thm:equilibrium} for $p=1$ (Remark~\ref{rem:monien}). His
+argument assumes existence, checks only stationarity and does not contain an upper bound or a discretisation step.
+Theorem~\ref{thm:equilibrium} proves optimality and uniqueness for every $p>0$, and
+Sections~\ref{sec:upper}--\ref{sec:lower} supply the passage from the continuous problem to the determinants.
+
+\emph{Averaged arcsine laws.} The measure $\mu^*$ is an average of arcsine laws. A theorem of Kuijlaars and Van
+Assche on recurrence coefficients that vary regularly with $n/N$ (\cite{KVA-JAT}, quoted from
+\cite[Thm.~1.3]{CCV}) produces measures of exactly this shape as limiting zero distributions. With their
+conventions, a family of Jacobi matrices whose diagonal and off-diagonal entries (after rescaling by $N^p$) behave
+like $2c\,t^{-p}$ and $c\,t^{-p}$ as $n/N\to t$ has, at $t=1$, the limiting zero distribution $\int_0^1\omega_{[0,4ct^{-p}]}\dd t$. Heuristically, therefore,
+$\mu^*$ is the zero distribution that the measures of Theorem~\ref{thm:main} would have if their recurrence
+coefficients satisfied $a_n\sim2b_n\sim2c(p)Cn^{-p}$ pointwise; the saturation condition in
+Theorem~\ref{thm:equilibrium}(i) is exactly the equation that fixes $c=c(p)$. This heuristic is not used in the
+proofs, and we do not prove pointwise asymptotics of the recurrence coefficients: Corollary~\ref{cor:jacobi} is a
+statement about double Ces\`aro means only.
+
+\subsection{Method}
+By Heine's formula (Lemma~\ref{lem:heine}), $D_n$ is a sum over $n$-subsets $S$ of atoms of
+$\prod_{k\in S}w_k$ times a squared Vandermonde product. For $x_k=k^{-p}$ and $S=\{k_1<\dots<k_n\}$, the Vandermonde
+product is $n^{-pn(n-1)}\prod_{i\ne j}|g(u_i)-g(u_j)|$ with $g(u)=u^{-p}$ and $u_i=k_i/n$, and the empirical measure
+$\frac1n\sum\delta_{u_i}$ has at most one atom in each interval of length $1/n$, a discrete form of the constraint
+$\mu\le\Leb$. The upper bound (Section~\ref{sec:upper}) compares point configurations with step densities
+(Lemma~\ref{lem:disc}) and removes atoms beyond $Mn$ by a tail estimate; the lower bound
+(Section~\ref{sec:lower}) evaluates a single term of the Heine sum at the quantiles of a truncation of $\mu^*_u$. Both
+bounds meet at $\sup_\cA\cJ_p$, which Theorem~\ref{thm:equilibrium} identifies. General regularly spaced atoms are
+reduced to $x_k=Ck^{-p}$ by a mean-value comparison (Lemma~\ref{lem:spacing}).
+
+The only potential-theoretic input beyond elementary calculus is the positivity of the logarithmic energy of
+signed measures of total mass zero (Lemma~\ref{lem:positivity}), which is used only for the optimality and uniqueness
+part of Theorem~\ref{thm:equilibrium}(iii). It is a special case of a lemma of Beckermann, Kalyagin, Matos and
+Wielonsky~\cite[Lemma~2.1]{BKMW}; we include a short Fourier-analytic proof so that the paper is self-contained
+(Remark~\ref{rem:BKMW}).
+
+\subsection{Organisation and notation}
+Section~\ref{sec:prelim} collects the facts about Hankel determinants that we use. Section~\ref{sec:equilibrium}
+proves Theorem~\ref{thm:equilibrium}. Sections~\ref{sec:upper} and~\ref{sec:lower} prove the upper and lower bounds
+for $x_k=k^{-p}$, and Section~\ref{sec:proofs} completes the proofs of Theorem~\ref{thm:main} and
+Corollary~\ref{cor:jacobi}. Section~\ref{sec:zeta} treats zeta values, and Section~\ref{sec:numerics} reports
+numerical illustrations.
+
+Throughout, $p>0$ is fixed and $g(u):=u^{-p}$ on $(0,\infty)$. Constants denoted $C_M$, $C_U$, \dots\ depend only on
+$p$ and on the indicated parameters, and may change from line to line. We use the convention $0\log0=0$.
+
+\section{Hankel determinants of discrete measures}\label{sec:prelim}
+
+In this section $\sigma=\sum_{k\ge1}w_k\delta_{x_k}$ with $w_k\ge0$, $\sum_kw_k<\infty$ and $\sup_k|x_k|<\infty$, so
+that all moments are finite. For a finite set $S\subset\N$ write
+\[
+  w(S):=\prod_{k\in S}w_k,\qquad V_x(S):=\prod_{\substack{k,l\in S\\k<l}}(x_k-x_l)^2 .
+\]
+
+\begin{lemma}[Heine's formula]\label{lem:heine}
+For every $n\ge1$,
+\[
+  D_n(\sigma)=\sum_{\substack{S\subset\N\\|S|=n}}w(S)\,V_x(S).
+\]
+In particular all terms are nonnegative.
+\end{lemma}
+
+\begin{proof}
+Write $m_{i+j}=\sum_kw_kx_k^ix_k^j$. Expanding the determinant multilinearly in its columns (legitimate because
+$\sum_kw_k|x_k|^r\le WX^r$ with $W=\sum_kw_k$ and $X:=\sup_k|x_k|$, so all series converge absolutely),
+\[
+  D_n=\sum_{k_0,\dots,k_{n-1}\ge1}\Bigl(\prod_{j=0}^{n-1}w_{k_j}x_{k_j}^{\,j}\Bigr)\det\bigl(x_{k_j}^{\,i}\bigr)_{i,j=0}^{n-1}.
+\]
+The Vandermonde determinant vanishes unless the $k_j$ are distinct. Group the remaining tuples according to the set
+$S=\{l_0<\dots<l_{n-1}\}$ they enumerate, $k_j=l_{\pi(j)}$ with $\pi$ a permutation. Then
+$\det(x_{k_j}^i)=\operatorname{sgn}(\pi)\det(x_{l_j}^i)$ and
+\[
+  \sum_\pi\operatorname{sgn}(\pi)\prod_jx_{l_{\pi(j)}}^{\,j}=\det\bigl(x_{l_i}^{\,j}\bigr),
+\]
+so the contribution of $S$ is $w(S)\det(x_{l_j}^i)^2=w(S)V_x(S)$.
+\end{proof}
+
+\begin{lemma}\label{lem:elem}
+Let $\sigma,\sigma'$ be measures as above.
+\begin{enumerate}
+\item (Monotonicity) If $\sigma'=\sum w'_k\delta_{x_k}$ with $w_k\le w'_k$ for all $k$, then
+  $D_n(\sigma)\le D_n(\sigma')$.
+\item (Translation) $D_n(\sum w_k\delta_{x_k+t})=D_n(\sigma)$ for every $t\in\R$.
+\item (Scaling) $D_n(\sum w_k\delta_{\lambda x_k})=\lambda^{n(n-1)}D_n(\sigma)$ for $\lambda>0$, and
+  $D_n(\sum cw_k\delta_{x_k})=c^nD_n(\sigma)$ for $c>0$.
+\item (Positivity) If $w_k>0$ for infinitely many $k$ with pairwise distinct $x_k$, then $D_n(\sigma)>0$ for all $n$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+All four statements follow from Lemma~\ref{lem:heine}: its terms are nonnegative and increasing in each $w_k$;
+$V_x(S)$ depends only on differences; $V_{\lambda x}(S)=\lambda^{n(n-1)}V_x(S)$ and $(cw)(S)=c^nw(S)$; and under the
+hypothesis of (iv) some term is positive.
+\end{proof}
+
+\begin{lemma}[Regular spacing comparison]\label{lem:spacing}
+Let $f,h\in C^1[1,\infty)$ with $f'<0$ and $h'<0$ on $[1,\infty)$, both bounded on $[1,\infty)$, and suppose that
+$\rho:=f'/h'$ satisfies $R^{-1}\le\rho\le R$ on $[1,\infty)$ for some $R\ge1$ and $\rho(\xi)\to1$ as $\xi\to\infty$.
+Put $\eta(m):=\sup_{\xi\ge m}|\log\rho(\xi)|$. Then for all weights $w_k\ge0$ with $\sum w_k<\infty$ and all $n\ge1$,
+\[
+  \Bigl|\log D_n\Bigl(\sum_kw_k\delta_{f(k)}\Bigr)-\log D_n\Bigl(\sum_kw_k\delta_{h(k)}\Bigr)\Bigr|
+  \le2\sum_{i=1}^{n-1}(n-i)\,\eta(i)=o(n^2),
+\]
+whenever one (hence both) of the determinants is positive.
+\end{lemma}
+
+\begin{proof}
+Let $S=\{k_1<\dots<k_n\}$. For $i<j$, Cauchy's mean value theorem gives
+$(f(k_i)-f(k_j))/(h(k_i)-h(k_j))=\rho(\xi)$ for some $\xi\in(k_i,k_j)$. Since $\xi>k_i\ge i$, the ratio of the
+squared factors lies in $[e^{-2\eta(i)},e^{2\eta(i)}]$. Multiplying over pairs, $V_f(S)/V_h(S)$ lies in
+$[e^{-E_n},e^{E_n}]$ with $E_n=2\sum_{i<n}(n-i)\eta(i)$, and the bound follows by comparing the Heine sums term by
+term. Finally $\eta$ is bounded by $\log R$ and tends to $0$, so $E_n=o(n^2)$.
+\end{proof}
+
+\begin{lemma}[Jacobi coefficients]\label{lem:jacobi}
+Suppose $D_n(\sigma)>0$ for all $n$. Let $P_k$ be the monic orthogonal polynomials of $\sigma$ and
+$h_k:=\int P_k^2\dd\sigma$. Then $D_n=\prod_{k=0}^{n-1}h_k$. Moreover $xP_k=P_{k+1}+a_{k+1}P_k+b_k^2P_{k-1}$ for
+$k\ge1$, with $b_k:=(h_k/h_{k-1})^{1/2}>0$, and
+\[
+  D_n(\sigma)=m_0^{\,n}\prod_{j=1}^{n-1}b_j^{\,2(n-j)} .
+\]
+\end{lemma}
+
+The numbers $b_k$ are the off-diagonal entries of the Jacobi matrix of $\sigma$ (the coefficients of the
+three-term recurrence for the orthonormal polynomials $P_k/\sqrt{h_k}$).
+
+\begin{proof}
+The Hankel matrix $H_n=(m_{i+j})_{i,j<n}$ is the Gram matrix of $1,x,\dots,x^{n-1}$ in $L^2(\sigma)$. Writing
+$(P_0,\dots,P_{n-1})^T=L(1,\dots,x^{n-1})^T$ with $L$ unit lower triangular gives
+$LH_nL^T=\operatorname{diag}(h_0,\dots,h_{n-1})$, so $D_n=\prod_{k<n}h_k$. The polynomial $xP_k-P_{k+1}$ has degree $\le k$, and it is orthogonal to
+$P_l$ for $l\le k-2$; its $P_{k-1}$-coefficient is
+\[
+  \frac1{h_{k-1}}\int xP_kP_{k-1}\dd\sigma=\frac1{h_{k-1}}\int P_k\,(xP_{k-1})\dd\sigma=\frac{h_k}{h_{k-1}} .
+\] Hence $h_k=m_0b_1^2\cdots b_k^2$ and
+$D_n=\prod_{k=0}^{n-1}m_0\prod_{j\le k}b_j^2=m_0^n\prod_{j=1}^{n-1}b_j^{2(n-j)}$.
+\end{proof}
+
+\begin{lemma}\label{lem:sumlog}
+$2\sum_{j=1}^{n-1}(n-j)\log j=n^2\log n-\frac32n^2+O(n\log n)$.
+\end{lemma}
+
+\begin{proof}
+Let $\phi(x)=(n-x)\log x$ on $[1,n]$. Then $|\phi'(x)|\le\log n+n/x$, so
+$\bigl|\sum_{j=1}^{n-1}\phi(j)-\int_1^n\phi\bigr|\le\sum_{j=1}^{n-1}(\log n+n/j)=O(n\log n)$, and
+$\int_1^n(n-x)\log x\dd x=\frac{n^2}{2}\log n-\frac34n^2+O(n)$.
+\end{proof}
+
+\section{The constrained equilibrium problem}\label{sec:equilibrium}
+
+\subsection{Energies}
+For finite positive Borel measures $\mu,\nu$ on $(0,\infty)$ with $\int\log(1+x)\dd\mu<\infty$ and
+$\int\log(1+x)\dd\nu<\infty$ put
+\[
+  \cL(\mu,\nu):=\iint\log|x-y|\dd\mu(x)\dd\nu(y),\qquad\cL(\mu):=\cL(\mu,\mu).
+\]
+Since $\log|x-y|\le\log(1+x)+\log(1+y)$ for $x,y>0$, the positive part of the integrand is integrable, so
+$\cL(\mu,\nu)\in[-\infty,\infty)$ is well defined. Let
+\[
+  \sigma_p(\dd x):=\tfrac1p\,x^{-1-1/p}\dd x\quad\text{on }(0,\infty),
+\]
+the image of Lebesgue measure on $(0,\infty)$ under $g(u)=u^{-p}$. For $\tau>0$ let $\cA_\tau$ be the set of positive
+Borel measures on $(0,\infty)$ of mass $\tau$ with $\mu\le\Leb$; thus $\cA=\cA_1$. For $\mu\in\cA_\tau$ the image
+$\mu^x:=g_*\mu$ satisfies $\mu^x\le\sigma_p$, hence $\int\log(1+x)\dd\mu^x\le\tau\log2+\int_1^\infty\log(1+x)\dd
+\sigma_p<\infty$, and we define
+\[
+  \cJ_p(\mu):=\cL(\mu^x)=\iint\log|g(u)-g(v)|\dd\mu(u)\dd\mu(v)\in[-\infty,\infty),\qquad
+  E_p:=\sup_{\mu\in\cA}\cJ_p(\mu).
+\]
+
+\begin{lemma}[Scaling]\label{lem:scaling}
+For a measure $\mu$ on $(0,\infty)$ and $\tau>0$ let $\mu_\tau(B):=\tau\mu(B/\tau)$. If $\mu$ has mass $m$ and
+density $\rho\le1$, then $\mu_\tau$ has mass $\tau m$ and density $\rho(\cdot/\tau)\le1$, and
+$\cJ_p(\mu_\tau)=\tau^2(\cJ_p(\mu)-pm^2\log\tau)$. In particular $\mu\mapsto\mu_\tau$ is a bijection
+$\cA\to\cA_\tau$ and $\sup_{\cA_\tau}\cJ_p=\tau^2(E_p-p\log\tau)$.
+\end{lemma}
+
+\begin{proof}
+$\mu_\tau(B)=\tau\int_{B/\tau}\rho(u)\dd u=\int_B\rho(v/\tau)\dd v$. Since $g(\tau u)=\tau^{-p}g(u)$,
+\[
+  \cJ_p(\mu_\tau)=\tau^2\iint\log|g(\tau u)-g(\tau v)|\dd\mu\dd\mu=\tau^2\bigl(\cJ_p(\mu)-pm^2\log\tau\bigr).
+\]
+\end{proof}
+
+\subsection{Arcsine potentials}
+\begin{lemma}\label{lem:arcsine}
+Let $\beta>0$ and $U_\beta(x):=\int\log|x-y|\dd\omega_\beta(y)$. Then $U_\beta(x)=\log(\beta/4)$ for
+$x\in[0,\beta]$, and $U_\beta$ is increasing on $[\beta,\infty)$; in particular $U_\beta\ge\log(\beta/4)$ on
+$[0,\infty)$. Moreover, for every $x\ge0$,
+\begin{equation}\label{eq:absbound}
+  \int\bigl|\log|x-y|\bigr|\dd\omega_\beta(y)\le2\log(1+x+\beta)+\bigl|\log(\beta/4)\bigr| .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Write $x=\frac\beta2(1-\cos\varphi)$ and $y=\frac\beta2(1-\cos\theta)$ with $\theta,\varphi\in[0,\pi]$. Under
+$y=\frac\beta2(1-\cos\theta)$, the measure $\omega_\beta$ is the image of $\dd\theta/\pi$ on $[0,\pi]$, since
+$\sqrt{y(\beta-y)}=\frac\beta2\sin\theta$. Now
+$\log|x-y|=\log\frac\beta4+\log|2(\cos\theta-\cos\varphi)|$, and
+\[
+  \log|2(\cos\theta-\cos\varphi)|=\log\Bigl|2\sin\tfrac{\theta+\varphi}{2}\Bigr|
+  +\log\Bigl|2\sin\tfrac{\theta-\varphi}{2}\Bigr|
+  =-\sum_{k\ge1}\frac2k\cos k\theta\cos k\varphi,
+\]
+using $\log|2\sin(\alpha/2)|=-\sum_{k\ge1}k^{-1}\cos k\alpha$, the Fourier series of an $L^2(0,2\pi)$ function.
+Each of the two series converges in $L^2([0,\pi],\dd\theta)$, hence in $L^1$, so we may integrate termwise; since
+$\int_0^\pi\cos k\theta\dd\theta=0$ for $k\ge1$, we get $U_\beta(x)=\log(\beta/4)$ for $x\in[0,\beta]$. For
+$x>\beta$, $U_\beta'(x)=\int(x-y)^{-1}\dd\omega_\beta(y)>0$, and $U_\beta$ is continuous at $\beta$ by dominated
+convergence (near $y=\beta$ the integrand is dominated by a multiple of $|\log s|\,s^{-1/2}$, $s=\beta-y$). For
+\eqref{eq:absbound}, write $|t|=2t^+-t$: since $|x-y|\le x+\beta$ on the support,
+$\int|\log|x-y||\dd\omega_\beta=2\int\log^+|x-y|\dd\omega_\beta-U_\beta(x)\le2\log(1+x+\beta)-\log(\beta/4)$.
+\end{proof}
+
+\subsection{Positivity of the energy of signed measures}
+
+\begin{lemma}\label{lem:positivity}
+Let $\nu$ be a finite signed Borel measure on $\R$ with $\nu(\R)=0$ and
+$\iint|\log|x-y||\dd|\nu|(x)\dd|\nu|(y)<\infty$. Then
+\[
+  -\iint\log|x-y|\dd\nu(x)\dd\nu(y)=\int_0^\infty\frac{|\hat\nu(\xi)|^2}{\xi}\dd\xi\ \ge0,
+  \qquad\hat\nu(\xi):=\int e^{i\xi x}\dd\nu(x),
+\]
+with equality if and only if $\nu=0$.
+\end{lemma}
+
+\begin{proof}
+For $0<\varepsilon<1<R$ and $a\in\R\setminus\{0\}$ put
+$K_{\varepsilon,R}(a):=\int_\varepsilon^R(\cos(a\xi)-e^{-\xi})\,\xi^{-1}\dd\xi$.
+
+\emph{Step 1: a uniform bound.} We use three elementary estimates: (a) for $1\le A<B$,
+$|\int_A^B\cos t\,\frac{\dd t}{t}|\le3/A\le3$ (integrate by parts); (b) for $0<A<B\le1$,
+$\int_A^B\cos t\,\frac{\dd t}{t}=\log\frac BA-\theta$ with $0\le\theta\le\int_A^B\frac t2\dd t\le\frac{B^2}{4}\le\frac14$,
+because $0\le1-\cos t\le t^2/2$;
+(c) $\int_\varepsilon^Re^{-\xi}\frac{\dd\xi}{\xi}=\log\frac1\varepsilon+\theta'$ with $|\theta'|\le2$. Substitute
+$t=|a|\xi$, so that $\int_\varepsilon^R\cos(a\xi)\frac{\dd\xi}{\xi}=\int_{\varepsilon|a|}^{R|a|}\cos t\frac{\dd t}{t}$.
+If $\varepsilon|a|<1<R|a|$, then $K_{\varepsilon,R}(a)=-\log|a|+O(1)$. If $R|a|\le1$, then
+$K_{\varepsilon,R}(a)=\log R+O(1)$ and $0<\log R\le\log(1/|a|)$. If $\varepsilon|a|\ge1$, then
+$K_{\varepsilon,R}(a)=-\log(1/\varepsilon)+O(1)$ and $0<\log(1/\varepsilon)\le\log|a|$. In all cases
+\begin{equation}\label{eq:Kbound}
+  |K_{\varepsilon,R}(a)|\le\bigl|\log|a|\bigr|+6\qquad(0<\varepsilon<1<R,\ a\ne0).
+\end{equation}
+
+\emph{Step 2: the pointwise limit.} We have
+$K_{\varepsilon,R}(a)-K_{\varepsilon,R}(1)=\int_{\varepsilon|a|}^{\varepsilon}\cos t\frac{\dd t}{t}+\int_R^{R|a|}\cos
+t\frac{\dd t}{t}$. As $\varepsilon\to0$ the first integral tends to $\log(1/|a|)$, by (b); as $R\to\infty$ the second
+tends to $0$, by (a). Also $K_{\varepsilon,R}(1)\to k_0:=\int_0^\infty(\cos\xi-e^{-\xi})\xi^{-1}\dd\xi$, which
+converges. Hence $K_{\varepsilon,R}(a)\to k_0-\log|a|$.
+
+\emph{Step 3.} The integrability hypothesis forces $|\nu|\otimes|\nu|$ to give zero mass to the diagonal $\{x=y\}$.
+By \eqref{eq:Kbound} and dominated convergence (with respect to $|\nu|\otimes|\nu|$, dominating function
+$|\log|x-y||+6$), and since $\nu(\R)=0$,
+\[
+  \iint K_{\varepsilon,R}(x-y)\dd\nu\dd\nu\longrightarrow k_0\,\nu(\R)^2-\iint\log|x-y|\dd\nu\dd\nu
+  =-\iint\log|x-y|\dd\nu\dd\nu .
+\]
+On the other hand, the integrand $(\xi,x,y)\mapsto(\cos((x-y)\xi)-e^{-\xi})/\xi$ is bounded on
+$[\varepsilon,R]\times\R^2$, so by Fubini, $\iint\cos((x-y)\xi)\dd\nu\dd\nu=|\hat\nu(\xi)|^2$ and $\nu(\R)=0$,
+\[
+  \iint K_{\varepsilon,R}(x-y)\dd\nu\dd\nu=\int_\varepsilon^R\frac{|\hat\nu(\xi)|^2}{\xi}\dd\xi .
+\]
+Letting $\varepsilon\to0$, $R\to\infty$ (monotone convergence on the right) gives the identity.
+
+\emph{Equality.} If the integral vanishes, then $\hat\nu=0$ on $(0,\infty)$ by continuity, hence on $\R$, because
+$\hat\nu(-\xi)=\overline{\hat\nu(\xi)}$ and $\hat\nu(0)=\nu(\R)=0$. Then $\nu=0$: for the Gaussian
+$G_t(x)=(2\pi t)^{-1/2}e^{-x^2/2t}$ we have $G_t(x)=\frac1{2\pi}\int e^{-t\xi^2/2}e^{-i\xi x}\dd\xi$, so by Fubini
+$(G_t*\nu)(x)=\frac1{2\pi}\int e^{-t\xi^2/2}e^{-i\xi x}\hat\nu(\xi)\dd\xi=0$ for all $x$ and $t>0$; for bounded
+continuous $\psi$, $\int\psi\dd\nu=\lim_{t\to0}\int(G_t*\psi)\dd\nu=\lim_{t\to0}\int\psi\,(G_t*\nu)\dd x=0$ by
+dominated convergence, so $\nu=0$.
+\end{proof}
+
+\begin{remark}\label{rem:BKMW}
+Lemma~\ref{lem:positivity} is a special case of \cite[Lemma~2.1]{BKMW}. There the energy is
+$I(\mu)=\iint\log\frac1{|x-y|}\dd\mu(x)\dd\mu(y)$, $M(\Sigma)$ denotes the Borel measures of finite mass supported
+in $\Sigma$ with finite energy and with $\int\log(1+|t|)\dd\mu(t)<\infty$ \cite[(1.12)]{BKMW}, and the statement
+reads: ``Lemma~2.1. Let $\mu,\nu\in M(\mathbb C)$ with $\|\mu\|=\|\nu\|$. Then $I(\mu-\nu)\ge0$, and $I(\mu-\nu)=0$ if
+and only if $\mu=\nu$.'' The proof given there refers to the literature for both the compactly supported and the
+unbounded case. In the application below ($\mu=g_*\mu_0$ with $\mu_0\in\cA$ and $\nu=\mu^*$), both measures are
+positive, of mass $1$, of finite energy, and satisfy $\int\log(1+x)<\infty$, so they lie in $M(\mathbb C)$ and
+\cite[Lemma~2.1]{BKMW} applies as well. Either reference suffices; we use Lemma~\ref{lem:positivity}.
+\end{remark}
+
+\subsection{The explicit maximiser}
+Throughout this subsection $c=c(p)$ and $\beta_t:=4ct^{-p}$ for $t\in(0,1]$, so that $\mu^*=\int_0^1\omega_{\beta_t}\dd
+t$. Put $U^*(x):=\int\log|x-y|\dd\mu^*(y)$.
+
+\begin{proof}[Proof of Theorem~\ref{thm:equilibrium}(i)]
+Fix $x>0$ and let $t_x:=(4c/x)^{1/p}$, so that $x<\beta_t$ if and only if $t<t_x$. Then
+\[
+  \frac{\dd\mu^*}{\dd x}=\frac1\pi\int_0^{\min(1,t_x)}\frac{\dd t}{\sqrt{x(\beta_t-x)}}
+  =\frac{t_x}{\pi x}\int_0^{\min(1,1/t_x)}\frac{\dd s}{\sqrt{s^{-p}-1}},
+\]
+by the substitution $t=t_xs$, for which $\beta_t=xs^{-p}$. The substitution $v=s^p$ gives, for $0\le V\le1$,
+\[
+  \int_0^{V^{1/p}}\frac{\dd s}{\sqrt{s^{-p}-1}}=\frac1p\int_0^Vv^{\frac1p-\frac12}(1-v)^{-\frac12}\dd v
+  =\frac1pB\bigl(\tfrac1p+\tfrac12,\tfrac12\bigr)\cB_V\bigl(\tfrac1p+\tfrac12,\tfrac12\bigr),
+\]
+and $B(\frac1p+\frac12,\frac12)=\sqrt\pi\,\Gamma(\frac1p+\frac12)/\Gamma(\frac1p+1)=2I(p)$. With
+$V=\min(1,t_x^{-p})=\min(1,x/4c)$ we obtain
+\[
+  \frac{\dd\mu^*}{\dd x}=\frac{(4c)^{1/p}x^{-1-1/p}}{\pi}\cdot\frac{2I(p)}{p}\cdot\cB_{\min(1,x/4c)}
+  \bigl(\tfrac1p+\tfrac12,\tfrac12\bigr)
+  =\cB_{\min(1,x/4c)}\bigl(\tfrac1p+\tfrac12,\tfrac12\bigr)\cdot\frac{\dd\sigma_p}{\dd x},
+\]
+because $(4c)^{1/p}=\pi/(2I(p))$ by the definition of $c=c(p)$. Thus $\mu^*=\sigma_p$ on $[4c,\infty)$ and
+$\mu^*<\sigma_p$ (in density) on $(0,4c)$. Pulling back by $x=u^{-p}$, which maps $\sigma_p$ to Lebesgue measure, gives
+the density $\rho^*$ of $\mu^*_u$; $\rho^*$ is continuous and positive on $(0,\infty)$, equal to $1$ exactly on
+$(0,u_s]$, and $u_s=(4c)^{-1/p}=2I(p)/\pi$. The total mass is $\int_0^1\dd t=1$. Hence $\mu^*_u\in\cA$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:equilibrium}(ii)]
+By \eqref{eq:absbound}, for fixed $x>0$,
+$\int_0^1\int|\log|x-y||\dd\omega_{\beta_t}(y)\dd t\le\int_0^1\bigl(2\log(1+x+\beta_t)+|\log(\beta_t/4)|\bigr)\dd t<\infty$,
+since $\log\beta_t=\log4c-p\log t$. By Fubini, $U^*(x)=\int_0^1U_{\beta_t}(x)\dd t$. If $x\le4c=\beta_1$, then
+$x\le\beta_t$ for all $t\in(0,1]$, and Lemma~\ref{lem:arcsine} gives
+$U^*(x)=\int_0^1\log(ct^{-p})\dd t=\log c+p$. For all $x>0$, Lemma~\ref{lem:arcsine} gives
+$U_{\beta_t}(x)\ge\log(\beta_t/4)$, hence $U^*(x)\ge\log c+p$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:equilibrium}(iii)]
+\emph{The value.} For $0<s\le t\le1$ we have $\supp\omega_{\beta_t}\subset[0,\beta_t]\subset[0,\beta_s]$, so by
+Lemma~\ref{lem:arcsine}
+\[
+  \iint\log|x-y|\dd\omega_{\beta_s}(x)\dd\omega_{\beta_t}(y)=\int U_{\beta_s}\dd\omega_{\beta_t}=\log\frac{\beta_s}{4}
+  =\log c-p\log\min(s,t).
+\]
+By \eqref{eq:absbound}, $\iint|\log|x-y||\dd\omega_{\beta_s}\dd\omega_{\beta_t}\le2\log(1+\beta_s+\beta_t)+
+|\log(\beta_t/4)|$, which is integrable over $(s,t)\in(0,1]^2$. Hence $\cL(\mu^*)$ converges absolutely, and by
+Fubini
+\begin{align*}
+  \cJ_p(\mu^*_u)=\cL(\mu^*)&=\int_0^1\!\!\int_0^1\bigl(\log c-p\log\min(s,t)\bigr)\dd s\dd t\\
+  &=\log c-p\int_0^12(1-m)\log m\dd m=\log c+\frac{3p}{2}=\kappa_p .
+\end{align*}
+
+\emph{Optimality.} Let $\mu\in\cA$. If $\cJ_p(\mu)=-\infty$ there is nothing to prove, so assume $\cJ_p(\mu)>-\infty$
+and let $\mu^x=g_*\mu\le\sigma_p$. We first check that all energies below converge absolutely.
+\begin{itemize}
+\item $\cL(\mu^x)$: the positive part of the integrand is integrable (Section~3.1), and the negative part is
+  integrable because $\cL(\mu^x)>-\infty$.
+\item $\cL(\mu^*)$: shown above.
+\item $\cL(\mu^x,\mu^*)$: using $|t|=2t^+-t$, $\log^+|x-y|\le\log(1+x)+\log(1+y)$ and part (ii),
+  \[
+    \int\!\!\int\bigl|\log|x-y|\bigr|\dd\mu^*(y)\dd\mu^x(x)\le\int\Bigl(2\log(1+x)+2\!\int\!\log(1+y)\dd\mu^*(y)
+    -(\log c+p)\Bigr)\dd\mu^x(x)<\infty,
+  \]
+  since $\mu^*\le\sigma_p$ and $\mu^x\le\sigma_p$ have finite logarithmic moments and mass $1$.
+\end{itemize}
+Let $\nu:=\mu^x-\mu^*$, a finite signed measure on $(0,\infty)$ with $\nu(\R)=0$ and
+$\iint|\log|x-y||\dd|\nu|\dd|\nu|<\infty$. Expanding bilinearly (all terms are finite),
+\[
+  \cJ_p(\mu)=\cL(\mu^x)=\cL(\mu^*)+2\int U^*\dd\nu+\iint\log|x-y|\dd\nu\dd\nu .
+\]
+By Lemma~\ref{lem:positivity} the last term is $\le0$, with equality only if $\nu=0$. For the middle term, $\nu$ has
+mass $0$, so $\int U^*\dd\nu=\int(U^*-\log c-p)\dd\nu$. By (ii) the integrand vanishes on $(0,4c]$ and is $\ge0$ on
+$(4c,\infty)$, where $\nu=\mu^x-\sigma_p\le0$ by (i). Hence $\int U^*\dd\nu\le0$, and
+$\cJ_p(\mu)\le\cL(\mu^*)=\kappa_p$, with equality only if $\nu=0$, that is, $\mu=\mu^*_u$.
+\end{proof}
+
+\begin{remark}
+The only step of the paper that uses Lemma~\ref{lem:positivity} (equivalently \cite[Lemma~2.1]{BKMW}) is the
+optimality and uniqueness part of Theorem~\ref{thm:equilibrium}(iii). In the proof of Theorem~\ref{thm:main} it is
+needed for the inequality $E_p\le\kappa_p$, which enters the upper bound. The lower bound uses only parts (i) and the
+value $\cJ_p(\mu^*_u)=\kappa_p$.
+\end{remark}
+
+\begin{remark}\label{rem:monien}
+For $p=1$ we have $c=\frac12$ and $\rho^*(u)=\cB_{\min(1,1/2u)}(\frac32,\frac12)$. We checked numerically (mpmath,
+30 digits; script \texttt{checks/monien\_check.py}) that this agrees with Monien's density $\rho$ quoted in
+Section~\ref{sec:context} at eleven points $x\in[0.1,10^4]$, to within $10^{-30}$.
+\end{remark}
+
+\section{Discretisation and the upper bound}\label{sec:upper}
+
+In Sections~\ref{sec:upper} and~\ref{sec:lower} we write, for a finite $S=\{k_1<\dots<k_N\}\subset\N$,
+\[
+  V(S):=\prod_{i<j}\bigl(k_i^{-p}-k_j^{-p}\bigr)^2,\qquad u_i:=k_i/n .
+\]
+Since $k^{-p}=n^{-p}g(k/n)$,
+\begin{equation}\label{eq:VS}
+  \log V(S)=-pN(N-1)\log n+\sum_{i\ne j}\log|g(u_i)-g(u_j)| .
+\end{equation}
+
+\begin{lemma}[Discretisation]\label{lem:disc}
+Let $M\ge1$. There is $C_M$ such that for all $n\ge2$ and all $S=\{k_1<\dots<k_N\}\subset\N\cap[1,Mn]$ with
+$N\le n$,
+\[
+  \sum_{i\ne j}\log|g(u_i)-g(u_j)|\le n^2\cJ_p(\bar\mu_S)+C_Mn\log n,
+\]
+where $\bar\mu_S\in\cA_{N/n}$ has density $1$ on $\bigcup_{k\in S}A_k$, $A_k:=[(k-1)/n,k/n]$.
+\end{lemma}
+
+\begin{proof}
+For cells $A,A'$ write $\langle F\rangle_{A\times A'}:=n^2\iint_{A\times A'}F(u,v)\dd u\dd v$ for the average of
+$F(u,v):=\log|g(u)-g(v)|$. Then
+$n^2\cJ_p(\bar\mu_S)=\sum_{i\ne j}\langle F\rangle_{A_{k_i}\times A_{k_j}}+\sum_i\langle F\rangle_{A_{k_i}^2}$. Recall
+that $|g'(u)|=pu^{-p-1}$ is decreasing.
+
+\emph{Non-adjacent pairs.} Let $k<l$ with $l\ge k+2$. For $u\in A_k$, $v\in A_l$ we have
+$g(u)-g(v)\ge g(k/n)-g((l-1)/n)=:D>0$. With $\Delta:=g((l-1)/n)-g(l/n)\le|g'((l-1)/n)|/n$ and
+$D\ge\frac{l-1-k}{n}|g'((l-1)/n)|$ (mean value theorem and monotonicity of $|g'|$),
+\[
+  \log\bigl(g(k/n)-g(l/n)\bigr)=\log(D+\Delta)\le\log D+\frac\Delta D\le\langle F\rangle_{A_k\times A_l}+\frac1{l-k-1}.
+\]
+
+\emph{Adjacent pairs.} Let $l=k+1$. The point value is $\log(g(k/n)-g((k+1)/n))\le\log(|g'(k/n)|/n)$. For
+$u\in A_k$, $v\in A_{k+1}$, $g(u)-g(v)\ge|g'((k+1)/n)|(v-u)$, so
+$\langle F\rangle_{A_k\times A_{k+1}}\ge\log|g'((k+1)/n)|-\log n+c_0$ with
+$c_0:=\int_0^1\int_1^2\log(y-x)\dd y\dd x=2\log2-\frac32$. Since $|g'(k/n)|/|g'((k+1)/n)|=(1+1/k)^{p+1}\le2^{p+1}$, the
+point value exceeds the average by at most $(p+1)\log2-c_0$.
+
+\emph{Diagonal cells.} For $u,v\in A_k$, $|g(u)-g(v)|\ge|g'(k/n)||u-v|$, so
+$\langle F\rangle_{A_k^2}\ge\log|g'(k/n)|-\log n-\frac32$, using $\iint_{[0,1]^2}\log|x-y|=-\frac32$. For $k\le Mn$,
+$|g'(k/n)|\ge pM^{-p-1}$.
+
+\emph{Summation.} For fixed $i$, the partners $j>i$ with $k_j\ge k_i+2$ have distinct values $k_j-k_i-1\ge1$, so
+$\sum_j1/(k_j-k_i-1)\le1+\log n$; there is at most one adjacent partner. Counting ordered pairs,
+\begin{multline*}
+  \sum_{i\ne j}\log|g(u_i)-g(u_j)|\le n^2\cJ_p(\bar\mu_S)+2N\bigl(1+\log n+(p+1)\log2+|c_0|\bigr)\\
+  +N\bigl(\log n+\tfrac32+(p+1)\log M+|\log p|\bigr),
+\end{multline*}
+which is of the stated form since $N\le n$.
+\end{proof}
+
+The diagonal estimate is the only place where $S\subset[1,Mn]$ is used: an isolated point $k\gg n$ makes
+$\cJ_p(\bar\mu_S)$ very negative while contributing little to the point sum. Atoms beyond $Mn$ are therefore treated
+separately in Theorem~\ref{thm:upper}.
+
+\begin{corollary}\label{cor:head}
+For $M\ge1$ there is $C'_M$ such that for $n\ge2$ and $S\subset\N\cap[1,Mn]$ with $|S|=N\le n$,
+\[
+  \log V(S)\le-pN^2\log N+E_pN^2+C'_Mn\log n .
+\]
+\end{corollary}
+
+\begin{proof}
+For $N=0$ both sides are trivial. Otherwise, by \eqref{eq:VS}, Lemma~\ref{lem:disc} and Lemma~\ref{lem:scaling} with
+$\tau=N/n$,
+\[
+  \log V(S)\le-pN(N-1)\log n+N^2\bigl(E_p-p\log(N/n)\bigr)+C_Mn\log n,
+\]
+and $-pN(N-1)\log n-pN^2\log(N/n)=-pN^2\log N+pN\log n$.
+\end{proof}
+
+Note that only the value of the supremum $E_p$ enters here; no information about maximisers is used.
+
+\begin{theorem}[Upper bound]\label{thm:upper}
+Let $w_k\ge0$ with $W=\sum_kw_k<\infty$ and $\sigma_0:=\sum_kw_k\delta_{k^{-p}}$. Then
+\[
+  \limsup_{n\to\infty}\frac1{n^2}\Bigl(\log D_n(\sigma_0)+pn^2\log n\Bigr)\le E_p .
+\]
+\end{theorem}
+
+\begin{proof}
+Fix $M\ge2$. Each $n$-set $S\subset\N$ splits uniquely as $S=H\cup T$ with $H:=S\cap[1,Mn]$ and $T:=S\cap(Mn,\infty)$;
+let $m:=|T|$ and $N:=n-m=|H|$. Then $V(S)=V(H)V(T)\prod_{a\in H,b\in T}(a^{-p}-b^{-p})^2$.
+
+\emph{Cross pairs.} For $a\in H$ and $b\in T$, $0<a^{-p}-b^{-p}<a^{-p}$. Since $H$ consists of $N$ distinct positive
+integers, $\prod_{a\in H}a\ge N!$, so the cross product is at most $(N!)^{-2pm}$.
+
+\emph{Tail.} All atoms $b^{-p}$ with $b\in T$ lie in the interval $(0,(Mn)^{-p})$; hence
+\[
+  V(T)\le(Mn)^{-pm(m-1)},\qquad\sum_{|T|=m}w(T)\le W^m .
+\]
+
+\emph{Head.} $\sum_{|H|=N}w(H)V(H)\le W^N\sup_HV(H)$, and Corollary~\ref{cor:head} bounds $\sup_HV(H)$.
+
+By Lemma~\ref{lem:heine}, $D_n(\sigma_0)\le\sum_{m=0}^nT_m$, where
+\[
+  \log T_m\le n\log^+W-2pm\log N!-pN^2\log N+E_pN^2-pm(m-1)\log(Mn)+C'_Mn\log n .
+\]
+Recall that $E_p=\kappa_p$ is finite (Theorem~\ref{thm:equilibrium}(iii)). Put $t:=m/n$. If $N\ge1$, use $\log N!\ge N\log N-N$, $\log N=\log n+\log(1-t)$ and $\log(Mn)=\log n+\log M$.
+The coefficient of $\log n$ is $-p(2mN+N^2+m^2)=-pn^2$, and the remaining terms give
+\[
+  \log T_m+pn^2\log n-E_pn^2\le n^2\phi_M(t)+O_M(n\log n),
+\]
+\[
+  \phi_M(t):=-p(1-t)(1+t)\log(1-t)+2pt(1-t)-E_p\,t(2-t)-pt^2\log M .
+\]
+Since $-(1-t)\log(1-t)\le t$ on $[0,1)$, we get $\phi_M(t)\le p(1+t)t+2pt+2|E_p|t-pt^2\log M\le At-pt^2\log M$ with
+$A:=4p+2|E_p|$. If $N=0$ ($t=1$), then directly $\log T_n\le n\log^+W-pn(n-1)\log(Mn)+C'_Mn\log n$, and
+$-p\log M-E_p\le A-p\log M$, so the same bound holds. The $O_M(n\log n)$ terms are uniform in $m$, and
+$\max_{t\in[0,1]}(At-pt^2\log M)\le A^2/(4p\log M)$. Summing the $n+1$ terms,
+\[
+  \limsup_{n\to\infty}\frac1{n^2}\Bigl(\log D_n(\sigma_0)+pn^2\log n\Bigr)\le E_p+\frac{A^2}{4p\log M}.
+\]
+Let $M\to\infty$.
+\end{proof}
+
+\section{The lower bound}\label{sec:lower}
+
+\begin{lemma}\label{lem:bathtub}
+Let $\varphi$ be decreasing on $(0,\infty)$ and integrable near $0$, and let $\lambda\le\Leb$ be a measure on
+$(0,\infty)$ of mass $\delta>0$ with $\int|\varphi|\dd\lambda<\infty$. Then $\int\varphi\dd\lambda\le\int_0^\delta
+\varphi(u)\dd u$.
+\end{lemma}
+
+\begin{proof}
+$\int\varphi\dd\lambda-\int_0^\delta\varphi=\int_{(0,\delta]}\varphi\dd(\lambda-\Leb)+\int_{(\delta,\infty)}\varphi\dd
+\lambda\le\varphi(\delta)\bigl(\lambda((0,\delta])-\delta\bigr)+\varphi(\delta)\lambda((\delta,\infty))=0$, because
+$\lambda-\Leb\le0$ and $\varphi\ge\varphi(\delta)$ on $(0,\delta]$, and $\varphi\le\varphi(\delta)$ on
+$(\delta,\infty)$.
+\end{proof}
+
+\begin{theorem}[Lower bound]\label{thm:lower}
+Let $w_k\ge c_1k^{-s}$ for all $k$, with $c_1>0$, $s\in\R$, and let $\sigma_0=\sum_kw_k\delta_{k^{-p}}$ (with
+$\sum w_k<\infty$, so that the moments are finite). Then
+\[
+  \liminf_{n\to\infty}\frac1{n^2}\Bigl(\log D_n(\sigma_0)+pn^2\log n\Bigr)\ge\kappa_p .
+\]
+\end{theorem}
+
+\begin{proof}
+Fix $\eta>0$.
+
+\emph{Step 1: a compactly supported admissible approximant.} By Theorem~\ref{thm:equilibrium}(i), $\mu^*_u$ has a
+continuous positive density $\rho^*\le1$ on $(0,\infty)$. For $U>0$ let $\mu_U:=\mu^*_u|_{(0,U]}$, of mass $m_U$. By
+the proof of Theorem~\ref{thm:equilibrium}(iii), $|\log|g(u)-g(v)||$ is $\mu^*_u\otimes\mu^*_u$-integrable, so
+by dominated convergence $\cJ_p(\mu_U)\to\cJ_p(\mu^*_u)=\kappa_p$ and $m_U\to1$ as $U\to\infty$. Let
+$\theta:=(\mu_U)_{1/m_U}$ (notation of Lemma~\ref{lem:scaling}). Then $\theta$ has mass $1$, density
+$\rho^*(um_U)\in[d_U,1]$ on its support $(0,U']$, where $U':=U/m_U$ and $d_U:=\min_{(0,U]}\rho^*\in(0,1]$, and density
+$0$ beyond. So $\theta\in\cA$, and by Lemma~\ref{lem:scaling}
+\[
+  \cJ_p(\theta)=m_U^{-2}\cJ_p(\mu_U)+p\log m_U\ge\kappa_p-\eta
+\]
+for $U$ large enough, which we fix. Constants $C_U$ below depend on $p$ and $U$ only.
+
+\emph{Step 2: the quantile configuration.} Let $F$ be the distribution function of $\theta$; it is continuous and
+strictly increasing on $[0,U']$. For $1\le i\le n$ let $B_i=[l_i,r_i]:=[F^{-1}(\frac{i-1}{n}),F^{-1}(\frac in)]$,
+$q_i:=F^{-1}(\frac{i-1/2}{n})$, $k_i:=\lceil nq_i\rceil$ and $u_i:=k_i/n\in[q_i,q_i+\frac1n)$.
+\begin{itemize}
+\item Since $\theta\le\Leb$ and $\theta(B_i)=\frac1n$: $|B_i|\ge\frac1n$, so $l_i\ge\frac{i-1}{n}$ and
+  $r_i\ge\frac in$; also $r_i-q_i\ge\frac1{2n}$ and $q_i-l_i\ge\frac1{2n}$. Hence $q_{i+1}-q_i\ge\frac1n$, so the $k_i$
+  are distinct, $k_1\ge1$, and $u_j-u_i\ge\frac1n$ for $i<j$. Moreover $u_i<q_i+\frac1n\le r_i+\frac1{2n}\le r_{i+1}$.
+\item Since the density is $\ge d_U$ on $(0,U']$: $|B_i|\le\frac1{d_Un}$, so $r_i\le\frac{i}{d_Un}$, and
+  $u_j\le r_j+\frac1{2n}\le\frac{j+1}{d_Un}$.
+\item $S^*:=\{k_1<\dots<k_n\}\subset[1,U'n+1]$.
+\end{itemize}
+
+\emph{Step 3: energy comparison.} Write $F(u,v)=\log|g(u)-g(v)|$ and, for blocks $B,B'$, put
+$\langle F\rangle_{B\times B'}:=n^2\iint_{B\times B'}F\dd\theta\dd\theta$; this is an average, since
+$\theta(B_i)=\frac1n$.
+Then
+\[
+  n^2\cJ_p(\theta)=\sum_{i\ne j}\langle F\rangle_{B_i\times B_j}+\sum_i\langle F\rangle_{B_i^2}.
+\]
+For $i<j$,
+$u\in B_i$ and $v\in B_j$ we have $u\le v$ and
+\[
+  F(u,v)=-p\log u+h(u/v),\qquad h(r):=\log(1-r^p),
+\]
+with $h$ decreasing on $(0,1)$. We show that $F(u_i,u_j)\ge\langle F\rangle_{B_i\times B_j}-\mathrm{err}_{ij}$
+with $\sum_{i<j}\mathrm{err}_{ij}=O_U(n\log n)$. We use repeatedly that for $0<r<1$,
+\begin{equation}\label{eq:rp}
+  \min(1,p)(1-r)\le1-r^p\le\max(1,p)(1-r).
+\end{equation}
+
+(a) \emph{The term $-p\log u$.} The point value minus the average is $-p\langle\log(u_i/u)\rangle_{B_i}$, and
+$u_i\le r_{i+1}$, $u\ge l_i$ on $B_i$. For $i\ge2$, $\log(r_{i+1}/l_i)\le(r_{i+1}-l_i)/l_i\le\frac{2/(d_Un)}{(i-1)/n}$,
+so the loss is at most $2p/(d_U(i-1))$. For $i=1$, Lemma~\ref{lem:bathtub} (with $\varphi=\log(1/u)$ and
+$\lambda=\theta|_{B_1}$, $\delta=1/n$) gives $\langle\log(1/u)\rangle_{B_1}\le n\int_0^{1/n}\log\frac1u\dd u=\log n+1$,
+and $\log u_1\le\log r_2\le\log\frac2{d_Un}$; so the loss is at most $p(\log\frac2{d_U}+1)$. Summing over $j>i$ and
+then over $i$ gives $O_U(n\log n)$.
+
+(b) \emph{The term $h$, for $j\ge i+3$.} On $B_i\times B_j$, $u/v\ge a:=l_i/r_j$, so the average of $h(u/v)$ is at most
+$h(a)$. At the point, $u_i/u_j\le b:=r_{i+1}/l_j$, and $b<1$ because $l_j=r_{j-1}\ge r_{i+2}>r_{i+1}$; so
+$h(u_i/u_j)\ge h(b)$. The loss is at most $h(a)-h(b)=\log\frac{1-a^p}{1-b^p}\le\frac{b^p-a^p}{1-b^p}$. By
+\eqref{eq:rp}, $b^p-a^p=b^p(1-(a/b)^p)\le\max(1,p)(1-a/b)$.
+\begin{itemize}
+\item If $b\le\frac12$: $1-b^p\ge1-2^{-p}$, and
+  $1-\frac ab\le\bigl(1-\frac{l_i}{r_{i+1}}\bigr)+\bigl(1-\frac{l_j}{r_j}\bigr)\le\frac{2/(d_Un)}{(i+1)/n}+
+  \frac{1/(d_Un)}{j/n}\le\frac{3}{d_U(i+1)}$. The loss is at most $C_U/(i+1)$.
+\item If $b>\frac12$: by \eqref{eq:rp}, $1-b^p\ge\min(1,p)(1-b)=\min(1,p)\frac{l_j-r_{i+1}}{l_j}\ge
+  \min(1,p)\frac{j-i-2}{nl_j}$, since the $j-i-2$ blocks $B_{i+2},\dots,B_{j-1}$ each have length $\ge\frac1n$. Also
+  $1-\frac ab=\frac{b-a}{b}\le2(b-a)$ and $b-a\le\frac{r_{i+1}-l_i}{l_j}+\frac{l_i}{r_j}\cdot\frac{r_j-l_j}{l_j}\le
+  \frac{3}{d_Unl_j}$. The loss is at most $C_U/(j-i-2)$.
+\end{itemize}
+Summing, $\sum_{j\ge i+3}\bigl(C_U/(i+1)+C_U/(j-i-2)\bigr)=O_U(n\log n)$.
+
+(c) \emph{The term $h$, for $j\in\{i+1,i+2\}$.} The average of $h$ is $\le0$ since $h\le0$. At the point, by
+\eqref{eq:rp}, $1-(u_i/u_j)^p\ge\min(1,p)\frac{u_j-u_i}{u_j}\ge\min(1,p)\frac{1/n}{(j+1)/(d_Un)}=
+\frac{\min(1,p)d_U}{j+1}$. So the loss is at most $\log(j+1)+C_U$, and there are at most $2n$ such pairs: $O_U(n\log n)$.
+
+(d) \emph{Diagonal blocks.} $|g(u)-g(v)|\le g(\min(u,v))$, so $\langle F\rangle_{B_i^2}\le
+p\langle\log(1/\min(u,v))\rangle_{B_i^2}$. For $i\ge2$, $\min(u,v)\ge l_i\ge\frac{i-1}{n}$, giving
+$\le p\log\frac{n}{i-1}$. For $i=1$ and $n\ge1/d_U$ we have $B_1\subset(0,1]$, so
+$\log\frac1{\min(u,v)}\le\log\frac1u+\log\frac1v$, and Lemma~\ref{lem:bathtub} gives $\le2p(\log n+1)$. In total
+$\sum_i\langle F\rangle_{B_i^2}\le p\bigl((n-1)\log n-\log(n-1)!\bigr)+2p(\log n+1)=O(n)$.
+
+Combining (a)--(d),
+\begin{align*}
+  \sum_{i\ne j}\log|g(u_i)-g(u_j)|=2\sum_{i<j}F(u_i,u_j)
+  &\ge n^2\cJ_p(\theta)-\sum_i\langle F\rangle_{B_i^2}-O_U(n\log n)\\
+  &\ge n^2\cJ_p(\theta)-O_U(n\log n).
+\end{align*}
+
+\emph{Step 4: conclusion.} By Lemma~\ref{lem:heine}, $D_n(\sigma_0)\ge w(S^*)V(S^*)$. Here
+$\log w(S^*)\ge n\log c_1-|s|\,n\log(U'n+1)$, and by \eqref{eq:VS} and Step~3,
+\[
+  \log D_n(\sigma_0)\ge-pn(n-1)\log n+n^2(\kappa_p-\eta)-O_U(n\log n).
+\]
+Let $n\to\infty$ and then $\eta\to0$.
+\end{proof}
+
+The lower bound uses Theorem~\ref{thm:equilibrium}(i) and the value $\cJ_p(\mu^*_u)=\kappa_p$, but neither
+Lemma~\ref{lem:positivity} nor any optimality statement.
+
+\section{Proof of Theorem~\ref{thm:main} and Corollary~\ref{cor:jacobi}}\label{sec:proofs}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+\emph{Pure powers.} Let $\sigma_0=\sum_kw_k\delta_{k^{-p}}$ with weights satisfying \eqref{eq:Hw}. By
+Theorems~\ref{thm:upper}, \ref{thm:lower} and~\ref{thm:equilibrium}(iii) ($E_p=\kappa_p$),
+$\log D_n(\sigma_0)=-pn^2\log n+\kappa_pn^2+o(n^2)$. By Lemma~\ref{lem:elem}(iii), the measure
+$\sum_kw_k\delta_{Ck^{-p}}$ has $\log D_n$ larger by $n(n-1)\log C=n^2\log C+O(n)$.
+
+\emph{General atoms.} Let $f$ satisfy \eqref{eq:Ha} and put $h(\xi):=C\xi^{-p}$. Since $f'$ is continuous,
+$\xi^{p+1}|f'(\xi)|$ is bounded below by a positive constant, and $\xi^{p+1}f'(\xi)\to-pC<0$, we have $f'<0$ on
+$[1,\infty)$; $f$ is bounded because $|f'(\xi)|\le C'\xi^{-p-1}$ is integrable. The ratio
+$\rho=f'/h'=\xi^{p+1}f'(\xi)/(-pC)$ is bounded above and below by positive constants and tends to $1$. All
+determinants involved are positive by Lemma~\ref{lem:elem}(iv), since $w_k>0$ for all $k$ and $f$, $h$ are injective.
+Lemma~\ref{lem:spacing} gives $\log D_n(\sigma)=\log D_n(\sum_kw_k\delta_{Ck^{-p}})+o(n^2)$.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:jacobi}]
+By Lemma~\ref{lem:jacobi}, $\log D_n=n\log m_0+2\sum_{j<n}(n-j)\log b_j$, so
+\[
+  \frac{2}{n^2}\sum_{j=1}^{n-1}(n-j)\log(j^pb_j)=\frac1{n^2}\Bigl(\log D_n-n\log m_0+2p\sum_{j=1}^{n-1}(n-j)\log j\Bigr).
+\]
+By Theorem~\ref{thm:main} and Lemma~\ref{lem:sumlog}, the bracket equals
+$-pn^2\log n+(\kappa_p+\log C)n^2+pn^2\log n-\frac{3p}{2}n^2+o(n^2)=\log\bigl(c(p)C\bigr)n^2+o(n^2)$.
+\end{proof}
+
+\begin{remark}
+Theorem~\ref{thm:main} gives the error $o(n^2)$ only. For pure powers the proof gives no rate, because the rate of
+$\cJ_p(\theta)\to\kappa_p$ in Step~1 of Theorem~\ref{thm:lower} and the factor $A^2/(4p\log M)$ in
+Theorem~\ref{thm:upper} are not quantified. The numerics of Section~\ref{sec:numerics} are consistent with an error
+$O(n\log n)$ for pure powers.
+\end{remark}
+
+\section{Hankel determinants of zeta values}\label{sec:zeta}
+
+\begin{proof}[Proof of Corollary~\ref{cor:zeta}]
+Since $2a+b>1$, every entry $\zeta(a(i+j)+b)$ with $i,j\ge1$ is a convergent Dirichlet series, and
+\[
+  \zeta\bigl(a(i+j)+b\bigr)=\sum_{k\ge1}k^{-(2a+b)}\bigl(k^{-a}\bigr)^{(i-1)+(j-1)} .
+\]
+Re-indexing $i,j\mapsto i-1,j-1$, the determinant is $D_n(\sigma)$ for $\sigma=\sum_kk^{-(2a+b)}\delta_{k^{-a}}$.
+Apply Theorem~\ref{thm:main} with $p=a$, $f(\xi)=\xi^{-a}$ (so $C=1$ and $\xi^{a+1}f'(\xi)\equiv-a$), and
+$w_k=k^{-(2a+b)}$, for which $\sum_kw_k<\infty$ and $w_k\ge k^{-s}$ with $s=2a+b$. The special cases follow from
+$c(1)=\frac12$ and $c(2)=\frac{\pi^2}{16}$.
+\end{proof}
+
+For example, $\frac{3a}{2}+\log c(a)$ equals $0.806853\ldots$, $2.516871\ldots$, $4.127795\ldots$, $5.696954\ldots$
+for $a=1,2,3,4$ (Table~\ref{tab:constants}).
+
+\begin{remark}[$a=1$]
+Monien's $H_n^{(r)}[\zeta]=\det_{1\le i,j\le n}\zeta(i+j+r)$ is the case $a=1$, $b=r$ of Corollary~\ref{cor:zeta}, so
+$\log H_n^{(r)}[\zeta]=-n^2(\log2n-\frac32)+o(n^2)$ for every real $r>-1$. This is the weak asymptotic form stated in
+\cite{Monien} for $r=0,1$.
+\end{remark}
+
+\begin{remark}[$a=2$: comparison with closed forms]\label{rem:bs}
+Baricz and \v{S}tampach~\cite{BariczStampach} evaluate Hankel determinants of the Rayleigh functions
+$\sigma_{2m}(\nu)$. % TO VERIFY before submission: quotations of [BariczStampach] taken from the repo's literature notes.
+Their Corollary~3 reads ``For $n\in\N$, $\nu\notin-\N$, and $\ell\in\{0,1\}$, one has $\det H_n^{(\ell)}(\nu)=
+2^{-2n(n+\ell)}\prod_{k=1}^{2n+\ell-1}(\nu+k)^{k-2n-\ell}$'', where $H_n^{(\ell)}(\nu)$ has $(i,j)$ entry
+$\sigma_{2(i+j)+2\ell-2}(\nu)$; their Remark~5 gives $\det H_n^{(2)}(\nu)=2^{-2n(n+2)}(n+1)(n+\nu+1)\prod_{k=1}^{2n+1}
+(\nu+k)^{k-2n-2}$; and their (22) reads $\sigma_{2n}(1/2)=\zeta(2n)/\pi^{2n}$. Taking $\nu=\frac12$ and rescaling rows
+and columns by powers of $\pi$ yields closed forms for $\det_{1\le i,j\le n}\zeta(2(i+j)+b)$ with $b=2\ell-2\in
+\{-2,0,2\}$. For example, for $b=0$,
+\[
+  \log\det_{1\le i,j\le n}\zeta\bigl(2(i+j)\bigr)=2n(n+1)\log\frac\pi2+\sum_{k=1}^{2n}(k-2n-1)\log\bigl(k+\tfrac12\bigr).
+\]
+We verified these three closed forms against direct 60-digit determinants for $n\le8$ (agreement to at least
+$10^{-38}$; script \texttt{checks/bs\_check.py}). The asymptotics of the closed form are elementary: with
+$m=2n+1$, $\sum_{k<m}(m-k)\log(k+\frac12)=\frac{m^2}{2}\log m-\frac34m^2+O(m\log m)$ (as in Lemma~\ref{lem:sumlog}),
+which gives
+\[
+  \log\det_{1\le i,j\le n}\zeta\bigl(2(i+j)\bigr)=-2n^2\log n+\bigl(3+\log\tfrac{\pi^2}{16}\bigr)n^2+O(n\log n),
+\]
+in agreement with Corollary~\ref{cor:zeta} for $a=2$, $b=0$, and with a better error term. Numerically, for
+$\ell=0,1,2$ the quantity $(\log\det+2n^2\log n)/n^2-\kappa_2$ equals $-1.33\cdot10^{-4}$, $-3.48\cdot10^{-4}$ and
+$-5.63\cdot10^{-4}$ at $n=10^5$, and $(n/\log n)$ times it stays between $-1.2$ and $-4.9$ for
+$n\in\{10^2,10^3,10^4,10^5\}$. Thus for $a=2$, $b\in\{-2,0,2\}$, Corollary~\ref{cor:zeta} also follows from
+\cite{BariczStampach}; the asymptotic statement is not made there.
+\end{remark}
+
+\section{Numerical illustrations}\label{sec:numerics}
+
+The computations below are floating-point (not certified) and serve only as illustrations. They were produced with
+the scripts in the accompanying repository and re-run for this draft; the outputs reproduce the stored ones exactly.
+
+\emph{Constants and the maximiser.} Table~\ref{tab:constants} lists $c(p)$, $u_s$ and $\kappa_p$, together with a
+Monte Carlo estimate of $\cL(\mu^*)$ obtained by sampling $\mu^*$ directly (independently of the closed-form value).
+The density ratio $\dd\mu^*/\dd\sigma_p$ evaluated by quadrature equals $1$ for $x\ge4c$ to four digits (one
+exception at $p=0.5$, $x=4000c$, where the quadrature returns $0.9862$; the closed form of
+Theorem~\ref{thm:equilibrium}(i) gives exactly $1$ there) and is strictly below $1$ for $x<4c$.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rcccc}
+\toprule
+$p$ & $c(p)$ & $u_s=2I(p)/\pi$ & $\kappa_p$ & Monte Carlo $\cL(\mu^*)$\\
+\midrule
+0.5 & 0.408248 & 0.3750 & $-0.145880$ & $-0.1442\pm0.0021$\\
+1   & 0.500000 & 0.5000 & $0.806853$ & $0.8054\pm0.0027$\\
+1.5 & 0.566272 & 0.5798 & $1.681320$ & $1.6818\pm0.0034$\\
+2   & 0.616850 & 0.6366 & $2.516871$ & $2.5208\pm0.0042$\\
+3   & 0.689213 & 0.7132 & $4.127795$ & $4.1281\pm0.0058$\\
+4   & 0.738565 & 0.7628 & $5.696954$ & $5.6884\pm0.0075$\\
+6   & 0.801586 & 0.8235 & $8.778837$ & $8.7781\pm0.0109$\\
+\bottomrule
+\end{tabular}
+\caption{Constants of Theorem~\ref{thm:equilibrium}. Source: \texttt{research/G2/checks/check\_energy.out}.}
+\label{tab:constants}
+\end{table}
+
+\emph{The averaged law.} For $x_k=k^{-p}$ and $w_k=k^{-s}$ truncated to $k\le K$, the recurrence coefficients $b_j$
+were computed in extended precision, and
+$S_n:=\frac{2}{n^2}\sum_{j<n}(n-j)\log(j^pb_j)-\log c(p)$ is shown in Table~\ref{tab:averaged}; by
+Corollary~\ref{cor:jacobi}, $S_n\to0$. Doubling $K$ changes the tabulated values by at most $5.4\cdot10^{-4}$
+($p=1.5$), $2.8\cdot10^{-5}$ ($p=3$), $1.4\cdot10^{-6}$ ($p=4$) and $7\cdot10^{-8}$ ($p=6$). For $p=0.5$ the atoms
+decay too slowly for the truncation used ($K$-doubling changes $S_n$ by $10^{-2}$), so that case is not illustrated.
+For the zeta weights of Corollary~\ref{cor:zeta} with $(a,b)=(3,1)$ and $(4,1)$ the same statistic is
+$-0.5544,-0.2181,-0.0750$ and $-0.7452,-0.2922,-0.1004$ at $n=25,100,400$. The identification of
+$\det\zeta(a(i+j)+b)$ with $D_n$ of $\sum_kk^{-(2a+b)}\delta_{k^{-a}}$ was checked to 12 digits for
+$(a,b)\in\{(3,1),(4,1),(3,2)\}$ and $n\in\{4,8,12\}$.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrr}
+\toprule
+$p$ & $s$ & $K$ & $n=25$ & $50$ & $100$ & $200$ & $400$ & $1600$\\
+\midrule
+1.5 & 1.5 & 50000 & $-0.03377$ & $-0.02370$ & $-0.01531$ & $-0.00942$ & $-0.00567$ & $-0.00267$\\
+3   & 3   & 20000 & $-0.17266$ & $-0.11244$ & $-0.06962$ & $-0.04161$ & $-0.02423$ & $-0.00782$\\
+4   & 4   & 6000  & $-0.27151$ & $-0.17494$ & $-0.10757$ & $-0.06399$ & $-0.03714$ & --\\
+6   & 6   & 2000  & $-0.46811$ & $-0.29944$ & $-0.18324$ & $-0.10863$ & -- & --\\
+\bottomrule
+\end{tabular}
+\caption{The averaged statistic $S_n$. Source: \texttt{research/G2/checks/check\_averaged.out} and
+\texttt{check\_hz.out}.}
+\label{tab:averaged}
+\end{table}
+
+\bibliographystyle{amsplain}
+\bibliography{refs}
+
+\end{document}
