@@ -94,6 +94,9 @@ The arXiv v1 PDF was read via pdftotext. The Anal. Appl. 14 (2016) version was n
 **Also used in:** RH_plt1.md Lemma 1.1′(ii): 5.11.1 + §5.11(ii) with n = 1, applied to Γ(1 − t) with the principal Ln, and to
 Γ(t) on S_lens.
 
+**Also used in:** RH_plt1.md Lemma 1.1′(ii): 5.11.1 + §5.11(ii) with n = 1, applied to Γ(1 − t) with the principal Ln, and to
+Γ(t) on S_lens.
+
 ## (Van) M. Vanlessen, arXiv:math/0212014 — READ (§1, §4.1–4.3), for RH₁(r)
 "Strong asymptotics of the recurrence coefficients of orthogonal polynomials associated to the generalized Jacobi weight"
 (J. Approx. Theory 125 (2003)). KV's reference [38].
@@ -286,7 +289,7 @@ the comparison problem. We use only the easy direction of Proposition 4.6, which
 > (π/(2z))^{1/2}e^{−z}".
 
 **Used in:** RH_zeta_close.md §1.4 Lemma W (Mellin–Parseval, the PV symbol −π cot πs from 5.12.3 and 5.5.3), and §1.2 (the
-local form Ψ = Ψ̂ζ^{−σ₃/4}S for α = −½).
+local form Ψ = Ψ̂ζ^{−σ₃/4}S for α = −½). RH_plt1.md Lemma 1.1′ (5.5.3: the identity D_up = t^{t−½}e^{−t}e^{iπt}Γ(1−t)/(i√(2π))).
 
 ## (KMVV, additional quotes for Plan 14; Rule R F2) — read in math/0111252v2 (pdftotext)
 
