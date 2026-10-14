@@ -180,5 +180,6 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
   - Lagrange on n nodes in (n, 2n] gives the spectral gap e^{−O(n)}.
   - Convexity of −log(1 − λ), and Lemma K bounds E#tail.
 - **Result:** (LG*) ⇒ G3′. (LG*) contains (SG), and also "d(E) = 0 + Σ log⁺(1/g) = o(K²/log K)".
-- **Remaining window:** between o(K²/log K) and the N‴ threshold e^{−βk}.
-- **Rule R:** pending.
+- **Remaining:** gap sequences satisfying neither (LG*) nor N‴'s condition. These are not ordered "between".
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan25.md). F1 (the false "O(1) truncation" remark), F2 (the
+  convexity step rewritten), F3–F9 applied. Re-check pending.

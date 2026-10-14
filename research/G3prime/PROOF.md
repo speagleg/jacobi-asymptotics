@@ -20,7 +20,8 @@ nothing here is evidence about where the zeros lie.
 | N″ | repeated indices of positive **upper** density ⇒ the law fails, liminf ≤ −0.2397·d̄(E) (§5.2); hence G3′ ⇒ d(E) = 0 | PROVED-mod-cite (C1) + mod-input Theorem H (via G3′-U steps 1–5, item 11 H5–H7); REVIEWED; novelty UNCHECKED | Hadamard, Christoffel, G3′-U |
 | N‴ | normalized gaps g_k ≤ e^{−βk} (incl. repeats) at positive upper density ⇒ the law fails (§5.3); hence G3′ ⇒ d(T_β) = 0 for every β > 0 | PROVED-mod-cite (C1) + mod-input Theorem H; depends on §5.2; Rule R pending | N″, Z2 |
 | B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED | GLSS (6.1), Caro–Wei, §4 proof |
-| L′ | (LG*): deletable bad set of small upper density + Σ log⁺(1/g) = o(K²/log K) on the rest ⇒ G3′ (§4.1); contains both (SG) and "d(E) = 0 + log-gap" | PROVED-mod-cite + mod-input (LG*), Theorem H; Rule R pending | G3′-L, Lemma Tr, Lemma K, Lemma W |
+| L′ | (LG*): deletable bad set of small upper density + Σ log⁺(1/g) = o(K²/log K) on the rest ⇒ G3′ (§4.1); contains both (SG) and "d(E) = 0 + log-gap" | PROVED-mod-cite (C1) + mod-input (LG*), Theorem H; Rule R ACCEPT WITH FIXES, re-check pending; novelty UNCHECKED | G3′-L, G3′-U, Lemma Tr, Lemma K, Lemma W |
+| Tr | truncation of the pure-power comparison at J ≥ (M/2)n costs ≤ (C_s n + 2)·E#tail = O(n²/log M) (§4.1) | PROVED (from Lemma H, Lemma K); Rule R ACCEPT WITH FIXES, re-check pending | Lemma H, Lemma K |
 | C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED | GLSS, G3′-L |
 | P | RH + prime short-interval variance (V) ⇒ G3′ (§9.1; corollary of KNOWN (C8) + Theorem C) | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; REVIEWED (Rule R, review/REVIEW_Plan18.md); novelty UNCHECKED (RH + (V) ⇒ PCC is KNOWN) | §8.2 |
 | Thm S | SPC_ℂ⁺ (upper half of the dyadic complex-weighted SPC, BGST F; no RH) ⇒ 100% simple critical, gaps ≪ δ³, (SG) ⇒ G3′ (rhfree/RHFREE.md) | PROVED-mod-cite ((C3), (C6) (2.4), (C1)) + mod-input SPC_ℂ⁺, Theorem H; REVIEWED; novelty UNCHECKED | Lemma PC, Lemma G, G3′-L |
@@ -224,7 +225,7 @@ and (1+θ)/(1−θ) = s − 3. For s = 4 the bound is the reference itself. ∎
 true-zero measure.
 
 
-### 4.1 Theorem L′ (Plan 25): a log-gap condition suffices — PROVED-mod-cite + mod-input (LG*), Theorem H; Rule R pending
+### 4.1 Theorem L′ (Plan 25): a log-gap condition suffices — PROVED-mod-cite + mod-input (LG*), Theorem H; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan25.md), fixes applied, re-check pending; novelty UNCHECKED
 
 G3′-L uses (SG) to delete small gaps. Here, small *positive* gaps are allowed at any density, provided their
 log-sizes are summable at the scale o(K²/log K).
@@ -251,22 +252,32 @@ where E_ν is expectation under the Heine (determinantal) measure P_ν(S) := ter
 1. **Determinantal form.** By the Gram/Sylvester steps of §5.2 Lemma H, D_n(ν_J)/D_n(ν) = det(I − K_A), where
    A := (J, ∞) and K_A := (√(v_kv_l)K_n(x_k, x_l))_{k,l∈A}. The matrix K_A is positive semidefinite with
    ‖K_A‖ ≤ 1, and tr K_A = Σ_{l∈A}ρ_n(l) = E_ν#(S ∩ A).
+   - A is infinite, but V (l ∈ A, j < n) has rank ≤ n and Σ_lρ_n(l) = n < ∞, so the Gram/Sylvester steps apply with
+     trace-class operators. Equivalently, take limits over finite A_N ↑ A (F3).
+   - ρ_n(l) = P_ν(l ∈ S) is the single-deletion case of Lemma H: 1 − ρ_n(l) = D_n(ν ∖ {l})/D_n(ν).
 2. **Spectral gap.** Take the n nodes x_i = i^{−2}, n < i ≤ 2n ≤ J. For a tail atom x = l^{−2} (l > J), 0 < x < x_i,
    so the Lagrange basis satisfies
    |ℓ_i(x)| ≤ Π_{m≠i}x_m/|x_i − x_m| = Π_{m≠i}i²/(|m − i|(m + i)) ≤ Π_{m≠i}2n/|m − i| ≤ (8e)^n.
    - Hence for deg P < n: P(x)² ≤ n²(8e)^{2n}max_iP(x_i)² ≤ n²(8e)^{2n}(Σ_{i≤J}v_iP(x_i)²)/min_{n<i≤2n}v_i.
    - So Σ_{l∈A}v_lP(x_l)² ≤ e^{C_sn}Σ_{i≤J}v_iP(x_i)², using W_A ≤ Σv and min v ≥ c₁(2n)^{−s}.
    - Since λ_max(K_A) = sup_P Σ_A vP²/∫P²dν, this gives λ_max ≤ e^{C_sn}/(1 + e^{C_sn}).
-3. **Convexity.** f(λ) := −log(1 − λ) is convex, so f(λ) ≤ λ·max(f(λ_max)/λ_max, 2 log 2·2) on [0, λ_max].
-   - Here f(λ_max) ≤ C_sn + 1.
+3. **Convexity (F2).** f(λ) := −log(1 − λ) is convex with f(0) = 0, so f(λ)/λ is nondecreasing on (0, 1).
+   - With u := C_sn and λ* := e^u/(1 + e^u) ≥ λ_max, every eigenvalue satisfies f(λ_i) ≤ λ_i·f(λ*)/λ*.
+   - f(λ*)/λ* = (1 + e^{−u})log(1 + e^u) ≤ u + 2.
    - Hence log det(I − K_A) = −Σf(λ_i) ≥ −(C_sn + 2)tr K_A.
 4. **Few tail points.** By Lemma K (§7, from item 11 H7, with M/2 in place of M), index sets with ≥ t₀n elements
    beyond (M/2)n carry a fraction o(1) of D_n(ν), with t₀ = A/log(M/2). So E_ν#(S ∩ A) ≤ t₀n + o(n). ∎
 
-NUMERICAL (exact, 200 digits; `checks/check_trunc.out`; v_j = j^{−4}, n ≤ 16, J ∈ {2, 3, 4, 6}n):
-- −log(1 − λ_max)/n ≤ 0.31;
-- the convexity bound holds in all 12 cases;
-- log det(I − K_A) is O(1), so the bound above is far from sharp.
+NUMERICAL (exact, 200 digits; `checks/check_trunc.out`; v_j = j^{−4}, n ≤ 16, J ∈ {2, 3, 4, 6}n; ν cut off at 40n
+atoms — moving the cutoff to 80n changes the values by ≤ 2.2·10⁻⁴ (reviewer's run); F5):
+- **Spectral gap.** −log(1 − λ_max)/n ≤ 0.31 at these sizes.
+- **Sizes.** tr K_A and log det(I − K_A) at J = 2n are 1.5 and −5.6 at n = 16.
+  - The reviewer's runs up to n = 32 give log det/n² ≈ −0.024, −0.005 and −0.0008 at J/n = 2, 4 and 8, and
+    tr K_A/n tends to a constant.
+  - So the truncation cost is genuinely of order n² at fixed J/n. This is why M → ∞ is needed (F1: the earlier
+    "O(1)" remark was wrong).
+- **Convexity step.** It is within a factor of about 1.33 of the true log det, when the true λ_max is used. Item [2]
+  of the script checks only this convexity step (automatically true); it does not test the constant C_sn + 2.
 
 **Theorem L′.** Assume (LG*). Then liminf_n (1/n²)[log D_n(σ) − Φ_n] ≥ 0. With G3′-U, G3′ holds (mod Theorem H).
 
@@ -278,7 +289,8 @@ NUMERICAL (exact, 200 digits; `checks/check_trunc.out`; v_j = j^{−4}, n ≤ 16
    2πg_a/log(γ_a/2π). So a near pair costs ≤ log⁺(1/g_a) + log(C log γ̃_a) in log, doubled for squares.
 4. **Total cost** (no folding into weights). In S ⊂ [1, Mn], each a has ≤ C log(Mn) near partners. So the near costs
    total
-   ≤ C log(Mn)·Σ_{a≤Mn, a∈E_g}log⁺(1/g_a) + O(n log n log log n) = o(n²), by (LG*), for fixed M and η.
+   ≤ C log(Mn)·Σ_{a≤Mn, a∈E_g}log⁺(1/g_a) + O(n log n log log n) = o(n²), by (LG*), for fixed M and η (F8).
+   - C absorbs the per-pair constant log(C log γ̃_a) and the doubling for squares (F7).
    - Far costs are O(log²n) per element (G3′-L step 4), so O(n log²n) in total.
    - The n/γ̃_a terms total O(n log²n).
    - Hence term_σ(S) ≥ e^{−o(n²)}·Π(far/near-free factors)·term(S) uniformly for S in the window.
@@ -294,9 +306,12 @@ NUMERICAL (exact, 200 digits; `checks/check_trunc.out`; v_j = j^{−4}, n ≤ 16
 - **L′1 (the picture after Plans 23–25).**
   - **Necessary:** d(E) = 0 (N″), and d(T_β) = 0 for every β > 0 (N‴, gaps ≤ e^{−βk}).
   - **Sufficient:** (LG*), which contains (SG) and (LG).
-  - **What remains:** positive-density gaps with Σ log(1/g) between o(K²/log K) and O(βK²). For example,
-    g_k = e^{−k/log k} on half of all k is covered by neither side. The log K loss comes from up to ≍ log a near
-    partners in clusters (step 4).
+  - **What remains (F4):** gap sequences that satisfy neither (LG*) nor d̄(T_β) > 0 for any β. These are not
+    "between" the two in any ordering: (LG*) is a sum condition off a deletable set, while N‴ is pointwise on a set of
+    positive density. Example: g_k = e^{−k/log k} on half of all k. The log K loss in (LG*) comes from up to ≍ log a
+    near partners in clusters (step 4).
+  - **Consistency (F9):** (LG*) implies d(E) = 0 and d(T_β) = 0 for every β > 0. Indeed, on T_β ∖ B_η the summands
+    are ≥ βk, so that set has density 0. So (LG*) is consistent with N″ and N‴.
 - **L′2.** Lemma Tr removes the obstruction recorded in N‴1. Truncating at Mn costs only O(n²/log M), because the
   determinantal tail has a spectral gap e^{−O(n)} (Lagrange on n nodes in (n, 2n]) and few expected points.
 - **L′3.** (LG*) is a hypothesis about the zeros. Like (SG), it is not available unconditionally ((C3)). Novelty:

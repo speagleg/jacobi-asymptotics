@@ -2,7 +2,9 @@
 ν = Σ_{j≤Ka} j^{-4} δ_{j^{-2}} (Ka = 40n); A := {l > J}.
 [1] gap: 1 − λ_max(K_A) = λ_min(G_head), G_head := Σ_{l≤J} w_l p(x_l)p(x_l)ᵀ   vs   e^{−C n}  (report −log/n)
 [2] log D_n(ν_J) − log D_n(ν) = log det(I − K_A)  ≥  −(f(λ_max)/λ_max)·tr K_A,  f(λ) = −log(1−λ)
-[3] tr K_A = E#(S∩A) as J/n grows."""
+[3] tr K_A = E#(S∩A) as J/n grows.
+ν is cut off at Ka = 40n atoms (reviewer: moving to 80n changes values by ≤ 2.2e-4). [2] checks only the convexity
+step (automatically true), not the constant C_s n + 2."""
 import mpmath as mp
 mp.mp.dps = 200
 def orthopolys(X, W, n):
