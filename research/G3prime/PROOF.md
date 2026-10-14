@@ -18,6 +18,7 @@ nothing here is evidence about where the zeros lie.
 | N | doubled-smooth sequences: same counting function, law fails by 2 log(1−1/m) | PROVED-mod-input Theorem H + REVIEWED | Theorem H_L, item 11 H6 |
 | N′ | repeated indices containing a positive-density subset (d_*(E) > 0) ⇒ the law fails, limsup ≤ 2 log(1 − d_*(E)) | PROVED-mod-cite + mod-input Theorem H + REVIEWED; residual GAP: positive lower density with d_*(E) = 0 | G3′*-U proof, Z1, Z2, T (P1), H6 |
 | N″ | repeated indices of positive **upper** density ⇒ the law fails, liminf ≤ −0.2397·d̄(E) (§5.2); hence G3′ ⇒ d(E) = 0 | PROVED-mod-cite (C1) + mod-input Theorem H (via G3′-U steps 1–5, item 11 H7); Rule R pending | Hadamard, Christoffel, G3′-U |
+| N‴ | normalized gaps g_k ≤ e^{−βk} (incl. repeats) at positive upper density ⇒ the law fails (§5.3); hence G3′ ⇒ d(T_β) = 0 for every β > 0 | PROVED-mod-cite (C1) + mod-input Theorem H; depends on §5.2; Rule R pending | N″, Z2 |
 | B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED | GLSS (6.1), Caro–Wei, §4 proof |
 | C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED | GLSS, G3′-L |
 | P | RH + prime short-interval variance (V) ⇒ G3′ (§9.1; corollary of KNOWN (C8) + Theorem C) | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; REVIEWED (Rule R, review/REVIEW_Plan18.md); novelty UNCHECKED (RH + (V) ⇒ PCC is KNOWN) | §8.2 |
@@ -446,11 +447,65 @@ NUMERICAL (exact, 300 digits; `checks/check_npp.out`):
 - **N″3.** Theorem N″ uses no hypothesis on the zeros beyond (C1), plus Theorem H through G3′-U.
   - Novelty: UNCHECKED. Lemma H is a standard determinantal fact; Lemma Sat is elementary.
 
+### 5.3 Theorem N‴ (Plan 24): exponentially small gaps at positive density also break the law — PROVED-mod-cite (C1) + mod-input Theorem H; depends on §5.2; Rule R pending
+
+For β > 0 put T_β := {k : g_k ≤ e^{−βk}}, with g_k the normalized gap of §4. T_β contains every repeated index
+(g_k = 0).
+
+**Theorem N‴.** If d̄(T_β) = η > 0 for some β > 0, then for every θ ∈ (0, ½):
+
+  liminf_n (1/n²)[log D_n(σ) − Φ_n] ≤ −(ηθ/6)·min(βθη, 2g(θ)) < 0,
+
+with g as in §5.2. Hence **G3′ ⇒ d(T_β) = 0 for every β > 0.**
+
+*Proof.* Fix η′ < η, θ, and M ≥ 2. Put θ₁ := θη′/2.
+1. **Scales.** Take K with |T_β ∩ [1, K]| ≥ η′K (infinitely many K).
+   - Then |T_β ∩ [θ₁K/θ, K]| ≥ η′K/2.
+   - Keep every third element of this set: T′ has pairwise distances ≥ 3 and |T′| ≥ η′K/6 − 1.
+   - Put n := ⌈(K + 1)/θ⌉. Then θ₁n ≤ k ≤ θn − 1 for k ∈ T′ (up to rounding).
+2. **Sharper pair factor for twins.** For k ∈ T′ (k ≥ k₂, so γ_{k+1} ≤ 2γ_k):
+   - x_k − x_{k+1} ≤ 4(γ_{k+1} − γ_k)/γ_k³ = 8πg_k/(γ_k³ log(γ_k/2π));
+   - G(k) − G(k+1) ≥ k^{−3};
+   - Λ ≥ c > 0 (G3′-U step 1).
+   - So x_k − x_{k+1} ≤ ε_kΛ(G(k) − G(k+1)), with ε_k ≤ C(log k)³g_k ≤ C(log k)³e^{−βk}, using γ_k ≍ k/log k.
+   - In G3′-U steps 2–4, this replaces the factor ρ*(k, k+1) ≥ 1 for head pairs {k, k+1} ⊂ S. So
+     term_σ(S) ≤ e^{O(n log²n)}Λ^{n(n−1)}·term_ν(S)·Π_{k∈T′}ε_k^{2X_k(S)}, where X_k(S) := 1[{k, k+1} ⊂ S].
+3. **Expansion.** Σ_S term_ν(S)Π_kε_k^{2X_k} ≤ Σ_{U⊂T′}Π_{k∈U}ε_k²·Σ_{S : X_k(S)=0 ∀k∈T′∖U}term_ν(S).
+4. **Avoidance (as in §5.2).** For F ⊂ T′, a set S with no pair {k, k+1} ⊂ S (k ∈ F) maps to S′ by moving each
+   k + 1 ∈ S down to k (k ∉ S).
+   - This is well defined: elements of T′ are at distance ≥ 3. Also S′ ∩ (F + 1) = ∅.
+   - Each S′ has at most 2^{|F|} preimages, and each move costs ≤ C·e^{2(log k + 1)} (pair analysis of §5.2 step 3).
+   - Hence Σ_{S avoiding F-pairs}term_ν(S) ≤ e^{O(|F| log n)}D_n(ν ∖ (F + 1)).
+   - By Lemmas H and Sat (atoms G(j) = j^{−2} on the head, (k+1)/n ≤ θ, g decreasing), this is
+     ≤ D_n(ν)·Π_{k∈F}e^{−2n·g(θ) + O(log n)}.
+5. **Product.** Steps 3–4 give Σ_S(…) ≤ D_n(ν)·Π_{k∈T′}(ε_k² + e^{−2n·g(θ) + O(log n)}).
+   - For k ∈ T′, ε_k² ≤ e^{−2βθ₁n + O(log n)}. So each factor is ≤ e^{−min(2βθ₁, 2g(θ))n + O(log n)}.
+6. **Conclude** as in G3′-U steps 5–7:
+   (1/n²)[log D_n(σ) − Φ_n] ≤ A₂²/(8 log M) − (|T′|/n)·min(βθη′, 2g(θ)) + o(1),
+   with |T′|/n ≥ η′θ/6 − o(1). Let M → ∞ and η′ → η. ∎
+
+**Remarks.**
+- **N‴1 (what is left between necessity and sufficiency).**
+  - Necessary for G3′: repeats *and* gaps ≤ e^{−βk} have density 0, for every β > 0 (N″, N‴).
+  - Sufficient: (SG) (G3′-L).
+  - Open: gaps in the window e^{−o(k)} ≤ g_k < δ at positive density.
+  - *Heuristic:* in the determinantal picture a near-twin pair costs ≈ min(2 log(1/g), C(k, n)), and C(k, n) ≍ n in
+    the head. So gaps ≥ e^{−o(k)} should be harmless. That would make the sharp condition "d(E) = 0 and
+    Σ_{k≤K}min(log⁺(1/g_k), K) = o(K²)".
+  - A proof of the sufficiency direction meets a truncation obstacle in G3′-L step 6. Per-element near costs
+    A log²a are not dominated by j^{−s_n} for a ≫ n^{O(1)}, and truncating the comparison measure costs too much
+    (LOG, Plan 24).
+  - NUMERICAL illustration (exact, `checks/check_twins.out`): at n = 20, moving atom k + 1 to x_k(1 − ε) costs a loss
+    that grows like 2 log(1/ε) for moderate ε. For tiny ε it saturates at a constant: 77.7 for k = 3 and 35.7 for k = 6
+    (the cost of losing the slot).
+- **N‴2.** No hypothesis on the zeros beyond (C1) is used, plus Theorem H through G3′-U. Novelty: UNCHECKED.
+
 **G3′ status after N′ (the sandwich).**
 - **(U)** limsup ≤ 0, unconditionally (G3′-U).
 - **(L)** liminf ≥ 0 under (SG) (G3′-L).
 - **(N′)** If the law holds, then d_*(E) = 0: no positive-density family of repeated ordinates.
 - **(N″)** Stronger (Plan 23): if the law holds, then d(E) = 0: the repeated ordinates have natural density zero.
+- **(N‴)** (Plan 24): if the law holds, then for every β > 0 the indices with normalized gap ≤ e^{−βk} have density zero.
 
 A repeated ordinate comes from a multiple zero or from two distinct zeros on one horizontal line.
 - The unconditional input surveyed in (C3) gives only N_d(T) ≥ 0.4075·N(T)(1 + o(1)) ((C3), PRZD20 via the survey).
