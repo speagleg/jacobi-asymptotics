@@ -46,6 +46,7 @@ known; its application here to Law P is what is new.
 | **Thm L** | localization at scale Mn: limsup sup_t μ_m^{(t)}((Mn, ∞)) ≤ e^{4G}F_p(M) for bounded slowly varying Ψ (§3.8) | PROVED-mod-cite (as LP; internal TV, Sat_p⁺) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-all** | for w = k^{−s}Ψ with Ψ bounded and **slowly varying** (δ_n(λ) → 0): n^pb_n → c(p) and n^pa_n → 2c(p) for **all n** — the full pointwise Law P; contains T3-conv, T3-sv, T3-avg (§3.8, Plan 35) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, L) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-log** | for w = k^{−s}Ψ with Ψ **log-type slowly varying** (slowly varying, and D(γ) < ∞; e.g. (log k)^α, any α ∈ ℝ): the full pointwise Law P, all n; contains T3-all (§3.9, Plan 36) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, TL(w), L, T3-all) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
+| **Ra** | fixed-size rough weights break the pointwise **a-law**: for all p > 0, s > 1 and ε ∈ (0, ε₀], ε₀ = I/16, some \|f\| ≤ ε gives w = k^{−s}e^{f} with limsup (n^pa_n − 2c(p)) ≥ εη_a/2 and liminf ≤ −εη_a/2, η_a = c(p)I/2, I = (1/π)∫min(1, H(2cos θ))dθ > 0 (≈ 0.314, NUMERICAL). Ingredients: Toda form ȧ_n = ⟨f, b_{n+1}q_nq_{n+1} − b_nq_{n−1}q_n⟩; R2a \|ä_n\| ≤ 2(b_n + b_{n+1})‖f‖²; R1a (explicit, window 2) (§3.12, Plan 41) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, TV, LP, Sat_p⁺, TL). Sub-labels: Toda form, R2a PROVED; R1a PROVED-mod-cite. Rule R pending; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1 §§2–6) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; G2 PROOF.md μ*, B* — only μ* and B*(i)–(ii), which do not use (P)) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -954,6 +955,171 @@ M₁n ≤ n^γ (step 2) and T″ ≤ n^γ (step 3); both hold for n large. For n
   |β_n(vΨ)/β_n(v) − 1| and |A_n(vΨ) − A_n(v)| decrease from ≈ 10⁻³ (n = 100) to 2–6·10⁻⁵ (n = 3200),
   with halving ratios 2.16–2.25 per doubling (n·log n·deviation/|α| ≈ 0.46–0.49, consistent with |α|/(n log n)),
   in exact proportion 1 : 2 : 3 to |α|; K-converged (K = 1.2·10⁵ vs 2.4·10⁵).
+
+### 3.12 Theorem Ra (Plan 41): fixed-size rough weights also break the pointwise a-law — Toda form, R2a PROVED; R1a, Ra PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); Rule R pending; novelty UNCHECKED
+
+Setting and notation as in §3.5–3.6 and §3.8: x_k = k^{−p} (p > 0), v_k := k^{−s} (s > 1), w(t) = v·e^{tf} with f
+bounded, q_j = √w·p_j ∈ ℓ²(atoms) orthonormal, μ_j = q_j², K_m = Σ_{j<m}q_jq_jᵀ, b_0 := 0, q_{−1} := 0. Conventions of
+§3.5: a_n = ⟨xq_n, q_n⟩, b_n = ⟨xq_{n−1}, q_n⟩, and the recurrence holds at every atom:
+
+  x_k q_n(k) = b_{n+1}q_{n+1}(k) + a_n q_n(k) + b_n q_{n−1}(k).   (Rec)
+
+Put E_n := b_{n+1}q_nq_{n+1} (a vector on the atoms; E_{−1} := 0) and ΔE_n := E_n − E_{n−1}. c := c(p), and ν is
+the arcsine law on [0, 4c] (Lemma LP), parametrised by y = 2c(1 + cos θ), θ uniform on (0, π).
+
+**Lemma Toda (Toda form of FVa; PROVED, standard, novelty not claimed).** Along w(t) = v·e^{tf},
+
+  (d/dt) a_n = ⟨f, ΔE_n⟩ = ⟨f, b_{n+1}q_nq_{n+1} − b_nq_{n−1}q_n⟩,
+
+and at every atom ΔE_n = (x − a_n)μ_n − 2b_nq_{n−1}q_n = 2E_n − (x − a_n)μ_n.
+
+*Proof.* Multiply (Rec) by q_n(k): (x_k − a_n)μ_n(k) = b_{n+1}q_nq_{n+1}(k) + b_nq_{n−1}q_n(k) = E_n(k) + E_{n−1}(k).
+Hence (x − a_n)μ_n − 2b_nq_{n−1}q_n = E_n + E_{n−1} − 2E_{n−1} = ΔE_n, and also = 2E_n − (x − a_n)μ_n. Pairing the first
+form with f and comparing with Lemma FVa, (d/dt)a_n = ⟨(x − a_n)f, μ_n⟩ − 2b_n⟨f, q_{n−1}q_n⟩ = ⟨f, ΔE_n⟩. ∎
+- *Checks.* ⟨1, E_m⟩ = b_{m+1}⟨q_m, q_{m+1}⟩ = 0, so the formula is unchanged by f ↦ f + const (as FVa). For f = x,
+  ⟨x, E_m⟩ = b_{m+1}⟨xq_m, q_{m+1}⟩ = b_{m+1}², so ȧ_n = b_{n+1}² − b_n², the Toda flow (FVa step 6).
+- *Independent derivation (not used).* T_m := Σ_{j<m}a_j = Tr(XK_m), X := multiplication by x. Range K_m(t) =
+  e^{tf/2}·Range K_m(0), so K̇_m = ½[(1 − K_m)fK_m + K_mf(1 − K_m)] and Ṫ_m = Tr(f(1 − K_m)XK_m) = b_m⟨f, q_mq_{m−1}⟩,
+  because (1 − K_m)XK_m = b_mq_mq_{m−1}ᵀ by (Rec). Then ȧ_n = Ṫ_{n+1} − Ṫ_n = ⟨f, E_n − E_{n−1}⟩.
+
+NUMERICAL ([1] of `checks/check_ra.out`; p = s = 2, K = 20n, float64): central differences (h = 10⁻⁵) agree with
+⟨f, ΔE_n⟩ to relative error ≤ 1.2·10⁻⁸ (n = 20, 60, 150, random f); ⟨f, ΔE_n⟩ and the FVa formula agree to 10⁻²⁰;
+the atomwise identity holds to 10⁻¹⁹.
+
+**Lemma R2a (second-order control of a_n; PROVED).** Along w(t) = v·e^{tf}, for every n ≥ 0, every t and every v with
+finite moments,
+
+  |(d²/dt²) a_n| ≤ 2(b_n + b_{n+1})·inf_{c∈ℝ}‖f − c‖²_∞,
+
+with b_n, b_{n+1} evaluated at w(t).
+
+*Proof.* Replacing f by f − c multiplies w(t) by e^{−ct}, which leaves q_j, a_j, b_j unchanged; so assume ‖f‖_∞ is
+already the infimum. By Lemma Toda, ȧ_n = Φ_n − Φ_{n−1} with Φ_m := ⟨f, E_m⟩ = b_{m+1}⟨q_{m+1}, fq_m⟩ (Φ_{−1} = 0).
+All q_j are C^∞ ℓ²-valued in t (proof of Lemma TV), so Φ_m is C¹ and
+
+  Φ̇_m = ḃ_{m+1}⟨q_{m+1}, fq_m⟩ + b_{m+1}(⟨q̇_{m+1}, fq_m⟩ + ⟨q_{m+1}, fq̇_m⟩).
+
+- *ḃ.* Lemma FV: (d/dt) log b_{m+1}² = ⟨f, μ_{m+1} − μ_m⟩, so |ḃ_{m+1}| = ½b_{m+1}|⟨f, μ_{m+1} − μ_m⟩| ≤ b_{m+1}‖f‖_∞.
+- *q̇.* By the proof of Lemma TV, q̇_j = ½fq_j − K_j(fq_j) − ½⟨fq_j, q_j⟩q_j. Decompose fq_j = K_j(fq_j) +
+  ⟨fq_j, q_j⟩q_j + (1 − K_{j+1})(fq_j) (K_{j+1} = K_j + q_jq_jᵀ). Then q̇_j = ½(1 − K_{j+1})(fq_j) − ½K_j(fq_j), a sum
+  of two orthogonal vectors, so ‖q̇_j‖² = ¼(‖(1 − K_{j+1})fq_j‖² + ‖K_jfq_j‖²) ≤ ¼‖fq_j‖² ≤ ¼‖f‖²_∞.
+- *Combine.* |⟨q_{m+1}, fq_m⟩| ≤ ‖f‖_∞ and |⟨q̇_{m+1}, fq_m⟩|, |⟨q_{m+1}, fq̇_m⟩| ≤ ½‖f‖²_∞, so
+  |Φ̇_m| ≤ b_{m+1}‖f‖²_∞ + b_{m+1}‖f‖²_∞ = 2b_{m+1}‖f‖²_∞. Hence |ä_n| ≤ |Φ̇_n| + |Φ̇_{n−1}| ≤ 2(b_{n+1} + b_n)‖f‖²_∞. ∎
+
+NUMERICAL ([2]): second central differences give |ä_n|/(2(b_n + b_{n+1})‖f‖²_∞) between 0.005 and 0.10 (n = 20, 60,
+150; f random ±1, sign(ΔE_n), sign(q_nq_{n+1})); the bound holds with room.
+
+**Definition (the a-kernel constant).** For z ∈ ℝ put
+
+  H(z) := min_{φ∈[0,π]} (|sin 2φ − z cos²φ| + |z sin²φ − sin 2φ|),  I := (1/π)∫_0^π min(1, H(2cos θ)) dθ.
+
+- **H is 2-Lipschitz** (each term changes by ≤ |z − z′| when z does, uniformly in φ), hence continuous, and H ≥ 0.
+- **H(z) = 0 iff z ∈ {−2, 0, 2}.** Write u = cos φ, v = sin φ, so the two terms are |u(2v − zu)| and |v(zv − 2u)|. Both
+  vanish iff: u = 0 (then v = ±1 and the second term is |z|, so z = 0); or v = 0 (then the first term is |z|, so z = 0);
+  or uv ≠ 0, 2v = zu and zv = 2u, whence z²u = 4u, z = ±2 (and φ = ±π/4 mod π gives zero). The minimum over the compact
+  φ-interval is attained, so H(z) = 0 iff z ∈ {−2, 0, 2}.
+- Hence **I > 0**: θ ↦ min(1, H(2cos θ)) is continuous and ≥ 0 on [0, π], and vanishes only where 2cos θ ∈ {−2, 0, 2},
+  i.e. at θ ∈ {0, π/2, π}. (I ≤ 1 trivially.)
+- NUMERICAL ([3]): I ≈ 0.3140 (grid quadrature, not certified; the proofs below use only 0 < I ≤ 1).
+
+**Lemma R1a (non-degeneracy of the a-response kernel; PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b), via Lemma LP).** For the
+pure power v,
+
+  liminf_{N→∞} (‖N^pΔE_N^v‖₁ + ‖N^pΔE_{N+1}^v‖₁) ≥ 2c(p)·I.
+
+Consequently, with η_a := c(p)I/2, there is N₀ such that every N ≥ N₀ has some m ∈ {N, N + 1} with
+‖m^pΔE_m^v‖₁ ≥ η_a.
+
+*Proof.* Fix N and write u := q_N, v′ := q_{N+1} (vectors on the atoms), B := b_{N+1}.
+1. **Both differences in the variables (q_N, q_{N+1}).** By Lemma Toda, ΔE_N = 2E_N − (x − a_N)μ_N = 2Buv′ −
+   (x − a_N)u². By Lemma Toda at index N + 1, ΔE_{N+1} = (x − a_{N+1})v′² − 2Buv′ (atomwise). Both are exact.
+2. **Free comparison.** Put y_k := N^px_k and z_k := (y_k − 2c)/c. Then, atomwise,
+   N^pΔE_N = c(2uv′ − zu²) + r_N, N^pΔE_{N+1} = c(zv′² − 2uv′) + r_N′, with
+   |r_N| + |r_N′| ≤ τ_N(u² + v′²), τ_N := 2|N^pb_{N+1} − c| + |N^pa_N − 2c| + |N^pa_{N+1} − 2c|
+   (using 2|uv′| ≤ u² + v′²). By the pure-power laws (n^pb_n → c(p) and a_n/(2b_n) → 1, hence n^pa_n → 2c(p); RH_px,
+   RH₁(r), RH_plt1b) τ_N → 0.
+3. **Pointwise lower bound.** |2uv′ − zu²| + |zv′² − 2uv′| is homogeneous of degree 2 in (u, v′), so it is
+   ≥ H(z)(u² + v′²) at every atom. Summing, with Σ_k(u_k² + v′_k²) = 2:
+   ‖N^pΔE_N‖₁ + ‖N^pΔE_{N+1}‖₁ ≥ c·⟨H(z), μ_N + μ_{N+1}⟩ − 2τ_N ≥ c·⟨min(1, H(z)), μ_N + μ_{N+1}⟩ − 2τ_N.
+4. **Weak convergence (Lemma LP).** The proof of Lemma LP shows that the image of μ_N^v under x ↦ N^px converges weakly
+   to ν (method of moments: ∫(N^px)^j dμ_N = N^{pj}(J^j)_{NN} only involves a_m, b_m with |m − N| ≤ j). The same
+   argument applies verbatim to μ_{N+1}^v with the scaling N^p (now |m − N| ≤ j + 1, and N^pa_m → 2c, N^pb_m → c for each
+   such m), with the same limit ν. The test function y ↦ min(1, H((y − 2c)/c)) is bounded and continuous on [0, ∞), so
+   ⟨min(1, H(z)), μ_N + μ_{N+1}⟩ → 2∫min(1, H((y − 2c)/c)) dν(y) = 2I (substitute y = 2c(1 + cos θ), so
+   (y − 2c)/c = 2cos θ).
+5. Steps 3–4 and τ_N → 0 give the liminf ≥ 2cI. So there is N₀ with sum ≥ cI for N ≥ N₀; then one of the two terms
+   is ≥ cI/2 = η_a, and ‖m^pΔE_m‖₁ ≥ ‖N^pΔE_m‖₁ for m ≥ N. ∎
+
+*Remarks on R1a.* (i) Unlike Lemma R1 (contradiction, non-explicit η and window J), R1a is direct, with window 2 and an
+explicit constant η_a = c(p)I/2 ≈ 0.157c(p) (I NUMERICAL). (ii) The three points {−2, 0, 2} are the same set Z as in
+R1 step 3. (iii) HEURISTIC (phase model of `research/program/outline_C_rough.md` §0): ΔE_n ≈ bR_k² sin θ_k sin(2nθ_k +
+2φ_k), which predicts ‖n^pΔE_n^v‖₁ → 8c(p)/π² ≈ 0.81c(p) on average; observed ([3]) 0.77–0.87·c(p) for p = 2, 1, 0.5.
+
+**Theorem Ra.** Let p > 0, s > 1, v = k^{−s}, and let I, η_a = c(p)I/2 be as above. Put ε₀ := I/16 (≤ 1/16). For every
+ε ∈ (0, ε₀] there is f with |f| ≤ ε such that w := v·e^{f} (so e^{−ε}k^{−s} ≤ w_k ≤ e^{ε}k^{−s}) satisfies
+
+  limsup_{n→∞} (n^pa_n(w) − 2c(p)) ≥ εη_a/2  and  liminf_{n→∞} (n^pa_n(w) − 2c(p)) ≤ −εη_a/2,
+
+with εη_a/2 = εc(p)I/4. In particular n^pa_n(w) does not converge, and the pointwise a-law n^pa_n → 2c(p) fails for
+some weights in [e^{−ε}, e^{ε}]·k^{−s}, for every ε ∈ (0, ε₀].
+
+*Proof.* Fix ε ∈ (0, ε₀]. Let 𝒮 := {u : e^{−ε}v ≤ u ≤ e^{ε}v} (the sandwich class).
+1. **Uniform bound on b along paths in 𝒮.** For any g with ‖g‖_∞ ≤ ε and the path ve^{tg}, Lemma FV gives
+   |(d/dt) log b_m| ≤ ½‖g‖_∞‖μ_m − μ_{m−1}‖₁ ≤ ε, so b_m(ve^{g}) ≤ e^{ε}b_m(v). Since m^pb_m(v) → c(p) and
+   e^{ε} ≤ e^{1/16}, there is n₁ = n₁(p, s) with n^pb_m(u) ≤ 2c for m ∈ {n, n + 1}, n ≥ n₁, and every u = ve^{g} ∈ 𝒮.
+2. **Linear response with error (R2a).** For n ≥ n₁ and any g with ‖g‖_∞ ≤ ε, Taylor's formula along ve^{tg}
+   (a_n is C² in t, proof of R2a), Lemma Toda at t = 0, and Lemma R2a with step 1 give
+   n^p|a_n(ve^{g}) − a_n(v) − ⟨g, ΔE_n^v⟩| ≤ ½·sup_t n^p|ä_n| ≤ ½·2(2c + 2c)ε² = 4c(p)ε².
+3. **Off-window mass is negligible.** Let θ ∈ (0, ½] with g_p⁺ ≥ 1 on (0, 2θ] (Sat_p⁺) and γ := κ + 1 (Lemma TL,
+   κ = (2 + 2/p)s/(s − 1)). For a set A ⊂ ℕ, atomwise |ΔE_n(k)| ≤ b_{n+1}|q_nq_{n+1}| + b_n|q_{n−1}q_n| ≤
+   ½b̄(μ_{n−1} + 2μ_n + μ_{n+1})(k), b̄ := max(b_n, b_{n+1}); so for u ∈ 𝒮 and n ≥ n₁,
+   n^p‖ΔE_n^{u}|_A‖₁ ≤ c·(μ_{n−1}^u + 2μ_n^u + μ_{n+1}^u)(A).
+   With A_n := [1, θn) ∪ (n^γ, ∞) this tends to 0 as n → ∞, **uniformly over u ∈ 𝒮**:
+   - head [1, θn): μ_m ≤ 1 − ρ_m for m ∈ {n − 1, n, n + 1}, and Sat_p⁺ (k/m ≤ 2θ for n ≥ 2) makes the head mass
+     exponentially small, uniformly over 𝒮, exactly as in Theorem R step 2 and the "Head" bullet of T3-sv;
+   - tail (n^γ, ∞): Lemma TL (uniform over the sandwich class) applied at n + 1 bounds μ_{n−1}, μ_n, μ_{n+1} ≤ ρ_{n+2}
+     tail masses by any fixed ε′ > 0 once n^γ ≥ A(n + 1)^κε′^{−1/(s−1)}, which holds for n large since γ > κ.
+   Write ω(n) := sup_{u∈𝒮} c(μ_{n−1}^u + 2μ_n^u + μ_{n+1}^u)(A_n) → 0.
+4. **Scales and the weight.** By Lemma R1a choose good indices n_1 < n_2 < … with ‖n_i^pΔE_{n_i}^v‖₁ ≥ η_a,
+   n_1 ≥ max(N₀, n₁), and θn_{i+1} > i·n_i^γ (possible because every pair {N, N + 1}, N ≥ N₀, contains a good index).
+   Put W_i := [θn_i, n_i^γ]; these are pairwise disjoint, and for j < i, W_j ⊂ [1, n_{i−1}^γ] ⊂ [1, θn_i), while for
+   j > i, W_j ⊂ [θn_{i+1}, ∞) ⊂ (n_i^γ, ∞); i.e. ∪_{j≠i}W_j ⊂ A_{n_i}. Define
+   f_i := (−1)^iε·sign(ΔE_{n_i}^v)·1_{W_i} (sign 0 := +1),  f := Σ_if_i,  |f| ≤ ε.
+   The signs are computed for the pure power v.
+5. **Gain at n_i.** By step 2 with g = f_i, and ⟨f_i, ΔE_{n_i}^v⟩ = (−1)^iε‖ΔE_{n_i}^v|_{W_i}‖₁,
+   (−1)^i n_i^p(a_{n_i}(ve^{f_i}) − a_{n_i}(v)) ≥ ε(n_i^p‖ΔE_{n_i}^v‖₁ − n_i^p‖ΔE_{n_i}^v|_{W_i^c}‖₁) − 4cε²
+   ≥ εη_a − εω(n_i) − 4cε²,
+   where W_i^c ⊂ [1, θn_i) ∪ (n_i^γ, ∞) = A_{n_i}, so by step 3 (with u = v) the middle term is ≤ εω(n_i) → 0.
+6. **Cross-scale independence.** Along u(t) := v·e^{f_i + t(f − f_i)}, t ∈ [0, 1] (in 𝒮 for all t), Lemma Toda gives
+   n_i^p|(d/dt)a_{n_i}| = n_i^p|⟨f − f_i, ΔE_{n_i}^{u(t)}⟩| ≤ ε·n_i^p‖ΔE_{n_i}^{u(t)}|_{A_{n_i}}‖₁ ≤ εω(n_i),
+   since f − f_i is supported in ∪_{j≠i}W_j ⊂ A_{n_i}. So n_i^p|a_{n_i}(w) − a_{n_i}(ve^{f_i})| ≤ εω(n_i) → 0.
+7. **Conclude.** Steps 5–6 give (−1)^i(n_i^pa_{n_i}(w) − n_i^pa_{n_i}(v)) ≥ εη_a − 4c(p)ε² − 2εω(n_i). Since
+   ε ≤ I/16, 4c(p)ε² ≤ εc(p)I/4 = εη_a/2. The pure-power a-law (n^pa_n(v) → 2c(p); RH_px, RH₁(r), RH_plt1b) then gives
+   n_i^pa_{n_i}(w) − 2c(p) ≥ εη_a/2 − o(1) for even i and ≤ −εη_a/2 + o(1) for odd i. ∎
+
+**Remarks.**
+- **Ra-a (what is and is not claimed).** Ra shows that the a-law, like the b-law (Theorem R), is not stable under
+  fixed-size sandwiched roughness. It does **not** say whether the b-law also fails for the same w, nor whether
+  a_n/(2b_n) → 1 fails: the construction controls a_n only. (Running R and Ra on interleaved scales would break both
+  at once; not written out.) For p > 1, w still satisfies the hypotheses of Theorem CL (Σw < ∞, w_k ≥ e^{−ε}k^{−s}), so the
+  **tail-Cesàro a-law** A4′, n^{p−1}Σ_{j≥n}a_j(w) → 2c(p)/(p − 1), holds for this w while the pointwise a-law fails
+  — a concrete instance of the A4 remark that the tail-Cesàro form does not imply the pointwise one.
+- **Ra-b (comparison with Theorem R).** R1a is explicit and direct; Theorem R's R1 is by contradiction. The scale
+  separation and the head/tail bookkeeping (Sat_p⁺, TL) are copied from Theorem R; step 1 replaces T3a step 1 by FV,
+  which avoids head-margin constants. ε₀ = I/16 ≈ 0.0196 (I NUMERICAL) does not depend on p or s; N₀, n₁ and the scale
+  sequence are not explicit (they come from the rates in the pure-power laws, Sat_p⁺ and TL).
+- **Ra-c (constants are crude).** The guaranteed jump εη_a/2 ≈ 0.078εc(p) is about 10× smaller than the first-order
+  value ε‖n^pΔE_n|_W‖₁ ≈ 0.8εc(p) seen numerically ([4]).
+- **Ra-d (novelty).** UNCHECKED (Rule L not run). The Toda form of the first variation of a_n is classical in spirit
+  (Toda/Kac–van Moerbeke flows); the same unverified pointers as Theorem R's remark R-d apply.
+- **Ra-e (NUMERICAL, `checks/check_ra.out`; float64 Lanczos, truncated at K atoms; not certified).**
+  - [4] p = s = 2, K = 20n, one window W = [n/4, K], f = ±ε·sign(ΔE_n^v): n^p(a_n(w) − a_n(v)) = ±0.0250…0.0269 at
+    ε = 0.05 and ±0.0985…0.1077 at ε = 0.2 (n = 100, 200), matching the first-order value ±ε‖n^pΔE_n|_W‖₁ to ≤ 2%,
+    against the guaranteed εη_a/2 = 0.0024 and 0.0097. The pure-power deviation n^pa_n(v)/(2c) − 1 is ≈ −1.4·10⁻²
+    (n = 100) and −7·10⁻³ (n = 200), i.e. O(1/n).
+  - [4b] Two scales on one measure (K = 8000, ε = 0.1, n₁ = 40 on [10, 99] with sign +, n₂ = 400 on [100, K] with sign
+    −; far below the polynomial separation of the proof): n^p(a_n(w) − a_n(v))/c(p) = +0.080 at n = 40 and −0.083 at
+    n = 400, with median 0.004 over n ∈ [10, 401]. Both spikes survive the other window.
 
 ## 4. G1-R: what remains (stop report)
 

@@ -151,3 +151,26 @@
 - **Numerics** (`checks/check_log_weights.out`): (log(k+e))^α, α = 1, −2, 3: deviations ≈ 0.47|α|/(n log n), 2–6·10⁻⁵ at n = 3200.
 - **Open:** slowly varying Ψ with D(γ) = ∞ (e.g. exp(√log k)); other nodes.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan36.md). F1 (cutoff h_n·1_{k≤K}, uniform bounds, K → ∞ by moment continuity) and F2–F7 applied. Re-check ACCEPT (N1–N2 polish applied) — REVIEWED.
+
+## 2026-10-14 — Plan 41 (Theorem Ra: fixed-size rough weights break the pointwise a-law)
+- **Lemma Toda:** ȧ_n = ⟨f, ΔE_n⟩, E_n := b_{n+1}q_nq_{n+1}. One line from FVa: multiply the recurrence by q_n, so
+  (x − a_n)μ_n = E_n + E_{n−1}. Independent check via K̇_m = ½[(1−K)fK + Kf(1−K)] and Tr(XK_m) = Σ_{j<m}a_j. Numerics
+  ([1] of `checks/check_ra.out`): finite differences agree to ≤ 1.2·10⁻⁸; Toda vs FVa to 10⁻²⁰.
+- **Lemma R2a:** |ä_n| ≤ 2(b_n + b_{n+1})·inf_c‖f − c‖²_∞. Key: q̇_j = ½(1 − K_{j+1})fq_j − ½K_jfq_j (orthogonal
+  pieces), so ‖q̇_j‖ ≤ ½‖f‖; plus FV for ḃ. Numerically the ratio to the bound is 0.005–0.10.
+- **Lemma R1a:** for the pure power, ‖N^pΔE_N‖₁ + ‖N^pΔE_{N+1}‖₁ ≥ 2c(p)I − o(1), I = (1/π)∫min(1, H(2cos θ))dθ ≈ 0.314.
+  Direct (no contradiction): both differences are exact quadratic forms in (q_N, q_{N+1}); the free forms
+  (2uv − zu², zv² − 2uv) vanish together only for z ∈ {−2, 0, 2}; Lemma LP's weak convergence to the arcsine law
+  (no atoms) finishes. Window 2, explicit η_a = c(p)I/2.
+- **Theorem Ra:** windows (−1)^iε·sign(ΔE^v_{n_i}) on [θn_i, n_i^γ] at polynomially separated good scales, as in Theorem R;
+  b-bound along paths from FV (b ≤ e^ε b(v)); head/tail via Sat_p⁺ and TL. Result: for ε ≤ I/16,
+  limsup (n^pa_n(w) − 2c) ≥ εη_a/2 and liminf ≤ −εη_a/2. Numerics [4]: single-window jumps match first order to ≤ 2%;
+  a two-scale f gives ±0.08c(p) spikes at both scales.
+- **Rule A (adversarial pass, self):** n = 0 (b_0 = 0, E_{−1} = 0) consistent; constant shifts of f leave every quantity
+  unchanged (checked in R2a); degenerate cases u = 0 / v = 0 in the zero set of H handled; atoms with y > 4c and head
+  atoms (z large) are covered because the test function min(1, H) is bounded and continuous on [0, ∞); μ_{N+1} with
+  scaling N^p has the same moment limits; the cross-scale path stays in the sandwich class, where Sat_p⁺, TL and the
+  FV b-bound are uniform. No counterexample found. Self-review only — does not count for Rule R.
+- **Not claimed:** whether the b-law (or a_n/(2b_n) → 1) also fails for the same w. For p > 1 the tail-Cesàro a-law A4′
+  still holds for w (Theorem CL), so pointwise and tail-Cesàro a-laws separate.
+- **Rule R:** pending. Novelty UNCHECKED.
