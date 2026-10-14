@@ -143,10 +143,10 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
   (medium: P1 depends on a sketched (9.9)) relabelled; a self-contained proof is OPEN (V5). F3–F12 applied. Re-check: ACCEPT (R1 quote added; R2, R3 applied). REVIEWED.
 
 ## 2026-10-14 — Plan 22 (self-contained (9.7) and (9.9))
-- **Inputs read:** (C8) PDF pp. 5–7 (Prop. 1, (3.4), (3.11)–(3.14)) and pp. 19–20 ((9.4)–(9.9)).
+- **Inputs read:** (C8) PDF pp. 4–7 (Prop. 1, (3.4), (3.11)–(3.14)) and pp. 19–20 ((9.4)–(9.9)).
 - **Lemma 9.7*:** G_κ = FT of κ⁻¹Δ(e^{s−κ/2}), then Plancherel, then Prop. 1. This gives L = R + O(log²T/T).
 - **Lemma 9.9*:** Δ = a_y D + R with |R| ≪ κa_y√y log²y; the exact by-parts identity gives the main term; Cauchy–Schwarz
   gives a full-range error.
 - **Numerics:** `rhfree/checks/check_99`, on actual primes.
 - **Effect:** Theorem V⁺ no longer depends on statements that are only sketched in (C8).
-- **Rule R:** pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan22.md). F1–F9 applied; RHPRIME P1 body rewritten (F2). Re-check pending.

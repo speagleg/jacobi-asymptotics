@@ -227,7 +227,7 @@ Goldston–Montgomery [18] has NOT been read, and Goldston's (4.4) itself has no
 - (C6) §3 weight-removal algebra: RHPRIME.md Lemma P3.
 - (C1) zero counting: RHPRIME.md (absolute convergence, N_Ψ, Theorem V⁺ normalization).
 
-### (C8) addendum — Plan 22 (read from the PDF, pp. 5–7 and 19–20, 2026-10-14)
+### (C8) addendum — Plan 22 (read from the PDF, pp. 4–7 and 19–20, 2026-10-14)
 > "Proposition 1. Assume the Riemann Hypothesis. For x ≥ 1, (3.11) 2x^{1/2−it}Σ_γ x^{iγ}/(1 + (t − γ)²) =
 > −Σ_{n=1}^∞ Λ(n)a_n(x)/n^{it} + 2x^{1−it}/((1/2 + it)(3/2 − it)) + x^{−1/2}(log(|t| + 2) + O(1)) + O(x^{−2}/(|t| + 2)),
 > where (3.12) a_n(x) = min((n/x)^{1/2}, (x/n)^{3/2})."
