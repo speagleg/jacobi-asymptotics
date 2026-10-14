@@ -1,0 +1,16 @@
+N=20: s=5994.9825 bh=2.14356 X1=28.396 Xe=150.9  t-axis crossing at z=-20.569
+   C: center 39.682, radius 49.966 (crosses R at -r = -10.28 and x_m = 89.648)
+   max |arg t| on C (principal, per half-plane) = 2.8635  (< pi needed for Stirling D-tilde)
+   total winding of F_out/F_in around C = -3.60826e-9 (turns)
+   arg ratio just above x_m = 1.133567e-8, just below (after full turn) = -1.133567e-8
+   near -r: arg ratio at angle pi-: -12.413237, pi+: 12.413237
+   at -r +- i1e-3: arg ratio -12.566144 / 12.566144; jump mod 2pi = 0.0004524
+   at -r +- i1e-6: arg ratio -12.566339 / 12.566339; jump mod 2pi = 6.326e-5
+N=40: s=15116.7 bh=2.20699 X1=71.603 Xe=380.5  t-axis crossing at z=-51.866
+   C: center 100.06, radius 125.99 (crosses R at -r = -25.93 and x_m = 226.05)
+   max |arg t| on C (principal, per half-plane) = 2.8635  (< pi needed for Stirling D-tilde)
+   total winding of F_out/F_in around C = -4.20323e-9 (turns)
+   arg ratio just above x_m = 1.3204824e-8, just below (after full turn) = -1.3204824e-8
+   near -r: arg ratio at angle pi-: -12.308166, pi+: 12.308166
+   at -r +- i1e-3: arg ratio -12.566226 / 12.566226; jump mod 2pi = 0.0002884
+   at -r +- i1e-6: arg ratio -12.566357 / 12.566357; jump mod 2pi = 2.673e-5

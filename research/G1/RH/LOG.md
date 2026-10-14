@@ -201,3 +201,42 @@
   - R4: a rename.
 - **Theorem RH_p** (every p > 1, s > 1): PROVED-mod-cite + REVIEWED.
 - **Deferred minor:** R5, a numerical test of the Ψ phases at α_x ≠ 0.
+
+## Plan 13 (2026-10-13): smooth-ζ model, pointwise (research/G1/RH/zeta/)
+
+- **Phase 0** (check_z_phase0.out):
+  - b_n/x_n − π²/16 ≈ −0.226/log n (slow);
+  - a_n/(2b_n) − 1 ≈ 0.7/n–0.84/n;
+  - stable under J-halving.
+- **Edge equation** (check_z_edge.out): ∫_β^∞ √(x/(x − β))ρ_N = 1, from the Abel inversion of G2's arcsine
+  superposition.
+  - It reproduces 4c(p) for pure powers.
+  - For σ_ζ, b_N/(β_N/4) − 1 = O(1/N), with N·dev ≈ −1.1 … −1.4.
+  - The 1/log term is entirely the finite-N equilibrium.
+- **Canonical edge equation** (constraint only on the monotone branch x ≤ x_e = 1/(4π² + ¼)): b_N = (β_N/4)(1 + 0.27/N)
+  (check_z_edge2.out).
+- **κ derivation** (regular variation): κ = −2(2J′(2)/J(2) + log J(2)) = −0.2895. The edge equation alone gives a
+  log N-coefficient converging slowly (−0.38 → −0.32 for N = 10² … 10¹⁵; the extrapolated a + b/log N fit gives
+  ≈ −0.300). Check: check_z_kappa.out.
+- **Phase 1 write-up:** RH_zeta.md, Lemma E1, the Abel-inversion generalization of G2 B*.
+- **Phase 2 obstruction found.** t(x) is non-monotone beyond x_e (N₀'s minimum at γ = 2π), which puts a spurious
+  pole of D at x_s. A fix is proposed: split Ω_∞, plus a far-field scalar Ξ.
+- **Phase 2, Gate 2 GO** (check_z_e2e_zeta.out). The end-to-end probe on the true smooth-ζ OPs vs the RH global
+  parametrix gives N·error ≈ 0.15–0.36, stable for N = 10, 20, 40. Two corrections were needed:
+  - (a) the WLXZ α-shift: the constraint ends at t = 3/8, so α = 5/8 and K = (β̂ − z)^{−1/8};
+  - (b) D̃ continued analytically along (−∞, 0) past the t-axis crossing at |γ| = 2πe.
+- **Pipeline validation:** MODEL=pp2 reproduces the reviewer's RH_px probe to 4 digits.
+- **Rule R** (zeta/review/REVIEW_RHzeta.md): ACCEPT WITH FIXES for Phases 1–2.
+  - The headline is confirmed by the absolute test with Ξ explicit (N·err 0.07–0.34, stable for N = 10, 20, 40).
+  - The α-shift, E1, E2, E3 and the extraction are verified.
+  - F1 (major, open): the hard edge carries a log weight, so RH_px §4.1 does not transfer verbatim.
+  - F2: a probe bug, fixed.
+  - F5: t_c is a gauge.
+  - F6: the κ closed form is corrected; a fit to 10⁶⁰ agrees to 1e−5.
+- **Status:** E1–E3 PROVED(-mod-G2); E4 and E5 NUMERICAL; the §4 theorem is a PROOF SKETCH (conditional on the
+  log-weight hard-edge lemma, Lemma Z and uniform Airy).
+
+## 2026-10-14 — Item closed
+- Plan 13 merged to master with the labels above; no further plans. Open problems carried forward: the log-weight
+  hard-edge lemma (candidate routes: D_w-based local parametrix with a lens-boundary mismatch bound, or
+  Conway–Deift SIGMA 2018, unread), a certified Lemma Z, uniform Airy; 0 < p < 1 pure powers.
