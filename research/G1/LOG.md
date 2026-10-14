@@ -89,3 +89,12 @@
   it needs a tail-count bound uniform along the path (G2 A-U for p > 1; G3′ §7 Lemma K for p = 2).
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan29.md). F1 (the Sat_p⁺ proof for p < 1 now carries the polynomial
   prefactor ((n+1)/k)^{2(1−p)}) and F2–F7 applied. Re-check: ACCEPT (R1, R2 applied). REVIEWED.
+
+## 2026-10-14 — Plan 30 (polynomial tail localization; T3-sv)
+- **Lemma TL.** For deg ≤ n, Markov's inequality makes atoms in [x_{T″}, x_{T′}] (T′ = 8pn², T″ = T′n^{2/p}) a
+  norming set, and Chebyshev extrapolation to [0, x_{T″}] costs ≤ 17. By Christoffel, ρ_{n+1}(k) ≤ 1156(C/c)(T″/k)^s,
+  so the tail mass beyond n^κ is ≤ ε. Uniform over the sandwich class.
+- **Theorem T3-sv:** pointwise b-law for polynomially slowly varying Ψ (e.g. 2 + sin√(log log k)).
+- **Open:** localization at scale Mn (needed for e.g. 2 + sin(log log k)). Tools that lose Markov's n² cannot reach
+  it.
+- **Rule R:** pending.

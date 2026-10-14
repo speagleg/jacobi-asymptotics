@@ -1,0 +1,4 @@
+p=2.0 s=2.0 n=6: T'=576 T''=3456 K=20736: max ρ_(n+1)(k)/bound over k≥T'' = 7.67e-10;  μ_n mass beyond T'': 1.44e-03, beyond 10n: 9.33e-02, beyond 3n: 1.63e-01
+p=2.0 s=2.0 n=10: T'=1600 T''=16000 K=96000: max ρ_(n+1)(k)/bound over k≥T'' = 8.70e-11;  μ_n mass beyond T'': 4.34e-04, beyond 10n: 6.91e-02, beyond 3n: 1.13e-01
+p=3.0 s=2.0 n=8: T'=1536 T''=6144 K=36864: max ρ_(n+1)(k)/bound over k≥T'' = 2.24e-10;  μ_n mass beyond T'': 5.07e-04, beyond 10n: 4.49e-02, beyond 3n: 1.14e-01
+p=1.5 s=3.0 n=6: T'=432 T''=4710 K=28260: max ρ_(n+1)(k)/bound over k≥T'' = 6.18e-12;  μ_n mass beyond T'': 1.59e-05, beyond 10n: 7.64e-02, beyond 3n: 2.42e-01
