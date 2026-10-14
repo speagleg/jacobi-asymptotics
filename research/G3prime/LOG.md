@@ -130,4 +130,4 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
   - Full-window positivity was sourced only through an unread lemma. It is now self-contained via a residue identity
     (numerically 2e-31).
   - (NA) for λ ≤ ½ fails numerically (near-completeness). So Proposition Q uses λ_j → ∞.
-- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan20.md). No major findings. F1–F12 applied. Re-check pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan20.md). No major findings. F1–F12 applied. Re-check: ACCEPT (R1 quote x²; R2 applied). REVIEWED.

@@ -1,4 +1,4 @@
-# RHFREE2: open questions after Theorem S (Plan 20) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan20.md); F1–F12 applied, re-check pending
+# RHFREE2: open questions after Theorem S (Plan 20) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan20.md); F1–F12 applied, re-check ACCEPT — REVIEWED
 
 Follow-up to RHFREE.md, whose Theorem S, Lemma PC and Lemma G are REVIEWED. Notation is as there:
 - Z(T), N_T, L = (1/2π)log T, F(x, T), 𝓕(α);
@@ -7,10 +7,10 @@ Follow-up to RHFREE.md, whose Theorem S, Lemma PC and Lemma G are REVIEWED. Nota
 
 | Item | Content | Label |
 |---|---|---|
-| Theorem S′ | Full-window version: on RH the hypothesis is exactly the upper half of Montgomery's SPC | PROVED-mod-cite ((C3) (3.5), (C6), (C1)) + mod-input SPC_ℂ⁺(full), Theorem H; novelty UNCHECKED |
-| Lemma N | Inertia bound: E ≥ k + 4Σ m_z dist(h_z, V)² | PROVED (deterministic); novelty UNCHECKED |
-| Cor. N1 | Σ m_z dist(h_z, V)² ≤ (D·N_T + o(N_T))/4 | PROVED-mod-cite (via Lemma PC) + mod-input SPC_ℂ⁺ |
-| Prop. Q | SPC_ℂ⁺ + (NA) ⇒ max_{T<γ≤2T}\|β − ½\| → 0 (quasi-RH) | PROVED-mod-cite (via Lemma PC) + mod-input SPC_ℂ⁺, (NA); conclusion is quasi-RH, not RH; novelty UNCHECKED |
+| Theorem S′ | Full-window version: on RH the hypothesis is exactly the upper half of Montgomery's SPC | PROVED-mod-cite ((C3) (3.5), (C6), (C1)) + mod-input SPC_ℂ⁺(full), Theorem H; REVIEWED; novelty UNCHECKED |
+| Lemma N | Inertia bound: E ≥ k + 4Σ m_z dist(h_z, V)² | PROVED (deterministic); REVIEWED; novelty UNCHECKED |
+| Cor. N1 | Σ m_z dist(h_z, V)² ≤ (D·N_T + o(N_T))/4 | PROVED-mod-cite (via Lemma PC) + mod-input SPC_ℂ⁺; REVIEWED |
+| Prop. Q | SPC_ℂ⁺ + (NA) ⇒ max_{T<γ≤2T}\|β − ½\| → 0 (quasi-RH) | PROVED-mod-cite (via Lemma PC) + mod-input SPC_ℂ⁺, (NA); REVIEWED; conclusion is quasi-RH, not RH; novelty UNCHECKED |
 | (NA) | Non-approximation hypothesis | HYPOTHESIS; synthetic numerical support only (Im z ≤ 1); vacuous on RH |
 | §4 | Prime-side one-sided transfer (Q1) | OBSTRUCTION (HEURISTIC, for the Theorem 7 route); weighted Lemma G OPEN |
 
@@ -147,7 +147,7 @@ that for every c₀ > 0, only finitely many dyadic windows contain a zero with |
 Theorem S′." That would give "RH + one-sided prime variance ⇒ G3′", weakening Corollary P.
 
 **What the Theorem 7 route gives** ((C8) §9, read):
-1. **Upper I ⇒ upper L.** (9.9): "L(x, T) = 4x³∫_x^∞ I(y, δ)dy/y⁵ + O(x³(log T)²/T³)", where the error term is
+1. **Upper I ⇒ upper L.** (9.9): "L(x, T) = 4x³∫_x^∞ I(y, δ)dy/y⁵ + O(x²(log T)²/T³)", where the error term is
    smaller than the main term for T ≤ x ≤ T^{2−ε} (the source improves this for the full range). Goldston:
    "Since the integrand is non-negative, if we have an asymptotic formula for L(x, T) then a simple differencing
    argument will give an asymptotic formula for I(x, δ). The converse is immediate." So upper bounds pass from I to L
@@ -171,6 +171,6 @@ w_ρ = φ(γ/T) of Fejér type, matching R directly.
 - This needs a *weighted* Lemma G: A_w := Σ w_z f_z⊗f_{z̄}.
   - tr A_w = Σ w_z, and A_w still has N_d nonzero eigenvalues (for w > 0).
   - What breaks is the target: the ideal eigenvalues are now the varying w_z, not 1. So Σ(μ − 1)² no longer measures
-    the defect, and off-line pairs make tr A_w² − Σ w_z² of indefinite sign (F12).
+    the defect, and off-line pairs make tr A_w² − Σ w_z² of indefinite sign.
 - A weighted analogue that is robust to slowly varying weights is the missing tool. Recorded as OPEN; not attempted
   rigorously.

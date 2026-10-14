@@ -210,3 +210,47 @@ rule 3 is respected, given F10's wording.
 ## Reproducibility of `checks/check_dist_probe.out`
 
 Rerun at commit 1f13931 with `.venv/bin/python research/G3prime/rhfree/checks/check_dist_probe.py` (about 2 min): the output is byte-identical to the committed `.out` (`diff` empty). Seed 20, deterministic.
+
+## Re-check (fix commit 0fc9e66)
+
+I re-read RHFREE2.md in full and the diffs of CITATIONS.md, LOG.md, PROOF.md and RHFREE.md. I reran
+`checks/check_pos_identity.py`; it reproduces "max relative error 1.95e-31".
+
+| Finding | Status | Notes |
+|---|---|---|
+| F1 | RESOLVED | §1 positivity is now self-contained. I re-derived the residue computation. g_ζ(t) = 1/((1 − ζ + it)(1 + ζ − it)) has an upper-half-plane pole at t = i(1 − ζ). conj g_ζ′ has one at t = i(1 + ζ̄′). These are the two poles the text names. The expansion x^{ρ−½}x^{ρ̄′−½}·W(ρ + ρ̄′ − 1) and the reindexing ρ′ ↦ 1 − ρ̄′ both check. The MT header and the "two changes" quotes match the source. [BGSTB24] is marked unread. Lemma PC′ now points to the identity. The mpmath check (dps 30, 25 pairs) is adequate as NUMERICAL confirmation. |
+| F2 | RESOLVED, with residual R1 | The (C3) and (C8) Plan 20 addenda are present, and both mark [BGSTB24] and [18] as NOT read. The quotes match the source except the (9.9) error term (R1). |
+| F3 | RESOLVED | §4 is labelled "OBSTRUCTION, HEURISTIC … no impossibility is claimed". Item 3 says "This is the author's analysis, not a statement of the source" and gives C ≈ 2.17. The text adds "That no one-sided argument achieves C → 1 is *not* claimed". The table label is updated. |
+| F4 | RESOLVED, with residual R1 | Both sentences are now quoted, and the direction is attributed to "The converse is immediate." The range caveat T ≤ x ≤ T^{2−ε} is stated, together with a note that the full range is improved. |
+| F5 | RESOLVED | (NA) is now stated with c = c(c₀) and threshold c₀. "Vacuous on RH … no numerical content for ζ itself" is stated. The probe is limited to Im z ≤ 1, whereas the proof needs Im z ≍ c₀L. Proposition Q's proof is consistent with the new (NA): it no longer needs "≥ 1/log T". |
+| F6 | RESOLVED | The table now has a Cor. N1 row, and N1 is retitled "(assuming SPC_ℂ⁺)". Prop. Q is labelled PROVED-mod-cite (via Lemma PC). Novelty UNCHECKED is given for S′, Lemma N and Prop. Q. §4 is labelled heuristic with no novelty claim, which is acceptable. |
+| F7 | RESOLVED | LOG.md has a Plan 20 entry (inputs read and unread, Rule A, Rule R). RHFREE.md has forward pointers in §0, §3→§4 and §6. PROOF.md has a "Thm S′" row marked "re-check pending" (update at promotion). |
+| F8 | RESOLVED | The κ₁ condition is stated, and it holds for cos². |
+| F9 | RESOLVED | The normalization bullet is added. "(mod Theorem H)" is on the RH bullet. |
+| F10 | RESOLVED | λ_j c₀ > 1 is used. "Quasi-RH" is defined as "only finitely many dyadic windows contain a zero with \|β − ½\| ≥ c₀". |
+| F11 | RESOLVED | The constant is now 22(C − 1), and the text says "this route needs C → 1". |
+| F12 | RESOLVED, with nit R2 | tr A_w = Σ w_z and the N_d count are now stated correctly. The obstacle is now the target (varying w_z, not 1). |
+
+**Residuals**
+- **R1 (minor; Rule C quote accuracy; RHFREE2 §4 item 1 and the CITATIONS (C8) Plan 20 addendum).** The (9.9) error
+  term is quoted as "O(x³(log T)²/T³)". The source layout (gold.txt lines 1302–1307) has exponent 2 on x:
+  O(x²(log T)²/T³). This is also the only reading consistent with the source's own remark that the error is smaller
+  than the main term (≍ x log T/T) "when T ≤ x ≤ T^{2−ε}". With x³ the crossover would be at x ≍ T.
+  Fix: replace x³ by x² in both places. This does not affect any argument.
+- **R2 (nit; RHFREE2 §4 Reduction).** The clause "off-line pairs make tr A_w² − Σ w_z² of indefinite sign" is tagged
+  "(F12)", but F12 did not assert it. Drop the tag, or drop the clause; the target-mismatch sentence suffices.
+
+**Re-check verdict: ACCEPT (REVIEWED), once R1 is corrected.** R1 is a one-character quote fix that can be made at
+promotion. R2 is optional. At promotion, update the RHFREE2 header and the PROOF.md "Thm S′" row from "re-check
+pending" to REVIEWED.
+
+**Final labels**
+
+| Item | Label |
+|---|---|
+| Theorem S′ (+ Lemma PC′) | PROVED-mod-cite ((C3) (3.5); (C6) (2.4) and §3 algebra; (C1)) + mod-input SPC_ℂ⁺(full), Theorem H; positivity self-contained; REVIEWED; novelty UNCHECKED. On RH the hypothesis is exactly the upper half of Montgomery's SPC. |
+| Lemma N | PROVED (deterministic); REVIEWED; novelty UNCHECKED. |
+| Cor. N1 | PROVED-mod-cite (via Lemma PC) + mod-input SPC_ℂ⁺; REVIEWED. |
+| Prop. Q | PROVED-mod-cite (via Lemma PC) + mod-input SPC_ℂ⁺, (NA); REVIEWED; novelty UNCHECKED. Conclusion is quasi-RH as defined, not RH. |
+| (NA) | HYPOTHESIS; synthetic NUMERICAL support only (Im z ≤ 1); vacuous on RH; OPEN. |
+| §4 | OBSTRUCTION (HEURISTIC, Theorem 7 route only); weighted Lemma G OPEN. |

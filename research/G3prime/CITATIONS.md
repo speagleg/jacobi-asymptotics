@@ -199,7 +199,7 @@ Note: rendering of conjugation bars in the text extraction is lossy. g_z, h_z ar
 residue identity (`checks/check_pos_identity`).
 
 ### (C8) addendum — Plan 20 (read 2026-10-14, §9: Theorem 7 and its proof)
-> "(9.9) L(x, T) = 4x³ ∫_x^∞ I(y, δ) dy/y⁵ + O(x³(log T)²/T³)". "Since the integrand is non-negative, if we have an
+> "(9.9) L(x, T) = 4x³ ∫_x^∞ I(y, δ) dy/y⁵ + O(x²(log T)²/T³)". "Since the integrand is non-negative, if we have an
 > asymptotic formula for L(x, T) then a simple differencing argument will give an asymptotic formula for I(x, δ). The
 > converse is immediate."
 > "In view of (4.4), since κ ∼ 1/T, R(x, T) can be related to F(x, T) through Abelian and Tauberian theorems."

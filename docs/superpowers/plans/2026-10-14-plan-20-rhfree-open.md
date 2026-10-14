@@ -13,7 +13,7 @@ one-sided transfer.
   (`checks/check_dist_probe.py`).
 - [x] **T4.** Prime-side obstruction: (C8) Theorem 7's Fejér/Tauberian step loses a constant factor C > 1, but Lemma G
   needs C → 1. Reduced to a weighted Lemma G (OPEN).
-- [ ] **T5.** Rule R review: fixes, then re-check, then labels.
+- [x] **T5.** Rule R review: fixes, then re-check, then labels.
 
 ## Review focus
 - Is the full-window positivity legitimately quoted, given that (3.6) is stated for (T, 2T]?
