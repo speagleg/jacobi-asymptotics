@@ -27,12 +27,21 @@ Research: research/G3prime, G2, G1.
   - Plan 12 covers **every p > 1** (Theorem RH_p, RH/px/RH_px.md; PROVED-mod-cite, REVIEWED). It works in the
     unsymmetrized x-variable, with an exact Binet-cut scalar and a hard-edge Bessel parametrix.
   - Together these give the pointwise Law P with an O(1/n) rate for all pure powers with power weights, p ≥ 1.
-  - Open: 0 < p < 1.
   - Plans 13–14 (smooth ζ model, RH/zeta/; Rule R REVIEWED): **Theorem RH_ζ**, the pointwise Law P for the smooth-ζ
     model with rate, b_n/x_n = (π²/16)(1 + κ/log n + O(log log n/log²n)), κ = −0.28946… (PROVED-mod-cite).
 
-**Item closed (2026-10-14); closure work continuing.** Remaining open problems: 0 < p < 1 pure powers (Plan 15:
-½ < p < 1 in progress); G3′ unconditional lower bound; general (T3)/(CL).
+  - Plan 15 (RH/plt1/): **0 < p < 1.** ½ < p < 1 is REVIEWED (mod a numerical no-winding fact). The seam
+    construction (Plan 15b) covers all 0 < p < 1, with Rule R pending. With p ≥ 1 this gives the pointwise law with an
+    O(1/n) rate for all pure powers with power weights, p > ½ reviewed.
+- G3′ (Plan 16): **Theorem N′** (REVIEWED). If the repeated ordinates contain a positive-density family, the
+  multiplicity-normalized law fails. G3′ is thus sandwiched: (SG) is sufficient, and d_*(E) = 0 is necessary.
+
+**Status (2026-10-14).** The remaining open problems are:
+- the Rule R review of the seam construction (p ≤ ½);
+- an Arb certification of the two no-winding facts;
+- an unconditional G3′, which needs new input about ζ's zero multiplicities (N′);
+- the residual N′ case (positive lower density with d_* = 0);
+- (T3)/(CL) for rough (non-analytic) weights.
 
 ## Setup
     scripts/setup_env.sh
