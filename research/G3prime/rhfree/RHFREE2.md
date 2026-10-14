@@ -1,4 +1,4 @@
-# RHFREE2: open questions after Theorem S (Plan 20) — NOT REVIEWED (Rule R pending)
+# RHFREE2: open questions after Theorem S (Plan 20) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan20.md); F1–F12 applied, re-check pending
 
 Follow-up to RHFREE.md, whose Theorem S, Lemma PC and Lemma G are REVIEWED. Notation is as there:
 - Z(T), N_T, L = (1/2π)log T, F(x, T), 𝓕(α);
@@ -7,20 +7,33 @@ Follow-up to RHFREE.md, whose Theorem S, Lemma PC and Lemma G are REVIEWED. Nota
 
 | Item | Content | Label |
 |---|---|---|
-| Theorem S′ | Full-window version: on RH the hypothesis is exactly the upper half of Montgomery's SPC | PROVED-mod-cite ((C3) (3.5) and Lemma-1 remark, (C6), (C1)) + mod-input SPC_ℂ⁺(full), Theorem H |
-| Lemma N | Inertia bound: E ≥ k + 4Σ m_z dist(h_z, V)² | PROVED (deterministic) |
-| Prop. Q | SPC_ℂ⁺ + (NA) ⇒ max_{T<γ≤2T}\|β − ½\| → 0 (quasi-RH) | PROVED-mod-input SPC_ℂ⁺, (NA) |
-| (NA) | Non-approximation hypothesis | HYPOTHESIS; NUMERICAL support only |
-| §4 | Prime-side one-sided transfer (Q1) | OBSTRUCTION identified; OPEN |
+| Theorem S′ | Full-window version: on RH the hypothesis is exactly the upper half of Montgomery's SPC | PROVED-mod-cite ((C3) (3.5), (C6), (C1)) + mod-input SPC_ℂ⁺(full), Theorem H; novelty UNCHECKED |
+| Lemma N | Inertia bound: E ≥ k + 4Σ m_z dist(h_z, V)² | PROVED (deterministic); novelty UNCHECKED |
+| Cor. N1 | Σ m_z dist(h_z, V)² ≤ (D·N_T + o(N_T))/4 | PROVED-mod-cite (via Lemma PC) + mod-input SPC_ℂ⁺ |
+| Prop. Q | SPC_ℂ⁺ + (NA) ⇒ max_{T<γ≤2T}\|β − ½\| → 0 (quasi-RH) | PROVED-mod-cite (via Lemma PC) + mod-input SPC_ℂ⁺, (NA); conclusion is quasi-RH, not RH; novelty UNCHECKED |
+| (NA) | Non-approximation hypothesis | HYPOTHESIS; synthetic numerical support only (Im z ≤ 1); vacuous on RH |
+| §4 | Prime-side one-sided transfer (Q1) | OBSTRUCTION (HEURISTIC, for the Theorem 7 route); weighted Lemma G OPEN |
 
 ## 1. Theorem S′ (full window; removes the dyadic caveat of RHFREE Rule R F1)
 
 **Inputs** ((C3), read 2026-10-14, BGST §3).
 - For the full window 0 < γ ≤ T, BGST prove (3.5): "F_{(0,T]}(x) = (T log²T/2πx²)(1 + O(1/√log T)) +
   (T/2π)log x + O(T√log T)", for 1 ≤ x ≤ T, with the remark "Thus we have obtained MT for F_{(0,T]}(x)".
-- Positivity: (3.6) expresses F_{(T,2T]}(x) as (2/π)∫|Σ_ρ …|²dt, and BGST add: "This was proved unconditionally as
-  Lemma 3 in [BGSTB24] with the sum over terms with 0 < γ ≤ T."
-- Hence F_{(0,T]}(x) ≥ 0. Evenness in log x follows from swapping ρ and ρ′, since W is even.
+- BGST's MT header (for (T, 2T]) reads: "For x ≥ 1 and T ≥ 3, we have F(x, T) ≥ 0, F(x, T) = F(1/x, T)". They also
+  say: "The statement above has been modified from its original formulation in [BGSTB24], with two changes"
+  (the window and the error terms).
+- **Positivity, self-contained (Rule R F1; valid for any window that is invariant under ρ ↦ 1 − ρ̄).**
+  - Put g_ζ(t) := 1/(1 − (ζ − it)²). For |Re ζ|, |Re ζ′| < ½,
+    (2/π)∫_ℝ g_ζ(t)·conj(g_{ζ′}(t))dt = 4/(4 − (ζ + ζ̄′)²).
+    This is a residue computation (two poles in the upper half-plane, at t = i(1 − ζ) and t = i(1 + ζ̄′)).
+    NUMERICAL confirmation: `checks/check_pos_identity.out`, maximum relative error 2·10⁻³¹ over 25 random pairs.
+  - Hence (2/π)∫|Σ_ρ x^{ρ−½}g_{ρ−½}(t)|²dt = Σ_{ρ,ρ′} x^{ρ−½}x^{ρ̄′−½}·4/(4 − (ρ + ρ̄′ − 1)²).
+  - Reindex ρ′ ↦ 1 − ρ̄′, a bijection of the window's multiset. This turns the sum into
+    Σ x^{ρ−ρ′}·4/(4 − (ρ − ρ′)²) = F(x).
+  - So F_{(0,T]}(x) ≥ 0. (This is the content of BGST (3.6) and of [BGSTB24] Lemma 3, which has not been read.)
+- Evenness in log x follows from swapping ρ and ρ′, since W is even.
+- **Normalization (F9).** Montgomery's normalization (T/2π)log T and N(T) differ by a factor 1 + O(1/log T), so the
+  upper bounds are interchangeable.
 
 **Hypothesis SPC_ℂ⁺(full).** For every M ≥ 1: limsup_T sup_{1≤α≤M} F_{(0,T]}(T^α)/N(T) ≤ 1.
 
@@ -33,12 +46,12 @@ Without RH it is the RH-free complex-weighted version.
 *Proof.* This is RHFREE Lemma PC verbatim, with three changes:
 - Z(T) is replaced by the zeros with 0 < γ ≤ T, and N_T by N(T) = (T/2π)log T(1 + O(1/log T)) (C1).
 - (3.2) is replaced by (3.5), which has the same shape and the same error terms.
-- Positivity comes from the full-window form of (3.6) quoted above.
+- Positivity comes from the self-contained identity above.
 
 The weight-removal algebra does not depend on the window. ∎
 
 **Theorem S′.** SPC_ℂ⁺(full) ⇒ the conclusions (a), (b), (c) of Theorem S. In particular:
-- **RH + (upper half of Montgomery's SPC) ⇒ (SG) ⇒ G3′.**
+- **RH + (upper half of Montgomery's SPC) ⇒ (SG) ⇒ G3′ (mod Theorem H).**
 - Without RH: SPC_ℂ⁺(full) ⇒ G3′, mod Theorem H.
 
 *Proof.*
@@ -80,28 +93,33 @@ Then A|_W has exactly k negative eigenvalues, and
 3. **Sum.** For μ < 0, (μ − 1)² = (1 + |μ|)² ≥ 1 + 2|μ|. Summing over the k negative eigenvalues gives
    E ≥ k + 4Σ m_z d_z². ∎
 
-**Corollary N1 (unconditional, given SPC_ℂ⁺).** In the dyadic window, Σ_{Im z>0} m_z d_z² ≤ (D(η)N_T + o(N_T))/4 for
+**Corollary N1 (assuming SPC_ℂ⁺).** In the dyadic window, Σ_{Im z>0} m_z d_z² ≤ (D(η)N_T + o(N_T))/4 for
 every admissible η (by Lemma PC). This is a weighted density statement for off-line zeros, measured by how far h_z sits
 from the "critical" span V.
 
 **Size of h_z.** For z = −γL + iyL with y := |β − ½| > 0 (choosing the representative with Im z > 0):
 - ‖f_z‖² = ‖f_z̄‖² = K(2iyL) and ⟨f_z, f_z̄⟩ = K(0) = 1.
 - Hence ‖h_z‖² = (K(2iyL) − 1)/2 and ⟨g_z, h_z⟩ = 0.
-- For η_λ: K(2iyL) = ∫η_λ²(u)e^{4πuyL}du ≥ κ₁e^{2πλyL} = κ₁T^{λy}, where κ₁ := ∫_{u≥1/2}η₁² > 0.
+- For η_λ: K(2iyL) = ∫η_λ²(u)e^{4πuyL}du ≥ κ₁e^{2πλyL} = κ₁T^{λy}, where κ₁ := ∫_{u≥1/2}η₁² > 0. This needs η₁ ≢ 0 on [½, 1), which holds for η₁² = cos²(πu/2) (F8).
 
-**Hypothesis (NA) (non-approximation).** There are c > 0 and λ_j → ∞ such that for each j and all large T, every zero
-ρ ∈ Z(T) with |β − ½| ≥ 1/log T satisfies d_z ≥ c‖h_z‖ (with η = η_{λ_j}).
+**Hypothesis (NA) (non-approximation).** For each c₀ > 0 there are c = c(c₀) > 0 and λ_j → ∞ such that for each j and all large T, every zero
+ρ ∈ Z(T) with |β − ½| ≥ c₀ satisfies d_z ≥ c‖h_z‖ (with η = η_{λ_j}).
 
 **Proposition Q.** SPC_ℂ⁺ + (NA) ⇒ for every c₀ > 0 there is T₀ such that no zero with T > T₀ and T < γ ≤ 2T has
-|β − ½| ≥ c₀. That is, max_{T<γ≤2T}|β − ½| → 0. This is quasi-RH, **not RH**.
+|β − ½| ≥ c₀. That is, max_{T<γ≤2T}|β − ½| → 0. This is quasi-RH, **not RH**: here "quasi-RH" means
+that for every c₀ > 0, only finitely many dyadic windows contain a zero with |β − ½| ≥ c₀.
 
 *Proof.*
-- Suppose a zero in Z(T) has |β − ½| ≥ c₀ (and ≥ 1/log T).
+- Suppose a zero in Z(T) has |β − ½| ≥ c₀.
 - By Lemma N, (NA) and the size computation: E ≥ 4c²‖h_z‖² ≥ 2c²(κ₁T^{λ_j c₀} − 1).
 - By Lemma PC: E ≤ D·N_T + o(N_T) ≤ T log T for large T.
-- Choose j with λ_j c₀ > 2. Then T^{λ_j c₀} ≫ T log T, a contradiction for large T. ∎
+- Choose j with λ_j c₀ > 1 (this suffices). Then T^{λ_j c₀} ≫ T log T, a contradiction for large T. ∎
 
 **Status of (NA).** HYPOTHESIS. It is not proved.
+- (NA) is vacuous on RH, since there are no off-line zeros. For ζ it is therefore a statement about hypothetical
+  off-line zeros and has no numerical content for ζ itself.
+- The probe below uses synthetic critical configurations and only Im z = yL ≤ 1, while Proposition Q needs
+  Im z ≍ c₀L → ∞. It is support in spirit only (F5).
 - NUMERICAL (`checks/check_dist_probe.out`, synthetic critical configurations of 120 points, GUE-like and Poisson,
   one probed off-line pair):
   - For λ = ¼, d_z/‖h_z‖ ≈ 0 (< 10⁻³). At λ = ½ it is mixed: 0 to 0.31 (GUE-like), ≈ 0 (Poisson). Exponentials of
@@ -123,28 +141,36 @@ from the "critical" span V.
 
 ## 4. (Q1) prime side: why the one-sided transfer is obstructed (OBSTRUCTION; OPEN)
 
+**Label: OBSTRUCTION, HEURISTIC (an analysis of the Theorem 7 route only; no impossibility is claimed).**
+
 **Goal.** "RH + an *upper* bound for the prime variance (C8 (9.1)/(9.3)) on a bounded range ⇒ the hypothesis of
 Theorem S′." That would give "RH + one-sided prime variance ⇒ G3′", weakening Corollary P.
 
 **What the Theorem 7 route gives** ((C8) §9, read):
-1. **Upper I ⇒ upper L** (immediate). By (9.9), "L(x, T) = 4x³∫_x^∞ I(y, δ)dy/y⁵ + O(…)", and "Since the integrand
-   is non-negative …".
+1. **Upper I ⇒ upper L.** (9.9): "L(x, T) = 4x³∫_x^∞ I(y, δ)dy/y⁵ + O(x³(log T)²/T³)", where the error term is
+   smaller than the main term for T ≤ x ≤ T^{2−ε} (the source improves this for the full range). Goldston:
+   "Since the integrand is non-negative, if we have an asymptotic formula for L(x, T) then a simple differencing
+   argument will give an asymptotic formula for I(x, δ). The converse is immediate." So upper bounds pass from I to L
+   ("the converse").
 2. **L = R** on RH ((9.7)–(9.8)), where R(x, T) = (4xκ²/π)∫_0^∞ (sin(κt/2)/(κt/2))²|Σ_γ x^{iγ}/(1 + (t − γ)²)|²dt is
    a **Fejér-weighted** (in t) mean square.
-3. **R → F** "through Abelian and Tauberian theorems". With only an upper bound on R, a Tauberian step for the
-   increasing function t ↦ ∫_0^t|Σ|² gives F(x, T′) ≤ C·(main term). Here C > 1 is a fixed constant from the shape of
+3. **R → F.** Goldston: "In view of (4.4), since κ ∼ 1/T, R(x, T) can be related to F(x, T) through Abelian and
+   Tauberian theorems"; "All the details may be found in [18]" ([18], Goldston–Montgomery, has not been read). With only an upper bound on R, a Tauberian step for the
+   increasing function t ↦ ∫_0^t|Σ|² gives F(x, T′) ≤ C·(main term). This is the author's analysis, not a statement of the source: a single
+   Fejér-majorant argument gives C ≈ 2.17. Here C > 1 is a fixed constant from the shape of
    the Fejér kernel: positive-kernel averages bounded above do not control the function at a sharp cutoff without a
    matching lower bound.
 
 **Why a constant C > 1 is useless here.**
 - Lemma PC with 𝓕 ≤ C on [1, 2λ] gives E ≤ N(D + 2(C − 1)∫_1^{2λ}Q_λ), and ∫_1^{2λ}Q_λ → ½ as λ → ∞.
-- Lemma G then bounds small gaps by ≈ 20(C − 1)N, which does not tend to 0.
-- So (SG) needs C → 1.
+- Lemma G then bounds small gaps by ≈ 22(C − 1)N, which does not tend to 0.
+- So **this route** needs C → 1. That no one-sided argument achieves C → 1 is *not* claimed.
 
 **Reduction (OPEN).** The natural fix is to bypass the sharp cutoff: run Lemma G with **smooth zero weights**
 w_ρ = φ(γ/T) of Fejér type, matching R directly.
-- This needs a *weighted* Lemma G: A_w := Σ w_z f_z⊗f_{z̄}. The identity Σ(μ − 1)² = E uses tr A = N and the count
-  N_d of nonzero eigenvalues. Both fail with non-constant weights, and off-line pairs make tr A_w² − Σ w_z² of
-  indefinite sign.
+- This needs a *weighted* Lemma G: A_w := Σ w_z f_z⊗f_{z̄}.
+  - tr A_w = Σ w_z, and A_w still has N_d nonzero eigenvalues (for w > 0).
+  - What breaks is the target: the ideal eigenvalues are now the varying w_z, not 1. So Σ(μ − 1)² no longer measures
+    the defect, and off-line pairs make tr A_w² − Σ w_z² of indefinite sign (F12).
 - A weighted analogue that is robust to slowly varying weights is the missing tool. Recorded as OPEN; not attempted
   rigorously.

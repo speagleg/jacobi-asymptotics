@@ -19,6 +19,8 @@ Rule R: ACCEPT WITH FIXES, then re-check ACCEPT: REVIEWED. Novelty: UNCHECKED.
 
 ## 0. Objects, inputs, hypothesis
 
+*Full-window version: RHFREE2.md §1 (Theorem S′).*
+
 - **Zeros.** Z(T) := zeros ρ = ½ + δ_ρ + iγ of ζ with T < γ ≤ 2T, with multiplicity. N_T := |Z(T)| = (T/2π)log T·(1 + o(1)).
   L := (1/2π)log T.
 - **BGST's function** ((C3) = BGST, arXiv:2501.14545v3, (3.1); read):
@@ -219,6 +221,8 @@ Rule R: ACCEPT WITH FIXES, then re-check ACCEPT: REVIEWED. Novelty: UNCHECKED.
   - What is new (novelty UNCHECKED) is that **neither RH nor the lower half of the (dyadic) SPC is needed**.
   - The zero-side hypothesis is the BGST-weighted, RH-free quantity, used only as an upper bound.
 
+*Forward pointer: see RHFREE2.md §2 (Lemma N, Proposition Q).*
+
 ## 4. Open: does SPC_ℂ⁺ confine the zeros near the line? (HEURISTIC/OPEN; not attempted rigorously)
 
 **Heuristic.**
@@ -248,6 +252,9 @@ Selberg-type density (exponent ¼ in u = (β − ½)log T, from recollection, no
 Lemma G replaces it.
 
 ## 6. (Q1) after Theorem S (HEURISTIC remark)
+
+*Forward pointer: RHFREE2.md §4 analyses this route (obstruction). RHFREE2.md §1 (Theorem S′) removes the dyadic
+caveat.*
 
 - On RH, Goldston–Montgomery (C8) link SPC on [1, M] to the prime variance (V) on a corresponding range. A one-sided
   analogue (upper F ⇔ upper variance) would turn Theorem S into "RH + an upper prime-variance bound on a bounded range

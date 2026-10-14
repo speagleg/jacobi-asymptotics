@@ -114,3 +114,20 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
   - Theorem S(b) details.
 - **Outcome:** SPC_ℂ⁺ (upper half of the dyadic complex-weighted SPC, bounded range per tolerance; no RH) ⇒
   100% simple critical zeros, small gaps ≪ δ³, (SG), G3′ (mod Theorem H). Novelty UNCHECKED.
+
+## 2026-10-14 — Plan 20 (open questions after Theorem S)
+- **Inputs read:**
+  - (C3): (3.5), the "two changes" remark, and the Lemma-1 remark.
+  - (C8) §9: Theorem 7 and its proof, (9.7)–(9.9).
+  - [BGSTB24] and Goldston–Montgomery [18] were NOT read.
+- **Results:**
+  - Theorem S′ (full window; on RH, the upper half of Montgomery's SPC suffices).
+  - Lemma N (Sylvester inertia + Ky Fan): E ≥ k + 4Σ m_z dist(h_z, V)².
+  - Proposition Q: SPC_ℂ⁺ + (NA) ⇒ quasi-RH. (NA) is a hypothesis: synthetic numerics only, vacuous on RH.
+  - Prime side: the Theorem 7 route loses a constant C > 1 (heuristic), and Lemma G needs C → 1. Reduced to a
+    weighted Lemma G (OPEN).
+- **Rule A.**
+  - Full-window positivity was sourced only through an unread lemma. It is now self-contained via a residue identity
+    (numerically 2e-31).
+  - (NA) for λ ≤ ½ fails numerically (near-completeness). So Proposition Q uses λ_j → ∞.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan20.md). No major findings. F1–F12 applied. Re-check pending.

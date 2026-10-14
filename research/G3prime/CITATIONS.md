@@ -187,3 +187,24 @@ From §3:
 
 Note: rendering of conjugation bars in the text extraction is lossy. g_z, h_z are reconstructed as
 (f_z ± f_{z̄})/(2 or 2i), consistent with (2.11), (2.14) and the numerics in rhfree/checks.
+
+### (C3) addendum — Plan 20 (read 2026-10-14, §3)
+> (3.5) "F_{(0,T]}(x) = (T log²T/2πx²)(1 + O(1/√log T)) + (T/2π) log x + O(T √log T)"; "Thus we have obtained MT
+> for F_{(0,T]}(x)".
+> "The statement above has been modified from its original formulation in [BGSTB24], with two changes."
+> After Lemma 1 (3.6)–(3.7): "This was proved unconditionally as Lemma 3 in [BGSTB24] with the sum over terms with
+> 0 < γ ≤ T. That proof works line by line for both (3.6) and (3.7)."
+
+[BGSTB24] itself has NOT been read. Full-window positivity in RHFREE2 §1 is made self-contained by an elementary
+residue identity (`checks/check_pos_identity`).
+
+### (C8) addendum — Plan 20 (read 2026-10-14, §9: Theorem 7 and its proof)
+> "(9.9) L(x, T) = 4x³ ∫_x^∞ I(y, δ) dy/y⁵ + O(x³(log T)²/T³)". "Since the integrand is non-negative, if we have an
+> asymptotic formula for L(x, T) then a simple differencing argument will give an asymptotic formula for I(x, δ). The
+> converse is immediate."
+> "In view of (4.4), since κ ∼ 1/T, R(x, T) can be related to F(x, T) through Abelian and Tauberian theorems."
+> "All the details may be found in [18]".
+
+Goldston–Montgomery [18] has NOT been read, and Goldston's (4.4) itself has not been quoted.
+
+**Used in:** RHFREE2 §4 (obstruction analysis, HEURISTIC).
