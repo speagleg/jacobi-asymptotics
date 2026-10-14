@@ -151,3 +151,27 @@
 - **Numerics** (`checks/check_log_weights.out`): (log(k+e))^α, α = 1, −2, 3: deviations ≈ 0.47|α|/(n log n), 2–6·10⁻⁵ at n = 3200.
 - **Open:** slowly varying Ψ with D(γ) = ∞ (e.g. exp(√log k)); other nodes.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan36.md). F1 (cutoff h_n·1_{k≤K}, uniform bounds, K → ∞ by moment continuity) and F2–F7 applied. Re-check ACCEPT (N1–N2 polish applied) — REVIEWED.
+
+## 2026-10-14 — Plan 42 (Lemma RL: Law P ⟺ rescaled μ_n → arcsine; target T0′)
+- **Source.** Simon, JAT 126 (2004), mp_arc 03-341: TeX source fetched from mp_arc and read (§1, §3). Quotes are in
+  CITATIONS.md (Simon). Theorem 3.2 (moments ℓ = 1, 2, 4 of p_n²dμ converge ⇒ b_n → b, a_{2n} → a, a_{2n+1} → c) is the
+  unscaled, fixed-J analogue. It does not apply verbatim to the n-dependent n^pJ, so RL is proved self-contained by the
+  same path-sum argument; the citation is attribution only.
+- **Lemma RL** (§3.13), any σ with infinite support and scales s_{n+1}/s_n → 1:
+  - s_na_n → α, s_nb_n → β ⟺ moments 1, 2, 4 of ν_n → those of arcsine on [α − 2β, α + 2β] ⟺ weak convergence plus
+    the a priori bound sup s_n(|a_n| + b_n) < ∞ (or UI of y⁴).
+  - Key step: (∗) u_n + u_{n+1} → 2β² and (∗∗) u_{n+1}u_{n+2} + u_{n−1}u_n → 2β⁴ force (γ − β²)² = 0 at every limit
+    point γ of u_n = (s_nb_n)². Zero discriminant ⇔ arcsine.
+- **RL-loc.** For right limits, the indices n − 1, n, n + 1 suffice.
+- **RL-n.** The index n alone does not suffice. The doubly infinite J_t (B_0² = 2tβ², B_1² = 2(1 − t)β²) has the
+  arcsine law as its e_0 spectral measure (excursion bijection). It is realized by a positive compact J = LLᵀ + k_0²e_0e_0ᵀ
+  with atoms x_k ↓ 0, where all moments of ν_{n_j} → arcsine moments but n_j^pb_{n_j} → β√(2t).
+- **RL-b.** The b-law alone is not enough: with diagonal 3c, ν_n → arcsine on [c, 5c].
+- **Open:** RL-UI, i.e. whether weak convergence without the a priori bound suffices.
+- **Corollaries.** Localization ⟺ Law P for pure powers with sandwiched weights (the a priori bound is T3a step 1).
+  For Theorem R weights, ν_n does not converge to arcsine.
+- **Numerics** (`checks/check_rl.out`): (M) to 10 digits. Slowly varying Ψ: rdev, rmom ~ 1e−5. Theorem-R-type windows:
+  rdev ≈ 6e−2 and rmom up to 1e−1 at N − 2 … N, versus ≤ 3e−2 elsewhere. RL-b and RL-n are confirmed on the explicit
+  parameters.
+- **Labels:** RL, RL-loc, RL-b, RL-n PROVED. Novelty: not claimed for RL, UNCHECKED for RL-loc/RL-n.
+- **Rule R:** pending.

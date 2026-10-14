@@ -46,6 +46,7 @@ known; its application here to Law P is what is new.
 | **Thm L** | localization at scale Mn: limsup sup_t μ_m^{(t)}((Mn, ∞)) ≤ e^{4G}F_p(M) for bounded slowly varying Ψ (§3.8) | PROVED-mod-cite (as LP; internal TV, Sat_p⁺) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-all** | for w = k^{−s}Ψ with Ψ bounded and **slowly varying** (δ_n(λ) → 0): n^pb_n → c(p) and n^pa_n → 2c(p) for **all n** — the full pointwise Law P; contains T3-conv, T3-sv, T3-avg (§3.8, Plan 35) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, L) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-log** | for w = k^{−s}Ψ with Ψ **log-type slowly varying** (slowly varying, and D(γ) < ∞; e.g. (log k)^α, any α ∈ ℝ): the full pointwise Law P, all n; contains T3-all (§3.9, Plan 36) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, TL(w), L, T3-all) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
+| **RL** | Lemma RL: for any σ with infinite support (any nodes x_k ↓ 0) and scales s_n (s_{n+1}/s_n → 1, e.g. n^p): s_na_n → α, s_nb_n → β ⟺ the 1st, 2nd, 4th moments of ν_n := (x ↦ s_nx)_*μ_n tend to those of arcsine on [α−2β, α+2β] ⟺ ν_n → that law weakly + an a priori bound sup s_n(\|a_n\| + b_n) < ∞ (or UI of y⁴). Law P (constant c) ⟺ ν_n → arcsine on [0, 4c]. RL-loc: indices n−1, n, n+1 suffice for right limits; RL-n: index n alone does not (explicit J_t); RL-b: the b-law alone is not enough (§3.13, Plan 42) | PROVED (self-contained; method of Simon 2004 Thm 3.2, read and quoted, CITATIONS.md (Simon), attribution only); Rule R pending; novelty not claimed (RL), UNCHECKED (RL-loc, RL-n). Open: weak convergence without the bound (RL-UI) |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1 §§2–6) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; G2 PROOF.md μ*, B* — only μ* and B*(i)–(ii), which do not use (P)) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -954,6 +955,218 @@ M₁n ≤ n^γ (step 2) and T″ ≤ n^γ (step 3); both hold for n large. For n
   |β_n(vΨ)/β_n(v) − 1| and |A_n(vΨ) − A_n(v)| decrease from ≈ 10⁻³ (n = 100) to 2–6·10⁻⁵ (n = 3200),
   with halving ratios 2.16–2.25 per doubling (n·log n·deviation/|α| ≈ 0.46–0.49, consistent with |α|/(n log n)),
   in exact proportion 1 : 2 : 3 to |α|; K-converged (K = 1.2·10⁵ vs 2.4·10⁵).
+
+### 3.13 Lemma RL (Plan 42): Law P ⟺ the rescaled μ_n converge to the arcsine law — RL, RL-loc PROVED (self-contained; the method is Simon 2004 Thm 3.2's, read and quoted in CITATIONS.md (Simon)); Remarks RL-b, RL-n PROVED; Rule R pending; novelty not claimed for RL (scaled transcription of Simon's argument), UNCHECKED for RL-n
+
+Target T0′ of `research/program/outline_A_nodes.md`. Lemma LP (§3.8) is the forward direction for the pure power. Here
+both directions are proved for **any** measure, in particular any discrete σ = Σ w_kδ_{x_k} with x_k ↓ 0 (any nodes),
+and the outline's statement is corrected in three places (Remarks RL-n, RL-b, RL-UI).
+
+**Setting and notation.** σ is a positive Borel measure on ℝ with infinite support and ∫|x|^ℓdσ < ∞ for all ℓ (e.g.
+σ = Σw_kδ_{x_k}, x_k ↓ 0, Σw_k < ∞). p_n are its orthonormal polynomials (positive leading coefficients), with the
+recurrence of this file
+
+  x p_n = b_{n+1}p_{n+1} + a_np_n + b_np_{n−1}  (n ≥ 0, b_0p_{−1} := 0, b_n > 0 for n ≥ 1),
+
+so a_n is the diagonal and b_n the off-diagonal Jacobi parameter (note: Simon's convention is the reverse, see
+CITATIONS.md). μ_n := p_n²dσ is a probability measure (in the discrete case μ_n(k) = w_kp_n(x_k)² = q_n(k)²). Fix
+scales s_n > 0 with s_{n+1}/s_n → 1 (here s_n = n^p; for regularly varying nodes x_k = f(k), s_n = 1/f(n)). Put
+
+  ν_n := (x ↦ s_nx)_*μ_n,  u_m := (s_mb_m)² (m ≥ 1).
+
+For α ∈ ℝ, β > 0, ρ_{α,β} is the arcsine law on [α − 2β, α + 2β], density 1/(π√(4β² − (y − α)²)). As in Lemma LP's
+proof, ∫y^ℓdρ_{α,β} = (1/2π)∫_0^{2π}(α + 2βcos θ)^ℓdθ = (J_{α,β}^ℓ)_{00}, where J_{α,β} is the doubly infinite Jacobi
+matrix with diagonal α and off-diagonal β. Its centred moments are ∫(y − α)²dρ_{α,β} = 2β² and ∫(y − α)⁴dρ_{α,β} = 6β⁴
+(odd ones vanish), so ∫y⁴dρ_{α,β} = α⁴ + 12α²β² + 6β⁴. **Law P with constant c > 0** (n^pb_n → c, n^pa_n → 2c) is the
+case α = 2c, β = c, and ρ_{2c,c} is the arcsine law on [0, 4c], with moments c^ℓ·binom(2ℓ, ℓ).
+
+**(M) Moment formula.** For ℓ ≥ 0, ∫y^ℓdν_n = s_n^ℓ⟨p_n, x^ℓp_n⟩_σ = ((s_nJ)^ℓ)_{nn} = Σ_π W_n(π), the sum over the
+(at most 3^ℓ) paths π = (π_0, …, π_ℓ) in ℤ_{≥0} with π_0 = π_ℓ = n and |π_{i+1} − π_i| ≤ 1, where W_n(π) is the product
+over steps of s_na_m (a stay at m) and s_nb_{max(m, m′)} (a step between m and m′).
+*Proof.* By the recurrence, multiplication by x maps p_m to Σ_{m′}J_{m′m}p_{m′}; iterate ℓ times and take the inner
+product with p_n (orthonormality). A closed path of length ℓ stays within distance ⌊ℓ/2⌋ of n. ∎ (This is Simon's
+Proposition 3.3 in our notation; the proof above is complete.)
+
+**Lemma RL.** Let α ∈ ℝ and β > 0. The following are equivalent.
+- (a) s_na_n → α and s_nb_n → β.
+- (b) ∫y^ℓdν_n → ∫y^ℓdρ_{α,β} for ℓ = 1, 2 and 4.
+- (c) ν_n → ρ_{α,β} weakly, and y⁴ is uniformly integrable: lim_{R→∞} sup_n ∫_{|y|>R}y⁴dν_n = 0.
+- (c′) ν_n → ρ_{α,β} weakly, and sup_n s_n(|a_n| + b_n) < ∞ (an a priori bound).
+
+If they hold, ∫y^ℓdν_n → ∫y^ℓdρ_{α,β} for every ℓ ≥ 0. In particular, for any nodes and any c > 0, **Law P with
+constant c holds iff ν_n → arcsine on [0, 4c] weakly together with the a priori bound sup_n n^p(a_n + b_n) < ∞**
+(for x_k > 0, a_n > 0); and iff the three moments ℓ = 1, 2, 4 of ν_n converge to 2c, 6c², 70c⁴.
+
+*Proof.* Throughout, s_n/s_{n+i} → 1 for each fixed i.
+
+**(a) ⇒ all moments, hence (b).** Fix ℓ and let n ≥ ℓ, so the paths in (M) are exactly the closed paths of length ℓ
+on ℤ at n. For |m − n| ≤ ℓ, s_na_m = (s_n/s_m)(s_ma_m) → α and s_nb_m → β. So each of the finitely many W_n(π)
+converges to the weight of the translated path for J_{α,β}, and ∫y^ℓdν_n → (J_{α,β}^ℓ)_{00} = ∫y^ℓdρ_{α,β}.
+
+**(b) ⇒ (a).**
+1. *ℓ = 1.* ∫y dν_n = s_na_n, so s_na_n → α.
+2. *ℓ = 2.* By (M), ∫y²dν_n = s_n²(a_n² + b_n² + b_{n+1}²). A convergent sequence is bounded, so sup_n s_n²b_n² and
+   sup_n s_n²b_{n+1}² are finite; hence U := sup_m u_m < ∞ (u_m = s_m²b_m² ≤ ∫y²dν_m). Then
+   s_n²b_{n+1}² = (s_n/s_{n+1})²u_{n+1} = u_{n+1} + o(1), and with step 1:
+
+     u_n + u_{n+1} → (α² + 2β²) − α² = 2β².  (∗)
+
+3. *ℓ = 4.* Let K^{(n)} := s_nJ − αI: diagonal D_m := s_na_m − α, off-diagonal E_m := s_nb_m. Since αI commutes
+   with K^{(n)}, ∫y⁴dν_n = Σ_{j=0}^{4}binom(4, j)α^{4−j}((K^{(n)})^j)_{nn}, and each ((K^{(n)})^j)_{nn} is a path sum
+   as in (M) with stay weights D_m and step weights E_m. For |m − n| ≤ 1, D_m = (s_n/s_m)(s_ma_m) − α → 0 by step 1
+   at index m. For n − 1 ≤ m ≤ n + 2, E_m² = (s_n/s_m)²u_m = u_m + o(1) ≤ 2U eventually.
+   - j = 1: (K)_{nn} = D_n → 0.
+   - j = 2: (K²)_{nn} = D_n² + E_n² + E_{n+1}² = u_n + u_{n+1} + o(1) → 2β² by (∗).
+   - j = 3: a closed path has as many up-steps as down-steps, so a closed path of length 3 has an odd number (≥ 1)
+     of stays. It stays within distance 1 of n, so it contains a factor D_m with |m − n| ≤ 1 (→ 0); its other two
+     factors are bounded. Hence (K³)_{nn} → 0.
+   - j = 4: paths with at least one stay have 0 or 2 non-stay steps, stay within distance 1 of n and contain a factor
+     D_m → 0. The six paths with four ±1 steps (++−−, +−+−, +−−+, −++−, −+−+, −−++) give
+     (E_n² + E_{n+1}²)² + E_{n+1}²E_{n+2}² + E_{n−1}²E_n².
+   Hence ∫y⁴dν_n = α⁴ + 12α²β² + (u_n + u_{n+1})² + u_{n+1}u_{n+2} + u_{n−1}u_n + o(1). Comparing with
+   ∫y⁴dρ_{α,β} = α⁴ + 12α²β² + 6β⁴ and using (∗):
+
+     u_{n+1}u_{n+2} + u_{n−1}u_n → 6β⁴ − 4β⁴ = 2β⁴.  (∗∗)
+
+4. *Limit points.* (u_n) is bounded. Let γ be a limit point, u_{n_j} → γ. By (∗) at n_j − 1, n_j and n_j + 1:
+   u_{n_j−1} → 2β² − γ, u_{n_j+1} → 2β² − γ, u_{n_j+2} → γ. By (∗∗) at n_j: 2γ(2β² − γ) = 2β⁴, i.e. (γ − β²)² = 0.
+   So β² is the only limit point, u_n → β², and s_nb_n → β (b_n > 0). With step 1 this is (a). ∎(b ⇒ a)
+
+**(a) ⇒ (c′).** Convergent sequences are bounded. Weak convergence (method of moments, proved here to keep RL
+self-contained): all moments converge (first part). By Chebyshev with ℓ = 2, (ν_n) is tight. Let ν be a subsequential
+weak limit. Since sup_n∫y^{2ℓ+2}dν_n < ∞, y^ℓ is uniformly integrable, so ∫y^ℓdν = ∫y^ℓdρ_{α,β} for all ℓ (as in
+(c) ⇒ (b) below). With R := |α| + 2β, ∫y^{2ℓ}dν ≤ R^{2ℓ}, so ν(|y| > R + δ) ≤ (R/(R + δ))^{2ℓ} → 0 (ℓ → ∞); ν lives on
+[−R, R], where polynomials are uniformly dense in C[−R, R] (Weierstrass), so ν = ρ_{α,β}. All subsequential limits
+agree, so ν_n → ρ_{α,β}.
+
+**(c′) ⇒ (c).** Let L := sup_n s_n(|a_n| + b_n). For n ≥ n₀ with s_n/s_m ≤ 2 whenever |m − n| ≤ 3, (M) with ℓ = 6 gives
+∫y⁶dν_n ≤ 3⁶(2L)⁶; the finitely many n < n₀ have finite moments. So M₆ := sup_n∫y⁶dν_n < ∞ and
+∫_{|y|>R}y⁴dν_n ≤ M₆/R².
+
+**(c) ⇒ (b).** Let g(y) = y^ℓ (ℓ ≤ 4), so |g| ≤ 1 + y⁴. Fix R ≥ max(1, |α| + 2β) and a continuous φ_R with 0 ≤ φ_R ≤ 1,
+φ_R = 1 on [−R, R], φ_R = 0 off [−R − 1, R + 1]. Then |∫g dν_n − ∫g dρ_{α,β}| ≤ |∫gφ_R dν_n − ∫gφ_R dρ_{α,β}| +
+2∫_{|y|>R}y⁴dν_n (the ρ-tail is 0). The first term → 0 (gφ_R is bounded and continuous), and the second is small
+uniformly in n for R large. ∎
+
+**Lemma RL-loc (right limits: which neighbours are needed).** Let N₀ ⊂ ℕ be infinite and suppose, for each
+i ∈ {−1, 0, 1}, that ∫y^ℓdν_{n+i} → ∫y^ℓdρ_{α,β} (ℓ = 1, 2, 4) as n → ∞ in N₀. Then s_na_n → α, s_nb_n → β and
+s_nb_{n+1} → β as n → ∞ in N₀. (The same holds under weak convergence of ν_{n+i}, i ∈ {−1, 0, 1}, along N₀ plus
+uniform integrability of y⁴ there, by (c) ⇒ (b).)
+
+*Proof.* Steps 1–4 above, run along N₀. Step 1 at n + i gives D_m → 0 for |m − n| ≤ 1. Step 2 at n + i gives
+boundedness of u_{n−1}, …, u_{n+2} and u_{n−1} + u_n, u_n + u_{n+1}, u_{n+1} + u_{n+2} → 2β². Step 3 at n uses only
+these (D_m with |m − n| ≤ 1, E_m with n − 1 ≤ m ≤ n + 2) and gives (∗∗) at n. Step 4 along subsequences of N₀ gives
+u_n → β², and then u_{n+1} → β² by (∗). ∎
+
+So the outline's hypothesis "for every fixed j ∈ ℤ, μ_{n+j} rescaled by f(n)" is redundant for the full sequence (it
+follows from the hypothesis at index n + j, since s_{n+j}/s_n → 1), and for right limits the three indices
+n − 1, n, n + 1 suffice. The middle index alone does not:
+
+**Remark RL-n (the neighbours cannot be dropped; PROVED; novelty UNCHECKED).** Weak convergence of ν_n along a
+sparse N₀ — even convergence of *all* moments — does not force the parameters at n ∈ N₀, already for positive
+discrete measures with x_k ↓ 0 and α = 2β (Law P's case).
+- *Doubly infinite model.* For t ∈ (0, 1) let J_t be the doubly infinite Jacobi matrix with diagonal α, bonds
+  B_m (between m − 1 and m) equal to β for m ∉ {0, 1}, B_0² = 2tβ², B_1² = 2(1 − t)β². Then (J_t^ℓ)_{00} = (J_{α,β}^ℓ)_{00}
+  for every ℓ. *Proof.* A closed path at 0 splits uniquely into stays at 0 (weight α) and excursions (maximal segments
+  off 0). A right excursion of length L + 2 is 0 → 1, a closed path at 1 of length L inside {1, 2, …}, 1 → 0, with
+  weight B_1²·W₊; a left one has weight B_0²·W₋, and reflection m ↦ −m is a weight-preserving bijection between left
+  and right inner paths (both half-lines are free, with entries α, β). Summing each excursion over left/right gives
+  (B_0² + B_1²)W₊ = 2β²W₊, the same as for t = ½, i.e. for J_{α,β}. ∎ So the e_0-spectral measure of J_t is ρ_{α,β}
+  although J_t is not free for t ≠ ½: the outline's step "the e_j-spectral measure of J_∞ is arcsine ⇒ J_∞ free" needs
+  every j (it is the full-sequence hypothesis).
+- *Realization.* Let α = 2β, p > 0, ⟨m⟩ := max(m, 1), N₀ = {n_1 < n_2 < …} with n_1 ≥ 2 and n_{j+1} − n_j → ∞,
+  θ_m := π/4 for m ∉ N₀ and θ_m := θ* := arcsin√t for m ∈ N₀. Put ℓ_m := √(2β)⟨m⟩^{−p/2}cos θ_m,
+  k_m := √(2β)⟨m⟩^{−p/2}sin θ_m, and
+
+    a_m := ℓ_m² + k_m² = 2β⟨m⟩^{−p},  b_m := ℓ_{m−1}k_m (m ≥ 1).
+
+  With L the lower-bidiagonal matrix with diagonal ℓ_m and subdiagonal k_m (m ≥ 1), J = LLᵀ + k_0²e_0e_0ᵀ, so J ≥ 0.
+  J is injective: Ju = 0 gives ‖Lᵀu‖² + k_0²u_0² = 0, so u_0 = 0 and ℓ_mu_m + k_{m+1}u_{m+1} = 0 with all ℓ, k > 0,
+  so u = 0. Its entries tend to 0, so J is compact (a norm limit of its finite truncations). Let σ be the spectral
+  measure of e_0 for J. By the spectral theorem for compact self-adjoint operators (textbook-standard, not separately
+  cited, as for the method of moments in Lemma LP), σ = Σ_k|⟨e_0, φ_k⟩|²δ_{λ_k} over an orthonormal eigenbasis
+  (J is injective), with eigenvalues λ_k > 0 accumulating only at 0. With P_m defined by the recurrence with these
+  a_m, b_m, induction on the recurrence gives P_m(J)e_0 = e_m, so ∫P_mP_{m′}dσ = ⟨e_m, e_{m′}⟩ = δ_{mm′}: the P_m are
+  σ's orthonormal polynomials (σ has infinite support) and its Jacobi parameters are exactly a_m, b_m. So σ is a
+  discrete measure with atoms x_k ↓ 0.
+- *Conclusion.* Fix ℓ. For n = n_j, the entries within distance ℓ of n, multiplied by s_n = n^p, converge to those of
+  J_t translated to n (diagonal → 2β = α; s_nb_{n+i} → 2βcos θ_{n+i−1}sin θ_{n+i}, which is β√(2t) for i = 0,
+  β√(2(1 − t)) for i = 1 and β otherwise, since the other θ's near n_j are π/4 for large j). So by (M) every moment of
+  ν_{n_j} converges to (J_t^ℓ)_{00} = ∫y^ℓdρ_{2β,β}, and ν_{n_j} → arcsine on [0, 4β] weakly (as in (a) ⇒ (c′)). But
+  n_j^pb_{n_j} → β√(2t) ≠ β for t ≠ ½. (By RL-loc, ν_{n_j−1} and ν_{n_j+1} cannot both have arcsine 1st/2nd/4th moments
+  in the limit; indeed the 2nd moment of ν_{n_j−1} tends to α² + (1 + 2t)β².)
+
+**Remark RL-b (the b-law alone is not enough; PROVED).** Law P needs both halves: there are positive discrete measures
+with x_k ↓ 0, n^pb_n → c, and ν_n → arcsine on [c, 5c] (not [0, 4c]). Take a_m := 3c⟨m⟩^{−p}, b_m := cm^{−p}. Then
+⟨u, Ju⟩ ≥ Σ_m(a_m − b_m − b_{m+1})u_m² ≥ cΣ⟨m⟩^{−p}u_m² (2|b_mu_{m−1}u_m| ≤ b_m(u_{m−1}² + u_m²); b_m + b_{m+1} ≤ 2c⟨m⟩^{−p}),
+so J is positive definite and compact, and as in RL-n its e_0-spectral measure is discrete with atoms x_k ↓ 0 and has
+these parameters. By RL ((a) with α = 3c, β = c), ν_n → ρ_{3c,c}. Since a_n = ∫x dμ_n, the a-law is the first moment
+of ν_n; positivity of the atoms forces α ≥ 2β for any limit ρ_{α,β}, since ρ_{α,β} must live on [0, ∞).
+
+**Remark RL-UI (open).** The proof of (c) ⇒ (a) uses uniform integrability of y⁴ (or the a priori bound in (c′)).
+Whether weak convergence of the full sequence ν_n alone implies (a) is not decided here. For pure-power nodes and
+sandwiched weights c₁k^{−s} ≤ w_k ≤ C₁k^{−s} the question does not arise: T3a's proof, step 1 (§3.5), which uses only
+Sat_p⁺, gives a_n, b_n ≤ 2M₀^p(n − 1)^{−p} for large n, which is the bound in (c′).
+
+**Corollaries (for G1).**
+- **RL1 (localization ⟺ Law P).** For x_k = k^{−p} and sandwiched weights, the full pointwise Law P holds iff
+  ν_n → arcsine on [0, 4c(p)] weakly (RL with (c′) and RL-UI's bound). Lemma LP (§3.8) is the forward direction for
+  v = k^{−s}. Any proof of the weak limit, e.g. by Christoffel-function or universality methods (outline A, Route W),
+  therefore gives the full law.
+- **RL2 (Theorem R).** For the weights of Theorem R (§3.6; sandwiched, |f| ≤ ε), β_n does not converge, so ν_n does
+  **not** converge weakly to arcsine on [0, 4c(p)], and at least one of the moments ℓ = 1, 2, 4 of ν_n does not converge
+  to its arcsine value. By
+  RL-loc this failure is visible near any subsequence along which β_n stays away from 1.
+- **RL3 (any nodes).** RL needs nothing about the nodes beyond s_{n+1}/s_n → 1. So for nodes x_k = f(k) regularly
+  varying with index −p, "Law P (constant c(p)C)" ⟺ "ν_n (rescaling by 1/f(n)) → arcsine on [0, 4c(p)C], with the a
+  priori bound". The a priori bound for nodes other than pure powers needs a substitute for Sat_p⁺ (outline A, T0).
+
+**Literature (Rule C; source READ).** Simon, "Ratio asymptotics and weak asymptotic measures for orthogonal
+polynomials on the real line", J. Approx. Theory 126 (2004); mp_arc 03-341, TeX source read 2026-10-14 (quotes in
+`CITATIONS.md`, entry (Simon)). His Theorem 3.2 is the unscaled case s_n ≡ 1 of (b) ⇒ (a), with general limits A_1,
+A_2, A_4 (then the off-diagonal limits may alternate, a_{2n} → a, a_{2n+1} → c in his notation); Theorem 3.1 is the
+unscaled (a) ⇒ all moments. Simon's statements do not apply verbatim: ν_n is a moment problem for the n-dependent
+matrix s_nJ, not for a fixed J. The proof above transcribes his argument (path sums, his (3.10)–(3.11) = our (∗),
+(∗∗)) to the scaled setting. For the arcsine values the discriminant 3A_2² − 2A_4 of his (3.13) vanishes, which is
+why the limit is a single value and his Lemma 3.4 is not needed. RL does not depend on the citation, which is given
+for attribution. Label: **PROVED** (self-contained); novelty not claimed. RL-loc, RL-n: novelty UNCHECKED (Simon's
+Remark 2 after Thm 3.1 — ρ_{b;a,c} determines b and the unordered pair (a, c) — concerns the full sequence; a
+single-index counterexample like J_t was not seen in the sources read).
+
+**Rule A (adversarial pass).**
+- *Two-point / degenerate measures:* excluded (infinite support is needed for μ_n at every n). For finite support
+  everything holds up to the last index, which is irrelevant for limits.
+- *Converse of (∗):* (∗) alone allows period-2 oscillation u_{2n} → γ, u_{2n+1} → 2β² − γ; (∗∗) kills it only because
+  the arcsine 4th moment has zero discriminant. Checked: other targets (A_4 < 3A_2²/2) give Simon's alternating
+  limits, so the arcsine identification is essential.
+- *Only ℓ = 1, 2 (no 4th moment):* insufficient — the spectral measure of e_0 (as in RL-n; positivity is not needed
+  for RL) of the period-2 Jacobi matrix with a_m = α⟨m⟩^{−p}, b_m alternating
+  between β_1m^{−p} and β_2m^{−p} (β_1² + β_2² = 2β²) has the right 1st and 2nd moments in the limit (Simon Thm 3.1
+  scaled), and 4th moment α⁴ + 12α²β² + 4β⁴ + 2β_1²β_2² ≠ α⁴ + 12α²β² + 6β⁴ unless β_1 = β_2.
+- *Neighbours:* RL-n shows that the index set {n} alone fails; {n − 1, n, n + 1} suffices (RL-loc). Whether
+  {n, n + 1} suffices was not settled (the analogue of step 4 then leaves u_{n−1} free).
+- *Scale ratios:* every use of s_n/s_m → 1 is for |m − n| ≤ 6, fixed.
+- *b_n alone:* RL-b.
+- *Weak convergence without moments:* RL-UI (open, stated as such).
+
+**Numerics (NUMERICAL, `checks/check_rl.out`; float64 Lanczos with full reorthogonalization, p = s = 2).**
+- [1] (M) agrees with quadrature over the atoms to 10 digits (ℓ ≤ 4, n = 100), and so does the step-3 expansion
+  α⁴ + 4α³(K) + 6α²(K²) + 4α(K³) + (K⁴).
+- [2] dev_n := max(|n^pb_n/c − 1|, |n^pa_n/2c − 1|) and mom_n := max_{ℓ=1,2,4}|∫y^ℓdν_n/m_ℓ − 1|. rdev, rmom are the
+  same quantities relative to the pure power at the same n and K, which removes the common O(1/n) error.
+  - Pure power: dev_n = 2.9e−2 → 3.7e−3 and mom_n = 1.1e−1 → 1.5e−2 (n = 50 → 400), both O(1/n).
+  - Ψ = 2 + sin(log log(k + 2)): rdev, rmom ≤ 5.4e−4 (≈ 2e−5 for n ≥ 100).
+  - Theorem-R-type weight (ε = 0.2, windows at N = 60, 240): near N, rdev ≈ 6e−2 at n = N − 1, N and rmom ≈ 4e−2–1e−1
+    on N − 2 … N; the peak of rmom is at N − 2, since the 4th moment at n sees u_{n−1}, …, u_{n+2}. At n = 20, 110, 130,
+    389, rdev ≤ 8e−3 and rmom ≤ 3e−2.
+  - iid U[½, 3/2] weights: rdev, rmom ≈ 1e−2, slowly decreasing (generic roughness decays, cf. check_t3_rough [4]).
+  - K-doubling for Ψ at n = 200 changes dev and mom in the 4th digit.
+  - A finite computation cannot show (non)convergence. It shows that the two order parameters move together, as RL
+    predicts.
+- [3] RL-b: moments of ν_n → 3c, 11c², 195c⁴ (arcsine on [c, 5c]). RL-n (t = ¼, n_j = 10², 10³, 10⁴): n_j^pb_{n_j}/β →
+  0.707 = √(2t), while the moments ℓ = 1…8 of ν_{n_j} tend to the arcsine moments (ratios 0.99955–1 at n_j = 10⁴).
+  At n_j ± 1 the 2nd-moment ratio is 0.9167 = (5 + 2t)/6 and 1.0833. The leading 3000×3000 block of J has smallest
+  eigenvalue 1.75e−13 > 0.
 
 ## 4. G1-R: what remains (stop report)
 
