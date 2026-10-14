@@ -193,3 +193,7 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
 - **Result:** G3′ ⟺ 𝒞(K) = o(K²). N″, N‴ and L′ are corollaries; the former sliver example satisfies G3′.
 - **Numerics:** `checks/check_clusters` (exact) shows m² pair-energy scaling and capping.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan26.md). F1–F12 applied. Re-check: ACCEPT (R1 applied). REVIEWED.
+
+## 2026-10-14 — Plan 31 (Ch's criterion on the zeta zeros; NUMERICAL)
+- On 2M Odlyzko zeros, P(K)/K → 0.227, approaching c_GUE = 0.241. So 𝒞(K)/K² ≲ 0.23/K: about 1.1·10⁻⁷ at K = 2·10⁶.
+- The smallest normalized gap is 5.45·10⁻³. There are 255 gaps < 0.05, against the GUE proxy ≈ 274.
