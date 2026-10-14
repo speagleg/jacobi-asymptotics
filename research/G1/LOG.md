@@ -301,3 +301,34 @@
   LP constant 0.4156; QL at t = 0 is QLP, unproved), F3 (downward chaining needs ε_{⌈n/λ⌉}), F4 (Cauchy–Schwarz for the FVa
   cross piece), F5 (K-gap grows with n), F6 (QL₀ framing), F7 (labels: FV⁺ standard; L0 in §0; "full sequence"; QL/QL₀
   HYPOTHESIS; tilt law CONJECTURE) applied. Re-check ACCEPT (N1 QL wording, N2 K-qualifier applied) — REVIEWED.
+
+## 2026-10-14 — Plan 46 (Lemma QLP: uniform hard-edge localization for pure powers)
+- **Route.** Not asymptotics on the band: the hard-edge tail is bounded by the Stieltjes transform at z = τe^{5πi/6}
+  (Lemma ST, a Markov-type inequality: ν([0, τ]) ≤ (8/√3)τ|S(z)|), and S = −V₁₁V₁₂/(V₁)₁₂ exactly (Lemma GS: Green's function
+  = p_n·Cauchy transform of p_n by orthogonality; the scalar/diagonal factors of the RH chain cancel). At z the RH solution is
+  in Ω_∞, non-oscillatory, at distance ≍ |z| from every jump contour, so the small-norm matrix is I + O(1/N) there (Lemma Z;
+  p = 1: O(N^{−1/2}) because RH₁(r)'s jump inside the disc is only O(1/n)·min(1, (n|s|)^δ), δ ≥ 2). The hard-edge prefactor
+  is N-uniformly bounded (Lemma A: maximum principle on |z| = δ; h_N is σ-free). The Bessel model enters as I_α(u)·K_α(u),
+  bounded by explicit integral/series estimates uniform in the order (Lemma BK; DLMF 10.25.2, 10.32.4, 10.32.9 read and quoted
+  in CITATIONS.md (DLMF-3)).
+- **Result.** For each fixed σ > 1, all p > 0, m ∈ {n−1, n}, every M ≥ 1: μ_m((Mn, ∞)) ≤ CM^{−p/2} for M ≤ n^{2/p};
+  ≤ Cn^{−1}(M/n^{2/p})^{−β}(1 + log) beyond (β = min(p, σ−1), p ≠ 1; min(½, σ−1), p = 1); ≤ C_ϑM^{−ϑ} for all M,
+  ϑ < min(p/2, σ − 1) (endpoint ϑ = p/2 when σ − 1 > p/2 for p ≠ 1 only). Corollary: Σ_{k≥n}log(k/n)μ_m(k) = O(1) — QL at t = 0. Bessel crossover at M ≍ n^{2/p}
+  (k ≍ n^{1+2/p}). Labels: ST, GS PROVED; BK PROVED-mod-cite (DLMF); QLP/QLP-Λ PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b,
+  KMVV (6.23), Vanlessen (4.27); KV (5.21)–(5.22) as a consistency check) for fixed σ.
+- **Gap (precise).** Uniformity in σ on compacts is CONDITIONAL on (RU): the cited small-norm estimates hold with σ-free N₀ and
+  constants. Audit U (PROOF SKETCH) locates the σ-dependence: only α_x and C_N; the one quantitative input is the Bessel
+  matching on ∂U(0, δ) uniform in the order, for which DLMF 10.40.10–12 (+10.34.2, 10.27.8; read, quoted) give order-uniform
+  remainders; plus RH₁(r) Lemma M's amplification constant uniform in a. Not re-proved line by line.
+- **Not obtained.** QL along vΨ^t for t > 0 (B-cond's hypothesis): no new case of the pointwise law. The proved exponent β
+  is below the heuristic σ − 1 when σ − 1 > p (resp. ½): Lemma ST is lossy there (harmless for (a), (c)).
+- **Soft route (Remark QLP2).** LP + monotonicity in M (Pólya-type uniformity) gives the bound only for M ≤ M_n → ∞ at an
+  unknown rate, hence Λ_n = o(log n) only; ensemble/Christoffel bounds lose a factor n. Recorded: no soft uniform-in-M bound.
+- **Rule A.** σ ↓ 1 (constants blow up; K compact needed); α = 0 log (numerically visible at p = 0.5, σ = 1.5); z ∈ Ω_∞ for
+  every p (lip/seam angles); scale invariance of Lemma Z; N-uniformity of A; m = n − 1. No counterexample.
+- **Numerics** (`checks/check_qlp.out`, NUMERICAL): sup_{M≤n^{2/p}} tail·M^{p/2} = 0.48–0.71, flat in n, p ∈ {2, 1, 0.5},
+  σ ∈ {1.5, 2, 3}; deep slopes ≈ −(σ−1); Lemma ST's inequality holds in every row. Small n, lumped tail (≤ 1.4%).
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan46.md; main argument correct). F1 (sector-II formula is Vanlessen
+  (4.27), not WLXZ (4.27)), F2 (endpoint ϑ = p/2 of (c) restricted to p ≠ 1), F3 (Lemma Z for |z| ≤ δ₁/2), F4 (check_qlp β at
+  p = 1 = min(½, σ − 1); .out regenerated), F5 (QLP3(ii) reworded), F6 (Audit U6 gap disclosed: band rays/lips need BK beyond
+  |ph u| ≤ π/3), F7–F9 (J2 terms, GS wording, closed-disc maximum principle, max(A, 1)) applied — REVIEWED.
