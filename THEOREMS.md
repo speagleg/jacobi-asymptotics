@@ -95,7 +95,7 @@ arXiv:2501.14545v3; **(C6)** Lamzouri arXiv:2609.02882v2; **(C8)** Goldston arXi
 (p = 2, s ≥ 2)**, supplied citation-free by item 11 Theorem H (p = 2, PROVED + REVIEWED there) and also by G2 Cor.
 H-input (mod-cite (P)); no G3′ result depends on (P) — §3.3.
 
-**H6. Lean (sorry-free per lean/README.md; `check.sh` audit not re-run for this draft).**
+**H6. Lean (sorry-free; `lean/check.sh` re-run on the Plan 37 branch 2026-10-14: AUDIT OK, only propext, Classical.choice, Quot.sound).**
 `theoremHL` (Theorem H_L): **PROVED-mod-input (TheoremHPure; input supplied on paper for all p > 0, s > 1 by G2 Cor.
 H-input, mod-cite (P); item 11 alone gave p ∈ {1,2}, s ≥ s0(p))**. `smoothZeta_HL`, `smoothZeta_HL_det` (Corollary
 H_L-ζ) and `smoothZeta_bLaw` ((2/n²)Σ(n−j)log(b_j/x_j) → log(π²/16)): **PROVED-mod-input (TheoremHPure 2 κ 2,
@@ -455,8 +455,7 @@ inside `/-- … -/` docstrings only.
   PROOF SKETCH / DRAFT, REFUTED (vs RETRACTED), SUPERSEDED, HYPOTHESIS, OBSTRUCTION, HEURISTIC, sorry-free; dated note
   on the stale "Lean is not installed yet". G2 header got a dated note that "generalizes" is no longer accurate.
 - **F9.** README Lean bullet names both routes (item 11 for p ∈ {1, 2}, s ≥ s₀(p); G2 for all p > 0, s > 1).
-- **F10 (info).** Lean rebuild: a `lean/check.sh` run was in progress in this worktree (started by the coordinator)
-  while these fixes were made; its result is not recorded here.
+- **F10 (info).** Lean rebuild: `lean/check.sh` run by the coordinator on this branch (after the docstring edits), 2026-10-14: AUDIT OK (no sorryAx; only propext, Classical.choice, Quot.sound).
 - **F11 (info).** Confirmations; nothing to change.
 
 ---
