@@ -4,7 +4,7 @@
 - [x] **T1.** Cluster numerics (exact): `checks/check_clusters`.
 - [x] **T2.** Theorem Ch: necessity (grouping by T, Hadamard, saturation) and sufficiency (L′ on the per-n optimal T).
 - [x] **T3.** Corollaries: N″, N‴, L′, the sliver example.
-- [ ] **T4.** Rule R review: fixes, then re-check, then labels.
+- [x] **T4.** Rule R review: fixes, then re-check, then labels.
 
 ## Review focus
 - (ii) step 1: the near-pair ε_ab bound for non-adjacent pairs; the replacement inside G3′-U.

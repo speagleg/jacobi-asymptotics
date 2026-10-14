@@ -43,7 +43,7 @@ Research: research/G3prime, G2, G1.
 **Status (2026-10-14).** Open:
 - G3′ exactly (D = 0) unconditionally. By N′/N″ this needs proportion-one distinctness of ordinates, beyond the best known
   unconditional results (Lamzouri 2026: 67.25% simple and on the line).
-- ~~Sufficiency gap~~: closed by Theorem Ch (Plan 26, Rule R pending). **G3′ ⟺ 𝒞(K) = o(K²)** (capped near-pair
+- ~~Sufficiency gap~~: closed by Theorem Ch (Plan 26, REVIEWED). **G3′ ⟺ 𝒞(K) = o(K²)** (mod Theorem H) (capped near-pair
   energy of the ordinates); what remains is to decide that condition for ζ, which implies proportion-one distinct ordinates.
 - An explicit constant in (B).
 - G1-R: (T3)/(CL) for general, rough (non-analytic) weights and nodes. The analytic families done are pure powers
