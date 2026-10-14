@@ -175,8 +175,8 @@ The tables give N·max|D_∞^{−σ₃}(VN^{−1} − I)D_∞^{σ₃}|:
 | (0.6, 2.5) | 40 | 0.724 | 0.775 | 0.623 | 0.761 | 0.333 | 0.247 | 0.405 | 0.058 | 0.129 | 1.245 | 1.970 |
 
 - N·error is stable, so VN^{−1} − I = O(1/N) in Ω_∞, including near the negative axis close to 0.
-- **Correction** (REVIEW_RHplt1b F6). The −1.5 column (0.283/0.280/0.278 and 0.734/0.752/0.761) is a quadrature artifact of
-  this probe: its S(z) quadrature misses the half-residue when the kernel pole is 10⁻⁴⁰ off the contour. The seam
+- **Correction** (REVIEW_RHplt1b F6). The −1.5 column is a quadrature artifact of this probe: shown for (0.75, 2) (0.283/0.280/0.278);
+  presumably also for (0.6, 2.5) (0.734/0.752/0.761), which was not re-run. The cause: its S(z) quadrature misses the half-residue when the kernel pole is 10⁻⁴⁰ off the contour. The seam
   construction (RH_plt1b), which equals const·D·B by Liouville, gives 0.161 at (0.75, 2), N = 10, and agrees with this
   probe to all digits at −1.5 + 0.05i. No proof step depends on the column.
 - N^p b_N/c = 0.925, 0.962, 0.981 at (0.6, 2.5) and N = 10, 20, 40, consistent with d₁ = −(s − 1)/2 = −0.75.

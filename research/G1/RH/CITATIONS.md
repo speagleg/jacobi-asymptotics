@@ -92,7 +92,7 @@ The arXiv v1 PDF was read via pdftotext. The Anal. Appl. 14 (2016) version was n
 > |ph t| ≤ 2π/3, n = m + 1, with sec(π/3) = 2.)
 
 **Also used in:** RH_plt1.md Lemma 1.1′(ii): 5.11.1 + §5.11(ii) with n = 1, applied to Γ(1 − t) with the principal Ln, and to
-Γ(t) on S_lens.
+Γ(t) on S_lens. RH_plt1b.md §1 (D̃ on S_in; Lemma S(i)–(iii)).
 
 ## (Van) M. Vanlessen, arXiv:math/0212014 — READ (§1, §4.1–4.3), for RH₁(r)
 "Strong asymptotics of the recurrence coefficients of orthogonal polynomials associated to the generalized Jacobi weight"
@@ -303,4 +303,4 @@ local form Ψ = Ψ̂ζ^{−σ₃/4}S for α = −½). RH_plt1.md Lemma 1.1′ (5
 > having chosen the angle, we define the contours Σ1 ∩ Uδ and Σ3 ∩ Uδ in Uδ as the preimages of the rays γ1 and γ3 under
 > the mapping ζ = n²f(z) … Note that this definition does not depend on n."
 
-**Used in:** RH_plt1b.md §2. For p ≤ ⅓ the Ψ-rays are taken at angle π − θ_L, so that the lips lie in the inner sector.
+**Used in:** RH_plt1b.md §2. For all 0 < p < 1 the Ψ-rays are taken at angle π − θ_L, θ_L = πp/4, so that the lips lie in the inner sector.

@@ -1,6 +1,6 @@
 # RH_plt1b: pointwise Law P for σ_{p,s}, all 0 < p < 1 — the seam construction (Plan 15b)
 
-Status: **Rule R: ACCEPT WITH FIXES** (review/REVIEW_RHplt1b.md). F1–F9 are applied, pending re-check. There is **no
+Status: **REVIEWED** (Rule R: ACCEPT WITH FIXES, review/REVIEW_RHplt1b.md; F1–F9 applied and re-checked). There is **no
 numerical caveat**: Lemma S(iii) is now proved (F2). This document covers every 0 < p < 1. For ½ < p < 1 it agrees
 exactly with RH_plt1's B-construction (Liouville, §4), and it removes RH_plt1's NUMERICAL F4 dependence.
 
@@ -111,7 +111,7 @@ F̃ := D̃·B_in·K·e^X is used in the band lens and in Ω^△. The band weight
 ## 3. Theorem
 
 **Theorem RH_p (0 < p < 1; PROVED-mod-cite (WLXZ; KMVV §6 including the angle-freedom remark; G2 μ*/B*; DLMF 5.11),
-pending Rule R re-check).** For 0 < p < 1 and s > 1:
+REVIEWED; no numerical caveat).** For 0 < p < 1 and s > 1:
 
   n^p b_n = c(p)(1 + O(1/n)),  a_n/(2b_n) = 1 + O(1/n).
 
@@ -131,7 +131,7 @@ N·max|D_∞^{−σ₃}(VN^{−1} − I)D_∞^{σ₃}|:
 - For p = 0.4, the points 4.5 + 1.5i, 3 − 1.2i and 15 + 8i lie in S_in, and the others in S_out.
 - **Liouville identity** (Rule R F6). For ½ < p < 1 the seam F equals const·D·B (same jumps, same behaviour at 0 and ∞).
   So the seam and B-probes must agree exactly.
-  - The reviewer's runs at p = 0.75, N = 10 agree to all printed digits at 0.6 + 0.45i, 0.6 + 0.55i, −1.5 + 0.05i and
+  - The reviewer's runs (not committed) at p = 0.75, N = 10 agree to all printed digits at 0.6 + 0.45i, 0.6 + 0.55i, −1.5 + 0.05i and
     −1.5 + 0.3i, and at the ten table points off the axis.
   - At −1.5 + 10⁻⁴⁰i the seam value 0.161 is the correct one. The B-probe's 0.283 is a quadrature artifact (its S(z)
     quadrature misses the half-residue). RH_plt1 §5's −1.5 column is corrected accordingly.

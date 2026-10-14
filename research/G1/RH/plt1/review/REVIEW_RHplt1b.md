@@ -194,3 +194,37 @@ and the §6 angle-freedom remark; G2 μ*/B*; DLMF 5.11.1/§5.11(ii)), pending re
 - With F2 adopted there is **no** NUMERICAL modulo for the seam route. Until then: "modulo the NUMERICAL Lemma S(iii)".
 - Novelty: UNCHECKED.
 - F6 (commit the output; RH_plt1 §5 artifact) and F7 (hard-edge numerics) are recommended, not blocking.
+
+## Re-check (commit e3b5ae0)
+
+| Fix | Status | Notes |
+|---|---|---|
+| F1 | VERIFIED | θ_L = πp/4 and θ_s = πp/2 for all p. Containment covers the lips, the band lens in U(0, δ), lens/Σ^△ heights < δ·tan(θ_s)/2, and the top segment. Lip constant 2π sin(π/4). |
+| F2 | VERIFIED | The proof of Lemma S(iii) is reproduced correctly (real and imaginary cancellation at ∞, continuity of each principal term). The NUMERICAL caveat is dropped, and the winding check is kept as a consistency check. |
+| F3 | VERIFIED | X = O(log N); X − X(0) is N-uniformly Lipschitz on compacts; constants cancel; the top end needs only poly(N). |
+| F4 | VERIFIED | The N/|z| term is added. The D vs D̃ statement is corrected. (i) reads O(\|z\|). |
+| F5 | VERIFIED | Plemelj orientation stated. Lemma 3.4's half-line case is applied per ray. X(0) is the same from every sector. |
+| F6 | PARTIAL | See R1–R2. The Liouville identity and the RH_plt1 §5 correction note are present. |
+| F7 | VERIFIED | Scope statement in §4. Hard-edge numerics are still recommended. |
+| F8 | VERIFIED | W̃ = (C(−z)^{α_x}(4c − z))^{1/2}/G̃ with one root. The seam ratio is exactly D̃/D. |
+| F9 | VERIFIED | Title is "all 0 < p < 1". (Y4)_x needs only φ₀ < πp. The KMVV sector usage is stated. |
+
+**Residual items (non-blocking, hygiene):**
+- **R1.** `checks/check_plt1_seam_e2e_p075s2.out` is committed **empty** (0 bytes).
+  - The §4 table no longer has a 0.75 row. But §4 and RH_plt1 §5 now rest on the reviewer's scratch runs (Liouville
+    agreement; 0.161 at −1.5), and those are not committed.
+  - Fix: commit a real output, e.g. `check_plt1_seam_e2e.py 0.75 2 10`, about 11 min; the reviewer's run reproduced
+    0.39103 … 0.33194 and gave 0.16133 at −1.5. Or delete the empty file and label those statements "reviewer scratch run".
+- **R2.** The RH_plt1 §5 correction declares the (0.6, 2.5) −1.5 entries (0.734/0.752/0.761) artifacts too. Only (0.75, 2)
+  was verified. The mechanism is the same, so this is very likely right, but write "presumably also", or re-run the B-probe
+  at −1.5 + 0.05i for (0.6, 2.5).
+- **R3.** CITATIONS.md:
+  - the KMVV angle-freedom "Used in" line still says "For p ≤ ⅓ … π − θ_L". Update it to "all 0 < p < 1, θ_L = πp/4";
+  - the DLMF 5.11 "Also used in" line should add RH_plt1b (Γ(t) on S_in; Lemma S(iii)).
+- **R4.** The status lines (header, §3) still say "pending re-check". Update them to REVIEWED.
+
+**Label (re-check): Theorem RH_p, 0 < p < 1, s > 1 — PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6 incl. (6.42)–(6.53)
+and the §6 angle-freedom remark; G2 μ*/B*; DLMF 5.11.1/§5.11(ii)), REVIEWED, with no numerical caveat.**
+- Novelty: UNCHECKED.
+- R1–R4 are hygiene and do not affect the label.
+- Hard-edge numerics (F7) are recommended.
