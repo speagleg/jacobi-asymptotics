@@ -51,6 +51,7 @@ known; its application here to Law P is what is new.
 | **Ra** | fixed-size rough weights break the pointwise **a-law**: for all p > 0, s > 1 and ε ∈ (0, ε₀], ε₀ = I/16, some \|f\| ≤ ε gives w = k^{−s}e^{f} with limsup (n^pa_n − 2c(p)) ≥ εη_a/2 and liminf ≤ −εη_a/2, η_a = c(p)I/2, I = (1/π)∫min(1, H(2cos θ))dθ > 0 (≈ 0.314, NUMERICAL). Ingredients: Toda form ȧ_n = ⟨f, b_{n+1}q_nq_{n+1} − b_nq_{n−1}q_n⟩; R2a \|ä_n\| ≤ 2(b_n + b_{n+1})‖f‖²; R1a (explicit, window 2) (§3.12, Plan 41) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, TV, LP/LP′, Sat_p⁺, TL). Sub-labels: Toda form, R2a PROVED; R1a PROVED-mod-cite (via LP′). Rule R ACCEPT WITH FIXES (review/REVIEW_Plan41.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **RL** | Lemma RL: for any σ with infinite support (any nodes x_k ↓ 0) and scales s_n (s_{n+1}/s_n → 1, e.g. n^p): s_na_n → α, s_nb_n → β ⟺ the 1st, 2nd, 4th moments of ν_n := (x ↦ s_nx)_*μ_n tend to those of arcsine on [α−2β, α+2β] ⟺ ν_n → that law weakly + an a priori bound sup s_n(\|a_n\| + b_n) < ∞ (or UI of y⁴). Law P (constant c) ⟺ ν_n → arcsine on [0, 4c] weakly **with sup n^p(a_n + b_n) < ∞** (equivalently: moments ℓ = 1, 2, 4 converge to 2c, 6c², 70c⁴). RL-loc: indices n−1, n, n+1 suffice for right limits; RL-n: index n alone does not (explicit J_t); RL-n2: {n, n+1} does not for moments 1, 2, 4 (general measures); RL-b: the b-law alone is not enough (§3.13, Plan 42) | RL, RL-loc PROVED (self-contained; method of Simon 2004 Thm 3.2, read and quoted, CITATIONS.md (Simon), attribution only); RL-n, RL-b, RL-n2 PROVED (spectral theorem for compact self-adjoint operators: textbook-standard, not checked against a specific source); RL2 PROVED-mod-cite (inherits Theorem R); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan42.md), fixes applied, re-check ACCEPT — REVIEWED; novelty not claimed (RL, RL-b), UNCHECKED (RL-loc, RL-n, RL-n2). Open: weak convergence without the bound (RL-UI) |
 | **B-cond** | for x_k = k^{−p} (p > 0), w = k^{−s}Ψ (s > 1) with Ψ **slowly varying in sequence form only** (no boundedness, no D(γ) < ∞; e.g. exp(√log k)): explicit bounds (the displayed bounds are unconditional) \|log b_n²(w) − log b_n²(v)\| ≤ 2δ_n(M₀) + Q_n + o(1), n^p\|a_n(w) − a_n(v)\| ≤ 4M₀^p(2δ_n(M₀) + Q_n) + o(1); hence **QL** (ε_nΛ_n → 0, Λ_n := sup_t max_{m∈{n−1,n}}Σ_{n≤k≤n^γ}log(k/n)μ_m^{(t)}(k), γ > κ) ⇒ n^pb_n → c(p), n^pa_n → 2c(p) along the full sequence. Internal: L0 (dyadic chaining/Potter), FV⁺ (FV/FVa for unbounded f), QLb (power tail ⇒ QL) — PROVED (§3.14, Plan 44) | CONDITIONAL (QL₀, implied by QL; both HYPOTHESIS) + PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal L0, FV⁺, Sat_p⁺, TLw); L0, QLb PROVED; FV⁺ PROVED (standard extension; novelty not claimed); QL proved only in cases already covered (ε_n log n → 0 ⊂ T3-log; bounded Ψ); no new case of the law; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan44.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
+| **QL-num** | numerics N1–N3 for QL (s = 2; Ψ = exp(√log(k+e)), exp((log(k+e))^{0.8}); p ∈ {2, 1, ½}): tilt ratio n·dev/ϑ_n = 0.466–0.497 at n = 1600, rising toward 0.5 with an O(1/log n)-type defect; QL-b power tail μ_n((Mn, ∞)) ≤ CM^{−α}, α = min(p/2, 0.8), C ≈ 0.4–0.6 flat in n, t; crossover at M ≈ 3.3n² (p = 1), 0.34n⁴ (p = ½); Λ_n → LP constant, flat in t, ε_nΛ_n decreasing; Route I′ CB ratio R ≤ 0.93·ε_n(1 + log M), R saturates beyond the hard edge (no μ^{−1/2} blow-up) — Route I′ not dead (§3.15, Plan 45) | NUMERICAL (K-doubling, quad/long double, Lanczos and TV finite-difference cross-checks); Rule R pending |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1 §§2–6) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; G2 PROOF.md μ*, B* — only μ* and B*(i)–(ii), which do not use (P)) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -1980,6 +1981,78 @@ m ∈ {n − 1, n} and all real 1 ≤ M ≤ n^{γ−1}: sup_tμ_m^{(t)}(ℕ ∩ 
   smaller the weaker. (e) Does any step need Ψ bounded? Head: W/w_k ≤ n^{s+2η}·const (Potter); tail: TLw's ratio
   ≤ T″^{s+η}k^{η}·const; FVa off-head constants use only Sat_p⁺ — none needs boundedness. (f) m = n − 1 in QL: the sum
   still starts at k = n with log(k/n), matching L0(i) centred at n.
+
+### 3.15 QL numerics (Plan 45) — NUMERICAL; Rule R pending
+
+Source: `research/program/outline_B_sv.md` §6 (numerics N1–N3, work package WP2). Script and output:
+`checks/check_ql_numerics.py`, `checks/check_ql_numerics.out` (runtime ≈ 8 min). **Everything in this section is NUMERICAL**
+(finite n, finite K, floating point; nothing is certified, nothing is a proof). Setting as in §3.14: x_k = k^{−p},
+v = k^{−s}, **s = 2**, w(t) = vΨ^t, Ψ = exp(L(log k)) with L = √log(k + e) ("sqrt") or (log(k + e))^{0.8} ("θ = 0.8"),
+f = log Ψ, g_n = f − f(n), ε_n of Lemma L0, ϑ_n := L′(log n).
+
+**Method.** Atoms k ≤ K exactly, plus (as in Plan 10 Phase 0, `RH/checks/check_fine.py`) a Gauss–Legendre quadrature on
+log-panels of ∫_{K+½}^{10^{48}} t^{−s}Ψ(t)^t δ_{t^{−p}} dt (Euler–Maclaurin continuation of the atom sum beyond K), so that
+the deep tail k ≫ K (where μ_n lives for p ≤ 1: the hard-edge scale is k ≍ n^{1+2/p}) is represented. Coefficients by RKPW
+(long double); μ_m(k) by the orthonormal three-term recurrence in long double on the atoms above an adaptive start index
+(chosen where the long-double and float64 recurrences agree; head atoms are e^{−cm}-small, Sat_p⁺); K_m(fq_m) by
+streaming the recurrence. Checks (all in the .out): K = 10⁵ vs 2·10⁵ (N1 entries agree to 2·10⁻⁷; tail masses to ≤ 3·10⁻³
+relative; Λ_n to all printed digits; R to ≤ 5·10⁻⁶); quad vs long double RKPW (N1, identical to all printed digits);
+recurrence vs float64 Lanczos with full reorthogonalization (μ_m to ≤ 4·10⁻¹⁵, p ∈ {2, 1, ½}; ⟨1_Aq_m, K_m(fq_m)⟩ to
+6·10⁻¹³ relative); and the TV identity of §3.8 by a central difference in t (X agrees with the finite-difference value to
+the 5 printed digits for M = 2 … 2²¹, p = 2, t = ½, n = 100).
+
+**N1 (tilt law at p = 1 and p = ½).** n·(β_n(vΨ)/β_n(v) − 1)/ϑ_n for n = 100, 200, 400, 800, 1600:
+- p = 1: 0.458, 0.471, 0.477, 0.481, 0.484 (sqrt); 0.470, 0.481, 0.487, 0.490, 0.492 (θ = 0.8); the a_n analogue 0.462 … 0.484
+  and 0.477 … 0.493.
+- p = ½: 0.440, 0.451, 0.458, 0.463, 0.466 (sqrt); 0.464, 0.474, 0.479, 0.482, 0.484 (θ = 0.8); a_n: 0.430 … 0.465 and
+  0.454 … 0.483.
+- p = 2 (tail model; compare Bc2): 0.470 … 0.493 (sqrt), 0.475 … 0.496 (θ = 0.8); a_n 0.480 … 0.497.
+- *Pure-power prediction.* The Phase-0 fits (`RH/LOG.md`, NUMERICAL; p ∈ {1.5, 2, 3}, and consistent values at p < 1 in
+  `RH/plt1/RH_plt1.md`) give d₁ = −(s − 1)/2 independent of p and e₁ = p/2 independent of s. Replacing s by s − ϑ_n shifts
+  d₁ by +ϑ_n/2 and leaves e₁: prediction 0.5 for both b and a, every p. The exact pure-power tilt (v replaced by k^{−(s−ϑ_n)},
+  same model) gives n·dev/ϑ_n = 0.492 … 0.4995 (p = 1), 0.5001 (p = ½), 0.4915 … 0.4995 (p = 2), confirming the d₁ shift, and
+  dev_w/dev_tilt = 0.931 → 0.968 (p = 1), 0.879 → 0.931 (p = ½), 0.956 → 0.987 (p = 2) for n = 100 → 1600.
+- *Reading.* The tilt picture holds at p = 1 and p = ½ to 7% (p = ½) and 3% (p = 1) at n = 1600, with the ratio increasing
+  monotonically toward 0.5. The defect is larger for smaller p (deeper hard edge) and decays slowly:
+  (1 − dev_w/dev_tilt)·log n ≈ 0.50 (p = ½), 0.24 (p = 1), 0.10 and decreasing (p = 2), consistent with an O(1/log n)
+  second-order correction (L″/L′ ≍ 1/log n), so the limit 0.5 is consistent with the data but **not established**: a
+  three-term fit in 1/log n gives 0.44–0.49 and is ill-conditioned (printed as illustrative only). The tilt law remains a
+  CONJECTURE.
+
+**N2 (QL-b slope and Λ_n).** T_M(n, t) := μ_n^{(t)}((Mn, ∞)) for M = 4^j up to 4^{20} ≈ 10^{12} (≫ n^{2/p} for every n tested;
+≥ 40× at p = ½, n = 400), n = 25 … 400, t ∈ {0, 1}, sqrt:
+- *Arcsine regime.* Local slopes d log T/d log M ≈ −p/2 (p = 1: −0.48 … −0.56; p = ½: −0.24 … −0.31), and T_M/F_p(M) = 1 ± 0.03
+  at n = 400 for M ≤ 256 (p ∈ {1, ½}); for p = 2 the convergence of T_M/F_p at M ≥ 64 is slower (1.1–1.5 at n = 400).
+- *Crossover (Bessel/hard edge).* Beyond M_x the slope tends to −(s − 1) = −1 at t = 0 (far tail μ_n(k) ≈ w_kp_n(0)²) and to
+  −0.88 … −0.91 at t = 1 (the extra growth of Ψ). Crossover (first M where the slope passes the midpoint, grid factor 4):
+  M_x ≈ 3.3·n^{2/p} (p = 1), ≈ 0.34·n^{2/p} (p = ½), stable in n = 25 … 400 and in t (one exception, 1.34·n^{2/p} at
+  p = ½, t = 1, n = 25: a grid effect of the plateau); the transition carries a one-step plateau (slope ≈ −0.06 … −0.2)
+  just before M_x. At p = s = 2 the two slopes coincide (−1), so there is no slope crossover,
+  only a local plateau (one 4× step with slope −0.3 … −0.6) near M ≈ n = n^{2/p}.
+- *QL-b constant.* C_n(α) := max_{M≤4^{20}} T_MM^{α} with α = min(p/2, 0.8): 0.43–0.45 (p = 2), 0.60–0.62 (p = 1),
+  0.57–0.58 (p = ½), flat in n = 25 … 400 and the same at t = 0 and t = 1. So QL-b (power-tail localization, Lemma QLb's
+  hypothesis) is consistent with the data with α = min(p/2, s − 1 − δ), not with α = p/2 when p/2 ≥ s − 1 (p = 2, t = 1:
+  T_MM grows like M^{≈0.1}).
+- *Λ_n (now with the tail, k ≤ n^γ, γ = κ + ½).* sup_{t∈{0,½,1}}Λ_n for n = 100 … 1600: 0.4243 → 0.4162 (p = 2),
+  0.9359 → 0.9301 (p = 1), 2.0643 → 2.0754 (p = ½); the t-variation is ≤ 5·10⁻³; the values approach the LP constants
+  ∫_0^∞F_p(e^u)du = 0.4156, 0.9297, 2.0762. (Plan 44's truncated p = 2 values 0.4151–0.4232 are consistent.) Hence
+  ε_n·sup_tΛ_n = 0.068 → 0.054 (p = 2), 0.151 → 0.121 (p = 1), 0.332 → 0.271 (p = ½): **it decreases**, like ε_n, in every
+  case — consistent with QL in the form Λ_n = O(1).
+
+**N3 (Route I′ go/no-go).** R(M, n) := |⟨1_Aq_m, K_m(g_nq_m)⟩|/μ_m(A), A = (Mn, ∞), m = n, along w(t), t ∈ {0, ½, 1},
+p ∈ {2, 1, ½}, n ∈ {50, 100, 200, 400}, M = 2 … 2²⁹ (μ_m(A) down to 10⁻⁹):
+- R/(ε_n(1 + log M)) ≤ 0.70 (p = 2), ≤ 0.72 (p = 1), ≤ 0.93 (p = ½) over all (t, n, M) tested; X > 0 in every case.
+- R grows roughly like ε_n log M in the arcsine range and **saturates** beyond the hard-edge scale M ≍ n^{2/p}: the fitted
+  d log R/d log(1/μ_m(A)) over the five deepest M is 0.000 (p = 2, 1) and −0.02 … +0.17 at p = ½ (where 2²⁹ is still below
+  the crossover for n ≥ 200). The Cauchy–Schwarz scale would be +½: R·√μ_m(A) instead decays like √μ_m(A) (to 2·10⁻⁵).
+- The saturation value is R ≈ (0.63–0.74)·ε_n log n (p = 2), (0.93–1.00)·ε_n log n (p = 1), i.e. of the size of g_n at the hard
+  edge, below ε_n(1 + log M) there. R is of the same order as the mean of g_n over A (no Cauchy–Schwarz loss, no extra
+  cancellation).
+- **Verdict (numerical evidence, not proof): Route I′ is NOT dead.** The commutator term is multiplicative in μ_m(A), as
+  the outline's lemma CB requires: R ≲ C·ε_n(1 + log M) with C ≈ 1 on all tested data, uniformly in t, and R does not scale
+  like μ_m(A)^{−1/2} (outline stop condition (iii) is not triggered). This makes CB *plausible*; it does not make it easier
+  to prove (it remains a hard-edge statement about a log-singular multiplier), and it is evidence only for the finite range
+  n ≤ 400, M ≤ 2²⁹, two weights, s = 2.
 
 ## 4. G1-R: what remains (stop report)
 
