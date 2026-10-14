@@ -222,3 +222,58 @@ The RHS of (9.7) given in RH99's Sources list also matches p. 19. ✔
 | Theorem V⁺ | PROVED-mod-cite ((C8) Prop. 1 and (3.4) via RH99; (C3) (3.5); (C6); (C1)) + mod-input RH, (V⁺), Theorem H; novelty UNCHECKED |
 
 Each row becomes REVIEWED after the re-check. Novelty: none is claimed, which is appropriate.
+
+## Re-check (commit eb3f348)
+
+I read the diff f911f6c..eb3f348 for RH99.md, RHPRIME.md, CITATIONS.md and LOG.md. I also grepped for leftover text:
+- there is no leftover `dE`, `E(u)` or "pp. 5";
+- RHPRIME has no "as cited" and no "Not attempted".
+
+| Finding | Status | Note |
+|---|---|---|
+| F1 | RESOLVED | The statement is now |L − M − δ²/(3x)| ≤ 2√((M + δ²/(3x))E) + E, plus |√L − √(M + δ²/(3x))| ≤ √E. Both are proved: the second is Minkowski in L²(dy/y) for Δ = a_yD + R. The table's O(√(ME) + E + δ²/x) is still correct as an O-statement. Nit R1 below. |
+| F2 | RESOLVED | P1's Inputs now cite Lemma 9.7* and the Minkowski form of 9.9*, and (C8)'s (9.9) is marked "no longer used". The P1 proof checks out; see below. V3 and V5 are rewritten with no stale text. |
+| F3 | RESOLVED | RH99 §3 and V5 name the remaining citations: Prop. 1 (Landau (3.13) [28] not read; the functional-equation estimate) and (3.4) (von Koch, from (3.3)). |
+| F4 | RESOLVED | The text now says "conditional form", "smaller by a log power" and x ≥ T ≥ e. Nit R2 below. |
+| F5 | RESOLVED | The per-t figures match check_99.out. |
+| F6 | RESOLVED | The J bound now reads δ²y³ + y²log⁴y, and ℰ is renamed throughout. |
+| F7 | RESOLVED | A uniformity line is added. Nit R3 below. |
+| F8 | RESOLVED | pp. 4–7 in CITATIONS, RH99 and LOG. |
+| F9 | DEFERRED (acceptable) | The PROOF.md row and plan T6 are left to promotion, as stated. |
+
+**New P1 proof checked.** It follows from the earlier bullets of P1:
+- M ≤ (1 + 2ε)xδ log T + o(xδ log T).
+- δ²/(3x) = o(xδ log T).
+- √E ≪ κx^{1/2}log²(x + 2).
+- √E/√(xδ log T) ≍ δ^{1/2}log²x/(log T)^{1/2} ≤ M²T^{−1/2}log^{3/2}T → 0, uniformly for T ≤ x ≤ T^M.
+- Hence L ≤ (1 + 2ε + o(1))xδ log T.
+- Lemma 9.7* gives R ≤ L + O(log²T/T), and log²T/T = o(xδ log T).
+
+The conclusion is unchanged, and P1 now needs no hypothesis on M. ✔
+
+**Residual nits.** All are cosmetic and none blocks REVIEWED.
+- **R1.** "equivalently" in Lemma 9.9* should read "and the stronger". Minkowski implies the two-sided
+  |L − A| ≤ 2√(AE) + E, but not conversely: the lower bound A − 2√(AE) − E is weaker than (√A − √E)².
+- **R2.** RH99, Corollary 9.9′: the bullet "In Lemma P1 the hypothesis M ≪ xδ log T is supplied by (V⁺) …" is now
+  redundant next to "Lemma P1 uses the Minkowski form". Delete it, or prefix it with "(If the corollary were used,)".
+- **R3.** The F7 line says (C8) §3 "bounds the remaining terms of (3.14) explicitly". (C8) only writes those terms
+  explicitly and says "we obtain the proposition". Better: "the remaining terms are explicit series in (C8) §3, and
+  bounding them gives uniformity in x ≥ 1 and t (e.g. the n-series difference is ≪ x^{−2}/(|t| + 2))".
+
+**Re-check verdict: ACCEPT.** Plan 22 is REVIEWED once the labels below are applied at promotion. R1–R3 are optional
+and can be done at the same time.
+
+**Final labels.**
+
+| Item | Label |
+|---|---|
+| Lemma 9.7* | PROVED-mod-cite ((C8) Prop. 1 (3.11), (C1)) + mod-input RH; REVIEWED |
+| Lemma 9.9* (incl. Minkowski form) | PROVED-mod-cite ((C8) (3.4)) + mod-input RH; REVIEWED |
+| Corollary 9.9′ | PROVED-mod-cite ((C8) (3.4)) + mod-input RH, hypothesis M ≪ xδ log T (conditional form of (C8)'s full-range claim); REVIEWED |
+| Lemma P1 | PROVED-mod-cite (RH99 Lemmas 9.7*, 9.9*; (C8) Prop. 1, (3.4); (C1)) + mod-input RH, (V⁺); REVIEWED |
+| Theorem V⁺ | PROVED-mod-cite ((C8) Prop. 1 and (3.4) via RH99; (C3) (3.5); (C6); (C1)) + mod-input RH, (V⁺), Theorem H; REVIEWED (review/REVIEW_Plan21.md, review/REVIEW_Plan22.md); novelty UNCHECKED |
+
+At promotion:
+- replace "pending Rule R" / "re-check pending" in RHPRIME, RH99 and LOG;
+- update the PROOF.md row for Thm V⁺;
+- tick T6 in the plan.

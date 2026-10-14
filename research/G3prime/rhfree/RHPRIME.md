@@ -8,10 +8,10 @@ needed only RH-free, where it stays OPEN.)
 | Item | Content | Label |
 |---|---|---|
 | (V⁺) | One-sided prime variance on a bounded δ-range | HYPOTHESIS (with RH); implied by RH + SPC (V1) |
-| Lemma P1 | RH + (V⁺) ⇒ G(T^α) ≤ (1 + o(1))N_Ψ on [1, M] | PROVED-mod-cite (via RH99 Lemmas 9.7*, 9.9*: (C8) Prop. 1 (3.11) and (3.4); (C1)) + mod-input RH, (V⁺). REVIEWED for the original sketch-dependent form; the Plan-22 update is pending Rule R |
+| Lemma P1 | RH + (V⁺) ⇒ G(T^α) ≤ (1 + o(1))N_Ψ on [1, M] | PROVED-mod-cite (via RH99 Lemmas 9.7*, 9.9*: (C8) Prop. 1 (3.11) and (3.4); (C1)) + mod-input RH, (V⁺). REVIEWED (Plan 21; Plan-22 update REVIEWED, REVIEW_Plan22.md) |
 | Lemma P2 | RH ⇒ G(T^α) = N_Ψ(T^{−2α}log T + α) + O(T^α log T) + o(N_Ψ) on [0, 1] | PROVED-mod-cite ((C8) (4.2)–(4.4), (C3) (3.5), (C1)) + mod-input RH; REVIEWED |
 | Lemma P3 | weighted K² sum: S_Ψ ≤ N_Ψ(1 + D(η)) + o(N_Ψ) | PROVED-mod-cite ((C6) §3 algebra) + mod-input RH, (V⁺); REVIEWED |
-| Theorem V⁺ | RH + (V⁺) ⇒ (SG) with rate δ³ ⇒ G3′ | PROVED-mod-cite ((C8) Prop. 1 and (3.4) via RH99; (C3) (3.5); (C6); (C1)) + mod-input RH, (V⁺), Theorem H; novelty UNCHECKED. REVIEWED for the sketch-dependent form; the Plan-22 update is pending Rule R |
+| Theorem V⁺ | RH + (V⁺) ⇒ (SG) with rate δ³ ⇒ G3′ | PROVED-mod-cite ((C8) Prop. 1 and (3.4) via RH99; (C3) (3.5); (C6); (C1)) + mod-input RH, (V⁺), Theorem H; novelty UNCHECKED. REVIEWED (REVIEW_Plan21.md, REVIEW_Plan22.md) |
 
 ## 0. Setting (RH is assumed throughout this file, as a labelled hypothesis)
 
