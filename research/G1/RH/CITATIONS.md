@@ -209,6 +209,13 @@ removability step (Prop. 6.5, quoted above) needs:
 > (6.10) "f̃_n(z) = (−(3/2)nφ̃(z))^{2/3}"; (6.11) "φ̃(z) = −(2/3)(z − 2)^{3/2} + O((z − 2)²)"; (6.12)
 > "V_r(z) = E_r(z)σ2Ψ(f̃_n(z))σ2e^{nφ̃σ3}(D̃/w̃^{1/2})^{σ3}".
 
+> (re-read 2026-10-14 for Plan 14 §3, general α) Abstract: "… Tricomi–Carlitz polynomials f_n(z) where α is a positive
+> parameter"; §6.1 "(V_loc,4) as z → ±2, V_loc(z) has the behavior V(z) = O(1)(z² − 4)^{(1/2−α)σ3}. (6.3)"; "If we set
+> P(z) = V_loc(z) × (w̃^{1/2}/D̃)^{σ3}e^{−nφ̃(z)σ3} for z ∈ U(2, ε) … then the jump conditions on P(z) become (6.6)–(6.7)
+> [[0, −1], [1, 0]], [[1, 1], [0, 1]], [[1, 0], [1, 1]] … The jumps suggest that P(z) can be constructed by using Airy
+> functions"; (4.19) "E(z) := (√(2π)/Γ(α))(4 − z²)^{1/2−α}" and (4.26) "w₀(z) := 2iγ(z)w(z)/E²(z)" (the α-dependence
+> enters only through E, which is absorbed in w₀, w̃).
+
 **Used in:** RH_px §3 (transformations, V^△, F2), §4.2 (Airy) and §4.3 (the Σ^△ entries). In x: γ ↦ θ′, there is no
 α-shift in θ, and the region is one-sided.
 

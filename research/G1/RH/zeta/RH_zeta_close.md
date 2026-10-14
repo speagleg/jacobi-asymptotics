@@ -1,6 +1,6 @@
 # RH_zeta_close: closing the smooth-ζ pointwise Law P (Plan 14)
 
-Status: **in progress (Plan 14).** §1 (hard edge) is a PROOF, pending Rule R. §§2–4 are to come.
+Status: **PROOF complete (Plan 14), pending Rule R.** §1 hard edge (C–D comparison), §2 Lemma Z (certified), §3 uniform edges, §4 rate, §5 Theorem RH_ζ.
 
 Notation is as in RH_zeta.md §4 and RH_px.md §§3–5:
 - the rescaled variable z = sx, with s = 1/x_N ≍ N²/log²N;
@@ -365,3 +365,108 @@ So J(x_m) = 2πi(t − 3/8) − i(2πt − π) − iπ/4 = **0 exactly**. This i
 
 Lemma Z is thus **PROVED** (with a certified computation). This closes Rule R F4's open item and RH_zeta §4.2's "What
 remains".
+
+## 3. Uniformity of the edge parametrices in N — PROVED
+
+**Rescaled constraint function.** For b in rescaled units, put 𝒜_N(b) := A_N(b x_N) (Lemma E1, in index form E3).
+Write x(r) = r^{−2}ℓ(r). Here ℓ(r) = r²/(γ(r)² + ¼) ≍ log²r is slowly varying, with local index
+
+  ε(r) := rℓ′(r)/ℓ(r) = 2/Λ(r) + O(1/γ),  Λ(r) := log(γ(r)/2π).
+
+This uses d log γ/d log r = 2πr/(γΛ) = 1 − 1/Λ + O(1/γ), from r = N₀(γ) + ½. Then
+
+  𝒜_N(b) = ∫_{3/(8N)}^{ρ_b}(1 − bρ²ℓ(N)/ℓ(Nρ))^{−1/2}dρ,  where bρ_b²ℓ(N)/ℓ(Nρ_b) = 1
+
+(substitute r = Nρ in E3).
+
+**Lemma U.**
+- **(i)** For each compact K ⊂ (0, ∞) there is a complex neighbourhood 𝒩 of K on which 𝒜_N is analytic. On 𝒩,
+  𝒜_N(b) = 𝒜_∞(b)(1 + O(1/log N)) with 𝒜_∞(b) = π/(2√b), together with all b-derivatives.
+- **(ii)** Tail: 𝒜_N(b) ≤ Cb^{−1/2} for b ≥ 1, uniformly in N.
+- **(iii)** Consequently, with ν_N := −d𝒜_N (the law of the band edges b(τ) in μ̂_N = ∫_0^1ω_{[0,b(τ)]}dτ, so that
+  g_N = ∫G(·; b)dν_N with G(z; b) = 2log((√z + √(z − b))/2)):
+  - the Bessel map is f_N(z) = z·h_N(z), with h_N analytic and nonvanishing on U(0, 2δ), and h_N → h_∞ uniformly;
+  - the Airy phase is φ̃_N(z) = −(z − β̂_N)^{3/2}k_N(z), with k_N analytic on U(β̂_N, 2ε), k_N → k_∞ uniformly, and
+    k_∞(β̂_∞) = (2/3)·(the WLXZ (6.11)-type constant) > 0;
+  - δ, ε and all constants in RH_px Lemmas 2.1–2.2 (the sign of Re φ on the lips and saturated pieces) and Lemma 4.1 are
+    uniform in N.
+
+*Proof.*
+- (i):
+  - ℓ(Nρ)/ℓ(N) = ρ^{ε(N)}(1 + O(ε²log²ρ)) for ρ in compacts, where ε(N) = 2/log N + O(log log N/log²N) (Λ(N) =
+    log N − log log N + O(1)).
+  - The integrand is analytic in b. The endpoint singularity (1 − ·)^{−1/2} is removed by substituting
+    u = bρ²ℓ(N)/ℓ(Nρ), which is monotone in ρ.
+  - The interval [0, 3/(8N)] contributes O(1/N).
+- (ii): the integrand is ≥ 1 and the range is ρ_b ≍ b^{−1/2}. Monotonicity gives the bound.
+- (iii): split ν_N into its restriction to [β̂_N, K] and the tail.
+  - The tail contributes an analytic function on |z| < K/2, with derivatives O(𝒜_N(K)K^{−1}) = O(K^{−3/2}) by (ii);
+    choose K large.
+  - On [β̂_N, K], ν_N has the analytic density −𝒜_N′, which converges by (i).
+  - **Near 0:** G(z; b) − G(0⁺; b) = z^{1/2}·(analytic in |z| < b). Hence φ_N ± iπ = z^{1/2}H_N(z), with
+    H_N → H_∞ and H_∞(0) ≠ 0 (the density of μ̂_∞ is c·x^{−1/2}(1 + o(1)) at 0, c > 0).
+  - **Near β̂:** the band density deficit is ρ − ψ = x^{−1/2}π^{−1}∫_x^{β̂}(−𝒜_N′)(u − x)^{−1/2}du (E1(i)) =
+    (β̂ − x)^{1/2}·(analytic), since −𝒜_N′ is analytic near β̂. Integrating twice gives the stated form of φ̃_N, with
+    k_N(β̂_N) ∝ −𝒜_N′(β̂_N) → π/(4β̂_∞^{3/2}) > 0.
+  - Uniform convergence of analytic functions with nonzero leading coefficients gives uniform univalence of f_N
+    (Hurwitz) and of f̃_N = (−(3/2)Nφ̃_N)^{2/3}/N^{2/3}, and uniform constants. ∎
+
+**Consequences.**
+- **Hard edge:** §1's P̃₀ uses f_N. H1(i)–(iii) hold uniformly.
+- **Soft edge:** the WLXZ §6.1 construction holds for every α > 0 ("α is a positive parameter", CITATIONS), here
+  α_W = 5/8:
+  - P(z) = V_loc(z)(w̃^{1/2}/D̃)^{σ₃}e^{−nφ̃σ₃} (6.5), with Airy Ψ (6.8) and V = O(1)(z² − 4)^{(1/2−α)σ₃} (6.3);
+  - our w̃, F̃ are analytic and nonvanishing on U(β̂_N, 2ε), uniformly (t ≍ N there);
+  - with f̃_N uniformly univalent, E_r is bounded and analytic, and V_rN^{−1} = I + O(1/N) on ∂U(β̂_N, ε) uniformly.
+- So the "uniform Airy" item of RH_zeta §4.3 is closed.
+
+## 4. The rate (Z3) — PROVED
+
+**Lemma D1.** β_N/(4x_N) = c(2)(1 + κ/log N + O(log log N/log²N)), with
+
+  κ = −2(log J(2) + 2J′(2)/J(2)) = −2(log(π/2) − (1 − log 2)) = −0.289459…,
+  J(p) = ∫_0^1(1 − u^p)^{−1/2}du = √πΓ(1 + 1/p)/Γ(1/p + ½).
+
+*Proof.*
+- The edge equation is 𝒜_N(β̂_N) = 1, with β̂_N = β_N/x_N.
+- Approximation: replacing ℓ(N)/ℓ(Nρ) by ρ^{−ε} (ε = ε(N)) changes the integrand by O(ε²log²ρ). The approximate
+  integral is exact: ∫_0^{b^{−1/(2−ε)}}(1 − bρ^{2−ε})^{−1/2}dρ = b^{−1/(2−ε)}J(2 − ε).
+- So 𝒜_N(b) = b^{−1/(2−ε)}J(2 − ε)(1 + O(ε²)), hence β̂_N = J(2 − ε)^{2−ε}(1 + O(ε²)).
+- Expand: log β̂_N = 2log J(2) − ε(log J(2) + 2J′(2)/J(2)) + O(ε²). Here J(2) = π/2, so β̂_∞ = π²/4 = 4c(2).
+- d log J/dp = −p^{−2}(ψ(1 + 1/p) − ψ(1/p + ½)), and ψ(3/2) − ψ(1) = 2 − 2log 2. So 2J′(2)/J(2) = −(1 − log 2).
+- Finally ε = 2/log N + O(log log N/log²N) (Lemma U). ∎
+
+This matches checks/check_z_kappa.out: the reviewer's fit to N = 10⁶⁰ gives −0.289472.
+
+## 5. Theorem RH_ζ (assembly)
+
+**Theorem RH_ζ (PROOF complete; pending Rule R).** For the smooth-ζ model σ_ζ (atoms x_j = 1/(γ_j² + ¼),
+N₀(γ_j) = j − ½, masses 2x_j):
+
+  b_N = (β_N/4)(1 + O(1/N)),  a_N/(2b_N) = 1 + O(1/N),
+
+  **b_n/x_n = (π²/16)(1 + κ/log n + O(log log n/log²n))**,  κ = −2(log(π/2) − (1 − log 2)).
+
+In particular, the pointwise Law P holds for σ_ζ, with an explicit 1/log n rate.
+
+*Proof chain.*
+- Transformations and the global parametrix: RH_zeta §4.1 (RH_px §3 with the α-shift; bounded support).
+- Far field: Lemma Z (§2, certified).
+- Edges: hard edge §1 (comparison; Theorem C, Proposition D); soft edge §3 (WLXZ §6.1, uniform).
+- Small norm and extraction for the comparison solution: RH_px §5 verbatim.
+- Transfer to σ_ζ: Proposition D.
+- Rate: Lemma D1.
+
+**Cited:**
+- WLXZ v1 §§3–6.1;
+- KMVV §6 (Bessel, removability, (6.28));
+- C–D Theorem 4.4 (and the arguments of Theorem 4.7 and Proposition 4.9, reproduced here);
+- DLMF 5.11;
+- G2 PROOF.md (optimality, for E1(iv) only).
+
+**Numerical corroboration:**
+- the absolute end-to-end test (RH_zeta §5): N·err stable at 0.07–0.34;
+- check_z_edge2: N(b_N/(β_N/4) − 1) ≈ 0.27–0.28;
+- check_z_cmp (the log's effect ≈ 0.5/(N log N));
+- check_z_lw1;
+- check_z_Zcert (certified).
