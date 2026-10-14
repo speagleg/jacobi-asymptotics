@@ -169,3 +169,70 @@ a_N/(2b_N) − 1 = 0.063, 0.033, 0.017 (N·dev ≈ 0.63–0.69).
    The rescaled data converge to p = 2 only at rate 1/log N.
 3. **Small norm and extraction:** b_N = (β_N/4)(1 + O(1/N)) and a_N/(2b_N) = 1 + O(1/N). With E5, this gives
    **b_n/x_n = π²/16 + O(1/log n)** for the smooth-ζ model.
+
+## 4. Phases 3–4: the argument (PROOF SKETCH; the far-field lemma is the main open technical step)
+
+**Notation.**
+- Rescaled variable z = sx, with s = 1/x_N.
+- Band [0, β̂], with β̂ = sβ_N (Lemma E1).
+- Saturated region (β̂, X_e), with X_e := s·x_e ≍ N²/log²N.
+- The constraint ends at X_e with density vanishing linearly there. The atoms stop at the top node X₁ = s·x₁ < X_e.
+
+**4.1 Transformations** (RH_px §3, with the α-shift):
+- R and T as in RH_px, with Π, w(z) = 2z, θ = πt.
+- μ = μ_N from Lemma E1 has **bounded support** (0, X_e]. So g(z) = log z + O(1/z), and T = I + O(1/z) at ∞. The
+  unbounded-support normalization of RH_px Lemma 3.5 is not needed.
+- On (β̂, X_e), T has the jump diag(e^{−2πit̂}, e^{2πit̂}), with t̂ := t − 3/8. On (X_e, ∞) it has none.
+
+**4.2 Scalar functions and the far-field lemma.** Fix a closed curve C enclosing the band, the lenses, the saturated
+region up to X₁ + δ′, and (−r, 0). C crosses ℝ at −r and at x_m ∈ (X₁ + δ′, X_e). Take r ≍ x_m ≍ X_e, with r below
+the t-axis crossing at |γ| = 2πe.
+- **Inside C**, F_in := D·B_r·K_α, where:
+  - D = D̃/(1 − e^{∓2iθ}), with D̃ the continued Stirling–Binet function (§3(b));
+  - B_r is the Binet-cut scalar on (−r, 0);
+  - K_α = (β̂ − z)^{−1/8}.
+- **Outside C**, F_out := exp(∫_{x_m}^{X_e} t̂(y)dy/(y − z)). It is the exact scalar with jump e^{2πit̂} on
+  (x_m, X_e). It is regular at X_e because t̂(X_e) = 0, and F_out → 1 at ∞.
+- V := Q·F^{σ₃}, with F = F_in or F_out. V then has, besides the local jumps, the explicit diagonal jump
+  (F_out/F_in)^{σ₃} on C. The cyclic condition holds at the two crossing points, because both F_in and F_out cancel
+  T's real-axis jump there.
+
+**Lemma Z (far field; TO PROVE).** log(F_out/F_in) has a continuous, single-valued branch on C. Then
+Ξ := exp(∫_C log(F_out/F_in)dζ/(2πi(ζ − z))) is analytic off C and bounded at the crossing points, and
+Ξ(z) = Ξ(0)(1 + O(|z|/dist(C))) = Ξ(0)(1 + O(log²N/N²)) near the band and both edges.
+
+Replacing F by F·Ξ^{∓1} (inside/outside) removes the jump on C. The local weights acquire the analytic,
+near-constant factor Ξ^{±2}, which the Szegő function and the local parametrices absorb exactly.
+
+*What is needed:*
+- (i) the winding of F_in along C (zeros of D̃ ↔ Γ-poles; |arg t| < π on C) — a numerical check is planned;
+- (ii) boundedness at the junctions, which is standard for scalar RHPs whose jump data satisfy the cyclic relation
+  and are Hölder.
+
+**4.3 Local parametrices, uniform in N.**
+- **Hard edge 0:** RH_px §4.1 (the KMVV left endpoint) verbatim. The weight is w₀ = C·x^{α_x}(β̂ − x)^{1/4}h_N, with
+  α_x = −½ + o(1), the effective exponent of masses 2x_j ~ j^{−2}log²j. The mismatches are super-exponentially small,
+  exp(−cN|z|^{−1/2}·log), as in Lemma 4.3. h_N is Hölder at 0 (Lemma 3.4 analogue).
+  - Note: the log factors make t(z) = N₀(γ) + ½ non-power. Lemma 3.4 needs only Hölder continuity of log h_N, which
+    holds with exponent ½ − ε.
+- **Soft edge β̂:** WLXZ §6.1 for general α (here α_W = 5/8). WLXZ treat every α > 0; the local behaviour is
+  V = O(1)(z − β̂)^{(1/2−α)σ₃}.
+  - Uniformity: φ̃ = −κ̃_N(z − β̂)^{3/2}(1 + O(z − β̂)) with κ̃_N → κ̃_∞ > 0. This holds because the rescaled ρ_N
+    converges to the p = 2 density uniformly near β̂, at rate 1/log N.
+- **Top end and saturated lips:** Re φ̃ = ℓ/2 − U^μ < 0 on (β̂, X_e) (Lemma E1(iii)). Near X₁ ~ N²/log²N,
+  U^μ − ℓ/2 ≥ c log(X₁/β̂). So the Σ^△ and segment entries are O(poly(N)·e^{−cN log N}), as in RH_px §4.3.
+
+**4.4 Small norm and extraction.** As in RH_px §5:
+- 𝒵 = I + O(1/N) in the D_{w,∞}-frame;
+- (N₁)₁₂(N₁)₂₁ = (β̂/4)², and a(N) = β̂/2.
+
+Hence **b_N = (β_N/4)(1 + O(1/N))** and **a_N/(2b_N) = 1 + O(1/N)**. Combined with E5,
+b_n/x_n = π²/16·(1 + κ/log n + o(1/log n)), with κ = −0.2895.
+
+Numerically: N·(b_N/(β_N/4) − 1) ≈ 0.27–0.28 (check_z_edge2.out, N ≤ 3200), and N·(a_N/(2b_N) − 1) ≈ 0.63–0.69
+(check_z_e2e_zeta.out).
+
+**Status:** PROOF SKETCH, numerically validated end to end (§3). The open technical steps for PROVED are:
+- Lemma Z (the far field);
+- the uniform-in-N versions of the two edge parametrices — routine, but they must be written;
+- Rule R.
