@@ -1,7 +1,7 @@
 # RH_zeta: pointwise Law P for the smooth-ζ model (Plan 13)
 
-Status: **IN PROGRESS.** Phase 0 is done. Phase 1 is written; it is a proof sketch pending Rule R. Phase 2 has a design
-note only. No PROVED labels.
+Status: **IN PROGRESS.** Phase 0 is done. Phase 1 is written; it is a proof sketch pending Rule R. **Phase 2 Gate GO:** the
+end-to-end probe is O(1/N) (§3). Phases 3–4 (proofs) are next. No PROVED labels.
 
 ## 0. Model and baseline
 
@@ -112,3 +112,60 @@ t ∈ ℤ, has a spurious pole at x_s on the real axis inside Ω_∞. The RH_px 
 - Any monodromy at ∞ is also absorbed far away: a cut along (x_e, ∞) and a z^{κσ₃} normalization in both V and N.
 - **Gate 2 test:** an end-to-end probe (the check_px_e2e pattern) with the N-dependent μ from E1. Expect
   VN^{−1} − I = O(1/N) at points near the band.
+
+
+## 3. Phase 2: global parametrix, validated end to end (Gate 2 GO; NUMERICAL)
+
+**Two corrections to the RH_px recipe**, both found by the probe.
+
+- **(a) WLXZ α-shift at the far end.** The constraint lives only on the monotone branch t ≥ 3/8. So
+  μ((x, ∞)) = (t(x) − 3/8)/N on the saturated region, and T's jump there is diag(e^{∓2πi(t−3/8)}). D's
+  −e^{2iθ} removes the e^{∓2iθ} part and leaves a constant phase.
+  - This is exactly WLXZ's α-shift. Their TC nodes sit at n/z² = k + α; ours sit at t − 3/8 = (j − 1) + 5/8, i.e.
+    α_W = 5/8.
+  - Hence WLXZ's E = (4 − z²)^{1/2−α} becomes **K := (β̂ − z)^{κ} with κ = TMIN − ½ = −1/8**. Pure powers have
+    TMIN = 0 and κ = −½, as in RH_px.
+  - The band weight becomes w₀ = W(β̂ − x)^{−2κ}/(D̃B)² = C·x^{α_x}·(β̂ − x)^{1/4}·h_N. The soft-edge exponent changes;
+    the Airy construction is WLXZ §6.1 with general α, cf. their (5.7) V = O(1)(z² − 4)^{(1/2−α)σ₃}.
+  - Without this correction the probe error is O(1) and **N-independent**: about 0.65 off-diagonal at N = 10, 20, 40.
+- **(b) D̃ on (−∞, 0) by analytic continuation.** Along the negative axis, t(x) crosses the negative real t-axis at
+  |γ| = 2πe (x ≈ −1/(4π²e² − ¼) unrescaled). There the principal-branch formula
+  √(2π)exp((t − ½)Log t − t − logΓ(t)) jumps.
+  - The relevant D̃ is the analytic continuation from 0⁻: track log t continuously and use the entire function 1/Γ.
+  - With it, ℓ̂ = 2arg D₊ is tame (range −0.010 … 0.366); the principal branch gives an artificial winding of ≈ 47.
+  - B is built from the continued ℓ̂.
+
+**Probe** (`checks/check_z_e2e.py`).
+- **True side:** U from the true smooth-ζ OPs, with exact atoms j ≤ 60N and the tail beyond by a midpoint
+  Euler–Maclaurin integral on log panels (insensitive to doubling K).
+- **Model side:**
+  - Lemma E1's N-dependent μ, through g and ℓ by integration by parts against A(u) on refined Gauss–Legendre grids;
+  - D, B and K;
+  - the Szegő function of w₀ and the Jacobi-type global N on [0, β̂].
+- **Test:** M(z) := e^{−Nℓσ₃/2}U e^{Nφσ₃}F^{σ₃}N^{−1} must be a **constant** diagonal matrix plus O(1/N). The constant
+  absorbs the omitted far-field scalars Ξ (§2). The quantities reported are |M_ii(z)/M_ii(z₀) − 1| and the
+  D_∞-scaled off-diagonals at 7 points.
+- **Validation** (MODEL=pp2: pure power p = 2 with masses 2x_j, the same code path). It reproduces the
+  exact-moment RH_px reviewer probe (check_px_e2e.py 2 2) to 4 digits: N·max = 0.3768 vs 0.37671 at z = 1.2 + i,
+  N = 40. Earlier runs needed log-spaced u-panels, because errors in g are multiplied by N in e^{Ng}.
+
+**Result** (check_z_e2e_zeta.out, max over the 4 reported entries, times N):
+
+| N  | z = 1.2+i | 0.5+0.8i | −1+0.5i | −1.5+0.5i | 2.5i | 3−1.2i | 4.5+1.5i | s·x_e (far end) |
+|----|-----------|----------|---------|-----------|------|--------|----------|-----------------|
+| 10 | 0.30 | 0.26 | 0.15 | 0.19 | 0.19 | 0.26 | 0.27 | 64 |
+| 20 | 0.30 | 0.25 | 0.15 | 0.16 | 0.16 | 0.29 | 0.22 | 151 |
+| 40 | 0.33 | 0.27 | 0.17 | 0.17 | 0.18 | 0.36 | 0.22 | 381 |
+
+N·error is stable, so **VN^{−1} − I = O(1/N) near the band**. This holds with the N-dependent equilibrium of
+Lemma E1 and the α = 5/8 shift. The omitted far-end scalars recede like s·x_e ~ N²/log²N and are invisible at this
+accuracy. In the same runs, b_N/(β_N/4) − 1 = 0.0280, 0.0139, 0.0070 (N·dev ≈ 0.28; check_z_edge2 too) and
+a_N/(2b_N) − 1 = 0.063, 0.033, 0.017 (N·dev ≈ 0.63–0.69).
+
+**What Phases 3–4 must prove:**
+1. **Far end.** The construction of §2 (split Ω_∞ at L, F_far, Ξ) with the α-shift built in. The continued D̃ and
+   its cut structure on the negative axis beyond |γ| = 2πe. Monodromy bookkeeping.
+2. **Uniformity in N** of the hard-edge (KMVV left endpoint, as RH_px §4.1) and Airy (with general α) parametrices.
+   The rescaled data converge to p = 2 only at rate 1/log N.
+3. **Small norm and extraction:** b_N = (β_N/4)(1 + O(1/N)) and a_N/(2b_N) = 1 + O(1/N). With E5, this gives
+   **b_n/x_n = π²/16 + O(1/log n)** for the smooth-ζ model.

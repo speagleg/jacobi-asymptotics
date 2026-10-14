@@ -221,3 +221,8 @@
 - **Phase 1 write-up:** RH_zeta.md, Lemma E1, the Abel-inversion generalization of G2 B*.
 - **Phase 2 obstruction found.** t(x) is non-monotone beyond x_e (N₀'s minimum at γ = 2π), which puts a spurious
   pole of D at x_s. A fix is proposed: split Ω_∞, plus a far-field scalar Ξ.
+- **Phase 2, Gate 2 GO** (check_z_e2e_zeta.out). The end-to-end probe on the true smooth-ζ OPs vs the RH global
+  parametrix gives N·error ≈ 0.15–0.36, stable for N = 10, 20, 40. Two corrections were needed:
+  - (a) the WLXZ α-shift: the constraint ends at t = 3/8, so α = 5/8 and K = (β̂ − z)^{−1/8};
+  - (b) D̃ continued analytically along (−∞, 0) past the t-axis crossing at |γ| = 2πe.
+- **Pipeline validation:** MODEL=pp2 reproduces the reviewer's RH_px probe to 4 digits.
