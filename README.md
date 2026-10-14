@@ -30,18 +30,22 @@ Research: research/G3prime, G2, G1.
   - Plans 13–14 (smooth ζ model, RH/zeta/; Rule R REVIEWED): **Theorem RH_ζ**, the pointwise Law P for the smooth-ζ
     model with rate, b_n/x_n = (π²/16)(1 + κ/log n + O(log log n/log²n)), κ = −0.28946… (PROVED-mod-cite).
 
-  - Plan 15 (RH/plt1/): **0 < p < 1.** ½ < p < 1 is REVIEWED (mod a numerical no-winding fact). The seam
-    construction (Plan 15b) covers all 0 < p < 1, with Rule R pending. With p ≥ 1 this gives the pointwise law with an
-    O(1/n) rate for all pure powers with power weights, p > ½ reviewed.
-- G3′ (Plan 16): **Theorem N′** (REVIEWED). If the repeated ordinates contain a positive-density family, the
-  multiplicity-normalized law fails. G3′ is thus sandwiched: (SG) is sufficient, and d_*(E) = 0 is necessary.
+  - Plan 15 (RH/plt1/): **0 < p < 1**, REVIEWED. The seam construction covers all 0 < p < 1 with no numerical caveat.
+    With RH₁(r) and RH_p, **the pointwise Law P with an O(1/n) rate holds for every pure power with power weights,
+    p > 0, s > 1.**
+- G3′ (research/G3prime/, Plans 7, 16, 17; all REVIEWED). For the true-zero measure:
+  - **(U)** limsup ≤ 0, unconditionally;
+  - **(B)** liminf ≥ −3 log C, unconditionally, so log D_n = Φ_n + O(n²);
+  - **(L)** G3′ holds under (SG), or (C) under Montgomery's pair-correlation conjecture (no RH);
+  - **(N′)** G3′ forces repeated ordinates to contain no positive-density family.
 
-**Status (2026-10-14).** The remaining open problems are:
-- the Rule R review of the seam construction (p ≤ ½);
-- an Arb certification of the two no-winding facts;
-- an unconditional G3′, which needs new input about ζ's zero multiplicities (N′);
-- the residual N′ case (positive lower density with d_* = 0);
-- (T3)/(CL) for rough (non-analytic) weights.
+**Status (2026-10-14).** Open:
+- G3′ exactly (D = 0) unconditionally. By N′ this needs proportion-one distinctness of ordinates, beyond the best known
+  unconditional results (Lamzouri 2026: 67.25% simple and on the line).
+- The residual N′ case (positive lower density with d_* = 0).
+- An explicit constant in (B).
+- G1-R: (T3)/(CL) for general, rough (non-analytic) weights and nodes. The analytic families done are pure powers
+  (all p > 0) and the smooth-ζ model.
 
 ## Setup
     scripts/setup_env.sh
