@@ -20,7 +20,7 @@ noncomputable def hnorm (p κ : ℝ) (D ℓ : ℕ → ℝ) (n : ℕ) : ℝ :=
 Lommel / Tricomi–Carlitz families; NOT formalized): bounded in `K`, and `log D_n = -p n² log n + κ n² + o(n²)`.
 This is item 11's Theorem H transported to `heineD` via H1. Item 11 supplies it only for `p ∈ {1, 2}` and
 `s ≥ s0(p)` (`s0(2) = 2`, `s0(1) = 3/2`), with `κ = 3p/2 + log c(p)`. On paper, G2 Corollary H-input
-(research/G2/PROOF.md §3) supplies it for all `p > 0`, `s > 1` with `κ = 3p/2 + log c(p)`, mod-cite (P); that
+(research/G2/PROOF.md §3) supplies it for all `p > 0`, `s > 1` with `κ = 3p/2 + log c(p)`, PROVED on paper since Plan 47 (was mod-cite (P)); that
 proof is not formalized, so this stays a named input. -/
 structure TheoremHPure (p κ s : ℝ) : Prop where
   bdd : ∀ n, BddAbove (Set.range fun K => heineK (powSeq p) (powSeq s) K n)

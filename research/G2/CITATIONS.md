@@ -27,6 +27,11 @@ needs. Lemma 2.1 itself rests on Saff–Totik Lemma I.1.8 (compact case) and Ceg
 **Used in:** PROOF.md Theorem B*(iii), optimality and uniqueness of μ*. Both measures there are positive, of mass 1,
 with finite energy, and with ∫ log(1 + x) < ∞.
 
+*(Plan 47 note, 2026-10-14: no longer used. B*(iii) now rests on PROOF.md Lemma EP, a self-contained Fourier proof
+(ported from papers/paper1/main.tex Lemma 3.3), which also replaces the mutual-energy finiteness quoted from (P) §1 by a
+direct bound through B*(ii). (P) is kept here as an alternative route; the old (P)-based argument is quoted in
+PROOF.md after the proof of B*. Rule R ACCEPT WITH FIXES (review/REVIEW_Plan47.md), fixes applied — REVIEWED.)*
+
 ## (HZ) Haynes–Zudilin — READ
 
 A. Haynes, W. Zudilin, "Hankel determinants of zeta values", SIGMA 11 (2015) 101, arXiv:1510.01901v3. Read from the

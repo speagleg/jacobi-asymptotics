@@ -1,13 +1,19 @@
 # THEOREMS — jacobi-asymptotics (consolidated index)
 
 > Compiled 2026-10-14 from master 38bfb3b + Plan 37 edits (branch plan-37-consolidate). Every label below is copied
-> verbatim from the status table or section header named in the "Location" column, as corrected by Plan 37 (§5). Nothing
-> has been upgraded; the only label change is the appended note on G3′ results "Theorem H input (p = 2, s ≥ 2) supplied
+> verbatim from the status table or section header named in the "Location" column, as corrected by Plan 37 (§5). (Plan 37:)
+> Nothing has been upgraded — see the Plan 47 note below for the label upgrades of 2026-10-14; the only label change is the appended note on G3′ results "Theorem H input (p = 2, s ≥ 2) supplied
 > by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P))" (or, for G3′-L, "uses no
 > Theorem H instance"); see §3.3. Revised after Rule R (research/G2/review/REVIEW_Plan37.md, F1–F9). Novelty is UNCHECKED throughout unless a source says
 > otherwise. Measures built from ζ-zeros take the ordinates as real numbers (AGENTS.md rule 3). The Riemann Hypothesis
 > occurs only as a labelled hypothesis of conditional results (G3′ §9, rhfree/); "RH" in G1/RH file names means
 > Riemann–Hilbert.
+>
+> *Plan 47 (2026-10-14):* G2's only external citation (P) was replaced by the self-contained G2 Lemma EP (energy
+> positivity, ported from Paper 1 Lemma 3.3). Results whose only external input was (P) are relabelled PROVED (G2 B*,
+> H_all, HZ, Cor. H-input; G1 G1-T, G1-L, WC, CL, A4′, TC), T3-avg drops "(P) via TC", and the G3′ discharge note now
+> reads "(PROVED since Plan 47; was mod-cite (P))". Every changed label is marked "Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED". Log: §5
+> (Plan 47 block) and research/G2/LOG.md.
 
 Label vocabulary (VERIFICATION_POLICY.md, which since Plan 37 also defines the repo's local labels): PROVED;
 PROVED-mod-cite (X) = proved from external results X quoted with hypotheses in a CITATIONS.md; PROVED-mod-input (X) =
@@ -39,14 +45,17 @@ Theorem H ⇒ Theorem H_L / Corollary H_L-ζ with Theorem H as a named input.
 "Let p > 0 and C > 0. Let x_k = f(k) with f ∈ C¹[1, ∞), ξ^{p+1}f′(ξ) → −pC, and ξ^{p+1}|f′(ξ)| bounded above and
 below … Let the weights satisfy Σ_k w_k < ∞ and w_k ≥ c₁k^{−s}. Then log D_n(Σ_k w_kδ_{x_k}) = −pn²log n +
 (3p/2 + log(c(p)C))n² + o(n²). Equivalently, (2/n²)Σ_{j<n}(n−j)log(j^p b_j) → log(c(p)C)."
-Label: **PROVED-mod-cite (P)**; G2 REVIEWED. External input: **(P)** (Beckermann–Kalyagin–Matos–Wielonsky
+Label: **PROVED** (Plan 47, 2026-10-14; Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED); G2 REVIEWED (pre-Plan-47 text). No external citation: B*(iii)
+now uses **G2 Lemma EP** (a Fourier proof that −∬log|x−y|dνdν ≥ 0 for zero-mass ν with log-integrable |ν|, ported from
+Paper 1 Lemma 3.3). *Pre-Plan-47 label (history):* PROVED-mod-cite (P). External input: **(P)** (Beckermann–Kalyagin–Matos–Wielonsky
 arXiv:1105.3088v2 Lemma 2.1, itself resting on Saff–Totik I.1.8 and Cegrell–Kolodziej–Levenberg Thm 2.5, *not read*;
 accepted under mod-cite (P)). (P) enters only through B*(iii) (E_p = κ_p, optimality/uniqueness). The lower bound A-L is
 citation-free. Corollary **HZ**: log det_{1≤i,j≤n}ζ(a(i+j)+b) = −an²log n + (3a/2 + log c(a))n² + o(n²), real a > 0,
-2a + b > 1 (PROVED-mod-cite (P)). **Corollary H-input** (§3, Plan 37): for every p > 0, s > 1 the Lean named input
-`TheoremHPure p κ_p s` holds on paper (C = 1, w_k = k^{−s}); label PROVED-mod-cite (P), as H_all. The `bdd` field
+2a + b > 1 (PROVED since Plan 47; was PROVED-mod-cite (P); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED). **Corollary H-input** (§3, Plan 37): for every p > 0, s > 1 the Lean named input
+`TheoremHPure p κ_p s` holds on paper (C = 1, w_k = k^{−s}); label PROVED, as H_all (Plan 47; was PROVED-mod-cite (P); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED). The `bdd` field
 is already the sorry-free Lean theorem `heineK_bdd_of_summable`; only `asymp` is paper-only. (P) is needed only where
 G2 is the sole route (outside item 11's Theorem H range: p ∉ {1, 2}, p = 1 with s < 3/2, p = 2 with s < 2). See §3.3.
+*(Plan 47: the previous sentence is pre-Plan-47 history; (P) is now needed nowhere.)*
 
 **H2. Pointwise Law P with rate for every pure power (p > 0, s > 1).** G1 §0 rows RH₁(r), RH_p, RH_p 0<p<1 (seam).
 For σ_{p,s}: n^p b_n = c(p)(1 + O(1/n)) and a_n/(2b_n) = 1 + O(1/n).
@@ -77,27 +86,29 @@ Thm 4.4), DLMF (§§1.14, 5.5, 5.11, 5.12, 10.27, 10.39).
   limsup|log(β_n²/β_{n−1}²)| ≥ εη/2; so (T3) and the pointwise b-law fail (all p > 0, s > 1). PROVED-mod-cite (RH_px,
   RH₁(r), RH_plt1b; internal FV, Sat_p⁺, TL, §3.5 two-point formula) + REVIEWED. η, J non-explicit.
 - **Theorem CL / Cor. A4′** (§3.1): x_k = k^{−p}, p > 1, Σw < ∞, w_k ≥ c₁k^{−s} (rough weights allowed):
-  n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p − 1). PROVED-mod-cite (P) (through G2 B*(iii)) + REVIEWED.
-External inputs: those of H2 (transitively), plus (P) for CL/TC/T3-avg only. T3-all and T3-log do **not** use (P).
+  n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p − 1). PROVED (Plan 47; was PROVED-mod-cite (P) through G2 B*(iii)) + REVIEWED (proof
+  unchanged); relabel Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED.
+External inputs: those of H2 (transitively). *(Pre-Plan-47: "plus (P) for CL/TC/T3-avg only. T3-all and T3-log do
+**not** use (P)." Since Plan 47, CL, A4′ and TC use no external citation, and T3-avg only those of H2.)*
 
 **H5. G3′ (true ζ-zero measure, σ = Σ 2x_kδ_{x_k}, x_k = 1/(γ_k² + ¼), ordinates with multiplicity).** G3′ PROOF.md.
 - **G3′-U** (§3): limsup (1/n²)[log D_n(σ) − Φ_n] ≤ 0. PROVED-mod-cite + mod-input Theorem H (Lean `TheoremHPure`) +
-  REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)). Inputs: (C1) via Z1/Z2; Theorem H (p = 2, via item 11 H7).
+  REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)). Inputs: (C1) via Z1/Z2; Theorem H (p = 2, via item 11 H7).
 - **Theorem B** (§8.1): liminf ≥ −3 log C > −∞, so log D_n = Φ_n + O(n²) with no hypothesis on the zeros.
-  PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)). C not explicit.
+  PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)). C not explicit.
 - **Theorem Ch** (§5.4): G3′ ⟺ 𝒞(K) = o(K²), 𝒞(K) := min_{T⊂[k₂,K]}[P(T) + K·|[k₂,K]∖T|] (capped near-pair energy).
-  PROVED-mod-cite (C1) + mod-input Theorem H; REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)).
+  PROVED-mod-cite (C1) + mod-input Theorem H; REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)).
 - Conditional closures of G3′ (each ⇒ (SG) ⇒ G3′): **Theorem C** (PCC in GLSS form, no RH), **Theorem S** (SPC_ℂ⁺, no
   RH), **Theorem S′** (SPC_ℂ⁺(full)), **Theorem V⁺** (RH + (V⁺)), **Corollary P** (RH + (V)). Necessity: **N″**
   (G3′ ⇒ d(E) = 0) and **N‴** (G3′ ⇒ d(T_β) = 0 ∀β > 0). All carry the Theorem H note in G3′ §0 (§2.5 below).
 External inputs: **(C1)** Trudgian arXiv:1208.5846v2 Cor. 1; **(C5)** GLSS arXiv:2503.15449v4 (6.1); **(C3)** BGST
 arXiv:2501.14545v3; **(C6)** Lamzouri arXiv:2609.02882v2; **(C8)** Goldston arXiv:math/0412313; named input **Theorem H
 (p = 2, s ≥ 2)**, supplied citation-free by item 11 Theorem H (p = 2, PROVED + REVIEWED there) and also by G2 Cor.
-H-input (mod-cite (P)); no G3′ result depends on (P) — §3.3.
+H-input (PROVED since Plan 47; was mod-cite (P)); no G3′ result depends on (P) — §3.3.
 
 **H6. Lean (sorry-free; `lean/check.sh` re-run on the Plan 37 branch 2026-10-14: AUDIT OK, only propext, Classical.choice, Quot.sound).**
 `theoremHL` (Theorem H_L): **PROVED-mod-input (TheoremHPure; input supplied on paper for all p > 0, s > 1 by G2 Cor.
-H-input, mod-cite (P); item 11 alone gave p ∈ {1,2}, s ≥ s0(p))**. `smoothZeta_HL`, `smoothZeta_HL_det` (Corollary
+H-input, PROVED since Plan 47 (was mod-cite (P)); item 11 alone gave p ∈ {1,2}, s ≥ s0(p))**. `smoothZeta_HL`, `smoothZeta_HL_det` (Corollary
 H_L-ζ) and `smoothZeta_bLaw` ((2/n²)Σ(n−j)log(b_j/x_j) → log(π²/16)): **PROVED-mod-input (TheoremHPure 2 κ 2,
 κ = 3 + log(π²/16))**. Unconditional Lean results: `heineK_eq_det`, `heineD_eq_det` (Andreief/Heine), `hankel_det_eq_prod`
 (H2), `opoly_recurrence`, `lemmaP` (α ≥ 2β), `toeplitz_count` ((S4): |N(T_ℓ(A,B); μ) − (ℓ/π)θ| ≤ 1, B ≥ 0),
@@ -121,7 +132,7 @@ in a later result.
 | `sum_prod_powersetCard_le`, `factorial_le_prod_succ`, `heineK_tail_split`, `heineTerm_tail_pointwise` | H7 steps 1–3 | sorry-free | README | — |
 | `ratio_bounds_of_deriv`, `diff_le_of_L_mono`, `weighted_cesaro_slow`, `slow_shift`, `sum_log_div_le`, `neg_mul_log_le`, `phi_bound` | MVT, slow-variation limits, φ_M ≤ A²/(4p log M) | sorry-free | README | — |
 | `heineD`, **`TheoremHPure`**, `hnorm` | D_n = sup_K heineK; Theorem H for pure powers as hypothesis | NAMED INPUT | Inputs.lean | — |
-| **`theoremHL`** | Theorem H_L (slowly varying atoms) | **PROVED-mod-input (TheoremHPure; input supplied on paper for all p > 0, s > 1 by G2 Cor. H-input, mod-cite (P); item 11 alone gave p ∈ {1,2}, s ≥ s0(p))** | TheoremHL.lean | TheoremHPure (two instances: s and s0) |
+| **`theoremHL`** | Theorem H_L (slowly varying atoms) | **PROVED-mod-input (TheoremHPure; input supplied on paper for all p > 0, s > 1 by G2 Cor. H-input, PROVED since Plan 47 (was mod-cite (P)); item 11 alone gave p ∈ {1,2}, s ≥ s0(p))** | TheoremHL.lean | TheoremHPure (two instances: s and s0) |
 | `lemmaP` | Lemma P: α ≥ 2β | sorry-free | LemmaP.lean | — |
 | `det_mul_cauchyBinet` | det(AB) = Σ_S det A_S det B_S | sorry-free | README | — |
 | `hankelK`, `heineK_eq_det` | truncated Heine sum = Hankel det of truncation | sorry-free | README | Cauchy–Binet |
@@ -144,14 +155,15 @@ research/.
 | Name | Statement | Label | Location | Depends on |
 |---|---|---|---|---|
 | B0 | ∫log\|x−y\|dω_{[0,β]} = log(β/4) on [0,β], ≥ on [β,∞) | PROVED | §1 | — |
-| B* | E_p := sup_{μ∈𝒜}I(μ) = κ_p, uniquely attained at μ* = ∫_0^1 ω_{[0,4c(p)t^{−p}]}dt | PROVED-mod-cite (P); the value I(μ*) = κ_p is citation-free | §1 | B0, (P) for (iii) optimality |
+| EP | energy positivity: ν signed, ν(ℝ) = 0, ∬\|log\|x−y\|\|d\|ν\|d\|ν\| < ∞ ⇒ −∬log\|x−y\|dνdν = ∫_0^∞\|ν̂\|²/ξ dξ ≥ 0, = 0 iff ν = 0 | PROVED (Plan 47; ported from Paper 1 Lemma 3.3, refereed CORRECT); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED | §1 | — (Fubini, dominated/monotone convergence, Gaussian Fourier transform) |
+| B* | E_p := sup_{μ∈𝒜}I(μ) = κ_p, uniquely attained at μ* = ∫_0^1 ω_{[0,4c(p)t^{−p}]}dt | PROVED (Plan 47; was PROVED-mod-cite (P)); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED; the value I(μ*) = κ_p is citation-free | §1 | B0, EP for (iii) optimality (formerly (P)) |
 | A1 | discretization: point energy ≤ n²·(smeared energy) + C_M n log n, subsets of [1, Mn] | PROVED | §2 | — |
 | A2 (Cor.) | head bound log V(S) ≤ −pN²log N + E_pN² + C′_M n log n | PROVED (uses A1 and the Scaling identity of §0; E_p enters only as the sup, not its value) — label added by Plan 37 | §0, §2 | A1, scaling |
 | A-U | limsup (1/n²)[log D_n + pn²log n] ≤ E_p | PROVED (uses A1, B*-scaling; algebra of item 11 H7) | §2 | A1, item 11 H7 |
 | A-L | liminf ≥ κ_p (= I(μ*_u)) | PROVED (citation-free: uses B*(i) and the value in B*(iii)) | §2 | B*(i), value of I(μ*) |
-| **H_all** | see H1 | PROVED-mod-cite (P) | §3 | A-U, A-L, B*, item 11 H3, H4 |
-| HZ | log det ζ(a(i+j)+b) = −an²log n + (3a/2 + log c(a))n² + o(n²), a > 0, 2a+b > 1 | PROVED-mod-cite (P) | §3 | H_all |
-| **H-input** (Cor.) | `TheoremHPure p κ_p s` holds on paper for every p > 0, s > 1 (bdd: heineK ≤ (Σ(k+1)^{−s})^n; asymp: H_all with f = ξ^{−p}, C = 1, w = k^{−s}, via `heineD_eq_det`) | PROVED-mod-cite (P), as H_all | §3 (before Novelty) | H_all, Lean `heineD_eq_det` |
+| **H_all** | see H1 | PROVED (Plan 47; was PROVED-mod-cite (P)); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED | §3 | A-U, A-L, B*, item 11 H3, H4 |
+| HZ | log det ζ(a(i+j)+b) = −an²log n + (3a/2 + log c(a))n² + o(n²), a > 0, 2a+b > 1 | PROVED (Plan 47; was PROVED-mod-cite (P)); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED | §3 | H_all |
+| **H-input** (Cor.) | `TheoremHPure p κ_p s` holds on paper for every p > 0, s > 1 (bdd: heineK ≤ (Σ(k+1)^{−s})^n; asymp: H_all with f = ξ^{−p}, C = 1, w = k^{−s}, via `heineD_eq_det`) | PROVED, as H_all (Plan 47; was PROVED-mod-cite (P)); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED | §3 (before Novelty) | H_all, Lean `heineD_eq_det` |
 
 Prior art recorded: Monien arXiv:0901.1883 (p = 1, heuristic, same optimizer) (M).
 
@@ -160,16 +172,16 @@ Prior art recorded: Monien arXiv:0901.1883 (p = 1, heuristic, same optimizer) (M
 | Name | Statement | Label | Location | Depends on |
 |---|---|---|---|---|
 | K | second difference of G(n) = Σ(n−j)u_j over ±h = triangle-kernel sum, mass h² | PROVED | §1 | — |
-| **G1-T** | H_all + (T3) slow oscillation of β_n ⇒ β_n → 1 | PROVED-mod-cite (G2 (P)) | §2 | H_all, K |
-| **G1-L** | H_all + one-sided bound on β_n ⇒ (1/n)Σ_{j<n}log(j^pb_j) → log(c(p)C) | PROVED-mod-cite (G2 (P)) | §2 | H_all |
+| **G1-T** | H_all + (T3) slow oscillation of β_n ⇒ β_n → 1 | PROVED (Plan 47; was PROVED-mod-cite (G2 (P))); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED | §2 | H_all, K |
+| **G1-L** | H_all + one-sided bound on β_n ⇒ (1/n)Σ_{j<n}log(j^pb_j) → log(c(p)C) | PROVED (Plan 47; was PROVED-mod-cite (G2 (P))); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED | §2 | H_all |
 | A1 | J ≥ 0 ⇒ sine-weighted window averages of a_j ≥ 2cos(π/(L+1))·min b | PROVED | §3 | (S4) / Lean `toeplitz_eigen` |
 | A2 | p > 1: Σ_{j>n}a_j = 𝔼_n[Σ_{k∉S}x_k] (Heine ensemble) | PROVED | §3 | — |
 | A3 | Q_p := ∫x d(σ − μ*) = 2c(p)/(p−1) | PROVED (uses only G2 B*(i) and the definition of μ*, both citation-free) | §3 | G2 B*(i) |
 | A4 | (CL) ⇒ tail-Cesàro a-law; with β_n → 1, block ratios → 1, window averages → 1 in b-weighted density | CONDITIONAL on (CL) … tail-Cesàro part unconditional for pure powers via CL; (i)–(ii) still need β_n → 1 | §3 | A2, A3, (CL) |
 | Sat_p | 1 − ρ_n(k) ≤ (W/w_k)e^{−2n g_p(θ)}, θ = k/n, p ≥ 1 | PROVED (§3.1 header); REVIEWED | §0, §3.1 | G3′ §5.2 Lemma Sat |
-| WC | concentration at speed n² of ν_S to μ*_u | PROVED-mod-cite (P) (through G2 B*(iii)) (§3.1 header); REVIEWED | §0, §3.1 | G2 A1, A-U, A-L, B*(iii) |
-| **CL** | x_k = k^{−p}, p > 1, rough weights: n^{p−1}𝔼_n[Σ_{k∉S}x_k] → Q_p | PROVED-mod-cite (P) (through G2 B*(iii); internal: G2 A1, A-U, A-L; G3′ §5.2 Lemma Sat); REVIEWED; novelty UNCHECKED | §3.1 | Sat_p, WC, A3 |
-| A4′ | unconditional tail-Cesàro a-law n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p−1), p > 1, rough weights | PROVED-mod-cite (P) (through G2 B*(iii)) (§3.1 header); REVIEWED | §0, §3.1 | A2, CL |
+| WC | concentration at speed n² of ν_S to μ*_u | PROVED (Plan 47; was PROVED-mod-cite (P) through G2 B*(iii)); REVIEWED (proof unchanged); relabel Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED | §0, §3.1 | G2 A1, A-U, A-L, B*(iii) |
+| **CL** | x_k = k^{−p}, p > 1, rough weights: n^{p−1}𝔼_n[Σ_{k∉S}x_k] → Q_p | PROVED (Plan 47; was PROVED-mod-cite (P) through G2 B*(iii); internal: G2 A1, A-U, A-L; G3′ §5.2 Lemma Sat); REVIEWED (proof unchanged); relabel Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED; novelty UNCHECKED | §3.1 | Sat_p, WC, A3 |
+| A4′ | unconditional tail-Cesàro a-law n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p−1), p > 1, rough weights | PROVED (Plan 47; was PROVED-mod-cite (P) through G2 B*(iii)); REVIEWED (proof unchanged); relabel Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED | §0, §3.1 | A2, CL |
 | FV | d/dt log b_n²(ve^{tf}) = ⟨f, μ_n − μ_{n−1}⟩ | PROVED (standard; novelty not claimed); REVIEWED | §3.2 | — |
 | Conj R | (T3) fails for some e^{−ε}k^{−2} ≤ w_k ≤ e^{ε}k^{−2} on windows [0.6N, 1.6N] | Proved in modified form as Theorem R (§3.6) … The [0.6N, 1.6N]-window form remains NUMERICAL | §3.2 | — |
 | Sat_p⁺ | Sat_p for all p > 0 with factor ((n+1)/k)^{2(1−p)₊}, g_p⁺ | no separate label in the §3.3 header (which labels T3-conv); the proof is that of Lemma Sat_p (PROVED) with two elementary changes; Rule R (review/REVIEW_Plan29.md) ACCEPT WITH FIXES, F1 applied — REVIEWED | §0, §3.3 | Sat_p |
@@ -181,8 +193,8 @@ Prior art recorded: Monien arXiv:0901.1883 (p = 1, heuristic, same optimizer) (M
 | R2 | \|d²F_N/dt²\| ≤ 16‖f‖²_∞ | PROVED | §3.6 | §3.5 two-point formula |
 | R1 | pure power: ∃η, J: every [N−J, N] has m with ‖Δ²μ_m‖₁ ≥ η | PROVED-mod-cite | §3.6 | H2 (pure-power ratio asymptotics) |
 | **Thm R** | see H4 | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: FV, Sat_p⁺, TL, §3.5 two-point formula); … REVIEWED; novelty UNCHECKED. Sub-labels: R2 PROVED; R1 PROVED-mod-cite | §3.6 | R1, R2, FV, Sat_p⁺, TL |
-| TC | 𝔼_m#(S ∩ (Mm,∞)) ≤ (2A/(p log M))m + o(1), sandwiched weights | PROVED-mod-cite (P) (through G2 B*(iii); internal: G2 A1/A2, A-U, A-L) + … REVIEWED | §3.7 | G2 A-U, A-L, B*(iii) |
-| **T3-avg** | Ψ bounded, uniformly slowly varying: full pointwise law on a density-one set of n | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; (P) via TC) + … REVIEWED — **SUPERSEDED by T3-all** (all n) | §3.7 | FV, FVa, Sat_p⁺, TC |
+| TC | 𝔼_m#(S ∩ (Mm,∞)) ≤ (2A/(p log M))m + o(1), sandwiched weights | PROVED (Plan 47; was PROVED-mod-cite (P) through G2 B*(iii); internal: G2 A1/A2, A-U, A-L) + … REVIEWED (proof unchanged); relabel Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED | §3.7 | G2 A-U, A-L, B*(iii) |
+| **T3-avg** | Ψ bounded, uniformly slowly varying: full pointwise law on a density-one set of n | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b) (Plan 47: "(P) via TC" dropped; Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED) + … REVIEWED — **SUPERSEDED by T3-all** (all n) | §3.7 | FV, FVa, Sat_p⁺, TC |
 | TV | (d/dt)μ_m(A) = ⟨f1_Aq_m,q_m⟩ − 2⟨1_Aq_m, K_m(fq_m)⟩ − ⟨fq_m,q_m⟩μ_m(A) | PROVED (standard; novelty not claimed) + … REVIEWED | §3.8 | — |
 | LP | pure power: μ_n((Mn,∞)) → F_p(M) = (2/π)arcsin√(min(1, M^{−p}/(4c(p)))) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; textbook method of moments) + … REVIEWED; novelty not claimed | §3.8 | H2 |
 | **Thm L** | limsup sup_t μ_m^{(t)}((Mn,∞)) ≤ e^{4G}F_p(M), Ψ bounded slowly varying | PROVED-mod-cite (as LP; internal TV, Sat_p⁺) + … REVIEWED; novelty UNCHECKED | §3.8 | TV, LP, Sat_p⁺ |
@@ -214,36 +226,36 @@ Prior art recorded: Monien arXiv:0901.1883 (p = 1, heuristic, same optimizer) (M
 |---|---|---|---|---|
 | Z1 | \|γ_k − γ̃_k\| ≤ C₀ (k ≥ k₁), ≤ C₀′ all k; C₀ ≤ 2.7 | PROVED-mod-cite + REVIEWED | §2 | (C1) |
 | Z2 | pair ratio bound (x_a−x_b)/(x̃_a−x̃_b) ≤ … | PROVED-mod-cite + REVIEWED | §3 | Z1 |
-| **G3′-U** | limsup (1/n²)[log D_n(σ) − Φ_n] ≤ 0 | PROVED-mod-cite + mod-input Theorem H (Lean `TheoremHPure`) + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §3 | Z2, item 11 H5/H6/H7, Theorem H (p = 2) |
+| **G3′-U** | limsup (1/n²)[log D_n(σ) − Φ_n] ≤ 0 | PROVED-mod-cite + mod-input Theorem H (Lean `TheoremHPure`) + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | §3 | Z2, item 11 H5/H6/H7, Theorem H (p = 2) |
 | S | index shift π(a)⁻² − π(b)⁻² ≥ (1+η)⁻³(a⁻² − b⁻²) | PROVED + REVIEWED | §4 | — |
 | W | log D_n(Σk⁻ˢδ_{Ck⁻²}) ≥ Λ_n − (s−3)Kn log n, uniformly in s ≥ 4 | PROVED (from item 11 §7) + REVIEWED | §4 | Theorem A refs, H3 |
 | **G3′-L** | liminf ≥ 0 under (SG) | PROVED-mod-cite + mod-input (SG), Theorem H + REVIEWED; uses no Theorem H instance (THEOREMS §3.3) | §4 | Z1, S, W, H5, H6 |
-| L′ | (LG*) ⇒ G3′; contains (SG) and "d(E) = 0 + log-gap" | PROVED-mod-cite (C1) + mod-input (LG*), Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §4.1 | G3′-L, G3′-U, Tr, K, W |
-| Tr | truncation at J ≥ (M/2)n costs O(n²/log M) | PROVED-mod-input Theorem H (via Lemma K / item 11 H7); REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §4.1 | Lemma H, Lemma K |
-| N | doubled-smooth sequences (same counting fn.) fail by 2log(1−1/m) | PROVED-mod-input Theorem H + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §5 | Theorem H_L, item 11 H6 |
-| N′ | d_*(E) > 0 ⇒ limsup ≤ 2log(1 − d_*(E)) | PROVED-mod-cite + mod-input Theorem H + REVIEWED; residual case closed by N″; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §5 | G3′*-U proof, Z1, Z2, T, H6 |
-| **N″** | d̄(E) = η > 0 ⇒ liminf ≤ −0.2397η; hence G3′ ⇒ d(E) = 0 | PROVED-mod-cite (C1) + mod-input Theorem H …; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §5.2 | Hadamard, Christoffel, G3′-U |
-| **N‴** | gaps g_k ≤ e^{−βk} at positive upper density ⇒ law fails; G3′ ⇒ d(T_β) = 0 | PROVED-mod-cite (C1) + mod-input Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §5.3 | N″, G3′-U, Z1, Z2 |
-| **Ch** | G3′ ⟺ 𝒞(K) = o(K²); contains N″, N‴, L′ qualitatively | PROVED-mod-cite (C1) + mod-input Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §5.4 | Lemma H, Sat, Tr, K, W, S, Z1, Z2, G3′-U, G3′-L |
+| L′ | (LG*) ⇒ G3′; contains (SG) and "d(E) = 0 + log-gap" | PROVED-mod-cite (C1) + mod-input (LG*), Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | §4.1 | G3′-L, G3′-U, Tr, K, W |
+| Tr | truncation at J ≥ (M/2)n costs O(n²/log M) | PROVED-mod-input Theorem H (via Lemma K / item 11 H7); REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | §4.1 | Lemma H, Lemma K |
+| N | doubled-smooth sequences (same counting fn.) fail by 2log(1−1/m) | PROVED-mod-input Theorem H + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | §5 | Theorem H_L, item 11 H6 |
+| N′ | d_*(E) > 0 ⇒ limsup ≤ 2log(1 − d_*(E)) | PROVED-mod-cite + mod-input Theorem H + REVIEWED; residual case closed by N″; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | §5 | G3′*-U proof, Z1, Z2, T, H6 |
+| **N″** | d̄(E) = η > 0 ⇒ liminf ≤ −0.2397η; hence G3′ ⇒ d(E) = 0 | PROVED-mod-cite (C1) + mod-input Theorem H …; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | §5.2 | Hadamard, Christoffel, G3′-U |
+| **N‴** | gaps g_k ≤ e^{−βk} at positive upper density ⇒ law fails; G3′ ⇒ d(T_β) = 0 | PROVED-mod-cite (C1) + mod-input Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | §5.3 | N″, G3′-U, Z1, Z2 |
+| **Ch** | G3′ ⟺ 𝒞(K) = o(K²); contains N″, N‴, L′ qualitatively | PROVED-mod-cite (C1) + mod-input Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | §5.4 | Lemma H, Sat, Tr, K, W, S, Z1, Z2, G3′-U, G3′-L |
 | Ch on ζ data | 𝒞(K)/K² ≤ 1.1·10⁻⁷ at K = 2·10⁶ (Odlyzko) | NUMERICAL | §5.5 | — |
-| **B** | liminf ≥ −3log C > −∞; log D_n = Φ_n + O(n²) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §8.1 | GLSS (6.1), Caro–Wei, §4 proof |
-| **C** | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §8.2 | GLSS, G3′-L |
-| P (Corollary P) | RH + (V) ⇒ G3′ | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; REVIEWED; novelty UNCHECKED (RH + (V) ⇒ PCC is KNOWN); Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §9.1 | §8.2 |
+| **B** | liminf ≥ −3log C > −∞; log D_n = Φ_n + O(n²) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | §8.1 | GLSS (6.1), Caro–Wei, §4 proof |
+| **C** | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | §8.2 | GLSS, G3′-L |
+| P (Corollary P) | RH + (V) ⇒ G3′ | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; REVIEWED; novelty UNCHECKED (RH + (V) ⇒ PCC is KNOWN); Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | §9.1 | §8.2 |
 | Lemma PC | K² sum under SPC_ℂ⁺ | PROVED-mod-cite ((C3) (3.1)–(3.2); (C6) §3 algebra) + mod-input SPC_ℂ⁺; REVIEWED | rhfree/RHFREE.md §1 | (C3), (C6) |
 | Lemma G | spectral small-gap lemma (deterministic) | PROVED, REVIEWED | rhfree/RHFREE.md §2 | — |
-| **Thm S** | SPC_ℂ⁺ ⇒ 100% simple critical, small gaps ≪ δ³N, (SG) ⇒ G3′ | PROVED-mod-cite ((C3), (C6) (2.4), (C1)) + mod-input SPC_ℂ⁺, Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | label as in G3′ §0; proof rhfree/RHFREE.md §3 (header lists (C3) (3.1)–(3.2), (C6) Prop 2.1 (2.4) and §3 algebra, (C1)) | PC, G, G3′-L |
-| **Thm S′** | RH + upper half of Montgomery's SPC ⇒ G3′; RH-free: SPC_ℂ⁺(full) ⇒ G3′ | PROVED-mod-cite ((C3) (3.5), (C6), (C1)) + mod-input SPC_ℂ⁺(full), Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | label as in G3′ §0; proof rhfree/RHFREE2.md §1 | PC′, G |
+| **Thm S** | SPC_ℂ⁺ ⇒ 100% simple critical, small gaps ≪ δ³N, (SG) ⇒ G3′ | PROVED-mod-cite ((C3), (C6) (2.4), (C1)) + mod-input SPC_ℂ⁺, Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | label as in G3′ §0; proof rhfree/RHFREE.md §3 (header lists (C3) (3.1)–(3.2), (C6) Prop 2.1 (2.4) and §3 algebra, (C1)) | PC, G, G3′-L |
+| **Thm S′** | RH + upper half of Montgomery's SPC ⇒ G3′; RH-free: SPC_ℂ⁺(full) ⇒ G3′ | PROVED-mod-cite ((C3) (3.5), (C6), (C1)) + mod-input SPC_ℂ⁺(full), Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | label as in G3′ §0; proof rhfree/RHFREE2.md §1 | PC′, G |
 | Lemma N (RHFREE2) | inertia bound E ≥ k + 4Σm_z dist(h_z, V)² | PROVED (deterministic); REVIEWED; novelty UNCHECKED | RHFREE2 §2 | — |
 | Cor. N1 | Σm_z dist(h_z,V)² ≤ (D·N_T + o(N_T))/4 | PROVED-mod-cite (via Lemma PC) + mod-input SPC_ℂ⁺; REVIEWED | RHFREE2 §2 | PC |
 | Prop. Q | SPC_ℂ⁺ + (NA) ⇒ max_{T<γ≤2T}\|β − ½\| → 0 (quasi-RH, not RH) | PROVED-mod-cite (via Lemma PC) + mod-input SPC_ℂ⁺, (NA); REVIEWED; novelty UNCHECKED | RHFREE2 §2 | PC, N, (NA) |
 | Lemmas P1, P2, P3 | prime/zero transfer on RH | P1: PROVED-mod-cite (via RH99 …) + mod-input RH, (V⁺); P2: PROVED-mod-cite ((C8) (4.2)–(4.4), (C3) (3.5), (C1)) + mod-input RH; P3: PROVED-mod-cite ((C6) §3 algebra) + mod-input RH, (V⁺); all REVIEWED | rhfree/RHPRIME.md | RH99 |
 | Lemmas 9.7*, 9.9* | self-contained (C8) (9.7), (9.9) | PROVED-mod-cite ((C8) Prop. 1 (3.11), (C1) / (C8) (3.4)) + mod-input RH; REVIEWED | rhfree/RH99.md | (C8) |
-| **Thm V⁺** | RH + (V⁺) ⇒ (SG) with rate δ³ ⇒ G3′ | PROVED-mod-cite ((C8) Prop. 1 + (3.4) via RH99, (C3) (3.5), (C6), (C1)) + mod-input RH, (V⁺), Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | label as in G3′ §0; proof rhfree/RHPRIME.md §4 | P1–P3 |
-| R, K | pair factors under thinning; concentration (from H7) | PROVED-mod-input Theorem H + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §7 | H5, H7 |
-| T | thinning of convergent density: own-normalized law survives | PROVED-mod-input Theorem H + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §7 | R, K, H6, H7 |
-| T′ | robustness: density band ±η ⇒ error ω(η) → 0 | PROVED-mod-input Theorem H + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §7 | T |
-| G3′*-U | own-normalized upper bound under (D∞) | PROVED-mod-cite + mod-input (D∞), Theorem H + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §7.1 | Z2, T |
-| G3′*-L | own-normalized law under (D∞) + (SG*) | PROVED-mod-cite + mod-input (D∞), (SG*), Theorem H + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)) | §7.1 | Z1, T′, K |
+| **Thm V⁺** | RH + (V⁺) ⇒ (SG) with rate δ³ ⇒ G3′ | PROVED-mod-cite ((C8) Prop. 1 + (3.4) via RH99, (C3) (3.5), (C6), (C1)) + mod-input RH, (V⁺), Theorem H; REVIEWED; novelty UNCHECKED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | label as in G3′ §0; proof rhfree/RHPRIME.md §4 | P1–P3 |
+| R, K | pair factors under thinning; concentration (from H7) | PROVED-mod-input Theorem H + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | §7 | H5, H7 |
+| T | thinning of convergent density: own-normalized law survives | PROVED-mod-input Theorem H + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | §7 | R, K, H6, H7 |
+| T′ | robustness: density band ±η ⇒ error ω(η) → 0 | PROVED-mod-input Theorem H + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | §7 | T |
+| G3′*-U | own-normalized upper bound under (D∞) | PROVED-mod-cite + mod-input (D∞), Theorem H + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | §7.1 | Z2, T |
+| G3′*-L | own-normalized law under (D∞) + (SG*) | PROVED-mod-cite + mod-input (D∞), (SG*), Theorem H + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)) | §7.1 | Z1, T′, K |
 
 Hypotheses (not results): (SG), (LG*), PCC (GLSS form), SPC_ℂ⁺, SPC_ℂ⁺(full), (V), (V⁺) (with RH), (NA), (D∞)
 "N_d(T)/N(T) → θ ∈ (0, 1]", (SG*).
@@ -270,7 +282,7 @@ research/G3prime/PROOF.md (Pos). Novelty UNCHECKED unless stated.
 
 | Input | Source (CITATIONS file) | Enters |
 |---|---|---|
-| (P) Beckermann–Kalyagin–Matos–Wielonsky Lemma 2.1 (+ unread Saff–Totik I.1.8, Cegrell–Kolodziej–Levenberg 2.5) | G2/CITATIONS.md | G2 B*(iii) ⇒ H_all, HZ; G1-T, G1-L; WC, CL, A4′; TC ⇒ T3-avg. **Not** in RH₁(r), RH_p, seam, T3-conv/sv/a, Thm R, L, T3-all, T3-log. |
+| (P) Beckermann–Kalyagin–Matos–Wielonsky Lemma 2.1 (+ unread Saff–Totik I.1.8, Cegrell–Kolodziej–Levenberg 2.5) | G2/CITATIONS.md | **Nothing since Plan 47** (2026-10-14): G2 B*(iii) now uses G2 Lemma EP; (P) is kept only as an alternative route (G2 PROOF.md remark after B*). *Pre-Plan-47:* G2 B*(iii) ⇒ H_all, HZ; G1-T, G1-L; WC, CL, A4′; TC ⇒ T3-avg. **Not** in RH₁(r), RH_p, seam, T3-conv/sv/a, Thm R, L, T3-all, T3-log. (RH_ζ's E1(iv) also invokes (P) via G2's argument; not needed for RH_ζ, unchanged.) |
 | WLXZ v1 (arXiv:1410.3948v1) | G1/RH/CITATIONS.md | RH₁, RH₁(r), RH_p, seam, RH_ζ ⇒ (transitively) T3-*, LP, L, Thm R |
 | KMVV §6 (math/0111252v2) | G1/RH/CITATIONS.md | RH_p, seam (angle freedom), RH_ζ |
 | KV §5; Van §4 (math/0212014) | G1/RH/CITATIONS.md | RH₁(r) |
@@ -283,17 +295,23 @@ research/G3prime/PROOF.md (Pos). Novelty UNCHECKED unless stated.
 | (C6) Lamzouri (2.4), §3 | G3prime/CITATIONS.md | PC, S, S′, P3, V⁺ |
 | (C8) Goldston Prop. 1, (3.4), Thms 4, 7 | G3prime/CITATIONS.md | P, RH99, P1, P2, V⁺ |
 | item 11 H3, H4, H5, H6, H7, §7 (math-pursuits f5f6aef) | item 11 | H_all (H3, H4), G3′-U/L, N, T, W |
-| **Theorem H (named input `TheoremHPure`)** | lean/JacobiAsym/Inputs.lean; supplied on paper by item 11 Theorem H (p ∈ {1, 2}, s ≥ s₀(p); p = 2 citation-free) and by G2 Cor. H-input (all p > 0, s > 1; mod-cite (P)) | theoremHL, Cor. H_L-ζ, smoothZeta_bLaw; every G3′ result labelled "mod-input Theorem H" (all (2, s ≥ 2), item 11 route; §3.3) |
+| **Theorem H (named input `TheoremHPure`)** | lean/JacobiAsym/Inputs.lean; supplied on paper by item 11 Theorem H (p ∈ {1, 2}, s ≥ s₀(p); p = 2 citation-free) and by G2 Cor. H-input (all p > 0, s > 1; PROVED since Plan 47, was mod-cite (P)) | theoremHL, Cor. H_L-ζ, smoothZeta_bLaw; every G3′ result labelled "mod-input Theorem H" (all (2, s ≥ 2), item 11 route; §3.3) |
 
 ### 3.2 Fully self-contained (PROVED, no external citation, no named input)
 
 G2: B0, A1, Cor. A2, A-U, A-L (A-L is "citation-free"; it uses only B*(i) and the computed value I(μ*) = κ_p).
+*Plan 47 (Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED):* also G2 EP, B*, H_all, HZ, Cor. H-input.
 G1: K, A1, A2, A3, Sat_p, FV, FVa, TV, R2, TLw (and TL modulo the quoted textbook inequalities).
+*Plan 47 (Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED):* also G1-T, G1-L, WC, CL, A4′, TC (G1-T and G1-L are implications from a stated
+hypothesis on β_n). These, and G2 H_all, HZ, Cor. H-input, are self-contained in the repo's sense: no external
+citation, with internal item 11 inputs (H2–H4, H7) and textbook Prokhorov/Portmanteau (WC), as for A-U.
 G3′: S, W (from item 11 §7), Lemma G, Lemma N (RHFREE2).
 Lean: all items except `theoremHL`, `smoothZeta_HL(_det, _sumForm)`, `smoothZeta_bLaw` (sorry-free per lean/README).
 **No headline result (H1–H5) is fully self-contained.** Each rests on (P), the RH-analysis citations, (C1)/(C5), or the
 named input Theorem H (supplied on paper: for G3′ and Cor. H_L-ζ, i.e. p = 2, s ≥ 2, citation-free by item 11 Theorem H;
-for general p only by G2, mod-cite (P); §3.3).
+for general p only by G2, mod-cite (P); §3.3). *(Pre-Plan-47 text. Since Plan 47, H1 (Theorem H_all) and Corollary HZ
+are fully self-contained (PROVED; Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED), and G2 supplies Theorem H on paper citation-free for all p > 0,
+s > 1. H2–H5 are unchanged.)*
 
 ### 3.3 Theorem H input: uses and discharge
 
@@ -301,10 +319,13 @@ Two sources supply `TheoremHPure p κ_p s` (atoms (k+1)^{−p}, weights (k+1)^{�
 - **item 11 Theorem H** (math-pursuits, §7): p = 2, s ≥ 2: PROVED + REVIEWED, citation-free (Lommel references); p = 1,
   s ≥ 3/2: PROVED-mod-cite (Tricomi–Carlitz, citation read). Exact k^{−s} weights satisfy its (H-b) with c₁ = c₂ = 1.
   Inputs.lean recorded this range before Plan 37.
-- **G2 Corollary H-input** (G2 PROOF.md §3): every p > 0, s > 1, PROVED-mod-cite (P).
+- **G2 Corollary H-input** (G2 PROOF.md §3): every p > 0, s > 1, PROVED (Plan 47; was PROVED-mod-cite (P)); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED.
 
 (P) is needed only where G2 is the sole route: p ∉ {1, 2}, p = 1 with s < 3/2, p = 2 with s < 2. Every G3′ instance is
 (2, s, 1) with s ≥ 2, so the primary route for G3′ is item 11, citation-free, and **no G3′ result depends on (P)**.
+*(Plan 47, 2026-10-14: the previous paragraph is pre-Plan-47 history. G2 Cor. H-input is now PROVED with no citation,
+so both routes are citation-free and (P) is needed nowhere, including Lean `theoremHL` at general p (on paper). Lean
+labels are unchanged: Theorem H_all is not formalized.)*
 
 How item 11 (math-pursuits f5f6aef, items/11-zero-measure-jacobi-asymptotics/work/proof/PROOF.md §§7, 7b; read
 read-only for this table) builds the lemmas G3′ uses:
@@ -323,7 +344,7 @@ read-only for this table) builds the lemmas G3′ uses:
 
 | Result | Use of Theorem H | Instance (p, s, C) | Supplied by (item 11 Thm H / G2 Cor. H-input)? |
 |---|---|---|---|
-| Lean `theoremHL` | hypotheses `hHlo : TheoremHPure p κ s`, `hHup : TheoremHPure p κ s0` (direct) | (p, s, 1), (p, s₀, 1), any p > 0 | item 11 for p ∈ {1, 2}, s, s₀ ≥ s₀(p); otherwise G2 only (mod-cite (P)), for s, s₀ > 1. Lean label unchanged (neither proof is formalized) |
+| Lean `theoremHL` | hypotheses `hHlo : TheoremHPure p κ s`, `hHup : TheoremHPure p κ s0` (direct) | (p, s, 1), (p, s₀, 1), any p > 0 | item 11 for p ∈ {1, 2}, s, s₀ ≥ s₀(p); otherwise G2 only (mod-cite (P); PROVED since Plan 47), for s, s₀ > 1. Lean label unchanged (neither proof is formalized) |
 | Lean `smoothZeta_HL(_det, _sumForm)`, `smoothZeta_bLaw` | via `theoremHL` (direct) | (2, 2, 1) | yes: item 11 (citation-free), also G2; Lean label unchanged |
 | G3′-U | via item 11 H7 (step 5, (Hw) with s = s₀ = 2); H5(i), H6(b, d) do not use Theorem H | (2, 2, 1) | yes: item 11 (citation-free); also G2 |
 | G3′-L | none: the pure-power comparison is Lemma W (item 11 §7 references) plus H5(i), Lemma S | — | no instance used: Lemma W's s = s_n = 4 + C″(1 + log n) grows with n, which no fixed-s instance covers; Lemma W is proved uniformly in s ≥ 4 from item 11's Lommel references instead |
@@ -480,6 +501,41 @@ inside `/-- … -/` docstrings only.
 - **F10 (info).** Lean rebuild: `lean/check.sh` run by the coordinator on this branch (after the docstring edits), 2026-10-14: AUDIT OK (no sorryAx; only propext, Classical.choice, Quot.sound).
 - **F11 (info).** Confirmations; nothing to change.
 
+
+**Plan 47 (2026-10-14, branch plan-47-noP): removing the citation (P).** G2 PROOF.md §1 gained Lemma EP (energy
+positivity with Fourier identity; papers/paper1/main.tex Lemma 3.3 and proof, refereed CORRECT), and B*(iii)'s
+optimality now uses it, with (EP-int) checked via |ν| ≤ μ^x + μ*; the (P)-based text is kept as a remark. Relabels
+(each verified by reading the dependency chain; full table with inputs in research/G2/LOG.md "Plan 47"):
+
+| Result | Old label | New label |
+|---|---|---|
+| G2 Lemma EP (new) | — | PROVED; Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED |
+| G2 B* | PROVED-mod-cite (P) | PROVED; Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED |
+| G2 H_all (H1) | PROVED-mod-cite (P) | PROVED; Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED |
+| G2 HZ | PROVED-mod-cite (P) | PROVED; Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED |
+| G2 Cor. H-input | PROVED-mod-cite (P), as H_all | PROVED, as H_all; Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED |
+| G1-T, G1-L | PROVED-mod-cite (G2 (P)) | PROVED; Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED |
+| WC, CL, A4′, TC | PROVED-mod-cite (P) (through G2 B*(iii)) + REVIEWED | PROVED + REVIEWED (proofs unchanged); relabel Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED |
+| T3-avg | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; (P) via TC) + REVIEWED | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b) + REVIEWED; relabel Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED |
+| G3′ §0 notes (19 rows), Lean `theoremHL` | "… G2 Cor. H-input (mod-cite (P))" | "… (PROVED since Plan 47; was mod-cite (P))"; labels unchanged |
+
+Edited: G2 PROOF.md (header note, §0, Lemma EP, B*(iii), Cor. H-input), G2 CITATIONS.md, G2 LOG.md, checks/
+check_positivity.py (+ .out), G1 PROOF.md (§0 note and rows, §3.1/§3.7 header notes, TC proof bullet, Ra-a remark), G3′
+PROOF.md (§0 notes, Theorem H paragraph note), README.md, lean/README.md, this file (header, H1, H4, H5, H6, §2.1–2.3,
+§3.1–3.3, glossary), research/program/RESEARCH_PROGRAM.md and outline_A_nodes.md (dated notes). Not changed: RH_ζ (its
+E1(iv) applies G2's argument to a different measure; (EP-int) there not re-checked; E1(iv) is not needed for RH_ζ),
+Lean docstrings in Inputs.lean / TheoremHL.lean (still "mod-cite (P)"; .lean files not edited), review files, logs and
+§5 Plan 37 items (history), novelty_G2.md. Pre-Plan-47 sentences about where "(P) enters" are kept with dated notes.
+Plan: docs/superpowers/plans/2026-10-14-plan-47-noP.md.
+
+**Plan 47 Rule R (research/G2/review/REVIEW_Plan47.md, ACCEPT WITH FIXES, all minor) — fixes applied 2026-10-14:** F1
+Rule A δ_0 − δ_1 example reworded (both sides +∞); F2 derivations of the B*(ii) and Value absolute bounds added in G2
+§1; F3 Lean docstrings of `TheoremHPure` (Inputs.lean) and `theoremHL` (TheoremHL.lean) updated (comments only) and
+`lean/check.sh` re-run on branch plan-47-noP (2026-10-14, after the docstring edits): build completed (8955 jobs), AUDIT OK (only propext, Classical.choice, Quot.sound); F4 dated note at RH_zeta.md E1(iv); F5 check_positivity.py
+tail constant corrected to (3/(2π))/cut; F6 header wording; F7 §3.2 "self-contained" qualified (internal item 11
+inputs); F8 dated note at novelty_G2.md. All "Rule R pending (Plan 47)" markers replaced by the REVIEWED marker, as the
+reviewer recommended. The G3′, Lean and RH_ζ labels stay unchanged.
+
 ---
 
 ## 6. Glossary / name disambiguation
@@ -497,7 +553,7 @@ No name was changed. Where a name means different things, the meaning is fixed b
 | **TL, TLw / TL(w)** | G1 Lemma TL (polynomial tail localization, §3.4) and its weight-general form TLw = TL(w) (§3.9). |
 | **Lemma S vs Theorem S** | G3′ Lemma S (index shift, §4); G3′ Theorem S (SPC_ℂ⁺ ⇒ G3′, rhfree/RHFREE.md §3) and S′ (RHFREE2); RH_plt1b Lemma S(iii) (seam); Lemma Sat (G3′ §5.2), Sat_p, Sat_p⁺ (G1). |
 | **N** | G3′ Proposition N (counting information does not decide G3′, §5) and Theorems N′, N″, N‴; Lemma N and Cor. N1 (inertia bound, rhfree/RHFREE2 §2); N₀ (smooth counting function); N(T) (zero counting). |
-| **P** | (1) "Law P" (the target law). (2) citation **(P)** = Beckermann–Kalyagin–Matos–Wielonsky Lemma 2.1 (G2 CITATIONS), as in "PROVED-mod-cite (P)". (3) item 11 Lemma P (α ≥ 2β), Lean `lemmaP`. (4) G3′ Corollary P (RH + (V) ⇒ G3′, §9.1; the G3′ §0 row is named "P"). (5) Lemmas P1–P3 (rhfree/RHPRIME). (6) Lemma PC, PC′ (rhfree). (7) RH_zeta.md E1(iv) "the positivity lemma (P)" = the same citation (P) (G2 CITATIONS: "Positivity of logarithmic energy"). (8) G1 §3.1 P_n = Heine measure; p = the exponent. |
+| **P** | (1) "Law P" (the target law). (2) citation **(P)** = Beckermann–Kalyagin–Matos–Wielonsky Lemma 2.1 (G2 CITATIONS), as in "PROVED-mod-cite (P)". (3) item 11 Lemma P (α ≥ 2β), Lean `lemmaP`. (4) G3′ Corollary P (RH + (V) ⇒ G3′, §9.1; the G3′ §0 row is named "P"). (5) Lemmas P1–P3 (rhfree/RHPRIME). (6) Lemma PC, PC′ (rhfree). (7) RH_zeta.md E1(iv) "the positivity lemma (P)" = the same citation (P) (G2 CITATIONS: "Positivity of logarithmic energy"). Since Plan 47 (P) is replaced in G2 by **Lemma EP** (energy positivity, G2 §1). (8) G1 §3.1 P_n = Heine measure; p = the exponent. |
 | **H** | item 11 Theorem H (p ∈ {1,2}); G2 Theorem H_all; Lean named input `TheoremHPure`; Theorem H_L and Corollary H_L-ζ; item 11 Lemmas H1–H7; G3′ Lemma H (determinantal deletion, §5.2); G2 Cor. H-input. |
 | **R** | Rule R (review); G1 Conjecture R and Theorem R (§§3.2, 3.6) with Lemmas R1, R2; G3′ Lemma R (pair factors under thinning, §7). |
 | **L** | G1 Theorem L (localization at scale Mn, §3.8) and Lemma LP; G3′ Theorem L′ (log-gap condition, §4.1) and G3′-L (lower bound); L(j) = j²x̃_j (slow factor of the smooth ζ model, G3′ §1) and item 11's L in H_L. |
@@ -505,7 +561,7 @@ No name was changed. Where a name means different things, the meaning is fixed b
 | **W** | G3′ Lemma W (uniform weight lower bound, §4); W := Σ_k w_k (total mass, G1 §3.1, item 11 H7). |
 | **G** | G3′ Lemma G (spectral small-gap lemma, rhfree/RHFREE §2); G(n) := Σ(n−j)u_j (G1 §1); G(k) comparison atoms (G3′ §3, item 11 H7); the g-function of RH analyses; G1-T, G1-L, G1-R, G2, G3′ as problem names. |
 | **D** | D_n (Hankel determinant); item 11 Prop D (weight hypothesis cannot be dropped); RH_zeta_close Proposition D (transfer to σ_ζ) and Lemma D1; D(γ) (T3-log's log-type modulus); D-functions in RH_px §3; (D∞) hypothesis (G3′*). |
-| **E1–E5** | RH_zeta Lemmas E1–E5 (finite-N edge equation); item 11 E1 (zero-built measures take ordinates as real numbers, AGENTS.md) and Lemma E (tunnelling); E = repeated-index set (G3′ §5); E(T) (Trudgian bound, Z1). |
+| **E1–E5** | G2 Lemma EP (energy positivity, Plan 47; replaces citation (P)). RH_zeta Lemmas E1–E5 (finite-N edge equation); item 11 E1 (zero-built measures take ordinates as real numbers, AGENTS.md) and Lemma E (tunnelling); E = repeated-index set (G3′ §5); E(T) (Trudgian bound, Z1). |
 | **Z** | G3′ Lemmas Z1, Z2 (ordinate comparison); RH_zeta_close Lemma Z (far field, Arb-certified). |
 | **κ** | (1) κ_p := 3p/2 + log c(p) (G2, item 11). (2) κ := 3 + log(π²/16) = κ_2 (Lean `TheoremHPure 2 κ 2`, G3′ Φ_n). (3) RH_ζ's coefficient κ = −2(log(π/2) − (1 − log 2)) = −0.28946… of 1/log n. (4) G1 Lemma TL's exponent κ = (2 + 2/p)s/(s−1) (and Theorem R's windows [θN, N^{κ+1}]). (5) κ′ (a constant in G1 A3's proof). |
 | **β** | β_n := n^pb_n/(c(p)C) (G1); G2's β_t = 4c(p)t^{−p} (arcsine edges); RH₁(r) β_N (squared recurrence coefficients of the symmetrization); β in N‴ (gap exponent e^{−βk}). |

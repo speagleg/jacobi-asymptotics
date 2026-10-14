@@ -15,11 +15,13 @@ means Riemann–Hilbert. The Riemann Hypothesis occurs only as a labelled hypoth
   `smoothZeta_bLaw`) are PROVED-mod-input `TheoremHPure` (Theorem H for pure powers, a named input). The foundations
   (Andreief/Heine, H2, three-term recurrence, Lemma P, the Toeplitz count (S4)) are sorry-free. On paper, the input
   is supplied by item 11's Theorem H for p ∈ {1, 2}, s ≥ s₀(p) (p = 2 citation-free, which covers Corollary H_L-ζ),
-  and for all p > 0, s > 1 by G2 Corollary H-input, mod-cite (P). Neither proof is formalized.
-- **G2** (Plan 8, research/G2): **Theorem H_all**, the averaged Law P for every p > 0, is PROVED-mod-cite (P) and
+  and for all p > 0, s > 1 by G2 Corollary H-input, PROVED since Plan 47 (was mod-cite (P); REVIEWED, research/G2/review/REVIEW_Plan47.md). Neither
+  proof is formalized.
+- **G2** (Plan 8, research/G2): **Theorem H_all**, the averaged Law P for every p > 0, is PROVED (Plan 47: the citation
+  (P) is replaced by the self-contained Lemma EP; Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED); previously PROVED-mod-cite (P) and
   REVIEWED. The n² constant is an explicitly solvable constrained logarithmic equilibrium, a superposition of arcsine
   laws. Corollary HZ: log det ζ(a(i+j)+b) = −an² log n + (3a/2 + log c(a))n² + o(n²) for real a > 0 and 2a + b > 1
-  (PROVED-mod-cite (P)).
+  (PROVED since Plan 47, was PROVED-mod-cite (P); REVIEWED).
 - **G1, pointwise law for pure powers** (Plans 10–15, research/G1/RH): the pointwise Law P with an O(1/n) rate holds
   for every σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, p > 0, s > 1. The results are RH₁(r) (p = 1), RH_p (p > 1) and the seam
   construction (0 < p < 1). For the smooth-ζ model, Theorem RH_ζ gives
@@ -28,23 +30,24 @@ means Riemann–Hilbert. The Riemann Hypothesis occurs only as a labelled hypoth
   - full pointwise Law P for bounded slowly varying Ψ (Theorem T3-all) and for log-type Ψ such as (log k)^α
     (Theorem T3-log), both PROVED-mod-cite + REVIEWED;
   - fixed-size rough weights can break (T3) and the pointwise b-law (Theorem R, PROVED-mod-cite + REVIEWED);
-  - (CL) and the tail-Cesàro a-law for p > 1 with rough weights (Theorem CL, A4′; PROVED-mod-cite (P), REVIEWED).
+  - (CL) and the tail-Cesàro a-law for p > 1 with rough weights (Theorem CL, A4′; PROVED since Plan 47, was PROVED-mod-cite (P);
+    REVIEWED, relabel REVIEWED by research/G2/review/REVIEW_Plan47.md).
 - **G3′, the true ζ-zero measure** (Plans 7, 16–26, research/G3prime; the ordinates are taken as real numbers):
   - **(U)** limsup (1/n²)[log D_n − Φ_n] ≤ 0, with no hypothesis on the zeros. Label: PROVED-mod-cite + mod-input
     Theorem H (Lean `TheoremHPure`) + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H
-    (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)). The cited input is (C1).
+    (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)). The cited input is (C1).
   - **(B)** liminf ≥ −3 log C > −∞, so log D_n = Φ_n + O(n²) with no hypothesis on the zeros. Label: PROVED-mod-cite
     (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by
-    item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (mod-cite (P)).
+    item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)).
   - **Theorem Ch:** G3′ ⟺ 𝒞(K) = o(K²) (capped near-pair energy of the ordinates). Label: PROVED-mod-cite (C1) +
     mod-input Theorem H; REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED
-    there), and also by G2 Cor. H-input (mod-cite (P)).
+    there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)).
   - Necessary conditions: G3′ forces repeated ordinates (N″) and exponentially small gaps (N‴) to have density zero.
     Prop N shows that counting-function information alone cannot decide G3′.
   - Sufficient conditions, each a labelled hypothesis: (SG) (G3′-L), (LG*) (L′), PCC with no RH (Theorem C), SPC_ℂ⁺
     (Theorem S), SPC_ℂ⁺(full) (Theorem S′), RH + (V⁺) (Theorem V⁺), RH + (V) (Corollary P). All are REVIEWED.
   - The Theorem H input of every G3′ result is p = 2, s ≥ 2 only, supplied citation-free by item 11, so no G3′ result
-    depends on G2's citation (P) (THEOREMS.md §3.3).
+    depends on G2's citation (P) (THEOREMS.md §3.3). Since Plan 47 G2 uses no citation at all.
 
 **Plans 39–44 (2026-10-14, all REVIEWED; THEOREMS.md §2.6):** Conjecture R in window form for ε ≤ ε₀ (Theorem RW);
 linear response with sharp ε² remainder (Lemma LR); rough weights also break the pointwise a-law (Theorem Ra); Law P ⟺

@@ -16,19 +16,24 @@ known; its application here to Law P is what is new.
 
 ## 0. Status
 
+*(Plan 47 note, 2026-10-14: G2's citation (P) was replaced by G2 Lemma EP (self-contained). Rows G1-T, G1-L, CL, WC,
+A4′ and TC are relabelled PROVED, and "(P) via TC" is dropped from T3-avg. RH_ζ (G2 optimality for its E1(iv), a
+different measure) is not changed. Each changed label says "Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED". Table: research/G2/LOG.md
+"Plan 47".)*
+
 | Result | Statement | Label |
 |---|---|---|
 | K | second difference of G(n) := Σ_{j<n}(n−j)u_j over ±h = triangle-kernel sum of u, of total mass h² | PROVED |
-| **G1-T** | H_all + (T3) slow oscillation of β_n ⇒ β_n → 1, i.e. n^p b_n → c(p)C | PROVED-mod-cite (G2 (P)) |
-| **G1-L** | H_all + a one-sided bound (sup β_n < ∞ or inf β_n > 0) ⇒ (1/n)Σ_{j<n} log(j^p b_j) → log(c(p)C) | PROVED-mod-cite (G2 (P)) |
+| **G1-T** | H_all + (T3) slow oscillation of β_n ⇒ β_n → 1, i.e. n^p b_n → c(p)C | PROVED (Plan 47; was PROVED-mod-cite (G2 (P)); only input H_all, now PROVED via G2 Lemma EP); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED |
+| **G1-L** | H_all + a one-sided bound (sup β_n < ∞ or inf β_n > 0) ⇒ (1/n)Σ_{j<n} log(j^p b_j) → log(c(p)C) | PROVED (Plan 47; was PROVED-mod-cite (G2 (P)); only input H_all, now PROVED via G2 Lemma EP); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED |
 | A1 | J ≥ 0 ⇒ sine-weighted window averages of a_j are ≥ 2cos(π/(L+1))·min b over the window. Hence, if b is regular, liminf of window averages of a_j/(2b_j) ≥ 1 | PROVED |
 | A2 | p > 1: Σ_{j>n} a_j = 𝔼_n[Σ_{k∉S} x_k] (Heine ensemble) | PROVED |
 | A3 | Q_p := ∫ x d(σ − μ*) = 2c(p)/(p−1) | PROVED (uses only G2 B*(i) and the definition of μ*, both citation-free) |
 | A4 | (CL) ⇒ tail-Cesàro a-law; with β_n → 1, block-Cesàro ratios Σa/Σ2b → 1 and window averages → 1 in b-weighted density (pointwise density NOT proved) | CONDITIONAL on (CL). (CL) is proved for pure-power atoms by Theorem CL (§3.1, REVIEWED), so the tail-Cesàro part is unconditional there; (i)–(ii) still need β_n → 1 |
-| **CL** | (CL) for pure-power atoms k^{−p}, p > 1, and ROUGH weights (Σw < ∞, w_k ≥ c₁k^{−s}): n^{p−1}𝔼_n[Σ_{k∉S}x_k] → Q_p. Hence n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p−1) unconditionally (§3.1, Plan 27) | PROVED-mod-cite (P) (through G2 B*(iii); internal inputs: G2 A1, A-U, A-L; G3′ §5.2 Lemma Sat); REVIEWED; novelty UNCHECKED |
+| **CL** | (CL) for pure-power atoms k^{−p}, p > 1, and ROUGH weights (Σw < ∞, w_k ≥ c₁k^{−s}): n^{p−1}𝔼_n[Σ_{k∉S}x_k] → Q_p. Hence n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p−1) unconditionally (§3.1, Plan 27) | PROVED (Plan 47; was PROVED-mod-cite (P) through G2 B*(iii), which now uses G2 Lemma EP; internal inputs: G2 A1, A-U, A-L, B*; G3′ §5.2 Lemma Sat); REVIEWED (proof unchanged); relabel Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED; novelty UNCHECKED |
 | Sat_p | saturation, p ≥ 1: 1 − ρ_n(k) ≤ (W/w_k)e^{−2n·g_p(k/n)} (§3.1) | PROVED (§3.1 header); REVIEWED |
-| WC | concentration at speed n²: P_n(\|⟨φ, ν_S⟩ − ⟨φ, μ*_u⟩\| > δ) ≤ e^{−c(φ,δ)n² + o(n²)} (§3.1) | PROVED-mod-cite (P) (through G2 B*(iii)) (§3.1 header); REVIEWED |
-| A4′ | unconditional tail-Cesàro a-law: x_k = k^{−p} (p > 1), Σw < ∞, w_k ≥ c₁k^{−s}: n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p − 1) (§3.1) | PROVED-mod-cite (P) (through G2 B*(iii)) (§3.1 header); REVIEWED |
+| WC | concentration at speed n²: P_n(\|⟨φ, ν_S⟩ − ⟨φ, μ*_u⟩\| > δ) ≤ e^{−c(φ,δ)n² + o(n²)} (§3.1) | PROVED (Plan 47; was PROVED-mod-cite (P) through G2 B*(iii), which now uses G2 Lemma EP) (§3.1 header); REVIEWED (proof unchanged); relabel Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED |
+| A4′ | unconditional tail-Cesàro a-law: x_k = k^{−p} (p > 1), Σw < ∞, w_k ≥ c₁k^{−s}: n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p − 1) (§3.1) | PROVED (Plan 47; was PROVED-mod-cite (P) through G2 B*(iii), which now uses G2 Lemma EP) (§3.1 header); REVIEWED (proof unchanged); relabel Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED |
 | Sat_p⁺ | Sat_p for all p > 0, with the extra factor ((n+1)/k)^{2(1−p)₊} and g_p⁺ (§3.3); internal input of T3-conv, T3-sv, T3a, Thm R, L, T3-all, T3-log | no separate label in the §3.3 header (which labels T3-conv); the proof is that of Lemma Sat_p (PROVED) with two elementary changes; Rule R (review/REVIEW_Plan29.md) ACCEPT WITH FIXES, F1 applied — REVIEWED |
 | G1-R | (T3) from the atoms alone; (CL) (proved for pure-power atoms with rough weights, p > 1: Theorem CL; open for general nodes or p ≤ 1) | (T3) half **REFUTED** for sandwiched weights (Theorem R, §3.6); PROVED-mod-cite for pure-power nodes with slowly varying Ψ: bounded Ψ (Theorem T3-all, §3.8; contains T3-conv, T3-sv/T3a, T3-avg) and log-type Ψ (Theorem T3-log, §3.9); open for slowly varying Ψ with D(γ) = ∞ and for nodes other than pure powers. (CL) half: proved for pure powers k^{−p}, p > 1 (Theorem CL); open for general nodes or p ≤ 1 (see §4). *(Row updated by Plan 37, 2026-10-14; previously "proved for polynomially slowly varying weights (T3-sv/T3a); (CL) half unchanged".)* |
 | FV | first variation: d/dt log b_n²(v e^{tf}) = ⟨f, μ_n − μ_{n−1}⟩, μ_n := w p_n² (§3.2) | PROVED (standard; novelty not claimed); REVIEWED |
@@ -39,8 +44,8 @@ known; its application here to Law P is what is new.
 | **T3-sv** | pointwise b-law for w = k^{−s}Ψ with Ψ bounded and *polynomially slowly varying*: sup_{n/M≤k≤n^γ}\|log Ψ(k) − log Ψ(n)\| → 0 for all M, γ (e.g. Ψ = 2 + sin√(log log k)) (§3.4, Plan 30) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: Lemma FV, Lemma Sat_p⁺, Lemma TL); REVIEWED; novelty UNCHECKED |
 | FVa | first variation of a_n: d/dt a_n(v e^{tf}) = ⟨(x − a_n)f, μ_n⟩ − 2b_n⟨f, q_{n−1}q_n⟩ (q_j = √w p_j) (§3.5) | PROVED (standard; novelty not claimed; self-contained via the proof of Lemma H and Christoffel–Darboux); Rule R ACCEPT WITH FIXES, re-check ACCEPT — REVIEWED |
 | **T3a** | pointwise **a-law** n^p a_n → 2c(p) under T3-sv's hypotheses (Ψ bounded, polynomially slowly varying; includes ψ_k → L), all p > 0, s > 1 (§3.5, Plan 32) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: FVa, Sat_p⁺, TL); REVIEWED; novelty UNCHECKED |
-| TC | tail count: 𝔼_m#(S ∩ (Mm, ∞)) ≤ (2A/(p log M))·m + o(1) uniformly over sandwiched weights, every p > 0 (§3.7) | PROVED-mod-cite (P) (through G2 B*(iii); internal: G2 A1/A2, A-U, A-L) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
-| **T3-avg** | for w = k^{−s}Ψ with Ψ bounded and **uniformly slowly varying** (δ_N(M, M′) → 0; e.g. 2 + sin(log log k)): (1/N)Σ_{n=N}^{2N}\|log b_n²(w) − log b_n²(v)\| → 0 and (1/N)Σ n^p\|a_n(w) − a_n(v)\| → 0; hence the full pointwise Law P along a set of n of density one (§3.7, Plan 34) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; (P) via TC) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
+| TC | tail count: 𝔼_m#(S ∩ (Mm, ∞)) ≤ (2A/(p log M))·m + o(1) uniformly over sandwiched weights, every p > 0 (§3.7) | PROVED (Plan 47; was PROVED-mod-cite (P) through G2 B*(iii), which now uses G2 Lemma EP; internal: G2 A1/A2, A-U, A-L, B*) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED (proof unchanged); relabel Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED; novelty UNCHECKED |
+| **T3-avg** | for w = k^{−s}Ψ with Ψ bounded and **uniformly slowly varying** (δ_N(M, M′) → 0; e.g. 2 + sin(log log k)): (1/N)Σ_{n=N}^{2N}\|log b_n²(w) − log b_n²(v)\| → 0 and (1/N)Σ n^p\|a_n(w) − a_n(v)\| → 0; hence the full pointwise Law P along a set of n of density one (§3.7, Plan 34) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b) (Plan 47: "(P) via TC" removed, TC is now PROVED; Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **TV** | (d/dt)μ_m(A) = ⟨f1_Aq_m,q_m⟩ − 2⟨1_Aq_m, K_m(fq_m)⟩ − ⟨fq_m,q_m⟩μ_m(A) along w(t) = we^{tf} (§3.8, Plan 35) | PROVED (standard; novelty not claimed) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED |
 | **LP** | pure power: μ_n((Mn, ∞)) → F_p(M) = (2/π)arcsin√(min(1, M^{−p}/(4c(p)))), M ≥ 1 (§3.8; min added by Plan 37 to match §3.8) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; textbook method of moments) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty not claimed |
 | **Thm L** | localization at scale Mn: limsup sup_t μ_m^{(t)}((Mn, ∞)) ≤ e^{4G}F_p(M) for bounded slowly varying Ψ (§3.8) | PROVED-mod-cite (as LP; internal TV, Sat_p⁺) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
@@ -52,6 +57,7 @@ known; its application here to Law P is what is new.
 | **RL** | Lemma RL: for any σ with infinite support (any nodes x_k ↓ 0) and scales s_n (s_{n+1}/s_n → 1, e.g. n^p): s_na_n → α, s_nb_n → β ⟺ the 1st, 2nd, 4th moments of ν_n := (x ↦ s_nx)_*μ_n tend to those of arcsine on [α−2β, α+2β] ⟺ ν_n → that law weakly + an a priori bound sup s_n(\|a_n\| + b_n) < ∞ (or UI of y⁴). Law P (constant c) ⟺ ν_n → arcsine on [0, 4c] weakly **with sup n^p(a_n + b_n) < ∞** (equivalently: moments ℓ = 1, 2, 4 converge to 2c, 6c², 70c⁴). RL-loc: indices n−1, n, n+1 suffice for right limits; RL-n: index n alone does not (explicit J_t); RL-n2: {n, n+1} does not for moments 1, 2, 4 (general measures); RL-b: the b-law alone is not enough (§3.13, Plan 42) | RL, RL-loc PROVED (self-contained; method of Simon 2004 Thm 3.2, read and quoted, CITATIONS.md (Simon), attribution only); RL-n, RL-b, RL-n2 PROVED (spectral theorem for compact self-adjoint operators: textbook-standard, not checked against a specific source); RL2 PROVED-mod-cite (inherits Theorem R); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan42.md), fixes applied, re-check ACCEPT — REVIEWED; novelty not claimed (RL, RL-b), UNCHECKED (RL-loc, RL-n, RL-n2). Open: weak convergence without the bound (RL-UI) |
 | **B-cond** | for x_k = k^{−p} (p > 0), w = k^{−s}Ψ (s > 1) with Ψ **slowly varying in sequence form only** (no boundedness, no D(γ) < ∞; e.g. exp(√log k)): explicit bounds (the displayed bounds are unconditional) \|log b_n²(w) − log b_n²(v)\| ≤ 2δ_n(M₀) + Q_n + o(1), n^p\|a_n(w) − a_n(v)\| ≤ 4M₀^p(2δ_n(M₀) + Q_n) + o(1); hence **QL** (ε_nΛ_n → 0, Λ_n := sup_t max_{m∈{n−1,n}}Σ_{n≤k≤n^γ}log(k/n)μ_m^{(t)}(k), γ > κ) ⇒ n^pb_n → c(p), n^pa_n → 2c(p) along the full sequence. Internal: L0 (dyadic chaining/Potter), FV⁺ (FV/FVa for unbounded f), QLb (power tail ⇒ QL) — PROVED (§3.14, Plan 44) | CONDITIONAL (QL₀, implied by QL; both HYPOTHESIS) + PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal L0, FV⁺, Sat_p⁺, TLw); L0, QLb PROVED; FV⁺ PROVED (standard extension; novelty not claimed); QL proved only in cases already covered (ε_n log n → 0 ⊂ T3-log; bounded Ψ); no new case of the law; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan44.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **QL-num** | numerics N1–N3 for QL (s = 2; N1: Ψ = exp(√log(k+e)), exp((log(k+e))^{0.8}); N2–N3: exp(√log(k+e)) only; p ∈ {2, 1, ½}): tilt ratio n·dev/ϑ_n = 0.465–0.497 at n = 1600, rising toward 0.5 with a defect decaying at least like 1/log n (limit not established); QL-b power tail μ_n((Mn, ∞)) ≤ CM^{−α}, α = min(p/2, 0.8), C ≈ 0.4–0.6 flat in n, t; crossover M_x ≍ n^{2/p} (grid brackets [1.6, 6.6]n² at p = 1, [0.17, 0.67]n⁴ at p = ½); Λ_n → LP constant, flat in t (sup at t = 1 with the tail), ε_nΛ_n decreasing; Route I′: R ≤ 0.93·ε_n(1 + log M) on all tested data — Route I′ not dead on the outline's criterion (saturation beyond the hard edge is structural, not evidence; p = ½ does not discriminate CB from Cauchy–Schwarz scales) (§3.15, Plan 45) | NUMERICAL (K-doubling, quad/long double, Lanczos and TV finite-difference cross-checks); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan45.md), fixes applied — REVIEWED |
+| **QLP** | pure power v_σ = k^{−σ}, all p > 0: for m ∈ {n−1, n}, n ≥ n₀ and **every** M ≥ 1, μ_m((Mn, ∞)) ≤ CM^{−p/2} for M ≤ n^{2/p} (arcsine range), ≤ Cn^{−1}(M/n^{2/p})^{−β}(1 + log(M/n^{2/p})) below the Bessel scale (β = min(p, σ−1), p ≠ 1; min(½, σ−1), p = 1), hence ≤ C_ϑM^{−ϑ} for all M (ϑ < min(p/2, σ−1); ϑ = p/2 if σ−1 > p/2, p ≠ 1 only); Corollary QLP-Λ: Σ_{k≥n}log(k/n)μ_m(k) = O(1), i.e. QL of §3.14 at t = 0. Method: Stieltjes transform at z = τe^{5πi/6} (Lemma ST) = row product of the RH solution (Lemma GS), hard-edge Bessel model I_α·K_α (Lemma BK) (§3.16, Plan 46) | ST, GS PROVED; BK PROVED-mod-cite (DLMF 10.25.2, 10.32.4, 10.32.9); QLP, QLP-Λ PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; KMVV (6.23); Vanlessen (4.27); KV (5.21)–(5.22) as a consistency check) for each fixed σ; uniform in σ on compacts CONDITIONAL on (RU) (Audit U: PROOF SKETCH, via DLMF 10.40.10–12); no new case of the law (QL for t > 0 still HYPOTHESIS); Lemmas Z, A PROVED-mod-cite; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan46.md), fixes applied — REVIEWED; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1 §§2–6) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; G2 PROOF.md μ*, B* — only μ* and B*(i)–(ii), which do not use (P)) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -207,6 +213,9 @@ k^{−p}, p > 1, with rough weights).* (CL) is the statement that the Heine ense
   as stated.
 
 ### 3.1 Theorem CL (Plan 27): saturation exactness and concentration — (CL) holds for rough weights — Lemma Sat_p PROVED; Lemma WC, Theorem CL, A4′ PROVED-mod-cite (P) (through G2 B*(iii)); Rule R ACCEPT WITH FIXES, re-check ACCEPT — REVIEWED; novelty UNCHECKED
+
+*(Plan 47 note, 2026-10-14: G2 B*(iii) now uses G2 Lemma EP instead of (P), so Lemma WC, Theorem CL and A4′ are PROVED
+(no external citation); proofs unchanged; relabel Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED. Header kept as history; §0 carries the current labels.)*
 
 Setting: x_k = k^{−p} with p > 1, weights w_k > 0 with W := Σw_k < ∞ and w_k ≥ c₁k^{−s}. P_n is the Heine measure
 on n-subsets S (item 11 H1), with ρ_n(k) := P_n(k ∈ S) = w_kK_n(x_k, x_k). Put
@@ -697,6 +706,9 @@ and so does Theorem CL when p > 1 (F1).
 
 ### 3.7 Lemma TC and Theorem T3-avg (Plan 34): density-one pointwise law for slowly varying weights — TC PROVED-mod-cite (P); T3-avg PROVED-mod-cite; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan34.md), fixes applied, re-check ACCEPT — REVIEWED
 
+*(Plan 47 note, 2026-10-14: G2 B*(iii) now uses G2 Lemma EP instead of (P), so Lemma TC is PROVED (no external
+citation) and T3-avg is PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b) without (P); proofs unchanged; relabel Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED.)*
+
 Setting: x_k = k^{−p} (p > 0), sandwiched weights c·k^{−s} ≤ w_k ≤ C·k^{−s} (s > 1); notation μ_n, ρ_m as in
 §3.2–3.5.
 
@@ -710,7 +722,8 @@ with A := 4p + 2|κ_p| (G2 A-U, using E_p = κ_p from G2 B*(iii)). The o(1) depe
 *Proof.* Let T_j denote the Heine mass of index sets with exactly j elements beyond Mm.
 - G2 Theorem A-U (with its M, valid for every p > 0) gives log T_j ≤ −pm²log m + E_pm² + m²(At − pt²log M)
   + O_M(m log m), with t = j/m. The constants depend on the weights only through W = Σw.
-- G2 B*(iii) gives E_p = κ_p (this is where the external citation (P) enters).
+- G2 B*(iii) gives E_p = κ_p (this is where the external citation (P) entered; since Plan 47, 2026-10-14, B*(iii) uses
+  G2 Lemma EP and no citation).
 - G2 Theorem A-L gives log D_m ≥ −pm²log m + κ_pm² − o(m²); its constants depend on the weights only through c₁ and s.
 - For t ≥ t₁ := 2A/(p log M), the bracket At − pt²log M is ≤ −At₁ (equality at t₁; concave and decreasing beyond
   t₁/2). So P_m(j ≥ t₁m) ≤ (m + 1)e^{−At₁m² + o(m²)}.
@@ -1507,7 +1520,7 @@ some weights in [e^{−ε}, e^{ε}]·k^{−s}, for every ε ∈ (0, ε₀].
   fixed-size sandwiched roughness. It does **not** say whether the b-law also fails for the same w, nor whether
   a_n/(2b_n) → 1 fails: the construction controls a_n only. (HEURISTIC, not proved: running R and Ra on interleaved
   scales should break both at once.) For p > 1, w still satisfies the hypotheses of Theorem CL (Σw < ∞, w_k ≥ e^{−ε}k^{−s}), so the
-  **tail-Cesàro a-law** A4′ (PROVED-mod-cite (P), through G2 B*(iii)), n^{p−1}Σ_{j≥n}a_j(w) → 2c(p)/(p − 1), holds for this w while the pointwise a-law fails
+  **tail-Cesàro a-law** A4′ (PROVED-mod-cite (P), through G2 B*(iii); PROVED since Plan 47, REVIEWED), n^{p−1}Σ_{j≥n}a_j(w) → 2c(p)/(p − 1), holds for this w while the pointwise a-law fails
   — a concrete instance of the A4 remark that the tail-Cesàro form does not imply the pointwise one.
 - **Ra-b (comparison with Theorem R).** R1a is explicit and direct; Theorem R's R1 is by contradiction. The scale
   separation and the head/tail bookkeeping (Sat_p⁺, TL) are copied from Theorem R; step 1 replaces T3a step 1 by FV,
@@ -2078,6 +2091,275 @@ t ∈ {0, ½, 1}, p ∈ {2, 1, ½}, n ∈ {50, 100, 200, 400}, M = 2 … 2²⁹ 
   with C = 0.93 on all tested data, uniformly in t. This makes CB *plausible* (most informatively at p = 2, partly p = 1;
   not discriminating at p = ½); it does not make it easier to prove (it remains a hard-edge statement about a log-singular
   multiplier), and it is evidence only for the finite range n ≤ 400, M ≤ 2²⁹, one weight (√log), t ∈ {0, ½, 1}, s = 2.
+
+### 3.16 Lemma QLP (Plan 46): quantitative hard-edge localization for pure powers, all M — ST, GS PROVED; BK PROVED-mod-cite (DLMF 10.25.2, 10.32.4, 10.32.9); QLP and Corollary QLP-Λ PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; KMVV (6.23); Vanlessen (4.27); KV (5.21)–(5.22) as a consistency check) for each fixed σ (endpoint ϑ = p/2 of (c) for p ≠ 1 only), CONDITIONAL on (RU) for uniformity in σ (Audit U: PROOF SKETCH); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan46.md), fixes applied — REVIEWED; novelty UNCHECKED
+
+Source: `research/program/outline_B_sv.md` §2 L6 (QLP), §7 WP3. Setting: x_k = k^{−p} (p > 0), v_σ := k^{−σ} (σ > 1; σ is
+the exponent s of §§3.3–3.14, written σ as in the outline; it is *not* the spectral measure here), μ_m = μ_m^{v_σ}.
+K ⊂ (1, ∞) is compact. α := α_x = (σ − 1 − p)/p ∈ (−1, ∞) is RH_px's hard-edge (Bessel) order; the Bessel scale is
+M_B := n^{2/p} (k ≍ n^{1+2/p}, n^px ≍ n^{−2}).
+
+**Theorem QLP.** Let p > 0 and σ > 1. There are C and n₀ such that for n ≥ n₀, m ∈ {n − 1, n} and **every** M ≥ 1:
+- **(a)** (arcsine range) μ_m((Mn, ∞)) ≤ C·M^{−p/2} for 1 ≤ M ≤ n^{2/p};
+- **(b)** (below the Bessel scale) μ_m((Mn, ∞)) ≤ C·n^{−1}(M/n^{2/p})^{−β}(1 + log(M/n^{2/p})) for M ≥ n^{2/p}, with
+  β := min(p, σ − 1) for p ≠ 1 and β := min(½, σ − 1) for p = 1;
+- **(c)** (one power for all M) for every ϑ < ϑ(p, σ) := min(p/2, σ − 1): μ_m((Mn, ∞)) ≤ C_ϑ M^{−ϑ} for all M ≥ 1; for
+  p ≠ 1 and σ − 1 > p/2 this holds with ϑ = p/2 itself. (For p = 1, σ > 3/2, β = ½ = p/2 and the log in (b) is not absorbed;
+  the endpoint ϑ = ½ is then not proved here — very likely true, since the log in Lemma BK is needed only for a K-order 0,
+  but that refinement is not written out; review F2.)
+
+**Uniformity.** C, C_ϑ, n₀ depend on (p, σ). Under hypothesis (RU) below they can be taken uniform for σ ∈ K (with
+ϑ < min(p/2, min K − 1)). So the outline's L6 ("C M^{−p/2} for M ≤ n^c, uniformly in σ") is (a) with c = 2/p, and it
+holds for each fixed σ; uniformity in σ is CONDITIONAL on (RU). (a) is not "C M^{−p/2}(1 + o(1))" with the arcsine
+constant: C is not explicit. Beyond the Bessel scale the exponent changes, as the outline expected; (c) is the uniform
+power tail QL-b of §3.14 at t = 0.
+
+**Hypothesis (RU) (σ-uniformity of the cited RH analyses).** For p fixed and σ ∈ K, the small-norm conclusions of
+RH_px (p > 1), RH₁(r) (p = 1, r = σ) and RH_plt1b (0 < p < 1) hold with N₀ and all O(·) constants independent of σ:
+‖J_𝒵 − I‖_{L¹∩L²∩L^∞} ≤ C/N, ‖𝒵₋ − I‖_{L²} ≤ C/N, |𝒵₁| ≤ C/N, and the hard-edge bounds used in Lemma Z (RH_px Lemma 4.3;
+RH₁(r) Lemma M; the RH_plt1b analogues) hold with σ-free constants; also the Ẽ_N/E_n bounds of Lemma A.
+
+**Corollary QLP-Λ (QL at t = 0, uniform-in-M Lemma LP).** For n ≥ n₀ and m ∈ {n − 1, n},
+
+  Λ_n(v_σ) := Σ_{k≥n} log(k/n)·μ_m(k) ≤ C_ϑ/ϑ  (any ϑ < ϑ(p, σ)),
+
+in particular the truncated sum Σ_{n≤k≤n^γ} of §3.14 is O(1), for every γ. So the hypothesis QL of §3.14 holds at t = 0
+(the pure power), with Λ = O(1). *Proof.* Σ_{k>n}log(k/n)μ(k) = Σ_kμ(k)∫_1^{k/n}dM/M = ∫_1^∞μ((Mn, ∞))dM/M ≤
+∫_1^∞C_ϑM^{−ϑ−1}dM (Tonelli). ∎ *What this does not give:* QL along the path vΨ^t, t > 0, which B-cond needs; so no new
+case of the pointwise law is claimed. (Plan 44's numerics: Λ_n ≈ 0.42 at p = σ = 2.)
+
+#### Proof
+
+The idea: bound the hard-edge mass by the **Stieltjes transform at a point off the spectrum**, at distance ≍ τ from 0 in
+the outer region Ω_∞. There the RH solution is not oscillatory. The Bessel model only enters through I_α·K_α, and the
+small-norm error is evaluated at a point at distance ≍ |z| from every jump contour. No asymptotics *on* the band are
+needed, and the atoms need not be resolved.
+
+**Lemma ST (Stieltjes tail bound; PROVED).** Let ν be a probability measure.
+- (i) If ν is on [0, ∞), τ > 0 and z = τe^{iθ} with π/2 < θ ≤ π, then ν([0, τ]) ≤ (4τ/|cos θ|)·|S(z)|, where
+  S(z) := ∫dν(X)/(X − z). For θ = 5π/6: ν([0, τ]) ≤ (8/√3)τ|S(z)|.
+- (ii) If ν is on ℝ, η > 0 and z = ηe^{iθ}, 0 < θ < π, then ν([−η, η]) ≤ (4η/sin θ)|S(z)|.
+
+*Proof.* (i) For X ≥ 0, Re 1/(X − z) = (X + τ|cos θ|)/|X − z|² ≥ 0. For 0 ≤ X ≤ τ also |X − z|² = (X + τ|cos θ|)² +
+τ²sin²θ ≤ 2τ²(1 + |cos θ|) ≤ 4τ², so Re 1/(X − z) ≥ |cos θ|/(4τ). Hence ν([0, τ])·|cos θ|/(4τ) ≤ Re S ≤ |S|. (ii) Same with
+Im 1/(X − z) = η sin θ/|X − z|² ≥ 0, and |X − z| ≤ 2η for |X| ≤ η. ∎
+
+**Lemma GS (Green's function = row product; PROVED).** Let Y be the RH solution of degree N for a discrete measure Σw_kδ_{X_k}
+(Res_{X_k}Y₁₂ = w_kY₁₁(X_k), the convention of RH_px §1; any constant factor in the residue condition cancels below), with
+Σ_kw_k(1 + |X_k|^{2N}) < ∞ and Y z^{−Nσ₃} = I + Y₁/z + O(z^{−2}). Put ν_N(k) := w_kY₁₁(X_k)²/Σ_jw_jY₁₁(X_j)² (= μ_N(k)). Then, off
+the nodes,
+
+  S_N(z) := Σ_k ν_N(k)/(X_k − z) = −Y₁₁(z)Y₁₂(z)/(Y₁)₁₂.
+
+If V = C·Y·k(z)^{σ₃} at the point z and in a neighbourhood of ∞, with C constant diagonal, k scalar, and V = I + V₁/z + O(z^{−2}),
+then also S_N(z) = −V₁₁(z)V₁₂(z)/(V₁)₁₂. The right side is unchanged under V ↦ DVD′ for constant diagonal D and any
+diagonal D′(z) with det D′ = 1, and under V ↦ σ₃Vσ₃.
+
+*Proof.* Y₁₂(z) = Σ_kw_kY₁₁(X_k)/(z − X_k) (the decaying function with these residues; the sum converges absolutely).
+Expanding at ∞, Y₁₂ = Σ_jz^{−j−1}Σ_kw_kY₁₁(X_k)X_k^j; by orthogonality the first nonzero term is j = N, so
+(Y₁)₁₂ = h := Σ_kw_kY₁₁(X_k)². Next, Y₁₁(z)Y₁₂(z) = Σ_kw_kY₁₁(X_k)²/(z − X_k) + Σ_kw_kY₁₁(X_k)q_z(X_k), where
+q_z(X) := (Y₁₁(z) − Y₁₁(X))/(z − X) is a polynomial of degree N − 1 in X, so the second sum is 0. Hence Y₁₁Y₁₂ = −hS_N.
+For V = CYk^{σ₃}: V₁₁V₁₂ = C₁²Y₁₁Y₁₂ (k cancels). Near ∞, V = C(I + Y₁/z + …)m^{σ₃} with m := z^Nk; V → I forces
+C₁m(z) → 1 as z → ∞ (only this is used). So
+(V₁)₁₂ = lim z·V₁₂ = C₁(Y₁)₁₂·lim 1/m(z) = C₁²(Y₁)₁₂, and the ratio is the same. Invariances: D multiplies V₁₁V₁₂ and (V₁)₁₂ by D₁²; D′ multiplies
+row 1's two entries by d and 1/d; σ₃Vσ₃ negates V₁₂ and (V₁)₁₂. In the applications the invariances are used only to rewrite the
+row product of a factorization V = 𝒵P₀ at the single point z; the denominator is always (V₁)₁₂ of the true V (P₀ is not
+normalized at ∞). ∎
+
+*Application.* In RH_px (and RH_plt1b, which keeps RH_px §3's Ω_∞ transformations), on Ω_∞ one has R = U,
+T = e^{−Nlσ₃/2}Ue^{−N(g−l/2)σ₃}, Q = T and V = C_∞QF^{σ₃}, i.e. V = CUk^{σ₃} with C = C_∞e^{−Nlσ₃/2} and k = Fe^{−N(g − l/2)};
+V = I + O(1/z) is RH_px Lemma 3.5. U (= N^{pNσ₃}Y(·/N^p)) has nodes X_k = (N/k)^p and the same ν_N = μ_N. In RH₁(r) the
+same holds for WLXZ's chain in Ω_∞ (WLXZ (3.11): R = U on Ω_∞; (4.1); V = I + O(1/z), RH_p1.md W1), now for the
+*symmetrized* measure in WLXZ's rescaled variable Z, with Z_k² = N x_k-type scaling (t = n/Z² is the node index) and
+ν̃_{2n}(±Z_k) = μ_n(k)/2 (the symmetric OPs are P_{2n}(Z) = π_n(Z²)).
+
+**Lemma BK (Bessel bounds uniform in the order; PROVED-mod-cite DLMF 10.25.2, 10.32.4, 10.32.9).** Let −1 < ν₀ ≤ ν ≤ A
+and |ph u| ≤ π/3 (so r := Re u ≥ |u|/2). There is C = C(ν₀, A) with:
+- (small) for |u| ≤ 2: |I_ν(u)|, |uI′_ν(u)| ≤ C|u|^ν; |K_ν(u)| ≤ C(1 + log(4/|u|))|u|^{−|ν|}; |uK′_ν(u)| ≤ C|u|^{−|ν|};
+- (large) for r ≥ 1: |I_ν(u)|, |I′_ν(u)| ≤ C(r^{−1/2}e^r + 1); |K_ν(u)|, |K′_ν(u)| ≤ Cr^{−1/2}e^{−r}.
+
+Consequently, for every Λ ≥ 0 and all such u,
+
+  P_ν(u; Λ) := (|I_ν(u)| + Λ|u||I′_ν(u)|)(|K_ν(u)| + Λ|u||K′_ν(u)|) ≤ C(1 + Λ + Λ|u|)²·b_ν(|u|),
+  b_ν(ρ) := (1 + log(4/ρ))ρ^{ν − |ν|} (ρ ≤ 2),  b_ν(ρ) := 1/ρ (ρ ≥ 2).
+
+*Proof.* Small I: by 10.25.2 with |(u/2)^ν| = (|u|/2)^ν (ν real, principal branch) and Γ ≥ 0.88 on [ν₀ + 1, ∞) ⊂ (0, ∞),
+|I_ν(u)| ≤ 1.14(|u|/2)^ν Σ_k(|u|²/4)^k/k! ≤ C|u|^ν; termwise differentiation gives uI′_ν = (u/2)^νΣ_k(ν + 2k)(u²/4)^k/(k!Γ(ν+k+1)),
+bounded the same way. K: by 10.32.9, |K_ν(u)| ≤ ∫_0^∞e^{−r cosh t}cosh(νt)dt = K_ν(r) (also for the derivative, differentiating
+under the integral, which converges absolutely and locally uniformly for r > 0). With cosh t ≥ e^t/2, cosh(νt) ≤ e^{|ν|t} and
+v := re^t/2: K_ν(r) ≤ (2/r)^{|ν|}∫_{r/2}^∞e^{−v}v^{|ν|−1}dv ≤ (2/r)^{|ν|}(log(2/r) + Γ(A′ + 1) + 1) for r ≤ 2, and
+|K′_ν(u)| ≤ ∫cosh t e^{−r cosh t}e^{|ν|t}dt ≤ (2/r)^{1+|ν|}Γ(A′ + 2), A′ := max(A, 1) (|ν| < 1 is possible for ν < 0). Use r ≥ |u|/2. Large K: cosh t ≥ 1 + t²/2 gives
+K_ν(r) ≤ e^{−r}∫_ℝe^{−rt²/2 + At}dt = e^{−r}(2π/r)^{1/2}e^{A²/(2r)}; the same with A + 1 for K′. Large I: by 10.32.4,
+|I_ν(u)| ≤ (1/π)∫_0^πe^{r cos θ}dθ + (1/π)∫_0^∞e^{−r cosh t + At}dt; 1 − cos θ ≥ 2θ²/π² on [0, π] gives the first term
+≤ e^r(π/(8r))^{1/2}, and the second is ≤ C for r ≥ 1; I′_ν likewise (an extra factor cos θ, resp. cosh t). Products: for
+|u| ≤ 2, |u||I′_ν| = |uI′_ν| ≤ C|u|^ν and |u||K′_ν| ≤ C|u|^{−|ν|}, so P ≤ C(1 + Λ)²(1 + log(4/|u|))|u|^{ν−|ν|}. For |u| ≥ 2 (so r ≥ 1): P ≤ C(1 + Λ|u|)²(r^{−1/2}e^r + 1)r^{−1/2}e^{−r} ≤ 2C(1 + Λ|u|)²/r
+≤ 4C(1 + Λ|u|)²/|u|. ∎
+
+**Lemma Z (the small-norm matrix at an off-contour hard-edge point; PROVED-mod-cite).** Fix the angle θ_z := 5π/6 (p ≠ 1,
+x-variable) or 3π/8 (p = 1, symmetric variable). There are δ₁ > 0 and C such that for N ≥ N₀ and all z = |z|e^{iθ_z} with
+0 < |z| ≤ δ₁/2:
+
+  |𝒵(z) − I| ≤ C/N (p ≠ 1),  |𝒵(z) − I| ≤ C N^{−1/2} (p = 1),
+
+in the frame where the small-norm estimates are stated (RH_px: the D_{w,∞}-conjugated frame; RH₁(r): N_r → I, no
+conjugation needed).
+
+*Proof.* 𝒵 = I + (1/2πi)∫_Σ h(s)ds/(s − z), h := 𝒵₋(J_𝒵 − I) (the standard small-norm representation; ‖𝒵₋ − I‖_{L²} = O(1/N)
+and ‖J_𝒵 − I‖_{L¹∩L²∩L^∞} = O(1/N): RH_px §5 "Small norm", RH₁(r) §7, RH_plt1b §2 "Everything else … small norm").
+- *Geometry.* p > 1: inside U(0, δ) the jump contour of 𝒵 is the two lips, which leave 0 tangent to the rays arg z = ±π/3
+  (RH_px Lemma 4.3), and (−δ, 0) (the (h2) jump); the band is jump-free (Lemma 4.2(i)). 0 < p < 1: the lips leave 0 at
+  ±θ_L = ±πp/4, and the seams are the rays ±πp/2 (RH_plt1b §2); (−δ, 0) carries no jump (F has none, W̃ is glued). p = 1:
+  the band ℝ and the lips at angles ±π/4, ±3π/4 (RH₁(r) §5). Shrinking δ₁, each contour piece in U(0, δ₁) stays within angle
+  π/24 of its tangent ray, so its angular distance from θ_z is ≥ π/8 (worst case p = 1: 3π/8 − π/4). Hence
+  |s − z| ≥ sin(π/8)·max(|s|, |z|) ≥ ½sin(π/8)(|s| + |z|) for s ∈ Σ ∩ U(0, δ₁).
+- *Far part.* For s ∈ Σ ∖ U(0, δ₁), with |z| ≤ δ₁/2, |s − z| ≥ δ₁/2, so this part is ≤ (1/πδ₁)‖h‖_{L¹} ≤
+  (1/πδ₁)(‖J − I‖_{L¹} + ‖𝒵₋ − I‖_{L²}‖J − I‖_{L²}) = O(1/N). (The O(1/N) circles ∂U(0, δ), ∂U(4c, ε) lie here; δ₁ < δ.)
+- *Near part.* ≤ C‖𝒵₋‖_{L²(Σ∩U(0,δ₁))}·‖(J − I)/(|s| + |z|)‖_{L²(Σ∩U(0,δ₁))}, and ‖𝒵₋‖_{L²(Σ∩U)} ≤ |Σ ∩ U|^{1/2} + O(1/N) = O(1).
+  - p > 1: |J_𝒵 − I| ≤ C_KN^{−K}min(1, |s|^K) on Σ ∩ U(0, δ) (RH_px Lemma 4.3), so the L² norm is ≤ C N^{−K}(∫_0^1 s^{2K−2}ds)^{1/2}
+    = O(N^{−K}), K ≥ 1.
+  - 0 < p < 1: the lip entries are exp(−cN|s|^{−1/p})·poly(N, |s|^{−1})e^{CN|s|^{1/2}} as in RH_px Lemma 4.3 (RH_plt1b §2:
+    lip constant c = 2π sin(π/4)), and the seam jump of W̃ is 1 − e^{∓2πit}, |e^{∓2πit}| = exp(−2πN|s|^{−1/p}) (RH_plt1b §2),
+    amplified by the same poly·e^{CN|s|^{1/2}}. So again |J − I| ≤ C_KN^{−K}min(1, |s|^K) and the near part is O(N^{−K}).
+  - p = 1: |J_H − I| ≤ Cn^{−1}min(1, (n|s|)^δ) with δ = 4m + 2 − 2|a| ≥ 2 for the (J1) part (RH₁(r) Lemma M and its m-choice; the (J2) lip
+    terms are O(n^{−K}e^{−cn/|s|²}·poly), harmless). Then
+    ‖(J − I)/(|s| + |z|)‖²_{L²} ≤ Cn^{−2}[n^{2δ}∫_0^{1/n}s^{2δ−2}ds + ∫_{1/n}^∞s^{−2}ds] = Cn^{−2}[n/(2δ − 1) + n] = O(1/n), so
+    the near part is O(n^{−1/2}). ∎
+
+(The p = 1 rate n^{−1/2} is crude but sufficient: only |𝒵 − I| ≤ ½ is used below.)
+
+**Lemma A (the hard-edge prefactor is N-uniformly bounded; PROVED-mod-cite).**
+- (p ≠ 1) Write the hard-edge prefactor of RH_px Lemma 4.2, in the conjugated frame, as
+  Ê := D_{w,∞}^{−σ₃}Ẽ_N = A(z)(2πN)^{σ₃/2}, A := N₀(W̃/D_w)^{σ₃}·(1/√2)[[1, i], [i, 1]]·f^{σ₃/4}
+  (using N = D_{w,∞}^{σ₃}N₀D_w^{−σ₃}, RH_px §3). Then sup_{|z|≤δ/2}|A(z)| ≤ C_A for N ≥ N₀, and det A = 1, so |A^{−1}| ≤ C_A too.
+- (p = 1) E_n and E_n^{−1} are bounded on U(0, ε) uniformly in n (RH₁(r) Lemma B(iii)).
+
+*Proof (p ≠ 1).* By RH_px Lemma 4.2(iii), Ẽ_N = E^a + Φ with E^a analytic in U(0, δ) and Φ = O(e^{−c′N}); correspondingly
+A = A^a + O(N^{1/2}e^{−c′N}) with A^a analytic. f is analytic on a neighbourhood of the closed disc |z| ≤ δ, so A^a is continuous there,
+and by the maximum principle it suffices to bound A on |z| = δ uniformly in N.
+There |N₀| ≤ C (z stays away from 0 and 4c), f^{±1/4} is bounded (f is conformal, N- and σ-free: it is built from μ*,
+RH_px §2, §4.1), and it remains to bound (W̃/D_w)^{±1}. Write w₀ = C_Nx^α(4c − x)h_N (RH_px §3) and D_w = exp(Szegő integral
+of log w₀). The Szegő integral of a constant L is L/2 (RH_px Lemma 3.4's explicit identity), which cancels the C_N^{1/2} in W̃.
+So log(W̃/D_w) = αQ_x + Q_{4c} + Q_{h,N}, where Q_g(z) := ½g(z) − (√(z(z − 4c))/2π)∫_0^{4c}g(x)dx/(√(x(4c − x))(z − x))
+for g = log x, log(4c − x), log h_N − log h_N(0) (with the branches of W̃). Q_x and Q_{4c} are N- and σ-free, bounded on
+|z| = δ with bounded boundary values (z = δ is an interior band point). For Q_{h,N} it suffices that log h_N − log h_N(0) be
+Hölder on [0, 4c] with N-uniform constants (Lemma 3.4's argument, run with x₀ = Re z at the interior band point δ):
+- on [η, 4c + ε], h_N/h_N(1) = 1 + O(1/N) analytically (RH_px §3, Lemma 3.2(iv); D̃ = e^{−μ(t)} with μ(t) = O(1/t)), so the C¹
+  norm there is N-uniform (Cauchy estimates);
+- on (0, η]: |(log D̃)′(x)| = O(x^{1/p−1}/N) (RH_px Lemma 3.4 consequence), and for B, with |ℓ̂(y)| ≤ min(C|y|^{1/p}/N, C)
+  (Lemma 3.1(iii): ℓ̂ is a function of t = N|y|^{−1/p}, O(1/t) as t → ∞, bounded),
+  |(log B)′(x)| ≤ C∫_0^∞min(y^{1/p}/N, 1)(y + x)^{−2}dy ≤ C(x^{1/p−1}/N + N^{−p}) for p > 1, an N-uniform integrable bound.
+- **h_N is σ-free**: D̃, B depend on t only, and the σ-dependence of w₀ is exactly C_Nx^α (RH_px Lemma 1.2).
+- 0 < p < 1 (RH_plt1b §1–2): W̃ = (C(−z)^α(4c − z))^{1/2}/G̃ with G̃ = D̃B_in e^X or B_out e^X; e^{X(0)} cancels against the Szegő
+  constant as C_N does, and "X − X(0) has N-uniform Lipschitz bounds on compacts" (RH_plt1b §1, N-dependence) gives the
+  same conclusion. ∎
+
+**Proof of Theorem QLP, p ≠ 1.** Work with U (nodes X_k = (N/k)^p, N ∈ {n − 1, n}) and ν_N = μ_N in the X variable, so
+μ_N((MN, ∞)) = ν_N([0, M^{−p})). Fix τ ∈ (0, δ₁/2] and z := τe^{5πi/6}. z lies in Ω_∞ ∩ U(0, δ₁) (outside the lens,
+whose lips leave 0 at ±π/3 or ±πp/4), where V = 𝒵P₀ and P₀ = (−1)^NẼ_Nσ₃Ψ(N²f(z))σ₃W̃^{−σ₃}e^{Nφσ₃} (RH_px §4.1; RH_plt1b
+§2). By Lemma GS (invariances: drop (−1)^N, the det-1 diagonal factor W̃^{−σ₃}e^{Nφσ₃}, and conjugate by D_{w,∞}),
+
+  S_N(z) = −e₁ᵀ(𝒵ÊΣ)e₁·e₁ᵀ(𝒵ÊΣ)e₂ / (Ṽ₁)₁₂,  Σ := σ₃Ψ(ζ)σ₃,  ζ := N²f(z),
+
+where 𝒵, Ṽ are in the conjugated frame. Denominator: (Ṽ₁)₁₂ = (Ñ₁)₁₂ + (𝒵₁)₁₂ with Ñ = N₀(D_{w,∞}/D_w)^{σ₃}; since
+(N₀)₁₂ = (a − a^{−1})/(2i) = ic(p)/z + O(z^{−2}) (a = ((z − 4c)/z)^{1/4}) and the diagonal factor is 1 + O(1/z),
+(Ñ₁)₁₂ = ic(p), σ-free, so |(Ṽ₁)₁₂| ≥ c(p)/2 for N ≥ N₀. Numerator: (r₁, r₂) := e₁ᵀ𝒵A has |r| ≤ (1 + C/N)C_A (Lemmas Z, A).
+f(z) = f′(0)z(1 + O(z)) with f′(0) < 0 (RH_px Lemma 4.1; σ-free), so for δ₁ small, |ph ζ| ≤ π/6 + π/24 < 2π/3 and
+|f(z)| ∈ [c₁τ, c₂τ]. In |ph ζ| < 2π/3 (and, for p < 1, in |ph ζ| < π − θ_L, KMVV angle freedom) Ψ is KMVV (6.23):
+Ψ = [[I_α(u), (i/π)K_α(u)], [πiuI′_α(u), −uK′_α(u)]], u := 2ζ^{1/2}, |ph u| ≤ π/12 + π/48. Writing (2πN)^{σ₃/2}Σ out,
+
+  e₁ᵀ(𝒵ÊΣ)e₁ = √(2πN)[r₁I_α(u) − r₂·(i/(2N))uI′_α(u)],  e₁ᵀ(𝒵ÊΣ)e₂ = √(2πN)[−r₁(i/π)K_α(u) − r₂(1/(2πN))uK′_α(u)].
+
+So |S_N(z)| ≤ C·N·P_α(u; 1/N) ≤ C′N(1 + |u|/N)²b_α(|u|) by Lemma BK, with |u| = 2N|f(z)|^{1/2} ∈ [2N√(c₁τ), 2N√(c₂τ)], hence
+(1 + |u|/N)² ≤ C. By Lemma ST(i), ν_N([0, τ]) ≤ 5τ|S_N(z)| ≤ CτN·b_α(|u|).
+- |u| ≥ 2: b_α = 1/|u|, so ν_N([0, τ]) ≤ CτN/(N√τ) = C√τ.
+- |u| ≤ 2 (τ ≤ C/N²), with y := N²τ ≤ C: ν_N([0, τ]) ≤ CN^{−1}y(1 + log(C/y))y^{(α−|α|)/2}. For α ≥ 0 this is
+  ≤ CN^{−1}y(1 + log(C/y)); for α < 0 it is CN^{−1}y^{1+α}(1 + log(C/y)).
+- For τ ∈ (δ₁/2, 1]: ν_N([0, τ]) ≤ 1 ≤ (2/δ₁)^{1/2}√τ.
+With τ = M^{−p}: y = (n^{2/p}/M)^p up to the factor (N/n)² ∈ [¼, 1], and p(1 + α) = σ − 1. The first and third cases give (a)
+(and also cover M < n^{2/p} with |u| ≤ 2, where y ≍ 1). The second gives (b) with β = min(p, σ − 1) (the log factor is
+needed only at α = 0 but is kept uniformly). For m = n − 1 use N = n − 1 and M′ := Mn/(n − 1) ≥ M.
+(c): if σ − 1 > p/2 then (p ≠ 1) β > p/2 strictly and n^{−1}(M/M_B)^{−β}(1 + log(M/M_B)) ≤ Cn^{−1}(M/M_B)^{−p/2} = CM^{−p/2}. Otherwise
+β = σ − 1 ≤ p/2; for ϑ < β, n^{−1} ≤ n^{−2ϑ/p} and (M/M_B)^{−β}(1 + log(M/M_B)) ≤ C_ϑ(M/M_B)^{−ϑ}, so (b) ≤ C_ϑM^{−ϑ}; and (a) gives
+M^{−p/2} ≤ M^{−ϑ}. ∎
+
+**Proof, p = 1.** Use RH₁(r) (r = σ, a = σ − 3/2 > −½) for the symmetrized measure, degree 2N, in WLXZ's rescaled variable Z.
+The tail {k > MN} is {|Z_k| < ρ_M} with ρ_M ≍ M^{−1/2}. Take z := ηe^{3πi/8}, η ≍ M^{−1/2}, in Ω_∞ (between the lip at π/4 and
+iℝ). By Lemma GS (σ₃-invariance covers KV's frame; W_h^{−σ₃}e^{−nφσ₃} is diagonal of det 1), S̃(z) is −row-product/(Ṽ₁)₁₂ for
+V = 𝒵E_nΨ_a(ζ), ζ := nf(z) with f′(0) = πψ(0) > 0 (RH₁(r) §5), so ph ζ ≈ 3π/8 lies in sector II (π/4, π/2). (Ṽ₁)₁₂ =
+(N_{r,1})₁₂ + O(1/n), and (N_{r,1})₁₂(N_{r,1})₂₁ = 1 with both factors bounded (RH₁(r) §3, N_r = D_{Q,∞}^{σ₃}ND^{−σ₃}), so
+|(Ṽ₁)₁₂| ≥ c > 0. Row 1 of 𝒵E_n is bounded (Lemmas Z, A), so |S̃(z)| ≤ C(|Ψ₁₁| + |Ψ₂₁|)(|Ψ₁₂| + |Ψ₂₂|). In sector II,
+Vanlessen math/0212014 (4.27) (quoted under "(Van)" in RH/CITATIONS.md; the model used by RH₁(r)) gives, up to a det-1 diagonal factor, entries
+√πζ^{1/2}I_{a±½}(w) and π^{−1/2}ζ^{1/2}K_{a±½}(w), w := ζe^{−πi/2}, |ph w| < π/4. Lemma BK with orders a ± ½ ∈ (−1, ∞)
+gives |S̃(z)| ≤ C for |ζ| ≥ 2 and ≤ C(1 + log(4/|ζ|))|ζ|^{−2max(0,−a)} for |ζ| ≤ 2. (This is consistent with KV (5.21)–(5.22):
+all entries O(|ζ|^a) for a < 0; O(|ζ|^{±a}) by columns in sectors II, III for a > 0.) Lemma ST(ii) gives
+ν̃([−η, η]) ≤ 5η|S̃(z)|, and μ_N((MN, ∞)) = ν̃(|Z| < ρ_M). With η = ρ_M, |ζ| ≍ Nη ≍ N M^{−1/2} (RH₁(r)'s degree is ≍ N;
+only that matters): for M ≤ N² (|ζ| ≳ 1) this is ≤ CM^{−1/2} = CM^{−p/2}, which is (a); for M ≥ N² it is
+≤ Cη(Nη)^{2min(0,a)}(1 + log(M/N²)) = CN^{−1}(M/N²)^{−(½ + min(0, a))}(1 + log(M/N²)), and ½ + min(0, a) = min(½, σ − 1) = β,
+which is (b). (c) as before, for ϑ < min(½, σ − 1) (the endpoint argument needs β > p/2 strictly, which fails here when
+σ > 3/2). ∎
+
+**Audit U (support for (RU); PROOF SKETCH — a re-reading of the cited chains, not a re-proof).** Where σ enters:
+- U1. μ*, g, φ, l, f, the lens/Σ^△/disc contours: p only. D̃, B, F, K, h_N, X: t and N only. So Σ is σ-free and the
+  small-norm threshold ‖C₋‖ is σ-free.
+- U2. w = N^pt^{−σ}: w₀ = C_Nx^α(4c − x)h_N; C_N cancels in every ratio used (Lemma A). The saturated/top entries carry
+  1/w₀ = poly(N) with exponents affine in σ, against e^{−cN} or N^{−pN}: σ-uniform on K.
+- U3. Global parametrix: Ñ = N₀(D_{w,∞}/D_w)^{σ₃}, with D_w's α-part the explicit Szegő function of x^α on [0, 4c],
+  continuous in α; bounded off the discs uniformly on K.
+- U4. Airy disc at 4c: σ enters only through the analytic factor of w₀ near 4c (continuous in α).
+- U5. **Bessel matching on ∂U(0, δ)** (RH_px Lemma 4.2(iv), KMVV (6.28); RH₁(r) Lemma B(iv), Vanlessen (4.43)–(4.46)): the
+  O(ζ^{−1/2}) (resp. O(1/ζ)) remainders come from the large-argument expansions of I_α, K_α, H^{(1,2)}_α at |ζ| ≍ N²
+  (resp. N). By DLMF 10.40.10–10.40.12 the K_ν remainder is ≤ 2|a_ℓ(ν)|χ(ℓ)|z|^{−ℓ}exp(|ν² − ¼|χ(1)/|z|) for |ph z| ≤ π, uniform for
+  |ν| ≤ A; I_ν follows from 10.34.2 (m = ±1: I_ν(z) = ±(e^{∓νπi}K_ν(z) − K_ν(ze^{±πi}))/(πi), |ph(ze^{±πi})| ≤ π for the right sign),
+  and H^{(1,2)}_ν from 10.27.8. So the matching constant is σ-uniform. *This is the main point to re-check.*
+- U6. Mismatch inside the disc: RH_px Lemma 4.3's poly(N, |z|^{−1})e^{CN|z|^{1/2}} has α-affine exponents; RH₁(r) Lemma M: take
+  the fixed m := ⌈max_K|a|/2⌉ ("any larger m also works"), Lemma S's Stirling bound is σ-free, and the amplification bound
+  C(1 + ρ^{−2|a|}(1 + |log ρ|)²) is claimed uniform by small-argument bounds (ρ ≤ 1), U5 (ρ ≥ R₀) and joint continuity in
+  (a, ζ) on the compact remainder. **Additional gap (review F6):** Lemma BK covers only |ph u| ≤ π/3, while Lemma M needs the
+  amplification on the band rays (ph ζ = 0, π; Hankel form, or w = ζe^{−πi/2} with |ph w| = π/2) and on the lips. BK's
+  small-argument part should extend to |ph u| ≤ π via the series 10.25.2 for I and 10.34.2/10.27.8 for K, uniformly in the
+  order, but this is not written out.
+- U7. Identification ((Y4)_x, (Y4)_r, removability) is qualitative, for fixed σ and N; no uniformity needed.
+If U5 and U6 are accepted, (RU) holds and QLP, QLP-Λ are uniform on K.
+
+**Remarks.**
+- **QLP1 (Bessel crossover).** The local variable is ζ = N²f(z) ≈ N²|f′(0)|·n^px (p ≠ 1) and nf(Z) ≈ πψ(0)n|Z| = πψ(0)n(nx)^{1/2}
+  (p = 1); both are O(1) exactly at M ≍ n^{2/p}, i.e. k ≍ n^{1+2/p}, n^px ≍ n^{−2}. Above it the tail is arcsine-like (√τ);
+  below it, it is set by the hard-edge exponent: heuristically n^{−1}(M/M_B)^{−(σ−1)} (= the mass of the atoms k > Mn
+  times |p_n(0)|², normalised at M_B). The proved exponent β = min(p, σ − 1) (p ≠ 1) or min(½, σ − 1) (p = 1) equals σ − 1
+  when σ − 1 ≤ p (resp. ½); for larger σ, Lemma ST's Markov step (ν([0, τ]) ≤ Cτ|S|) is lossy, because S is then dominated by the
+  mass near the Bessel scale. This does not affect (a) or (c).
+- **QLP2 (the soft route; PROVED-mod-cite as LP).** Without RH asymptotics at the hard edge one gets only a non-explicit range:
+  M ↦ μ_n((Mn, ∞)) is nonincreasing and converges pointwise (Lemma LP) to the continuous F_p, so the convergence is uniform on
+  [1, M₀] for every M₀ (if g_n ↓ in M and g_n → F pointwise with F continuous on [1, M₀], take a grid 1 = M_0 < … < M_J = M₀ with
+  F-oscillation < ε per cell; monotonicity squeezes g_n between neighbouring grid values). Since F_p > 0, a diagonal choice gives
+  M_n → ∞ (rate not explicit) with μ_m((Mn, ∞)) ≤ 2F_p(M) for 1 ≤ M ≤ M_n. Combined with Lemma TL for M ≥ n^{κ−1}, the middle range
+  costs ≤ (γ − 1)log n·2F_p(M_n), so this route gives only Λ_n = o(log n), which is the trivial regime of §3.14 (ε_n log n
+  bounded). Theorem L adds nothing at t = 0, and Christoffel/ensemble bounds (TL, TC) control ρ_{n+1} = Σ_{j≤n}μ_j, which is
+  ≍ nM^{−p/2} at depth M; recovering μ_n = ρ_{n+1} − ρ_n needs ρ to relative precision 1/n (outline §4, "structural reason").
+  So no monotonicity argument known here gives a uniform-in-M bound; QLP needs the 1/n-level (hard-edge) structure, which the
+  RH analyses supply.
+- **QLP3 (Rule A, adversarial pass).**
+  (i) σ ↓ 1 (α ↓ −1): β → 0 and the constants blow up (Lemma BK's ν₀ → −1; the measure's mass is ζ(σ) → ∞); hence K
+  compact. (ii) α = 0: Lemma BK's log is real (K_0); numerically (p = 0.5, σ = 1.5, α = 0, n = 6, M_B = 1296) tail·n·(M/M_B)^{1/2}
+  goes 0.79 → 1.16 over M ∈ [2¹¹, 2¹⁷], which looks more like pre-asymptotic saturation than a log, and p = 2, σ = 3 (also
+  α = 0) shows a clean slope −2.000. So the runs are not inconsistent with (b); the log is a proof artefact at α = 0 and is
+  not resolved by these runs (review F5). (iii) Is Lemma ST's point z inside Ω_∞ for every p?
+  The lips leave 0 at ±π/3 (p > 1), ±πp/4 (p < 1), ±π/4 (p = 1); the seams at ±πp/2 < π/2; θ_z = 5π/6 resp. 3π/8 avoids all.
+  (iv) Could the near-contour Cauchy integral be large at small |z|? The bound in Lemma Z is scale-invariant (|s − z| ≳ |s| + |z|)
+  and the jumps vanish like |s|^K (p ≠ 1) or are O(1/n) with (n|s|)^δ damping (p = 1). (v) N-dependence of A: max principle on
+  |z| = δ, where all factors are explicit; the super-small Φ is harmless. (vi) Sign/normalization of S: Lemma GS is exact and
+  needs no constants; checked numerically (`check_qlp.out`: Lemma ST's bound ≥ the true tail in every row). (vii) m = n − 1:
+  handled by M′ = Mn/(n − 1). No counterexample found.
+- **QLP4 (NUMERICAL, `checks/check_qlp.py/.out`).** Float64 Lanczos, exact atoms k ≤ K plus the tail lumped into geometric cells
+  (all below the Bessel scale: K ≥ 8n^{1+2/p}). p = 2 (n = 20, 40), p = 1 (n = 10, 20), p = 0.5 (n = 4, 6); σ ∈ {1.5, 2, 3}.
+  - sup_{1≤M≤n^{2/p}} μ_n((Mn, ∞))·M^{p/2} = 0.48–0.71 in all 18 runs, flat in n (e.g. p = 2: 0.477/0.483, 0.663/0.662,
+    0.552/0.549 for σ = 1.5, 2, 3).
+  - Below the Bessel scale the fitted slope of log μ_n((Mn, ∞)) vs log M is −0.500, −1.000, −2.000 (p = 2), −0.49/−0.48, −0.99,
+    −1.99 (p = 1), −0.46/−0.45, −0.97, −1.97 (p = 0.5) for σ = 1.5, 2, 3: the heuristic −(σ − 1) of QLP1, at or below the proved −β.
+  - Lemma ST's bound (8/√3)τ|S_n(τe^{5πi/6})| ≥ the tail in every row.
+  - Limits: small n (especially p = 0.5), finite K; the lumped tail carries 10⁻⁸–1.4% of μ_n (largest at σ = 1.5, p = 0.5,
+    where the deep slope −0.45 is likely truncation-affected). Finite checks; not evidence for the constants' n-uniformity
+    beyond the range shown.
 
 ## 4. G1-R: what remains (stop report)
 

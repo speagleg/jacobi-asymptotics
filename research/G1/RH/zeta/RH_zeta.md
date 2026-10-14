@@ -42,7 +42,10 @@ is the arcsine law on [0, b]. Then:
 - (iii) Re g′(x) = ∫_{τ: β(τ)<x} dτ/√(x(x − β(τ))) > 0 for x ∈ (β, x_e). So U^μ is strictly increasing there, and
   U^μ > ℓ/2 on (β, x_e];
 - (iv) μ maximizes the logarithmic energy among probability measures ν ≤ ρ dx. This is G2's optimality argument
-  verbatim, using only (i), (ii) and the positivity lemma (P). It is not needed for the RH analysis.
+  verbatim, using only (i), (ii) and the positivity lemma (P). It is not needed for the RH analysis. *(Plan 47 note,
+  2026-10-14: G2 now uses its self-contained Lemma EP in place of (P). E1(iv) is unchanged and unused; whether Lemma EP's
+  (EP-int) holds here has not been written up (the Plan 47 reviewer sketches why it does: compact support, edges
+  bounded away from 0; research/G2/review/REVIEW_Plan47.md §3).)*
 
 *Proof.*
 - **(i)** For x ∈ [β, x_e], with ψ := dμ/dx and the substitution u = β(τ),

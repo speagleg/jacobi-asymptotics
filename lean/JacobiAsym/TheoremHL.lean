@@ -10,7 +10,7 @@ namespace JacobiAsym
 Theorem H for the pure powers with exponents `s` and `s0` and constant `κ`:
 `log D_n = -p n² log n + n² log L(n) + κ n² + o(n²)`.  `κ` is the constant of the input; item 11 supplies
 `TheoremHPure p κ s` only for `p ∈ {1, 2}`, `s ≥ s0(p)`, with `κ = 3p/2 + log c(p)`; on paper, G2 Corollary
-H-input supplies it for all `p > 0`, `s > 1` (mod-cite (P), not formalized), so the theorem is *usable* for every
+H-input supplies it for all `p > 0`, `s > 1` (PROVED on paper since Plan 47, was mod-cite (P); not formalized), so the theorem is *usable* for every
 `p > 0` and `s, s0 > 1` modulo that paper input.  `hU1`/`Monotone U` lose no generality (replace `U` by `t ↦ U (max t 1) / U 1`, or a running max). -/
 theorem theoremHL {p κ s s0 c1 c2 : ℝ} {L L' E U : ℝ → ℝ} {a0 : ℕ} {w : ℕ → ℝ}
     (hL : SlowFactor p L L' E a0) (hHlo : TheoremHPure p κ s) (hHup : TheoremHPure p κ s0)
