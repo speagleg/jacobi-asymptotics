@@ -682,8 +682,9 @@ and W := [k₂, K].
   subsequence.
 - **N‴:** gaps ≤ e^{−βk} on a set of upper density η. Each such pair is either dropped (cost K) or kept
   (cost ≥ βk − O(log log k)). So 𝒞(K) ≥ c(β, η)K² along a subsequence.
-- **L′:** (LG*) gives P(T) ≤ C log K·Σlog⁺(1/g) = o(K²) off a thin set. That set can be dropped at cost
-  o(K)·K = o(K²) (per-K version of B_η), so 𝒞(K) = o(K²).
+- **L′:** take T := [k₂, K] ∖ B_η. Dropping costs ≤ (η + o(1))K², and off B_η each a has ≤ C log K near partners,
+  each with log⁺(1/d_ab) ≤ log⁺(1/g_a) + O(1). So P(T) ≤ C log K·Σ_{k≤K, k∉B_η}log⁺(1/g_k) + O(K log K) = o(K²).
+  Hence limsup 𝒞(K)/K² ≤ η for every η, i.e. 𝒞(K) = o(K²).
 - **The former sliver:** g_k = e^{−k/log k} on every other k. Each tiny gap is an isolated near pair of energy
   ≍ k/log k, and the other near pairs have normal distances. So 𝒞(K) ≤ P ≍ K²/log K = o(K²), and **G3′ holds** there.
 
