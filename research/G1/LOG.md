@@ -170,6 +170,9 @@
   boundedness audit of head/tail/FVa constants (none needed); dependence on γ (any γ > κ; smaller is weaker); sup_t vs
   t-average (average suffices); the m = n − 1 term (sum still centred at n). No counterexample found.
 - **Numerics** (`checks/check_sv_general.out`, p = s = 2): for exp(√log(k+e)) and exp((log(k+e))^{0.8}),
-  n·dev/ϑ_n → 0.49 (ϑ_n = L′(log n); K- and precision-checked); QL log-moment Λ_n ≈ 0.41–0.43, flat in t and n (truncated).
+  n·dev/ϑ_n → 0.49 (ϑ_n = L′(log n); K- and precision-checked); QL log-moment Λ_n ≈ 0.41–0.43, max at t = 0, ≈ LP constant 0.4156 (truncated).
 - **Why the elementary methods stop** recorded as HEURISTIC (outline_B_sv.md §4), not proved.
-- **Rule R:** pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan44.md; no mathematical error). F1 (Bc2 numbers), F2 (sup_t Λ_n at t = 0;
+  LP constant 0.4156; QL at t = 0 is QLP, unproved), F3 (downward chaining needs ε_{⌈n/λ⌉}), F4 (Cauchy–Schwarz for the FVa
+  cross piece), F5 (K-gap grows with n), F6 (QL₀ framing), F7 (labels: FV⁺ standard; L0 in §0; "full sequence"; QL/QL₀
+  HYPOTHESIS; tilt law CONJECTURE) applied — re-check pending.

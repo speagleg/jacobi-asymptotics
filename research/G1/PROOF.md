@@ -46,7 +46,7 @@ known; its application here to Law P is what is new.
 | **Thm L** | localization at scale Mn: limsup sup_t μ_m^{(t)}((Mn, ∞)) ≤ e^{4G}F_p(M) for bounded slowly varying Ψ (§3.8) | PROVED-mod-cite (as LP; internal TV, Sat_p⁺) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-all** | for w = k^{−s}Ψ with Ψ bounded and **slowly varying** (δ_n(λ) → 0): n^pb_n → c(p) and n^pa_n → 2c(p) for **all n** — the full pointwise Law P; contains T3-conv, T3-sv, T3-avg (§3.8, Plan 35) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, L) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-log** | for w = k^{−s}Ψ with Ψ **log-type slowly varying** (slowly varying, and D(γ) < ∞; e.g. (log k)^α, any α ∈ ℝ): the full pointwise Law P, all n; contains T3-all (§3.9, Plan 36) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, TL(w), L, T3-all) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
-| **B-cond** | for x_k = k^{−p} (p > 0), w = k^{−s}Ψ (s > 1) with Ψ **slowly varying in sequence form only** (no boundedness, no D(γ) < ∞; e.g. exp(√log k)): explicit bounds \|log b_n²(w) − log b_n²(v)\| ≤ 2δ_n(M₀) + Q_n + o(1), n^p\|a_n(w) − a_n(v)\| ≤ 4M₀^p(2δ_n(M₀) + Q_n) + o(1); hence **QL** (ε_nΛ_n → 0, Λ_n := sup_t max_{m∈{n−1,n}}Σ_{n≤k≤n^γ}log(k/n)μ_m^{(t)}(k), γ > κ) ⇒ n^pb_n → c(p), n^pa_n → 2c(p). Internal: L0 (dyadic chaining/Potter), FV⁺ (FV/FVa for unbounded f), QLb (power tail ⇒ QL) — PROVED (§3.14, Plan 44) | CONDITIONAL (QL) + PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV⁺, Sat_p⁺, TLw); QL proved only in cases already covered (ε_n log n → 0 ⊂ T3-log; bounded Ψ); Rule R pending; novelty UNCHECKED |
+| **B-cond** | for x_k = k^{−p} (p > 0), w = k^{−s}Ψ (s > 1) with Ψ **slowly varying in sequence form only** (no boundedness, no D(γ) < ∞; e.g. exp(√log k)): explicit bounds \|log b_n²(w) − log b_n²(v)\| ≤ 2δ_n(M₀) + Q_n + o(1), n^p\|a_n(w) − a_n(v)\| ≤ 4M₀^p(2δ_n(M₀) + Q_n) + o(1); hence **QL** (ε_nΛ_n → 0, Λ_n := sup_t max_{m∈{n−1,n}}Σ_{n≤k≤n^γ}log(k/n)μ_m^{(t)}(k), γ > κ) ⇒ n^pb_n → c(p), n^pa_n → 2c(p) along the full sequence. Internal: L0 (dyadic chaining/Potter), FV⁺ (FV/FVa for unbounded f), QLb (power tail ⇒ QL) — PROVED (§3.14, Plan 44) | CONDITIONAL (QL₀, implied by QL; both HYPOTHESIS) + PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal L0, FV⁺, Sat_p⁺, TLw); L0, QLb PROVED; FV⁺ PROVED (standard extension; novelty not claimed); QL proved only in cases already covered (ε_n log n → 0 ⊂ T3-log; bounded Ψ); no new case of the law; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan44.md), fixes applied, re-check pending; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1 §§2–6) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; G2 PROOF.md μ*, B* — only μ* and B*(i)–(ii), which do not use (P)) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -956,7 +956,7 @@ M₁n ≤ n^γ (step 2) and T″ ≤ n^γ (step 3); both hold for n large. For n
   with halving ratios 2.16–2.25 per doubling (n·log n·deviation/|α| ≈ 0.46–0.49, consistent with |α|/(n log n)),
   in exact proportion 1 : 2 : 3 to |α|; K-converged (K = 1.2·10⁵ vs 2.4·10⁵).
 
-### 3.14 Theorem B-cond (Plan 44): the pointwise Law P for every slowly varying weight, conditional on a log-moment localization hypothesis (QL) — Lemmas L0, FV⁺, QLb PROVED; Theorem B-cond CONDITIONAL (QL) + PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); Rule R pending; novelty UNCHECKED
+### 3.14 Theorem B-cond (Plan 44): the pointwise Law P for every slowly varying weight, conditional on a log-moment localization hypothesis (QL) — Lemmas L0, QLb PROVED; FV⁺ PROVED (standard extension; novelty not claimed); QL, QL₀ HYPOTHESIS; Theorem B-cond CONDITIONAL (QL₀, implied by QL) + PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan44.md), fixes applied, re-check pending; novelty UNCHECKED
 
 Source: `research/program/outline_B_sv.md` §2 (Problem B, "B-cond"). Setting: x_k = k^{−p} (p > 0), v = k^{−s} (s > 1),
 w = vΨ with Ψ > 0 on ℕ **slowly varying in the sequence form of §3.8/§3.9(i)**: δ_n(λ) := max{|log Ψ(k) − log Ψ(n)| :
@@ -982,10 +982,11 @@ nonincreasing and tend to 0.
   values. Take A_η := max(|log Ψ(N)| + ε_N, max_{k<N}|log Ψ(k)|). ∎
 
 *Remarks on L0.* Only the upward chain is proved and used; below n the proof of B-cond uses δ_n(M₀) and (ii). Only λ = 2
-enters (λ = 2 implies all λ by the same chaining), so "sequence-form slow variation" is used exactly as defined, and no
+enters (λ = 2 implies all λ by the same chaining; the downward half k ∈ [n/λ, n) needs ε at the lower index:
+|g_n(k)| ≤ ε_k(1 + log₂(n/k)) ≤ ε_{⌈n/λ⌉}(1 + log₂λ)), so "sequence-form slow variation" is used exactly as defined, and no
 uniform convergence theorem (Bingham–Goldie–Teugels) is used or cited.
 
-**Lemma FV⁺ (Lemmas FV and FVa for unbounded perturbations).** Let x_k ∈ (0, 1] be distinct (k ∈ ℕ), v_k > 0 and f_k ∈ ℝ,
+**Lemma FV⁺ (Lemmas FV and FVa for unbounded perturbations; PROVED, standard extension, novelty not claimed).** Let x_k ∈ (0, 1] be distinct (k ∈ ℕ), v_k > 0 and f_k ∈ ℝ,
 and assume
 
   Σ_k U_k < ∞,  U_k := v_k·max(1, e^{f_k})·(1 + |f_k|).
@@ -1015,7 +1016,9 @@ term by term, and (B) absolute convergence of the series. We redo both.
   P(k, l ∈ S) = K_m(k,k)K_m(l,l) − K_m(k,l)² (k ≠ l) does not involve f. Every double sum in the covariance identity
   Cov = ½Σ_{k,l}(x_k − x_l)(f_k − f_l)K_m(k,l)² is dominated by a multiple of Σ_{k,l}|f_l|K_m(k,l)² = Σ_l|f_l|K_m(l,l) < ∞
   (projection: Σ_kK_m(k,l)² = K_m(l,l)). Step 4: the rank-one update is a termwise identity between absolutely convergent
-  series (m = n + 1 and m = n). After Christoffel–Darboux the cross part is b_nΣ_{k,l}A_{kl}(f_k − f_l), with
+  series (m = n + 1 and m = n); for the cross piece, Cauchy–Schwarz gives
+  Σ_{k,l}|f_k||K_n(k,l)q_n(k)q_n(l)| ≤ ½Σ_{k,l}|f_k|(K_n(k,l)² + q_n(k)²q_n(l)²) = ½Σ_k|f_k|(K_n(k,k) + μ_n(k)) < ∞
+  (and symmetrically for f_l; |x_k − x_l| ≤ 1). After Christoffel–Darboux the cross part is b_nΣ_{k,l}A_{kl}(f_k − f_l), with
   Σ_{k,l}|A_{kl}||f_k| ≤ ⟨|f|, μ_n + |q_{n−1}q_n|⟩ < ∞ (Σ_l|q_{n−1}(l)q_n(l)| ≤ 1, Σ_lq_n(l)² = 1), and likewise for f_l.
   The algebra of §3.5 step 4 then applies verbatim. C¹: a_n = 𝔼_{n+1}F − 𝔼_nF.
 - **Invariance.** μ_n, μ_{n−1} are probability vectors and Σ|f|μ < ∞, so f ↦ f + c changes nothing (as in §3.5 step 5). ∎
@@ -1027,7 +1030,7 @@ in K). FV⁺ keeps the hypothesis on the single path vΨ^t.
 **Application of FV⁺.** f := log Ψ, v = k^{−s}. By L0(ii) with η ≤ (s − 1)/2,
 U_k ≤ k^{−s}e^{A_η}k^{η}(1 + A_η + η log k), which is summable. So FV⁺ applies to the path w(t) = vΨ^t.
 
-**Hypothesis QL (log-moment localization along the path; HYPOTHESIS).** Fix γ > κ. Put
+**Hypothesis QL (log-moment localization along the path; HYPOTHESIS — QL and QL₀ below are both HYPOTHESIS).** Fix γ > κ. Put
 
   Λ_n := sup_{t∈[0,1]} max_{m∈{n−1,n}} Σ_{k∈ℕ, n≤k≤n^γ} log(k/n)·μ_m^{(t)}(k).
 
@@ -1036,7 +1039,9 @@ it for every γ′ ∈ (κ, γ]; the weakest form takes γ just above κ.) The p
 
   **QL₀:** Q_n := sup_{t∈[0,1]} Σ_{k∈ℕ, n≤k≤n^γ}|g_n(k)|·(μ_n^{(t)} + μ_{n−1}^{(t)})(k) → 0,
 
-and even only its t-average ∫_0^1(…)dt in place of sup_t (t ↦ μ_m^{(t)}(k) is continuous). QL ⇒ QL₀, because by
+and even only its t-average ∫_0^1(…)dt in place of sup_t (t ↦ μ_m^{(t)}(k) is continuous). QL₀ is precisely the range
+part of the first-variation bound; B-cond shows that everything outside [n, n^γ] is controlled unconditionally, for every
+sequence-form slowly varying Ψ (no boundedness), and reduces QL₀ to the Ψ-free localization statement QL via L0. QL ⇒ QL₀, because by
 L0(i), with log₂ = log/log 2,
 
   Q_n ≤ 2ε_n + (2ε_n/log 2)·Λ_n.
@@ -1048,7 +1053,7 @@ n ≥ n₀:
   |log b_n²(w) − log b_n²(v)| ≤ 2δ_n(M₀) + Q_n + r_n,
   n^p|a_n(w) − a_n(v)| ≤ 4M₀^p(2δ_n(M₀) + Q_n) + r′_n.
 
-Consequently, **if QL (or QL₀) holds, then n^pb_n(w) → c(p) and n^pa_n(w) → 2c(p)**, for all n, every p > 0 and s > 1.
+Consequently, **if QL (or QL₀) holds, then n^pb_n(w) → c(p) and n^pa_n(w) → 2c(p)**, along the full sequence of n (not a density-one subsequence), for every p > 0 and s > 1.
 
 *Proof.* Fix η ∈ (0, (s − 1)/2] so small that γ(s − 1 − η) > (2 + 2/p)(s + η) (possible since γ(s − 1) > (2 + 2/p)s,
 i.e. γ > κ), and let A := A_η from L0(ii). Then for all t ∈ [0, 1] and k ≥ 1:
@@ -1130,16 +1135,22 @@ m ∈ {n − 1, n} and all real 1 ≤ M ≤ n^{γ−1}: sup_tμ_m^{(t)}(ℕ ∩ 
     not see; it is 1/n-order information (the 1/n coefficients of the pure-power expansion fix the Bessel order), which is
     why a Riemann–Hilbert analysis (outline Route II) is the natural route to QL or to Theorem B directly.
 - **Bc2 (rate; NUMERICAL, p = s = 2 only; `checks/check_sv_general.out`).** Write ϑ_n := L′(log n) for Ψ = exp(L(log k))
-  (the outline calls this ε_n; it is not L0's ε_n — numerically ε_n/ϑ_n ≈ 0.69–0.71 ≈ log 2 for the examples).
+  (the outline calls this ε_n; it is not L0's ε_n — numerically ε_n/ϑ_n ≈ 0.68–0.71 ≈ log 2 for the examples).
   For Ψ = exp(√log(k + e)) and exp((log(k + e))^{0.8}), n = 100 … 1600:
   - n·(β_n(w)/β_n(v) − 1)/ϑ_n = 0.470, 0.481, 0.487, 0.490, 0.491 and 0.475, 0.486, 0.492, 0.494, 0.494 (K = 2.4·10⁵);
-    the a_n analogue n·(A_n(w)/A_n(v) − 1)/ϑ_n is 0.479–0.495. K = 1.2·10⁵ vs 2.4·10⁵ agree to ≤ 2·10⁻³ in these ratios,
+    the a_n analogue n·(A_n(w)/A_n(v) − 1)/ϑ_n is 0.479–0.495. K = 1.2·10⁵ vs 2.4·10⁵ agree to ≤ 2·10⁻³ in these ratios (the K-gap grows
+    with n: 0, 0, 3·10⁻⁴, 8·10⁻⁴, 1.9·10⁻³ for θ = 0.8, b_n; 2.0·10⁻³ for a_n at n = 1600, so n = 1600 is truncation-limited
+    at the 0.2% level),
     and quad vs long double agree to all printed digits (n ≤ 400). So the observed deviation is ≈ ϑ_n/(2n) (the outline's
-    "tilt law"; CONJECTURE for general Ψ, not proved).
+    "tilt law"; CONJECTURE, not proved).
   - The QL log-moment along the path (t ∈ {0, ¼, ½, ¾, 1}, m ∈ {n − 1, n}, n = 100 … 800, sum truncated at k ≤ K since
     n^γ ≫ K; μ_m(k) for k ≥ m/2 by the three-term recurrence from the RKPW coefficients, which agrees with a fully
-    reorthogonalized Lanczos run to 4·10⁻¹³ at n = 100, K = 2·10⁴): sup_tΛ_n = 0.423, 0.419, 0.417, 0.415 (n = 100, 200, 400, 800; K = 4.8·10⁵) for both
-    weights, flat in t (variation ≤ 1.2·10⁻³) and slowly decreasing in n; K = 1.2·10⁵ gives values smaller by ≤ 3.3·10⁻³.
+    reorthogonalized Lanczos run to 4·10⁻¹³ at n = 100, K = 2·10⁴): sup_tΛ_n = 0.423, 0.419, 0.417, 0.415 (n = 100, 200, 400, 800; K = 4.8·10⁵) flat in t
+    (variation ≤ 1.2·10⁻³ at K = 4.8·10⁵, ≤ 1.8·10⁻³ at K = 1.2·10⁵); K = 1.2·10⁵ gives values smaller by ≤ 3.3·10⁻³. In every
+    row the sup over t is attained at t = 0, i.e. at the pure power v (so the two weights share it trivially); the t = 1 values
+    are smaller by ≤ 1.2·10⁻³. The slow decrease in n is the approach to the Lemma LP constant ∫_0^∞F_p(e^u)du = 0.4156
+    (p = 2; reviewer's computation, REVIEW_Plan44.md). At t = 0, QL with Λ_n = O(1) is a uniform-in-M form of Lemma LP (the
+    outline's QLP): supported by these numerics, not proved.
     So ε_n·sup_tΛ_n ≈ 0.068 → 0.057 (√log) and 0.169 → 0.158 (θ = 0.8), decreasing like ε_n, consistent with QL in the
     natural form Λ_n = O(1) (outline QL-a). The trivial bound (γ − 1)log n is 25–37 here. This is a truncated, finite-n
     computation (k ≤ K ≪ n^γ) and is not evidence about the range [K, n^γ] beyond the tail decay it shows.
@@ -1150,8 +1161,8 @@ m ∈ {n − 1, n} and all real 1 ≤ M ≤ n^{γ−1}: sup_tμ_m^{(t)}(ℕ ∩ 
   σ − ρ > 1 (QL then for the path with s := σ − ρ). The outline's Corollary B1 for a measurable slowly varying ℓ would
   need the Uniform Convergence Theorem to pass to the sequence form; it is not cited (Rule C) and not claimed.
 - **Bc4 (Rule A, adversarial pass; logged in LOG.md).** (a) Ψ eventually constant: ε_n = 0 eventually, QL trivial,
-  B-cond reduces to T3-conv. (b) L0(i) downward: not claimed (the chain below n would need δ at scales < n, which ε_n
-  does not control); the proof never uses it. (c) Is sup_t needed in QL? No: step 1 and step 7 integrate over t, so the
+  B-cond reduces to T3-conv. (b) L0(i) downward: available only with ε at the lower index (|g_n(k)| ≤ ε_{⌈n/λ⌉}(1 + log₂λ) for
+  k ∈ [n/λ, n); see the remark on L0), not with ε_n; the proof never uses it. (c) Is sup_t needed in QL? No: step 1 and step 7 integrate over t, so the
   t-average suffices. (d) Does QL depend on γ? Only through n^γ ≥ T″ and the tail exponent; any γ > κ works, the
   smaller the weaker. (e) Does any step need Ψ bounded? Head: W/w_k ≤ n^{s+2η}·const (Potter); tail: TLw's ratio
   ≤ T″^{s+η}k^{η}·const; FVa off-head constants use only Sat_p⁺ — none needs boundedness. (f) m = n − 1 in QL: the sum
