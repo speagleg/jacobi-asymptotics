@@ -43,7 +43,8 @@ Research: research/G3prime, G2, G1.
 **Status (2026-10-14).** Open:
 - G3′ exactly (D = 0) unconditionally. By N′/N″ this needs proportion-one distinctness of ordinates, beyond the best known
   unconditional results (Lamzouri 2026: 67.25% simple and on the line).
-- Sufficiency gap (PROOF.md N‴1; narrowed by Plan 25). The residual N′ case is closed by N″.
+- Sufficiency gap, narrowed by Theorem L′ (Plan 25, REVIEWED): G3′ holds under (LG*), i.e. small positive gaps are allowed at any density if
+  Σ_{k≤K}log⁺(1/g_k) = o(K²/log K). Open: gap sequences satisfying neither (LG*) nor N‴'s positive-density e^{−βk} condition. The residual N′ case is closed by N″.
 - An explicit constant in (B).
 - G1-R: (T3)/(CL) for general, rough (non-analytic) weights and nodes. The analytic families done are pure powers
   (all p > 0) and the smooth-ζ model.

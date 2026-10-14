@@ -172,3 +172,14 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
     reintroduces the cost. (Superseded by Plan 25's Lemma Tr.)
   - Recorded at the time as OPEN (N‴1). Later superseded by Plan 25's Lemma Tr.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan24.md). F1–F9 applied. Re-check: ACCEPT (R1–R3 applied). REVIEWED.
+
+## 2026-10-14 — Plan 25 (Theorem L′: log-gap sufficiency)
+- **Idea.** In G3′-L, restrict the Heine sum to the window [1, Mn] and bound the near-twin costs directly, by
+  C log n·Σ log⁺(1/g), instead of folding them into weights.
+- **Lemma Tr.** Truncating the pure-power comparison at Mn costs only O(n²/log M), via det(I − K_A).
+  - Lagrange on n nodes in (n, 2n] gives the spectral gap e^{−O(n)}.
+  - Convexity of −log(1 − λ), and Lemma K bounds E#tail.
+- **Result:** (LG*) ⇒ G3′. (LG*) contains (SG), and also "d(E) = 0 + Σ log⁺(1/g) = o(K²/log K)".
+- **Remaining:** gap sequences satisfying neither (LG*) nor N‴'s condition. These are not ordered "between".
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan25.md). F1 (the false "O(1) truncation" remark), F2 (the
+  convexity step rewritten), F3–F9 applied. Re-check: ACCEPT (R1: Lemma Tr is PROVED-mod-input Theorem H; R2, R3 applied). REVIEWED.
