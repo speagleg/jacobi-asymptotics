@@ -27,6 +27,8 @@ known; its application here to Law P is what is new.
 | A4 | (CL) ⇒ tail-Cesàro a-law; with β_n → 1, block-Cesàro ratios Σa/Σ2b → 1 and window averages → 1 in b-weighted density (pointwise density NOT proved) | CONDITIONAL on (CL). (CL) is proved for pure-power atoms by Theorem CL (§3.1, REVIEWED), so the tail-Cesàro part is unconditional there; (i)–(ii) still need β_n → 1 |
 | **CL** | (CL) for pure-power atoms k^{−p}, p > 1, and ROUGH weights (Σw < ∞, w_k ≥ c₁k^{−s}): n^{p−1}𝔼_n[Σ_{k∉S}x_k] → Q_p. Hence n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p−1) unconditionally (§3.1, Plan 27) | PROVED-mod-cite (P) (through G2 B*(iii); internal inputs: G2 A1, A-U, A-L; G3′ §5.2 Lemma Sat); REVIEWED; novelty UNCHECKED |
 | G1-R | (T3) from the atoms alone; (CL) (proved for pure-power atoms with rough weights, p > 1: Theorem CL; open for general nodes or p ≤ 1) | GAP for (T3) (see §4) |
+| FV | first variation: d/dt log b_n²(v e^{tf}) = ⟨f, μ_n − μ_{n−1}⟩, μ_n := w p_n² (§3.2) | PROVED; Rule R pending |
+| Conj R | (T3) — hence the pointwise b-law — FAILS for some weights e^{−ε}k^{−s} ≤ w_k ≤ e^{ε}k^{−s} (§3.2, Plan 28) | CONJECTURE; NUMERICAL evidence |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -278,6 +280,60 @@ A4 (i)–(ii) still need β_n → 1, i.e. (T3) via G1-T.
 - **CL4 (scope, F5).** (CL) is proved here for exact pure-power atoms k^{−p} with p > 1 only. It is not proved for
   general regularly spaced nodes f(k), and for p ≤ 1 (CL)/A2 do not apply as stated.
 
+### 3.2 (T3) for rough weights: first variation and counter-evidence (Plan 28) — FV PROVED; Conjecture R NUMERICAL; Rule R pending
+
+**Lemma FV (first variation).** Let w(t) := v·e^{tf}, where v is a weight sequence with finite moments and f is bounded,
+on fixed atoms x_k. Let p_j = p_j^{(t)} be the orthonormal polynomials of w(t), and put μ_n(k) := w_k(t)p_n(x_k)² (a
+probability vector). Then, with b_n² = h_n/h_{n−1}:
+
+  (d/dt) log b_n²(t) = ⟨f, μ_n − μ_{n−1}⟩ = Σ_k f_k w_k(t)(p_n(x_k)² − p_{n−1}(x_k)²).
+
+*Proof.*
+- **Heine.** D_m = Σ_{|S|=m}Π_{k∈S}w_k·V(S), so (d/dt) log D_m = Σ_k f_kρ_m(k), where
+  ρ_m(k) = P_m(k ∈ S) = w_kΣ_{j<m}p_j(x_k)². This is the Christoffel–Darboux kernel (G3′ §5.2 Lemma H).
+- h_n = D_{n+1}/D_n gives log b_n² = log D_{n+1} − 2 log D_n + log D_{n−1}.
+- Hence (d/dt) log b_n² = Σ_k f_k(ρ_{n+1} − 2ρ_n + ρ_{n−1})(k) = Σ_k f_k w_k(p_n(x_k)² − p_{n−1}(x_k)²). ∎
+
+**Consequence.** For a bounded rough perturbation, the first-order change in log(b_n²/b_{n−1}²) is ⟨f, μ_n − μ_{n−1}⟩.
+Its supremum over |f| ≤ ε is 2ε·TV(μ_n, μ_{n−1}). So (T3) can be robust to bounded rough perturbations only if
+TV(μ_n, μ_{n−1}) → 0.
+
+**Numerics** (NUMERICAL; `checks/check_t3_rough.out`; full-reorthogonalized Lanczos in float64; truncated pure power
+x_k = k^{−2}, w = k^{−2}, K = 20n):
+- **[1] TV does not decay.** TV(μ_n, μ_{n−1}) = 0.419, 0.392 and 0.415 at n = 100, 200 and 400.
+  - The adversarial perturbation f = ε·sign(μ_n − μ_{n−1}), with weights in [e^{−ε}, e^{ε}]·k^{−2}, moves
+    |β_n/β_{n−1} − 1| from about 10⁻⁵ to 0.030, 0.025 and 0.029 at ε = 0.05, and to 0.13, 0.10 and 0.12 at ε = 0.2.
+  - The effect does not shrink with n. The first-order prediction (Lemma FV) gives 70–85% of the actual change.
+- **[2] Locality.** |μ_n − μ_{n−1}| lives at index scale n: quantiles 0.65n (5%), 0.92n (50%), 2.86n (95%), 6.17n (99%).
+- **[3] One sequence, repeated jumps.** One weight sequence with adversarial windows [0.6N, 1.6N] at N = 60 and 240
+  (ε = 0.2) has |β_N/β_{N−1} − 1| = 0.111 and 0.108 at those N, against 0.002–0.009 elsewhere and 10⁻⁴–10⁻⁷ for smooth
+  weights.
+- Generic rough weights (parity, random; scratch runs) give |β_{n+1}/β_n − 1| ≍ n^{−1/2}, consistent with cancellation
+  in ⟨f, μ_n − μ_{n−1}⟩ (CLT / stationary phase).
+
+**Conjecture R.** For every ε > 0 there is f with |f| ≤ ε (supported on windows [0.6N_i, 1.6N_i] along a sufficiently
+sparse sequence N_i) such that w = k^{−2}e^{f} satisfies limsup_n |β_n/β_{n−1} − 1| ≥ cε, with c > 0 absolute. Then
+(T3) fails, and so does the pointwise law n²b_n → c(2) (G1-T: given H_all, (T3) ⟺ β_n → 1). Meanwhile H_all
+(averaged law) and Theorem CL (tail-Cesàro a-law) still hold, since the weights are sandwiched.
+
+**What a proof needs.**
+- (i) A uniform lower bound TV(μ_N, μ_{N−1}) restricted to the window, ≥ c, for all base measures in the sandwich
+  class. This is pointwise asymptotics of p_N at the atoms (the band region).
+- (ii) Second-order control of t ↦ log(b_N²/b_{N−1}²) along the perturbation path.
+- (iii) Cross-scale independence. Later windows must perturb β_N only slightly. Super-exponential scale separation,
+  plus a Christoffel bound on the tail mass of μ_N, is a plausible route.
+- None of these is done here.
+
+**Re-scoping G1-R.**
+- If Conjecture R holds, G1-R as posed in §4 (pointwise law from atom regularity and *sandwiched* weights) is false.
+  Pointwise laws then genuinely need weight regularity, and the averaged laws (H_all, CL) are the right statements
+  for rough weights.
+- The natural positive target becomes (T3) for *regular* weights, e.g. w = v·Ψ with Ψ slowly varying.
+  - By Lemma FV and the path integral, (T3) then follows from a **localization lemma**: the probability vector
+    w p_n² puts mass 1 − o(1) on indices [n/M, Mn], uniformly in the sandwich class.
+  - The lower side is Lemma Sat_p (§3.1), which gives exponentially small mass in the saturated head.
+  - The upper tail is open: numerics [2] show 99% within 6.2n.
+
 ## 4. G1-R: what remains (stop report)
 
 **Where G1 stands after Plan 9 (updated by Plan 27).**
@@ -288,7 +344,7 @@ A4 (i)–(ii) still need β_n → 1, i.e. (T3) via G1-T.
   ratios and window-average density still need β_n → 1 (A4). Pointwise density is not proved.
 - G1-L needs a one-sided bound on β_n; it is not unconditional.
 
-**Missing statements (precise).**
+**Missing statements (precise).** (See §3.2: for *rough* weights, (T3) is conjecturally FALSE, Conjecture R.)
 - (T3) for β_n := n^p b_n/(c(p)C), from atom regularity (H-a) and weight conditions.
 - ~~(CL) for p > 1~~: now PROVED for pure-power atoms with rough weights (Theorem CL, §3.1, Plan 27).
 
