@@ -1,0 +1,8 @@
+[1] t=  0.0: |lhs-rhs|/|rhs| = 6.5e-14
+[1] t=  1.7: |lhs-rhs|/|rhs| = 3.0e-13
+[1] t= 25.0: |lhs-rhs|/|rhs| = 7.3e-09  (oscillatory quad; t=25 is loose)
+[2/3] x=    2000 T=  100: ∫a²D²dy/y=6.988498e+01  4x³∫J y⁻⁵(+bdry)=6.987966e+01  rel diff 7.6e-05 | L=6.956668e+01  |L−main|/main=4.55e-03  bound (2√(ME)+E)/main=1.32e-02  E/(κ²x log⁴x)=4.60e-06  main/(xδ log T)=0.759
+[2/3] x=   20000 T=  100: ∫a²D²dy/y=6.255760e+02  4x³∫J y⁻⁵(+bdry)=6.255254e+02  rel diff 8.1e-05 | L=6.225342e+02  |L−main|/main=4.86e-03  bound (2√(ME)+E)/main=1.35e-02  E/(κ²x log⁴x)=1.48e-06  main/(xδ log T)=0.679
+[2/3] x=   20000 T= 1000: ∫a²D²dy/y=1.094954e+02  4x³∫J y⁻⁵(+bdry)=1.094865e+02  rel diff 8.1e-05 | L=1.094422e+02  |L−main|/main=4.86e-04  bound (2√(ME)+E)/main=1.33e-03  E/(κ²x log⁴x)=2.50e-07  main/(xδ log T)=0.793
+[2/3] x=  100000 T= 1000: ∫a²D²dy/y=5.366740e+02  4x³∫J y⁻⁵(+bdry)=5.366639e+02  rel diff 1.9e-05 | L=5.363992e+02  |L−main|/main=5.12e-04  bound (2√(ME)+E)/main=1.34e-03  E/(κ²x log⁴x)=1.37e-07  main/(xδ log T)=0.777
+[2/3] x=  100000 T= 3000: ∫a²D²dy/y=2.192539e+02  4x³∫J y⁻⁵(+bdry)=2.192497e+02  rel diff 1.9e-05 | L=2.192173e+02  |L−main|/main=1.67e-04  bound (2√(ME)+E)/main=4.41e-04  E/(κ²x log⁴x)=5.47e-08  main/(xδ log T)=0.822
