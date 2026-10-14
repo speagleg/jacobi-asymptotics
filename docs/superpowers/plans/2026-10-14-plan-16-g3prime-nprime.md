@@ -19,4 +19,4 @@ needs a thinning law for non-convergent densities, which Theorem T excludes.
 **Constraints.** AGENTS.md: no RH framing; Rule C; Rule R before REVIEWED; commit prefix `G3p:`.
 
 - [x] Write Theorem N′, the remarks and the sandwich (§5 of PROOF.md); update the status table.
-- [ ] Rule R (opus), apply the fixes, re-check.
+- [x] Rule R (opus): ACCEPT WITH FIXES; F1–F8 applied; re-check confirmed REVIEWED.

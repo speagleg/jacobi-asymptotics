@@ -141,3 +141,22 @@ This is exactly the U(j) of G3′*-U.
 After F1–F8: **Theorem N′ — PROVED-mod-cite + mod-input Theorem H + REVIEWED**. Novelty: UNCHECKED. Residual
 (positive lower density with d_*(E) = 0) stays **GAP**. Update the "pending Rule R" text in the header (line 4), in the
 status row and in the theorem title.
+
+## Re-check (2026-10-14, commit 9f30955)
+
+Each fix was checked against `git show 9f30955` (PROOF.md §§0, 5, 6).
+
+| Finding | Status | Note |
+|---|---|---|
+| F1 | Resolved | The §6 header now restricts "heuristic" to the own normalization and cites N′ for the multiplicity one. |
+| F2 | Resolved | "in the sense d_*(E) = 0" is added, and the bold summary now includes "+ N′". |
+| F3 | Resolved | "Relation to Prop N" lists the three inputs and the notation clash, and gives the generalization. |
+| F4 | Resolved | η_k := min(1, g/2)·i/(m+1) lies in (0, g/2) ∩ (0, 1) and increases in i, so the atoms are distinct and ordered. C₀′ + 1 and the re-choice of k₂ are stated. |
+| F5 | Resolved | δ′ < 1 is now required, and "δ′ ↑ d_*(E), log 0 := −∞" is used. The subset-density claim follows from the greedy rule, because a set of density δ has window lower density δ: both counts are δK + o(K). |
+| F6 | Resolved | (1 + o(1)), the provenance (PRZD20 via the survey) and both derivation steps are added. |
+| F7 | Resolved | a_{m+1} ≥ 4a_m, the proof that d_*(E) = 0, and "not known either way" plus the heuristic tag are added. |
+| F8 | Resolved | The double counting is stated, with both halves of (Hw). |
+
+Residual: none. The fixes introduce no new issue. The REVIEWED label set by the coordinator is **confirmed**: Theorem N′
+is PROVED-mod-cite + mod-input Theorem H + REVIEWED, and the residual case (positive lower density, d_*(E) = 0) stays
+GAP.
