@@ -3,9 +3,11 @@
 `main.tex` (amsart, 16 pages), `refs.bib`, `checks/`. Build: `pdflatex main; bibtex main; pdflatex main; pdflatex main`.
 Author line is a placeholder ("Gordon [surname] (draft)").
 
-**Status.** DRAFT. The mathematics is research/G2 (PROVED-mod-cite (P) + REVIEWED, `research/G2/review/REVIEW_G2.md`)
-plus the item 11 lemmas it uses, written out in full. Some steps of the paper are **new relative to the repo** (§2
-below). They have had no Rule R review. Novelty: the paper says "we have not found … in the literature", never "new".
+**Status.** DRAFT, Rule R done: `REVIEW_Paper1.md` (2026-10-14) gives **ACCEPT WITH FIXES**, Lemma 3.3 **CORRECT**,
+and no mathematical error. Fixes F1–F15 are applied (§7 below). The mathematics is research/G2 (PROVED-mod-cite (P) +
+REVIEWED, `research/G2/review/REVIEW_G2.md`) plus the item 11 lemmas it uses, written out in full. The steps that are
+new relative to the repo (§2 below) were re-derived by the Rule R reviewer. With Lemma 3.3 accepted, the paper's
+proofs use no external theorem: PROVED + REVIEWED, at the level of one second reader. Novelty: the paper says "we have not found … in the literature", never "new".
 There is no RH framing anywhere.
 
 ---
@@ -48,7 +50,7 @@ become PROVED-mod-cite (P) (BKMW Lemma 2.1). In that case the mutual-energy fini
 from (P) §1 again, or kept via U* ≥ const, which is independent of (P). The lower bound (Thm 5.2) is citation-free in
 either version.
 
-## 2. Material that is new relative to the repo (needs Rule R / expert check)
+## 2. Material that is new relative to the repo (Rule R: re-derived and accepted in REVIEW_Paper1.md)
 
 1. **Lemma 3.3** (Fourier proof of energy positivity). The truncated kernel K_{ε,R}(a) = ∫_ε^R (cos aξ − e^{−ξ})/ξ dξ
    gives the bound |K| ≤ |log|a|| + 6 (three cases) and the pointwise limit k₀ − log|a|. Dominated convergence on
@@ -114,8 +116,8 @@ route, not needed here).
 
 ## 5. Open issues / places needing an expert check
 
-1. Lemma 3.3 (new). An analyst should confirm it, or the paper should cite BKMW Lemma 2.1 and, behind it,
-   Saff–Totik / Cegrell–Kolodziej–Levenberg, which have to be read first.
+1. Lemma 3.3 (new) was accepted by Rule R (REVIEW_Paper1.md: CORRECT). A human analyst's check is still advisable.
+   The fallback (cite BKMW Lemma 2.1) needs Saff–Totik and Cegrell–Kolodziej–Levenberg to be read first.
 2. Thm 1.3(iii): the bilinear expansion with signed measures on an unbounded set. Absolute convergence of all three
    pieces is argued in the text; check it.
 3. Thm 5.2 step 3: the case analysis (a)–(d) was re-derived during drafting and agrees with G2 (REVIEWED). The
@@ -141,7 +143,8 @@ route, not needed here).
 ## 6. Pre-submission checklist
 
 - [ ] Fill in the author name, affiliation, email and MSC codes (suggest 15B05, 31A15, 42C05, 11M06; to confirm).
-- [ ] Independent review (Rule R) of the new material in §2, especially Lemma 3.3.
+- [x] Independent review (Rule R) of the new material in §2, especially Lemma 3.3 (REVIEW_Paper1.md: CORRECT).
+- [ ] Optional: a human analyst's check of Lemma 3.3 (the Rule R reader was an agent).
 - [ ] Read the full texts of DS 1997, KVA PLMS 1999, KVA JAT 1999 and Rakhmanov 1996 (and Beckermann 2000).
       Adjust the framework paragraph.
 - [ ] Re-open BKMW, Monien, Haynes–Zudilin, Coons–Sutherland, Baricz–Štampach, CCV and Lai, and re-verify every
@@ -150,7 +153,42 @@ route, not needed here).
 - [ ] Rerun the novelty search (Rule L) close to submission: arXiv/MathSciNet for "Hankel determinant" + "zeta" and
       for constrained equilibrium with accumulating nodes.
 - [ ] Decide on the treatment of item 11 (see §5.8) and of the error term (§5.4).
-- [ ] Remove the `% TO VERIFY` comments in main.tex once resolved.
+- [ ] Resolve the visible hedges in main.tex once the sources are read: §1.2 "We have only consulted the abstracts…"
+      and "this statement is provisional", and Rem 7.2 "as recorded in our literature notes…". Resolve the
+      "to verify" fields in refs.bib and the supplementary-material URL placeholder in §8.
 - [ ] Recompile from clean (pdflatex, bibtex, pdflatex ×2) with no warnings except known bib gaps.
 - [ ] Decide whether `checks/` is distributed as supplementary material (scripts rely on mpmath only, except the
       §8 tables, which need the repo toolkit and its C kernels).
+
+## 7. Rule R fixes applied (REVIEW_Paper1.md, 2026-10-14)
+
+| # | Fix |
+|---|---|
+| F1 | Thm 1.3(iii): "Since \|ν\| ≤ μ^x + μ*, the three bullets give ∬\|log\| d\|ν\|d\|ν\| < ∞". |
+| F2 | Lemma 3.3: (a) is now 2/A; k₀ = 0 is noted as not needed; limits are taken along sequences (ε_m, R_m). |
+| F3 | Rem 3.4: only the positivity statement is a special case of BKMW. Added the argument that ν^± ∈ M(ℂ) (equal mass, finite energy, log moment by fixing a typical y). |
+| F4 | Sign convention. The abstract now speaks of minimising the standard energy ∬log(1/\|·\|). §1.2 says −J_p is the energy of g_*μ. Thm 1.3(ii) names U* as the negative of the logarithmic potential. |
+| F5 | Rem 7.2: the range is now "between −1.15 and −4.89" (matches bs_check.out). |
+| F6 | Rem 7.2: one paragraph showing that the ℓ = 0, 2 closed forms differ from ℓ = 1 only by O(n log n), so b = −2, 2 follow too. |
+| F7 | §1.2: visible hedge ("We have only consulted the abstracts…"; the no-prior-art sentence is marked "provisional"). Rem 7.2 has a visible hedge on the BS quotation and numbering. The LaTeX "% TO VERIFY" comments are removed. No new sources were fetched or read. |
+| F8 | §1.2: Fauzan is described as an unrefereed Zenodo announcement. The record's "positive moment representation and a logarithmic-energy estimate" wording is quoted, and the possible overlap with Thm 1.3 is acknowledged. The paper states that no proof uses Fauzan or Lai. |
+| F9 | Dated correction note added to research/program/novelty_G2.md §2(c) (separate commit 90f3be9). |
+| F10 | §1.2 and Rem 7.1: Monien's "∼" is read with an o(n²) error, per Zagier's expansion; the literal reading is noted. |
+| F11 | §8 and table captions: "supplementary material (repository URL and commit hash: to be supplied)" replaces repo paths. |
+| F12 | §8: the p = 1.5, n = 1600 entry is flagged as indicative (K-doubling change ≈ 20%). |
+| F13 | refs.bib: unknown fields are marked "to verify" (BKMW journal version; VAVB volume/pages; publication status of Monien, Coons–Sutherland, Lai; Fauzan as an unrefereed announcement). No bibliographic data was invented. |
+| F14 | (i) "for i ≤ n−1" in Thm 5.2 step 2; (ii) the mixture μ*(B) = ∫ω(B)dt is defined in Thm 1.3 and §3.4; (iii) the weight scale is now ϑ, c₀ is now ϑ₀, and BKMW's I(μ) is distinguished from I(p); (iv) a remark that the sup in (1.3) is redundant. |
+| F15 | papers/paper1/.gitignore covers the LaTeX build products. |
+
+## 8. Visible "to verify" list (pre-submission)
+
+1. Full texts of Rakhmanov 1996, Dragnev–Saff 1997, Kuijlaars–Van Assche PLMS 1999 and JAT 1999, and Beckermann
+   2000. Then confirm or retract the "provisional" no-prior-art sentence in §1.2 and replace the abstract-based
+   paraphrases. If a full text is read, quote it verbatim and record it in §3.
+2. Baricz–Štampach: re-open and confirm Cor 3, Rem 5, (22) and the H_n^{(ℓ)} indexing. Then remove the hedge in
+   Rem 7.2.
+3. Re-verify every other quotation character by character: BKMW, Monien, Haynes–Zudilin, Coons–Sutherland, CCV,
+   Lai and the Fauzan record.
+4. Fauzan's full manuscript, when available: check whether its energy estimate overlaps with Thm 1.3.
+5. refs.bib "to verify" fields.
+6. Supplementary material: public URL and commit hash (§8 of the paper).

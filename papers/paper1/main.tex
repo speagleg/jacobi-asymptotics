@@ -14,6 +14,7 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \numberwithin{equation}{section}
+\raggedbottom
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
@@ -40,8 +41,8 @@ the Hankel determinants $D_n=\det(\int x^{i+j}\dd\sigma)_{i,j=0}^{n-1}$ satisfy
   \log D_n=-pn^2\log n+\Bigl(\tfrac{3p}{2}+\log\bigl(c(p)C\bigr)\Bigr)n^2+o(n^2),\qquad
   c(p)=\tfrac14\Bigl(\tfrac{\sqrt\pi\,\Gamma(1/p+1)}{\Gamma(1/p+1/2)}\Bigr)^{p}.
 \]
-The constant comes from an explicitly solvable constrained equilibrium problem: the maximiser of the logarithmic
-energy $\iint\log|u^{-p}-v^{-p}|\dd\mu(u)\dd\mu(v)$ among probability measures $\mu\le\dd u$ on $(0,\infty)$ is
+The constant comes from an explicitly solvable constrained equilibrium problem: the minimiser of the logarithmic
+energy $\iint\log\frac{1}{|u^{-p}-v^{-p}|}\dd\mu(u)\dd\mu(v)$ among probability measures $\mu\le\dd u$ on $(0,\infty)$ is
 unique, it is an average of arcsine laws, and its density is a regularised incomplete beta function. As a
 corollary, for every real $a>0$ and real $b$ with $2a+b>1$,
 $\log\det_{1\le i,j\le n}\zeta(a(i+j)+b)=-an^2\log n+(\tfrac{3a}{2}+\log c(a))n^2+o(n^2)$. For positive integers $a,b$
@@ -85,7 +86,8 @@ for some constants $c_1>0$ and $s\in\R$. Then the measure $\sigma$ of \eqref{eq:
 \end{equation}
 \end{theorem}
 
-Under \eqref{eq:Ha}, $f$ is strictly decreasing with a finite limit $L$, and $f(\xi)-L\sim C\xi^{-p}$; Hankel
+The upper bound in the second condition of \eqref{eq:Ha} already follows from the limit and the
+continuity of $f'$; we state it for symmetry. Under \eqref{eq:Ha}, $f$ is strictly decreasing with a finite limit $L$, and $f(\xi)-L\sim C\xi^{-p}$; Hankel
 determinants are invariant under translation of $\sigma$ (Lemma~\ref{lem:elem}), so $L$ plays no role. The upper bound
 in \eqref{eq:main} uses only $\sum_kw_k<\infty$; apart from the finiteness of the moments, the lower bound uses only
 $w_k\ge c_1k^{-s}$.
@@ -117,14 +119,15 @@ function.
 \begin{theorem}\label{thm:equilibrium}
 Let $p>0$ and $c=c(p)$. Let $\mu^*$ be the probability measure on $(0,\infty)$
 \[
-  \mu^*:=\int_0^1\omega_{4ct^{-p}}\dd t,
+  \mu^*:=\int_0^1\omega_{4ct^{-p}}\dd t,\qquad\text{i.e.}\quad\mu^*(B)=\int_0^1\omega_{4ct^{-p}}(B)\dd t,
 \]
 and let $\mu^*_u$ be its image under $x\mapsto x^{-1/p}$. Then:
 \begin{enumerate}
 \item $\mu^*_u\in\cA$, with density
   $\rho^*(u)=\cB_{\min(1,\,u^{-p}/4c)}\bigl(\tfrac1p+\tfrac12,\tfrac12\bigr)$. In particular $\rho^*=1$ on
   $(0,u_s]$, where $u_s:=(4c)^{-1/p}=2I(p)/\pi$, and $0<\rho^*<1$ on $(u_s,\infty)$.
-\item The logarithmic potential of $\mu^*$ satisfies $\int\log|x-y|\dd\mu^*(y)=\log c+p$ for $0<x\le4c$, and
+\item The function $U^*(x):=\int\log|x-y|\dd\mu^*(y)$ (the negative of the logarithmic potential of $\mu^*$) satisfies
+  $U^*(x)=\log c+p$ for $0<x\le4c$, and
   $\ge\log c+p$ for all $x>0$.
 \item $\cJ_p(\mu^*_u)=\kappa_p$, and $\cJ_p(\mu)<\kappa_p$ for every $\mu\in\cA$ with $\mu\neq\mu^*_u$. Thus
   $\sup_{\cA}\cJ_p=\kappa_p$, attained only at $\mu^*_u$.
@@ -160,31 +163,41 @@ $\log H_n^{(r)}[F]<-cn^2$ for some $c>0$ and all sufficiently large $n$ and $r$.
 
 Corollary~\ref{cor:zeta} therefore proves the asymptotic formula expected in~\cite{HaynesZudilin}, for all positive
 integers $a,b$ and more generally for real $a>0$ and $2a+b>1$, and it identifies the $n^2$ term. For $a=1$ the
-constant $\frac32-\log2$ agrees with Monien's weak asymptotic form, since $-n^2(\log 2n-\frac32)=-n^2\log
-n+(\frac32-\log2)n^2$. For $a=2$ and $b\in\{-2,0,2\}$ the determinants are known in closed form, by results of
-Baricz and \v{S}tampach~\cite{BariczStampach} on Hankel determinants of Rayleigh functions; their asymptotics are
+constant $\frac32-\log2$ agrees with Monien's form $-n^2(\log 2n-\frac32)=-n^2\log n+(\frac32-\log2)n^2$, provided
+the latter is read with an $o(n^2)$ error, as the expansion from Zagier's numerics quoted in~\cite{Monien}
+indicates. (Read literally, Monien's ``$\sim$'' carries only the leading term.) For $a=2$ and $b\in\{-2,0,2\}$ the determinants are known in closed form, by results of
+Baricz and \v{S}tampach~\cite{BariczStampach} on Hankel determinants of Rayleigh functions (the closed forms we use
+were confirmed independently against direct determinants); their asymptotics are
 consistent with Corollary~\ref{cor:zeta} (Remark~\ref{rem:bs}). Apart from these closed-form cases, we have not found in
 the literature a published proof of the leading term $-an^2\log n$ (for $a=1$, $r=0$ see the remark
 of~\cite{HaynesZudilin} quoted above), nor of the $n^2$ term $\frac{3a}{2}+\log c(a)$.
 
-Hankel determinants of zeta-type moments also occur in recent irrationality work: Lai~\cite{Lai} writes that
-``Fauzan's proof uses Hankel determinants, which were previously studied by Haynes--Zudilin [23] and Zudilin [55]''
-(see~\cite{Fauzan}). The present paper is not concerned with arithmetic applications, and its results are logically
-independent of those works.
+Hankel determinants of zeta-type moments also occur in recent irrationality work. Lai~\cite{Lai} writes that
+``Fauzan's proof uses Hankel determinants, which were previously studied by Haynes--Zudilin [23] and Zudilin [55]''.
+Fauzan's announcement~\cite{Fauzan} is an unrefereed Zenodo record; the full manuscript was not available to us. Its
+record page describes ``normalized Hankel determinants'' together with ``a positive moment representation and a
+logarithmic-energy estimate''. The determinants there appear to be built from a different moment sequence. There is
+nonetheless a methodological overlap with the present paper (Hankel determinants of zeta-type moments controlled by
+a logarithmic-energy argument), and we cannot exclude that the announced energy estimate is related to
+Theorem~\ref{thm:equilibrium}. The present paper is not concerned with arithmetic applications, and none of its
+proofs uses~\cite{Fauzan} or~\cite{Lai}.
 
-\emph{The equilibrium problem.} The maximisation of $\cJ_p$ over $\cA$ is a logarithmic energy problem with an
-upper constraint on the measure. % TO VERIFY before submission: [Rakhmanov], [DragnevSaff], [KVA-PLMS] were consulted only through abstracts
-% (and [Rakhmanov] only through the abstract of [CDLO]); see NOTES.md.
-Constrained energy problems of this kind were introduced by Rakhmanov~\cite{Rakhmanov}
-to describe the zero distribution of discrete orthogonal polynomials on a compact interval, and were extended by
-Dragnev and Saff~\cite{DragnevSaff} and Kuijlaars and Van Assche~\cite{KVA-PLMS} (see the summary
-in~\cite{CDLO}). Dragnev and Saff prove existence and uniqueness of the constrained extremal measure, together with
-a characterisation theorem and a saturation result, with explicit results for Krawtchouk polynomials; Kuijlaars and
-Van Assche show that extremal polynomials on infinite discrete sets, such as those of the Meixner and Charlier
-polynomials, are governed by a constrained extremal energy problem that can be solved explicitly. Van Assche and Van Baelen~\cite{VAVB} treat a $q$-lattice
-$\{q^k\}$, which accumulates at $0$. We use no result from this theory: existence, uniqueness and the value of the
-maximum are proved directly in Section~\ref{sec:equilibrium}. We have not found in the literature the problem
-$\sup_\cA\cJ_p$, whose constraint has infinite total mass near the accumulation point, or its solution.
+\emph{The equilibrium problem.} Since $-\cJ_p(\mu)$ is the logarithmic energy of the image measure $g_*\mu$, the
+maximisation of $\cJ_p$ over $\cA$ is a logarithmic energy minimisation with an upper constraint on the measure.
+Constrained energy problems of this kind are the subject of a substantial literature. We have only consulted the
+abstracts of the following works, and the summary below is restricted to what those abstracts say. According to the
+abstract of~\cite{CDLO}, the constrained equilibrium problem was introduced by Rakhmanov~\cite{Rakhmanov} to describe
+the asymptotic zero distribution of discrete orthogonal polynomials in a compact interval, and was extended by
+Dragnev and Saff~\cite{DragnevSaff} and by Kuijlaars and Van Assche~\cite{KVA-PLMS}. The abstract of~\cite{DragnevSaff}
+announces existence and uniqueness of the constrained minimiser, a characterisation theorem and a saturation result,
+with explicit results for Krawtchouk polynomials. The abstract of~\cite{KVA-PLMS} states that for extremal polynomials
+on infinite discrete sets such as those of the Meixner and Charlier polynomials, the asymptotics are governed by a
+constrained extremal energy problem that can be solved explicitly. The abstract of Van Assche and Van
+Baelen~\cite{VAVB} concerns a $q$-lattice $\{q^k\}$, which accumulates at $0$. We use no result from this theory:
+existence, uniqueness and the value of the extremum are proved directly in Section~\ref{sec:equilibrium}. We have not
+found the problem $\sup_\cA\cJ_p$, whose constraint has infinite total mass near the accumulation point, or its
+solution, in the literature. Because the full texts of \cite{Rakhmanov,DragnevSaff,KVA-PLMS,KVA-JAT} have not been
+read, this statement is provisional.
 
 For $p=1$, Monien~\cite[\S3]{Monien} set up a constrained maximisation of this type heuristically: ``We seek a
 continuous test function $\rho(x)$ which maximizes the functional Eq.~3.5 subject to the constraint that $0<\rho(x)\le
@@ -275,14 +288,14 @@ Let $\sigma,\sigma'$ be measures as above.
   $D_n(\sigma)\le D_n(\sigma')$.
 \item (Translation) $D_n(\sum w_k\delta_{x_k+t})=D_n(\sigma)$ for every $t\in\R$.
 \item (Scaling) $D_n(\sum w_k\delta_{\lambda x_k})=\lambda^{n(n-1)}D_n(\sigma)$ for $\lambda>0$, and
-  $D_n(\sum cw_k\delta_{x_k})=c^nD_n(\sigma)$ for $c>0$.
+  $D_n(\sum\vartheta w_k\delta_{x_k})=\vartheta^nD_n(\sigma)$ for $\vartheta>0$.
 \item (Positivity) If $w_k>0$ for infinitely many $k$ with pairwise distinct $x_k$, then $D_n(\sigma)>0$ for all $n$.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
 All four statements follow from Lemma~\ref{lem:heine}: its terms are nonnegative and increasing in each $w_k$;
-$V_x(S)$ depends only on differences; $V_{\lambda x}(S)=\lambda^{n(n-1)}V_x(S)$ and $(cw)(S)=c^nw(S)$; and under the
+$V_x(S)$ depends only on differences; $V_{\lambda x}(S)=\lambda^{n(n-1)}V_x(S)$ and $(\vartheta w)(S)=\vartheta^nw(S)$; and under the
 hypothesis of (iv) some term is positive.
 \end{proof}
 
@@ -420,7 +433,7 @@ For $0<\varepsilon<1<R$ and $a\in\R\setminus\{0\}$ put
 $K_{\varepsilon,R}(a):=\int_\varepsilon^R(\cos(a\xi)-e^{-\xi})\,\xi^{-1}\dd\xi$.
 
 \emph{Step 1: a uniform bound.} We use three elementary estimates: (a) for $1\le A<B$,
-$|\int_A^B\cos t\,\frac{\dd t}{t}|\le3/A\le3$ (integrate by parts); (b) for $0<A<B\le1$,
+$|\int_A^B\cos t\,\frac{\dd t}{t}|\le2/A\le2$ (integrate by parts); (b) for $0<A<B\le1$,
 $\int_A^B\cos t\,\frac{\dd t}{t}=\log\frac BA-\theta$ with $0\le\theta\le\int_A^B\frac t2\dd t\le\frac{B^2}{4}\le\frac14$,
 because $0\le1-\cos t\le t^2/2$;
 (c) $\int_\varepsilon^Re^{-\xi}\frac{\dd\xi}{\xi}=\log\frac1\varepsilon+\theta'$ with $|\theta'|\le2$. Substitute
@@ -436,11 +449,13 @@ $K_{\varepsilon,R}(a)=-\log(1/\varepsilon)+O(1)$ and $0<\log(1/\varepsilon)\le\l
 $K_{\varepsilon,R}(a)-K_{\varepsilon,R}(1)=\int_{\varepsilon|a|}^{\varepsilon}\cos t\frac{\dd t}{t}+\int_R^{R|a|}\cos
 t\frac{\dd t}{t}$. As $\varepsilon\to0$ the first integral tends to $\log(1/|a|)$, by (b); as $R\to\infty$ the second
 tends to $0$, by (a). Also $K_{\varepsilon,R}(1)\to k_0:=\int_0^\infty(\cos\xi-e^{-\xi})\xi^{-1}\dd\xi$, which
-converges. Hence $K_{\varepsilon,R}(a)\to k_0-\log|a|$.
+converges. Hence $K_{\varepsilon,R}(a)\to k_0-\log|a|$. (In fact $k_0=0$, but we do not need this, because
+$\nu(\R)=0$.) All limits as $\varepsilon\to0$, $R\to\infty$ are taken along arbitrary sequences
+$\varepsilon_m\downarrow0$, $R_m\uparrow\infty$.
 
 \emph{Step 3.} The integrability hypothesis forces $|\nu|\otimes|\nu|$ to give zero mass to the diagonal $\{x=y\}$.
-By \eqref{eq:Kbound} and dominated convergence (with respect to $|\nu|\otimes|\nu|$, dominating function
-$|\log|x-y||+6$), and since $\nu(\R)=0$,
+By \eqref{eq:Kbound} and dominated convergence along $(\varepsilon_m,R_m)$ (with respect to $|\nu|\otimes|\nu|$,
+dominating function $|\log|x-y||+6$), and since $\nu(\R)=0$,
 \[
   \iint K_{\varepsilon,R}(x-y)\dd\nu\dd\nu\longrightarrow k_0\,\nu(\R)^2-\iint\log|x-y|\dd\nu\dd\nu
   =-\iint\log|x-y|\dd\nu\dd\nu .
@@ -461,8 +476,13 @@ dominated convergence, so $\nu=0$.
 \end{proof}
 
 \begin{remark}\label{rem:BKMW}
-Lemma~\ref{lem:positivity} is a special case of \cite[Lemma~2.1]{BKMW}. There the energy is
-$I(\mu)=\iint\log\frac1{|x-y|}\dd\mu(x)\dd\mu(y)$, $M(\Sigma)$ denotes the Borel measures of finite mass supported
+The positivity statement of Lemma~\ref{lem:positivity} (but not the Fourier identity) is a special case of
+\cite[Lemma~2.1]{BKMW}. Indeed, under the hypothesis of Lemma~\ref{lem:positivity}, the positive and negative parts
+$\nu^\pm$ of $\nu$ have equal mass and finite energy, and they satisfy $\int\log(1+|t|)\dd\nu^\pm(t)<\infty$. For the
+last point, fix $y$ outside a $|\nu|$-null set with $\int|\log|x-y||\dd|\nu|(x)<\infty$, and use
+$\log(1+|x|)\le\log(1+|y|)+\log 2+\log^+|x-y|$. So $\nu^\pm\in M(\mathbb C)$ in the notation of~\cite{BKMW}. In
+\cite{BKMW} the energy is denoted $I(\mu)=\iint\log\frac1{|x-y|}\dd\mu(x)\dd\mu(y)$ (not to be confused with our
+constant $I(p)$), $M(\Sigma)$ denotes the Borel measures of finite mass supported
 in $\Sigma$ with finite energy and with $\int\log(1+|t|)\dd\mu(t)<\infty$ \cite[(1.12)]{BKMW}, and the statement
 reads: ``Lemma~2.1. Let $\mu,\nu\in M(\mathbb C)$ with $\|\mu\|=\|\nu\|$. Then $I(\mu-\nu)\ge0$, and $I(\mu-\nu)=0$ if
 and only if $\mu=\nu$.'' The proof given there refers to the literature for both the compactly supported and the
@@ -472,8 +492,8 @@ positive, of mass $1$, of finite energy, and satisfy $\int\log(1+x)<\infty$, so 
 \end{remark}
 
 \subsection{The explicit maximiser}
-Throughout this subsection $c=c(p)$ and $\beta_t:=4ct^{-p}$ for $t\in(0,1]$, so that $\mu^*=\int_0^1\omega_{\beta_t}\dd
-t$. Put $U^*(x):=\int\log|x-y|\dd\mu^*(y)$.
+Throughout this subsection $c=c(p)$ and $\beta_t:=4ct^{-p}$ for $t\in(0,1]$. Thus $\mu^*$ is the mixture
+$\mu^*(B)=\int_0^1\omega_{\beta_t}(B)\dd t$ for Borel sets $B$. Put $U^*(x):=\int\log|x-y|\dd\mu^*(y)$.
 
 \begin{proof}[Proof of Theorem~\ref{thm:equilibrium}(i)]
 Fix $x>0$ and let $t_x:=(4c/x)^{1/p}$, so that $x<\beta_t$ if and only if $t<t_x$. Then
@@ -536,8 +556,8 @@ and let $\mu^x=g_*\mu\le\sigma_p$. We first check that all energies below conver
   \]
   since $\mu^*\le\sigma_p$ and $\mu^x\le\sigma_p$ have finite logarithmic moments and mass $1$.
 \end{itemize}
-Let $\nu:=\mu^x-\mu^*$, a finite signed measure on $(0,\infty)$ with $\nu(\R)=0$ and
-$\iint|\log|x-y||\dd|\nu|\dd|\nu|<\infty$. Expanding bilinearly (all terms are finite),
+Let $\nu:=\mu^x-\mu^*$, a finite signed measure on $(0,\infty)$ with $\nu(\R)=0$. Since $|\nu|\le\mu^x+\mu^*$,
+the three bullets give $\iint|\log|x-y||\dd|\nu|\dd|\nu|<\infty$. Expanding bilinearly (all terms are finite),
 \[
   \cJ_p(\mu)=\cL(\mu^x)=\cL(\mu^*)+2\int U^*\dd\nu+\iint\log|x-y|\dd\nu\dd\nu .
 \]
@@ -595,9 +615,9 @@ $D\ge\frac{l-1-k}{n}|g'((l-1)/n)|$ (mean value theorem and monotonicity of $|g'|
 
 \emph{Adjacent pairs.} Let $l=k+1$. The point value is $\log(g(k/n)-g((k+1)/n))\le\log(|g'(k/n)|/n)$. For
 $u\in A_k$, $v\in A_{k+1}$, $g(u)-g(v)\ge|g'((k+1)/n)|(v-u)$, so
-$\langle F\rangle_{A_k\times A_{k+1}}\ge\log|g'((k+1)/n)|-\log n+c_0$ with
-$c_0:=\int_0^1\int_1^2\log(y-x)\dd y\dd x=2\log2-\frac32$. Since $|g'(k/n)|/|g'((k+1)/n)|=(1+1/k)^{p+1}\le2^{p+1}$, the
-point value exceeds the average by at most $(p+1)\log2-c_0$.
+$\langle F\rangle_{A_k\times A_{k+1}}\ge\log|g'((k+1)/n)|-\log n+\vartheta_0$ with
+$\vartheta_0:=\int_0^1\int_1^2\log(y-x)\dd y\dd x=2\log2-\frac32$. Since $|g'(k/n)|/|g'((k+1)/n)|=(1+1/k)^{p+1}\le2^{p+1}$, the
+point value exceeds the average by at most $(p+1)\log2-\vartheta_0$.
 
 \emph{Diagonal cells.} For $u,v\in A_k$, $|g(u)-g(v)|\ge|g'(k/n)||u-v|$, so
 $\langle F\rangle_{A_k^2}\ge\log|g'(k/n)|-\log n-\frac32$, using $\iint_{[0,1]^2}\log|x-y|=-\frac32$. For $k\le Mn$,
@@ -606,7 +626,7 @@ $|g'(k/n)|\ge pM^{-p-1}$.
 \emph{Summation.} For fixed $i$, the partners $j>i$ with $k_j\ge k_i+2$ have distinct values $k_j-k_i-1\ge1$, so
 $\sum_j1/(k_j-k_i-1)\le1+\log n$; there is at most one adjacent partner. Counting ordered pairs,
 \begin{multline*}
-  \sum_{i\ne j}\log|g(u_i)-g(u_j)|\le n^2\cJ_p(\bar\mu_S)+2N\bigl(1+\log n+(p+1)\log2+|c_0|\bigr)\\
+  \sum_{i\ne j}\log|g(u_i)-g(u_j)|\le n^2\cJ_p(\bar\mu_S)+2N\bigl(1+\log n+(p+1)\log2+|\vartheta_0|\bigr)\\
   +N\bigl(\log n+\tfrac32+(p+1)\log M+|\log p|\bigr),
 \end{multline*}
 which is of the stated form since $N\le n$.
@@ -721,7 +741,7 @@ $q_i:=F^{-1}(\frac{i-1/2}{n})$, $k_i:=\lceil nq_i\rceil$ and $u_i:=k_i/n\in[q_i,
 \begin{itemize}
 \item Since $\theta\le\Leb$ and $\theta(B_i)=\frac1n$: $|B_i|\ge\frac1n$, so $l_i\ge\frac{i-1}{n}$ and
   $r_i\ge\frac in$; also $r_i-q_i\ge\frac1{2n}$ and $q_i-l_i\ge\frac1{2n}$. Hence $q_{i+1}-q_i\ge\frac1n$, so the $k_i$
-  are distinct, $k_1\ge1$, and $u_j-u_i\ge\frac1n$ for $i<j$. Moreover $u_i<q_i+\frac1n\le r_i+\frac1{2n}\le r_{i+1}$.
+  are distinct, $k_1\ge1$, and $u_j-u_i\ge\frac1n$ for $i<j$. Moreover, for $i\le n-1$, $u_i<q_i+\frac1n\le r_i+\frac1{2n}\le r_{i+1}$.
 \item Since the density is $\ge d_U$ on $(0,U']$: $|B_i|\le\frac1{d_Un}$, so $r_i\le\frac{i}{d_Un}$, and
   $u_j\le r_j+\frac1{2n}\le\frac{j+1}{d_Un}$.
 \item $S^*:=\{k_1<\dots<k_n\}\subset[1,U'n+1]$.
@@ -845,13 +865,14 @@ for $a=1,2,3,4$ (Table~\ref{tab:constants}).
 
 \begin{remark}[$a=1$]
 Monien's $H_n^{(r)}[\zeta]=\det_{1\le i,j\le n}\zeta(i+j+r)$ is the case $a=1$, $b=r$ of Corollary~\ref{cor:zeta}, so
-$\log H_n^{(r)}[\zeta]=-n^2(\log2n-\frac32)+o(n^2)$ for every real $r>-1$. This is the weak asymptotic form stated in
-\cite{Monien} for $r=0,1$.
+$\log H_n^{(r)}[\zeta]=-n^2(\log2n-\frac32)+o(n^2)$ for every real $r>-1$. This is Monien's weak asymptotic form for $r=0,1$
+\cite{Monien}, read with an $o(n^2)$ error term, which is how the expansion from Zagier's numerics quoted there
+reads it. Monien's ``$\sim$'' by itself asserts only the leading term.
 \end{remark}
 
 \begin{remark}[$a=2$: comparison with closed forms]\label{rem:bs}
 Baricz and \v{S}tampach~\cite{BariczStampach} evaluate Hankel determinants of the Rayleigh functions
-$\sigma_{2m}(\nu)$. % TO VERIFY before submission: quotations of [BariczStampach] taken from the repo's literature notes.
+$\sigma_{2m}(\nu)$. (The statements and their numbering below are as recorded in our literature notes on~\cite{BariczStampach} and remain to be re-checked against the published version; the closed forms themselves are confirmed independently below.)
 Their Corollary~3 reads ``For $n\in\N$, $\nu\notin-\N$, and $\ell\in\{0,1\}$, one has $\det H_n^{(\ell)}(\nu)=
 2^{-2n(n+\ell)}\prod_{k=1}^{2n+\ell-1}(\nu+k)^{k-2n-\ell}$'', where $H_n^{(\ell)}(\nu)$ has $(i,j)$ entry
 $\sigma_{2(i+j)+2\ell-2}(\nu)$; their Remark~5 gives $\det H_n^{(2)}(\nu)=2^{-2n(n+2)}(n+1)(n+\nu+1)\prod_{k=1}^{2n+1}
@@ -870,15 +891,21 @@ which gives
 \]
 in agreement with Corollary~\ref{cor:zeta} for $a=2$, $b=0$, and with a better error term. Numerically, for
 $\ell=0,1,2$ the quantity $(\log\det+2n^2\log n)/n^2-\kappa_2$ equals $-1.33\cdot10^{-4}$, $-3.48\cdot10^{-4}$ and
-$-5.63\cdot10^{-4}$ at $n=10^5$, and $(n/\log n)$ times it stays between $-1.2$ and $-4.9$ for
-$n\in\{10^2,10^3,10^4,10^5\}$. Thus for $a=2$, $b\in\{-2,0,2\}$, Corollary~\ref{cor:zeta} also follows from
-\cite{BariczStampach}; the asymptotic statement is not made there.
+$-5.63\cdot10^{-4}$ at $n=10^5$, and $(n/\log n)$ times it lies between $-1.15$ and $-4.89$ for
+$n\in\{10^2,10^3,10^4,10^5\}$. The closed forms for $\ell=0$ and $\ell=2$ differ from the case $\ell=1$ only by
+the power of $2$ ($2^{-2n(n+\ell)}$), the power of $\pi$ (exponent $2\sum_{i\le n}(2i+\ell-1)$), the range $2n+\ell-1$
+of the product (with $m=2n+\ell$ in place of $2n+1$), and, for $\ell=2$, the factor $(n+1)(n+\frac32)$. These changes
+alter the right-hand side only by $O(n\log n)$. Hence the same computation gives
+$-2n^2\log n+(3+\log\frac{\pi^2}{16})n^2+O(n\log n)$ for $b=-2$ and $b=2$ as well. Thus for $a=2$,
+$b\in\{-2,0,2\}$, Corollary~\ref{cor:zeta} (with error $O(n\log n)$) also follows from \cite{BariczStampach}; the
+asymptotic statement is not made there.
 \end{remark}
 
 \section{Numerical illustrations}\label{sec:numerics}
 
 The computations below are floating-point (not certified) and serve only as illustrations. They were produced with
-the scripts in the accompanying repository and re-run for this draft; the outputs reproduce the stored ones exactly.
+scripts that will be made available as supplementary material (repository URL and commit hash: to be supplied
+before submission). They were re-run for this draft, and the outputs reproduce the stored ones exactly.
 
 \emph{Constants and the maximiser.} Table~\ref{tab:constants} lists $c(p)$, $u_s$ and $\kappa_p$, together with a
 Monte Carlo estimate of $\cL(\mu^*)$ obtained by sampling $\mu^*$ directly (independently of the closed-form value).
@@ -901,7 +928,7 @@ $p$ & $c(p)$ & $u_s=2I(p)/\pi$ & $\kappa_p$ & Monte Carlo $\cL(\mu^*)$\\
 6   & 0.801586 & 0.8235 & $8.778837$ & $8.7781\pm0.0109$\\
 \bottomrule
 \end{tabular}
-\caption{Constants of Theorem~\ref{thm:equilibrium}. Source: \texttt{research/G2/checks/check\_energy.out}.}
+\caption{Constants of Theorem~\ref{thm:equilibrium}. Source: supplementary script \texttt{check\_energy}.}
 \label{tab:constants}
 \end{table}
 
@@ -909,7 +936,8 @@ $p$ & $c(p)$ & $u_s=2I(p)/\pi$ & $\kappa_p$ & Monte Carlo $\cL(\mu^*)$\\
 were computed in extended precision, and
 $S_n:=\frac{2}{n^2}\sum_{j<n}(n-j)\log(j^pb_j)-\log c(p)$ is shown in Table~\ref{tab:averaged}; by
 Corollary~\ref{cor:jacobi}, $S_n\to0$. Doubling $K$ changes the tabulated values by at most $5.4\cdot10^{-4}$
-($p=1.5$), $2.8\cdot10^{-5}$ ($p=3$), $1.4\cdot10^{-6}$ ($p=4$) and $7\cdot10^{-8}$ ($p=6$). For $p=0.5$ the atoms
+($p=1.5$; this is about $20\%$ of the entry at $n=1600$, which is therefore only indicative),
+$2.8\cdot10^{-5}$ ($p=3$), $1.4\cdot10^{-6}$ ($p=4$) and $7\cdot10^{-8}$ ($p=6$). For $p=0.5$ the atoms
 decay too slowly for the truncation used ($K$-doubling changes $S_n$ by $10^{-2}$), so that case is not illustrated.
 For the zeta weights of Corollary~\ref{cor:zeta} with $(a,b)=(3,1)$ and $(4,1)$ the same statistic is
 $-0.5544,-0.2181,-0.0750$ and $-0.7452,-0.2922,-0.1004$ at $n=25,100,400$. The identification of
@@ -928,8 +956,7 @@ $p$ & $s$ & $K$ & $n=25$ & $50$ & $100$ & $200$ & $400$ & $1600$\\
 6   & 6   & 2000  & $-0.46811$ & $-0.29944$ & $-0.18324$ & $-0.10863$ & -- & --\\
 \bottomrule
 \end{tabular}
-\caption{The averaged statistic $S_n$. Source: \texttt{research/G2/checks/check\_averaged.out} and
-\texttt{check\_hz.out}.}
+\caption{The averaged statistic $S_n$ (supplementary scripts \texttt{check\_averaged}, \texttt{check\_hz}).}
 \label{tab:averaged}
 \end{table}
 
