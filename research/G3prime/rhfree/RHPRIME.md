@@ -8,10 +8,10 @@ needed only RH-free, where it stays OPEN.)
 | Item | Content | Label |
 |---|---|---|
 | (V⁺) | One-sided prime variance on a bounded δ-range | HYPOTHESIS (with RH); implied by RH + SPC (V1) |
-| Lemma P1 | RH + (V⁺) ⇒ G(T^α) ≤ (1 + o(1))N_Ψ on [1, M] | PROVED-mod-cite (via RH99 Lemmas 9.7*, 9.9*: (C8) Prop. 1 (3.11) and (3.4); (C1)) + mod-input RH, (V⁺). REVIEWED for the original sketch-dependent form; the Plan-22 update is pending Rule R |
+| Lemma P1 | RH + (V⁺) ⇒ G(T^α) ≤ (1 + o(1))N_Ψ on [1, M] | PROVED-mod-cite (via RH99 Lemmas 9.7*, 9.9*: (C8) Prop. 1 (3.11) and (3.4); (C1)) + mod-input RH, (V⁺). REVIEWED (Plan 21; Plan-22 update REVIEWED, REVIEW_Plan22.md) |
 | Lemma P2 | RH ⇒ G(T^α) = N_Ψ(T^{−2α}log T + α) + O(T^α log T) + o(N_Ψ) on [0, 1] | PROVED-mod-cite ((C8) (4.2)–(4.4), (C3) (3.5), (C1)) + mod-input RH; REVIEWED |
 | Lemma P3 | weighted K² sum: S_Ψ ≤ N_Ψ(1 + D(η)) + o(N_Ψ) | PROVED-mod-cite ((C6) §3 algebra) + mod-input RH, (V⁺); REVIEWED |
-| Theorem V⁺ | RH + (V⁺) ⇒ (SG) with rate δ³ ⇒ G3′ | PROVED-mod-cite ((C8) Prop. 1 and (3.4) via RH99; (C3) (3.5); (C6); (C1)) + mod-input RH, (V⁺), Theorem H; novelty UNCHECKED. REVIEWED for the sketch-dependent form; the Plan-22 update is pending Rule R |
+| Theorem V⁺ | RH + (V⁺) ⇒ (SG) with rate δ³ ⇒ G3′ | PROVED-mod-cite ((C8) Prop. 1 and (3.4) via RH99; (C3) (3.5); (C6); (C1)) + mod-input RH, (V⁺), Theorem H; novelty UNCHECKED. REVIEWED (REVIEW_Plan21.md, REVIEW_Plan22.md) |
 
 ## 0. Setting (RH is assumed throughout this file, as a labelled hypothesis)
 
@@ -42,12 +42,13 @@ I(X, δ) ≤ (½ + ε)δX²log(1/δ) for all X ≥ X₀ and X^{−1} ≤ δ ≤ 
 
 ## 1. Lemma P1 (primes ⇒ upper bound for G on [1, M])
 
-**Inputs** ((C8), read; quotes in CITATIONS (C8) Plan-20/21 addenda).
-- (9.7)–(9.8): on RH, L(x, T) = R(x, T) + O((log T)²/T).
-- (9.9): "L(x, T) = 4x³∫_x^∞ I(y, δ)dy/y⁵ + O(x²(log T)²/T³)". Goldston adds that "the error term in (9.9) can be
-  replaced by O(x(log x)⁴/T^{3/2})" on the full range. That claim is stated with a sketch ("Stieltjes integration and the
-  PNT with the RH error (3.4) … Cauchy Schwarz"), not a full proof. **It is used here as cited.**
-- Goldston, (C8) §9: "All the details may be found in [18] except how L(x, T) is related to I(X, δ), since the proof there proceeds from (2.14) rather than Proposition 1."
+**Inputs (updated by Plan 22).**
+- RH99.md Lemma 9.7*: L(x, T) = R(x, T) + O((log T)²/T). This is (C8) (9.7), proved from (C8) Prop. 1 and Plancherel.
+- RH99.md Lemma 9.9*: √L ≤ √(M + δ²/(3x)) + √E (Minkowski), with M := 4x³∫_x^∞ I(y, δ)y^{−5}dy and
+  E ≪ κ²x log⁴(x + 2). It is proved from (C8) (3.4) and needs no hypothesis on M.
+- (C8)'s own (9.9) and its sketched full-range error are **no longer used**. Historical note (Plan 21): Goldston, (C8)
+  §9: "All the details may be found in [18] except how L(x, T) is related to I(X, δ), since the proof there proceeds
+  from (2.14) rather than Proposition 1."
 
 **Lemma P1.** Assume RH + (V⁺). Then for each M, uniformly for 1 ≤ α ≤ M: G(T^α) ≤ (1 + o(1))·(T/2)log T.
 
@@ -58,8 +59,9 @@ I(X, δ) ≤ (½ + ε)δX²log(1/δ) for all X ≥ X₀ and X^{−1} ≤ δ ≤ 
   |ψ((1+δ)u) − ψ(u) − δu| ≤ 3δu log(2u) for u ≥ T, and ≤ 3 log(2u) for u < T. Hence I(y, δ) ≪ δ²y³log²y for y ≥ T.
 - So 4x³∫_x^∞ I(y, δ)y^{−5}dy ≤ (1 + 2ε)xδ log T + O(x³δ²log²Y/Y).
 - The O-term, divided by xδ log T, is ≪ T^{2α−1}M²log T/T^{2M+1} → 0.
-- With (9.9) (full-range error) and (9.7): R(x, T) ≤ (1 + 2ε)xδ log T + O(x(log x)⁴/T^{3/2}) + O(log²T/T)
-  = (1 + 2ε + o(1))(x/T)log T.
+- By Lemma 9.9* (Minkowski form): √L ≤ √((1 + 2ε + o(1))xδ log T) + O(κx^{1/2}log²x). The second term, divided by
+  √(xδ log T), is ≪ δ^{1/2}log²x/(log T)^{1/2} → 0 uniformly for x ≤ T^M.
+- So L ≤ (1 + 2ε + o(1))xδ log T. By Lemma 9.7*, R(x, T) ≤ L + O(log²T/T) = (1 + 2ε + o(1))(x/T)log T.
 - Divide by 2xκ², using κ = 1/T + O(1/T²). ∎
 
 ## 2. Lemma P2 (weighted Montgomery theorem on [0, 1]; RH only)
@@ -166,17 +168,19 @@ z := i(ρ − ρ′)L = −(γ − γ′)L is real, and K(z)² ≥ 0.
 - **V2 (the weighted route needs RH).** L = R ((9.7)) is proved on RH. Positivity of each term of S_Ψ is also used,
   and it holds because K((γ − γ′)L)² ≥ 0 for real arguments. RH-free, both fail. That is where the weighted Lemma G of
   RHFREE2 §4 would be needed (OPEN).
-- **V3 (dependence on (C8)) — superseded by Plan 22: (9.7) and the full-range (9.9) are now proved in RH99.md.** The full-range error in (9.9) is cited from (C8), where it is stated with a sketch.
-  - With only the displayed error O(x²(log T)²/T³), P1 holds for 1 ≤ α ≤ 2 − ε.
-  - That gives Lemma P3 only for 2λ < 2, i.e. small-gap bounds only at fixed δ > 1/(8π). (SG) needs λ → ∞, so this
-    is insufficient.
-  - So Theorem V⁺ is **mod-cite on the full-range claim**.
+- **V3 (dependence on (C8)) — resolved by Plan 22.**
+  - Plan 21 used (C8)'s sketched full-range error in (9.9). With only the displayed error O(x²(log T)²/T³), P1 would
+    hold only for α ≤ 2 − ε, which is insufficient.
+  - RH99.md now proves (9.7) and a full-range (9.9) from (C8) Prop. 1 and (3.4).
 - **V4.** Novelty: UNCHECKED. The weighted, one-sided transfer might be implicit in [18] (Goldston–Montgomery), which
   has not been read. Compare (C8) §8: Heath-Brown's one-sided transfer uses the same L = R identity in the reverse
   direction (zeros ⇒ primes, with an upper bound F(α) ≪ 1) (F10).
-- **V5 (making P1 self-contained) — DONE in RH99.md (Plan 22).** Proving (9.9) with its full-range error from (C8) Proposition 1 looks
-  routine: RH prime-number-theorem error plus Cauchy–Schwarz. But the subtracted term x∫… in (9.7) is garbled in the
-  text extraction and must be read from the PDF first. Not attempted.
+- **V5 (making P1 self-contained) — DONE** in RH99.md (Plan 22).
+  - Remaining citations are (C8) Prop. 1 and (3.4).
+  - Prop. 1 is proved in (C8) §3 from Landau's formula (3.13), whose source (Handbuch [28]) has not been read, and from
+    ζ′/ζ(−½ + it) = −log(|t| + 2) + O(1), described there as following "easily from the functional equation".
+  - (3.4) is von Koch's, derived in (C8) from (3.3).
+  - Both are cited as stated (F3 of review/REVIEW_Plan22.md).
 
 ## 5. Numerics (NUMERICAL; `checks/check_weighted_pc.py` → `.out`; Odlyzko's first 2,001,052 zeros)
 
