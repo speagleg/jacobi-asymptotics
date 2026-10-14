@@ -366,7 +366,7 @@ log Ψ slowly varying.
 - The upper tail is a GAP. Unbounded slowly varying Ψ (e.g. log k) would need additional quantitative tail control.
 - The case Ψ_k → L, where the tail is not needed, is Theorem T3-conv (§3.3, Plan 29).
 
-### 3.3 Theorem T3-conv (Plan 29): decaying roughness does not break the pointwise law — PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan29.md), fixes applied, re-check pending; novelty UNCHECKED
+### 3.3 Theorem T3-conv (Plan 29): decaying roughness does not break the pointwise law — PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan29.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED
 
 **Lemma Sat_p⁺ (all p > 0).** For 1 ≤ k < n and θ := k/n:
   1 − ρ_n(k) ≤ (W/w_k)·((n+1)/k)^{2(1−p)₊}·e^{−2n·g_p⁺(θ)},
@@ -389,9 +389,9 @@ Then, with v_k := k^{−s},
   log b_n²(w) − log b_n²(v) → 0,  hence n^p b_n(w) → c(p),
 
 by the pointwise law for the pure power v:
-- RH_p for p > 1;
+- RH_p for p > 1 (`RH/RH_px.md`);
 - RH₁(r) for p = 1 (r = s);
-- the RH_p seam construction for 0 < p < 1.
+- the RH_p seam construction for 0 < p < 1 (`RH/plt1/RH_plt1b.md`).
 
 In particular β_n → 1, so (T3) holds.
 

@@ -132,3 +132,49 @@ Lemmas FV (Rule R pending, §3.2) and Sat_p⁺; Rule R ACCEPT WITH FIXES (REVIEW
   relevant p.
 - T3c1 dichotomy: hedged per F3 (Conjecture R remains CONJECTURE, NUMERICAL).
 - README: "in review" → "REVIEWED (Rule R ACCEPT WITH FIXES)" once applied.
+
+## Re-check (commit 1a9d16c, after merging master; §3.2 is now the REVIEWED Plan-28 version), 2026-10-14
+
+**Verdict: ACCEPT.** F1–F7 are resolved. The only residual items are bookkeeping (R1) and one optional wording
+point (R2).
+
+- **F1 — resolved.**
+  - The statement now carries ((n+1)/k)^{2(1−p)₊}, and the proof names both changes for p < 1.
+  - Checked: Σ_{j=k+1}^n log j ≤ ∫_{k+1}^{n+1}log t dt, since log is increasing. Also ∫_{k+1}^{n+1} − ∫_k^n =
+    ∫_n^{n+1}log − ∫_k^{k+1}log ≤ log(n+1) − log k. Times (1 − p), this gives ((n+1)/k)^{1−p} in Π and the squared
+    exponent 2(1 − p).
+  - The integral term reproduces the p ≥ 1 algebra verbatim: the log n terms cancel and the remainder is −n·g_p.
+    Together with step 1 (p^{−(n−1)} ≤ p^{−n}), the lemma is correct as stated.
+  - My earlier sweep showed that even the prefactor-free chain stays below the bound, so the new statement is, if
+    anything, loose.
+  - Theorem step 3: ((m+1)/k)^{2(1−p)₊} ≤ (m+1)² for k ≥ 1. Step 4's (n+1)²e^{−2(n−1)} → 0. Correct.
+- **F2 — resolved.**
+  - T3c2 is now a SKETCH. It states the averaged conclusion (1/N)Σ|log b_n²(w) − log b_n²(v)| → 0, and the
+    tail-count requirement O(n/log M) uniform along the path. It cites G2 A-U (p > 1) and G3′ §7 Lemma K (p = 2),
+    which I confirmed are in §7 at line 846. It says that nothing is stated for p ≤ 1, and it disambiguates G1's
+    Lemma K. The LOG matches.
+  - Wording note (optional): A-U bounds the Heine mass T_m; turning that into a count bound also needs A-L, as in
+    Lemma WC step 5. Fine for a sketch.
+- **F3 — resolved.** T3c1 says "conjecturally", with numerical evidence only (p = s = 2). The README now says
+  "numerical evidence".
+- **F4 — resolved.**
+  - ζ(s) is in steps 1, 3 and 4. k < m is explicit in step 3.
+  - The smoothness majorant is stated. Minor: it should also note term_S(t) ≤ max(1, sup ψ)^m·term_S(0), which gives
+    uniform domination in t. Implicit and harmless.
+- **F5 — resolved.** The example is ψ_k = 1 + ½(−1)^k/log(k+1), which is positive for all k ≥ 1.
+- **F6 — resolved.** "Not monotone in n" and "only p = 2 tested" are now stated.
+- **F7 — resolved.** The status row names RH_px, RH₁(r) and RH_plt1b, lists Lemma FV (now REVIEWED) and Sat_p⁺ as
+  internal, and adds a novelty pointer.
+
+**Residual items.**
+- **R1 (bookkeeping).** Update the "re-check pending" text in the §3.3 heading, the status row and the LOG, and
+  "in review" in the README, to "re-check ACCEPT — REVIEWED".
+- **R2 (optional).** The theorem's bullet list still says "RH_p for p > 1" and "the RH_p seam construction". The
+  file names RH_px.md and RH_plt1b.md could be added there too, for consistency with the status row.
+
+**Final labels.**
+- Lemma Sat_p⁺: PROVED; REVIEWED.
+- Theorem T3-conv: PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b, each REVIEWED; internal Lemma FV REVIEWED, Lemma
+  Sat_p⁺); REVIEWED; novelty UNCHECKED.
+- T3c2 averaged version: SKETCH. The pointwise version for slowly varying Ψ: OPEN.
+- Conjecture R: CONJECTURE (NUMERICAL), unchanged.
