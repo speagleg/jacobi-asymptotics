@@ -107,3 +107,15 @@
 - **Theorem T3a:** pointwise a-law n^p a_n → 2c(p) under T3-sv's hypotheses. b_n ≤ (a_{n−1} + a_n)/2 avoids any extra
   uniformity. Full pointwise Law P therefore holds for polynomially slowly varying weights.
 - **Rule R:** pending.
+
+## 2026-10-14 — Plan 33 (Conjecture R proved: Theorem R)
+- **Lemma R2.** |F_N''| ≤ 16‖f‖². The key is K_mq_m = 0, which makes the cross term a negative semidefinite form.
+- **Lemma R1.** ‖Δ²μ_m‖₁ ≥ η once in every J consecutive m, for the pure power. Proof by contradiction:
+  - small second differences ⇒ small first differences ⇒ |q_N| ≈ |q_{N−1}| ≈ |q_{N−2}|;
+  - the recurrence then concentrates μ_{N−1} near {a − 2b, a, a + 2b};
+  - free-Jacobi moments (2, 6, 20) give m₄ − 4m₂ → −2 ≠ 0.
+- **Theorem R.** Windows ε·sign(Δ²μ) at polynomially separated good scales. Cross-scale independence comes from Sat_p⁺
+  (head) and Lemma TL (tail). So limsup |log(β_n²/β_{n−1}²)| ≥ εη/4.
+- **G1-R as posed is FALSE.** Dichotomy: decaying or polynomially slowly varying roughness keeps the pointwise law;
+  fixed-size roughness can break it.
+- **Rule R:** pending.
