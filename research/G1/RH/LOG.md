@@ -235,3 +235,8 @@
   - F6: the κ closed form is corrected; a fit to 10⁶⁰ agrees to 1e−5.
 - **Status:** E1–E3 PROVED(-mod-G2); E4 and E5 NUMERICAL; the §4 theorem is a PROOF SKETCH (conditional on the
   log-weight hard-edge lemma, Lemma Z and uniform Airy).
+
+## 2026-10-14 — Item closed
+- Plan 13 merged to master with the labels above; no further plans. Open problems carried forward: the log-weight
+  hard-edge lemma (candidate routes: D_w-based local parametrix with a lens-boundary mismatch bound, or
+  Conway–Deift SIGMA 2018, unread), a certified Lemma Z, uniform Airy; 0 < p < 1 pure powers.
