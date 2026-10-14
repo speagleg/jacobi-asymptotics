@@ -20,6 +20,7 @@ nothing here is evidence about where the zeros lie.
 | N″ | repeated indices of positive **upper** density ⇒ the law fails, liminf ≤ −0.2397·d̄(E) (§5.2); hence G3′ ⇒ d(E) = 0 | PROVED-mod-cite (C1) + mod-input Theorem H (via G3′-U steps 1–5, item 11 H5–H7); REVIEWED; novelty UNCHECKED | Hadamard, Christoffel, G3′-U |
 | N‴ | normalized gaps g_k ≤ e^{−βk} (incl. repeats) at positive upper density ⇒ the law fails (§5.3); hence G3′ ⇒ d(T_β) = 0 for every β > 0 | PROVED-mod-cite (C1) + mod-input Theorem H; depends on §5.2; Rule R pending | N″, Z2 |
 | B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED | GLSS (6.1), Caro–Wei, §4 proof |
+| L′ | (LG*): deletable bad set of small upper density + Σ log⁺(1/g) = o(K²/log K) on the rest ⇒ G3′ (§4.1); contains both (SG) and "d(E) = 0 + log-gap" | PROVED-mod-cite + mod-input (LG*), Theorem H; Rule R pending | G3′-L, Lemma Tr, Lemma K, Lemma W |
 | C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED | GLSS, G3′-L |
 | P | RH + prime short-interval variance (V) ⇒ G3′ (§9.1; corollary of KNOWN (C8) + Theorem C) | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; REVIEWED (Rule R, review/REVIEW_Plan18.md); novelty UNCHECKED (RH + (V) ⇒ PCC is KNOWN) | §8.2 |
 | Thm S | SPC_ℂ⁺ (upper half of the dyadic complex-weighted SPC, BGST F; no RH) ⇒ 100% simple critical, gaps ≪ δ³, (SG) ⇒ G3′ (rhfree/RHFREE.md) | PROVED-mod-cite ((C3), (C6) (2.4), (C1)) + mod-input SPC_ℂ⁺, Theorem H; REVIEWED; novelty UNCHECKED | Lemma PC, Lemma G, G3′-L |
@@ -221,6 +222,85 @@ and (1+θ)/(1−θ) = s − 3. For s = 4 the bound is the reference itself. ∎
 
 **Corollary G3′-UL.** Under (SG), log D_n(σ) = Φ_n + o(n²), i.e. (2/n²)Σ(n−j) log(b_j/x_j) → log(π²/16) for the
 true-zero measure.
+
+
+### 4.1 Theorem L′ (Plan 25): a log-gap condition suffices — PROVED-mod-cite + mod-input (LG*), Theorem H; Rule R pending
+
+G3′-L uses (SG) to delete small gaps. Here, small *positive* gaps are allowed at any density, provided their
+log-sizes are summable at the scale o(K²/log K).
+
+**Hypothesis (LG*).** For every η > 0 there is a set B_η ⊂ ℕ with the following properties:
+- d̄(B_η) ≤ η;
+- B_η contains every k with γ_{k+1} = γ_k (so that g_k > 0 off B_η);
+- Σ_{k≤K, k∉B_η} log⁺(1/g_k) = o(K²/log K) as K → ∞.
+
+**Special cases.**
+- (SG) ⇒ (LG*): take B_η := {g_k < δ(η)}. Off B_η, log⁺(1/g_k) ≤ log(1/δ), so the sum is O(K).
+- **(LG)** "d(E) = 0 and Σ_{k≤K, γ_{k+1}>γ_k}log⁺(1/g_k) = o(K²/log K)" ⇒ (LG*): take B_η := E − 1.
+  (LG) allows small positive gaps at any density, for example g_k ≍ k^{−100} or e^{−√k} on half of all k, which (SG)
+  excludes.
+
+**Lemma Tr (truncation of the comparison measure).** Let ν := Σ_j v_jδ_{j^{−2}}, where (v_j) satisfies both halves of
+(Hw) with a fixed s. Let M ≥ 4, n large, and J ≥ (M/2)n, and put ν_J := Σ_{j≤J}v_jδ_{j^{−2}}. Then
+
+  log D_n(ν_J) ≥ log D_n(ν) − (C_s n + 2)·E_ν#(S ∩ (J, ∞)) ≥ log D_n(ν) − C′_s n²/log(M/2) − o(n²),
+
+where E_ν is expectation under the Heine (determinantal) measure P_ν(S) := term_ν(S)/D_n(ν).
+
+*Proof.*
+1. **Determinantal form.** By the Gram/Sylvester steps of §5.2 Lemma H, D_n(ν_J)/D_n(ν) = det(I − K_A), where
+   A := (J, ∞) and K_A := (√(v_kv_l)K_n(x_k, x_l))_{k,l∈A}. The matrix K_A is positive semidefinite with
+   ‖K_A‖ ≤ 1, and tr K_A = Σ_{l∈A}ρ_n(l) = E_ν#(S ∩ A).
+2. **Spectral gap.** Take the n nodes x_i = i^{−2}, n < i ≤ 2n ≤ J. For a tail atom x = l^{−2} (l > J), 0 < x < x_i,
+   so the Lagrange basis satisfies
+   |ℓ_i(x)| ≤ Π_{m≠i}x_m/|x_i − x_m| = Π_{m≠i}i²/(|m − i|(m + i)) ≤ Π_{m≠i}2n/|m − i| ≤ (8e)^n.
+   - Hence for deg P < n: P(x)² ≤ n²(8e)^{2n}max_iP(x_i)² ≤ n²(8e)^{2n}(Σ_{i≤J}v_iP(x_i)²)/min_{n<i≤2n}v_i.
+   - So Σ_{l∈A}v_lP(x_l)² ≤ e^{C_sn}Σ_{i≤J}v_iP(x_i)², using W_A ≤ Σv and min v ≥ c₁(2n)^{−s}.
+   - Since λ_max(K_A) = sup_P Σ_A vP²/∫P²dν, this gives λ_max ≤ e^{C_sn}/(1 + e^{C_sn}).
+3. **Convexity.** f(λ) := −log(1 − λ) is convex, so f(λ) ≤ λ·max(f(λ_max)/λ_max, 2 log 2·2) on [0, λ_max].
+   - Here f(λ_max) ≤ C_sn + 1.
+   - Hence log det(I − K_A) = −Σf(λ_i) ≥ −(C_sn + 2)tr K_A.
+4. **Few tail points.** By Lemma K (§7, from item 11 H7, with M/2 in place of M), index sets with ≥ t₀n elements
+   beyond (M/2)n carry a fraction o(1) of D_n(ν), with t₀ = A/log(M/2). So E_ν#(S ∩ A) ≤ t₀n + o(n). ∎
+
+NUMERICAL (exact, 200 digits; `checks/check_trunc.out`; v_j = j^{−4}, n ≤ 16, J ∈ {2, 3, 4, 6}n):
+- −log(1 − λ_max)/n ≤ 0.31;
+- the convexity bound holds in all 12 cases;
+- log det(I − K_A) is O(1), so the bound above is far from sharp.
+
+**Theorem L′.** Assume (LG*). Then liminf_n (1/n²)[log D_n(σ) − Φ_n] ≥ 0. With G3′-U, G3′ holds (mod Theorem H).
+
+*Proof (changes to the proof of G3′-L).* Fix η ∈ (0, ¼) and M ≥ 8.
+1. **Good set.** E_g := {k ≥ k₂ : k ∉ B_η}, enumerated by π. d̄(B_η) ≤ η gives π(j) ≤ (1 + 2η)j for j ≥ j₀, as in
+   G3′-L step 1. For k ∈ E_g, γ_{k+1} > γ_k, so g_k > 0.
+2. **Restriction to a window.** D_n(σ) ≥ Σ_{S⊂E_g∩[1,Mn], |S|=n}term_σ(S). This holds since all Heine terms are ≥ 0.
+3. **Pair ratios.** As in G3′-L step 3, except near pairs. For a < b in E_g, γ_b − γ_a ≥ γ_{a+1} − γ_a =
+   2πg_a/log(γ_a/2π). So a near pair costs ≤ log⁺(1/g_a) + log(C log γ̃_a) in log, doubled for squares.
+4. **Total cost** (no folding into weights). In S ⊂ [1, Mn], each a has ≤ C log(Mn) near partners. So the near costs
+   total
+   ≤ C log(Mn)·Σ_{a≤Mn, a∈E_g}log⁺(1/g_a) + O(n log n log log n) = o(n²), by (LG*), for fixed M and η.
+   - Far costs are O(log²n) per element (G3′-L step 4), so O(n log²n) in total.
+   - The n/γ̃_a terms total O(n log²n).
+   - Hence term_σ(S) ≥ e^{−o(n²)}·Π(far/near-free factors)·term(S) uniformly for S in the window.
+5. **Smooth atoms and reindexing** (G3′-L steps 5–6, with y_j := x̃_{π(j)}, j ≤ J := |E_g ∩ [1, Mn]|). Then
+   J ≥ (1 − 2η)Mn ≥ (M/2)n. The weights are 2x̃_{π(j)} ≥ c j^{−2} ≥ c j^{−4}, with no n-dependent exponent now. So
+   log D_n(σ) ≥ log D_n(ν_J) + 2Σ_{j<n}(n−j)[log L(j) + log(1 − ε*(j)/2)] − 3n² log(1+2η) − o(n²),
+   with ν := Σ_j j^{−4}δ_{j^{−2}}.
+6. **Lemma Tr** (s = 4; (Hw) holds since j^{−4} ≤ j^{−2}) and **Lemma W** (s = 4):
+   log D_n(ν_J) ≥ Λ_n − C′n²/log(M/2) − o(n²).
+7. Hence liminf ≥ −3 log(1 + 2η) − C′/log(M/2). Let M → ∞, then η → 0. ∎
+
+**Remarks.**
+- **L′1 (the picture after Plans 23–25).**
+  - **Necessary:** d(E) = 0 (N″), and d(T_β) = 0 for every β > 0 (N‴, gaps ≤ e^{−βk}).
+  - **Sufficient:** (LG*), which contains (SG) and (LG).
+  - **What remains:** positive-density gaps with Σ log(1/g) between o(K²/log K) and O(βK²). For example,
+    g_k = e^{−k/log k} on half of all k is covered by neither side. The log K loss comes from up to ≍ log a near
+    partners in clusters (step 4).
+- **L′2.** Lemma Tr removes the obstruction recorded in N‴1. Truncating at Mn costs only O(n²/log M), because the
+  determinantal tail has a spectral gap e^{−O(n)} (Lagrange on n nodes in (n, 2n]) and few expected points.
+- **L′3.** (LG*) is a hypothesis about the zeros. Like (SG), it is not available unconditionally ((C3)). Novelty:
+  UNCHECKED.
 
 ## 5. Proposition N (counting information does not decide G3′) — PROVED-mod-input (Theorem H, p = 2)
 

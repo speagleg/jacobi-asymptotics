@@ -1,0 +1,12 @@
+n= 8 J=2n: 1−λmax=    0.2905 (−log/n=0.155)  tr K_A=7.2423e-01  log det(I−K_A)=-1.2509e+00 ≥ bound -1.2618e+00: True
+n= 8 J=3n: 1−λmax=    0.6466 (−log/n=0.055)  tr K_A=3.5431e-01  log det(I−K_A)=-4.3693e-01 ≥ bound -4.3715e-01: True
+n= 8 J=4n: 1−λmax=    0.8179 (−log/n=0.025)  tr K_A=1.8227e-01  log det(I−K_A)=-2.0120e-01 ≥ bound -2.0121e-01: True
+n= 8 J=6n: 1−λmax=    0.9373 (−log/n=0.008)  tr K_A=6.2709e-02  log det(I−K_A)=-6.4761e-02 ≥ bound -6.4761e-02: True
+n=12 J=2n: 1−λmax=   0.05717 (−log/n=0.238)  tr K_A=1.0953e+00  log det(I−K_A)=-3.0271e+00 ≥ bound -3.3245e+00: True
+n=12 J=3n: 1−λmax=    0.3354 (−log/n=0.091)  tr K_A=6.7647e-01  log det(I−K_A)=-1.1044e+00 ≥ bound -1.1120e+00: True
+n=12 J=4n: 1−λmax=    0.5927 (−log/n=0.044)  tr K_A=4.0896e-01  log det(I−K_A)=-5.2473e-01 ≥ bound -5.2520e-01: True
+n=12 J=6n: 1−λmax=    0.8392 (−log/n=0.015)  tr K_A=1.6088e-01  log det(I−K_A)=-1.7539e-01 ≥ bound -1.7540e-01: True
+n=16 J=2n: 1−λmax=  0.007419 (−log/n=0.306)  tr K_A=1.5151e+00  log det(I−K_A)=-5.6314e+00 ≥ bound -7.4850e+00: True
+n=16 J=3n: 1−λmax=    0.1287 (−log/n=0.128)  tr K_A=9.3834e-01  log det(I−K_A)=-2.1194e+00 ≥ bound -2.2078e+00: True
+n=16 J=4n: 1−λmax=    0.3598 (−log/n=0.064)  tr K_A=6.5049e-01  log det(I−K_A)=-1.0325e+00 ≥ bound -1.0386e+00: True
+n=16 J=6n: 1−λmax=    0.7001 (−log/n=0.022)  tr K_A=3.0051e-01  log det(I−K_A)=-3.5713e-01 ≥ bound -3.5725e-01: True
