@@ -64,7 +64,11 @@ status is therefore written as "not among the results surveyed in (C3); the best
 > corrected from those in the original statement"; footnote 2: "All the applications of Theorem 1 in [BGSTB24], such
 > as Lemma 5 and Lemma 7, remain correct".
 
-**Used in:** rhfree/RHFREE.md Lemma PC (MT on |α| ≤ 1; positivity F ≥ 0 to bound the Q″ term).
+> §2.1: "Let Z(T) denote the multiset of those ρ ∈ Z for which T < γ ≤ 2T".
+
+**Used in:** rhfree/RHFREE.md:
+- Lemma PC: MT on |α| ≤ 1; positivity F ≥ 0 to bound the Q″ term; evenness F(x, T) = F(1/x, T).
+- §0 and Theorem S: the multiset convention for Z(T).
 
 The secondary-source pointer to Bui–Conrey–Young, arXiv:1002.4127, was checked: its abstract concerns zeros on the
 critical line (> 41%). It is not used.

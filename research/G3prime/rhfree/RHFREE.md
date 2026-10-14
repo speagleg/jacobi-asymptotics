@@ -1,9 +1,10 @@
-# RHFREE: G3′ from an RH-free, one-sided pair-correlation hypothesis (Plan 19) — Rule R pending, NOT REVIEWED
+# RHFREE: G3′ from an RH-free, one-sided pair-correlation hypothesis (Plan 19) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan19.md); F1–F8, N1–N3 applied, re-check pending
 
 **Question.** (Q2) of PROOF.md §9.3: does strong pair correlation, in BGST's unconditional complex-weighted form, imply
 (SG), and hence G3′, without RH?
 
-**Answer obtained here (Theorem S, §3).** Yes, and only the **upper half** is needed:
+**Answer obtained here (Theorem S, §3).** Yes, conditionally on SPC_ℂ⁺, and only the **upper half** of the dyadic
+complex-weighted SPC is needed:
 
   SPC_ℂ⁺ ⇒ (a) 100% of zeros are simple and on the critical line; (b) #{small normalized gaps < δ} ≪ δ³·N;
   (c) (SG), hence G3′.
@@ -14,7 +15,7 @@
 - This bypasses the "Lemma A′" obstruction of the first draft (§5).
 
 **Label.** Lemma PC: PROVED-mod-cite. Lemma G: PROVED. Theorem S: PROVED-mod-cite + mod-input SPC_ℂ⁺, Theorem H.
-Rule R review pending. Novelty: UNCHECKED.
+Rule R: ACCEPT WITH FIXES, fixes applied, re-check pending. Novelty: UNCHECKED.
 
 ## 0. Objects, inputs, hypothesis
 
@@ -30,7 +31,11 @@ Rule R review pending. Novelty: UNCHECKED.
 - **Normalized form.** 𝓕(α) := F(T^α, T)/N_T, a continuous function of α ∈ ℝ, with 𝓕 ≥ 0 and 𝓕(−α) = 𝓕(α).
 - **Hypothesis SPC_ℂ⁺ (one-sided, RH-free).** For every M ≥ 1: limsup_{T→∞} sup_{1≤α≤M} 𝓕(α) ≤ 1.
   - Two-sided SPC_ℂ (𝓕 = 1 + o(1) on [1, M]) implies it.
-  - On RH, SPC_ℂ⁺ is the upper half of Montgomery's strong pair correlation.
+  - On RH, F(x, T) is the dyadic-window (T < γ ≤ 2T) analogue of Montgomery's F, and SPC_ℂ⁺ is the upper half of
+    the *dyadic* SPC (Rule R F1).
+    - On RH, two-sided full-window SPC implies the dyadic version: the cross terms are O(log³T).
+    - The one-sided full-window version does not obviously imply the dyadic upper half, since differencing would need
+      a lower bound on the full-window F.
   - Without RH it is a statement about the zero multiset with complex weights x^{ρ−ρ′}.
   - It is a hypothesis, labelled as such (AGENTS.md framing): ordinates are inputs, and RH is not assumed.
 - **Fourier identity (exact; no hypothesis).** Take f ∈ L¹(ℝ) even, compactly supported, and
@@ -65,7 +70,9 @@ Rule R review pending. Novelty: UNCHECKED.
    - On |α| ≤ 1, MT gives ∫𝓕 = O(1). The spike (T/2πx²)log²T integrates to O(N_T) against dα.
    - On 1 ≤ |α| ≤ 2λ, SPC_ℂ⁺ gives ∫𝓕 ≤ 4λ.
    - So this term is O_η(N_T/log²T) = o(N_T).
-3. **|α| ≤ 1** (directly from MT; cf. BGSTB24 Lemma 5 = Lamzouri Lemma 3.1, whose statement this reproduces).
+3. **|α| ≤ 1** (derived directly from MT). This is the dyadic analogue, with f = Q·1_{[−1,1]}, of BGSTB24 Lemma 5
+   (= Lamzouri Lemma 3.1), which is stated for 0 < γ ≤ T with support in [−1, 1]. The proof of BGSTB24 Lemma 5 has
+   not been read and is not used.
    - By evenness, ∫_{−1}^{1}Q𝓕 = 2∫_0^1Q(α)𝓕(α)dα.
    - With x = T^α and N_T = (T/2π)log T·(1 + O(1/log T)), MT gives
      𝓕(α) = log T·T^{−2α}(1 + O(1/√log T)) + α(1 + O(1/log T)) + O(1/√log T).
@@ -85,7 +92,7 @@ Rule R review pending. Novelty: UNCHECKED.
 - The cos² η gives 1 + D = 1.7067 at λ = ½.
 - Lamzouri optimizes η to get C_MT = 1.3275.
 
-## 2. Lemma G (spectral small-gap lemma; deterministic) — PROVED
+## 2. Lemma G (spectral small-gap lemma; deterministic) — PROVED (self-contained after F3)
 
 **Setting.**
 - Z is a finite multiset of complex numbers, invariant under complex conjugation (mult(z̄) = mult(z)).
@@ -102,24 +109,32 @@ Rule R review pending. Novelty: UNCHECKED.
 
 *Proof.*
 
-**Step 1 (a real operator).**
-- H_ℝ := {Φ ∈ L²(−λ, λ) : Φ(−u) = conj Φ(u)} is a real Hilbert space. ⟨Φ₁, Φ₂⟩ = ∫Φ₁Φ̄₂ is real on it (Lamzouri
-  (2.15)), and H_ℝ ⊕ iH_ℝ = L²(−λ, λ).
-- With f_z(u) := η(u)e^{−2πiuz}: for real x, f_x ∈ H_ℝ. For non-real z, g_z := (f_z + f_z̄)/2 and
-  h_z := (f_z − f_z̄)/(2i) lie in H_ℝ. (Lamzouri (2.8), (2.14), read.)
-- Write Z = {x with mult m_x} ∪ {z, z̄ with mult m_z}, with Im z > 0. Define the real self-adjoint finite-rank operator
+**Step 1 (a real operator; self-contained, Rule R F3).**
+- H_ℝ := {Φ ∈ L²(−λ, λ) : Φ(−u) = conj Φ(u)} is a real Hilbert space. ⟨Φ₁, Φ₂⟩ = ∫Φ₁Φ̄₂ is real on it: substitute
+  u → −u. Also H_ℝ ⊕ iH_ℝ = L²(−λ, λ).
+- Put f_z(u) := η(u)e^{−2πiuz}. Then:
+  - ⟨f_z, f_w⟩ = ∫η²e^{−2πiu(z − w̄)} = K(z − w̄);
+  - conj f_z(−u) = f_{z̄}(u).
+- Hence f_x ∈ H_ℝ for real x. For non-real z, g_z := (f_z + f_z̄)/2 and h_z := (f_z − f_z̄)/(2i) lie in H_ℝ. (This
+  matches Lamzouri (2.8), (2.14).)
+- Define the finite-rank operator on L²:
 
-    A := Σ_x m_x f_x⊗f_x + 2Σ_z m_z(g_z⊗g_z − h_z⊗h_z),  where (v⊗v)Φ := ⟨Φ, v⟩v.
+    A := Σ_{z∈Z} f_z ⊗ f_{z̄},  where (u⊗v)Φ := ⟨Φ, v⟩u (with multiplicity).
 
-- Lamzouri's (2.10)–(2.13) and (2.21) (read) give:
-  - **tr A = N**, from ‖f_x‖² = 1 and ‖g_z‖² − ‖h_z‖² = 1;
-  - **‖A‖²_HS = S**, from S = ∫∫|F(u, v)|²du dv with F(u, v) = Σ_{z∈Z}f_z(u)f_z(v).
-- The HS norm on H_ℝ equals that on L², since a real orthonormal basis of H_ℝ is a complex orthonormal basis of L².
-- So S is real and ≥ 0.
+  Its kernel is F(u, −v), with F(u, v) := Σ_z f_z(u)f_z(v).
+- Grouping z with z̄ gives A = Σ_x m_x f_x⊗f_x + 2Σ_{Im z>0} m_z(g_z⊗g_z − h_z⊗h_z). This operator maps H_ℝ to itself
+  and is self-adjoint there.
+- **tr A = Σ_z⟨f_z, f_{z̄}⟩ = Σ_z K(0) = N.**
+- **‖A‖²_HS = tr A² = Σ_{z,s}⟨f_s, f_{z̄}⟩⟨f_z, f_{s̄}⟩ = Σ_{z,s}K(s − z)K(z − s) = S**, using that K is even. Here
+  tr A² = ‖A‖²_HS because A is self-adjoint on H_ℝ, whose complexification is L²: a real orthonormal basis of H_ℝ is a
+  complex orthonormal basis of L². So S is real and ≥ 0.
+- **Linear independence.** The distinct f_z are linearly independent: η ≢ 0 on a set of positive measure, and distinct
+  exponentials are independent. Hence the family {f_x, g_z, h_z} (distinct x, and distinct z with Im z > 0) is
+  linearly independent. (Lamzouri states the same; it is not needed as a citation.)
 
 **Step 2 (spectrum on W).**
 - W := span{f_x, g_z, h_z} has dimension N_d. These vectors are linearly independent (Lamzouri, read).
-- A = VJVᵀ with V injective and J = diag(m_x, 2m_z, −2m_z) invertible, so A|_W has N_d nonzero real eigenvalues μ_i,
+- A|_W = VJV* with V injective and J = diag(m_x, 2m_z, −2m_z) invertible, so A|_W has N_d nonzero real eigenvalues μ_i,
   and A = 0 on W^⊥.
 - Hence Σ_i(μ_i − 1)² = Σμ_i² − 2Σμ_i + N_d = S − 2N + N_d = E ≥ 0.
 - So #{i : |μ_i − 1| ≥ ½} ≤ 4E.
@@ -144,6 +159,10 @@ Rule R review pending. Novelty: UNCHECKED.
 **NUMERICAL** (`checks/check_spectral_sg.py` → `.out`).
 - [2] On synthetic multisets (Poisson, GUE-like, clustered; with off-line conjugate pairs and doubled points), tr A = N
   and tr A² = S hold to roundoff via eig(J·Gram). Im S = 0, and Lemma G holds in all 27 cases.
+  - (Rule R N2) Rows with cond(Gram) ≈ 10¹⁶–10¹⁸ make the eig(J·Gram) spectrum, and hence the outG1 column there,
+    numerically unreliable. The trace identities and the Lemma G inequality, computed from S and the counts, are
+    unaffected.
+  - Seed 19; run time ≈ 7 s.
 - [3b] GUE-like + m injected near-pairs: each pair produces exactly one Gram eigenvalue ≤ ¼ and adds ≈ 2 to S − N, as
   in the proof.
 
@@ -151,7 +170,7 @@ Rule R review pending. Novelty: UNCHECKED.
 
 **Theorem S.** Assume SPC_ℂ⁺. Then:
 - (a) N^{s,crit}(T) = N(T)(1 + o(1)): almost all zeros are simple and on the critical line.
-- (b) There is an absolute C such that for 0 < δ ≤ δ₀, the normalized gaps g_k of PROOF.md §4 satisfy
+- (b) There is an absolute C such that for every δ > 0, the normalized gaps g_k of PROOF.md §4 satisfy
   limsup_K K⁻¹#{k ≤ K : g_k < δ} ≤ Cδ³.
 - (c) (SG) holds. Hence log D_n(σ) = Φ_n + o(n²): G3′ holds for the true zeros.
 
@@ -173,12 +192,16 @@ Rule R review pending. Novelty: UNCHECKED.
   (g_k = 0), number ≤ 2(N − N₁) ≤ 2ND + o(N).
 - For γ ∈ (T, 2T], log(γ/2π)/2π = L(1 + O(1/log T)), so g_k < δ implies (γ_{k+1} − γ_k)L < 2δ for large T.
 - Per dyadic block this gives ≤ 22D(η_λ)N_T + o(N_T) ≤ (22·‖Q₁″‖_∞(8π)³/12)δ³N_T + o(N_T).
+- A pair of zeros that is consecutive in the full list (all zeros, with multiplicity) and simple-critical at both
+  ends is consecutive in the sublist of simple critical zeros. So Lemma G counts it.
+- Pairs straddling a block boundary: O(1) per block.
 - Sum over the dyadic blocks (T/2^j, T/2^{j−1}] with j ≤ log₂R. The rest, γ ≤ T/R, has ≤ (1/R + o(1))N(T) indices.
   Index K and height T correspond via (C1), as in Theorem C's proof.
 
 (c)
 - (b) gives (SG): given η, take δ with Cδ³ ≤ η/2.
-- Then G3′-L (§4, mod Theorem H) and G3′-U (§3) give the law. ∎
+- Then G3′-L (§4, mod Theorem H) and G3′-U (§3) give the law.
+- Part (a) is not needed for (c); (b) already counts repeats. ∎
 
 **Remarks.**
 - **S1 (only the upper half).** (SG) is an *upper* bound on small-gap counts, and Theorem S uses only the *upper* half
@@ -193,10 +216,10 @@ Rule R review pending. Novelty: UNCHECKED.
     individually.
   - Lamzouri's Hilbert-space positivity absorbs them.
 - **S4 (scope).** Theorem S does not prove G3′ unconditionally. SPC_ℂ⁺ for M > 1 is open, as is two-sided SPC on RH.
-  - What is new (novelty UNCHECKED) is that **neither RH nor the lower half of SPC is needed**.
+  - What is new (novelty UNCHECKED) is that **neither RH nor the lower half of the (dyadic) SPC is needed**.
   - The zero-side hypothesis is the BGST-weighted, RH-free quantity, used only as an upper bound.
 
-## 4. Open: does SPC_ℂ⁺ imply RH? (HEURISTIC; not attempted rigorously)
+## 4. Open: does SPC_ℂ⁺ confine the zeros near the line? (HEURISTIC/OPEN; not attempted rigorously)
 
 **Heuristic.**
 - A single off-line pair at δ_ρ = c > 0, isolated from other off-line zeros, makes ‖g_z‖², ‖h_z‖² ≍ K(2icL) =
@@ -207,11 +230,13 @@ Rule R review pending. Novelty: UNCHECKED.
   third range D_V < j ≤ D_W. This means controlling ‖P_{V^⊥}h_z‖, i.e. how far h_z lies from the span of the other
   vectors.
 
-**Status.**
-- If SPC_ℂ⁺ ⇒ "no zeros with β ≥ ½ + c" for each c > 0, the RH-free gain of Theorem S would be formal, as with (V)
-  (C8 fn 6).
-- Even then, S4 (one-sided, bounded range) stands.
-- Open; recorded for a future plan.
+**Status (Rule R F2).**
+- Made rigorous, this heuristic would give at most max_{T<γ≤2T}|β − ½| → 0 (for each c > 0 eventually no zeros with
+  |β − ½| ≥ c in the window). That is a quasi-RH statement, *not* RH: zeros at distance o(1) from the line are not
+  excluded.
+- Unlike (V), which implies RH outright (C8 fn 6), SPC_ℂ⁺ is not claimed to make RH redundant. The RH-free content of
+  Theorem S stands either way, as does S4 (one-sided, bounded range).
+- Open; no claim about RH is made.
 
 ## 5. Superseded first-draft route (for the record)
 
@@ -219,7 +244,7 @@ The first draft tried to:
 - restrict Goldston's Theorem-4 Fourier argument to critical–critical pairs;
 - bound off-line contributions through a local zero-density "Lemma A′": Σ_{β≠½}T^{2M|β−½|}n(ρ) = o(N_T).
 
-Selberg-type density (exponent ¼ in u = (β − ½)log T) cannot beat T^{2M|β−½|} for M ≥ ⅛, so that route stalled.
+Selberg-type density (exponent ¼ in u = (β − ½)log T, from recollection, not cited and not used) cannot beat T^{2M|β−½|} for M ≥ ⅛, so that route stalled.
 Lemma G replaces it.
 
 ## 6. (Q1) after Theorem S (HEURISTIC remark)
