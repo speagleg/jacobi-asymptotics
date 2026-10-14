@@ -22,7 +22,7 @@ nothing here is evidence about where the zeros lie.
 | B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED | GLSS (6.1), Caro–Wei, §4 proof |
 | L′ | (LG*): deletable bad set of small upper density + Σ log⁺(1/g) = o(K²/log K) on the rest ⇒ G3′ (§4.1); contains both (SG) and "d(E) = 0 + log-gap" | PROVED-mod-cite (C1) + mod-input (LG*), Theorem H; REVIEWED; novelty UNCHECKED | G3′-L, G3′-U, Lemma Tr, Lemma K, Lemma W |
 | Tr | truncation of the pure-power comparison at J ≥ (M/2)n costs ≤ (C_s n + 2)·E#tail = O(n²/log M) (§4.1) | PROVED-mod-input Theorem H (via Lemma K / item 11 H7); REVIEWED | Lemma H, Lemma K |
-| Ch | **characterization:** G3′ ⟺ 𝒞(K) = o(K²), with 𝒞 the capped near-pair energy (§5.4). Contains N″, N‴, L′ qualitatively | PROVED-mod-cite (C1) + mod-input Theorem H; Rule R ACCEPT WITH FIXES, re-check pending; novelty UNCHECKED | Lemma H, Lemma Sat, Lemma Tr, Lemma K, Lemma W, Lemma S, Z1, Z2, G3′-U, G3′-L |
+| Ch | **characterization:** G3′ ⟺ 𝒞(K) = o(K²), with 𝒞 the capped near-pair energy (§5.4). Contains N″, N‴, L′ qualitatively | PROVED-mod-cite (C1) + mod-input Theorem H; REVIEWED; novelty UNCHECKED | Lemma H, Lemma Sat, Lemma Tr, Lemma K, Lemma W, Lemma S, Z1, Z2, G3′-U, G3′-L |
 | C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED | GLSS, G3′-L |
 | P | RH + prime short-interval variance (V) ⇒ G3′ (§9.1; corollary of KNOWN (C8) + Theorem C) | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; REVIEWED (Rule R, review/REVIEW_Plan18.md); novelty UNCHECKED (RH + (V) ⇒ PCC is KNOWN) | §8.2 |
 | Thm S | SPC_ℂ⁺ (upper half of the dyadic complex-weighted SPC, BGST F; no RH) ⇒ 100% simple critical, gaps ≪ δ³, (SG) ⇒ G3′ (rhfree/RHFREE.md) | PROVED-mod-cite ((C3), (C6) (2.4), (C1)) + mod-input SPC_ℂ⁺, Theorem H; REVIEWED; novelty UNCHECKED | Lemma PC, Lemma G, G3′-L |
@@ -623,7 +623,7 @@ with g as in §5.2. Hence **G3′ ⇒ d(T_β) = 0 for every β > 0.**
       its weight merged into atom k; compare C(k+1, n) = 78.13 and 36.24.
 - **N‴2.** No hypothesis on the zeros beyond (C1) is used, plus Theorem H through G3′-U. Novelty: UNCHECKED.
 
-### 5.4 Theorem Ch (Plan 26): an exact characterization of G3′ — PROVED-mod-cite (C1) + mod-input Theorem H; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan26.md), fixes applied, re-check pending; novelty UNCHECKED
+### 5.4 Theorem Ch (Plan 26): an exact characterization of G3′ — PROVED-mod-cite (C1) + mod-input Theorem H; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan26.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED
 
 **Definitions.** Ordinates are indexed with multiplicity, as in §1.
 - For a < b put d_ab := (γ_b − γ_a)·log(γ_a/2π)/2π ≥ 0, the normalized distance.
@@ -706,8 +706,9 @@ and W := [k₂, K].
     82.0 and 151.0 for m = 2, 3, 4.
     - The pair counts 1, 3, 6 times 27.6 give 27.6, 82.9 and 165.8. For m = 4 the model is already capped at
       ε = 10⁻⁸ (its minimum is at s = 2), so that comparison is not like for like.
-    - For tiny ε the loss saturates at 77.7, 147.0 and 209.3. That is *at or above* the summed single-slot deletion
-      costs 78.1, 139.0 and 186.3, as Lemma H's superadditivity predicts.
+    - For tiny ε the loss saturates at 77.7, 147.0 and 209.3. That is close to (m = 2) or above (m = 3, 4) the summed
+      single-slot deletion costs 78.1, 139.0 and 186.3 (cf. Lemma H; only a heuristic guide here, since the cluster
+      merges weights rather than deleting).
   - Illustration only: moving atoms also shifts slots.
 - **Ch2 (F10).** 𝒞 depends only on the ordinates, through (C1)-normalized distances, and on the fixed constants C₀
   and k₂. The o(K²) condition does not depend on those constants, or on the drop price cK for any c > 0. G3′ is thus equivalent to a

@@ -215,3 +215,55 @@ no literature search was done.
 `.venv/bin/python ../ja-plan26/research/G3prime/checks/check_clusters.py` from jacobi-asymptotics: output
 byte-identical to the committed `checks/check_clusters.out`. θ_c, θ₀ recomputed with mpmath findroot:
 θ_c = 0.292563190…, θ₀ = 0.315379374….
+
+## Re-check (commit a3f920f)
+
+Reviewer: same Rule R reader, 2026-10-14. Verified each fix against §5.4, the Ch row, L′1, N‴1, the G3′ status
+paragraph, LOG and README (diff 3e5a91c..a3f920f).
+
+**Verdict: ACCEPT.** F1–F12 are applied correctly. One cosmetic wording item remains (R1); it is optional.
+
+| Finding | Status | Note |
+|---|---|---|
+| F1 | ✓ | "b ≤ 2a for large a, small a into C"; min(ρ*, ε) ≤ ρ*·min(1, ε) with ρ* keeping its uniform bound. |
+| F2 | ✓ | bracket ≥ 𝒞(K) − O(n log n), using \|W ∖ T\| ≤ n; o(n²), so step 4 is unchanged. |
+| F3 | ✓ | Δ′ = Δ_n + k₂, factor 6, sum ≤ 6nΔ′(2 + log(n/Δ′)) = o(n²). Weights checked below. |
+| F4 | ✓ | Δ_n rename (Δ′ is used without its subscript in two lines; harmless). |
+| F5 | ✓ | hypothetical (C1) sequence, g_k ≥ δ elsewhere, Ch applies via (C1) + Theorem H. |
+| F6 | ✓ | disjoint pairs, spacing ≥ 2, d_{k,k+1} = g_k, kept cost ≥ βk. |
+| F7 | ✓ | "qualitatively" in the row and in the corollaries; −θ_c²η vs −c*η; Depends-on adds Lemma S, Z1, Z2. The N″ corollary is now ηK² (one drop per repeated index; the boundary at k₂ is O(1)). |
+| F8 | ✓ (see R1) | 151.0; the m = 4 capped-regime caveat is stated; saturation is compared with summed single deletions. |
+| F9 | ✓ | L′1 "What remained … now closed by Ch"; N‴1 window closed, heuristic "superseded: pair-based"; the status paragraph adds Ch. |
+| F10 | ✓ | constants C₀, k₂ and price independence; "holds under …" via those theorems + Ch(ii) contrapositive; pair- vs gap-based. |
+| F11 | ✓ | LOG uses W = [k₂, ⌊θn⌋] and P_ε; Rule R line updated. |
+| F12 | ✓ | README has "(mod Theorem H)" and "ACCEPT WITH FIXES, re-check pending". |
+
+**F3 weight line, checked.** For j ≥ Δ′: (j + Δ′)^{−2} ≥ (2j)^{−2} ≥ j^{−4}/4, a constant factor.
+- For j < Δ′: (j + Δ′)²/j⁴ ≤ (1 + Δ′/j)², so the loss is ≤ 2 log(1 + Δ′/j) per element.
+- The p-th element of S has rank ≥ p, so the total is ≤ 2Σ_{p<Δ′}log(1 + Δ′/p) = O(Δ′) = o(n).
+- The stated O(Δ′ log(n/Δ′)) is a valid overestimate. ✓
+
+**R1 (cosmetic; Ch1).** "the loss saturates at 77.7, 147.0 and 209.3. That is *at or above* the summed single-slot
+deletion costs 78.1, 139.0 and 186.3".
+- For m = 2 the loss (77.68) is slightly *below* 78.13.
+- Lemma H's superadditivity is for exact deletion, whereas the clustered configuration merges weights. So it is a
+  heuristic guide here, not a prediction.
+- *Suggested wording:* "close to (m = 2) or above (m = 3, 4) the summed single-slot deletion costs … (cf. Lemma H's
+  superadditivity for exact deletion)". No mathematical consequence.
+
+**Not required (from the first pass, left as is).** The L′ corollary keeps "+ O(1)" and "+ O(K log K)". These are
+valid overestimates.
+
+**Final labels.**
+- **Theorem Ch (§5.4):** PROVED-mod-cite (C1) + mod-input Theorem H; Rule R ACCEPT WITH FIXES, fixes applied,
+  re-check ACCEPT — **REVIEWED**; novelty UNCHECKED.
+- **Corollaries N″/N‴/L′/sliver:** PROVED (qualitative recoveries), same labels; REVIEWED.
+- **Remark Ch1:** NUMERICAL (exact, mpmath 300 digits; illustration only). The reviewer's re-run is byte-identical.
+- **Remark Ch2:** interpretive. Its "holds under …" clause is PROVED via the cited REVIEWED theorems and Ch(ii).
+
+**Status strings to update to REVIEWED** ("re-check pending" → "re-check ACCEPT — REVIEWED"):
+- the §5.4 heading;
+- the Ch row;
+- LOG Plan-26 "Rule R";
+- README;
+- plan T4.

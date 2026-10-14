@@ -192,4 +192,4 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
   o(n²); then Lemma Tr.
 - **Result:** G3′ ⟺ 𝒞(K) = o(K²). N″, N‴ and L′ are corollaries; the former sliver example satisfies G3′.
 - **Numerics:** `checks/check_clusters` (exact) shows m² pair-energy scaling and capping.
-- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan26.md). F1–F12 applied. Re-check pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan26.md). F1–F12 applied. Re-check: ACCEPT (R1 applied). REVIEWED.
