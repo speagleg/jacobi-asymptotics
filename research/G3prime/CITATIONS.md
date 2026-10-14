@@ -75,7 +75,8 @@ precise status of small-gap density bounds, that becomes a new citation task.
 >
 > "Proposition 2 (Fujii). For 0 < U ≤ 1, we have as T → ∞, ∫_0^T (∆_U S(t))² dt = (T/π²) log(2 + UL) + O(T√log(2 + UL)).
 > For the proof of this Proposition, see Fujii [Fuj74, Fuj81] and Tsang [Tsa84, Tsa86]. They both prove this
-> unconditionally"
+> unconditionally for the 2k-th moments." **Secondary statement** (Rule R F4): Fujii's and Tsang's originals were not read;
+> GLSS's statement is quoted, as was done for (C3).
 >
 > "6. An Unconditional Average Pair Correlation Formula. We take UL = λ and assume 0 < U ≤ 1 … imposing 0 < λ² ≤ L and
 > multiplying by L/λ, we get (6.1) Σ_{ρ,ρ′: 0<γ,γ′≤T, |γ′−γ|L≤λ} (1 − |γ′ − γ|L/λ) = TL(λ + log(2 + λ)/(π²λ) + O(√log(2 + λ)/λ))."

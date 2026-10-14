@@ -66,3 +66,20 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
 - **Outcome.** No unconditional proof. The obstruction is relocated from "density-one simplicity" (SG) to
   (D∞) + (SG*), which allow multiple zeros and off-line symmetric pairs at any convergent density. Neither (D∞) nor
   (SG*) is supplied by the literature read; (C3) gives only liminf N_d/N ≥ 0.4075.
+
+## 2026-10-14 — Plan 17 (unconditional bounded defect; PCC ⇒ G3′)
+- **Inputs read:** GLSS arXiv:2503.15449v4 ((6.1), PCC, Theorems 1–2), and Lamzouri arXiv:2609.02882v2 (Theorem 1.1;
+  context). Fujii's second moment is quoted from GLSS (secondary).
+- **Rule A (adversarial pass, before the write-up).**
+  - Pairs of off-line zeros make BGST's complex-weighted pair sums indefinite. This rules out counting close pairs
+    among critical zeros via Lamzouri's Hilbert-space identity. Ruling: use GLSS's vertical-distance formula (6.1), all
+    of whose terms are nonnegative.
+  - Fujii's O-constant is not explicit. Ruling: θ₀ / C is not explicit.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan17.md).
+  - F1 (major): Caro–Wei sets need not have a convergent density, so the Theorem T route has a gap. Repaired by
+    Fix A: run the §4 G3′-L proof on the separated subset, with Lemma S at a constant C.
+  - F2–F9 (minor) applied. Re-check pending.
+- **Outcome:**
+  - unconditionally, D := liminf (1/n²)[log D_n − Φ_n] ∈ [−3 log C, 0];
+  - G3′ ⇐ PCC (no RH);
+  - G3′ ⇒ d_*(repeats) = 0 (N′).
