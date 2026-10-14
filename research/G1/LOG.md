@@ -151,3 +151,25 @@
 - **Numerics** (`checks/check_log_weights.out`): (log(k+e))^α, α = 1, −2, 3: deviations ≈ 0.47|α|/(n log n), 2–6·10⁻⁵ at n = 3200.
 - **Open:** slowly varying Ψ with D(γ) = ∞ (e.g. exp(√log k)); other nodes.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan36.md). F1 (cutoff h_n·1_{k≤K}, uniform bounds, K → ∞ by moment continuity) and F2–F7 applied. Re-check ACCEPT (N1–N2 polish applied) — REVIEWED.
+
+## 2026-10-14 — Plan 44 (Theorem B-cond: all slowly varying weights, conditional on QL)
+- **Lemma L0** (PROVED): ε_n := sup_{m≥n}δ_m(2) → 0; dyadic chaining upward gives |g_n(k)| ≤ ε_n(1 + log₂(k/n)) for k ≥ n,
+  and Potter bounds e^{−A_η}k^{−η} ≤ Ψ ≤ e^{A_η}k^{η}. Uses only the sequence form (λ = 2); no UCT, no BGT citation.
+- **Lemma FV⁺** (PROVED): FV and FVa for unbounded f under Σ_k v_k max(1, e^{f_k})(1 + |f_k|) < ∞ (Weierstrass M-test on
+  the Heine sums; Tonelli/Fubini for the series). Chosen instead of T3-log's K-cutoff because the cut paths are not on
+  vΨ^t, so QL would otherwise have to be assumed for them too.
+- **Hypothesis QL**: Λ_n := sup_t max_{m∈{n−1,n}} Σ_{n≤k≤n^γ}log(k/n)μ_m^{(t)}(k), γ > κ; QL is ε_nΛ_n → 0. The proof
+  uses only QL₀: sup_t Σ_{n≤k≤n^γ}|g_n|(μ_n + μ_{n−1})^{(t)} → 0 (t-average suffices).
+- **Theorem B-cond** (CONDITIONAL on QL + PROVED-mod-cite RH_px/RH₁(r)/RH_plt1b): explicit unconditional bounds
+  |log b_n²(w) − log b_n²(v)| ≤ 2δ_n(M₀) + Q_n + r_n and n^p|a_n(w) − a_n(v)| ≤ 4M₀^p(2δ_n(M₀) + Q_n) + r′_n, r_n, r′_n → 0
+  (head by Sat_p⁺ with Potter, far tail by TLw with γ > κ and Potter); so QL ⇒ the full pointwise Law P.
+- **Lemma QLb** (PROVED): power-tail localization (outline QL-b) ⇒ Λ_n ≤ (1 + log C)/α (layer cake) ⇒ QL.
+- **Cases of QL proved:** only old ones. ε_n log n → 0 (trivial bound Λ_n ≤ (γ−1)log n) forces D(γ) < ∞ (T3-log);
+  bounded Ψ gives QL₀ via T3-all/Theorem L. No D(γ) = ∞ case. Theorem L does not give QL (fixed M only).
+- **Rule A attempts:** Ψ eventually constant (ε_n = 0; reduces to T3-conv); downward chaining (not claimed, not used);
+  boundedness audit of head/tail/FVa constants (none needed); dependence on γ (any γ > κ; smaller is weaker); sup_t vs
+  t-average (average suffices); the m = n − 1 term (sum still centred at n). No counterexample found.
+- **Numerics** (`checks/check_sv_general.out`, p = s = 2): for exp(√log(k+e)) and exp((log(k+e))^{0.8}),
+  n·dev/ϑ_n → 0.49 (ϑ_n = L′(log n); K- and precision-checked); QL log-moment Λ_n ≈ 0.41–0.43, flat in t and n (truncated).
+- **Why the elementary methods stop** recorded as HEURISTIC (outline_B_sv.md §4), not proved.
+- **Rule R:** pending.

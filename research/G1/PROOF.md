@@ -46,6 +46,7 @@ known; its application here to Law P is what is new.
 | **Thm L** | localization at scale Mn: limsup sup_t μ_m^{(t)}((Mn, ∞)) ≤ e^{4G}F_p(M) for bounded slowly varying Ψ (§3.8) | PROVED-mod-cite (as LP; internal TV, Sat_p⁺) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-all** | for w = k^{−s}Ψ with Ψ bounded and **slowly varying** (δ_n(λ) → 0): n^pb_n → c(p) and n^pa_n → 2c(p) for **all n** — the full pointwise Law P; contains T3-conv, T3-sv, T3-avg (§3.8, Plan 35) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, L) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-log** | for w = k^{−s}Ψ with Ψ **log-type slowly varying** (slowly varying, and D(γ) < ∞; e.g. (log k)^α, any α ∈ ℝ): the full pointwise Law P, all n; contains T3-all (§3.9, Plan 36) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, TL(w), L, T3-all) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
+| **B-cond** | for x_k = k^{−p} (p > 0), w = k^{−s}Ψ (s > 1) with Ψ **slowly varying in sequence form only** (no boundedness, no D(γ) < ∞; e.g. exp(√log k)): explicit bounds \|log b_n²(w) − log b_n²(v)\| ≤ 2δ_n(M₀) + Q_n + o(1), n^p\|a_n(w) − a_n(v)\| ≤ 4M₀^p(2δ_n(M₀) + Q_n) + o(1); hence **QL** (ε_nΛ_n → 0, Λ_n := sup_t max_{m∈{n−1,n}}Σ_{n≤k≤n^γ}log(k/n)μ_m^{(t)}(k), γ > κ) ⇒ n^pb_n → c(p), n^pa_n → 2c(p). Internal: L0 (dyadic chaining/Potter), FV⁺ (FV/FVa for unbounded f), QLb (power tail ⇒ QL) — PROVED (§3.14, Plan 44) | CONDITIONAL (QL) + PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV⁺, Sat_p⁺, TLw); QL proved only in cases already covered (ε_n log n → 0 ⊂ T3-log; bounded Ψ); Rule R pending; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1 §§2–6) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; G2 PROOF.md μ*, B* — only μ* and B*(i)–(ii), which do not use (P)) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -954,6 +955,207 @@ M₁n ≤ n^γ (step 2) and T″ ≤ n^γ (step 3); both hold for n large. For n
   |β_n(vΨ)/β_n(v) − 1| and |A_n(vΨ) − A_n(v)| decrease from ≈ 10⁻³ (n = 100) to 2–6·10⁻⁵ (n = 3200),
   with halving ratios 2.16–2.25 per doubling (n·log n·deviation/|α| ≈ 0.46–0.49, consistent with |α|/(n log n)),
   in exact proportion 1 : 2 : 3 to |α|; K-converged (K = 1.2·10⁵ vs 2.4·10⁵).
+
+### 3.14 Theorem B-cond (Plan 44): the pointwise Law P for every slowly varying weight, conditional on a log-moment localization hypothesis (QL) — Lemmas L0, FV⁺, QLb PROVED; Theorem B-cond CONDITIONAL (QL) + PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); Rule R pending; novelty UNCHECKED
+
+Source: `research/program/outline_B_sv.md` §2 (Problem B, "B-cond"). Setting: x_k = k^{−p} (p > 0), v = k^{−s} (s > 1),
+w = vΨ with Ψ > 0 on ℕ **slowly varying in the sequence form of §3.8/§3.9(i)**: δ_n(λ) := max{|log Ψ(k) − log Ψ(n)| :
+k ∈ ℕ ∩ [n/λ, λn]} → 0 for every λ ≥ 1. Nothing else is assumed: no boundedness, no D(γ) < ∞ (so e.g. Ψ = exp(√log k)
+and exp((log k)^θ), θ < 1, are allowed), no measurability or smoothness of an interpolating function. Notation as in
+§3.8–3.9: path w(t) = vΨ^t (t ∈ [0, 1]), q_j = √(w(t))p_j^{(t)}, μ_m^{(t)} = q_m², ρ_m^{(t)} = Σ_{j<m}μ_j^{(t)};
+M₀ = M₀(p) ≥ 4 is the head margin of T3-sv (g_p⁺ ≥ 1 on (0, 2/M₀]); κ := (2 + 2/p)s/(s − 1) as in Lemma TL;
+g_n := log Ψ − log Ψ(n); log₂ is log base 2.
+
+**Lemma L0 (dyadic chaining and Potter bounds, sequence form).** Put ε_n := sup_{m≥n} δ_m(2). Then ε_n < ∞, ε_n is
+nonincreasing and ε_n → 0, and
+- (i) |g_n(k)| ≤ ε_n(1 + log₂(k/n)) for all n ≥ 1 and all integers k ≥ n;
+- (ii) for every η > 0 there is A_η < ∞ with |log Ψ(k)| ≤ A_η + η log k for all k ≥ 1; i.e.
+  e^{−A_η}k^{−η} ≤ Ψ(k) ≤ e^{A_η}k^{η}.
+
+*Proof.* Each δ_m(2) is a maximum of finitely many finite numbers, and δ_m(2) → 0; so the tail suprema ε_n are finite,
+nonincreasing and tend to 0.
+- (i) Let k ≥ n and j := ⌊log₂(k/n)⌋ ≥ 0, so 2^jn ≤ k < 2^{j+1}n. For 0 ≤ i < j, 2^{i+1}n ∈ [2^in/2, 2·2^in], so
+  |log Ψ(2^{i+1}n) − log Ψ(2^in)| ≤ δ_{2^in}(2) ≤ ε_n (as 2^in ≥ n). Also k ∈ [2^jn, 2·2^jn], so
+  |log Ψ(k) − log Ψ(2^jn)| ≤ δ_{2^jn}(2) ≤ ε_n. Summing the j + 1 steps: |g_n(k)| ≤ (j + 1)ε_n ≤ ε_n(1 + log₂(k/n)).
+- (ii) Fix η > 0 and choose N with ε_N ≤ η log 2. For k ≥ N, (i) at n = N gives
+  |log Ψ(k)| ≤ |log Ψ(N)| + ε_N + (ε_N/log 2)log(k/N) ≤ |log Ψ(N)| + ε_N + η log k. For k < N there are finitely many
+  values. Take A_η := max(|log Ψ(N)| + ε_N, max_{k<N}|log Ψ(k)|). ∎
+
+*Remarks on L0.* Only the upward chain is proved and used; below n the proof of B-cond uses δ_n(M₀) and (ii). Only λ = 2
+enters (λ = 2 implies all λ by the same chaining), so "sequence-form slow variation" is used exactly as defined, and no
+uniform convergence theorem (Bingham–Goldie–Teugels) is used or cited.
+
+**Lemma FV⁺ (Lemmas FV and FVa for unbounded perturbations).** Let x_k ∈ (0, 1] be distinct (k ∈ ℕ), v_k > 0 and f_k ∈ ℝ,
+and assume
+
+  Σ_k U_k < ∞,  U_k := v_k·max(1, e^{f_k})·(1 + |f_k|).
+
+Put w(t) := v·e^{tf} (t ∈ [0, 1]). Then for every n ≥ 1: Σ_k|f_k|μ_m^{(t)}(k) < ∞ for every m, uniformly bounded in
+t ∈ [0, 1]; t ↦ log b_n²(t) and t ↦ a_n(t) are C¹ on [0, 1]; and the formulas of Lemma FV and Lemma FVa hold,
+
+  (d/dt)log b_n² = ⟨f, μ_n − μ_{n−1}⟩,  (d/dt)a_n = ⟨(x − a_n)f, μ_n⟩ − 2b_n⟨f, q_{n−1}q_n⟩,
+
+with every series absolutely convergent. Both right sides are unchanged under f ↦ f + c.
+
+*Proof.* Only two uses of "f bounded" occur in the proofs of FV (§3.2) and FVa (§3.5): (A) differentiating the Heine sums
+term by term, and (B) absolute convergence of the series. We redo both.
+- **(A) Heine sums.** D_m(t) = Σ_{|S|=m}T_S(t), T_S(t) := Π_{k∈S}w_k(t)·V(S), V(S) := Π_{i<j in S}(x_i − x_j)² ≤ 1 (all
+  x_k ∈ (0, 1]). Since ∂_tT_S = (Σ_{k∈S}f_k)T_S, 1 + |Σ_{k∈S}f_k| ≤ Π_{k∈S}(1 + |f_k|) and w_k(t) ≤ v_k max(1, e^{f_k}),
+  we get |T_S(t)| + |∂_tT_S(t)| ≤ Π_{k∈S}U_k on [0, 1], and Σ_{|S|=m}Π_{k∈S}U_k ≤ (ΣU)^m < ∞. By the Weierstrass M-test,
+  D_m ∈ C¹[0, 1] with D_m′ = Σ_S(Σ_{k∈S}f_k)T_S, and D_m > 0 (infinitely many atoms). The same holds for
+  N_F(t) := Σ_SF(S)T_S(t) with F(S) := Σ_{k∈S}x_k (|F| ≤ m).
+- **(B) Absolute convergence.** By Tonelli and (A), Σ_k|f_k|ρ_m^{(t)}(k) = Σ_S(Σ_{k∈S}|f_k|)T_S/D_m ≤ (ΣU)^m/D_m(t),
+  which is bounded on [0, 1] (D_m continuous and positive). As μ_j ≤ ρ_m for j < m (Lemma H, weight-general), every
+  Σ_k|f_k|μ_j(k) is finite; also |q_{n−1}q_n| ≤ ½(μ_{n−1} + μ_n), so ⟨|f|, |q_{n−1}q_n|⟩ < ∞.
+- **FV.** (d/dt)log D_m = D_m′/D_m = Σ_S(Σ_{k∈S}f_k)P_{m,t}(S) = Σ_kf_kρ_m(k), the interchange by (B). Then
+  log b_n² = log D_{n+1} − 2log D_n + log D_{n−1} gives the formula as in §3.2.
+- **FVa.** Step 1 of §3.5 is weight-independent. Step 2: 𝔼_{m,t}F = N_F/D_m is C¹ with derivative
+  𝔼[F⟨f, X⟩] − 𝔼F·𝔼⟨f, X⟩, finite since |F⟨f, X⟩| ≤ mΣ_{k∈S}|f_k|. Step 3: 𝔼[F⟨f, X⟩] = Σ_{k,l}x_kf_lP(k, l ∈ S) by
+  Fubini, since Σ_{k,l}x_k|f_l|P(k, l ∈ S) ≤ Σ_l|f_l|𝔼[|S|X_l] = mΣ_l|f_l|ρ_m(l) < ∞. The two-point formula
+  P(k, l ∈ S) = K_m(k,k)K_m(l,l) − K_m(k,l)² (k ≠ l) does not involve f. Every double sum in the covariance identity
+  Cov = ½Σ_{k,l}(x_k − x_l)(f_k − f_l)K_m(k,l)² is dominated by a multiple of Σ_{k,l}|f_l|K_m(k,l)² = Σ_l|f_l|K_m(l,l) < ∞
+  (projection: Σ_kK_m(k,l)² = K_m(l,l)). Step 4: the rank-one update is a termwise identity between absolutely convergent
+  series (m = n + 1 and m = n). After Christoffel–Darboux the cross part is b_nΣ_{k,l}A_{kl}(f_k − f_l), with
+  Σ_{k,l}|A_{kl}||f_k| ≤ ⟨|f|, μ_n + |q_{n−1}q_n|⟩ < ∞ (Σ_l|q_{n−1}(l)q_n(l)| ≤ 1, Σ_lq_n(l)² = 1), and likewise for f_l.
+  The algebra of §3.5 step 4 then applies verbatim. C¹: a_n = 𝔼_{n+1}F − 𝔼_nF.
+- **Invariance.** μ_n, μ_{n−1} are probability vectors and Σ|f|μ < ∞, so f ↦ f + c changes nothing (as in §3.5 step 5). ∎
+
+*Why not the K-cutoff of T3-log step 3 (F1 of Plan 36).* The cutoff replaces the path vΨ^t by vΨ^t·1_{k≤K} + v·1_{k>K},
+which is not on the path vΨ^t. Hypothesis QL below would then have to be assumed for these cut paths as well (uniformly
+in K). FV⁺ keeps the hypothesis on the single path vΨ^t.
+
+**Application of FV⁺.** f := log Ψ, v = k^{−s}. By L0(ii) with η ≤ (s − 1)/2,
+U_k ≤ k^{−s}e^{A_η}k^{η}(1 + A_η + η log k), which is summable. So FV⁺ applies to the path w(t) = vΨ^t.
+
+**Hypothesis QL (log-moment localization along the path; HYPOTHESIS).** Fix γ > κ. Put
+
+  Λ_n := sup_{t∈[0,1]} max_{m∈{n−1,n}} Σ_{k∈ℕ, n≤k≤n^γ} log(k/n)·μ_m^{(t)}(k).
+
+**QL** is the statement ε_nΛ_n → 0 (n → ∞), with ε_n from Lemma L0. (Λ_n increases with γ, so QL for one γ > κ implies
+it for every γ′ ∈ (κ, γ]; the weakest form takes γ just above κ.) The proof below uses only the weaker
+
+  **QL₀:** Q_n := sup_{t∈[0,1]} Σ_{k∈ℕ, n≤k≤n^γ}|g_n(k)|·(μ_n^{(t)} + μ_{n−1}^{(t)})(k) → 0,
+
+and even only its t-average ∫_0^1(…)dt in place of sup_t (t ↦ μ_m^{(t)}(k) is continuous). QL ⇒ QL₀, because by
+L0(i), with log₂ = log/log 2,
+
+  Q_n ≤ 2ε_n + (2ε_n/log 2)·Λ_n.
+
+**Theorem B-cond.** Let x_k = k^{−p} (p > 0) and w = k^{−s}Ψ (s > 1) with Ψ > 0 slowly varying in sequence form. Fix
+γ > κ. Then, with no further hypothesis, there are r_n, r′_n → 0 (depending on p, s, γ, Ψ, not on t) such that for
+n ≥ n₀:
+
+  |log b_n²(w) − log b_n²(v)| ≤ 2δ_n(M₀) + Q_n + r_n,
+  n^p|a_n(w) − a_n(v)| ≤ 4M₀^p(2δ_n(M₀) + Q_n) + r′_n.
+
+Consequently, **if QL (or QL₀) holds, then n^pb_n(w) → c(p) and n^pa_n(w) → 2c(p)**, for all n, every p > 0 and s > 1.
+
+*Proof.* Fix η ∈ (0, (s − 1)/2] so small that γ(s − 1 − η) > (2 + 2/p)(s + η) (possible since γ(s − 1) > (2 + 2/p)s,
+i.e. γ > κ), and let A := A_η from L0(ii). Then for all t ∈ [0, 1] and k ≥ 1:
+e^{−A}k^{−η} ≤ min(1, Ψ(k)) ≤ Ψ(k)^t ≤ max(1, Ψ(k)) ≤ e^{A}k^{η}, so
+
+  W(t) := Σ_jw_j(t) ≤ e^{A}ζ(s − η),  w_k(t) ≥ e^{−A}k^{−s−η},  |g_n(k)| ≤ 2A + 2η log max(k, n).   (∗)
+
+Split ℕ into H := {k < n/M₀} (head), B := [n/M₀, n) (lower bulk), R := [n, n^γ] (range) and T := (n^γ, ∞) (far tail).
+1. **FV⁺ and centering.** By FV⁺ and invariance under constants,
+   |log b_n²(w) − log b_n²(v)| ≤ ∫_0^1|⟨g_n, μ_n^{(t)} − μ_{n−1}^{(t)}⟩|dt ≤ sup_tΣ_k|g_n(k)|(μ_n + μ_{n−1})^{(t)}(k).
+2. **Head (Sat_p⁺).** Let n ≥ 2, m ∈ {n − 1, n}, k ∈ H. Then 1 ≤ k < n/4 < m and k/m ≤ n/(M₀(n − 1)) ≤ 2/M₀, so
+   g_p⁺(k/m) ≥ 1. Lemma Sat_p⁺ (which uses only W < ∞ and w_k > 0) and μ_m = ρ_{m+1} − ρ_m ≤ 1 − ρ_m give, by (∗),
+   μ_m^{(t)}(k) ≤ (W(t)/w_k(t))·(n + 1)²·e^{−2(n−1)} ≤ e^{2A}ζ(s − η)·n^{s+η}(n + 1)²e^{−2(n−1)}.
+   Summing over the < n points of H, with |g_n| ≤ 2A + 2η log n there:
+   h_n := sup_tΣ_{k∈H}(1 + |g_n(k)|)(μ_n + μ_{n−1})^{(t)}(k) ≤ 4n(1 + 2A + 2η log n)e^{2A}ζ(s − η)n^{s+η}(n + 1)²e^{−2(n−1)},
+   so n^ph_n → 0.
+3. **Lower bulk.** On B, |g_n| ≤ δ_n(M₀); contribution ≤ 2δ_n(M₀).
+4. **Range.** The contribution of R is ≤ Q_n by definition.
+5. **Far tail (Lemma TLw).** T″ = ⌈⌈8pn²⌉n^{2/p}⌉ ≤ (8p + 3)n^{2+2/p} for n ≥ 1, and γ > κ > 2 + 2/p, so n^γ ≥ T″ for
+   n ≥ n₁. For k ∈ T and m ≤ n, μ_m ≤ ρ_{m+1} ≤ ρ_{n+1}, and Lemma TLw with u := w(t) and (∗) gives
+   μ_m^{(t)}(k) ≤ 1156·w_k(t)/min_{T′≤j≤T″}w_j(t) ≤ 1156e^{2A}T″^{s+η}k^{−s+η}. With |g_n(k)| ≤ 2A + 2η log k there
+   (k > n), and using Σ_{k>X}(1 + log k)k^{−(s−η)} ≤ C′X^{1−(s−η)}(1 + log X) for X ≥ e (s − η > 1; compare with the
+   integral, the summand being eventually decreasing),
+   τ_n := sup_tΣ_{k∈T}(1 + |g_n(k)|)(μ_n + μ_{n−1})^{(t)}(k) ≤ 2·1156e^{2A}(1 + 2A + 2η)·T″^{s+η}·C′n^{−γ(s−1−η)}(1 + γ log n)
+   ≤ C″(1 + log n)n^{(2+2/p)(s+η) − γ(s−1−η)} → 0 by the choice of η.
+6. **b_n.** Steps 1–5: |log b_n²(w) − log b_n²(v)| ≤ h_n + 2δ_n(M₀) + Q_n + τ_n. Put r_n := h_n + τ_n.
+7. **a_n.** Uniform bounds (T3a step 1, which uses only the head bound): x_k ≤ (M₀/n)^p for k ∉ H and x_k ≤ 1, so
+   a_n^{(t)} = ⟨x, μ_n⟩ ≤ (M₀/n)^p + h_n, a_{n−1}^{(t)} ≤ (M₀/n)^p + h_n, and b_n^{(t)} = ⟨xq_{n−1}, q_n⟩ ≤
+   ½⟨x, μ_{n−1} + μ_n⟩ ≤ (M₀/n)^p + h_n. For n ≥ n₂ (h_n ≤ (M₀/n)^p) these are ≤ 2M₀^pn^{−p}, uniformly in t, and
+   off H, |x_k − a_n| ≤ max(x_k, a_n) ≤ 2M₀^pn^{−p}. On H use |x_k − a_n| ≤ 1 and b_n ≤ 1. By FV⁺ (FVa, centered),
+   n^p|ȧ_n| ≤ Σ_k|g_n(k)|n^p[|x_k − a_n|μ_n(k) + b_n(μ_{n−1} + μ_n)(k)]
+   ≤ 2M₀^p·2Σ_{k∉H}|g_n(k)|(μ_n + μ_{n−1})(k) + 2n^ph_n ≤ 4M₀^p(2δ_n(M₀) + Q_n + τ_n) + 2n^ph_n.
+   Integrate over t; r′_n := 4M₀^pτ_n + 2n^ph_n → 0.
+8. **Conclusion under QL₀.** δ_n(M₀) → 0 (slow variation), Q_n → 0 (QL₀), r_n, r′_n → 0. So
+   log b_n²(w) − log b_n²(v) → 0 and n^p(a_n(w) − a_n(v)) → 0. The pure-power laws (RH_p for p > 1, `RH/px/RH_px.md`;
+   RH₁(r) for p = 1; RH_plt1b for 0 < p < 1) give n^pb_n(v) → c(p) and n^pa_n(v) → 2c(p). ∎
+
+*Where each input is used (regularity audit).* Sequence-form slow variation enters only through δ_n(M₀) (step 3) and
+L0 (ε_n in QL ⇒ QL₀; the Potter bounds (∗) in FV⁺, steps 2, 5, 7). Sat_p⁺ needs only W(t) < ∞ and the ratio W/w_k;
+TLw needs only Σu < ∞; FV⁺ needs ΣU < ∞. The pure-power laws are used for v only. **No smoothing reduction (RedA of the
+outline) is needed, and none is proved here**: no interpolating function, no derivative L′ and no measurability enter
+the proof. The only hypothesis beyond sequence-form slow variation is QL₀.
+
+**Lemma QLb (power-tail localization ⇒ QL; PROVED).** Suppose there are α > 0, C ≥ 1 and n₀ such that for n ≥ n₀,
+m ∈ {n − 1, n} and all real 1 ≤ M ≤ n^{γ−1}: sup_tμ_m^{(t)}(ℕ ∩ (Mn, ∞)) ≤ CM^{−α} (outline's QL-b). Then
+Λ_n ≤ (1 + log C)/α for n ≥ n₀, so QL holds (ε_n → 0), and hence the law, for this Ψ.
+
+*Proof.* For fixed t and m, Σ_{n≤k≤n^γ}log(k/n)μ_m(k) = ∫_0^{(γ−1)log n}μ_m({k ≤ n^γ : log(k/n) > u})du (layer cake)
+≤ ∫_0^∞min(1, Ce^{−αu})du = (log C)/α + 1/α. ∎
+
+**What is proved about QL (and what is not).**
+- *Trivial range.* Λ_n ≤ (γ − 1)log n always (μ_m is a probability vector), so QL holds whenever ε_n log n → 0. This is
+  nothing new: then sup_n ε_n(1 + (γ − 1)log₂ n) < ∞, so by L0(i) D(γ) < ∞, and Theorem T3-log (§3.9) already applies.
+  With Λ_n ≤ (γ − 1)log n the bound of Theorem B-cond is O(ε_n log n), i.e. B-cond's elementary part reaches exactly
+  log-type weights (the outline's "T3-log is the trivial case").
+- *Bounded Ψ.* QL₀ holds: the proof of T3-all (§3.8, step 1, via Theorem L) bounds the full sum
+  sup_tΣ_k|g_n|(μ_n + μ_{n−1})^{(t)}, which contains Q_n, by a quantity with limsup ≤ 2Ge^{4G}F_p(M) for every M. Theorem L
+  does *not* give QL (it is a limit for each fixed M, not uniform up to M = n^{γ−1}), and for bounded Ψ B-cond adds
+  nothing to T3-all.
+- *Log-type unbounded Ψ (D(γ) < ∞).* The law holds (T3-log), but T3-log's proof runs along a truncated path, so QL₀ along
+  vΨ^t itself is not established by it.
+- *D(γ) = ∞* (the new case, e.g. exp(√log k)): no case of QL is proved. For Ψ = exp((log k)^θ), ε_n ≍ (log n)^{θ−1}, so
+  QL asks for Λ_n = o((log n)^{1−θ}), while the trivial bound is (γ − 1)log n. Numerically Λ_n ≈ 0.4 (below).
+- No further case of QL is obtained cheaply from Theorem L, Lemma LP or Lemma TL: the deep range [Mn, n^γ] with M → ∞
+  needs localization uniform in M (the outline's QLP for v, L6) *and* its transport along a path whose weights are not
+  uniformly sandwiched; the latter is where the elementary methods stop (next remark).
+
+**Remarks.**
+- **Bc1 (why the elementary methods stop at log-type; HEURISTIC / OBSTRUCTION, not a theorem about all methods).**
+  Summary of `research/program/outline_B_sv.md` §4; none of this is proved here.
+  - *Truncation + Grönwall (as in T3-log/Theorem L).* With Ψ truncated to [n/M₀, nR_n], the Grönwall factor is e^{4H_n},
+    H_n := osc_{[nR_n, n^γ]}log Ψ, which → ∞ exactly when D(γ) = ∞. Every available transport (TV + Cauchy–Schwarz) leaves
+    an additive floor ≥ δ_n(R_n), at best polynomial in 1/log n, and floor²·e^{4H_n} → ∞ for exp((log k)^θ), every θ ∈ (0, 1).
+  - *Layered Grönwall on (2^jn, ∞).* The Cauchy–Schwarz bound for ⟨1_Aq_m, K_m(fq_m)⟩ feeds a non-decaying forcing into
+    every layer; the resulting bound on Σ_jε·μ((2^jn, ∞)) is ≍ ε³J³ with J ≍ log n, bounded only when ε ≍ 1/log n.
+  - *Tilt comparison with v_{σ_n}.* Removes the leading log-singular part of g_n, but the residual has oscillation of order
+    τ²|L₁″(τ)| on [n, n^γ] (τ = log n), bounded only for log-type L₁ (up to an exact power k^ρ).
+  - *Structural reason.* QL is a statement about μ_m deep in the hard-edge region, which the o(1) pointwise law of v does
+    not see; it is 1/n-order information (the 1/n coefficients of the pure-power expansion fix the Bessel order), which is
+    why a Riemann–Hilbert analysis (outline Route II) is the natural route to QL or to Theorem B directly.
+- **Bc2 (rate; NUMERICAL, p = s = 2 only; `checks/check_sv_general.out`).** Write ϑ_n := L′(log n) for Ψ = exp(L(log k))
+  (the outline calls this ε_n; it is not L0's ε_n — numerically ε_n/ϑ_n ≈ 0.69–0.71 ≈ log 2 for the examples).
+  For Ψ = exp(√log(k + e)) and exp((log(k + e))^{0.8}), n = 100 … 1600:
+  - n·(β_n(w)/β_n(v) − 1)/ϑ_n = 0.470, 0.481, 0.487, 0.490, 0.491 and 0.475, 0.486, 0.492, 0.494, 0.494 (K = 2.4·10⁵);
+    the a_n analogue n·(A_n(w)/A_n(v) − 1)/ϑ_n is 0.479–0.495. K = 1.2·10⁵ vs 2.4·10⁵ agree to ≤ 2·10⁻³ in these ratios,
+    and quad vs long double agree to all printed digits (n ≤ 400). So the observed deviation is ≈ ϑ_n/(2n) (the outline's
+    "tilt law"; CONJECTURE for general Ψ, not proved).
+  - The QL log-moment along the path (t ∈ {0, ¼, ½, ¾, 1}, m ∈ {n − 1, n}, n = 100 … 800, sum truncated at k ≤ K since
+    n^γ ≫ K; μ_m(k) for k ≥ m/2 by the three-term recurrence from the RKPW coefficients, which agrees with a fully
+    reorthogonalized Lanczos run to 4·10⁻¹³ at n = 100, K = 2·10⁴): sup_tΛ_n = 0.423, 0.419, 0.417, 0.415 (n = 100, 200, 400, 800; K = 4.8·10⁵) for both
+    weights, flat in t (variation ≤ 1.2·10⁻³) and slowly decreasing in n; K = 1.2·10⁵ gives values smaller by ≤ 3.3·10⁻³.
+    So ε_n·sup_tΛ_n ≈ 0.068 → 0.057 (√log) and 0.169 → 0.158 (θ = 0.8), decreasing like ε_n, consistent with QL in the
+    natural form Λ_n = O(1) (outline QL-a). The trivial bound (γ − 1)log n is 25–37 here. This is a truncated, finite-n
+    computation (k ≤ K ≪ n^γ) and is not evidence about the range [K, n^γ] beyond the tail decay it shows.
+  - Compared with the observed ϑ_n/(2n), Theorem B-cond's bound O(δ_n(M₀) + ε_n(1 + Λ_n)) is weaker by a factor ≍ n:
+    the first-variation bound |⟨g_n, μ_n − μ_{n−1}⟩| ≤ ⟨|g_n|, μ_n + μ_{n−1}⟩ discards the cancellation between μ_n and
+    μ_{n−1}. B-cond is a convergence statement, not a rate.
+- **Bc3 (scope).** Under QL: every Ψ slowly varying in sequence form, hence (renaming s) every w = k^{−σ}k^{ρ}Ψ with
+  σ − ρ > 1 (QL then for the path with s := σ − ρ). The outline's Corollary B1 for a measurable slowly varying ℓ would
+  need the Uniform Convergence Theorem to pass to the sequence form; it is not cited (Rule C) and not claimed.
+- **Bc4 (Rule A, adversarial pass; logged in LOG.md).** (a) Ψ eventually constant: ε_n = 0 eventually, QL trivial,
+  B-cond reduces to T3-conv. (b) L0(i) downward: not claimed (the chain below n would need δ at scales < n, which ε_n
+  does not control); the proof never uses it. (c) Is sup_t needed in QL? No: step 1 and step 7 integrate over t, so the
+  t-average suffices. (d) Does QL depend on γ? Only through n^γ ≥ T″ and the tail exponent; any γ > κ works, the
+  smaller the weaker. (e) Does any step need Ψ bounded? Head: W/w_k ≤ n^{s+2η}·const (Potter); tail: TLw's ratio
+  ≤ T″^{s+η}k^{η}·const; FVa off-head constants use only Sat_p⁺ — none needs boundedness. (f) m = n − 1 in QL: the sum
+  still starts at k = n with log(k/n), matching L0(i) centred at n.
 
 ## 4. G1-R: what remains (stop report)
 
