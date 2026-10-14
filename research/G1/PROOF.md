@@ -32,8 +32,8 @@ known; its application here to Law P is what is new.
 | **T3-conv** | pointwise b-law (hence (T3)) for x_k = k^{−p} (p > 0), w_k = k^{−s}ψ_k (s > 1) with **ψ_k → L ∈ (0, ∞)** (rough at finite scales, decaying roughness): n^p b_n → c(p) (§3.3, Plan 29) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: Lemma FV (REVIEWED), Lemma Sat_p⁺); REVIEWED; novelty UNCHECKED (comparison theorems of Máté–Nevai–Totik type may be classical) |
 | TL | polynomial tail localization: for sandwiched weights c k^{−s} ≤ w_k ≤ C k^{−s} (s > 1), 𝔼_{n+1}#(S ∩ (T, ∞)) ≤ ε, hence μ_n((T, ∞)) ≤ ε, for T ≥ A·n^{κ}ε^{−1/(s−1)}, κ = (2 + 2/p)s/(s−1) (§3.4) | PROVED (textbook-standard Markov/Chebyshev inequalities, quoted); REVIEWED; novelty UNCHECKED (pointers: Ehlich–Zeller 1964, Coppersmith–Rivlin 1992, Rakhmanov 2007, Nevai, Máté–Nevai–Totik) |
 | **T3-sv** | pointwise b-law for w = k^{−s}Ψ with Ψ bounded and *polynomially slowly varying*: sup_{n/M≤k≤n^γ}\|log Ψ(k) − log Ψ(n)\| → 0 for all M, γ (e.g. Ψ = 2 + sin√(log log k)) (§3.4, Plan 30) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: Lemma FV, Lemma Sat_p⁺, Lemma TL); REVIEWED; novelty UNCHECKED |
-| FVa | first variation of a_n: d/dt a_n(v e^{tf}) = ⟨(x − a_n)f, μ_n⟩ − 2b_n⟨f, q_{n−1}q_n⟩ (q_j = √w p_j) (§3.5) | PROVED (standard; novelty not claimed; self-contained via the proof of Lemma H and Christoffel–Darboux); Rule R ACCEPT WITH FIXES, re-check pending |
-| **T3a** | pointwise **a-law** n^p a_n → 2c(p) under T3-sv's hypotheses (Ψ bounded, polynomially slowly varying; includes ψ_k → L), all p > 0, s > 1 (§3.5, Plan 32) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: FVa, Sat_p⁺, TL); Rule R ACCEPT WITH FIXES, re-check pending; novelty UNCHECKED |
+| FVa | first variation of a_n: d/dt a_n(v e^{tf}) = ⟨(x − a_n)f, μ_n⟩ − 2b_n⟨f, q_{n−1}q_n⟩ (q_j = √w p_j) (§3.5) | PROVED (standard; novelty not claimed; self-contained via the proof of Lemma H and Christoffel–Darboux); Rule R ACCEPT WITH FIXES, re-check ACCEPT — REVIEWED |
+| **T3a** | pointwise **a-law** n^p a_n → 2c(p) under T3-sv's hypotheses (Ψ bounded, polynomially slowly varying; includes ψ_k → L), all p > 0, s > 1 (§3.5, Plan 32) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: FVa, Sat_p⁺, TL); REVIEWED; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -580,11 +580,10 @@ generous: about 7 (middle) and 5 (tail) suffice, times (n/(n−1))^p.
   classical; cf. the Toda flow).
 - **T3a2 (NUMERICAL, [2]; F7).** The script reports (n+1)²a_n/(2c) − 1, the a_n index being 0-based, at
   n = 250, 500, 1000, 2000 and 3600, with K = 120000 and 240000.
-  - For ψ_k = 1 + ½(−1)^k/log(k+1), |A(ψ) − A(1)| is 5.3·10⁻³, 8.6·10⁻⁴, 2.1·10⁻³, 4.0·10⁻⁴ and 5.4·10⁻⁴: it decays,
-    non-monotonically.
-  - For non-decaying parity it is 2.6·10⁻², 1.6·10⁻³, 1.3·10⁻², 1.1·10⁻³ and 6.9·10⁻³: non-monotone, with no clear decay.
-  - At n ≥ 2000 the pure-power reference itself moves under K-doubling (3.0·10⁻⁴ → 2.6·10⁻⁴ at n = 2000), so those
-    columns are at the truncation floor.
+  - For n ≤ 1000, the gap |A(ψ) − A(1)| for ψ_k = 1 + ½(−1)^k/log(k+1) (5.3·10⁻³, 8.6·10⁻⁴, 2.1·10⁻³) is 2–12×
+    smaller than for non-decaying parity at each n. No rate is claimed.
+  - For n ≥ 2000 none of the three runs is K-converged (K-doubling moves them by up to 3.5·10⁻³), so those columns are
+    illustrative only (R1).
 
 ## 4. G1-R: what remains (stop report)
 

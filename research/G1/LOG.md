@@ -107,4 +107,4 @@
 - **Theorem T3a:** pointwise a-law n^p a_n → 2c(p) under T3-sv's hypotheses. b_n ≤ (a_{n−1} + a_n)/2 avoids any extra
   uniformity. Full pointwise Law P therefore holds for polynomially slowly varying weights.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan32.md). F1–F8 and F10 applied; numerics re-run with an n-scan and
-  K-doubling. Re-check pending.
+  K-doubling. Re-check: ACCEPT (R1 applied). REVIEWED.

@@ -84,3 +84,44 @@ the leading recurrence asymptotics". None was checked here.
 - **T3a:** PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: Lemma FVa, Lemma Sat_p⁺, Lemma TL); REVIEWED; novelty
   UNCHECKED.
 - check_alaw [1]: NUMERICAL (float64, validates FVa). [2]: NUMERICAL, illustrative only (F7).
+
+## Re-check (commit cea4d57)
+
+Scope: the diff 3f73b79..cea4d57 (PROOF.md §0 rows, §3.3, §3.5, §4; LOG; check_alaw.py/.out). I re-ran check_alaw.py
+from jacobi-asymptotics, and the output is identical, digit for digit, to the committed .out. The committed copy of
+this review is unchanged.
+
+| # | Status | Note |
+|---|---|---|
+| F1 | applied | Step 3 now takes the equality P(S ∩ E′ = ∅) = det(I − K_{E′}) from the Gram/Sylvester steps of Lemma H's *proof*, plus the Heine identification. It says explicitly that the statement records only the inequality and single deletion. T3a1 is updated to match. |
+| F2 | applied | The diagonal Var X_k = K_kk − K_kk² and absolute convergence (Σ_{k,l}K_kl² = m, f, g bounded) are stated. |
+| F3 | applied | The recurrence convention is stated. I re-derived the algebra: A_{kl} = q_n(k)²q_{n−1}(l)q_n(l) − q_{n−1}(k)q_n(k)q_n(l)², Σ A_{kl}f_k = −⟨f, q_{n−1}q_n⟩, Σ A_{kl}f_l = +⟨f, q_{n−1}q_n⟩, so the first part is −2b_n⟨f, q_{n−1}q_n⟩. Correct. The n = 0 case is noted. |
+| F4 | applied | n ≥ n₀(M, ε, p, s, sandwich) is stated, with the true constants (≈7 middle, ≈5 tail, times (n/(n−1))^p). The head coefficient is now 1 + 1 with |x_k − a_n| ≤ 1 and b_n ≤ 1. The middle still uses 3M^pn^{−p}, which is valid (2 would suffice); optional. |
+| F5 | applied | The FVa row reads "standard; novelty not claimed". The T3a row lists its internal inputs (FVa, Sat_p⁺, TL). |
+| F6 | applied | "≤ 8·10⁻⁸" in §3.5 and in the LOG. Matches the .out (8.0·10⁻⁸ at n = 150). |
+| F7 | applied, one residual (R1) | Now uses (n+1)², reports all five n, and adds K-doubling. The quoted numbers match the .out. |
+| F8 | applied | T3c3 points to §3.5, and §4 has a "Plans 29–32" bullet. The README is deferred to promotion (fine). |
+| F10 | applied | `RH/px/RH_px.md`. |
+
+**R1 (minor, wording only; non-blocking).** The K-doubling in the new .out shows that the *perturbed* runs move more
+than the pure reference at large n.
+- At n = 3600, ψ moves +2.98·10⁻⁴ → −3.57·10⁻⁴ (Δ ≈ 6.5·10⁻⁴) and parity moves −3.15·10⁻³ → −6.70·10⁻³ (Δ ≈ 3.5·10⁻³).
+- At n = 2000, parity moves 3.2·10⁻⁴ → 1.38·10⁻³.
+- So the n ≥ 2000 entries of |A(ψ) − A(1)| (4.0·10⁻⁴, 5.4·10⁻⁴) and of parity (1.1·10⁻³, 6.9·10⁻³) are below or near the
+  K-sensitivity, and are not converged.
+- In the converged range n ≤ 1000, ψ gives 5.3·10⁻³, 8.6·10⁻⁴, 2.1·10⁻³ against parity's 2.6·10⁻², 1.6·10⁻³, 1.3·10⁻²:
+  ψ is smaller than parity at each n by a factor 2–12. That is barely a decay.
+
+Suggested T3a2 wording: "In the K-converged range n ≤ 1000 the ψ gap is 2–12× smaller than the parity gap at each n.
+No rate is claimed. At n ≥ 2000 all three runs move under K-doubling (by up to 3.5·10⁻³ for parity at n = 3600), so
+those columns are not converged." Replace "it decays, non-monotonically" accordingly. This is illustrative numerics
+only, and Theorem T3a does not depend on it.
+
+**Re-check verdict: ACCEPT** (R1 is a recommended wording change, not a condition on the mathematics).
+
+**Final labels.**
+- **FVa:** PROVED (standard; novelty not claimed; self-contained via the proof of Lemma H and Christoffel–Darboux); REVIEWED.
+- **T3a:** PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: FVa, Sat_p⁺, TL); REVIEWED; novelty UNCHECKED.
+- check_alaw [1]: NUMERICAL (validates FVa). [2]: NUMERICAL, illustrative; n ≥ 2000 not K-converged.
+- At promotion, update the §3.5 header, the §0 rows ("re-check pending" → REVIEWED), the LOG "Re-check pending" line
+  and the README "in review".
