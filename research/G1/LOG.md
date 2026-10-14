@@ -95,6 +95,7 @@
   norming set, and Chebyshev extrapolation to [0, x_{T″}] costs ≤ 17. By Christoffel, ρ_{n+1}(k) ≤ 1156(C/c)(T″/k)^s,
   so the tail mass beyond n^κ is ≤ ε. Uniform over the sandwich class.
 - **Theorem T3-sv:** pointwise b-law for polynomially slowly varying Ψ (e.g. 2 + sin√(log log k)).
-- **Open:** localization at scale Mn (needed for e.g. 2 + sin(log log k)). Tools that lose Markov's n² cannot reach
-  it.
-- **Rule R:** pending.
+- **Open:** localization at scale Mn (needed for e.g. 2 + sin(log log k)). *Heuristic:* arguments that lose Markov's
+  n² factor seem unable to reach it.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan30.md). F1–F13 applied (constants, implicit hypotheses, quoted
+  inequalities, wording). Re-check pending.
