@@ -685,7 +685,7 @@ and so does Theorem CL when p > 1 (F1).
   tail-Cesàro form. This is unconditional for pure-power atoms with rough weights by Theorem CL (Plan 27). Block-Cesàro
   ratios and window-average density still need β_n → 1 (A4). Pointwise density is not proved.
 - *Plans 29–32:* the full pointwise law (b and a) holds for weights k^{−s}Ψ with Ψ bounded and polynomially slowly
-  varying (T3-conv, T3-sv, T3a). Fixed-size adversarial roughness conjecturally breaks it (Conjecture R).
+  varying (T3-conv, T3-sv, T3a). Fixed-size adversarial roughness (ε ≤ ε₀) breaks it (Theorem R, §3.6).
 - G1-L needs a one-sided bound on β_n; it is not unconditional.
 
 **Missing statements (precise).** (For *rough* sandwiched weights the (T3) half is refuted by Theorem R, §3.6.)
