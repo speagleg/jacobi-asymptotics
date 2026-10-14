@@ -126,8 +126,10 @@ N·max|D_∞^{−σ₃}(VN^{−1} − I)D_∞^{σ₃}|:
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | (0.4, 2) | 10 | 0.447 | 0.530 | 0.464 | 0.358 | 0.242 | 0.167 | 0.268 | 0.041 | 0.093 | 0.942 | 1.496 |
 | (0.4, 2) | 20 | 0.461 | 0.561 | 0.485 | 0.375 | 0.253 | 0.173 | 0.277 | 0.042 | 0.097 | 0.987 | 1.570 |
+| (0.4, 2) | 40 | 0.467 | 0.577 | 0.497 | 0.383 | 0.258 | 0.176 | 0.281 | 0.043 | 0.099 | 1.012 | 1.610 |
 
-- N·error is stable. N^p b_N/c = 0.947, 0.974 at p = 0.4, N = 10, 20, consistent with d₁ = −½.
+- N·error is stable. N^p b_N/c = 0.947, 0.974, 0.987 at p = 0.4, N = 10, 20, 40, consistent with d₁ = −½.
+- `check_plt1_seam_e2e_p075s2.out`: the (0.75, 2) N = 20 seam run, for comparison with RH_plt1 §5.
 - For p = 0.4, the points 4.5 + 1.5i, 3 − 1.2i and 15 + 8i lie in S_in, and the others in S_out.
 - **Liouville identity** (Rule R F6). For ½ < p < 1 the seam F equals const·D·B (same jumps, same behaviour at 0 and ∞).
   So the seam and B-probes must agree exactly.
@@ -136,5 +138,4 @@ N·max|D_∞^{−σ₃}(VN^{−1} − I)D_∞^{σ₃}|:
   - At −1.5 + 10⁻⁴⁰i the seam value 0.161 is the correct one. The B-probe's 0.283 is a quadrature artifact (its S(z)
     quadrature misses the half-residue). RH_plt1 §5's −1.5 column is corrected accordingly.
 - **Scope** (Rule R F7). This gate does not test the glued W̃, the KMVV angle π − θ_L, or P₀N^{−1} on ∂U(0, δ). Porting
-  `check_px_bessel.py` [B] to p = 0.4 is recommended. The N = 40 row is pending
-  (`checks/check_plt1_seam_e2e_p04s2.out`).
+  `check_px_bessel.py` [B] to p = 0.4 is recommended.
