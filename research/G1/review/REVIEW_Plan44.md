@@ -173,3 +173,50 @@ No major or blocking findings.
   - Rule R: ACCEPT WITH FIXES (this file). After F1–F7 it can be marked REVIEWED on a re-check. Novelty UNCHECKED.
 - Bc1: **HEURISTIC / OBSTRUCTION**. Bc2: **NUMERICAL** (p = s = 2 only; truncated, k ≤ K ≪ n^γ). Tilt law ϑ_n/(2n): **CONJECTURE**.
 - No new case of the pointwise Law P is proved by Plan 44.
+
+## Re-check (diff db55182..5536507)
+
+Text-only diff (PROOF.md §0 row, §3.14; LOG.md; plan doc). Numerics were not re-run, which is fine: no number changed,
+and the review's own re-run already matched the `.out` file.
+
+| Finding | Status | Note |
+|---|---|---|
+| F1 | applied | "0.68–0.71"; t-variation ≤ 1.2·10⁻³ at K = 4.8·10⁵ and ≤ 1.8·10⁻³ at K = 1.2·10⁵. Both match the `.out`. |
+| F2 | applied, with one slip | t = 0 maximum, LP constant 0.4156, "QL at t = 0 is a uniform-in-M LP (QLP), not proved": correct. The slip is "the t = 1 values are smaller by ≤ 1.2·10⁻³". This holds at K = 4.8·10⁵; at K = 1.2·10⁵ the gap is 1.8·10⁻³ (θ = 0.8, n = 100). See N2. |
+| F3 | applied | Remark on L0 and Bc4(b): |g_n(k)| ≤ ε_k(1 + log₂(n/k)) ≤ ε_{⌈n/λ⌉}(1 + log₂λ). Correct. |
+| F4 | applied | Termwise AM–GM \|K q q\| ≤ ½(K² + q²q²), then Σ_lK_n(k,l)² = K_n(k,k) and Σ_lq_n(l)² = 1. Correct. |
+| F5 | applied | K-gap sequence 0, 0, 3·10⁻⁴, 8·10⁻⁴, 1.9·10⁻³ (b_n, θ = 0.8) and 2.0·10⁻³ (a_n). Matches the `.out`. |
+| F6 | applied, with one error | The new sentence says B-cond "reduces QL₀ to the **Ψ-free** localization statement QL". QL is not Ψ-free: Λ_n is built from μ_m^{(t)} along the path vΨ^t, which depends on Ψ. Only the factor g_n has been removed. See N1. |
+| F7 | applied | FV⁺ is labelled "standard extension; novelty not claimed"; L0 is in the §0 internal list; "along the full sequence of n (not a density-one subsequence)"; QL and QL₀ are labelled HYPOTHESIS; the tilt law is labelled CONJECTURE. |
+
+**The combined label "CONDITIONAL (QL₀, implied by QL) + PROVED-mod-cite": acceptable, no split required.** Three
+reasons:
+- The theorem statement itself separates the two parts. The displayed bounds are stated "with no further hypothesis",
+  and the law comes after "Consequently, if QL (or QL₀) holds".
+- The heading and the §0 row name the citations (RH_px, RH₁(r), RH_plt1b) and the internal lemmas.
+- The repo already uses the same combined pattern elsewhere, e.g. "PROVED-mod-cite (P)" in §3.1.
+
+There is no reading under which the label overclaims. Optionally, the §0 row could add "(the displayed bounds are
+unconditional)".
+
+### New items
+- **N1 (minor, must fix; PROOF.md §3.14, sentence after QL₀).** Replace "the Ψ-free localization statement QL" with
+  "the log-moment localization statement QL (free of g_n, but still a statement about μ^{(t)} along vΨ^t)". As written,
+  the sentence suggests that QL is a statement about the pure power alone, which would be an overclaim. Bc2 itself
+  correctly says that QL reduces to QLP only at t = 0.
+- **N2 (polish; Bc2).** "the t = 1 values are smaller by ≤ 1.2·10⁻³": add "at K = 4.8·10⁵ (≤ 1.8·10⁻³ at K = 1.2·10⁵)".
+  Alternatively, delete the clause, since the variation over t is already stated just before it.
+
+### Re-check verdict
+**ACCEPT once N1 is fixed** (a one-phrase fix; N2 is optional polish). No mathematical change was made, and everything
+verified in the first pass still stands. After N1, B-cond can be marked REVIEWED.
+
+**Final labels:**
+- L0: PROVED.
+- QLb: PROVED (as an implication).
+- FV⁺: PROVED (standard extension; novelty not claimed).
+- QL and QL₀: HYPOTHESIS. QL is proved only where T3-log or T3-all already apply.
+- Theorem B-cond: CONDITIONAL (QL₀, implied by QL) + PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal L0, FV⁺,
+  Sat_p⁺, TLw). Rule R: ACCEPT WITH FIXES, fixes applied, re-check ACCEPT (after N1) — REVIEWED. Novelty UNCHECKED.
+- Bc1: HEURISTIC / OBSTRUCTION. Bc2: NUMERICAL. Tilt law: CONJECTURE.
+- Plan 44 proves no new case of the law.

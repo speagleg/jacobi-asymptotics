@@ -175,4 +175,4 @@
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan44.md; no mathematical error). F1 (Bc2 numbers), F2 (sup_t Λ_n at t = 0;
   LP constant 0.4156; QL at t = 0 is QLP, unproved), F3 (downward chaining needs ε_{⌈n/λ⌉}), F4 (Cauchy–Schwarz for the FVa
   cross piece), F5 (K-gap grows with n), F6 (QL₀ framing), F7 (labels: FV⁺ standard; L0 in §0; "full sequence"; QL/QL₀
-  HYPOTHESIS; tilt law CONJECTURE) applied — re-check pending.
+  HYPOTHESIS; tilt law CONJECTURE) applied. Re-check ACCEPT (N1 QL wording, N2 K-qualifier applied) — REVIEWED.

@@ -46,7 +46,7 @@ known; its application here to Law P is what is new.
 | **Thm L** | localization at scale Mn: limsup sup_t μ_m^{(t)}((Mn, ∞)) ≤ e^{4G}F_p(M) for bounded slowly varying Ψ (§3.8) | PROVED-mod-cite (as LP; internal TV, Sat_p⁺) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-all** | for w = k^{−s}Ψ with Ψ bounded and **slowly varying** (δ_n(λ) → 0): n^pb_n → c(p) and n^pa_n → 2c(p) for **all n** — the full pointwise Law P; contains T3-conv, T3-sv, T3-avg (§3.8, Plan 35) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, L) + Rule R ACCEPT WITH FIXES (review/REVIEW_Plan35.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **T3-log** | for w = k^{−s}Ψ with Ψ **log-type slowly varying** (slowly varying, and D(γ) < ∞; e.g. (log k)^α, any α ∈ ℝ): the full pointwise Law P, all n; contains T3-all (§3.9, Plan 36) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, Sat_p⁺, TL(w), L, T3-all) + Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
-| **B-cond** | for x_k = k^{−p} (p > 0), w = k^{−s}Ψ (s > 1) with Ψ **slowly varying in sequence form only** (no boundedness, no D(γ) < ∞; e.g. exp(√log k)): explicit bounds \|log b_n²(w) − log b_n²(v)\| ≤ 2δ_n(M₀) + Q_n + o(1), n^p\|a_n(w) − a_n(v)\| ≤ 4M₀^p(2δ_n(M₀) + Q_n) + o(1); hence **QL** (ε_nΛ_n → 0, Λ_n := sup_t max_{m∈{n−1,n}}Σ_{n≤k≤n^γ}log(k/n)μ_m^{(t)}(k), γ > κ) ⇒ n^pb_n → c(p), n^pa_n → 2c(p) along the full sequence. Internal: L0 (dyadic chaining/Potter), FV⁺ (FV/FVa for unbounded f), QLb (power tail ⇒ QL) — PROVED (§3.14, Plan 44) | CONDITIONAL (QL₀, implied by QL; both HYPOTHESIS) + PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal L0, FV⁺, Sat_p⁺, TLw); L0, QLb PROVED; FV⁺ PROVED (standard extension; novelty not claimed); QL proved only in cases already covered (ε_n log n → 0 ⊂ T3-log; bounded Ψ); no new case of the law; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan44.md), fixes applied, re-check pending; novelty UNCHECKED |
+| **B-cond** | for x_k = k^{−p} (p > 0), w = k^{−s}Ψ (s > 1) with Ψ **slowly varying in sequence form only** (no boundedness, no D(γ) < ∞; e.g. exp(√log k)): explicit bounds (the displayed bounds are unconditional) \|log b_n²(w) − log b_n²(v)\| ≤ 2δ_n(M₀) + Q_n + o(1), n^p\|a_n(w) − a_n(v)\| ≤ 4M₀^p(2δ_n(M₀) + Q_n) + o(1); hence **QL** (ε_nΛ_n → 0, Λ_n := sup_t max_{m∈{n−1,n}}Σ_{n≤k≤n^γ}log(k/n)μ_m^{(t)}(k), γ > κ) ⇒ n^pb_n → c(p), n^pa_n → 2c(p) along the full sequence. Internal: L0 (dyadic chaining/Potter), FV⁺ (FV/FVa for unbounded f), QLb (power tail ⇒ QL) — PROVED (§3.14, Plan 44) | CONDITIONAL (QL₀, implied by QL; both HYPOTHESIS) + PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal L0, FV⁺, Sat_p⁺, TLw); L0, QLb PROVED; FV⁺ PROVED (standard extension; novelty not claimed); QL proved only in cases already covered (ε_n log n → 0 ⊂ T3-log; bounded Ψ); no new case of the law; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan44.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1 §§2–6) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; G2 PROOF.md μ*, B* — only μ* and B*(i)–(ii), which do not use (P)) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -956,7 +956,7 @@ M₁n ≤ n^γ (step 2) and T″ ≤ n^γ (step 3); both hold for n large. For n
   with halving ratios 2.16–2.25 per doubling (n·log n·deviation/|α| ≈ 0.46–0.49, consistent with |α|/(n log n)),
   in exact proportion 1 : 2 : 3 to |α|; K-converged (K = 1.2·10⁵ vs 2.4·10⁵).
 
-### 3.14 Theorem B-cond (Plan 44): the pointwise Law P for every slowly varying weight, conditional on a log-moment localization hypothesis (QL) — Lemmas L0, QLb PROVED; FV⁺ PROVED (standard extension; novelty not claimed); QL, QL₀ HYPOTHESIS; Theorem B-cond CONDITIONAL (QL₀, implied by QL) + PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan44.md), fixes applied, re-check pending; novelty UNCHECKED
+### 3.14 Theorem B-cond (Plan 44): the pointwise Law P for every slowly varying weight, conditional on a log-moment localization hypothesis (QL) — Lemmas L0, QLb PROVED; FV⁺ PROVED (standard extension; novelty not claimed); QL, QL₀ HYPOTHESIS; Theorem B-cond CONDITIONAL (QL₀, implied by QL) + PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan44.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED
 
 Source: `research/program/outline_B_sv.md` §2 (Problem B, "B-cond"). Setting: x_k = k^{−p} (p > 0), v = k^{−s} (s > 1),
 w = vΨ with Ψ > 0 on ℕ **slowly varying in the sequence form of §3.8/§3.9(i)**: δ_n(λ) := max{|log Ψ(k) − log Ψ(n)| :
@@ -1041,7 +1041,7 @@ it for every γ′ ∈ (κ, γ]; the weakest form takes γ just above κ.) The p
 
 and even only its t-average ∫_0^1(…)dt in place of sup_t (t ↦ μ_m^{(t)}(k) is continuous). QL₀ is precisely the range
 part of the first-variation bound; B-cond shows that everything outside [n, n^γ] is controlled unconditionally, for every
-sequence-form slowly varying Ψ (no boundedness), and reduces QL₀ to the Ψ-free localization statement QL via L0. QL ⇒ QL₀, because by
+sequence-form slowly varying Ψ (no boundedness), and reduces QL₀ to the log-moment localization statement QL (free of g_n, but still a statement about μ^{(t)} along vΨ^t) via L0. QL ⇒ QL₀, because by
 L0(i), with log₂ = log/log 2,
 
   Q_n ≤ 2ε_n + (2ε_n/log 2)·Λ_n.
@@ -1148,7 +1148,7 @@ m ∈ {n − 1, n} and all real 1 ≤ M ≤ n^{γ−1}: sup_tμ_m^{(t)}(ℕ ∩ 
     reorthogonalized Lanczos run to 4·10⁻¹³ at n = 100, K = 2·10⁴): sup_tΛ_n = 0.423, 0.419, 0.417, 0.415 (n = 100, 200, 400, 800; K = 4.8·10⁵) flat in t
     (variation ≤ 1.2·10⁻³ at K = 4.8·10⁵, ≤ 1.8·10⁻³ at K = 1.2·10⁵); K = 1.2·10⁵ gives values smaller by ≤ 3.3·10⁻³. In every
     row the sup over t is attained at t = 0, i.e. at the pure power v (so the two weights share it trivially); the t = 1 values
-    are smaller by ≤ 1.2·10⁻³. The slow decrease in n is the approach to the Lemma LP constant ∫_0^∞F_p(e^u)du = 0.4156
+    are smaller by ≤ 1.2·10⁻³ at K = 4.8·10⁵ (1.8·10⁻³ at K = 1.2·10⁵). The slow decrease in n is the approach to the Lemma LP constant ∫_0^∞F_p(e^u)du = 0.4156
     (p = 2; reviewer's computation, REVIEW_Plan44.md). At t = 0, QL with Λ_n = O(1) is a uniform-in-M form of Lemma LP (the
     outline's QLP): supported by these numerics, not proved.
     So ε_n·sup_tΛ_n ≈ 0.068 → 0.057 (√log) and 0.169 → 0.158 (θ = 0.8), decreasing like ε_n, consistent with QL in the
