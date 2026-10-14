@@ -240,3 +240,17 @@
 - Plan 13 merged to master with the labels above; no further plans. Open problems carried forward: the log-weight
   hard-edge lemma (candidate routes: D_w-based local parametrix with a lens-boundary mismatch bound, or
   Conway–Deift SIGMA 2018, unread), a certified Lemma Z, uniform Airy; 0 < p < 1 pure powers.
+
+## 2026-10-14 — Plan 14 (smooth-ζ closure)
+- **Plan deviation (Rule R F9).**
+  - Plan 14's A3/A4 (positivity of σ̃'s Gram matrix, with GATE A4 and fallback A4′) was replaced by the comparison
+    with W̃ := D_w (σ_ζ's own problem, made exactly solvable at the hard edge), together with Lemma UR. Uniform
+    invertibility is proved from the explicit comparison solution with power weights, so no positivity is needed.
+  - A1 is proved analytically (an exact formula for |W|), so `check_z_lw0.py` was not produced.
+- **Results.**
+  - Hard edge (§1): log effect O(1/(N log N)).
+  - Lemma Z (§2): winding certified with Arb.
+  - Uniform edges (§3).
+  - Rate (§4): κ exact.
+  - Theorem RH_ζ (§5).
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_RHzeta_close.md). Findings F1–F10, all minor, applied.

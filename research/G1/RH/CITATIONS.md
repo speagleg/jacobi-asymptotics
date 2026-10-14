@@ -263,3 +263,31 @@ removability step (Prop. 6.5, quoted above) needs:
 Theorem 4.7 and Proposition 4.9 (reproduced there). We do **not** use Theorem 4.5: its proof is Legendre-specific
 (a polynomial moment problem with Lebesgue measure). Our replacement is Lemma UR, proved from an explicit solution of
 the comparison problem. We use only the easy direction of Proposition 4.6, which is re-proved in §1.4.
+
+## (DLMF-2) NIST DLMF §§1.14, 5.5, 5.12, 10.27, 10.39 — READ (web pages, 2026-10-14), for Plan 14 (Rule R F2)
+
+> 1.14(iv): (1.14.32) "ℳf(s) = ∫₀^∞ x^{s−1}f(x)dx"; (1.14.38) "∫₀^∞(f(x))²dx = (1/2π)∫_{−∞}^{∞}|ℳf(½ + it)|²dt";
+> (1.14.39) "(f∗g)(x) = ∫₀^∞f(y)g(xy)dy/y"; (1.14.40) "∫₀^∞x^{s−1}(f∗g)(x)dx = ℳf(s)ℳg(s)" (for x^{σ−1}f, x^{σ−1}g
+> absolutely integrable).
+>
+> (5.5.3) "Γ(z)Γ(1−z) = π/sin(πz), z ≠ 0, ±1, …".
+>
+> (5.12.1) "B(a,b) = ∫₀¹t^{a−1}(1−t)^{b−1}dt = Γ(a)Γ(b)/Γ(a+b)"; (5.12.3) "∫₀^∞ t^{a−1}/(1+t)^{a+b} dt = B(a,b)"; "In
+> (5.12.1)–(5.12.4) it is assumed ℜa > 0 and ℜb > 0."
+>
+> (10.27.3) "K_{−ν}(z) = K_ν(z)"; (10.27.4) "K_ν(z) = ½π(I_{−ν}(z) − I_ν(z))/sin(νπ)".
+>
+> (10.39.1) "I_{1/2}(z) = (2/(πz))^{1/2}sinh z, I_{−1/2}(z) = (2/(πz))^{1/2}cosh z"; (10.39.2) "K_{1/2}(z) = K_{−1/2}(z) =
+> (π/(2z))^{1/2}e^{−z}".
+
+**Used in:** RH_zeta_close.md §1.4 Lemma W (Mellin–Parseval, the PV symbol −π cot πs from 5.12.3 and 5.5.3), and §1.2 (the
+local form Ψ = Ψ̂ζ^{−σ₃/4}S for α = −½).
+
+## (KMVV, additional quotes for Plan 14; Rule R F2) — read in math/0111252v2 (pdftotext)
+
+> "(c) For α < 0, the matrix function Ψ(ζ) has the following behavior as ζ → 0: Ψ(ζ) = O([[|ζ|^{α/2}, |ζ|^{α/2}],
+> [|ζ|^{α/2}, |ζ|^{α/2}]]), as ζ → 0. (6.19)"; "We define Ψ(ζ) for |arg ζ| < 2π/3 as Ψ(ζ) = [[I_α(2ζ^{1/2}),
+> (i/π)K_α(2ζ^{1/2})], [2πiζ^{1/2}I′_α(2ζ^{1/2}), −2ζ^{1/2}K′_α(2ζ^{1/2})]]. (6.23)"; for 2π/3 < arg ζ < π, (6.24) in terms
+> of ½H^{(1)}_α(2(−ζ)^{1/2}), ½H^{(2)}_α(2(−ζ)^{1/2}) and πζ^{1/2}H′ times e^{½απiσ3}; for −π < arg ζ < −2π/3, (6.25)
+> likewise with e^{−½απiσ3}; "Theorem 6.3 The matrix valued function Ψ(ζ), defined in (6.23)–(6.25), is a solution of
+> the RHP for Ψ."
