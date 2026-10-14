@@ -20,8 +20,8 @@ nothing here is evidence about where the zeros lie.
 | N″ | repeated indices of positive **upper** density ⇒ the law fails, liminf ≤ −0.2397·d̄(E) (§5.2); hence G3′ ⇒ d(E) = 0 | PROVED-mod-cite (C1) + mod-input Theorem H (via G3′-U steps 1–5, item 11 H5–H7); REVIEWED; novelty UNCHECKED | Hadamard, Christoffel, G3′-U |
 | N‴ | normalized gaps g_k ≤ e^{−βk} (incl. repeats) at positive upper density ⇒ the law fails (§5.3); hence G3′ ⇒ d(T_β) = 0 for every β > 0 | PROVED-mod-cite (C1) + mod-input Theorem H; depends on §5.2; Rule R pending | N″, Z2 |
 | B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED | GLSS (6.1), Caro–Wei, §4 proof |
-| L′ | (LG*): deletable bad set of small upper density + Σ log⁺(1/g) = o(K²/log K) on the rest ⇒ G3′ (§4.1); contains both (SG) and "d(E) = 0 + log-gap" | PROVED-mod-cite (C1) + mod-input (LG*), Theorem H; Rule R ACCEPT WITH FIXES, re-check pending; novelty UNCHECKED | G3′-L, G3′-U, Lemma Tr, Lemma K, Lemma W |
-| Tr | truncation of the pure-power comparison at J ≥ (M/2)n costs ≤ (C_s n + 2)·E#tail = O(n²/log M) (§4.1) | PROVED (from Lemma H, Lemma K); Rule R ACCEPT WITH FIXES, re-check pending | Lemma H, Lemma K |
+| L′ | (LG*): deletable bad set of small upper density + Σ log⁺(1/g) = o(K²/log K) on the rest ⇒ G3′ (§4.1); contains both (SG) and "d(E) = 0 + log-gap" | PROVED-mod-cite (C1) + mod-input (LG*), Theorem H; REVIEWED; novelty UNCHECKED | G3′-L, G3′-U, Lemma Tr, Lemma K, Lemma W |
+| Tr | truncation of the pure-power comparison at J ≥ (M/2)n costs ≤ (C_s n + 2)·E#tail = O(n²/log M) (§4.1) | PROVED-mod-input Theorem H (via Lemma K / item 11 H7); REVIEWED | Lemma H, Lemma K |
 | C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED | GLSS, G3′-L |
 | P | RH + prime short-interval variance (V) ⇒ G3′ (§9.1; corollary of KNOWN (C8) + Theorem C) | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; REVIEWED (Rule R, review/REVIEW_Plan18.md); novelty UNCHECKED (RH + (V) ⇒ PCC is KNOWN) | §8.2 |
 | Thm S | SPC_ℂ⁺ (upper half of the dyadic complex-weighted SPC, BGST F; no RH) ⇒ 100% simple critical, gaps ≪ δ³, (SG) ⇒ G3′ (rhfree/RHFREE.md) | PROVED-mod-cite ((C3), (C6) (2.4), (C1)) + mod-input SPC_ℂ⁺, Theorem H; REVIEWED; novelty UNCHECKED | Lemma PC, Lemma G, G3′-L |
@@ -225,7 +225,7 @@ and (1+θ)/(1−θ) = s − 3. For s = 4 the bound is the reference itself. ∎
 true-zero measure.
 
 
-### 4.1 Theorem L′ (Plan 25): a log-gap condition suffices — PROVED-mod-cite + mod-input (LG*), Theorem H; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan25.md), fixes applied, re-check pending; novelty UNCHECKED
+### 4.1 Theorem L′ (Plan 25): a log-gap condition suffices — PROVED-mod-cite (C1) + mod-input (LG*), Theorem H; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan25.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED
 
 G3′-L uses (SG) to delete small gaps. Here, small *positive* gaps are allowed at any density, provided their
 log-sizes are summable at the scale o(K²/log K).

@@ -209,3 +209,42 @@ between that and N‴'s e^{−βk} threshold") and LOG Plan-25 "Remaining window
 - **Theorem L′:** PROVED-mod-cite (C1) + mod-input (LG*), Theorem H; REVIEWED; novelty UNCHECKED.
 - **Status row L′:** drop "Rule R pending" and cite this file.
 - **README and LOG:** "in review" → "REVIEWED (review/REVIEW_Plan25.md)", with F4's rewording of the open window.
+
+## Re-check (commit 78999d5)
+
+I checked each fix against the diff bbf2fed..78999d5. `check_trunc.out` is unchanged, since the edit to
+`check_trunc.py` touches only the docstring.
+
+- **F1 ✔.** The numerics bullet now reports order-n² truncation, with the n ≤ 32 figures, and the false "O(1)" remark
+  is gone. The figures quoted for n = 16 (tr K_A = 1.5 and log det = −5.6 at J = 2n) match the `.out`.
+- **F2 ✔.** Step 3 now uses "f(λ)/λ is nondecreasing", λ* ≥ λ_max and f(λ*)/λ* = (1 + e^{−u})log(1 + eᵘ) ≤ u + 2.
+  This is correct: the left side is ≤ u + 1/e + 2 log 2.
+- **F3 ✔.** The finite-rank / trace-class sentence, with finite approximations A_N ↑ A, and ρ_n(l) = P_ν(l ∈ S) via
+  single-deletion Lemma H are both in.
+- **F4 ✔.** The README, Remark L′1 and LOG no longer speak of "between".
+- **F5 ✔.** The cutoff and the scope of [2] are now stated, both in the docstring and in PROOF.md.
+- **F6 ✔ with one residual (R1).** The L′ row lists G3′-U and Lemma Tr has its own row, but the Tr label needs a fix.
+- **F7, F8 ✔.**
+- **F9 ✔.** The remark is brief but correct. If T_β ∖ B_η had upper density θ′ > 0, the summands ≥ βk would give a
+  sum ≥ βθ′²K²/2 infinitely often. So d̄(T_β) ≤ η for every η. The d(E) = 0 part follows from E − 1 ⊂ B_η.
+
+### Residual items
+- **R1 (Minor; my own error in the first-pass label recommendation).** Lemma Tr uses Lemma K. Lemma K is
+  PROVED-mod-input Theorem H (status row "R, K"), because its fraction bound needs Theorem H's lower half for D_n(ν).
+  - So Lemma Tr is **PROVED-mod-input Theorem H**, not "PROVED".
+  - Alternatively, it is unconditional for v_j = j⁻⁴ only if both of the following are argued:
+    - Lemma W supplies the lower bound in Lemma K's proof;
+    - H7's tail bound itself does not use Theorem H.
+  - Simplest fix: label it mod-input Theorem H.
+- **R2 (Trivial).** The §4.1 heading says "PROVED-mod-cite", while the table row says "PROVED-mod-cite (C1)". Add
+  "(C1)" to the heading.
+- **R3 (bookkeeping, at merge).** Set README "in review", LOG "Re-check pending" and the status-row / heading
+  "re-check pending" to REVIEWED.
+
+### Re-check verdict: ACCEPT
+This is conditional only on R1–R3, which are label and bookkeeping edits. No mathematical issue remains.
+
+**Final labels.**
+- **Lemma Tr:** PROVED-mod-input Theorem H (via Lemma K / item 11 H7); depends on Lemma H and Lemma K; REVIEWED.
+- **Theorem L′:** PROVED-mod-cite (C1) + mod-input (LG*), Theorem H; depends on G3′-L, G3′-U, Lemma Tr, Lemma K and
+  Lemma W; REVIEWED; novelty UNCHECKED.

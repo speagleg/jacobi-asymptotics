@@ -182,4 +182,4 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
 - **Result:** (LG*) ⇒ G3′. (LG*) contains (SG), and also "d(E) = 0 + Σ log⁺(1/g) = o(K²/log K)".
 - **Remaining:** gap sequences satisfying neither (LG*) nor N‴'s condition. These are not ordered "between".
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan25.md). F1 (the false "O(1) truncation" remark), F2 (the
-  convexity step rewritten), F3–F9 applied. Re-check pending.
+  convexity step rewritten), F3–F9 applied. Re-check: ACCEPT (R1: Lemma Tr is PROVED-mod-input Theorem H; R2, R3 applied). REVIEWED.
