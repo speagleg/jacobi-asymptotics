@@ -233,6 +233,50 @@
   F5 (interleaving HEURISTIC; A4′ label), F6 (quoted range 0.1069; script label [10, 99], .out regenerated; [3]/[4]
   marked not K-checked), F7 (N₀ not explicit) applied. Re-check ACCEPT — REVIEWED.
 
+## 2026-10-14 — Plan 42 (Lemma RL: Law P ⟺ rescaled μ_n → arcsine with sup n^p(a_n + b_n) < ∞, equivalently in moments 1, 2, 4; target T0′)
+- **Source.** Simon, JAT 126 (2004), mp_arc 03-341: TeX source fetched from mp_arc and read (§1, §3). Quotes are in
+  CITATIONS.md (Simon). Theorem 3.2 (moments ℓ = 1, 2, 4 of p_n²dμ converge ⇒ b_n → b, a_{2n} → a, a_{2n+1} → c) is the
+  unscaled, fixed-J analogue. It does not apply verbatim to the n-dependent n^pJ, so RL is proved self-contained by the
+  same path-sum argument; the citation is attribution only.
+- **Lemma RL** (§3.13), any σ with infinite support and scales s_{n+1}/s_n → 1:
+  - s_na_n → α, s_nb_n → β ⟺ moments 1, 2, 4 of ν_n → those of arcsine on [α − 2β, α + 2β] ⟺ weak convergence plus
+    the a priori bound sup s_n(|a_n| + b_n) < ∞ (or UI of y⁴).
+  - Key step: (∗) u_n + u_{n+1} → 2β² and (∗∗) u_{n+1}u_{n+2} + u_{n−1}u_n → 2β⁴ force (γ − β²)² = 0 at every limit
+    point γ of u_n = (s_nb_n)². Zero discriminant ⇔ arcsine.
+- **RL-loc.** For right limits, the indices n − 1, n, n + 1 suffice.
+- **RL-n.** The index n alone does not suffice. The doubly infinite J_t (B_0² = 2tβ², B_1² = 2(1 − t)β²) has the
+  arcsine law as its e_0 spectral measure (excursion bijection). It is realized by a positive compact J = LLᵀ + k_0²e_0e_0ᵀ
+  with atoms x_k ↓ 0, where all moments of ν_{n_j} → arcsine moments but n_j^pb_{n_j} → β√(2t).
+- **RL-b.** The b-law alone is not enough: with diagonal 3c, ν_n → arcsine on [c, 5c].
+- **Open:** RL-UI, i.e. whether weak convergence without the a priori bound suffices.
+- **Corollaries.** Localization ⟺ Law P for pure powers with sandwiched weights (the a priori bound is T3a step 1).
+  For Theorem R weights, ν_n does not converge to arcsine.
+- **Numerics** (`checks/check_rl.out`): (M) to 10 digits. Slowly varying Ψ: rdev ~ 1e−5, rmom 3–7e−5. Theorem-R-type windows:
+  rdev ≈ 6e−2 and rmom up to 1e−1 at N − 2 … N, versus ≤ 3e−2 elsewhere. RL-b and RL-n are confirmed on the explicit
+  parameters.
+- **Labels:** RL, RL-loc PROVED; RL-n, RL-b, RL-n2 PROVED (spectral theorem for compact self-adjoint operators:
+  textbook-standard, stated precisely, not checked against a specific source); RL2 PROVED-mod-cite (inherits
+  Theorem R). Novelty: not claimed for RL, RL-b; UNCHECKED for RL-loc, RL-n, RL-n2.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan42.md; math correct). Fixes applied:
+  - F1: the a priori bound / "in moments" was added to the §0 row, §3.13 heading, this title and the plan goal.
+  - F2: RL2 now says β_n ↛ 1, cites T3a step 1, and is labelled PROVED-mod-cite.
+  - F3: no verbatim source for the spectral theorem was read, so RL-n and RL-b are PROVED-mod-cite (Hilbert–Schmidt).
+  - F4: the numerics text is corrected; the N − 1 rows are noted as an instance of RL-n.
+  - F5: LP is a special case of the forward direction.
+  - F6: the monotone argument for s_{n+1}/s_n → 1 was added; C is defined.
+  - F7: Remark RL-n2 (the reviewer's construction: {n, n+1} fails for moments 1, 2, 4; general measures, positivity
+    open) and check_rl [4] were added; RL-loc is weakened to ℓ = 1, 2 at n ± 1.
+  - F8–F11 nits.
+
+  Re-check: ACCEPT. R1–R3 applied:
+  - R1 (option (a)): RL-n, RL-b and RL-n2 are back to PROVED, with the spectral theorem marked textbook-standard per
+    the repo's precedent (TL, LP).
+  - R2: RL-n2 needs 0 < γ < 2.
+  - R3: LP is called "a special case" in the §3.13 opening; this LOG's rmom is corrected; RL3 assumes f decreasing on
+    [1, ∞); RL-n2 is added to the novelty list.
+
+  Rule R ACCEPT WITH FIXES (review/REVIEW_Plan42.md), fixes applied, re-check ACCEPT — REVIEWED.
+
 ## 2026-10-14 — Plan 44 (Theorem B-cond: all slowly varying weights, conditional on QL)
 - **Lemma L0** (PROVED): ε_n := sup_{m≥n}δ_m(2) → 0; dyadic chaining upward gives |g_n(k)| ≤ ε_n(1 + log₂(k/n)) for k ≥ n,
   and Potter bounds e^{−A_η}k^{−η} ≤ Ψ ≤ e^{A_η}k^{η}. Uses only the sequence form (λ = 2); no UCT, no BGT citation.

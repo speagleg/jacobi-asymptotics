@@ -1,0 +1,63 @@
+[1] p=s=2, n=100, K=20000: total mass of mu_n = 1.000000000000
+    l=1: quadrature 1.2154119998e+00  path sum 1.2154119998e+00
+    l=2: quadrature 2.2159770764e+00  path sum 2.2159770764e+00
+    l=3: quadrature 4.4897174737e+00  path sum 4.4897174737e+00
+    l=4: quadrature 9.5529412078e+00  path sum 9.5529412078e+00
+    4th-moment decomposition: 9.5529412078e+00 vs quadrature 9.5529412078e+00;  (K)_nn = -1.829e-02, (K^3)_nn = -3.992e-02 (both → 0);  (K^4)_nn = 8.213578e-01, its off-diagonal-path part 8.194899e-01, limit 6c^4 = 8.687010e-01
+[2] (v)  pure power:
+      n=50: dev=2.9e-02 mom=1.1e-01
+      n=100: dev=1.5e-02 mom=5.7e-02
+      n=200: dev=7.5e-03 mom=2.9e-02
+      n=400: dev=3.7e-03 mom=1.5e-02
+[2] (sv) slowly varying:
+      n=50: dev=2.9e-02 mom=1.1e-01 rdev=1.4e-04 rmom=5.4e-04 jump=1.9e-04
+      n=100: dev=1.5e-02 mom=5.7e-02 rdev=8.5e-06 rmom=2.8e-05 jump=4.9e-05
+      n=200: dev=7.5e-03 mom=2.9e-02 rdev=1.7e-05 rmom=6.9e-05 jump=1.2e-05
+      n=400: dev=3.8e-03 mom=1.5e-02 rdev=1.6e-05 rmom=6.3e-05 jump=3.0e-06
+[2] (rnd) iid U[1/2,3/2]:
+      n=50: dev=3.3e-02 mom=5.5e-02 rdev=2.6e-02 rmom=6.1e-02 jump=8.8e-03
+      n=100: dev=6.6e-03 mom=4.5e-02 rdev=8.3e-03 rmom=1.3e-02 jump=1.1e-02
+      n=200: dev=1.4e-02 mom=1.3e-02 rdev=1.6e-02 rmom=1.7e-02 jump=1.3e-02
+      n=400: dev=4.3e-03 mom=6.5e-03 rdev=5.6e-03 rmom=2.2e-02 jump=4.7e-03
+[2] (R)  adversarial eps=0.2, f = eps*sign(D^2 mu_N) on [0.6N,1.6N], N = 60, 240 (f = 0 on [97,143] and n > 384), K=6000
+[2] (R)  near N=60:
+      n=58: dev=5.2e-02 mom=1.8e-01 rdev=2.7e-02 rmom=9.6e-02 jump=1.4e-02
+      n=59: dev=6.8e-02 mom=9.4e-02 rdev=6.0e-02 rmom=6.8e-03 jump=5.7e-02
+      n=60: dev=5.0e-02 mom=5.6e-02 rdev=5.9e-02 rmom=4.0e-02 jump=1.3e-01
+      n=61: dev=3.1e-02 mom=1.1e-01 rdev=2.3e-02 rmom=2.2e-02 jump=7.7e-02
+      n=62: dev=1.7e-02 mom=6.8e-02 rdev=7.0e-03 rmom=2.4e-02 jump=1.6e-02
+[2] (R)  near N=240:
+      n=238: dev=2.5e-02 mom=1.0e-01 rdev=1.9e-02 rmom=7.9e-02 jump=4.4e-03
+      n=239: dev=6.3e-02 mom=3.4e-02 rdev=6.1e-02 rmom=8.2e-03 jump=6.3e-02
+      n=240: dev=5.1e-02 mom=1.2e-02 rdev=5.5e-02 rmom=3.9e-02 jump=1.2e-01
+      n=241: dev=2.2e-02 mom=2.7e-02 rdev=1.9e-02 rmom=5.1e-03 jump=6.9e-02
+      n=242: dev=2.5e-03 mom=4.5e-03 rdev=5.8e-03 rmom=2.2e-02 jump=1.9e-02
+[2] (R)  outside the windows:
+      n=20: dev=7.0e-02 mom=2.4e-01 rdev=3.7e-04 rmom=5.0e-04 jump=9.8e-04
+      n=110: dev=1.5e-02 mom=6.2e-02 rdev=5.5e-03 rmom=9.4e-03 jump=7.4e-03
+      n=130: dev=3.4e-03 mom=1.9e-02 rdev=8.1e-03 rmom=2.7e-02 jump=4.8e-03
+      n=389: dev=6.4e-03 mom=2.9e-02 rdev=3.3e-03 rmom=1.2e-02 jump=1.2e-02
+[2b] (sv) K=60000: n=200 dev=7.473879e-03 mom=2.941820e-02
+[2b] (sv) K=120000: n=200 dev=7.472220e-03 mom=2.940152e-02
+[3] (b-only) diag 3c m^-p, off-diag c m^-p (b-law holds): moments of nu_n / arcsine[0,4c] moments; arcsine[c,5c] has m_1 = 3c, m_2 = 11c^2, m_4 = 195c^4:
+    n=100: m_1/c^1=3.0000  m_2/c^2=10.9610  m_4/c^4=192.7236
+    n=1000: m_1/c^1=3.0000  m_2/c^2=10.9960  m_4/c^4=194.7613
+    n=10000: m_1/c^1=3.0000  m_2/c^2=10.9996  m_4/c^4=194.9760
+[3] (loc) theta-construction, t = 0.25: arcsine[0,4c] moments m_l/c^l = 2, 6, 20, 70, 252, 924, 3432, 12870
+    n=99: n^p b_n/beta=1.0102  (moment_l / arcsine moment_l, l=1..8) = 1.00000 0.91843 0.85429 0.80705 0.77179 0.74487 0.72392 0.70739
+    n=100: n^p b_n/beta=0.7142  (moment_l / arcsine moment_l, l=1..8) = 1.00000 0.99677 0.99232 0.98700 0.98102 0.97453 0.96767 0.96052
+    n=101: n^p b_n/beta=1.2370  (moment_l / arcsine moment_l, l=1..8) = 1.00000 1.08511 1.15435 1.20693 1.24732 1.27901 1.30437 1.32501
+    n=999: n^p b_n/beta=1.0010  (moment_l / arcsine moment_l, l=1..8) = 1.00000 0.91683 0.85040 0.80065 0.76279 0.73324 0.70963 0.69035
+    n=1000: n^p b_n/beta=0.7078  (moment_l / arcsine moment_l, l=1..8) = 1.00000 0.99967 0.99920 0.99864 0.99798 0.99725 0.99646 0.99560
+    n=1001: n^p b_n/beta=1.2260  (moment_l / arcsine moment_l, l=1..8) = 1.00000 1.08350 1.15040 1.20062 1.23889 1.26876 1.29261 1.31203
+    n=9999: n^p b_n/beta=1.0001  (moment_l / arcsine moment_l, l=1..8) = 1.00000 0.91668 0.85004 0.80006 0.76199 0.73225 0.70846 0.68903
+    n=10000: n^p b_n/beta=0.7072  (moment_l / arcsine moment_l, l=1..8) = 1.00000 0.99997 0.99992 0.99986 0.99980 0.99972 0.99964 0.99955
+    n=10001: n^p b_n/beta=1.2249  (moment_l / arcsine moment_l, l=1..8) = 1.00000 1.08335 1.15004 1.20006 1.23817 1.26795 1.29176 1.31120
+    sanity: smallest eigenvalue of the leading 3000x3000 block of J = 1.753e-13 (positive: True; J = LL^T + k_0^2 e_0e_0^T)
+[4] RL-n2: beta = 1, alpha = 2; u_n = u_{n+2} = g, u_{n+1} = 2 - g, u_{n-1} = u_{n+3} = ((g-1)^2+1)/g, u = 1 elsewhere; targets 2, 6, 70
+    g=0.5: n=1000: 2.00000 5.99401 69.79685   n=1001: 2.00000 5.99801 69.96448   n^p b_n at n=1000: 0.70711 (sqrt g = 0.70711)
+    g=0.5: n=9995: 2.00000 5.99940 69.97960   n=9996: 2.00000 5.99980 69.99640   n^p b_n at n=9995: 0.70711 (sqrt g = 0.70711)
+    g=0.8: n=1000: 2.00000 5.99521 69.84617   n=1001: 2.00000 5.99681 69.91520   n^p b_n at n=1000: 0.89443 (sqrt g = 0.89443)
+    g=0.8: n=9995: 2.00000 5.99952 69.98454   n=9996: 2.00000 5.99968 69.99146   n^p b_n at n=9995: 0.89443 (sqrt g = 0.89443)
+    g=1.3: n=1000: 2.00000 5.99721 69.93475   n=1001: 2.00000 5.99482 69.82671   n^p b_n at n=1000: 1.14018 (sqrt g = 1.14018)
+    g=1.3: n=9995: 2.00000 5.99972 69.99343   n=9996: 2.00000 5.99948 69.98258   n^p b_n at n=9995: 1.14018 (sqrt g = 1.14018)
