@@ -56,7 +56,7 @@ different measure) is not changed. Each changed label says "Rule R ACCEPT WITH F
 | **Ra** | fixed-size rough weights break the pointwise **a-law**: for all p > 0, s > 1 and ε ∈ (0, ε₀], ε₀ = I/16, some \|f\| ≤ ε gives w = k^{−s}e^{f} with limsup (n^pa_n − 2c(p)) ≥ εη_a/2 and liminf ≤ −εη_a/2, η_a = c(p)I/2, I = (1/π)∫min(1, H(2cos θ))dθ > 0 (≈ 0.314, NUMERICAL). Ingredients: Toda form ȧ_n = ⟨f, b_{n+1}q_nq_{n+1} − b_nq_{n−1}q_n⟩; R2a \|ä_n\| ≤ 2(b_n + b_{n+1})‖f‖²; R1a (explicit, window 2) (§3.12, Plan 41) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal FV, FVa, TV, LP/LP′, Sat_p⁺, TL). Sub-labels: Toda form, R2a PROVED; R1a PROVED-mod-cite (via LP′). Rule R ACCEPT WITH FIXES (review/REVIEW_Plan41.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
 | **RL** | Lemma RL: for any σ with infinite support (any nodes x_k ↓ 0) and scales s_n (s_{n+1}/s_n → 1, e.g. n^p): s_na_n → α, s_nb_n → β ⟺ the 1st, 2nd, 4th moments of ν_n := (x ↦ s_nx)_*μ_n tend to those of arcsine on [α−2β, α+2β] ⟺ ν_n → that law weakly + an a priori bound sup s_n(\|a_n\| + b_n) < ∞ (or UI of y⁴). Law P (constant c) ⟺ ν_n → arcsine on [0, 4c] weakly **with sup n^p(a_n + b_n) < ∞** (equivalently: moments ℓ = 1, 2, 4 converge to 2c, 6c², 70c⁴). RL-loc: indices n−1, n, n+1 suffice for right limits; RL-n: index n alone does not (explicit J_t); RL-n2: {n, n+1} does not for moments 1, 2, 4 (general measures); RL-b: the b-law alone is not enough (§3.13, Plan 42) | RL, RL-loc PROVED (self-contained; method of Simon 2004 Thm 3.2, read and quoted, CITATIONS.md (Simon), attribution only); RL-n, RL-b, RL-n2 PROVED (spectral theorem for compact self-adjoint operators: textbook-standard, not checked against a specific source); RL2 PROVED-mod-cite (inherits Theorem R); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan42.md), fixes applied, re-check ACCEPT — REVIEWED; novelty not claimed (RL, RL-b), UNCHECKED (RL-loc, RL-n, RL-n2). Open: weak convergence without the bound (RL-UI) |
 | **B-cond** | for x_k = k^{−p} (p > 0), w = k^{−s}Ψ (s > 1) with Ψ **slowly varying in sequence form only** (no boundedness, no D(γ) < ∞; e.g. exp(√log k)): explicit bounds (the displayed bounds are unconditional) \|log b_n²(w) − log b_n²(v)\| ≤ 2δ_n(M₀) + Q_n + o(1), n^p\|a_n(w) − a_n(v)\| ≤ 4M₀^p(2δ_n(M₀) + Q_n) + o(1); hence **QL** (ε_nΛ_n → 0, Λ_n := sup_t max_{m∈{n−1,n}}Σ_{n≤k≤n^γ}log(k/n)μ_m^{(t)}(k), γ > κ) ⇒ n^pb_n → c(p), n^pa_n → 2c(p) along the full sequence. Internal: L0 (dyadic chaining/Potter), FV⁺ (FV/FVa for unbounded f), QLb (power tail ⇒ QL) — PROVED (§3.14, Plan 44) | CONDITIONAL (QL₀, implied by QL; both HYPOTHESIS) + PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal L0, FV⁺, Sat_p⁺, TLw); L0, QLb PROVED; FV⁺ PROVED (standard extension; novelty not claimed); QL proved only in cases already covered (ε_n log n → 0 ⊂ T3-log; bounded Ψ); no new case of the law; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan44.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED |
-| **CB / QL-CB** | Route I′ (outline_B_sv §5): boundary-flux identities X_A = Σ_{A×A^c}q_mK_mq_m(f(l)−f(k)) and d/dt μ_m(A) = flux of K_m+K_{m+1} (BF), X_A = ∫_A R_m dμ_m with R_m = P_m/p_m (RF); TV for unbounded f (TV⁺); free (Toeplitz) model: commutator = ½ covariance exactly, X/μ(A) = (ε/p)Cl₂(φ)/φ (FM; log M in CB sharp); dyadic block bound (DB); Nishida–Ovsyannikov lemma (NO); **Theorem QL-CB**: CB with a small constant η ≤ η₀(p,s,α) along vΨ^t ⇒ QL-b (any α < min(p/2, s−1)) ⇒ QL ⇒ full pointwise Law P for every sequence-form slowly varying Ψ; **Theorem B-OD**: two block bounds (OD-E, OD-F) ⇒ CB ⇒ law. CB itself NOT proved (§3.18, Plan 49) | TV⁺, BF, RF, DB, NO, FM PROVED; QL-CB PROVED-mod-cite (QLP at t = 0 for σ = s, §3.16; B-cond chain) + CONDITIONAL (CB); B-OD CONDITIONAL (OD-E, OD-F); obstruction remark CB-ob HEURISTIC/OBSTRUCTION; numerics NUMERICAL; no new case of the law; Rule R pending; novelty UNCHECKED |
+| **CB / QL-CB** | Route I′ (outline_B_sv §5): boundary-flux identities X_A = Σ_{A×A^c}q_mK_mq_m(f(l)−f(k)) and d/dt μ_m(A) = flux of K_m+K_{m+1} (BF), X_A = ∫_A R_m dμ_m with R_m = P_m/p_m (RF); TV for unbounded f (TV⁺); free (Toeplitz) model: commutator = ½ covariance exactly, X/μ(A) = (ε/p)Cl₂(φ)/φ (FM; log M in CB sharp in the free model, HEURISTIC for μ_m^{(t)}, NUMERICAL support); dyadic block bound (DB); Nishida–Ovsyannikov lemma (NO); **Theorem QL-CB**: CB with a small constant η ≤ η₀(p,s,α,a) along vΨ^t ⇒ QL-b (any α < min(p/2, s−1)) ⇒ QL ⇒ full pointwise Law P for every sequence-form slowly varying Ψ; **Theorem B-OD**: two block bounds (OD-E, OD-F) ⇒ CB ⇒ law. CB itself NOT proved (§3.18, Plan 49) | TV⁺ PROVED (standard extension); BF, RF, DB, NO PROVED; FM (i)–(iii) PROVED, model reading HEURISTIC; QL-CB CONDITIONAL (CB(η, a), η ≤ η₀(p,s,α,a)) + PROVED-mod-cite (inherits QLP §3.16: RH_px, RH₁(r), RH_plt1b, KMVV (6.23), Vanlessen (4.27), DLMF 10.25.2/10.32.4/10.32.9 via Lemma BK; B-cond: RH_px, RH₁(r), RH_plt1b); B-OD CONDITIONAL (OD-E, OD-F); CB-ob HEURISTIC/OBSTRUCTION; numerics NUMERICAL; no new case of the law (cross-ref. Plan 48, §3.17, in review: law for p > 1, 1 < s < 1 + 2p without QL); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan49.md), fixes applied — REVIEWED; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1 §§2–6) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; G2 PROOF.md μ*, B* — only μ* and B*(i)–(ii), which do not use (P)) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -1994,7 +1994,7 @@ m ∈ {n − 1, n} and all real 1 ≤ M ≤ n^{γ−1}: sup_tμ_m^{(t)}(ℕ ∩ 
   ≤ T″^{s+η}k^{η}·const; FVa off-head constants use only Sat_p⁺ — none needs boundedness. (f) m = n − 1 in QL: the sum
   still starts at k = n with log(k/n), matching L0(i) centred at n.
 
-### 3.18 Commutator lemma CB (Plan 49): boundary-flux identities, a dyadic block bound, and CB ⇒ QL ⇒ law — TV⁺, BF, RF, DB, NO, FM PROVED; Theorem QL-CB PROVED-mod-cite (QLP for fixed σ = s, §3.16; B-cond chain) + CONDITIONAL (CB); Theorem B-OD CONDITIONAL (OD-E, OD-F); CB itself NOT proved (OBSTRUCTION for the tail-transport route; HEURISTIC); numerics NUMERICAL; Rule R pending; novelty UNCHECKED
+### 3.18 Commutator lemma CB (Plan 49): boundary-flux identities, a dyadic block bound, and CB ⇒ QL ⇒ law — TV⁺ PROVED (standard extension; novelty not claimed); BF, RF, DB, NO PROVED (NO: attribution only, novelty not claimed); FM (i)–(iii) PROVED, model reading and sharpness of log M for μ_m^{(t)} HEURISTIC (NUMERICAL support); Theorem QL-CB CONDITIONAL (CB(η, a), η ≤ η₀(p, s, α, a)) + PROVED-mod-cite (inherits QLP §3.16: RH_px, RH₁(r), RH_plt1b, KMVV (6.23), Vanlessen (4.27), DLMF 10.25.2/10.32.4/10.32.9 via Lemma BK; B-cond: RH_px, RH₁(r), RH_plt1b); Theorem B-OD CONDITIONAL (OD-E, OD-F); CB itself NOT proved; Remark CB-ob HEURISTIC/OBSTRUCTION (scoped to the routes tried); numerics NUMERICAL; no new case of the law; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan49.md), fixes applied — REVIEWED; novelty UNCHECKED
 
 Source: `research/program/outline_B_sv.md` §5, Route I′. Setting and notation as in §3.14: x_k = k^{−p} (p > 0), v = k^{−s}
 (s > 1), w = vΨ with Ψ > 0 slowly varying in sequence form, path w(t) = vΨ^t (t ∈ [0, 1]), f := log Ψ, g := g_n = f − f(n),
@@ -2009,15 +2009,16 @@ i.e. for the single pure power v = v_σ with σ = s, so hypothesis (RU) of §3.1
 **Summary.** (1) The commutator term has exact "boundary-flux" forms (Lemma BF), and the TV derivative is a flux of the
 kernel K_m + K_{m+1} across ∂A (BF(ii)); for deep A it is the μ_m-average over A of one rational function R_m = P_m/p_m
 (Lemma RF). (2) In the Toeplitz (free) model the commutator term is exactly half the covariance, so the TV derivative
-vanishes identically, and X/μ(A) = (ε/p)(1 + log(1/φ)) + O(φ²) (Proposition FM): the factor 1 + log M in CB is sharp.
+vanishes identically, and X/μ(A) = (ε/p)(1 + log(1/φ)) + O(φ²) (Proposition FM): the factor 1 + log M in CB is sharp in the free model (PROVED there; relevance to μ_m^{(t)} HEURISTIC;
+NUMERICAL agreement, `check_cb.out` [3]).
 (3) A dyadic block bound (Lemma DB) splits X into row-blocks of the spectral-projection matrix and of g; numerically it
 loses at most a factor 1.3 (`check_cb.out` [4]). (4) **CB ⇒ QL ⇒ law** (Theorem QL-CB): a Grönwall argument in a scale of
 power moments Y_β (Nishida–Ovsyannikov, Lemma NO), started from QLP at t = 0. It needs CB only with a *small* constant
-η ≤ η₀(p, s, α), not with η ∝ ε_n. Together with DB: two concrete block bounds (OD-E, OD-F) along the path ⇒ Law P
+η ≤ η₀(p, s, α, a), not necessarily with η ∝ ε_n. Together with DB: two concrete block bounds (OD-E, OD-F) along the path ⇒ Law P
 (Theorem B-OD). (5) **CB is not proved.** The obstruction (Remark CB-ob) is that the block bounds need the sharp
 hard-edge *density*, not tails, and tail transport loses a factor M^{Cε} which feeds back into the commutator rate; the
 loop closes only when ε_n log n = O(1), i.e. for log-type Ψ (already covered by T3-log). **No new case of the law is
-proved.**
+proved.** (Cross-reference: Plan 48 (§3.17, Route II, branch plan-48-route2; in review at the time of writing) claims the law directly, without QL, for p > 1, 1 < s < 1 + 2p and every sequence-form Ψ (including D(γ) = ∞). If that review accepts it, the prospective new content of QL-CB/B-OD is (i) the regimes p ≤ 1 and s ≥ 1 + 2p and (ii) QL itself along the path, which Plan 48 does not give.)
 
 **Lemma TV⁺ (TV for unbounded f; PROVED, standard extension of §3.8, novelty not claimed).** Let x_k ∈ (0, 1] be distinct,
 v_k > 0, f_k real with Σ_kU_k < ∞, U_k := v_k max(1, e^{f_k})(1 + |f_k|) (the hypothesis of FV⁺), and w(t) := ve^{tf}.
@@ -2056,7 +2057,9 @@ with π₋ := q_{m−1}q_m, and q_m(k)K_{m+1}(k, l)q_m(l) = b_{m+1}[π₊(k)μ(l
 ≤ ε_n(1 + log₂(k/l)) for n ≤ l < k, without any smoothness of Ψ. So CB is the statement that the "flux" of the kernel
 K_m across ∂A_M, weighted by log₂(k/l), is ≲ μ_m(A_M) up to log M. (ii)–(iii) show that the full TV derivative is a flux of
 the averaged kernel ½(K_m + K_{m+1}) and, in CD form, of the oscillating Toda density ψ (Σψ = 0; for f = x, (iii) is the Toda
-flow μ̇_m = ψ). The absolute-value bound of (iii) with |ψ| ≲ n^{−p}(μ_{m−1} + μ_m + μ_{m+1}) loses a factor M^{p/2}
+flow μ̇_m = ψ). (The double sum in (iii) converges absolutely as a whole, being a termwise rewriting of (ii); it must not be
+split into the μ(l)ψ(k) and μ(k)ψ(l) parts, since 1/(x_k − x_l) is unbounded at the accumulation point. Conventions:
+q_{−1} := 0, K_0 := 0, b_0 := 0; RF and z₁(m) are for m ≥ 1.) The absolute-value bound of (iii) with |ψ| ≲ n^{−p}(μ_{m−1} + μ_m + μ_{m+1}) loses a factor M^{p/2}
 (the hard-edge mass weighted by b_m/x_l); any useful bound must use the cancellation inside ψ (or inside
 μ(k)π(l) − π(k)μ(l)), i.e. the phase structure of (q_{m−1}, q_m, q_{m+1}) at the hard edge.
 
@@ -2071,8 +2074,10 @@ smallest zero z₁(m) of p_m (> 0, as σ lives on (0, 1]), then X_A/μ_m(A) lies
 *Use.* This makes exact the observation of the Plan 45 review (REVIEW_Plan45.md): beyond the Bessel (hard-edge) scale
 X_M/y_M → R_m(0) for any f, so the saturation of X/μ(A) there is structural and is **not** evidence for the multiplicative
 form of CB in the arcsine range. What the deep-tail data *do* test is a different, sharper statement: by RF, CB for all
-A ⊂ {x < z₁(m)/2} is equivalent (up to constants) to sup_{[0, z₁(m)/2]}|R_m| ≲ ε_n log n, i.e. |P_m| ≲ ε_n log n·|p_m| on the
-zero-free hard-edge interval. Numerically R_m(0) = (0.63–0.74)·ε_n log n (p = 2) and (0.93–1.00)·ε_n log n (p = 1)
+A ⊂ {x < z₁(m)/2} is implied by sup_{[0, z₁(m)/2]}|R_m| ≲ ε_n log n, i.e. |P_m| ≲ ε_n log n·|p_m| on the zero-free hard-edge
+interval (there log M ≳ (2/p)log n − C, z₁ being at the Bessel scale). The converse fails: CB carries the factor 1 + log M,
+unbounded as M → ∞, so it constrains only log M-weighted tail averages of R_m and gives no bound on R_m(0); |R_m(0)| ≲ ε_n log n
+is a separate, sharper statement that CB does not contain. Numerically R_m(0) = (0.63–0.74)·ε_n log n (p = 2) and (0.93–1.00)·ε_n log n (p = 1)
 (`check_cb.out` [5]), while Cauchy–Schwarz would only give |R_m(0)| ≤ ‖gq_m‖/√μ_m(A) → ∞.
 
 **Proposition FM (free model: exact cancellation; PROVED, Fourier computation; relevance HEURISTIC).** For 0 < φ < π let
@@ -2092,7 +2097,8 @@ cancel: by BF(ii) the flux kernel is the reflection-symmetric K + K₊), and by 
 
   X/μ(A) = (ε/p)(1 + log(1/φ)) + O(εφ²),  log(1/φ) = (p/2)log M + ½log c(p) + O(M^{−p}).
 
-So R = X/μ(A) ≈ (ε/2)log M: the log M in CB is necessary (no o(log M) form holds in the model) and the constant is ½ in units
+So R = X/μ(A) ≈ (ε/2)log M: in the model the log M in CB is necessary (no o(log M) form holds there; for μ_m^{(t)} this is
+HEURISTIC, with NUMERICAL agreement below) and the constant is ½ in units
 of the local tilt; with ε ≈ ϑ_n (the tilt L′(log n)) and L0's ε_n ≈ ϑ_n log 2 this predicts R/(ε_n(1 + log M)) ≈ 0.72 for large
 M, the size seen in Plan 45 and in `check_cb.out` [3] (0.55–0.74; R/R_FM = 0.86–0.93 at p = 2 and 0.69–0.88 at p = 1 on the
 printed rows with M ≤ n^{2/p}/4).
@@ -2103,7 +2109,9 @@ printed rows with M ≤ n^{2/p}/4).
 log|cos(θ/2)| = −log 2 − Σ_{d≥1}(−1)^dcos(dθ)/d, hence F = 2log 2 + Σ_{d≠0}(−1)^de^{idθ}/|d| in L²(𝕋), which is F̂.
 (ii) Parseval: ∫Fh dθ/2π = Σ_{d∈ℤ}F̂(d)ĥ(−d) = F̂(0)ĥ(0) + 2S (both sequences real and even), and ∫F dθ/2π·∫h dθ/2π =
 F̂(0)ĥ(0). (iii) Cl₂(φ) = −∫_0^φlog u du − ∫_0^φlog(2sin(u/2)/u)du = φ − φlog φ + ∫_0^φ|log(sin(u/2)/(u/2))|du, and for
-0 < x ≤ π/2, 0 ≤ −log(sin x/x) ≤ x²/5 (sin x/x ≥ 1 − x²/6 and −log(1 − z) ≤ z/(1 − z)), so 0 ≤ r ≤ φ²/60. ∎
+0 < x ≤ π/2, 0 ≤ −log(sin x/x) ≤ x²/5: indeed −log(sin x/x) = Σ_{k≥1}−log(1 − x²/(k²π²)) has nonnegative Taylor
+coefficients in x², so −log(sin x/x)/x² is nondecreasing on (0, π), and at x = π/2 it equals log(π/2)/(π²/4) = 0.1830 ≤ 1/5.
+So 0 ≤ r ≤ φ²/60. ∎
 
 **Lemma DB (dyadic block bound; PROVED, elementary).** In the setting of BF with additionally Σ_kf_k²μ_m(k) < ∞, put, for
 1 ≤ d ≤ m, E_d := ⟨1_Aq_m, q_{m−d}⟩ and G_d := ⟨fq_m, q_{m−d}⟩, so that X_A = Σ_{d=1}^mE_dG_d. For i ≥ 0 let
@@ -2123,12 +2131,13 @@ u := yM^a, and u log(1/u) ≤ 1/e for u ≤ 1, < 0 for u > 1. ∎
 
 *Numerics (`check_cb.out` [4]).* DB is nearly lossless: Σ_ia_ie_i/|X_M| ≤ 1.26 over p ∈ {2, 1}, n ∈ {50, …, 400} (p = 2),
 n ∈ {50, 100, 200} (p = 1), t ∈ {0, ½, 1}, all tested M (down to μ_m(A) ≈ 10^{−11}). (OD-E) and (OD-F) hold on the same data
-with C_E ≤ 1.03 and C_F = 0.67 (p = 2), 1.26 (p = 1), flat in n and t (OD-F does not depend on A; OD-E's maximum is the d = 1
+with C_E ≤ 1.03 and C_F ≤ 0.68 (p = 2), 1.26 (p = 1), flat in n and t (OD-F does not depend on A; OD-E's maximum is the d = 1
 block, |E_1| ≈ y, i.e. row coherence μ_{m−1}(A) ≈ μ_m(A)). So the content of CB is carried, with a loss ≤ 1.26, by the
 two block bounds.
 
-**Lemma NO (Nishida–Ovsyannikov comparison in a scale; PROVED).** Let 0 < α < α₂, κ > 0, T₀ > 0, and let
-u: [α, α₂] × [0, T₀] → [0, ∞) be jointly continuous and nondecreasing in β, with a := sup_βu_β(0) and
+**Lemma NO (comparison in a scale; PROVED; the name Nishida–Ovsyannikov is attribution only, the proof is self-contained,
+novelty not claimed).** Let 0 < α < α₂, κ > 0, T₀ > 0, a ≥ 0, and let u: [α, α₂] × [0, T₀] → [0, ∞) be jointly continuous
+(monotonicity in β is not needed), with
 
   u_β(t) ≤ a + ∫_0^tκ·u_{β′(r)}(r)/(β′(r) − β) dr
 
@@ -2150,8 +2159,8 @@ The outline's form "|X| ≤ Cε_nμ_m(A)(1 + log M) + (head/far-tail terms)" is 
 the deeper-layer integral and the enlargement y_{M/2} are allowed because every proof route through DB produces them. In the
 free model (FM) |X| ≤ (ε/p)(1 + log(1/φ) + φ²)μ(A).
 
-**Theorem QL-CB (CB ⇒ QL-b ⇒ QL ⇒ Law P; PROVED-mod-cite (QLP at t = 0, §3.16; the B-cond chain, §3.14) + CONDITIONAL
-(CB)).** Let x_k = k^{−p} (p > 0), w = k^{−s}Ψ (s > 1) with Ψ slowly varying in sequence form. Fix 0 < α < ϑ(p, s) and
+**Theorem QL-CB (CB ⇒ QL-b ⇒ QL ⇒ Law P; CONDITIONAL (CB(η, a), η ≤ η₀(p, s, α, a)) + PROVED-mod-cite (inherits QLP at t = 0,
+§3.16: RH_px, RH₁(r), RH_plt1b, KMVV (6.23), Vanlessen (4.27), DLMF 10.25.2/10.32.4/10.32.9 via Lemma BK; B-cond: RH_px, RH₁(r), RH_plt1b)).** Let x_k = k^{−p} (p > 0), w = k^{−s}Ψ (s > 1) with Ψ slowly varying in sequence form. Fix 0 < α < ϑ(p, s) and
 a > α. There is η₀ = η₀(p, s, α, a) > 0 such that, if CB(η, a) holds with η ≤ η₀, then there are C, n₁ with
 
   sup_{t∈[0,1]}μ_m^{(t)}((Mn, ∞)) ≤ C·M^{−α}  for all M ≥ 1, n ≥ n₁, m ∈ {n − 1, n}  (QL-b),
@@ -2163,7 +2172,7 @@ CB(C_Bε_n, a) with any constant C_B suffices (η = C_Bε_n → 0).
 0. **Start (t = 0).** w(0) = v = v_s. By QLP(c) (fixed σ = s), y_M(0) ≤ C_{ϑ′}M^{−ϑ′} for n ≥ n₀, m ∈ {n − 1, n}, M ≥ 1. Put
    Y_β(t) := Σ_kmax(1, k/n)^βμ_m^{(t)}(k) = 1 + β∫_1^∞M^{β−1}y_M(t)dM (layer cake). Then Y_β(0) ≤ a₀ := 1 + α₂C_{ϑ′}/(ϑ′ − α₂)
    for β ≤ α₂.
-1. **A priori finiteness and continuity.** Fix n. Choose η₁ > 0 with α₂ < s − 1 − η₁ (α₂ < ϑ ≤ s − 1). By B-cond step 5 (TLw with
+1. **A priori finiteness and continuity.** Fix n. Choose η₁ > 0 with α₂ < s − 1 − 2η₁ (α₂ < ϑ ≤ s − 1). By B-cond step 5 (TLw with
    Potter), μ_m^{(t)}(k) ≤ C_nk^{−s+η₁} for k > T″, uniformly in t (C_n depends on n). So the series for Y_β, β ≤ α₂, converge
    uniformly in (β, t); each term is continuous in (β, t) (TV⁺); hence (β, t) ↦ Y_β(t) is jointly continuous and bounded on
    [α, α₂] × [0, 1], and nondecreasing in β.
@@ -2200,7 +2209,8 @@ through (III), so the hypothesis can be replaced by the same bound on the transp
 (then (I)–(II) and the bootstrap are not needed); in the free model T ≡ 0 (FM). Numerically |T_M| ≤ 0.58·ε_ny_M(1 + log M),
 small (≤ 0.05 at p = 2, ≤ 0.10 at p = 1 on the printed rows with M ≤ n^{2/p}/4) in the arcsine range and ≈ ½ε_ny_M(1 + log M) beyond the Bessel scale, where the far tail genuinely tilts
 (slope −(s − 1) → −(s − 1) + O(ε), Plan 45 N2). (3) CB is needed with a small *absolute* constant η₀, not with η ∝ ε_n; so
-CB "with a constant ≤ η₀" for M in the whole range is the precise sufficient condition. (4) Only QLP at t = 0 for σ = s is
+CB "with a constant ≤ η₀(p, s, α, a)" for M in the whole range is a sufficient condition (no necessity is shown); the
+outline's form CB(C_Bε_n, a) meets the smallness automatically for n large, since ε_n → 0. (4) Only QLP at t = 0 for σ = s is
 used: no uniformity in σ, no (RU).
 
 **Theorem B-OD (block bounds ⇒ Law P; CONDITIONAL on (OD-E), (OD-F) along the path).** Let Ψ be as in QL-CB. Suppose there
@@ -2215,7 +2225,7 @@ y_M ≤ y_{M/2}; this is CB(η_n, a) with η_n := C_EC_F(3 + a/log 2)ε_n → 0.
 - *The missing statements* are (OD-E) and (OD-F) (or CB itself) along the path, uniformly in t, M and n. (OD-F) is a weighted
   polynomial-approximation statement: by DB(c), e_i ≤ ℰ_{2^i−1}(g_n; μ_m^{(t)}), and a Jackson-kernel argument in the arcsine
   angle θ (x = a(1 + cos θ)/2 on a window [0, a] ⊃ supp of the bulk) gives ℰ_D(g_n; μ_m) ≲ ε_nD^{−1/2} **if** g_n is smooth in
-  log x (|∂_{log x}g_n| ≲ ε_n; e.g. Ψ₁ of RedA) **and** μ_m has bounded density in θ near the hard edge, μ_m(|θ − π| < r) ≲ r
+  log x (|∂_{log x}g_n| ≲ ε_n; e.g. Ψ₁ of the outline's RedA; after merge, Plan 48's Lemma RedA, §3.17) **and** μ_m has bounded density in θ near the hard edge, μ_m(|θ − π| < r) ≲ r
   for r ≥ 1/D (ED). It also needs control of the polynomial outside [0, a] against the head (Sat_p⁺), which caps D at θ₀n.
   (OD-E) additionally needs the 1/d decay |E_d| ≲ min(y, 1/d) of the spectral-projection row, i.e. a phase coherence between
   rows m and m − d at the hard edge (in the free model E_d = ĥ(d) = O(1/d) because 1_A has bounded variation in θ).
@@ -2233,14 +2243,15 @@ y_M ≤ y_{M/2}; this is CB(η_n, a) with η_n := C_EC_F(3 + a/log 2)ε_n → 0.
 - *The CS bound* |X_M| ≤ √y_M‖K_m(gq_m)‖ ≤ √y_M·Var_μ(g)^{1/2} (§3.8) is far from the truth in the deep range: X/(√y‖gq_m‖)
   falls from 0.36 to 10^{−5} over the tested range, but this is the structural RF limit (`check_cb.out` [3]); in the arcsine window alone (M ≲ n^{2/p}) the data do not separate the
   CB scale from the CS scale (window too short at n ≤ 400), so the arcsine-range evidence for CB is the agreement with the free
-  model (R/R_FM = 0.86–1.03, p = 2), and the deep-range evidence is the RF statement |R_m(0)| ≈ 0.7ε_n log n (structural form,
+  model (R/R_FM = 0.86–1.03 at p = 2 for M ≤ n^{2/p}; 0.86–0.93 for M ≤ n^{2/p}/4), and the deep-range evidence is the RF statement |R_m(0)| ≈ 0.7ε_n log n (structural form,
   REVIEW_Plan45.md).
 - *Route-II information would close it.* (ED) and the row phases are exactly what a hard-edge Bessel parametrix along the path
-  provides (outline Route II; QLP's Lemma ST-type bounds give tails only, which is why §3.16 stops at t = 0).
+  provides (outline Route II; QLP's Lemma ST-type bounds give tails only, which is why §3.16 stops at t = 0). Plan 48 (§3.17, Route II, branch plan-48-route2; in review at the time of writing) claims the law directly, without QL, for p > 1, 1 < s < 1 + 2p and every sequence-form Ψ (including D(γ) = ∞). If that review accepts it, the prospective new content of QL-CB/B-OD is (i) the regimes p ≤ 1 and s ≥ 1 + 2p and (ii) QL itself along the path, which Plan 48 does not give.
 
 **Rule A (adversarial pass).** (a) f constant, or A = ∅, or A = all atoms: X_A = 0 in BF(i), and the CB right side ≥ 0. ✓
 (b) Invariance f ↦ f + c: BF(i), (ii) and RF unchanged (P_m unchanged since ⟨q_m, q_j⟩ = 0, j < m). ✓ (c) Is the log M in CB
-removable? No: FM gives X/μ(A) = (ε/p)(1 + log(1/φ)) + O(φ²) exactly in the model. (d) Is the small constant in QL-CB
+removable? Not in the free model: FM gives X/μ(A) = (ε/p)(1 + log(1/φ)) + O(φ²) exactly there (for μ_m^{(t)}: HEURISTIC, NUMERICAL
+support `check_cb.out` [3]). (d) Is the small constant in QL-CB
 necessary? The argument needs 16κ* ≤ L; with a large η the moment rate exceeds the scale width and Lemma NO gives nothing
 (no claim that the conclusion fails). (e) Sign of X: positive in every tested case (as in Plan 45) and in FM (Cl₂ > 0 on
 (0, π)); not used. (f) Rough f (Theorem R): for |f| ≤ ε with fixed-size roughness at scale n, the G_d do not decay (e_i ≍ ε for
@@ -2251,16 +2262,16 @@ with β + 1 − s + 2η₁ < 0 for η₁ small (α₂ < s − 1). ✓ No counter
 
 **Numerics (NUMERICAL; `checks/check_cb.py/.out`, s = 2, Ψ = exp(√log(k + e)), float64 Lanczos with full reorthogonalization
 on atoms k ≤ 6·10⁴ plus a Gauss–Legendre log-panel tail to 10^{16} as in Plan 45).** Following REVIEW_Plan45.md, p = 2
-(discriminates best) and p = 1 are used and p = ½ is omitted.
+(discriminates best) and p = 1 are used and p = ½ is omitted. All rows use m = n only (not m = n − 1).
 - [1] BF(i), BF(ii), RF and TV agree with direct computation and with a central finite difference in t to 9–10 digits
   (K = 3000, p = 2, n = 30, t = ½).
 - [2] FM: S(φ) = Cl₂(φ)/π and Cov = 2S to 10 digits (φ = 0.5, 0.1, 0.01); S/μ(A) − (1 + log(1/φ)) = 3.5·10⁻³, 1.4·10⁻⁴, 2·10⁻⁶.
 - [3] max over t, M of R/(ε_n(1 + log M)): 0.67–0.74 (p = 2), 0.70–0.72 (p = 1); R/R_FM 0.86–0.93 (p = 2), 0.69–0.88 (p = 1)
   for M ≤ n^{2/p}/4; |T|/(ε_ny(1 + log M)) ≤ 0.58 (≤ 0.05 resp. 0.10 for M ≤ n^{2/p}/4).
-- [4] DB/|X| ≤ 1.26; C_E ≤ 1.03; C_F = 0.67 (p = 2), 1.26 (p = 1), the same for every n and t tested.
+- [4] DB/|X| ≤ 1.26; C_E ≤ 1.03; C_F ≤ 0.68 (p = 2), 1.26 (p = 1), the same for every n and t tested.
 - [5] X_M/y_M at the deepest M equals R_m at the deepest node to all printed digits (Lemma RF); |R_m(0)|/(ε_n log n) =
   0.63–0.74 (p = 2, decreasing in n), 0.93–1.00 (p = 1).
-- [6] Y_β(1)/Y_β(0) for β = (¼, ½, ¾)·p/2: ≤ 1.003, ≤ 1.03, ≤ 1.36 (p = 2; 1.0004, 1.009, 1.18 at n = 400), ≤ 1.001, ≤ 1.008, ≤ 1.034 (p = 1), decreasing in n;
+- [6] Y_β(1)/Y_β(0) for β = (¼, ½, ¾)·p/2: ≤ 1.003, ≤ 1.03, ≤ 1.36 (p = 2; 1.0004, 1.009, 1.18 at n = 400), ≤ 1.002, ≤ 1.009, ≤ 1.034 (p = 1), decreasing in n;
   the growth at β near ϑ is the far-tail tilt of remark (2).
 - Limits: n ≤ 400 (p = 2), n ≤ 200 (p = 1), one Ψ, s = 2, a continuum tail model beyond k = 6·10⁴; finite checks of
   universally quantified statements (Rule N2).

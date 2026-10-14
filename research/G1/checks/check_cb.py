@@ -146,7 +146,7 @@ for p, NS, Kat in ((2.0, (50, 100, 200, 400), 60000), (1.0, (50, 100, 200), 6000
                 cov = (g * A) @ mu - gbar * y; T = cov - 2 * X
                 R = X / y
                 cosv = 1 - M ** -p / (2 * c)
-                RFM = th / p * cl2(np.arccos(cosv)) / np.arccos(cosv) if M ** -p < 4 * c else np.nan
+                RFM = th / p * cl2(np.arccos(cosv)) / np.arccos(cosv) if (M ** -p < 4 * c and cosv < 1) else np.nan
                 # DB blocks (d = m - j)
                 DB, ODE, ODF, i = 0.0, 0.0, 0.0, 0
                 while 2 ** i <= m:
