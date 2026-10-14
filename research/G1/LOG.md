@@ -170,4 +170,14 @@
   p = 2, N = 300); window norms 1.06–1.09; construction at ε = 0.05, 0.2 with scales (30, 240) and (15, 60, 240): spikes
   match the linear prediction to ≤ 2%, cross-window ≤ 1.4·10⁻³, spikes exceed the off-spike maximum; K-doubling stable.
 - **Rule A:** attempts logged in §3.10 remark RW-e.
-- **Rule R:** pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan39.md). Fixes applied:
+  - F1: Conjecture R's normalisation is |β_n/β_{n−1} − 1|, with c = η_W/4 (A) and η_W/8 (B). The spikes are one-signed,
+    so e^{x} − 1 ≥ x applies. η_W/2 is the constant for log β².
+  - F2: sign in log(β_m²/β_{m−1}²) = F_m + 2p log(m/(m−1)).
+  - F3: RW-d now says the decay is exponential only below θ₀(p), and o(1) via LP-w between θ₀(p) and u_s.
+  - F4: s_i is the pointwise sign function.
+  - F5: labels for Lemma u_s (PROVED) and LP-w (PROVED-mod-cite); B*(i) is (P)-free; the §0 row now says N ≥ N₀.
+  - F6: the stale "remains NUMERICAL" sentences are dated "as of Plan 33"; the §3.2 header is amended.
+  - F8: "for ε ≤ ε₀" added to the §3.10 header.
+  - F7: no change needed.
+  - Re-check pending.
