@@ -288,6 +288,21 @@ bound in (HZ) was the weaker upper bound −(a/2)n² log n + O(n²). Examples:
   rigorous proof of the n² constant (this was already item 11 Theorem H, p = 1, mod Carlitz). For a ≥ 2 it is the
   general-p equilibrium.
 
+**Corollary H-input (Plan 37: G2 discharges the named input Theorem H).** For every p > 0 and s > 1 the Lean named
+input `TheoremHPure p κ_p s` (lean/JacobiAsym/Inputs.lean), with κ_p = 3p/2 + log c(p), holds on paper:
+- `bdd`: each truncated Heine sum heineK(powSeq p, powSeq s, K, n) is ≤ (Σ_k(k+1)^{−s})^n, since every Vandermonde
+  factor (x_i − x_j)² ≤ 1 for atoms in (0, 1]; so it is bounded in K.
+- `asymp`: heineD = det(m_{i+j}) (Lean `heineD_eq_det`, PROVED), and Theorem H_all with f(ξ) = ξ^{−p} (C = 1;
+  ξ^{p+1}f′(ξ) = −p) and w_k = k^{−s} (Σw < ∞, w_k ≥ k^{−s}) gives log D_n = −pn²log n + κ_pn² + o(n²). The 0-based
+  `powSeq` indexing (k+1)^{−p} is the same measure.
+
+Label: PROVED-mod-cite (P), as H_all. Consequence for labels elsewhere: wherever a result is labelled "mod-input
+Theorem H" and uses Theorem H only through an instance of `TheoremHPure p κ_p s` (or of H_all), that input is
+discharged and the result is PROVED-mod-cite (P) together with its other citations. This does *not* change the Lean
+labels: Theorem H_all is not formalized, so the Lean theorems remain PROVED-mod-input `TheoremHPure`. Uses of item 11
+results derived *from* Theorem H (H5–H7, Lemma K) are discharged only insofar as item 11 derives them from the
+instances above; THEOREMS.md §3.3 lists the uses checked.
+
 *Novelty is UNCHECKED.* Known prior art: Monien's p = 1 equilibrium (heuristic). No literature search for the
 general-p constrained-equilibrium identification has been done beyond item 11's `lit` report, which found general-p
 Law P "not found in print". The search must be rerun before any claim beyond UNCHECKED.
