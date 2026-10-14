@@ -121,3 +121,12 @@
 - **G1-R as posed is FALSE.** Dichotomy: decaying or polynomially slowly varying roughness keeps the pointwise law;
   fixed-size roughness can break it.
 - **Rule R:** pending.
+
+## 2026-10-14 — Plan 34 (density-one pointwise law for slowly varying weights)
+- **Lemma TC:** expected tail count beyond Mm ≤ (2A/(p log M))m + o(m), uniformly, from G2 A-U/A-L.
+- **Theorem T3-avg.**
+  - The tail term in Lemmas FV/FVa telescopes over n ∈ [N, 2N] to 𝔼_{2N+1}#(tail).
+  - Fubini swaps the path integral and the n-average.
+  - Result: the pointwise b- and a-laws hold along a density-one set of n for merely slowly varying Ψ.
+- **Open:** all-n for merely slowly varying Ψ (needs Mn localization).
+- **Rule R:** pending.

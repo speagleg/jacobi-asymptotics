@@ -35,6 +35,8 @@ known; its application here to Law P is what is new.
 | **T3-sv** | pointwise b-law for w = k^{−s}Ψ with Ψ bounded and *polynomially slowly varying*: sup_{n/M≤k≤n^γ}\|log Ψ(k) − log Ψ(n)\| → 0 for all M, γ (e.g. Ψ = 2 + sin√(log log k)) (§3.4, Plan 30) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: Lemma FV, Lemma Sat_p⁺, Lemma TL); REVIEWED; novelty UNCHECKED |
 | FVa | first variation of a_n: d/dt a_n(v e^{tf}) = ⟨(x − a_n)f, μ_n⟩ − 2b_n⟨f, q_{n−1}q_n⟩ (q_j = √w p_j) (§3.5) | PROVED (standard; novelty not claimed; self-contained via the proof of Lemma H and Christoffel–Darboux); Rule R ACCEPT WITH FIXES, re-check ACCEPT — REVIEWED |
 | **T3a** | pointwise **a-law** n^p a_n → 2c(p) under T3-sv's hypotheses (Ψ bounded, polynomially slowly varying; includes ψ_k → L), all p > 0, s > 1 (§3.5, Plan 32) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: FVa, Sat_p⁺, TL); REVIEWED; novelty UNCHECKED |
+| TC | tail count: 𝔼_m#(S ∩ (Mm, ∞)) ≤ (2A/(p log M))·m + o(m) uniformly over sandwiched weights (§3.7) | PROVED-mod-cite (G2 A-U, A-L) + Rule R pending |
+| **T3-avg** | for w = k^{−s}Ψ with Ψ bounded and **merely slowly varying** (e.g. 2 + sin(log log k)): (1/N)Σ_{n=N}^{2N}\|log b_n²(w) − log b_n²(v)\| → 0 and (1/N)Σ n^p\|a_n(w) − a_n(v)\| → 0; hence the full pointwise Law P along a set of n of density one (§3.7, Plan 34) | PROVED-mod-cite (as T3a) + Rule R pending; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -667,6 +669,67 @@ Hence (T3) fails for w, and so does the pointwise b-law (G1-T). H_all and Theore
 - **R-d.** Novelty UNCHECKED. Instability of ratio asymptotics under non-decaying perturbations is consistent with the
   OPUC/OPRL literature (Rakhmanov-type theorems need the perturbation to be "small at infinity" in suitable senses).
   This is a recollection, not cited.
+
+### 3.7 Lemma TC and Theorem T3-avg (Plan 34): density-one pointwise law for slowly varying weights — PROVED-mod-cite; Rule R pending
+
+Setting: x_k = k^{−p} (p > 0), sandwiched weights c·k^{−s} ≤ w_k ≤ C·k^{−s} (s > 1); notation μ_n, ρ_m as in
+§3.2–3.5.
+
+**Lemma TC (tail count).** For M ≥ 2 and all m,
+
+  𝔼_m#(S ∩ (Mm, ∞)) ≤ (2A/(p log M))·m + o(m),
+
+with A := 4p + 2|κ_p| (G2 A-U). The o(m) is uniform over the sandwich class.
+
+*Proof.* Let T_j denote the Heine mass of index sets with exactly j elements beyond Mm.
+- G2 Theorem A-U (with its M) gives log T_j ≤ −pm²log m + κ_pm² + m²(At − pt²log M) + O_M(m log m), with t = j/m.
+  The constants depend on the weights only through W.
+- G2 Theorem A-L gives log D_m ≥ −pm²log m + κ_pm² − o(m²), uniformly through c₁ and s.
+- For t ≥ t₁ := 2A/(p log M), the bracket At − pt²log M is ≤ −At₁. So P_m(j ≥ t₁m) ≤ (m + 1)e^{−At₁m² + o(m²)}.
+- Hence 𝔼#(beyond Mm) ≤ t₁m + m·P_m(j ≥ t₁m) = t₁m + o(m). ∎
+
+**Theorem T3-avg.** Let w = vΨ with v = k^{−s} (s > 1) and Ψ bounded (0 < c ≤ Ψ ≤ C), where Ψ is slowly varying:
+Ψ(λk)/Ψ(k) → 1 for each λ > 0. Then
+
+  (1/N)Σ_{n=N}^{2N}|log b_n²(w) − log b_n²(v)| → 0  and  (1/N)Σ_{n=N}^{2N}n^p|a_n(w) − a_n(v)| → 0.
+
+Consequently, n^p b_n(w) → c(p) and n^p a_n(w) → 2c(p) along a set of n of natural density one, by the pure-power
+laws.
+
+*Proof.* Take the path w(t) = vΨ^t, which stays in the sandwich [min(1, c), max(1, C)]·v. For n ∈ [N, 2N] put
+g_n := log Ψ − log Ψ(n), with |g_n| ≤ G := log(C/c). Fix M ≥ 4 (the head margin of T3-sv) and M′ ≥ 4.
+1. **Pointwise split.** By Lemma FV and centering,
+   |log b_n²(w) − log b_n²(v)| ≤ ∫_0^1 Σ_k|g_n(k)|(μ_n^{(t)} + μ_{n−1}^{(t)})(k)dt
+     ≤ 2δ_N + G·∫_0^1[(μ_n^{(t)} + μ_{n−1}^{(t)})(head ∪ A_N)]dt,
+   where:
+   - head = {k < n/M};
+   - A_N := (M′N, ∞);
+   - δ_N := sup{|log Ψ(k) − log Ψ(n)| : n ∈ [N, 2N], k ∈ [n/M, M′N]}, which → 0 by the uniform convergence theorem
+     for slowly varying functions (λ ∈ [1/M, M′]).
+2. **Head:** exponentially small, uniformly in t (Sat_p⁺).
+3. **Tail, on average (Fubini).** For each t, telescoping and μ_m = ρ_{m+1} − ρ_m give
+   Σ_{n=N}^{2N}(μ_n^{(t)} + μ_{n−1}^{(t)})(A_N) ≤ 2𝔼_{2N+1}^{(t)}#(S ∩ A_N).
+   - By Lemma TC with m = 2N + 1 and M = M′N/(2N + 1) ≥ M′/3, this is ≤ (4A/(p log(M′/3)))(2N + 1) + o(N),
+     uniformly in t.
+   - Average over n, then integrate over t.
+4. **Combine.** (1/N)Σ_{n=N}^{2N}|log b_n²(w) − log b_n²(v)| ≤ 2δ_N + o(1) + G·(24A/(p log(M′/3))) + o(1). Let
+   N → ∞, then M′ → ∞.
+5. **a_n.** The same argument applies with Lemma FVa and the uniform bounds a_n, b_n ≤ CM^pn^{−p} of T3a step 1
+   (|x_k − a_n| ≤ 3M^pn^{−p} off the head). This gives (1/N)Σn^p|a_n(w) − a_n(v)| ≤ C′(δ_N + G/log(M′/3)) + o(1).
+6. **Density one.** An average of nonnegative terms tends to 0 over every dyadic block, so for every ε > 0 the set of
+   n with |·| > ε has density 0. ∎
+
+**Remarks.**
+- **avg1.** T3-avg covers merely slowly varying Ψ, e.g. 2 + sin(log log k), which T3-sv does not.
+  - It gives the pointwise law outside a density-zero set of n. Upgrading this to all n is equivalent to localization
+    at scale Mn (§3.2, §3.4 TL2; still OPEN).
+  - Theorem R (§3.6) shows that *some* bounded weights fail the pointwise law on a sparse (density-zero) set of
+    scales. This is consistent with T3-avg's density-one form, though Theorem R's weights are not slowly varying.
+- **avg2 (NUMERICAL, `checks/check_sv_density.out`).** For Ψ = 2 + sin(log log(k+2)) (p = s = 2), |β_n(vΨ)/β_n(v) − 1|
+  and |A_n(vΨ) − A_n(v)| are ≤ 1.8·10⁻⁵ and decreasing at n = 200 … 3200. The values are K-converged (K = 1.2·10⁵ vs
+  2.4·10⁵).
+  - This is consistent with the pointwise law and is weak evidence only, since Ψ varies slowly over the accessible
+    range.
 
 ## 4. G1-R: what remains (stop report)
 
