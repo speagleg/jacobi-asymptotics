@@ -47,7 +47,7 @@ Research: research/G3prime, G2, G1.
   energy of the ordinates); what remains is to decide that condition for ζ, which implies proportion-one distinct ordinates.
 - An explicit constant in (B).
 - G1-R: (T3) for general, rough (non-analytic) weights and nodes. Plan 28: for *rough* sandwiched weights (T3) is
-  conjecturally FALSE (numerical counterexample; Conjecture R); the target becomes (T3) for regular weights ((CL) is proved for pure-power atoms k^{−p}, p > 1, with rough
+  conjecturally FALSE (numerical evidence; Conjecture R); the target becomes (T3) for regular weights ((CL) is proved for pure-power atoms k^{−p}, p > 1, with rough
   weights: Theorem CL, Plan 27, REVIEWED; not for general nodes or p ≤ 1). The analytic families done are pure powers
   (all p > 0) and the smooth-ζ model.
 
