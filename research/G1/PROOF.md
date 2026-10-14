@@ -27,8 +27,8 @@ known; its application here to Law P is what is new.
 | A4 | (CL) ⇒ tail-Cesàro a-law; with β_n → 1, block-Cesàro ratios Σa/Σ2b → 1 and window averages → 1 in b-weighted density (pointwise density NOT proved) | CONDITIONAL on (CL). (CL) is proved for pure-power atoms by Theorem CL (§3.1, REVIEWED), so the tail-Cesàro part is unconditional there; (i)–(ii) still need β_n → 1 |
 | **CL** | (CL) for pure-power atoms k^{−p}, p > 1, and ROUGH weights (Σw < ∞, w_k ≥ c₁k^{−s}): n^{p−1}𝔼_n[Σ_{k∉S}x_k] → Q_p. Hence n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p−1) unconditionally (§3.1, Plan 27) | PROVED-mod-cite (P) (through G2 B*(iii); internal inputs: G2 A1, A-U, A-L; G3′ §5.2 Lemma Sat); REVIEWED; novelty UNCHECKED |
 | G1-R | (T3) from the atoms alone; (CL) (proved for pure-power atoms with rough weights, p > 1: Theorem CL; open for general nodes or p ≤ 1) | GAP for (T3) (see §4) |
-| FV | first variation: d/dt log b_n²(v e^{tf}) = ⟨f, μ_n − μ_{n−1}⟩, μ_n := w p_n² (§3.2) | PROVED (standard; novelty not claimed); Rule R ACCEPT WITH FIXES, re-check pending |
-| Conj R | (T3) — hence the pointwise b-law — FAILS for some weights e^{−ε}k^{−2} ≤ w_k ≤ e^{ε}k^{−2} (p = s = 2; §3.2, Plan 28) | CONJECTURE; NUMERICAL (p = s = 2, three scales, n ≤ 1000, independent 400-digit check) |
+| FV | first variation: d/dt log b_n²(v e^{tf}) = ⟨f, μ_n − μ_{n−1}⟩, μ_n := w p_n² (§3.2) | PROVED (standard; novelty not claimed); REVIEWED |
+| Conj R | (T3) — hence the pointwise b-law — FAILS for some weights e^{−ε}k^{−2} ≤ w_k ≤ e^{ε}k^{−2} (p = s = 2; §3.2, Plan 28) | CONJECTURE; NUMERICAL (p = s = 2; committed checks: two scales, n ≤ 400, Rule N; reviewer runs in REVIEW_Plan28: three scales, n ≤ 1000, 400-digit mpmath); REVIEWED as a conjecture |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6) + REVIEWED |
 | **RH₁(r)** | the same for σ_r = Σ k^{−r}δ_{1/k}, **every r > 1** (p = 1): Nβ_N = 1 + O(1/N), with a Bessel FH parametrix at 0, a = r − 3/2 (`RH/RH_p1_general.md`) | PROVED-mod-cite (WLXZ v1, KV §5, Vanlessen §4, DLMF 5.11) + REVIEWED |
@@ -280,7 +280,7 @@ A4 (i)–(ii) still need β_n → 1, i.e. (T3) via G1-T.
 - **CL4 (scope, F5).** (CL) is proved here for exact pure-power atoms k^{−p} with p > 1 only. It is not proved for
   general regularly spaced nodes f(k), and for p ≤ 1 (CL)/A2 do not apply as stated.
 
-### 3.2 (T3) for rough weights: first variation and counter-evidence (Plan 28) — FV PROVED (standard); Conjecture R NUMERICAL; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan28.md), fixes applied, re-check pending
+### 3.2 (T3) for rough weights: first variation and counter-evidence (Plan 28) — FV PROVED (standard); Conjecture R NUMERICAL; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan28.md), fixes applied, re-check ACCEPT — REVIEWED
 
 **Lemma FV (first variation; standard, novelty not claimed).** Let w(t) := v·e^{tf}, where v is a weight sequence
 with finite moments and f is bounded, on fixed atoms x_k. Let p_j = p_j^{(t)} be the orthonormal polynomials of w(t),
@@ -325,7 +325,7 @@ Q[j] = √w·p_j and b[n]² = h_n/h_{n−1}; truncated pure power x_k = k^{−2}
   - parity: 3.5·10⁻² → 8.7·10⁻³;
   - random: 1.3·10⁻² → 3.2·10⁻³;
 
-  over n = 250 → 3600.
+  over n = 250 → 3600. (At n = 3600 the K and 2K values differ by 5–8%, so that column is at the edge of truncation.)
 
 **What the evidence is, and what it is not (F2).** Non-decaying TV(μ_n, μ_{n−1}) is *not* by itself evidence against
 (T3). The Chebyshev weight on [−1, 1] has TV(μ_n, μ_{n−1}) → 4/π² ≈ 0.405, yet b_n converges under every bounded
@@ -360,10 +360,10 @@ log Ψ slowly varying.
   log b_n²(vΨ) − log b_n²(v) = ∫_0^1⟨g_n, μ_n^{(t)} − μ_{n−1}^{(t)}⟩dt, with g_n := log Ψ − log Ψ(n).
 - On [n/M, Mn], |g_n| → 0 by slow variation.
 - On the head, μ_n = ρ_{n+1} − ρ_n ≤ 1 − ρ_n is exponentially small by Lemma Sat_p (§3.1).
-- So if a **localization lemma** holds, meaning μ_n^{(t)}((Mn, ∞)) ≤ ε(M) uniformly along the path, then
+- So if a **localization lemma** holds, meaning μ_n^{(t)}((Mn, ∞)) + μ_{n−1}^{(t)}((Mn, ∞)) ≤ ε(M) uniformly along the path, then
   b_n(vΨ)/b_n(v) → 1. The pure-power laws (RH_p etc.) then give the pointwise law. That is more than (T3).
 - The upper tail is a GAP. Unbounded slowly varying Ψ (e.g. log k) would need additional quantitative tail control.
-- Plan 29 (§3.3) proves the case Ψ_k → L, where the tail is not needed.
+- The case Ψ_k → L, where the tail is not needed, is planned work (Plan 29; not part of this section).
 
 ## 4. G1-R: what remains (stop report)
 

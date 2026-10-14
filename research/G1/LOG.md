@@ -77,4 +77,4 @@
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan28.md).
   - F1: the ratio's first variation is the second difference.
   - F2: TV ↛ 0 is not by itself evidence (Chebyshev); the evidence is locality plus cross-scale independence.
-  - F3–F11 applied; numerics rewritten. Re-check pending.
+  - F3–F11 applied; numerics rewritten. Re-check: ACCEPT (R1–R3 applied). REVIEWED.

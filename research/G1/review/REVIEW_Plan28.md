@@ -188,3 +188,47 @@ general s and atoms. The conjecture text and all numerics are for x_k = k^{−2}
 
 Rule R status for §3.2: **ACCEPT WITH FIXES**. A re-check after the fixes should only need to confirm the F1 text and
 script change, the F2 reframing and the F5 statement.
+
+## Re-check (commit 21c2527), 2026-10-14
+
+Read: the new §3.2, the status rows FV / Conj R, the §4 note, README, the LOG Plan-28 entry, the plan, and
+check_t3_rough.py/.out. Spot re-run (scratch `rc.py`, same Lanczos, f = ε·sign(Δ²μ), K = 20n): Δlog(b_n²/b_{n−1}²) and the
+jump reproduce the new .out exactly (n = 100: +0.0672/0.034 and +0.2636/0.141; n = 200: +0.0614/0.031 and
++0.2404/0.128). The full script was not re-run.
+
+| Finding | Status |
+|---|---|
+| **F1** | **RESOLVED.** FV now states both formulas, and the second follows by differencing. The script uses f = sign(Δ²μ) and prints both pairings. The text's agreement figures match the .out: Δlog b_n² within 2% (ε = 0.05) and ≤ 11% (ε = 0.2); the ratio within 3%; ‖Δ²μ‖₁ = 1.23–1.35. |
+| **F2** | **RESOLVED.** The robustness "only if" is gone. The "What the evidence is" paragraph gives the Chebyshev contrast (4/π²) and locates the evidence in [2] + [3]. The Rakhmanov remark is labelled "recollection, not cited" and is used only as contrast, never in a proof. That is acceptable under Rule 4 as written; quote the source if it is ever used in an argument. |
+| **F3** | RESOLVED. Spikes at N and N+1 and the max over all other n (0.030) are reported. |
+| **F4** | RESOLVED. Conjecture R and its status row are restricted to p = s = 2. |
+| **F5** | **RESOLVED.** The reduction is stated with base k^{−s}, Ψ bounded above and below with log Ψ slowly varying, the path in a fixed sandwich class, the head bound μ_n ≤ 1 − ρ_n via Sat_p, localization uniform along the path, and the conclusion b_n(vΨ)/b_n(v) → 1 (more than (T3)). Unbounded Ψ is flagged. Nit: the localization hypothesis is needed for μ_{n−1}^{(t)} as well as μ_n^{(t)} (trivially the same statement at n−1). |
+| **F6** | RESOLVED. The one-sided conditions are cited, with "a fortiori" and the direct refutation of β_n → 1. |
+| **F7** | RESOLVED. Generic-weight decay is committed as [4]. Over n = 250 → 3600 both families drop by a factor of 4.05, against √14.4 = 3.8, consistent with n^{−1/2}. Minor: at n = 3600 the K vs 2K values differ by 5% (parity) and 8% (random), so the last column is at the edge of truncation. Optional caveat. |
+| **F8** | RESOLVED. [1b] K = 20n vs 40n gives 0.128 for both, and the transplant caveat is stated. |
+| **F9** | RESOLVED. The dominated-convergence line and the Toda check were added, and the label is "standard; novelty not claimed". |
+| **F10** | RESOLVED. The list is reordered with (iii) first, (i) is restated with ‖Δ²μ_N‖₁ for the measures that arise in the construction, and (ii) is kept. |
+| **F11** | RESOLVED. README says "numerical evidence", the LOG records the Rule R outcome, and plan T1 points to [4]. |
+
+**Residual items.**
+- **R1 (must fix before merge; PROOF.md line 366).** "Plan 29 (§3.3) proves the case Ψ_k → L, where the tail is not
+  needed." There is no §3.3 at this commit, and no Plan 29 appears in the LOG, README or plans. This is a dangling forward
+  reference to unreviewed work. Fix: delete it, or rephrase it as "(planned: Ψ_k → L; the tail term then vanishes
+  because g_n → 0 uniformly on k ≥ n/M)" and add it when Plan 29 lands.
+- **R2 (cosmetic).** The Conj R status row and the [3] bullet cite "three scales, n ≤ 1000, independent 400-digit
+  check". Those are reviewer scratch runs, not committed checks. Fix: append "(REVIEW_Plan28 re-runs)" to the row, or
+  commit an equivalent script.
+- **R3 (cosmetic).** After this re-check, update the §3.2 heading, the FV row and the LOG ("re-check pending") to the
+  final status.
+
+**Re-check verdict: ACCEPT**, conditional on R1. R2 and R3 are cosmetic.
+
+**Final labels.**
+
+| Row | Label |
+|---|---|
+| FV | PROVED (standard; novelty not claimed) — REVIEWED |
+| Conj R | CONJECTURE; NUMERICAL (p = s = 2; committed: two scales n ≤ 400 plus Rule N; reviewer re-runs: three scales n ≤ 1000, n = 800, 400-digit mpmath) — REVIEWED as a conjecture |
+| Localization reduction | PROVED-reduction (bounded Ψ with slowly varying log Ψ, base k^{−s}; gives the pointwise law via RH_p); localization upper tail = GAP — REVIEWED |
+| G1-R | GAP; conjecturally false for sandwiched rough weights (Conj R, p = s = 2); positive target is regular weights |
+| §3.2 | Rule R ACCEPT WITH FIXES; re-check ACCEPT (after R1) — REVIEWED |
