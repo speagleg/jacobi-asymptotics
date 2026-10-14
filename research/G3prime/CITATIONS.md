@@ -242,3 +242,57 @@ Goldston–Montgomery [18] has NOT been read, and Goldston's (4.4) itself has no
 - Hadamard's inequality for positive semidefinite matrices.
 - Christoffel's variational characterization 1/K_n(x, x) = min{∫P²dμ : deg P < n, P(x) = 1}.
 - The Gram/Hankel identity D_n(μ) = Π h_j.
+
+### (C5) addendum — Plan 43 (read 2026-10-14 from the arXiv PDF 2503.15449v4: abstract, §§1–3, §7, §8 head)
+> Abstract: "Montgomery in 1973 introduced the Pair Correlation Conjecture (PCC) for zeros of the Riemann zeta-function.
+> He also conjectured that asymptotically 100% of the zeros are simple."
+> §2: "the remaining zeros are non-real and lie in the 'critical strip' 0 < σ < 1." "If β ≠ 1/2 we obtain by the
+> functional equation and the reflection principle four zeros ρ = β + iγ, ρ̄ = β − iγ, 1 − ρ = 1 − β − iγ, and
+> 1 − ρ̄ = 1 − β + iγ symmetric with respect to both the real axis and the critical line."
+> §3: "a zero ρ = β + iγ with multiplicity mρ is counted as mρ zeros"; "(3.1) N(T) = |{ρ ∈ Z : 0 < γ ≤ T}|".
+> §7: "If we assume RH, then H(γ) = mρ = mγ is the usual multiplicity of the zero ρ. Without RH, H(γ) counts with
+> multiplicity the number of zeros on the horizontal line t = γ." "If H(γ) = 1, then on the line t = γ, we have one
+> simple zero on the critical line." "If H(γ) = 2, then on the line t = γ, we have either a double zero on the critical
+> line or a pair of two symmetric simple zeros."
+> "Horizontal Multiplicity Hypothesis (HMH). We have N^⊛(T) = Σ_{0<γ≤T} H(γ) = (1 + o(1))TL as T → ∞."
+> "Theorem 2. Assuming HMH is true, then asymptotically 100% of the zeros of ζ(s) are simple and on the critical line."
+> Proof: "If H(γ) = 1 then we have exactly one zero on the horizontal line t = γ which thus must be simple and
+> critical. … Thus, by HMH, Σ_{simple and critical} 1 ≥ Σ_{H(γ)=1} 1 ≥ Σ(2 − H(γ)) ≥ 2N(T) − (1 + o(1))TL = (1 + o(1))N(T)."
+> §8: "By Theorem 2, we only need to prove that assuming PCC then HMH is true."
+
+**Used in:** PROOF.md §5.6 (Plan 43): Lemma L (§2 quote; hypotheses: none, it is a statement about all nontrivial
+zeros), Conventions (§2 strip, §3 multiset count), Remark P1 (HMH, Theorem 2), Remark P2 (abstract: Montgomery's
+conjecture, quoted as status only).
+
+### (C6) addendum — Plan 43 (read 2026-10-14 from the arXiv PDF 2609.02882v2: abstract, §1 through Remark 1.2)
+> §1: "N(T) := Σ_{0<γ⩽T} 1, where the zeros are counted with multiplicity." Footnote 1 to "non-trivial zeros": "That is,
+> the zeros lying in the critical strip 0 ⩽ Re(s) ⩽ 1."
+> "N0(T) := Σ_{0<γ⩽T, β=1/2} 1 and N0s(T) := |{ρ : 0 < γ ⩽ T, β = 1/2, and mρ = 1}|, and where the zeros in the
+> definition of N0(T) are counted with multiplicity." "Thus Ns(T) denotes the number of simple zeros, Nd(T) the number
+> of distinct zeros".
+> "(1.1) C0 := 3/2 − (1/√2) cot(1/√2) = 0.6725007…"
+> "Theorem 1.1. We have lim inf_{T→∞} N0s(T)/N(T) ⩾ C0 = 0.67250…, and lim inf_{T→∞} Nd(T)/N(T) ⩾ C1 := (C0 + 1)/2 =
+> 0.83625…"
+> "Pratt, Robles, Zaharescu and Zeindler [21] obtained the slightly better bounds lim inf N0(T)/N(T) ⩾ 0.417293 and
+> lim inf N0s(T)/N(T) ⩾ 0.407511". [Editorial: after Montgomery's RH-conditional 2/3 and Montgomery–Taylor's C0:] "this was improved
+> to 0.6792 by Chirre, Gonçalves, and de Laat [7]"; "Bui and Heath-Brown [5] subsequently removed GLH from this result and obtained the proportion 19/27
+> assuming only RH."
+> "Goldston, Lee, Schettler and Suriajaya [14] showed that Montgomery's full Pair Correlation Conjecture, without
+> assuming RH, implies that asymptotically 100% of the zeros are simple and on the critical line."
+
+Theorem 1.1 is unconditional (no hypothesis stated; the abstract says "unconditional proof"). The arXiv version read is
+v2 (8 Sep 2026); refereeing status is unknown. **Used in:** PROOF.md §5.6 Corollary Lz (hypotheses: none; N(T) and
+N0s(T) agree with §5.6's conventions, since by (C5) §2 there are no nontrivial zeros on Re s ∈ {0, 1}); Remarks P2–P3
+(status quotes only).
+
+### (C8) addendum — Plan 43 (read 2026-10-14 from the arXiv PDF math/0412313: §5 Theorem 2 and the text after it, §6 (6.8)–(6.11))
+> §5, after the proof of Theorem 2 (which assumes RH): "It would be a major advance to be able to prove that almost all
+> the zeros are simple, even on RH."
+> §6: "Simple Zeros Conjecture (SZC). We have (6.9) N*(T) := ((T/2π) log T)^{−1} Σ_{0<γ≤T} mρ ∼ 1. Technically this is a
+> conjecture on the average multiplicity which implies almost all the zeros are simple, but there is no need to make
+> this distinction here." "this conjecture and SZC together are sometimes refereed to as the Essential Simplicity
+> Conjecture (ESC)."
+
+The notes date from 2004 (arXiv math/0412313), so the status sentence is as of then; (C6) (2026) still quotes
+proportions < 1 under RH. **Used in:** PROOF.md §5.6 Remarks P1 (SZC) and P3 (status, as a labelled RH-conditional
+quote only).

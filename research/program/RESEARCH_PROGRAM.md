@@ -79,6 +79,7 @@ Probabilities and plan counts are the outline agents' estimates (one "plan" ≈ 
 ### D. G3′ for ζ (`outline_D_G3p.md`)
 - Unconditional G3′ is out of reach (<1%): G3′ ⇒ d(E) = 0 ⟺ (derived here) 100% of zeros simple and on the line
   (GLSS's HMH); open even on RH. Exact split (derived here): G3′ ⟺ HMH + capped energy over distinct ordinates o(K²).
+  *(Correction, Plan 43, 2026-10-14; see research/G3prime/PROOF.md §5.6 and review/REVIEW_Plan43.md: only HMH ⇒ d(E) = 0 holds. d(E) = 0 ⟺ "100% of zeros simple and on the critical line" (Prop I) is NOT HMH. The split is G3′ ⟺ d(E) = 0 ∧ 𝒞_dist(K) = o(K²) (Thm Sp). G3′ ⇒ HMH is NOT established.)*
 - Realistic targets: **D1** HMH positioning (≤ 1 week, ~95%); **D2** quantitative two-sided Ch (~70%); **D3** law
   provably fails for Dedekind zeta of non-abelian Galois fields (repeated ordinates from L(ρ₂)²; ~80%); **D4** law holds
   a.s. for the sine process (~75%); **D5** function-field zeta: law ⟺ distinct Frobenius angles (~70%); **D6** explicit

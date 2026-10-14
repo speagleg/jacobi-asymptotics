@@ -1,0 +1,30 @@
+[0] dF_n/dt at t=0, n=60: finite difference -1.978463089e-01; Lemma FV <f, Δ²μ_n> = -1.978463089e-01
+[1] explicit constants (quadrature on 2·10⁶ points; c_W > 0 is all the proof needs)
+    p=0.5 u_s=0.3750 (b > u_s: True)  W=[0.6N,1.6N]: c_W=0.08364 δ_W=2.614e-03 J_W=766 η_W=4.455e-09 ε₀=2.784e-10 θ₁=0.0109 M_W=1.025e+37 R_W=1.708e+37 | phase-model η_W^ph=0.469
+    p=0.5 u_s=0.3750 (b > u_s: True)  W=[1.0N,2.0N]: c_W=0.00592 δ_W=1.850e-04 J_W=10813 η_W=1.582e-12 ε₀=9.888e-14 θ₁=0.0109 M_W=6.444e+50 R_W=6.444e+50 | phase-model η_W^ph=0.289
+    p=1.0 u_s=0.5000 (b > u_s: True)  W=[0.6N,1.6N]: c_W=0.12679 δ_W=3.962e-03 J_W=505 η_W=1.554e-08 ε₀=9.711e-10 θ₁=0.0982 M_W=2.149e+17 R_W=3.582e+17 | phase-model η_W^ph=0.794
+    p=1.0 u_s=0.5000 (b > u_s: True)  W=[1.0N,2.0N]: c_W=0.05767 δ_W=1.802e-03 J_W=1110 η_W=1.463e-09 ε₀=9.142e-11 θ₁=0.0982 M_W=2.425e+19 R_W=2.425e+19 | phase-model η_W^ph=0.388
+    p=2.0 u_s=0.6366 (b > u_s: True)  W=[0.6N,1.6N]: c_W=0.23445 δ_W=7.327e-03 J_W=273 η_W=9.831e-08 ε₀=6.144e-09 θ₁=0.1923 M_W=6.596e+07 R_W=1.099e+08 | phase-model η_W^ph=1.144
+    p=2.0 u_s=0.6366 (b > u_s: True)  W=[1.0N,2.0N]: c_W=0.11819 δ_W=3.693e-03 J_W=542 η_W=1.257e-08 ε₀=7.858e-10 θ₁=0.1923 M_W=5.158e+08 R_W=5.158e+08 | phase-model η_W^ph=0.416
+    p=4.0 u_s=0.7628 (b > u_s: True)  W=[0.6N,1.6N]: c_W=0.25478 δ_W=7.962e-03 J_W=252 η_W=1.254e-07 ε₀=7.836e-09 θ₁=0.3096 M_W=6.875e+03 R_W=1.146e+04 | phase-model η_W^ph=1.248
+    p=4.0 u_s=0.7628 (b > u_s: True)  W=[1.0N,2.0N]: c_W=0.11311 δ_W=3.535e-03 J_W=566 η_W=1.103e-08 ε₀=6.896e-10 θ₁=0.3096 M_W=2.318e+04 R_W=2.318e+04 | phase-model η_W^ph=0.373
+[2] R1W mechanism for v = k^-2, W = [0.6N, 1.6N]: Q_N -> c_W; window norms vs η_W
+    p=2.0 N=100 (K=12000): Q_N=0.2264 (limit c_W=0.2345; contradiction threshold 8δ_W=0.0586; Q_N > 8δ_W: True)  ‖D_N|S‖₁=0.698 ‖D_N-1|S‖₁=0.751  min_m∈[N-7,N] ‖Δ²μ_m|S‖₁=1.061 (≥ η_W: True; phase model 1.144)
+    p=2.0 N=200 (K=12000): Q_N=0.2293 (limit c_W=0.2345; contradiction threshold 8δ_W=0.0586; Q_N > 8δ_W: True)  ‖D_N|S‖₁=0.663 ‖D_N-1|S‖₁=0.681  min_m∈[N-7,N] ‖Δ²μ_m|S‖₁=1.091 (≥ η_W: True; phase model 1.144)
+    p=2.0 N=300 (K=12000): Q_N=0.2307 (limit c_W=0.2345; contradiction threshold 8δ_W=0.0586; Q_N > 8δ_W: True)  ‖D_N|S‖₁=0.720 ‖D_N-1|S‖₁=0.664  min_m∈[N-7,N] ‖Δ²μ_m|S‖₁=1.094 (≥ η_W: True; phase model 1.144)
+    p=1.0 N=50 (K=40000): Q_N=0.1217 (limit c_W=0.1268; contradiction threshold 8δ_W=0.0317; Q_N > 8δ_W: True)  ‖D_N|S‖₁=0.435 ‖D_N-1|S‖₁=0.461  min_m∈[N-7,N] ‖Δ²μ_m|S‖₁=0.699 (≥ η_W: True; phase model 0.794)
+    p=1.0 N=100 (K=40000): Q_N=0.1245 (limit c_W=0.1268; contradiction threshold 8δ_W=0.0317; Q_N > 8δ_W: True)  ‖D_N|S‖₁=0.445 ‖D_N-1|S‖₁=0.411  min_m∈[N-7,N] ‖Δ²μ_m|S‖₁=0.763 (≥ η_W: True; phase model 0.794)
+[3] Theorem RW construction, p = s = 2, W_i = [0.6N_i, 1.6N_i]
+    scales=(30, 240) K=9600 ε=0.05: N=30 m=27: Δ_m=+0.0642 (linear <f,Δ²μ^v_m>=+0.0642; own window ε‖Δ²μ^v_m|W‖₁=0.0642; cross-window -3.9e-05); F_m(w)=-0.0854; N=240 m=238: Δ_m=+0.0601 (linear <f,Δ²μ^v_m>=+0.0601; own window ε‖Δ²μ^v_m|W‖₁=0.0601; cross-window +6.9e-18); F_m(w)=+0.0432
+        off-spike max |Δ_n| (n ∈ [10,246], |n-m_i| > 2) = 0.0197; every spike Δ_m > off-spike max: True; |F_n(v)| at n = 240: 0.0167
+    scales=(30, 240) K=9600 ε=0.2: N=30 m=27: Δ_m=+0.2566 (linear <f,Δ²μ^v_m>=+0.2568; own window ε‖Δ²μ^v_m|W‖₁=0.2570; cross-window -1.6e-04); F_m(w)=+0.1070; N=240 m=238: Δ_m=+0.2389 (linear <f,Δ²μ^v_m>=+0.2403; own window ε‖Δ²μ^v_m|W‖₁=0.2403; cross-window +2.8e-17); F_m(w)=+0.2221
+        off-spike max |Δ_n| (n ∈ [10,246], |n-m_i| > 2) = 0.0835; every spike Δ_m > off-spike max: True; |F_n(v)| at n = 240: 0.0167
+    scales=(30, 240) K=19200 ε=0.05: N=30 m=27: Δ_m=+0.0642 (linear <f,Δ²μ^v_m>=+0.0642; own window ε‖Δ²μ^v_m|W‖₁=0.0643; cross-window -3.9e-05); F_m(w)=-0.0854; N=240 m=238: Δ_m=+0.0600 (linear <f,Δ²μ^v_m>=+0.0600; own window ε‖Δ²μ^v_m|W‖₁=0.0600; cross-window +6.9e-18); F_m(w)=+0.0432
+        off-spike max |Δ_n| (n ∈ [10,246], |n-m_i| > 2) = 0.0196; every spike Δ_m > off-spike max: True; |F_n(v)| at n = 240: 0.0167
+    scales=(30, 240) K=19200 ε=0.2: N=30 m=27: Δ_m=+0.2566 (linear <f,Δ²μ^v_m>=+0.2569; own window ε‖Δ²μ^v_m|W‖₁=0.2570; cross-window -1.6e-04); F_m(w)=+0.1070; N=240 m=238: Δ_m=+0.2398 (linear <f,Δ²μ^v_m>=+0.2399; own window ε‖Δ²μ^v_m|W‖₁=0.2399; cross-window +2.8e-17); F_m(w)=+0.2230
+        off-spike max |Δ_n| (n ∈ [10,246], |n-m_i| > 2) = 0.0834; every spike Δ_m > off-spike max: True; |F_n(v)| at n = 240: 0.0167
+    scales=(15, 60, 240) K=9600 ε=0.05: N=15 m=15: Δ_m=+0.0689 (linear <f,Δ²μ^v_m>=+0.0691; own window ε‖Δ²μ^v_m|W‖₁=0.0695; cross-window -3.5e-04); F_m(w)=-0.2025; N=60 m=58: Δ_m=+0.0624 (linear <f,Δ²μ^v_m>=+0.0626; own window ε‖Δ²μ^v_m|W‖₁=0.0624; cross-window +2.0e-04); F_m(w)=-0.0069; N=240 m=238: Δ_m=+0.0601 (linear <f,Δ²μ^v_m>=+0.0601; own window ε‖Δ²μ^v_m|W‖₁=0.0601; cross-window +6.9e-18); F_m(w)=+0.0432
+        off-spike max |Δ_n| (n ∈ [10,246], |n-m_i| > 2) = 0.0262; every spike Δ_m > off-spike max: True; |F_n(v)| at n = 240: 0.0167
+    scales=(15, 60, 240) K=9600 ε=0.2: N=15 m=15: Δ_m=+0.2739 (linear <f,Δ²μ^v_m>=+0.2765; own window ε‖Δ²μ^v_m|W‖₁=0.2779; cross-window -1.4e-03); F_m(w)=+0.0024; N=60 m=58: Δ_m=+0.2457 (linear <f,Δ²μ^v_m>=+0.2503; own window ε‖Δ²μ^v_m|W‖₁=0.2495; cross-window +8.2e-04); F_m(w)=+0.1765; N=240 m=238: Δ_m=+0.2389 (linear <f,Δ²μ^v_m>=+0.2403; own window ε‖Δ²μ^v_m|W‖₁=0.2403; cross-window +2.8e-17); F_m(w)=+0.2221
+        off-spike max |Δ_n| (n ∈ [10,246], |n-m_i| > 2) = 0.1027; every spike Δ_m > off-spike max: True; |F_n(v)| at n = 240: 0.0167
+    (proved lower bound at ε ≤ ε₀ = 6.14e-09: liminf_i F_(m_i)(w) ≥ εη_W/2; the runs use ε ≫ ε₀ and test the mechanism, not the constants)
