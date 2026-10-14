@@ -18,7 +18,7 @@ nothing here is evidence about where the zeros lie.
 | N | doubled-smooth sequences: same counting function, law fails by 2 log(1−1/m) | PROVED-mod-input Theorem H + REVIEWED | Theorem H_L, item 11 H6 |
 | N′ | repeated indices containing a positive-density subset (d_*(E) > 0) ⇒ the law fails, limsup ≤ 2 log(1 − d_*(E)) | PROVED-mod-cite + mod-input Theorem H + REVIEWED; residual case closed by N″ (§5.2) | G3′*-U proof, Z1, Z2, T (P1), H6 |
 | N″ | repeated indices of positive **upper** density ⇒ the law fails, liminf ≤ −0.2397·d̄(E) (§5.2); hence G3′ ⇒ d(E) = 0 | PROVED-mod-cite (C1) + mod-input Theorem H (via G3′-U steps 1–5, item 11 H5–H7); REVIEWED; novelty UNCHECKED | Hadamard, Christoffel, G3′-U |
-| N‴ | normalized gaps g_k ≤ e^{−βk} (incl. repeats) at positive upper density ⇒ the law fails (§5.3); hence G3′ ⇒ d(T_β) = 0 for every β > 0 | PROVED-mod-cite (C1) + mod-input Theorem H; depends on §5.2; Rule R pending | N″, Z2 |
+| N‴ | normalized gaps g_k ≤ e^{−βk} (incl. repeats) at positive upper density ⇒ the law fails (§5.3); hence G3′ ⇒ d(T_β) = 0 for every β > 0 | PROVED-mod-cite (C1) + mod-input Theorem H; REVIEWED; novelty UNCHECKED | N″ (Lemma H, Lemma Sat, move map), G3′-U, Z1, Z2 |
 | B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED | GLSS (6.1), Caro–Wei, §4 proof |
 | L′ | (LG*): deletable bad set of small upper density + Σ log⁺(1/g) = o(K²/log K) on the rest ⇒ G3′ (§4.1); contains both (SG) and "d(E) = 0 + log-gap" | PROVED-mod-cite (C1) + mod-input (LG*), Theorem H; REVIEWED; novelty UNCHECKED | G3′-L, G3′-U, Lemma Tr, Lemma K, Lemma W |
 | Tr | truncation of the pure-power comparison at J ≥ (M/2)n costs ≤ (C_s n + 2)·E#tail = O(n²/log M) (§4.1) | PROVED-mod-input Theorem H (via Lemma K / item 11 H7); REVIEWED | Lemma H, Lemma K |
@@ -555,10 +555,10 @@ NUMERICAL (exact, 300 digits; `checks/check_npp.out`):
 - **N″3.** Theorem N″ uses no hypothesis on the zeros beyond (C1), plus Theorem H through G3′-U.
   - Novelty: UNCHECKED. Lemma H is a standard determinantal fact; Lemma Sat is elementary.
 
-### 5.3 Theorem N‴ (Plan 24): exponentially small gaps at positive density also break the law — PROVED-mod-cite (C1) + mod-input Theorem H; depends on §5.2; Rule R pending
+### 5.3 Theorem N‴ (Plan 24): exponentially small gaps at positive density also break the law — PROVED-mod-cite (C1) + mod-input Theorem H; depends on §5.2 (REVIEWED) and G3′-U; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan24.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED
 
-For β > 0 put T_β := {k : g_k ≤ e^{−βk}}, with g_k the normalized gap of §4. T_β contains every repeated index
-(g_k = 0).
+For β > 0 put T_β := {k : g_k ≤ e^{−βk}}, with g_k the normalized gap of §4. T_β ⊇ E − 1 = {k : γ_{k+1} = γ_k} (g_k = 0), which has the same density as
+the repeated-index set E (F1).
 
 **Theorem N‴.** If d̄(T_β) = η > 0 for some β > 0, then for every θ ∈ (0, θ₀), where θ₀ ≈ 0.3154 is the zero of g
 (so that g(θ) > 0):
@@ -571,14 +571,18 @@ with g as in §5.2. Hence **G3′ ⇒ d(T_β) = 0 for every β > 0.**
 1. **Scales.** Take K with |T_β ∩ [1, K]| ≥ η′K (infinitely many K).
    - Then |T_β ∩ [θ₁K/θ, K]| ≥ η′K/2.
    - Keep every third element of this set: T′ has pairwise distances ≥ 3 and |T′| ≥ η′K/6 − 1.
-   - Put n := ⌈(K + 1)/θ⌉. Then θ₁n ≤ k ≤ θn − 1 for k ∈ T′ (up to rounding).
-2. **Sharper pair factor for twins.** For k ∈ T′ (k ≥ k₂, so γ_{k+1} ≤ 2γ_k):
-   - x_k − x_{k+1} ≤ 4(γ_{k+1} − γ_k)/γ_k³ = 8πg_k/(γ_k³ log(γ_k/2π));
+   - Put n := ⌈(K + 1)/θ⌉. Then θ₁n − O(1) ≤ k ≤ θn − 1 for k ∈ T′ (F5).
+2. **Sharper pair factor for twins.** For k ∈ T′ (k ≥ k₂):
+   - x_k − x_{k+1} ≤ 2(γ_{k+1} − γ_k)/γ_k³ = 4πg_k/(γ_k³ log(γ_k/2π));
    - G(k) − G(k+1) ≥ k^{−3};
-   - Λ ≥ c > 0 (G3′-U step 1).
-   - So x_k − x_{k+1} ≤ ε_kΛ(G(k) − G(k+1)), with ε_k ≤ C(log k)³g_k ≤ C(log k)³e^{−βk}, using γ_k ≍ k/log k.
+   - Λ ≥ L(1) > 0 (G3′-U step 1).
+   - So x_k − x_{k+1} ≤ ε_kΛ(G(k) − G(k+1)), with ε_k ≤ C(log k)²g_k ≤ C(log k)²e^{−βk}, using γ_k ≍ k/log k.
    - In G3′-U steps 2–4, this replaces the factor ρ*(k, k+1) ≥ 1 for head pairs {k, k+1} ⊂ S. So
      term_σ(S) ≤ e^{O(n log²n)}Λ^{n(n−1)}·term_ν(S)·Π_{k∈T′}ε_k^{2X_k(S)}, where X_k(S) := 1[{k, k+1} ⊂ S].
+   - The aggregated factor survives (F3). G3′-U step 3 bounds Σ 2 log ρ* over *all* pairs of S, uniformly in S, by
+     O(n log²n), and every term is ≥ 0. Replacing some terms by 2 log ε_k only removes nonnegative terms from that
+     sum, so the e^{O(n log²n)} bound and the count of Λ factors are unchanged.
+   - k + 1 ≤ θn < Mn, so {k, k+1} is always a head pair.
 3. **Expansion.** Σ_S term_ν(S)Π_kε_k^{2X_k} ≤ Σ_{U⊂T′}Π_{k∈U}ε_k²·Σ_{S : X_k(S)=0 ∀k∈T′∖U}term_ν(S).
 4. **Avoidance (as in §5.2).** For F ⊂ T′, a set S with no pair {k, k+1} ⊂ S (k ∈ F) maps to S′ by moving each
    k + 1 ∈ S down to k (k ∉ S).
@@ -595,20 +599,26 @@ with g as in §5.2. Hence **G3′ ⇒ d(T_β) = 0 for every β > 0.**
    with |T′|/n ≥ η′θ/6 − o(1). Let M → ∞ and η′ → η. ∎
 
 **Remarks.**
-- **N‴0.** Since g ≤ 0 on [θ₀, ½], the restriction θ < θ₀ is needed.
-- **N‴1 (what is left between necessity and sufficiency).**
+- **N‴0.** g ≤ 0 on [θ₀, ½], so θ < θ₀ is needed for Lemma Sat to give a gain. It is not claimed necessary for the
+  theorem (F9). Spacing ≥ 2 in T′ would suffice for the move map and improve ηθ/6 to ηθ/4 (F10); this is not used.
+- **N‴1 (what is left between necessity and sufficiency; updated by Plan 25).**
   - Necessary for G3′: repeats *and* gaps ≤ e^{−βk} have density 0, for every β > 0 (N″, N‴).
-  - Sufficient: (SG) (G3′-L).
-  - Open: gaps in the window e^{−o(k)} ≤ g_k < δ at positive density.
-  - *Heuristic:* in the determinantal picture a near-twin pair costs ≈ min(2 log(1/g), C(k, n)), and C(k, n) ≥ 2n·g(k/n) ≍ n for
-    k < θ₀n. So gaps ≥ e^{−o(k)} should be harmless. That would make the sharp condition "d(E) = 0 and
-    Σ_{k≤K}min(log⁺(1/g_k), K) = o(K²)".
-  - A proof of the sufficiency direction meets a truncation obstacle in G3′-L step 6. Per-element near costs
-    A log²a are not dominated by j^{−s_n} for a ≫ n^{O(1)}, and truncating the comparison measure costs too much
-    (LOG, Plan 24).
-  - NUMERICAL illustration (exact, `checks/check_twins.out`): at n = 20, moving atom k + 1 to x_k(1 − ε) costs a loss
-    that grows like 2 log(1/ε) for moderate ε. For tiny ε it saturates at a constant: 77.7 for k = 3 and 35.7 for k = 6
-    (the cost of losing the slot).
+  - Sufficient: (SG) (G3′-L), and more generally (LG*) (Theorem L′, §4.1, Plan 25, REVIEWED). (LG*) allows small positive gaps
+    at any density when Σ log⁺(1/g) = o(K²/log K) off a small deletable set.
+  - Open: the window between those two conditions.
+  - *Heuristic:* a near-twin pair should cost at most about the merged deletion cost of the slot, and that cost is
+    ≳ n only for k < θ₀n (Lemma Sat). This suggests a sharp condition of the form
+    Σ_{k≤K}min(log⁺(1/g_k), K) = o(K²). That condition already implies d(E) = 0 (F7). Not proved.
+  - History (F2): Plan 24 first recorded an obstacle to the *G3′-L step-6 route*, not to every proof. Near costs were
+    folded into weights j^{−s_n}, and a crude truncation needed log N ≳ n log n. Plan 25's Lemma Tr (§4.1, REVIEWED) removes it.
+  - NUMERICAL illustration only (exact, `checks/check_twins.out`; F4).
+    - At n = 20, the atom of index k + 1 is moved to x_k(1 − ε), where ε is the relative atom gap, not the normalized
+      gap g.
+    - Increments of the loss between ε = 10⁻² and 10⁻⁸ are close to 2 log(1/ε)'s increment. For example, at k = 3 the
+      loss rises by 27.3, against 27.6 for 2 log(1/ε). Absolute values are not 2 log(1/ε): at ε = 10⁻², for k = 3 and 6, moving the
+      atom up even *gains*.
+    - For tiny ε the loss saturates at 77.68 (k = 3) and 35.69 (k = 6). This is the cost of deleting index k + 1 with
+      its weight merged into atom k; compare C(k+1, n) = 78.13 and 36.24.
 - **N‴2.** No hypothesis on the zeros beyond (C1) is used, plus Theorem H through G3′-U. Novelty: UNCHECKED.
 
 **G3′ status after N′ (the sandwich).**
