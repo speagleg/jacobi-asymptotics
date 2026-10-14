@@ -22,6 +22,7 @@ nothing here is evidence about where the zeros lie.
 | B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED | GLSS (6.1), Caro–Wei, §4 proof |
 | L′ | (LG*): deletable bad set of small upper density + Σ log⁺(1/g) = o(K²/log K) on the rest ⇒ G3′ (§4.1); contains both (SG) and "d(E) = 0 + log-gap" | PROVED-mod-cite (C1) + mod-input (LG*), Theorem H; REVIEWED; novelty UNCHECKED | G3′-L, G3′-U, Lemma Tr, Lemma K, Lemma W |
 | Tr | truncation of the pure-power comparison at J ≥ (M/2)n costs ≤ (C_s n + 2)·E#tail = O(n²/log M) (§4.1) | PROVED-mod-input Theorem H (via Lemma K / item 11 H7); REVIEWED | Lemma H, Lemma K |
+| Ch | **characterization:** G3′ ⟺ 𝒞(K) = o(K²), with 𝒞 the capped near-pair energy (§5.4). Contains N″, N‴, L′ | PROVED-mod-cite (C1) + mod-input Theorem H; Rule R pending; novelty UNCHECKED | Lemma H, Lemma Sat, Lemma Tr, Lemma K, Lemma W, G3′-U, G3′-L |
 | C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED | GLSS, G3′-L |
 | P | RH + prime short-interval variance (V) ⇒ G3′ (§9.1; corollary of KNOWN (C8) + Theorem C) | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; REVIEWED (Rule R, review/REVIEW_Plan18.md); novelty UNCHECKED (RH + (V) ⇒ PCC is KNOWN) | §8.2 |
 | Thm S | SPC_ℂ⁺ (upper half of the dyadic complex-weighted SPC, BGST F; no RH) ⇒ 100% simple critical, gaps ≪ δ³, (SG) ⇒ G3′ (rhfree/RHFREE.md) | PROVED-mod-cite ((C3), (C6) (2.4), (C1)) + mod-input SPC_ℂ⁺, Theorem H; REVIEWED; novelty UNCHECKED | Lemma PC, Lemma G, G3′-L |
@@ -621,12 +622,93 @@ with g as in §5.2. Hence **G3′ ⇒ d(T_β) = 0 for every β > 0.**
       its weight merged into atom k; compare C(k+1, n) = 78.13 and 36.24.
 - **N‴2.** No hypothesis on the zeros beyond (C1) is used, plus Theorem H through G3′-U. Novelty: UNCHECKED.
 
+### 5.4 Theorem Ch (Plan 26): an exact characterization of G3′ — PROVED-mod-cite (C1) + mod-input Theorem H; Rule R pending; novelty UNCHECKED
+
+**Definitions.** Ordinates are indexed with multiplicity, as in §1.
+- For a < b put d_ab := (γ_b − γ_a)·log(γ_a/2π)/2π ≥ 0, the normalized distance.
+- Call (a, b) *near* if γ̃_b − γ̃_a < 4C₀ (smooth ordinates, as in G3′-L step 3).
+- For a finite T ⊂ ℕ, P(T) := Σ_{a<b ∈ T, near} log⁺(1/d_ab). This is +∞ if T contains a repeated ordinate.
+- The **capped pair energy** is
+
+    𝒞(K) := min_{T⊂[k₂,K]} [P(T) + K·|[k₂, K] ∖ T|].
+
+  In words: keep a set T of ordinates, pay the near-pair energy inside T, and pay K for every index dropped.
+
+Put g as in §5.2, and θ_c := sup{θ < θ₀ : 2g(θ) ≥ θ} ≈ 0.29.
+
+**Theorem Ch.**
+- (i) If 𝒞(K) = o(K²), then liminf_n (1/n²)[log D_n(σ) − Φ_n] ≥ 0. Hence G3′ holds, with G3′-U.
+- (ii) If limsup_K 𝒞(K)/K² = c > 0, then for every θ ∈ (0, θ_c]:
+  liminf_n (1/n²)[log D_n(σ) − Φ_n] ≤ −θ²c < 0.
+
+Hence, mod Theorem H: **G3′ ⟺ 𝒞(K) = o(K²).**
+
+*Proof of (ii) (necessity).* Fix θ ∈ (0, θ_c], M ≥ 2, and K with 𝒞(K) ≥ (c − ε)K². Put n := ⌈K/θ⌉, so ⌊θn⌋ = K,
+and W := [k₂, K].
+1. **Near-pair factors.** For a near pair a < b in W:
+   - x_a − x_b ≤ 2(γ_b − γ_a)/γ_a³ and G(a) − G(b) ≥ (b − a)·2/b³ ≥ c′a^{−3}. So
+     x_a − x_b ≤ ε_abΛ(G(a) − G(b)) with ε_ab ≤ C(log a)²d_ab.
+   - In G3′-U steps 2–4, use min(ρ*(a, b), ε_ab) for these pairs, i.e. drop nonnegative terms 2 log ρ* (as in §5.3,
+     F3). Then
+     term_σ(S) ≤ e^{O(n log²n)}Λ^{n(n−1)}·term_ν(S)·e^{−2P_ε(S∩W)},
+     where P_ε(T) := Σ_{near a<b∈T}log⁺(1/ε_ab) ≥ P(T) − C|T| log n·log log n.
+2. **Group by T := S ∩ W.** Σ_{S∩W=T}term_ν(S) ≤ Σ_{S∩(W∖T)=∅}term_ν(S) = D_n(ν ∖ (W ∖ T)). By Lemma H and Lemma Sat
+   (k ≤ θn, g decreasing), this is ≤ D_n(ν)·exp(−(2n·g(θ) − O(log n))·|W ∖ T|).
+3. **Sum over T** (2^{|W|} ≤ e^{θn log 2} choices):
+   Σ_S term_ν(S)e^{−2P_ε(S∩W)} ≤ D_n(ν)·e^{O(n)}·exp(−min_{T⊂W}[2P(T) + (2n·g(θ) − O(log n))|W ∖ T|] + o(n²)).
+   - Since 2n·g(θ) ≥ θn ≥ K, the bracket is ≥ 𝒞(K).
+4. **Conclude** as in G3′-U steps 5–7:
+   (1/n²)[log D_n(σ) − Φ_n] ≤ A₂²/(8 log M) − 𝒞(K)/n² + o(1) ≤ A₂²/(8 log M) − θ²(c − ε) + o(1).
+   Let M → ∞ and ε → 0. ∎
+
+*Proof of (i) (sufficiency).* Fix M ≥ 8. For each n let T_n attain 𝒞(Mn).
+1. **Few drops.** D_n := |[k₂, Mn] ∖ T_n| ≤ 𝒞(Mn)/(Mn) = o(n), and P(T_n) ≤ 𝒞(Mn) = o(n²).
+   - T_n contains no repeated ordinate, since P(T_n) < ∞.
+2. **Restriction.** D_n(σ) ≥ Σ_{S⊂T_n, |S|=n}term_σ(S).
+3. **Pair ratios** (G3′-L step 3, with no gap hypothesis).
+   - A near pair costs ≤ log⁺(1/d_ab) + C log log n. Near pairs with d_ab ≥ 1 cost O(log log n).
+   - Over S ⊂ T_n, the near pairs are a subset of those of T_n, so the near cost is
+     ≤ P(T_n) + O(n log n log log n) = o(n²).
+   - Far pairs cost O(log²n) per element.
+4. **Reindexing.** Let π enumerate T_n. Then π(j) ≤ j + D_n, and by Lemma S each pair with smaller rank j costs
+   ≤ 3 log(1 + D_n/j). Over S this totals ≤ 3n·Σ_{j≤n}log(1 + D_n/j) ≤ 3n·D_n(1 + log(n/D_n)) = o(n²).
+   - L∘π ≥ L and ε* nonincreasing, as in G3′-L step 6.
+5. **Comparison.** With J := |T_n| ≥ Mn − o(n) ≥ (M/2)n, Lemma Tr (s = 4) and Lemma W give
+   log D_n(ν_J) ≥ Λ_n − C′n²/log(M/2) − o(n²).
+6. Hence liminf ≥ −C′/log(M/2). Let M → ∞. ∎
+
+**Corollaries (the earlier results as special cases).**
+- **N″:** d̄(E) = η > 0. Every T must drop one index of each repeat pair, so 𝒞(K) ≥ (η/2)K² − o(K²) along a
+  subsequence.
+- **N‴:** gaps ≤ e^{−βk} on a set of upper density η. Each such pair is either dropped (cost K) or kept
+  (cost ≥ βk − O(log log k)). So 𝒞(K) ≥ c(β, η)K² along a subsequence.
+- **L′:** (LG*) gives P(T) ≤ C log K·Σlog⁺(1/g) = o(K²) off a thin set. That set can be dropped at cost
+  o(K)·K = o(K²) (per-K version of B_η), so 𝒞(K) = o(K²).
+- **The former sliver:** g_k = e^{−k/log k} on every other k. Each tiny gap is an isolated near pair of energy
+  ≍ k/log k, and the other near pairs have normal distances. So 𝒞(K) ≤ P ≍ K²/log K = o(K²), and **G3′ holds** there.
+
+**Remarks.**
+- **Ch1 (why the earlier conditions lost a log).** The true cost is per *pair*. A cluster of m near-coincident
+  ordinates costs about min_s[s(s−1)·log(1/ε) + (m − s)·(drop cost)], not m·log(1/ε).
+  - NUMERICAL (exact, `checks/check_clusters.out`, n = 20): as ε goes from 10⁻² to 10⁻⁸, the loss rises by 27.3,
+    82.0 and 150.8 for m = 2, 3, 4.
+    - The pair counts 1, 3, 6 times 27.6 give 27.6, 82.9 and 165.8.
+    - For tiny ε the loss saturates near the cost of dropping m − 1 slots: 77.7, 147.0 and 209.3, against 78.1, 139.0
+      and 186.3.
+  - Illustration only: moving atoms also shifts slots.
+- **Ch2.** 𝒞 depends only on the ordinates, through (C1)-normalized distances. G3′ is thus equivalent to a
+  statement about the fine spacing of the zeta ordinates: the capped near-pair energy is o(K²).
+  - Unconditionally this is open, since it implies d(E) = 0 (proportion-one distinct ordinates).
+  - It holds under (SG), PCC, RH + (V⁺), and SPC_ℂ⁺, by the earlier theorems.
+
 **G3′ status after N′ (the sandwich).**
 - **(U)** limsup ≤ 0, unconditionally (G3′-U).
 - **(L)** liminf ≥ 0 under (SG) (G3′-L).
 - **(N′)** If the law holds, then d_*(E) = 0: no positive-density family of repeated ordinates.
 - **(N″)** Stronger (Plan 23): if the law holds, then d(E) = 0: the repeated ordinates have natural density zero.
 - **(N‴)** (Plan 24): if the law holds, then for every β > 0 the indices with normalized gap ≤ e^{−βk} have density zero.
+- **(Ch)** (Plan 26): **G3′ ⟺ 𝒞(K) = o(K²)**, the capped near-pair energy of §5.4. This is an exact
+  characterization (mod Theorem H).
 
 A repeated ordinate comes from a multiple zero or from two distinct zeros on one horizontal line.
 - The unconditional input surveyed in (C3) gives only N_d(T) ≥ 0.4075·N(T)(1 + o(1)) ((C3), PRZD20 via the survey).
