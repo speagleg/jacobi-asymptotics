@@ -127,5 +127,5 @@
   - The tail term in Lemmas FV/FVa telescopes over n ∈ [N, 2N] to 𝔼_{2N+1}#(tail).
   - Fubini swaps the path integral and the n-average.
   - Result: the pointwise b- and a-laws hold along a density-one set of n for merely slowly varying Ψ.
-- **Open:** all-n for merely slowly varying Ψ (needs Mn localization).
-- **Rule R:** pending.
+- **Open:** all-n for uniformly slowly varying Ψ (would follow from Mn localization).
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan34.md). F1 (hypothesis restated as uniform slow variation; no UCT citation), F2–F10 applied. Re-check pending.
