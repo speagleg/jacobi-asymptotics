@@ -1,6 +1,14 @@
 # RH_zeta_close: closing the smooth-ζ pointwise Law P (Plan 14)
 
-Status: **PROOF complete (Plan 14), pending Rule R.** §1 hard edge (C–D comparison), §2 Lemma Z (certified), §3 uniform edges, §4 rate, §5 Theorem RH_ζ.
+Status: **REVIEWED** (Rule R: ACCEPT WITH FIXES, review/REVIEW_RHzeta_close.md; F1–F10 and re-check items R1–R5 applied).
+Labels:
+- §1: PROVED-mod-cite (KMVV §6; C–D Thm 4.4; DLMF);
+- §2 Lemma Z: PROVED, with an Arb-certified winding;
+- §3: PROVED-mod-cite (WLXZ §6.1);
+- §4: PROVED;
+- **Theorem RH_ζ: PROVED-mod-cite (WLXZ v1 §§3–6.1; KMVV §6; C–D Thm 4.4; DLMF; G2), REVIEWED.**
+
+Novelty is UNCHECKED (no Rule L search). §1 hard edge (C–D comparison), §2 Lemma Z (certified), §3 uniform edges, §4 rate, §5 Theorem RH_ζ.
 
 Notation is as in RH_zeta.md §4 and RH_px.md §§3–5:
 - the rescaled variable z = sx, with s = 1/x_N ≍ N²/log²N;
@@ -60,8 +68,14 @@ Moreover:
 - (i): γ ≥ (s/δ − ¼)^{1/2} on U(0, δ), and |arg γ| ≤ π/2.
 - (ii) is RH_px Lemma 3.4's consequence:
   - (log D̃)′ = O(|z|^{−1/2}/(√s Λ)) = O(|z|^{−1/2}/N), since μ′(t) = O(t^{−2}) and t′/t² ≍ 1/(zγΛ);
-  - log B is Hölder-½ near 0, because ℓ̂(y) = O(|y|^{1/2}) as y → 0⁻ (checks/check_z_e2e_xi.out prints ℓ̂ = 2arg D₊
-    on (−∞, 0); |ℓ̂| ≤ 2·10⁻⁸ at |y| ~ 10⁻⁹) and ℓ̂ is bounded far out;
+  - log B is Hölder-½ near 0 (Rule R F8). On y < 0 near 0, |t₊| ≍ |y|^{−1/2}log(1/|y|) and ph t₊ → −π/2 (§2,
+    tail). DLMF 5.11 (n = 1) gives |μ(t)| ≤ sec²(½ph t)/(12|t|), and Cauchy's estimate on a disc of radius |t|/2 in
+    the sector gives |μ′(t)| = O(|t|^{−2}). |e^{−2πit₊}| ≤ e^{−c|t|} is super-small. Hence:
+    - ℓ̂(y) = O(|y|^{1/2}/log(1/|y|));
+    - |ℓ̂′(y)| = O(|y|^{−1/2}/log(1/|y|));
+    - ℓ̂ is bounded far out.
+    So ℓ̂ is Hölder-½ on [−1, 0] (x-units), and log B is Hölder-½ by RH_px Lemma 3.4. In z-units,
+    log B_z(z) = log B_x(z/s) + const, so the Hölder-½ constant improves by s^{−1/2}. That makes (ii) uniform in N.
   - the remaining factors are analytic. ∎
 
 ### 1.2 The comparison problem
@@ -75,6 +89,16 @@ Here:
 - Ψ is the KMVV Bessel matrix of order α = −½, (6.23)–(6.25);
 - f is the conformal map of RH_px Lemma 4.1, which is univalent on U(0, δ) uniformly in N by §3;
 - M = [[1, i], [i, 1]]/√2.
+
+**Local form of Ψ for α = −½** (Rule R F2; KMVV (6.23)–(6.25) and DLMF 10.39.1–2, 10.27.3–4, quoted in CITATIONS).
+- In |arg ζ| < 2π/3, (6.23) has first column (I_{−1/2}(2ζ^{1/2}), 2πiζ^{1/2}I′_{−1/2}(2ζ^{1/2})).
+  - By 10.39.1, I_{−1/2}(x) = (2/(πx))^{1/2}cosh x, so this column is ζ^{−1/4}·a(ζ), with a entire (cosh(2ζ^{1/2}) and
+    ζ^{−1/2}sinh(2ζ^{1/2}) are entire in ζ).
+  - By 10.27.3–4, K_{−1/2} = K_{1/2} = (π/2)(I_{−1/2} − I_{1/2}). Since I_{1/2}(x) = (2/(πx))^{1/2}sinh x, the second
+    column is (i/2)(ζ^{−1/4}a(ζ) − ζ^{1/4}b(ζ)), with b entire.
+- Hence **Ψ = Ψ̂(ζ)ζ^{−σ₃/4}S**, with Ψ̂ = [a b] entire and det Ψ̂ constant ≠ 0. Here S = [[1, i/2], [0, −i/2]] in
+  |arg ζ| < 2π/3, and in the other two sectors S is multiplied by the constant jump matrices (6.16), (6.18).
+- In particular |Ψ^{±1}(ζ)| ≤ C|ζ|^{−1/4} for |ζ| ≤ 3, which agrees with (6.19) at α = −½.
 
 Then:
 - **(i)** Ẽ_N is analytic in U(0, δ), with det Ẽ_N = 1, and D_∞^{−σ₃}Ẽ_N(2πN)^{−σ₃/2} = N₀Mf^{σ₃/4} is bounded with
@@ -110,6 +134,11 @@ Then:
 - Q̃ := D_∞^{−σ₃}𝒵̃P̃D_w^{σ₃} then solves Q̃₊ = Q̃₋ṽ on the contour Σ of Q, with ṽ = v **except** on the lips inside
   U(0, δ). There ṽ = [[1, 0], [c_± e^{2Nφ}, 1]] (in the Q-frame: D_w^{−σ₃}[[1, 0], [c_±e^{2Nφ}/D_w², 1]]D_w^{σ₃}),
   and the (h1) entries are dropped.
+  - **Geometry** (Rule R F10, as in RH_px §4.2 and WLXZ (6.4)): inside U(β̂, ε) the only contours are the band,
+    (β̂, β̂ + ε) and the vertical segments β̂ ± i(0, ε).
+  - The outer lips of the band lens and of Ω^△, where F̃ meets F and the diagonal (h1) factors live, stay at height
+    > ε near β̂, i.e. outside U(β̂, ε).
+  - So v = ṽ exactly in U(β̂, ε). Otherwise Proposition D would only give O(N^{−2/3}).
 
 ### 1.3 Lemma LW1 (lip mismatch)
 
@@ -153,12 +182,18 @@ only on a, the angles and the C² norms. It is invariant under dilation about z�
 
 *Proof.*
 - Flatten each arc to its tangent ray. The error kernel is O(1) and harmless.
-- On rays the operator is a matrix of Mellin convolutions in r = |z − z₀|, with kernel homogeneous of degree −1.
-- Off the diagonal (ray i ≠ j), the Mellin symbol is ∫_0^∞u^{−a−1/2+iτ}du/(ue^{iθ_j} − e^{iθ_i}). It is absolutely
-  convergent and bounded in τ iff |a| < ½.
-- On the diagonal, the symbol is PV∫_0^∞u^{s−1}du/(u − 1) = −π cot(πs), with s = ½ − a + iτ. It is bounded on
-  Re s = ½ − a ∈ (0, 1).
-- Plancherel for the Mellin transform finishes the proof. ∎
+- On rays the operator is a matrix of Mellin convolutions in r = |z − z₀|, with kernel homogeneous of degree −1:
+  (Tf)(r) = ∫_0^∞k(ρ/r)f(ρ)dρ/r. By DLMF 1.14.39–40 (convolution) and 1.14.38 (Parseval on Re s = ½; CITATIONS), T
+  is bounded on L²(ℝ₊) with norm sup_τ|ℳk(½ + iτ)|.
+- Off the diagonal (ray i ≠ j), the Mellin symbol is ∫_0^∞u^{−a−1/2+iτ}du/(ue^{iθ_j} − e^{iθ_i}). The denominator is
+  bounded below by c(1 + u), so the integral is absolutely convergent, uniformly in τ, iff |a| < ½.
+- On the diagonal, the symbol is PV∫_0^∞u^{s−1}du/(u − 1) with s = ½ − a + iτ, 0 < Re s < 1.
+  - By DLMF 5.12.3 with a = s, b = 1 − s, together with 5.12.1 and 5.5.3, ∫_0^∞u^{s−1}du/(u + 1) = Γ(s)Γ(1 − s) =
+    π/sin(πs).
+  - Rotating the contour gives ∫_0^∞u^{s−1}du/(u + e^{iφ}) = πe^{i(s−1)φ}/sin(πs) for |φ| < π.
+  - The PV is the average of the limits φ → ±π: π cos((s − 1)π)/sin(πs) = −π cot(πs). This is bounded on
+    Re s = ½ − a ∈ (0, 1).
+- C± add ±½ times the identity. ∎
 
 **Lemma UR.** There are N₀ and C such that, for N ≥ N₀, 1 − C_ṽ is invertible on L²(Σ) and
 ‖(1 − C_ṽ)^{−1}‖ ≤ C.
@@ -171,31 +206,50 @@ only on a, the angles and the C² norms. It is invariant under dilation about z�
   - m = C(h) with h = m₊ − m₋ = μ(ṽ − I), so m₋ = C₋(μ(ṽ − I)).
   - Moreover ‖μ‖ ≤ C′‖f‖.
 - Uniqueness: if μ = C₋(μ(ṽ − I)), then m := C(μ(ṽ − I)) solves m₊ = m₋ṽ, so mQ̃^{−1} has no jump on Σ.
-  - At the edge points, |m| = O(|z − z₀|^{−1/2}) in sectors (an L² Cauchy integral) and |Q̃^{−1}| = O(N|z − z₀|^{−1/4})
-    by (d). So the singularities are removable.
+  - At an edge point z₀, use an area estimate (Rule R F1(a)):
+    - since m = C(h) with h ∈ L²(Σ), ‖m‖_{L²(dA, |z−z₀|<2ε)} ≤ Cε^{1/2}‖h‖ (the Cauchy extension of each ray);
+    - |Q̃^{−1}| ≤ C_N|z − z₀|^{−1/4} by (d)–(e);
+    - so ∬_{ε<|z−z₀|<2ε}|mQ̃^{−1}|dA = O(ε^{5/4}).
+    Every negative Laurent coefficient of mQ̃^{−1} at z₀ is therefore O(ε^{1/4}) → 0, and the singularity is
+    removable.
   - mQ̃^{−1} → 0 at ∞, so m ≡ 0 and μ = m₋ = 0.
 
-**(b) Explicit solution.** m := C(gQ̃₊^{−1})·Q̃ satisfies m₊ − m₋ṽ = (C₊ − C₋)(gQ̃₊^{−1})Q̃₊ = g. It remains to show
-‖m±‖ ≤ C‖g‖. (gQ̃₊^{−1} ∈ L¹_loc by the bounds below, so C(·) is defined.)
+**(b) Explicit solution.** m := C(gQ̃₊^{−1})·Q̃ satisfies m₊ − m₋ṽ = (C₊ − C₋)(gQ̃₊^{−1})Q̃₊ = g.
+- gQ̃₊^{−1} ∈ L¹_loc by the bounds below, so C(·) is defined.
+- (c)–(e) show ‖m±‖ ≤ C‖g‖.
+- m ∈ ∂C(L²) (Rule R F1(b), R2): m − C(m₊ − m₋) has no jump and is O(1/z) at ∞.
+  - Near an edge point z₀, Cauchy–Schwarz gives |C(gQ̃₊^{−1})(z)| ≤ C‖g‖_{L²(U(z₀,η))}|z − z₀|^{−1/4}dist(z, Σ)^{−1/2} + C_η.
+  - So the area integral of |m| over ε < |z − z₀| < 2ε is o(ε), and the same holds for C(m₊ − m₋).
+  - Hence the negative Laurent coefficients vanish, and m = C(m₊ − m₋).
 
 **(c) Partition.** Take a smooth partition of unity on Σ subordinate to:
-- U(0, 2δ);
-- U(β̂, 2ε);
+- U(0, δ/2);
+- U(β̂, ε/2);
 - the rest, where Q̃ and Q̃^{−1} are uniformly bounded (Q̃ = 𝒵̃′N₀, with 𝒵̃′ = I + O(1/N) and N₀ = M₀a^{σ₃}M₀^{−1},
   |a|^{±1} ≤ C there).
+
+On the annuli δ/2 ≤ |z| ≤ δ (and the analogue at β̂), Q̃^{±1} is bounded, since N^{σ₃/2}Φ ≈ f^{−σ₃/4}·(const)·Θ
+there. So the annuli belong to "the rest", and A₀ is used only where it is analytic (Rule R F1(c)).
 
 Pieces with separated supports have bounded smooth kernels. The weights below are L² there, so they contribute
 O(‖g‖). On the third piece the Carleson bound for C± applies directly.
 
-**(d) Hard-edge piece.** On U(0, 2δ), (H1) gives
+**(d) Hard-edge piece.** On U(0, δ/2), (H1) gives
 
   Q̃ = A₀(z)·(2πN)^{σ₃/2}·Φ(N²f(z))·(constant sign),  A₀ := 𝒵̃′N₀Mf^{σ₃/4},  Φ(ζ) := σ₃Ψ(ζ)σ₃e^{Nφσ₃},
 
 with A₀^{±1} analytic and bounded uniformly.
 - Φ is N-free as a function of ζ: e^{Nφ} = e^{∓2ζ^{1/2}} branchwise.
-- KMVV (6.28) and the local form at 0 for α = −½ give Φ(ζ) = B(ζ)·ζ^{−σ₃/4}·Θ(ζ). Here B is analytic, bounded and
-  boundedly invertible on f(U(0, 2δ)) after scaling: B = (2π)^{−σ₃/2} const for |ζ| ≥ 2 and B = Ψ̂ for |ζ| ≤ 3. Θ, Θ^{−1}
-  are bounded and piecewise smooth.
+- KMVV (6.28) and the local form above give Φ(ζ) = B(ζ)·ζ^{−σ₃/4}·Θ(ζ), with two factorizations:
+  - for |ζ| ≥ 2, B = (2π)^{−σ₃/2}, with Θ = (M + O(ζ^{−1/2}))·(sector factors);
+  - for |ζ| ≤ 3, B = σ₃Ψ̂, with Θ = Sσ₃e^{Nφσ₃} (the σ₃-conjugation of Φ := σ₃Ψσ₃e^{Nφσ₃}).
+  In both, Θ and Θ^{−1} are bounded and piecewise smooth.
+- To use one factorization at a time (Rule R F1(d)), insert a ζ-plane partition χ_{≤3} + χ_{≥2} = 1 and treat the
+  blocks separately:
+  - small–small: the Ψ̂-commutator kernel is bounded on |ζ| ≤ 3, with an N-free Hilbert–Schmidt norm;
+  - large–large: B is a constant diagonal, so there is no commutator;
+  - the overlap annulus 2 ≤ |ζ| ≤ 3: Φ^{±1} is bounded, so the plain Cauchy bound applies;
+  - separated cross blocks: Hilbert–Schmidt, since ∫_{|ζ|≥3}|ζ|^{1/2}|ζ|^{−2}|dζ| < ∞.
 - Write C(gQ̃^{−1})Q̃ = C(gΦ^{−1}N^{−σ₃/2}A₀^{−1})A₀N^{σ₃/2}Φ, and split A₀^{−1}(s)A₀(z) = I + (s − z)K(s, z), with K
   analytic and bounded.
 
@@ -210,17 +264,23 @@ The K-term has kernel
 
   Φ^{−1}(ζ_s)N^{−σ₃/2}K(s, z)N^{σ₃/2}Φ(ζ_z).
 
-Since N^{σ₃/2}ζ^{−σ₃/4} = f^{−σ₃/4}, for |ζ_s|, |ζ_z| ≥ 2 the entries are O(|s|^{±1/4}|z|^{∓1/4}). Their
-Hilbert–Schmidt norm on U(0, 2δ)² is O(1).
+Since N^{σ₃/2}ζ^{−σ₃/4} = f^{−σ₃/4}, for |ζ_s|, |ζ_z| ≥ 2 the entries are O(|s|^{±1/4}|z|^{±1/4}). All four sign
+combinations occur. Their Hilbert–Schmidt norm on U(0, δ/2)² is O(1), since ∬|s|^{−1/2}|z|^{−1/2} < ∞.
 - If |ζ_s| ≤ 2 (|s| ≲ N^{−2}), the s-factor is O(N^{1/2}|ζ_s|^{−1/4}), and similarly for z.
   - Both small: HS² ≲ N²(N^{−2}∫|ζ|^{−1/2})² = O(N^{−2}).
   - Mixed: HS² ≲ N·N^{−2}·O(1).
 - So the K-term is O(‖g‖).
-- In particular |Q̃^{±1}| ≤ C N^{1/2}|ζ|^{−1/4} for |ζ| ≤ 2 and ≤ C|z|^{−1/4} for |ζ| ≥ 2, which is what (a) used.
+- In particular |Q̃^{±1}| ≤ CN^{1/2}|ζ|^{−1/4} = C|z|^{−1/4} for |ζ| ≤ 2, and ≤ C|z|^{−1/4} for |ζ| ≥ 2, which is
+  what (a) used.
 
 **(e) Soft-edge piece.** The same argument applies, with the WLXZ Airy matrix:
-- Q̃ = A_r N^{σ₃/6}Φ_Ai(ζ), with Φ_Ai = (balanced) ζ^{−σ₃/4}Θ for |ζ| ≥ 2 and bounded for |ζ| ≤ 2 (Airy functions are
-  entire);
+- Q̃ = A_r N^{σ₃/6}Φ_Ai(ζ)e^{Nφ̃σ₃}(D_w/W_r)^{σ₃}, where:
+  - W_r is the local continuation of w₀^{1/2};
+  - α_W = 5/8 gives V = O(1)(z − β̂)^{−σ₃/8} (WLXZ (6.3));
+  - Φ_Ai is (balanced) ζ^{−σ₃/4}Θ for |ζ| ≥ 2, and bounded for |ζ| ≤ 2 (Airy functions are entire).
+- (D_w/W_r)^{±σ₃} is bounded on U(β̂, ε) uniformly (Rule R F1(e)). This is RH_px Lemma 3.4's Hölder-endpoint argument
+  at a (β̂ − x)^{1/4} endpoint. It enters only as a bounded multiplier (on the input through Q̃^{−1} and on the output
+  through Q̃), so it needs no commutator.
 - the small-ζ HS² is ≲ N^{2/3}(N^{−2/3})² → 0. ∎
 
 ### 1.5 Theorem C (uniform resolvent for the true problem)
@@ -234,13 +294,22 @@ Hilbert–Schmidt norm on U(0, 2δ)² is O(1).
 
 ### 1.6 Proposition D (the log weight moves Q₁, Q₂ by O(1/(N log N)))
 
-Q (the true problem, from the OPs of σ_ζ) and Q̃ satisfy C–D Theorem 4.4's hypotheses with p = q = 2:
-- Q₋, Q̃₋^{±1} ∈ I + ∂C(L²(Σ)): Σ is bounded, and Q, Q̃ = O(|z|^{−1/4}Λ^{1/2}) at 0;
-- for Q this is (Y4)_x of RH_px §5 with the extra Λ factor; for Q̃ it is (d) above.
+Q (the true problem, from the OPs of σ_ζ) and Q̃ satisfy C–D Theorem 4.4's hypotheses with p = q = 2. That is,
+Q±, Q̃±^{±1} ∈ I + ∂C(L²(Σ)): Σ is bounded, all jumps are bounded, and the solutions are L² near every vertex
+(Rule R F4).
+- **Q at 0.** Redo the (Y4)_x sum of RH_px §5 for σ_ζ in x-units. The masses are 2x_j and the node density is
+  |t′(x)| ≍ x^{−3/2}log(1/x), so away from the band Σ_j 2x_j/max(|x|, x_j) = O(|x|^{−1/2}log(1/|x|)). In the lens
+  sectors use the 𝒦± argument verbatim. So Y₁₂, Y₂₂ = O(|z|^{−1/2}log(1/|z|)) up to N-dependent constants. After the
+  D_w^{σ₃} conjugation (|D_w| ≍ |z|^{−1/4}Λ^{1/2}), Q = O(|z|^{−1/4}polylog) ∈ L²_loc.
+- **Q at β̂.** V = O(1)(z − β̂)^{−σ₃/8} (WLXZ (6.3), α_W = 5/8), and D_w ≍ (β̂ − z)^{1/8} there, so Q = O(1).
+- **Corners** (lens lips, Σ^△ junctions, top pieces): bounded jumps and bounded solution.
+- **Q̃:** by (d)–(e) and 𝒵̃ = I + O(1/N).
 
 Then (C–D (4.15), (4.14)), with μ := Q₋ = (1 − C_v)^{−1}I and μ̃ := Q̃₋:
 
-  Q₁ − Q̃₁ = −(1/2πi)∫_Σ μ(v − ṽ)ṽ^{−1}μ̃^{−1}dz,  and Q₂ − Q̃₂ is the same with an extra factor z.
+  Q₁ − Q̃₁ = −(1/2πi)∫_Σ h(z)dz,  Q₂ − Q̃₂ = −(1/2πi)∫_Σ z·h(z)dz + (Q₁ − Q̃₁)Q̃₁,  h := μ(v − ṽ)ṽ^{−1}μ̃^{−1}
+
+(from QQ̃^{−1} = I + C(h); Rule R F3). Q̃₁ = O(1) in the D_∞-frame.
 
 **Proposition D.** Q₁ − Q̃₁ and Q₂ − Q̃₂ are O(1/(N log N)).
 
@@ -275,14 +344,17 @@ The (h1) parts and the moment z only improve the bounds. ∎
 **Numerical corroboration** (`checks/check_z_cmp.out`, J = 4·10⁵ and 8·10⁵, identical).
 - σ̃ has the same nodes and masses 2x_j/Λ(x_j), i.e. the log removed. Then
   N log N·(b_N(σ_ζ)/b_N(σ̃) − 1) = 0.41, 0.44, 0.47, 0.49, 0.50, 0.51, 0.52 for N = 50 … 3200.
-- So the log's effect is ≈ 0.5/(N log N), the order of Proposition D.
-- The a_N/(2b_N) difference is ~10⁻⁴/N, i.e. smaller still.
+- So the log's effect is ≈ 0.5/(N log N), **consistent with** Proposition D, which is an upper bound and probably not
+  sharp (the ∓iπ/(2Λ) lip mismatches have opposite signs; C–D's mechanism).
+- σ̃'s RH problem is not Q̃: it has a different D_w, Airy factor and 𝒵̃. So this corroborates Proposition D but does not
+  test it (Rule R F6).
+- The a_N/(2b_N) difference is ≈ 0.16/N² (N·(e − ẽ) halves with each doubling).
 
 ## 2. Lemma Z (far field) — PROVED, with a CERTIFIED (Arb) sign/winding computation
 
 **Setting** (RH_zeta §4.2). Work in x-units, so C is fixed: the circle through −r and x_m, with r = 0.0017 and
 x_m = 0.015. Then:
-- x₁ = x(1) ≈ 0.00474 < x_m < x_e ≈ 0.02527;
+- x₁ = x(1) ≈ 0.004736 < x_m < x_e = 1/(4π² + ¼) ≈ 0.025171;
 - r < |x_cross| = 1/(4π²e² − ¼) ≈ 0.00343, the point where t(x) crosses the negative real t-axis.
 
 The two scalars are:
@@ -306,7 +378,8 @@ N. N enters only through β = β_N → 0 (in H and K) and through the constant s
 - on (−r, 0), Im t₊ = −(η/2π)log(η/2πe) < 0, with η = (¼ − 1/x)^{1/2} > 2πe because |x| < |x_cross|;
 - on the upper arc of C, Im t < 0. This is **certified** (check_z_Zcert.out): 224 Arb balls on θ ∈ [10⁻³, π], plus a
   certified derivative bound on [0, 10⁻³] (t′ = −11.3 ± 0.05 at x_m);
-- near 0, Im t → −∞, since arg γ ∈ (−π/2, 0).
+- near 0, Im t ≤ 0. Indeed 2π Im t = Im γ·log|γ/2πe| + Re γ·arg γ < 0, since arg γ ∈ (−π/2, 0) and |γ| > 2πe
+  (Rule R F7(b)).
 
 So Im t < 0 in Ω by the maximum principle. Hence there:
 - t ∉ (−∞, 0], so μ(t) is analytic;
@@ -348,6 +421,14 @@ So J(x_m) = 2πi(t − 3/8) − i(2πt − π) − iπ/4 = **0 exactly**. This i
   - Both decrease in η, since |t| and −Im t increase and ph t moves toward −π/2.
   - So arg D₊ stays in (−π/2, π/2) and ℓ̂(0⁻) = 0.
 - Result: ℓ̂_arc(−r) = ℓ̂_axis(−r) = −0.00944078831849753 (±5·10⁻¹⁸), so W ∈ [±2·10⁻²⁸]. **The winding is 0.**
+  - The agreement to 10⁻²⁸ is forced: W is an integer, so certifying |W| < ½ forces equality.
+- Certificate details (Rule R F7(c)):
+  - Arc balls are rectangles of half-width Rad(hi − lo)/2·(1 + 10⁻⁶). They cover the chord, hence the arc piece.
+  - The "rotated" determination −i(−u)^{1/2} agrees with u^{1/2} on the whole lower half u-plane, where Im u < 0 for z on
+    the upper arc. So the switch at π/2 is harmless.
+  - Balls straddling ℝ near θ = 0, π stay on the continuous side of both roots and of log(γ/2πe).
+  - Poles of D_up make the ball test fail, which forces subdivision.
+  - Tail monotonicity: d/dη of |Im t|/|Re t| is positive iff η − 5.5 > 5.5·log(η/2πe), which holds for η ≥ 3162.
 
 **Bound.**
 - The winding is N-independent: every quantity above is N-free in x-units.
@@ -398,6 +479,12 @@ This uses d log γ/d log r = 2πr/(γΛ) = 1 − 1/Λ + O(1/γ), from r = N₀(�
   - The integrand is analytic in b. The endpoint singularity (1 − ·)^{−1/2} is removed by substituting
     u = bρ²ℓ(N)/ℓ(Nρ), which is monotone in ρ.
   - The interval [0, 3/(8N)] contributes O(1/N).
+  - **Non-compact ρ-range** (Rule R F5). The integrand deviation is weighted by u = bρ²ℓ(N)/ℓ(Nρ) ≲ ρ². So
+    ∫_0^{ρ₀}O(ρ²ε²log²ρ)dρ = O(ε²), and the region ρ ≲ N^{−1/2} (where ε|log ρ| ≳ 1) contributes O(N^{−3/2}).
+  - The second-order step: ε′(r) = O(1/(rΛ(r)²)) + O(1/(rγ)), so ε(r) − ε(N) = O(log(r/N)/Λ²). Integrated, this gives
+    the O(ε²log²ρ).
+  - **Complex b:** v = m(ρ) := ρ²ℓ(N)/ℓ(Nρ) is real and monotone, and 𝒜_N(b) = ∫_0^{v_max}(1 − bv)^{−1/2}(dρ/dv)dv
+    extends analytically off the real b-axis.
 - (ii): the integrand is ≥ 1 and the range is ρ_b ≍ b^{−1/2}. Monotonicity gives the bound.
 - (iii): split ν_N into its restriction to [β̂_N, K] and the tail.
   - The tail contributes an analytic function on |z| < K/2, with derivatives O(𝒜_N(K)K^{−1}) = O(K^{−3/2}) by (ii);
@@ -408,8 +495,11 @@ This uses d log γ/d log r = 2πr/(γΛ) = 1 − 1/Λ + O(1/γ), from r = N₀(�
   - **Near β̂:** the band density deficit is ρ − ψ = x^{−1/2}π^{−1}∫_x^{β̂}(−𝒜_N′)(u − x)^{−1/2}du (E1(i)) =
     (β̂ − x)^{1/2}·(analytic), since −𝒜_N′ is analytic near β̂. Integrating twice gives the stated form of φ̃_N, with
     k_N(β̂_N) ∝ −𝒜_N′(β̂_N) → π/(4β̂_∞^{3/2}) > 0.
-  - Uniform convergence of analytic functions with nonzero leading coefficients gives uniform univalence of f_N
-    (Hurwitz) and of f̃_N = (−(3/2)Nφ̃_N)^{2/3}/N^{2/3}, and uniform constants. ∎
+  - Uniform univalence, argued directly rather than by quoting Hurwitz (Rule R F2): f_N(z) − f_N(w) = (z − w)F_N(z, w),
+    with F_N(z, w) = ∫_0^1 f_N′(w + τ(z − w))dτ. f_N → f_∞ uniformly on U(0, 4δ), so f_N′ → f_∞′ on U(0, 2δ) by
+    Cauchy's estimate. Then F_N → F_∞ uniformly on U(0, 2δ)², and |F_∞| ≥ c > 0 there for δ
+    small, since f_∞′(0) ≠ 0. So F_N ≠ 0 for N ≥ N₀, i.e. f_N is injective. The same holds for
+    f̃_N = (−(3/2)Nφ̃_N)^{2/3}/N^{2/3}, and all constants are uniform. ∎
 
 **Consequences.**
 - **Hard edge:** §1's P̃₀ uses f_N. H1(i)–(iii) hold uniformly.
@@ -436,11 +526,12 @@ This uses d log γ/d log r = 2πr/(γΛ) = 1 − 1/Λ + O(1/γ), from r = N₀(�
 - d log J/dp = −p^{−2}(ψ(1 + 1/p) − ψ(1/p + ½)), and ψ(3/2) − ψ(1) = 2 − 2log 2. So 2J′(2)/J(2) = −(1 − log 2).
 - Finally ε = 2/log N + O(log log N/log²N) (Lemma U). ∎
 
-This matches checks/check_z_kappa.out: the reviewer's fit to N = 10⁶⁰ gives −0.289472.
+This matches checks/check_z_kappa.out (whose predicted κ is −0.2894597717). The fit to N = 10⁶⁰ giving −0.289472 is
+probe P6 of review/REVIEW_RHzeta.md; that probe was not committed (Rule R F9).
 
 ## 5. Theorem RH_ζ (assembly)
 
-**Theorem RH_ζ (PROOF complete; pending Rule R).** For the smooth-ζ model σ_ζ (atoms x_j = 1/(γ_j² + ¼),
+**Theorem RH_ζ (PROVED-mod-cite, REVIEWED).** For the smooth-ζ model σ_ζ (atoms x_j = 1/(γ_j² + ¼),
 N₀(γ_j) = j − ½, masses 2x_j):
 
   b_N = (β_N/4)(1 + O(1/N)),  a_N/(2b_N) = 1 + O(1/N),

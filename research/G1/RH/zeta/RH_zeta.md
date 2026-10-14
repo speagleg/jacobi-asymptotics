@@ -10,7 +10,7 @@ Status: **Rule R: ACCEPT WITH FIXES** for Phases 1–2 (review/REVIEW_RHzeta.md;
   - the log-weight hard edge: §1, via the Conway–Deift comparison;
   - Lemma Z: §2, certified;
   - uniform Airy: §3.
-  Plan 14 is pending Rule R.
+  Theorem RH_ζ is PROVED-mod-cite and REVIEWED (review/REVIEW_RHzeta_close.md).
 
 ## 0. Model and baseline
 

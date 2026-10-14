@@ -3,7 +3,9 @@ sigma_zeta has masses 2x_j; sigma_tilde has the same nodes with masses 2x_j / La
 gamma = sqrt(1/x - 1/4) (the log factor removed from the hard-edge weight; tail quadrature nodes treated the same way).
 Both share the nodes, hence the constrained equilibrium and beta_N (Lemma E1).  Prediction (Plan 14, C-D comparison):
 b_N(sigma_zeta)/b_N(sigma_tilde) - 1 = O(1/(N log N)), likewise for a_N/(2b_N).
-Also a control: masses 2x_j * Lambda(x_j) (log squared) should differ by the same order with the opposite sign."""
+Also a control: masses 2x_j * Lambda(x_j) (log squared); b(sq)/b(zeta) - 1 is of the same order and sign as b(zeta)/b(tilde) - 1
+(each step multiplies the masses by Lambda). NB: sigma_tilde's RH problem is not the comparison problem Q-tilde of
+RH_zeta_close.md section 1, so this corroborates Proposition D but does not test it (Rule R F6)."""
 import numpy as np
 from jacobi_asym.measures import smooth_zeta
 from jacobi_asym.measures.base import DiscreteMeasure
