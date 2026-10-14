@@ -21,6 +21,7 @@ nothing here is evidence about where the zeros lie.
 | C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED | GLSS, G3′-L |
 | P | RH + prime short-interval variance (V) ⇒ G3′ (§9.1; corollary of KNOWN (C8) + Theorem C) | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; REVIEWED (Rule R, review/REVIEW_Plan18.md); novelty UNCHECKED (RH + (V) ⇒ PCC is KNOWN) | §8.2 |
 | Thm S | SPC_ℂ⁺ (upper half of the dyadic complex-weighted SPC, BGST F; no RH) ⇒ 100% simple critical, gaps ≪ δ³, (SG) ⇒ G3′ (rhfree/RHFREE.md) | PROVED-mod-cite ((C3), (C6) (2.4), (C1)) + mod-input SPC_ℂ⁺, Theorem H; REVIEWED; novelty UNCHECKED | Lemma PC, Lemma G, G3′-L |
+| Thm S′ | Full window: RH + upper half of Montgomery's SPC ⇒ G3′; RH-free: SPC_ℂ⁺(full) ⇒ G3′ (rhfree/RHFREE2.md §1) | PROVED-mod-cite ((C3) (3.5), (C6), (C1)) + mod-input SPC_ℂ⁺(full), Theorem H; REVIEWED; novelty UNCHECKED | Lemma PC′, Lemma G |
 | R, K | pair factors under thinning; concentration (from H7) | PROVED-mod-input Theorem H + REVIEWED | H5, H7 |
 | T | thinning of convergent density: the own-normalized law survives | PROVED-mod-input Theorem H + REVIEWED | R, K, H6, H7 |
 | T′ | robustness: density band ±η gives error ω(η) → 0 | PROVED-mod-input Theorem H + REVIEWED | T |
