@@ -1,6 +1,6 @@
 # RH_plt1: pointwise Law P for σ_{p,s}, ½ < p < 1 (Plan 15)
 
-Status: **Rule R: ACCEPT WITH FIXES** (review/REVIEW_RHplt1.md). Fixes F1–F10 are applied, pending re-check. It
+Status: **REVIEWED** (Rule R: ACCEPT WITH FIXES, review/REVIEW_RHplt1.md; F1–F10 applied and re-checked). It
 covers ½ < p < 1 and every s > 1, modulo the NUMERICAL no-winding fact of Lemma 1.1′(iii) (F4). The range 0 < p ≤ ½
 is open (§6).
 
@@ -149,8 +149,8 @@ For p < 1, D̃ has zeros on arg z = ±πp accumulating at 0, so h_N cannot be co
 
 ## 4. Assembly
 
-**Theorem RH_p (½ < p < 1; PROVED-mod-cite, modulo the NUMERICAL no-winding fact of 1.1′(iii); Rule R fixes applied,
-pending re-check).** For ½ < p < 1 and s > 1,
+**Theorem RH_p (½ < p < 1; PROVED-mod-cite (WLXZ, KMVV §6, G2 μ*/B*, DLMF 5.5.3, 5.11), modulo the NUMERICAL no-winding
+fact of 1.1′(iii); REVIEWED).** For ½ < p < 1 and s > 1,
 
   n^p b_n = c(p)(1 + O(1/n)),  a_n/(2b_n) = 1 + O(1/n).
 

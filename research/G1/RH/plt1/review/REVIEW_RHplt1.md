@@ -222,3 +222,36 @@ plus DLMF 5.5.3, 5.11.1/§5.11(ii)), REVIEWED.**
 - Novelty: UNCHECKED.
 - F8–F9 are recommended, not blocking.
 - 0 < p ≤ ½ stays OPEN, as stated.
+
+## Re-check (commits 580f725, fc2393e; merge 2c280cb)
+
+**Correction to F7.** At commit 28058bf, CITATIONS.md did **not** contain DLMF-2 (`git show 28058bf:…` has no DLMF-2 entry).
+My grep read a working tree that already held the merged file. Since merge 2c280cb, DLMF-2 (with 5.5.3) is present. Its
+"Used in" line now names RH_plt1 Lemma 1.1′. Gate satisfied.
+
+| Fix | Status | Notes |
+|---|---|---|
+| F1 | VERIFIED | Ln(1−t) = log t + iπ + Ln(1−1/t) with te^{iπ}. Arithmetic iπt + (½−t)iπ = iπ/2. sec² remainder, compact-range and p→½⁺ caveats all stated. |
+| F2 | VERIFIED | θ* = (π/3 + πp)/2 ∈ (π/3, πp). Lips at π/3 lie inside S_lens. \|arg t\| ≤ θ*/p < π (D̃ Stirling). Glue factor sin(θ*/p) > 0, since θ*/p < π ⇔ p > ⅓. Outer sector uses η = θ*/p. |
+| F3 | VERIFIED | O(N^{−p}) stated, with "only N-uniform bounds used". h_N amended in the §0 table. |
+| F4 | VERIFIED (NUMERICAL) | `check_plt1_lhat.py` read. Phase unwrapping is guarded by assert \|Δ\| < 0.5 per step (0.005 decades). The run covers \|t\| ∈ [10⁻¹², 10¹²], beyond which (ii)/small-t asymptotics apply, and 49 p-values. End value is matched to 2.8e−11. NUMERICAL only (grid in p, no Arb), and the theorem label carries that. |
+| F5 | VERIFIED | Amendments table matches my list, including the second use of p > ½ in (Y4)_x. |
+| F6 | VERIFIED | Outer-sector D_w/W̃ bound and analyticity across (−δ, 0) spelled out. |
+| F7 | VERIFIED | See correction above. |
+| F8 | VERIFIED | n = 200 values quoted. "No dps-doubling" disclosed. |
+| F9 | VERIFIED | Scope statement in §5. Hard-edge numerics remain recommended, not done. |
+| F10 | VERIFIED | Glue ratio written as W̃_out/W̃_in = D̃/D. §6 states D̃_cont = −e^{−2πit}D̃_principal. The new §6 seam design (Plan 15b) is outside this review. |
+
+**New items (cosmetic or repo hygiene, non-blocking):**
+- **R1.** CITATIONS.md lines 94–98: the "Also used in: RH_plt1.md Lemma 1.1′(ii) …" paragraph appears **twice**, added once
+  in 580f725 and again in fc2393e. Delete one copy.
+- **R2.** fc2393e commits a `.venv` symlink (→ `../jacobi-asymptotics/.venv`). A worktree-local environment link should
+  not be tracked. Remove it from the index (`git rm --cached .venv`) and ignore it.
+- **R3.** The status lines in RH_plt1 (header, §4) still say "pending re-check". Update them to REVIEWED.
+
+**Label (re-check): Theorem RH_p, ½ < p < 1 — PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6 incl. (6.42)–(6.53); G2 μ*/B*;
+DLMF 5.5.3, 5.11.1 + §5.11(ii)), modulo the NUMERICAL no-winding fact of Lemma 1.1′(iii) (`check_plt1_lhat.out`),
+REVIEWED.**
+- Novelty: UNCHECKED.
+- To remove the "modulo", certify F4 with Arb.
+- 0 < p ≤ ½ stays OPEN.

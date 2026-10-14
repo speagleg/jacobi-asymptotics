@@ -12,3 +12,4 @@ data/raw/
 lean/.lake
 tmp/
 .superpowers/
+.venv
