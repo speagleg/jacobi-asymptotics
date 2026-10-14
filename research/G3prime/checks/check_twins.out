@@ -1,0 +1,4 @@
+n=20: comparison of a 'deleted' atom (σ-style repeat: index k lost) with a near-twin of relative gap ε
+   k=3: C(k,n)= 100.89  ε=1e-2: loss= -13.10 (2log(1/ε)=   9.2)  ε=1e-8: loss=  14.19 (2log(1/ε)=  36.8)  ε=1e-30: loss=  77.68 (2log(1/ε)= 138.2)  ε=1e-80: loss=  77.68 (2log(1/ε)= 368.4)
+   k=6: C(k,n)=  47.28  ε=1e-2: loss=  -3.18 (2log(1/ε)=   9.2)  ε=1e-8: loss=  24.17 (2log(1/ε)=  36.8)  ε=1e-30: loss=  35.69 (2log(1/ε)= 138.2)  ε=1e-80: loss=  35.69 (2log(1/ε)= 368.4)
+   k=10: C(k,n)=  13.64  ε=1e-2: loss=   1.83 (2log(1/ε)=   9.2)  ε=1e-8: loss=   8.15 (2log(1/ε)=  36.8)  ε=1e-30: loss=   8.15 (2log(1/ε)= 138.2)  ε=1e-80: loss=   8.15 (2log(1/ε)= 368.4)

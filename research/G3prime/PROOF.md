@@ -1,7 +1,7 @@
 # G3′: averaged Law P for the true-zero measure
 
 Status: REVIEWED 2026-10-13 (Rule R: `review/REVIEW_G3prime.md`, ACCEPT WITH FIXES; fixes applied) for Z1, Z2, G3′-U,
-S, W, G3′-L and N. N′ is proved for d_*(E) > 0 (Plan 16, REVIEWED); the residual case is GAP.
+S, W, G3′-L and N. N′ is proved for d_*(E) > 0 (Plan 16, REVIEWED). The residual case is closed by N″ (§5.2, Plan 23): G3′ ⇒ d(E) = 0.
 Framing (AGENTS.md rule 3): the ordinates are inputs. They are taken as real numbers, listed with multiplicity, and
 nothing here is evidence about where the zeros lie.
 
@@ -16,8 +16,9 @@ nothing here is evidence about where the zeros lie.
 | W | log D_n(Σ k⁻ˢ δ_{Ck⁻²}) ≥ Λ_n − (s−3)K n log n, uniformly in s ≥ 4 | PROVED (from item 11 §7) + REVIEWED | Theorem A refs, H3 |
 | G3′-L | liminf (1/n²)[log D_n(σ) − Φ_n] ≥ 0 under (SG) | PROVED-mod-cite + mod-input (SG), Theorem H + REVIEWED | Z1, S, W, H5, H6 |
 | N | doubled-smooth sequences: same counting function, law fails by 2 log(1−1/m) | PROVED-mod-input Theorem H + REVIEWED | Theorem H_L, item 11 H6 |
-| N′ | repeated indices containing a positive-density subset (d_*(E) > 0) ⇒ the law fails, limsup ≤ 2 log(1 − d_*(E)) | PROVED-mod-cite + mod-input Theorem H + REVIEWED; residual GAP: positive lower density with d_*(E) = 0 | G3′*-U proof, Z1, Z2, T (P1), H6 |
-| N″ | repeated indices of positive **upper** density ⇒ the law fails, liminf ≤ −0.2397·d̄(E) (§5.2); hence G3′ ⇒ d(E) = 0 | PROVED-mod-cite (C1) + mod-input Theorem H (via G3′-U steps 1–5, item 11 H7); Rule R pending | Hadamard, Christoffel, G3′-U |
+| N′ | repeated indices containing a positive-density subset (d_*(E) > 0) ⇒ the law fails, limsup ≤ 2 log(1 − d_*(E)) | PROVED-mod-cite + mod-input Theorem H + REVIEWED; residual case closed by N″ (§5.2) | G3′*-U proof, Z1, Z2, T (P1), H6 |
+| N″ | repeated indices of positive **upper** density ⇒ the law fails, liminf ≤ −0.2397·d̄(E) (§5.2); hence G3′ ⇒ d(E) = 0 | PROVED-mod-cite (C1) + mod-input Theorem H (via G3′-U steps 1–5, item 11 H5–H7); Rule R ACCEPT WITH FIXES, re-check pending | Hadamard, Christoffel, G3′-U |
+| N‴ | normalized gaps g_k ≤ e^{−βk} (incl. repeats) at positive upper density ⇒ the law fails (§5.3); hence G3′ ⇒ d(T_β) = 0 for every β > 0 | PROVED-mod-cite (C1) + mod-input Theorem H; depends on §5.2; Rule R pending | N″, Z2 |
 | B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED | GLSS (6.1), Caro–Wei, §4 proof |
 | C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED | GLSS, G3′-L |
 | P | RH + prime short-interval variance (V) ⇒ G3′ (§9.1; corollary of KNOWN (C8) + Theorem C) | PROVED-mod-cite (C8 Thm 7, C8 SPC⇔(9.3) secondary, C8 Thm 4, C5, C1) + mod-input RH, (V), Theorem H; REVIEWED (Rule R, review/REVIEW_Plan18.md); novelty UNCHECKED (RH + (V) ⇒ PCC is KNOWN) | §8.2 |
@@ -344,10 +345,10 @@ So the multiplicity-normalized averaged law (G3′) fails.
     δ′ = δ′/2. So d_*(E) = 0, although liminf |E ∩ [1, K]|/K > 0.
   - This residual case (positive lower density but d_*(E) = 0) was the only part of the former GAP N′ left open.
     **It is closed by Theorem N″ (§5.2, Plan 23):** positive upper density already breaks the law.
-    Whether the law fails there is not known either way. *(Heuristic:* it would need a thinning law for oscillating
-    densities, which Theorem T excludes; cf. the log-periodic rows of §6.)
+    (Before Plan 23 this case was open: a thinning law for oscillating densities, which Theorem T excludes, seemed
+    necessary. N″ avoids it.)
 
-### 5.2 Theorem N″ (Plan 23): repeated indices of positive upper density break the law — PROVED-mod-cite (C1) + mod-input Theorem H; Rule R pending
+### 5.2 Theorem N″ (Plan 23): repeated indices of positive upper density break the law — PROVED-mod-cite (C1) + mod-input Theorem H; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan23.md), fixes applied, re-check pending
 
 Write d̄(E) := limsup_K |E ∩ [1, K]|/K for the upper density of the repeated-index set E of §5.
 
@@ -358,11 +359,22 @@ Write d̄(E) := limsup_K |E ∩ [1, K]|/K for the upper density of the repeated-
 where g(θ) := (2 − θ)log(1/θ) + (1 − θ)log(1 − θ) − 2 + θ. The maximum is at θ* ≈ 0.1131.
 
 Hence **G3′ ⇒ d(E) = 0**: the repeated ordinates must have natural density zero. This contains Theorem N′'s
-conclusion, since d̄(E) ≥ d_*(E). It also covers the residual case of §5, where E has positive lower density but
+*qualitative* conclusion (failure of G3′), since d̄(E) ≥ d_*(E). N′'s quantitative bound,
+limsup ≤ 2 log(1 − d_*(E)), is stronger where it applies (F2). It also covers the residual case of §5, where E has positive lower density but
 d_*(E) = 0 (oscillating density).
 
-Two elementary lemmas come first. They concern a finite-mass discrete measure μ = Σ_l w_l δ_{x_l}, with
-x_1 > x_2 > … > 0 and n ≤ #atoms.
+Two elementary lemmas come first. They concern a finite-mass discrete measure μ = Σ_l w_l δ_{x_l} > 0 with D_n(μ) > 0,
+i.e. at least n distinct atoms (F5).
+- For Lemma Sat the head atoms x_1 > … > x_n are distinct, and every other atom satisfies 0 < x_l < x_n. Ties among
+  tail atoms are allowed.
+- **Normalization (F6):** π_j is the monic orthogonal polynomial, h_j := ‖π_j‖²_μ, p_j := π_j/√h_j, and
+  D_n(μ) = Π_{j<n}h_j > 0.
+- **Classical facts used (F3),** each with a one-line proof:
+  - *Sylvester:* det(I_n − VᵀV) = det(I_m − VVᵀ). The nonzero eigenvalues of VᵀV and VVᵀ coincide.
+  - *Hadamard (PSD):* det A ≤ Π A_kk for A ⪰ 0. Write A = D^{1/2}CD^{1/2} with D := diag(A), where C ⪰ 0 has unit
+    diagonal, so tr C = m; by AM–GM, det C ≤ (tr C/m)^m = 1. (If some A_kk = 0 then det A = 0.)
+  - *Christoffel minimum:* for deg P < n, P = Σ c_jp_j and P(x) = Σ c_jp_j(x). Cauchy–Schwarz gives
+    P(x)² ≤ (Σc_j²)K_n(x, x) = ∫P²dμ·K_n(x, x), with equality for P = K_n(·, x)/K_n(x, x).
 
 **Lemma H (Hadamard deletion).** Let ρ_n(k) := w_k Σ_{j<n} p_j(x_k)², where (p_j) are the orthonormal polynomials of
 μ. Then 1 − ρ_n(k) = D_n(μ ∖ {k})/D_n(μ). For every finite set E′ of atom indices,
@@ -379,7 +391,7 @@ x_1 > x_2 > … > 0 and n ≤ #atoms.
 - Hadamard's inequality: det(I_{E′} − VVᵀ) ≤ Π_{k∈E′}(1 − w_k K_n(x_k, x_k)) = Π(1 − ρ_n(k)).
 - The case E′ = {k} gives 1 − ρ_n(k) = D_n(μ ∖ {k})/D_n(μ). ∎
 
-**Lemma Sat (saturation, Lagrange bound).** For 1 ≤ k ≤ n,
+**Lemma Sat (saturation, Lagrange bound).** For 1 ≤ k < n (F7),
 
   1 − ρ_n(k) ≤ (W_{>n}/w_k)·Π_{j≤n, j≠k}(x_j/|x_j − x_k|)²,  W_{>n} := Σ_{l>n} w_l.
 
@@ -418,11 +430,12 @@ NUMERICAL (exact, 300 digits; `checks/check_npp.out`):
    - This is well defined: k − 1 ∉ S by collision-freeness, and k − 1 ∉ E′ since E′ has no consecutive elements.
      Also S′ ∩ E′ = ∅.
    - Each S′ has at most 2^{|E′|} preimages.
-   - Ratio, using ν's pure-power head on [1, Mn] ⊃ E′. The weight factor w_k/w_{k−1} ≤ C (Z1′). Pair factors with a
+   - Ratio, using ν's pure-power head on [1, Mn] ⊃ E′. The weight factor is w_k/w_{k−1} = 1 exactly, since
+     x_k = x_{k−1} (F8). Pair factors with a
      larger partner (moved or not, or in the tail) do not increase, since t ↦ t^{−2} − (t + m)^{−2} decreases and
      G(tail) ≤ (Mn)^{−2}. Pairs with a smaller moved partner shift together and also do not increase. A smaller
      unmoved partner j ≤ k − 2 gives a factor ≤ 1 + 1/(k − 1 − j), by the mean value theorem.
-   - So term_ν(S) ≤ C·e^{2(log k + 1)}·term_ν(S′) per moved element.
+   - So term_ν(S) ≤ (k − 1)²·term_ν(S′) per moved element: Π_{m=1}^{k−2}(1 + 1/m)² = (k − 1)².
    - Hence Σ_{S coll.-free}term_ν(S) ≤ e^{O(n log n)}D_n(ν ∖ E′).
 4. **Deletion gain.** By Lemma H and Lemma Sat applied to ν (atoms G(j) = j^{−2} for j ≤ n; tail atoms
    G(l) ≤ G(n) for l > n; log(W_{>n}/w_k) = O(log n) by (Hw)), and since g decreases on (0, ½]:
@@ -435,33 +448,92 @@ NUMERICAL (exact, 300 digits; `checks/check_npp.out`):
 - **N″1 (the picture).**
   - Necessary for G3′: d(E) = 0 (N″).
   - Sufficient: (SG), i.e. repeats of density zero *and* rare small gaps.
-  - The gap between them is exactly the small positive gaps. Lemma Sat explains why these matter: a near-twin atom
+  - *(Heuristic)* the gap between them is the small positive gaps. Lemma Sat suggests why these matter: a near-twin atom
     x_j ≈ x_k makes the factor x_j/|x_j − x_k| large, and saturation weakens (heuristically ρ ≈ ½ for a twin pair).
-- **N″2 (mechanism).** In the Heine/determinantal picture, the indices k ≲ 0.55n are *saturated*: ρ_n(k) is
-  exponentially close to 1. Deleting a saturated atom costs order n·log(n/k), not O(1), so o(n) deletions in the head
-  can already cost order n².
+- **N″2 (mechanism).** In the Heine/determinantal picture, Lemma Sat proves *saturation* for k < θ₀n, where
+  θ₀ ≈ 0.3154 is the zero of g. There ρ_n(k) is exponentially close to 1, and deleting such an atom costs ≥ 2n·g(k/n),
+  not O(1). So εn deletions in the head cost order n² (F4: not o(n) deletions). Whether saturation extends beyond
+  θ₀n is not established here.
   - NUMERICAL, mp: C(1, 24) = 243.9 and C(12, 24) = 15.5.
   - Long-double block-deletion experiments (scratch) agree qualitatively but were found to be off by up to about 20%
     against 300-digit values, so they are not recorded as evidence.
 - **N″3.** Theorem N″ uses no hypothesis on the zeros beyond (C1), plus Theorem H through G3′-U.
   - Novelty: UNCHECKED. Lemma H is a standard determinantal fact; Lemma Sat is elementary.
 
+### 5.3 Theorem N‴ (Plan 24): exponentially small gaps at positive density also break the law — PROVED-mod-cite (C1) + mod-input Theorem H; depends on §5.2; Rule R pending
+
+For β > 0 put T_β := {k : g_k ≤ e^{−βk}}, with g_k the normalized gap of §4. T_β contains every repeated index
+(g_k = 0).
+
+**Theorem N‴.** If d̄(T_β) = η > 0 for some β > 0, then for every θ ∈ (0, θ₀), where θ₀ ≈ 0.3154 is the zero of g
+(so that g(θ) > 0):
+
+  liminf_n (1/n²)[log D_n(σ) − Φ_n] ≤ −(ηθ/6)·min(βθη, 2g(θ)) < 0,
+
+with g as in §5.2. Hence **G3′ ⇒ d(T_β) = 0 for every β > 0.**
+
+*Proof.* Fix η′ < η, θ, and M ≥ 2. Put θ₁ := θη′/2.
+1. **Scales.** Take K with |T_β ∩ [1, K]| ≥ η′K (infinitely many K).
+   - Then |T_β ∩ [θ₁K/θ, K]| ≥ η′K/2.
+   - Keep every third element of this set: T′ has pairwise distances ≥ 3 and |T′| ≥ η′K/6 − 1.
+   - Put n := ⌈(K + 1)/θ⌉. Then θ₁n ≤ k ≤ θn − 1 for k ∈ T′ (up to rounding).
+2. **Sharper pair factor for twins.** For k ∈ T′ (k ≥ k₂, so γ_{k+1} ≤ 2γ_k):
+   - x_k − x_{k+1} ≤ 4(γ_{k+1} − γ_k)/γ_k³ = 8πg_k/(γ_k³ log(γ_k/2π));
+   - G(k) − G(k+1) ≥ k^{−3};
+   - Λ ≥ c > 0 (G3′-U step 1).
+   - So x_k − x_{k+1} ≤ ε_kΛ(G(k) − G(k+1)), with ε_k ≤ C(log k)³g_k ≤ C(log k)³e^{−βk}, using γ_k ≍ k/log k.
+   - In G3′-U steps 2–4, this replaces the factor ρ*(k, k+1) ≥ 1 for head pairs {k, k+1} ⊂ S. So
+     term_σ(S) ≤ e^{O(n log²n)}Λ^{n(n−1)}·term_ν(S)·Π_{k∈T′}ε_k^{2X_k(S)}, where X_k(S) := 1[{k, k+1} ⊂ S].
+3. **Expansion.** Σ_S term_ν(S)Π_kε_k^{2X_k} ≤ Σ_{U⊂T′}Π_{k∈U}ε_k²·Σ_{S : X_k(S)=0 ∀k∈T′∖U}term_ν(S).
+4. **Avoidance (as in §5.2).** For F ⊂ T′, a set S with no pair {k, k+1} ⊂ S (k ∈ F) maps to S′ by moving each
+   k + 1 ∈ S down to k (k ∉ S).
+   - This is well defined: elements of T′ are at distance ≥ 3. Also S′ ∩ (F + 1) = ∅.
+   - Each S′ has at most 2^{|F|} preimages. Each move k + 1 → k costs ≤ k²: the weight ratio is w_{k+1}/w_k ≤ 1,
+     and the pair factors are as in §5.2 step 3.
+   - Hence Σ_{S avoiding F-pairs}term_ν(S) ≤ e^{O(|F| log n)}D_n(ν ∖ (F + 1)).
+   - By Lemmas H and Sat (atoms G(j) = j^{−2} on the head, (k+1)/n ≤ θ, g decreasing), this is
+     ≤ D_n(ν)·Π_{k∈F}e^{−2n·g(θ) + O(log n)}.
+5. **Product.** Steps 3–4 give Σ_S(…) ≤ D_n(ν)·Π_{k∈T′}(ε_k² + e^{−2n·g(θ) + O(log n)}).
+   - For k ∈ T′, ε_k² ≤ e^{−2βθ₁n + O(log n)}. So each factor is ≤ e^{−min(2βθ₁, 2g(θ))n + O(log n)}.
+6. **Conclude** as in G3′-U steps 5–7:
+   (1/n²)[log D_n(σ) − Φ_n] ≤ A₂²/(8 log M) − (|T′|/n)·min(βθη′, 2g(θ)) + o(1),
+   with |T′|/n ≥ η′θ/6 − o(1). Let M → ∞ and η′ → η. ∎
+
+**Remarks.**
+- **N‴0.** Since g ≤ 0 on [θ₀, ½], the restriction θ < θ₀ is needed.
+- **N‴1 (what is left between necessity and sufficiency).**
+  - Necessary for G3′: repeats *and* gaps ≤ e^{−βk} have density 0, for every β > 0 (N″, N‴).
+  - Sufficient: (SG) (G3′-L).
+  - Open: gaps in the window e^{−o(k)} ≤ g_k < δ at positive density.
+  - *Heuristic:* in the determinantal picture a near-twin pair costs ≈ min(2 log(1/g), C(k, n)), and C(k, n) ≥ 2n·g(k/n) ≍ n for
+    k < θ₀n. So gaps ≥ e^{−o(k)} should be harmless. That would make the sharp condition "d(E) = 0 and
+    Σ_{k≤K}min(log⁺(1/g_k), K) = o(K²)".
+  - A proof of the sufficiency direction meets a truncation obstacle in G3′-L step 6. Per-element near costs
+    A log²a are not dominated by j^{−s_n} for a ≫ n^{O(1)}, and truncating the comparison measure costs too much
+    (LOG, Plan 24).
+  - NUMERICAL illustration (exact, `checks/check_twins.out`): at n = 20, moving atom k + 1 to x_k(1 − ε) costs a loss
+    that grows like 2 log(1/ε) for moderate ε. For tiny ε it saturates at a constant: 77.7 for k = 3 and 35.7 for k = 6
+    (the cost of losing the slot).
+- **N‴2.** No hypothesis on the zeros beyond (C1) is used, plus Theorem H through G3′-U. Novelty: UNCHECKED.
+
 **G3′ status after N′ (the sandwich).**
 - **(U)** limsup ≤ 0, unconditionally (G3′-U).
 - **(L)** liminf ≥ 0 under (SG) (G3′-L).
 - **(N′)** If the law holds, then d_*(E) = 0: no positive-density family of repeated ordinates.
 - **(N″)** Stronger (Plan 23): if the law holds, then d(E) = 0: the repeated ordinates have natural density zero.
+- **(N‴)** (Plan 24): if the law holds, then for every β > 0 the indices with normalized gap ≤ e^{−βk} have density zero.
 
 A repeated ordinate comes from a multiple zero or from two distinct zeros on one horizontal line.
 - The unconditional input surveyed in (C3) gives only N_d(T) ≥ 0.4075·N(T)(1 + o(1)) ((C3), PRZD20 via the survey).
   This uses two steps: simple zeros on the line have pairwise distinct ordinates, so N_d ≥ #(simple, on the line); and
   K ≤ N(γ_K + 0) ≤ K + 2E(γ_K).
-- Hence |E ∩ [1, K]| ≤ K − N_d(γ_K) + 1 ≤ 0.5925K(1 + o(1)), which does not exclude d_*(E) > 0.
+- Hence |E ∩ [1, K]| ≤ K − N_d(γ_K) + 1 ≤ 0.5925K(1 + o(1)), which does not exclude d̄(E) > 0 (so N″ does not apply
+  unconditionally).
 
 So an unconditional proof of G3′ must exclude positive-density repeated ordinates, a statement about the fine
 structure of the ordinates that no surveyed result reaches. **G3′ closes as: U unconditional; L under (SG); necessity
-of d_*(E) = 0 by N′.** "As hard as a known open problem" is still *not* claimed: no surveyed source states "d_*(E) = 0"
-as open in this form.
+of d(E) = 0 by N″ (and of d(T_β) = 0 by N‴).** The (C3) bound above does not exclude d̄(E) > 0. "As hard as a known
+open problem" is still *not* claimed: no surveyed source states "d(E) = 0" as open in this form.
 
 ## 6. Own-atom normalization (G3′*): exploration, 2026-10-13 — NOT REVIEWED
 

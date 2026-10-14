@@ -1,4 +1,4 @@
-[2] n=16: k=1: C=139.34 ≥ 110.79  k=2: C=94.02 ≥ 62.47  k=4: C=50.02 ≥ 14.79  k=8: C=11.78 ≥ -27.15  k=8: C=11.78 ≥ -27.15   all k<n OK: True
+[2] n=16: k=1: C=139.34 ≥ 110.79  k=2: C=94.02 ≥ 62.47  k=4: C=50.02 ≥ 14.79  k=8: C=11.78 ≥ -27.15   all k<n OK: True
 [1] n=16 E=[3, 5, 7]: log D(μ∖E) − log D(μ) = -139.387 ≤ −Σ C(k) = -122.766: True
 [1] n=16 E=[2, 9, 11, 15]: log D(μ∖E) − log D(μ) = -109.796 ≤ −Σ C(k) = -102.539: True
 [1] n=16 E=[4, 6]: log D(μ∖E) − log D(μ) = -82.214 ≤ −Σ C(k) = -76.302: True
@@ -6,4 +6,4 @@
 [1] n=24 E=[3, 5, 7]: log D(μ∖E) − log D(μ) = -305.349 ≤ −Σ C(k) = -283.457: True
 [1] n=24 E=[2, 9, 11, 15]: log D(μ∖E) − log D(μ) = -260.039 ≤ −Σ C(k) = -237.932: True
 [1] n=24 E=[4, 6, 8, 10]: log D(μ∖E) − log D(μ) = -292.698 ≤ −Σ C(k) = -256.054: True
-[3] 2000 random collision-free S: max (log term(S) − log term(S′) − Σ_moved[2(log k + 2) + log 4]) = 0.000 (≤ 0 required)
+[3] 3980 random collision-free S with ≥1 move: max (log pairfactor(S) − log pairfactor(S′) − Σ_moved 2 log(k−1)) = -2.390 (≤ 0 required)

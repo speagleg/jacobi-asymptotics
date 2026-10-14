@@ -154,9 +154,21 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
 ## 2026-10-14 — Plan 23 (residual N′ case closed: Theorem N″)
 - **Idea.** The Heine index sets of σ that contain a collision pair vanish.
   - A move map plus the pure-power head of G3′-U's comparison measure ν turns this into a deletion bound.
-  - Hadamard's inequality on det(I − K_E) shows that deletion costs add up.
+  - Hadamard's inequality on det(I − K_E) shows that deletion costs are superadditive (they at least add up).
   - A Lagrange test polynomial (Christoffel) shows that head atoms are saturated, at cost ≥ 2n·g(k/n).
   - Result: d̄(E) > 0 ⇒ liminf ≤ −0.2397·d̄(E). Hence G3′ ⇒ d(E) = 0.
 - **Rule A.** Long-double deletion numerics disagreed with 300-digit values by up to about 20%. All recorded evidence
   is now exact mp (`checks/check_npp`).
-- **Rule R:** pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan23.md). F1–F8 applied (in the plan-24 worktree, together with the N‴ θ₀ fix). Re-check pending.
+
+## 2026-10-14 — Plan 24 (Theorem N‴; the sufficiency obstruction)
+- **N‴.** Gaps ≤ e^{−βk} at positive upper density break G3′.
+  - Proof: twin pair factor ε_k ≲ (log k)³g_k in G3′-U, then the expansion Π(ε_k² + avoidance).
+  - The avoidance term uses the §5.2 move map plus Hadamard plus saturation.
+- **Attempted:** weaken (SG) to "d(E) = 0 + Σ log⁺(1/g) = o(K²/log K)" in G3′-L. This failed.
+  - G3′-L folds near costs into weights compared with j^{−s_n} (s_n ~ log n). A per-element cost A log²a is not
+    dominated for a ≫ n^{O(1)}.
+  - Truncating the comparison measure at N needs Σ_{l>N}w_l·D_{n−1}/D_n ≪ 1, i.e. log N ≳ n, which reintroduces
+    the cost.
+  - Recorded as OPEN (N‴1).
+- **Rule R:** pending; depends on Plan 23 (§5.2) review.

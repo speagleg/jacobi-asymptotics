@@ -37,12 +37,13 @@ Research: research/G3prime, G2, G1.
   - **(U)** limsup ≤ 0, unconditionally;
   - **(B)** liminf ≥ −3 log C, unconditionally, so log D_n = Φ_n + O(n²);
   - **(L)** G3′ holds under (SG), or (C) under Montgomery's pair-correlation conjecture (no RH);
-  - **(N′)** G3′ forces repeated ordinates to contain no positive-density family.
+  - **(N′, N″, N‴)** G3′ forces the repeated ordinates (and the indices with gaps ≤ e^{−βk}) to have natural density zero
+    (Plans 16, 23, 24; N″ and N‴ in review).
 
 **Status (2026-10-14).** Open:
-- G3′ exactly (D = 0) unconditionally. By N′ this needs proportion-one distinctness of ordinates, beyond the best known
+- G3′ exactly (D = 0) unconditionally. By N′/N″ this needs proportion-one distinctness of ordinates, beyond the best known
   unconditional results (Lamzouri 2026: 67.25% simple and on the line).
-- The residual N′ case (positive lower density with d_* = 0).
+- Sufficiency gap: gaps between e^{−o(k)} and δ at positive density (PROOF.md N‴1). The residual N′ case is closed by N″.
 - An explicit constant in (B).
 - G1-R: (T3)/(CL) for general, rough (non-analytic) weights and nodes. The analytic families done are pure powers
   (all p > 0) and the smooth-ζ model.

@@ -19,7 +19,7 @@ g = lambda t: (2-t)*math.log(1/t) + (1-t)*math.log(1-t) - 2 + t
 for n in [16, 24]:
     Ka = 40*n; full = list(range(1, Ka+1)); D0 = logD(full, n)
     C = {k: D0 - logD([i for i in full if i != k], n) for k in range(1, n)}
-    print(f"[2] n={n}: " + "  ".join(f"k={k}: C={float(C[k]):.2f} ≥ {2*n*g(k/n) - math.log(sum(2/l**2 for l in range(n+1,Ka+1))/(2/k**2)):.2f}" for k in [1,2,4,8,n//2]) +
+    print(f"[2] n={n}: " + "  ".join(f"k={k}: C={float(C[k]):.2f} ≥ {2*n*g(k/n) - math.log(sum(2/l**2 for l in range(n+1,Ka+1))/(2/k**2)):.2f}" for k in sorted({1,2,4,8,n//2})) +
           f"   all k<n OK: {all(float(C[k]) >= 2*n*g(k/n) - math.log(sum(2/l**2 for l in range(n+1,Ka+1))/(2/k**2)) - 1e-9 for k in range(1,n))}")
     for E in [[3,5,7], [2,9,11,15], list(range(4, n//2, 2))]:
         lhs = logD([i for i in full if i not in E], n) - D0
@@ -29,12 +29,16 @@ for n in [16, 24]:
 random.seed(23)
 def logterm(S):
     return sum(math.log(2/k**2) for k in S) + 2*sum(math.log(abs(1/a**2 - 1/b**2)) for a, b in itertools.combinations(S, 2))
-worst = 0
-for _ in range(2000):
+worst = -float("inf"); nmoved_sets = 0
+for _ in range(4000):
     n = random.randint(5, 30); S = sorted(random.sample(range(1, 3*n), n))
-    Ep = [k for k in S if k > 2 and (k-1) not in S and random.random() < 0.5]
+    Ep = [k for k in S if k > 2 and (k-1) not in S and random.random() < 0.7]
     Ep = [k for i, k in enumerate(Ep) if i == 0 or Ep[i-1] != k-1]
+    if not Ep: continue
+    nmoved_sets += 1
     Sp = sorted([k-1 if k in Ep else k for k in S])
-    r = logterm(S) - logterm(Sp); bound = sum(2*(math.log(k) + 2) + math.log(4) for k in Ep)
+    # weights: tie w_k = w_{k-1} as in σ (x_k = x_{k-1}), so compare pair factors only
+    pairs = lambda T: 2*sum(math.log(abs(1/a**2 - 1/b**2)) for a, b in itertools.combinations(T, 2))
+    r = pairs(S) - pairs(Sp); bound = sum(2*math.log(k-1) for k in Ep)
     worst = max(worst, r - bound)
-print(f"[3] 2000 random collision-free S: max (log term(S) − log term(S′) − Σ_moved[2(log k + 2) + log 4]) = {worst:.3f} (≤ 0 required)")
+print(f"[3] {nmoved_sets} random collision-free S with ≥1 move: max (log pairfactor(S) − log pairfactor(S′) − Σ_moved 2 log(k−1)) = {worst:.3f} (≤ 0 required)")
