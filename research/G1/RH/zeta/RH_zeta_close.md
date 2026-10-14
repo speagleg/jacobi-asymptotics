@@ -1,6 +1,14 @@
 # RH_zeta_close: closing the smooth-ζ pointwise Law P (Plan 14)
 
-Status: **Rule R: ACCEPT WITH FIXES (review/REVIEW_RHzeta_close.md); fixes F1–F10 applied, pending re-check.** §1 hard edge (C–D comparison), §2 Lemma Z (certified), §3 uniform edges, §4 rate, §5 Theorem RH_ζ.
+Status: **REVIEWED** (Rule R: ACCEPT WITH FIXES, review/REVIEW_RHzeta_close.md; F1–F10 and re-check items R1–R5 applied).
+Labels:
+- §1: PROVED-mod-cite (KMVV §6; C–D Thm 4.4; DLMF);
+- §2 Lemma Z: PROVED, with an Arb-certified winding;
+- §3: PROVED-mod-cite (WLXZ §6.1);
+- §4: PROVED;
+- **Theorem RH_ζ: PROVED-mod-cite (WLXZ v1 §§3–6.1; KMVV §6; C–D Thm 4.4; DLMF; G2), REVIEWED.**
+
+Novelty is UNCHECKED (no Rule L search). §1 hard edge (C–D comparison), §2 Lemma Z (certified), §3 uniform edges, §4 rate, §5 Theorem RH_ζ.
 
 Notation is as in RH_zeta.md §4 and RH_px.md §§3–5:
 - the rescaled variable z = sx, with s = 1/x_N ≍ N²/log²N;
@@ -124,13 +132,13 @@ Then:
 - RH_px §5's small-norm argument applies verbatim: 𝒵̃ exists for N ≥ N₀, and D_∞^{−σ₃}(𝒵̃ − I)D_∞^{σ₃} = O(1/N)
   uniformly, with the same O(1/N) for its first two moments at ∞.
 - Q̃ := D_∞^{−σ₃}𝒵̃P̃D_w^{σ₃} then solves Q̃₊ = Q̃₋ṽ on the contour Σ of Q, with ṽ = v **except** on the lips inside
-  U(0, δ).
+  U(0, δ). There ṽ = [[1, 0], [c_± e^{2Nφ}, 1]] (in the Q-frame: D_w^{−σ₃}[[1, 0], [c_±e^{2Nφ}/D_w², 1]]D_w^{σ₃}),
+  and the (h1) entries are dropped.
   - **Geometry** (Rule R F10, as in RH_px §4.2 and WLXZ (6.4)): inside U(β̂, ε) the only contours are the band,
     (β̂, β̂ + ε) and the vertical segments β̂ ± i(0, ε).
   - The outer lips of the band lens and of Ω^△, where F̃ meets F and the diagonal (h1) factors live, stay at height
     > ε near β̂, i.e. outside U(β̂, ε).
-  - So v = ṽ exactly in U(β̂, ε). Otherwise Proposition D would only give O(N^{−2/3}). There ṽ = [[1, 0], [c_± e^{2Nφ}, 1]] (in the Q-frame: D_w^{−σ₃}[[1, 0], [c_±e^{2Nφ}/D_w², 1]]D_w^{σ₃}),
-  and the (h1) entries are dropped.
+  - So v = ṽ exactly in U(β̂, ε). Otherwise Proposition D would only give O(N^{−2/3}).
 
 ### 1.3 Lemma LW1 (lip mismatch)
 
@@ -209,8 +217,10 @@ only on a, the angles and the C² norms. It is invariant under dilation about z�
 **(b) Explicit solution.** m := C(gQ̃₊^{−1})·Q̃ satisfies m₊ − m₋ṽ = (C₊ − C₋)(gQ̃₊^{−1})Q̃₊ = g.
 - gQ̃₊^{−1} ∈ L¹_loc by the bounds below, so C(·) is defined.
 - (c)–(e) show ‖m±‖ ≤ C‖g‖.
-- m ∈ ∂C(L²) (Rule R F1(b)): m − C(m₊ − m₋) has no jump, is O(1/z) at ∞, and has local singularities of at most the
-  type in (a). Those are removable as in (a), so m = C(m₊ − m₋).
+- m ∈ ∂C(L²) (Rule R F1(b), R2): m − C(m₊ − m₋) has no jump and is O(1/z) at ∞.
+  - Near an edge point z₀, Cauchy–Schwarz gives |C(gQ̃₊^{−1})(z)| ≤ C‖g‖_{L²(U(z₀,η))}|z − z₀|^{−1/4}dist(z, Σ)^{−1/2} + C_η.
+  - So the area integral of |m| over ε < |z − z₀| < 2ε is o(ε), and the same holds for C(m₊ − m₋).
+  - Hence the negative Laurent coefficients vanish, and m = C(m₊ − m₋).
 
 **(c) Partition.** Take a smooth partition of unity on Σ subordinate to:
 - U(0, δ/2);
@@ -232,7 +242,7 @@ with A₀^{±1} analytic and bounded uniformly.
 - Φ is N-free as a function of ζ: e^{Nφ} = e^{∓2ζ^{1/2}} branchwise.
 - KMVV (6.28) and the local form above give Φ(ζ) = B(ζ)·ζ^{−σ₃/4}·Θ(ζ), with two factorizations:
   - for |ζ| ≥ 2, B = (2π)^{−σ₃/2}, with Θ = (M + O(ζ^{−1/2}))·(sector factors);
-  - for |ζ| ≤ 3, B = Ψ̂, with Θ = S·e^{Nφσ₃}.
+  - for |ζ| ≤ 3, B = σ₃Ψ̂, with Θ = Sσ₃e^{Nφσ₃} (the σ₃-conjugation of Φ := σ₃Ψσ₃e^{Nφσ₃}).
   In both, Θ and Θ^{−1} are bounded and piecewise smooth.
 - To use one factorization at a time (Rule R F1(d)), insert a ζ-plane partition χ_{≤3} + χ_{≥2} = 1 and treat the
   blocks separately:
@@ -486,7 +496,8 @@ This uses d log γ/d log r = 2πr/(γΛ) = 1 − 1/Λ + O(1/γ), from r = N₀(�
     (β̂ − x)^{1/2}·(analytic), since −𝒜_N′ is analytic near β̂. Integrating twice gives the stated form of φ̃_N, with
     k_N(β̂_N) ∝ −𝒜_N′(β̂_N) → π/(4β̂_∞^{3/2}) > 0.
   - Uniform univalence, argued directly rather than by quoting Hurwitz (Rule R F2): f_N(z) − f_N(w) = (z − w)F_N(z, w),
-    with F_N(z, w) = ∫_0^1 f_N′(w + τ(z − w))dτ. Then F_N → F_∞ uniformly on U(0, 2δ)², and |F_∞| ≥ c > 0 there for δ
+    with F_N(z, w) = ∫_0^1 f_N′(w + τ(z − w))dτ. f_N → f_∞ uniformly on U(0, 4δ), so f_N′ → f_∞′ on U(0, 2δ) by
+    Cauchy's estimate. Then F_N → F_∞ uniformly on U(0, 2δ)², and |F_∞| ≥ c > 0 there for δ
     small, since f_∞′(0) ≠ 0. So F_N ≠ 0 for N ≥ N₀, i.e. f_N is injective. The same holds for
     f̃_N = (−(3/2)Nφ̃_N)^{2/3}/N^{2/3}, and all constants are uniform. ∎
 
@@ -520,7 +531,7 @@ probe P6 of review/REVIEW_RHzeta.md; that probe was not committed (Rule R F9).
 
 ## 5. Theorem RH_ζ (assembly)
 
-**Theorem RH_ζ (PROOF complete; pending Rule R).** For the smooth-ζ model σ_ζ (atoms x_j = 1/(γ_j² + ¼),
+**Theorem RH_ζ (PROVED-mod-cite, REVIEWED).** For the smooth-ζ model σ_ζ (atoms x_j = 1/(γ_j² + ¼),
 N₀(γ_j) = j − ½, masses 2x_j):
 
   b_N = (β_N/4)(1 + O(1/N)),  a_N/(2b_N) = 1 + O(1/N),

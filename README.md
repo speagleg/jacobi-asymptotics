@@ -28,13 +28,11 @@ Research: research/G3prime, G2, G1.
     unsymmetrized x-variable, with an exact Binet-cut scalar and a hard-edge Bessel parametrix.
   - Together these give the pointwise Law P with an O(1/n) rate for all pure powers with power weights, p ≥ 1.
   - Open: 0 < p < 1.
-  - Plan 13 (smooth ζ model, RH/zeta/RH_zeta.md; Rule R ACCEPT WITH FIXES): a finite-N edge equation (E1–E3
-    proved) explains the slow b_n/x_n − π²/16 ≈ −0.226/log n approach, and an RH global parametrix matches the true
-    OPs at O(1/N). The pointwise theorem is a conditional sketch: open are a log-weight hard-edge lemma, a
-    certified far-field Lemma Z, and uniform Airy.
+  - Plans 13–14 (smooth ζ model, RH/zeta/; Rule R REVIEWED): **Theorem RH_ζ**, the pointwise Law P for the smooth-ζ
+    model with rate, b_n/x_n = (π²/16)(1 + κ/log n + O(log log n/log²n)), κ = −0.28946… (PROVED-mod-cite).
 
-**Item closed (2026-10-14).** Remaining open problems: 0 < p < 1 pure powers; the three smooth-ζ lemmas above;
-G3′ unconditional lower bound; general (T3)/(CL).
+**Item closed (2026-10-14); closure work continuing.** Remaining open problems: 0 < p < 1 pure powers (Plan 15:
+½ < p < 1 in progress); G3′ unconditional lower bound; general (T3)/(CL).
 
 ## Setup
     scripts/setup_env.sh

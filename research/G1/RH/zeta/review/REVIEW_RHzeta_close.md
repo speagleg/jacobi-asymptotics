@@ -363,3 +363,94 @@ easy direction of Prop. 4.6 (re-proved) is accurate. Thm 4.5 is correctly *not* 
 | §4 Lemma D1 | PROVED | F5 |
 | Theorem RH_ζ | **PROVED-mod-cite** (WLXZ v1, KMVV §6, C–D Thm 4.4, DLMF, G2), REVIEWED after the fixes are re-checked | F1–F5, F10 |
 | check_z_cmp interpretation | NUMERICAL corroboration (not a test of Prop. D) | F6 |
+
+## Re-check (commit b81f4d3, branch plan-14-zeta-closure), 2026-10-14
+
+- **Method.** I read the full diff of b81f4d3: RH_zeta_close.md, CITATIONS.md, LOG.md and check_z_cmp.py. I re-derived
+  each new argument.
+- **DLMF check.** I fetched DLMF §1.14 (web page, scratch dir `rr14/dl_dlmf`) to check the new quotes. No numerical
+  check changed, so nothing was re-run beyond the earlier byte-identical re-runs.
+
+### Per-finding status
+
+- **F1 (Lemma UR): RESOLVED, with residual R2 below.**
+  - (a) The area-estimate removability is correct. With ‖m‖_{L²(dA, |z−z₀|<2ε)} ≤ Cε^{1/2}‖h‖ and |Q̃^{−1}| ≲ |z|^{−1/4},
+    one gets ∬_annulus|mQ̃^{−1}| = O(ε^{5/4}), so a_{−k} = O(ε^{k−2}·ε^{5/4}) → 0 for every k ≥ 1.
+  - (c) The partition on U(0, δ/2) and U(β̂, ε/2), with the annuli in "the rest", is correct. Q̃^{±1} is bounded there
+    because N^{σ₃/2}Φ = f^{−σ₃/4}·const·Θ.
+  - (d) The χ_{≤3} + χ_{≥2} block list is complete and each block is bounded as stated. The all-four-sign
+    Hilbert–Schmidt remark is correct.
+  - (e) The soft-edge factor (D_w/W_r)^{σ₃} is correctly placed as a pure multiplier.
+  - (b) is resolved except for R2.
+- **F2 (Rule C): RESOLVED, with residual R1 below.**
+  - Local form of Ψ: I re-derived Ψ = Ψ̂ζ^{−σ₃/4}S from (6.23) and DLMF 10.39.1, 10.27.4.
+    - The first column is ζ^{−1/4}a.
+    - The second column is (i/2)(ζ^{−1/4}a − ζ^{1/4}b), with ζ^{1/4}b := (I_{1/2}, 2πiζ^{1/2}I′_{1/2})(2ζ^{1/2}). Here b is
+      entire: the entries reduce to sinh(2√ζ)/√ζ and cosh(2√ζ).
+    - S = [[1, i/2], [0, −i/2]] and det Ψ̂ = 1/det S = 2i, a constant.
+  - PV symbol: the derivation from 5.12.3 and 5.5.3 is correct. ∫u^{s−1}/(u + e^{iφ}) = πe^{i(s−1)φ}/sin πs, and the
+    average of φ → ±π is −π cot πs. The DLMF quotes 5.5.3, 5.12.1, 5.12.3, 10.27.3–4 and 10.39.1–2 match.
+  - Hurwitz is replaced by a direct injectivity argument, which is correct (cosmetic note R4).
+  - KMVV (6.19) and (6.23) are now quoted and match the PDF text I read.
+- **F3: RESOLVED.** Q₂ − Q̃₂ = −(1/2πi)∫z·h + (Q₁ − Q̃₁)Q̃₁, with h := μ(v − ṽ)ṽ^{−1}μ̃^{−1}. This is correct.
+- **F4: RESOLVED.**
+  - The σ_ζ (Y4) sum: with |t′| ≍ x^{−3/2}log(1/x), both halves give O(|x|^{−1/2}log(1/|x|)). After the D_w^{σ₃}
+    conjugation, the columns are O(|z|^{−1/4}) and O(|z|^{−1/2}log·|z|^{1/4}), which are in L²_loc.
+  - At β̂: (z − β̂)^{−σ₃/8}·(β̂ − z)^{σ₃/8} = O(1).
+  - Corners: correct.
+- **F5: RESOLVED.** The ρ²-weighted small-ρ region, ε′(r) = O(1/(rΛ²)) + O(1/(rγ)), and the complex-b continuation are
+  all correct.
+- **F6: RESOLVED.** The wording now says "consistent with" and states that σ̃'s problem is not Q̃. The 0.16/N² is
+  correct, and so is the docstring.
+- **F7: RESOLVED.** x_e = 0.025171, the Im t sign line, the certificate details and the forced-equality sentence are all
+  correct.
+- **F8: RESOLVED.**
+  - The DLMF 5.11 bound gives ℓ̂ = O(|y|^{1/2}/log), and Cauchy's estimate on a disc of radius |t|/2 inside the sector
+    gives |μ′| = O(|t|^{−2}).
+  - That disc stays in |ph| ≤ π − δ, because ph t₊ → −π/2.
+  - The s^{−1/2} z-unit scaling is correct.
+- **F9: RESOLVED.** The κ attribution is fixed, and the LOG entry records the plan deviation and the missing
+  check_z_lw0.
+- **F10: RESOLVED, with cosmetic note R5.** The geometry statement is correct.
+
+### Residual items (all small)
+
+- **R1 (minor, Rule C): DLMF (1.14.39) is misquoted in CITATIONS.md.**
+  - DLMF reads (f∗g)(x) = ∫₀^∞ f(y)g(x/y) dy/y, which I checked on the page. The quote has g(xy).
+  - Also, (1.14.38) is stated for real f, as (f(x))². For complex f, apply it to Re f and Im f, or quote the
+    |f(x)|² form.
+  - Lemma W's use is unaffected: its kernel k(ρ/r)/r is a convolution of the DLMF type after r ↦ 1/r, or via (1.14.37)
+    with g = k(·/r).
+  - *Fix:* correct the quote, and add one sentence matching Lemma W's operator to the quoted convolution.
+- **R2 (minor; the last step of F1(b)): the removability of m − C(m₊ − m₋) is not literally "the type in (a)".**
+  - The area bound in (a) needs a Cauchy integral of an L² density. But gQ̃₊^{−1} ∉ L², and its sector bound is only
+    o(|z − z₀|^{−1}), which is borderline.
+  - *Fix (one sentence, verified):* by Cauchy–Schwarz, |C(gQ̃₊^{−1})(z)| ≤ C‖g‖_{L²(U(z₀,η))}|z − z₀|^{−1/4}
+    dist(z, Σ)^{−1/2} + C_η. With |Q̃| ≲ |z − z₀|^{−1/4} this gives ∬_{ε<|z−z₀|<2ε}|m|dA ≤ o(1)·ε + C_ηε^{3/2} = o(ε).
+    The C(m₊ − m₋) part is covered by (a). So every negative Laurent coefficient vanishes.
+- **R3 (cosmetic): σ₃ conjugation dropped in the small-ζ factorization.** In §1.4(d), for |ζ| ≤ 3 the factorization of
+  Φ = σ₃Ψσ₃e^{Nφσ₃} is B = σ₃Ψ̂, Θ = Sσ₃e^{Nφσ₃}, since σ₃ commutes with ζ^{−σ₃/4}. The text has B = Ψ̂, Θ = Se^{Nφσ₃}.
+- **R4 (cosmetic): one step missing in Lemma U(iii)'s injectivity argument.** It uses f_N′ → f_∞′ uniformly on U(0, 2δ).
+  Say that this follows from f_N → f_∞ uniformly on U(0, 3δ) by Cauchy's estimate. Lemma U gives h_N → h_∞ on U(0, 2δ),
+  so take δ ↦ 2δ/3, or state the convergence on a larger disc.
+- **R5 (cosmetic): a sentence attached to the wrong context in §1.2.** After the new geometry bullets, the sentence
+  "There ṽ = [[1, 0], [c_±e^{2Nφ}, 1]] …" now follows "So v = ṽ exactly in U(β̂, ε)…", so "There" reads as U(β̂, ε).
+  It should refer to the lips in U(0, δ). Move it back to the "except on the lips inside U(0, δ)" line.
+- **Status lines.** Update the status lines of RH_zeta_close.md and RH_zeta.md, which say "pending re-check".
+
+### Final label recommendation
+
+All of F1–F10 are resolved. R1 and R2 are one-sentence edits whose content I have verified above. R3–R5 are cosmetic.
+Once R1–R5 are applied, no further Rule R round is needed, and the labels are:
+
+- §1 (H1, LW1, Lemma W, Lemma UR, Theorem C, Proposition D, §1.7): **PROVED-mod-cite** (KMVV §6; C–D Thm 4.4; DLMF
+  1.14, 5.5, 5.12, 10.27, 10.39), REVIEWED.
+- §2 Lemma Z: **PROVED**, with an Arb-**CERTIFIED** winding and Im t sign computation (check_z_Zcert), REVIEWED.
+- §3 Lemma U: **PROVED-mod-cite** (WLXZ v1 §6.1, general α), REVIEWED.
+- §4 Lemma D1: **PROVED**, REVIEWED.
+- **Theorem RH_ζ:** **PROVED-mod-cite (WLXZ v1 §§3–6.1; KMVV §6; C–D Thm 4.4; DLMF 5.11 and the above; G2 PROOF.md
+  for E1(iv)), REVIEWED.**
+  - Statement: b_N = (β_N/4)(1 + O(1/N)), a_N/(2b_N) = 1 + O(1/N), and b_n/x_n = (π²/16)(1 + κ/log n +
+    O(log log n/log²n)), with κ = −2(log(π/2) − (1 − log 2)).
+  - Novelty: UNCHECKED (Rule L not run in this review).
+- check_z_cmp remains NUMERICAL corroboration.

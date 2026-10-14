@@ -266,9 +266,11 @@ the comparison problem. We use only the easy direction of Proposition 4.6, which
 
 ## (DLMF-2) NIST DLMF §§1.14, 5.5, 5.12, 10.27, 10.39 — READ (web pages, 2026-10-14), for Plan 14 (Rule R F2)
 
-> 1.14(iv): (1.14.32) "ℳf(s) = ∫₀^∞ x^{s−1}f(x)dx"; (1.14.38) "∫₀^∞(f(x))²dx = (1/2π)∫_{−∞}^{∞}|ℳf(½ + it)|²dt";
-> (1.14.39) "(f∗g)(x) = ∫₀^∞f(y)g(xy)dy/y"; (1.14.40) "∫₀^∞x^{s−1}(f∗g)(x)dx = ℳf(s)ℳg(s)" (for x^{σ−1}f, x^{σ−1}g
-> absolutely integrable).
+> 1.14(iv): (1.14.32) "ℳf(s) = ∫₀^∞ x^{s−1}f(x)dx"; (1.14.38) (for real f) "∫₀^∞(f(x))²dx = (1/2π)∫_{−∞}^{∞}|ℳf(½ +
+> it)|²dt"; (1.14.39) "(f∗g)(x) = ∫₀^∞f(y)g(x/y)dy/y"; (1.14.40) "∫₀^∞x^{s−1}(f∗g)(x)dx = ℳf(s)ℳg(s)" (for x^{σ−1}f,
+> x^{σ−1}g absolutely integrable).
+(Use in Lemma W: (Tf)(r) = ∫k(ρ/r)f(ρ)dρ/r is a 1.14.39 convolution in the multiplicative variable, so ℳ(Tf)(s) =
+ℳk̃(s)ℳf(s) with k̃(u) := k(1/u)/u. Apply 1.14.38 to the real and imaginary parts of complex f.)
 >
 > (5.5.3) "Γ(z)Γ(1−z) = π/sin(πz), z ≠ 0, ±1, …".
 >
