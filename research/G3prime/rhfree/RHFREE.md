@@ -1,4 +1,4 @@
-# RHFREE: G3′ from an RH-free, one-sided pair-correlation hypothesis (Plan 19) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan19.md); F1–F8, N1–N3 applied, re-check pending
+# RHFREE: G3′ from an RH-free, one-sided pair-correlation hypothesis (Plan 19) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan19.md); F1–F8, N1–N2 applied, N3 done at promotion; re-check ACCEPT — REVIEWED
 
 **Question.** (Q2) of PROOF.md §9.3: does strong pair correlation, in BGST's unconditional complex-weighted form, imply
 (SG), and hence G3′, without RH?
@@ -15,7 +15,7 @@ complex-weighted SPC is needed:
 - This bypasses the "Lemma A′" obstruction of the first draft (§5).
 
 **Label.** Lemma PC: PROVED-mod-cite. Lemma G: PROVED. Theorem S: PROVED-mod-cite + mod-input SPC_ℂ⁺, Theorem H.
-Rule R: ACCEPT WITH FIXES, fixes applied, re-check pending. Novelty: UNCHECKED.
+Rule R: ACCEPT WITH FIXES, then re-check ACCEPT: REVIEWED. Novelty: UNCHECKED.
 
 ## 0. Objects, inputs, hypothesis
 
@@ -43,7 +43,7 @@ Rule R: ACCEPT WITH FIXES, fixes applied, re-check pending. Novelty: UNCHECKED.
 
     (0.1)  Σ_{ρ,ρ′∈Z(T)} f̂(i(ρ − ρ′)L)·W(ρ − ρ′) = N_T ∫ f(α)𝓕(α)dα.
 
-## 1. Lemma PC (the K² sum under SPC_ℂ⁺) — PROVED-mod-cite ((C3) (3.1)–(3.2); (C6) §3 algebra) + mod-input SPC_ℂ⁺
+## 1. Lemma PC (the K² sum under SPC_ℂ⁺) — PROVED-mod-cite ((C3) (3.1)–(3.2); (C6) §3 algebra) + mod-input SPC_ℂ⁺; REVIEWED
 
 **Setting.**
 - Let η ∈ C_c^∞((−λ, λ)) be real and even, with ∫η² = 1.
@@ -92,7 +92,7 @@ Rule R: ACCEPT WITH FIXES, fixes applied, re-check pending. Novelty: UNCHECKED.
 - The cos² η gives 1 + D = 1.7067 at λ = ½.
 - Lamzouri optimizes η to get C_MT = 1.3275.
 
-## 2. Lemma G (spectral small-gap lemma; deterministic) — PROVED (self-contained after F3)
+## 2. Lemma G (spectral small-gap lemma; deterministic) — PROVED, REVIEWED
 
 **Setting.**
 - Z is a finite multiset of complex numbers, invariant under complex conjugation (mult(z̄) = mult(z)).
@@ -133,7 +133,7 @@ Rule R: ACCEPT WITH FIXES, fixes applied, re-check pending. Novelty: UNCHECKED.
   linearly independent. (Lamzouri states the same; it is not needed as a citation.)
 
 **Step 2 (spectrum on W).**
-- W := span{f_x, g_z, h_z} has dimension N_d. These vectors are linearly independent (Lamzouri, read).
+- W := span{f_x, g_z, h_z} has dimension N_d. These vectors are linearly independent (Step 1).
 - A|_W = VJV* with V injective and J = diag(m_x, 2m_z, −2m_z) invertible, so A|_W has N_d nonzero real eigenvalues μ_i,
   and A = 0 on W^⊥.
 - Hence Σ_i(μ_i − 1)² = Σμ_i² − 2Σμ_i + N_d = S − 2N + N_d = E ≥ 0.
@@ -166,7 +166,7 @@ Rule R: ACCEPT WITH FIXES, fixes applied, re-check pending. Novelty: UNCHECKED.
 - [3b] GUE-like + m injected near-pairs: each pair produces exactly one Gram eigenvalue ≤ ¼ and adds ≈ 2 to S − N, as
   in the proof.
 
-## 3. Theorem S — PROVED-mod-cite ((C3) (3.1)–(3.2), (C6) Prop 2.1 (2.4) and §3 algebra, (C1)) + mod-input SPC_ℂ⁺, Theorem H
+## 3. Theorem S — PROVED-mod-cite ((C3) (3.1)–(3.2), (C6) Prop 2.1 (2.4) and §3 algebra, (C1)) + mod-input SPC_ℂ⁺, Theorem H; REVIEWED
 
 **Theorem S.** Assume SPC_ℂ⁺. Then:
 - (a) N^{s,crit}(T) = N(T)(1 + o(1)): almost all zeros are simple and on the critical line.

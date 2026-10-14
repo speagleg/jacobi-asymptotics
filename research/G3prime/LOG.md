@@ -106,7 +106,7 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
   - chain factor 2;
   - numerics `rhfree/checks/check_spectral_sg.py`.
   The Rule R reviewer's adversarial search (3000 configurations) found no violation.
-- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan19.md). No major findings. F1–F8 and N1–N3 applied:
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan19.md). No major findings. F1–F8 and N1–N2 applied (N3 at promotion). Re-check: ACCEPT (R1–R2 wording applied). REVIEWED. Fixes:
   - dyadic-SPC wording;
   - §4 retitled (quasi-RH at most, not RH);
   - Step 1 made self-contained;

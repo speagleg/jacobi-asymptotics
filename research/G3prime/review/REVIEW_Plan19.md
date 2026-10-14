@@ -287,3 +287,38 @@ when it is promoted, with the label below.
 | §4 | HEURISTIC / OPEN, retitled per F2. No claim about RH. |
 | §6 | HEURISTIC; the one-sided Goldston–Montgomery transfer is UNCHECKED and not claimed (as now). |
 | Numerics | NUMERICAL (synthetic multisets; no evidence about zeros). |
+
+## Re-check (fix commit 5f604b2)
+
+Scope: `git diff a92b3c4..5f604b2` for rhfree/RHFREE.md, CITATIONS.md and LOG.md. The numerics script is unchanged.
+Working tree clean before this append.
+
+| Finding | Status | Where / note |
+|---|---|---|
+| F1 | RESOLVED | §0 hypothesis bullets. SPC_ℂ⁺ is described as the upper half of the *dyadic* SPC. The statement "two-sided full-window SPC ⇒ dyadic (cross terms O(log³T)) on RH" is given, and the one-sided transfer is disclaimed. S4 now says "(dyadic) SPC". |
+| F2 | RESOLVED | §4 is retitled "does SPC_ℂ⁺ confine the zeros near the line?" and labelled HEURISTIC/OPEN. Status: at most a quasi-RH statement (max\|β − ½\| → 0), *not* RH. The "formal, as with (V)" sentence is removed, and "no claim about RH is made" is stated. |
+| F3 | RESOLVED | Step 1 is now self-contained: ⟨f_z, f_w⟩ = K(z − w̄); A = Σ f_z ⊗ f_{z̄} with kernel F(u, −v); the grouping into g/h form; tr A = N; and ‖A‖²_HS = tr A² = Σ K(s − z)K(z − s) = S. I re-derived the last identity: A²Φ = Σ_{z,s}⟨Φ, f_{s̄}⟩⟨f_s, f_{z̄}⟩f_z. Linear independence is via exponentials. V* replaces Vᵀ. The label PROVED is justified. |
+| F4 | RESOLVED | (C3) quotes §2.1: "Let Z(T) denote the multiset of those ρ ∈ Z for which T < γ ≤ 2T". This matches the source verbatim. "Used in" is extended (evenness, multiset convention). |
+| F5 | RESOLVED | Step 3 is now the "dyadic analogue … derived directly from MT", and it says the proof of BGSTB24 Lemma 5 is not read and not used. |
+| F6 | RESOLVED | All four points are covered: boundary pairs O(1) per block; δ₀ dropped ("for every δ > 0"); consecutive-in-sublist stated; (a) not needed for (c). |
+| F7 | RESOLVED | The header now reads "Yes, conditionally on SPC_ℂ⁺". Novelty is UNCHECKED throughout. |
+| F8 | RESOLVED | LOG.md has a Plan 19 entry covering the inputs read, the Lemma A′ stall (Selberg marked as recollection), the explicit reversal of the Plan 17 Rule A ruling (restricted to upper-bound counting), the Rule A notes and the Rule R outcome. |
+| N1 | RESOLVED | §5 adds "from recollection, not cited and not used". |
+| N2 | RESOLVED | [2] has the cond(Gram) caveat (the outG1 column is unreliable in those rows; the trace identities and the Lemma G inequality are unaffected). Seed 19 and the ≈ 7 s run time are stated. |
+| N3 | DEFERRED | Deferred until promotion, as agreed. |
+
+Residual nits. Neither blocks acceptance; both are cosmetic and can be fixed at promotion.
+- **R1.** The RHFREE.md title line and LOG.md say "N1–N3 applied", but N3 is deferred. Write "N1–N2 applied, N3
+  deferred to promotion".
+- **R2.** RHFREE §2 Step 2 still says "These vectors are linearly independent (Lamzouri, read)". Since Step 1 now proves
+  this, write "(Step 1)", so that the PROVED label carries no residual citation.
+
+**Re-check verdict: ACCEPT.** With R1 and R2 applied when the items are promoted, the final labels are:
+- **Lemma PC:** PROVED-mod-cite ((C3) MT (3.1)–(3.2) incl. the multiset Z(T), F ≥ 0 and evenness; (C1)) + mod-input
+  SPC_ℂ⁺; REVIEWED.
+- **Lemma G:** PROVED (deterministic, self-contained); REVIEWED.
+- **Theorem S:** PROVED-mod-cite ((C3), (C6) (2.4), (C1)) + mod-input SPC_ℂ⁺ (the upper half of the dyadic
+  complex-weighted SPC), Theorem H; REVIEWED; novelty UNCHECKED.
+- **§4:** HEURISTIC/OPEN (quasi-RH question); no claim about RH.
+- **§6:** HEURISTIC; the one-sided Goldston–Montgomery transfer is UNCHECKED and not claimed.
+- **Numerics:** NUMERICAL (synthetic multisets only).
