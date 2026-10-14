@@ -263,7 +263,7 @@ Hypotheses (not results): (SG), (LG*), PCC (GLSS form), SPC_ℂ⁺, SPC_ℂ⁺(f
 | DLMF 5.11 (+5.5.3; §§1.14, 5.12, 10.27, 10.39) | G1/RH/CITATIONS.md | RH₁(r), seam, RH_p ½<p<1, RH_ζ |
 | C–D Thm 4.4 (arXiv:1711.01590v4) | G1/RH/CITATIONS.md | RH_ζ (log-weight hard edge) |
 | Markov, Chebyshev polynomial inequalities | quoted as textbook, not checked against a source | TL ⇒ T3-sv, T3a, Thm R, T3-log (TLw) |
-| (C1) Trudgian Cor. 1 | G3prime/CITATIONS.md | Z1, Z2 and every result built on them: G3′-U, G3′-L, N′, N″, N‴, B, L′, Ch, C, P, Thm S, S′, V⁺, P2, G3′*-U, G3′*-L. Not: S, W, Prop N, Lemmas R, K, Theorem T, T′, Lemma G, Lemma N, Lemma PC, Cor. N1, Prop. Q, Lemma P3, Lemma 9.9* |
+| (C1) Trudgian Cor. 1 | G3prime/CITATIONS.md | Z1, Z2 and every result built on them: G3′-U, G3′-L, N′, N″, N‴, B, L′, Ch, C, P, Thm S, S′, V⁺, P2, G3′*-U, G3′*-L, Lemma P1, Lemma 9.7*. Not: S, W, Prop N, Lemmas R, K, Theorem T, T′, Lemma G, Lemma N, Lemma PC, Cor. N1, Prop. Q, Lemma P3, Lemma 9.9* |
 | (C5) GLSS (6.1), Thm 1 | G3prime/CITATIONS.md | B, C, P |
 | (C3) BGST (3.1), (3.2), (3.5) | G3prime/CITATIONS.md | PC, S, S′, P2, V⁺ |
 | (C6) Lamzouri (2.4), §3 | G3prime/CITATIONS.md | PC, S, S′, P3, V⁺ |

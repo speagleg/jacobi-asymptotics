@@ -142,3 +142,44 @@ record it.
 **F11 — INFO — confirmations.** Corollary H-input is correct as stated, with κ_p = 3p/2 + log c(p) and s > 1 necessary
 and sufficient for the `bdd` field. The §3.3 table has no over-discharge. The G2 A2 "PROVED" label is justified. History
 was not rewritten.
+
+## Re-check (2026-10-14, HEAD 4d1673f; commits 293fcbe, 4d1673f)
+
+**Verdict: ACCEPT.** F1–F9 are resolved. One cosmetic nit remains (R1), and it does not block merge.
+
+- **F1: resolved.**
+  - Every G3′ §0 note (19 rows; G3′-L excepted, see F2), the G3′ §0 paragraph, README (G3′ and Lean bullets),
+    lean/README, and THEOREMS header, §1 (H5), §§3.1–3.3 and §4 item 1 now name item 11 Theorem H (p = 2, s ≥ 2,
+    PROVED + REVIEWED, citation-free) as the primary route, with G2 Cor. H-input (mod-cite (P)) as the alternative.
+    `grep "discharged by G2"` finds only the historical mention in the THEOREMS §5 log.
+  - **Sole-route claim verified.** Item 11's (H-b) is c₁k^{−s} ≤ w_k ≤ c₂k^{−s₀} with s ≥ s₀, where s₀(2) = 2 and
+    s₀(1) = 3/2, and p ∈ {1, 2}. Exact weights k^{−s} satisfy it iff s ≥ s₀(p): the upper bound k^{−s} ≤ c₂k^{−s₀}
+    needs s ≥ s₀, and the lower bound holds with c₁ = 1.
+  - So within s > 1 the instances outside item 11's range are exactly: p ∉ {1, 2}; p = 1 with 1 < s < 3/2; p = 2 with
+    1 < s < 2. This matches G2 Cor. H-input and THEOREMS §3.3.
+  - The text correctly adds that the p = 1 item 11 route is itself mod-cite (Tricomi–Carlitz), so (P) is avoided there
+    at the cost of a different citation.
+  - "No G3′ result depends on (P)" is correct (Check 2 above).
+- **F2: resolved.** G3′-L reads "uses no Theorem H instance (THEOREMS §3.3)" in G3′ §0 and THEOREMS §2.5. The original
+  label text is kept.
+- **F3: resolved** in G2 PROOF.md: it cites `heineK_bdd_of_summable` and says "sorry-free". The optional Inputs.lean
+  note was not applied. That is acceptable, since lean/README now records that `bdd` is already sorry-free.
+- **F4: resolved.** The overview gives the smooth-ζ law with its κ/log n correction and says "with no hypothesis on the
+  zeros".
+- **F5: resolved, with nit R1.** The §3.1 (C1) row now separates users from non-users.
+- **F6: resolved.** The Lemma W row says "uniformly in s ≥ 4", and the §3.3 G3′-L row explains why s_n → ∞ is not a
+  TheoremHPure instance.
+- **F7: resolved.**
+  - (a) RH_zeta_close.md has a dated note matching the G1 §0 annotation.
+  - (b) The Thm S, S′ and V⁺ rows say "label as in G3′ §0; proof <rhfree file>".
+  - (c) The G1 §0 LP row has min(1, ·), with a note.
+- **F8: resolved.** Attributions are per label. The new definitions (PROVED-mod-G2, PROOF SKETCH/DRAFT, REFUTED vs
+  RETRACTED, SUPERSEDED, HYPOTHESIS, OBSTRUCTION, HEURISTIC, sorry-free) match usage. The stale Lean sentence and the
+  G2 header "generalizes" both have dated notes; nothing was rewritten.
+- **F9: resolved.** The README Lean bullet names both routes.
+- **F10:** the coordinator reports `lean/check.sh` AUDIT OK on this branch. lean/*.lean is unchanged since my first
+  pass (comment-only edits).
+
+**R1 (cosmetic, optional).** The THEOREMS §3.1 (C1) row lists neither Lemma P1 nor Lemma 9.7*. Both carry (C1) in their
+labels (P1: "via RH99 Lemmas 9.7*, 9.9* …; (C1)"; 9.7*: "(C8) Prop. 1 (3.11), (C1)"), so both belong in the "uses"
+list.
