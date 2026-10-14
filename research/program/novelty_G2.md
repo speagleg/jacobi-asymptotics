@@ -145,6 +145,13 @@ Coussement–Coussement–Van Assche, arXiv:math/0606440 (OPENED, PDF), Theorem 
   a(t) = 2c t^{−p}, b(t) = c t^{−p} (a continuous function on (0, ∞), as the hypothesis requires), it yields the
   *shape* μ* = ∫_0^1 ω_{[0,4ct^{−p}]} dt as the zero distribution of Jacobi matrices obeying Law P. This is the
   "forward Weyl law" of item 11 Theorem B. B* adds three things:
+
+  *(Correction, 2026-10-14, Paper 1 drafting and Rule R review `papers/paper1/REVIEW_Paper1.md` F9. The coefficient
+  assignment above is swapped relative to KVA's convention. KVA's recurrence is zP = P_{n+1} + b P_n + a² P_{n−1}, so b
+  is diagonal and a is off-diagonal, with γ = b − 2a and δ = b + 2a. With a(t) = 2ct^{−p} and b(t) = ct^{−p} one gets
+  [γ, δ] = [−3ct^{−p}, 5ct^{−p}], which is wrong. The correct assignment is a(t) = ct^{−p} (off-diagonal) and
+  b(t) = 2ct^{−p} (diagonal). It gives [0, 4ct^{−p}] and the shape μ* stated here, and it matches item 11's Law P
+  (diagonal ∼ 2 × off-diagonal). The conclusion of this paragraph is unchanged.)*
   1. the identification of this average as the unique constrained energy maximizer;
   2. the fact that saturation pins c = c(p);
   3. the energy value.
