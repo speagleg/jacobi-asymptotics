@@ -74,7 +74,10 @@
   regular weights, which reduces to a localization lemma for w p_n². The upper tail is open.
 - An earlier forward-recurrence attempt overflowed in the saturated region; Lanczos with reorthogonalization is
   stable.
-- **Rule R:** pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan28.md).
+  - F1: the ratio's first variation is the second difference.
+  - F2: TV ↛ 0 is not by itself evidence (Chebyshev); the evidence is locality plus cross-scale independence.
+  - F3–F11 applied; numerics rewritten. Re-check: ACCEPT (R1–R3 applied). REVIEWED.
 
 ## 2026-10-14 — Plan 29 ((T3) for decaying roughness)
 - **Theorem T3-conv.** Let w = k^{−s}ψ with ψ_k → L.
@@ -82,6 +85,7 @@
   - The head (k < k_ε) has exponentially small μ_m mass by Lemma Sat_p⁺, which extends Sat_p to 0 < p < 1 at a
     factor 1/p per term.
   - So log b_n²(w) − log b_n²(v) → 0, and the pure-power pointwise law (RH_p etc.) transfers.
-- Slowly varying Ψ without a limit needs upper-tail localization of w p_n² (OPEN; the averaged version follows from
-  Lemma K).
-- **Rule R:** pending.
+- Slowly varying Ψ without a limit needs upper-tail localization of w p_n² (OPEN). An averaged version is sketched;
+  it needs a tail-count bound uniform along the path (G2 A-U for p > 1; G3′ §7 Lemma K for p = 2).
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan29.md). F1 (the Sat_p⁺ proof for p < 1 now carries the polynomial
+  prefactor ((n+1)/k)^{2(1−p)}) and F2–F7 applied. Re-check pending.
