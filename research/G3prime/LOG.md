@@ -197,3 +197,56 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
 ## 2026-10-14 — Plan 31 (Ch's criterion on the zeta zeros; NUMERICAL)
 - On 2M Odlyzko zeros, P(K)/K → 0.227, approaching c_GUE = 0.241. So 𝒞(K)/K² ≲ 0.23/K: about 1.1·10⁻⁷ at K = 2·10⁶.
 - The smallest normalized gap is 5.45·10⁻³. There are 255 gaps < 0.05, against the GUE proxy ≈ 274.
+
+## 2026-10-14 — Plan 43 (D1: positioning G3′; PROOF.md §5.6)
+- **Sources read (PDFs, arXiv):** GLSS 2503.15449v4 (abstract, §§1–3, §7, §8 head); Lamzouri 2609.02882v2 (abstract,
+  §1 to Remark 1.2); Goldston math/0412313 (§5 Theorem 2 and after, §6 (6.8)–(6.11)). Quotes added as CITATIONS (C5),
+  (C6), (C8) Plan 43 addenda.
+- **Proved (§5.6):**
+  - Lemma L (off-line zeros pair on one ordinate, from GLSS §2) and Lemma CI:
+    N − N_dist ≤ N − N₀ˢ ≤ N − A ≤ 2(N − N_dist), with |E ∩ [1, N(T)]| = N − N_dist.
+  - Proposition I: ½δ_sc ≤ d̄(E) ≤ δ_sc, so d(E) = 0 ⟺ 100% of zeros simple and on the critical line.
+  - Corollary Lz: d̄(E) ≤ 1 − C_Lz = 0.32749… unconditionally, from (C6) Thm 1.1 ((C6)'s "C0", renamed in PROOF;
+    arXiv v2 preprint). It replaces §5.5's 0.5925. The novelty note in research/program/novelty_G3p.md is corrected:
+    the update comes from C_Lz, not from 83.62% distinct zeros, which count zeros, not ordinates.
+  - Lemma D: 𝒞(K) = 𝒞_dist(K) + K·|E ∩ (k₂, K]| exactly (pairs at normalized distance < 1 are automatically near).
+    Hence Theorem Sp: G3′ ⟺ d(E) = 0 ∧ 𝒞_dist(K) = o(K²).
+  - Corollary Pos: G3′ ⇒ 100% simple and critical.
+- **Stop condition (AGENTS.md, "a step is as hard as an open problem").** An unconditional proof of G3′ would prove
+  (100%-SC). The sources read obtain (100%-SC) only under hypotheses: PCC or HMH (GLSS Theorems 1–2), RH + SPC
+  ((C8) Thm 4 via SZC); see also this repo's Theorem S (SPC_ℂ⁺) and Corollary P (RH + (V)). They quote Montgomery's
+  conjecture for its simplicity part (GLSS abstract). Their best unconditional proportion is C_Lz = 0.6725 ((C6),
+  preprint).
+  Goldston (C8, 2004) writes, on simplicity, "a major advance … even on RH". Recommendation (outline §1.5), pending
+  Rule R: close the main line of G3′ at U unconditional, B bounded defect, exact characterization Ch/Sp, and
+  positioning Pos. This is a statement about
+  difficulty only; nothing here is evidence about RH or about (100%-SC).
+- **Correction to research/program/outline_D_G3p.md §1.2 (a [derived here] claim):**
+  - "d(E) = 0 ⟺ HMH" is false as an elementary deduction. Only HMH ⇒ d(E) = 0 holds (GLSS Thm 2 + Prop I).
+  - A partial converse holds: |E ∩ [1, K]| = o(K/log K) ⇒ HMH (Lemma CI(iii)).
+  - G3′ ⇒ HMH and G3′ ⇒ SZC are NOT established (GAP).
+- **Rule A (attempts logged):**
+  - (1) Can two distinct critical zeros share an ordinate? No: they would be the same point.
+  - (2) Off-line ρ with 1 − ρ̄ = ρ? Only if β = ½.
+  - (3) Could nontrivial zeros on Re s ∈ {0, 1} make (C6)'s N(T) differ from (C1)'s? No, by GLSS §2's strip statement.
+  - (4) Lines straddling the boundary k₂ or K: handled by R_K := ([k₂, K] ∖ E) ∪ {k₂} and by counting at T = γ_K
+    (whole lines).
+  - (5) Near-ness in 𝒞 depends on indices (through γ̃), not values. Resolved: for indices ≥ k₂, d_ab < 1 forces near,
+    by Z1 and γ ≥ 10⁶.
+  - (6) Sharpness of the factors 1 and 2 in CI(ii): examples H = 3 (simple critical zero plus an off-line pair) and
+    H = 2 (an off-line pair).
+  - (7) Converse d(E) = 0 ⇒ HMH: counterexample at the level of counting (lines of multiplicity h_T → ∞), recorded.
+- **Numerics (sanity, toy configurations, not zeta data):** `checks/check_positioning` → `.out` [1]–[3].
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan43.md). Fixes applied:
+  - F1: "only from PCC or HMH" became "only under hypotheses" (adds (C8) Thm 4, Theorem S, Cor P).
+  - F2: dated correction notes in research/program/outline_D_G3p.md and RESEARCH_PROGRAM.md §D (separate docs:
+    commit).
+  - F3: Lamzouri's constant renamed C_Lz.
+  - F4: dated qualifier on §5.5's "not claimed" sentence.
+  - F5: this entry ("corrected").
+  - F6: (C6) preprint status noted at Cor Lz and in the §0 row.
+  - F7: Lemma CI relabelled; H(v) ≤ 2E(v) cited from (C1) directly.
+  - F8: P3 reworded around the quotes.
+  - F9: optimality remark at Cor Lz.
+  - F10: sharpness of the middle inequality; counting example rephrased.
+  Re-check ACCEPT — REVIEWED.
