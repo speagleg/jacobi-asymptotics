@@ -9,7 +9,7 @@ For each (p, sigma, n) and M on a geometric grid with Mn <= K:
   tail   := mu_n((Mn, inf))                                  (computed)
   F      := arcsine limit F_p(M) (Lemma LP)
   r1     := tail * M^{p/2}                                    (QLP (a): bounded for M <= n^{2/p})
-  r2     := tail * n * (M/n^{2/p})^{beta}, beta = min(p, sigma-1)   (QLP (b) shape beyond the Bessel scale; the proof
+  r2     := tail * n * (M/n^{2/p})^{beta}, beta = min(p, sigma-1) for p != 1, min(1/2, sigma-1) for p = 1   (QLP (b) shape beyond the Bessel scale; the proof
             also allows a log factor)
   ST     := (8/sqrt3) tau |S_n(tau e^{5 pi i/6})|, tau = M^{-p}, S_n(z) = sum_k mu_n(k)/(n^p x_k - z)
             (Lemma ST: tail <= ST, an exact inequality; checked)
@@ -48,7 +48,7 @@ def run(p, s, n, K, Ms):
     Q = lanczos(x, w, n)
     mu = Q[n] ** 2
     X = n ** p * x
-    beta = min(p, s - 1)
+    beta = min(0.5, s - 1) if p == 1 else min(p, s - 1)   # Theorem QLP (b); review F4
     MB = n ** (2 / p)
     rows = []
     for M in Ms:
@@ -77,7 +77,7 @@ def main():
                 assert K >= 8 * n ** (1 + 2 / p), "lumped cells must lie below the Bessel scale"
                 Ms = 2.0 ** np.arange(0, 40)
                 rows, lump, MB, beta = run(p, s, n, K, Ms)
-                print(f"\n[p={p} sigma={s} n={n}] K={K}, Bessel scale M_B = n^(2/p) = {MB:.1f}, beta = min(p, sigma-1) = "
+                print(f"\n[p={p} sigma={s} n={n}] K={K}, Bessel scale M_B = n^(2/p) = {MB:.1f}, beta (Theorem QLP (b)) = "
                       f"{beta}, mass on lumped tail = {lump:.3e}", flush=True)
                 print("      M        tail        F_p(M)   tail*M^(p/2)  tail*n*(M/M_B)^beta   ST bound   tail<=ST")
                 ok = True

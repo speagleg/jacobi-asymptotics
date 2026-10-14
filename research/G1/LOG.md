@@ -313,9 +313,9 @@
   in CITATIONS.md (DLMF-3)).
 - **Result.** For each fixed σ > 1, all p > 0, m ∈ {n−1, n}, every M ≥ 1: μ_m((Mn, ∞)) ≤ CM^{−p/2} for M ≤ n^{2/p};
   ≤ Cn^{−1}(M/n^{2/p})^{−β}(1 + log) beyond (β = min(p, σ−1), p ≠ 1; min(½, σ−1), p = 1); ≤ C_ϑM^{−ϑ} for all M,
-  ϑ < min(p/2, σ − 1). Corollary: Σ_{k≥n}log(k/n)μ_m(k) = O(1) — QL at t = 0. Bessel crossover at M ≍ n^{2/p}
+  ϑ < min(p/2, σ − 1) (endpoint ϑ = p/2 when σ − 1 > p/2 for p ≠ 1 only). Corollary: Σ_{k≥n}log(k/n)μ_m(k) = O(1) — QL at t = 0. Bessel crossover at M ≍ n^{2/p}
   (k ≍ n^{1+2/p}). Labels: ST, GS PROVED; BK PROVED-mod-cite (DLMF); QLP/QLP-Λ PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b,
-  KMVV (6.23), KV (5.21)–(5.22), WLXZ (4.27)) for fixed σ.
+  KMVV (6.23), Vanlessen (4.27); KV (5.21)–(5.22) as a consistency check) for fixed σ.
 - **Gap (precise).** Uniformity in σ on compacts is CONDITIONAL on (RU): the cited small-norm estimates hold with σ-free N₀ and
   constants. Audit U (PROOF SKETCH) locates the σ-dependence: only α_x and C_N; the one quantitative input is the Bessel
   matching on ∂U(0, δ) uniform in the order, for which DLMF 10.40.10–12 (+10.34.2, 10.27.8; read, quoted) give order-uniform
@@ -328,4 +328,7 @@
   every p (lip/seam angles); scale invariance of Lemma Z; N-uniformity of A; m = n − 1. No counterexample.
 - **Numerics** (`checks/check_qlp.out`, NUMERICAL): sup_{M≤n^{2/p}} tail·M^{p/2} = 0.48–0.71, flat in n, p ∈ {2, 1, 0.5},
   σ ∈ {1.5, 2, 3}; deep slopes ≈ −(σ−1); Lemma ST's inequality holds in every row. Small n, lumped tail (≤ 1.4%).
-- **Rule R:** pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan46.md; main argument correct). F1 (sector-II formula is Vanlessen
+  (4.27), not WLXZ (4.27)), F2 (endpoint ϑ = p/2 of (c) restricted to p ≠ 1), F3 (Lemma Z for |z| ≤ δ₁/2), F4 (check_qlp β at
+  p = 1 = min(½, σ − 1); .out regenerated), F5 (QLP3(ii) reworded), F6 (Audit U6 gap disclosed: band rays/lips need BK beyond
+  |ph u| ≤ π/3), F7–F9 (J2 terms, GS wording, closed-disc maximum principle, max(A, 1)) applied — REVIEWED.
