@@ -17,6 +17,8 @@ nothing here is evidence about where the zeros lie.
 | G3′-L | liminf (1/n²)[log D_n(σ) − Φ_n] ≥ 0 under (SG) | PROVED-mod-cite + mod-input (SG), Theorem H + REVIEWED | Z1, S, W, H5, H6 |
 | N | doubled-smooth sequences: same counting function, law fails by 2 log(1−1/m) | PROVED-mod-input Theorem H + REVIEWED | Theorem H_L, item 11 H6 |
 | N′ | repeated indices containing a positive-density subset (d_*(E) > 0) ⇒ the law fails, limsup ≤ 2 log(1 − d_*(E)) | PROVED-mod-cite + mod-input Theorem H + REVIEWED; residual GAP: positive lower density with d_*(E) = 0 | G3′*-U proof, Z1, Z2, T (P1), H6 |
+| B | unconditional: liminf (1/n²)[log D_n − Φ_n] ≥ −3 log C > −∞, i.e. log D_n = Φ_n + O(n²) (§8.1) | PROVED-mod-cite (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED | GLSS (6.1), Caro–Wei, §4 proof |
+| C | PCC (GLSS form, no RH) ⇒ (SG) ⇒ G3′ (§8.2) | PROVED-mod-cite (C1), (C5) + mod-input PCC, Theorem H; REVIEWED | GLSS, G3′-L |
 | R, K | pair factors under thinning; concentration (from H7) | PROVED-mod-input Theorem H + REVIEWED | H5, H7 |
 | T | thinning of convergent density: the own-normalized law survives | PROVED-mod-input Theorem H + REVIEWED | R, K, H6, H7 |
 | T′ | robustness: density band ±η gives error ω(η) → 0 | PROVED-mod-input Theorem H + REVIEWED | T |
@@ -613,3 +615,112 @@ ACCEPT WITH FIXES on re-review; REVIEWED.)*
 The log-periodic numerics of §6 suggest (NUMERICAL, smooth model) that some regularity hypothesis such as (D∞) is
 needed for the own-normalized law. Neither (D∞) nor (SG*) is reached by the literature read in CITATIONS.md: (C3) gives
 only liminf N_d/N ≥ 0.4075.
+
+## 8. Plan 17: an unconditional bounded defect, and the pair-correlation conditional — REVIEWED (review/REVIEW_Plan17.md: ACCEPT WITH FIXES, then re-check ACCEPT; F1 via Fix A, F2–F9, N1–N2 applied)
+
+Inputs: GLSS (C5) and, for context, Lamzouri (C6), both read 2026-10-14. Notation is as in §§1–7. L(T) := (1/2π)log T.
+"Normalized distance" between ordinates γ, γ′ ∈ (T, 2T] means |γ − γ′|L(2T). Zeros are counted with multiplicity
+(the multiset Z), and H(γ) is the horizontal multiplicity of GLSS (7.1).
+
+### 8.1 Theorem B (unconditional): the averaged law holds up to a bounded constant
+
+**Theorem B.** There is a constant C ≥ 1 with
+
+  liminf_n (1/n²)[log D_n(σ) − Φ_n] ≥ −3 log C.
+
+Equivalently, liminf ≥ 2 log θ₀ with θ₀ := C^{−3/2} ∈ (0, 1]. Together with G3′-U, log D_n(σ) = Φ_n + O(n²)
+**unconditionally**. In b_j-form, (2/n²)Σ_{j<n}(n−j)log(b_j/x̃_j) stays within a bounded distance of log(π²/16) for all
+large n.
+
+C = 2/c₀ + 1, where c₀ comes from the O-constant of GLSS (6.1) (Fujii's second moment). That constant is not explicit,
+so C is not computed here (Remark B3).
+
+*Proof.*
+1. **Pairs on a dyadic block** (Rule R F2). Apply GLSS (6.1) with λ := 2 at height 2T only.
+   - Pairs with γ, γ′ ∈ (T, 2T] are among the pairs counted there.
+   - A pair with |γ′ − γ|L(2T) ≤ 1 has weight ≥ ½.
+   - So the number P_T of ordered pairs (ρ, ρ′) with γ, γ′ ∈ (T, 2T] and |γ − γ′|L(2T) ≤ 1 satisfies
+     P_T ≤ 2·2TL(2T)(2 + log 4/(2π²) + O(1)) ≤ A·M_T for large T.
+   - Here M_T := N(2T) − N(T) ~ TL(2T) (C1), and A is an absolute constant.
+   - P_T includes ρ = ρ′, pairs on one horizontal line, and off-line pairs.
+2. **Many distinct ordinates.** Let V_T be the set of distinct ordinates in (T, 2T], with horizontal multiplicities H(v)
+   (GLSS (7.1)). Then Σ_v H(v) = M_T and Σ_v H(v)² ≤ P_T, since pairs on one horizontal line have distance 0. By
+   Cauchy–Schwarz, |V_T| ≥ M_T²/Σ H² ≥ M_T/A.
+3. **A separated subset.** Let G_T be the graph on V_T with an edge between distinct ordinates at distance ≤ 1/L(2T).
+   - Each edge accounts for ≥ 2 ordered zero-pairs counted in P_T, so |E(G_T)| ≤ P_T/2.
+   - Caro–Wei: G_T has an independent set I_T with |I_T| ≥ Σ_v 1/(1 + deg v) ≥ |V_T|²/(|V_T| + 2|E|) ≥ M_T/(A²(A + 1)).
+   - Delete from I_T the elements within 1/L(2T) of T or 2T; by (C1) there are O(log T) of them.
+   - S := ⋃_{dyadic T} I_T is a set of distinct ordinates with |S ∩ (T, 2T]| ≥ 2c₀M_T for large T, where
+     c₀ := 1/(4A²(A + 1)).
+   - Two elements of S at heights in [T, 4T] are more than 1/L(4T) apart. So for γ < γ′ in S,
+     γ′ − γ ≥ (½ + o(1))·2π/log(γ/2π).
+4. **Index bound** (Rule R F1, Fix A). Index the zeros with multiplicity, k = 1, 2, … (§1). Let E be the set of
+   first-occurrence indices of the ordinates in S, enumerated increasingly by π.
+   - Let K be large, and let 2^m T₀ be the largest dyadic level with N(2^mT₀) ≤ K. Then |E ∩ [1, K]| ≥ 2c₀(N(2^mT₀) − N(2^{m−1}T₀))(1 + o(1)).
+     By (C1), N(2^mT₀) − N(2^{m−1}T₀) ≥ (½ − o(1))N(2^mT₀), and N(2^{m+1}T₀) ≤ (2 + o(1))N(2^mT₀), so N(2^mT₀) ≥ (½ − o(1))K.
+   - Hence |E ∩ [1, K]| ≥ (c₀/2 − o(1))K, i.e. there is j₀ with π(j) ≤ Cj for all j ≥ j₀, with C := 2/c₀ + 1.
+   - This is only a *lower density* bound. No convergence is claimed; Rule R F1 shows that a Caro–Wei set need not have
+     a convergent density.
+5. **Run the proof of Theorem G3′-L (§4) on E**, with these changes:
+   - **Step 1:** the good set is E (not {g_k ≥ δ}), with π(j) ≤ Cj in place of π(j) ≤ (1+2η)j.
+   - **Step 3 (near pairs):** first drop the finitely many elements of E below k₂, or where the o(1) of Step 3
+     exceeds ¼ (Rule R N1). Then for a < b in E, γ_b − γ_a ≥ ¼·2π/log(γ_a/2π). This is §4's bound with the fixed
+     δ := ¼, so the near-pair ratio and the count O(log γ̃_a) of near partners are unchanged. Far pairs are unchanged.
+   - **Steps 4–5** are unchanged.
+   - **Step 6:** Lemma S with 1 + η := C gives π(j)⁻² − π(i)⁻² ≥ C⁻³(j⁻² − i⁻²) for i > j ≥ j₀. Also L(π(j)) ≥ L(j)
+     (L nondecreasing, π(j) ≥ j), and the weight bound uses π(j) ≤ C_E j for all j (C_E := max(C, π(j₀))). So the term
+     −3n²log(1+2η) becomes −3n²log C.
+   - **Step 7** is unchanged (Lemma W, ε* → 0).
+
+   Hence liminf (1/n²)[log D_n(σ) − Φ_n] ≥ −3 log C. Monotonicity is built in (§4 Step 2: D_n(σ) ≥ Σ_{S⊂E} term).
+   This reuses the reviewed §4 proof with one constant changed. ∎
+
+**Remarks.**
+- **B1 (what is new).** Before Plan 17 the lower bound for the true zeros was only conditional (G3′-L under (SG);
+  G3′*-L under (D∞) + (SG*)). Theorem B uses only unconditional inputs: GLSS (6.1), i.e. Gallagher–Mueller plus
+  Fujii's second moment of S(t + U) − S(t) (Selberg's method; secondary statement, (C5)), and (C1).
+- **B2 (defect interval).** Let D := liminf (1/n²)[log D_n − Φ_n]. Unconditionally, D ∈ [−3 log C, 0] = [2 log θ₀, 0].
+  - N′ forces D ≤ 2 log(1 − d_*(E_rep)) < 0 if repeats contain a positive-density family.
+  - G3′ is the statement D = 0, together with the limsup, which is ≤ 0 by G3′-U.
+- **B3 (the constant).**
+  - An explicit C needs an explicit O-constant in Fujii's second moment, which is not in what we read.
+  - The −3 log C comes from Lemma S's crude index-shift bound. The thinning argument of §7 would give 2 log(density)
+    instead, but it needs a convergent density, which Caro–Wei does not provide (F1).
+  - Lamzouri's (C6) proportions (≥ 0.6725 simple and on the line) control repeats, not close-but-distinct pairs. A
+    sharper B would combine them with a convergent-density selection. (Optional.)
+
+### 8.2 Theorem C (conditional, no RH): pair correlation implies G3′
+
+**Theorem C.** Assume Montgomery's pair-correlation conjecture in the form of GLSS (C5), which concerns vertical
+distances only and assumes no RH. Then (SG) of §4 holds, and hence (G3′-L and G3′-U) log D_n(σ) = Φ_n + o(n²): the
+multiplicity-normalized averaged law holds for the true zeros.
+
+*Proof.* Let g_k be the normalized gaps of §4 (consecutive ordinates with multiplicity; g_k = 0 at repeats). Fix
+δ ∈ (0, 1).
+- **Repeats.** GLSS Theorem 1's proof shows that PCC implies N^⊛(T) = TL + o(TL), i.e. HMH. Then
+  #{k ≤ N(T) : g_k = 0} = Σ_{distinct lines}(H − 1) ≤ Σ_ρ(H(γ) − 1) = N^⊛(T) − N(T) = o(TL), using N(T) = TL + o(TL)
+  (GLSS (3.7)). So repeats have density 0.
+- **Small positive gaps** (Rule R F5). Fix R > 1. Indices k with γ_k ≤ T/R number ≤ N(T/R) ≤ (1/R + o(1))N(T).
+  - For γ_k ∈ (T/R, T], log(γ_k/2π)/2π ≥ L(T)(1 − log R/log T − o(1)). So 0 < g_k < δ implies
+    0 < (γ_{k+1} − γ_k)L(T) ≤ 2δ for large T.
+  - These pairs (ρ_k, ρ_{k+1}) are distinct for distinct k. So #{k ≤ N(T) : 0 < g_k < δ, γ_k > T/R} ≤ N(2δ).
+  - PCC at the fixed λ = 2δ gives N(2δ) = TL∫_0^{2δ}(1 − (sin πα/πα)²)dα + o(TL) ≤ (8π²/9)δ³TL + o(TL), since
+    1 − (sin x/x)² ≤ x²/3.
+- With K = N(T) (indices and heights correspond via (C1)), #{k ≤ K : g_k < δ} ≤ (1/R + (8π²/9)δ³ + o(1))K.
+  Given η > 0, take R := 3/η and δ := (3η/(8π²))^{1/3}, so that the bound is ≤ (2η/3 + o(1))K ≤ ηK for K ≥ K₀.
+  This is (SG) (Rule R N2). ∎
+
+**Remarks.**
+- **C1.** By GLSS Theorem 1, PCC also gives 100% simple and critical zeros, consistent with N′'s necessary condition
+  (d_*(E) = 0).
+- **C2 (framing, AGENTS.md).** Theorem C is an implication from a stated conjecture about the vertical distribution of
+  zeros. It assumes nothing about their horizontal location, and it is not evidence for or against any conjecture.
+
+### 8.3 G3′ status after Plan 17
+
+| Statement | Status |
+|---|---|
+| limsup (1/n²)[log D_n − Φ_n] ≤ 0 | unconditional (G3′-U), REVIEWED |
+| liminf ≥ −3 log C > −∞ | **unconditional (Theorem B)**, mod-input Theorem H; REVIEWED |
+| liminf ≥ 0, i.e. G3′ | under (SG) (G3′-L), REVIEWED; under PCC (Theorem C, no RH), mod-input Theorem H; REVIEWED |
+| G3′ ⇒ d_*(E) = 0 | N′, REVIEWED |
