@@ -186,10 +186,10 @@ result, conditional or not, reaches proportion one. G3′ is therefore closed in
 
 ## 2026-10-14 — Plan 26 (Theorem Ch: exact characterization)
 - **Observation.** The earlier log-K losses were bookkeeping. The cost is pair energy, capped by drop costs.
-- **Necessity.** Group the Heine sets by T = S ∩ [1, θn]. Each group is ≤ e^{−2P(T)}·D_n(ν ∖ (W ∖ T)), and Hadamard plus
+- **Necessity.** Group the Heine sets by T = S ∩ W, W = [k₂, ⌊θn⌋]. Each group is ≤ e^{−2P_ε(T)}·D_n(ν ∖ (W ∖ T)), and Hadamard plus
   saturation charge ≥ 2n·g(θ) per drop. Summing over 2^{θn} choices costs e^{O(n)}. No move map is needed.
 - **Sufficiency.** Run the L′ argument on the optimal T for each n. It drops o(n) indices, so the index shift costs
   o(n²); then Lemma Tr.
 - **Result:** G3′ ⟺ 𝒞(K) = o(K²). N″, N‴ and L′ are corollaries; the former sliver example satisfies G3′.
 - **Numerics:** `checks/check_clusters` (exact) shows m² pair-energy scaling and capping.
-- **Rule R:** pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan26.md). F1–F12 applied. Re-check pending.
