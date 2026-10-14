@@ -613,3 +613,109 @@ ACCEPT WITH FIXES on re-review; REVIEWED.)*
 The log-periodic numerics of §6 suggest (NUMERICAL, smooth model) that some regularity hypothesis such as (D∞) is
 needed for the own-normalized law. Neither (D∞) nor (SG*) is reached by the literature read in CITATIONS.md: (C3) gives
 only liminf N_d/N ≥ 0.4075.
+
+## 8. Plan 17: an unconditional bounded defect, and the pair-correlation conditional — pending Rule R
+
+Inputs: GLSS (C5) and, for context, Lamzouri (C6), both read 2026-10-14. Notation is as in §§1–7. L(T) := (1/2π)log T.
+"Normalized distance" between ordinates γ, γ′ ∈ (T, 2T] means |γ − γ′|L(2T). Zeros are counted with multiplicity
+(the multiset Z), and H(γ) is the horizontal multiplicity of GLSS (7.1).
+
+### 8.1 Theorem B (unconditional): the averaged law holds up to a bounded constant
+
+**Theorem B.** There is θ₀ ∈ (0, 1] with
+
+  liminf_n (1/n²)[log D_n(σ) − Φ_n] ≥ 2 log θ₀.
+
+Together with G3′-U, log D_n(σ) = Φ_n + O(n²) **unconditionally**. In b_j-form,
+(2/n²)Σ_{j<n}(n−j)log(b_j/x̃_j) stays within a bounded distance of log(π²/16) for all large n.
+
+θ₀ comes from the O-constant in GLSS (6.1) (Fujii's second moment). That constant is not explicit there, so θ₀ is
+not computed here (Remark B3).
+
+*Proof.*
+1. **Pairs on a dyadic block.** Apply GLSS (6.1) with λ := 2 at heights 2T and T and subtract. Each pair with
+   |γ′ − γ|L ≤ 1 has weight ≥ ½. So the number P_T of ordered pairs (ρ, ρ′) with γ, γ′ ∈ (T, 2T] and normalized
+   distance ≤ 1 (this includes ρ = ρ′, pairs on one horizontal line, and off-line pairs) satisfies P_T ≤ A·M_T for
+   large T. Here M_T := N(2T) − N(T) ~ TL, and A is an absolute constant: the main terms give 2(2 + log 4/(2π²)) and the
+   O-term adds O(1).
+   - Pairs with exactly one element in (T, 2T] only enlarge the difference, which is harmless for an upper bound.
+   - Pairs with both elements below T cancel in the difference.
+2. **Many distinct ordinates.** Let V_T be the set of distinct ordinates in (T, 2T]. Then Σ_{v∈V_T}H(v) = M_T and
+   Σ_v H(v)² ≤ P_T, since pairs on one horizontal line have distance 0. By Cauchy–Schwarz,
+   |V_T| ≥ M_T²/Σ H² ≥ M_T/A.
+3. **A separated subset.** Let G_T be the graph on V_T with an edge between distinct ordinates at normalized
+   distance ≤ 1.
+   - Each edge accounts for ≥ 2 ordered zero-pairs counted in P_T, so |E(G_T)| ≤ P_T/2.
+   - Caro–Wei: G_T has an independent set I_T with |I_T| ≥ Σ_v 1/(1 + deg v) ≥ |V_T|²/(|V_T| + 2|E|) ≥ (M_T/A)²/(A·M_T + M_T)
+     = M_T/(A²(A + 1)).
+   - Delete from I_T the elements within normalized distance 1 of T or 2T. By (C1) there are O(log T) of them.
+   - S := ⋃_{dyadic T} I_T is a set of distinct ordinates, with pairwise normalized distance > 1 (up to 1 + o(1)
+     between blocks, from L(2T) vs L(T)). Moreover |S ∩ (T, 2T]| ≥ c₀M_T, with c₀ := 1/(2A²(A + 1)), for large T.
+4. **Convergent density.** Index the zeros with multiplicity, k = 1, 2, … (§1), and let E_S be the set of first-occurrence
+   indices of the ordinates in S.
+   - By 3, E_S has positive lower density on every dyadic block, i.e. positive window lower density. (Blocks in
+     height are blocks in index up to factors 1 + o(1), by (C1).)
+   - The greedy rule (§5, N′ Remarks) gives E′ ⊂ E_S with convergent density θ₀ := c₀/2 > 0.
+   - Let S′ be the corresponding ordinates.
+5. **Monotonicity.** σ|_{S′} ≤ σ as measures, since each atom keeps its merged weight. So D_n(σ) ≥ D_n(σ|_{S′}), because
+   Heine terms are ≥ 0.
+6. **The law for σ|_{S′}.** σ|_{S′} satisfies all the inputs of the proof of G3′*-L (§7.1):
+   - Z1 positions (true ordinates);
+   - convergent index density θ₀ (in place of (D∞));
+   - (Hw) weights (as in G3′*-U's weights bullet);
+   - (SG*) with B_δ = ∅ for every δ < 1, since consecutive elements are more than 1 apart (up to 1 + o(1)).
+
+   The proof of G3′*-L then runs verbatim for this sub-list, with η = 0 and no deletion step. (Its near-short pairs
+   have F ≥ cθ₀ with δ = 1, and they are O(n log n) in total.) So, with Φ*_n(S′) built from L_{S′}(j) := j²·(j-th
+   atom of S′):
+
+     liminf (1/n²)[log D_n(σ|_{S′}) − Φ*_n(S′)] ≥ 0.
+
+7. **Normalizations.** Let π enumerate E′. Then π(j)/j → 1/θ₀ (Theorem T (P1)), and L_{S′}(j) = (j/π(j))²L(π(j))(1 + o(1))
+   by Z1′. Also L(π(j))/L(j) → 1 (H6(a), π(j) ≤ Cj). So Φ*_n(S′) − Φ_n = 2n²log θ₀ + o(n²).
+8. Combine 5–7. ∎
+
+**Remarks.**
+- **B1 (what is new).** Before Plan 17 the lower bound for the true zeros was only conditional (G3′-L under (SG);
+  G3′*-L under (D∞) + (SG*)). Theorem B uses only unconditional inputs: GLSS (6.1), i.e. Gallagher–Mueller plus Fujii's
+  second moment of S(t + U) − S(t) (Selberg's method).
+- **B2 (consistency with N′).** N′ shows a defect of 2 log(1 − d_*(E)) whenever repeats contain a positive-density
+  family. Theorem B bounds every possible defect. So **the defect D := liminf (1/n²)[log D_n − Φ_n] lies in
+  [2 log θ₀, 0] unconditionally**, and G3′ is the statement D = 0 (together with the limsup, which is ≤ 0 by G3′-U).
+- **B3 (the constant).**
+  - An explicit θ₀ needs an explicit O-constant in Fujii's second moment, which is not available in what we read.
+  - Lamzouri's (C6) unconditional proportions (≥ 0.6725 of zeros simple and on the line; ≥ 0.83625 distinct zeros)
+    bound the *multiplicity* part of the defect: if (D∞) held, the own-normalized shift would be 2 log θ with
+    θ ≥ 0.6725 for distinct ordinates. But they do not control close-but-distinct pairs, which is the job of Steps 1–3.
+  - A sharpened Theorem B would combine both. (Optional, Plan 17 Remark D.)
+
+### 8.2 Theorem C (conditional, no RH): pair correlation implies G3′
+
+**Theorem C.** Assume Montgomery's pair-correlation conjecture in the form of GLSS (C5), which concerns vertical
+distances only and assumes no RH. Then (SG) of §4 holds, and hence (G3′-L and G3′-U) log D_n(σ) = Φ_n + o(n²): the
+multiplicity-normalized averaged law holds for the true zeros.
+
+*Proof.* Let g_k be the normalized gaps of §4 (consecutive ordinates with multiplicity; g_k = 0 at repeats). Fix
+δ ∈ (0, 1).
+- **Repeats.** GLSS Theorem 1's proof shows that PCC implies N^⊛(T) = TL + o(TL), i.e. HMH. Then
+  #{k ≤ N(T) : g_k = 0} ≤ Σ_ρ(H(γ) − 1) = N^⊛(T) − N(T) + o(TL)... more precisely Σ(H − 1) ≤ N^⊛ − N = o(TL). So
+  repeats have density 0.
+- **Small positive gaps.** Each k with 0 < g_k < δ gives a pair (ρ_k, ρ_{k+1}) with 0 < (γ_{k+1} − γ_k)L ≤ δ(1 + o(1)).
+  These pairs are distinct for distinct k. So #{k ≤ N(T) : 0 < g_k < δ} ≤ N(2δ) ≪ δ³TL by GLSS's PCC estimate. (Apply
+  it at height T, with the local normalization log(γ_k/2π)/2π = L(1 + o(1)) on dyadic blocks.)
+- So the upper density of {k : g_k < δ} is ≤ Cδ³ + 0, and given η > 0, take δ := (η/C)^{1/3}. This is (SG). ∎
+
+**Remarks.**
+- **C1.** By GLSS Theorem 1, PCC also gives 100% simple and critical zeros, consistent with N′'s necessary condition
+  (d_*(E) = 0).
+- **C2 (framing, AGENTS.md).** Theorem C is an implication from a stated conjecture about the vertical distribution of
+  zeros. It assumes nothing about their horizontal location, and it is not evidence for or against any conjecture.
+
+### 8.3 G3′ status after Plan 17
+
+| Statement | Status |
+|---|---|
+| limsup (1/n²)[log D_n − Φ_n] ≤ 0 | unconditional (G3′-U), REVIEWED |
+| liminf ≥ 2 log θ₀ > −∞ | **unconditional (Theorem B), pending Rule R** |
+| liminf ≥ 0, i.e. G3′ | under (SG) (G3′-L), REVIEWED; under PCC (Theorem C, no RH), pending Rule R |
+| G3′ ⇒ d_*(E) = 0 | N′, REVIEWED |

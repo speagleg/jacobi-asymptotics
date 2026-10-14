@@ -64,3 +64,38 @@ almost all zeros are simple. (SG) also forces almost all zeros to have horizonta
 the line" type of quantity behind the 40.75% figure. So (SG) is at least as strong as a statement absent from (C3), and no separate
 small-gaps citation is needed to record that (SG) is not available unconditionally. If a later revision needs the
 precise status of small-gap density bounds, that becomes a new citation task.
+
+## (C5) Goldston–Lee–Schettler–Suriajaya, arXiv:2503.15449v4 (GLSS) — READ (§§1–8), for Plan 17
+
+> (3.6) "L := (1/2π) log T", "(3.7) N(T) = (T/2π) log T + O(T) = TL + o(TL) … the average vertical spacing between zeros
+> is 1/L". Zeros are taken from the multiset Z ("a zero ρ … with multiplicity mρ is counted as mρ zeros").
+>
+> "(4.3) N(λ) := N(T, U) = Σ_{ρ,ρ′: 0<γ,γ′≤T, 0<(γ′−γ)L≤λ} 1." "Pair Correlation Conjecture (PCC). For UL = λ > 0, then
+> N(λ) = TL∫_0^λ(1 − (sin πα/πα)²)dα + o(TL), as T → ∞, uniformly in each interval 0 < λ0 = U0L ≤ λ = UL ≤ λ1 = U1L < ∞."
+>
+> "Proposition 2 (Fujii). For 0 < U ≤ 1, we have as T → ∞, ∫_0^T (∆_U S(t))² dt = (T/π²) log(2 + UL) + O(T√log(2 + UL)).
+> For the proof of this Proposition, see Fujii [Fuj74, Fuj81] and Tsang [Tsa84, Tsa86]. They both prove this
+> unconditionally"
+>
+> "6. An Unconditional Average Pair Correlation Formula. We take UL = λ and assume 0 < U ≤ 1 … imposing 0 < λ² ≤ L and
+> multiplying by L/λ, we get (6.1) Σ_{ρ,ρ′: 0<γ,γ′≤T, |γ′−γ|L≤λ} (1 − |γ′ − γ|L/λ) = TL(λ + log(2 + λ)/(π²λ) + O(√log(2 + λ)/λ))."
+>
+> "(7.1) N^⊛(T) = Σ_{ρ,ρ′: 0<γ,γ′≤T, γ=γ′} 1 = Σ_ρ H(γ), where H(γ) := Σ_{ρ′: γ′=γ} 1."
+>
+> "Theorem 1. Assuming the pair correlation conjecture PCC, then asymptotically 100% of the zeros of ζ(s) are simple
+> and on the critical line." Proof of Theorem 1: "By PCC we have upon using the Taylor expansion of sin x around the
+> origin, N(λ0) ≪ TL∫_0^{λ0} α²dα = O(λ0³TL)", and it concludes "N^⊛(T) = TL + o(TL) which establishes HMH".
+> GLSS state: "In this paper we do not assume the Riemann Hypothesis (RH) is true or make use of results that depend on RH."
+
+**Used in:** PROOF.md §8 (Plan 17). Theorem B uses (6.1) with fixed λ; the implied constant in its O-term is not explicit.
+Theorem C uses PCC ⇒ N(λ0) = O(λ0³TL) and N^⊛(T) = TL + o(TL).
+
+## (C6) Lamzouri, arXiv:2609.02882v2 — READ (§§1–3 statements), context for Plan 17
+
+> "Theorem 1.1. … lim inf N0^s(T)/N(T) ⩾ C0 = 0.67250…, and lim inf Nd(T)/N(T) ⩾ C1 := (C0 + 1)/2 = 0.83625 …"
+> (N_d = number of distinct zeros; N0^s = simple zeros on the critical line), unconditional; it is proved via
+> "Montgomery's pair correlation theorem in the unconditional form obtained by Baluyot, Goldston, Suriajaya and
+> Turnage-Butterbaugh (see Lemma 5 of [3])".
+
+**Used in:** PROOF.md §8 remarks only (distinct *zeros* are not distinct *ordinates*; off-line pairs share ordinates).
+It updates (C3)'s 0.4075 to 0.6725 for "simple and on the line".
