@@ -1,0 +1,31 @@
+[1] max |G_TC/(G0 H_n^-1) - 1| on |z-2| = 0.3, n = 40, 400: 2.77e-40
+[1] max |G0^(s3/2) N G0^(-s3/2) M0 - m_r| on |z-2| = 0.3: 9.2e-41
+[2] int_0^2 psi = 0.25, int_2^oo psi = 0.25; phi_+(0)/(i pi) = -0.5
+[3] Airy sector arg in (0,pi/2): max |M0 R - I| |xi| = 0.083824,  max |xi|^2 |M0 R - I - X_j/xi| = 0.040366
+[3] Airy sector arg in (pi/2,pi): max |M0 R - I| |xi| = 0.083819,  max |xi|^2 |M0 R - I - X_j/xi| = 0.040361
+[3] Airy sector arg in (-pi,-pi/2): max |M0 R - I| |xi| = 0.083819,  max |xi|^2 |M0 R - I - X_j/xi| = 0.040361
+[3] Airy sector arg in (-pi/2,0): max |M0 R - I| |xi| = 0.083824,  max |xi|^2 |M0 R - I - X_j/xi| = 0.040366
+[4] lambda = -0.25, arg in (-3.11, -2.39): max |K - I| |z| = 0.12661,  max |z|^2 |K - I - Psi1_j/z| = 0.056519
+[4] lambda = -0.25, arg in (-2.33, -1.6): max |K - I| |z| = 0.12744,  max |z|^2 |K - I - Psi1_j/z| = 0.057378
+[4] lambda = -0.25, arg in (-1.54, -0.815): max |K - I| |z| = 0.12744,  max |z|^2 |K - I - Psi1_j/z| = 0.057378
+[4] lambda = -0.25, arg in (-0.755, -0.03): max |K - I| |z| = 0.12661,  max |z|^2 |K - I - Psi1_j/z| = 0.056519
+[4] lambda = -0.25, arg in (0.03, 0.755): max |K - I| |z| = 0.12661,  max |z|^2 |K - I - Psi1_j/z| = 0.056519
+[4] lambda = -0.25, arg in (0.815, 1.54): max |K - I| |z| = 0.12744,  max |z|^2 |K - I - Psi1_j/z| = 0.057378
+[4] lambda = -0.25, arg in (1.6, 2.33): max |K - I| |z| = 0.12744,  max |z|^2 |K - I - Psi1_j/z| = 0.057378
+[4] lambda = -0.25, arg in (2.39, 3.11): max |K - I| |z| = 0.12661,  max |z|^2 |K - I - Psi1_j/z| = 0.056519
+[4] lambda = 0.5, arg in (-3.11, -2.39): max |K - I| |z| = 0.25257,  max |z|^2 |K - I - Psi1_j/z| = 0.090307
+[4] lambda = 0.5, arg in (-2.33, -1.6): max |K - I| |z| = 0.2539,  max |z|^2 |K - I - Psi1_j/z| = 0.091614
+[4] lambda = 0.5, arg in (-1.54, -0.815): max |K - I| |z| = 0.2539,  max |z|^2 |K - I - Psi1_j/z| = 0.091614
+[4] lambda = 0.5, arg in (-0.755, -0.03): max |K - I| |z| = 0.25257,  max |z|^2 |K - I - Psi1_j/z| = 0.090307
+[4] lambda = 0.5, arg in (0.03, 0.755): max |K - I| |z| = 0.25257,  max |z|^2 |K - I - Psi1_j/z| = 0.090307
+[4] lambda = 0.5, arg in (0.815, 1.54): max |K - I| |z| = 0.2539,  max |z|^2 |K - I - Psi1_j/z| = 0.091614
+[4] lambda = 0.5, arg in (1.6, 2.33): max |K - I| |z| = 0.2539,  max |z|^2 |K - I - Psi1_j/z| = 0.091614
+[4] lambda = 0.5, arg in (2.39, 3.11): max |K - I| |z| = 0.25257,  max |z|^2 |K - I - Psi1_j/z| = 0.090307
+[4] lambda = 1.5, arg in (-3.11, -2.39): max |K - I| |z| = 1.1347,  max |z|^2 |K - I - Psi1_j/z| = 0.44506
+[4] lambda = 1.5, arg in (-2.33, -1.6): max |K - I| |z| = 1.1389,  max |z|^2 |K - I - Psi1_j/z| = 0.44802
+[4] lambda = 1.5, arg in (-1.54, -0.815): max |K - I| |z| = 1.1389,  max |z|^2 |K - I - Psi1_j/z| = 0.44802
+[4] lambda = 1.5, arg in (-0.755, -0.03): max |K - I| |z| = 1.1347,  max |z|^2 |K - I - Psi1_j/z| = 0.44506
+[4] lambda = 1.5, arg in (0.03, 0.755): max |K - I| |z| = 1.1347,  max |z|^2 |K - I - Psi1_j/z| = 0.44506
+[4] lambda = 1.5, arg in (0.815, 1.54): max |K - I| |z| = 1.1389,  max |z|^2 |K - I - Psi1_j/z| = 0.44802
+[4] lambda = 1.5, arg in (1.6, 2.33): max |K - I| |z| = 1.1389,  max |z|^2 |K - I - Psi1_j/z| = 0.44802
+[4] lambda = 1.5, arg in (2.39, 3.11): max |K - I| |z| = 1.1347,  max |z|^2 |K - I - Psi1_j/z| = 0.44506
