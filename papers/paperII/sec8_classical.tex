@@ -9,8 +9,9 @@ the band weight continues across $(-\delta,0)$ up to a super-exponentially small
 Bessel parametrix of \cite[\S6]{KMVV} can be used at the hard edge for every Bessel order $\alpha>-1$. This section
 proves the first-order small-norm estimate in that setting (Proposition~\ref{prop:classical}). It gives a second proof
 of Corollary~\ref{cor:pure} for $p>1$, without the Christoffel shift, and it sets up the error matrix whose expansion
-to second order gives Theorem~\ref{thm:onen} in Section~\ref{sec:second}. The construction fails at $p=1$, and
-we do not use it for $p<1$ (Remark~\ref{rem:quotient-p1}). The last subsection states a localisation bound for the spectral weights
+to second order gives Theorem~\ref{thm:onen} in Section~\ref{sec:second}. The construction fails at $p=1$
+(Remark~\ref{rem:quotient-p1}); for $0<p<1$ it is adapted in Section~\ref{sec:plt1}, where the square root of the weight
+is glued along the seams of Appendix~\ref{app:outer}. The last subsection states a localisation bound for the spectral weights
 (Proposition~\ref{prop:tail}), used in \cite{Paper3}; its proof is in Appendix~\ref{app:tail}.
 
 \emph{Standing assumptions.} In \S\S\ref{sec:classical-band}--\ref{sec:classical-small} we fix $p>1$, $s>1$ and
@@ -386,12 +387,14 @@ already for $\ell\equiv1$: on $(-\delta,0)$, $\theta=\pi n/x$ is real, the conti
 half-planes differ by the unimodular factor $\tilde F_+/\tilde F_-=-e^{-2i\theta}$, which is not close to $1$, and the
 continuation of $H_n=e^{2j(n/z)}$ (Lemma~\ref{lem:outer}) has double poles at $z=-n/m$, $m\in\N$, accumulating at $0$.
 The comparison parametrix of Section~\ref{sec:hardedge} never continues anything across $(-\delta,0)$: neither $V$ nor $Q$
-has a jump there, and it uses only $D_W$. This is why Theorem~\ref{thm:analytic} at $p=1$ is proved by that route. (The
-obstruction concerns this classical construction, not every quotient construction.) For $p<1$ we do not use the present
-module either: the expansion of Section~\ref{sec:second} to order $1/n$ also needs the band factor to be constant to
-$o(1/n)$ near $0$, as Lemma~\ref{lem:bandfactor}(iii) provides for $p>1$, and for the seam construction of
-Appendix~\ref{app:outer} the available bound near $0$ is only $|\log\Hc(z)|\le C|z|(1+\log(1/|z|))$
-(Table~\ref{tab:geometry}), which does not give this.
+has a jump there, and it uses only $D_W$. This is why Theorem~\ref{thm:analytic} at $p=1$ is proved by that route. The comparison does not give a $1/n$ term,
+so at $p=1$ Theorem~\ref{thm:onen} is proved in the symmetric variable of \cite{WLXZ} instead (Section~\ref{sec:pone}):
+there the hard edge is an interior Fisher--Hartwig point of the band, and the imaginary axis, where the poles of the
+continued band factor lie, carries no jump. (The obstruction concerns this classical construction, not every quotient
+construction.) For $p<1$ the construction applies after a modification: the square root of the band weight is glued
+along the seams of Appendix~\ref{app:outer}, with super-small jumps there, and the band factor is no longer constant to
+$o(1/n)$ near $0$ but has an explicit linear part of size $n^{-p}$ (Lemma~\ref{lem:plt1-band}); Section~\ref{sec:plt1}
+treats this case.
 \end{remark}
 
 \subsection{Localisation of the spectral weights}\label{sec:tail}

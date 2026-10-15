@@ -56,6 +56,11 @@ A.~B.~J. Kuijlaars, K.~T.-R. McLaughlin, W.~Van~Assche, and M.~Vanlessen,
   polynomials on $[-1,1]$}, Adv. Math. \textbf{188} (2004), 337--398,
   arXiv:math/0111252v2.
 
+\bibitem{KV}
+A.~B.~J. Kuijlaars and M.~Vanlessen, \emph{Universality for eigenvalue
+  correlations at the origin of the spectrum}, Comm. Math. Phys. \textbf{243}
+  (2003), 163--191, arXiv:math-ph/0305044.
+
 \bibitem{LL}
 E.~Levin and D.~S. Lubinsky, \emph{Asymptotics associated with exponential
   weights}, Research announcement, 1999.
@@ -90,6 +95,11 @@ T.~Trogdon, \emph{On the asymptotics of orthogonal polynomials on multiple
 W.~Van~Assche, \emph{Compact {J}acobi matrices: from {S}tieltjes to {K}rein and
   {$M(a,b)$}}, Ann. Fac. Sci. Toulouse Math. (6) (1996), 195--215, Num\'ero
   sp\'ecial Stieltjes; arXiv:math/9510214.
+
+\bibitem{Van}
+M.~Vanlessen, \emph{Strong asymptotics of the recurrence coefficients of
+  orthogonal polynomials associated to the generalized {J}acobi weight}, J.
+  Approx. Theory \textbf{125} (2003), to verify, arXiv:math/0212014.
 
 \bibitem{WLXZ}
 X.-B. Wu, Y.~Lin, S.-X. Xu, and Y.-Q. Zhao, \emph{Uniform asymptotics for

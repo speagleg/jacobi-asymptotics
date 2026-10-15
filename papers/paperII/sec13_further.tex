@@ -1,44 +1,41 @@
-% sec11_further.tex
-% Section 11: further remarks and open problems.
-% Labels defined here: sec:further, sec:onen-open, conj:onen, sec:tilt, conj:tilt, sec:nodes.
+% sec13_further.tex
+% Section 13: further remarks and open problems.
+% Labels defined here: sec:further, sec:onen-open, conj:alternating, sec:tilt, conj:tilt, sec:nodes.
 
 \section{Further remarks and open problems}\label{sec:further}
 
 Theorem~\ref{thm:analytic} gives the pointwise law with rate $O(1/n)$ for every $p>0$, and Theorem~\ref{thm:onen}
-identifies the $1/n$ term for pure powers with $p>1$. This section records what the computations of
+identifies the $1/n$ term for pure powers and every $p>0$. This section records what the computations of
 Section~\ref{sec:numerics} suggest beyond these results, states two conjectures, and lists the directions in which the
 method stops.
 
-\subsection{\texorpdfstring{The $1/n$ term for $p\le1$}{The 1/n term for p <= 1}}\label{sec:onen-open}
-The fits of Table~\ref{tab:onen} for $p=\frac12$ and $p=1$ agree with the values of Theorem~\ref{thm:onen} as well as
-the error estimates allow.
+\subsection{Beyond the \texorpdfstring{$1/n$}{1/n} term for pure powers}\label{sec:onen-open}
+For $p\ne1$ the proofs of Sections~\ref{sec:second} and~\ref{sec:plt1} give the $1/n$ term of $b_n$ and $a_n$ directly
+from residues. At $p=1$ the proof of Section~\ref{sec:pone} shows that the $1/N$ term of the recurrence coefficients
+$\mathsf e_N$ of the symmetrised measure exists and has an alternating part, but it determines only the non-alternating
+part, which is all that $b_n$ and $a_n$ see. The alternating part is known at two values of $s$
+(Corollary~\ref{cor:tc}), and the computations of Section~\ref{sec:numerics} support the following formula.
 
-\begin{conjecture}\label{conj:onen}
-Let $0<p\le1$ and $s>1$. Then the pure powers satisfy
+\begin{conjecture}\label{conj:alternating}
+Let $p=1$ and $s>1$. Then the recurrence coefficients $\mathsf e_N$ of the symmetrised measure of $\sigma_{1,s}$ satisfy
 \[
-  n^pb_n(\sigma_{p,s})=c(p)\Bigl(1-\frac{s-1}{2n}+o\Bigl(\frac1n\Bigr)\Bigr),\qquad
-  \frac{a_n(\sigma_{p,s})}{2b_n(\sigma_{p,s})}=1-\frac{p}{2n}+o\Bigl(\frac1n\Bigr).
+  N\mathsf e_N=1+\frac{\frac12-s-3\bigl(s-\frac32\bigr)(-1)^N}{N}+O(N^{-2}).
 \]
 \end{conjecture}
 
-The evidence consists of the rows $p\le1$ of Table~\ref{tab:onen} ($s\in\{\frac32,2,3,4\}$, $n\le1600$) and the
-columns $\ell\equiv1$ of Table~\ref{tab:numerics} at $p=\frac12$ and $p=1$. At $p=\frac12$ the remainder does not
-appear to be $O(n^{-2})$: the fits need the powers $n^{-1-jp}$, and in Table~\ref{tab:numerics} the deviation from
-$-\frac12$ decays like a term of order $n^{-1-p}$ in $n^pb_n/c(p)$. This is why the conjecture is stated with $o(1/n)$
-only. For $p=1$ the averaged form of the statement for $b_n$ is proved in \cite{Paper3}: for every $s>1$,
-\[
-  \sum_{j=1}^n\log\frac{j\,b_j(\sigma_{1,s})}{c(1)}+\frac{s-1}2\log n
-\]
-converges as $n\to\infty$. This is what the conjecture predicts after summation, but it does not imply the pointwise
-statement.
+The non-alternating part $\frac12-s$ is proved (Section~\ref{sec:pone}), and so is the whole formula for
+$s\in\{\frac32,\frac52\}$ (Corollary~\ref{cor:tc}). In the proof of Section~\ref{sec:pone} the alternating part is
+given by contour integrals of the off-diagonal part of the first correction of the Fisher--Hartwig model at the origin;
+evaluating them explicitly would settle the conjecture.
 
-The method of Sections~\ref{sec:classical} and~\ref{sec:second} does not reach $p\le1$, for the reasons given in
-Remark~\ref{rem:quotient-p1}, and the comparison argument of Section~\ref{sec:hardedge} bounds the hard-edge
-contribution by $O(1/n)$ without computing its $1/n$ term. At $p=1$ the band factor equals $1+z/(6n)+O(n^{-2})$, a
-defect that alone enters the coefficients only at order $n^{-2}$; the obstruction is the hard-edge parametrix. For
-$p<1$ the numerics show remainders of order $n^{-1-p}$, which a proof would have to produce. What is missing is a
-hard-edge parametrix with matching error $O(n^{-2})$ at $p=1$, and one adapted to the seams of
-Appendix~\ref{app:outer} for $p<1$.
+Two further coefficients are open. For $0<p<1$ the remainder $O(n^{-1-2p}+n^{-2})$ of Theorem~\ref{thm:onen} hides a
+term of order $n^{-1-2p}$, whose coefficient we have not computed; the expansion of the band factor in
+Lemma~\ref{lem:plt1-band} continues with the term $\zeta(-2p)(z^2-1)/(2n^{2p})$, and the coefficient should be the
+first-order response to this quadratic factor plus the second-order response to the linear one. More generally, the
+fits of Section~\ref{sec:numerics} are consistent with an asymptotic expansion of $n^pb_n/c(p)$ in the powers
+$n^{-1-i-jp}$, $i,j\ge0$. The coefficient of $n^{-2}$ is known only in the cases $(p,s)=(1,\frac32)$, $(1,\frac52)$
+(Corollary~\ref{cor:tc}) and $(2,2)$ (Remark~\ref{rem:lommel}); computing it in general would need the second
+corrections of the Bessel and Airy models and the second-order term of the small-norm expansion.
 
 \subsection{Slowly varying factors at order \texorpdfstring{$1/n$}{1/n}}\label{sec:tilt}
 For an analytic factor $\ell$ the columns $\ell$ of Table~\ref{tab:numerics} drift away from the pure-power values. The
@@ -62,13 +59,10 @@ method the conjecture amounts to computing the main term of the comparison estim
 Conway and Deift do for their weight \cite[(5.5)]{CD}; this would need a Bessel parametrix with a drifting order.
 
 \subsection{Other Bessel orders, other nodes, rougher weights}\label{sec:nodes}
-For analytic factors $\ell$, and for pure powers with $p\le1$, Bessel orders $\alpha\ge1$ are reached only through
-the Christoffel shift. A direct Riemann--Hilbert analysis for $\alpha\ge1$ would need a different comparison frame
-(Remark~\ref{rem:alpha-ge-1}); it would be needed to compute the $1/n$ term in that range.
-
-At $p=1$ one can also work in the symmetric variable $y=\pm x^{1/2}$ of \cite{WLXZ}, where $0$ is an interior
-Fisher--Hartwig point of the band. The comparison method then covers only $1<s<2$ directly, and $1<s<3$ after folding;
-we have not pursued this.
+For analytic factors $\ell$ the Bessel orders $\alpha\ge1$ are reached only through the Christoffel shift. A direct
+Riemann--Hilbert analysis for $\alpha\ge1$ would need a different comparison frame (Remark~\ref{rem:alpha-ge-1}); it
+would be needed to compute the $1/n$ term in that range. For pure powers this restriction does not arise, because the
+classical parametrices of Sections~\ref{sec:classical}, \ref{sec:plt1} and~\ref{sec:pone} work for every Bessel order.
 
 Our nodes are exact powers $k^{-p}$. For nodes $x_k=f(k)$ with $f'(\xi)\sim-pC\xi^{-p-1}$ the averaged law is known
 \cite[Corollary~1.2]{Paper1}, but the pointwise law $n^pb_n\to c(p)C$ is open. One expects it to hold when $f$ is smooth

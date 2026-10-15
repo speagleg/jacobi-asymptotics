@@ -117,7 +117,7 @@ inverse-square-root density of (iii).
 
 \subsection{The discrete interpolation problem of Wu, Lin, Xu and Zhao}\label{sec:tool-wlxz}
 
-This subsection and the next three state the external results used in Sections~\ref{sec:frame}--\ref{sec:second} and
+This subsection and the next three state the external results used in Sections~\ref{sec:frame}--\ref{sec:pone} and
 the appendices. They are needed only from Section~\ref{sec:frame} on. Throughout, the Cauchy transform on an oriented
 contour $\Sigma$ is
 \[
@@ -128,9 +128,16 @@ $\Cauchy_+-\Cauchy_-=1$. For a jump matrix $v$ on $\Sigma$ we write $\Cauchy_vf:
 matrices $\sigma_1,\sigma_2,\sigma_3$ are the Pauli matrices, and $\sigma_3=\mathrm{diag}(1,-1)$.
 
 Wu, Lin, Xu and Zhao~\cite{WLXZ} develop the Riemann--Hilbert method for discrete orthogonal polynomials on infinitely
-many nodes with an accumulation point, for the Tricomi--Carlitz polynomials. We apply none of their theorems to our
-measures; we use the formulation of the problem and the order of the transformations, and our versions are written out
-in Sections~\ref{sec:frame} and~\ref{sec:outer}.
+many nodes with an accumulation point, for the Tricomi--Carlitz polynomials. For $p\ne1$ we apply none of their
+theorems to our measures; we use the formulation of the problem and the order of the transformations, and our versions
+are written out in Sections~\ref{sec:frame} and~\ref{sec:outer}. For $p=1$, Section~\ref{sec:pone} runs their analysis
+itself, in their symmetric variable and at their parameter $1$, with the weight multiplied by an explicit analytic
+factor. It uses the Tricomi--Carlitz orthogonality and recurrence \cite[(1.4)--(1.9)]{WLXZ}, the equilibrium density and
+$g$-function \cite[(2.1)--(2.4), (4.3)]{WLXZ}, the transformations \cite[(2.14)--(2.15), (3.1), (3.4), (3.6)--(3.12),
+(3.15), (4.1), (4.12)]{WLXZ}, the auxiliary functions \cite[(4.14)--(4.20), (4.22), (4.24), (4.28)]{WLXZ}, the global parametrix
+\cite[(5.11)]{WLXZ} with the constant $L$ of \cite[(5.9)]{WLXZ}, the Airy parametrices \cite[(6.8),
+(6.10)--(6.21)]{WLXZ}, and the jump and small-norm statements \cite[(5.8), (6.34)--(6.37)]{WLXZ}, all under their
+hypothesis that the parameter is positive.
 
 \emph{(a) The problem and its solution.} Let $\sigma=\sum_{k\ge1}w_k\delta_{x_k}$ with distinct nodes
 $x_k\in(0,1]$, $w_k>0$ and $\sum_kw_k<\infty$, and fix $n\ge1$. Following \cite[(2.14) and Theorem~2.3]{WLXZ}, put
@@ -211,6 +218,18 @@ entries have at most a square-root singularity at the endpoint and it is analyti
 \cite[proof of Proposition~6.5]{KMVV}. In Section~\ref{sec:hardedge} this argument is applied only to a prefactor that
 does not involve the weight.
 
+\emph{(d) A Fisher--Hartwig point in the bulk.} For a band weight $|x|^{2\alpha+1}h(x)$ near an interior point, with $h$
+analytic and zero-free and $\alpha>-1$, Kuijlaars and Vanlessen \cite[\S5]{KV} build a local parametrix from a
+model problem $\Psi$ with constant jumps on the rays $\arg\zeta=(j-1)\pi/4$ \cite[(5.17)--(5.20)]{KV}. Vanlessen
+\cite[(4.26)--(4.33)]{Van} solves it with $I_\nu$, $K_\nu$ and $H^{(1,2)}_\nu$ of the orders $\nu\in\{\alpha,\alpha+1\}$. It
+has $\det\Psi=1$ \cite[(4.53)]{Van} and the behaviour at $0$ of \cite[(5.21)--(5.22)]{KV}. As $\zeta\to\infty$ in each
+quadrant, $\Psi(\zeta)=\frac1{\sqrt2}\bigl(\begin{smallmatrix}1&-i\\-i&1\end{smallmatrix}\bigr)(I+O(1/\zeta))e^{\pi
+i\sigma_3/4}e^{-i\zeta\sigma_3}C_q$ with a constant matrix $C_q$ \cite[(4.43)--(4.46)]{Van}. The parametrix is
+$E_n\Psi(nf)W^{-\sigma_3}e^{-n\varphi\sigma_3}$, with $f$ of \cite[(5.6)]{KV}, $W$ of \cite[(5.9)]{KV}, and the
+prefactor $E_n$ of \cite[(5.26)--(5.30)]{KV}, which is analytic by the argument of \cite[p.~19]{KV}; the factor $h$ is
+absorbed into $W$ as in \cite[\S4.1]{Van}. Only the construction is used, in Section~\ref{sec:pone}; the theorems of
+\cite{KV,Van} on orthogonal polynomials are not applied.
+
 \subsection{The comparison argument of Conway and Deift}\label{sec:tool-cd}
 
 The following are from \cite[\S4]{CD}, whose Cauchy operator is normalised as ours. Lebesgue exponents are written
@@ -271,7 +290,7 @@ $z\notin\mathbb Z$; (5.11.1) $\mathrm{Ln}\,\Gamma(z)\sim(z-\frac12)\ln z-z+\frac
 \frac{B_{2k}}{2k(2k-1)z^{2k-1}}$ as $z\to\infty$, uniformly in closed subsectors of $|\mathrm{ph}\,z|<\pi$, where by
 \S5.11(ii) the remainder after the term $k=m-1$ is at most $\sec^{2m}(\frac12\mathrm{ph}\,z)$ times the first neglected
 term; (5.12.3), (5.12.1) $\int_0^\infty t^{a'-1}(1+t)^{-a'-b'}\diff t=B(a',b')=\Gamma(a')\Gamma(b')/\Gamma(a'+b')$ for
-$\re a',\re b'>0$.
+$\re a',\re b'>0$. (5.2.1) $\Gamma(z)=\int_0^\infty e^{-t}t^{z-1}\diff t$ for $\re z>0$.
 
 \emph{(b) Airy functions} (\S\S9.2, 9.7). $\mathrm{Ai}$ is entire, and $\mathrm{Ai}(z)$, $\mathrm{Ai}(ze^{\mp2\pi
 i/3})$ solve $w''=zw$; (9.2.8) $\mathcal W\{\mathrm{Ai}(z),\mathrm{Ai}(ze^{\mp2\pi i/3})\}=e^{\pm\pi i/6}/(2\pi)$;
@@ -315,3 +334,7 @@ and (10.17.6) $H^{(2)}_\nu(z)\sim(2/(\pi z))^{1/2}e^{-i\varpi}\sum_k(-i)^ka_k(\n
 $-2\pi+\delta\le\mathrm{ph}\,z\le\pi-\delta$; (10.17.11)--(10.17.12) give $H^{(1,2)\prime}_\nu(z)\sim\pm
 i(2/(\pi z))^{1/2}e^{\pm i\varpi}\sum_k(\pm i)^kb_k(\nu)z^{-k}$ in the same two sectors. None of these expansions
 restricts $|\nu|$.
+
+\emph{(e) The zeta function.} (25.2.1) $\zeta(w)=\sum_{m\ge1}m^{-w}$ for $\re w>1$, and the reflection formula (25.4.1)
+$\zeta(1-w)=2(2\pi)^{-w}\cos(\frac12\pi w)\Gamma(w)\zeta(w)$ for $w\ne0,1$ (we write $w$ for the variable, since $s$ is
+the exponent of the weights).

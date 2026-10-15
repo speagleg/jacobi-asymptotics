@@ -82,3 +82,15 @@ local paths in any tracked file of the folder.
   checked against papers/paper1/main.tex. Paper III cited as forthcoming for general slowly varying/rough weights and
   for the averaged p = 1 statement. The §2.1 footnote on Paper I's former a_{k+1} indexing is deleted (Paper I now uses
   a_k).
+
+## Update 2026-10-15 (referee fixes; Theorem 1.4 for every p > 0; 105 pp.)
+Build: pdflatex, bibtex, pdflatex ×2: 105 pp., 0 errors, 0 LaTeX/hyperref/bibtex warnings, 0 undefined references,
+0 overfull/underfull boxes. Grep over the new and changed files (sec1, sec10_plt1, sec11_pone, sec12, sec13, appG, appH):
+0 hits for the banned words, "---", \textbf, "Plan", "REVIEW", "Route", "x-frame", "RH", E_p1/E_plt1, κ; "note that" 0,
+"indeed" 0 in the new files. κ_p is not used (𝗄_p instead; Papers I/III reserve κ_p). New sections open with purpose
+paragraphs (§10: why §§8–9 do not apply verbatim; §11: why neither hard-edge construction gives the 1/n term at p = 1);
+the long proofs of §11/App. H open with the plan of the appendix. Lists only in statements. New external inputs are
+recorded in §2 (2.4: the parts of WLXZ applied at p = 1; 2.5(d): the Fisher–Hartwig model of KV/Vanlessen; 2.7: DLMF
+5.2.1, 25.2.1, 25.4.1, 10.32.4, 10.32.9; KMVV (6.19)–(6.21) in 2.5(a)), and the dependence of Thm 1.4 at p = 1 on the
+analysis of WLXZ is stated after Thm 1.4 and after Prop 11.9. Deviation: the introduction is now about 5 pages (guide
+≤ 4) because Theorem 1.4 has two parts and Remark 1.7 was added; trimming left to the author.

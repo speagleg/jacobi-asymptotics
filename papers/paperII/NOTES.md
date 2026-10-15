@@ -1,8 +1,8 @@
 # Paper II — notes (draft of 2026-10-15)
 
 Local working notes; not part of the paper. Build: `pdflatex main; bibtex main; pdflatex main; pdflatex main`
-(no latexmk). Current build (after the editor pass of 2026-10-15): 80 pp., 0 errors, 0 LaTeX/bibtex warnings, 0
-overfull/underfull boxes.
+(no latexmk). Current build (after the referee fixes and the completion of Theorem 1.4 for every p > 0, 2026-10-15): 105 pp., 0 errors,
+0 LaTeX/bibtex warnings, 0 overfull/underfull boxes.
 
 Sources: `papers/paper2/` (old combined draft, unchanged), `research/G1/RH/second_order/E_pgt1.md` (Theorem 1.4),
 `research/G1/RH/px/RH_px.md` (§8), `research/G1/RH/second_order/TAIL.md` (Proposition 8.6; reviewed and merged on
@@ -66,7 +66,7 @@ Paper III must cite the numbers of the frozen version; exported labels: thm:anal
      to o(1/n)).
 3. **Prop 5.6(vii)** (a priori bound and admissibility of Q) is stated under |α| < 1, conservatively; Prop B.4 holds for
    all α > −1 and only Cor B.5 needs |α| < 1. Could be relaxed.
-4. **Conjecture 11.1 (p ≤ 1)**: other agents (E_p1.md for p = 1, E_plt1.md for 0 < p < 1) claim proofs, review in
+4. **(Resolved 2026-10-15, see §8: now Theorem 1.4 for every p > 0.)** Former Conjecture 11.1 (p ≤ 1): other agents (E_p1.md for p = 1, E_plt1.md for 0 < p < 1) claim proofs, review in
    progress. Keep as a conjecture until reviewed; then Theorem 1.4 extends and §§8–9 need a p ≤ 1 counterpart.
    The sentence attributing the p = 1 averaged statement to Paper III relies on TAIL.md's telescoping (every s > 1).
 5. Human expert reading of §§4–6 and Apps. B, D (REFEREE2 "what a human expert should still check") is still needed.
@@ -127,3 +127,55 @@ Items for the author or the referee:
 - 𝔠₀ in Lemma E.1 is stated "for completeness" and used nowhere in II (nor, per PAPER_III_OUTLINE, in III).
 - LL is still cited as "Research announcement, 1999" without journal data.
 
+
+## 8. Referee fixes and Theorem 1.4 for every p > 0 (2026-10-15, branch plan-70-paperII)
+
+**Referee fixes (REFEREE_MATH.md), commit 3e6f87d.** M1: Prop 8.4 Step 2 rewritten with the referee's citation-free
+paragraph (α > −1/2: (R-at-zero) + Lemma cauchy-arcs(c) on R − I; −1 < α ≤ −1/2: Prop 5.6(vii) + CD Thm 4.4 as in §6);
+the local solution X̃ is gone; the sentences claiming that §8 never uses Prop 5.6(vii) are corrected (standing
+assumptions, the paragraph before the proof, the Outline). m1: Lemma A.1(iii) extended by the two fixed-n facts; Lemma 8.1
+cites (iii). m2: O(n^{−p} + n^{−3}) in the remark after Lemma 8.1 (and E_pgt1 Remark (1), marked). m3: f^{1/2} at δ.
+m4: App. F renamed B(s') → 𝖠_z(s'), t → τ'. m5: KMVV (6.19)–(6.21) in §2.5(a), DLMF 10.32.4/10.32.9 in §2.7(c), and the §1
+sentence now says the Lommel formulas are quoted at the point of use. m6: the middle M-range of App. F case (b) stated.
+m8: a′ → a_* in Lemma 9.3. m7 (Teschl) not done: Teschl not read.
+
+**New material.**
+| § | Content | pp. (105-p. build) | Source |
+|---|---|---|---|
+| 1 | Thm 1.4 restated for every p > 0 (𝗄_p := 2pc(p)ζ(−p)); Rem 1.7 (second order at p = 1); external-results paragraph incl. the WLXZ dependence at p = 1; method, organisation and reading paths | 1–6 | E_plt1 Thm E′.1, E_p1 Thms E1.6, E1.10 |
+| 10 | Pure powers 0 < p < 1 (Lemmas 10.1 band factor with zeta moments, 10.2 Szegő of e^{−𝖽x}, 10.3, 10.4 glued parametrix; Props 10.5, 10.8; Lemmas 10.6, 10.7; proof; Rem 10.9) | 59–65 | E_plt1, RH_plt1b §2, REVIEW_Plan67_A/B |
+| 11 | Pure powers p = 1 (fold; comparison with Tricomi–Carlitz, Cor 11.7 = −1/24; Lemma 11.8 differences in s; Prop 11.9 first-order analysis in the symmetric variable; Lemmas 11.10–11.11; Prop 11.12; Thm 11.13 chain; proof; Rem 11.14) | 66–73 | E_p1, RH_p1, RH_p1_general, REVIEW_Plan66_A/B |
+| 12 | Numerics: Tables 12.3 (n^{−1−p} coefficient, p < 1) and 12.4 (second order at p = 1) added | 74–78 | check_e_plt1_num.out, check_e1_tc.out, check_e1_rate.out |
+| 13 | Conjecture 13.1 (alternating constant at p = 1), Conjecture 13.2 (tilt law), open coefficients | 78–79 | E_p1 §8, E_plt1 §10 |
+| G | Lemma 10.1(iv)–(v); 𝖽-derivative of the full Airy coefficient | 97–98 | E_plt1 §3, Lemma E′.5 |
+| H | First-order analysis at p = 1 (setup, Stirling truncation, Szegő functions, Airy reduction, Fisher–Hartwig parametrix and mismatch, behaviour at 0, identification), two-term models, second-order jumps | 98–105 | RH_p1_general, E_p1 §3 |
+
+**Dependency of p = 1 on Paper III removed.** E_p1 fixes d₁ by UL Cor UL-3.10 (Paper III). Paper II uses instead the new
+Lemma 11.8 (for every p > 0: log h_n(s) − log h_n(t) = −(s−t) log n + O(1)), proved from the minimum property, Jensen,
+the Christoffel identity h_n(xσ) = u_n h_n(σ), Cor 1.3 and Lemma 3.4 (no tail bound). Existence of the 1/N term (Thm 11.13)
+plus Lemma 11.8 at t = 3/2 plus d₁(3/2) = −1/4 (Cor 11.7, elementary) gives d₁ = −(s−1)/2. **Lemma 11.8 is new and has not
+had a Rule R review.**
+
+**Other deviations from the reviewed sources (need a second reading).**
+- §10: residue combinations stated exactly in 𝖽 (source: first order in λ; re-checked exactly by the drafting agent,
+  scratch only); bound (10.5) on the whole discs (source: on the circles); the seam split Ǎ = Ǎ^a + Ǎ^s with the claim that
+  the seam boundary values of G have derivatives ≤ Cn^C (one line, not in the sources); Ψ_α bounds near 0 on the moved
+  rays; the M1-corrected Step 2 run for p < 1.
+- §11/App. H: the identification at the origin rewritten without the local solution X̃ (Lemma cauchy-arcs(c) applied to
+  z(𝖷 − I) − 𝖷₁, then the constant removed along arg z = π/8); the log² padding of the amplification bound at α = −1/2
+  dropped (orders ±½ are elementary). In App. H the Fisher–Hartwig exponent α + ½ is written a (local to App. H).
+- p = 1 relies on WLXZ's analysis (uniform O(e^{−cN}) jumps up to the largest node; uniform Cauchy bound): stated in §1
+  after Thm 1.4, in §2.4, and after Prop 11.9.
+
+**Notation.** 𝗄_p (not κ_p, which Papers I/III reserve for 3p/2 + log c(p)); 𝖽_n := 2ζ(−p)n^{−p}; 𝖤_n remainder of the
+band function; 𝖬_k moments; 𝔧 seam jump; 𝔎 Cauchy kernel; ϱ^mod; 𝖾_N symmetric chain (as Paper III); 𝖿₀, 𝖿₁ chain
+constants at p = 1; 𝖷 error matrix at p = 1; 𝖰_m, 𝒟_h, 𝒟_q, 𝒩, 𝒩_s, 𝖶_N; App. H band jump 𝗃.
+
+**Numbering.** Exported numbers unchanged: Thm 1.2, Cor 1.3, Thm 1.4, Rem 1.6, Thm 3.1, Lemmas 3.2–3.5, Prop 8.6, Def 1.1.
+Changed: old §10 (numerics) → §12, Tables 10.1, 10.2 → 12.1, 12.2; old §11 → §13, Conjecture 11.1 (1/n term for p ≤ 1)
+removed (now Theorem 1.4), Conjecture 11.2 (tilt) → Conjecture 13.2; new Rem 1.7. **Paper III must update**
+papers/paperIII/sec8.tex: [II, Conjecture 11.1] is now [II, Theorem 1.4]; [II, Conjecture 11.2] → [II, Conjecture 13.2];
+Paper III's remarks that the pointwise 1/n term for p ≤ 1 is unknown are out of date.
+
+**Open items.** Second reading of §§10–11 and Apps. G–H against the sources (and of Lemma 11.8); m7 (Teschl); the
+introduction is now about 5 pages (guide: ≤ 4); length 105 pp.; novelty search for Thm 1.4 (p ≤ 1) and Cor 11.7 not done.
