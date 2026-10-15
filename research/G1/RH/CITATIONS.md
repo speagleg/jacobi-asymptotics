@@ -695,3 +695,102 @@ with no restriction on |ν|; the "|α| < 1" recorded in the "(DLMF-10.40, Paper 
 not a DLMF hypothesis. E_pgt1 uses them with ν = α ∈ (−1, ∞) fixed (α ≥ 1 allowed), in the sectors checked in Lemma E.3:
 |ph w| < π/3 (w = 2ζ^{1/2}) for 10.40.1–4, and ph 2(−ζ)^{1/2} ∈ (−π/6, π/6) for 10.17.5–6, 10.17.11–12. DLMF 10.25.2 is used
 in E_pgt1 Cor E.6 for xI′_α(x)/I_α(x) → α as x → 0⁺ and I_α(x) > 0 for small x > 0 (α > −1, so Γ(α+1) > 0).
+
+## (DLMF-zeta, Plan 67) NIST DLMF (5.2.1), (25.2.1), (25.4.1) — READ (pages dlmf.nist.gov/5.2, /25.2, /25.4 fetched 2026-10-15 by curl; formulas from the TeX alttext)
+
+> §5.2(i): (5.2.1) `\Gamma\left(z\right)=\int_{0}^{\infty}e^{-t}t^{z-1}\,\mathrm{d}t,` with the condition `\Re z>0`.
+> §25.2(i) Definition: "When ℜs > 1," (25.2.1) `\zeta\left(s\right)=\sum_{n=1}^{\infty}\frac{1}{n^{s}}.`
+> §25.4 Reflection Formulas: "For s ≠ 0, 1," (25.4.1) `\zeta\left(1-s\right)=2(2\pi)^{-s}\cos\left(\tfrac{1}{2}\pi s\right)\Gamma\left(s\right)\zeta\left(s\right),`
+
+**Used in:** second_order/E_plt1.md Lemma F.1(iii) (moments of the seam jump): ∫_0^∞ −log(1 − e^{−u})u^{kp−1}du =
+Γ(kp)ζ(1 + kp) by expanding −log(1 − e^{−u}) = Σ_m e^{−mu}/m (non-negative terms, Tonelli) and 5.2.1 after u ↦ mu
+(hypothesis Re(kp) > 0: kp > 0 ✓), then 25.2.1 at s = 1 + kp (Re s > 1 ✓); and 25.4.1 at s = 1 + kp (s ≠ 0, 1 ✓) to write
+the result as ζ(−kp)/k. Also Theorem E′.1 (sign of κ_p): ζ(−p) = −2(2π)^{−1−p}sin(πp/2)Γ(1+p)ζ(1+p) < 0 for 0 < p < 1
+(25.4.1 at s = 1 + p; ζ(1+p) > 0 by 25.2.1; Γ(1+p) > 0 by 5.2.1).
+
+## (Plan 67 reuse) entries above used by second_order/E_plt1.md
+
+As "(Plan 65 reuse)" (KMVV, (KMVV-orient, Paper 2), (DLMF-10.40, Paper 2), (DLMF-10.17, Plan 55), (DLMF-9, Paper 2),
+(DLMF-9.7.2, Plan 65), (DLMF-5) 10.25.2, (DLMF) §5.11 and 5.5.1 via Paper 2 (eq. binet-bound), (eq. binet-small)), plus
+**(KMVV, angle freedom; Plan 15b)** for the Bessel rays at π − θ_L, θ_L = πp/4 (RH_plt1b §2). *Hypotheses checked (E_plt1
+Lemma E′.3):* for |arg ζ| < π − θ_L, w = 2ζ^{1/2} has |ph w| ≤ π/2 − θ_L/2, inside 10.40.1/10.40.3's |ph z| ≤ π/2 − δ with
+δ = θ_L/2 (10.40.2/10.40.4 hold in |ph z| ≤ 3π/2 − δ); for π − θ_L < ±arg ζ < π, ph 2(−ζ)^{1/2} ∈ (−θ_L/2, 0), resp.
+(0, θ_L/2), inside the sectors of 10.17.5/10.17.11 (−π + δ ≤ ph ≤ 2π − δ) and 10.17.6/10.17.12 (−2π + δ ≤ ph ≤ π − δ); ν = α > −1
+fixed. Internal: RH_plt1b, RH_plt1 (amendments), RH_px §5 (all REVIEWED); E_pgt1 Lemmas E.3–E.5 (REVIEWED); Paper 2 Lemmas
+seam, corner, szego, airy, invariance, Prop. frame.
+
+## (WLXZ-v1, Plan 66) further quotes — read in arXiv:1410.3948v1 (PDF re-fetched from arxiv.org/pdf/1410.3948v1 on 2026-10-15, text by pdftotext -layout)
+
+Formulas linearized from the PDF. Hypothesis throughout: "α is a positive parameter" (α_W); Plan 66 uses α_W = 1.
+
+> (1.3)–(1.5) "Carlitz [6] revisited these polynomials, and found that if one set f_n^{(α)}(x) = x^n t_n^{(α)}(x^{−2}), then
+> f_n^{(α)}(x) possess the following orthogonality ∫_{−∞}^{∞} f_m^{(α)}(x)f_n^{(α)}(x)dψ^{(α)}(x) = h_nδ_{mn}, h_n = 2e^α/((n + α)n!),
+> where α is a positive number, ψ^{(α)}(x) is the step function with jumps dψ^{(α)}(x) = (k + α)^{k−1}e^{−k}/k! at x = ±x_k,
+> and the nodes x_k = (k + α)^{−1/2} for k = 0, 1, 2, · · ·."
+> (1.6) "It is readily verified that the Tricomi-Carlitz polynomials satisfy the recurrence relation (n + 1)f_{n+1}^{(α)}(x) −
+> (n + α)xf_n^{(α)}(x) + f_{n−1}^{(α)}(x) = 0, n ≥ 1, with initial values f_0^{(α)}(x) = 1, and f_1^{(α)}(x) = αx."
+> (1.8)–(1.9) "if we denote the monic polynomials by π_n(z) := f_n^{(α)}(x)/γ_n, then the leading coefficient of f_n^{(α)}(z) is
+> γ_n = Π_{k=0}^{n−1}(k + α)/(k + 1) = Γ(n + α)/(Γ(α)Γ(n + 1))."
+>
+> (4.3) "g′_±(x) = ∓πiψ(x), x ∈ (−2, 2)"; proof of Prop. 4.2: "where in the last step we have made use of the result
+> g_±(2) = l/2 ± πi∫_2^{+∞}ψ(s)dx = l/2 ± πi/4."
+>
+> (5.9) context: "for x ∈ (−2, 2), the functions D̂²(x)/w₀(x) and w₀(x)/D̃²(x) are approximated by −(4 − x²)^{2α−1}e^L as n → ∞,
+> where L = log(√2 iΓ²(α)e^α/√π)."
+>
+> (6.8) Ψ(z) := [[Ai(z), ω²Ai(ω²z)], [iAi′(z), iωAi′(ω²z)]] for arg z ∈ (0, π/2); [[−ωAi(ωz), ω²Ai(ω²z)], [−iω²Ai′(ωz),
+> iωAi′(ω²z)]] for arg z ∈ (π/2, π); [[−ω²Ai(ω²z), −ωAi(ωz)], [−iωAi′(ω²z), −iω²Ai′(ωz)]] for arg z ∈ (−π, −π/2);
+> [[Ai(z), −ωAi(ωz)], [iAi′(z), −iω²Ai′(ωz)]] for arg z ∈ (−π/2, 0), "where ω = e^{2πi/3}".
+> (6.10) "f̃_n(z) = (−(3/2)nφ̃(z))^{2/3}"; (6.11) "φ̃(z) = −(2/3)(z − 2)^{3/2} + O((z − 2)²)".
+> (6.12) "V_r(z) = E_r(z)σ₂Ψ(f̃_n(z))σ₂e^{nφ̃σ₃}(D̃/w̃^{1/2})^{σ₃}, where the Pauli matrix σ₂ = [[0, −i], [i, 0]] and the
+> matrix-valued function E_r(z) is analytic in U(2, ε), to be determined later."
+> (6.13) "σ₂Ψ(f̃_n(z))σ₂e^{nφ̃σ₃} = (1/√π)(f̃_n(z))^{σ₃/4}[[1, −i], [−i, 1]]^{−1}(I + O(1/n))"
+> (6.14) "(D̃/w̃^{1/2})^{σ₃}N(z)(D̃/w̃^{1/2})^{−σ₃} = ((z² − 4)^{(1/2−α)σ₃}/(z² − 4)^{1/4})[[ϕ(z/2)^{2α−1/2}, −iϕ(z/2)^{1/2−2α}],
+> [iϕ(z/2)^{2α−3/2}, ϕ(z/2)^{3/2−2α}]](I + O(1/n)), which holds uniformly for z ∈ ∂U(2, ε) as n → ∞."
+> (6.15)–(6.16) "E_r(z) = √π(D̃/w̃^{1/2})^{−σ₃}m_r(z)(f̃_n(z))^{−σ₃/4}, where m_r(z) = ((z² − 4)^{(1/2−α)σ₃}/(z² − 4)^{1/4})
+> [[ϕ(z/2)^{2α−1/2}, −iϕ(z/2)^{1/2−2α}], [iϕ(z/2)^{2α−3/2}, ϕ(z/2)^{3/2−2α}]][[1, −i], [−i, 1]]. It can be shown that E_r(z) has no
+> jumps across the interval (0, 2), and in addition that it has a removable singularity at z = 2."
+> (6.17)–(6.21): the parametrix at −2, "V_l(z) = E_l(z)σ₁Ψ(f̂_n(z))σ₁e^{nφ̂σ₃}(D̂/(−ŵ)^{1/2})^{σ₃}", f̂_n = (−(3/2)nφ̂)^{2/3}.
+> (6.36) "S(z) = I + C(Δ_S + u_SΔ_S), where Δ_S := J_S(z) − I and u_S := (I − C_{Δ_S})^{−1}(C₋Δ_S)" (the jump and small-norm
+> statements (6.34), (6.35), (6.37) are quoted in the entry "(WLXZ-v1)" above).
+
+**Used in:** second_order/E_p1.md (Plan 66): Lemma E1.5 ((1.4)–(1.9), α_W = 1 > 0; the folded measure has atoms 1/j, masses
+2e·j^{j−1}e^{−j}/j!); Lemma E1.7(i) ((6.8), (6.10)–(6.16) at α_W = 1 with σ_{3/2}'s weight as in RH_p1 §2 step 4; the identities
+G_TC = e^{−L}(z² − 4)^{−1}H_N^{−1} and "(6.14) exact for the model" are derived from these formulas and checked to 10⁻⁴⁰ in
+second_order/checks/check_e1_models.out [1]); Lemma E1.7(ii) ((2.1), (2.3), (4.3) and g_±(2): φ₊(0) = −iπ/2); Prop E1.8 ((6.36) with
+(6.35), (6.37), via RH₁(r) §7). Hypotheses checked: α_W = 1 > 0; the disc radius ε and lens are those of RH₁/RH₁(r).
+
+## (Van, Plan 66) further quotes — read in arXiv:math/0212014 (PDF re-fetched 2026-10-15, text by pdftotext -layout), §4.2–4.3
+
+> §4.2: "We construct a solution Ψ_λ of this RH problem out of the modified Bessel functions I_{λ±1/2} and K_{λ±1/2}, and out of
+> the Hankel functions H^{(1)}_{λ±1/2} and H^{(2)}_{λ±1/2}." (4.26) "For ζ ∈ I, Ψ_λ(ζ) = ½√π ζ^{1/2}[[H^{(2)}_{λ+½}(ζ),
+> −iH^{(1)}_{λ+½}(ζ)], [H^{(2)}_{λ−½}(ζ), −iH^{(1)}_{λ−½}(ζ)]]e^{−(λ+¼)πiσ₃}"; (4.28) for ζ ∈ III: as (4.27) with e^{½λπiσ₃};
+> (4.29) "For ζ ∈ IV, Ψ_λ(ζ) = ½√π(−ζ)^{1/2}[[iH^{(1)}_{λ+½}(−ζ), −H^{(2)}_{λ+½}(−ζ)], [−iH^{(1)}_{λ−½}(−ζ), H^{(2)}_{λ−½}(−ζ)]]
+> e^{(λ+¼)πiσ₃}"; (4.30) "For ζ ∈ V, … ½√π(−ζ)^{1/2}[[−H^{(2)}_{λ+½}(−ζ), −iH^{(1)}_{λ+½}(−ζ)], [H^{(2)}_{λ−½}(−ζ),
+> iH^{(1)}_{λ−½}(−ζ)]]e^{−(λ+¼)πiσ₃}"; (4.31)–(4.32) for VI, VII: [[−i√πζ^{1/2}I_{λ+½}(ζe^{πi/2}), −(i/√π)ζ^{1/2}K_{λ+½}(ζe^{πi/2})],
+> [√πζ^{1/2}I_{λ−½}(ζe^{πi/2}), −(1/√π)ζ^{1/2}K_{λ−½}(ζe^{πi/2})]]e^{∓½λπiσ₃}; (4.33) "for ζ ∈ VIII … ½√πζ^{1/2}
+> [[−iH^{(1)}_{λ+½}(ζ), −H^{(2)}_{λ+½}(ζ)], [−iH^{(1)}_{λ−½}(ζ), −H^{(2)}_{λ−½}(ζ)]]e^{(λ+¼)πiσ₃}". ((4.27) is quoted in "(Van)".)
+> §4.3: "In order to determine the asymptotic behavior of Ψ_λν at infinity, we insert the behavior of the Bessel functions at
+> infinity into the matrix valued function Ψ_λν, given by (4.26)–(4.33). … Then, a straightforward calculation gives us the
+> asymptotic behavior of Ψ_λν at infinity. The behavior is different in each quadrant." (4.43) (quoted in "(Van)"); (4.44)
+> "Ψ_λν(ζ) = (1/√2)[[1, −i], [−i, 1]](I + O(1/ζ))e^{πiσ₃/4}e^{−iζσ₃}e^{½λνπiσ₃}, uniformly for ζ in the second quadrant";
+> (4.45), (4.46): the same with e^{½λνπiσ₃}[[0, −1], [1, 0]], resp. e^{−½λνπiσ₃}[[0, −1], [1, 0]], "uniformly for ζ in the third
+> quadrant", resp. "fourth quadrant".
+> (4.47)–(4.48) "E_{n,xν}(z) = E_ν(z)ϕ₊(x_ν)^{nσ₃}e^{−πiσ₃/4}(1/√2)[[1, i], [i, 1]], where the matrix valued function E_ν(z) does
+> not depend on n"; Remark 4.4 "With this E_{n,xν} we see that P_{xν}(z)N^{−1}(z) = N(z)W_{xν}(z)^{σ₃}ϕ₊(x_ν)^{nσ₃}(I + O(1/n))
+> ϕ₊(x_ν)^{−nσ₃}W_{xν}(z)^{−σ₃}N^{−1}(z)".
+
+**Used in:** second_order/E_p1.md Lemma E1.7b (two-term version of (4.43)–(4.46): each column of (4.26)–(4.33) is one Bessel kind at
+an argument with phase in [−π/4, π/4] on the closed sector, so DLMF 10.17.5–6 and 10.40.1–2 apply with δ = π/4; λ = a > −½) and
+Lemma E1.7(ii) (the structure of Remark 4.4: the only n-dependence besides the model argument is the unimodular phase, here
+e^{Nφ_{KV,+}(0)σ₃} = i^{Nσ₃}). KV (5.23), (5.26)–(5.30) (entry "(KV)") are the same construction at an interior point with
+analytic factor h. Numerical check of the sector formulas and the two-term structure: check_e1_models.out [4].
+
+## (Plan 66 reuse) entries above used by second_order/E_p1.md
+
+(KV) (5.23), (5.26)–(5.30); (WLXZ-v1) (6.34)–(6.37), (5.11), (2.15); (WLXZ-v1, Plan 53) (2.1)–(2.4), (3.4), (3.7), (4.15), (4.24);
+(DLMF) §5.11 (5.11.1 with the §5.11(ii) remainder bound: real t > 0 for Thm E1.6, |ph t| ≤ 2π/3 for Lemma E1.7(a), as in RH₁(r)
+Lemma S); (DLMF-9, Paper 2) 9.7.5–9.7.6 (|ph| ≤ 5π/6 on the closed sectors of WLXZ (6.8)); (DLMF-10.17, Plan 55) 10.17.5–10.17.6;
+(DLMF-10.40, Paper 2) 10.40.1–10.40.2 (phases in [−π/4, π/4], ν = a ± ½ fixed). DLMF 5.5.1 (Γ(t+1) = tΓ(t), to rewrite log H as the
+remainder of 5.11.1) as quoted in "(DLMF-5.11, Plan 51)". Internal: RH₁(r) (RH_p1_general.md, REVIEWED), RH₁ (RH_p1.md, REVIEWED), SECOND Lemmas 2.1, 2.2
+(REVIEWED), UL Lemma V and Cor UL-3.10 (REVIEWED).

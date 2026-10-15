@@ -1,8 +1,8 @@
-# Paper 1 — notes (release candidate of 2026-10-15, Plan 63)
+# Paper 1 — notes (release candidate of 2026-10-15, Plan 63; style revision Plan 68)
 
-`main.tex` (amsart, 17 pages), `refs.bib`, `main.bbl` (tracked, for the arXiv bundle), `checks/`. Build:
+`main.tex` (amsart 10pt, 19 pages after Plan 68; 17 pages at 11pt with 1.15in margins before), `refs.bib`, `main.bbl` (tracked, for the arXiv bundle), `checks/`. Build:
 `pdflatex main; bibtex main; pdflatex main; pdflatex main`. Author line is a placeholder ("Gordon [Surname]", user
-decision: keep). arXiv bundle and placeholders: `ARXIV.md`. Final referee/editor pass: `REFEREE_FINAL.md` (Plan 63).
+decision: keep). arXiv bundle and placeholders: `ARXIV.md`. Final referee/editor pass: `REFEREE_FINAL.md` (Plan 63). Readability revision: §9 below (Plan 68).
 
 **Status.** DRAFT, Rule R done: `REVIEW_Paper1.md` (2026-10-14) gives **ACCEPT WITH FIXES**, Lemma 3.3 **CORRECT**,
 and no mathematical error. Fixes F1–F15 are applied (§7 below). The mathematics is research/G2 (PROVED-mod-cite (P) +
@@ -34,7 +34,7 @@ Item 11 = `math-pursuits/items/11-zero-measure-jacobi-asymptotics/work/proof/PRO
 | Lemma 3.3 | positivity of the log energy of zero-mass signed measures (Fourier proof) | **NEW in the paper.** It replaces the external input (P) | unreviewed |
 | Rem 3.4 | (P) quoted | research/G2/CITATIONS.md (P) | READ (2026-10-13) |
 | Thm 1.3(iii) optimality | bilinear expansion | G2 B*(iii). Finiteness of the mutual energy is now derived from U* ≥ log c + p (Thm 1.3(ii)) instead of the (P) §1 remark | modified, unreviewed |
-| Rem 3.6 | Monien's ρ = ρ* at p = 1 | G2 B* remark (reviewer's check). **Plan 63: now proved in the Remark** (substitution s = sin²φ, two lines); certified check `certified/c04_monien_density.py` | PROVED (unreviewed, elementary) + CERTIFIED at 11 points |
+| Rem 3.5 | Monien's ρ = ρ* at p = 1 (Rem 3.6 before Plan 68) | G2 B* remark (reviewer's check). **Plan 63: proved in the Remark** (substitution v = sin²φ, two lines); certified check `certified/c04_monien_density.py` (no longer cited in the paper, Plan 68) | PROVED (unreviewed, elementary) + CERTIFIED at 11 points |
 | Lemma 4.1 | discretisation | G2 Lemma A1. c₀ = 2 log 2 − 3/2 is evaluated here | PROVED + REVIEWED |
 | Cor 4.2 | head bound | G2 Corollary A2 | PROVED |
 | Thm 4.3 | upper bound ≤ E_p | G2 Theorem A-U = item 11 Lemma H7 with Cor A2 as the head input. **Change:** the tail factor is bounded directly from Heine (V(T) ≤ (Mn)^{−pm(m−1)}, Σ_T w(T) ≤ W^m) instead of by Hadamard's inequality, so no Hadamard citation is needed. The φ_M algebra is written out, with A = 4p + 2\|E_p\| | PROVED (+ REVIEWED in G2 form) |
@@ -43,7 +43,7 @@ Item 11 = `math-pursuits/items/11-zero-measure-jacobi-asymptotics/work/proof/PRO
 | §6 proof of Thm 1.1 | assembly; f′ < 0 and f bounded | G2 H_all proof | as H_all |
 | Rem after Thm 1.1 | the limit L of f is arbitrary (translation invariance) | **NEW observation**, a direct consequence of Lemma 2.2(ii) | unreviewed |
 | §7 Rem 7.2 | Baricz–Štampach closed forms, a = 2, b ∈ {−2, 0, 2} | research/program/novelty_G2.md §3 (quotes, arXiv PDF); closed forms CERTIFIED against direct determinants for n ≤ 30 (`certified/c03_zeta_hankel.py`); n = 10²…10⁵ statistic from `checks/bs_check.py`; the O(n log n) asymptotic derivation for b = 0 is new here | quotes: novelty agent; closed forms: CERTIFIED n ≤ 30; asymptotic statistic: NUMERICAL |
-| §8 Tables 1–2 | numerics | Table 1 columns c(p), u_s, κ_p: `certified/c01_constants.py` (CERTIFIED correctly rounded); Monte Carlo column and Table 2: `research/G2/checks/check_energy.out`, `check_averaged.out`, `check_hz.out`. **Re-run 2026-10-15 (Plan 63); byte-identical**, as are `certified/c01, c03, c04` and `checks/*.py` | Table 1 cols 2–4 CERTIFIED; rest NUMERICAL |
+| §9 Tables 1–2 | numerics (§8 before Plan 68) | Table 1 columns c(p), u_s, κ_p: `certified/c01_constants.py` (CERTIFIED correctly rounded); Monte Carlo column and Table 2: `research/G2/checks/check_energy.out`, `check_averaged.out`, `check_hz.out`. **Re-run 2026-10-15 (Plan 63); byte-identical**, as are `certified/c01, c03, c04` and `checks/*.py` | Table 1 cols 2–4 CERTIFIED; rest NUMERICAL |
 
 **Which external input each result needs (paper version).** None. Lemma 3.3 replaces (P). If Lemma 3.3 fails review,
 fall back to the repo version: Thm 1.3(iii) optimality and uniqueness, and hence the upper bound in Thm 1.1 / Cor 1.4,
@@ -92,18 +92,20 @@ source content was read in Plan 63, and no read status below changed.
 | HaynesZudilin | SIGMA 11 (2015) 101, arXiv:1510.01901v3, §1 | READ §1 + bibliography (CITATIONS.md (HZ), novelty_G2) | context |
 | CoonsSutherland | arXiv:1404.2699, Thm 1.3 | READ (PDF; novelty_G2) | context |
 | BariczStampach | LAA 548 (2018) 259–272, arXiv:1708.07729, Cor 3, Rem 5, (22) | READ (PDF) by the novelty agent. ℓ = 3 (b = 4) formula unverified there and not used. The formulas used are independently confirmed numerically (`checks/bs_check.py`) | Rem 7.2 |
-| CCV | Coussement–Coussement–Van Assche, arXiv:math/0606440, Thm 1.3 | READ (PDF; novelty_G2) | heuristic remark in §1.2 |
-| KVA-JAT | Kuijlaars–Van Assche, JAT 99 (1999) 167–197 | **NOT READ** (statement only via CCV Thm 1.3) | heuristic remark in §1.2 |
-| KVA-PLMS | Kuijlaars–Van Assche, PLMS 79 (1999) 191–221 | **ABSTRACT ONLY** | framework sentence §1.2 |
-| DragnevSaff | J. Anal. Math. 72 (1997) 223–259 | **ABSTRACT ONLY** (partly garbled on the page) | framework sentence §1.2 |
-| Rakhmanov | Sb. Math. 187:8 (1996) 1213–1228 | **NOT READ** (only via the CDLO abstract) | framework sentence §1.2 |
-| CDLO | Coroian–Dragnev–Legg–Orive, arXiv:2608.11987 | ABSTRACT | framework summary |
-| VAVB | Van Assche–Van Baelen, arXiv:1910.12518, Constr. Approx. 2020 | abstract + intro. Volume/pages not recorded (bibtex warning "missing pages") | framework sentence §1.2 |
-| Lai | arXiv:2610.06838 | READ (HTML; one sentence quoted) | context only |
-| Fauzan | Zenodo 22826419 (2026) | **RECORD PAGE ONLY**; full manuscript "in preparation" | context only; the paper claims only logical independence |
+| CCV | Coussement–Coussement–Van Assche, arXiv:math/0606440, Thm 1.3 | READ (PDF; novelty_G2) | **no longer cited** (Plan 68: KVA-JAT read directly) |
+| KVA-JAT | Kuijlaars–Van Assche, JAT 99 (1999) 167–197 | **READ** (Plan 68; authors' manuscript, §1, Thm 1.4; CITATIONS.md) | heuristic remark in §1.2 |
+| KVA-PLMS | Kuijlaars–Van Assche, PLMS 79 (1999) 191–221 | **READ** (Plan 68; authors' manuscript, §§1–2, Thms 2.1, 2.2) | literature paragraph §1.2 |
+| DragnevSaff | J. Anal. Math. 72 (1997) 223–259 | **READ** (Plan 68; journal scan, §§1–3, Def 1.2, Thms 2.1, 2.6, 3.3) | literature paragraph §1.2 |
+| Rakhmanov | Sb. Math. 187:8 (1996) 1213–1228 | **READ** (Plan 68; English journal PDF, §§1–4, Thms 1–3) | literature paragraph §1.2 |
+| Beckermann | Constr. Approx. 16 (2000) 427–448 | **READ** (Plan 68; author's manuscript of 26 March 1999, §1, Thm 1.3) | one clause in §1.2 |
+| CDLO | Coroian–Dragnev–Legg–Orive, arXiv:2608.11987 | ABSTRACT | **no longer cited** (Plan 68) |
+| VAVB | Van Assche–Van Baelen, arXiv:1910.12518, Constr. Approx. 54 (2021) 117–144 | **READ** (Plan 68; arXiv v1, §§1–2, Thm 2.2) | literature paragraph §1.2 |
+| Lai | arXiv:2610.06838 | READ (HTML; one sentence quoted) | **no longer cited** (Plan 68, audit §2.2) |
+| Fauzan | Zenodo 22826419 (2026) | **RECORD PAGE ONLY** | **no longer cited** (Plan 68, audit §2.2, D10) |
+| (PaperII, PaperIII) | companion papers | — | removed in the Plan 68 referee pass: I is posted alone; §1.2 ends with a neutral sentence that cites nothing |
 
 Not cited although the repo mentions them: Saff–Totik, Cegrell–Kolodziej–Levenberg (behind BKMW; unread);
-Beckermann 2000 and Zudilin 2017 (SEEN only); Carlitz / Tricomi–Carlitz and the Lommel family (item 11's p ∈ {1,2}
+Zudilin 2017 (SEEN only); Carlitz / Tricomi–Carlitz and the Lommel family (item 11's p ∈ {1,2}
 route, not needed here).
 
 ## 4. Numerics (Rule N; certified items marked)
@@ -128,9 +130,9 @@ route, not needed here).
 | 2 | Thm 1.3(iii) bilinear expansion on an unbounded set | **Resolved.** Re-derived line by line in REFEREE_FINAL.md (absolute convergence of the three energies, |ν| ≤ μ^x + μ*, sign of the middle term); Lean `Jp_le_kappa` proves the bounded-support case used by Thm 1.1. |
 | 3 | Thm 5.2 step 3 transcription (indices, b > ½ case, i = 1 block) not second-read | **Resolved (agent referee, Plan 63).** Every inequality of Steps 1–4 re-derived (REFEREE_FINAL.md §2); Lean `quantile_lower`, `hall_lower` prove the same lower bound independently. Only fix: O_U also depends on c₁, s in Step 4 (stated now). |
 | 4 | Error term o(n²) only | **Left as is (deliberate).** The paper states that numerics are consistent with O(n log n) for pure powers (Remark after Cor 1.2). Not posed as a formal question; no claim strengthened. |
-| 5 | Positioning: framework papers read only via abstracts; Beckermann 2000 unread | **Left open (needs library access).** Full texts of Rakhmanov 1996, Dragnev–Saff 1997, KVA PLMS/JAT 1999, Beckermann 2000 are paywalled and were not read. The paper keeps the visible hedge ("For the following works we have consulted only the abstracts…", "this statement is provisional"), which is accurate under Rule C. |
+| 5 | Positioning: framework papers read only via abstracts; Beckermann 2000 unread | **Resolved (Plan 68).** All five read from open copies (CITATIONS.md); §1.2 rewritten with theorem numbers; hedges removed. Superseded text follows: **Left open (needs library access).** Full texts of Rakhmanov 1996, Dragnev–Saff 1997, KVA PLMS/JAT 1999, Beckermann 2000 are paywalled and were not read. The paper keeps the visible hedge ("For the following works we have consulted only the abstracts…", "this statement is provisional"), which is accurate under Rule C. |
 | 6 | Monien later publications | **Partly resolved.** Crossref search (2026-10-15, metadata only) found no journal version of arXiv:0901.1883 and no later Monien paper on this topic; together with the novelty report's OpenAlex check this is recorded, not proved absent. Bib entry now "Preprint, arXiv:0901.1883". |
-| 7 | Fauzan manuscript | **Left open (external).** Unavailable; the paper claims only that no proof uses it and acknowledges possible overlap. Re-check before journal submission. |
+| 7 | Fauzan manuscript | **Moot (Plan 68): paragraph and citation dropped.** Earlier: **Left open (external).** Unavailable; the paper claims only that no proof uses it and acknowledges possible overlap. Re-check before journal submission. |
 | 8 | Mention item 11's p ∈ {1,2} results? | **Decided: not mentioned.** They are unpublished, superseded by Thm 1.1 (except the O(n log n) rate for exact Lommel families, which the paper does not claim), and citing them would need the Lommel/Carlitz material. User may override. |
 | 9 | Bibliographic details (VAVB, BKMW journal version, statuses) | **Resolved** from arXiv API journal_ref/DOI and Crossref metadata (2026-10-15): BKMW = Constr. Approx. 37 (2013) 101–134; VAVB = Constr. Approx. 54 (2021) 117–144; CCV = Trans. AMS 360 (2008) 5571–5588; HZ = SIGMA 11 (2015) 101, 5 pp.; BS = LAA 548 (2018) 259–272. Monien, Coons–Sutherland, Lai, CDLO: no journal version found → "Preprint". Theorem numbers for BKMW, CCV, BS are those of the arXiv versions that were read (stated in refs.bib / Rem 7.2). No content was read in this step. |
 | 10 | Title | **Kept.** Consistent with what is proved (Thm 1.1 + Cor 1.4). |
@@ -143,8 +145,8 @@ route, not needed here).
 - [x] Independent review (Rule R) of the new material in §2, especially Lemma 3.3 (REVIEW_Paper1.md: CORRECT).
 - [x] Final referee + editor + consistency pass (REFEREE_FINAL.md, Plan 63; agent, not a Rule R second reader).
 - [ ] Optional: a human analyst's check of Lemma 3.3 (the Rule R reader was an agent).
-- [ ] Read the full texts of DS 1997, KVA PLMS 1999, KVA JAT 1999 and Rakhmanov 1996 (and Beckermann 2000), then
-      revise the framework paragraph and the "provisional" sentence (needs library access).
+- [x] Read the full texts of DS 1997, KVA PLMS 1999, KVA JAT 1999 and Rakhmanov 1996 (and Beckermann 2000), then
+      revise the framework paragraph and the "provisional" sentence (Plan 68).
 - [ ] Re-open BKMW, Monien, Haynes–Zudilin, Coons–Sutherland, Baricz–Štampach, CCV and Lai, and re-verify every
       quotation character by character (still copied from repo notes; not re-opened in Plan 63).
 - [x] Complete the bibliographic data (Plan 63, from arXiv/Crossref metadata).
@@ -178,12 +180,42 @@ route, not needed here).
 
 ## 8. Visible "to verify" list (pre-submission), after Plan 63
 
-1. Full texts of Rakhmanov 1996, Dragnev–Saff 1997, Kuijlaars–Van Assche PLMS 1999 and JAT 1999, and Beckermann
-   2000. Then confirm or retract the "provisional" no-prior-art sentence in §1.2 (the hedge stays visible until then).
+1. Done (Plan 68): all five read; the "provisional" sentence is replaced by "We have not found the problem sup_A J_p
+   or its solution in the works cited here." Optional: compare KVA and Beckermann theorem numbers (authors'
+   manuscripts) with the journal versions.
 2. Baricz–Štampach: the hedge in Rem 7.2 is now "statement numbers refer to the arXiv version" (which is what the
    novelty agent read); the closed forms used are CERTIFIED for n ≤ 30. Optional: compare numbering with the journal.
-3. Re-verify every other quotation character by character: BKMW, Monien, Haynes–Zudilin, Coons–Sutherland, CCV,
-   Lai and the Fauzan record.
-4. Fauzan's full manuscript, when available.
+3. Re-verify the remaining quotations character by character: Monien (§1.2, one quote) and Haynes–Zudilin (§1.2,
+   one quote). BKMW, Coons–Sutherland, Baricz–Štampach and Monien §3 are now paraphrased (Plan 68), not quoted.
+4. (Dropped, Plan 68: Fauzan no longer cited.)
 5. refs.bib: done (no "to verify" fields left).
 6. Supplementary material: create tag `v1.0-paper1` at submission and make the repository public (user).
+
+## 9. Plan 68 readability revision (2026-10-15)
+
+Applied `research/program/papers_split/PAPER_I_AUDIT.md` (local, unpublished) against the style guide, and the shared
+notation of `SERIES.md` (decision D11). No mathematical statement changed in strength; no proof step changed.
+
+| Audit item | Change |
+|---|---|
+| §2.1 repo paths/process | All script paths, directory names and "re-run" sentences removed from the body and captions. §9 opens with one sentence on precision ("Columns 2–4 of Table 1 … correctly rounded (ball arithmetic); all other entries are floating-point"). The ball-arithmetic check of the Baricz–Štampach closed forms (n ≤ 30) stays in Rem 7.2 without a path; the Arb check sentence in Rem 3.5 (Monien) is deleted. URL, tag placeholder and Lean theorem names now sit only in the new "Data and code availability" statement. |
+| §2.2 hedging / unread sources | Literature read (CITATIONS.md, Plan 68 section): Rakhmanov, Dragnev–Saff, KVA-PLMS, KVA-JAT, Beckermann, VAVB. §1.2 "The equilibrium problem" rewritten with theorem numbers; "abstracts only" and "provisional" sentences removed; novelty sentence now "We have not found … in the works cited here". Fauzan/Lai paragraph dropped. "(closed forms confirmed independently)" and the BS numbering hedge shortened to "(numbering of the arXiv version …)". |
+| §2.3 repetition | Role of Lemma 3.3 stated once (§1.3 Method); unlabelled remark after Thm 1.3(iii), "Note that only the value…" (§4) and the closing sentence of §5 deleted. Monien's "∼" discussed only in Rem 7.1. |
+| §2.4 notation | a_{k+1} → a_k (Lemma 2.4); σ_p → λ_p; u_s → u_sat (macro \usat); ω_β → arc_β (macro \arc), one subscript form; 𝓑_V(α,γ) → 𝓑_y(a′,b′) with Euler B(a′,b′); integration variable s → r (Thm 1.3(i), (iii), Lemma 3.2 proof) and v (Rem 3.5); Rem 7.2 paraphrases BS with R_{2m}(ν) and index j ∈ {0,1,2}. |
+| §2.5.1 intro length | 10pt amsart default layout (geometry removed): intro runs from mid p. 1 to the top of p. 5, about 3.7 pp. Monien's formula moved from §1.2 into Rem 3.5; Coons–Sutherland and Monien §3 paraphrased. |
+| §2.5.2 openers | 2–4 sentence openers added to §§2–7. |
+| §2.5.3 outlines | Strategy paragraphs open the proofs of Lemma 3.3, Thm 4.3 and Thm 5.2. |
+| §2.5.4 Rem 3.4 | Cut to five lines (paraphrase, no quotation). |
+| §2.5.5 numerics in Rem 6.1 | The "consistent with O(n log n)" sentence moved to §9 (Rem 6.1 now labelled rem:rate). |
+| §2.5.6 lists | The b ≤ ½ / b > ½ case analysis in Thm 5.2(b) is two paragraphs. |
+| §2.5.7 forward pointer | End of §1.2: "Companion papers in preparation treat the pointwise asymptotics of b_n and a_n." No citation (I is posted alone; referee pass, REFEREE_PLAN68.md). |
+| §2.5.8 / §3.1 | New §8 "Formal verification" (old §1.4); intro keeps one sentence. Acknowledgements (one sentence: AI assistance, Claude/Anthropic; Lean verification; author responsibility) and Data and code availability (URL, tag placeholder, Lean theorem names) before the bibliography. |
+| §2.6 LaTeX | booktabs → \hline; geometry and \enlargethispage removed; class option 11pt → default 10pt; abstract without displays (1225 characters plain; ARXIV.md updated). Long displays split (gather/align/multline); 0 overfull boxes. |
+| §2.6 bibliography | Dropped CDLO, CCV, Lai, Fauzan; added Beckermann (PaperII, PaperIII added, then removed in the referee pass); numbering notes for KVA-PLMS, KVA-JAT, Beckermann (authors' manuscripts) and VAVB (arXiv). |
+| §3.3 organisation | Organisation paragraph covers §§8–9 and says §3 can be read on its own. |
+| D14 | Title unchanged; author placeholder unchanged. |
+
+New in the text (our own remark, elementary, not reviewed): μ* is the law of SY with Y ~ arc_{4c(p)}, S = T^{−p}, T
+uniform on (0,1) independent of Y (immediate from μ* = ∫_0^1 arc_{4ct^{−p}} dt since arc_β is the law of βY/(4c)).
+Section and remark numbers that moved: Rem 3.6 → 3.5 (Monien); old §1.4 → §8; numerics §8 → §9.
+

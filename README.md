@@ -42,7 +42,7 @@ Throughout, $\sigma_{p,s} = \sum_k k^{-s}\,\delta_{k^{-p}}$ (pure powers), with 
 |---|---|---|---|
 | 1 | **Averaged law.** $\log D_n$ (Hankel determinants) is known to $o(n^2)$ for general power-like atoms and weights; zeta-value Hankel determinants as a corollary | proved; **Lean-verified** | [Paper 1](papers/paper1/main.pdf) |
 | 2 | **Pointwise law with rate.** $n^pb_n = c(p)(1+O(1/n))$ for every $p>0$, $s>1$ | proved, using cited Riemann–Hilbert results | [Paper 2](papers/paper2/main.pdf) |
-| 3 | **The $1/n$ term.** $n^pb_n = c(p)\bigl(1-\frac{s-1}{2n}+O(n^{-2})\bigr)$ for $p>1$ | proved, using cited Riemann–Hilbert results | [`research/G1/RH/second_order/`](research/G1/RH/second_order/) |
+| 3 | **The $1/n$ term.** $n^pb_n = c(p)\bigl(1-\frac{s-1}{2n}+\dots\bigr)$ for every $p>0$, with an explicit $\zeta(-p)\,n^{-1-p}$ term when $p<1$ | proved, using cited Riemann–Hilbert results | [`research/G1/RH/second_order/`](research/G1/RH/second_order/) |
 | 4 | **Slowly varying weights.** The pointwise law holds for weights $k^{-s}\ell(k)$ with any slowly varying $\ell$ | proved, using cited Riemann–Hilbert results | [Paper 2](papers/paper2/main.pdf) |
 | 5 | **Christoffel shift and sharpness.** The law passes from $s$ to $s+p$; bounded but irregular weights can break it | proved (shift); proved using cited results (counterexamples) | [Paper 2](papers/paper2/main.pdf) §3, [`research/G1/PROOF.md`](research/G1/PROOF.md) |
 | 6 | **Zeta zeros.** For the measure built from the zeros of $\zeta$, the averaged law is equivalent to a statement about close pairs of zeros | proved, using cited results on zeta zeros; the law itself is open | [`research/G3prime/`](research/G3prime/PROOF.md) |
@@ -83,18 +83,25 @@ Kuijlaars–McLaughlin–Van Assche–Vanlessen; Conway–Deift; DLMF). Each cit
 
 ### 3. The $1/n$ correction
 
-For $p>1$ and $s>1$,
+For every $p\ge1$ and $s>1$,
 
 $$n^pb_n = c(p)\Bigl(1-\frac{s-1}{2n}+O(n^{-2})\Bigr),\qquad
 n^pa_n = 2c(p)\Bigl(1-\frac{s-1+p}{2n}+O(n^{-2})\Bigr),\qquad \frac{a_n}{2b_n} = 1-\frac{p}{2n}+O(n^{-2}).$$
 
-Equivalently, $b_n \approx c(p)\,\bigl(n+\tfrac{s-1}{2p}\bigr)^{-p}$, a shift of the index. For $p=1$ and $p=2$, the
-averaged form $\sum_{j\le n}\log\bigl(j^pb_j/c(p)\bigr) = -\tfrac{s-1}{2}\log n + C + o(1)$ is proved for every $s>1$.
-The pointwise law also holds uniformly for $s$ in compact intervals. For $p\le1$ the pointwise $1/n$ term is supported
-numerically but not yet proved.
+Equivalently, $b_n \approx c(p)\,\bigl(n+\tfrac{s-1}{2p}\bigr)^{-p}$, a shift of the index. For $0<p<1$ the same $1/n$
+terms hold, followed by an explicit term of order $n^{-1-p}$ that involves the zeta function:
 
-*Status:* proved, using the same Riemann–Hilbert citations as result 2. This is the newest result; it has been
-reviewed (two independent referee passes), and it is not yet in a paper draft.
+$$n^pb_n = c(p)\Bigl(1-\frac{s-1}{2n}+\kappa_p\,n^{-1-p}+O(n^{-1-2p}+n^{-2})\Bigr),\qquad \kappa_p = 2p\,c(p)\,\zeta(-p) < 0,$$
+
+with the same $\kappa_p$ term in $n^pa_n/(2c(p))$, so that it cancels in $a_n/(2b_n)$. Since $\kappa_p\ne0$, the
+remainder $O(n^{-1-p})$ after the $1/n$ term cannot be improved when $p<1$. At $p=1$ and $s=\tfrac32$, comparison with
+the explicitly solvable Tricomi–Carlitz measure also gives $b_n/b_n^{\mathrm{TC}} = 1-\tfrac{1}{24n^2}+O(n^{-3})$.
+In averaged form, $\sum_{j\le n}\log\bigl(j^pb_j/c(p)\bigr) = -\tfrac{s-1}{2}\log n + C + o(1)$, and the pointwise law
+holds uniformly for $s$ in compact intervals.
+
+*Status:* proved, using the same Riemann–Hilbert citations as result 2. Each of the three ranges $p>1$, $p=1$ and
+$0<p<1$ has passed two independent referee passes. These are the newest results, and they are being written into the
+Paper II draft.
 
 ### 4. Slowly varying weights
 

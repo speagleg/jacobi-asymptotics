@@ -12,6 +12,11 @@
   regular {C}oulomb wave function via {H}ankel determinants}, Linear Algebra
   Appl. \textbf{548} (2018), 259--272, arXiv:1708.07729.
 
+\bibitem{Beckermann}
+B.~Beckermann, \emph{On a conjecture of {E}. {A}. {R}akhmanov}, Constr. Approx.
+  \textbf{16} (2000), 427--448, numbering as in the author's manuscript of 26
+  March 1999.
+
 \bibitem{BKMW}
 B.~Beckermann, V.~Kalyagin, A.~C. Matos, and F.~Wielonsky, \emph{Equilibrium
   problems for vector potentials with semidefinite interaction matrices and
@@ -22,24 +27,10 @@ B.~Beckermann, V.~Kalyagin, A.~C. Matos, and F.~Wielonsky, \emph{Equilibrium
 M.~Coons and D.~Sutherland, \emph{Towards the (ir)rationality of values of
   {D}irichlet series}, 2014, Preprint, arXiv:1404.2699.
 
-\bibitem{CDLO}
-D.~Coroian, P.~Dragnev, A.~Legg, and R.~Orive, \emph{On constrained {R}iesz
-  minimum energy problems}, 2026, Preprint, arXiv:2608.11987.
-
-\bibitem{CCV}
-E.~Coussement, J.~Coussement, and W.~Van~Assche, \emph{Asymptotic zero
-  distribution for a class of multiple orthogonal polynomials}, Trans. Amer.
-  Math. Soc. \textbf{360} (2008), 5571--5588, arXiv:math/0606440; numbering as
-  in the arXiv version.
-
 \bibitem{DragnevSaff}
 P.~D. Dragnev and E.~B. Saff, \emph{Constrained energy problems with
   applications to orthogonal polynomials of a discrete variable}, J. Anal.
   Math. \textbf{72} (1997), 223--259.
-
-\bibitem{Fauzan}
-A.~Fauzan, \emph{$\zeta(5)$ is irrational}, 2026, Announcement, Zenodo record
-  22826419; full manuscript not available to us.
 
 \bibitem{HaynesZudilin}
 A.~Haynes and W.~Zudilin, \emph{Hankel determinants of zeta values}, SIGMA
@@ -49,15 +40,12 @@ A.~Haynes and W.~Zudilin, \emph{Hankel determinants of zeta values}, SIGMA
 \bibitem{KVA-JAT}
 A.~B.~J. Kuijlaars and W.~Van~Assche, \emph{The asymptotic zero distribution of
   orthogonal polynomials with varying recurrence coefficients}, J. Approx.
-  Theory \textbf{99} (1999), 167--197.
+  Theory \textbf{99} (1999), 167--197, numbering as in the authors' manuscript.
 
 \bibitem{KVA-PLMS}
 \bysame, \emph{Extremal polynomials on discrete sets}, Proc. London Math. Soc.
-  (3) \textbf{79} (1999), 191--221.
-
-\bibitem{Lai}
-L.~Lai, \emph{The linear independence of $1$, $\zeta(3)$, and $\zeta(4)$},
-  2026, Preprint, arXiv:2610.06838.
+  (3) \textbf{79} (1999), no.~1, 191--221, numbering as in the authors'
+  manuscript.
 
 \bibitem{Monien}
 H.~Monien, \emph{Hankel determinants of {D}irichlet series}, 2009, Preprint,
@@ -71,6 +59,6 @@ E.~A. Rakhmanov, \emph{Equilibrium measure and the distribution of zeros of the
 \bibitem{VAVB}
 W.~Van~Assche and Q.~Van~Baelen, \emph{Zero distribution of orthogonal
   polynomials on a $q$-lattice}, Constr. Approx. \textbf{54} (2021), 117--144,
-  arXiv:1910.12518.
+  arXiv:1910.12518; numbering as in the arXiv version.
 
 \end{thebibliography}

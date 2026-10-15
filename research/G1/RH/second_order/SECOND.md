@@ -2,9 +2,14 @@
 
 Status (2026-10-15): written by the Plan 62 agent; **REVIEWED 2026-10-15** (Rule R: research/G1/review/REVIEW_Plan62.md, ACCEPT WITH FIXES; fixes F1–F11, O1 applied in 5aa04e3 and diff-checked). Labels per VERIFICATION_POLICY.md; REVIEWED applies to the PROVED / PROVED-mod-cite / CONDITIONAL statements as labelled (NUMERICAL, CONJECTURE, HEURISTIC and GAP items keep those labels).
 *Plan 64 update (2026-10-15, REVIEWED, REVIEW_Plan64.md):* Thm 3.8, Cor 3.9, Thm 3.10(d) and (UΛ) are upgraded by `UL.md` (same
-directory); the rows and paragraphs marked "Plan 64" carry UL.md's labels, which are not yet REVIEWED.
+directory); the rows and paragraphs marked "Plan 64" carry UL.md's labels (REVIEWED, REVIEW_Plan64.md).
 *Plan 65 update (2026-10-15, **REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)**):* `E_pgt1.md` (same directory) proves (E) and all constants of Conj. P62 for
 p > 1 by second-order RH analysis; the rows and paragraphs marked "Plan 65" carry its labels.
+*Plan 66 update (2026-10-15, REVIEWED; Rule R REVIEW_Plan66_A.md, REVIEW_Plan66_B.md, fixes applied):* `E_p1.md` (same directory) proves (E) at p = 1 for every
+s > 1 (remainder O(n⁻²)) and the −1/24 constant at s = 3/2 (and s = 5/2 vs x·TC); rows and paragraphs marked "Plan 66" carry its labels.
+*Plan 67 update (2026-10-15, REVIEWED; Rule R REVIEW_Plan67_A.md, REVIEW_Plan67_B.md, fixes applied):* `E_plt1.md` (same directory) proves (E) for
+0 < p < 1 at every s > 1, with the sharp remainder: n^pb_n = c(1 − (s−1)/(2n) + κ_pn^{−1−p} + O(n^{−1−2p} + n^{−2})), κ_p = 2pc(p)ζ(−p), and all constants of Conj. P62; rows and paragraphs marked "Plan 67" carry its labels.
+*Plan 69 (2026-10-15, REVIEWED, REVIEW_Plan69.md):* `TAIL.md` (same directory) proves the hard-edge tail bound used by UL.md in Paper 2's frame and reduces Thm 3.8 to the window by telescoping.
 "RH" below means Riemann–Hilbert. Open item 13 of THEOREMS.md §4.
 
 **Summary of labels.**
@@ -12,26 +17,28 @@ p > 1 by second-order RH analysis; the rows and paragraphs marked "Plan 65" carr
 | # | Statement | Label |
 |---|---|---|
 | §1 | d₁(p, s) = −(s − 1)/2, e₁ = p/2 (repo pairing) = −p/2 (standard pairing), k₀ = −(s − 1) − p/2, k₁ = −(p + 2)a, on the grid p ∈ {½, 1, 3/2, 2, 3, 4}, s ∈ {3/2, 2, 3, 4} | NUMERICAL |
-| Conj. P62 | the same closed forms for every p > 0, s > 1, with remainder O(n^{−1−min(1,p)}) | CONJECTURE for 0 < p ≤ 1; **PROVED-mod-cite for p > 1** (remainder O(n⁻²); E_pgt1 Thm E.1, Cor E.6) (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)) |
+| Conj. P62 | the same closed forms for every p > 0, s > 1, with remainder O(n^{−1−min(1,p)}) | **PROVED-mod-cite for 0 < p < 1** (remainder O(n^{−1−p}), as conjectured, with the n^{−1−p} coefficient identified: κ_p = 2pc(p)ζ(−p) for b_n, α_n, g_{n−1}, h_n, 0 for α_n/(2b_n), 2^{1+p}κ_p for γ_N²; E_plt1 Thm E′.1, Cor E′.6) (Plan 67, E_plt1.md; REVIEWED 2026-10-15, REVIEW_Plan67_A.md, REVIEW_Plan67_B.md); **at p = 1 PROVED-mod-cite for d₁, e₁, e₁ˢ, k₀** (E_p1 Thm E1.10, remainder O(n⁻²)) and for k₁ at s ∈ {3/2, 5/2} (E_p1 Thm E1.6); k₁ at other s GAP (Plan 66, E_p1.md; REVIEWED 2026-10-15, REVIEW_Plan66_A.md, REVIEW_Plan66_B.md); **PROVED-mod-cite for p > 1** (remainder O(n⁻²); E_pgt1 Thm E.1, Cor E.6) (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)) |
 | Thm 2.3 | p = 2, s ∈ {2, 4, 6, 8, 10}: exact rational Jacobi coefficients; d₁ = −(s − 1)/2, e₁ = 1, e₁ˢ = −1, k₀ = −s, k₁ = −2(s − 2), d₂ = (s² + 6s − 11)/16 | PROVED-mod-cite (VA §3, DLMF-Lommel, via Paper 2 Remark rem:pure-lommel) + exact computer algebra |
 | Prop 3.1 | Christoffel product identity Π_{m≤n}(b_m(s+p)/b_m(s))² = g_n/g_0 | PROVED (elementary; any σ on [0, ∞)) |
 | Thm 3.2 | Σ_{m≤n} log(b_m(s+p)/b_m(s)) + (p/2)log n → ½log(c(p)ζ(s)/ζ(s+p)) | PROVED-mod-cite (pointwise Law P: Paper 2 Cor. thm:pure / RH_p, RH₁(r), RH_plt1b; G1 Lemma CS) |
-| Cor 3.3 | (E) at s and s + p ⇒ d₁(s + p) = d₁(s) − p/2, and n(G_n − G_{n−1}) → 0 (the NUMERICAL hypothesis of G1 Remark SH-1/n) | CONDITIONAL on (E) at s, s + p + PROVED-mod-cite (Law P: Paper 2 Cor. thm:pure / RH_p, RH₁(r), RH_plt1b; G1 Lemma CS); **unconditional for p > 1** (E_pgt1 Thm E.1 gives (E₁)) (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)) |
-| Thm 3.4 | (E_ε), ε > ½, at s and s + p ⇒ α_n/(2b_n) = 1 − p/(2n) + o(1/n) (e₁ˢ = −p/2; e₁ = +p/2 in the repo pairing) | CONDITIONAL on (E_ε), ε > ½, at s, s + p + PROVED-mod-cite (Law P: Paper 2 Cor. thm:pure / RH_p, RH₁(r), RH_plt1b; G1 Lemma CS); for p > 1 unconditional and **superseded** by E_pgt1 Thm E.1 (α_n/(2b_n) = 1 − p/(2n) + O(n⁻²)) (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)) |
+| Cor 3.3 | (E) at s and s + p ⇒ d₁(s + p) = d₁(s) − p/2, and n(G_n − G_{n−1}) → 0 (the NUMERICAL hypothesis of G1 Remark SH-1/n) | CONDITIONAL on (E) at s, s + p + PROVED-mod-cite (Law P: Paper 2 Cor. thm:pure / RH_p, RH₁(r), RH_plt1b; G1 Lemma CS); **unconditional for p > 1** (E_pgt1 Thm E.1 gives (E₁)) (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)); **unconditional for p = 1** (E_p1 Thm E1.10) (Plan 66, E_p1.md; REVIEWED 2026-10-15, REVIEW_Plan66_A.md, REVIEW_Plan66_B.md); **unconditional for 0 < p < 1** (E_plt1 Thm E′.1 gives (E_p)) (Plan 67, E_plt1.md; REVIEWED 2026-10-15, REVIEW_Plan67_A.md, REVIEW_Plan67_B.md) |
+| Thm 3.4 | (E_ε), ε > ½, at s and s + p ⇒ α_n/(2b_n) = 1 − p/(2n) + o(1/n) (e₁ˢ = −p/2; e₁ = +p/2 in the repo pairing) | CONDITIONAL on (E_ε), ε > ½, at s, s + p + PROVED-mod-cite (Law P: Paper 2 Cor. thm:pure / RH_p, RH₁(r), RH_plt1b; G1 Lemma CS); for p > 1 unconditional and **superseded** by E_pgt1 Thm E.1 (α_n/(2b_n) = 1 − p/(2n) + O(n⁻²)) (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)); for p = 1 unconditional and **superseded** by E_p1 Thm E1.10 (α_n/(2b_n) = 1 − 1/(2n) + O(n⁻²)) (Plan 66, E_p1.md; REVIEWED 2026-10-15, REVIEW_Plan66_A.md, REVIEW_Plan66_B.md); for 0 < p < 1 its conclusion holds and is **superseded** by E_plt1 Thm E′.1 (α_n/(2b_n) = 1 − p/(2n) + O(n^{−1−min(2p,1)})) (Plan 67, E_plt1.md; REVIEWED 2026-10-15, REVIEW_Plan67_A.md, REVIEW_Plan67_B.md) |
 | Prop 3.5 | weights with \|log(w_k/v_k)\| ≤ C/k: log h_n(w) − log h_n(v) = O(1/n), so Σ_{j≤n} log(b_j(w)/b_j(v)) converges | PROVED (internal: G1 Lemma Sat_p⁺) |
-| Cor 3.6 | p = 1, s = 3/2 vs Tricomi–Carlitz: Σ_{j≤n} log(b_j/b_j^{TC}) → −½log(ζ(3/2)/(√(2π)W_TC)); (E) at (1, 3/2) ⇒ d₁ = −1/4; with Cor 3.3, d₁(1, 3/2 + m) = −(1 + 2m)/4 | (i) PROVED-mod-cite (RH_p1 §1; DLMF 5.11); (ii)–(iii) CONDITIONAL on (E) + PROVED-mod-cite (as (i); Law P, Lemma CS) |
+| Cor 3.6 | p = 1, s = 3/2 vs Tricomi–Carlitz: Σ_{j≤n} log(b_j/b_j^{TC}) → −½log(ζ(3/2)/(√(2π)W_TC)); (E) at (1, 3/2) ⇒ d₁ = −1/4; with Cor 3.3, d₁(1, 3/2 + m) = −(1 + 2m)/4 | (i) PROVED-mod-cite (RH_p1 §1; DLMF 5.11); (ii)–(iii) CONDITIONAL on (E) + PROVED-mod-cite (as (i); Law P, Lemma CS); (ii)–(iii) **unconditional** (E_p1 Thm E1.10, or elementary E_p1 Thm E1.6 at s = 3/2, 5/2), and Remark (b) (the −1/24 constant) PROVED-mod-cite (E_p1 Thm E1.6) (Plan 66, E_p1.md; REVIEWED 2026-10-15, REVIEW_Plan66_A.md, REVIEW_Plan66_B.md) |
 | Prop 3.7 | ∂_s log h_n(s) = −Σ_k log k·μ_n^{(s)}(k) | PROVED (elementary) |
 | Thm 3.8 | Σ_{j≤n} log(b_j(s₁)/b_j(s₀)) = −((s₁ − s₀)/2)log n + ½log(c^{(s₁−s₀)/p}ζ(s₀)/ζ(s₁)) + o(1), every p > 0, s₀, s₁ > 1 | PROVED-mod-cite (UL.md Cor UL-3.8: (P), (LP), (QLP-c) at fixed points only (finitely many for each grid, countably many in all); no uniformity in σ, (RU) not used; Lemma CS) (Plan 64, UL.md; REVIEWED). Earlier route: CONDITIONAL on (UΛ) or (CVX) |
-| Cor 3.9 | (E) at s₀, s₁ ⇒ d₁(s₁) − d₁(s₀) = −(s₁ − s₀)/2. Hence d₁(2, s) = −(s − 1)/2 and d₁(1, s) = −(s − 1)/2 for all s > 1, under (E) at s | CONDITIONAL on (E) only + PROVED-mod-cite (UL.md Cor UL-3.9; as Thm 3.8) (Plan 64, UL.md; REVIEWED); **unconditional for p > 1** (E_pgt1 Thm E.1 gives d₁ = −(s−1)/2 directly) (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)) |
-| Thm 3.10 | log-average form: Σ_{j≤n}log(j^pb_j/c) = −((s−1)/2)log n + O(1) for p = 2, s ∈ 2 + 2ℕ₀ and p = 1, s ∈ 3/2 + ℕ₀; equivalently log h_n of the zeta-value Hankel ratios to O(1) | (a)–(c) PROVED-mod-cite (Law P; Lemma CS; Lommel input; RH_p1 §1, DLMF 5.11); (d) every s > 1 for p ∈ {1, 2} (log-average coefficient −(s − 1)/2, convergent remainder) and (c) for all real shifts: PROVED-mod-cite (UL.md Cor UL-3.10: UF-lim; SECOND §2 Input (VA, DLMF-Lommel); Cor 3.6(i) (RH_p1 §1, DLMF 5.11)) (Plan 64, UL.md; REVIEWED); every p > 1, s > 1: log-average coefficient −(s − 1)/2 with O(1), PROVED-mod-cite (sum of E_pgt1 Thm E.1) (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)) |
+| Cor 3.9 | (E) at s₀, s₁ ⇒ d₁(s₁) − d₁(s₀) = −(s₁ − s₀)/2. Hence d₁(2, s) = −(s − 1)/2 and d₁(1, s) = −(s − 1)/2 for all s > 1, under (E) at s | CONDITIONAL on (E) only + PROVED-mod-cite (UL.md Cor UL-3.9; as Thm 3.8) (Plan 64, UL.md; REVIEWED); **unconditional for p > 1** (E_pgt1 Thm E.1 gives d₁ = −(s−1)/2 directly) (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)); **unconditional for p = 1** (E_p1 Thm E1.10), g(1) = 0 (Plan 66, E_p1.md; REVIEWED 2026-10-15, REVIEW_Plan66_A.md, REVIEW_Plan66_B.md); **unconditional for 0 < p < 1** (E_plt1 Thm E′.1), g(p) = 0 (Plan 67, E_plt1.md; REVIEWED 2026-10-15, REVIEW_Plan67_A.md, REVIEW_Plan67_B.md) |
+| Thm 3.10 | log-average form: Σ_{j≤n}log(j^pb_j/c) = −((s−1)/2)log n + O(1) for p = 2, s ∈ 2 + 2ℕ₀ and p = 1, s ∈ 3/2 + ℕ₀; equivalently log h_n of the zeta-value Hankel ratios to O(1) | (a)–(c) PROVED-mod-cite (Law P; Lemma CS; Lommel input; RH_p1 §1, DLMF 5.11); (d) every s > 1 for p ∈ {1, 2} (log-average coefficient −(s − 1)/2, convergent remainder) and (c) for all real shifts: PROVED-mod-cite (UL.md Cor UL-3.10: UF-lim; SECOND §2 Input (VA, DLMF-Lommel); Cor 3.6(i) (RH_p1 §1, DLMF 5.11)) (Plan 64, UL.md; REVIEWED); every p > 1, s > 1: log-average coefficient −(s − 1)/2 with O(1), PROVED-mod-cite (sum of E_pgt1 Thm E.1) (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)); every 0 < p < 1, s > 1: the same, PROVED-mod-cite (sum of E_plt1 Thm E′.1; Σj^{−1−p} < ∞) (Plan 67, E_plt1.md; REVIEWED 2026-10-15, REVIEW_Plan67_A.md, REVIEW_Plan67_B.md) |
 | (CVX) | s ↦ log h_n(σ_{p,s}) convex (no longer needed for Thms 3.8–3.10; sufficient for sup_K\|Λ_n\| = O(1), UL.md Prop R; fails for finite truncations, UL.md Remark CVX-fin) | HYPOTHESIS; NUMERICAL support (n ≤ 8, 300-digit determinants; n ≤ 1600 grid: positive second divided differences at the grid points) |
 | (UΛ) | sup_{s∈K}\|Λ_n(s)\| = o(log n), K ⊂ (1, ∞) compact | PROVED-mod-cite (UL.md Thm UΛ: Thm UP, Lemma LP's method, Lemma TL) (Plan 64, UL.md; REVIEWED); sup_K\|Λ_n\| = O(1): **GAP** (⇐ (RU) at PROOF SKETCH level, ⇐ (SCVX), ⇐ (CVX)) |
 | UF-lim | h_n(s)/h_n(s₀) = c^{(s−s₀)/p}n^{−(s−s₀)}(1 + o(1)) uniformly on compacts | PROVED-mod-cite (UL.md Thm UF-lim: (P), (LP), (QLP-c) at fixed points only (finitely many for each grid, countably many in all); no uniformity in σ, (RU) not used; Lemma CS) (Plan 64, UL.md; REVIEWED) |
 | UP | Law P uniform on compacts in s: sup_K\|n^pb_n − c\|, \|n^pg_n − c\|, \|n^pα_n − 2c\| → 0 | PROVED-mod-cite (UL.md Thm UP: Thm UF-lim, hence (P), (LP), (QLP-c) at fixed points; Lemma CT) (Plan 64, UL.md; REVIEWED) |
 | Thm E.1, Cor E.6 | p > 1, s > 1: n^pb_n = c(1 − (s−1)/(2n) + O(n⁻²)), n^pα_n = 2c(1 − (s−1+p)/(2n) + O(n⁻²)), α_n/(2b_n) = 1 − p/(2n) + O(n⁻²); n^pg_{n−1} = c(1 + a/n + O(n⁻²)), k₀ = −(s−1) − p/2, k₁ = −(p+2)a | PROVED-mod-cite (RH_px; Paper 2 Lemmas binetcut, szego, airy, Frame Prop.; KMVV §6; DLMF 9.7.2, 9.7.5–6, 10.17, 10.25.2, 10.40.1–4) + exact computer algebra (E_pgt1.md) (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)) |
+| Thm E1.6, E1.10 | p = 1, every s > 1: nb_n = ½(1 − (s−1)/(2n) + O(n⁻²)), nα_n = 1 − s/(2n) + O(n⁻²), α_n/(2b_n) = 1 − 1/(2n) + O(n⁻²), Nβ_N = 1 + (½ − s + κ₁(−1)^N)/N + O(N⁻²); s = 3/2, 5/2: b_n, α_n, g_n, h̃_n = TC resp. x·TC values × (1 − 1/(24n²) + O(n⁻³)) | E1.10: PROVED-mod-cite (RH₁(r); WLXZ v1 (6.8), (6.10)–(6.21), (6.34)–(6.37); KV (5.23), (5.26)–(5.30); Vanlessen (4.26)–(4.33), (4.43)–(4.52); DLMF 5.11, 9.7.5–6, 10.17.5–6, 10.40.1–2; UL Cor UL-3.10); E1.6: PROVED-mod-cite (WLXZ v1 (1.4)–(1.9); DLMF 5.5.1, 5.11) + exact computer algebra (Plan 66, E_p1.md; REVIEWED 2026-10-15, REVIEW_Plan66_A.md, REVIEW_Plan66_B.md) |
+| Thm E′.1, Cor E′.6, Lemma F.1 | 0 < p < 1, s > 1: n^pb_n = c(1 − (s−1)/(2n) + κ_pn^{−1−p} + O(n^{−1−2p} + n^{−2})), n^pα_n = 2c(1 − (s−1+p)/(2n) + κ_pn^{−1−p} + O(·)), κ_p = 2pc(p)ζ(−p) < 0; α_n/(2b_n) = 1 − p/(2n) + O(n^{−1−2p} + n^{−2}); n^pg_{n−1} = c(1 + a/n + κ_pn^{−1−p} + O(·)); γ_N² = c(N/2)^{−p}(1 + (k₀ + k₁(−1)^N)/N + 2^{1+p}κ_pN^{−1−p} + …), k₀ = −(s−1) − p/2, k₁ = −(p+2)a; seam band factor log H_n(z) − log H_n(1) ~ −2Σ_kζ(−kp)(z^k − 1)/(kn^{kp}) | PROVED-mod-cite (RH_plt1b; RH_px §5; Paper 2 Lemmas seam, corner, szego, airy, invariance, Frame Prop.; E_pgt1 Lemmas E.3–E.5; KMVV §6 incl. angle freedom; DLMF 5.2.1, 25.2.1, 25.4.1, 9.7.2, 9.7.5–6, 10.17, 10.25.2, 10.40.1–4) + exact computer algebra (Plan 67, E_plt1.md; REVIEWED 2026-10-15, REVIEW_Plan67_A.md, REVIEW_Plan67_B.md) |
 | §4.1 | n_eff = n + α_x/2 + (j₀ − ½) (hard edge + lattice offset) | HEURISTIC; NUMERICAL (shifted lattices); at p = 1 the chain value d₁(TC(α)) = ¾ − α is exact for all α (the TC(α) masses are not checked) |
-| §4 (E) | existence of the 1/n coefficient (with a remainder O(n^{−1−ε})) for pure powers | **PROVED-mod-cite for p > 1** with ε = 1 (E_pgt1 Thm E.1) (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)); **GAP** for 0 < p ≤ 1 (§4; E_pgt1 §9) |
-| §4 g(p) | the s-independent part g(p) := d₁(p, s) + (s − 1)/2 for p ∉ {1, 2} | g(p) = 0 for every p > 1: PROVED-mod-cite (E_pgt1 §8.2) (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)); **GAP** for 0 < p < 1 (NUMERICAL: \|g\| ≤ 1.4·10⁻⁶ (fit spread ≤ 1.3·10⁻⁴) at p = ½); p = 1: g(1) = 0 CONDITIONAL on (E) (Cor 3.9) |
+| §4 (E) | existence of the 1/n coefficient (with a remainder O(n^{−1−ε})) for pure powers | **PROVED-mod-cite for p > 1** with ε = 1 (E_pgt1 Thm E.1) (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)); **PROVED-mod-cite for p = 1** with ε = 1 (E_p1 Thm E1.10: symmetric frame of RH₁(r), second-order matching; value from UL Cor UL-3.10) (Plan 66, E_p1.md; REVIEWED 2026-10-15, REVIEW_Plan66_A.md, REVIEW_Plan66_B.md); **PROVED-mod-cite for 0 < p < 1** with ε = p, sharp (E_plt1 Thm E′.1: seam band factor flat only to O(n^{−p}), log H_n(z) − log H_n(1) = −2ζ(−p)(z−1)n^{−p} + O(n^{−2p}) (Lemma F.1), entering at order n^{−1−p} through the Bessel/Airy corrections) (Plan 67, E_plt1.md; REVIEWED 2026-10-15, REVIEW_Plan67_A.md, REVIEW_Plan67_B.md). Hence (E) holds for **every p > 0** |
+| §4 g(p) | the s-independent part g(p) := d₁(p, s) + (s − 1)/2 for p ∉ {1, 2} | g(p) = 0 for every p > 1: PROVED-mod-cite (E_pgt1 §8.2) (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)); **g(p) = 0 for every 0 < p < 1: PROVED-mod-cite** (E_plt1 Thm E′.1) (Plan 67, E_plt1.md; REVIEWED 2026-10-15, REVIEW_Plan67_A.md, REVIEW_Plan67_B.md) (earlier NUMERICAL: \|g\| ≤ 1.4·10⁻⁶ at p = ½); p = 1: g(1) = 0 PROVED-mod-cite (E_p1 Thm E1.10) (Plan 66, E_p1.md; REVIEWED 2026-10-15, REVIEW_Plan66_A.md, REVIEW_Plan66_B.md) |
 
 Novelty: UNCHECKED throughout. Prop 3.1 is the classical Christoffel / chain-sequence telescoping (novelty not
 claimed; Lemma CS is KNOWN, Dai–Piao–Qiao Prop. 2.1). Rule L pointer for Theorem 3.10's Hankel form: compare with the
@@ -81,6 +88,9 @@ are error **estimates** (Rule N), not bounds. K = 100·nmax for p ≥ 1, 200·nm
 doubling, i.e. a term ≍ n^{−1−p} in n^pb_n/c, up to slower drifts). This is why the fit basis contains n^{−1−jp}. A
 heuristic source: the part of the node set above the band (k ≲ n) acts on the band, at scale n^{−p}, through a far field
 whose first correction is of relative size n^{−1}·(n^{−p}/1) (HEURISTIC). For p ≥ 1 these terms are O(n⁻²).
+*Plan 67 (Plan 67, E_plt1.md; REVIEWED 2026-10-15, REVIEW_Plan67_A.md, REVIEW_Plan67_B.md):* the n^{−1−p} term is identified: its coefficient in n^pb_n/c (and in n^pα_n/(2c), n^pg_{n−1}/c) is
+κ_p = 2pc(p)ζ(−p) (κ_{1/2} = ζ(−½)/√6 = −0.0848692…), s-independent, absent in α_n/(2b_n); it comes from the seam band
+factor H_n ∝ exp(−2ζ(−p)n^{−p}z + O(n^{−2p})) (E_plt1 Lemma F.1, Thm E′.1).
 
 **Table** (`checks/check_so_grid.out`): §1.1.
 
@@ -126,7 +136,7 @@ Format: value (fit half-range) [|K − 2K|]; conjectured value in parentheses wh
 - An "effective index" form of the conjecture: b_n = c(p)(n + (s − 1)/(2p))^{−p}(1 + O(n^{−1−min(1,p)})), i.e. the shift
   is (α_x + 1)/2.
 
-**Conjecture P62 (CONJECTURE; evidence: §1.1, §2, §3. Plan 65: PROVED-mod-cite for p > 1, with remainder O(n⁻²) for b_n, α_n and the chain — E_pgt1.md Thm E.1, Cor E.6, Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)).** For every p > 0 and s > 1,
+**Conjecture P62 (CONJECTURE; evidence: §1.1, §2, §3. Plan 65: PROVED-mod-cite for p > 1, with remainder O(n⁻²) for b_n, α_n and the chain — E_pgt1.md Thm E.1, Cor E.6, Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md). Plan 66: at p = 1 PROVED-mod-cite for d₁, e₁, e₁ˢ, k₀ with remainder O(n⁻²) — E_p1.md Thm E1.10 (Plan 66, E_p1.md; REVIEWED 2026-10-15, REVIEW_Plan66_A.md, REVIEW_Plan66_B.md). Plan 67: PROVED-mod-cite for 0 < p < 1, with the conjectured remainder O(n^{−1−p}) for b_n, α_n and the chain and the n^{−1−p} coefficient identified — E_plt1.md Thm E′.1, Cor E′.6 (Plan 67, E_plt1.md; REVIEWED 2026-10-15, REVIEW_Plan67_A.md, REVIEW_Plan67_B.md)).** For every p > 0 and s > 1,
 
   n^pb_n = c(p)(1 − (s − 1)/(2n) + O(n^{−1−min(1,p)})),  α_n/(2b_n) = 1 − p/(2n) + O(n^{−1−min(1,p)}),
 
@@ -272,7 +282,8 @@ b_n(σ)/b_n^{TC} = 1 − 1/(24n²) + … (RH_p1 §0: n²(b_n^σ/b_n^{TC} − 1) 
 ε = 1 and d₁ = −1/4: (ii) is consistent with it. The −1/24 conjecture is a statement about the *second* order and is not
 addressed here. (c) (HEURISTIC) Prop 3.5 suggests why the 1/k-correction of the TC masses (H(k) = 1 + 1/(12k) + …) does not
 change d₁: a weight factor 1 + ε/k shifts log h_n by ε·E_n[1/k] = O(1/n) (proved), and log b_n² by the difference of two
-such terms, which one expects to be O(1/n²) (not proved; only the Cesàro consequence (ii) is).
+such terms, which one expects to be O(1/n²) (not proved; only the Cesàro consequence (ii) is). *Plan 66:* (b) is E_p1 Thm E1.6
+(b_n, α_n, g_n, h̃_n of σ_{3/2} = TC values × (1 − 1/(24n²) + O(n⁻³))); (c) is made precise by E_p1 Prop E1.4(iii) (Plan 66, E_p1.md; REVIEWED 2026-10-15, REVIEW_Plan66_A.md, REVIEW_Plan66_B.md).
 
 ### 3.3 The s-derivative identity
 
@@ -343,6 +354,7 @@ the anchors:
   g(p) = 0 for p ∉ {1, 2} is **not** obtained by any soft argument here (GAP; NUMERICAL g = 0).
 - *Plan 65:* for p > 1, (E) holds at every s (E_pgt1 Thm E.1), so the corollary is unconditional there, and Thm E.1 gives
   d₁ = −(s−1)/2 directly: g(p) = 0 for every p > 1 (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)).
+- *Plan 66:* for p = 1, (E) holds at every s (E_p1 Thm E1.10), so the corollary is unconditional there and g(1) = 0 (Plan 66, E_p1.md; REVIEWED 2026-10-15, REVIEW_Plan66_A.md, REVIEW_Plan66_B.md).
 
 *Proof.* As in Cor 3.3: under (E) the left side of Theorem 3.8 is (d₁(s₁) − d₁(s₀))log n + O(1). ∎
 
@@ -375,12 +387,20 @@ route: Theorem 3.8 under (UΛ) or (CVX)). ∎
 This is the only form in which the 1/n coefficient is proved here without (E): it identifies the coefficient on the
 lattices s₀ + pℕ₀ (s₀ = 2 at p = 2, s₀ = 3/2 at p = 1), and by UL.md Cor UL-3.10 at every s > 1 for p ∈ {1, 2}. For p ∉ {1, 2} there is no anchor (§4).
 
-## 4. Existence of the 1/n coefficient — GAP for p ≤ 1 (p > 1: E_pgt1.md)
+## 4. Existence of the 1/n coefficient (p > 1: E_pgt1.md; p = 1: E_p1.md; 0 < p < 1: E_plt1.md)
 
 *Plan 65 (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)):* for p > 1 the GAP below is closed by `E_pgt1.md` (Thm E.1, Cor E.6). Step 1 is as stated; step 3 is resolved by
 E_pgt1 Lemma E.2 (H_n is constant to O(n^{−p}), so Δ₁^{(N)} = Δ₁^{(∞)} + O(N^{−p})); steps 2, 4, 5 are E_pgt1 Lemmas E.3–E.5 and
 Prop. E.5′. The computed values are d₁ = −(s−1)/2, e₁ˢ = −p/2, k₀ = −(s−1) − p/2, k₁ = −(p+2)a, with remainder O(n⁻²). The
 text below is the Plan 62 statement, kept as written; it remains the GAP statement for 0 < p ≤ 1.
+*Plan 66 (Plan 66, E_p1.md; REVIEWED 2026-10-15, REVIEW_Plan66_A.md, REVIEW_Plan66_B.md):* for p = 1 the GAP is closed by `E_p1.md` (Thm E1.10): the obstruction of E_pgt1 §9 concerns the
+x-frame; in the symmetric frame of RH₁(r) the second-order matching works (E_p1 §§3–4). The text below remains the GAP statement
+for 0 < p < 1.
+*Plan 67 (Plan 67, E_plt1.md; REVIEWED 2026-10-15, REVIEW_Plan67_A.md, REVIEW_Plan67_B.md):* for 0 < p < 1 the GAP is closed by `E_plt1.md` (Thm E′.1, Cor E′.6). Step 3 is replaced by
+E_plt1 Lemma F.1: the seam band factor is flat only to O(n^{−p}), with the explicit linear part log H_n(z) − log H_n(1) =
+−2ζ(−p)(z−1)n^{−p} + O(n^{−2p}); by the invariance of the global parametrix it enters only through the Bessel/Airy
+corrections Δ₁/n, hence at order n^{−1−p} (coefficient κ_p = 2pc(p)ζ(−p)). (E_ε) holds with ε = p, sharp. The text below is
+the Plan 62 statement, kept as written; with Plans 65–67 (E) is now proved for every p > 0.
 
 **(E) for pure powers (GAP).** For which (p, s) does n^pb_n/c(p) = 1 + d₁/n + O(n^{−1−ε}) hold with some ε > 0?
 Known: all (p, s) with an O(1/n) remainder (RH_p, RH₁(r), RH_plt1b; Paper 2 Cor. thm:pure); exactly p = 2, s ∈ {2, …, 10}
@@ -422,10 +442,11 @@ choice (Bessel order 0, no Fisher–Hartwig factor). **GAP.** *Plan 65:* done fo
 hard-edge residue is c(p+2)(4α²−1)/16·[[1, i], [i, −1]], annihilated by both extraction functionals, and d₁ comes from the
 Airy simple-pole residue (Plan 65, E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)).
 
-**p ≤ 1.** p = 1: RH₁(r) (symmetric WLXZ frame) or RII_x1's x-frame; 0 < p < 1: RH_plt1b's seam geometry. The same
+**p ≤ 1.** p = 1: done (E_p1.md, Plan 66); 0 < p < 1: RH_plt1b's seam geometry. The same
 steps apply, but (i) Stirling holds only in |ph t| ≤ π − δ, so the seam scalar's rate must be re-checked; (ii) the
 numerics (§1) show remainders n^{−1−p}, so for p < 1 only (E_ε) with ε ≤ p can hold, and step 3 must produce exactly that
-rate. **GAP.**
+rate. **GAP.** *Plan 67 (Plan 67, E_plt1.md; REVIEWED 2026-10-15, REVIEW_Plan67_A.md, REVIEW_Plan67_B.md):* closed for 0 < p < 1 (E_plt1.md): the seam scalar's rate is O(n^{−p}) with an explicit
+leading term (Lemma F.1), and (E_ε) holds with exactly ε = p.
 
 ### 4.1 A heuristic for g(p) = 0: hard edge + lattice offset (HEURISTIC; NUMERICAL test)
 
@@ -472,6 +493,7 @@ parametrix applies.
 - Theorem 3.4: ε > ½ is needed for (X − 1)² = o(1/n); at p = ½ the numerics give ε = ½ (n^{−3/2} terms), the borderline:
   then Theorem 3.4 gives only α_n/(2b_n) = 1 − p/(2n) + O(1/n), i.e. nothing. The numerics for e₁ at p = ½ show no
   n^{−3/2} term in α_n/(2b_n) (§1.1), consistent with cancellation in ½(X + 1/X) beyond what the proof uses.
+  *Plan 67 (Plan 67, E_plt1.md; REVIEWED 2026-10-15, REVIEW_Plan67_A.md, REVIEW_Plan67_B.md):* explained — b_n and α_n carry the same relative n^{−1−p} correction κ_pn^{−1−p} (E_plt1 Thm E′.1).
 - Prop 3.5: the head bound needs v_k ≥ c₁k^{−A}; for super-polynomially decaying weights it can fail (not used).
   "|log(w/v)| ≤ C/k" cannot be weakened to "→ 0" without losing the O(1/n) (a slowly varying factor gives the tilt).
 - Cor 3.6: the constant √(2π) in k^{−3/2} = √(2π)H(k)v_k matters only for the limit constant, not for d₁.
@@ -492,5 +514,7 @@ parametrix applies.
 - `checks/check_ul.py` (.out) — UL.md (Plan 64): Lemma V, Prop SV, Remark CVX-fin, Thms UF/UF-lim/UP (NUMERICAL).
 - `checks/check_so_lattice.py` (.out) — §4.1 shifted lattices (NUMERICAL).
 - `checks/check_e_sym.py`, `check_e_num.py`, `check_e_flat.py`, `check_e_rate.py`, `check_e_grid.py` (.out) — E_pgt1.md (Plan 65).
+- `checks/check_e_plt1_sym.py`, `check_e_plt1_flat.py`, `check_e_plt1_num.py` (.out) — E_plt1.md (Plan 67).
+- `checks/check_e1_exact.py`, `check_e1_tc.py`, `check_e1_rate.py`, `check_e1_models.py` (.out) — E_p1.md (Plan 66).
 
 Run with `PYTHONPATH=src` and the repo `.venv`; the grid caches coefficients in `tmp/plan62_cache/` (gitignored).
