@@ -802,3 +802,28 @@ WLXZ v1 (1.4)–(1.9), (2.1)–(2.4), (2.14)–(2.15), (3.1)–(3.15), (4.1), (4
 (5.8), (5.9), (5.11), (6.8), (6.10)–(6.21), (6.34)–(6.37): the (WLXZ-v1) entries above (Plans 53, 66). KV §5, Vanlessen §4:
 "(KV)", "(KV, additional quotes for Plan 50)", "(Van)", "(Van, Plan 50)", "(Van, Plan 66)". The Paper II text cites
 (4.14)–(4.20), (4.22) rather than the range (4.14)–(4.22), because (4.21) is not quoted here.
+
+## (WLXZ-v1, Paper II referee 2 m3) remaining quotes — read in arXiv:1410.3948v1 (PDF fetched from arxiv.org/pdf/1410.3948v1 on 2026-10-15; text by pdftotext -layout, formulas checked against the rendered pages 2, 7, 11, 14)
+
+Formulas linearized from the PDF. Hypothesis throughout: "α is a positive number" (α_W); Paper II uses α_W = 1.
+
+> (1.7) "From (1.6) we see that a symmetry relation holds, namely, f_n^{(α)}(z) = (−1)^n f_n^{(α)}(−z)."
+>
+> (3.8) "Note that for each X_k ∈ X, Π(±X_k) = 0 and [sin θ(±X_k)]′/γ(±X_k) = (−1)^k." (with (3.6)–(3.7) "Π(z) := sin θ(z)/γ(z),
+> where θ(z) := nπ/z² − πα and γ(z) := −2nπ/z³")
+>
+> (3.13)–(3.14) Proof of Prop. 3.1: "Consider any X_k ∈ (0, 2). By (3.8) and (3.12), the residue of R₁₂(z) at X_k is given by
+> Res_{z=X_k} R₁₂(z) = w(X_k)U₁₁(X_k) − U₁₁(X_k)(w(X_k)/(−1)^k)(−1)^k = 0. Similarly, we also have Res_{z=X_k} R₂₂(z) = 0, thus
+> Res_{z=X_k} R(z) = 0 for X_k ∈ (0, 2)."
+>
+> (4.24) "Moreover, Ẽ(z) := (√(2π)/Γ(α))(z² − 4)^{1/2−α}, z ∈ ℂ \ (−∞, 2),"
+>
+> (5.11)–(5.12) "This problem can be solved explicitly, and its solution is given by
+> N(z) = [[(z² − 4)^{1/4−α}ϕ(z/2)^{2α−1/2}, −ie^L(z² − 4)^{α−3/4}ϕ(z/2)^{1/2−2α}], [ie^{−L}(z² − 4)^{1/4−α}ϕ(z/2)^{2α−3/2},
+> (z² − 4)^{α−3/4}ϕ(z/2)^{3/2−2α}]], where arg(z ± 2) ∈ (−π, π), and ϕ(z) := z + √(z² − 1) with a branch cut along [−1, 1] and
+> ϕ(z) → 2z as z → ∞; see also [15]." (Here L is the constant of (5.9), quoted in "(WLXZ-v1, Plan 66)".)
+
+**Used in:** papers/paperII §2.4 (list of WLXZ formulas) and App. H. From (5.11): as z → ∞, (z² − 4)^{α−3/4}ϕ(z/2)^{1/2−2α} =
+z^{−1}(1 + O(z^{−2})) and (z² − 4)^{1/4−α}ϕ(z/2)^{2α−3/2} = z^{−1}(1 + O(z^{−2})), so the 1/z coefficient 𝒩₁ of N has
+(𝒩₁)₁₂ = −ie^L and (𝒩₁)₂₁ = ie^{−L}, as used in App. H (Paper II referee 2, m3). (4.24) is the normalising factor at +2 used in
+"The circle at 2" of App. H. With this entry every WLXZ equation cited in Paper II is quoted in this file.

@@ -342,7 +342,7 @@ nodes x_k = k^{−p}:** n^pb_n → c(p), n^pa_n → 2c(p), with rate O(1/n) when
 Supporting results: Theorem SH (Law P(c) for σ ⇒ for x·σ, any positive σ on [0, ∞) with infinite support, any p > 0;
 rates carried by SH-r) PROVED; CT₁ converse (law for x·σ ⇒ for σ) PROVED; Lemma CS PROVED, "very likely KNOWN" (chain
 sequences). **With Plan 54 the pointwise Law P holds for every p > 0, every s > 1 and every sequence-form slowly varying Ψ.**
-Open: the 1/n coefficient (tilt law, CONJECTURE) and the true ζ-zero measure (barrier).
+Open: the 1/n coefficient (tilt law, CONJECTURE *(amended 2026-10-15: false as stated for 0 < p < 1, counterexample ℓ = 1 − εk^{−p}; hypothesis now n^{min(1,p)}Λ′(log n) → ∞; Paper II referee MA1)*) and the true ζ-zero measure (barrier).
 *(Plan 55 note, 2026-10-15: "the analyticity hypothesis" in the rate clauses above can be taken to be (A_ϑ) for any ϑ > 0 — see the last row and G1 §3.24; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan55.md), fixes applied — REVIEWED.)*
 
 ### 2.9 Novelty relabels from the second Rule L pass (2026-10-14; research/program/RESEARCH_PROGRAM.md §6)
@@ -510,7 +510,7 @@ and asked for item 11 to be named as the primary route. That changes no label; i
    Grönwall factor e^{4G} of Theorem L diverges" (§3.9 log1; §4). Known: bounded slowly varying (T3-all), log-type
    (T3-log). *Update (Plan 48, §3.17): PROVED-mod-cite for p > 1, 1 < s < 1 + 2p (Corollary B_{p>1}), bypassing QL.
    Plans 50–52 and 54 extend this to every p > 0 and every s > 1 — §2.8. **CLOSED.** Still open: the 1/n coefficient
-   (tilt law, CONJECTURE).* *Update (Plan 44, §3.14):* reduced to the single hypothesis **QL** (log-moment localization along vΨ^t);
+   (tilt law, CONJECTURE (amended 2026-10-15: false as stated for 0 < p < 1, counterexample ℓ = 1 − εk^{−p}; hypothesis now n^{min(1,p)}Λ′(log n) → ∞; Paper II referee MA1)).* *Update (Plan 44, §3.14):* reduced to the single hypothesis **QL** (log-moment localization along vΨ^t);
    QL is open for D(γ) = ∞ (at t = 0 it is a uniform-in-M form of Lemma LP).
 8. **Nodes other than pure powers.** "Other nodes x_k = f(k) need a substitute for the pure-power law in Lemma LP"
    (§3.8 L4; §4). The analytic families done are pure powers (all p > 0) and the smooth-ζ model (README). The literature

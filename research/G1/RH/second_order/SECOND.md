@@ -361,7 +361,7 @@ the anchors:
 *Remark (tilt law).* The same computation with w(t) = k^{−s}Ψ(k)^t, Ψ = exp L₁(log k), gives Σ_{j≤n}log(b_j(vΨ)/b_j(v)) =
 ½L₁(log n) + o(L₁(log n))-type statements under a uniform log-moment hypothesis of the same kind (QL of G1 §3.14 along the
 path). At the pointwise level this is the tilt law n^pb_n/c = 1 − (s − 1 − ϑ_n)/(2n) + o(ϑ_n/n), ϑ_n = L₁′(log n), of G1
-§3.17 (CONJECTURE): the factor Ψ acts as a local change of s by −ϑ_n. Not pursued (HEURISTIC).
+§3.17 (CONJECTURE): the factor Ψ acts as a local change of s by −ϑ_n. Not pursued (HEURISTIC). *(amended 2026-10-15: false as stated for 0 < p < 1, counterexample ℓ = 1 − εk^{−p}; hypothesis now n^{min(1,p)}Λ′(log n) → ∞; Paper II referee MA1)*
 
 ### 3.4 The 1/n coefficient in logarithmic-average form
 

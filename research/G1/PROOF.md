@@ -2423,7 +2423,7 @@ n^pa_n(k^{−s}Ψ) → 2c(p), with rate O(1/n + ρ(n/M₀)); rate O(1/n) if Ψ s
 case of Problem B (cf. §3.14 "no case of QL is proved"); it does not go through QL.
 
 **Remaining (GAP).** s ≥ 1 + 2p (α_x ≥ 1: Q̃ ∉ L²_loc at the Bessel scale, the C–D frame fails; ROUTE2 §6); p = 1 and p < 1
-(WP5); the 1/n coefficient (tilt law n^pb_n/c = 1 − (s − 1 − ϑ_n)/(2n) + o(ϑ_n/n), ϑ_n = L₁′(log n): CONJECTURE).
+(WP5); the 1/n coefficient (tilt law n^pb_n/c = 1 − (s − 1 − ϑ_n)/(2n) + o(ϑ_n/n), ϑ_n = L₁′(log n): CONJECTURE). *(amended 2026-10-15: false as stated for 0 < p < 1, counterexample ℓ = 1 − εk^{−p}; hypothesis now n^{min(1,p)}Λ′(log n) → ∞; Paper II referee MA1)*
 
 **NUMERICAL (p = s = 2, α_x = −½).** RedA: max_{k≥n}|log Ψ − L₁(log k)| = 8.3e−3 → 8.6e−4 (n = 10² → 10¹², √log); LW1′:
 sup_{lips}|D_q²/q_N − 1|/ε₁-sample = 2.40 → 2.90 (N = 10² → 10¹², bounded; the limit π is the pure-tilt value);

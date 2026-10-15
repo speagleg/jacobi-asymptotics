@@ -29,8 +29,8 @@ given by contour integrals of the off-diagonal part of the first correction of t
 evaluating them explicitly would settle the conjecture.
 
 Two further coefficients are open. For $0<p<1$ the remainder $O(n^{-1-2p}+n^{-2})$ of Theorem~\ref{thm:onen} hides a
-term of order $n^{-1-2p}$, whose coefficient we have not computed; the expansion of the band factor in
-Lemma~\ref{lem:plt1-band} continues with the term $\zeta(-2p)(z^2-1)/(2n^{2p})$, and the coefficient should be the
+term of order $n^{-1-2p}$, whose coefficient we have not computed; the expansion of $G$ in
+Lemma~\ref{lem:plt1-band}(iv) continues with the term $\zeta(-2p)(z^2-1)/(2n^{2p})$, and the coefficient should be the
 first-order response to this quadratic factor plus the second-order response to the linear one. More generally, the
 fits of Section~\ref{sec:numerics} are consistent with an asymptotic expansion of $n^pb_n/c(p)$ in the powers
 $n^{-1-i-jp}$, $i,j\ge0$. The coefficient of $n^{-2}$ is known only in the cases $(p,s)=(1,\frac32)$, $(1,\frac52)$
@@ -46,9 +46,17 @@ Let $p>0$, $s>1$, and let $\ell$ be analytic of angle $\vartheta$ for some $\var
 $\ell(k)=\exp\Lambda(\log k)$. Then
 \[
   \frac{n^pb_n(\sigma_{p,s,\ell})}{c(p)}=1-\frac{s-1-\Lambda'(\log n)}{2n}+o\Bigl(\frac{\Lambda'(\log n)}{n}\Bigr)
-  \qquad\text{whenever}\quad n\Lambda'(\log n)\to\infty.
+  \qquad\text{whenever}\quad n^{\min(1,p)}\Lambda'(\log n)\to\infty.
 \]
 \end{conjecture}
+
+For $0<p<1$ the stronger condition is needed. For $\ell(k)=1-\epsilon k^{-p}$ with $0<\epsilon<1$ the measure
+$\sigma_{p,s,\ell}=(1-\epsilon x)\sigma_{p,s}$ is a polynomial Christoffel transform, $\Lambda'(\log n)\asymp n^{-p}$, and the
+argument of Lemma~\ref{lem:pone-christoffel} together with Theorem~\ref{thm:onen}(ii) gives the coefficient
+$\mathsf k_p+p\,c(p)\epsilon$ of $n^{-1-p}$, not $\frac12p\epsilon$. Two effects are visible here: the pure-power term
+$\mathsf k_pn^{-1-p}$ is not small compared with $\Lambda'(\log n)/n$, and the response to a factor of size $n^{-p}$ has
+the coefficient $p\,c(p)$ in place of $\frac12p$. The two coincide at $p=1$, where $c(1)=\frac12$
+(Proposition~\ref{prop:pone-transfer}(i)).
 
 The conjecture says that, at order $1/n$, a slowly varying factor acts like a change of the exponent $s$ by the local
 logarithmic derivative $\Lambda'(\log n)$, that is, like a hard-edge Bessel order that drifts with $n$. In
