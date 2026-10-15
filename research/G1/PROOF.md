@@ -35,7 +35,7 @@ different measure) is not changed. Each changed label says "Rule R ACCEPT WITH F
 | WC | concentration at speed n²: P_n(\|⟨φ, ν_S⟩ − ⟨φ, μ*_u⟩\| > δ) ≤ e^{−c(φ,δ)n² + o(n²)} (§3.1) | PROVED (Plan 47; was PROVED-mod-cite (P) through G2 B*(iii), which now uses G2 Lemma EP) (§3.1 header); REVIEWED (proof unchanged); relabel Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED |
 | A4′ | unconditional tail-Cesàro a-law: x_k = k^{−p} (p > 1), Σw < ∞, w_k ≥ c₁k^{−s}: n^{p−1}Σ_{j≥n}a_j → 2c(p)/(p − 1) (§3.1) | PROVED (Plan 47; was PROVED-mod-cite (P) through G2 B*(iii), which now uses G2 Lemma EP) (§3.1 header); REVIEWED (proof unchanged); relabel Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED |
 | Sat_p⁺ | Sat_p for all p > 0, with the extra factor ((n+1)/k)^{2(1−p)₊} and g_p⁺ (§3.3); internal input of T3-conv, T3-sv, T3a, Thm R, L, T3-all, T3-log | no separate label in the §3.3 header (which labels T3-conv); the proof is that of Lemma Sat_p (PROVED) with two elementary changes; Rule R (review/REVIEW_Plan29.md) ACCEPT WITH FIXES, F1 applied — REVIEWED |
-| G1-R | (T3) from the atoms alone; (CL) (proved for pure-power atoms with rough weights, p > 1: Theorem CL; open for general nodes or p ≤ 1) | (T3) half **REFUTED** for sandwiched weights (Theorem R, §3.6); PROVED-mod-cite for pure-power nodes with slowly varying Ψ: bounded Ψ (Theorem T3-all, §3.8; contains T3-conv, T3-sv/T3a, T3-avg) and log-type Ψ (Theorem T3-log, §3.9); open for slowly varying Ψ with D(γ) = ∞ and for nodes other than pure powers (*Plan 48 note: for p > 1 and 1 < s < 1 + 2p the law is PROVED-mod-cite for every sequence-form slowly varying Ψ, incl. D(γ) = ∞, by Route II, bypassing QL — §3.17; Rule R ACCEPT WITH FIXES, re-check ACCEPT — REVIEWED*). (CL) half: proved for pure powers k^{−p}, p > 1 (Theorem CL); open for general nodes or p ≤ 1 (see §4). *(Row updated by Plan 37, 2026-10-14; previously "proved for polynomially slowly varying weights (T3-sv/T3a); (CL) half unchanged".)* |
+| G1-R | (T3) from the atoms alone; (CL) (proved for pure-power atoms with rough weights, p > 1: Theorem CL; open for general nodes or p ≤ 1) | (T3) half **REFUTED** for sandwiched weights (Theorem R, §3.6); PROVED-mod-cite for pure-power nodes with slowly varying Ψ: bounded Ψ (Theorem T3-all, §3.8; contains T3-conv, T3-sv/T3a, T3-avg) and log-type Ψ (Theorem T3-log, §3.9); open for slowly varying Ψ with D(γ) = ∞ and for nodes other than pure powers (*Plan 48 note: for p > 1 and 1 < s < 1 + 2p the law is PROVED-mod-cite for every sequence-form slowly varying Ψ, incl. D(γ) = ∞, by Route II, bypassing QL — §3.17; Rule R ACCEPT WITH FIXES, re-check ACCEPT — REVIEWED*) *(Plans 51–52 notes: p > 1 and every s > 1 by Christoffel transfer, §3.21 (Corollary B_all); 0 < p < 1 and every s > 1, §3.20 (Corollary B_{p<1}); both REVIEWED; open: p = 1 with D(γ) = ∞ unless Plan 50, §3.19)*. (CL) half: proved for pure powers k^{−p}, p > 1 (Theorem CL); open for general nodes or p ≤ 1 (see §4). *(Row updated by Plan 37, 2026-10-14; previously "proved for polynomially slowly varying weights (T3-sv/T3a); (CL) half unchanged".)* |
 | FV | first variation: d/dt log b_n²(v e^{tf}) = ⟨f, μ_n − μ_{n−1}⟩, μ_n := w p_n² (§3.2) | PROVED (standard; novelty not claimed); REVIEWED |
 | Conj R | (T3) — hence the pointwise b-law — FAILS for some weights e^{−ε}k^{−2} ≤ w_k ≤ e^{ε}k^{−2} (p = s = 2; §3.2, Plan 28) | Proved in modified form as Theorem R (§3.6): ε ≤ ε₀, non-explicit η, windows [θN, N^{κ+1}]. The [0.6N, 1.6N]-window form remains NUMERICAL (as of Plan 33). *(Plan 39, 2026-10-14: window form, incl. [0.6N, 1.6N], proved for ε ≤ ε₀ explicit with N_{i+1}/N_i → ∞ — Theorem RW, §3.10, Rule R ACCEPT WITH FIXES, re-check ACCEPT — REVIEWED; every-ε/absolute-c and ×4 forms still NUMERICAL.)* |
 | **Thm R** | Conjecture R proved in modified form (all p > 0, s > 1): there is ε₀ = η/16 such that for every ε ≤ ε₀ there is f with \|f\| ≤ ε such that w = k^{−s}e^{f} has limsup \|log(β_n²/β_{n−1}²)\| ≥ εη/2; so (T3) and the pointwise b-law fail for some weights in [e^{−ε}, e^{ε}]·k^{−s} (§3.6, Plan 33) | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; internal: FV, Sat_p⁺, TL, §3.5 two-point formula); proves Conjecture R in modified form; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan33.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED. Sub-labels: R2 PROVED; R1 PROVED-mod-cite |
@@ -59,7 +59,8 @@ different measure) is not changed. Each changed label says "Rule R ACCEPT WITH F
 | **QL-num** | numerics N1–N3 for QL (s = 2; N1: Ψ = exp(√log(k+e)), exp((log(k+e))^{0.8}); N2–N3: exp(√log(k+e)) only; p ∈ {2, 1, ½}): tilt ratio n·dev/ϑ_n = 0.465–0.497 at n = 1600, rising toward 0.5 with a defect decaying at least like 1/log n (limit not established); QL-b power tail μ_n((Mn, ∞)) ≤ CM^{−α}, α = min(p/2, 0.8), C ≈ 0.4–0.6 flat in n, t; crossover M_x ≍ n^{2/p} (grid brackets [1.6, 6.6]n² at p = 1, [0.17, 0.67]n⁴ at p = ½); Λ_n → LP constant, flat in t (sup at t = 1 with the tail), ε_nΛ_n decreasing; Route I′: R ≤ 0.93·ε_n(1 + log M) on all tested data — Route I′ not dead on the outline's criterion (saturation beyond the hard edge is structural, not evidence; p = ½ does not discriminate CB from Cauchy–Schwarz scales) (§3.15, Plan 45) | NUMERICAL (K-doubling, quad/long double, Lanczos and TV finite-difference cross-checks); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan45.md), fixes applied — REVIEWED |
 | **QLP** | pure power v_σ = k^{−σ}, all p > 0: for m ∈ {n−1, n}, n ≥ n₀ and **every** M ≥ 1, μ_m((Mn, ∞)) ≤ CM^{−p/2} for M ≤ n^{2/p} (arcsine range), ≤ Cn^{−1}(M/n^{2/p})^{−β}(1 + log(M/n^{2/p})) below the Bessel scale (β = min(p, σ−1), p ≠ 1; min(½, σ−1), p = 1), hence ≤ C_ϑM^{−ϑ} for all M (ϑ < min(p/2, σ−1); ϑ = p/2 if σ−1 > p/2, p ≠ 1 only); Corollary QLP-Λ: Σ_{k≥n}log(k/n)μ_m(k) = O(1), i.e. QL of §3.14 at t = 0. Method: Stieltjes transform at z = τe^{5πi/6} (Lemma ST) = row product of the RH solution (Lemma GS), hard-edge Bessel model I_α·K_α (Lemma BK) (§3.16, Plan 46) | ST, GS PROVED; BK PROVED-mod-cite (DLMF 10.25.2, 10.32.4, 10.32.9); QLP, QLP-Λ PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; KMVV (6.23); Vanlessen (4.27); KV (5.21)–(5.22) as a consistency check) for each fixed σ; uniform in σ on compacts CONDITIONAL on (RU) (Audit U: PROOF SKETCH, via DLMF 10.40.10–12); no new case of the law (QL for t > 0 still HYPOTHESIS); Lemmas Z, A PROVED-mod-cite; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan46.md), fixes applied — REVIEWED; novelty UNCHECKED |
 | **RII / B_{p>1}** | Route II (Plan 48): for p > 1, **1 < s < 1 + 2p** and w₁ = k^{−s}exp(L₁(log k)) with L₁ analytic on {Re u ≥ −c₀, \|Im u\| ≤ π/p}, bounded for Re u ≤ 0, L₁′ → 0 as Re u → ∞ there (H_an): n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n) (Theorem RII; RH_px with the hard edge done by a Conway–Deift comparison, W̃ := D_w; the non-Fisher–Hartwig lip mismatch moves Q₁, Q₂ by O(ε′_N/N) relative to the comparison problem). With RedA (Gaussian smoothing; sequence form only): **the full pointwise Law P for every sequence-form slowly varying Ψ, incl. D(γ) = ∞ (e.g. exp(√log k)), p > 1, 1 < s < 1 + 2p** (Corollary B_{p>1}; §3.17, `RH/route2/ROUTE2.md`) | RedA PROVED; RII, B_{p>1} PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; C–D Thm 4.4 (+ arguments of 4.7/4.9 as in RH_ζ_close §1); DLMF (incl. 1.13.4, 10.28.2) 1.14, 5.5.3, 5.12, 10.25.2, 10.27.3–4, 10.31.2; G2 μ*, B*(i)–(ii)); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan48.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED. GAP: s ≥ 1 + 2p; p ≤ 1; the 1/n coefficient (tilt law: CONJECTURE, NUMERICAL) |
-| **RII_{<1} / CT / B_{p<1}** | Route II for 0 < p < 1 (Plan 51, WP5b): RH_plt1b's seam geometry with the Conway–Deift hard edge of Plan 48 (W̃ := D_w; lips at ±πp/4; the seams carry no jump and do not see Ψ; the weight is used only in \|arg z\| < πp/2, so L₁ need only be analytic on \|Im u\| ≤ π/2, (H_an^{<1})); Lemma X0 (N-uniform modulus of the seam scalar at 0); **Theorem RII_{<1}**: 0 < p < 1, 1 < s < 1 + 2p, (H_an^{<1}) ⇒ n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n). **Lemma CT** (Christoffel step): J(σ) = LLᵀ ⇒ J(xσ) = LᵀL, and a_n/b_n → 2, b_{n−1}/b_n → 1 transfer from σ to xσ (O(1/n) ⇒ O(1/n)); since xσ_{s,Ψ} = σ_{s+p,Ψ}: **Corollary RII⁺_{<1}** (all s > 1) and **Corollary B_{p<1}: the full pointwise Law P for every sequence-form slowly varying Ψ (incl. D(γ) = ∞), 0 < p < 1, every s > 1**; **Remark CT-px**: the same for p > 1, every s > 1 (Plan 48's GAP-α closed for the law) (§3.20, `RH/route2/ROUTE2_plt1.md`) | CT PROVED (self-contained; novelty of the identity not claimed); X0 PROVED-mod-cite (DLMF 5.5.1, 5.11); RII_{<1}, RII⁺_{<1}, B_{p<1}, CT-px PROVED-mod-cite (as RII + KMVV angle freedom, DLMF 5.5.1, 5.11; RedA; G2 μ*, B*(i)–(ii)); **Rule R pending**; novelty UNCHECKED. GAP: the 1/n coefficient (tilt law); p = 1 not treated |
+| **RII_{<1} / CT-Ch / B_{p<1}** | Route II for 0 < p < 1 (Plan 51, WP5b): RH_plt1b's seam geometry with the Conway–Deift hard edge of Plan 48 (W̃ := D_w; lips at ±πp/4; the seams carry no jump and do not see Ψ; the weight is used only in \|arg z\| < πp/2, so L₁ need only be analytic on \|Im u\| ≤ π/2, (H_an^{<1})); Lemma X0 (N-uniform modulus of the seam scalar at 0); **Theorem RII_{<1}**: 0 < p < 1, 1 < s < 1 + 2p, (H_an^{<1}) ⇒ n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n). **Lemma CT-Ch** (Christoffel step, Cholesky/Darboux form; equivalent to Plan 52's CS/CS-r with g_j = l_j², h_j = m_{j−1}²; independent second proof): J(σ) = LLᵀ ⇒ J(xσ) = LᵀL, and a_n/b_n → 2, b_{n−1}/b_n → 1 transfer from σ to xσ, with b̃_n/b_n → 1 (same constant; O(1/n) ⇒ O(1/n)); since xσ_{s,Ψ} = σ_{s+p,Ψ}: **Corollary RII⁺_{<1}** (all s > 1) and **Corollary B_{p<1}: the full pointwise Law P for every sequence-form slowly varying Ψ (incl. D(γ) = ∞), 0 < p < 1, every s > 1**; Remark CT-px: second proof of Plan 52's Corollary B_all (p > 1, §3.21) (§3.20, `RH/route2/ROUTE2_plt1.md`) | CT-Ch PROVED (self-contained, classical; novelty not claimed); X0 PROVED-mod-cite (DLMF 5.5.1, 5.11); RII_{<1}, RII⁺_{<1}, B_{p<1} PROVED-mod-cite (as RII + KMVV angle freedom, DLMF 5.5.1, 5.11; RedA; G2 μ*, B*(i)–(ii)); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan51.md), fixes applied — REVIEWED; novelty UNCHECKED. GAP: the 1/n coefficient (tilt law); p = 1 not treated here (Plan 50, §3.19) |
+| **SH / B_all** | Christoffel transfer (Plan 52): x·σ_s = σ_{s+p}; for any positive σ on [0, ∞) with infinite support, Law P(c) for σ ⇒ Law P(c) for x·σ, with the same regular rate (Lemmas CP, CT, CS, CS-r; Theorems SH, SH-r; n^p(−P_{n+1}(0)/P_n(0)) → c follows from the law and positivity alone). Hence **Corollary B_all: the full pointwise Law P for k^{−s}Ψ, p > 1, every s > 1, every sequence-form slowly varying Ψ (incl. D(γ) = ∞); O(1/n) under (H_an)** — closes GAP-α of RII for the law (§3.21, `RH/route2/ROUTE2_alpha.md`) | CP, CT, CS, CS-r, SH, SH-r PROVED (self-contained; CT classical, novelty not claimed); B_all PROVED-mod-cite (inherits RII: WLXZ v1, KMVV §6, C–D, DLMF, G2 μ*, B*(i)–(ii)); CS very likely KNOWN in chain-sequence form (Wall; Chihara 1978 Ch. I, III — not read, pointer only); for s > 1 + p/2 B_all needs only the |α_x| ≤ ½ part of RII plus Lemma W′; Remark SH-1/n: identity and equivalence PROVED, hypothesis NUMERICAL, tilt transfer CONDITIONAL (implication PROVED); numerics NUMERICAL; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan52.md), fixes applied — REVIEWED; novelty UNCHECKED. GAP: p ≤ 1 with D(γ) = ∞; tilt law; RH analysis for α_x ≥ 1 itself |
 | **CB / QL-CB** | Route I′ (outline_B_sv §5): boundary-flux identities X_A = Σ_{A×A^c}q_mK_mq_m(f(l)−f(k)) and d/dt μ_m(A) = flux of K_m+K_{m+1} (BF), X_A = ∫_A R_m dμ_m with R_m = P_m/p_m (RF); TV for unbounded f (TV⁺); free (Toeplitz) model: commutator = ½ covariance exactly, X/μ(A) = (ε/p)Cl₂(φ)/φ (FM; log M in CB sharp in the free model, HEURISTIC for μ_m^{(t)}, NUMERICAL support); dyadic block bound (DB); Nishida–Ovsyannikov lemma (NO); **Theorem QL-CB**: CB with a small constant η ≤ η₀(p,s,α,a) along vΨ^t ⇒ QL-b (any α < min(p/2, s−1)) ⇒ QL ⇒ full pointwise Law P for every sequence-form slowly varying Ψ; **Theorem B-OD**: two block bounds (OD-E, OD-F) ⇒ CB ⇒ law. CB itself NOT proved (§3.18, Plan 49) | TV⁺ PROVED (standard extension); BF, RF, DB, NO PROVED; FM (i)–(iii) PROVED, model reading HEURISTIC; QL-CB CONDITIONAL (CB(η, a), η ≤ η₀(p,s,α,a)) + PROVED-mod-cite (inherits QLP §3.16: RH_px, RH₁(r), RH_plt1b, KMVV (6.23), Vanlessen (4.27), DLMF 10.25.2/10.32.4/10.32.9 via Lemma BK; B-cond: RH_px, RH₁(r), RH_plt1b); B-OD CONDITIONAL (OD-E, OD-F); CB-ob HEURISTIC/OBSTRUCTION; numerics NUMERICAL; no new case of the law (cross-ref. Plan 48, §3.17, in review: law for p > 1, 1 < s < 1 + 2p without QL); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan49.md), fixes applied — REVIEWED; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1 §§2–6) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; G2 PROOF.md μ*, B* — only μ* and B*(i)–(ii), which do not use (P)) + REVIEWED |
@@ -2698,7 +2699,7 @@ on atoms k ≤ 6·10⁴ plus a Gauss–Legendre log-panel tail to 10^{16} as in 
 - Limits: n ≤ 400 (p = 2), n ≤ 200 (p = 1), one Ψ, s = 2, a continuum tail model beyond k = 6·10⁴; finite checks of
   universally quantified statements (Rule N2).
 
-### 3.20 Route II for 0 < p < 1 (Plan 51): the pointwise Law P for k^{−s}Ψ, Ψ slowly varying (incl. D(γ) = ∞), every s > 1, via the seam geometry and a Christoffel step — Lemma CT PROVED; Lemma X0 PROVED-mod-cite; Theorem RII_{<1}, Corollaries RII⁺_{<1}, B_{p<1} and Remark CT-px PROVED-mod-cite; Rule R pending; novelty UNCHECKED
+### 3.20 Route II for 0 < p < 1 (Plan 51): the pointwise Law P for k^{−s}Ψ, Ψ slowly varying (incl. D(γ) = ∞), every s > 1, via the seam geometry and a Christoffel step — Lemma CT-Ch PROVED (classical; second proof of §3.21's CS/CS-r); Lemma X0 PROVED-mod-cite; Theorem RII_{<1}, Corollaries RII⁺_{<1}, B_{p<1} PROVED-mod-cite; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan51.md), fixes applied — REVIEWED; novelty UNCHECKED
 
 Full text: `RH/route2/ROUTE2_plt1.md` (labels per step there). Source: `research/program/outline_B_sv.md` §5 Route II, WP5b.
 Numerics: `RH/route2/checks/check_r2p_{coeff,lw1}.py/.out` (NUMERICAL).
@@ -2712,35 +2713,96 @@ exp √log(t + e) (singular at Im u = ±π) satisfies (H_an^{<1}) directly.
 **Seams.** Ψ₁ does not enter the seam scalar F (L±, X are node data); V and Q have no jump on the seams; the comparison parametrix
 built with D_w has none either (RH_plt1b's super-small glued-W̃ seam jump disappears). The seams enter only through e^{−2X} in the
 band weight; **Lemma X0** (PROVED-mod-cite DLMF 5.5.1, 5.11) gives N-uniformly |X(z) − X(0)| ≤ C|z|(1 + log(1/|z|)) off the seams.
-(Sign note: RH_plt1b §1 writes −μ(t) in L± where +μ is meant; text-only, no statement affected.)
+(Sign note, Rule R F2: RH_plt1b §1's L± = −μ − … is correct with Binet's μ (RH_px); only its displayed definition of μ has the wrong sign. ROUTE2_plt1 writes λ := log D̃ = −μ. Text-only, no statement affected.)
 
-**Theorem RII_{<1} (PROVED-mod-cite; Rule R pending).** Let 0 < p < 1, 1 < s < 1 + 2p (α_x = (s − 1 − p)/p ∈ (−1, 1)) and Ψ₁ =
+**Theorem RII_{<1} (PROVED-mod-cite; REVIEWED).** Let 0 < p < 1, 1 < s < 1 + 2p (α_x = (s − 1 − p)/p ∈ (−1, 1)) and Ψ₁ =
 exp L₁(log t) with (H_an^{<1}). Then σ₁ = Σk^{−s}Ψ₁(k)δ_{k^{−p}} satisfies n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n).
 Proof: ROUTE2 §§3–4 in the RH_plt1b geometry — Lemma LW1′_{<1} (|D_w²/w₀ − c_±| ≤ C(|z|^{1/2}log(2/|z|) + ε₁(log N − C)) on the lips;
 h_N-part via X0, q_N-part with |Im u| ≤ π/4), UR′_{<1} incl. (b′) (star {0, ±πp/4}, Bessel rays at π − πp/4 by KMVV's angle
 freedom), C′_{<1}, D′_{<1} (Q₁ − Q̃₁, Q₂ − Q̃₂ = O(ε′_N/N), ε′_N = N^{−1}log N + ε₁). As in §3.17, no claim on the 1/n coefficient.
 
-**Lemma CT (PROVED, self-contained).** σ on [0, ∞) with infinite support, J(σ) = LLᵀ (Cholesky: l_j > 0 diagonal, m_j subdiagonal,
+**Lemma CT-Ch (PROVED, self-contained, classical; renamed from "CT" per Rule R F1).** σ on [0, ∞) with infinite support, J(σ) = LLᵀ (Cholesky: l_j > 0 diagonal, m_j subdiagonal,
 a_j = l_j² + m_{j−1}², b_j = l_jm_j). (i) LᵀL = J(xσ) (R := L^{−1}P are the orthonormal polynomials of x dσ). (ii) r_j := l_j/m_j
 satisfies r_j = a_j/b_j − (b_{j−1}/b_j)/r_{j−1}; if a_j/b_j → 2 and b_{j−1}/b_j → 1 then r_j → 1 (positivity of r excludes the escaping
 branch of the parabolic map r ↦ 2 − 1/r), so ã_j/(2b̃_j) → 1 and b̃_j/b_j → 1. (iii) With O(1/j) inputs, r_j − 1 = O(j^{−1/2}) and the
-outputs are O(1/j). Since xσ_{s,Ψ} = σ_{s+p,Ψ} (x_k = k^{−p}), the pointwise Law P with rate O(1/n) passes from s to s + p.
+outputs are O(1/j). Since xσ_{s,Ψ} = σ_{s+p,Ψ} (x_k = k^{−p}), the pointwise Law P with rate O(1/n) passes from s to s + p. CT-Ch is equivalent to §3.21's Lemmas CS/CS-r (g_j = l_j², h_j = m_{j−1}², r_j² = g_j/h_{j+1}), with ratio-only hypotheses; its proof is an independent second proof. Either CT-Ch(iii) or SH-r can be cited below.
 
-**Corollary RII⁺_{<1}** (all s > 1, O(1/n)): s₀ := s − mp ∈ (1, 1 + p] (m = max(0, ⌈(s − 1)/p⌉ − 1)), RII_{<1} at s₀, m CT steps.
-**Corollary B_{p<1} (PROVED-mod-cite; Rule R pending).** For 0 < p < 1, **every s > 1** and every Ψ slowly varying in sequence form
+**Corollary RII⁺_{<1}** (all s > 1, O(1/n)): s₀ := s − mp ∈ (1, 1 + p] (m = max(0, ⌈(s − 1)/p⌉ − 1)), RII_{<1} at s₀, m CT-Ch steps (or SH-r).
+**Corollary B_{p<1} (PROVED-mod-cite; REVIEWED).** For 0 < p < 1, **every s > 1** and every Ψ slowly varying in sequence form
 (no boundedness, no D(γ) < ∞): n^pb_n(k^{−s}Ψ) → c(p), n^pa_n(k^{−s}Ψ) → 2c(p), rate O(1/n + ρ(n/M₀)) (RedA), O(1/n) under
 (H_an^{<1}). Not through QL.
-**Remark CT-px (PROVED-mod-cite; Rule R pending).** Lemma CT applied to Theorem RII (§3.17): for p > 1 the law (O(1/n) under (H_an),
-O(1/n + ρ) for every sequence-form slowly varying Ψ) holds for **every s > 1**; §3.17's GAP "s ≥ 1 + 2p" is closed for the law (the
-comparison frame itself still fails at α_x ≥ 1 and is not used there).
+**Remark CT-px (cross-reference).** Lemma CT-Ch applied to Theorem RII (§3.17) is an independent second proof of §3.21's Corollary B_all (p > 1, every s > 1); no new label.
 
 **Remaining (GAP).** The 1/n coefficient (tilt law: CONJECTURE); p = 1 (WP5a; not treated here; for pure powers RH₁(r)).
 
-**NUMERICAL (p = ½, Ψ = exp √log(k + e), quadrature tail to 10⁴⁸, K = 10⁵ and 2·10⁵ agree to 10⁻⁷).** n(n^pb_n/c − 1) bounded for
+**NUMERICAL (model measure: atoms + Gauss–Legendre continuum tail; p = ½, Ψ = exp √log(k + e), quadrature tail to 10⁴⁸, K = 10⁵ and 2·10⁵ agree to 10⁻⁷).** n(n^pb_n/c − 1) bounded for
 s = 1.5, 1.75 (RII_{<1}), 2, 2.5 (via CT): at s = 2, −0.404, −0.407, −0.410, −0.413, −0.416 (n = 100 … 1600; pure power −0.507 …
 −0.502); n(a_n/(2b_n) − 1) → ¼ = p/2; tilt ratio 0.455 → 0.467 (s = 2). CT identity LᵀL = J(σ_{s+p}) to 8·10⁻¹⁷; r_n − 1 ≈ 0.5/n
-(s = 1.5). LW1′_{<1}: sup|D_q²/q_N − 1|/η_N = 1.65 → 2.51 (N = 10² → 10¹²; → π). X0 ratio 0.23–0.24, flat in N. Atoms-only
+(s = 1.5). LW1′_{<1}: sup|D_q²/q_N − 1|/η_N = 1.65 → 2.51 (N = 10² → 10¹²; → π). X0 ratio 0.23–0.24 (sup at |z| = 0.5), 0.085–0.089 on |z| ≤ 10⁻², flat in N. Atoms-only
 truncation (no tail) gives wrong values (the truncated measure has a soft edge).
+### 3.21 Route II for s ≥ 1 + 2p (Plan 52): Christoffel transfer — Law P passes from σ to x·σ, so Theorem RII / Corollary B_{p>1} extend to every s > 1 — Lemmas CP, CT, CS, CS-r PROVED (self-contained); Theorems SH, SH-r PROVED (self-contained); Corollary B_all PROVED-mod-cite (inherits RII); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan52.md), fixes applied — REVIEWED; novelty UNCHECKED (Lemma CS very likely KNOWN in chain-sequence form)
+
+Full text: `RH/route2/ROUTE2_alpha.md`. Numerics: `RH/route2/checks/check_r2alpha_{christoffel,law}.py/.out` (NUMERICAL). Closes
+GAP-α of §3.17 / ROUTE2 §6 **for the law** (the RH analysis of the weight itself for α_x ≥ 1 is not done and not needed).
+
+**Shift identity.** For x_k = k^{−p}, x·σ_s = σ_{s+p} exactly (σ_s := Σk^{−s}Ψ(k)δ_{k^{−p}}): multiplying by x shifts s by p.
+
+**Lemma CP (PROVED).** σ ≥ 0 on [0, ∞) with infinite support ⇒ the monic P_n have n simple zeros in (0, ∞); (−1)^nP_n(0) > 0.
+
+**Lemma CT (Christoffel transfer; PROVED, classical, novelty not claimed).** Monic recurrence xP_n = P_{n+1} + α_nP_n +
+β_nP_{n−1}. With g_n := −P_{n+1}(0)/P_n(0) > 0, h_0 := 0, h_n := β_n/g_{n−1}: α_n = g_n + h_n, β_n = g_{n−1}h_n
+(so g_0 = α_0, g_n = α_n − β_n/g_{n−1}), and x·σ has monic OPs (P_{n+1} + g_nP_n)/x with α̃_n = g_n + h_{n+1},
+β̃_n = g_nh_n. (Checked exactly: 60-digit RKPW, max relative error ≤ 2·10⁻⁵⁹, four (p, s, Ψ) cases incl. p = ½.)
+
+**Lemma CS (PROVED).** If n^pα_n → 2c and n^p√β_n → c > 0, then G_n := n^pg_n → c and n^ph_n → c. *Proof idea:* G_n =
+F(G_{n−1}) + o(1), F(G) = 2c − c²/G has a double fixed point at c with F(G) ≤ G; positivity of g_n (Lemma CP) excludes escape
+below c, and the monotone band argument pulls G_n down to c from above. **No hard-edge information on P_n(0) is used.**
+*Chain-sequence form (Rule R F1):* with a_n := β_n/(α_{n−1}α_n), m_n := h_n/α_n one has a_n = (1 − m_{n−1})m_n, m_0 = 0, so (m_n) is
+the minimal parameter sequence of the chain sequence (a_n); Law P gives a_n → ¼ and CS ⟺ m_n → ½. Label: PROVED (self-contained);
+**very likely KNOWN** (chain sequences: Wall; Chihara 1978 Ch. I, III — not read, pointer only).
+
+**Theorem SH (shift lemma; PROVED).** For any positive σ on [0, ∞) with infinite support and any p > 0: Law P(c) for σ ⇒
+Law P(c) for x·σ (n^pα̃_n = G_n + (n/(n+1))^pn^ph_{n+1} → 2c, n^{2p}β̃_n = G_n·n^ph_n → c²). Hence Law P for σ_s ⇒ for
+σ_{s+mp}. (Any scale s_n with s_{n−1}/s_n → 1 works. The converse direction is not claimed.)
+
+**Lemma CS-r / Theorem SH-r (PROVED).** For a regular rate r_n (non-increasing, n·r_n non-decreasing, → 0; every rate
+ρ_n ≥ 1/n, ρ_n ↓ 0 has the regular majorant max_{m≤n}(mρ_m)/n): rate r_n for σ ⇒ |G_n − c| = O(√r_n),
+|G_n − G_{n−1}| = O(r_n), and rate O(r_n) for x·σ. In particular RII's O(1/n) form is preserved.
+
+**Corollary B_all (PROVED-mod-cite; citations those of Theorem RII).** p > 1, **every s > 1**, Ψ slowly varying in sequence
+form (incl. D(γ) = ∞, e.g. exp(√log k)): n^pb_n(k^{−s}Ψ) → c(p), n^pa_n(k^{−s}Ψ) → 2c(p), with rate O(regular majorant of
+1/n + ρ(⌈n/M₀⌉)); rate O(1/n) if Ψ satisfies (H_an) (the conclusion of Theorem RII for all s > 1). *Proof:* s₀ := s − mp with
+m ≥ 0 least such that s₀ < 1 + 2p; then s₀ ∈ (1, 1 + 2p) (s₀ ≥ 1 + p if m ≥ 1); Corollary B_{p>1} / RII at s₀, then SH-r m
+times. *Dependency footprint (Rule R F2):* any half-open base window of length p in (1, 1 + 2p) works; for s > 1 + p/2 take
+s₀ ∈ (1 + p/2, 1 + 3p/2] (α_x ∈ (−½, ½]), where RII needs only the original UR′ (|α_x| ≤ ½), so UR′(b′) (Plan 48 Rule R F1)
+is needed only for 1 < s ≤ 1 + p/2 (B_{p>1}'s own range). Lemma W′ (α_x = 0) is genuinely needed: every α-window of length 1
+contains 0.
+
+**Remark SH-1/n.** Exact: n^p√β̃_n = n^p√β_n·κ_n^{1/2}(G_n/G_{n−1})^{1/2}, κ_n = ((n−1)/n)^p; so the 1/n coefficient of
+n^pb_n shifts by −p/2 under s ↦ s + p iff n(G_n − G_{n−1}) → 0 (equivalence PROVED; the hypothesis NUMERICAL). This is
+consistent with the pure-power d₁ = −(s − 1)/2, and maps the tilt law (CONJECTURE, §3.17) at s to the tilt law at s + p if
+n(G_n − G_{n−1}) = o(ϑ_n) (CONDITIONAL; the implication is PROVED, given also nϑ_n → ∞; Rule R F5). GAP-rate is otherwise unchanged.
+
+**Route (a)** (frame change Q·((z − a)/z)^{mσ₃}, ROUTE2 §6): not pursued; superseded for the law. Multiplying the weight by x
+is, on the RH side, a Schlesinger transformation anchored at z = 0 (HEURISTIC identification); as an RH argument it would need
+pointwise control of Y_σ(0), which the L²-comparison of §3.17 does not give (OBSTRUCTION, heuristic, scoped to that route).
+
+**NUMERICAL (p = 2; K = 6·10⁴, 1.2·10⁵, 2.4·10⁵).** s = 5, 6 (α_x = 1, 3/2), Ψ = 1 and exp √log(k + e): n(n^pb_n/c − 1) =
+−1.973, −1.986, −1.993 (Ψ = 1, s = 5; n = 100, 200, 400) and −2.462, −2.481, −2.491 (s = 6) → −(s − 1)/2; −1.864, −1.882, −1.894
+and −2.354, −2.377, −2.391 for exp √log (near the tilted baseline −(s − 1 − ϑ_n)/2); n(a_n/(2b_n) − 1) → 1 = p/2 (1.0004–1.0065
+at n = 400, K = 2.4·10⁵); K-stable to ≤ 10⁻³ for n ≤ 400 (s = 5, 6 rows) (n = 800 not K-converged, not used). The 1/n shift per Christoffel step is
+−0.980 … −0.983, −0.990 … −0.992, −0.995 (n = 100, 200, 400; K-stable to 2·10⁻³) → −p/2 = −1. The chain sequence:
+n·(½log(g_n/h_n)) ≈ 0.50, 1.48, 2.46, 3.44 at n = 100 for s = 3, 4, 5, 6 (Ψ = 1; K-converged at n = 100, and at n = 200 for
+s ≥ 4 only), consistent with G_n − c = O(1/n) on these n — better than Lemma CS-r's O(n^{−1/2}), which is sharp in general
+(Rule R F4 example, ROUTE2_alpha §8(e)). K-stability ≤ 10⁻³ is for the s = 5, 6 rows; the bases s = 3, 4 differ by 2–3·10⁻³
+at n = 400 (Rule R F3).
+
+**Rule A** (ROUTE2_alpha §8): finite/truncated measures (identity exact for n < K − 1), mass at 0, c > 0 needed, uniqueness
+of the fixed point, rate loss (none at first order), converse (not used), exactness of the shift identity with the same Ψ,
+p = ½. No counterexample.
+
+**Remaining (GAP).** p ≤ 1 with D(γ) = ∞ (no base case; SH would transfer one); the 1/n coefficient (tilt law); an RH analysis
+of k^{−s}Ψ itself for α_x ≥ 1 (not needed for the law).
 
 ## 4. G1-R: what remains (stop report)
 
@@ -2761,7 +2823,7 @@ truncation (no tail) gives wrong values (the truncated measure has a soft edge).
 - G1-L needs a one-sided bound on β_n; it is not unconditional.
 
 **Missing statements (precise).** (For *rough* sandwiched weights the (T3) half is refuted by Theorem R, §3.6.)
-- ~~(T3) for β_n := n^p b_n/(c(p)C), from atom regularity (H-a) and weight conditions~~: REFUTED in this generality (Theorem R, §3.6). For bounded slowly varying weights (T3) and the full pointwise law are PROVED (Theorem T3-all, §3.8). Unbounded log-type Ψ (e.g. (log k)^α): PROVED-mod-cite (Theorem T3-log, §3.9). Open: slowly varying Ψ with D(γ) = ∞ (e.g. exp(√log k)), and nodes other than pure powers. *(Plan 48: D(γ) = ∞ is PROVED-mod-cite for p > 1, 1 < s < 1 + 2p, §3.17; open for p ≤ 1 and s ≥ 1 + 2p.)* *(Plan 51, Rule R pending: PROVED-mod-cite for 0 < p < 1 and every s > 1, and via Lemma CT for p > 1 and every s > 1, §3.20; open: p = 1 with D(γ) = ∞.)*
+- ~~(T3) for β_n := n^p b_n/(c(p)C), from atom regularity (H-a) and weight conditions~~: REFUTED in this generality (Theorem R, §3.6). For bounded slowly varying weights (T3) and the full pointwise law are PROVED (Theorem T3-all, §3.8). Unbounded log-type Ψ (e.g. (log k)^α): PROVED-mod-cite (Theorem T3-log, §3.9). Open: slowly varying Ψ with D(γ) = ∞ (e.g. exp(√log k)), and nodes other than pure powers. *(Plan 48: D(γ) = ∞ is PROVED-mod-cite for p > 1, 1 < s < 1 + 2p, §3.17; open for p ≤ 1 and s ≥ 1 + 2p.)* *(Plan 52, REVIEWED: s ≥ 1 + 2p closed for p > 1 by Christoffel transfer, §3.21; open for p ≤ 1.)* *(Plan 51, REVIEWED: 0 < p < 1 closed as well — PROVED-mod-cite for every s > 1, §3.20; open: p = 1 with D(γ) = ∞ (see Plan 50, §3.19).)*
 - ~~(CL) for p > 1~~: now PROVED for pure-power atoms with rough weights (Theorem CL, §3.1, Plan 27).
 
 **Why the tools here stop short** (methodological explanations, heuristic; not theorems about all such methods).

@@ -1,7 +1,8 @@
 # ROUTE2_plt1: Route II for 0 < p < 1 — the pointwise Law P for k^{−s}Ψ, Ψ slowly varying, via the seam geometry of RH_plt1b, and a Christoffel step that removes the restriction s < 1 + 2p (Plan 51)
 
-Status: **Rule R pending.** Novelty: UNCHECKED (no Rule L search). Lemma CT is a classical Christoffel (Darboux) transformation
-at the endpoint 0; its algebraic part is not claimed as new.
+Status: **Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan51.md), fixes F1–F8 applied — REVIEWED.** Novelty: UNCHECKED (no Rule L
+search). Lemma CT-Ch (Cholesky/Darboux form; renamed from "Lemma CT" per Rule R F1, since Plan 52's §3.21 has a different "Lemma CT")
+is a classical Christoffel (Darboux) transformation at the endpoint 0, equivalent to Plan 52's Lemmas CS/CS-r (§5.1); not claimed as new.
 
 Source: `research/program/outline_B_sv.md` §5 Route II, work package WP5b (p < 1, seams). Base: `ROUTE2.md` (Plan 48, REVIEWED;
 review `../../review/REVIEW_Plan48.md`), `../plt1/RH_plt1b.md` (seam construction, REVIEWED), `../plt1/RH_plt1.md` (amendments
@@ -18,13 +19,13 @@ table), `../zeta/RH_zeta_close.md` §1 (Conway–Deift comparison, REVIEWED). Nu
 | §3.3 LW1′_{<1} | \|D_w²/w₀ − c_±\| ≤ C(\|z\|^{1/2}log(2/\|z\|) + ε₁(T_N)) on the lips at ±πp/4 | PROVED (given X0, RH_plt1b, ROUTE2 §3.3) |
 | §4.1 UR′_{<1} (incl. (b′)) | uniform resolvent for the comparison problem, \|α_x\| < 1, star of three arcs at angles 0, ±πp/4 | PROVED-mod-cite (as UR′; KMVV angle freedom) |
 | §4.2 C′_{<1}, D′_{<1} | ‖(1 − C_v)^{−1}‖ ≤ 2C; Q₁ − Q̃₁, Q₂ − Q̃₂ = O(ε′_N/N), ε′_N = N^{−1}log N + ε₁(T_N) | PROVED-mod-cite |
-| **Theorem RII_{<1}** | 0 < p < 1, 1 < s < 1 + 2p, (H_an^{<1}): n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n) | **PROVED-mod-cite** (WLXZ v1 §§3–5, §6.1; KMVV §6 incl. angle freedom; C–D Thm 4.4 + arguments of 4.7/4.9 via RH_ζ_close §1; DLMF 1.13.4, 1.14.38–40, 5.5.1, 5.5.3, 5.11.1, 5.12, 10.25.2, 10.27.3–4, 10.28.2, 10.31.2; G2 μ*, B*(i)–(ii)); Rule R pending |
-| **Lemma CT** | σ on [0, ∞), infinite support, J = LLᵀ (Cholesky) ⇒ LᵀL is the Jacobi matrix of xσ; if a_n/b_n → 2 and b_{n−1}/b_n → 1 then the same holds for xσ, with b̃_n/b_n → 1; with O(1/n) inputs, O(1/n) outputs | PROVED (self-contained; novelty of the identity not claimed) |
-| **Corollary RII⁺_{<1}** | as RII_{<1} for **every s > 1** | PROVED-mod-cite (RII_{<1} + CT); Rule R pending |
-| **Corollary B_{p<1}** | 0 < p < 1, **every s > 1**, Ψ sequence-form slowly varying (incl. D(γ) = ∞): n^pb_n → c(p), n^pa_n → 2c(p), rate O(1/n + ρ(n/M₀)) | PROVED-mod-cite (RedA + RII⁺_{<1}); Rule R pending |
-| Remark CT-px | Lemma CT applied to Plan 48's RII / B_{p>1}: the same for p > 1 and **every s > 1** (closes Plan 48's GAP-α for the law, with rate) | PROVED-mod-cite (RII REVIEWED + CT); Rule R pending |
+| **Theorem RII_{<1}** | 0 < p < 1, 1 < s < 1 + 2p, (H_an^{<1}): n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n) | **PROVED-mod-cite** (WLXZ v1 §§3–5, §6.1; KMVV §6 incl. angle freedom; C–D Thm 4.4 + arguments of 4.7/4.9 via RH_ζ_close §1; DLMF 1.13.4, 1.14.38–40, 5.5.1, 5.5.3, 5.11.1, 5.12, 10.25.2, 10.27.3–4, 10.28.2, 10.31.2; G2 μ*, B*(i)–(ii)); Rule R ACCEPT WITH FIXES — REVIEWED |
+| **Lemma CT-Ch** | σ on [0, ∞), infinite support, J = LLᵀ (Cholesky) ⇒ LᵀL is the Jacobi matrix of xσ; if a_n/b_n → 2 and b_{n−1}/b_n → 1 then the same holds for xσ, with b̃_n/b_n → 1; with O(1/n) inputs, O(1/n) outputs | PROVED (self-contained, classical; novelty not claimed; equivalent to Plan 52 CS/CS-r with g_j = l_j², h_j = m_{j−1}²; independent second proof) |
+| **Corollary RII⁺_{<1}** | as RII_{<1} for **every s > 1** | PROVED-mod-cite (RII_{<1} + CT-Ch); Rule R ACCEPT WITH FIXES — REVIEWED |
+| **Corollary B_{p<1}** | 0 < p < 1, **every s > 1**, Ψ sequence-form slowly varying (incl. D(γ) = ∞): n^pb_n → c(p), n^pa_n → 2c(p), rate O(1/n + ρ(n/M₀)) | PROVED-mod-cite (RedA + RII⁺_{<1}); Rule R ACCEPT WITH FIXES — REVIEWED |
+| Remark CT-px | cross-reference: Lemma CT-Ch applied to Plan 48's RII gives an independent **second proof** of Plan 52's Corollary B_all (p > 1, every s > 1; PROOF.md §3.21, REVIEWED) | no new label (cross-reference) |
 | GAP-rate | the 1/n coefficient (tilt law) | GAP; CONJECTURE + NUMERICAL (§6) |
-| GAP-p1 | p = 1 | not treated here (WP5a) |
+| GAP-p1 | p = 1 | not treated here (WP5a; see Plan 50, PROOF.md §3.19) |
 
 Notation: as in ROUTE2 (t(z) = Nz^{−1/p}, u = log t = log N − (log z)/p, q_N, ϑ_N, w₀, D_w, Q-frame, ṽ, Q̃, α_x := (s − 1 − p)/p,
 c_± = e^{∓iπα_x}) and RH_plt1b (θ_L := πp/4 the lip angle, θ_s := πp/2 the seam angle, S_in := {|arg z| < θ_s}, S_out, Γ± the seam
@@ -100,7 +101,7 @@ Measure σ₁ := Σ_k k^{−s}Ψ₁(k)δ_{k^{−p}}, 0 < p < 1. The weight becom
 ### 3.1 Frame, comparison problem, local form
 
 Exactly ROUTE2 §3.1–§3.2 with the RH_plt1b contour near 0: Σ ∩ U(0, δ) = band (0, δ) ∪ two lips leaving 0 at ±θ_L (plus the
-super-small (h1) entries on the lips, now D/D̃ − 1 = O(exp(−2π sin(θ_L/p)|t|)) = O(exp(−√2πN|z|^{−2})), RH_plt1b §2). Lemma H1′
+super-small (h1) entries on the lips, now D/D̃ − 1 = O(exp(−2π sin(θ_L/p)|t|)) = O(exp(−√2πN|z|^{−1/p})), RH_plt1b §2). Lemma H1′
 (P̃₀ := (−1)^NẼ_Nσ₃Ψ_α(N²f)σ₃D_w^{−σ₃}e^{Nφσ₃}, Ẽ_N weight-free and analytic, P̃₀ with V's band jump and the lip jump
 [[1, 0], [c_±e^{2Nφ}/D_w², 1]], P̃₀N^{−1} = I + O(1/N) on ∂U(0, δ)) holds verbatim with KMVV's Ψ_α built on the angle π − θ_L
 (KMVV angle freedom, quoted in `../CITATIONS.md`; as in RH_plt1b §2). The local form of ROUTE2 §3.2 (Ψ = Ψ̂ζ^{ασ₃/2}S, α ∉ ℤ;
@@ -114,25 +115,27 @@ Hence |Ψ^{±1}| ≤ C|ζ|^{−|α|/2} (log for α = 0) and Ψe₂e₁ᵀΨ^{−
 
 Let 0 < p < 1, κ ∈ (0, 1), and Z_κ := {z ≠ 0 : dist(z, Γ₊ ∪ Γ₋) ≥ κ|z|}. There are C = C(p, κ) and N₀ such that for N ≥ N₀:
 - (i) |L±(ζ)| ≤ C|ζ| for ζ ∈ Γ±, |ζ| ≤ 1, and |L±(ζ)| ≤ C(1 + log|ζ|) for |ζ| ≥ 1;
-- (ii) |X(z) − X(0)| ≤ C|z|(1 + log⁺(1/|z|)) and |X′(z)| ≤ C(1 + log⁺(1/|z|)) for z ∈ Z_κ, |z| ≤ 1; |X(z) − X(0)| ≤ C(1 + log|z|) for
-  z ∈ Z_κ, |z| ≥ 1.
+- (ii) |X(z) − X(0)| ≤ C|z|(1 + log⁺(1/|z|)) and |X′(z)| ≤ C(1 + log⁺(1/|z|)) for z ∈ Z_κ, |z| ≤ 1; |X(z) − X(0)| ≤ C(1 + log|z|)² for
+  z ∈ Z_κ, |z| ≥ 1 (Rule R F3: squared log; only boundedness on [η₀, b] is used).
 
 The band (arg 0) and the lips (arg ±θ_L) lie in Z_κ with κ = sin(θ_s − θ_L) = sin(πp/4).
 
-*Sign convention.* L± = log(D·B_in/B_out), and log D̃ = ½log 2π + (t − ½)Log t − t − LogΓ(t) =: μ(t) (D̃ = √(2π)t^{t−½}e^{−t}/Γ(t),
-RH_plt1 §1), so L± = **+**μ(t) − Log(1 − e^{∓2πit}) + c·Log(1 + z) − ½Log(1 − z/(2πN)). RH_plt1b §1 writes "−μ(t)" with the same
-definition of μ; that is a sign slip in the text only (its proof uses −μ = ½log 2π + ½Log t + … at t → 0, which is the expansion of
-+μ, and its check `check_plt1_seam_winding.py` uses +μ). It does not affect any statement there or here (only |μ| enters below).
-Recorded in LOG.md for the reviewer; RH_plt1b.md is not edited.
+*Sign convention (Rule R F2).* L± = log(D·B_in/B_out). With **Binet's function** μ (RH_px §1: D̃ = exp(−μ(t))), L± =
+−μ(t) − Log(1 − e^{∓2πit}) + c·Log(1 + z) − ½Log(1 − z/(2πN)), exactly as RH_plt1b §1 writes it (its t → 0 expansion "−μ = ½log 2π +
+½Log t + …" is also correct for Binet's μ). The only slip in RH_plt1b §1 is the sign of its **displayed definition** μ(t) := ½log 2π +
+(t − ½)Log t − t − LogΓ(t), which is −μ_Binet. To avoid a clash with RH_px's μ, we write λ(t) := log D̃(t) = ½log 2π + (t − ½)Log t −
+t − LogΓ(t) = −μ(t) (D̃ = √(2π)t^{t−½}e^{−t}/Γ(t), RH_plt1 §1); then L± = λ(t) − Log(1 − e^{∓2πit}) + …, which is what
+`check_plt1_seam_winding.py` and `check_r2p_lw1.py` compute. No statement is affected (only |λ| = |μ| enters below). RH_plt1b.md
+is not edited.
 
 *Proof.* (i) On Γ₊, arg t = −π/2, t = −i|t|, |t| = N|ζ|^{−1/p}; e^{−2πit} = e^{−2π|t|} ∈ (0, 1).
 - |ζ| ≤ 1 (|t| ≥ N): by DLMF 5.11.1 with the §5.11(ii) bound (quoted in `../CITATIONS.md` "(DLMF)", re-verified in "(DLMF-5.11,
-  Plan 51)"), at |ph t| = π/2 the remainder after the k = 0 truncation is ≤ sec²(π/4)·(1/12)/|t|, so |μ(t)| ≤ 1/(6|t|) =
+  Plan 51)"), at |ph t| = π/2 the remainder after the k = 0 truncation is ≤ sec²(π/4)·(1/12)/|t|, so |λ(t)| ≤ 1/(6|t|) =
   |ζ|^{1/p}/(6N) ≤ |ζ|. |Log(1 − e^{−2π|t|})| ≤ 2e^{−2π|t|} ≤ 2e^{−2πN|ζ|^{−1/p}} ≤ C|ζ|. |c Log(1 + ζ)| ≤ C|ζ|.
   |½Log(1 − ζ/(2πN))| ≤ C|ζ|/N. So |L₊(ζ)| ≤ C|ζ| with C independent of N.
-- |ζ| ≥ 1. If |t| ≥ 1: |μ(t)| ≤ 1/6. If |t| < 1: LogΓ(t) = LogΓ(1 + t) − Log t on Re t ≥ 0 (DLMF 5.5.1; both sides continuous on
+- |ζ| ≥ 1. If |t| ≥ 1: |λ(t)| ≤ 1/6. If |t| < 1: LogΓ(t) = LogΓ(1 + t) − Log t on Re t ≥ 0 (DLMF 5.5.1; both sides continuous on
   the closed right half-plane minus 0 and equal on (0, ∞)), and LogΓ(1 + t) is bounded on {|t| ≤ 1, Re t ≥ 0}; with |Log t| ≤
-  |log|t|| + π/2 and |log|t|| = (1/p)log|ζ| − log N ≤ (1/p)log|ζ| (since |t| < 1), |μ(t)| ≤ C(1 + log|ζ|). Next
+  |log|t|| + π/2 and |log|t|| = (1/p)log|ζ| − log N ≤ (1/p)log|ζ| (since |t| < 1), |λ(t)| ≤ C(1 + log|ζ|). Next
   |Log(1 − e^{−2π|t|})| ≤ C(1 + |log|t||) ≤ C(1 + log|ζ|) (for y := 2π|t| ∈ (0, 2π], 1 − e^{−y} ≥ (1 − e^{−2π})y/(2π); for
   |t| ≥ 1 it is ≤ 2e^{−2π}). |c Log(1 + ζ)| ≤ |c|(log(1 + |ζ|) + π). Finally ζ/(2πN) lies on the ray at angle
   θ_s ∈ (0, π/2), so |1 − ζ/(2πN)| ≥ sin θ_s and ≤ 1 + |ζ|: |Log(1 − ζ/(2πN))| ≤ C(1 + log(1 + |ζ|)). Γ₋ by conjugation.
@@ -141,7 +144,7 @@ the integral, z ∉ Γ). For z ∈ Z_κ and ζ ∈ Γ±: |ζ − z| ≥ κ|z|, a
 With (i), for |z| ≤ 1:
   |X(z) − X(0)| ≤ C|z|[∫_0^1 dρ/(ρ + |z|) + ∫_1^∞(1 + log ρ)ρ^{−2}dρ] ≤ C|z|(1 + log(1/|z|)),
   |X′(z)| ≤ C[∫_0^1 ρ dρ/(ρ + |z|)² + ∫_1^∞(1 + log ρ)ρ^{−2}dρ] ≤ C(1 + log(1/|z|)).
-For |z| ≥ 1 the same splitting gives ∫_0^1 dρ/(ρ + |z|) ≤ 1/|z| and ∫_1^∞(1 + log ρ)ρ^{−1}(ρ + |z|)^{−1}dρ ≤ C(1 + log|z|)/|z|. ∎
+For |z| ≥ 1 the same splitting gives ∫_0^1 dρ/(ρ + |z|) ≤ 1/|z| and ∫_1^∞(1 + log ρ)ρ^{−1}(ρ + |z|)^{−1}dρ ≤ C(1 + log|z|)²/|z|. ∎
 
 This makes quantitative the "N-uniform" statements of RH_plt1b §1 (F3) at the corner 0, which Route II needs because the
 comparison mismatch (unlike RH_plt1b's exact glued W̃) sees log h_N on the lips. NUMERICAL (`check_r2p_lw1.out` [2]):
@@ -163,7 +166,7 @@ so h_N may be replaced by h_N/h_N(0) = exp(−2(log D̃ + log B_in + X − X(0))
 lips |z − x| ≥ c_p(x + |z|) (the lips leave 0 at ±θ_L; c_p ≍ sin θ_L).
 - **x^{α_x}:** D² = (bz/Φ)^α, D²/z^α = c_±(1 + O(|z|^{1/2})): p-free (ROUTE2 §3.3).
 - **(b − x)h_N:** log(b − x) is analytic near 0. For log h_N: on the closed sector {|arg z| ≤ θ_L, |z| ≤ η₀} (inside Z_κ and S_in),
-  |log D̃(z)| = |μ(t)| ≤ C|z|^{1/p}/N (DLMF 5.11.1 + §5.11(ii); |arg t| ≤ θ_L/p = π/4), |log B_in(z)| ≤ C|z|, and |X(z) − X(0)| ≤
+  |log D̃(z)| = |λ(t)| ≤ C|z|^{1/p}/N (DLMF 5.11.1 + §5.11(ii); |arg t| ≤ θ_L/p = π/4), |log B_in(z)| ≤ C|z|, and |X(z) − X(0)| ≤
   C|z|(1 + log(1/|z|)) (Lemma X0). So |log h_N(z) − log h_N(0)| ≤ C|z|(1 + log(1/|z|)) ≤ C′|z|^{1/2}, N-uniformly, on the
   lips and on [0, η₀]; on [η₀, b] it is bounded N-uniformly (Lemma X0(ii), D̃ = 1 + O(1/N), B_in bounded), and h_N is analytic
   on a neighbourhood of (0, b] (no seam meets it). Then, with x = |z|u on [0, b/2],
@@ -171,8 +174,8 @@ lips |z − x| ≥ c_p(x + |z|) (the lips leave 0 at ±θ_L; c_p ≍ sin θ_L).
   i.e. the Hölder exponent ν = ½, N-uniformly. (In ROUTE2 the same step used RH_px Lemma 3.4's (log D̃)′, (log B)′; here
   B_in is analytic and the seam scalar is controlled by Lemma X0.)
 - **q_N:** as ROUTE2 §3.3, path = arc of radius |z| from arg z = ±θ_L to 0, then the segment to x: along it Re u ≥ T_N and
-  |Im u| ≤ θ_L/p = π/4, so u ∈ Σ_{1/2}, and |log q_N(x) − log q_N(z)| ≤ ε₁,N(π/4 + |log(x/|z|)|)/p. The scale-invariant integral
-  ∫_0^∞(π/4 + |log u|)u^{−1/2}(1 + u)^{−1}du < ∞ gives |log D_q(z)² − log q_N(z)| ≤ C′ε₁,N.
+  |Im u| ≤ θ_L/p = π/4, so u ∈ Σ_{1/2}, and |log q_N(x) − log q_N(z)| ≤ ε₁,N(π/4 + |log(x/|z|)|/p) (Rule R F5). The scale-invariant integral
+  ∫_0^∞(π/4 + |log u|/p)u^{−1/2}(1 + u)^{−1}du < ∞ gives |log D_q(z)² − log q_N(z)| ≤ C′ε₁,N.
 - (h1) entries: super-small times |z|^{−η} (q_N factors). Finally sup_{lip}(|z|^{1/2}log(2/|z|) + ε₁,N)e^{−cN|z|^{1/2}} ≤
   C(N^{−1}log N + ε₁,N). ∎
 
@@ -240,9 +243,9 @@ in UR′/D′.
 
 ---
 
-## 5. Lemma CT (the Christoffel step) and the full range s > 1
+## 5. Lemma CT-Ch (the Christoffel step) and the full range s > 1
 
-### 5.1 Lemma CT — PROVED (self-contained)
+### 5.1 Lemma CT-Ch — PROVED (self-contained)
 
 Let σ be a positive measure on [0, ∞) with infinite support and finite moments, with orthonormal polynomials P = (P₀, P₁, …)
 (positive leading coefficients) and Jacobi matrix J: xP_j = b_jP_{j+1} + a_jP_j + b_{j−1}P_{j−1} (j ≥ 0, b_{−1} := 0, b_j > 0).
@@ -297,11 +300,18 @@ So |e_j| ≤ 2Kj^{−1/2} for large j. Then r_{j+1} − r_j = e_{j+1} − e_j = 
 ã_j/(2b̃_j) = [(r_j + 1/r_j)/2]·(b_j/b_{j+1})^{1/2}(r_j/r_{j+1})^{1/2} = (1 + O(e_j²))(1 + O(1/j))(1 + O(1/j)) = 1 + O(1/j),
 b̃_j/b_j = (b_{j+1}/b_j)^{1/2}(r_{j+1}/r_j)^{1/2} = 1 + O(1/j). ∎
 
+*Relation to Plan 52 (Rule R F1).* Plan 52 (PROOF.md §3.21, ROUTE2_alpha.md, REVIEWED) proves the same transfer in LU/chain-sequence
+variables g_j, h_j (its Lemmas CT, CS, CS-r; Theorems SH, SH-r). The dictionary is g_j = l_j², h_j = m_{j−1}², β_j = g_{j−1}h_j = b_{j−1}²,
+r_j² = g_j/h_{j+1}: CT-Ch(i) is Plan 52's Christoffel identity, and CT-Ch(ii)/(iii) are CS/CS-r in ratio form, with ratio-only
+hypotheses (A_j → 2, B_j → 1; no n^p normalization). The proof above is an independent second proof (classical; label PROVED).
+Both CT-Ch(iii) and SH-r can be cited for the corollaries below. The O(j^{−1/2}) bound for r_j − 1 is sharp for the recursion
+(reviewer: η_j = 0.5/j gives e_j√j → 0.7071); only increments enter the output rate.
+
 *Use.* For σ_{s,Ψ} := Σ_kk^{−s}Ψ(k)δ_{k^{−p}}: xσ_{s,Ψ} = σ_{s+p,Ψ} exactly (x_k = k^{−p}); Ψ is unchanged. The pointwise Law P
 for σ (n^pb_n → c(p), n^pa_n → 2c(p)) gives A_j → 2, B_j → 1, hence the law for xσ with the same c(p); with rate O(1/n) in, rate
 O(1/n) out. (Index shifts between conventions cost O(1/n) only, since b_{j+1}/b_j = 1 + O(1/j).)
 
-*Rule A for CT.* (a) Laguerre: J(x^αe^{−x}) ↦ J(x^{α+1}e^{−x}) exactly (check [2]). (b) A truncated measure (support [ε₀, 1], ε₀ > 0) violates the hypothesis: its
+*Rule A for CT-Ch.* (a) Laguerre: J(x^αe^{−x}) ↦ J(x^{α+1}e^{−x}) exactly (check [2]). (b) A truncated measure (support [ε₀, 1], ε₀ > 0) violates the hypothesis: its
 coefficients tend to a = (1 + ε₀)/2, b = (1 − ε₀)/4, so A_j → 2(1 + ε₀)/(1 − ε₀) > 2, and r_j tends to a root of r² − Ar + 1 = 0,
 which is ≠ 1 — consistent (seen numerically: p = ½ atoms without a tail give r_j − 1 growing in j). (c) The converse (xσ ⇒ σ, Geronimus) is not claimed and
 not used. (d) Positivity r_j > 0 is what excludes the second branch of the parabolic recursion; it holds because supp σ ⊂ [0, ∞).
@@ -312,7 +322,7 @@ not used. (d) Positivity r_j > 0 is what excludes the second branch of the parab
 a_n/(2b_n) = 1 + O(1/n).
 
 *Proof.* If s < 1 + 2p this is RII_{<1}. Otherwise let m := ⌈(s − 1)/p⌉ − 1 ≥ 1, s₀ := s − mp ∈ (1, 1 + p] ⊂ (1, 1 + 2p).
-RII_{<1} for (s₀, Ψ₁), then Lemma CT(i)+(iii) m times (σ_{s₀} ↦ σ_{s₀+p} ↦ … ↦ σ_s). ∎
+RII_{<1} for (s₀, Ψ₁), then Lemma CT-Ch(i)+(iii) m times (σ_{s₀} ↦ σ_{s₀+p} ↦ … ↦ σ_s). ∎
 
 **Corollary B_{p<1}.** Let 0 < p < 1, s > 1, and Ψ > 0 slowly varying in sequence form (no boundedness, no D(γ) < ∞; e.g.
 exp(√log k), exp((log k)^θ) (θ < 1), exp(√log k·sin log log k)). Then n^pb_n(k^{−s}Ψ) → c(p) and n^pa_n(k^{−s}Ψ) → 2c(p), with rate
@@ -322,21 +332,21 @@ O(1/n + ρ(n/M₀)) (ρ the RedA smoothing error); rate O(1/n) if Ψ itself sati
 RedA(iii) transfers it with the extra O(ρ(⌈n/M₀⌉)). ∎
 
 With RH₁(r)/T3-log for p = 1 untouched, this gives the law for every sequence-form slowly varying Ψ (including D(γ) = ∞) for all
-p ∈ (0, 1) ∪ (1, ∞) and all s > 1 (with Remark CT-px below). It does not go through QL.
+p ∈ (0, 1) ∪ (1, ∞) and all s > 1 (with Plan 52's B_all for p > 1, §5.3). It does not go through QL.
 
-### 5.3 Remark CT-px (Plan 48's GAP-α)
+### 5.3 Remark CT-px (cross-reference to Plan 52's Corollary B_all)
 
-Lemma CT applies verbatim for p > 1: Theorem RII (ROUTE2 §4.4, REVIEWED; 1 < s < 1 + 2p) plus m CT steps give **RII for every
-s > 1 with O(1/n)**, and with RedA **Corollary B_{p>1} for every s > 1**. This closes ROUTE2's GAP-α *for the law and its O(1/n)
-rate*; the comparison frame itself still fails at α_x ≥ 1 (ROUTE2 §6), it is simply not needed there. Label: PROVED-mod-cite
-(inherits RII) + CT PROVED; Rule R pending. ROUTE2.md is not edited by this plan (it is REVIEWED); the cross-reference is in
-PROOF.md §3.20.
+Lemma CT-Ch applies verbatim for p > 1: Theorem RII (ROUTE2 §4.4; 1 < s < 1 + 2p) plus m CT-Ch steps give RII for every s > 1 with
+O(1/n), and with RedA Corollary B_{p>1} for every s > 1. This is Plan 52's **Corollary B_all** (PROOF.md §3.21, ROUTE2_alpha.md,
+REVIEWED), which closed ROUTE2's GAP-α for the law first; the present remark is an independent **second proof** via the Cholesky
+form, not a new result (Rule R F1). The comparison frame itself still fails at α_x ≥ 1 (ROUTE2 §6); it is not needed there.
 
 ---
 
 ## 6. Numerics (NUMERICAL; p = ½, Ψ = exp √log(k + e), which satisfies (H_an^{<1}) directly)
 
-Model (`checks/check_r2p_coeff.py`): atoms k ≤ K plus a log-panel Gauss–Legendre quadrature tail of ∫_{K+½}^{10⁴⁸}t^{−s}Ψ(t)
+Model measure (`checks/check_r2p_coeff.py`; Rule R F7: all coefficient numerics are for this **model measure**, one p, one Ψ; K-doubling
+tests the atom/tail seam, not the tail-quadrature parameters): atoms k ≤ K plus a log-panel Gauss–Legendre quadrature tail of ∫_{K+½}^{10⁴⁸}t^{−s}Ψ(t)
 δ_{t^{−p}}dt (the model of `../../checks/check_ql_numerics.py`, Plan 45). For p = ½ the hard-edge scale of degree n is k ~ n⁵
 (10¹⁶ at n = 1600), so a tail is indispensable ([4]: atoms-only values are wrong in the first digit). RKPW long double;
 K-doubling and a quad-precision check. Columns n = 100, 200, 400, 800, 1600.
@@ -348,21 +358,21 @@ nB := n(n^pb_n/c(p) − 1), E := n(a_n/(2b_n) − 1) (pairing of `check_r2_coeff
 |---|---|---|---|---|
 | 1.5 (0) | RII_{<1} | −0.1542, −0.1570, −0.1602, −0.1633, −0.1663 | 0.2463 … 0.2498 | −0.2567 … −0.2520 |
 | 1.75 (½) | RII_{<1} | −0.2785, −0.2817, −0.2850, −0.2882, −0.2913 | 0.2460 … 0.2498 | −0.3812 … −0.3770 |
-| **2 (1)** | RII_{<1} at s₀ = 1.5 + one CT step | −0.4039, −0.4069, −0.4101, −0.4133, −0.4163 | 0.2494 … 0.2500 | −0.5069 … −0.5020 |
-| 2.5 (2) | s₀ = 1.5 + two CT steps | −0.6575, −0.6588, −0.6611, −0.6638, −0.6665 | 0.2670 … 0.2512 | −0.7612 … −0.7523 |
+| **2 (1)** | RII_{<1} at s₀ = 1.5 + one CT-Ch step | −0.4039, −0.4069, −0.4101, −0.4133, −0.4163 | 0.2494 … 0.2500 | −0.5069 … −0.5020 |
+| 2.5 (2) | s₀ = 1.5 + two CT-Ch steps | −0.6575, −0.6588, −0.6611, −0.6638, −0.6665 | 0.2670 … 0.2512 | −0.7612 … −0.7523 |
 
 All n·deviations are bounded (consistent with O(1/n)). The slow drift of nB for w is the tilt: n(b_n(w)/b_n(v) − 1)/ϑ_n ≈
 (nB(w) − nB(v))/ϑ_n = 0.455 → 0.467 (s = 2, n = 100 → 1600), the p = ½ value of Plan 45 (§3.15: 0.44–0.47, rising toward ½);
 the tilt law (GAP-rate) is not tested beyond that. The α_x = 1 and α_x = 2 rows behave exactly like the α_x ∈ (−1, 1) rows: the
 comparison-frame restriction is a feature of the proof, not of the asymptotics.
 
-**[2] Lemma CT.** LᵀL from the Cholesky factor of J(σ_s) equals the directly computed J(σ_{s+p}) to 8·10⁻¹⁷ (relative, all
+**[2] Lemma CT-Ch.** LᵀL from the Cholesky factor of J(σ_s) equals the directly computed J(σ_{s+p}) to 8·10⁻¹⁷ (relative, all
 j < 1601; s = 1.5 → 2 and 2 → 2.5, same quadrature nodes); Laguerre α ↦ α + 1 to 10⁻¹⁴. r_n − 1 = 4.9·10⁻³ … 3.4·10⁻⁴
 (n(r_n − 1) = 0.49 … 0.55, s = 1.5) and 1.7·10⁻² … 1.1·10⁻³ (n(r_n − 1) = 1.70 … 1.78, s = 2): r_n − 1 = O(1/n) here, better than
-the O(n^{−1/2}) that CT(iii) proves (the proof only uses the hypothesis, not the hard-edge structure).
+the O(n^{−1/2}) that CT-Ch(iii) proves (the proof only uses the hypothesis, not the hard-edge structure).
 
 **[4] Tail.** Atoms only (k ≤ 2·10⁵): nB = −1.8, −4.8, …, −106 at s = 1.5: the truncated measure has a soft edge at
-x = K^{−1/2}, the law fails, and r_n − 1 grows (CT Rule A (b)).
+x = K^{−1/2}, the law fails, and r_n − 1 grows (CT-Ch Rule A (b)).
 
 **LW1′_{<1}** (`check_r2p_lw1.out` [1]; p = ½, rays π/8, π/16, |z| = 10⁻¹⁴ … 0.3, η_N sampled on |Im u| ≤ π/2):
 sup|D_q²/q_N − 1| = 0.830, 0.687, 0.611, 0.538, 0.486 for N = 10², 10⁴, 10⁶, 10⁹, 10¹², ratio to η_N = 1.65, 1.97, 2.19, 2.39,
@@ -371,7 +381,8 @@ sup|D_q²/q_N − 1| = 0.830, 0.687, 0.611, 0.538, 0.486 for N = 10², 10⁴, 10
 **Lemma X0** (`check_r2p_lw1.out` [2]): the implementation reproduces RH_plt1b's probe X(0) = −1.242, −1.933, −3.314, −4.695 at p = 0.4,
 N = 10, 10², 10⁴, 10⁶ (probe: −1.24, −1.93, −3.31, −4.70; truncation tail ≤ 3·10⁻³). At p = ½,
 sup_z|X(z) − X(0)|/(|z|(1 + log(1/|z|))) over the band and the lip ray π/8, |z| = 10⁻⁸ … 0.5, equals 0.230, 0.241, 0.242 for
-N = 10², 10⁴, 10⁶ (flat in N), while X(0) = −1.61, −2.76, −3.91 grows like log N (a constant, which cancels).
+N = 10², 10⁴, 10⁶ (flat in N; attained at |z| = 0.5); restricted to |z| ≤ 10⁻² it is 0.085, 0.088, 0.089 (flat in N; the
+reviewer's per-radius values decrease as |z| → 0, consistent with X0 and even with O(|z|); Rule R F7(b)), while X(0) = −1.61, −2.76, −3.91 grows like log N (a constant, which cancels).
 
 ---
 
@@ -379,8 +390,8 @@ N = 10², 10⁴, 10⁶ (flat in N), while X(0) = −1.61, −2.76, −3.91 grows
 
 - **GAP-rate.** The 1/n coefficient: n^pb_n/c = 1 − (s − 1 − ϑ_n)/(2n) + o(ϑ_n/n) (tilt law) remains CONJECTURE; §6 is
   consistent with it at p = ½ (convergence in n is slow, ϑ_n ~ 1/(2√log n)).
-- **The comparison frame at α_x ≥ 1** still fails (ROUTE2 GAP-α); Lemma CT makes it unnecessary for the law (s ≥ 1 + 2p).
-- **p = 1**: not treated (WP5a). Lemma CT would extend any Route II range for p = 1 of length > 1 in s to all s > 1.
+- **The comparison frame at α_x ≥ 1** still fails (ROUTE2 GAP-α); Lemma CT-Ch (equivalently Plan 52's SH/SH-r) makes it unnecessary for the law (s ≥ 1 + 2p).
+- **p = 1**: not treated (WP5a). Lemma CT-Ch would extend any Route II range for p = 1 of length > 1 in s to all s > 1.
 - **Stop conditions** (outline §7): (i) as ROUTE2: RESOLVED-mod-cite (no continuation of w across (−δ, 0) or into S_out); (ii)
   MOOT (fixed order α_x). No new stop condition was hit.
 - **Rule A (adversarial pass; logged in ../../LOG.md).**
@@ -391,7 +402,10 @@ N = 10², 10⁴, 10⁶ (flat in N), while X(0) = −1.61, −2.76, −3.91 grows
     Checked item by item in Lemma S_w; the only candidate (RH_plt1b's glued W̃ in S_out) is not used.
   - (d) X near 0: is the N-uniformity of Lemma X0 real? |L±| ≤ C|ζ| near 0 uses |t| ≥ N there (super-small e^{−2π|t|}); the
     log N growth of X is only in X(0) (a constant, cancels). Numerics [2b] flat in N.
-  - (e) α_x → ±1 in RII_{<1}: constants of Lemma W and D′ blow up; CT avoids the endpoint by choosing s₀ ∈ (1, 1 + p].
-  - (f) CT: see §5.1 Rule A; the identity is checked to 10⁻¹⁷ on the p = ½ model and exactly on Laguerre.
+  - (e) α_x → ±1 in RII_{<1}: constants of Lemma W and D′ blow up. The choice s₀ ∈ (1, 1 + p] avoids α_x → +1 but gives
+    α_x(s₀) ∈ (−1, 0], arbitrarily close to −1 (harmless: RII_{<1} covers every |α_x| < 1 for fixed s). Remark (Rule R F6): for
+    s > 1 + p/2 one may choose s₀ ∈ (1 + p/2, 1 + 3p/2], i.e. |α_x(s₀)| ≤ ½, so RII⁺_{<1} there needs only the |α_x| ≤ ½ part of
+    UR′ (plus Lemma W′ at α_x = 0), as Plan 52 F2 noted for p > 1.
+  - (f) CT-Ch: see §5.1 Rule A; the identity is checked to 10⁻¹⁷ on the p = ½ model and exactly on Laguerre.
   - (g) Does s₀ ∈ (1, 1 + p] ⊂ (1, 1 + 2p) always exist? m = ⌈(s − 1)/p⌉ − 1 gives s − mp ∈ (1, 1 + p] for s > 1 + p; for s ≤ 1 + p
     take m = 0. Yes.

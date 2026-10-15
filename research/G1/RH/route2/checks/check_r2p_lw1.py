@@ -8,10 +8,11 @@ seams at theta_s = pi p/2 (RH_plt1b §1-§2).
     (a) implementation check: X(0) at p = 0.4, N = 10, 1e2, 1e4, 1e6 (RH_plt1b F3 probe: -1.24, -1.93, -3.31, -4.70).
     (b) Lemma X0: Q_N := sup |X(z) - X(0)| / (|z|(1 + log(1/|z|))) over z on the band (arg 0) and the lips (arg theta_L),
         |z| = 1e-8 .. 0.5, at p = 1/2 and N = 1e2, 1e4, 1e6: bounded uniformly in N.
-L+ = log(D B_in/B_out) = mu(t) - Log(1 - e^{-2 pi i t}) + c Log(1 + z) - (1/2)Log(1 - z/(2 pi N)) with
-mu(t) := log D~(t) = (1/2)log 2pi + (t - 1/2)Log t - t - LogGamma(t) (sign as in RH_plt1b's check_plt1_seam_winding.py; RH_plt1b's
-text writes -mu with this mu, a sign slip, see ROUTE2_plt1.md §3.2).  mu is evaluated by Stirling's series (3 terms) for |t| > 60
-and by mpmath loggamma otherwise.
+L+ = log(D B_in/B_out) = lam(t) - Log(1 - e^{-2 pi i t}) + c Log(1 + z) - (1/2)Log(1 - z/(2 pi N)) with
+lam(t) := log D~(t) = (1/2)log 2pi + (t - 1/2)Log t - t - LogGamma(t) = -mu(t), mu = Binet's function (RH_px §1).  RH_plt1b §1's L+ = -mu - ...
+is correct with Binet's mu; only its displayed definition of mu has the opposite sign (REVIEW_Plan51.md F2; ROUTE2_plt1.md §3.2).
+lam is evaluated by Stirling's series (3 terms) for |t| > 60 and by mpmath loggamma otherwise.
+[2b] also prints the sup over |z| <= 1e-2 separately (REVIEW_Plan51.md F7(b): the overall sup sits at |z| = 0.5).
 Run from the jacobi-asymptotics root: .venv/bin/python ../ja-plan51/research/G1/RH/route2/checks/check_r2p_lw1.py"""
 import mpmath as mp
 from jacobi_asym.laws.weyl import c_p
@@ -56,7 +57,7 @@ for N in (mp.mpf(10) ** 2, mp.mpf(10) ** 4, mp.mpf(10) ** 6, mp.mpf(10) ** 9, mp
 BERN = [mp.bernoulli(2 * k) / (2 * k * (2 * k - 1)) for k in (1, 2, 3)]
 
 
-def mu(t):
+def lam(t):
     if abs(t) > 60:
         return -sum(B / t ** (2 * k - 1) for k, B in zip((1, 2, 3), BERN))
     return mp.log(2 * mp.pi) / 2 + (t - mp.mpf(1) / 2) * mp.log(t) - t - mp.loggamma(t)
@@ -66,7 +67,7 @@ def Lplus(rho, pp, N):
     ths = mp.pi * pp / 2; zeta = rho * mp.expj(ths); c = mp.mpf(1) / 2 - 1 / (2 * pp)
     logt = mp.log(N) - mp.log(zeta) / pp; t = mp.exp(logt)
     e2 = mp.exp(-2j * mp.pi * t) if abs(t) < 1e3 else 0  # |e^{-2 pi i t}| = e^{-2 pi |t|} < 1e-2700 otherwise
-    return (mu(t) - mp.log(1 - e2) + c * mp.log(1 + zeta) - mp.log(1 - zeta / (2 * mp.pi * N)) / 2)
+    return (lam(t) - mp.log(1 - e2) + c * mp.log(1 + zeta) - mp.log(1 - zeta / (2 * mp.pi * N)) / 2)
 
 
 def brk(pp, N, extra=()):
@@ -92,10 +93,13 @@ print("[2a] X(0) at p = 0.4 (RH_plt1b probe: -1.24, -1.93, -3.31, -4.70): "
       + ", ".join(f"N=1e{e}: {mp.nstr(X0(mp.mpf('0.4'), mp.mpf(10) ** e), 4)} (tail {mp.nstr(abs(Lplus(brk(mp.mpf('0.4'), mp.mpf(10) ** e)[-1], mp.mpf('0.4'), mp.mpf(10) ** e)), 2)})" for e in (1, 2, 4, 6)), flush=True)
 print("[2b] p = 1/2: Q_N = sup |X(z) - X(0)|/(|z|(1 + log(1/|z|))), z on arg 0 and arg theta_L, |z| = 1e-8..0.5", flush=True)
 for e in (2, 4, 6):
-    N = mp.mpf(10) ** e; worst = 0; arg_w = None
+    N = mp.mpf(10) ** e; worst = 0; arg_w = None; small = 0
     for th in (mp.mpf(0), thL):
         for r in [mp.mpf(10) ** k for k in (-8, -6, -4, -3, -2, -1)] + [mp.mpf("0.5")]:
             z = r * mp.expj(th); q = abs(Xdiff(z, p, N)) / (r * (1 + mp.log(1 / r)))
+            if r <= mp.mpf("0.01"):
+                small = max(small, q)
             if q > worst:
                 worst, arg_w = q, (mp.nstr(th, 3), mp.nstr(r, 2))
-    print(f"  N=1e{e}: X(0) = {mp.nstr(X0(p, N), 5)}, Q_N = {mp.nstr(worst, 4)} (attained at arg, |z| = {arg_w})", flush=True)
+    print(f"  N=1e{e}: X(0) = {mp.nstr(X0(p, N), 5)}, Q_N = {mp.nstr(worst, 4)} (attained at arg, |z| = {arg_w}); "
+          f"sup over |z| <= 1e-2: {mp.nstr(small, 4)}", flush=True)
