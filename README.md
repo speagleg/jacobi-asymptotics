@@ -52,8 +52,8 @@ bounded, logarithmic or iterated-logarithmic factor),
 
 $$n^p b_n\longrightarrow c(p),\qquad n^p a_n\longrightarrow 2c(p).$$
 
-If $\log\ell(e^u)$ extends analytically to a horizontal strip around the real axis, the rate is $O(1/n)$. The reviewed
-strip half-width is $\pi/p$ for $p>1$ and $\pi/2$ for $p\le1$; an extension to strips of any width is under review.
+If $\log\ell(e^u)$ extends analytically (bounded, with derivative tending to 0) to **some** horizontal strip
+$|\operatorname{Im}u|\le\vartheta$, of any width $\vartheta>0$, the rate is $O(1/n)$.
 *Status: PROVED modulo the same citations as result 2; reviewed.* &nbsp;[Paper 2](papers/paper2/main.pdf),
 `research/G1/PROOF.md` §§3.17–3.23
 
