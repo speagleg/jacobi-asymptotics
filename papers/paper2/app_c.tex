@@ -12,13 +12,69 @@
 
 \section{The a priori bound at the hard edge}\label{app:apriori}
 
-The comparison argument of \S\ref{sec:hardedge} applies Theorem~4.4 of Conway and Deift (\ref{tool:T3}) to $Q$. Its hypothesis is
+The comparison argument of Section~\ref{sec:hardedge} applies Theorem~4.4 of Conway and Deift (\ref{tool:T3}) to $Q$. Its hypothesis is
 $Q_\pm\in I+\dC(L^2(\Sigma))$: the boundary values of $Q-I$ must be Cauchy integrals of $L^2$ functions. We never solve a
 Riemann--Hilbert problem for $Q$; $Q$ is built from the orthogonal polynomials, and we only have to check that it is not too
 singular at the vertices of $\Sigma$. The only delicate vertex is the hard edge $0$, where infinitely many nodes accumulate.
 There we bound the Cauchy sums in $Y$ directly (Lemma~\ref{lem:sumbound}), except in thin sectors around the band, where the
 poles are removed by $R$ and a contour argument is needed (Lemma~\ref{lem:lenssector}). Throughout this appendix $n\ge n_0$ is
 \emph{fixed}, and constants may depend on $n$.
+
+\subsection{Three facts about Cauchy integrals}\label{sec:B-prelim}
+
+The following facts are used here and in Appendix~\ref{app:resolvent}. In this subsection $\Gamma$ is a bounded, finite union of oriented $C^2$ arcs with $|\Gamma\cap U(z,\rho)|\le C_\Sigma\rho$ for all
+$z\in\C$, $\rho>0$, and $\mathcal V$ is the finite set of endpoints and intersection points of the arcs. We say that a
+function $\mathfrak F$ analytic in $\C\setminus\Gamma$ is \emph{continuous up to $\Gamma$} if near every point of
+$\Gamma\setminus\mathcal V$ its restriction to each side of $\Gamma$ extends continuously to the arc; $\mathfrak F_\pm$ then
+denote these extensions. We use only Cauchy's integral formula, Green's formula and the facts of \ref{tool:T3}(a).
+
+\begin{lemma}\label{lem:B-cauchy}
+\begin{enumerate}
+\item[(a)] For $\mathfrak h\in L^2(\Gamma)$ and $z\notin\Gamma$, $|\Cauchy\mathfrak h(z)|\le\pi^{-1}C_\Sigma^{1/2}\|\mathfrak h\|_{L^2}\,
+  \mathrm{dist}(z,\Gamma)^{-1/2}$.
+\item[(b)] Let $\mathfrak k$ be $C^1$ (in arc length) on each arc and vanish near $\mathcal V$. Then $\Cauchy\mathfrak k$ is
+  analytic near each point of $\mathcal V$ and continuous up to $\Gamma$, and $(\Cauchy\mathfrak k)_+-(\Cauchy\mathfrak
+  k)_-=\mathfrak k$ on $\Gamma\setminus\mathcal V$. In particular $(\Cauchy\mathfrak k)_\pm=\Cauchy_\pm\mathfrak k$.
+\item[(c)] Let $\mathfrak F$ be analytic in $\C\setminus\Gamma$ and continuous up to $\Gamma$, with $\mathfrak F_\pm\in L^2(\Gamma)$,
+  $\mathfrak F(z)=O(1/z)$ as $z\to\infty$, and $\rho\sup\{|\mathfrak F(z)|:|z-z_0|=\rho,\ z\notin\Gamma\}\to0$ as $\rho\to0$ for every
+  $z_0\in\mathcal V$. Then $\mathfrak F=\Cauchy(\mathfrak F_+-\mathfrak F_-)$ in $\C\setminus\Gamma$; hence $\mathfrak F_\pm=\Cauchy_\pm(\mathfrak F_+-\mathfrak F_-)$, i.e.\
+  $\mathfrak F_\pm\in\dC(L^2(\Gamma))$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) By Cauchy--Schwarz it suffices to show $\int_\Gamma|s-z|^{-2}|\diff s|\le4C_\Sigma/\mathfrak d$ with $\mathfrak d=
+\mathrm{dist}(z,\Gamma)$. Split $\Gamma$ into the shells $\{2^k\mathfrak d\le|s-z|<2^{k+1}\mathfrak d\}$, $k\ge0$; the
+$k$-th contributes at most $C_\Sigma2^{k+1}\mathfrak d\,(2^k\mathfrak d)^{-2}$, and the sum is $4C_\Sigma/\mathfrak d$.
+
+(b) Analyticity near $\mathcal V$ is clear, since $\mathfrak k$ vanishes there. By a partition of unity we may assume
+that $\mathfrak k$ is supported in a compact sub-arc of the interior of one arc $\gamma$. Choose an open disc $D$ which
+meets $\Gamma$ only in an open sub-arc of $\gamma$ containing that support and which $\gamma$ cuts into two parts, $D_+$
+on the left and $D_-$ on the right. Using normal coordinates along $\gamma$ (which are $C^1$ because $\gamma$ is $C^2$),
+extend $\mathfrak k$ to a $C^1$ function $K$ on $\C$ with compact support in $D$ and $K|_\gamma=\mathfrak k$. Green's
+formula on $D_+$ (the Cauchy--Pompeiu formula) gives, since the positively oriented boundary of $D_+$ runs along
+$\gamma$ in its own direction and $K=0$ on $\partial D$,
+\[
+  \Cauchy\mathfrak k(z)=K(z)\mathbf 1_{D_+}(z)+\mathfrak P(z),\qquad
+  \mathfrak P(z):=\frac1\pi\iint_{D_+}\frac{\bar\partial K(w)}{w-z}\diff A(w),\qquad z\notin\Gamma .
+\]
+Since $\bar\partial K$ is bounded with compact support and $|w-z|^{-1}$ is locally integrable uniformly in $z$, $\mathfrak P$
+is continuous on $\C$. So $\Cauchy\mathfrak k$ is continuous up to $\gamma$ from both sides, with
+$(\Cauchy\mathfrak k)_+-(\Cauchy\mathfrak k)_-=K=\mathfrak k$. As continuous extensions, these are the non-tangential
+limits $\Cauchy_\pm\mathfrak k$ of \ref{tool:T3}.
+
+(c) Fix $z\notin\Gamma$. For small $\rho$ and large $R$ apply Cauchy's integral formula to $\mathfrak F$ on the open set
+$U(0,R)\setminus\bigl(\Gamma\cup\bigcup_{z_0\in\mathcal V}\overline{U(z_0,\rho)}\bigr)$, whose boundary consists of the two sides
+of the arcs of $\Gamma$ outside the small discs, the circles $|s-z_0|=\rho$ and the circle $|s|=R$; $\mathfrak F$ is continuous on
+the closure (taken separately on the two sides of each arc). The two sides of an arc contribute
+$\frac1{2\pi i}\int(\mathfrak F_+-\mathfrak F_-)(s)\diff s/(s-z)$, the left side being traversed in the direction of the arc. As $\rho\to0$
+the small circles contribute at most $\sum_{z_0}2\rho\sup_{|s-z_0|=\rho}|\mathfrak F(s)|/|z-z_0|\to0$ (for $\rho\le|z-z_0|/2$), and the
+arc integrals converge to $\Cauchy(\mathfrak F_+-\mathfrak F_-)(z)$ because $\mathfrak F_+-\mathfrak F_-\in L^2(\Gamma)\subset L^1(\Gamma)$. As $R\to\infty$ the large
+circle contributes $O(1/R)$. Hence $\mathfrak F(z)=\Cauchy(\mathfrak F_+-\mathfrak F_-)(z)$. Taking boundary values from either side,
+$\mathfrak F_\pm=\Cauchy_\pm(\mathfrak F_+-\mathfrak F_-)$ wherever the non-tangential limits $\Cauchy_\pm$ exist, i.e.\ almost everywhere.
+\end{proof}
+
+\subsection{The bound at the hard edge}
 
 Recall from Lemma~\ref{lem:interp} that
 \begin{equation}\label{eq:U-sum}

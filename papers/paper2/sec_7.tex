@@ -22,43 +22,31 @@ exponentially small errors. At the soft edge $4c$ the Airy parametrix of Lemma~\
 treats the hard edge $0$. We compare $Q$ with an explicitly solvable \emph{comparison problem} and show that the two
 have the same first two moments at infinity up to $O(1/n)$; Section~\ref{sec:extraction} then reads off $a_n$ and $b_n$.
 
-\emph{Why the usual local parametrix fails.} The band weight is $W_0=\mathsf w_nx^\alpha(4c-x)H_n(x)r_n(x)$, and the
-slowly varying factor enters through $r_n(z)=\ell_1(nz^{-1/p})/\ell_1(n)$. In the logarithmic variable
-$\xi=\log n-(\log z)/p$ the point $z=0$ corresponds to $\xi=+\infty$, where $\Lambda=\log\ell_1\circ\exp$ has no
-expansion: $r_n$ is analytic off $(-\infty,0]$ but it is neither analytic at $0$ nor of Fisher--Hartwig type. The Bessel
-parametrix of \ref{tool:T2} needs a function $\tilde W$ with $\tilde W_+\tilde W_-=W_0$ on the band which is continued
-around $0$ across $(-\delta,0)$. Continuing $r_n^{1/2}$ from the upper and from the lower half-plane produces two values
-on $(-\delta,0)$ whose ratio is $\exp\bigl(\frac12(\Lambda(\xi-i\pi/p)-\Lambda(\xi+i\pi/p))\bigr)=1+O(\varepsilon_\Lambda)$,
-and for $p\le1$ the continuation even leaves the strip on which $\Lambda$ is assumed to be analytic. The size
-$O(\varepsilon_\Lambda)$ tends to $0$ with no rate in $n$. Conjugated by the Bessel model at the scale $|z|\asymp n^{-2}$
-it becomes $O(n\varepsilon_\Lambda)$, which is not small, so a quotient (small-norm) argument does not close. A Bessel
-order that drifts with $n$ removes only the power-like part $z^{-\Lambda'(\log n)/p}$ of $r_n$ and leaves a remainder
-of the same kind. This is the situation of \cite[Remark~4.10]{CD}.
+\emph{Why the usual local parametrix fails.} The slowly varying factor enters the band weight
+$W_0=\mathsf w_nx^\alpha(4c-x)H_n(x)r_n(x)$ through $r_n(z)=\ell_1(nz^{-1/p})/\ell_1(n)$. In the variable
+$\xi=\log n-(\log z)/p$ the point $z=0$ corresponds to $\xi=+\infty$, where $\Lambda$ has no expansion: $r_n$ is neither
+analytic at $0$ nor of Fisher--Hartwig type. The Bessel parametrix of \ref{tool:T2} needs a square root $\tilde W$ of
+$W_0$ continued around $0$ across $(-\delta,0)$. Continuing $r_n^{1/2}$ from the two half-planes produces two values on
+$(-\delta,0)$ whose ratio is $\exp\bigl(\frac12(\Lambda(\xi-i\pi/p)-\Lambda(\xi+i\pi/p))\bigr)=1+O(\varepsilon_\Lambda)$
+(and for $p\le1$ the continuation leaves the strip of analyticity). This tends to $0$ with no rate in $n$, and after
+conjugation by the Bessel model at the scale $|z|\asymp n^{-2}$ it becomes $O(n\varepsilon_\Lambda)$, so a quotient
+argument does not close. A Bessel order that drifts with $n$ removes only the power-like part
+$z^{-\Lambda'(\log n)/p}$ of $r_n$. This is the situation of \cite[Remark~4.10]{CD}.
 
-\emph{The remedy, due to Conway and Deift.} We never continue the weight across $(-\delta,0)$. Instead we build the
-Bessel parametrix with $\tilde W:=D_W$, the Szeg\H{o} function of the whole band weight. Since $D_W$ is analytic off
-$[0,4c]$ and $D_{W,+}D_{W,-}=W_0$, the resulting matrix has exactly the band jump of $Q$ and no jump on $(-\delta,0)$.
-It differs from $Q$ only on the lips of the lens, where the true jump contains $\omega=D_W^2/W_0$ and the model jump
-contains the constant $\varrho_\pm=e^{\mp i\pi\alpha}$. We show that $\omega-\varrho_\pm$ is small in the supremum norm,
-uniformly on the lips but without any rate (Lemma~\ref{lem:lip-mismatch}). That is all a Neumann series needs, provided
-the resolvent of the comparison problem is bounded uniformly in $n$ (Proposition~\ref{prop:UR-comparison},
-Theorem~\ref{thm:UR-true}). The effect on the moments is then computed by the difference formula of Conway and Deift.
-The factor $1/n$ comes from \emph{Bessel localisation}: the mismatch carries the factor $e^{2n\varphi}$, which confines it
-to $|z|\lesssim n^{-2}$ up to a tail, and there the comparison solution has size $n^{1/2}|n^2z|^{-|\alpha|/2}$; this
-turns a mismatch of size $\varepsilon'_n=o(1)$ into an error $O(\varepsilon'_n/n)$ (Proposition~\ref{prop:moments}).
+\emph{The remedy, due to Conway and Deift.} We build the Bessel parametrix with $\tilde W:=D_W$, the Szeg\H{o}
+function of the whole band weight. It has exactly the band jump of $Q$ and no jump on $(-\delta,0)$, and it differs
+from $Q$ only on the lips of the lens, where the true jump contains $\omega=D_W^2/W_0$ and the model jump contains the
+constant $\varrho_\pm=e^{\mp i\pi\alpha}$. The difference $\omega-\varrho_\pm$ is $o(1)$ uniformly on the lips, without
+a rate (\S\ref{sec:he-mismatch}). That suffices for a Neumann series once the comparison resolvent is bounded uniformly
+in $n$ (\S\ref{sec:he-resolvent}), and the difference formula of Conway and Deift turns the mismatch into a change of the
+moments (\S\ref{sec:he-moments}). The factor $1/n$ comes from \emph{Bessel localisation}: the mismatch carries the factor
+$e^{2n\varphi}$, which confines it to $|z|\lesssim n^{-2}$ up to a tail, and there the comparison solution has size
+$n^{1/2}|n^2z|^{-|\alpha|/2}$; so a mismatch $\varepsilon'_n=o(1)$ produces an error $O(\varepsilon'_n/n)$.
 
-Two differences from \cite{CD} are of a technical nature. Our comparison problem is not a second orthogonality problem
-but an explicit matrix: the global parametrix together with the two local parametrices. The matching errors on the two
-circles are then simply part of the comparison, which spares a separate small-norm argument and gives the $O(1/n)$ terms
-as explicit integrals. And the restriction $|\alpha|<1$ enters only through square integrability and power-weighted
-Cauchy bounds at the Bessel scale; Remark~\ref{rem:alpha-ge-1} lists where.
-
-The section is organised as follows. Section~\ref{sec:he-conv} fixes conventions. Section~\ref{sec:he-model} derives
-the local form of the Bessel model (Lemma~\ref{lem:bessel-local}). Section~\ref{sec:he-comparison} builds the
-comparison parametrix (Lemma~\ref{lem:comparison-parametrix}) and the comparison problem. Section~\ref{sec:he-mismatch}
-proves the lip mismatch estimate (Lemma~\ref{lem:lip-mismatch}). Section~\ref{sec:he-resolvent} states the two
-resolvent bounds, and Section~\ref{sec:he-moments} the effect of the mismatch on the moments
-(Proposition~\ref{prop:moments}).
+Unlike \cite{CD}, our comparison problem is an explicit matrix (the global parametrix with the two local parametrices),
+so the matching errors on the two circles are part of the comparison and give the $O(1/n)$ terms as explicit integrals.
+The restriction $|\alpha|<1$ enters only through square integrability and power-weighted Cauchy bounds at the Bessel
+scale (Remark~\ref{rem:alpha-ge-1}).
 
 \subsection{Conventions}\label{sec:he-conv}
 
@@ -155,7 +143,7 @@ sector, $\Psi_\alpha$ is the continuation of the central formula multiplied on t
 because the jumps of $\Psi_\alpha$ are constant and $\hat\Psi_\alpha\zeta^{\alpha\sigma_3/2}\mathsf S$ is analytic in
 $\C\setminus(-\infty,0]$.
 
-(ii) By (10.31.2), $K_0(x)=-(\ln\frac x2+\gamma_{\mathrm E})I_0(x)+S_0(\frac14x^2)$ with $S_0$ entire and $\gamma_{\mathrm E}$ Euler's constant. At $x=2\zeta^{1/2}$,
+(ii) By (10.31.2), $K_0(x)=-(\ln\frac x2+\gamma_{\mathrm E})I_0(x)+S_0(\frac14x^2)$ with $S_0$ entire. At $x=2\zeta^{1/2}$,
 $\ln\frac x2=\frac12\log\zeta$, so $\frac i\pi K_0(2\zeta^{1/2})=-\frac{i}{2\pi}\log\zeta\cdot \mathfrak p_0(\zeta)+\text{(entire)}$.
 Differentiating the same identity, $-2\zeta^{1/2}K_0'(2\zeta^{1/2})=I_0(2\zeta^{1/2})+(\frac12\log\zeta+\gamma_{\mathrm E})\,
 2\zeta^{1/2}I_0'(2\zeta^{1/2})-2\zeta S_0'(\zeta)$, and $2\zeta^{1/2}I_0'(2\zeta^{1/2})=\mathfrak q_0(\zeta)/(\pi i)$. Hence the
@@ -342,8 +330,8 @@ Hence $D_{x^\alpha}(z)^2/z^\alpha=\varrho_\pm(1+O(|z|^{1/2}))$.
 
 \emph{The factor $4c-x$.} By Lemma~\ref{lem:szego}(i), $D_{4c-x}^2/(4c-z)=-4c/\Upsilon=1+O(|z|^{1/2})$.
 
-\emph{The factor $\Hc$.} By (O3)--(O4), Lemma~\ref{lem:szego}(ii) applies to $q=\Hc$ with $\Theta_0=0$, $\nu=\nu_p$ and
-$M=C$, and gives $|\log(D_{\Hc}^2/\Hc)|\le C|z|^{\nu_p}\log(2/|z|)$.
+\emph{The factor $\Hc$.} By (O3)--(O4), Lemma~\ref{lem:szego}(ii) applies to $q=\Hc$ with $\mathfrak c_0=0$, $\nu=\nu_p$ and
+$\mathfrak M=C$, and gives $|\log(D_{\Hc}^2/\Hc)|\le C|z|^{\nu_p}\log(2/|z|)$.
 
 \emph{The slowly varying factor.} By Lemma~\ref{lem:pottersector}(iii) with $R=\max(4c,1)$, for $z'\in Z(\eta_*)$ and
 $x\in(0,4c)$,
@@ -352,7 +340,7 @@ $x\in(0,4c)$,
   |(\log r_n)'(z')|=\frac{|\Lambda'(\xi(z'))|}{p|z'|}\le\frac{\varepsilon_\Lambda(T_n)}{p|z'|},
 \]
 since $\re\xi\ge T_n$ and $|\im\xi|\le\thw/p<\vartheta_p$ on $Z(\eta_*)$. So Lemma~\ref{lem:szego}(iii) applies to $q=r_n$
-with $M=C\varepsilon_\Lambda(T_n)$ and gives $|\log(D_{r_n}^2/r_n)|\le C\varepsilon_\Lambda(T_n)$.
+with $\mathfrak M=C\varepsilon_\Lambda(T_n)$ and gives $|\log(D_{r_n}^2/r_n)|\le C\varepsilon_\Lambda(T_n)$.
 
 \emph{Conclusion.} Hence $\omega=\varrho_\pm e^{w}$ with
 $|w|\le C(|z|^{1/2}+|z|^{\nu_p}\log(2/|z|)+\varepsilon_\Lambda(T_n))\le C_0$; since $|e^w-1|\le e^{C_0}|w|$, $|\varrho_\pm|=1$
@@ -362,7 +350,7 @@ and $|z|^{1/2}\le|z|^{\nu_p}$, \eqref{eq:he-mismatch} follows. By \eqref{eq:he-l
 \]
 because with $t=n|z|^{1/2}$ the first term is $t^{2\nu_p}n^{-2\nu_p}(\log2+2\log n-2\log t)e^{-t/C}\le Cn^{-2\nu_p}\log n$.
 On the lips $|E|\le C\exp(-n|z|^{-1/p}/C)\le C\exp(-n\delta^{-1/p}/C)$ by \Fi4. Together with the bounds on the circles and
-on the rest of $\Sigma$ stated at the end of Section~\ref{sec:he-comparison} this gives \eqref{eq:he-vdiff}.
+on the rest of $\Sigma$ stated at the end of \S\ref{sec:he-comparison} this gives \eqref{eq:he-vdiff}.
 \end{proof}
 
 
@@ -381,33 +369,18 @@ There are $n_0$ and $C$ such that for $n\ge n_0$:
 \end{enumerate}
 \end{proposition}
 
-The proof is in Appendix~\ref{app:resolvent}. We describe its structure; the uses of $|\alpha|<1$ are listed in
-Remark~\ref{rem:alpha-ge-1}.
-
-\emph{Reduction.} By the easy half of \ref{tool:T3}(e), which we re-prove, it suffices to solve the inhomogeneous
-problem $m_+=m_-\tilde v+\mathfrak g$, $m_\pm\in\dC(L^2)$, with $\|m_\pm\|\le C\|\mathfrak g\|$, for $\mathfrak g$ in a
-dense subspace of $L^2(\Sighat)$, and to show that the homogeneous problem has only the trivial solution. Uniqueness follows from
-\ref{tool:T3}(b) once (i) is known. For existence we use the explicit candidate
-$m:=\Cauchy(\mathfrak g\tilde Q_+^{-1})\tilde Q$, which satisfies $m_+-m_-\tilde v=\mathfrak g$ by the jump relation
-$\Cauchy_+-\Cauchy_-=1$.
-
-\emph{The uniform bound.} Away from the two discs $\tilde Q^{\pm1}$ is bounded and the bound $\|m_\pm\|\le C\|\mathfrak
-g\|$ reduces to the boundedness of $\Cauchy_\pm$. Near $0$ we write $\tilde Q=A_0(2\pi)^{\sigma_3/2}n^{\sigma_3/2}
-\Phi_\alpha(n^2f)$ and pass to the variable $\zeta$. The analytic prefactor contributes commutator terms with bounded
-kernels, which are Hilbert--Schmidt with norms $O(1)$; this uses $\int_{|\zeta|\le3}|\zeta|^{-|\alpha|}|\diff\zeta|<\infty$
-on each ray. What remains is a model operator on a star of three rays. For $|\zeta|\ge2$ it is the
-Cauchy operator conjugated by $|\zeta|^{\pm1/4}$; for $|\zeta|\le3$ it is the Cauchy operator conjugated by
-$|\zeta|^{\pm\alpha/2}$ (Lemma~\ref{lem:A-power} with $\beta=\pm\alpha/2$), or, at $\alpha=0$, the Cauchy operator plus a logarithmic commutator (Lemma~\ref{lem:A-log}). All these
-operators are dilation invariant, so their norms do not depend on $n$. The soft edge is treated in the same way, with
-the Airy model in place of $\Phi_\alpha$; it involves no $\alpha$.
-
-\emph{Membership in $\dC(L^2)$.} The candidate $m$ is a Cauchy integral times $\tilde Q$, and one has to check that it is
-itself the Cauchy integral of its jump. We check this only for data $\mathfrak g$ that are $C^1$ on the arcs of
-$\Sighat$ and vanish near its vertices. Then $m$ is continuous up to the contour away from the vertices, of size
-$O(|z|^{-|\alpha|/2})$ at $0$, and Cauchy's integral formula, applied on the complement of the contour and of small
-discs around the vertices, gives $m=\Cauchy(m_+-m_-)$. The uniform bound then extends the inverse from this dense class
-to all of $L^2$. The same argument applied to $\tilde Q^{\pm1}-I$ gives (i); it uses the square integrability of
-$|z|^{-|\alpha|/2}$ on the contour.
+The proof is in Appendix~\ref{app:resolvent}; we sketch it (the uses of $|\alpha|<1$ are listed in
+Remark~\ref{rem:alpha-ge-1}). By the easy half of \ref{tool:T3}(e) it suffices to solve $m_+=m_-\tilde v+\mathfrak g$,
+$m_\pm\in\dC(L^2)$, with $\|m_\pm\|\le C\|\mathfrak g\|$ for $\mathfrak g$ in a dense subspace, and to show uniqueness,
+which follows from \ref{tool:T3}(b) once (i) is known. The explicit candidate is $m:=\Cauchy(\mathfrak g\tilde
+Q_+^{-1})\tilde Q$. Away from the two discs $\tilde Q^{\pm1}$ is bounded and the bound reduces to that of $\Cauchy_\pm$.
+Near $0$ we write $\tilde Q=A_0(2\pi)^{\sigma_3/2}n^{\sigma_3/2}\Phi_\alpha(n^2f)$ and pass to the variable $\zeta$: the
+analytic prefactor contributes Hilbert--Schmidt commutators, and what remains is, on a star of three rays, the Cauchy
+operator conjugated by $|\zeta|^{\pm1/4}$ for $|\zeta|\ge2$ and by $|\zeta|^{\pm\alpha/2}$ for $|\zeta|\le3$
+(Lemma~\ref{lem:A-power} with $\beta=\pm\alpha/2$; at $\alpha=0$ a logarithmic commutator, Lemma~\ref{lem:A-log}). These
+operators are dilation invariant, so their norms do not depend on $n$. The soft edge is treated in the same way with the
+Airy model; no $\alpha$ is involved there. Membership of $m_\pm$ in $\dC(L^2)$ is checked for smooth data vanishing near
+the vertices by Cauchy's integral formula, and the uniform bound extends the inverse to all of $L^2$.
 
 \begin{theorem}[uniform resolvent bound for the true problem]\label{thm:UR-true}
 Extend $v$ by $I$ to $\Sigcirc$. There is $n_1$ such that for $n\ge n_1$ the operator $1-\Cauchy_v$ is invertible on
@@ -455,10 +428,10 @@ is estimated pointwise and then integrated using Bessel localisation, and the co
 Cauchy--Schwarz. We apply \ref{tool:T3}(b) and its consequence \eqref{eq:CD-moments} with $A=Q$, $B=\tilde Q$, $v_A=v$, $v_B=\tilde v$ on
 $\Sighat$, with exponents $r=r'=2$. The hypotheses hold: $v,\tilde v^{\pm1}\in L^\infty$, $Q_\pm\in I+\dC(L^2)$ by
 Theorem~\ref{thm:UR-true}, and $\tilde Q_\pm^{\pm1}\in I+\dC(L^2)$ by Proposition~\ref{prop:UR-comparison}(i). With
-$\mathfrak h:=Q_-(v-\tilde v)\tilde v^{-1}\tilde Q_-^{-1}$, \eqref{eq:CD-moments} reads
+$\mathcal E:=Q_-(v-\tilde v)\tilde v^{-1}\tilde Q_-^{-1}$, \eqref{eq:CD-moments} reads
 \[
-  Q_1-P_1=-\frac1{2\pi i}\int_{\Sighat}\mathfrak h\diff s,\qquad
-  Q_2-P_2=-\frac1{2\pi i}\int_{\Sighat}s\,\mathfrak h\diff s+(Q_1-P_1)P_1 .
+  Q_1-P_1=-\frac1{2\pi i}\int_{\Sighat}\mathcal E\diff s,\qquad
+  Q_2-P_2=-\frac1{2\pi i}\int_{\Sighat}s\,\mathcal E\diff s+(Q_1-P_1)P_1 .
 \]
 Split $(v-\tilde v)\tilde v^{-1}=\Delta_1+\Delta_2+\Delta_3$, where $\Delta_1:=d_ne_2e_1^{\mathsf T}$ on the lips in
 $U(0,\delta)$ (we used $e_1^{\mathsf T}\tilde v^{-1}=e_1^{\mathsf T}$ there), $\Delta_2:=\tilde v^{-1}-I$ on $\Sigcirc$, and
@@ -541,17 +514,19 @@ everything is exponentially small. Collecting terms gives the proposition.
 \end{proof}
 
 \begin{remark}[what is not proved]\label{rem:not-proved}
-Proposition~\ref{prop:moments} isolates the non-Fisher--Hartwig part of the hard edge: relative to the comparison
-problem, the lip mismatch moves $Q_1$ and $Q_2$ by $O(\varepsilon'_n/n)$. The comparison problem itself depends on
-$\ell_1$ at order $1/n$. At the hard edge it does not: $\tilde Q_{\mathrm{in}}\tilde Q_{\mathrm{out}}^{-1}=\Phat_0(\Pinfz)^{-1}$
-on $\partial U(0,\delta)$ involves only $\alpha$, $f$ and $c$. But at the soft edge the Airy parametrix contains the
-weight through $\omega=D_W^2/W_0$ (see~\eqref{eq:airy}), so the circle terms $\Xi_k$ may depend on $\ell_1$. We do not analyse them, and we make no claim
-that $b_n(\sigma_{p,s,\ell_1})/b_n(\sigma_{p,s})-1=O(\varepsilon_\Lambda/n)$. The $O(1/n)$ in Theorem~\ref{thm:engine} is
-absolute, not relative.
+Relative to the comparison problem, the lip mismatch moves $Q_1$ and $Q_2$ by $O(\varepsilon'_n/n)$. The comparison
+problem itself depends on $\ell_1$ at order $1/n$, but only through the soft edge: on $\partial U(0,\delta)$,
+$\tilde Q_{\mathrm{in}}\tilde Q_{\mathrm{out}}^{-1}=\Phat_0(\Pinfz)^{-1}$ involves only $\alpha$, $f$ and $c$, whereas the
+Airy parametrix contains $\omega=D_W^2/W_0$ \eqref{eq:airy}, so the circle terms $\Xi_k$ may depend on $\ell_1$. We do
+not analyse them; this is why the $O(1/n)$ in Theorem~\ref{thm:engine} is absolute, not relative
+(Remark~\ref{rem:main-rate}).
 \end{remark}
 
 \begin{remark}[Where $|\alpha|<1$ is used; the case $\alpha\ge1$]\label{rem:alpha-ge-1}
-The restriction $|\alpha|<1$ is used in the following places, and nowhere else.
+The restriction $|\alpha|<1$ is used in an essential way in the following three places, and nowhere else. (The
+vertex conditions in Appendix~\ref{app:resolvent} need only $|\alpha|<2$, and the bound on $\Delta_3$ in the proof of
+Proposition~\ref{prop:moments} uses $|\alpha|\le1$ only to bound a power of $|z|$ that is multiplied by an exponentially
+small factor.)
 (a) Square integrability at the Bessel scale: $|z|^{-|\alpha|/2-\eta}$ is square integrable on the lips near $0$ for small
 $\eta$, which gives $Q_\pm\in I+\dC(L^2)$ \Fi7 (Appendix~\ref{app:apriori}) and $\tilde Q_\pm^{\pm1}\in I+\dC(L^2)$
 (Proposition~\ref{prop:UR-comparison}(i)); these are the hypotheses of \ref{tool:T3}(b) with $r=r'=2$, used in

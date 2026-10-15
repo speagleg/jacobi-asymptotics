@@ -9,38 +9,28 @@
 
 \section{Numerical illustrations}\label{sec:numerics}
 
-The computations in this section are floating-point computations; they illustrate the theorems and play no role in
-their proofs. They were carried out with scripts that will be made available as supplementary material (repository
-URL and commit hash: to be supplied before submission).
+The computations in this section are floating-point illustrations; they play no role in the proofs. The scripts will
+be made available as supplementary material (repository URL and commit hash: to be supplied before submission).
 
-\emph{What is shown.} Table~\ref{tab:numerics} compares the slowly varying factor
-$\ell(k)=\exp\sqrt{\log(k+e)}$, which satisfies \Ath{\vartheta_p} for every $p>0$, with the pure power $\ell\equiv1$,
-in the three geometries $p=\frac12$, $p=1$ and $p=2$, all with $s=2$. By Theorem~\ref{thm:main}(ii) and
-Corollary~\ref{thm:pure}, the four quantities
-\[
-  n\Bigl(\frac{n^pb_n}{c(p)}-1\Bigr)\qquad\text{and}\qquad n\Bigl(\frac{a_n}{2b_n}-1\Bigr),
-\]
-for $\ell$ and for $\ell\equiv1$, stay bounded. The Bessel orders are $\alpha=1$, $0$ and $-\frac12$. The first case
-lies outside the window $|\alpha|<1$ of Theorem~\ref{thm:engine} and is reached only through the shift
-(Theorem~\ref{thm:shift}, from $s=\frac32$, where $\alpha=0$). The second is the case $\alpha=0$, which needs the
-logarithmic form of the Bessel model. The third lies inside the window.
+\emph{What is shown.} Table~\ref{tab:numerics} compares the factor $\ell(k)=\exp\sqrt{\log(k+e)}$, which satisfies
+\Ath{\vartheta_p} for every $p>0$, with $\ell\equiv1$, for $p=\frac12$, $1$, $2$ and $s=2$. By Theorem~\ref{thm:main}(ii)
+and Corollary~\ref{thm:pure} the normalised deviations $n(n^pb_n/c(p)-1)$ and $n(a_n/(2b_n)-1)$ stay bounded. The Bessel
+orders are $\alpha=1$ (outside the window of Theorem~\ref{thm:engine}, reached through the shift from $s=\frac32$),
+$\alpha=0$ (the logarithmic case of the Bessel model) and $\alpha=-\frac12$.
 
-\emph{How the numbers were computed.} The recurrence coefficients cannot be computed from the atoms $k\le K$ alone.
-The spectral weight of $P_n$ near the hard edge sits at indices $k\asymp n^{1+2/p}$, which is about $10^{16}$ for
-$p=\frac12$ and $n=1600$, far beyond any truncation. Without a tail the truncated measure has a soft edge at its
-smallest atom, and its coefficients obey a different law; for example, for $p=\frac12$, $s=\frac32$, the same $\ell$ and
-the atoms $k\le2\cdot10^5$ alone, $n(n^pb_n/c(p)-1)$ equals $-1.81$, $-13.3$ and $-105.9$ at $n=100$, $400$ and
-$1600$. This is a property of the truncation, not a counterexample.
-
-We therefore used the atoms $k\le K$ exactly, together with a Gauss--Legendre quadrature of the continuous tail
-$\int_{K+1/2}^{T}t^{-s}\ell(t)\,\delta_{t^{-p}}\diff t$ on logarithmic panels (ratio $1.02$, eight nodes per panel),
-with $T=10^{48}$ for $p=\frac12$ and $T=10^{16}$ for $p=1,2$. The Jacobi matrix of the resulting discrete measure was
-computed in extended (long double) precision by the updating algorithm that adds one atom at a time and restores
-tridiagonal form by plane rotations. Each entry was computed for $K=10^5$ and $K=2\cdot10^5$, and for $K=2\cdot10^5$
-with $T$ reduced by a factor $10^4$. The largest change of any tabulated entry under these variations is $10^{-7}$ for
-$p=\frac12$, $2\cdot10^{-8}$ for $p=1$ and $2\cdot10^{-11}$ for $p=2$, so all digits shown are stable. As a further
-check, the column $\ell\equiv1$ at $p=2$ agrees in every digit shown with the closed form of
-Remark~\ref{rem:pure-lommel}.
+\emph{How the numbers were computed.} The atoms $k\le K$ alone do not suffice: the spectral weight of $P_n$ near the hard
+edge sits at indices $k\asymp n^{1+2/p}$, about $10^{16}$ for $p=\frac12$ and $n=1600$. A truncated measure has a soft edge
+at its smallest atom and obeys a different law; for $p=\frac12$, $s=\frac32$, the same $\ell$ and the atoms
+$k\le2\cdot10^5$ alone, $n(n^pb_n/c(p)-1)$ equals $-1.81$, $-13.3$ and $-105.9$ at $n=100$, $400$ and $1600$. We
+therefore used the atoms $k\le K$ together with a Gauss--Legendre quadrature of the continuous tail
+$\int_{K+1/2}^{T}t^{-s}\ell(t)\,\delta_{t^{-p}}\diff t$ on logarithmic panels (ratio $1.02$, eight nodes per panel), with
+$T=10^{48}$ for $p=\frac12$ and $T=10^{16}$ for $p=1,2$. The Jacobi matrix of this discrete measure was computed in
+extended (long double) precision by the updating algorithm that adds one atom at a time and restores tridiagonal form by
+plane rotations, for $K=10^5$ and $K=2\cdot10^5$, and for $K=2\cdot10^5$ with $T$ reduced by a factor $10^4$. The largest
+change of any tabulated entry under these variations is $10^{-7}$ ($p=\frac12$), $2\cdot10^{-8}$ ($p=1$) and
+$2\cdot10^{-11}$ ($p=2$). The column $\ell\equiv1$ at $p=2$ agrees in every digit shown with the closed form of
+Remark~\ref{rem:pure-lommel}, which in turn agrees, for $n\le9$ and to $90$ digits, with the coefficients computed from
+the Hankel determinants of the moments $\zeta(2j+2)$.
 
 \begin{table}[ht]
 \centering

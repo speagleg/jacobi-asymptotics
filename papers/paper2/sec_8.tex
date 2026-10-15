@@ -6,11 +6,10 @@
 \section{\texorpdfstring{Extraction: proof of Theorem~\ref{thm:engine}}{Extraction: proof of the Riemann-Hilbert theorem}}\label{sec:extraction}
 
 The recurrence coefficients are read off from the first two coefficients at infinity, through the functionals
-$\mathsf a$ and $\mathsf b$ of~\eqref{eq:functional-a}: by \Fi8, $\mathsf b(Q)=n^{2p}b_n^2$ and $\mathsf a(Q)=n^pa_n$. We stress
-the indexing, since it matters for any statement about the $1/n$ terms: both functionals come from the \emph{same} matrix
-of degree $n$, $a_n$ is the coefficient of $P_n$ in $xP_n$, and $b_n^2=h_n/h_{n-1}$ couples $P_{n-1}$ and $P_n$, as
-in~\eqref{eq:rec-monic}. So the ratio $a_n/(2b_n)$ in Theorem~\ref{thm:engine} pairs the diagonal entry at $P_n$ with the
-off-diagonal entry between $P_{n-1}$ and $P_n$.
+$\mathsf a$ and $\mathsf b$ of~\eqref{eq:functional-a}: by \Fi8, $\mathsf b(Q)=n^{2p}b_n^2$ and $\mathsf a(Q)=n^pa_n$. Both
+come from the \emph{same} matrix of degree $n$, so the ratio $a_n/(2b_n)$ in Theorem~\ref{thm:engine} pairs the diagonal
+entry at $P_n$ with the off-diagonal entry $b_n$ between $P_{n-1}$ and $P_n$, as in~\eqref{eq:rec-monic}; this matters for
+any statement about the $1/n$ terms (\S\ref{sec:tilt}).
 
 \begin{proof}[Proof of Theorem~\ref{thm:engine}]
 Let $p>0$, $1<s<1+2p$ and let $\ell_1$ satisfy \Ath{\vartheta_p}. For $n\ge n_1$, Proposition~\ref{prop:moments}
@@ -31,15 +30,12 @@ so $n^pb_n=c(1+O(1/n))$ since $b_n>0$. Since $(Q_1)_{12}=ic+O(1/n)\ne0$ for larg
 \[
   n^pa_n=\mathsf a(Q)=\frac{2ic^2+O(1/n)}{ic+O(1/n)}-O(\tfrac1n)=2c\bigl(1+O(\tfrac1n)\bigr),
 \]
-and therefore $a_n/(2b_n)=1+O(1/n)$. The constants depend on $p$, $s$ and $\ell_1$. Here $c=c(p)$ is the constant of
-\eqref{eq:cp}, because the band of the equilibrium measure is $[0,4c(p)]$ (Proposition~\ref{prop:equilibrium}).
+and therefore $a_n/(2b_n)=1+O(1/n)$. The constants depend on $p$, $s$ and $\ell_1$.
 \end{proof}
 
-\begin{remark}[Why $c(p)$]\label{rem:why-c}
-The limits come entirely from the global parametrix: $\mathsf b(\Pinfz)=c^2$ and $\mathsf a(\Pinfz)=2c$ are the recurrence
-data of the arcsine (Chebyshev) problem on $[0,4c]$, whose Jacobi matrix has diagonal $2c$ and off-diagonal $c$. Only the
-band $[0,4c]$ enters: these two values do not depend on the sign conventions in $\Pinfz$. The length $4c$ of the band is
-fixed by the saturation of the constrained equilibrium problem (Proposition~\ref{prop:equilibrium}). The weight,
-including the slowly varying factor, affects only the $O(1/n)$ terms, through the circle terms and the lip mismatch of
-Proposition~\ref{prop:moments}.
-\end{remark}
+The limits come entirely from the global parametrix: $\mathsf b(\Pinfz)=c^2$ and $\mathsf a(\Pinfz)=2c$ are the squared
+off-diagonal and the diagonal entry of the constant Jacobi matrix with diagonal $2c$ and off-diagonal $c$, whose spectrum
+is the band $[0,4c]$; the length
+$4c(p)$ of the band is fixed by the saturation of the constrained equilibrium problem
+(Proposition~\ref{prop:equilibrium}). The weight, including the slowly varying factor, affects only the $O(1/n)$ terms.
+

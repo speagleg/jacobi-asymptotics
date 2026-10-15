@@ -46,6 +46,81 @@ Convention: "Section~\ref" for sections, "\S\ref" for subsections. App. D (empty
 
 (placeholder: sec_5–sec_8, app_a–app_c and any new appendices)
 
+### Revision 2 — consistency pass (2026-10-15, final copy/consistency editor; 67 pp, was 69)
+
+Build: pdflatex, bibtex, pdflatex ×2 — 0 errors, 0 undefined references, 0 overfull boxes, 0 LaTeX/hyperref warnings.
+
+**Cross-half notation (one symbol, one meaning).**
+
+| Old | New | Where |
+|---|---|---|
+| ϱ_n (regular-majorant input, Rem. 2.3) | υ_n | sec_2; ϱ_± = e^{∓iπα} kept in §7/App. D |
+| ε_n := sup_{m≥n} osc_m(2) | osc*_n | sec_2 (Lemma 2.1, Rem. 2.2) — clashed with ε'_n, ε, ε_Λ |
+| N (index in Lemma 2.1(ii)) | m | sec_2 ("no N" rule) |
+| Ω_L(T), Ω_L*(T) (local oscillation) | osc_L(T), osc_L*(T) | sec_4 — Ω now only for RH regions Ω_b, Ω^△, Ω_∞ |
+| 𝓗_n (head set) | written out as "k < n/M₀" (no symbol) | sec_4 — removes clash with H°_n |
+| W := Σ w_k, W^{(τ)}, W_ℓ (§4) | ‖w‖₁, ‖w^{(τ)}‖₁, σ_{p,s,ℓ}(ℝ) | sec_4 — W is the RH residue weight |
+| 𝖺_n, 𝗆_n (chain sequence, §3) | 𝗋_n, 𝗀_n | sec_3 — 𝖺, 𝖻 are the extraction functionals of §5 |
+| β_τ, arc_β | defined once in §2.4 (μ* = ∫₀¹ arc_{β_τ} dτ); §5.4 now cites Prop. 2.4 instead of restating it | sec_2, sec_5 |
+| Θ, Θ₀, Θ₁ (numbers), M (constant) in Lemma 6.3 | 𝔠, 𝔠₀, 𝔠₁, 𝔐 | sec_6, sec_7 — Θ₀, Θ_∞ are matrices, M the KMVV matrix |
+| ξ = ⅔ζ^{3/2} in the Airy proof | written out | sec_6 — ξ is the log variable |
+| δ (DLMF sector constant in T4) | "uniformly in closed subsectors" | sec_2 — δ is the disc radius |
+| τ (Lemma A.3) | τ₀ | app_outer — τ is the path parameter of §4 |
+| 𝔥 (density in Prop. 7.6) | 𝓔 (the same object as in T3(b)) | sec_7 — 𝔥_n is the head mass |
+| Ω (Cauchy–Pompeiu term, Lemma B.1) | 𝔓 | app (now in App. B) |
+| γ_E | defined once (T4); repeat in Lemma 7.1 removed | sec_2, sec_7 |
+| ε₀ (rough-weights announcement) | ε_* | sec_front — ε₀ is the soft-edge radius of Lemma 5.5 |
+
+Checked and left as is: κ_n (§3) vs κ_± (§5) vs ϰ_∞ (Lemma 6.4) — distinct glyphs/subscripts, each defined once; 𝗄₀
+(Lemma 7.1, used in (7.x) and App. D (B3) as 𝗄); ι_± (Lemma 5.9, restated in (F1)); 𝓘 is the only incomplete-beta
+symbol; N_n only in (O5); m_n only spectral weights; Υ defined once (Lemma 6.3(i)); J is the Jacobi matrix in §§2–3 and
+the band jump in §§6–7 (separate halves, each defined). A "Notation used throughout" paragraph was added to §2's opening.
+
+**Tools (§2.5).** T1 intro and T1(c) shrunk to an attribution (§6 builds its own Airy parametrix). T4: added DLMF
+9.2.8, 9.2.12, 9.7.2, 9.7.5–9.7.6 (statements as in RH/CITATIONS.md "(DLMF-9, Paper 2)", written with relative errors
+O(|z|^{−3/2}), the only consequence used); §6 now cites T4 instead of quoting DLMF inline. Removed from T4 as unused:
+Mellin items (1.14.32, 1.14.38–40; the parenthetical in App. C that used them was dropped — Minkowski's inequality is
+the proof), 10.27.3, and 5.12.1 as a separate item (Beta function now named in §2.4; 5.12.1 kept next to 5.12.3,
+which Rem. C.3 cites via T4). T2(a) shortened; T2(c) now explains N, W̃, f̃ (KMVV notation). The DLMF numbers in the
+Lommel remark (4.22.3, 10.2.2, 10.6.1, 10.16.1) are cited directly: that remark is not proof input.
+
+**Duplication cut (no mathematics removed).** Intro: "Averaged versus pointwise" merged into "Why the pointwise law is
+subtle" (moved directly after Thm 1); "Special cases" shortened; C–D novelty sentence de-duplicated; Lommel 90-digit
+check moved to §9. §3: restatement of Thm 2, the Cholesky aside and the iteration paragraph (repeated in §4.4) cut.
+§4: "order of the steps" shortened. §5: repeated standing data (ϑ_p, "c reserved"), restatement of μ*, the p-dependence
+of g − log z (Table row also dropped; unused) cut. §6: intro shortened; Rem. 6.2 shortened; numerical airy_check
+sentence removed from the text (numerics only in §9); Rem. "what depends on the geometry" removed (Table 1 says it);
+(F1) now states the band and lip jumps and "v_V with W₀ replaced by ω^{−1}" for the other arcs (checked entry by
+entry). §7: intro shortened (repeated hard-edge story), organisation paragraph removed, resolvent proof sketch halved,
+Rem. 7.7 shortened and pointed to Rem. 1.5. §8: Rem. "Why c(p)" folded into one paragraph after the proof (corrected:
+"constant Jacobi matrix with diagonal 2c, off-diagonal c, spectrum [0, 4c]" instead of "Jacobi matrix of the arcsine law").
+§9 rewritten more compactly. Organisation (§1.5) now lists the appendices A–D in their final order.
+
+**Hygiene.** No repo jargon or codename comments (grep clean). "Section~\ref" for sections and "\S\ref" for
+subsections throughout (three fixes). RH defined at first use (§1.3). Stale "Corollary 1.4" comments → 1.6.
+
+**Second referee (REFEREE2_REPORT.md), minor findings applied.** G1: (O3)/(O4) now on |z| ≤ 1 / |z| ≥ 1 (η₀ removed).
+G2: ε < c·sin ϑ_w added to the parameter list, with the reason (U(4c, 4ε) ⊂ Z_n). G3: Lemma 5.6 — first piece is the
+preimage in U(0, 2δ) (δ₁ ≤ r_*/4), corner rounded in {δ < |z| < 2δ} so (a) holds; r_* < δ₀ strictly; arc condition
+arcsin(h₀/4c) < ϑ_w. G4: .gitignore now ignores only main.out, so checks/*.out are tracked; airy_check scope recorded
+in RH/CITATIONS.md (DLMF-9 entry): it tests jumps, det, MJM⁻¹, band cancellation and O(1/n) matching, but sets φ̃ and ω
+structurally, so it does not test Lemma 5.5(iv) or Lemma 6.3(vi)(b). The sentence about it was removed from §6.
+G5: Rem. 7.8 now says "in an essential way" and lists the two harmless uses (App. D vertex conditions need |α| < 2;
+Δ₃ bound in Prop. 7.6). G6: comments fixed; the "Three facts about Cauchy integrals" subsection moved from App. D to
+App. B (§B.1, labels unchanged), so Cor. B.5 now refers backwards. G7: abstract says "extends to a slowly varying
+analytic function on a sector". G8: WLXZ Fig. 3 region layout (v1 PDF, text layer) recorded in RH/CITATIONS.md.
+Note for readers of REFEREE_REPORT.md: its appendix letters are pre-revision.
+
+**Open after this pass.**
+1. Length: 67 pp against the 58–60 target. The remaining length is mathematics (proofs in §§5–7 and the appendices);
+   reaching 60 would need cutting or relocating proofs (e.g. Rem. 3.6's converse proof, Prop. 2.4(iii), the Lommel
+   derivation) or a tighter layout — author's decision.
+2. Observation for the author/referee (not changed): Lemma 5.7 keeps all weight evaluations in |Im ξ| ≤ ϑ_w/p with
+   ϑ_w/p < π/2 also for p > 1, so for 1 < p < 2 the hypothesis ϑ_p = π/p seems stronger than the proof needs.
+3. Bibliography: printed entries still carrying "to verify" (DLMF release, LL publication data; Van pages are unprinted
+   since Van is uncited). refs.bib keeps uncited entries KV, Van, BD, BueMar, BGT, Vuil, Fischer (not printed).
+4. Author line, MSC codes, supplementary-material URL (§9).
+
 ---
 
 ## 1. Front matter (chunk A): claim → source (numbering updated)

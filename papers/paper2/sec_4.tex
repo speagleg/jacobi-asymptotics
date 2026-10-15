@@ -1,4 +1,4 @@
-% Section 4: From analytic to arbitrary slowly varying factors; proofs of Theorem 1 and Corollary 1.4 given Theorem 3.
+% Section 4: From analytic to arbitrary slowly varying factors; proofs of Theorem 1 and Corollary 1.6 given Theorem 3.
 % Labels defined here: sec:smoothing, sec:smoothing-gauss, sec:smoothing-fv, sec:smoothing-stab, sec:assembly,
 %   lem:smoothing, lem:first-variation, lem:saturation, lem:apriori, prop:stability, rem:base-window,
 %   eq:gauss-abs, eq:chaining, eq:fv-b, eq:fv-a, eq:diff-int, eq:gp, eq:head, eq:forms, eq:analytic-all-s.
@@ -18,9 +18,7 @@ there the spectral weights are exponentially small, because those atoms are satu
 One cannot instead compare directly with the pure power $k^{-s}$: $\ell$ may be unbounded and need not be close to
 $1$ anywhere, and controlling $\log\ell(k)-\log\ell(n)$ against the spectral weights far beyond $k\asymp n$ would require
 information about the hard edge at the level of $1/n$ corrections. Comparing $\ell$ with its own smoothing avoids this.
-
-\S\ref{sec:assembly} then assembles the proofs of Theorem~\ref{thm:main} and Corollary~\ref{thm:pure}, given
-Theorem~\ref{thm:engine} and Theorem~\ref{thm:shift} (proved in Section~\ref{sec:shift}).
+\S\ref{sec:assembly} then proves Theorem~\ref{thm:main} and Corollary~\ref{thm:pure}, given Theorem~\ref{thm:engine}.
 
 Throughout this section $p>0$ and $s>1$ are fixed, $x_k:=k^{-p}$, and for a positive sequence $w=(w_k)$ with
 $\sum_kw_k<\infty$ we write $a_n(w)$, $b_n(w)$ for the Jacobi coefficients of $\sum_kw_k\delta_{x_k}$. With $p_n$ the
@@ -70,21 +68,21 @@ taken under the integral sign. $\Lambda$ is real on $\R$ because $L$ and $G$ are
 
 \emph{Local oscillation of $L$.} For $T\ge T_0:=1+\log2$ put
 \[
-  \Omega_L(T):=\sup\bigl\{|L(y)-L(y')|:\ y,y'\in[T-1,T+1]\bigr\},\qquad \Omega_L^*(T):=\sup_{T'\ge T}\Omega_L(T').
+  \osc_L(T):=\sup\bigl\{|L(y)-L(y')|:\ y,y'\in[T-1,T+1]\bigr\},\qquad \osc_L^*(T):=\sup_{T'\ge T}\osc_L(T').
 \]
 Let $y\in[T-1,T+1]$ and $y\in[\log k,\log(k+1)]$. Then $k\ge e^{T-1}-1\ge e^{T-1}/2$ and $k+1\le e^{T+1}+1$. With
 $m:=\lceil e^T\rceil$ and $\lambda:=2e^2$ we have $m/\lambda\le e^{T-2}\le e^{T-1}/2$ and $\lambda m\ge2e^{T+2}\ge
 e^{T+1}+1$, so $k,k+1\in[m/\lambda,\lambda m]$. Hence $L(y)$ and $L(y')$ are convex combinations of values $\log\ell(k')$
-with $k'\in[m/\lambda,\lambda m]$, and $\Omega_L(T)\le2\osc_m(2e^2)$. Slow variation gives $\Omega_L(T)\to0$, so
-$\Omega_L^*(T)$ is finite and $\Omega_L^*(T)\to0$ as $T\to\infty$.
+with $k'\in[m/\lambda,\lambda m]$, and $\osc_L(T)\le2\osc_m(2e^2)$. Slow variation gives $\osc_L(T)\to0$, so
+$\osc_L^*(T)$ is finite and $\osc_L^*(T)\to0$ as $T\to\infty$.
 
 \emph{Chaining.} Let $T\ge2T_0$. If $y\ge T$, join $T$ to $y$ by $\lfloor y-T\rfloor$ steps of length $1$ and one shorter
-step; every step lies in an interval $[T'-1,T'+1]$ with $T'\ge T$, so $|L(y)-L(T)|\le\Omega_L^*(T)(1+|y-T|)$. If
-$T/2\le y<T$, the same argument started at $y\ge T_0$ gives $|L(y)-L(T)|\le\Omega_L^*(T/2)(1+|y-T|)$. If $y<T/2$, then
+step; every step lies in an interval $[T'-1,T'+1]$ with $T'\ge T$, so $|L(y)-L(T)|\le\osc_L^*(T)(1+|y-T|)$. If
+$T/2\le y<T$, the same argument started at $y\ge T_0$ gives $|L(y)-L(T)|\le\osc_L^*(T/2)(1+|y-T|)$. If $y<T/2$, then
 $|y|+T\le|y-T|+2T\le5|y-T|$, and (o) with $\eta=1$ gives $|L(y)-L(T)|\le2A_1+2\log2+|y|+T\le C_1(1+|y-T|)$ with
 $C_1:=\max(2A_1+2,5)$. In all cases
 \begin{equation}\label{eq:chaining}
-  |L(y)-L(T)|\le\bigl(\Omega_L^*(T/2)\,\mathbf 1_{\{y\ge T/2\}}+C_1\mathbf 1_{\{y<T/2\}}\bigr)(1+|y-T|).
+  |L(y)-L(T)|\le\bigl(\osc_L^*(T/2)\,\mathbf 1_{\{y\ge T/2\}}+C_1\mathbf 1_{\{y<T/2\}}\bigr)(1+|y-T|).
 \end{equation}
 
 \emph{(ii).} The derivatives of $G$ are $G^{(j)}(w)=\mathsf h_j(w)G(w)$ with polynomials $\mathsf h_j$ of degree $j$.
@@ -95,7 +93,7 @@ $\int_\R G^{(j)}(\xi-y)\diff y=\delta_{j0}$ for all $\xi\in\C$. For $\xi=T+i\ups
 $T\ge2T_0$, this, \eqref{eq:gauss-abs}, \eqref{eq:chaining} and the substitution $t=T-y$ give
 \begin{align*}
   \bigl|\Lambda^{(j)}(\xi)-\delta_{j0}L(T)\bigr|&=\Bigl|\int_\R\bigl(L(y)-L(T)\bigr)G^{(j)}(\xi-y)\diff y\Bigr|\\
-  &\le e^{\vartheta^2/2}\Bigl[\Omega_L^*(T/2)\int_\R \mathsf g_j(t)\diff t+C_1\int_{|t|>T/2}\mathsf g_j(t)\diff t\Bigr],
+  &\le e^{\vartheta^2/2}\Bigl[\osc_L^*(T/2)\int_\R \mathsf g_j(t)\diff t+C_1\int_{|t|>T/2}\mathsf g_j(t)\diff t\Bigr],
 \end{align*}
 where $\mathsf g_j(t):=\bar{\mathsf h}_j(|t|+\vartheta)(1+|t|)G(t)$ is integrable. The right side tends to $0$ as $T\to\infty$, uniformly in
 $|\upsilon|\le\vartheta$. For $j=0$, applying this at $\xi$ and at $T=\Re\xi$ and subtracting gives
@@ -180,9 +178,9 @@ The next lemma says that the atoms $x_k$ with $k$ much smaller than $n$ are almo
 orthonormal polynomials. Its proof combines Christoffel's extremal property with a Lagrange test polynomial.
 
 \begin{lemma}[Saturation of the head]\label{lem:saturation}
-Let $w_k>0$ with $W:=\sum_kw_k<\infty$, and consider $\sum_kw_k\delta_{k^{-p}}$. For integers $1\le k<n$ and $y:=k/n$,
+Let $w_k>0$ with $\|w\|_1:=\sum_kw_k<\infty$, and consider $\sum_kw_k\delta_{k^{-p}}$. For integers $1\le k<n$ and $y:=k/n$,
 \[
-  1-K_n(k)\le\frac W{w_k}\Bigl(\frac{n+1}k\Bigr)^{2(1-p)_+}e^{-2ng_p^+(y)} .
+  1-K_n(k)\le\frac{\|w\|_1}{w_k}\Bigl(\frac{n+1}k\Bigr)^{2(1-p)_+}e^{-2ng_p^+(y)} .
 \]
 Moreover $m_n(k)\le1-K_n(k)$ for all $k$ and $n$.
 \end{lemma}
@@ -195,10 +193,10 @@ polynomial
 \]
 which has degree $n-1$, satisfies $P(x_k)=1$, and vanishes at $x_j$ for $j\le n$, $j\ne k$. For $i>n$ and $j\le n$ we have
 $0<x_i<x_j$, so $|x_i-x_j|\le x_j$ and $|P(x_i)|\le\mathcal P:=\prod_{j\le n,\,j\ne k}x_j/|x_k-x_j|$. Therefore
-$\int P^2\diff\sigma\le w_k+W\mathcal P^2$, and \eqref{eq:christoffel} gives $1/\mathsf K_n(x_k)\le w_k+W\mathcal P^2$. Hence
-$K_n(k)=w_k\mathsf K_n(x_k)\ge w_k/(w_k+W\mathcal P^2)$ and
+$\int P^2\diff\sigma\le w_k+\|w\|_1\mathcal P^2$, and \eqref{eq:christoffel} gives $1/\mathsf K_n(x_k)\le w_k+\|w\|_1\mathcal P^2$. Hence
+$K_n(k)=w_k\mathsf K_n(x_k)\ge w_k/(w_k+\|w\|_1\mathcal P^2)$ and
 \[
-  1-K_n(k)\le\frac{W\mathcal P^2}{w_k+W\mathcal P^2}\le\frac W{w_k}\mathcal P^2 .
+  1-K_n(k)\le\frac{\|w\|_1\mathcal P^2}{w_k+\|w\|_1\mathcal P^2}\le\frac{\|w\|_1}{w_k}\mathcal P^2 .
 \]
 
 It remains to bound $\mathcal P$. Here $x_j/|x_k-x_j|=k^p/|k^p-j^p|$. Put $\varsigma_p:=\min(1,p)$. We claim
@@ -236,9 +234,9 @@ be as in Lemma~\ref{lem:smoothing}, and put
 \]
 So $w^{(0)}$ is the weight of $\sigma_{p,s,\ell_1}$ and $w^{(1)}$ that of $\sigma_{p,s,\ell}$. Since
 $\ell_1\psi^\tau=\ell\psi^{\tau-1}$, we have $e^{-\bar\rho}\ell(k)\le\ell_1(k)\psi(k)^\tau\le e^{\bar\rho}\ell(k)$, so every
-$w^{(\tau)}$ has finite total mass. Let $\mathcal H_n:=\{k\in\N:k<n/M_0\}$ be the head, and let
+$w^{(\tau)}$ has finite total mass. We call the indices $k<n/M_0$ the \emph{head}, and let
 \[
-  \mathfrak h_n:=\sup_{\tau\in[0,1]}\ \max_{m\in\{n-1,n\}}\ \sum_{k\in\mathcal H_n}m^{(\tau)}_m(k)
+  \mathfrak h_n:=\sup_{\tau\in[0,1]}\ \max_{m\in\{n-1,n\}}\ \sum_{k<n/M_0}m^{(\tau)}_m(k)
 \]
 be the largest head mass of the spectral weights $m^{(\tau)}_{n-1}$, $m^{(\tau)}_n$ of $w^{(\tau)}$.
 
@@ -254,18 +252,18 @@ and for all $n\ge n_0$ and $\tau\in[0,1]$,
 \end{lemma}
 
 \begin{proof}
-\emph{Head.} Let $W^{(\tau)}:=\sum_kw^{(\tau)}_k$. By Lemma~\ref{lem:potter}(ii) with $\eta=1$,
-$W^{(\tau)}\le e^{\bar\rho}\sum_jj^{-s}\ell(j)=:e^{\bar\rho}W_\ell<\infty$ and
-$w^{(\tau)}_k\ge e^{-\bar\rho}k^{-s}\ell(k)\ge e^{-\bar\rho-A_1}k^{-s-1}$, so $W^{(\tau)}/w^{(\tau)}_k\le C'k^{s+1}$ with
-$C':=e^{2\bar\rho+A_1}W_\ell$. Let $n\ge2$, $m\in\{n-1,n\}$ and $k\in\mathcal H_n$. Then $k<n/4<m$, and $k/m\le
+\emph{Head.} By Lemma~\ref{lem:potter}(ii) with $\eta=1$, we have
+$\|w^{(\tau)}\|_1\le e^{\bar\rho}\sigma_{p,s,\ell}(\R)<\infty$ and
+$w^{(\tau)}_k\ge e^{-\bar\rho}k^{-s}\ell(k)\ge e^{-\bar\rho-A_1}k^{-s-1}$, so $\|w^{(\tau)}\|_1/w^{(\tau)}_k\le C'k^{s+1}$ with
+$C':=e^{2\bar\rho+A_1}\sigma_{p,s,\ell}(\R)$. Let $n\ge2$, $m\in\{n-1,n\}$ and $k<n/M_0$. Then $k<n/4<m$, and $k/m\le
 n/(M_0(n-1))\le2/M_0$, so $g_p^+(k/m)\ge1$. Lemma~\ref{lem:saturation}, with $(m+1)/k\le n+1$ and $2(1-p)_+\le2$, gives
 \[
   m^{(\tau)}_m(k)\le1-K^{(\tau)}_m(k)\le C'k^{s+1}(n+1)^2e^{-2(n-1)} .
 \]
-Summing over the fewer than $n$ points of $\mathcal H_n$ gives \eqref{eq:head}.
+Summing over the fewer than $n$ indices $k<n/M_0$ gives \eqref{eq:head}.
 
 \emph{Size.} By \eqref{eq:coef-int}, $a_m=\langle x,m_m\rangle$ and $b_n=\langle xq_{n-1},q_n\rangle\le\frac12\langle
-x,m_{n-1}+m_n\rangle$, since $x\ge0$ and $|q_{n-1}q_n|\le\frac12(m_{n-1}+m_n)$. For $k\notin\mathcal H_n$ we have
+x,m_{n-1}+m_n\rangle$, since $x\ge0$ and $|q_{n-1}q_n|\le\frac12(m_{n-1}+m_n)$. For $k\ge n/M_0$ we have
 $x_k=k^{-p}\le(M_0/n)^p$, and $x_k\le1$ always. Hence, for $m\in\{n-1,n\}$,
 $\langle x,m^{(\tau)}_m\rangle\le(M_0/n)^p+\mathfrak h_n$, and both $a_n$ and $b_n$ are at most $(M_0/n)^p+\mathfrak h_n$. By
 \eqref{eq:head}, $\mathfrak h_n\le(M_0/n)^p$ for $n\ge n_0$.
@@ -284,8 +282,8 @@ $n_0$, depending on $p,s,\ell$, such that for $n\ge n_0$
 
 \begin{proof}
 Apply Lemma~\ref{lem:first-variation} with $v_k=k^{-s}\ell_1(k)$ and $h=\log\psi$, which is bounded by $\bar\rho$; then
-$w^{(\tau)}$ is the path defined above. Write $\rho:=\rho_\ell(\lceil n/M_0\rceil)$. For $k\notin\mathcal H_n$ we have
-$k\ge\lceil n/M_0\rceil$, so $|h(k)|\le\rho$; for $k\in\mathcal H_n$, $|h(k)|\le\bar\rho$.
+$w^{(\tau)}$ is the path defined above. Write $\rho:=\rho_\ell(\lceil n/M_0\rceil)$. For $k\ge n/M_0$ we have
+$k\ge\lceil n/M_0\rceil$, so $|h(k)|\le\rho$; for $k<n/M_0$, $|h(k)|\le\bar\rho$.
 
 \emph{The $b$-part.} By \eqref{eq:fv-b} and the fundamental theorem of calculus,
 \[
@@ -298,15 +296,13 @@ because $m^{(\tau)}_n$ and $m^{(\tau)}_{n-1}$ are probability vectors. Lemma~\re
 \[
   \Bigl|\frac{\diff a_n}{\diff\tau}\Bigr|\le\sum_k|h(k)|\Bigl(|x_k-a_n|\,m_n(k)+b_n\bigl(m_{n-1}(k)+m_n(k)\bigr)\Bigr).
 \]
-Let $n\ge n_0$, where $n_0$ is as in Lemma~\ref{lem:apriori}, enlarged so that $2M_0^pn_0^{-p}\le1$. For $k\notin\mathcal H_n$, $0\le x_k\le(M_0/n)^p$ and $0\le a_n\le2M_0^pn^{-p}$,
+Let $n\ge n_0$, where $n_0$ is as in Lemma~\ref{lem:apriori}, enlarged so that $2M_0^pn_0^{-p}\le1$. For $k\ge n/M_0$, $0\le x_k\le(M_0/n)^p$ and $0\le a_n\le2M_0^pn^{-p}$,
 so $|x_k-a_n|\le2M_0^pn^{-p}$; also $b_n\le2M_0^pn^{-p}$. These $k$ contribute at most
-$\rho\bigl(2M_0^pn^{-p}+2\cdot2M_0^pn^{-p}\bigr)=6M_0^p\rho\,n^{-p}$. For $k\in\mathcal H_n$ use $|x_k-a_n|\le1$ and
+$\rho\bigl(2M_0^pn^{-p}+2\cdot2M_0^pn^{-p}\bigr)=6M_0^p\rho\,n^{-p}$. For $k<n/M_0$ use $|x_k-a_n|\le1$ and
 $b_n\le1$; these contribute at most $3\bar\rho\mathfrak h_n$. Integrating over $\tau\in[0,1]$ and
 multiplying by $n^p$ gives the second bound, again with Lemma~\ref{lem:apriori}.
 \end{proof}
 
-The proof uses the slow variation of $\ell$ only through the Potter bounds and through $\rho_\ell\to0$; it uses
-nothing about the hard edge, and it holds for every $p>0$ and $s>1$.
 
 \subsection{\texorpdfstring{Proof of Theorem~\ref{thm:main}, assuming Theorem~\ref{thm:engine}}{Proof of Theorem 1, assuming Theorem 3}}\label{sec:assembly}
 
@@ -358,15 +354,10 @@ terms are $O(1/n)$, and finitely many $n$ only affect the constant. This is
 
 \medskip
 \emph{On the order of the steps.} The smoothing is applied last, at the final exponent $s$, after the shift. This is
-possible because Proposition~\ref{prop:stability} holds for every $p>0$ and every $s>1$, while
-Theorem~\ref{thm:shift} is applied only to the analytic factor $\ell_1$, with the rate $1/n$ that
-Theorem~\ref{thm:engine} provides. Each step therefore uses its input exactly in the range where it is proved:
-Theorem~\ref{thm:engine} only for $s_0\in(1,1+2p)$; Theorem~\ref{thm:shift} for positive measures on $[0,\infty)$ with
-infinite support; Lemma~\ref{lem:smoothing} for $\vartheta=\vartheta_p$; and Proposition~\ref{prop:stability} at $s$. Smoothing
-first and shifting afterwards would also work, but the shift would then have to carry the rate
-$1/n+\rho_\ell(\lceil n/M_0\rceil)$, which is in general not regular and must be replaced by a regular majorant
-(Remark~\ref{rem:majorant}); the order chosen here avoids this and gives the rate \eqref{eq:main-rate}
-directly.
+possible because Proposition~\ref{prop:stability} holds for every $p>0$ and $s>1$, while Theorem~\ref{thm:shift} is
+applied only to the analytic factor $\ell_1$, with the rate $1/n$ of Theorem~\ref{thm:engine}. Smoothing first and
+shifting afterwards would also work, but the shift would then have to carry the rate $1/n+\rho_\ell(\lceil n/M_0\rceil)$,
+which in general is not regular and must be replaced by a regular majorant (Remark~\ref{rem:majorant}).
 
 \begin{remark}[Which part of Theorem~\ref{thm:engine} is used]\label{rem:base-window}
 Any half-open $s$-window of length $p$ inside $(1,1+2p)$ can serve as the base in Step 1. For $s>1+p/2$ one may take

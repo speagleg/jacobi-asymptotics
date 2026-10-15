@@ -204,7 +204,7 @@ $\tilde F_+=-\tilde F_-$ there. $H_n=(\tilde DB_{\mathrm{in}}e^{\chi})^{-2}>0$ o
 $H_n(0^+)=e^{-2\chi(0)}$, where $\chi(0):=\lim_{z\to0}\chi(z)$ exists by Lemma~\ref{lem:corner}.
 
 \emph{(O3), (O4).} Points of $\Zn$ satisfy $|\arg z|\le3\pi p/8$, hence $\mathrm{dist}(z,\Sseam_+\cup\Sseam_-)\ge\sin(\pi p/8)|z|$.
-So Lemma~\ref{lem:corner}(ii) applies with $\tau=\sin(\pi p/8)$. For $|z|\le1$,
+So Lemma~\ref{lem:corner}(ii) applies with $\tau_0=\sin(\pi p/8)$. For $|z|\le1$,
 \begin{align*}
   |\log H_n-\log H_n(0^+)|&\le2\bigl(|j(t)|+|\varpi||\Log(1+z)|+|\chi-\chi(0)|\bigr)\\
   &\le C\bigl(|z|^{1/p}/n+|z|+|z|(1+\log\tfrac1{|z|})\bigr)\le C|z|^{1/2},
@@ -230,11 +230,11 @@ constant $\chi(0)$ depends on $n$, but no bound on it is needed: it enters only 
 only through the constant $\mathsf w_nH_n(0^+)$, which cancels in $\omega=D_W^2/W_0$ (see~\eqref{eq:DW-factor}).
 
 \begin{lemma}[Corner modulus of the seam scalar]\label{lem:corner}
-Let $0<p<1$ and $\tau\in(0,1)$. There are $C=C(p,\tau)$ and $n_0$ such that for $n\ge n_0$:
+Let $0<p<1$ and $\tau_0\in(0,1)$. There are $C=C(p,\tau_0)$ and $n_0$ such that for $n\ge n_0$:
 \begin{enumerate}
 \item[(i)] $|\chi_\pm(\zeta)|\le C|\zeta|$ for $\zeta\in\Sseam_\pm$, $|\zeta|\le1$; $|\chi_\pm(\zeta)|\le C(1+\log|\zeta|)$ for
   $|\zeta|\ge1$; and $|\chi_\pm'(\zeta)|\le C$ for $|\zeta|\le2$.
-\item[(ii)] For $z$ with $\mathrm{dist}(z,\Sseam_+\cup\Sseam_-)\ge\tau|z|$:
+\item[(ii)] For $z$ with $\mathrm{dist}(z,\Sseam_+\cup\Sseam_-)\ge\tau_0|z|$:
   $|\chi(z)-\chi(0)|\le C|z|(1+\log\frac1{|z|})$ and $|\chi'(z)|\le C(1+\log\frac1{|z|})$ if $|z|\le1$, and
   $|\chi(z)-\chi(0)|\le C(1+\log|z|)^2$ if $|z|\ge1$. Here
   $\chi(0):=\frac1{2\pi i}\bigl[\int_{\Sseam_+}\chi_+(\zeta)\frac{\diff\zeta}\zeta-\int_{\Sseam_-}\chi_-(\zeta)\frac{\diff\zeta}\zeta\bigr]$.
@@ -258,7 +258,7 @@ conjugation.
 (ii) For $z\notin\Sseam_\pm$,
 $\chi(z)-\chi(0)=\frac z{2\pi i}\sum_\pm(\pm1)\int_{\Sseam_\pm}\frac{\chi_\pm(\zeta)\diff\zeta}{\zeta(\zeta-z)}$ and
 $\chi'(z)=\frac1{2\pi i}\sum_\pm(\pm1)\int_{\Sseam_\pm}\frac{\chi_\pm(\zeta)\diff\zeta}{(\zeta-z)^2}$. Under the hypothesis,
-$|\zeta-z|\ge\tau|z|$, and $|\zeta-z|\ge|\zeta|/2$ if $|\zeta|\ge2|z|$; hence $|\zeta-z|\ge\frac\tau3(|\zeta|+|z|)$.
+$|\zeta-z|\ge\tau_0|z|$, and $|\zeta-z|\ge|\zeta|/2$ if $|\zeta|\ge2|z|$; hence $|\zeta-z|\ge\frac{\tau_0}3(|\zeta|+|z|)$.
 With~(i), for $|z|\le1$,
 \[
   |\chi(z)-\chi(0)|\le C|z|\Bigl[\int_0^1\frac{\diff\rho}{\rho+|z|}+\int_1^\infty\frac{1+\log\rho}{\rho^2}\diff\rho\Bigr]\le

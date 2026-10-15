@@ -1,0 +1,16 @@
+band                             1.07e-24
+sat                              1.22e-24
+vert+                            1.07e-24
+vert-                            1.07e-24
+det-1                            1.72e-30
+A_r band jump                    5.2e-26
+max|A_r| near 4c (r=1e-8)        1.0
+Psi columns vs jumps             2.34e-30
+M J M^-1 - diag(-i,i)            0.0
+(-om)^1/2_+ (-om)^1/2_- - 1      1.05e-25
+matching sup|Phat_r P0^{-1} - I| on |z-4c|=0.2, and n * sup:
+  n=   10      0.4927     4.927
+  n=   40     0.09478     3.791
+  n=  160     0.01974     3.158
+  n=  640    0.004795     3.069
+  n= 2560    0.001191      3.05

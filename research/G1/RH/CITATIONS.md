@@ -435,6 +435,11 @@ positive parameter"; we use α = 1 (α_W).
 > Figure 3 caption: "The contour Σ and the region Ω" (Σ = (−k_n, k_n) ∪ Σ_{l,±} ∪ Σ_{r,±} ∪ Σ^△_{l,±} ∪ Σ^△_{r,±}; the figure is
 > symmetric under z ↦ −z); "Note that here we choose the contour like Σ_{l,±} and Σ_{r,±} so as to avoid the zeros of Π(z) and
 > w(z); see (3.9) and (3.10)."
+
+Region layout of Fig. 3, read from the v1 PDF (arXiv:1410.3948v1, 24 pp) via its text layer (`pdftotext -layout`, second
+referee, 2026-10-15): Ω^△_{l,+} upper left, Ω^△_{r,+} upper right, Ω^△_{l,−} lower left, Ω^△_{r,−} lower right. Under
+z ↦ z² both Ω^△_{l,+} and Ω^△_{r,−} map to ℂ_−, which is the sign correspondence used in Paper 2 §5.7. The layout comes
+from the text layer, not the image; a visual check of the figure is still advisable.
 >
 > (4.4) "g₊(x) + g₋(x) = l, x ∈ (−2, 2); > l, x ∈ (−∞, −2) ∪ (2, +∞)"; (4.5) "g(z) = log z + O(1/z) as z → ∞".
 >
@@ -548,7 +553,7 @@ has |ph| ≤ π/2 − ϑ_lip/2, so 10.40.1–10.40.4 apply with δ = ϑ_lip/2 (1
 y_± = (Ai(e^{∓2πi/3}ζ), e^{∓2πi/3}Ai′(e^{∓2πi/3}ζ)); det Ψ_r = 1 from 9.2.8; the four sectorial formulas are related by 9.2.12;
 the large-ζ form ζ^{−σ₃/4}M(I + O(ζ^{−3/2}))e^{(2/3)ζ^{3/2}σ₃} from 9.7.5–9.7.6 applied to ζ, e^{∓2πi/3}ζ in closed subsectors of
 |ph| < π). Hypotheses: none beyond the sector conditions, which are checked in the lemma. Numerical check:
-papers/paper2/checks/airy_check.py (.out).
+papers/paper2/checks/airy_check.py (.out). Scope (second referee, G4): it tests the jumps, det = 1, MJM⁻¹ = diag(−i, i), the band cancellation for A_r and (−ω)^{1/2}, and the O(1/n) matching, but it sets φ̃ := −(2/3)f_r^{3/2} and ω = (4c/Υ)e^{(·)} structurally, so it does not test Lemma 5.5(iv) or Lemma 6.3(vi)(b) (both proved analytically).
 
 ## (DP, Paper 2) Deift–Piorkowski, arXiv:2307.09277v2 = SIGMA 20 (2024) 004 — §1 quotation re-read (HTML of v2 fetched 2026-10-14)
 

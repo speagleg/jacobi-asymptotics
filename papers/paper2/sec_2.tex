@@ -19,6 +19,16 @@ power. We prove both in \S\ref{sec:prelim-sv}. The only input from the companion
 equilibrium measure (\S\ref{sec:prelim-eq}). Every external result used later is stated in \S\ref{sec:tools}, with its
 hypotheses, under a label \ref{tool:T1}--\ref{tool:T4} by which the later sections refer to it.
 
+\emph{Notation used throughout.} The data are $p>0$, $s>1$ and $\ell$ (\S\ref{sec:setting}); $\osc_n(\lambda)$,
+$\Lambda$, $\varepsilon_\Lambda$, \Ath{\vartheta}, $\vartheta_p$, $L_\ell$, $G$, $\Lambda_\ell$, $\rho_\ell$ and the
+regular rates $\eta_n$ are defined in \S\ref{sec:results}; the head margin $M_0$ in \S\ref{sec:smoothing-stab}. In
+Sections~\ref{sec:frame}--\ref{sec:extraction} and the appendices the exponent $s$ lies in the window $(1,1+2p)$, the
+analytic factor is $\ell_1=e^{\Lambda(\log\cdot)}$, and $\alpha=(s-1-p)/p\in(-1,1)$ is the Bessel order of the hard edge;
+the Riemann--Hilbert notation is introduced in \S\S\ref{sec:frame-standing}--\ref{sec:frame-transf} (the chain of
+matrices $Y\to U\to R\to T\to S\to V\to Q$ is displayed at the start of Section~\ref{sec:frame}), and
+Table~\ref{tab:geometry} lists the quantities that depend on whether $p>1$, $p=1$ or $p<1$. Symbols used only inside
+one proof are local to it.
+
 \subsection{Orthogonal polynomials and Jacobi coefficients}\label{sec:prelim-op}
 
 Let $\sigma$ be a positive Borel measure on $[0,\infty)$ with infinite support and finite moments. Its Hankel
@@ -63,16 +73,16 @@ $\int P^2\diff\sigma\ge wP(y)^2=w$, and therefore
 
 Let $\ell$ be slowly varying (Definition~\ref{def:sv}). Each $\osc_n(\lambda)$ is a maximum of finitely many finite numbers. Put
 \[
-  \varepsilon_n:=\sup_{m\ge n}\osc_m(2).
+  \osc^*_n:=\sup_{m\ge n}\osc_m(2).
 \]
-Since $\osc_m(2)\to0$, every $\varepsilon_n$ is finite, the sequence $(\varepsilon_n)$ is non-increasing, and
-$\varepsilon_n\to0$.
+Since $\osc_m(2)\to0$, every $\osc^*_n$ is finite, the sequence $(\osc^*_n)$ is non-increasing, and
+$\osc^*_n\to0$.
 
 \begin{lemma}[Dyadic chaining and Potter bounds]\label{lem:potter}
 Let $\ell$ be slowly varying.
 \begin{enumerate}
 \item[\textup{(i)}] For all $n\ge1$ and all integers $k\ge n$,
-  $|\log\ell(k)-\log\ell(n)|\le\varepsilon_n\bigl(1+\log_2(k/n)\bigr)$.
+  $|\log\ell(k)-\log\ell(n)|\le\osc^*_n\bigl(1+\log_2(k/n)\bigr)$.
 \item[\textup{(ii)}] For every $\eta>0$ there is $A_\eta<\infty$ such that $e^{-A_\eta}k^{-\eta}\le\ell(k)\le e^{A_\eta}k^{\eta}$ for
   all $k\ge1$.
 \end{enumerate}
@@ -80,23 +90,25 @@ Let $\ell$ be slowly varying.
 
 \begin{proof}
 (i) Let $j:=\lfloor\log_2(k/n)\rfloor\ge0$, so that $2^jn\le k<2^{j+1}n$. For $0\le i<j$ the integer $2^{i+1}n$ lies in
-$[2^in/2,\,2\cdot2^in]$, so $|\log\ell(2^{i+1}n)-\log\ell(2^in)|\le\osc_{2^in}(2)\le\varepsilon_n$. Also $k\in[2^jn,\,2\cdot
-2^jn]$, so $|\log\ell(k)-\log\ell(2^jn)|\le\varepsilon_n$. Summing these $j+1$ steps ($j$ dyadic steps and one final
+$[2^in/2,\,2\cdot2^in]$, so $|\log\ell(2^{i+1}n)-\log\ell(2^in)|\le\osc_{2^in}(2)\le\osc^*_n$. Also $k\in[2^jn,\,2\cdot
+2^jn]$, so $|\log\ell(k)-\log\ell(2^jn)|\le\osc^*_n$. Summing these $j+1$ steps ($j$ dyadic steps and one final
 step) gives
-$|\log\ell(k)-\log\ell(n)|\le(j+1)\varepsilon_n\le\varepsilon_n(1+\log_2(k/n))$.
+$|\log\ell(k)-\log\ell(n)|\le(j+1)\osc^*_n\le\osc^*_n(1+\log_2(k/n))$.
 
-(ii) Fix $\eta>0$ and choose $N$ with $\varepsilon_N\le\eta\log2$. For $k\ge N$, part (i) with $n=N$ gives
+(ii) Fix $\eta>0$ and choose $m$ with $\osc^*_m\le\eta\log2$. For $k\ge m$, part (i) with $n=m$ gives
 \[
-  |\log\ell(k)|\le|\log\ell(N)|+\varepsilon_N+\frac{\varepsilon_N}{\log2}\log\frac kN\le|\log\ell(N)|+\varepsilon_N+\eta\log k .
+  |\log\ell(k)|\le|\log\ell(m)|+\osc^*_m+\frac{\osc^*_m}{\log2}\log\frac km\le|\log\ell(m)|+\osc^*_m+\eta\log k .
 \]
-The finitely many $k<N$ are covered by taking
-$A_\eta:=\max\bigl(|\log\ell(N)|+\varepsilon_N,\ \max_{k<N}|\log\ell(k)|\bigr)$.
+The finitely many $k<m$ are covered by taking
+\[
+  A_\eta:=\max\bigl(|\log\ell(m)|+\osc^*_m,\ \max_{k<m}|\log\ell(k)|\bigr).
+\]
 \end{proof}
 
 \begin{remark}[$\lambda=2$ suffices]\label{rem:lambda2}
 If $\osc_n(2)\to0$, then $\osc_n(\lambda)\to0$ for every $\lambda\ge1$. Indeed, Lemma~\ref{lem:potter}(i) uses only
-$\osc(2)$. For $n\le k\le\lambda n$ it gives $|\log\ell(k)-\log\ell(n)|\le\varepsilon_n(1+\log_2\lambda)$. For $n/\lambda\le
-k<n$, apply it with base point $k$: $|\log\ell(n)-\log\ell(k)|\le\varepsilon_k(1+\log_2(n/k))\le\varepsilon_{\lceil
+$\osc(2)$. For $n\le k\le\lambda n$ it gives $|\log\ell(k)-\log\ell(n)|\le\osc^*_n(1+\log_2\lambda)$. For $n/\lambda\le
+k<n$, apply it with base point $k$: $|\log\ell(n)-\log\ell(k)|\le\osc^*_k(1+\log_2(n/k))\le\osc^*_{\lceil
 n/\lambda\rceil}(1+\log_2\lambda)$. Both bounds tend to $0$.
 \end{remark}
 
@@ -115,10 +127,10 @@ The first holds because $n\eta_n\ge\eta_1$; the second because $(n-1)\eta_{n-1}\
 the first.
 
 \begin{remark}[Regular majorants]\label{rem:majorant}
-Every non-increasing sequence $\varrho_n>0$ with $\varrho_n\to0$ is dominated by a regular rate, namely
-$\eta_n:=\max_{m\le n}(m\varrho_m)/n$. Indeed $\eta_n\ge\varrho_n$ and $n\eta_n$ is non-decreasing by construction;
-$\eta_{n+1}\le\max\bigl(\eta_n\,n/(n+1),\varrho_{n+1}\bigr)\le\eta_n$ because $\varrho_{n+1}\le\varrho_n\le\eta_n$; and
-$\eta_n\to0$, since $m\varrho_m/n\le\varrho_1/\sqrt n$ for $m\le\sqrt n$ and $m\varrho_m/n\le\varrho_{\lceil\sqrt n\rceil}$
+Every non-increasing sequence $\upsilon_n>0$ with $\upsilon_n\to0$ is dominated by a regular rate, namely
+$\eta_n:=\max_{m\le n}(m\upsilon_m)/n$. Indeed $\eta_n\ge\upsilon_n$ and $n\eta_n$ is non-decreasing by construction;
+$\eta_{n+1}\le\max\bigl(\eta_n\,n/(n+1),\upsilon_{n+1}\bigr)\le\eta_n$ because $\upsilon_{n+1}\le\upsilon_n\le\eta_n$; and
+$\eta_n\to0$, since $m\upsilon_m/n\le\upsilon_1/\sqrt n$ for $m\le\sqrt n$ and $m\upsilon_m/n\le\upsilon_{\lceil\sqrt n\rceil}$
 for $\sqrt n<m\le n$. So Theorem~\ref{thm:shift} applies to any monotone rate. We use it only with $\eta_n=1/n$.
 \end{remark}
 
@@ -131,10 +143,11 @@ statement \cite[Theorem~1.3(iii)]{Paper1} is not used anywhere in this paper.
 Let $c=c(p)$ and $I(p)$ be as in \eqref{eq:cp}, let $\gamma_p:=\log c(p)+p$, and let $\lambda_p(x):=\frac1px^{-1-1/p}$ be the density
 of the nodes $k^{-p}$ (the image of Lebesgue measure on $(0,\infty)$ under $u\mapsto u^{-p}$). For $V\in[0,1]$ and
 $a,b>0$ write $\mathcal I_V(a,b):=B(a,b)^{-1}\int_0^Vt^{a-1}(1-t)^{b-1}\diff t$ for the regularised incomplete beta
-function. For $\beta>0$ let $\mathrm{arc}_\beta$ be the arcsine law on $[0,\beta]$, with density $1/(\pi\sqrt{y(\beta-y)})$.
+function ($B$ is Euler's Beta function). For $\beta>0$ let $\mathrm{arc}_\beta$ be the arcsine law on $[0,\beta]$, with
+density $1/(\pi\sqrt{y(\beta-y)})$, and put $\beta_\tau:=4c\tau^{-p}$ for $0<\tau\le1$.
 
 \begin{proposition}[{\cite[Theorem~1.3(i)--(ii)]{Paper1}}]\label{prop:equilibrium}
-Let $p>0$ and let $\mu^*:=\int_0^1\mathrm{arc}_{4ct^{-p}}\diff t$, a probability measure on $(0,\infty)$.
+Let $p>0$ and let $\mu^*:=\int_0^1\mathrm{arc}_{\beta_\tau}\diff\tau$, a probability measure on $(0,\infty)$.
 \begin{enumerate}
 \item[\textup{(i)}] $\mu^*$ has the density
   \[
@@ -181,9 +194,9 @@ $\sigma_1,\sigma_2,\sigma_3$ are the Pauli matrices, and $\sigma_3=\mathrm{diag}
 \noindent\textbf{T1. The discrete interpolation problem
 (Wu--Lin--Xu--Zhao~\cite{WLXZ}).}\settoollabel{T1}{tool:T1}
 Wu, Lin, Xu and Zhao~\cite{WLXZ} develop the Riemann--Hilbert method for discrete orthogonal polynomials on infinitely
-many nodes with an accumulation point, for the Tricomi--Carlitz polynomials with a positive parameter. We apply none
-of their theorems to our measures; we use the formulation of the problem, the order of the transformations and the
-Airy construction, and our versions are written out in Sections~\ref{sec:frame} and~\ref{sec:outer}.
+many nodes with an accumulation point, for the Tricomi--Carlitz polynomials. We apply none of their theorems to our
+measures; we use the formulation of the problem and the order of the transformations, and our versions are written out
+in Sections~\ref{sec:frame} and~\ref{sec:outer}.
 
 \emph{(a) The problem and its solution.} Let $\sigma=\sum_{k\ge1}w_k\delta_{x_k}$ with distinct nodes
 $x_k\in(0,1]$, $w_k>0$ and $\sum_kw_k<\infty$, and fix $n\ge1$. Following \cite[(2.14) and Theorem~2.3]{WLXZ}, put
@@ -210,22 +223,9 @@ normalisation by the $g$-function \cite[(4.1)]{WLXZ}, the lens and saturated-reg
 a symmetric variable with nodes $\pm x_k$; we use only the pattern, and every jump is recomputed in
 Section~\ref{sec:frame} for our one-sided problem.
 
-\emph{(c) The Airy parametrix at a soft edge} \cite[\S6.1]{WLXZ}. Suppose that near the soft edge $2$ of their band
-the jumps have the form \cite[(6.4)]{WLXZ}
-\[
-  \begin{pmatrix}0&w_0/\tilde D^2\\-\tilde D^2/w_0&0\end{pmatrix},\qquad
-  \begin{pmatrix}1&\tilde w\tilde D^{-2}e^{-2n\tilde\varphi}\\0&1\end{pmatrix},\qquad
-  \begin{pmatrix}1&0\\\tilde D^2e^{2n\tilde\varphi}/\tilde w&1\end{pmatrix}
-\]
-on the band, on the vertical segments and on $(2,2+\varepsilon)$, respectively,
-with $\tilde w$ analytic and non-vanishing in $U(2,\varepsilon)$ and $\tilde\varphi(z)=-\tfrac23(z-2)^{3/2}+O((z-2)^2)$
-\cite[(6.11)]{WLXZ}. Then
-\[
-  V_r(z)=E_r(z)\sigma_2\Psi(\tilde f_n(z))\sigma_2e^{n\tilde\varphi\sigma_3}(\tilde D/\tilde w^{1/2})^{\sigma_3}
-\]
-\cite[(6.12)]{WLXZ}, with $\Psi$ the Airy model problem and $\tilde f_n=(-\frac32n\tilde\varphi)^{2/3}$
-\cite[(6.10)]{WLXZ}, has these jumps in $U(2,\varepsilon)$ and satisfies the matching condition
-$V_rN^{-1}=I+O(1/n)$ on $\partial U(2,\varepsilon)$ \cite[(6.2)]{WLXZ}, $N$ being the global parametrix.
+\emph{(c) The soft edge.} Our Airy parametrix (Lemma~\ref{lem:airy}) follows the pattern of \cite[\S6.1,
+(6.4), (6.10)--(6.12)]{WLXZ}; it is constructed from the Airy function directly (\ref{tool:T4}), and no statement of
+\cite{WLXZ} is used.
 
 \medskip
 \noindent\textbf{T2. The Bessel model problem (Kuijlaars, McLaughlin, Van Assche and Vanlessen~\cite{KMVV}).}%
@@ -252,10 +252,8 @@ solves the Bessel model problem \cite[Theorem~6.3]{KMVV}, with jumps
   \Psi_\alpha(\zeta)=(2\pi\zeta^{1/2})^{-\sigma_3/2}\frac1{\sqrt2}
   \begin{pmatrix}1+O(\zeta^{-1/2})&i+O(\zeta^{-1/2})\\ i+O(\zeta^{-1/2})&1+O(\zeta^{-1/2})\end{pmatrix}e^{2\zeta^{1/2}\sigma_3}
 \]
-\cite[(6.28)]{KMVV}; KMVV obtain it from the large-argument expansions of $I_\alpha,K_\alpha$ in (6.23) and of the
-Hankel functions in (6.24)--(6.25). On rays moved by (b), the same formula in the enlarged sector follows from
-\ref{tool:T4} (DLMF \S10.40); see the paragraph before Lemma~\ref{lem:bessel-local}. The behaviour of $\Psi_\alpha$ at
-$\zeta=0$ is derived in Lemma~\ref{lem:bessel-local} directly from (6.23) and \ref{tool:T4}.
+\cite[(6.28)]{KMVV}, which follows from the large-argument expansions (\ref{tool:T4}) of the Bessel and Hankel
+functions in (6.23)--(6.25); this also covers the rays moved by (b) (\S\ref{sec:he-model}).
 
 \emph{(b) Angle freedom.} By the remark after \cite[(6.21)]{KMVV}, the angle $2\pi/3$ may be replaced by any angle in
 $(0,\pi)$; the lens contours in the disc are then the preimages of the rays under $\zeta=n^2f(z)$, and they do not
@@ -268,7 +266,8 @@ $\tilde\Psi(\zeta)=\sigma_3\Psi(\zeta;\alpha\to\beta)\sigma_3$ \cite[(6.51)]{KMV
   \tilde E_n(z)=N(z)\tilde W(z)^{\sigma_3}\tfrac1{\sqrt2}\begin{pmatrix}1&i\\i&1\end{pmatrix}
   \tilde f(z)^{\sigma_3/4}(2\pi n)^{\sigma_3/2}
 \]
-\cite[(6.53)]{KMVV} (compare the right-endpoint formulas
+\cite[(6.53)]{KMVV}, where $N$, $\tilde W$ and $\tilde f$ are the global parametrix, an analytic square root of the
+weight and the local conformal map of \cite{KMVV} (compare the right-endpoint formulas
 \cite[(6.27), (6.31)]{KMVV} and $\det E_n\equiv1$ \cite[(6.33)]{KMVV}). The prefactor is analytic by removability: its
 entries have at most a square-root singularity at the endpoint and it is analytic in a punctured neighbourhood
 \cite[proof of Proposition~6.5]{KMVV}. In Section~\ref{sec:hardedge} this argument is applied only to a prefactor
@@ -298,11 +297,8 @@ $B=I+B_1/z+B_2/z^2+O(z^{-3})$ as $z\to\infty$, then with $\mathcal E:=A_-(v_A-v_
   A_1-B_1=-\frac1{2\pi i}\int_\Sigma\mathcal E(s)\diff s,\qquad
   A_2-B_2=-\frac1{2\pi i}\int_\Sigma s\mathcal E(s)\diff s+(A_1-B_1)B_1 .
 \end{equation}
-Indeed $v_Av_B^{-1}-I=(v_A-v_B)v_B^{-1}$, and for $|z|>\max_\Sigma|s|$
-\begin{gather*}
-  \Cauchy\mathcal E(z)=-\sum_{j\ge0}\frac{z^{-j-1}}{2\pi i}\int_\Sigma s^j\mathcal E(s)\diff s,\\
-  AB^{-1}=I+\frac{A_1-B_1}z+\frac{A_2-B_2-(A_1-B_1)B_1}{z^2}+O(z^{-3}).
-\end{gather*}
+Indeed $v_Av_B^{-1}-I=(v_A-v_B)v_B^{-1}$; for $|z|>\max_\Sigma|s|$ expand $1/(s-z)=-\sum_{j\ge0}s^jz^{-j-1}$ in
+$\Cauchy\mathcal E(z)$ and compare with $AB^{-1}=I+(A_1-B_1)z^{-1}+\bigl(A_2-B_2-(A_1-B_1)B_1\bigr)z^{-2}+O(z^{-3})$.
 This is the mechanism of \cite[Proposition~4.9]{CD}, whose proof identifies $\mu=Q_-$ and
 $\tilde\mu=\tilde Q_-$. Formula (4.14) of \cite{CD} is printed without the factor $v_B^{-1}$; it agrees with
 \eqref{eq:CD-moments} when $(v_A-v_B)v_B^{-1}=v_A-v_B$, as in their setting. We use the form derived from
@@ -330,34 +326,36 @@ We do \emph{not} use \cite[Theorem~4.5]{CD}, whose proof is specific to the Lege
 
 \medskip
 \noindent\textbf{T4. Special functions (NIST DLMF~\cite{DLMF}).}\settoollabel{T4}{tool:T4}
-Principal branches throughout; $\delta>0$ denotes a small constant.
+Principal branches throughout. ``Uniformly in closed subsectors'' of a sector means uniformly in every closed sector
+contained in it.
 \begin{itemize}
-\item \emph{Gamma and Beta functions.} (5.5.1) $\Gamma(z+1)=z\Gamma(z)$; (5.5.3) $\Gamma(z)\Gamma(1-z)=\pi/\sin(\pi z)$,
+\item \emph{Gamma function.} (5.5.1) $\Gamma(z+1)=z\Gamma(z)$; (5.5.3) $\Gamma(z)\Gamma(1-z)=\pi/\sin(\pi z)$,
   $z\notin\mathbb Z$; (5.11.1) $\mathrm{Ln}\,\Gamma(z)\sim(z-\frac12)\ln z-z+\frac12\ln(2\pi)+\sum_{k\ge1}
-  \frac{B_{2k}}{2k(2k-1)z^{2k-1}}$ as $z\to\infty$ in $|\mathrm{ph}\,z|\le\pi-\delta$, where by \S5.11(ii) the
-  remainder after the term $k=m-1$ is at most $\sec^{2m}(\frac12\mathrm{ph}\,z)$ times the first neglected term;
-  (5.12.1) $B(a,b)=\int_0^1t^{a-1}(1-t)^{b-1}\diff t=\Gamma(a)\Gamma(b)/\Gamma(a+b)$ and (5.12.3)
-  $\int_0^\infty t^{a-1}(1+t)^{-a-b}\diff t=B(a,b)$, for $\Re a,\Re b>0$.
-\item \emph{Mellin transform} $\mathcal Mf(s)=\int_0^\infty x^{s-1}f(x)\diff x$ (1.14.32). For real $f$,
+  \frac{B_{2k}}{2k(2k-1)z^{2k-1}}$ as $z\to\infty$, uniformly in closed subsectors of $|\mathrm{ph}\,z|<\pi$, where by
+  \S5.11(ii) the remainder after the term $k=m-1$ is at most $\sec^{2m}(\frac12\mathrm{ph}\,z)$ times the first
+  neglected term; (5.12.3), (5.12.1) $\int_0^\infty t^{a-1}(1+t)^{-a-b}\diff t=B(a,b)=\Gamma(a)\Gamma(b)/\Gamma(a+b)$ for $\Re a,\Re b>0$.
+\item \emph{Airy functions} (\S\S9.2, 9.7). $\mathrm{Ai}$ is entire, and $\mathrm{Ai}(z)$, $\mathrm{Ai}(ze^{\mp2\pi i/3})$
+  solve $w''=zw$; (9.2.8) $\mathcal W\{\mathrm{Ai}(z),\mathrm{Ai}(ze^{\mp2\pi i/3})\}=e^{\pm\pi i/6}/(2\pi)$; (9.2.12)
+  $\mathrm{Ai}(z)+e^{-2\pi i/3}\mathrm{Ai}(ze^{-2\pi i/3})+e^{2\pi i/3}\mathrm{Ai}(ze^{2\pi i/3})=0$. By (9.7.5)--(9.7.6),
+  with $u_0=v_0=1$ (9.7.2), as $z\to\infty$ uniformly in closed subsectors of $|\mathrm{ph}\,z|<\pi$,
   \[
-    \int_0^\infty f(x)^2\diff x=\frac1{2\pi}\int_\R\bigl|\mathcal Mf(\tfrac12+it)\bigr|^2\diff t\qquad(1.14.38);
+    \mathrm{Ai}(z)=\frac{e^{-\frac23z^{3/2}}}{2\sqrt\pi\,z^{1/4}}\bigl(1+O(|z|^{-3/2})\bigr),\qquad
+    \mathrm{Ai}'(z)=-\frac{z^{1/4}e^{-\frac23z^{3/2}}}{2\sqrt\pi}\bigl(1+O(|z|^{-3/2})\bigr).
   \]
-  and the Mellin
-  transform of $\int_0^\infty f(y)g(x/y)\diff y/y$ is $\mathcal Mf\cdot\mathcal Mg$ where $x^{\Re s-1}f$ and
-  $x^{\Re s-1}g$ are integrable (1.14.39)--(1.14.40).
 \item \emph{Modified Bessel functions.} (10.25.2)
-  $I_\nu(z)=(\frac12z)^\nu\sum_{k\ge0}(\frac14z^2)^k/(k!\,\Gamma(\nu+k+1))$, analytic in $\C\setminus(-\infty,0]$ (\S10.25(ii)); (10.27.3) $K_{-\nu}=K_\nu$; (10.27.4)
-  $K_\nu=\frac12\pi(I_{-\nu}-I_\nu)/\sin(\nu\pi)$; (10.31.2) $K_0(z)=-(\ln(\frac12z)+\gamma_{\mathrm E})I_0(z)
-  +\frac14z^2+\dotsb$, $\gamma_{\mathrm E}$ being Euler's constant; (10.28.2)
-  $\mathcal W\{K_\nu,I_\nu\}(z)=1/z$, which with (6.23) of \ref{tool:T2} gives $\det\Psi_\alpha=1$.
+  $I_\nu(z)=(\frac12z)^\nu\sum_{k\ge0}(\frac14z^2)^k/(k!\,\Gamma(\nu+k+1))$, analytic in $\C\setminus(-\infty,0]$
+  (\S10.25(ii)); (10.27.4) $K_\nu=\frac12\pi(I_{-\nu}-I_\nu)/\sin(\nu\pi)$; (10.31.2)
+  $K_0(z)=-(\ln(\frac12z)+\gamma_{\mathrm E})I_0(z)+\frac14z^2+\dotsb$, $\gamma_{\mathrm E}$ being Euler's constant and the
+  dots an entire function of $z^2$; (10.28.2) $\mathcal W\{K_\nu,I_\nu\}(z)=1/z$, which with (6.23) of \ref{tool:T2}
+  gives $\det\Psi_\alpha=1$.
 \item \emph{Large argument} (\S10.40(i), $\nu$ fixed). Let $\mathsf s_\pm(z):=\sum_k(\pm1)^ka_k(\nu)z^{-k}$,
   where $a_0(\nu)=1$ by (10.17.1). The expansions (10.40.1), (10.40.2) and (10.40.5) read
   \begin{align*}
-    I_\nu(z)&\sim e^z(2\pi z)^{-1/2}\mathsf s_-(z),&&|\mathrm{ph}\,z|\le\tfrac12\pi-\delta,\\
-    K_\nu(z)&\sim(\pi/2z)^{1/2}e^{-z}\mathsf s_+(z),&&|\mathrm{ph}\,z|\le\tfrac32\pi-\delta,\\
+    I_\nu(z)&\sim e^z(2\pi z)^{-1/2}\mathsf s_-(z),&&|\mathrm{ph}\,z|<\tfrac12\pi,\\
+    K_\nu(z)&\sim(\pi/2z)^{1/2}e^{-z}\mathsf s_+(z),&&|\mathrm{ph}\,z|<\tfrac32\pi,\\
     I_\nu(z)&\sim(2\pi z)^{-1/2}\bigl(e^z\mathsf s_-(z)\pm ie^{\pm\nu\pi i}e^{-z}\mathsf s_+(z)\bigr),
-      &&-\tfrac12\pi+\delta\le\pm\mathrm{ph}\,z\le\tfrac32\pi-\delta;
+      &&-\tfrac12\pi<\pm\mathrm{ph}\,z<\tfrac32\pi,
   \end{align*}
-  and (10.40.3)--(10.40.4) are the expansions of $I_\nu',K_\nu'$ in the sectors of (10.40.1)--(10.40.2), with
-  $b_k(\nu)$ in place of $a_k(\nu)$ and an overall minus sign for $K_\nu'$.
+  uniformly in closed subsectors; and (10.40.3)--(10.40.4) are the expansions of $I_\nu',K_\nu'$ in the sectors of
+  (10.40.1)--(10.40.2), with $b_k(\nu)$ in place of $a_k(\nu)$ and an overall minus sign for $K_\nu'$.
 \end{itemize}

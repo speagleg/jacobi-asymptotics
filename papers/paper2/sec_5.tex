@@ -33,7 +33,7 @@ Zhao for the Tricomi--Carlitz polynomials (\ref{tool:T1}), written in the one-si
   Y\ \xrightarrow{\ z\mapsto n^pz\ }\ U\ \xrightarrow{\ \text{poles}\ }\ R\ \xrightarrow{\ g\ }\ T\
   \xrightarrow{\ \text{lens}\ }\ S\ \xrightarrow{\ F\ }\ V\ \xrightarrow{\ D_W\ }\ Q .
 \]
-Sections~\ref{sec:frame-interp}--\ref{sec:frame-transf} carry out the first four steps for any outer scalar $F$ with
+\S\S\ref{sec:frame-interp}--\ref{sec:frame-transf} carry out the first four steps for any outer scalar $F$ with
 the properties (O1)--(O5) of~\S\ref{sec:frame-outer}. Section~\ref{sec:outer} constructs $F$ (the only
 geometry-dependent step) and collects everything the hard edge needs in the Frame Proposition~\ref{prop:frame}, items
 \Fi1--\Fi8. Section~\ref{sec:hardedge} compares $Q$ with an explicit model $\tilde Q$ built from the global, Airy and
@@ -41,22 +41,16 @@ Bessel parametrices and shows that their first two moments at infinity agree up 
 Section~\ref{sec:extraction} reads off $a_n$ and $b_n$. A reader who trusts the frame can go from the Frame
 Proposition directly to Section~\ref{sec:hardedge}.
 
-Almost every step is the same for all $p>0$. The only geometry-dependent ingredient is the \emph{outer scalar} $F$,
-which removes the Gamma-function growth of the node masses away from the hard edge; Table~\ref{tab:geometry} at the
-start of Section~\ref{sec:outer} collects everything that depends on the geometry.
-
 \subsection{Standing assumptions}\label{sec:frame-standing}
 Throughout Sections~\ref{sec:frame}--\ref{sec:extraction} and the appendices we fix $p>0$ and $1<s<1+2p$, and we put
 \begin{equation}\label{eq:alpha}
   \alpha:=\frac{s-1-p}{p}\in(-1,1).
 \end{equation}
-We fix $\ell_1(t)=e^{\Lambda(\log t)}$ satisfying \Ath{\vartheta_p}, with the strip half-width
-$\vartheta_p=\pi/p$ for $p>1$ and $\vartheta_p=\pi/2$ for $0<p\le1$, and with the constant $c_0>0$ of that
-hypothesis. We write $\sigma:=\sigma_{p,s,\ell_1}=\sum_{k\ge1}w_k\delta_{x_k}$, with $x_k=k^{-p}$ and
+We fix $\ell_1(t)=e^{\Lambda(\log t)}$ satisfying \Ath{\vartheta_p} (Definition~\ref{def:A}), with the constant
+$c_0>0$ of that hypothesis. We write $\sigma:=\sigma_{p,s,\ell_1}=\sum_{k\ge1}w_k\delta_{x_k}$, with $x_k=k^{-p}$ and
 $w_k=k^{-s}\ell_1(k)$, and $c=c(p)$, $\gamma_p=\log c+p$. The degree $n$ is large, $n\ge n_0$, where $n_0$ may
 increase from line to line. Constants $C,C',\dots$ depend only on $p$, $s$, $\ell_1$ and the contour parameters fixed
-in~\S\ref{sec:frame-contour}; they do not depend on $n$ unless they carry the subscript $n$. The letter $c$ always
-denotes $c(p)$; the strip constant $c_0$ is the only other constant written with a $c$. We put
+in~\S\ref{sec:frame-contour}; they do not depend on $n$ unless they carry the subscript $n$. We put
 \begin{equation}\label{eq:thetaw}
   \thw:=\begin{cases}7\pi/16,&p\ge1,\\ 3\pi p/8,&0<p<1,\end{cases}\qquad\qquad
   \thlip:=\begin{cases}\pi/3,&p\ge1,\\ \pi p/4,&0<p<1,\end{cases}
@@ -132,9 +126,8 @@ and $(\hat X_1)_{22}=(X_1)_{22}-k_1$,
 If $CXk^{\sigma_3}\to I$ then $Ck_\infty^{\sigma_3}=I$.
 \end{proof}
 
-We never use that $Y$ is the \emph{unique} solution of an interpolation problem: every object below is built from
-$Y$, and only its explicit properties are used. In particular no existence theorem for a Riemann--Hilbert problem
-is needed.
+We never use that $Y$ is the \emph{unique} solution of an interpolation problem, and no existence theorem for a
+Riemann--Hilbert problem is needed: every object below is built from $Y$ explicitly.
 
 \subsection{The index function and the band weight}\label{sec:frame-weight}
 The node set $\{X_k\}$ is the set of points where the \emph{index function}
@@ -182,11 +175,9 @@ $\Lambda$ is real on the real axis.
 \end{proof}
 
 \subsection{\texorpdfstring{The $g$-function}{The g-function}}\label{sec:frame-g}
-We use the equilibrium measure of~\cite{Paper1} exactly as quoted in Proposition~\ref{prop:equilibrium}:
-$\mu^*=\int_0^1\mathrm{arc}_{\beta_\tau}\diff\tau$ with $\beta_\tau:=4c\tau^{-p}$ and $\mathrm{arc}_\beta$ the arcsine law
-on $[0,\beta]$; its density $\psi^*$ satisfies $\psi^*=\lambda_p$ on $[4c,\infty)$ and $0<\psi^*<\lambda_p$ on $(0,4c)$,
-where $\lambda_p(x)=\frac1px^{-1-1/p}$ is the node density; and $U^*(x)=\int\log|x-y|\diff\mu^*(y)$ equals $\gamma_p$ on
-$(0,4c]$. Note $\int_x^\infty\lambda_p=x^{-1/p}=t(x)/n$. Put
+We use the equilibrium measure $\mu^*=\int_0^1\mathrm{arc}_{\beta_\tau}\diff\tau$, its density $\psi^*$, the node
+density $\lambda_p$ and the potential $U^*$ exactly as in Proposition~\ref{prop:equilibrium}. Note
+$\int_x^\infty\lambda_p=x^{-1/p}=t(x)/n$. Put
 \begin{equation}\label{eq:g}
   g(z):=\int\log(z-y)\diff\mu^*(y)\quad(z\in\C\setminus\R),\qquad
   \varphi:=\gamma_p-g,\qquad \tvphi:=\varphi\pm\frac{i\theta}{n}\ \text{ in }\C_\pm,
@@ -231,9 +222,6 @@ asymptotics, $U^*(x)-\log x=\int\log|1-y/x|\diff\mu^*(y)$, and the argument of~(
 tends to $0$. Finally, $\re\tvphi=\re\varphi=\gamma_p-U^*$ on $(4c,\infty)$, because $\theta$ is real there;
 $U^*(4c)=\gamma_p$, which gives the sign, and $U^*(x)\ge\frac12\log x+\gamma_p$ for large $x$.
 \end{proof}
-
-At $p=1$ the first moment of $\mu^*$ diverges and $g(z)-\Log z=O(|z|^{-1}\log|z|)$; for $p>1$ it is
-$O(|z|^{-1/p})$ and for $p<1$ it is $O(|z|^{-1})$. Only~(ii) is used.
 
 \subsection{Signs and the local variables at the two edges}\label{sec:frame-signs}
 The lens opening needs $\re\varphi<0$ off the band, and the triangular factors that appear later need
@@ -333,20 +321,21 @@ mirror images of each other and independent of $n$, such that:
 
 \begin{proof}
 We construct the upper lip from four pieces and round the three corners inside the open set
-$G_+:=\{z\in\C_+:\ |\arg z|<\thw,\ \re\tvphi(z)>0\}$, which contains every piece except its two end points; the lower lip
-is the mirror image. By Lemma~\ref{lem:signs}(i), $\re\varphi<0$ on all of $\C_+$, so only $\re\tvphi>0$ and
+$G_+:=\{z\in\C_+:\ |\arg z|<\thw,\ \re\tvphi(z)>0\}$, which contains every piece except its two end points, and outside
+$\overline{U(0,\delta)}$; the lower lip is the mirror image. By Lemma~\ref{lem:signs}(i), $\re\varphi<0$ on all of $\C_+$, so only $\re\tvphi>0$ and
 $|\arg z|<\thw$ have to be checked.
 
-Choose $r_*\in(0,\delta_0]$ with $\frac2pr^{-1/p}>Cr^{1/2}$ for $0<r\le r_*$; then~\eqref{eq:retvphi-zero} gives
+Choose $r_*\in(0,\delta_0)$ with $\frac2pr^{-1/p}>Cr^{1/2}$ for $0<r\le r_*$; then~\eqref{eq:retvphi-zero} gives
 $S_0:=\{0<|z|\le r_*,\ 0<\arg z<\thw\}\subset G_+$. Since $f(z)=f'(0)z(1+O(z))$ with $f'(0)<0$ and $f$ is univalent, the preimage of the ray
-$\arg\zeta=-(\pi-\thlip)$ near $0$ is an analytic arc leaving $0$ at the angle $\thlip$, and for $\delta_1\le r_*/2$ small
-its part in $U(0,\delta)$ satisfies $\frac34\thlip\le\arg z\le\frac54\thlip$ (as $\frac54\thlip<\thw$, it lies in $S_0$). This is
-the first piece; let $z_1$ be its end point on $|z|=\delta$. The second piece runs in $S_0$: along the ray $\arg z=\arg z_1$
+$\arg\zeta=-(\pi-\thlip)$ near $0$ is an analytic arc leaving $0$ at the angle $\thlip$, and for $\delta_1\le r_*/4$ small
+its part in $U(0,2\delta)$ satisfies $\frac34\thlip\le\arg z\le\frac54\thlip$ (as $\frac54\thlip<\thw$, it lies in $S_0$). This is
+the first piece; let $z_1$ be its end point on $|z|=2\delta$, so that the corner at $z_1$ can be rounded in
+$\{\delta<|z|<2\delta\}$ and~(a) is not affected. The second piece runs in $S_0$: along the ray $\arg z=\arg z_1$
 to $|z|=\frac34r_*$, and then along the circle $|z|=\frac34r_*$ down to height $y_1:=h_0\sin\frac\pi{12}$.
 
 Let $K:=[\frac12r_*,4c-\frac12\eps_0]$ and let $y_K$ be as in Lemma~\ref{lem:signs}(ii); choose $h_1\le\min(y_K,\frac12\eps_0)$
 so small that the angle $\vartheta$ with $\frac34r_*\sin\vartheta=y_1$ satisfies $\vartheta<\arg z_1$ and
-$\frac34r_*\cos\vartheta\ge\frac12r_*$, that $\arctan(2y_1/r_*)<\thw$, and that $\arg(4c+ih_0)<\thw$. The third piece is the horizontal segment from the end of the second piece to the point
+$\frac34r_*\cos\vartheta\ge\frac12r_*$, that $\arctan(2y_1/r_*)<\thw$, and that $\arcsin(h_0/4c)<\thw$ (the largest argument on the fourth piece). The third piece is the horizontal segment from the end of the second piece to the point
 $4c+h_0e^{i11\pi/12}$, at height $y_1$. For $\re z\in K$ it lies in $G_+$ by Lemma~\ref{lem:signs}(ii), as $y_1<y_K$. For
 $4c-\frac12\eps_0\le\re z\le4c-h_0\cos\frac\pi{12}$ it lies in $U(4c,\eps_0)$ with $\arg(z-4c)\ge\frac{11\pi}{12}$, hence
 $\frac{5\pi}6\le\arg f_r(z)<\pi$ and $\re\tvphi>0$ by Lemma~\ref{lem:signs}(iv). The fourth piece is the arc
@@ -359,9 +348,10 @@ and $\tvphi$ do not. Property~(c) holds by construction.
 We fix, once and for all and independently of $n$, numbers $\delta,h_0,\eps,\delta'$ with
 \begin{gather*}
   0<\delta\le\min\bigl(\delta_1,\tfrac14,\tfrac c2\bigr),\qquad 0<h_0\le\min\bigl(h_1(\delta),\tfrac12\delta\tan\thw\bigr),\\
-  0<\eps<\min(h_0,\eps_0),\qquad 0<\delta'<1,
+  0<\eps<\min(h_0,\eps_0,c\sin\thw),\qquad 0<\delta'<1,
 \end{gather*}
-and the following arcs (Figure~\ref{fig:geometry}).
+(the condition $\eps<c\sin\thw$ gives $U(4c,4\eps)\subset\Zn$, which Lemma~\ref{lem:szego}(vi)(b) uses), and the
+following arcs (Figure~\ref{fig:geometry}).
 \begin{itemize}
 \item The \emph{band} $[0,4c]$, the \emph{saturated segment} $(4c,n^p+\delta')$ and the \emph{top segment}
   $\Sigma_{\mathrm{top}}:=\{n^p+\delta'+iy:\ 0<|y|\le h_0\}$. The top node $X_1=n^p$ lies inside, and no node lies on
@@ -507,10 +497,9 @@ used near $0$ lie in $\Zn$ because $\frac54\thlip<\thw$. For $z\in\Zn$, $\re\xi=
 $|\im\xi|=|\arg z|/p<\thw/p$.
 \end{proof}
 
-For $p>1$ every argument up to $\thw<\pi$ would be allowed, and the hypothesis is the full strip $\pi/p$. For $p<1$
-the same bookkeeping keeps all evaluations in the inner sector $|\arg z|<\pi p/2$, so the strip $\pi/2$ suffices; the
-strip $\pi/p$ would be wider than needed, and wider than the strip on which, for example,
-$\Lambda(\xi)=\sqrt{\log(e^\xi+e)}$ is analytic. At $p=1$ the strip is $\pi/2$ for the same reason.
+For $p\le1$ all evaluations stay in $|\arg z|<\pi p/2$, so the strip $\vartheta_p=\pi/2$ suffices; the strip $\pi/p$
+would be wider than needed, and wider than the strip on which, for example, $\Lambda(\xi)=\sqrt{\log(e^\xi+e)}$ is
+analytic.
 
 \begin{lemma}[Potter bounds in the sector]\label{lem:pottersector}
 For every $\eta>0$ there is $C_\eta$ such that:
@@ -542,7 +531,7 @@ is $(|\log(x/|z|)|+|\arg z|)/p$. The second inequality is the case $x=1$, since 
 
 \subsection{\texorpdfstring{The outer scalar and the jumps of $V$}{The outer scalar and the jumps of V}}\label{sec:frame-outer}
 Section~\ref{sec:outer} constructs, for each geometry, a function $F$ with the following five properties. The
-constants in (O3) and (O4) do not depend on $n$; $\nu_p:=\min(1/p,\frac12)$, and $\eta_0\in(0,\delta]$ is fixed.
+constants in (O3) and (O4) do not depend on $n$; $\nu_p:=\min(1/p,\frac12)$.
 \begin{enumerate}
 \item[(O1)] $F$ is analytic and zero-free in $\C\setminus[0,\infty)$ (in particular, it has no jump on $(-\infty,0)$),
   it has continuous boundary values on $(0,\infty)\setminus\{X_k\}$, and $F_+=F_-e^{2i\theta}$ on
@@ -557,9 +546,9 @@ constants in (O3) and (O4) do not depend on $n$; $\nu_p:=\min(1/p,\frac12)$, and
     H_n(z):=\frac1{(4c-z)\tilde F(z)^2}\qquad(z\in\Zn).
   \end{equation}
   We require $H_n>0$ on $(0,e^{pc_0}n^p)$ and that $H_n(0^+):=\lim_{z\to0,\,z\in\Zn}H_n(z)$ exists in $(0,\infty)$.
-\item[(O3)] For $z\in\Zn$ with $|z|\le\eta_0$:
+\item[(O3)] For $z\in\Zn$ with $|z|\le1$:
   $|\log H_n(z)-\log H_n(0^+)|\le C|z|^{\nu_p}$ and $|(\log H_n)'(z)|\le C|z|^{\nu_p-1}$.
-\item[(O4)] For $z\in\Zn$ with $|z|\ge\eta_0$: $|\log H_n(z)-\log H_n(0^+)|\le C\bigl(1+\log(1+|z|)\bigr)^2$.
+\item[(O4)] For $z\in\Zn$ with $|z|\ge1$: $|\log H_n(z)-\log H_n(0^+)|\le C\bigl(1+\log(1+|z|)\bigr)^2$.
 \item[(O5)] (For each fixed $n$.) $|F|^{\pm1}$ is bounded on $U(0,\delta)\setminus(\overline{\Ob}\cup[0,\infty))$, and
   $\tilde F^{\pm1}$ is bounded on $U(0,\delta)\cap\Ob$. There is $N_n$ with $|F(z)|^{\pm1}\le C_n|z|^{N_n}$ for
   $|z|\ge n^p+\delta'$, $z\notin\R$, and $F(iy)$ is bounded and bounded away from $0$ as $y\to\pm\infty$.

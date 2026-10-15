@@ -18,7 +18,7 @@ matrix is a compact operator with eigenvalues $k^{-p}$. We prove that the recurr
 $n^pb_n\to c(p)$ and $n^pa_n\to2c(p)$, where
 $c(p)=\frac14\bigl(\sqrt\pi\,\Gamma(1/p+1)/\Gamma(1/p+\frac12)\bigr)^p$ is the constant of the constrained
 equilibrium problem solved in a companion paper. This holds for every slowly varying $\ell$, including unbounded ones
-such as $\exp\sqrt{\log k}$. If $\ell$ extends analytically to a sector, the error is $O(1/n)$; for pure powers this
+such as $\exp\sqrt{\log k}$. If $\ell$ extends to a slowly varying analytic function on a sector, the error is $O(1/n)$; for pure powers this
 gives $n^pb_n=c(p)(1+O(1/n))$ and $a_n/(2b_n)=1+O(1/n)$. The proof reduces, by a Christoffel transformation (which
 shifts $s$ by $p$ and preserves the law with its rate) and a smoothing step, to analytic factors and the window
 $1<s<1+2p$. There a Riemann--Hilbert analysis of discrete orthogonal polynomials whose nodes accumulate at a hard edge
@@ -107,6 +107,24 @@ n-\log\lambda)\log\lambda$ for $n/\lambda\le k\le\lambda n$. The sequence $\ell(
 \Ath{\vartheta_p} for every $p>0$, because the branch points of $\Lambda(\xi)=\sqrt{\log(e^\xi+e)}$ lie on the lines
 $|\Im\xi|=\pi$. For $p>1$ a further example is $\Lambda(\xi)=(\log(e^\xi+e))^\beta$ with $\beta<1$.
 
+\emph{Why the pointwise law is subtle.} Corollary~1.2 of \cite{Paper1}, specialised to the atoms $x_k=k^{-p}$,
+states: if the weights $w_k\ge0$ satisfy $\sum_kw_k<\infty$ and $w_k\ge c_1k^{-s'}$ for some constants $c_1>0$ and
+$s'\in\R$, then the recurrence coefficients of $\sum_kw_k\delta_{k^{-p}}$ satisfy
+\begin{equation}\label{eq:paper1-averaged}
+  \frac{2}{n^2}\sum_{j=1}^{n-1}(n-j)\log\bigl(j^pb_j\bigr)\longrightarrow\log c(p).
+\end{equation}
+The constant comes from an explicitly solvable constrained equilibrium problem \cite[Theorem~1.3]{Paper1}. Its
+solution $\mu^*$ is an average of arcsine laws; it is the zero distribution that a Jacobi matrix with entries
+$a_n\approx2b_n\approx2c\,n^{-p}$ would produce, and the saturation condition of the problem fixes $c=c(p)$
+\cite[\S1.2]{Paper1}. So $c(p)$ is the value predicted for the pointwise law. But \eqref{eq:paper1-averaged} is a
+double Ces\`aro mean of $\log(j^pb_j)$, that is, a statement about the logarithm of the Hankel determinant $D_n$ of
+$\sigma$ at order $n^2$. Multiplying the weights by factors in $[e^{-\varepsilon},e^{\varepsilon}]$ changes $\log D_n$ by
+at most $\varepsilon n$, so the averaged law cannot see such perturbations, and passing from it to \eqref{eq:law} is a
+Tauberian step that needs a regularity of $j^pb_j$ which the averaged argument does not provide. That regularity must come from the weights: the
+averaged law holds under the one-sided bound $w_k\ge c_1k^{-s'}$ alone, while the pointwise law can fail for weights
+that oscillate within a fixed factor of $k^{-s}$ (\S\ref{sec:context}). Theorem~\ref{thm:main} shows that slow
+variation of the weights is enough.
+
 \begin{definition}[smoothing]\label{def:smoothing}
 Let $L_\ell\colon\R\to\R$ be the piecewise-linear interpolant of the points $(\log k,\log\ell(k))$, $k\ge1$, extended
 by the constant $\log\ell(1)$ on $(-\infty,0]$. Let $G(y):=e^{-y^2/2}/\sqrt{2\pi}$ and
@@ -125,22 +143,6 @@ $0$ for every slowly varying $\ell$ (Lemma~\ref{lem:smoothing}), and
 where the head margin $M_0=M_0(p)\ge4$ is an integer that depends only on $p$ (Lemma~\ref{lem:saturation}). The
 indices $k<n/M_0$ are those at which the spectral weights of $P_n$ are exponentially saturated.
 
-
-\emph{Why the pointwise law is subtle.} Corollary~1.2 of \cite{Paper1}, specialised to the atoms $x_k=k^{-p}$,
-states: if the weights $w_k\ge0$ satisfy $\sum_kw_k<\infty$ and $w_k\ge c_1k^{-s'}$ for some constants $c_1>0$ and
-$s'\in\R$, then the recurrence coefficients of $\sum_kw_k\delta_{k^{-p}}$ satisfy
-\begin{equation}\label{eq:paper1-averaged}
-  \frac{2}{n^2}\sum_{j=1}^{n-1}(n-j)\log\bigl(j^pb_j\bigr)\longrightarrow\log c(p).
-\end{equation}
-The constant comes from an explicitly solvable constrained equilibrium problem \cite[Theorem~1.3]{Paper1}. Its
-solution $\mu^*$ is an average of arcsine laws; it is the zero distribution that a Jacobi matrix with entries
-$a_n\approx2b_n\approx2c\,n^{-p}$ would produce, and the saturation condition of the problem fixes $c=c(p)$
-\cite[\S1.2]{Paper1}. So $c(p)$ is the value predicted for the pointwise law. But \eqref{eq:paper1-averaged} is a
-double Ces\`aro mean of $\log(j^pb_j)$, and passing from it to \eqref{eq:law} is a Tauberian step that needs a
-regularity of $j^pb_j$ which the averaged argument does not provide. That regularity must come from the weights: the
-averaged law holds under the one-sided bound $w_k\ge c_1k^{-s'}$ alone, while the pointwise law can fail for weights
-that oscillate within a fixed factor of $k^{-s}$ (\S\ref{sec:context}). Theorem~\ref{thm:main} shows that slow
-variation of the weights is enough.
 
 \begin{remark}\label{rem:main-finite}
 No boundedness of $\ell$ is assumed. For example, the weights $k^{-s}\exp\sqrt{\log k}$ and
@@ -184,8 +186,7 @@ quadratic transformation (from $P_{2n}(t)=Q_n(t^2)$, where $Q_n$ are the monic o
   b_n=\frac{\pi^2}{(4n+1)\sqrt{(4n-1)(4n+3)}},\qquad a_n=\frac{2\pi^2}{(4n+1)(4n+5)}\qquad(n\ge1)
 \]
 for $\sigma_{2,2}$. Thus $n^2b_n/c(2)=1-\frac1{2n}+O(n^{-2})$ and $a_n/(2b_n)=1-\frac1n+O(n^{-2})$, in agreement with
-Corollary~\ref{thm:pure}. (These values also agree with the coefficients computed from the Hankel determinants of the
-moments $\zeta(2j+2)$, to $90$ digits for $n\le9$.)
+Corollary~\ref{thm:pure}.
 \end{remark}
 
 \begin{remark}[Hankel determinants of zeta values]\label{rem:pure-zeta}
@@ -258,7 +259,7 @@ follows.
 
 \emph{Why the window $|\alpha|<1$.} Near the accumulation point $0$ the measure looks like a continuous weight: the
 nodes $x_k=k^{-p}$ have density $\frac1px^{-1-1/p}$, so the mass per unit length near $x=k^{-p}$ is
-$k^{-s}\cdot\frac1px^{-1-1/p}=\frac1px^{\alpha}$. In the RH analysis $0$ becomes a hard edge with Bessel order
+$k^{-s}\cdot\frac1px^{-1-1/p}=\frac1px^{\alpha}$. In the Riemann--Hilbert (RH) analysis $0$ becomes a hard edge with Bessel order
 $\alpha=(s-1-p)/p$. Our comparison argument works for $|\alpha|<1$ (Remark~\ref{rem:alpha-ge-1}). Multiplication by
 $x$ raises $\alpha$ by $1$, and Theorem~\ref{thm:shift} carries the law and its rate across. For $s>1+p/2$ one can
 even choose $s_0$ with $|\alpha|\le\frac12$; the case $\alpha=0$ cannot be avoided in general
@@ -316,14 +317,8 @@ Theorem~\ref{thm:main} to Theorem~\ref{thm:engine}, which is proved in Sections~
 \end{figure}
 
 \subsection{Context}\label{sec:context}
-\emph{Averaged versus pointwise.} The averaged law \eqref{eq:paper1-averaged} is a statement about $\log D_n$, the
-logarithm of the Hankel determinant $D_n$ of $\sigma$, at order $n^2$, and it is proved in \cite{Paper1} by a
-discretised equilibrium problem. Such arguments are insensitive to bounded perturbations of the weights: multiplying
-$w_k$ by factors in $[e^{-\varepsilon},e^{\varepsilon}]$ changes $\log D_n$ by at most $\varepsilon n$. They
-therefore cannot yield \eqref{eq:law}, which is sensitive to such perturbations (see \emph{Rough weights} below).
-
-\emph{Riemann--Hilbert analysis of discrete orthogonal polynomials.} The Riemann--Hilbert (RH) approach to discrete
-orthogonal polynomials was developed by Baik, Kriecherbauer, McLaughlin and Miller \cite{BKMM} for measures on finite
+\emph{Discrete orthogonal polynomials.} The RH approach to discrete orthogonal polynomials was developed by
+Baik, Kriecherbauer, McLaughlin and Miller \cite{BKMM} for measures on finite
 node sets in a bounded interval, with real-analytic node density and potential; their analysis includes saturated
 regions, which also appear here. Within the literature we have read, the only RH analysis of discrete orthogonal
 polynomials on infinitely many nodes accumulating at a finite point is that of Wu, Lin, Xu and Zhao \cite{WLXZ}, for
@@ -337,11 +332,10 @@ carries a slowly varying factor at the endpoint $x=1$; they write that ``there i
 Riemann--Hilbert problem in a neighborhood of the logarithmic singularity at $x=1$'', and they compare the problem with
 the Legendre problem through the operator theory behind RH problems instead of through a quotient. The comparison
 argument in Section~\ref{sec:hardedge} is that of Conway and Deift \cite[Theorem~4.7 and Proposition~4.9]{CD}. What
-we add is a comparison model built from the Szeg\H{o} function of the full weight, a uniform resolvent bound for a
-Bessel edge of any order $|\alpha|<1$, and the treatment of an arbitrary slowly varying factor. Thus the weight factor
-is an arbitrary analytic slowly varying function rather than one explicit logarithm, the Bessel order is any
-$\alpha\in(-1,1)$ rather than the Legendre value $\alpha=0$, the comparison model is an explicit parametrix rather
-than a second orthogonality problem, and the problem is discrete, with nodes accumulating at the hard edge. Deift and
+we add is a comparison model built from the Szeg\H{o} function of the full weight (an explicit parametrix rather than a
+second orthogonality problem), a uniform resolvent bound for a Bessel edge of any order $|\alpha|<1$ (rather than the
+Legendre value $\alpha=0$), and the treatment of an arbitrary analytic slowly varying factor (rather than one explicit
+logarithm), for a discrete problem whose nodes accumulate at the hard edge. Deift and
 Piorkowski \cite{DP} extended the analysis of \cite{CD} to the weight $\log\frac{2}{1-x}$ and write, about a comparison
 with a weight that has a simple zero at the endpoint: ``the crucial Theorem~4.7 in [4] requires a different proof in
 this case: now one needs to control the behaviour of the Cauchy operator acting on spaces with Muckenhoupt weights''
@@ -361,15 +355,15 @@ for compact Jacobi operators. We have not found Theorem~\ref{thm:main} in the li
 closest results we know concern continuous weights on an interval \cite{CD,DP,Pio,Tro,MM} or exponential weights
 \cite{LL}.
 
-\emph{Special cases.} For $(p,s)=(2,2)$ the coefficients are explicit (Lommel polynomials,
-Remark~\ref{rem:pure-lommel}). The measures $\sigma_{a,2a+b}$ produce the Hankel determinants of zeta values studied by
-Monien \cite{Monien} and by Haynes and Zudilin \cite{HaynesZudilin} (Remark~\ref{rem:pure-zeta}). The orthogonality
-measure of the Tricomi--Carlitz polynomials is supported on $\{\pm1/\sqrt{k+\alpha}\}$ \cite[\S3]{VA}; in the squared
+\emph{Special cases.} Besides the Lommel case (Remark~\ref{rem:pure-lommel}) and the Hankel determinants of zeta
+values studied by Monien \cite{Monien} and by Haynes and Zudilin \cite{HaynesZudilin} (Remark~\ref{rem:pure-zeta}), we
+mention the Tricomi--Carlitz polynomials. Their orthogonality
+measure is supported on $\{\pm1/\sqrt{k+\alpha}\}$ \cite[\S3]{VA}; in the squared
 variable its atoms are $1/(k+\alpha)$, so it is an instance of $p=1$ with weights that are not pure powers. For it the
 recurrence coefficients are explicit \cite[\S3]{VA}, and \cite{WLXZ} obtain uniform asymptotics of the polynomials.
 
 \emph{Rough weights.} Slow variation cannot be replaced by boundedness. In a further paper \cite{Paper3} we show the
-following. For every $p>0$ and $s>1$ there is $\varepsilon_0>0$ such that, for every $\varepsilon\in(0,\varepsilon_0]$,
+following. For every $p>0$ and $s>1$ there is $\varepsilon_*>0$ such that, for every $\varepsilon\in(0,\varepsilon_*]$,
 there are weights $w_k=k^{-s}e^{\epsilon_k}$ with $|\epsilon_k|\le\varepsilon$ for which $n^pb_n$ does not converge,
 and weights of the same kind for which $n^pa_n$ does not converge. The averaged law \eqref{eq:paper1-averaged} holds
 for all of them. Together with Theorem~\ref{thm:main} this gives a dichotomy: the pointwise law is stable under slowly
@@ -384,9 +378,11 @@ Theorem~\ref{thm:engine}. Sections~\ref{sec:frame}--\ref{sec:extraction} prove T
 frame (Section~\ref{sec:frame}), the outer scalar function in the three geometries $p>1$, $p=1$ and $p<1$
 (Section~\ref{sec:outer}), the comparison at the hard edge (Section~\ref{sec:hardedge}), and the extraction of $a_n$ and
 $b_n$ (Section~\ref{sec:extraction}). Section~\ref{sec:numerics} illustrates the results numerically, and
-Section~\ref{sec:further} collects remarks and open problems. The appendices contain the technical estimates of the
-Riemann--Hilbert half. A reader who is mainly interested in the Riemann--Hilbert analysis can start at
-Section~\ref{sec:frame}, with the statement of Theorem~\ref{thm:engine} in hand.
+Section~\ref{sec:further} collects remarks and open problems. The four appendices contain the longer estimates of the
+Riemann--Hilbert half: the construction of the outer scalar for $p\ne1$ (Appendix~\ref{app:outer}), the a priori bound
+at the hard edge (Appendix~\ref{app:apriori}), two $L^2$ bounds on a star of arcs (Appendix~\ref{app:L2}), and the
+uniform invertibility of the comparison problem (Appendix~\ref{app:resolvent}). A reader who is mainly interested in the
+Riemann--Hilbert analysis can start at Section~\ref{sec:frame}, with the statement of Theorem~\ref{thm:engine} in hand.
 
 Throughout, $p>0$ is fixed, $C,C'$ denote positive constants that may change from line to line (never $c$, which is
 reserved for $c(p)$; the only other constants written with $c$ are $c_0$ in Definition~\ref{def:A} and $c_1$ in

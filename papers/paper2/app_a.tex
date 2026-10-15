@@ -31,8 +31,7 @@ Then
   \|\mathcal M_{\mathfrak k}\mathfrak h\|_{L^2(0,\infty)}\le\|\mathfrak k\|_*\,\|\mathfrak h\|_{L^2(0,\infty)} .
 \end{equation}
 Indeed $(\mathcal M_{\mathfrak k}\mathfrak h)(r)=\int_0^\infty\mathfrak k(u)\mathfrak h(ru)\diff u$, and $\|\mathfrak h(\cdot\,u)\|_{L^2}=u^{-1/2}
-\|\mathfrak h\|_{L^2}$, so \eqref{eq:A-minkowski} is Minkowski's integral inequality. (Equivalently, the Mellin symbol of
-$\mathcal M_{\mathfrak k}$ is bounded by $\|\mathfrak k\|_*$ on the line $\Re s=\frac12$, by the Parseval and convolution formulas for the Mellin transform, \cite[(1.14.38)--(1.14.40)]{DLMF}.) Operators
+\|\mathfrak h\|_{L^2}$, so \eqref{eq:A-minkowski} is Minkowski's integral inequality. Operators
 with kernels that are bounded on a bounded set are Hilbert--Schmidt, and we use that without comment.
 
 \begin{lemma}[power-weighted Cauchy operator on a star]\label{lem:A-power}
@@ -139,6 +138,6 @@ so the operator commutes with $U_\lambda$ and the bound holds on $\lambda\Gamma$
 \begin{remark}[The condition $|\beta|<\frac12$]\label{rem:mellin}
 For $\Gamma$ a union of rays the curvature terms vanish, and Lemma~\ref{lem:A-power} reduces to the boundedness of the
 Mellin multiplier $\int_0^\infty u^{s-1}\diff u/(u-e^{i\phi_{ij}})$ on $\Re s=\frac12-\beta$; on a single ray its
-principal value is $-\pi\cot(\pi s)$ (from \cite[(5.12.3), (5.5.3)]{DLMF}), which is bounded on that line exactly
+principal value is $-\pi\cot(\pi s)$ (by (5.12.3) and (5.5.3) of \ref{tool:T4}), which is bounded on that line exactly
 when $0<\frac12-\beta<1$. This explains the role of the condition $|\beta|<\frac12$.
 \end{remark}
