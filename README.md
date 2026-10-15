@@ -1,5 +1,8 @@
 # jacobi-asymptotics
 
+[![python](https://github.com/speagleg/jacobi-asymptotics/actions/workflows/python.yml/badge.svg)](https://github.com/speagleg/jacobi-asymptotics/actions/workflows/python.yml)
+[![lean](https://github.com/speagleg/jacobi-asymptotics/actions/workflows/lean.yml/badge.svg)](https://github.com/speagleg/jacobi-asymptotics/actions/workflows/lean.yml)
+
 **Asymptotics of orthogonal-polynomial recurrence coefficients for discrete measures whose atoms accumulate at 0.**
 
 Take a positive measure with atoms at the points $x_k = k^{-p}$ and weights $w_k$,
@@ -139,6 +142,8 @@ Reading order: this README, then THEOREMS.md §1, then the paper drafts. `resear
 proofs, which are long and written as lab notebooks.
 
 ## Running the code
+
+CI (GitHub Actions) runs both on every push to `master`: the fast pytest suite with the C kernel built (`python.yml`; slow regressions weekly) and the Lean build + axiom audit `lean/check.sh` (`lean.yml`, when `lean/` changes).
 
 ```bash
 scripts/setup_env.sh                     # .venv on top of the system numpy/scipy/mpmath/sympy (Python ≥ 3.12),
