@@ -1,0 +1,18 @@
+[1] Prop TB-Q / TB-A in the window: z = tau e^{5 pi i/6};  R_S := sup_{2/n^2 <= tau <= 1/2} tau^{1/2}|S_n(z)|,
+    R_A := sup_{1 <= M <= n^{2/p}/2} tail_n(M) M^{p/2},  R_C := sup_{M >= 1} tail_n(M) M^{theta_*} (M n <= K)
+   p=0.5 s=1.1 alpha=-0.80 theta_*=0.0133: n=4: R_S=0.7506 R_A=0.6211 R_C=0.6211 (lumped 6.2e-02);  n=6: R_S=0.7595 R_A=0.5864 R_C=0.5825 (lumped 4.8e-02);  n=8: R_S=0.7650 R_A=0.5821 R_C=0.5590 (lumped 3.8e-02)
+   p=0.5 s=1.5 alpha=+0.00 theta_*=0.0526: n=4: R_S=0.8243 R_A=0.6555 R_C=0.5907 (lumped 1.7e-02);  n=6: R_S=0.8297 R_A=0.6496 R_C=0.5618 (lumped 2.6e-02);  n=8: R_S=0.8298 R_A=0.6753 R_C=0.5583 (lumped 3.6e-02)
+   p=0.5 s=1.9 alpha=+0.80 theta_*=0.0783: n=4: R_S=0.7878 R_A=0.6355 R_C=0.5695 (lumped 9.2e-04);  n=6: R_S=0.7862 R_A=0.6129 R_C=0.5677 (lumped 2.7e-03);  n=8: R_S=0.7854 R_A=0.6060 R_C=0.5821 (lumped 6.0e-03)
+   p=1.0 s=1.2 alpha=-0.80 theta_*=0.0357: n=8: R_S=0.6968 R_A=0.5155 R_C=0.4833 (lumped 1.7e-02);  n=16: R_S=0.7022 R_A=0.5068 R_C=0.5068 (lumped 1.3e-02);  n=32: R_S=0.7048 R_A=0.4983 R_C=0.4983 (lumped 9.6e-03)
+   p=1.0 s=2.0 alpha=+0.00 theta_*=0.1250: n=8: R_S=0.7859 R_A=0.6412 R_C=0.4873 (lumped 1.3e-04);  n=16: R_S=0.7723 R_A=0.6282 R_C=0.5274 (lumped 4.8e-04);  n=32: R_S=0.7639 R_A=0.6184 R_C=0.5124 (lumped 1.8e-03)
+   p=1.0 s=2.8 alpha=+0.80 theta_*=0.1731: n=8: R_S=0.7318 R_A=0.5560 R_C=0.5283 (lumped 2.0e-07);  n=16: R_S=0.7200 R_A=0.5312 R_C=0.5234 (lumped 3.0e-06);  n=32: R_S=0.7136 R_A=0.5326 R_C=0.5159 (lumped 5.3e-05)
+   all finite and sum mu_n = 1: True
+
+[2] Lemma TS at p = 0.5 (window (1, 2.0)): Gamma_n(s0, s1) -> 0; columns n = (25, 50, 100, 200); K = 100*NMAX and 2x
+   (1.5, 1.75) [window pair]: -2.657e-03, -1.308e-03, -6.459e-04, -3.200e-04   |K->2K change| <= 3.0e-11
+   (1.5, 2.25) [s1 outside]: +5.868e-03, +3.271e-03, +1.734e-03, +8.952e-04   |K->2K change| <= 1.4e-10
+   (1.25, 3.0) [s1 outside, 3 steps]: +4.361e-02, +2.377e-02, +1.244e-02, +6.374e-03   |K->2K change| <= 6.1e-11
+   (2.25, 2.75) [both outside]: +2.600e-02, +1.391e-02, +7.206e-03, +3.671e-03   |K->2K change| <= 1.5e-10
+   (2.5, 3.0) [Christoffel step (s, s+p), s outside]: +3.433e-02, +1.846e-02, +9.588e-03, +4.891e-03   |K->2K change| <= 5.6e-11
+   (1.75, 2.25) [Christoffel step (s, s+p), s inside]: +8.525e-03, +4.579e-03, +2.380e-03, +1.215e-03   |K->2K change| <= 1.2e-10
+   additivity Gamma(1.25,3) - Gamma(1.25,1.75) - Gamma(1.75,2.25) - Gamma(2.25,3): max |.| = 2.4e-40

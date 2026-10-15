@@ -5,6 +5,7 @@ Status (2026-10-15): written by the Plan 62 agent; **REVIEWED 2026-10-15** (Rule
 directory); the rows and paragraphs marked "Plan 64" carry UL.md's labels, which are not yet REVIEWED.
 *Plan 65 update (2026-10-15, **REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)**):* `E_pgt1.md` (same directory) proves (E) and all constants of Conj. P62 for
 p > 1 by second-order RH analysis; the rows and paragraphs marked "Plan 65" carry its labels.
+*Plan 69 (2026-10-15, not REVIEWED):* `TAIL.md` (same directory) proves the hard-edge tail bound used by UL.md in Paper 2's frame and reduces Thm 3.8 to the window by telescoping.
 "RH" below means Riemann–Hilbert. Open item 13 of THEOREMS.md §4.
 
 **Summary of labels.**
