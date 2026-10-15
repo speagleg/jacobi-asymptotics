@@ -36,7 +36,7 @@ Let $\sigma=\sum_k w_k\delta_{x_k}$ be a discrete measure whose atoms $x_k=f(k)$
 Done in the Plan 73 consistency pass: the author line is `\author{Gordon Speagle}` (no affiliation or email), the date
 is `\date{October 2026}`, and the "Data and code availability" statement names the tag `v1.0-paper1` plainly.
 
-1. **Repository tag.** Make the repository public and create the tag `v1.0-paper1` on the submission commit (the
+1. **Repository tag.** The repository is public and the tag `v1.0-paper1` marks the submission commit; if the submission changes, move the tag (the
    paper already cites it; Papers II and III cite `v1.0-paper2` and `v1.0-paper3`).
 2. **Companion papers.** Paper I is posted alone first. The end of §1.2 says only "Companion papers in preparation
    treat the pointwise asymptotics of $b_n$ and $a_n$", with no citation and no bib entry (removed in the Plan 68
