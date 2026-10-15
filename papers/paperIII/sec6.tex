@@ -61,7 +61,7 @@ For every compact interval $K=[\underline s,\bar s]\subset\Sp$, $\sup_{n\ge1}\su
 Put $u_0:=\frac12\vartheta_*(p,\underline s)$, with $\vartheta_*$ as in Lemma~\ref{lem:allM}. Since $\vartheta_*$
 increases with $s$, $u_0<\vartheta_*(p,s')$ for every $s'\in K$, and $u_0\le p/4$. Choose a grid $\underline s=t_0<t_1<\dots<t_J=\bar s$ with
 $t_{i+1}-t_i\le u_0$. For each of the finitely many $t=t_i$, $A_t:=\sup_nn^pa_n(t)<\infty$ by
-Theorem~\ref{thm:imp-pure}, and $B_t:=\sup_nE_t[(k/n)^{u_0}]<\infty$. Indeed, for $n\ge n_0(t)$,
+Theorem~\ref{thm:imp-pure}, and $B_t:=\sup_nE_t[(k/n)^{u_0}]<\infty$. For $n\ge n_0(t)$,
 Lemma~\ref{lem:allM}, with exponent $\vartheta_0:=\vartheta_*(p,t)$, and Tonelli's theorem give
 \[
   E_t[(k/n)^{u_0}]\le1+\sum_{k>n}m^{(t)}_n(k)\Bigl(1+\int_1^{k/n}u_0M^{u_0-1}\diff M\Bigr)
@@ -82,16 +82,22 @@ $pa<\vartheta_*(p,t)$ and $0\le b<2$. Then $E_t[g(Y)]\to\int g\diff\arc_{4c}$.
 \end{lemma}
 
 \begin{proof}
-Choose $a'>a$ with $pa'<\vartheta_*(p,t)$. As in the proof of Proposition~\ref{prop:UF},
-$V_-:=\sup_{n\ge n_0}E_t[Y^{-a'}]<\infty$, and $V_+:=\sup_nE_t[Y^2]=\sup_nn^{2p}(a_n^2+b_n^2+b_{n+1}^2)(t)<\infty$ by
-Theorem~\ref{thm:imp-pure}, since $E_t[x^2]=\langle x^2q_n,q_n\rangle$. The arcsine law satisfies the same two bounds:
-its density is of order $y^{-1/2}$ at $0$, $a'<\frac12$ because $\vartheta_*<p/2$, and its support is compact. For $0<\epsilon<1<R$ let
-$g_{\epsilon,R}(y):=g(\min(\max(y,\epsilon),R))$, a bounded continuous function on $[0,\infty)$; since $\arc_{4c}$ has no
-atom at $0$, Lemma~\ref{lem:arcsine} gives $E_t[g_{\epsilon,R}(Y)]\to\int g_{\epsilon,R}\diff\arc_{4c}$. For each of these
-measures, $E|g-g_{\epsilon,R}|$ is at most $E[(|g(Y)|+|g(\epsilon)|)\mathbf 1_{Y<\epsilon}]+
-E[(|g(Y)|+|g(R)|)\mathbf 1_{Y>R}]\le6CV_-\epsilon^{a'-a}+6CV_+R^{b-2}$, using $Y^{-a},\epsilon^{-a},1\le Y^{-a'}\epsilon^{a'-a}$
-on $\{Y<\epsilon\}$ and the analogous bounds on $\{Y>R\}$. This tends to $0$ uniformly in $n$ as $\epsilon\to0$ and
-$R\to\infty$.
+Choose $a'>a$ with $pa'<\vartheta_*(p,t)$, and put
+\[
+  V_-:=\sup_{n\ge n_0}E_t[Y^{-a'}],\qquad V_+:=\sup_nE_t[Y^2]=\sup_nn^{2p}\bigl(a_n^2+b_n^2+b_{n+1}^2\bigr)(t).
+\]
+As in the proof of Proposition~\ref{prop:UF}, $V_-<\infty$; and $V_+<\infty$ by Theorem~\ref{thm:imp-pure}, since
+$E_t[x^2]=\langle x^2q_n,q_n\rangle$. The arcsine law satisfies the same two bounds, because its density is of order
+$y^{-1/2}$ at $0$, $a'<\frac12$ (as $\vartheta_*<p/2$), and its support is compact. For $0<\epsilon<1<R$ the function
+$g_{\epsilon,R}(y):=g(\min(\max(y,\epsilon),R))$ is bounded and continuous on $[0,\infty)$, and $\arc_{4c}$ has no atom at
+$0$, so Lemma~\ref{lem:arcsine} gives $E_t[g_{\epsilon,R}(Y)]\to\int g_{\epsilon,R}\diff\arc_{4c}$. For each of these
+measures,
+\[
+  E|g-g_{\epsilon,R}|\le E\bigl[(|g(Y)|+|g(\epsilon)|)\mathbf 1_{Y<\epsilon}\bigr]+E\bigl[(|g(Y)|+|g(R)|)\mathbf 1_{Y>R}\bigr]
+  \le6CV_-\epsilon^{a'-a}+6CV_+R^{b-2},
+\]
+since $Y^{-a}$, $\epsilon^{-a}$ and $1$ are at most $Y^{-a'}\epsilon^{a'-a}$ on $\{Y<\epsilon\}$, and similarly on
+$\{Y>R\}$. This tends to $0$ uniformly in $n$ as $\epsilon\to0$ and $R\to\infty$.
 \end{proof}
 
 Let $\phi(r):=\log\int y^r\diff\arc_{4c}(y)$ for $r>-\frac12$. It is finite, convex and $C^2$ on $[-\frac14,\frac14]$, with

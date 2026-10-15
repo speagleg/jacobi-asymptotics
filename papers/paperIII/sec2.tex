@@ -339,8 +339,8 @@ Let $\sigma=\sum_kw_k\delta_{k^{-p}}$ with $w_k>0$ and $\|w\|_1<\infty$. For int
 The first inequality was noted after \eqref{eq:christoffel}. Use the test polynomial
 $P(x):=\prod_{j\le n,\,j\ne k}(x-x_j)/(x_k-x_j)$ in \eqref{eq:christoffel}: it has degree $n-1$, $P(x_k)=1$, and it
 vanishes at $x_j$ for $j\le n$, $j\ne k$. For $i>n$ and $j\le n$ we have $0<x_i<x_j$, so $|P(x_i)|\le\mathcal
-P:=\prod_{j\le n,\,j\ne k}x_j/|x_k-x_j|$. Hence $1/\mathsf K_n(x_k)\le w_k+\|w\|_1\mathcal P^2$ and
-$1-K_n(k)\le\|w\|_1\mathcal P^2/w_k$. To bound $\mathcal P$, note $x_j/|x_k-x_j|=k^p/|k^p-j^p|$ and
+P:=\prod_{j\le n,\,j\ne k}x_j/|x_k-x_j|$. Hence $1/\mathsf K_n(x_k)\le w_k+\|w\|_1\mathcal P^2$, and
+therefore $1-K_n(k)\le\|w\|_1\mathcal P^2/w_k$. To bound $\mathcal P$, note $x_j/|x_k-x_j|=k^p/|k^p-j^p|$ and
 $|k^p-j^p|\ge\varsigma_p\max(j,k)^{p-1}|k-j|$ with $\varsigma_p:=\min(1,p)$ (directly for $p\ge1$, by the mean value
 theorem for $p<1$). Thus
 \[
@@ -388,7 +388,7 @@ matrix $J_0$ with diagonal $2c$ and off-diagonal $c$, that is, to the constant F
 $(c(2+e^{i\theta}+e^{-i\theta}))^j$, which equals $\frac1\pi\int_0^\pi(2c(1+\cos\theta))^j\diff\theta=\int
 y^j\diff\arc_{4c}$.
 
-Moment convergence implies weak convergence here, because the limit has compact support. Indeed, the second moments
+Moment convergence implies weak convergence here, because the limit has compact support. The second moments
 are bounded, so $(\nu_{n,i})_n$ is tight; let $\nu'$ be a subsequential weak limit. Since all moments of $\nu_{n,i}$ are
 bounded, each $y^j$ is uniformly integrable, so $\int y^j\diff\nu'=\int y^j\diff\arc_{4c}\le(4c)^j$. Then
 $\nu'((4c+\delta,\infty))\le(4c/(4c+\delta))^{2j}\to0$ for every $\delta>0$, so $\nu'$ lives on $[0,4c]$, where
@@ -417,14 +417,14 @@ every $k\ge T''$, and for every integer $T\ge T''$ and $n'\in\{n-1,n\}$,
 \end{lemma}
 
 \begin{proof}
-Put $b:=x_{T'}$ and $a:=x_{T''}$, so that $a/b\le(T'/T'')^p\le n^{-2}\le\frac14$. Let $\deg P\le n$ and write $\|P\|_{[a,b]}$
-for the maximum of $|P|$ on $[a,b]$. Mapping $[a,b]$ affinely onto $[-1,1]$, \eqref{eq:cheb} gives $|P'|\le
-4n^3\|P\|_{[a,b]}/(b-a)\le8n^3\|P\|_{[a,b]}/b$ on $[a,b]$. Consecutive atoms in $[a,b]$ are at distance $x_j-x_{j+1}\le
-pj^{-p-1}\le pb/T'$, so every point of $[a,b]$ is within $pb/T'$ of an atom, and
-$\|P\|_{[a,b]}\le\max|P(x_j)|+(8pn^3/T')\|P\|_{[a,b]}$, the maximum over $T'\le j\le T''$. Since $T'\ge16pn^3$,
-$\|P\|_{[a,b]}\le2\max_{T'\le j\le T''}|P(x_j)|$. For $0\le x\le a$ the affine image $y=(a+b-2x)/(b-a)$ satisfies
-$1\le y\le1+4a/b\le1+4n^{-2}$, and $T_n(1+\eta)=\cosh(n\operatorname{arccosh}(1+\eta))\le e^{n\sqrt{2\eta}}\le e^{\sqrt8}<17$ for
-$\eta\le4n^{-2}$. By \eqref{eq:cheb}, $|P(x)|\le34(n+1)\|P\|_{[a,b]}$. Hence, if $k\ge T''$ and $P(x_k)=1$, then
+Put $\bar x:=x_{T'}$ and $\underline x:=x_{T''}$, so that $\underline x/\bar x\le(T'/T'')^p\le n^{-2}\le\frac14$. Let $\deg P\le n$ and write $\|P\|_{[\underline x,\bar x]}$
+for the maximum of $|P|$ on $[\underline x,\bar x]$. Mapping $[\underline x,\bar x]$ affinely onto $[-1,1]$, \eqref{eq:cheb} gives $|P'|\le
+4n^3\|P\|_{[\underline x,\bar x]}/(\bar x-\underline x)\le8n^3\|P\|_{[\underline x,\bar x]}/\bar x$ on $[\underline x,\bar x]$. Consecutive atoms in $[\underline x,\bar x]$ are at distance $x_j-x_{j+1}\le
+pj^{-p-1}\le p\bar x/T'$, so every point of $[\underline x,\bar x]$ is within $p\bar x/T'$ of an atom, and
+$\|P\|_{[\underline x,\bar x]}\le\max|P(x_j)|+(8pn^3/T')\|P\|_{[\underline x,\bar x]}$, the maximum over $T'\le j\le T''$. Since $T'\ge16pn^3$,
+$\|P\|_{[\underline x,\bar x]}\le2\max_{T'\le j\le T''}|P(x_j)|$. For $0\le x\le\underline x$ the affine image $y=(\underline x+\bar x-2x)/(\bar x-\underline x)$ satisfies
+$1\le y\le1+4\underline x/\bar x\le1+4n^{-2}$, and $T_n(1+\eta)=\cosh(n\operatorname{arccosh}(1+\eta))\le e^{n\sqrt{2\eta}}\le e^{\sqrt8}<17$ for
+$\eta\le4n^{-2}$. By \eqref{eq:cheb}, $|P(x)|\le34(n+1)\|P\|_{[\underline x,\bar x]}$. Hence, if $k\ge T''$ and $P(x_k)=1$, then
 $1\le68(n+1)\max_{T'\le j\le T''}|P(x_j)|$, so $\int P^2\diff\sigma\ge\min_{j\le T''}w_j/(68(n+1))^2\ge c'T''^{-s}/(68(n+1))^2$.
 By \eqref{eq:christoffel}, $K_{n+1}(k)=w_k\mathsf K_{n+1}(x_k)\le68^2(n+1)^2(C'/c')(T''/k)^s$. Finally
 $m_{n'}\le K_{n'+1}\le K_{n+1}$ for $n'\le n$, and $\sum_{k>T}k^{-s}\le T^{1-s}/(s-1)$.
