@@ -652,13 +652,13 @@
   coordinator; F7 numerics wording (E up to 0.5006, E spread 1.9·10⁻⁸, r = 1.5 e2e row with all three N); F8 LnΓ branch wording.
   Rule R ACCEPT WITH FIXES (review/REVIEW_Plan54.md), fixes applied — REVIEWED.
 
-## 2026-10-15 — Plan 55 (any strip: the O(1/n)-rate results under analyticity in an arbitrarily thin strip) — Rule R pending
+## 2026-10-15 — Plan 55 (any strip: the O(1/n)-rate results under analyticity in an arbitrarily thin strip) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan55.md), fixes applied — REVIEWED
 - Write-up: PROOF.md §3.24 (Theorem AS) and §0 row "AS (Plan 55)"; paper: papers/paper2 revision 3 (NOTES.md "Revision 3").
   Plan: docs/superpowers/plans/2026-10-15-plan-55-strip.md.
 - **Result.** For every p > 0, s > 1: if Ψ₁ = exp L₁(log t) with L₁ analytic on {Re u ≥ −c₀, |Im u| ≤ ϑ} for **some** ϑ > 0
   (real, bounded for Re u ≤ 0, L₁′ → 0) — (A_ϑ) — then n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n). Previously
   (H_an) |Im u| ≤ π/p (p > 1), (H_an^{<1}), (H_an^{x1}) π/2, (H_an₁) π (p = 1, band centre). PROVED-mod-cite (inherits RII,
-  RII_{<1}, RII_x1); Rule R pending.
+  RII_{<1}, RII_x1); proof of record papers/paper2 rev. 3 + PROOF.md §3.24 audit (ROUTE2*.md do not prove AS as written).
 - **Mechanism.** Paper 2 Lemma 5.7: the weight is evaluated only in Z_n = {|arg z| < ϑ_w}; the lens leaves 0 at ϑ_lip, the
   Bessel rays are at ±(π − ϑ_lip), and KMVV's angle freedom (CITATIONS "(KMVV, angle freedom; Plan 15b)": any angle in (0, π))
   lets ϑ_lip → 0. Scaling the old angles by m = min(1, pϑ/ϑ_w⁰) keeps (5/4)ϑ_lip < ϑ_w < π/2, ϑ_w < πp/2 (p < 1) and gives
@@ -675,9 +675,17 @@
   rewritten) in PROOF.md §§3.17, 3.19–3.23, ROUTE2*.md (6 files), THEOREMS.md §§2.7–2.8.
 - **Numerics** (`RH/route2/checks/check_p55_strip.py/.out`, NUMERICAL): p = 2, L₁(u) = √(u+1) + (u+2)^{−1/2}log(1 − q cos 2u),
   q = 1/cosh 0.6 (singular at u = πm ± 0.3i for every m: (A_ϑ) only for ϑ < 0.3; the old (A_{π/2}) fails). n = 50…3200 (25
-  points), five truncations (spread ≤ 2·10⁻⁹): s = 2: n(n²b_n/c − 1) ∈ [−0.603, −0.029], s = 3: [−1.101, −0.549], same maximum
-  modulus on [50, 400] and [400, 3200] (log-periodic oscillation, no growth); n(a_n/(2b_n) − 1) ∈ [−1.009, −0.951].
+  points), five truncations (spread ≤ 2·10⁻⁹): s = 2: n(n²b_n/c − 1) ∈ [−0.603, −0.029], s = 3: [−1.101, −0.549]; max modulus
+  on the disjoint windows 50 ≤ n < 400 / 400 < n ≤ 3200: 0.598 / 0.589 (s = 2), 1.097 / 1.088 (s = 3) — log-periodic, bounded,
+  but only ≈ 1.3 periods covered (weak evidence against growth); n(a_n/(2b_n) − 1) ∈ [−1.009, −0.951].
 - **Rule A:** minimum-angle search, order of smallness choices, domain of ε₁, choice of a test function with singularities
   along the whole strip boundary. No counterexample.
 - **Rule L:** not done. Novelty UNCHECKED.
-- **Rule R:** pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan55.md; no mathematical error, no hidden minimum angle; all fixes LOW/INFO;
+  numerics reproduced, Lanczos cross-check identical). Fixes applied: F1 numerics on disjoint windows + ≈ 1.3 periods caveat
+  (PROOF.md §3.24, this entry, Paper 2 §9); F2 label "proof of record papers/paper2 rev. 3 + §3.24 audit; ROUTE2*.md do not prove
+  AS as written" (§0 row, §3.24, THEOREMS.md); F3 DLMF 10.17.5–6, 10.17.11–12 read and quoted verbatim (CITATIONS
+  "(DLMF-10.17, Plan 55)"), cited in Paper 2 §7.2 and T4; F4 OUTLINE.md / NOTES.md ϑ_p notes, check_p55_strip.py/.out copied to
+  papers/paper2/checks, absolute path in NOTES.md removed; F5 order-of-choices sentence in Remark 5.8; F6 "half-angle" in the
+  abstract and §1; F7 Rule N note in the script header. Rule R ACCEPT WITH FIXES (review/REVIEW_Plan55.md), fixes applied —
+  REVIEWED.

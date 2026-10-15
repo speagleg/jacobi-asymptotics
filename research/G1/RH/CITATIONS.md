@@ -639,3 +639,23 @@ VA; the orthogonality measure for ν = 3/2 is identified in the remark itself (e
 (10.6.1); it is ℓ² by (10.2.2); hence the m-function is −2ν J_ν(1/x)/J_{ν−1}(1/x); for ν = 3/2, J_{3/2}/J_{1/2} = 1/z −
 cot z by (10.16.1) and (10.6.1) with ν = 1/2; (4.22.3) gives masses 3/(πk)² at ±1/(πk). Checked numerically
 (mpmath, 30 digits: truncated resolvent, Bessel ratio and partial-fraction sum agree at x = 0.05 + 0.3i).
+
+## (DLMF-10.17, Plan 55) NIST DLMF §10.17(i)–(ii) — READ (page dlmf.nist.gov/10.17 fetched 2026-10-15; formulas from the TeX alttext)
+
+Context (§10.17(i)): "let δ denote an arbitrary small positive constant. Then as z→∞, with ν fixed,"
+
+> (10.17.2) `\omega=z-\tfrac{1}{2}\nu\pi-\tfrac{1}{4}\pi,`
+> (10.17.5) `{H^{(1)}_{\nu}}\left(z\right)\sim\left(\frac{2}{\pi z}\right)^{\frac{1}{2}}e^{i\omega}\sum_{k=0}^{\infty}i^{k}\frac{a_{k}(\nu)}{z^{k}},`
+> `-\pi+\delta\leq\operatorname{ph}z\leq 2\pi-\delta`
+> (10.17.6) `{H^{(2)}_{\nu}}\left(z\right)\sim\left(\frac{2}{\pi z}\right)^{\frac{1}{2}}e^{-i\omega}\sum_{k=0}^{\infty}(-i)^{k}\frac{a_{k}(\nu)}{z^{k}},`
+> `-2\pi+\delta\leq\operatorname{ph}z\leq\pi-\delta`
+> (10.17.8) `b_{k}(\nu)=\frac{\left((4\nu^{2}-1^{2})(4\nu^{2}-3^{2})\cdots(4\nu^{2}-(2k-3)^{2})\right)(4\nu^{2}+4k^{2}-1)}{k!8^{k}}.` (with b₀(ν) = 1)
+> (10.17.11) `{H^{(1)}_{\nu}}'\left(z\right)\sim i\left(\frac{2}{\pi z}\right)^{\frac{1}{2}}e^{i\omega}\sum_{k=0}^{\infty}i^{k}\frac{b_{k}(\nu)}{z^{k}},` (sector of 10.17.5)
+> (10.17.12) `{H^{(2)}_{\nu}}'\left(z\right)\sim-i\left(\frac{2}{\pi z}\right)^{\frac{1}{2}}e^{-i\omega}\sum_{k=0}^{\infty}(-i)^{k}\frac{b_{k}(\nu)}{z^{k}},` (sector of 10.17.6)
+
+(a_k(ν): (10.17.1), already quoted in (DLMF-10.40, Paper 2).)
+
+**Used in:** papers/paper2 sec_7.tex §7.2 and sec_2.tex T4 (Rule R F3 of review/REVIEW_Plan55.md): the thin-sector formulas
+KMVV (6.24)–(6.25) evaluate H^{(1,2)}_α and their derivatives at 2(−ζ)^{1/2}; for π − ϑ_lip < ±arg ζ < π, ph 2(−ζ)^{1/2} lies in
+(−½ϑ_lip, 0), resp. (0, ½ϑ_lip), inside both sectors above for every ϑ_lip ∈ (0, π); so KMVV (6.28) holds with rays at
+±(π − ϑ_lip) (PROOF.md §3.24, row "§7.2"). Hypotheses checked: ν = α fixed, z → ∞ in a closed subsector.

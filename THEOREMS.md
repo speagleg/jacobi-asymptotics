@@ -286,7 +286,7 @@ research/G3prime/PROOF.md (Pos). Novelty UNCHECKED unless stated.
 | QL numerics | tilt law at p = 1, ½; QL-b slopes, crossover M ≍ n^{2/p}; commutator ratio ≤ 0.93ε_n(1 + log M) (saturation beyond the hard edge is structural) | NUMERICAL | G1 §3.15 |
 | Lemma EP (Plan 47) | energy positivity for zero-mass signed measures (self-contained Fourier proof); removes citation (P): H_all, B*, HZ, Cor H-input, G1-T, G1-L, WC, CL, A4′, TC now PROVED | PROVED | G2 §1 |
 
-*(Plan 55 note, 2026-10-15: in Thm RII / Cor B_{p>1} the rate hypothesis (H_an) — L₁ analytic on |Im u| ≤ π/p — can be weakened to (A_ϑ), analyticity on |Im u| ≤ ϑ for **some** ϑ > 0 (Theorem AS, G1 §3.24: PROVED-mod-cite, Rule R pending). The row above is unchanged.)*
+*(Plan 55 note, 2026-10-15: in Thm RII / Cor B_{p>1} the rate hypothesis (H_an) — L₁ analytic on |Im u| ≤ π/p — can be weakened to (A_ϑ), analyticity on |Im u| ≤ ϑ for **some** ϑ > 0 (Theorem AS, G1 §3.24: PROVED-mod-cite, Rule R ACCEPT WITH FIXES (review/REVIEW_Plan55.md), fixes applied — REVIEWED). The row above is unchanged.)*
 
 
 
@@ -302,13 +302,13 @@ nodes x_k = k^{−p}:** n^pb_n → c(p), n^pa_n → 2c(p), with rate O(1/n) when
 | 0 < p < 1, every s > 1 | RII_{<1} (seam geometry; strip half-width π/2 suffices) + shift = Corollary B_{p<1} | PROVED-mod-cite | G1 §3.20 |
 | p = 1, every non-integer r > 1 | RII₁ (1 < r < 2) + shift = Corollary B_{p=1}⁺ | PROVED-mod-cite | G1 §3.19 |
 | p = 1, every r > 1 incl. integer r ≥ 2 | x-frame Route II at p = 1 (RII_x1, 1 < r < 3, incl. r = 2 at α_x = 0) + shift = Corollaries GAP-int (closed), B_{p=1}^{all} — **closes GAP-int** (Plan 54) | PROVED-mod-cite | G1 §3.23 |
-| every p > 0, every s > 1 (rate clause) | Plan 55, Theorem AS: the O(1/n) rate needs Ψ = exp L₁(log k) with L₁ analytic only on **some** strip \|Im u\| ≤ ϑ, ϑ > 0 arbitrary (was π/p for p > 1, π/2 for p ≤ 1; (H_an₁)'s π at p = 1); lens angle → 0 by KMVV angle freedom, weight used only in \|arg z\| < ϑ_w ≤ pϑ | PROVED-mod-cite (inherits); Rule R pending | G1 §3.24; papers/paper2 Remark 5.8 |
+| every p > 0, every s > 1 (rate clause) | Plan 55, Theorem AS: the O(1/n) rate needs Ψ = exp L₁(log k) with L₁ analytic only on **some** strip \|Im u\| ≤ ϑ, ϑ > 0 arbitrary (was π/p for p > 1, π/2 for p ≤ 1; (H_an₁)'s π at p = 1); lens angle → 0 by KMVV angle freedom, weight used only in \|arg z\| < ϑ_w ≤ pϑ | PROVED-mod-cite; proof of record papers/paper2 rev. 3 (§§5–7, App. A–D) + G1 §3.24 audit; ROUTE2*.md do not prove AS as written; same external citations; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan55.md), fixes applied — REVIEWED | G1 §3.24; papers/paper2 Remark 5.8 |
 
 Supporting results: Theorem SH (Law P(c) for σ ⇒ for x·σ, any positive σ on [0, ∞) with infinite support, any p > 0;
 rates carried by SH-r) PROVED; CT₁ converse (law for x·σ ⇒ for σ) PROVED; Lemma CS PROVED, "very likely KNOWN" (chain
 sequences). **With Plan 54 the pointwise Law P holds for every p > 0, every s > 1 and every sequence-form slowly varying Ψ.**
 Open: the 1/n coefficient (tilt law, CONJECTURE) and the true ζ-zero measure (barrier).
-*(Plan 55 note, 2026-10-15: "the analyticity hypothesis" in the rate clauses above can be taken to be (A_ϑ) for any ϑ > 0 — see the last row and G1 §3.24; Rule R pending.)*
+*(Plan 55 note, 2026-10-15: "the analyticity hypothesis" in the rate clauses above can be taken to be (A_ϑ) for any ϑ > 0 — see the last row and G1 §3.24; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan55.md), fixes applied — REVIEWED.)*
 
 ### 2.9 Novelty relabels from the second Rule L pass (2026-10-14; research/program/RESEARCH_PROGRAM.md §6)
 

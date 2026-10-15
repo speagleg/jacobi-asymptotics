@@ -3,7 +3,7 @@
 Status: **Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan53.md), fixes applied — REVIEWED** (F1–F11 applied after merging master, which contains Plan 54, PROOF.md §3.23). Novelty: UNCHECKED (no Rule
 L search).
 
-*(Plan 55 note, 2026-10-15: the conclusions of Theorem RII₁ᶠ and Corollary B_{p=1}^{all,ᶠ} (rate clause) also hold under (A_ϑ) for any ϑ > 0 instead of (H_an₁), because they coincide with those of RII_x1 / B_{p=1}^{all} (ROUTE2_xframe1.md), whose hypothesis can be so weakened; the fold proof below was not re-examined for thin strips; verified on Paper 2's consolidated write-up (papers/paper2), see ../../PROOF.md §3.24 (Theorem AS, PROVED-mod-cite, Rule R pending). This file is unchanged and proves its results as stated.)*
+*(Plan 55 note, 2026-10-15: the conclusions of Theorem RII₁ᶠ and Corollary B_{p=1}^{all,ᶠ} (rate clause) also hold under (A_ϑ) for any ϑ > 0 instead of (H_an₁), because they coincide with those of RII_x1 / B_{p=1}^{all} (ROUTE2_xframe1.md), whose hypothesis can be so weakened; the fold proof below was not re-examined for thin strips; verified on Paper 2's consolidated write-up (papers/paper2), see ../../PROOF.md §3.24 (Theorem AS, PROVED-mod-cite, proof of record papers/paper2 rev. 3 + §3.24 audit; Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan55.md), fixes applied — REVIEWED). This file is unchanged and proves its results as stated.)*
 
 **Framing (Rule R F1).** GAP-int is closed by Plan 54 (PROOF.md §3.23, `ROUTE2_xframe1.md`, REVIEWED: Route II in the
 unsymmetrized x-frame). This file is an independent **second proof** of the (a_m, b_m) part of §3.23's Theorem RII_x1 on 1 < r < 3

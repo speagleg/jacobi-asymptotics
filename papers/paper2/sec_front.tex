@@ -18,7 +18,7 @@ matrix is a compact operator with eigenvalues $k^{-p}$. We prove that the recurr
 $n^pb_n\to c(p)$ and $n^pa_n\to2c(p)$, where
 $c(p)=\frac14\bigl(\sqrt\pi\,\Gamma(1/p+1)/\Gamma(1/p+\frac12)\bigr)^p$ is the constant of the constrained
 equilibrium problem solved in a companion paper. This holds for every slowly varying $\ell$, including unbounded ones
-such as $\exp\sqrt{\log k}$. If $\ell$ extends to a slowly varying analytic function on a sector $|\arg t|\le\vartheta$, of any opening $\vartheta>0$, the error is $O(1/n)$; for pure powers this
+such as $\exp\sqrt{\log k}$. If $\ell$ extends to a slowly varying analytic function on some sector $|\arg t|\le\vartheta$ with half-angle $\vartheta>0$, however small, the error is $O(1/n)$; for pure powers this
 gives $n^pb_n=c(p)(1+O(1/n))$ and $a_n/(2b_n)=1+O(1/n)$. The proof reduces, by a Christoffel transformation (which
 shifts $s$ by $p$ and preserves the law with its rate) and a smoothing step, to analytic factors and the window
 $1<s<1+2p$. There a Riemann--Hilbert analysis of discrete orthogonal polynomials whose nodes accumulate at a hard edge
@@ -101,7 +101,7 @@ Let $p>0$, $s>1$, let $\ell\colon\N\to(0,\infty)$ be slowly varying, and let $\s
 In words, \Ath{\vartheta} asks that $\ell$ extend to an analytic function $\ell(t)=e^{\Lambda(\log t)}$
 on the set $\{|t|\ge e^{-c_0},\ |\arg t|\le\vartheta\}$, bounded near $|t|=e^{-c_0}$, with $t\ell'(t)/\ell(t)\to0$. Such an
 $\ell$ is slowly varying, since $|\Lambda(\log k)-\Lambda(\log n)|\le\varepsilon_\Lambda(\log
-n-\log\lambda)\log\lambda$ for $n/\lambda\le k\le\lambda n$. The opening $\vartheta$ may be arbitrarily small, and
+n-\log\lambda)\log\lambda$ for $n/\lambda\le k\le\lambda n$. The half-angle $\vartheta$ may be arbitrarily small, and
 it does not have to depend on $p$: the Riemann--Hilbert analysis evaluates the weight only in a sector of the $z$-plane
 whose opening we are free to shrink (Lemma~\ref{lem:weightdomain} and Remark~\ref{rem:angles}). The sequences
 $\ell(k)=\exp\sqrt{\log(k+e)}$ and $\ell(k)=\exp((\log(k+e))^\beta)$, $\beta<1$, satisfy \Ath{\vartheta} for every

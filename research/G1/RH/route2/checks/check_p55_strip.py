@@ -11,7 +11,10 @@ Columns: nB := n (n^2 b_n/c - 1);  E := n (a_n/(2 b_n) - 1)  (pairing of Theorem
 a_n = a[n]);  both O(1) under the O(1/n) law.  Pure-power column (ell = 1) for comparison.
 n runs over 50 * 2^(j/4), j = 0..24 (50 ... 3200).  Truncation tests: K = 1e5, 2e5, 4e5 with tend = 1e16 (K-doubling), K = 2e5 with tend = 1e14, and (rho, g) = (1.01, 12); "spread" =
 max - min over the five runs (a precision-variation diagnostic, NOT an error bound; Rule N).
-Run from the jacobi-asymptotics root: .venv/bin/python ../ja-plan55/research/G1/RH/route2/checks/check_p55_strip.py"""
+Run from the repository root: .venv/bin/python research/G1/RH/route2/checks/check_p55_strip.py
+(copy: papers/paper2/checks/check_p55_strip.py).  Rule N note (REVIEW_Plan55 F7): for s = 3 the five-run spread is 0 at small n,
+which only shows the tail beyond K = 1e5 is invisible there; the Rule R reviewer cross-checked s = 2 at n = 50, 200, 400 with an
+independent Lanczos run (double precision), identical to all printed digits."""
 import numpy as np
 from jacobi_asym.measures.base import DiscreteMeasure
 from jacobi_asym.jacobi.dispatch import jacobi_coeffs
