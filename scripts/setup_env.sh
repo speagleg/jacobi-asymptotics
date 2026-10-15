@@ -6,8 +6,8 @@ python3 -m venv --system-site-packages .venv
 .venv/bin/pip install --no-deps -e .
 .venv/bin/pip install python-flint==0.9.0
 make -C csrc
-# Optional: reuse a local Mathlib package cache for the Lean build if one exists (otherwise `lake` fetches it).
-if [ -d /root/.cache/math-pursuits-lake/packages ]; then
-  mkdir -p lean/.lake && ln -sfn /root/.cache/math-pursuits-lake/packages lean/.lake/packages
+# Optional: set JA_LAKE_PACKAGES to reuse a local Mathlib package cache for the Lean build (otherwise `lake` fetches it).
+if [ -n "${JA_LAKE_PACKAGES:-}" ] && [ -d "$JA_LAKE_PACKAGES" ]; then
+  mkdir -p lean/.lake && ln -sfn "$JA_LAKE_PACKAGES" lean/.lake/packages
 fi
 .venv/bin/python -c "import jacobi_asym, flint; print('ok', jacobi_asym.__version__, flint.__version__)"

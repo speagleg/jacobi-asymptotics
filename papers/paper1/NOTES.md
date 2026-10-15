@@ -14,7 +14,7 @@ There is no RH framing anywhere.
 
 ## 1. Claim → source in the repo
 
-Item 11 = `/mnt/c/Users/gspea/source/repos/math-pursuits/items/11-zero-measure-jacobi-asymptotics/work/proof/PROOF.md`
+Item 11 = `math-pursuits/items/11-zero-measure-jacobi-asymptotics/work/proof/PROOF.md` (private notebook)
 (read-only, §7). G2 = `research/G2/PROOF.md`.
 
 | Paper | Statement | Repo source | Repo label |
@@ -111,7 +111,7 @@ route, not needed here).
   points. The mass check ∫ρ* = 1 is also there.
 - Rem 7.2: `papers/paper1/checks/bs_check.py` → `.out` (mpmath dps 60/30, ~8 s).
 - Lemma 3.3 sanity check: `papers/paper1/checks/positivity_sanity.py` → `.out`.
-- Interpreter: `/mnt/c/Users/gspea/source/repos/jacobi-asymptotics/.venv/bin/python` (`-I` for the paper's own
+- Interpreter: `.venv/bin/python` (repo root) (`-I` for the paper's own
   scripts).
 
 ## 5. Open issues / places needing an expert check

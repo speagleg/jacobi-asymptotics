@@ -264,7 +264,7 @@ Tro, MM titles; DIK title; LL publication data; VA publication data; DD volume/p
 ## 5. Numerics (chunk A; all NUMERICAL, none certified)
 
 - `checks/table2.py` → `checks/table2.out` (Table 2). Run:
-  `/mnt/c/Users/gspea/source/repos/jacobi-asymptotics/.venv/bin/python papers/paper2/checks/table2.py > checks/table2.out`
+  `.venv/bin/python papers/paper2/checks/table2.py > papers/paper2/checks/table2.out` (from the repo root)
   (≈ 1 min; the script prepends the main repository's `src/` to `sys.path`, which has the built C kernels). Model: atoms
   k ≤ K plus Gauss–Legendre tail (log panels, ratio 1.02, 8 nodes) to T = 10⁴⁸ (p = ½) or 10¹⁶ (p = 1, 2); RKPW long
   double. Truncation runs: (K, T) = (10⁵, T), (2·10⁵, T), (2·10⁵, T/10⁴). Max spreads: 9.5·10⁻⁸ (p = ½), 1.9·10⁻⁸

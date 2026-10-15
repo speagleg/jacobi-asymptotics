@@ -32,6 +32,6 @@ Stop and write it up in the relevant LOG.md if:
 - `scripts/setup_env.sh` builds `.venv` and `csrc/build/`. Use `.venv/bin/python -m pytest` (fast suite);
   `-m slow` runs the regressions.
 - Lean: `export PATH=$HOME/.elan/bin:$PATH`; Lean 4.34.1, Mathlib v4.34.1. `lean/.lake/packages` is a symlink to the
-  shared read-only cache /root/.cache/math-pursuits-lake/packages; never run `lake update`. `lean/check.sh` = build +
+  shared read-only local Mathlib package cache (see scripts/setup_env.sh, JA_LAKE_PACKAGES); never run `lake update`. `lean/check.sh` = build +
   axioms audit (must print AUDIT OK). Check one file with `cd lean && lake env lean JacobiAsym/<File>.lean`.
 - PARI/gp: /usr/bin/gp 2.15.4.

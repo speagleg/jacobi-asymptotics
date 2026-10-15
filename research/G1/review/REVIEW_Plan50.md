@@ -287,7 +287,7 @@ not the rate"), Corollary B_{p=1}⁺ ("No rate is claimed for r > 2"), §7 GAP-r
 
 ## Numerics re-run log
 
-- From `/mnt/c/Users/gspea/source/repos/jacobi-asymptotics`:
+- From the repository root:
   `.venv/bin/python ../ja-plan50/research/G1/RH/route2/checks/check_r2p1_{lw1,ct,coeff}.py`. All three are byte-identical to
   the committed `.out` files (13 s, 80 s, 142 s).
 - Reviewer probe (scratch, not committed): Law P with an added atom at 0, for m ∈ {0, 1, 100}. The law holds, with x_n → 1.

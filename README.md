@@ -111,3 +111,7 @@ This project continues item 11 of an earlier private notebook. Copied material a
 [PROVENANCE.md](PROVENANCE.md). Zeta-zero data come from A. Odlyzko's tables (`data/fetch.py`, with checksums).
 Planning documents and working logs are kept outside the public tree, so a few internal cross-references to `LOG.md`
 files or plan documents point to unpublished notes.
+
+## License
+
+MIT; see [LICENSE](LICENSE).

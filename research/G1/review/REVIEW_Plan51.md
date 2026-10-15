@@ -5,7 +5,7 @@ merge base e5fb7a5). Targets: `research/G1/RH/route2/ROUTE2_plt1.md`; `research/
 "RII_{<1} / CT / B_{p<1}" and the §4 cross-reference; `research/G1/LOG.md` Plan 51 entry; `research/G1/RH/CITATIONS.md`
 "(DLMF-5.11, Plan 51)"; `checks/check_r2p_{coeff,lw1}.py/.out`. Bases: ROUTE2.md (Plan 48, REVIEWED) and REVIEW_Plan48.md
 (including UR′(b′)); RH_plt1b.md (REVIEWED). Comparison: Plan 52 (ROUTE2_alpha.md, Theorem SH/SH-r, REVIEWED and **already
-merged to master** as 9495e14; the path `/mnt/c/Users/gspea/source/repos/ja-plan52` named in the brief does not exist, so I read
+merged to master** as 9495e14; the plan-52 worktree path named in the brief does not exist, so I read
 Plan 52 from master in `jacobi-asymptotics`).
 
 **Overall verdict: ACCEPT WITH FIXES.** No mathematical error affects any stated theorem. The fixes are a merge and naming

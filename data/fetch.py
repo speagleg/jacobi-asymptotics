@@ -8,7 +8,9 @@ from pathlib import Path
 import numpy as np
 
 RAW = Path(__file__).resolve().parent / "raw"
-LOCAL = Path("/mnt/c/Users/gspea/source/repos/math-pursuits/items/11-zero-measure-jacobi-asymptotics/work/data/odlyzko/zeros6.gz")
+import os
+# Optional local copy (set JA_ZEROS6_LOCAL to a zeros6.gz path); otherwise the file is downloaded from URL.
+LOCAL = Path(os.environ.get("JA_ZEROS6_LOCAL", "/nonexistent/zeros6.gz"))
 URL = "https://www-users.cse.umn.edu/~odlyzko/zeta_tables/zeros6.gz"
 SHA = {"zeros6.gz": "6acacb4707c429bf368f32823a8eef0e0737b6318d3e144c78975a4986d155da"}
 
