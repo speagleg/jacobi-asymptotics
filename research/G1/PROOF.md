@@ -1177,6 +1177,8 @@ is η_W/2 (A), η_W/4 (B). *(Corrected by review F1; the first version quoted η
 
 ### 3.11 Lemma LR (Plan 40): linear response of log b_n² and a_n with an explicit ε² remainder — LR, LR′, LRa PROVED (self-contained; internal: FV, FVa, TV; §3.5 step 3 only as a cross-check); Corollary LR-law PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b); sharpness of the constants NUMERICAL; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan40.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED
 
+*Novelty (Rule L, 2026-10-14; research/program/novelty_lineB_C.md):* first-order formulas KNOWN (Fischer, Z. Anal. Anwend. 17 (1998) Lemmas 4–5, not yet quoted in CITATIONS); sharp ε² second-order bounds NOT FOUND.
+
 Setting (general, no pure-power hypothesis). The atoms x_k (k in a countable index set) are distinct reals, v_k > 0,
 and v has finite moments, Σ_k v_k|x_k|^j < ∞ for all j. f is a bounded real sequence on the atoms, and
 w(t) := v·e^{tf} (t ∈ [0, 1]), w := w(1). Put
@@ -1549,6 +1551,8 @@ some weights in [e^{−ε}, e^{ε}]·k^{−s}, for every ε ∈ (0, ε₀].
     n = 400, with median 0.004 over n ∈ [10, 401]. Both spikes survive the other window.
 
 ### 3.13 Lemma RL (Plan 42): Law P ⟺ the rescaled μ_n converge to the arcsine law with sup n^p(a_n + b_n) < ∞ (equivalently, in moments ℓ = 1, 2, 4) — RL, RL-loc PROVED (self-contained; the method is Simon 2004 Thm 3.2's, read and quoted in CITATIONS.md (Simon)); Remarks RL-b, RL-n, RL-n2 PROVED (spectral theorem for compact self-adjoint operators: textbook-standard, stated precisely, not checked against a specific source); RL2 PROVED-mod-cite (inherits Theorem R); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan42.md), fixes applied, re-check ACCEPT — REVIEWED; novelty not claimed for RL and RL-b (scaled transcription of Simon's argument), UNCHECKED for RL-loc, RL-n and RL-n2
+
+*Novelty (Rule L, 2026-10-14; novelty_lineB_C.md):* RL is Simon JAT 2004 Thm 3.2 in rescaled form (as already stated); RL-loc, RL-n/RL-n2 and the a-priori-bound clause NOT FOUND.
 
 Target T0′ of `research/program/outline_A_nodes.md`. Lemma LP (§3.8) is a special case of the forward direction for the pure power. Here
 both directions are proved for **any** measure, in particular any discrete σ = Σ w_kδ_{x_k} with x_k ↓ 0 (any nodes),
@@ -2103,6 +2107,8 @@ t ∈ {0, ½, 1}, p ∈ {2, 1, ½}, n ∈ {50, 100, 200, 400}, M = 2 … 2²⁹ 
 
 ### 3.16 Lemma QLP (Plan 46): quantitative hard-edge localization for pure powers, all M — ST, GS PROVED; BK PROVED-mod-cite (DLMF 10.25.2, 10.32.4, 10.32.9); QLP and Corollary QLP-Λ PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; KMVV (6.23); Vanlessen (4.27); KV (5.21)–(5.22) as a consistency check) for each fixed σ (endpoint ϑ = p/2 of (c) for p ≠ 1 only), CONDITIONAL on (RU) for uniformity in σ (Audit U: PROOF SKETCH); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan46.md), fixes applied — REVIEWED; novelty UNCHECKED
 
+*Novelty (Rule L, 2026-10-14; novelty_lineB_B.md):* Lemma GS KNOWN (Teschl, Jacobi Operators (1.99)–(1.100), (2.122) — not yet quoted in CITATIONS); QLP as stated NOT FOUND.
+
 Source: `research/program/outline_B_sv.md` §2 L6 (QLP), §7 WP3. Setting: x_k = k^{−p} (p > 0), v_σ := k^{−σ} (σ > 1; σ is
 the exponent s of §§3.3–3.14, written σ as in the outline; it is *not* the spectral measure here), μ_m = μ_m^{v_σ}.
 K ⊂ (1, ∞) is compact. α := α_x = (σ − 1 − p)/p ∈ (−1, ∞) is RH_px's hard-edge (Bessel) order; the Bessel scale is
@@ -2371,6 +2377,8 @@ If U5 and U6 are accepted, (RU) holds and QLP, QLP-Λ are uniform on K.
     beyond the range shown.
 
 ### 3.17 Route II (Plan 48): the pointwise Law P for k^{−s}Ψ, Ψ slowly varying (incl. D(γ) = ∞), p > 1 and 1 < s < 1 + 2p, via a Conway–Deift-type RH analysis — RedA PROVED; Theorem RII and Corollary B_{p>1} PROVED-mod-cite; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan48.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED
+
+*Novelty (Rule L, 2026-10-14; novelty_lineB_B.md):* the comparison mechanism is Conway–Deift Thm 4.7 (credit explicitly); Lemma RedA very likely KNOWN in substance (smooth variation: BGT Thm 1.3.3/1.8.2; Vuilleumier, Trans. AMS 218 (1976) — full texts not read), novelty not claimed; the theorem itself NOT FOUND.
 
 Full text: `RH/route2/ROUTE2.md` (labels per step there). Source: `research/program/outline_B_sv.md` §5 Route II (WP4, stage 1).
 Numerics: `RH/route2/checks/check_r2_{redA,lw1,coeff,mellin}.py/.out` (NUMERICAL).
@@ -2809,6 +2817,8 @@ s = 1.5, 1.75 (RII_{<1}), 2, 2.5 (via CT): at s = 2, −0.404, −0.407, −0.41
 (s = 1.5). LW1′_{<1}: sup|D_q²/q_N − 1|/η_N = 1.65 → 2.51 (N = 10² → 10¹²; → π). X0 ratio 0.23–0.24 (sup at |z| = 0.5), 0.085–0.089 on |z| ≤ 10⁻², flat in N. Atoms-only
 truncation (no tail) gives wrong values (the truncated measure has a soft edge).
 ### 3.21 Route II for s ≥ 1 + 2p (Plan 52): Christoffel transfer — Law P passes from σ to x·σ, so Theorem RII / Corollary B_{p>1} extend to every s > 1 — Lemmas CP, CT, CS, CS-r PROVED (self-contained); Theorems SH, SH-r PROVED (self-contained); Corollary B_all PROVED-mod-cite (inherits RII); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan52.md), fixes applied — REVIEWED; novelty UNCHECKED (Lemma CS very likely KNOWN in chain-sequence form)
+
+*Novelty (Rule L, 2026-10-14; novelty_lineB_A.md):* Lemma CS KNOWN (Dai–Piao–Qiao arXiv:2508.07653 Prop. 2.1); Theorem SH and CT₁'s converse without rates are a short corollary of it plus classical Christoffel formulas; SH-r/CS-r (rates) NOT FOUND.
 
 Full text: `RH/route2/ROUTE2_alpha.md`. Numerics: `RH/route2/checks/check_r2alpha_{christoffel,law}.py/.out` (NUMERICAL). Closes
 GAP-α of §3.17 / ROUTE2 §6 **for the law** (the RH analysis of the weight itself for α_x ≥ 1 is not done and not needed).
