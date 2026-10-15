@@ -18,17 +18,74 @@ problem.
 
 ---
 
-## Main results
+## Headline results
 
-| Result | Statement (short) | Where |
-|---|---|---|
-| **Averaged law** | For every $p>0$, atoms $x_k \sim Ck^{-p}$ and weights with $\sum w_k<\infty$, $w_k \ge c_1 k^{-s}$: $\log D_n = -pn^2\log n + (3p/2+\log(c(p)C))\,n^2 + o(n^2)$, where $D_n$ is the Hankel determinant. Corollary: the $n^2$ asymptotics of $\det\zeta(a(i+j)+b)$ for every real $a>0$. | `papers/paper1/`, `research/G2/` |
-| **Pointwise law, slowly varying weights** | For every $p>0$, $s>1$ and **every slowly varying** $\ell$ (e.g. $\ell(k)=e^{\sqrt{\log k}}$), the weights $w_k=k^{-s}\ell(k)$ give $n^pb_n\to c(p)$ and $n^pa_n\to 2c(p)$; with rate $O(1/n)$ if $\ell$ extends analytically to a sector. | `papers/paper2/`, `research/G1/` |
-| **Christoffel shift** | For any positive measure on $[0,\infty)$ with infinite support: Law P for $\sigma$ implies Law P for $x\,\sigma$, with the same rate if the rate is regular; conversely, Law P for $x\,\sigma$ implies it for $\sigma$. | `papers/paper2/` §3 |
-| **Rough weights break it** | There are bounded weights $k^{-s}e^{f(k)}$ with $\lvert f\rvert\le\varepsilon$ for which $n^pb_n$ and $n^pa_n$ do not converge. | `research/G1/PROOF.md` §§3.6, 3.10, 3.12 |
-| **Zeta-zero measure** | For $\sigma=\sum 2x_k\delta_{x_k}$, $x_k = 1/(\gamma_k^2+\tfrac14)$ with $\gamma_k$ the zeta ordinates: the averaged law holds **iff** a capped near-pair energy of the ordinates is $o(K^2)$; it holds under Montgomery's pair-correlation conjecture, and proving it unconditionally is at least as hard as showing that 100% of zeros are simple and on the critical line. | `research/G3prime/` |
+Throughout, $\sigma_{p,s,\ell}=\sum_k k^{-s}\ell(k)\,\delta_{k^{-p}}$, with $p>0$, $s>1$, and $\ell$ a positive weight
+factor (pure powers: $\ell\equiv1$). The status label after each result is explained under
+[How much to trust these results](#how-much-to-trust-these-results).
 
-The full index of every statement, with its exact status label and dependencies, is **[THEOREMS.md](THEOREMS.md)**.
+**1. The averaged law holds for every $p>0$.**
+Let the atoms satisfy $x_k=f(k)$ with $\xi^{p+1}f'(\xi)\to-pC$ (and $\xi^{p+1}|f'(\xi)|$ bounded above and below), and let the weights satisfy $\sum w_k<\infty$ and
+$w_k\ge c_1k^{-s}$. Then the Hankel determinants $D_n=\det(m_{i+j})_{i,j<n}$ satisfy
+
+$$\log D_n=-p\,n^2\log n+\Bigl(\tfrac{3p}{2}+\log\bigl(c(p)\,C\bigr)\Bigr)n^2+o(n^2),$$
+
+and $c(p)$ is identified through an explicitly solved constrained equilibrium problem. A corollary is the $n^2$
+asymptotics of the Hankel determinants of zeta values, $\det_{1\le i,j\le n}\zeta(a(i+j)+b)$, for every real $a>0$
+with $2a+b>1$.
+*Status: PROVED; reviewed.* &nbsp;[Paper 1](papers/paper1/main.pdf), `research/G2/`
+
+**2. The pointwise law holds for pure powers, with rate $O(1/n)$.**
+For every $p>0$ and $s>1$, the measure $\sigma_{p,s,1}=\sum_k k^{-s}\delta_{k^{-p}}$ satisfies
+
+$$n^p b_n=c(p)\bigl(1+O(1/n)\bigr),\qquad \frac{a_n}{2b_n}=1+O(1/n).$$
+
+The same method gives the pointwise law for the smooth zeta model ($x_j=1/(\gamma_j^2+\tfrac14)$ with $\gamma_j$ from the
+smooth zero-counting function): $b_n/x_n=\tfrac{\pi^2}{16}\bigl(1+\kappa/\log n+O(\log\log n/\log^2n)\bigr)$, with
+$\kappa=-0.28946\ldots$
+*Status: PROVED modulo cited Riemann–Hilbert constructions (Wu–Lin–Xu–Zhao, Kuijlaars–McLaughlin–Van Assche–Vanlessen,
+Conway–Deift, DLMF); reviewed.* &nbsp;[Paper 2](papers/paper2/main.pdf), `research/G1/RH/`
+
+**3. The pointwise law survives every slowly varying weight factor.**
+For every $p>0$, every $s>1$ and **every** slowly varying $\ell$ (for example $\ell(k)=e^{\sqrt{\log k}}$, or any
+bounded, logarithmic or iterated-logarithmic factor),
+
+$$n^p b_n\longrightarrow c(p),\qquad n^p a_n\longrightarrow 2c(p).$$
+
+If $\log\ell(e^u)$ extends analytically to a horizontal strip around the real axis, the rate is $O(1/n)$. The reviewed
+strip half-width is $\pi/p$ for $p>1$ and $\pi/2$ for $p\le1$; an extension to strips of any width is under review.
+*Status: PROVED modulo the same citations as result 2; reviewed.* &nbsp;[Paper 2](papers/paper2/main.pdf),
+`research/G1/PROOF.md` §§3.17–3.23
+
+**4. A Christoffel shift moves the law from $s$ to $s+p$.**
+For any positive measure $\sigma$ on $[0,\infty)$ with infinite support: if $\sigma$ satisfies Law P, so does
+$x\,\sigma$, with the same rate when that rate is regular. Conversely, Law P for $x\,\sigma$ implies Law P for $\sigma$.
+Since $x\cdot\sigma_{p,s,\ell}=\sigma_{p,s+p,\ell}$, this extends any base case to every larger $s$.
+*Status: PROVED; reviewed. The key limit lemma is known (chain sequences, Dai–Piao–Qiao 2025); the rate transfer was
+not found in the literature.* &nbsp;[Paper 2](papers/paper2/main.pdf) §3
+
+**5. Bounded rough weights can break the law.**
+For every $p>0$, $s>1$ and every sufficiently small $\varepsilon>0$ there is a sequence $f$ with $|f(k)|\le\varepsilon$
+such that, for the weights $k^{-s}e^{f(k)}$, the sequence $n^pb_n$ does not converge; a separate construction does the
+same for $n^pa_n$. So result 3 is sharp in the sense that slow variation cannot be replaced by mere boundedness.
+*Status: PROVED modulo the citations of result 2; reviewed.* &nbsp;`research/G1/PROOF.md` §§3.6, 3.10, 3.12
+
+**6. For the true zeta zeros, the averaged law is equivalent to a statement about close pairs of zeros.**
+Let $\sigma=\sum_k 2x_k\delta_{x_k}$ with $x_k=1/(\gamma_k^2+\tfrac14)$, where $\gamma_k$ are the ordinates of the
+nontrivial zeros of $\zeta$, taken as given real numbers. Then:
+* **unconditionally**, $\log D_n\le\Phi_n+o(n^2)$ and $\log D_n\ge\Phi_n-O(n^2)$, where $\Phi_n$ is the value
+  predicted by the averaged law;
+* the averaged law holds **if and only if** a capped "near-pair energy" of the ordinates is $o(K^2)$;
+* it holds under Montgomery's pair-correlation conjecture (no RH needed), and also under several other stated
+  hypotheses;
+* proving it unconditionally would imply that asymptotically 100% of the zeros are simple and on the critical line,
+  so it is at least as hard as that open problem.
+
+*Status: PROVED modulo cited bounds on the zero-counting function and pair-correlation results; reviewed. Nothing here
+is evidence about RH.* &nbsp;`research/G3prime/PROOF.md`
+
+The full index of every statement, with exact hypotheses, labels and dependencies, is
+**[THEOREMS.md](THEOREMS.md)**.
 
 ### How much to trust these results
 
