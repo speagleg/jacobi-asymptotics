@@ -1,0 +1,13 @@
+# LaTeX build products
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# main.bbl is tracked (arXiv bundle)
+!main.bbl

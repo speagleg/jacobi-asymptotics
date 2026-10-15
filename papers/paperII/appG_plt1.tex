@@ -1,0 +1,93 @@
+% appG_plt1.tex: the estimates of Lemma lem:plt1-band(iv)-(v), and the full soft-edge Laurent coefficient with the
+%   factor exp(-dx) (Section sec:plt1).
+
+\section{\texorpdfstring{Two verifications for $0<p<1$}{Two verifications for 0<p<1}}\label{app:plt1-residues}
+
+This appendix contains the uniform estimates (iv) and (v) of Lemma~\ref{lem:plt1-band}, which Section~\ref{sec:plt1}
+uses through Lemma~\ref{lem:plt1-weight}, and the derivative in $\mathsf d$ of the full soft-edge coefficient
+$\mathfrak A_{r,\mathsf d}$ of Lemma~\ref{lem:plt1-laurent}. Only the two combinations~\eqref{eq:plt1-combinations} of
+that coefficient enter the proof of Theorem~\ref{thm:onen}; the full matrix is recorded for completeness. The notation
+is that of Section~\ref{sec:plt1}.
+
+\subsection{\texorpdfstring{The estimates of Lemma~\ref{lem:plt1-band}}{The estimates of Lemma 10.1}}
+
+\begin{proof}[Proof of Lemma~\textup{\ref{lem:plt1-band}(iv)}]
+Let $|z|\le r_*$. For $|\zeta|\ge2r_*$ we have $|z|,1\le\frac12|\zeta|$, and expanding $1/(\zeta-z)$ and $1/(\zeta-1)$ in
+geometric series gives
+\[
+  \mathfrak K(\zeta,z)=\sum_{k=1}^K(z^k-1)\zeta^{-k-1}+O(|\zeta|^{-K-2})
+\]
+uniformly in $|z|\le r_*$, without any dependence on the distance from $z$ to the seams. Split~\eqref{eq:plt1-repr} and
+the integrals $\mathsf M_k$, $k\le K$, at $r=2r_*$.
+
+\emph{Far part.} By the expansion, the far part of $G(z)-G(1)-\sum_{k\le K}\mathsf M_k(z^k-1)$ is at most
+$C\int_{2r_*}^\infty\mathfrak j(r)r^{-K-2}\diff r$ plus the near parts of the $\mathsf M_k$. By the computation in the proof of
+Lemma~\ref{lem:plt1-band}(iii) with $k=K+1$,
+$\int_0^\infty\mathfrak j(r)r^{-K-2}\diff r=p(2\pi)^{-(K+1)p}\Gamma((K+1)p)\zeta(1+(K+1)p)\,n^{-(K+1)p}$.
+
+\emph{Near part.} On $r\le2r_*$ we have $\mathfrak j(r)\le2e^{-2\pi nr^{-1/p}}$ as soon as
+$e^{-2\pi n(2r_*)^{-1/p}}\le\frac12$, and $|\mathfrak j'(r)|\le Cnr^{-1-1/p}e^{-2\pi nr^{-1/p}}$; both are $O(e^{-n/C})$ on
+$[r_0,2r_*]$ for every fixed $r_0>0$ and vanish to infinite order at $0$. The near parts of the $\mathsf M_k$ are therefore
+$O(e^{-n/C})$. For the near part of~\eqref{eq:plt1-repr}, if $\mathrm{dist}(z,\Sseam_+\cup\Sseam_-)\ge\eta_0$ for a fixed
+$\eta_0>0$, then $|\mathfrak K(\zeta,z)|\le C/\eta_0$ on the seams (where $|\zeta-1|\ge\sin\thseam$), and the near part is
+$O(e^{-n/C})$. If $z$ is close to, or on, a seam, let $z^*$ be the nearest seam point and subtract $\mathfrak j(|z^*|)$ on the
+window $|\zeta-z^*|\le\frac12|z^*|$, as in the proof of Lemma~\ref{lem:corner}(iii): the constant gives
+$\mathfrak j(|z^*|)$ times a bounded logarithm, the remainder on the window is controlled by $|\mathfrak j'|$, and off
+the window $|\zeta-z|\ge(|\zeta|+|z^*|)/C$. Since $\mathfrak j$ and $\mathfrak j'$ are $O(e^{-n/C})$ away from $0$ and
+super-small near $0$, where $|\zeta-z|\ge|\zeta|\sin\thseam$ for $|\zeta|\le\frac12|z|$, the near part is $O(e^{-n/C})$,
+boundary values included. Collecting terms gives~(iv), since $e^{-n/C}\le Cn^{-(K+1)p}$.
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\textup{\ref{lem:plt1-band}(v)}]
+The sup bound is~(iv) with $K=1$, because $\mathsf M_1=\zeta(-p)n^{-p}$. For the derivative at distance $\eta$ from the
+seams, apply Cauchy's estimate on $\mathbb D(z,\eta)$, which lies in $\{|w|\le r_*\}$ and avoids the seams. For real $x$
+with $0<|x|\le\frac12r_*$, differentiate~\eqref{eq:plt1-repr} under the integral sign: the far part gives
+$C\int_{2r_*}^\infty\mathfrak j(r)r^{-3}\diff r=O(n^{-2p})$ after subtracting the derivative $\mathsf M_1$ of the linear term,
+as above; in the near part, $|\partial_z\mathfrak K(\zeta,x)|\le C|\zeta|^{-2}$ for $\zeta$ on a seam with $|\zeta|\le2r_*$,
+because $|\zeta-x|\ge\sin\thseam\max(|\zeta|,x)$ for $x>0$ and $|\zeta-x|\ge\max(|\zeta|,|x|)$ for $x<0$ (the angle between a
+seam and the negative axis is $\pi-\thseam>\pi/2$); multiplied by $\mathfrak j=O(e^{-2\pi n|\zeta|^{-1/p}})$ this gives
+$O(e^{-n/C})$. On $(-\frac12r_*,0)$ these are the values from $\Sout$, where $G$ is analytic. Finally, by~\eqref{eq:plt1-repr}
+$G-G(1)$ is the Cauchy integral $\mathcal J$ of a density that vanishes to infinite order at the corner $0$; by dominated
+convergence ($|\mathfrak K(\zeta,z)|\le C(1+|\zeta|^{-1})$ for $|z|\le\frac12|\zeta|$ or $|\zeta|\le\frac12|z|$, and the density is
+$O(e^{-2\pi n(2|z|)^{-1/p}})$ where $|\zeta|\asymp|z|$), $\mathcal J(z)$ has the same limit at $0$ from every sector. So
+$\mathsf E_n$ extends continuously to $0$.
+\end{proof}
+
+\subsection{The full soft-edge coefficient}
+
+\begin{lemma}[Derivative of the soft-edge coefficient]\label{lem:plt1-full}
+The coefficient $\mathfrak A_{r,\mathsf d}$ of Lemma~\textup{\ref{lem:plt1-laurent}} is analytic in $\mathsf d$, and
+\[
+  \frac{\diff}{\diff\mathsf d}\mathfrak A_{r,\mathsf d}\Big|_{\mathsf d=0}=c^2p\begin{pmatrix}-(\alpha+1)&i(\alpha+2)\\i\alpha&\alpha+1\end{pmatrix}.
+\]
+\end{lemma}
+
+\begin{proof}
+We repeat the computation of the soft edge in the proof of Lemma~\ref{lem:residues-full}, with $L_r$ replaced by
+$L_r-\frac12\mathsf d\mathcal R$. Put $\lambda:=1+\alpha$ and $\epsilon:=\mathsf u/(2\sqrt c)$. Since
+$\frac12\mathcal R=\frac12z^{1/2}\mathsf u=2c\,\epsilon(1+\epsilon^2)^{1/2}$,
+\[
+  L_r-\tfrac12\mathsf d\mathcal R=(\lambda-2c\mathsf d)\epsilon-\Bigl(\frac\lambda6+c\mathsf d\Bigr)\epsilon^3+O(\epsilon^5),
+\]
+an odd series whose coefficients are affine in $\mathsf d$. In the expansions of $Y_{11}$, $a^2Y_{12}$ and
+$a^{-2}Y_{21}$ in the proof of Lemma~\ref{lem:residues-full} only the terms that come from $\sinh2L_r$ and
+$\cosh2L_r$ change. To first order in $\mathsf d$,
+\[
+  \partial_{\mathsf d}Y_{11}\big|_{\mathsf d=0}=-\frac c3\epsilon+O(\epsilon^3),\qquad
+  \partial_{\mathsf d}\bigl(a^2Y_{12}\bigr)\big|_{\mathsf d=0}=O(\epsilon^3),\qquad
+  \partial_{\mathsf d}\bigl(a^{-2}Y_{21}\bigr)\big|_{\mathsf d=0}=-\frac{2c\lambda}3\epsilon+O(\epsilon^3),
+\]
+where the cubic terms are explicit (they come from $\frac16\sinh2L_r$ and $\frac1{12}\cosh2L_r$ to the next order). With
+$-\tvphi^{-1}=\mathsf g_3^{-1}\mathsf u^{-3}(1-(\mathsf g_5/\mathsf g_3)\mathsf u^2+O(\mathsf u^4))$ and~\eqref{eq:T-back}, the
+coefficient of $\mathsf u^{-2}$ is computed as in Lemma~\ref{lem:residues-full}: the coefficient of $\mathsf u^{-4}$ does not
+change (it comes from the term $\frac5{72}\epsilon^{-1}$ of $a^{-2}Y_{21}$, which does not depend on $\mathsf d$), and the
+derivative of the coefficient of $\mathsf u^{-2}$ is the stated matrix. The odd powers of $\mathsf u$ cancel for every
+$\mathsf d$, as they must by Lemma~\ref{lem:plt1-laurent}. The two combinations of~\eqref{eq:plt1-combinations} are
+consistent with this matrix: $c^2p(i\alpha-i(\alpha+2))=-2ic^2p$ and
+$c^2p(-2(\alpha+1)+2(\alpha+2))=2c^2p$.
+\end{proof}
+
+The value of Lemma~\ref{lem:plt1-full}, together with $\mathfrak A_{0,\mathsf d}=\mathfrak A_0$ and
+$\mathfrak B_{r,\mathsf d}=\mathfrak B_r$, was also verified by exact symbolic series expansion of
+$\Delta^{\mathrm{mod}}_{r,\mathsf d}$ to first order in $\mathsf d$, in which the odd powers of $\mathsf u$ were checked to
+vanish.

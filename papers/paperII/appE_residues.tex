@@ -1,0 +1,53 @@
+% appE_residues.tex: the first corrections and their Laurent coefficients.
+
+\section{The first corrections and their Laurent coefficients}\label{app:residues}
+
+This appendix gives the full Laurent data of the model corrections $\Delta_0^{\mathrm{mod}}$ and $\Delta_r^{\mathrm{mod}}$ of
+Section~\ref{sec:second}. Only the coefficient $\mathfrak A_0$, the coefficient $\mathfrak B_r$ and the two combinations
+\eqref{eq:Ar-combinations} of $\mathfrak A_r$ enter the proof of Theorem~\ref{thm:onen}, and these are computed in the proof
+of Lemma~\ref{lem:laurent}; the full matrices below are recorded for completeness, and $\mathfrak C_0$ is not used in this
+paper.
+
+\begin{lemma}[Laurent data of the first corrections]\label{lem:residues-full}
+With the notation of Lemmas~\ref{lem:local-data} and~\ref{lem:laurent},
+\[
+  \mathfrak A_r=\frac c{48}\begin{pmatrix}12\alpha^2p+24\alpha p+11p+2&-i(12\alpha^2p+48\alpha p+49p+2)\\
+  -i(12\alpha^2p+p+2)&-(12\alpha^2p+24\alpha p+11p+2)\end{pmatrix},
+\]
+and $\Delta_0^{\mathrm{mod}}(z)=\mathfrak A_0/z+\mathfrak C_0+O(z)$ near $0$ with
+\[
+  \mathfrak C_0=\frac{p+2}{96(3p+2)}\begin{pmatrix}-\mathsf c_{11}&i(26\alpha^2p+16\alpha^2+72\alpha p+48\alpha+70p+47)\\
+  i(26\alpha^2p+16\alpha^2-2p-1)&\mathsf c_{11}\end{pmatrix},
+\]
+where $\mathsf c_{11}:=10\alpha^2p+8\alpha^2-36\alpha p-24\alpha-7p-5$.
+\end{lemma}
+
+\begin{proof}
+\emph{The soft edge.} Put $\lambda:=1+\alpha$ and $\epsilon:=\mathsf u/(2\sqrt c)$. By Lemma~\ref{lem:local-data}(iii) and
+\eqref{eq:Y-airy}, using $\operatorname{arsinh}\epsilon=\epsilon-\epsilon^3/6+O(\epsilon^5)$,
+\begin{gather*}
+  Y_{11}=\frac{\lambda\epsilon}6+\frac{4\lambda^3-\lambda}{36}\epsilon^3+O(\epsilon^5),\qquad
+  a^2Y_{12}=-\frac7{72}\epsilon+\Bigl(\frac7{144}-\frac{\lambda^2}6\Bigr)\epsilon^3+O(\epsilon^5),\\
+  a^{-2}Y_{21}=\frac5{72}\epsilon^{-1}+\Bigl(\frac5{144}+\frac{\lambda^2}6\Bigr)\epsilon+O(\epsilon^3),
+\end{gather*}
+since $a^2=\epsilon-\frac12\epsilon^3+O(\epsilon^5)$ and $\cosh2L_r=1+2\lambda^2\epsilon^2+O(\epsilon^4)$. By Lemma~\ref{lem:local-data}(ii),
+$-\tvphi^{-1}=\mathsf g_3^{-1}\mathsf u^{-3}\bigl(1-(\mathsf g_5/\mathsf g_3)\mathsf u^2+O(\mathsf u^4)\bigr)$ with $\mathsf g_5/\mathsf g_3=-(7p+4)/(40pc)$.
+Insert these into~\eqref{eq:T-back} with $y_{11}=Y_{11}$, $y_{12}=a^2Y_{12}$, $y_{21}=a^{-2}Y_{21}$: each entry of the matrix
+in~\eqref{eq:T-back} is $e_{-1}\mathsf u^{-1}+e_1\mathsf u+O(\mathsf u^3)$, and the corresponding entry of $\Delta_r^{\mathrm{mod}}$ has the
+coefficient $e_{-1}/\mathsf g_3$ at $\mathsf u^{-4}$ (this is $\mathfrak B_r$) and $(e_1-(\mathsf g_5/\mathsf g_3)e_{-1})/\mathsf g_3$ at
+$\mathsf u^{-2}$, which is $\mathfrak A_r$. The odd powers of $\mathsf u$ cancel, as they must by Lemma~\ref{lem:laurent}.
+
+\emph{The hard edge.} Put $\eta:=\mathsf y/(2\sqrt c)$, $z=-\mathsf y^2$. By Lemma~\ref{lem:local-data}(iii) and the formulas
+for $Y$ in the proof of Lemma~\ref{lem:laurent},
+\[
+  Y_{11}=-4\lambda\eta+O(\eta^3),\qquad Y_{12}=1-4\alpha^2+4\lambda^2\eta^2+O(\eta^4),\qquad Y_{21}=-(3+4\alpha^2)-4\lambda^2\eta^2+O(\eta^4),
+\]
+with $a^2=\eta^{-1}+\frac12\eta+O(\eta^3)$, $a^{-2}=\eta-\frac12\eta^3+O(\eta^5)$, and, by Lemma~\ref{lem:local-data}(i),
+$f^{-1/2}=\sqrt c(p+2)\,\mathsf y^{-1}(1+\frac12f_2\mathsf y^2+O(\mathsf y^4))$. Inserting into~\eqref{eq:T-back} and multiplying by
+$1/(16f^{1/2})$ gives a series in $\mathsf y$ whose odd powers cancel, whose coefficient of $\mathsf y^{-2}$ is $-\mathfrak A_0$ (as
+$1/z=-\mathsf y^{-2}$), and whose constant term is $\mathfrak C_0$ after $f_2=(p+2)/(12c(3p+2))$ is inserted.
+\end{proof}
+
+The coefficients $\mathfrak A_0$, $\mathfrak A_r$, $\mathfrak B_r$ and $\mathfrak C_0$ were verified by exact symbolic series expansion,
+and the resulting coefficients at infinity also by contour integration over the two circles of corrections constructed
+numerically from quadratures of the $g$-function and of the Szeg\H{o} integral.

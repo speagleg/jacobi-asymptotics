@@ -1,0 +1,340 @@
+% sec2_prelim.tex: Section 2 (Preliminaries).
+% Labels defined here: sec:prelim, sec:prelim-op, sec:prelim-rates, sec:prelim-eq, sec:tool-wlxz, sec:tool-bessel,
+%   sec:tool-cd, sec:tool-dlmf, eq:rec-monic, eq:rec-orth, eq:coef-int, def:regular, eq:regular-facts,
+%   rem:majorant, prop:equilibrium, eq:Y-solution, eq:Y-extract, eq:CD-moments.
+
+\section{Preliminaries}\label{sec:prelim}
+
+This section fixes conventions and collects the inputs of the proofs. The only input from~\cite{Paper1} is the explicit equilibrium measure (\S\ref{sec:prelim-eq}). Every external result used later is
+stated in \S\S\ref{sec:tool-wlxz}--\ref{sec:tool-dlmf}, with its hypotheses and the equation numbers of the source,
+so that the later sections can refer to it by subsection and part.
+
+\emph{Notation used throughout.} The data are $p>0$, $s>1$ and $\ell$; the function $\Lambda$, the modulus
+$\varepsilon_\Lambda$ and the notion ``analytic of angle $\vartheta$'' are those of Definition~\ref{def:analytic}, and
+$c=c(p)$ is given by \eqref{eq:cp}. The Bessel order of the hard edge is $\alpha:=(s-1-p)/p$, so that $\alpha>-1$ for
+every $s>1$. Sections~\ref{sec:frame} and~\ref{sec:outer} hold for every $\alpha>-1$ and every $\ell$ that is analytic
+of some angle; Sections~\ref{sec:hardedge} and~\ref{sec:extraction} assume $|\alpha|<1$, that is, $1<s<1+2p$; and
+Sections~\ref{sec:classical} and~\ref{sec:second} assume $p>1$ and $\ell\equiv1$. The Riemann--Hilbert notation is
+introduced in Section~\ref{sec:frame}, and Table~\ref{tab:geometry} lists the quantities that depend on whether $p>1$,
+$p=1$ or $p<1$. Symbols used only inside one proof are local to it. We write $\mathbb D(z_0,r)$ for the open disc of
+radius $r$ about $z_0$, and $\C_\pm$ for the open upper and lower half-planes.
+
+\subsection{Orthogonal polynomials and recurrence coefficients}\label{sec:prelim-op}
+
+Let $\sigma$ be a positive Borel measure on $[0,\infty)$ with infinite support and finite moments. Its Hankel
+determinants are positive, so the monic orthogonal polynomials $P_n$ ($\deg P_n=n$) exist for every $n\ge0$. Put
+$h_n:=\int P_n^2\diff\sigma>0$, $P_{-1}:=0$ and $b_0:=0$. The polynomials satisfy the three-term recurrence
+\begin{equation}\label{eq:rec-monic}
+  xP_n=P_{n+1}+a_nP_n+b_n^2P_{n-1}\qquad(n\ge0),\qquad b_n^2=\frac{h_n}{h_{n-1}}\quad(n\ge1),
+\end{equation}
+with $a_n\in\R$ and $b_n>0$ for $n\ge1$. We call $a_n$ and $b_n$ the \emph{recurrence coefficients} of
+$\sigma$. Multiplying $\sigma$ by a positive constant does not change them. The orthonormal polynomials $p_n:=P_n/\sqrt{h_n}$
+satisfy
+\begin{equation}\label{eq:rec-orth}
+  xp_n=b_{n+1}p_{n+1}+a_np_n+b_np_{n-1}\qquad(n\ge0),
+\end{equation}
+as one sees by dividing \eqref{eq:rec-monic} by $\sqrt{h_n}$ and using $b_n^2\sqrt{h_{n-1}/h_n}=b_n$. Since $xp_j$ has
+degree $j+1$, orthonormality gives
+\begin{equation}\label{eq:coef-int}
+  a_n=\int xp_n^2\diff\sigma,\qquad b_n=\int xp_{n-1}p_n\diff\sigma,\qquad \int xp_np_j\diff\sigma=0\quad(j\le n-2).
+\end{equation}
+In matrix form, \eqref{eq:rec-orth} says that the Jacobi matrix of $\sigma$ is the symmetric tridiagonal matrix
+$\mathcal J(\sigma)$ with diagonal $(a_0,a_1,\dots)$ and off-diagonal $(b_1,b_2,\dots)$. The monic form
+\eqref{eq:rec-monic} corresponds to the non-symmetric matrix $J=J(\sigma)$ with $J_{n,n}=a_n$, $J_{n,n+1}=1$ and
+$J_{n+1,n}=b_{n+1}^2$; this is the form used in Section~\ref{sec:shift}. The ratio $a_n/(2b_n)$ always pairs the
+diagonal entry at $P_n$ with the off-diagonal entry $b_n$ between $P_{n-1}$ and $P_n$; both are read off from the same
+Riemann--Hilbert matrix of degree $n$ (Proposition~\ref{prop:frame}(viii)).
+
+If $\ell$ is analytic of angle $\vartheta$ for some $\vartheta>0$, then $\ell(k)\le C_\eta k^\eta$ for every $\eta>0$
+by the Potter bound of Lemma~\ref{lem:pottersector}(i). Taking $\eta<s-1$ shows that $\sigma_{p,s,\ell}$ is a finite
+measure on $(0,1]$ with infinitely many atoms, so everything above applies to it.
+
+\subsection{Regular rates}\label{sec:prelim-rates}
+
+\begin{definition}\label{def:regular}
+A sequence $(\eta_n)_{n\ge1}$ of positive numbers is a \emph{regular rate} if $\eta_n$ is non-increasing, $n\eta_n$ is
+non-decreasing, and $\eta_n\to0$.
+\end{definition}
+
+The basic example is $\eta_n=1/n$. Every regular rate satisfies
+\begin{equation}\label{eq:regular-facts}
+  \frac1n\le\frac{\eta_n}{\eta_1},\qquad \eta_{n-1}\le2\eta_n\quad(n\ge2),\qquad \sum_n\eta_n=\infty .
+\end{equation}
+The first holds because $n\eta_n\ge\eta_1$; the second because $(n-1)\eta_{n-1}\le n\eta_n$; the third follows from
+the first.
+
+\begin{remark}[Regular majorants]\label{rem:majorant}
+Every non-increasing sequence $\mathsf v_n>0$ with $\mathsf v_n\to0$ is dominated by a regular rate, namely
+$\eta_n:=\max_{m\le n}(m\mathsf v_m)/n$. Here $\eta_n\ge\mathsf v_n$ and $n\eta_n$ is non-decreasing by construction;
+$\eta_{n+1}\le\max\bigl(\eta_n\,n/(n+1),\mathsf v_{n+1}\bigr)\le\eta_n$ because $\mathsf v_{n+1}\le\mathsf v_n\le\eta_n$;
+and $\eta_n\to0$, since $m\mathsf v_m/n\le\mathsf v_1/\sqrt n$ for $m\le\sqrt n$ and $m\mathsf v_m/n\le\mathsf
+v_{\lceil\sqrt n\rceil}$ for $\sqrt n<m\le n$. So Theorem~\ref{thm:shift} applies to any monotone rate. In this paper we
+use it only with $\eta_n=1/n$.
+\end{remark}
+
+\subsection{The equilibrium measure}\label{sec:prelim-eq}
+
+The Riemann--Hilbert analysis of Sections~\ref{sec:frame}--\ref{sec:second} is built on the equilibrium measure of the
+constrained problem solved in~\cite{Paper1}. We use only its explicit form and the equality of its potential on the
+band; the optimality statement \cite[Theorem~1.3(iii)]{Paper1} is not used in this paper.
+
+Let $c=c(p)$, let $\gamma_p:=\log c(p)+p$, and let $\lambda_p(x):=\frac1px^{-1-1/p}$ be the density of the nodes
+$k^{-p}$ (the image of Lebesgue measure on $(0,\infty)$ under $u\mapsto u^{-p}$). For $y\in[0,1]$ and $a',b'>0$ write
+$\mathcal B_y(a',b'):=B(a',b')^{-1}\int_0^yr^{a'-1}(1-r)^{b'-1}\diff r$ for the regularised incomplete beta function,
+where $B$ is Euler's Beta function. For $\beta>0$ let $\mathrm{arc}_\beta$ be the arcsine law on $[0,\beta]$, with
+density $1/(\pi\sqrt{y(\beta-y)})$, and put $\beta_\tau:=4c\tau^{-p}$ for $0<\tau\le1$.
+
+\begin{proposition}\label{prop:equilibrium}
+Let $p>0$ and let $\mu^*:=\int_0^1\mathrm{arc}_{\beta_\tau}\diff\tau$, a probability measure on $(0,\infty)$.
+\begin{enumerate}
+\item[\textup{(i)}] $\mu^*$ has the density
+  \[
+    \psi^*(x)=\lambda_p(x)\,\mathcal B_{\min(1,\,x/4c)}\bigl(\tfrac1p+\tfrac12,\tfrac12\bigr),\qquad x>0 .
+  \]
+  In particular $\psi^*=\lambda_p$ on $[4c,\infty)$ (saturation) and $0<\psi^*<\lambda_p$ on $(0,4c)$.
+\item[\textup{(ii)}] The function $U^*(x):=\int\log|x-y|\diff\mu^*(y)$ satisfies $U^*(x)=\gamma_p$ for $0<x\le4c$, and
+  $U^*(x)\ge\gamma_p$ for all $x>0$.
+\item[\textup{(iii)}] \textup{(}Hard edge.\textup{)} As $x\to0^+$,
+  \[
+    \psi^*(x)=C_*x^{-1/2}\bigl(1+O(x)\bigr),\qquad C_*:=\frac{(4c)^{-1/p-1/2}}{p\,a_*B(a_*,\frac12)},\quad
+    a_*:=\frac1p+\frac12 .
+  \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Parts (i) and (ii) are \cite[Theorem~1.3(i)--(ii)]{Paper1}, transported from the variable $u$ to $x=u^{-p}$. There,
+$\mu^*_u$ is the image of $\mu^*$ under $x\mapsto x^{-1/p}$ and has density
+$\rho^*(u)=\mathcal B_{\min(1,u^{-p}/4c)}(\frac1p+\frac12,\frac12)$, with $\rho^*=1$ exactly on $(0,(4c)^{-1/p}]$ and
+$0<\rho^*<1$ on $((4c)^{-1/p},\infty)$. Since $|\diff u/\diff x|=\lambda_p(x)$, the density of $\mu^*$ in $x$ is
+$\lambda_p(x)\rho^*(x^{-1/p})$, which is (i). Part (ii) is quoted verbatim, with $\gamma_p=\log c+p$. For (iii), let
+$y=x/4c\le1$. Then $\int_0^yr^{a_*-1}(1-r)^{-1/2}\diff r=\frac{y^{a_*}}{a_*}(1+O(y))$, so
+$\psi^*(x)=\frac1px^{-1-1/p}(x/4c)^{1/p+1/2}\bigl(a_*B(a_*,\frac12)\bigr)^{-1}(1+O(x))$, which is (iii).
+\end{proof}
+
+The point $x=4c$ is the soft edge, $(0,4c)$ is the band, and $x=0$ is the hard edge, where $\mu^*$ has the
+inverse-square-root density of (iii).
+
+\subsection{The discrete interpolation problem of Wu, Lin, Xu and Zhao}\label{sec:tool-wlxz}
+
+This subsection and the next three state the external results used in Sections~\ref{sec:frame}--\ref{sec:pone} and
+the appendices. They are needed only from Section~\ref{sec:frame} on. Throughout, the Cauchy transform on an oriented
+contour $\Sigma$ is
+\[
+  \Cauchy f(z):=\frac1{2\pi i}\int_\Sigma\frac{f(s)\diff s}{s-z},\qquad z\in\C\setminus\Sigma,
+\]
+and $\Cauchy_\pm f$ are its non-tangential boundary values from the left ($+$) and the right ($-$) of $\Sigma$, so that
+$\Cauchy_+-\Cauchy_-=1$. For a jump matrix $v$ on $\Sigma$ we write $\Cauchy_vf:=\Cauchy_-\bigl(f(v-I)\bigr)$. The
+matrices $\sigma_1,\sigma_2,\sigma_3$ are the Pauli matrices, and $\sigma_3=\mathrm{diag}(1,-1)$.
+
+Wu, Lin, Xu and Zhao~\cite{WLXZ} develop the Riemann--Hilbert method for discrete orthogonal polynomials on infinitely
+many nodes with an accumulation point, for the Tricomi--Carlitz polynomials. For $p\ne1$ we apply none of their
+theorems to our measures; we use the formulation of the problem and the order of the transformations, and our versions
+are written out in Sections~\ref{sec:frame} and~\ref{sec:outer}. For $p=1$, Section~\ref{sec:pone} runs their analysis
+itself, in their symmetric variable and at their parameter $1$, with the weight multiplied by an explicit analytic
+factor. It uses the Tricomi--Carlitz orthogonality and recurrence \cite[(1.4)--(1.9)]{WLXZ}, the equilibrium density and
+$g$-function \cite[(2.1)--(2.4), (4.3)]{WLXZ}, the transformations \cite[(2.14)--(2.15), (3.1), (3.4), (3.6)--(3.12),
+(3.15), (4.1), (4.12)]{WLXZ}, the auxiliary functions \cite[(4.14)--(4.20), (4.22), (4.24), (4.28)]{WLXZ}, the global parametrix
+\cite[(5.11)]{WLXZ} with the constant $L$ of \cite[(5.9)]{WLXZ}, the Airy parametrices \cite[(6.8),
+(6.10)--(6.21)]{WLXZ}, and the jump and small-norm statements \cite[(5.8), (6.34)--(6.37)]{WLXZ}, all under their
+hypothesis that the parameter is positive.
+
+\emph{(a) The problem and its solution.} Let $\sigma=\sum_{k\ge1}w_k\delta_{x_k}$ with distinct nodes
+$x_k\in(0,1]$, $w_k>0$ and $\sum_kw_k<\infty$, and fix $n\ge1$. Following \cite[(2.14) and Theorem~2.3]{WLXZ}, put
+\begin{equation}\label{eq:Y-solution}
+  Y(z):=\begin{pmatrix}P_n(z) & \displaystyle\sum_k\frac{w_kP_n(x_k)}{z-x_k}\\[3mm]
+  h_{n-1}^{-1}P_{n-1}(z) & \displaystyle h_{n-1}^{-1}\sum_k\frac{w_kP_{n-1}(x_k)}{z-x_k}\end{pmatrix}.
+\end{equation}
+Then $Y$ is analytic in $\C\setminus(\{x_k\}_k\cup\{0\})$; at each node it has a simple pole with
+$\Res_{z=x_k}Y(z)=\lim_{z\to x_k}Y(z)\bigl(\begin{smallmatrix}0&w_k\\0&0\end{smallmatrix}\bigr)$ (the residue
+condition \cite[(2.14)]{WLXZ}); and $Y(z)z^{-n\sigma_3}=I+Y_1/z+Y_2/z^2+O(z^{-3})$ as $z\to\infty$, with
+\begin{equation}\label{eq:Y-extract}
+  (Y_1)_{12}(Y_1)_{21}=b_n^2,\qquad \frac{(Y_2)_{12}}{(Y_1)_{12}}-(Y_1)_{22}=a_n .
+\end{equation}
+\emph{Proof.} The sums converge locally uniformly off $\{x_k\}\cup\{0\}$, which gives analyticity, the simple poles and
+$\Res_{x_k}Y_{j2}=w_kY_{j1}(x_k)$. Write $P_m(x)=x^m+\pi_mx^{m-1}+\dots$. For $|z|>2$, expanding $(z-x)^{-1}$ gives
+$\sum_kw_kP_m(x_k)/(z-x_k)=\sum_{i\ge0}z^{-i-1}\int P_mx^i\diff\sigma$, and $\int P_mx^i\diff\sigma$ equals $0$ for $i<m$,
+$h_m$ for $i=m$ and $-\pi_{m+1}h_m$ for $i=m+1$. Hence $(Y_1)_{12}=h_n$, $(Y_1)_{21}=h_{n-1}^{-1}$,
+$(Y_2)_{12}=-\pi_{n+1}h_n$ and $(Y_1)_{22}=-\pi_n$; and $\pi_n=\pi_{n+1}+a_n$ by \eqref{eq:rec-monic}. \qed
+
+\emph{(b) Transformations.} The transformations of Section~\ref{sec:frame} follow \cite[\S\S3--5]{WLXZ}: removal of the
+poles by triangular factors built from $\Pi=\sin\theta/\theta'$ and $e^{\pm i\theta}$ \cite[(3.9)--(3.15)]{WLXZ},
+normalisation by the $g$-function \cite[(4.1)]{WLXZ}, the lens and saturated-region factors $V_\pm$, $V^\triangle_\pm$
+\cite[(4.12)--(4.13)]{WLXZ}, and conjugation by an outer scalar \cite[(5.1)]{WLXZ}. In \cite{WLXZ} these are written in
+a symmetric variable with nodes $\pm x_k$; we use only the pattern, and every jump is recomputed in
+Section~\ref{sec:frame} for our one-sided problem.
+
+\emph{(c) The soft edge.} Our Airy parametrix (Lemma~\ref{lem:airy}) follows the pattern of \cite[\S6.1, (6.4),
+(6.10)--(6.12)]{WLXZ}; it is constructed from the Airy function directly (\S\ref{sec:tool-dlmf}), and no statement of
+\cite{WLXZ} is used.
+
+\subsection{The Bessel model of Kuijlaars, McLaughlin, Van Assche and Vanlessen}\label{sec:tool-bessel}
+
+We use the explicit Bessel model of \cite[\S6]{KMVV} and its algebraic properties. In Sections~\ref{sec:hardedge}
+and~\ref{sec:extraction} we apply none of their theorems on orthogonal polynomials, so their standing hypothesis on the
+weight \cite[(1.1)]{KMVV} plays no role there. Section~\ref{sec:classical} uses the construction of part~(c) at the
+left endpoint; the hypotheses it needs are checked there.
+
+\emph{(a) The model.} Let $\alpha>-1$ and let $\Sigma_\Psi$ consist of the rays $\gamma_1:\arg\zeta=2\pi/3$,
+$\gamma_2:\arg\zeta=\pi$ and $\gamma_3:\arg\zeta=-2\pi/3$, all oriented towards the origin, with the $+$ side on the
+left \cite[Figure~3]{KMVV}. The function
+\[
+  \Psi_\alpha(\zeta)=\begin{pmatrix}I_\alpha(2\zeta^{1/2}) & \frac i\pi K_\alpha(2\zeta^{1/2})\\[1mm]
+  2\pi i\zeta^{1/2}I_\alpha'(2\zeta^{1/2}) & -2\zeta^{1/2}K_\alpha'(2\zeta^{1/2})\end{pmatrix},\qquad|\arg\zeta|<2\pi/3
+\]
+\cite[(6.23)]{KMVV}, continued to $2\pi/3<\pm\arg\zeta<\pi$ by the Hankel-function formulas \cite[(6.24)--(6.25)]{KMVV},
+solves the Bessel model problem \cite[Theorem~6.3]{KMVV}, with jumps
+\[
+  \begin{pmatrix}1&0\\e^{\alpha\pi i}&1\end{pmatrix}\ \text{on }\gamma_1,\qquad
+  \begin{pmatrix}0&1\\-1&0\end{pmatrix}\ \text{on }\gamma_2,\qquad
+  \begin{pmatrix}1&0\\e^{-\alpha\pi i}&1\end{pmatrix}\ \text{on }\gamma_3
+\]
+\cite[(6.16)--(6.18)]{KMVV}. Uniformly as $\zeta\to\infty$ in $\C\setminus\Sigma_\Psi$,
+\[
+  \Psi_\alpha(\zeta)=(2\pi\zeta^{1/2})^{-\sigma_3/2}\frac1{\sqrt2}
+  \begin{pmatrix}1+O(\zeta^{-1/2})&i+O(\zeta^{-1/2})\\ i+O(\zeta^{-1/2})&1+O(\zeta^{-1/2})\end{pmatrix}e^{2\zeta^{1/2}\sigma_3}
+\]
+\cite[(6.28)]{KMVV}, which follows from the large-argument expansions (\S\ref{sec:tool-dlmf}) of the Bessel and Hankel
+functions in (6.23)--(6.25); this also covers the rays moved by (b) (\S\ref{sec:he-model}). As $\zeta\to0$
+\cite[(6.19)--(6.21)]{KMVV}: for $\alpha>0$ the two columns of $\Psi_\alpha(\zeta)$ are $O(|\zeta|^{\alpha/2})$ and
+$O(|\zeta|^{-\alpha/2})$ in $|\arg\zeta|<2\pi/3$, and all entries are $O(|\zeta|^{-\alpha/2})$ in $2\pi/3<|\arg\zeta|<\pi$;
+for $\alpha=0$ all entries are $O(\log|\zeta|)$; for $\alpha<0$ all entries are $O(|\zeta|^{\alpha/2})$.
+
+\emph{(b) Angle freedom.} By the remark after \cite[(6.21)]{KMVV}, the angle $2\pi/3$ may be replaced by any angle in
+$(0,\pi)$; the lens contours in the disc are then the preimages of the rays under $\zeta=n^2f(z)$, and they do not
+depend on $n$. We use rays at $\pm(\pi-\thlip)$.
+
+\emph{(c) The left endpoint.} Our hard edge has the band to its right, as the endpoint $-1$ of \cite{KMVV}. There the
+conformal map reverses orientation, and the reversal is absorbed by conjugation with $\sigma_3$:
+$\tilde\Psi(\zeta)=\sigma_3\Psi(\zeta;\alpha\to\beta)\sigma_3$ \cite[(6.51)]{KMVV}, with prefactor
+\[
+  \tilde E_n(z)=N(z)\tilde W(z)^{\sigma_3}\tfrac1{\sqrt2}\begin{pmatrix}1&i\\i&1\end{pmatrix}
+  \tilde f(z)^{\sigma_3/4}(2\pi n)^{\sigma_3/2}
+\]
+\cite[(6.53)]{KMVV}, where $N$, $\tilde W$ and $\tilde f$ are the global parametrix, an analytic square root of the
+weight and the local conformal map of \cite[(6.42)--(6.50)]{KMVV} (compare the right-endpoint formulas
+\cite[(6.27), (6.31)]{KMVV} and $\det E_n\equiv1$ \cite[(6.33)]{KMVV}). The prefactor is analytic by removability: its
+entries have at most a square-root singularity at the endpoint and it is analytic in a punctured neighbourhood
+\cite[proof of Proposition~6.5]{KMVV}. In Section~\ref{sec:hardedge} this argument is applied only to a prefactor that
+does not involve the weight.
+
+\emph{(d) A Fisher--Hartwig point in the bulk.} For a band weight $|x|^{2\alpha+1}h(x)$ near an interior point, with $h$
+analytic and zero-free and $\alpha>-1$, Kuijlaars and Vanlessen \cite[\S5]{KV} build a local parametrix from a
+model problem $\Psi$ with constant jumps on the rays $\arg\zeta=(j-1)\pi/4$ \cite[(5.17)--(5.20)]{KV}. Vanlessen
+\cite[(4.26)--(4.33)]{Van} solves it with $I_\nu$, $K_\nu$ and $H^{(1,2)}_\nu$ of the orders $\nu\in\{\alpha,\alpha+1\}$. It
+has $\det\Psi=1$ \cite[(4.53)]{Van} and the behaviour at $0$ of \cite[(5.21)--(5.22)]{KV}. As $\zeta\to\infty$ in each
+quadrant, $\Psi(\zeta)=\frac1{\sqrt2}\bigl(\begin{smallmatrix}1&-i\\-i&1\end{smallmatrix}\bigr)(I+O(1/\zeta))e^{\pi
+i\sigma_3/4}e^{-i\zeta\sigma_3}C_q$ with a constant matrix $C_q$ \cite[(4.43)--(4.46)]{Van}. The parametrix is
+$E_n\Psi(nf)W^{-\sigma_3}e^{-n\varphi\sigma_3}$, with $f$ of \cite[(5.6)]{KV}, $W$ of \cite[(5.9)]{KV}, and the
+prefactor $E_n$ of \cite[(5.26)--(5.30)]{KV}, which is analytic by the argument of \cite[p.~19]{KV}; the factor $h$ is
+absorbed into $W$ as in \cite[\S4.1]{Van}. Only the construction is used, in Section~\ref{sec:pone}; the theorems of
+\cite{KV,Van} on orthogonal polynomials are not applied.
+
+\subsection{The comparison argument of Conway and Deift}\label{sec:tool-cd}
+
+The following are from \cite[\S4]{CD}, whose Cauchy operator is normalised as ours. Lebesgue exponents are written
+$r,r'$ (\cite{CD} writes $p,q$).
+
+\emph{(a) Boundedness and the class $\dC$} \cite[\S4.1]{CD}. $\Cauchy_\pm$ are bounded on $L^2(\Sigma)$ (and on
+$L^r(\Sigma)$, $1<r<\infty$) if and only if $\Sigma$ is Carleson. A pair $A_\pm\in L^r(\Sigma)$ belongs to
+$\dC(L^r(\Sigma))$ if $A_\pm=\Cauchy_\pm f$ for some (unique) $f\in L^r(\Sigma)$; we write $A_\pm\in I+\dC(L^r)$ if
+$A_\pm-I\in\dC(L^r)$.
+
+\emph{(b) Theorem~4.4 of \cite{CD}.} \emph{Let $v_A,v_B\in L^\infty(\Sigma)$ with $v_B^{-1}\in L^\infty(\Sigma)$. Let
+$A_\pm\in I+\dC(L^r(\Sigma))$ satisfy $A_+=A_-v_A$ on $\Sigma$, and let $B_\pm\in I+\dC(L^r(\Sigma))$ satisfy
+$B_+=B_-v_B$ on $\Sigma$, with $B_\pm^{-1}\in I+\dC(L^{r'}(\Sigma))$, $1/r+1/r'=1$. If $A,B$ are the analytic
+extensions of $A_\pm,B_\pm$, then}
+\[
+  AB^{-1}=I+\Cauchy\bigl(A_-(v_Av_B^{-1}-I)B_-^{-1}\bigr).
+\]
+\emph{Consequence (moments at infinity).} If in addition $\Sigma$ is bounded and $A=I+A_1/z+A_2/z^2+O(z^{-3})$,
+$B=I+B_1/z+B_2/z^2+O(z^{-3})$ as $z\to\infty$, then with $\mathcal E:=A_-(v_A-v_B)v_B^{-1}B_-^{-1}\in L^1(\Sigma)$
+(take $r=r'=2$),
+\begin{equation}\label{eq:CD-moments}
+  A_1-B_1=-\frac1{2\pi i}\int_\Sigma\mathcal E(s)\diff s,\qquad
+  A_2-B_2=-\frac1{2\pi i}\int_\Sigma s\mathcal E(s)\diff s+(A_1-B_1)B_1 .
+\end{equation}
+For the proof, write $v_Av_B^{-1}-I=(v_A-v_B)v_B^{-1}$; for $|z|>\max_\Sigma|s|$ expand $1/(s-z)=-\sum_{j\ge0}s^jz^{-j-1}$ in
+$\Cauchy\mathcal E(z)$ and compare with $AB^{-1}=I+(A_1-B_1)z^{-1}+\bigl(A_2-B_2-(A_1-B_1)B_1\bigr)z^{-2}+O(z^{-3})$.
+This is the mechanism of \cite[Proposition~4.9]{CD}, whose proof identifies $\mu=Q_-$ and $\tilde\mu=\tilde Q_-$.
+Formula (4.14) of \cite{CD} is printed without the factor $v_B^{-1}$; it agrees with \eqref{eq:CD-moments} when
+$(v_A-v_B)v_B^{-1}=v_A-v_B$, as in their setting. We use the form derived from Theorem~4.4.
+
+\emph{(c) Solution formula} \cite[\S4.2]{CD}. If $1-\Cauchy_{v}$ is invertible on $L^2(\Sigma)$, then
+$\mu:=(1-\Cauchy_v)^{-1}I$ gives the unique solution $X(z)=I+\Cauchy(\mu(v-I))(z)$ of the Riemann--Hilbert problem
+normalised at infinity with jump $v$.
+
+\emph{(d) The Neumann-series step} \cite[proof of Theorem~4.7, (4.12)--(4.13)]{CD}. If
+$\|(1-\Cauchy_{\tilde v})^{-1}\|_{L^2\to L^2}\le K$ and $\|\Cauchy_v-\Cauchy_{\tilde v}\|_{L^2\to L^2}\le1/(2K)$, then
+\[
+  (1-\Cauchy_v)^{-1}=(1-\Cauchy_{\tilde v})^{-1}\bigl(1-(\Cauchy_v-\Cauchy_{\tilde v})(1-\Cauchy_{\tilde v})^{-1}\bigr)^{-1}
+\]
+exists and has norm at most $2K$, since the inner factor is $1$ minus an operator of norm at most $\frac12$. In
+\cite{CD} the smallness comes from $\|v-\tilde v\|_{L^\infty(\Sigma)}\to0$.
+
+\emph{(e) Proposition~4.6 of \cite{CD}} (attributed there to Deift and Zhou). The operators $(1-\Cauchy_{h_n})^{-1}$
+are bounded uniformly in $n$ if and only if the inhomogeneous problem $m_+=m_-h_n+g$ on $\Sigma$,
+$m_\pm\in\dC(L^2(\Sigma))$, is uniquely solvable for every $g\in L^2(\Sigma)$ with $\|m_\pm\|_{L^2}\le C\|g\|_{L^2}$, $C$
+independent of $n$ and $g$. We use only the direction ``solvable with bounds $\Rightarrow$ bounded inverse'', and we
+re-prove it in Appendix~\ref{app:resolvent}.
+
+We do not use \cite[Theorem~4.5]{CD}, whose proof is specific to the Legendre comparison problem.
+
+\subsection{Special functions}\label{sec:tool-dlmf}
+
+All formulas are from \cite{DLMF}, with principal branches throughout. ``Uniformly in closed subsectors'' of a sector
+means uniformly in every closed sector contained in it.
+
+\emph{(a) The Gamma function.} (5.5.1) $\Gamma(z+1)=z\Gamma(z)$; (5.5.3) $\Gamma(z)\Gamma(1-z)=\pi/\sin(\pi z)$,
+$z\notin\mathbb Z$; (5.11.1) $\mathrm{Ln}\,\Gamma(z)\sim(z-\frac12)\ln z-z+\frac12\ln(2\pi)+\sum_{k\ge1}
+\frac{B_{2k}}{2k(2k-1)z^{2k-1}}$ as $z\to\infty$, uniformly in closed subsectors of $|\mathrm{ph}\,z|<\pi$, where by
+\S5.11(ii) the remainder after the term $k=m-1$ is at most $\sec^{2m}(\frac12\mathrm{ph}\,z)$ times the first neglected
+term; (5.12.3), (5.12.1) $\int_0^\infty t^{a'-1}(1+t)^{-a'-b'}\diff t=B(a',b')=\Gamma(a')\Gamma(b')/\Gamma(a'+b')$ for
+$\re a',\re b'>0$. (5.2.1) $\Gamma(z)=\int_0^\infty e^{-t}t^{z-1}\diff t$ for $\re z>0$.
+
+\emph{(b) Airy functions} (\S\S9.2, 9.7). $\mathrm{Ai}$ is entire, and $\mathrm{Ai}(z)$, $\mathrm{Ai}(ze^{\mp2\pi
+i/3})$ solve $w''=zw$; (9.2.8) $\mathcal W\{\mathrm{Ai}(z),\mathrm{Ai}(ze^{\mp2\pi i/3})\}=e^{\pm\pi i/6}/(2\pi)$;
+(9.2.12) $\mathrm{Ai}(z)+e^{-2\pi i/3}\mathrm{Ai}(ze^{-2\pi i/3})+e^{2\pi i/3}\mathrm{Ai}(ze^{2\pi i/3})=0$. By
+(9.7.5)--(9.7.6), as $z\to\infty$ uniformly in closed subsectors of $|\mathrm{ph}\,z|<\pi$, with
+$\chi:=\frac23z^{3/2}$,
+\[
+  \mathrm{Ai}(z)\sim\frac{e^{-\chi}}{2\sqrt\pi\,z^{1/4}}\sum_{k\ge0}\frac{(-1)^ku_k}{\chi^k},\qquad
+  \mathrm{Ai}'(z)\sim-\frac{z^{1/4}e^{-\chi}}{2\sqrt\pi}\sum_{k\ge0}\frac{(-1)^kv_k}{\chi^k},
+\]
+where, by (9.7.2), $u_0=v_0=1$, $u_k=(2k+1)(2k+3)\cdots(6k-1)/(216^kk!)$ and $v_k=\frac{6k+1}{1-6k}u_k$; in
+particular $u_1=\frac5{72}$ and $v_1=-\frac7{72}$.
+
+\emph{(c) Modified Bessel functions.} (10.25.2)
+$I_\nu(z)=(\frac12z)^\nu\sum_{k\ge0}(\frac14z^2)^k/(k!\,\Gamma(\nu+k+1))$, analytic in $\C\setminus(-\infty,0]$
+(\S10.25(ii)); (10.27.4) $K_\nu=\frac12\pi(I_{-\nu}-I_\nu)/\sin(\nu\pi)$ for $\nu\notin\mathbb Z$; (10.31.2)
+$K_0(z)=-(\ln(\frac12z)+\gamma_{\mathrm E})I_0(z)+\frac14z^2+\dotsb$, $\gamma_{\mathrm E}$ being Euler's constant and the
+dots an entire function of $z^2$; (10.28.2) $\mathcal W\{K_\nu,I_\nu\}(z)=1/z$, which with (6.23) of
+\S\ref{sec:tool-bessel} gives $\det\Psi_\alpha=1$. For $|\mathrm{ph}\,z|<\frac12\pi$, (10.32.4)
+$I_\nu(z)=\frac1\pi\int_0^\pi e^{z\cos\theta}\cos(\nu\theta)\diff\theta-\frac{\sin(\nu\pi)}\pi\int_0^\infty e^{-z\cosh t-\nu t}\diff t$
+and (10.32.9) $K_\nu(z)=\int_0^\infty e^{-z\cosh t}\cosh(\nu t)\diff t$.
+
+\emph{(d) Large argument} (\S\S10.17, 10.40, $\nu$ fixed). The coefficients are, by (10.17.1) and (10.17.8),
+\begin{gather*}
+  a_k(\nu)=\frac{(4\nu^2-1^2)(4\nu^2-3^2)\cdots(4\nu^2-(2k-1)^2)}{k!\,8^k},\\
+  b_k(\nu)=\frac{(4\nu^2-1^2)\cdots(4\nu^2-(2k-3)^2)\,(4\nu^2+4k^2-1)}{k!\,8^k},
+\end{gather*}
+with $a_0(\nu)=b_0(\nu)=1$; for instance $a_1(\nu)=(4\nu^2-1)/8$ and $b_1(\nu)=(4\nu^2+3)/8$. Let
+$\mathsf s_\pm(z):=\sum_k(\pm1)^ka_k(\nu)z^{-k}$. The expansions (10.40.1), (10.40.2) and (10.40.5) read
+\begin{align*}
+  I_\nu(z)&\sim e^z(2\pi z)^{-1/2}\mathsf s_-(z),&&|\mathrm{ph}\,z|<\tfrac12\pi,\\
+  K_\nu(z)&\sim(\pi/2z)^{1/2}e^{-z}\mathsf s_+(z),&&|\mathrm{ph}\,z|<\tfrac32\pi,\\
+  I_\nu(z)&\sim(2\pi z)^{-1/2}\bigl(e^z\mathsf s_-(z)\pm ie^{\pm\nu\pi i}e^{-z}\mathsf s_+(z)\bigr),
+    &&-\tfrac12\pi<\pm\mathrm{ph}\,z<\tfrac32\pi,
+\end{align*}
+uniformly in closed subsectors; and (10.40.3)--(10.40.4) are the expansions of $I_\nu',K_\nu'$ in the sectors of
+(10.40.1)--(10.40.2), with $b_k(\nu)$ in place of $a_k(\nu)$ and an overall minus sign for $K_\nu'$. For the Hankel
+functions, with $\varpi:=z-\frac12\nu\pi-\frac14\pi$ (10.17.2) and $\delta>0$ arbitrarily small, (10.17.5)
+$H^{(1)}_\nu(z)\sim(2/(\pi z))^{1/2}e^{i\varpi}\sum_ki^ka_k(\nu)z^{-k}$ for $-\pi+\delta\le\mathrm{ph}\,z\le2\pi-\delta$,
+and (10.17.6) $H^{(2)}_\nu(z)\sim(2/(\pi z))^{1/2}e^{-i\varpi}\sum_k(-i)^ka_k(\nu)z^{-k}$ for
+$-2\pi+\delta\le\mathrm{ph}\,z\le\pi-\delta$; (10.17.11)--(10.17.12) give $H^{(1,2)\prime}_\nu(z)\sim\pm
+i(2/(\pi z))^{1/2}e^{\pm i\varpi}\sum_k(\pm i)^kb_k(\nu)z^{-k}$ in the same two sectors. None of these expansions
+restricts $|\nu|$.
+
+\emph{(e) The zeta function.} (25.2.1) $\zeta(w)=\sum_{m\ge1}m^{-w}$ for $\re w>1$, and the reflection formula (25.4.1)
+$\zeta(1-w)=2(2\pi)^{-w}\cos(\frac12\pi w)\Gamma(w)\zeta(w)$ for $w\ne0,1$ (we write $w$ for the variable, since $s$ is
+the exponent of the weights).

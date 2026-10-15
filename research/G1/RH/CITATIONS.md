@@ -794,3 +794,11 @@ Lemma S); (DLMF-9, Paper 2) 9.7.5–9.7.6 (|ph| ≤ 5π/6 on the closed sectors 
 (DLMF-10.40, Paper 2) 10.40.1–10.40.2 (phases in [−π/4, π/4], ν = a ± ½ fixed). DLMF 5.5.1 (Γ(t+1) = tΓ(t), to rewrite log H as the
 remainder of 5.11.1) as quoted in "(DLMF-5.11, Plan 51)". Internal: RH₁(r) (RH_p1_general.md, REVIEWED), RH₁ (RH_p1.md, REVIEWED), SECOND Lemmas 2.1, 2.2
 (REVIEWED), UL Lemma V and Cor UL-3.10 (REVIEWED).
+
+## (Paper II reuse, Plan 72) entries above used by papers/paperII §§10–11 and Apps. G–H — no new external source read
+DLMF (10.32.4), (10.32.9) (App. F case (b)): recorded in research/G1/CITATIONS.md "(DLMF-3)" (Paper II referee m5).
+KMVV (6.19)–(6.21): "(KMVV, additional quotes for Plan 14)" and "(KMVV)". DLMF 5.2.1, 25.2.1, 25.4.1: "(DLMF-zeta, Plan 67)".
+WLXZ v1 (1.4)–(1.9), (2.1)–(2.4), (2.14)–(2.15), (3.1)–(3.15), (4.1), (4.3), (4.12), (4.14)–(4.20), (4.22), (4.24), (4.28),
+(5.8), (5.9), (5.11), (6.8), (6.10)–(6.21), (6.34)–(6.37): the (WLXZ-v1) entries above (Plans 53, 66). KV §5, Vanlessen §4:
+"(KV)", "(KV, additional quotes for Plan 50)", "(Van)", "(Van, Plan 50)", "(Van, Plan 66)". The Paper II text cites
+(4.14)–(4.20), (4.22) rather than the range (4.14)–(4.22), because (4.21) is not quoted here.

@@ -124,7 +124,7 @@ C¹ density 𝔢′ after an integration by parts; 𝔢(−2R₁)/(−2R₁ − 
 Cauchy's estimate applied to (i) on the disc U(z, η) ⊂ {|w| ≤ R₁} ∖ (−∞, 0]. ∎
 
 *Remarks.* (1) The two O(1/n) pieces do exist separately: −j(t) = −z^{1/p}/(12n) + O(n⁻³) and log B(z) =
-(z^{1/p} − 1)/(12n) + O(n^{−p}) on compacts — the Binet term's cut on (−∞, 0) is exactly what B is built to remove, and the
+(z^{1/p} − 1)/(12n) + O(n^{−p} + n⁻³) on compacts (corrected 2026-10-15, Paper II referee m2: the n⁻³ term of −j dominates for p > 3) — the Binet term's cut on (−∞, 0) is exactly what B is built to remove, and the
 subtracted Cauchy transform of the jump of z^{1/p} is z^{1/p} − 1 (Liouville, since 1/p < 1). RH_px Lemma 3.2(iv) and
 SECOND §4 step 3 bounded D̃ and B separately and so saw O(1/N). (2) Numerically (check_e_flat.out),
 max|G(z) − G(1)|·n^p is stable in n at p = 3/2, 3 while |j(t(z)) − j(t(1))|·n is stable, i.e. each factor varies at

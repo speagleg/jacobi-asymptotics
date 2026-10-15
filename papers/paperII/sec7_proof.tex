@@ -1,0 +1,100 @@
+% sec7_proof.tex: extraction (Theorem 7.1), then Theorem 1.2 and Corollary 1.3.
+
+\section{\texorpdfstring{Proof of Theorems~\ref{thm:window} and~\ref{thm:analytic} and Corollary~\ref{cor:pure}}{Proof of Theorems 7.1 and 1.2 and Corollary 1.3}}\label{sec:extraction}
+
+Proposition~\ref{prop:moments} determines the first two coefficients of $Q$ at infinity up to $O(1/n)$. Reading the
+recurrence coefficients off them proves the following theorem, the base case of the argument, in the window
+$|\alpha|<1$ to which Section~\ref{sec:hardedge} is restricted. The Christoffel shift of Section~\ref{sec:shift} then carries the result to every $s>1$, and the case
+$\ell\equiv1$ gives Corollary~\ref{cor:pure}.
+
+\begin{theorem}[Base window]\label{thm:window}
+Let $p>0$ and $1<s<1+2p$, so that $\alpha=(s-1-p)/p\in(-1,1)$, and let $\ell$ be analytic of angle $\vartheta$ for some
+$\vartheta>0$ (Definition~\ref{def:analytic}). Then the recurrence coefficients of $\sigma_{p,s,\ell}$ satisfy
+\[
+  n^pb_n=c(p)\bigl(1+O(1/n)\bigr),\qquad \frac{a_n}{2b_n}=1+O(1/n)\qquad(n\to\infty),
+\]
+with constants depending on $p$, $s$ and $\ell$.
+\end{theorem}
+
+Theorem~\ref{thm:window} rests on Sections~\ref{sec:frame}--\ref{sec:hardedge}, and through them on the external
+results of \S\S\ref{sec:tool-wlxz}--\ref{sec:tool-dlmf}.
+
+\subsection{Extraction}\label{sec:extraction-proof}
+
+The recurrence coefficients are read off from the first two coefficients of $Q$ at infinity through the functionals
+$\mathsf a$ and $\mathsf b$ of~\eqref{eq:functional-a}: by Proposition~\ref{prop:frame}(viii), which rests on the
+invariance of these functionals (Lemma~\ref{lem:invariance}), $\mathsf b(Q)=n^{2p}b_n^2$ and $\mathsf a(Q)=n^pa_n$.
+
+\begin{proof}[Proof of Theorem~\ref{thm:window}]
+For $n\ge n_1$, Proposition~\ref{prop:moments} gives $Q_1=P_1+O(1/n)$ and $Q_2=P_2+O(1/n)$, where $P_1,P_2$ are the
+coefficients of the global parametrix \eqref{eq:Pinf0}. We compute them. With $a(z)=(1-4c/z)^{1/4}$,
+\[
+  a=1-\frac cz-\frac{3c^2}{2z^2}+O(z^{-3}),\qquad a^{-1}=1+\frac cz+\frac{5c^2}{2z^2}+O(z^{-3}),
+\]
+so $\frac12(a+a^{-1})=1+\frac{c^2}{2z^2}+O(z^{-3})$ and $\frac1{2i}(a-a^{-1})=\frac{ic}z+\frac{2ic^2}{z^2}+O(z^{-3})$.
+Hence
+\[
+  (P_1)_{12}=ic,\quad (P_1)_{21}=-ic,\quad (P_1)_{22}=0,\quad (P_2)_{12}=2ic^2,
+\]
+and $\mathsf b(P^\infty_0)=c^2$, $\mathsf a(P^\infty_0)=2c$. By Proposition~\ref{prop:frame}(viii),
+\[
+  n^{2p}b_n^2=(Q_1)_{12}(Q_1)_{21}=\bigl(ic+O(\tfrac1n)\bigr)\bigl(-ic+O(\tfrac1n)\bigr)=c^2\bigl(1+O(\tfrac1n)\bigr),
+\]
+so $n^pb_n=c(1+O(1/n))$ since $b_n>0$. Since $(Q_1)_{12}=ic+O(1/n)\ne0$ for large $n$,
+\[
+  n^pa_n=\mathsf a(Q)=\frac{2ic^2+O(1/n)}{ic+O(1/n)}-O(\tfrac1n)=2c\bigl(1+O(\tfrac1n)\bigr),
+\]
+and therefore $a_n/(2b_n)=1+O(1/n)$. The constants depend on $p$, $s$ and $\ell$.
+\end{proof}
+
+The limits come entirely from the global parametrix. The values $\mathsf b(P^\infty_0)=c^2$ and $\mathsf
+a(P^\infty_0)=2c$ are the squared off-diagonal entry and the diagonal entry of the constant Jacobi matrix with diagonal
+$2c$ and off-diagonal $c$, whose spectrum is the band $[0,4c]$, and the length $4c(p)$ of the band is fixed by the
+saturation of the constrained equilibrium problem (Proposition~\ref{prop:equilibrium}). The weight, including the
+slowly varying factor, affects only the $O(1/n)$ terms.
+
+\subsection{From the base window to every \texorpdfstring{$s>1$}{s>1}}\label{sec:assembly}
+
+For a sequence of measures with recurrence coefficients $a_n,b_n$ and a constant $c>0$, the two forms of the rate
+statement are equivalent:
+\begin{equation}\label{eq:forms}
+  \Bigl\{n^pb_n=c\bigl(1+O(1/n)\bigr),\ \ \frac{a_n}{2b_n}=1+O(1/n)\Bigr\}
+  \iff |n^pa_n-2c|+|n^pb_n-c|=O(1/n).
+\end{equation}
+From the left side, $n^pa_n=2n^pb_n\cdot a_n/(2b_n)=2c(1+O(1/n))^2$; from the right side,
+$n^pb_n=c+O(1/n)$ and $a_n/(2b_n)=(2c+O(1/n))/(2c+O(1/n))$. We write $c=c(p)$.
+
+\begin{proof}[Proof of Theorem~\ref{thm:analytic}]
+Let $\ell$ be analytic of angle $\vartheta$ for some $\vartheta>0$ and let $s>1$. We show
+\begin{equation}\label{eq:analytic-all-s}
+  |n^pa_n(\sigma_{p,s,\ell})-2c|+|n^pb_n(\sigma_{p,s,\ell})-c|=O(1/n),
+\end{equation}
+which is the claim by~\eqref{eq:forms}. Let $m\ge0$ be the least integer with $s_0:=s-mp<1+2p$. If $m=0$ then
+$s_0=s>1$; if $m\ge1$ then $s-(m-1)p\ge1+2p$, so $s_0\ge1+p$. In both cases $s_0\in(1,1+2p)$.
+Theorem~\ref{thm:window} at $s_0$ and \eqref{eq:forms} give \eqref{eq:analytic-all-s} for $\sigma_{p,s_0,\ell}$. By
+\eqref{eq:shift-identity}, $\sigma_{p,s,\ell}=x^m\sigma_{p,s_0,\ell}$, and each $x^j\sigma_{p,s_0,\ell}=\sigma_{p,s_0+jp,\ell}$ is
+a positive measure on $(0,1]$ with infinite support and finite moments. Theorem~\ref{thm:shift}, applied $m$ times with
+the regular rate $\eta_n=1/n$, gives \eqref{eq:analytic-all-s} for $\sigma_{p,s,\ell}$.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:pure}]
+The constant sequence $\ell\equiv1$ is $e^{\Lambda(\log k)}$ with $\Lambda\equiv0$, which is analytic of angle
+$\vartheta$ for every $\vartheta>0$ (with $\varepsilon_\Lambda\equiv0$). Theorem~\ref{thm:analytic} gives the claim for
+$\sigma_{p,s}$, for every $p>0$ and $s>1$. For the moment sequence of zeta values, let $q>0$ and $2q+r>1$. The measure
+$\sigma_{q,2q+r}=\sum_kk^{-(2q+r)}\delta_{k^{-q}}$ has the moments
+\[
+  \int x^j\diff\sigma_{q,2q+r}=\sum_{k\ge1}k^{-(2q+r)}k^{-qj}=\zeta(qj+2q+r)\qquad(j\ge0),
+\]
+so its Hankel determinants are $\det_{1\le i,j\le n}\zeta(q(i+j)+r)$ \cite[Corollary~1.4]{Paper1}, and its recurrence
+coefficients are those of the moment sequence $(\zeta(qj+2q+r))_{j\ge0}$. The first part, with $p=q$ and
+$s=2q+r>1$, gives $n^qb_n=c(q)(1+O(1/n))$ and $a_n/(2b_n)=1+O(1/n)$.
+\end{proof}
+
+\begin{remark}[Which part of Theorem~\ref{thm:window} is used]\label{rem:base-window}
+Any half-open $s$-window of length $p$ inside $(1,1+2p)$ can serve as the base in the proof of
+Theorem~\ref{thm:analytic}. For $s>1+p/2$ one may take $s_0$ to be the unique point of $s-p\N_0$ in
+$(1+p/2,1+3p/2]$, so that $\alpha=(s_0-1-p)/p\in(-\frac12,\frac12]$. Thus for every $s>1+p/2$ only the case
+$|\alpha|\le\frac12$ of Theorem~\ref{thm:window} is used, and the range $\frac12<|\alpha|<1$ is needed only for
+$1<s\le1+p/2$, where no shift takes place. The case $\alpha=0$ cannot be avoided: for $s\in1+p+p\N_0$ every admissible
+base point has $s_0\in1+p\mathbb Z$, that is, $\alpha\in\mathbb Z\cap(-1,1)=\{0\}$.
+\end{remark}

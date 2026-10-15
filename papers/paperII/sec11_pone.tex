@@ -1,0 +1,475 @@
+% sec11_pone.tex: the 1/n term for pure powers with p=1 (Theorem thm:onen at p=1).
+% Labels defined here: sec:pone, sec:pone-sym, lem:pone-fold, sec:pone-tc, lem:pone-compare, lem:pone-christoffel,
+%   lem:pone-sandwich, prop:pone-transfer, lem:pone-tc, cor:tc, sec:pone-sdiff, lem:pone-sdiff, sec:pone-first,
+%   prop:pone-first, sec:pone-second, lem:pone-models, lem:pone-jumps, prop:pone-S1, thm:pone-chain, sec:pone-proof,
+%   rem:pone-odd, eq:pone-nu, eq:pone-weight, eq:pone-chain, eq:pone-fold-b, eq:pone-fold-a.
+
+\section{\texorpdfstring{Pure powers with $p=1$}{Pure powers with p=1}}\label{sec:pone}
+
+At $p=1$ neither of the two hard-edge constructions used so far gives the $1/n$ term. The classical parametrix of
+Section~\ref{sec:classical} needs a square root of the band weight continued across $(-\delta,0)$ with a small jump,
+and at $p=1$ the continued lens scalar jumps there by the unimodular factor $-e^{-2i\theta}$, which is not close to $1$,
+while the continued band factor $H_n=e^{2j(n/z)}$ has double poles at $z=-n/m$, $m\in\N$, which accumulate at $0$
+(Remark~\ref{rem:quotient-p1}). The comparison parametrix of Section~\ref{sec:hardedge} avoids any continuation, but it
+controls the hard edge only up to $O(1/n)$, without a $1/n$ term. This section proves Theorem~\ref{thm:onen} for $p=1$
+in a different variable, the symmetric variable $y=\pm x^{1/2}$ in which \cite{WLXZ} treat the Tricomi--Carlitz
+polynomials. There the hard edge becomes an interior point of the band, every jump outside three small circles can be
+made $O(N^{-3})$, and a second-order expansion on the circles gives a $1/N$ term whose coefficient is known to exist
+but is not computed. Its value is then fixed by two elementary facts, which do not use the Riemann--Hilbert analysis: an
+exact comparison with the Tricomi--Carlitz measure at $s=\frac32$ (\S\ref{sec:pone-tc}), and a bound on how the norms
+$h_n$ depend on $s$ (\S\ref{sec:pone-sdiff}). The comparison with Tricomi--Carlitz also gives the second-order term at
+$s=\frac32$ and $s=\frac52$ (Corollary~\ref{cor:tc}).
+
+Throughout this section $p=1$, $\ell\equiv1$, $c=c(1)=\frac12$, $\sigma_s:=\sigma_{1,s}=\sum_{k\ge1}k^{-s}\delta_{1/k}$, and
+$\alpha=s-2$.
+
+\subsection{The symmetric variable}\label{sec:pone-sym}
+
+Let $\nu$ be a positive measure on $\R$, symmetric under $t\mapsto-t$, with infinite support and finite moments, and let
+its monic orthogonal polynomials $R_N$ satisfy
+\begin{equation}\label{eq:pone-chain}
+  tR_N=R_{N+1}+\mathsf e_NR_{N-1}\qquad(N\ge0,\ \mathsf e_0:=0,\ \mathsf e_N>0);
+\end{equation}
+there is no diagonal term, by symmetry. We call $(\mathsf e_N)$ the \emph{symmetric chain} of $\nu$.
+
+\begin{lemma}[Folding]\label{lem:pone-fold}
+Let $\nu$ be as above and let $\sigma$ be its image under $t\mapsto t^2$. Then the monic orthogonal polynomials of
+$\sigma$ are given by $P_m(t^2)=R_{2m}(t)$, and
+\[
+  a_m=\mathsf e_{2m}+\mathsf e_{2m+1}\quad(m\ge0),\qquad b_m^2=\mathsf e_{2m-1}\mathsf e_{2m}\quad(m\ge1),\qquad
+  u_m=\mathsf e_{2m+1},\quad l_m=\mathsf e_{2m},
+\]
+with $u_m$, $l_m$ as in Lemma~\textup{\ref{lem:transfer}}.
+\end{lemma}
+
+\begin{proof}
+By uniqueness, $R_N(-t)=(-1)^NR_N(t)$, so $R_{2m}(t)=P_m(t^2)$ for a monic polynomial $P_m$ of degree $m$, and
+$\int P_mx^j\diff\sigma=\int R_{2m}t^{2j}\diff\nu=0$ for $j<m$. Applying \eqref{eq:pone-chain} twice,
+$t^2R_{2m}=R_{2m+2}+(\mathsf e_{2m}+\mathsf e_{2m+1})R_{2m}+\mathsf e_{2m-1}\mathsf e_{2m}R_{2m-2}$, which is the
+recurrence~\eqref{eq:rec-monic} of $P_m$. At $t=0$, \eqref{eq:pone-chain} with $N=2m+1$ gives
+$\mathsf e_{2m+1}=-R_{2m+2}(0)/R_{2m}(0)=u_m$, and then $l_m=a_m-u_m=\mathsf e_{2m}$.
+\end{proof}
+
+For $\sigma_s$ we take $\nu_s:=\frac12\sum_{k\ge1}k^{-s}(\delta_{k^{-1/2}}+\delta_{-k^{-1/2}})$, with nodes $\pm k^{-1/2}$.
+Two facts make this variable suitable. The equilibrium problem of $\nu_s$ at the scale $N^{1/2}$ has a band
+$(-2,2)$ that contains the image of the hard edge as its midpoint $0$ \cite[(2.1)]{WLXZ}, and the factor $k^{-(s-3/2)}$
+of the weights becomes $|y|^{2s-3}=|y|^{2(\alpha+1/2)}$, a Fisher--Hartwig singularity at an interior point of the band,
+for which an explicit local model exists \cite[\S5]{KV}, \cite[\S4]{Van}. And at $p=1$ the index function is
+$t=N/z^2$ in the rescaled variable $z=N^{1/2}y$, so the poles of $\Gamma(t)$ lie on the imaginary axis, which carries
+no jump. The price is that the symmetric chain has a term $(-1)^N/N$, coming from the phase of the band at $0$; it
+cancels when we fold back to $a_m$ and $b_m$.
+
+\subsection{Comparison with the Tricomi--Carlitz measure}\label{sec:pone-tc}
+
+At $p=1$ the nodes $1/k$ are the values of $x$ itself, so a factor $1+\epsilon/k$ in the weights is the polynomial
+$1+\epsilon x$, whose effect on the norms is an exact Christoffel transformation. The Tricomi--Carlitz measure of
+parameter $1$ has explicit recurrence coefficients and weights $k^{k-1}e^{-k}/k!$, which differ from $k^{-3/2}$ by such a
+factor up to a remainder of order $x^2$. This subsection turns these two observations into an elementary comparison.
+
+For a finite positive measure $\nu=\sum_k\nu_k\delta_{1/k}$ with all $\nu_k>0$ we write $P_n^\nu$, $h_n(\nu)$, $a_n(\nu)$,
+$b_n(\nu)$, $u_n(\nu)$, $l_n(\nu)$ for its monic orthogonal polynomials, norms, recurrence coefficients and the
+quantities of Lemma~\ref{lem:transfer}, and
+\[
+  \mathbb E_n^\nu[f]:=\frac1{h_n(\nu)}\sum_kf(1/k)\,\nu_k\,P_n^\nu(1/k)^2,
+\]
+the expectation with respect to the spectral weights of degree $n$. By~\eqref{eq:coef-int} and~\eqref{eq:rec-orth},
+$\mathbb E_n^\nu[x]=a_n(\nu)$ and $\mathbb E_n^\nu[x^2]=a_n(\nu)^2+b_n(\nu)^2+b_{n+1}(\nu)^2$. For every measure $\nu$ as in Lemma~\ref{lem:zeros}, Lemma~\ref{lem:transfer}(ii) and
+$\int\widetilde P_n^2x\diff\nu=\int\widetilde P_n(P_{n+1}+u_nP_n)\diff\nu=u_n\int\widetilde P_nP_n\diff\nu=u_nh_n(\nu)$ give
+\begin{equation}\label{eq:pone-nu}
+  h_n(x\nu)=u_n(\nu)\,h_n(\nu)\qquad(n\ge0).
+\end{equation}
+
+\begin{lemma}[Comparable weights]\label{lem:pone-compare}
+Let $c_1\nu_k\le\nu'_k\le c_2\nu_k$ for all $k$, with $0<c_1\le c_2$. Then $c_1h_n(\nu)\le h_n(\nu')\le c_2h_n(\nu)$,
+$b_n(\nu')^2$ and $u_n(\nu')$ lie between $(c_1/c_2)$ and $(c_2/c_1)$ times $b_n(\nu)^2$ and $u_n(\nu)$, and
+$a_n(\nu')\le(c_2/c_1)^2a_n(\nu)$. If moreover $a_n(\nu)+b_n(\nu)\le C/n$ for $n\ge1$, then
+$\mathbb E_n^{\nu'}[x^j]\le C_jn^{-j}$ for $j=2,3,4$.
+\end{lemma}
+
+\begin{proof}
+$h_n(\nu)$ is the minimum of $\int\pi^2\diff\nu$ over monic $\pi$ of degree $n$, and $c_1\int\pi^2\diff\nu\le\int\pi^2\diff\nu'
+\le c_2\int\pi^2\diff\nu$; take minima, and use $b_n^2=h_n/h_{n-1}$. The same holds for $x\nu$, $x\nu'$, so
+\eqref{eq:pone-nu} gives the bound on $u_n$, and $a_n=u_n+b_n^2/u_{n-1}$ (Lemma~\ref{lem:transfer}(i)) gives the bound on
+$a_n$. For the moments, $\mathbb E_n^{\nu'}[x^{2j}]$ is the squared norm of row $n$ of the $j$-th power of the Jacobi matrix
+of $\nu'$, whose entries involve only coefficients with indices in $[n-j,n+j]$, each $O(1/n)$ for $n\ge2j$; smaller $n$ are
+absorbed in $C_j$ since $x\le1$. The odd moment follows by the Cauchy--Schwarz inequality.
+\end{proof}
+
+\begin{lemma}[Christoffel transformation by $1+\epsilon x$]\label{lem:pone-christoffel}
+Let $\epsilon>0$ and $\rho_n:=-P^\nu_{n+1}(-1/\epsilon)/P^\nu_n(-1/\epsilon)$. Then $\rho_n>0$,
+$h_n((1+\epsilon x)\nu)=\epsilon\rho_n\,h_n(\nu)$, $\epsilon\rho_0=1+\epsilon a_0(\nu)$,
+$\epsilon\rho_n=1+\epsilon a_n(\nu)-\epsilon^2b_n(\nu)^2/(\epsilon\rho_{n-1})$ for $n\ge1$, and $1\le\epsilon\rho_n\le1+\epsilon$.
+\end{lemma}
+
+\begin{proof}
+The zeros of $P_n^\nu$ lie in $(0,1]$ (Lemma~\ref{lem:zeros}), so $P_n^\nu(-1/\epsilon)$ has the sign $(-1)^n$ and
+$\rho_n>0$. With $z_0:=-1/\epsilon$, $q_n:=(P^\nu_{n+1}+\rho_nP^\nu_n)/(x-z_0)$ is a monic polynomial of degree $n$ with
+$\int q_nx^j(x-z_0)\diff\nu=0$ for $j<n$, so it is the $n$-th monic orthogonal polynomial of $(x-z_0)\nu$, and
+$h_n((x-z_0)\nu)=\int q_n(P^\nu_{n+1}+\rho_nP^\nu_n)\diff\nu=\rho_nh_n(\nu)$. Multiply by $\epsilon$. The recursion is
+\eqref{eq:rec-monic} at $z_0$, and the bounds follow from $\nu\le(1+\epsilon x)\nu\le(1+\epsilon)\nu$ and
+Lemma~\ref{lem:pone-compare}.
+\end{proof}
+
+\begin{lemma}[Variational sandwich]\label{lem:pone-sandwich}
+If $\nu'_k=\nu_ke^{f(1/k)}$ with $f$ real and $\sum_k\nu'_k<\infty$, then
+\[
+  -\log\mathbb E_n^{\nu'}\bigl[e^{-f}\bigr]\le\log\frac{h_n(\nu')}{h_n(\nu)}\le\log\mathbb E_n^\nu\bigl[e^f\bigr].
+\]
+The same holds for measures on any set of positive nodes $x_k$, with $f(x_k)$ in place of $f(1/k)$.
+\end{lemma}
+
+\begin{proof}
+By the minimum property, $h_n(\nu')\le\int(P_n^\nu)^2\diff\nu'=h_n(\nu)\mathbb E_n^\nu[e^f]$, and symmetrically
+$h_n(\nu)\le h_n(\nu')\mathbb E_n^{\nu'}[e^{-f}]$.
+\end{proof}
+
+We say that a measure $\nu$ on the nodes $1/k$ is \emph{regular with constants $(A,B)$} if $na_n(\nu)=A+O(1/n)$ and
+$nb_n(\nu)=B+O(1/n)$, and the same holds for $x\nu$ with the same $A$, $B$.
+
+\begin{proposition}[Transfer]\label{prop:pone-transfer}
+Let $v$ be a measure on the nodes $1/k$ such that $a_n$ and $b_n$ of $v$ and of $xv$ are $O(1/n)$, and let
+$w_k=Kv_k(1+\epsilon/k)e^{f_0(k)}$ with $K>0$, $\epsilon\ge0$ and $|f_0(k)|\le C_0k^{-2}$. Then:
+\begin{enumerate}
+\item[(i)] $\log h_n(w)-\log h_n(v)=\log K+\epsilon a_n(v)+O(n^{-2})$.
+\item[(ii)] If $v$ is regular with constants $(A,B)$, then $b_n$, $u_n$, $l_n$ and $a_n$ of $w$ are those of $v$ times
+  $1+O(n^{-2})$, and $w$ is regular with the same constants.
+\item[(iii)] If $v$ is regular and $f_0(k)=r_2k^{-2}+O(k^{-3})$ uniformly in $k$, then
+  \[
+    \log\frac{b_n(w)^2}{b_n(v)^2}=\epsilon\bigl(a_n(v)-a_{n-1}(v)\bigr)+O(n^{-3}),\qquad
+    \log\frac{u_n(w)}{u_n(v)}=\epsilon\bigl(a_n(xv)-a_n(v)\bigr)+O(n^{-3}).
+  \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Take $K=1$. Put $v':=(1+\epsilon x)v$, so that $w=v'e^{f_0}$, and split
+$\log h_n(w)-\log h_n(v)=\log(\epsilon\rho_n)+\Delta'_n$ with $\Delta'_n:=\log h_n(w)-\log h_n(v')$ and $\rho_n$ of
+Lemma~\ref{lem:pone-christoffel} for $v$ (if $\epsilon=0$, put $\epsilon\rho_n:=1$). The measures $v'$, $w$ are comparable
+with $v$, and $xv'$, $xw$ with $xv$, so by Lemma~\ref{lem:pone-compare} all their coefficients are $O(1/n)$ and their
+moments satisfy $\mathbb E_n[x^j]\le C_jn^{-j}$.
+
+(i) Since $|e^{\pm f_0}-1|\le C_1x^2$, Lemma~\ref{lem:pone-sandwich} gives $|\Delta'_n|\le2C_1\max(\mathbb E_n^{v'}[x^2],
+\mathbb E_n^w[x^2])=O(n^{-2})$. By Lemma~\ref{lem:pone-christoffel}, $\epsilon\rho_n-1=\epsilon a_n-\epsilon^2b_n^2/(\epsilon\rho_{n-1})=O(1/n)$,
+so $\log(\epsilon\rho_n)=\epsilon a_n(v)+O(n^{-2})$.
+
+(ii) Under regularity, $a_n(v)-a_{n-1}(v)$ and $a_n(xv)-a_n(v)$ are $O(n^{-2})$. Since $\log b_n^2=\log h_n-\log h_{n-1}$,
+(i) gives $b_n(w)/b_n(v)=1+O(n^{-2})$; applied to the pair $(xw,xv)$ and combined with~\eqref{eq:pone-nu} it gives
+$u_n(w)/u_n(v)=1+O(n^{-2})$. Then $l_n=b_n^2/u_{n-1}$ and $a_n=u_n+l_n$ follow, and by~\eqref{eq:transfer} so do the
+coefficients of $xw$ relative to $xv$.
+
+(iii) By (ii), $v'$ and $w$ are regular with the constants of $v$, so $\mathbb E_n^\nu[x^2]=(A^2+2B^2)n^{-2}+O(n^{-3})$ for
+$\nu\in\{v',w\}$. Since $e^{\pm f_0}=1\pm r_2x^2+O(x^3)$ uniformly, Lemma~\ref{lem:pone-sandwich} and the moment bounds
+give $\Delta'_n=r_2(A^2+2B^2)n^{-2}+O(n^{-3})$, hence $\Delta'_n-\Delta'_{n-1}=O(n^{-3})$. In the Christoffel factor,
+$\epsilon\rho_{n-1}=1+O(1/n)$ gives $\epsilon\rho_n=1+\epsilon a_n-\epsilon^2b_n^2+O(n^{-3})$, so
+$\log(\epsilon\rho_n)=\epsilon a_n-\epsilon^2b_n^2-\frac12\epsilon^2a_n^2+O(n^{-3})$; regularity makes
+$b_n^2-b_{n-1}^2$ and $a_n^2-a_{n-1}^2$ of order $n^{-3}$, so $\log(\epsilon\rho_n)-\log(\epsilon\rho_{n-1})=
+\epsilon(a_n-a_{n-1})+O(n^{-3})$. Adding gives the claim for $b_n$. For $u_n$ apply the same expansions to the pairs
+$(xw,xv)$ and $(w,v)$ and subtract, using~\eqref{eq:pone-nu}: the terms $\Delta'_n$ agree to $O(n^{-3})$ because $v$ and
+$xv$ have the same constants, and so do the terms $-\epsilon^2b_n^2-\frac12\epsilon^2a_n^2$.
+\end{proof}
+
+The Tricomi--Carlitz polynomials of parameter $1$ are, by Carlitz's theorem as stated in \cite[(1.4)--(1.5)]{WLXZ},
+orthogonal with respect to the symmetric measure with mass $(k+1)^{k-1}e^{-k}/k!$ at each of the points
+$\pm(k+1)^{-1/2}$, $k\ge0$. By \cite[(1.9)]{WLXZ} their leading coefficient is $1$, and \cite[(1.6)]{WLXZ} reads
+$(N+1)f_{N+1}=(N+1)tf_N-f_{N-1}$; so the symmetric chain is $\mathsf e_N=1/(N+1)$. The image under $t\mapsto t^2$ has
+mass $2e\,v_j$ at $1/j$, $j\ge1$, where
+\[
+  v_j:=\frac{j^{j-1}e^{-j}}{j!},\qquad \sigma_{\mathrm{TC}}:=\sum_{j\ge1}v_j\delta_{1/j}.
+\]
+
+\begin{lemma}[Tricomi--Carlitz data]\label{lem:pone-tc}
+\begin{enumerate}
+\item[(a)] $b_n(\sigma_{\mathrm{TC}})^2=\frac1{2n(2n+1)}$, $a_n(\sigma_{\mathrm{TC}})=\frac1{2n+1}+\frac1{2n+2}$ $(n\ge1)$,
+  $a_0=\frac12$, $u_n(\sigma_{\mathrm{TC}})=\frac1{2n+2}$, $l_n(\sigma_{\mathrm{TC}})=\frac1{2n+1}$.
+\item[(b)] $b_n(x\sigma_{\mathrm{TC}})^2=\frac1{(2n+1)(2n+2)}$, $a_n(x\sigma_{\mathrm{TC}})=\frac1{2n+2}+\frac1{2n+3}$,
+  $u_n(x\sigma_{\mathrm{TC}})=\frac{2n+5}{(2n+2)(2n+3)}$ and $l_n(x\sigma_{\mathrm{TC}})=\frac n{(n+1)(2n+3)}$.
+\item[(c)] $a_n(x^2\sigma_{\mathrm{TC}})=\frac{2n+5}{(2n+2)(2n+3)}+\frac{n+1}{(n+2)(2n+5)}$ and
+  $b_n(x^2\sigma_{\mathrm{TC}})^2=\frac{n(2n+5)}{2(n+1)^2(2n+3)^2}$.
+\item[(d)] For $\nu\in\{\sigma_{\mathrm{TC}},x\sigma_{\mathrm{TC}},x^2\sigma_{\mathrm{TC}}\}$ and $s:=\frac32,\frac52,\frac72$
+  respectively, $2nb_n(\nu)=1-\frac{s-1}{2n}+O(n^{-2})$ and $na_n(\nu)=1-\frac s{2n}+O(n^{-2})$; moreover
+  $a_n(\nu)-a_{n-1}(\nu)=-n^{-2}+O(n^{-3})$, $a_n(x\nu)-a_n(\nu)=-\frac12n^{-2}+O(n^{-3})$ for
+  $\nu\in\{\sigma_{\mathrm{TC}},x\sigma_{\mathrm{TC}}\}$. In particular $\sigma_{\mathrm{TC}}$ and $x\sigma_{\mathrm{TC}}$ are
+  regular with constants $(1,\frac12)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) is Lemma~\ref{lem:pone-fold} with $\mathsf e_N=1/(N+1)$; constant factors change no coefficient. (b) and (c) follow
+from~\eqref{eq:transfer}: $\tilde a_n=u_n+l_{n+1}$, $\tilde b_n^2=u_nl_n$. The chain of $x\sigma_{\mathrm{TC}}$ is
+determined by $u_0=a_0$ and $u_n=a_n-b_n^2/u_{n-1}$ (Lemma~\ref{lem:transfer}(i)), and the stated $u_n$, $l_n$ satisfy
+$u_0=\frac56=a_0(x\sigma_{\mathrm{TC}})$, $l_n=b_n^2/u_{n-1}$ and $u_n+l_n=\frac{4n+5}{(2n+2)(2n+3)}=a_n$. (d) is expansion
+of these rational functions. All identities in (a)--(d) were also verified by exact computer algebra.
+\end{proof}
+
+For real $t>0$, \cite[(5.11.1) and \S5.11(ii)]{DLMF} give $|j(t)-1/(12t)|\le1/(360t^3)$ for Binet's function $j$ of
+Section~\ref{sec:outer}, and $\Gamma(t+1)e^t/(\sqrt{2\pi}\,t^{t+1/2})=e^{j(t)}$ by (5.5.1). Hence
+\begin{equation}\label{eq:pone-weight}
+  k^{-3/2}=\sqrt{2\pi}\,e^{j(k)}v_k=\sqrt{2\pi}\,v_k\Bigl(1+\frac1{12k}\Bigr)e^{f_0(k)},\qquad
+  f_0(k)=\frac1{288k^2}+O(k^{-3}),
+\end{equation}
+uniformly in $k\ge1$. So $\sigma_{3/2}$ is $\sigma_{\mathrm{TC}}$ with weights multiplied by $\sqrt{2\pi}(1+x/12)e^{f_0}$, and
+$\sigma_{5/2}=x\sigma_{3/2}$ is $x\sigma_{\mathrm{TC}}$ multiplied by the same factor.
+
+\begin{corollary}[The cases $s=\frac32$ and $s=\frac52$]\label{cor:tc}
+Let $(s,\nu)=(\frac32,\sigma_{\mathrm{TC}})$ or $(\frac52,x\sigma_{\mathrm{TC}})$. Then
+\[
+  \frac{b_n(\sigma_s)}{b_n(\nu)},\quad\frac{a_n(\sigma_s)}{a_n(\nu)},\quad\frac{u_n(\sigma_s)}{u_n(\nu)},\quad
+  \frac{l_n(\sigma_s)}{l_n(\nu)}\ =\ 1-\frac1{24n^2}+O(n^{-3}),
+\]
+and the symmetric chains of $\nu_s$ and of the symmetrisation of $\nu$ satisfy
+$\mathsf e_N(\nu_s)/\mathsf e_N(\nu)=1-\frac1{6N^2}+O(N^{-3})$. Consequently
+\[
+  nb_n(\sigma_{3/2})=\frac12\Bigl(1-\frac1{4n}+\frac5{96n^2}+O(n^{-3})\Bigr),\qquad
+  nb_n(\sigma_{5/2})=\frac12\Bigl(1-\frac3{4n}+\frac{53}{96n^2}+O(n^{-3})\Bigr),
+\]
+and $N\mathsf e_N(\nu_s)=1+(\frac12-s+\mathsf f_1(-1)^N)/N+O(N^{-2})$ with $\mathsf f_1=0$ for $s=\frac32$ and
+$\mathsf f_1=-3$ for $s=\frac52$.
+\end{corollary}
+
+\begin{proof}
+Apply Proposition~\ref{prop:pone-transfer}(iii) with $v=\nu$, $\epsilon=\frac1{12}$ and $r_2=\frac1{288}$; for
+$v=\sigma_{\mathrm{TC}}$ the measure $xv=x\sigma_{\mathrm{TC}}$, and for $v=x\sigma_{\mathrm{TC}}$ it is $x^2\sigma_{\mathrm{TC}}$, and
+Lemma~\ref{lem:pone-tc}(d) gives the regularity and the differences. So
+$\log(b_n(\sigma_s)^2/b_n(\nu)^2)=-\frac1{12n^2}+O(n^{-3})$ and $\log(u_n(\sigma_s)/u_n(\nu))=-\frac1{24n^2}+O(n^{-3})$.
+Then $l_n=b_n^2/u_{n-1}$ has the ratio $(1-\frac1{12n^2})(1+\frac1{24(n-1)^2})+O(n^{-3})=1-\frac1{24n^2}+O(n^{-3})$, and
+$a_n=u_n+l_n$ has the same ratio. By Lemma~\ref{lem:pone-fold}, $\mathsf e_{2m}=l_m$ and $\mathsf e_{2m+1}=u_m$, so
+$\mathsf e_N$ has the ratio $1-\frac4{24N^2}+O(N^{-3})$. The expansions of $nb_n$ follow from Lemma~\ref{lem:pone-tc}:
+$2nb_n(\sigma_{\mathrm{TC}})=(1+\frac1{2n})^{-1/2}=1-\frac1{4n}+\frac3{32n^2}+O(n^{-3})$ and
+$2nb_n(x\sigma_{\mathrm{TC}})=(1+\frac1{2n})^{-1/2}(1+\frac1n)^{-1/2}=1-\frac3{4n}+\frac{19}{32n^2}+O(n^{-3})$, and
+$\frac3{32}-\frac1{24}=\frac5{96}$, $\frac{19}{32}-\frac1{24}=\frac{53}{96}$. The chain of $\sigma_{\mathrm{TC}}$ is
+$\mathsf e_N=1/(N+1)$, and that of $x\sigma_{\mathrm{TC}}$ is given by Lemma~\ref{lem:pone-tc}(b) through
+Lemma~\ref{lem:pone-fold}; expanding gives the constants.
+\end{proof}
+
+The mechanism behind $-\frac1{24}$ is visible in the proof: the Stirling term $1/(12k)$ of the weights is the polynomial
+factor $1+x/12$, which shifts $\log h_n$ by exactly $a_n/12+O(n^{-2})$, and $a_n-a_{n-1}\approx-n^{-2}$; the remainder
+$x^2/288$ shifts $\log h_n$ by an amount that is the same at $n$ and $n-1$ up to $O(n^{-3})$, and so drops out of $b_n$.
+For $s\notin\frac32+\N_0$ the weight $k^{-s}$ is not of the form $(1+\epsilon x)e^{O(x^2)}$ times a measure with known
+coefficients, and the comparison gives nothing; for those $s$ we need the Riemann--Hilbert analysis below.
+
+\subsection{Differences in the exponent}\label{sec:pone-sdiff}
+
+The following bound holds for every $p>0$. It controls the $s$-dependence of the norms by the pointwise law alone, and
+it is what fixes the value of the $1/n$ coefficient once its existence is known. Write $h_n(s)$, $a_n(s)$, $b_n(s)$,
+$u_n(s)$ for the quantities of $\sigma_{p,s}$.
+
+\begin{lemma}[Differences in $s$]\label{lem:pone-sdiff}
+Let $p>0$ and $s,t>1$. Then
+\[
+  \log h_n(s)-\log h_n(t)=-(s-t)\log n+O(1),\qquad
+  \sum_{j=1}^n\log\frac{b_j(s)}{b_j(t)}=-\frac{s-t}2\log n+O(1)\qquad(n\to\infty).
+\]
+\end{lemma}
+
+\begin{proof}
+Let $P_n^{(t)}$ be the monic orthogonal polynomials of $\sigma_{p,t}$, and put $F_n(s):=\log h_n(s)+s\log n$. Let $t\le s\le t+p$ and $r:=(s-t)/p\in[0,1]$. The measures $\sigma_{p,s}$ and
+$\sigma_{p,t}$ have the same atoms $x_k=k^{-p}$ and the weights differ by the factor $k^{t-s}$. By
+Lemma~\ref{lem:pone-sandwich} (with the general nodes), $h_n(s)\le h_n(t)\mathbb E_n^{(t)}[k^{t-s}]$, where
+$\mathbb E_n^{(t)}$ is the expectation with respect to the spectral weights $m_n^{(t)}(k)=k^{-t}P_n^{(t)}(x_k)^2/h_n(t)$ of
+$\sigma_{p,t}$. With $Y:=n^px_k=(n/k)^p$ we have $(k/n)^{t-s}=Y^r$, and since $y\mapsto y^r$ is concave, Jensen's
+inequality and $\mathbb E_n^{(t)}[x]=a_n(t)$ give
+\[
+  F_n(s)-F_n(t)\le\log\mathbb E_n^{(t)}[Y^r]\le r\log\bigl(n^pa_n(t)\bigr).
+\]
+By~\eqref{eq:shift-identity} and~\eqref{eq:pone-nu}, $h_n(t+p)=u_n(t)h_n(t)$, so $F_n(t+p)-F_n(t)=\log(n^pu_n(t))$. The
+upper bound with $s$ as base point and $t+p$ in place of $s$ gives $F_n(t+p)-F_n(s)\le r'\log(n^pa_n(s))$ with
+$r':=(t+p-s)/p\in[0,1]$. Hence
+\[
+  \log\bigl(n^pu_n(t)\bigr)-r'\log\bigl(n^pa_n(s)\bigr)\le F_n(s)-F_n(t)\le r\log\bigl(n^pa_n(t)\bigr).
+\]
+By Corollary~\ref{cor:pure}, $n^pa_n\to2c(p)$ and $n^pb_n\to c(p)$ at both exponents, and then $n^pu_n(t)\to c(p)$ by
+Lemma~\ref{lem:chain-limit}; all quantities are positive and finite for each $n$. So $F_n(s)-F_n(t)$ is bounded in $n$.
+Joining two arbitrary exponents by finitely many steps of length at most $p$ gives the first claim for all $s,t>1$.
+Since $h_n(s)=\zeta(s)\prod_{j\le n}b_j(s)^2$, the second claim follows.
+\end{proof}
+
+\subsection{The first-order analysis in the symmetric variable}\label{sec:pone-first}
+
+We now set up the Riemann--Hilbert problem for $\nu_s$. In this section and in Appendix~\ref{app:pone} the letters $Y$,
+$U$, $R$, $T$, $Q$, $V$, $g$, $\varphi$, $\tilde\varphi$, $\hat\varphi$, $\psi$, $\theta$, $D$, $\tilde D$, $\hat D$, $E$, $L$
+and $f$ denote the objects of \cite{WLXZ} for the Tricomi--Carlitz problem of parameter $1$, written in the rescaled
+variable $z=N^{1/2}y$; they are not the objects of the same names in Sections~\ref{sec:frame}--\ref{sec:second}. The
+degree of the symmetric problem is $N$, and $\psi$ is the equilibrium density \cite[(2.1)]{WLXZ}, which is even, has
+total mass $1$ and band $[-2,2]$. Three new ingredients enter. The first is a truncation of Stirling's series: fix an
+integer
+\[
+  m\ge\max\bigl(1,\tfrac12|\alpha+\tfrac12|\bigr),\qquad
+  \mathsf Q_m(z):=\exp\Bigl(2\sum_{k=1}^m\frac{B_{2k}}{2k(2k-1)}\Bigl(\frac{z^2}N\Bigr)^{2k-1}\Bigr),
+\]
+an entire, zero-free function with $\log\mathsf Q_m(z)=z^2/(6N)+O(N^{-3})$ on compact sets. The second is the
+Fisher--Hartwig Szeg\H{o} factor $\mathcal D_{\mathrm h}(z):=(z/\Phi(z))^{\alpha+1/2}$, $\Phi(z):=\frac12(z+(z^2-4)^{1/2})$,
+together with the Szeg\H{o} function $\mathcal D_{\mathrm q}$ of $\mathsf Q_m$ on $[-2,2]$; both are defined in
+Appendix~\ref{app:pone-global}. The third is the local model of Kuijlaars and Vanlessen for a Fisher--Hartwig point in
+the bulk \cite[\S5]{KV}, constructed by Vanlessen \cite[(4.26)--(4.33)]{Van}, which exists for every exponent
+$\alpha+\frac12>-\frac12$, that is, for every $s>1$. Let $\mathcal N$ be the global parametrix of \cite[(5.11)]{WLXZ} at
+parameter $1$, put
+\[
+  \mathcal N_s:=\mathcal D_{\mathrm q,\infty}^{\sigma_3}\,\mathcal N\,(\mathcal D_{\mathrm h}\mathcal D_{\mathrm q})^{-\sigma_3},
+  \qquad \mathcal D_{\mathrm q,\infty}:=\lim_{z\to\infty}\mathcal D_{\mathrm q}(z),
+\]
+and write $U(z_0,\varepsilon)$ for the disc of radius $\varepsilon$ about $z_0$ and
+$\mathsf W_N(z):=e^{2j(N/z^2)}/\mathsf Q_m(z)$.
+
+\begin{proposition}[First-order analysis]\label{prop:pone-first}
+Let $p=1$ and $s>1$. For small $\varepsilon>0$ there are $N_0$ and $C$ such that for $N\ge N_0$ the following hold,
+with the three circles oriented clockwise.
+There are a contour $\Sigma_{\mathsf X}$, consisting of the three circles $\partial U(0,\varepsilon)$, $\partial U(\pm2,\varepsilon)$,
+the band pieces $(-2+\varepsilon,-\varepsilon)\cup(\varepsilon,2-\varepsilon)$, the band and four lips inside $U(0,\varepsilon)$,
+and further arcs outside the three discs of total length $O(N^{1/2})$, and local parametrices $P_{\pm2}$ in
+$U(\pm2,\varepsilon)$ and $P_0$ in $U(0,\varepsilon)$, such that the matrix
+\[
+  \mathsf X:=V P_{\pm2}^{-1}\ \text{in }U(\pm2,\varepsilon),\qquad \mathsf X:=VP_0^{-1}\ \text{in }U(0,\varepsilon),\qquad
+  \mathsf X:=V\mathcal N_s^{-1}\ \text{elsewhere}
+\]
+\textup{(}in $U(0,\varepsilon)$ after conjugation by $\sigma_3$\textup{)} is analytic off $\Sigma_{\mathsf X}$, tends to $I$ at
+infinity, and satisfies $\mathsf X_+=\mathsf X_-J_{\mathsf X}$ with:
+\begin{enumerate}
+\item[(i)] $J_{\mathsf X}=P_{\pm2}\mathcal N_s^{-1}$, respectively $P_0\mathcal N_s^{-1}$ up to the same conjugation, on the
+  circles, and $|J_{\mathsf X}-I|\le C/N$ there;
+\item[(ii)] $J_{\mathsf X}=\mathcal N_{s,-}\mathrm{diag}(\mathsf W_N^{-1},\mathsf W_N)\mathcal N_{s,-}^{-1}$ on the band pieces
+  outside the discs, and $|J_{\mathsf X}-I|\le CN^{-2m-1}$ on these pieces and on the part of $\Sigma_{\mathsf X}$ inside
+  $U(0,\varepsilon)$;
+\item[(iii)] $|J_{\mathsf X}-I|\le Ce^{-N/C}$ on the remaining arcs;
+\item[(iv)] $\mathsf X_--I\in L^2(\Sigma_{\mathsf X})$, $\|\mathsf X_--I\|_{L^2(\Sigma_{\mathsf X})}\le C/N$, and
+  $\mathsf X=I+\Cauchy\bigl(\mathsf X_-(J_{\mathsf X}-I)\bigr)$ off $\Sigma_{\mathsf X}$;
+\item[(v)] with $V=I+V_1/z+O(z^{-2})$ and $\mathsf X=I+\mathsf X_1/z+O(z^{-2})$ at infinity,
+  $N\mathsf e_N(\nu_s)=(V_1)_{12}(V_1)_{21}$ exactly, $V_1=\mathcal N_{s,1}+\mathsf X_1$, and
+  $\mathsf X_1=-\frac1{2\pi i}\int_{\Sigma_{\mathsf X}}\mathsf X_-(J_{\mathsf X}-I)\diff s'$. Here
+  $(\mathcal N_{s,1})_{12}=-ie^L\mathcal D_{\mathrm q,\infty}^2$, $(\mathcal N_{s,1})_{21}=ie^{-L}\mathcal D_{\mathrm q,\infty}^{-2}$ and
+  $\mathcal D_{\mathrm q,\infty}=1+O(1/N)$.
+\end{enumerate}
+In particular $N\mathsf e_N(\nu_s)=1+O(1/N)$.
+\end{proposition}
+
+The proof is given in Appendix~\ref{app:pone}. It runs the steepest-descent analysis of \cite[\S\S3--6]{WLXZ} for the
+Tricomi--Carlitz polynomials of parameter $1$ with the weight multiplied by the analytic factor
+$e^{j(N/z^2)}(z^2)^{\alpha+1/2}$, which is how $\nu_s$ differs from the Tricomi--Carlitz measure (up to a constant). The
+transformations, the auxiliary functions $D$, $\tilde D$, $\hat D$, $E$ and the global parametrix $\mathcal N$ are those of
+\cite{WLXZ}; what is new is the Stirling truncation, the Fisher--Hartwig factor in the global parametrix, the reduction
+of the Airy parametrices to those of \cite[\S6.1]{WLXZ}, the Fisher--Hartwig parametrix at $0$ with a structured bound on
+its mismatch, and the behaviour at $0$ needed to identify $\mathsf X$ with the solution of its jump problem. The proof
+relies on the analysis of \cite{WLXZ} at two points that we do not prove again: the bound $O(e^{-cN})$ for the jumps on
+the lens and saturated contours uniformly up to the largest node, which \cite[(5.8), (6.34)]{WLXZ} assert with a brief
+justification, and the uniform boundedness on $L^2(\Sigma_{\mathsf X})$ of the Cauchy operator, which their small-norm
+step after \cite[(6.35)]{WLXZ} uses. So Proposition~\ref{prop:pone-first}, and with it the case $p=1$ of
+Theorem~\ref{thm:onen}, depends on that analysis being correct. The same dependence does not arise for $p\ne1$. The
+consequence $N\mathsf e_N=1+O(1/N)$ gives a second proof of Corollary~\ref{cor:pure} at $p=1$.
+
+\subsection{The second-order expansion}\label{sec:pone-second}
+
+The jumps of $\mathsf X$ off the circles are $O(N^{-3})$ by Proposition~\ref{prop:pone-first}(ii)--(iii), since
+$m\ge1$. So the $1/N$ term of $\mathsf X_1$ comes from the circles, where the jumps are determined by the first
+corrections of the Airy and the Fisher--Hartwig models. They depend on $N$ smoothly, through $N/z^2$, except for one
+phase at the origin. The Airy model is that of \cite[(6.8)]{WLXZ}; write $\Psi^{\mathrm W}$ for it, $\omega:=e^{2\pi i/3}$ and
+$M_0:=\bigl(\begin{smallmatrix}1&-i\\-i&1\end{smallmatrix}\bigr)$. The Fisher--Hartwig model $\Psi^{\mathrm{FH}}$ is that of
+\cite[(4.26)--(4.33)]{Van} with exponent $\alpha+\frac12$, and $C_q$ denotes the constant right factor of
+\cite[(4.43)--(4.46)]{Van} in the quadrant $q$; put
+$\mathsf B:=\frac1{\sqrt2}\bigl(\begin{smallmatrix}1&-i\\-i&1\end{smallmatrix}\bigr)$.
+
+\begin{lemma}[Two-term model expansions]\label{lem:pone-models}
+\begin{enumerate}
+\item[(a)] With $\xi:=\frac23\zeta^{3/2}$, for each of the four sectors $j$ of \cite[(6.8)]{WLXZ} there is a constant matrix
+  $X_j$ with $M_0\sqrt\pi\,\zeta^{-\sigma_3/4}\sigma_2\Psi^{\mathrm W}(\zeta)\sigma_2e^{-\xi\sigma_3}=I+X_j/\xi+O(|\xi|^{-2})$ as
+  $\zeta\to\infty$ in the closed sector.
+\item[(b)] For each of the eight sectors $j$ of \cite[\S4.2]{Van} there is a constant matrix $Y_j$ with
+  $\Psi^{\mathrm{FH}}(\zeta)=\mathsf B\bigl(I+Y_j/\zeta+O(|\zeta|^{-2})\bigr)e^{\pi i\sigma_3/4}e^{-i\zeta\sigma_3}C_q$ as
+  $\zeta\to\infty$ in the closed sector, $q$ being the quadrant that contains it.
+\end{enumerate}
+\end{lemma}
+
+The proof (Appendix~\ref{app:pone-models}) inserts two terms of the large-argument expansions
+\cite[(9.7.5)--(9.7.6), (10.17.5)--(10.17.6), (10.40.1)--(10.40.2)]{DLMF} into the formulas of the two models; the
+leading terms are \cite[(6.13)]{WLXZ} and \cite[(4.43)--(4.46)]{Van}.
+
+\begin{lemma}[Second-order jumps]\label{lem:pone-jumps}
+There are bounded matrix functions $\Delta^{(\pm2)}$ on $\partial U(\pm2,\varepsilon)$ and $\Delta^{(0)}_{\mathrm e}$,
+$\Delta^{(0)}_{\mathrm o}$ on $\partial U(0,\varepsilon)$, independent of $N$, such that, uniformly on the circles,
+\[
+  J_{\mathsf X}=I+\frac{\Delta^{(\pm2)}}N+O(N^{-2})\ \text{on }\partial U(\pm2,\varepsilon),\qquad
+  J_{\mathsf X}=I+\frac{\Delta^{(0)}_{\mathrm e}+(-1)^N\Delta^{(0)}_{\mathrm o}}N+O(N^{-2})\ \text{on }\partial U(0,\varepsilon).
+\]
+\end{lemma}
+
+The only non-smooth dependence on $N$ is the phase $e^{-N\varphi_+(0)\sigma_3}$ in the prefactor of the Fisher--Hartwig
+parametrix \cite[(5.26)]{KV}, whose phase function is $-\varphi$. On the band, $\varphi_+(x)=-\pi i\int_x^\infty\psi$ by \cite[(2.3), (4.3)]{WLXZ} and
+$g_\pm(2)=\frac l2\pm\frac{\pi i}4$ (proof of \cite[Proposition~4.2]{WLXZ}); since $\psi$ is even with total mass $1$ and
+$\int_2^\infty\psi=\frac14$, we get $\varphi_+(0)=-\frac{\pi i}2$. Conjugation by $e^{-N\varphi_+(0)\sigma_3}=i^{N\sigma_3}$
+fixes the diagonal and multiplies the off-diagonal entries by $(-1)^N$, which gives the term $(-1)^N\Delta^{(0)}_{\mathrm o}$.
+At $\pm2$ no such phase occurs, because the Airy phases $\tilde\varphi$, $\hat\varphi$ of \cite[(2.4), (4.28)]{WLXZ}
+vanish at $\pm2$ (although $\varphi_+(2)=-\frac{\pi i}4$). The rest of the proof (Appendix~\ref{app:pone-jumps}) expands the
+three factors of the band weight that depend on $N$, $e^{j(N/z^2)}=1+z^2/(12N)+O(N^{-2})$ on the circles, $\mathsf Q_m$ and
+$\mathcal D_{\mathrm q}$, to first order.
+
+\begin{proposition}[Second-order small norm]\label{prop:pone-S1}
+With the circles oriented as in Proposition~\textup{\ref{prop:pone-first}},
+\[
+  \mathsf X_1=\frac{\Xi_{\mathrm e}+(-1)^N\Xi_{\mathrm o}}N+O(N^{-2}),\qquad
+  \Xi_{\mathrm e}:=-\frac1{2\pi i}\Bigl[\sum_\pm\oint_{\partial U(\pm2,\varepsilon)}\Delta^{(\pm2)}+\oint_{\partial U(0,\varepsilon)}\Delta^{(0)}_{\mathrm e}\Bigr],
+  \quad \Xi_{\mathrm o}:=-\frac1{2\pi i}\oint_{\partial U(0,\varepsilon)}\Delta^{(0)}_{\mathrm o}.
+\]
+\end{proposition}
+
+\begin{proof}
+By Proposition~\ref{prop:pone-first}(v),
+$\mathsf X_1=-\frac1{2\pi i}\int(J_{\mathsf X}-I)\diff s'-\frac1{2\pi i}\int(\mathsf X_--I)(J_{\mathsf X}-I)\diff s'$. By
+Proposition~\ref{prop:pone-first}(i)--(iii), $\|J_{\mathsf X}-I\|_{L^1\cap L^2(\Sigma_{\mathsf X})}=O(1/N)$, since the long arcs
+have length $O(N^{1/2})$ and carry exponentially small jumps; with (iv) and the Cauchy--Schwarz inequality the second
+integral is $O(N^{-2})$. In the first, the circles contribute $\frac1N\oint(\Delta\text{'s})+O(N^{-2})$ by
+Lemma~\ref{lem:pone-jumps}, the band pieces and the arcs inside $U(0,\varepsilon)$ contribute $O(N^{-3})$, and the
+remaining arcs $O(N^{1/2}e^{-N/C})$.
+\end{proof}
+
+\begin{theorem}[The symmetric chain]\label{thm:pone-chain}
+Let $s>1$. There are real numbers $\mathsf f_0=\mathsf f_0(s)$ and $\mathsf f_1=\mathsf f_1(s)$ with
+\[
+  N\mathsf e_N(\nu_s)=1+\frac{\mathsf f_0+\mathsf f_1(-1)^N}N+O(N^{-2})\qquad(N\to\infty).
+\]
+\end{theorem}
+
+\begin{proof}
+By Proposition~\ref{prop:pone-first}(v) and Proposition~\ref{prop:pone-S1}, with $\mathcal D_{\mathrm q,\infty}^{\pm2}=1+O(1/N)$
+and $(\mathcal N_{s,1})_{12}(\mathcal N_{s,1})_{21}=1$,
+\[
+  N\mathsf e_N=\bigl((\mathcal N_{s,1})_{12}+(\mathsf X_1)_{12}\bigr)\bigl((\mathcal N_{s,1})_{21}+(\mathsf X_1)_{21}\bigr)
+  =1-ie^L(\mathsf X_1)_{21}+ie^{-L}(\mathsf X_1)_{12}+O(N^{-2}),
+\]
+which is the claim with $\mathsf f_0:=-ie^L(\Xi_{\mathrm e})_{21}+ie^{-L}(\Xi_{\mathrm e})_{12}$ and
+$\mathsf f_1:=-ie^L(\Xi_{\mathrm o})_{21}+ie^{-L}(\Xi_{\mathrm o})_{12}$. Along even and along odd $N$ the left side is real, so
+$\mathsf f_0\pm\mathsf f_1$ are real.
+\end{proof}
+
+\subsection{\texorpdfstring{Proof of Theorem~\ref{thm:onen} for $p=1$}{Proof of Theorem 1.4 for p=1}}\label{sec:pone-proof}
+
+By Lemma~\ref{lem:pone-fold} and Theorem~\ref{thm:pone-chain}, with $\mathsf e_{2m-1}=(2m-1)^{-1}(1+(\mathsf f_0-\mathsf f_1)/(2m-1)
++O(m^{-2}))$ and $\mathsf e_{2m}=(2m)^{-1}(1+(\mathsf f_0+\mathsf f_1)/(2m)+O(m^{-2}))$,
+\begin{equation}\label{eq:pone-fold-b}
+  mb_m(\sigma_s)=\frac12\Bigl(1+\frac{\mathsf f_0+\frac12}{2m}+O(m^{-2})\Bigr),\qquad
+  ma_m(\sigma_s)=1+\frac{\mathsf f_0-\frac12}{2m}+O(m^{-2});
+\end{equation}
+the terms with $\mathsf f_1$ cancel at order $1/m$, because $\frac1{2m}-\frac1{2m\pm1}=O(m^{-2})$. So $nb_n(\sigma_s)=
+\frac12(1+d(s)/n+O(n^{-2}))$ with $d(s):=\frac12(\mathsf f_0(s)+\frac12)$, for every $s>1$. By Lemma~\ref{lem:pone-sdiff} with
+$t=\frac32$,
+\[
+  \bigl(d(s)-d(\tfrac32)\bigr)\log n+O(1)=\sum_{j=1}^n\log\frac{b_j(s)}{b_j(3/2)}=-\frac{s-\frac32}2\log n+O(1),
+\]
+so $d(s)=d(\frac32)-\frac12(s-\frac32)$. By Corollary~\ref{cor:tc}, $d(\frac32)=-\frac14$. Hence $d(s)=-\frac{s-1}2$,
+$\mathsf f_0(s)=\frac12-s$, and~\eqref{eq:pone-fold-b} gives
+\begin{equation}\label{eq:pone-fold-a}
+  nb_n(\sigma_s)=\frac12\Bigl(1-\frac{s-1}{2n}+O(n^{-2})\Bigr),\qquad na_n(\sigma_s)=1-\frac s{2n}+O(n^{-2}),
+\end{equation}
+which is Theorem~\ref{thm:onen} at $p=1$, since $c(1)=\frac12$ and $s-1+p=s$. Dividing,
+$a_n/(2b_n)=1-1/(2n)+O(n^{-2})$, and $\frac12(n+s-1)^{-1}=\frac1{2n}(1-\frac{s-1}n+O(n^{-2}))$ gives the last form of
+$b_n$ in Theorem~\ref{thm:onen}. \qed
+
+The value of $d(s)$ was not obtained from a residue computation: Theorem~\ref{thm:pone-chain} gives only the existence
+of the $1/N$ term, and the value comes from Lemma~\ref{lem:pone-sdiff}, which is soft, and from the exact case
+$s=\frac32$, which is elementary.
+
+\begin{remark}[The alternating term]\label{rem:pone-odd}
+The constant $\mathsf f_1(s)$ of the alternating term of the symmetric chain is not determined by the argument above,
+since it cancels in $a_n$ and $b_n$. Corollary~\ref{cor:tc} gives $\mathsf f_1(\frac32)=0$ and $\mathsf f_1(\frac52)=-3$,
+and the numerical values in Section~\ref{sec:numerics} support $\mathsf f_1(s)=-3(s-\frac32)$ for all $s>1$
+(Section~\ref{sec:further}). It is the contribution of the off-diagonal part of the first correction $Y_j$ of the
+Fisher--Hartwig model, through the contour integral $\Xi_{\mathrm o}$, which we have not evaluated. It enters the chain $u_n$ of $\sigma_s$: by Lemma~\ref{lem:pone-fold},
+$nu_{n-1}(\sigma_s)=n\mathsf e_{2n-1}=\frac12\bigl(1+(\frac32-s-\mathsf f_1)/(2n)\bigr)+O(n^{-2})$.
+\end{remark}

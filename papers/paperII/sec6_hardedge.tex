@@ -1,0 +1,561 @@
+% sec6_hardedge.tex: the hard edge for analytic factors, comparison with a Bessel model.
+
+\section{The hard edge for analytic factors: comparison with a Bessel model}\label{sec:hardedge}
+
+After Sections~\ref{sec:frame} and~\ref{sec:outer} the orthogonal polynomials of $\sigma_{p,s,\ell}$ are encoded in a
+matrix $Q$, normalised at infinity, whose jumps are listed in Proposition~\ref{prop:frame}. Away from the two endpoints
+$0$ and $4c$ of the band these jumps are those of an explicit global parametrix, up to exponentially small errors, and
+at the soft edge $4c$ the Airy parametrix of Lemma~\ref{lem:airy} applies. This section treats the hard edge $0$. We
+compare $Q$ with an explicitly solvable comparison problem and show that the two have the same first two
+coefficients at infinity up to $O(1/n)$ (Proposition~\ref{prop:moments}); Section~\ref{sec:extraction} then reads off
+$a_n$ and $b_n$.
+
+\emph{Standing assumptions.} Throughout this section, Section~\ref{sec:extraction} and
+Appendices~\ref{app:apriori}--\ref{app:resolvent} we assume that $p>0$ and $1<s<1+2p$, so that the Bessel order
+$\alpha=(s-1-p)/p$ lies in $(-1,1)$, and that $\ell(k)=e^{\Lambda(\log k)}$ is analytic of angle $\vartheta$ for some
+$\vartheta>0$ (Definition~\ref{def:analytic}). The notation of Sections~\ref{sec:frame} and~\ref{sec:outer} is in
+force. Where a lemma of the appendices holds more generally, this is said there.
+
+\emph{Why the classical parametrix fails.} The slowly varying factor enters the band weight
+$W_0=\wn x^\alpha(4c-x)H_n(x)r_n(x)$ through $r_n(z)=\ell(nz^{-1/p})/\ell(n)$, that is,
+$\log r_n(z)=\Lambda(\xi)-\Lambda(\log n)$ with $\xi=\log n-(\log z)/p$. The point $z=0$ corresponds to
+$\xi=+\infty$, where $\Lambda$ has no expansion: $r_n$ is neither analytic at $0$ nor of Fisher--Hartwig type. The
+Bessel parametrix of \S\ref{sec:tool-bessel} needs a square root $\tilde W$ of $W_0$ continued around $0$ across
+$(-\delta,0)$. Continuing $r_n^{1/2}$ from the two half-planes produces two values on $(-\delta,0)$ whose ratio is
+$\exp\bigl(\frac12(\Lambda(\xi-i\pi/p)-\Lambda(\xi+i\pi/p))\bigr)=1+O(\varepsilon_\Lambda)$; this even presupposes
+that $\Lambda$ is analytic on the strip $|\im\xi|\le\pi/p$, which Definition~\ref{def:analytic} does not provide.
+The deviation from $1$ tends to $0$ with no rate in $n$, and after conjugation by the Bessel model at the scale
+$|z|\asymp n^{-2}$ it becomes $O(n\varepsilon_\Lambda)$, so a quotient argument does not close. A Bessel order that
+drifts with $n$ removes only the power-like part $z^{-\Lambda'(\log n)/p}$ of $r_n$. This is the situation of
+\cite[Remark~4.10]{CD}.
+
+\emph{Outline of the comparison argument.} Following Conway and Deift (\S\ref{sec:tool-cd}), we build the Bessel
+parametrix with $\tilde W:=D_W$, the Szeg\H{o} function of the whole band weight (\S\ref{sec:he-comparison}). It has
+exactly the band jump of $Q$ and no jump on $(-\delta,0)$. Together with the global parametrix and the Airy
+parametrix it gives an explicit matrix $\tilde Q$, so the matching errors on the two circles belong to the comparison
+problem and contribute explicit integrals at order $1/n$. The comparison problem differs from the problem for $Q$
+only on the lips of the lens, where the true jump contains $\omega=D_W^2/W_0$ and the model jump contains the
+constant $\varrho_\pm=e^{\mp i\pi\alpha}$. The difference $\omega-\varrho_\pm$ is $o(1)$ uniformly on the lips,
+without a rate (\S\ref{sec:he-mismatch}). That suffices for a Neumann series once the singular integral operator of
+the comparison problem is boundedly invertible uniformly in $n$, which we prove for $|\alpha|<1$
+(\S\ref{sec:he-resolvent} and Appendix~\ref{app:resolvent}). The difference formula of Conway and Deift then turns
+the mismatch into a change of the coefficients at infinity (\S\ref{sec:he-moments}). The factor $1/n$ comes from
+\emph{Bessel localisation}: the mismatch carries the factor $e^{2n\varphi}$, which confines it to $|z|\lesssim n^{-2}$
+up to a tail, and there the comparison solution has size $n^{1/2}|n^2z|^{-|\alpha|/2}$; so a mismatch
+$\varepsilon'_n=o(1)$ produces an error $O(\varepsilon'_n/n)$. The places where $|\alpha|<1$ is used are collected in
+Remark~\ref{rem:alpha-ge-1}.
+
+\subsection{Conventions}\label{sec:he-conv}
+
+All matrices are $2\times2$, $|\cdot|$ is a fixed matrix norm, $e_1,e_2$ are the standard basis vectors and
+\[
+  J:=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\qquad M=\frac1{\sqrt2}\begin{pmatrix}1&i\\i&1\end{pmatrix},\qquad
+  \varrho_\pm:=e^{\mp i\pi\alpha}.
+\]
+Constants $C$ may depend on $p$, $s$, $\ell$ and on the radii $\delta$ (at $0$) and $\varepsilon$ (at $4c$), but never
+on $n$ or on the point $z$; they may change from line to line. Exponentially small factors are written $e^{-n/C}$.
+Powers and logarithms are principal unless said otherwise. The Cauchy transform $\Cauchy$, its boundary values
+$\Cauchy_\pm$, the operator $\Cauchy_vf=\Cauchy_-(f(v-I))$ and the class $I+\dC(L^2)$ are as in \S\ref{sec:tool-cd}.
+
+We work in the frame of $Q$ (see~\eqref{eq:Q}) and use only the eight items of Proposition~\ref{prop:frame}, for
+fixed radii $\delta,\varepsilon$ that may be taken as small as we wish. In $\mathbb D(0,\delta)$ the contour consists of the
+band and two lips, with $v=J$ on $(0,\delta)$ and
+$v=\bigl(\begin{smallmatrix}1&0\\\omega e^{2n\varphi}&1\end{smallmatrix}\bigr)+E$ on the lips, where
+$\omega=D_W^2/W_0$ (Proposition~\ref{prop:frame}(i)); there is no jump on $(-\delta,0)$. Since $f'(0)<0$ and $f$ is
+real on $(-\delta,\delta)$ (Proposition~\ref{prop:frame}(vi)), $f$ maps $\mathbb D(0,\delta)\cap\C_\pm$ into $\C_\mp$, the band
+$(0,\delta)$ into $(-\infty,0)$ and $(-\delta,0)$ into $(0,\infty)$; and $|f(z)|\ge|z|/C$, $|f'|+|f'|^{-1}\le C$ on
+$\mathbb D(0,\delta)$. On the lips in $\mathbb D(0,\delta)$
+\begin{equation}\label{eq:he-lipangle}
+  \tfrac34\thlip\le|\arg z|\le\tfrac54\thlip
+\end{equation}
+by Proposition~\ref{prop:frame}(iii). Finally, with the H\"older exponent $\nu_p=\min(1/p,\frac12)$ of
+Proposition~\ref{prop:frame}(ii), put $T_n:=\log n-\frac1p\log\max(4c,1)$ and
+\begin{equation}\label{eq:he-epsprime}
+  \varepsilon'_n:=n^{-2\nu_p}\log n+\varepsilon_\Lambda(T_n)\ \longrightarrow\ 0 .
+\end{equation}
+
+\subsection{The Bessel model and its local form}\label{sec:he-model}
+
+Let $\Psi_\alpha$ be the Bessel model of \S\ref{sec:tool-bessel}, built on the three rays $\arg\zeta=\pm(\pi-\thlip)$
+and $\arg\zeta=\pi$ (angle freedom, \S\ref{sec:tool-bessel}(b); for $\thlip=\pi/3$ these are the rays of
+\cite[\S6]{KMVV}). We orient them as in \S\ref{sec:tool-bessel}(a): all three rays point towards the origin, with the
+$+$ side on the left. Thus $\Psi_\alpha$ is given by \cite[(6.23)]{KMVV} in the sector $|\arg\zeta|<\pi-\thlip$ and by
+the Hankel formulas \cite[(6.24)--(6.25)]{KMVV} in the two thin sectors, it has the jumps \cite[(6.16)--(6.18)]{KMVV}
+on the three rays, and it satisfies the large-$\zeta$ expansion \cite[(6.28)]{KMVV}. We have $\det\Psi_\alpha\equiv1$:
+in the central sector this is the Wronskian identity \cite[(10.28.2)]{DLMF}, and the jump matrices have determinant
+$1$.
+
+In the central sector $|\arg2\zeta^{1/2}|<\pi/2$, so all Bessel functions there are principal branches
+\cite[\S10.25(ii)]{DLMF}. The expansion \cite[(6.28)]{KMVV} remains valid for the rays at $\pm(\pi-\thlip)$, since the Bessel and
+Hankel functions in \cite[(6.23)--(6.25)]{KMVV} are then evaluated in closed subsectors of the sectors of validity of the
+large-argument expansions of \S\ref{sec:tool-dlmf}: \cite[(10.40.1)--(10.40.5)]{DLMF} for $I_\alpha$, $K_\alpha$ in the
+central sector, where $|\arg2\zeta^{1/2}|\le\frac12(\pi-\thlip)<\frac12\pi$, and \cite[(10.17.5)--(10.17.6)]{DLMF} for
+the Hankel functions $H^{(1,2)}_\alpha(2(-\zeta)^{1/2})$ in the thin sectors, where $\arg2(-\zeta)^{1/2}$ lies in
+$(-\frac12\thlip,0)$, respectively $(0,\frac12\thlip)$, well inside both sectors $[-\pi+\delta,2\pi-\delta]$ and
+$[-2\pi+\delta,\pi-\delta]$.
+
+\begin{lemma}[Local form of the Bessel model]\label{lem:bessel-local}
+Let $\alpha\in(-1,1)$ and let $\mathcal S_\pm$ denote the thin sectors $\pi-\thlip<\pm\arg\zeta<\pi$.
+\begin{enumerate}
+\item[(i)] If $\alpha\ne0$, there is an entire matrix function $\hat\Psi_\alpha$ with $\det\hat\Psi_\alpha=-2i\sin\pi\alpha$
+  such that
+  \[
+    \Psi_\alpha(\zeta)=\hat\Psi_\alpha(\zeta)\,\zeta^{\alpha\sigma_3/2}\,\mathsf S,\qquad
+    \mathsf S:=\begin{pmatrix}1&-\frac{i}{2\sin\pi\alpha}\\[1mm]0&\frac{i}{2\sin\pi\alpha}\end{pmatrix},
+  \]
+  in $|\arg\zeta|<\pi-\thlip$, while in $\mathcal S_\pm$ the constant $\mathsf S$ is replaced by $\mathsf S$ times
+  a constant jump matrix of $\Psi_\alpha$.
+\item[(ii)] If $\alpha=0$, there is an entire $\hat\Psi_0$ with $\det\hat\Psi_0=1$ such that
+  \[
+    \Psi_0(\zeta)=\hat\Psi_0(\zeta)\begin{pmatrix}1&\mathsf k_0\log\zeta\\0&1\end{pmatrix},\qquad \mathsf k_0:=-\frac{i}{2\pi},
+  \]
+  in $|\arg\zeta|<\pi-\thlip$, while in $\mathcal S_\pm$ the right-hand side is multiplied on the right by a
+  constant jump matrix.
+\item[(iii)] Consequently, for $0<|\zeta|\le3$ off the rays,
+  \[
+    |\Psi_\alpha(\zeta)^{\pm1}|\le C|\zeta|^{-|\alpha|/2},\qquad
+    |\Psi_\alpha(\zeta)e_2e_1^{\mathsf T}\Psi_\alpha(\zeta)^{-1}|\le C|\zeta|^{-|\alpha|}\qquad(\alpha\ne0),
+  \]
+  and the same with $|\zeta|^{-|\alpha|/2}$, $|\zeta|^{-|\alpha|}$ replaced by $1+|\log|\zeta||$ and
+  $(1+|\log|\zeta||)^2$ if $\alpha=0$. The same bounds hold for the boundary values on the rays.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+We expand the entries of \cite[(6.23)]{KMVV} by the power series \cite[(10.25.2)]{DLMF} and read off the singular factors.
+
+(i) Let $\nu=\pm\alpha$. By (10.25.2) with $x=2\zeta^{1/2}$ we have $(\frac12x)^{\nu+2k}=\zeta^{\nu/2+k}$, hence
+\[
+  I_\nu(2\zeta^{1/2})=\zeta^{\nu/2}\mathfrak p_\nu(\zeta),\qquad
+  2\pi i\zeta^{1/2}I_\nu'(2\zeta^{1/2})=\pi i\zeta^{\nu/2}\sum_{k\ge0}\frac{(\nu+2k)\zeta^k}{k!\,\Gamma(\nu+k+1)}
+  =:\zeta^{\nu/2}\mathfrak q_\nu(\zeta),
+\]
+with $\mathfrak p_\nu(\zeta)=\sum_k\zeta^k/(k!\Gamma(\nu+k+1))$; $\mathfrak p_\nu$ and $\mathfrak q_\nu$ are entire because $1/\Gamma$ is entire.
+Write $\mathbf u_\nu:=(\mathfrak p_\nu,\mathfrak q_\nu)^{\mathsf T}$, so that the first column of \cite[(6.23)]{KMVV} is $\zeta^{\alpha/2}\mathbf u_\alpha$. By \cite[(10.27.4)]{DLMF},
+$\frac i\pi K_\alpha=\frac{i}{2\sin\pi\alpha}(I_{-\alpha}-I_\alpha)$, and differentiating,
+$-2\zeta^{1/2}K_\alpha'(2\zeta^{1/2})=\frac{i}{2\sin\pi\alpha}\cdot2\pi i\zeta^{1/2}(I'_{-\alpha}-I'_\alpha)(2\zeta^{1/2})$
+(both sides equal $-\frac{\pi}{\sin\pi\alpha}\zeta^{1/2}(I'_{-\alpha}-I'_\alpha)$). So the second column of \cite[(6.23)]{KMVV} is
+$\frac{i}{2\sin\pi\alpha}(\zeta^{-\alpha/2}\mathbf u_{-\alpha}-\zeta^{\alpha/2}\mathbf u_\alpha)$, and
+\[
+  \Psi_\alpha=\bigl(\mathbf u_\alpha\ \ \mathbf u_{-\alpha}\bigr)\begin{pmatrix}\zeta^{\alpha/2}&-\frac{i}{2\sin\pi\alpha}\zeta^{\alpha/2}\\
+  0&\frac{i}{2\sin\pi\alpha}\zeta^{-\alpha/2}\end{pmatrix}=\hat\Psi_\alpha\,\zeta^{\alpha\sigma_3/2}\mathsf S,\qquad
+  \hat\Psi_\alpha:=\bigl(\mathbf u_\alpha\ \ \mathbf u_{-\alpha}\bigr).
+\]
+Since $\det\Psi_\alpha=1$ and $\det\mathsf S=i/(2\sin\pi\alpha)$, $\det\hat\Psi_\alpha=-2i\sin\pi\alpha\ne0$. In a thin
+sector, $\Psi_\alpha$ is the continuation of the central formula multiplied on the right by a constant jump matrix,
+because the jumps of $\Psi_\alpha$ are constant and $\hat\Psi_\alpha\zeta^{\alpha\sigma_3/2}\mathsf S$ is analytic in
+$\C\setminus(-\infty,0]$.
+
+(ii) By \cite[(10.31.2)]{DLMF}, $K_0(x)=-(\ln\frac x2+\gamma_{\mathrm E})I_0(x)+S_0(\frac14x^2)$ with $S_0$ entire. At $x=2\zeta^{1/2}$,
+$\ln\frac x2=\frac12\log\zeta$, so $\frac i\pi K_0(2\zeta^{1/2})=-\frac{i}{2\pi}\log\zeta\cdot \mathfrak p_0(\zeta)+\text{(entire)}$.
+Differentiating the same identity, $-2\zeta^{1/2}K_0'(2\zeta^{1/2})=I_0(2\zeta^{1/2})+(\frac12\log\zeta+\gamma_{\mathrm E})\,
+2\zeta^{1/2}I_0'(2\zeta^{1/2})-2\zeta S_0'(\zeta)$, and $2\zeta^{1/2}I_0'(2\zeta^{1/2})=\mathfrak q_0(\zeta)/(\pi i)$. Hence the
+second column equals $\mathsf k_0\log\zeta\cdot\mathbf u_0(\zeta)+\mathbf h(\zeta)$ with $\mathsf k_0=-i/(2\pi)$ and $\mathbf h$ entire, and
+$\Psi_0=(\mathbf u_0\ \ \mathbf h)\bigl(\begin{smallmatrix}1&\mathsf k_0\log\zeta\\0&1\end{smallmatrix}\bigr)$; $\det(\mathbf u_0\ \mathbf h)=\det\Psi_0=1$.
+The thin sectors are treated as in (i).
+
+(iii) On $|\zeta|\le3$ the entire factors and their inverses are bounded, and the constant matrices are bounded. The
+middle factors satisfy $|\zeta^{\pm\alpha\sigma_3/2}|\le C|\zeta|^{-|\alpha|/2}$, respectively
+$|\bigl(\begin{smallmatrix}1&\mathsf k_0\log\zeta\\0&1\end{smallmatrix}\bigr)^{\pm1}|\le C(1+|\log|\zeta||)$. For the
+rank-one product write
+\[
+  \Psi_\alpha e_2e_1^{\mathsf T}\Psi_\alpha^{-1}=\hat\Psi_\alpha\,\zeta^{\alpha\sigma_3/2}
+  (\mathsf S_je_2)(e_1^{\mathsf T}\mathsf S_j^{-1})\zeta^{-\alpha\sigma_3/2}\,\hat\Psi_\alpha^{-1};
+\]
+the entries of the middle matrix are constants times $1,\zeta^{\alpha},\zeta^{-\alpha}$, whence the bound $C|\zeta|^{-|\alpha|}$; for $\alpha=0$ the
+same computation gives entries of size $(1+|\log|\zeta||)^2$.
+\end{proof}
+
+\emph{The model in the normalisation used below.} Put
+\begin{equation}\label{eq:he-Phi}
+  \Phi_\alpha(\zeta):=\sigma_3\Psi_\alpha(\zeta)\sigma_3\,e^{-2\zeta^{1/2}\sigma_3}.
+\end{equation}
+This is the left-endpoint model of \S\ref{sec:tool-bessel}(c) with the exponential factor attached; it does not depend on $n$.
+Orient the three rays $\Gamma_\alpha:=(-\infty,0]\cup\{\arg\zeta=\pm(\pi-\thlip)\}$ \emph{away} from the origin.
+Reversing the orientation of a ray interchanges its $\pm$ sides, and $\sigma_3J^{-1}\sigma_3=J$,
+$\sigma_3\bigl(\begin{smallmatrix}1&0\\x&1\end{smallmatrix}\bigr)^{-1}\sigma_3=\bigl(\begin{smallmatrix}1&0\\x&1\end{smallmatrix}\bigr)$,
+and $e^{2w\sigma_3}\bigl(\begin{smallmatrix}1&0\\x&1\end{smallmatrix}\bigr)e^{-2w\sigma_3}
+=\bigl(\begin{smallmatrix}1&0\\xe^{-4w}&1\end{smallmatrix}\bigr)$. With \cite[(6.16)--(6.18)]{KMVV} this gives:
+\begin{equation}\label{eq:he-Phi-jumps}
+  \Phi_{\alpha,+}=\Phi_{\alpha,-}J\ \text{on }(-\infty,0),\qquad
+  \Phi_{\alpha,+}=\Phi_{\alpha,-}\begin{pmatrix}1&0\\e^{\mp i\pi\alpha}e^{-4\zeta^{1/2}}&1\end{pmatrix}\ \text{on }
+  \arg\zeta=\mp(\pi-\thlip).
+\end{equation}
+On $(-\infty,0)$ we used that the two boundary values $w_\pm$ of $\zeta^{1/2}$ satisfy $w_+=-w_-$, so that
+$e^{2w_-\sigma_3}Je^{-2w_+\sigma_3}=J$. Moreover $\det\Phi_\alpha=1$, and $\Phi_\alpha$ has the two-scale structure
+\begin{align}
+  \Phi_\alpha(\zeta)&=\zeta^{-\sigma_3/4}\Theta_\infty(\zeta),\quad
+  \Theta_\infty=(2\pi)^{-\sigma_3/2}\bigl(M^{-1}+O(\zeta^{-1/2})\bigr),\quad |\Theta_\infty^{\pm1}|\le C
+  &&(|\zeta|\ge2),\label{eq:he-Phi-large}\\
+  \Phi_\alpha(\zeta)&=\hat A(\zeta)\,\mathsf P(\zeta)\,\Theta_0(\zeta),\quad |\Theta_0^{\pm1}|\le C
+  &&(|\zeta|\le3),\label{eq:he-Phi-small}
+\end{align}
+where $\hat A=\sigma_3\hat\Psi_\alpha\sigma_3$ is entire with entire inverse, $\Theta_0=\sigma_3\mathsf S_j\sigma_3
+e^{-2\zeta^{1/2}\sigma_3}$ in the $j$-th sector, and $\mathsf P(\zeta)=\zeta^{\alpha\sigma_3/2}$ for $\alpha\ne0$,
+$\mathsf P(\zeta)=I-\mathsf k_0(\log\zeta)e_1e_2^{\mathsf T}$ for $\alpha=0$. Here \eqref{eq:he-Phi-large} follows from
+\cite[(6.28)]{KMVV}, since $\sigma_3M\sigma_3=M^{-1}$ and the exponential factors cancel; the bound on $\Theta_\infty^{-1}$ holds for
+large $|\zeta|$ by the expansion and for $2\le|\zeta|\le R$ because $\det\Theta_\infty=1$ and $\Theta_\infty$ is
+bounded. \eqref{eq:he-Phi-small} is Lemma~\ref{lem:bessel-local} conjugated by $\sigma_3$.
+
+\subsection{The comparison parametrix and the comparison problem}\label{sec:he-comparison}
+
+We first relate $e^{n\varphi}$ to the Bessel variable $\zeta=n^2f(z)$. In $\mathbb D(0,\delta)\cap\C_+$ both $(\varphi+i\pi)/2$ and
+the principal root $f^{1/2}$ are analytic (the latter because $f$ avoids $(-\infty,0]$ there), and their squares agree
+by Proposition~\ref{prop:frame}(vi). So $(\varphi+i\pi)/2=\pm f^{1/2}$ with a fixed sign. On the upper lip $\re\varphi<0$ while $\re f^{1/2}>0$, so the
+sign is $-$. The lower half-disc is treated in the same way, and we obtain, with $\zeta^{1/2}=nf^{1/2}$,
+\begin{equation}\label{eq:he-ephi}
+  e^{n\varphi(z)}=(-1)^ne^{-2\zeta^{1/2}},\qquad e^{2n\varphi(z)}=e^{-4\zeta^{1/2}}\qquad(z\in \mathbb D(0,\delta)\setminus[0,\delta)).
+\end{equation}
+On the lips $\arg\zeta=\mp(\pi-\thlip)$, so $\re\zeta^{1/2}=|\zeta|^{1/2}\sin(\thlip/2)$ and
+\begin{equation}\label{eq:he-localisation}
+  |e^{2n\varphi(z)}|=e^{-4\sin(\thlip/2)|\zeta|^{1/2}}\le e^{-n|z|^{1/2}/C}\qquad\text{on the lips in }\mathbb D(0,\delta).
+\end{equation}
+
+Following \S\ref{sec:tool-bessel}(c) with $\tilde W$ replaced by $D_W$, define in $\mathbb D(0,\delta)$
+\begin{equation}\label{eq:he-P0}
+  \tilde P_0:=(-1)^nE_n\,\sigma_3\Psi_\alpha(n^2f)\sigma_3\,D_W^{-\sigma_3}e^{n\varphi\sigma_3},\qquad
+  E_n:=D_\infty^{\sigma_3}P^\infty_0 Mf^{\sigma_3/4}(2\pi n)^{\sigma_3/2}.
+\end{equation}
+In the frame of $Q$ this becomes, by \eqref{eq:he-ephi},
+\begin{equation}\label{eq:he-P0hat}
+  \hat P_0:=D_\infty^{-\sigma_3}\tilde P_0D_W^{\sigma_3}=\hat E_n\,\Phi_\alpha(n^2f),\qquad
+  \hat E_n:=P^\infty_0 Mf^{\sigma_3/4}(2\pi n)^{\sigma_3/2}=A_0\,(2\pi n)^{\sigma_3/2},
+\end{equation}
+where $A_0:=P^\infty_0 Mf^{\sigma_3/4}$. Thus $\hat P_0$ contains neither $D_W$ nor any other trace of the weight.
+
+\begin{lemma}[Comparison parametrix]\label{lem:comparison-parametrix}
+\begin{enumerate}
+\item[(i)] The matrix $A_0$ has a removable singularity at $0$, so it is analytic on $\mathbb D(0,\delta)$; and $\det A_0=1$.
+  It depends neither on $n$ nor on the
+  weight, and $|A_0^{\pm1}|\le C$ there. In particular $E_n$ is analytic in $\mathbb D(0,\delta)$, $\det E_n=1$, and
+  $D_\infty^{-\sigma_3}E_n(2\pi n)^{-\sigma_3/2}=A_0$.
+\item[(ii)] $\hat P_0$ is analytic in $\mathbb D(0,\delta)\setminus\Sigma$, $\det\hat P_0=1$, and
+  \[
+    \hat P_{0,+}=\hat P_{0,-}J\ \text{on }(0,\delta),\qquad
+    \hat P_{0,+}=\hat P_{0,-}\begin{pmatrix}1&0\\\varrho_\pm e^{2n\varphi}&1\end{pmatrix}\ \text{on the lips in }\mathbb D(0,\delta)\cap\C_\pm;
+  \]
+  it has no jump on $(-\delta,0)$. Equivalently, $\tilde P_0$ has the band jump of $V$, no jump on $(-\delta,0)$ (nor on
+  the seams if $p<1$), and the lip jump $\bigl(\begin{smallmatrix}1&0\\\varrho_\pm e^{2n\varphi}/D_W^2&1\end{smallmatrix}\bigr)$.
+\item[(iii)] Uniformly for $\frac12\delta\le|z|\le\delta$ off $\Sigma$, $\hat P_0(z)P^\infty_0(z)^{-1}=I+O(1/n)$, and
+  $|\hat P_0^{\pm1}(z)|\le C$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) On $(0,\delta)$, $P^\infty_{0,+}=P^\infty_{0,-}J$, and since $f$ is negative there and maps $\C_+$ to $\C_-$,
+$f_+^{\sigma_3/4}=f_-^{\sigma_3/4}\mathrm{diag}(-i,i)$. A direct computation gives $M^{-1}JM=\mathrm{diag}(i,-i)$, so
+$A_{0,+}=P^\infty_{0,-}JMf_-^{\sigma_3/4}\mathrm{diag}(-i,i)=P^\infty_{0,-}M\,\mathrm{diag}(i,-i)\mathrm{diag}(-i,i)f_-^{\sigma_3/4}
+=A_{0,-}$. On $(-\delta,0)$ both $P^\infty_0$ and $f^{1/4}$ are analytic. So $A_0$ is analytic in $\mathbb D(0,\delta)\setminus\{0\}$.
+At $0$, $|P^\infty_0|\le C|z|^{-1/4}$ by Proposition~\ref{prop:frame}(v) and $|f^{\pm1/4}|\le C|z|^{\pm1/4}$, so $|A_0(z)|\le C|z|^{-1/2}$; an isolated
+singularity with this growth is removable. This is the removability argument of \S\ref{sec:tool-bessel}(c), applied to a matrix
+that involves only $P^\infty_0$, $M$ and $f$, and therefore neither $n$ nor the weight; in particular the hypothesis of
+\cite{KMVV} that the weight be analytic at the endpoint plays no role. $\det A_0=1$ since each factor has determinant
+$1$, and $A_0^{-1}$ is the adjugate of $A_0$. Shrinking $\delta$ slightly, $A_0^{\pm1}$ are bounded on $\mathbb D(0,\delta)$.
+
+(ii) $\hat E_n$ is analytic, so the jumps of $\hat P_0$ are those of $\zeta\mapsto\Phi_\alpha(\zeta)$ at $\zeta=n^2f(z)$. The
+map $z\mapsto n^2f(z)$ is conformal, hence preserves the sides of an oriented curve; it maps the band (left to right)
+onto part of $(-\infty,0)$ traversed away from $0$, the lips (away from $0$) onto the rays at $\mp(\pi-\thlip)$
+traversed away from $0$, and $(-\delta,0)$ into $(0,\infty)$, where $\Phi_\alpha$ is analytic. So
+\eqref{eq:he-Phi-jumps} and \eqref{eq:he-ephi} give the stated jumps. For $\tilde P_0=D_\infty^{\sigma_3}\hat P_0
+D_W^{-\sigma_3}$, conjugation by the diagonal matrix $D_W^{-\sigma_3}$ turns $J$ into the band jump of $V$ because
+$D_{W,+}D_{W,-}=W_0$, turns the lip jump into the stated one, and creates no jump on $(-\delta,0)$ because $D_W$ is
+analytic off $[0,4c]$.
+
+(iii) For $\frac12\delta\le|z|\le\delta$ we have $|\zeta|=n^2|f(z)|\ge n^2\delta/C\ge2$. By \eqref{eq:he-Phi-large} and
+$(n^2f)^{-\sigma_3/4}=n^{-\sigma_3/2}f^{-\sigma_3/4}$,
+\begin{align*}
+  \hat P_0&=A_0(2\pi n)^{\sigma_3/2}(n^2f)^{-\sigma_3/4}(2\pi)^{-\sigma_3/2}\bigl(M^{-1}+O(n^{-1})\bigr)\\
+  &=P^\infty_0 Mf^{\sigma_3/4}f^{-\sigma_3/4}\bigl(M^{-1}+O(n^{-1})\bigr)=P^\infty_0\bigl(I+O(n^{-1})\bigr),
+\end{align*}
+and $P^\infty_0$, $(P^\infty_0)^{-1}$ are bounded on the annulus. Both claims follow.
+\end{proof}
+
+\emph{The comparison problem.} Let $\Sigma_{\circ}:=\partial \mathbb D(0,\delta)\cup\partial \mathbb D(4c,\varepsilon)$, with both circles
+oriented clockwise (so that their $+$ side is the outside), and $\hat\Sigma:=\Sigma\cup\Sigma_{\circ}$. Define
+\begin{equation}\label{eq:he-Qtilde}
+  \tilde Q(z):=\begin{cases}\hat P_0(z),& z\in \mathbb D(0,\delta),\\ \hat P_r(z),& z\in \mathbb D(4c,\varepsilon),\\
+  P^\infty_0(z),& \text{otherwise},\end{cases}\qquad z\notin\hat\Sigma .
+\end{equation}
+Then $\tilde Q$ is analytic off $\hat\Sigma$, $\det\tilde Q=1$, $\tilde Q\to I$ at infinity, and
+$\tilde Q_+=\tilde Q_-\tilde v$ on $\hat\Sigma$ with
+\begin{equation}\label{eq:he-vtilde}
+  \tilde v=\begin{cases}J & \text{on }(0,4c),\\
+  \bigl(\begin{smallmatrix}1&0\\\varrho_\pm e^{2n\varphi}&1\end{smallmatrix}\bigr) & \text{on the lips in }\mathbb D(0,\delta)\cap\C_\pm,\\
+  v & \text{on }\Sigma\cap \mathbb D(4c,\varepsilon),\\
+  I & \text{on }\Sigma\setminus\bigl(\mathbb D(0,\delta)\cup \mathbb D(4c,\varepsilon)\cup[0,4c]\bigr),\\
+  \tilde Q_{\mathrm{in}}^{-1}\tilde Q_{\mathrm{out}} & \text{on }\Sigma_{\circ},
+  \end{cases}
+\end{equation}
+by Lemma~\ref{lem:comparison-parametrix}(ii), Proposition~\ref{prop:frame}(v), and the fact that $P^\infty_0$ has only the band jump $J$. Here
+$\tilde Q_{\mathrm{in}}$, $\tilde Q_{\mathrm{out}}$ are the values from inside and outside the circle. We extend $v$ by
+$I$ to $\Sigma_{\circ}$; $Q$ has no jump there. We call the problem ``$\tilde Q_+=\tilde Q_-\tilde v$ on $\hat\Sigma$,
+$\tilde Q\to I$'' the \emph{comparison problem}; it is solved explicitly by \eqref{eq:he-Qtilde}.
+
+The two problems differ in three places. On the circles, $v-\tilde v=I-\tilde Q_{\mathrm{in}}^{-1}\tilde
+Q_{\mathrm{out}}=O(1/n)$, by Lemma~\ref{lem:comparison-parametrix}(iii) and Proposition~\ref{prop:frame}(v). On
+$\Sigma\setminus(\mathbb D(0,\delta)\cup \mathbb D(4c,\varepsilon)\cup[0,4c])$, $|v-\tilde v|\le Ce^{-n/C}$ by Proposition~\ref{prop:frame}(v). On the lips in
+$\mathbb D(0,\delta)$, $v-\tilde v=d_ne_2e_1^{\mathsf T}+E$ with
+\begin{equation}\label{eq:he-dn}
+  d_n(z):=\Bigl(\frac{D_W(z)^2}{W_0(z)}-\varrho_\pm\Bigr)e^{2n\varphi(z)} .
+\end{equation}
+This last difference is the subject of the next subsection.
+
+
+\subsection{The lip mismatch}\label{sec:he-mismatch}
+
+\begin{lemma}[Lip mismatch]\label{lem:lip-mismatch}
+For $n\ge n_0$ and $z$ on the lips in $\mathbb D(0,\delta)\cap\C_\pm$,
+\begin{equation}\label{eq:he-mismatch}
+  \bigl|\omega(z)-\varrho_\pm\bigr|\le C\bigl(|z|^{\nu_p}\log(2/|z|)+\varepsilon_\Lambda(T_n)\bigr),\qquad \omega=\frac{D_W^2}{W_0}.
+\end{equation}
+Consequently $\sup_{\mathrm{lips}}|d_n|\le C\varepsilon'_n$, and
+\begin{equation}\label{eq:he-vdiff}
+  \|v-\tilde v\|_{L^\infty(\hat\Sigma)}\le C\bigl(\varepsilon'_n+n^{-1}\bigr)\longrightarrow0 .
+\end{equation}
+The convergence in \eqref{eq:he-vdiff} has no rate beyond that of $\varepsilon_\Lambda(T_n)$, about which nothing is
+assumed.
+\end{lemma}
+
+The proof treats the four factors of $\omega$ in~\eqref{eq:omega} separately, by Lemma~\ref{lem:szego}. The first two
+are explicit; the third is H\"older at $0$; the fourth, the slowly varying factor, is handled by the scale-invariant
+path bound of Lemma~\ref{lem:pottersector}(iii), which is the point of the lemma: its right side depends on $x$ and $z$
+only through $\arg z$ and $x/|z|$.
+
+\begin{proof}
+Let $z$ be on a lip in $\mathbb D(0,\delta)\cap\C_\pm$. Since $\delta\le\frac14\eta_*$ and~\eqref{eq:he-lipangle} holds, $z\in
+Z(\frac14\eta_*)$ (notation of Lemma~\ref{lem:szego}). We write $\log\omega$ as the sum of the logarithms of the four
+factors in~\eqref{eq:omega}.
+
+\emph{The factor $x^\alpha$.} By Lemma~\ref{lem:szego}(i), $D_{x^\alpha}^2=(4cz/\Upsilon)^\alpha$ and
+$4cz/\Upsilon=(-z)(1+O(|z|^{1/2}))$. On the lips $|\arg(-z)|\le\pi-\frac34\thlip$, so for $\delta$ small the principal
+powers multiply, $(4cz/\Upsilon)^\alpha=(-z)^\alpha(1+O(|z|^{1/2}))$, and $(-z)^\alpha=e^{\mp i\pi\alpha}z^\alpha$ in $\C_\pm$.
+Hence $D_{x^\alpha}(z)^2/z^\alpha=\varrho_\pm(1+O(|z|^{1/2}))$.
+
+\emph{The factor $4c-x$.} By Lemma~\ref{lem:szego}(i), $D_{4c-x}^2/(4c-z)=-4c/\Upsilon=1+O(|z|^{1/2})$.
+
+\emph{The factor $\Hc$.} By Definition~\ref{def:outer-admissible}(c)--(d), Lemma~\ref{lem:szego}(ii) applies to $q=\Hc$ with $\mathfrak c_0=0$, $\nu=\nu_p$ and
+$\mathfrak M=C$, and gives $|\log(D_{\Hc}^2/\Hc)|\le C|z|^{\nu_p}\log(2/|z|)$.
+
+\emph{The slowly varying factor.} By Lemma~\ref{lem:pottersector}(iii) with $R=\max(4c,1)$, for $z'\in Z(\eta_*)$ and
+$x\in(0,4c)$,
+\[
+  |\log r_n(x)-\log r_n(z')|\le\frac{\varepsilon_\Lambda(T_n)}p\bigl(\thw+|\log(x/|z'|)|\bigr),\qquad
+  |(\log r_n)'(z')|=\frac{|\Lambda'(\xi(z'))|}{p|z'|}\le\frac{\varepsilon_\Lambda(T_n)}{p|z'|},
+\]
+since $\re\xi\ge T_n$ and $|\im\xi|\le\thw/p\le\vartheta$ on $Z(\eta_*)$. So Lemma~\ref{lem:szego}(iii) applies to $q=r_n$
+with $\mathfrak M=C\varepsilon_\Lambda(T_n)$ and gives $|\log(D_{r_n}^2/r_n)|\le C\varepsilon_\Lambda(T_n)$.
+
+\emph{Conclusion.} Hence $\omega=\varrho_\pm e^{w}$ with
+$|w|\le C(|z|^{1/2}+|z|^{\nu_p}\log(2/|z|)+\varepsilon_\Lambda(T_n))\le C_0$; since $|e^w-1|\le e^{C_0}|w|$, $|\varrho_\pm|=1$
+and $|z|^{1/2}\le|z|^{\nu_p}$, \eqref{eq:he-mismatch} follows. By \eqref{eq:he-localisation},
+\[
+  |d_n(z)|\le C\bigl(|z|^{\nu_p}\log(2/|z|)+\varepsilon_\Lambda(T_n)\bigr)e^{-n|z|^{1/2}/C}\le C\varepsilon'_n,
+\]
+because with $t=n|z|^{1/2}$ the first term is $t^{2\nu_p}n^{-2\nu_p}(\log2+2\log n-2\log t)e^{-t/C}\le Cn^{-2\nu_p}\log n$.
+On the lips $|E|\le C\exp(-n|z|^{-1/p}/C)\le C\exp(-n\delta^{-1/p}/C)$ by Proposition~\ref{prop:frame}(iv). Together with the bounds on the circles and
+on the rest of $\Sigma$ stated at the end of \S\ref{sec:he-comparison} this gives \eqref{eq:he-vdiff}.
+\end{proof}
+
+
+\subsection{Uniform invertibility}\label{sec:he-resolvent}
+
+The comparison problem is explicit, but its solution is unbounded near $0$ at the Bessel scale: on $|\zeta|\le2$ it has
+size $n^{1/2}|\zeta|^{-|\alpha|/2}$. The following proposition says that, nevertheless, the singular integral operator
+attached to it is boundedly invertible on $L^2$, uniformly in $n$.
+
+\begin{proposition}[Uniform resolvent bound for the comparison problem]\label{prop:UR-comparison}
+There are $n_0$ and $C$ such that for $n\ge n_0$:
+\begin{enumerate}
+\item[(i)] $\tilde Q_\pm\in I+\dC(L^2(\hat\Sigma))$ and $\tilde Q_\pm^{-1}\in I+\dC(L^2(\hat\Sigma))$;
+\item[(ii)] $\|\Cauchy_\pm\|_{L^2(\hat\Sigma)\to L^2(\hat\Sigma)}\le C$, and $1-\Cauchy_{\tilde v}$ is invertible on
+  $L^2(\hat\Sigma)$ with $\|(1-\Cauchy_{\tilde v})^{-1}\|\le C$.
+\end{enumerate}
+\end{proposition}
+
+The proof is in Appendix~\ref{app:resolvent}; we sketch it (the uses of $|\alpha|<1$ are listed in
+Remark~\ref{rem:alpha-ge-1}). By the easy half of \S\ref{sec:tool-cd}(e) it suffices to solve $m_+=m_-\tilde v+\mathfrak g$,
+$m_\pm\in\dC(L^2)$, with $\|m_\pm\|\le C\|\mathfrak g\|$ for $\mathfrak g$ in a dense subspace, and to show uniqueness,
+which follows from \S\ref{sec:tool-cd}(b) once (i) is known. The explicit candidate is $m:=\Cauchy(\mathfrak g\tilde
+Q_+^{-1})\tilde Q$. Away from the two discs $\tilde Q^{\pm1}$ is bounded and the bound reduces to that of $\Cauchy_\pm$.
+Near $0$ we write $\tilde Q=A_0(2\pi)^{\sigma_3/2}n^{\sigma_3/2}\Phi_\alpha(n^2f)$ and pass to the variable $\zeta$: the
+analytic prefactor contributes Hilbert--Schmidt commutators, and what remains is, on a star of three rays, the Cauchy
+operator conjugated by $|\zeta|^{\pm1/4}$ for $|\zeta|\ge2$ and by $|\zeta|^{\pm\alpha/2}$ for $|\zeta|\le3$
+(Lemma~\ref{lem:star-power} with $\beta=\pm\alpha/2$; at $\alpha=0$ a logarithmic commutator, Lemma~\ref{lem:star-log}). These
+operators are dilation invariant, so their norms do not depend on $n$. The soft edge is treated in the same way with the
+Airy model; no $\alpha$ is involved there. Membership of $m_\pm$ in $\dC(L^2)$ is checked for smooth data vanishing near
+the vertices by Cauchy's integral formula, and the uniform bound extends the inverse to all of $L^2$.
+
+\begin{proposition}[Uniform resolvent bound for the true problem]\label{prop:UR-true}
+Extend $v$ by $I$ to $\Sigma_{\circ}$. There is $n_1$ such that for $n\ge n_1$ the operator $1-\Cauchy_v$ is invertible on
+$L^2(\hat\Sigma)$ and $\|(1-\Cauchy_v)^{-1}\|\le2C$, with $C$ from Proposition~\ref{prop:UR-comparison}. Moreover
+$Q_\pm\in I+\dC(L^2(\hat\Sigma))$ and $Q_-=(1-\Cauchy_v)^{-1}I$.
+\end{proposition}
+
+\begin{proof}
+Since $\Cauchy_vf-\Cauchy_{\tilde v}f=\Cauchy_-(f(v-\tilde v))$, Proposition~\ref{prop:UR-comparison}(ii) and
+\eqref{eq:he-vdiff} give $\|\Cauchy_v-\Cauchy_{\tilde v}\|\le C(\varepsilon'_n+n^{-1})$, which is at most $1/(2C)$ for
+large $n$. The Neumann-series step \S\ref{sec:tool-cd}(d) of Conway and Deift then gives the bound. Here only the convergence
+$\varepsilon'_n\to0$ is used, not its rate.
+
+By Proposition~\ref{prop:frame}(vii), $Q-I=\Cauchy_\Sigma(Q_+-Q_-)$. On $\Sigma_{\circ}$ the function $Q$ has no jump, and it is bounded there by the same item
+(the circles stay away from $0$), so its values on $\Sigma_{\circ}$ are the boundary values of the same Cauchy integral, now
+regarded on $\hat\Sigma$ with density $0$ on $\Sigma_{\circ}$. Hence $Q_\pm\in I+\dC(L^2(\hat\Sigma))$. Then
+$Q_--I=\Cauchy_-(Q_+-Q_-)=\Cauchy_-(Q_-(v-I))$, i.e.\ $(1-\Cauchy_v)Q_-=I$ in $L^2(\hat\Sigma)$ ($\hat\Sigma$ has finite length,
+so $I\in L^2(\hat\Sigma)$), and $Q_-=(1-\Cauchy_v)^{-1}I$.
+\end{proof}
+
+\subsection{The effect of the mismatch on the moments}\label{sec:he-moments}
+
+Write $Q=I+Q_1/z+Q_2/z^2+O(z^{-3})$ and $P^\infty_0=I+P_1/z+P_2/z^2+O(z^{-3})$ at infinity; outside the discs $\tilde Q=P^\infty_0$,
+so $\tilde Q_k=P_k$. The circle terms
+\begin{equation}\label{eq:he-Xi}
+  \Xi_k:=-\frac1{2\pi i}\oint_{\Sigma_{\circ}}s^{k-1}\bigl(\tilde Q_{\mathrm{in}}(s)\tilde Q_{\mathrm{out}}(s)^{-1}-I\bigr)\diff s
+  \qquad(k=1,2)
+\end{equation}
+are $O(1/n)$ by Lemma~\ref{lem:comparison-parametrix}(iii) and Proposition~\ref{prop:frame}(v); they are the first-order corrections of the
+comparison problem itself.
+
+\begin{proposition}[Effect of the mismatch on the moments]\label{prop:moments}
+For $n\ge n_1$,
+\begin{align*}
+  Q_1&=P_1+\Xi_1+O\bigl(\varepsilon'_n/n+n^{-2}\bigr),\\
+  Q_2&=P_2+\Xi_2+(Q_1-P_1)P_1+O\bigl(\varepsilon'_n/n+n^{-2}\bigr).
+\end{align*}
+The lip mismatch $d_n$ contributes $O(\varepsilon'_n/n)$; the remaining errors come from the interaction of the circle
+terms with themselves and are $O(n^{-2})$. In particular $Q_k=P_k+O(1/n)$ for $k=1,2$. Moreover
+\begin{equation}\label{eq:he-L2-diff}
+  \|Q_--\tilde Q_-\|_{L^2(\hat\Sigma)}\le C\bigl(\varepsilon'_nn^{-1/2}+n^{-1}\bigr).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+We split $v-\tilde v$ into the lip mismatch, the circle terms and an exponentially small rest; the lip mismatch
+is estimated pointwise and then integrated using Bessel localisation, and the correction term is bounded by
+Cauchy--Schwarz. We apply \S\ref{sec:tool-cd}(b) and its consequence \eqref{eq:CD-moments} with $A=Q$, $B=\tilde Q$, $v_A=v$, $v_B=\tilde v$ on
+$\hat\Sigma$, with exponents $r=r'=2$. The hypotheses hold: $v,\tilde v^{\pm1}\in L^\infty$, $Q_\pm\in I+\dC(L^2)$ by
+Proposition~\ref{prop:UR-true}, and $\tilde Q_\pm^{\pm1}\in I+\dC(L^2)$ by Proposition~\ref{prop:UR-comparison}(i). With
+$\mathcal E:=Q_-(v-\tilde v)\tilde v^{-1}\tilde Q_-^{-1}$, \eqref{eq:CD-moments} reads
+\[
+  Q_1-P_1=-\frac1{2\pi i}\int_{\hat\Sigma}\mathcal E\diff s,\qquad
+  Q_2-P_2=-\frac1{2\pi i}\int_{\hat\Sigma}s\,\mathcal E\diff s+(Q_1-P_1)P_1 .
+\]
+Split $(v-\tilde v)\tilde v^{-1}=\Delta_1+\Delta_2+\Delta_3$, where $\Delta_1:=d_ne_2e_1^{\mathsf T}$ on the lips in
+$\mathbb D(0,\delta)$ (we used $e_1^{\mathsf T}\tilde v^{-1}=e_1^{\mathsf T}$ there), $\Delta_2:=\tilde v^{-1}-I$ on $\Sigma_{\circ}$, and
+$\Delta_3$ is the rest: $E\tilde v^{-1}$ on the lips and $v-I$ on $\Sigma\setminus(\mathbb D(0,\delta)\cup \mathbb D(4c,\varepsilon)
+\cup[0,4c])$. Then $\|\Delta_3\|_{L^\infty}\le Ce^{-n/C}$, on a set of length $O(n^p)$. Write $Q_-=\tilde Q_-+(Q_--\tilde
+Q_-)$.
+
+\emph{Pointwise bounds on the lips.} On the lips in $\mathbb D(0,\delta)$ we have, by \eqref{eq:he-P0hat} and \eqref{eq:he-ephi},
+\[
+  \tilde Q_-\Delta_1\tilde Q_-^{-1}=\bigl(\omega-\varrho_\pm\bigr)e^{-4\zeta^{1/2}}\,A_0(2\pi)^{\sigma_3/2}
+  \Bigl[n^{\sigma_3/2}\Phi_{\alpha,-}e_2e_1^{\mathsf T}\Phi_{\alpha,-}^{-1}n^{-\sigma_3/2}\Bigr](2\pi)^{-\sigma_3/2}A_0^{-1}.
+\]
+If $|\zeta|\ge2$, then $n^{\sigma_3/2}\Phi_\alpha=f^{-\sigma_3/4}\Theta_\infty$ by \eqref{eq:he-Phi-large}, so the bracket
+is at most $C|f|^{-1/2}\le C|z|^{-1/2}$, and $|e^{-4\zeta^{1/2}}|\le e^{-n|z|^{1/2}/C}$ by \eqref{eq:he-localisation}. If
+$|\zeta|\le2$, the identity
+\[
+  \Phi_\alpha e_2e_1^{\mathsf T}\Phi_\alpha^{-1}=-e^{4\zeta^{1/2}}\sigma_3\Psi_\alpha e_2e_1^{\mathsf T}\Psi_\alpha^{-1}\sigma_3
+\]
+and Lemma~\ref{lem:bessel-local}(iii) bound the bracket times $e^{-4\zeta^{1/2}}$ by
+$Cn|\zeta|^{-|\alpha|}$. With the right side of~\eqref{eq:he-mismatch},
+\[
+  \mathfrak m_n(z):=|z|^{\nu_p}\log(2/|z|)+\varepsilon_\Lambda(T_n),
+\]
+we obtain
+\begin{equation}\label{eq:he-main-bound}
+  |\tilde Q_-\Delta_1\tilde Q_-^{-1}|\le C\mathfrak m_n(z)\cdot\begin{cases}n|\zeta|^{-|\alpha|},&|\zeta|\le2,\\
+  |z|^{-1/2}e^{-n|z|^{1/2}/C},&|\zeta|\ge2.\end{cases}
+\end{equation}
+In the same way, $\Phi_\alpha e_2=\zeta^{-\sigma_3/4}\Theta_\infty e_2$ and $e_1^{\mathsf T}\Phi_\alpha^{-1}=e_1^{\mathsf T}
+\Theta_\infty^{-1}\zeta^{\sigma_3/4}$ for $|\zeta|\ge2$, and $|\Phi_\alpha^{\pm1}|\le C|\zeta|^{-|\alpha|/2}$ for
+$|\zeta|\le2$, give
+\begin{equation}\label{eq:he-column-bound}
+  |d_n\tilde Q_-e_2|+|d_ne_1^{\mathsf T}\tilde Q_-^{-1}|\le C\mathfrak m_n(z)\cdot\begin{cases}n^{1/2}|\zeta|^{-|\alpha|/2},&|\zeta|\le2,\\
+  |z|^{-1/4}e^{-n|z|^{1/2}/C},&|\zeta|\ge2.\end{cases}
+\end{equation}
+For $\alpha=0$, replace $|\zeta|^{-|\alpha|}$ by $(1+|\log|\zeta||)^2$ and $|\zeta|^{-|\alpha|/2}$ by
+$1+|\log|\zeta||$.
+
+\emph{Bessel localisation.} We integrate \eqref{eq:he-main-bound} along the lips, on which $|\diff z|\le C\diff|z|$ and
+$|\zeta|\ge n^2|z|/C$. The region $|\zeta|\le2$ lies in $|z|\le Cn^{-2}$, where $\mathfrak m_n\le C\varepsilon'_n$; its
+contribution is at most
+\[
+  C\varepsilon'_n\int_0^{Cn^{-2}}n\,(n^2r/C)^{-|\alpha|}\diff r=\frac{C\varepsilon'_n}{n}\int_0^{C}u^{-|\alpha|}\diff u
+  =O(\varepsilon'_n/n),
+\]
+because $|\alpha|<1$. In the region $|\zeta|\ge2$ substitute $t=nr^{1/2}$:
+\begin{align*}
+  \int_0^\delta\mathfrak m_n(r)r^{-1/2}e^{-nr^{1/2}/C}\diff r&=\frac2n\int_0^{n\delta^{1/2}}\mathfrak m_n(t^2/n^2)e^{-t/C}\diff t\\
+  &\le\frac Cn\bigl(\varepsilon_\Lambda(T_n)+n^{-2\nu_p}\log n\bigr)=O(\varepsilon'_n/n).
+\end{align*}
+So $\int|\tilde Q_-\Delta_1\tilde Q_-^{-1}||\diff s|=O(\varepsilon'_n/n)$; the same computation applied to the square of
+\eqref{eq:he-column-bound} gives
+\begin{equation}\label{eq:he-L2-columns}
+  \|d_n\tilde Q_-e_2\|_{L^2}^2+\|d_ne_1^{\mathsf T}\tilde Q_-^{-1}\|_{L^2}^2=O(\varepsilon_n'^2/n).
+\end{equation}
+(For $\alpha=0$ the factor $\int_0^Cu^{-|\alpha|}\diff u$ becomes $\int_0^C(1+|\log u|)^2\diff u<\infty$.)
+
+\emph{The other main terms.} On $\Sigma_{\circ}$, $\tilde Q_-\Delta_2\tilde Q_-^{-1}=\tilde Q_{\mathrm{in}}\tilde
+Q_{\mathrm{out}}^{-1}-I$, whose integrals are exactly the circle terms $\Xi_k$. The term $\Delta_3$ contributes
+$O(e^{-n/C})$: on $\Sigma\setminus(\mathbb D(0,\delta)\cup \mathbb D(4c,\varepsilon))$, $\tilde Q^{\pm1}=(P^\infty_0)^{\pm1}$ is bounded and
+$|s|\le Cn^p$, and on the lips $|\tilde Q_-^{\pm1}|\le Cn^{1/2}|z|^{-1/2}$ (by~\eqref{eq:he-Phi-large}, \eqref{eq:he-Phi-small} and
+Lemma~\ref{lem:bessel-local}(iii)), so $|E||\tilde Q_-||\tilde Q_-^{-1}|\le C\exp(-n|z|^{-1/p}/C)\,n|z|^{-1}$ by Proposition~\ref{prop:frame}(iv), whose integral is
+$O(e^{-n/C})$.
+
+\emph{The correction term.} By Proposition~\ref{prop:UR-true} and \S\ref{sec:tool-cd}(c) applied to both problems, $Q_-=I+\Cauchy_v
+Q_-$ and $\tilde Q_-=I+\Cauchy_{\tilde v}\tilde Q_-$, so $(1-\Cauchy_v)(Q_--\tilde Q_-)=\Cauchy_-(\tilde Q_-(v-\tilde v))$ and
+\[
+  \|Q_--\tilde Q_-\|_{L^2}\le2C\,\|\Cauchy_-\|\,\|\tilde Q_-(v-\tilde v)\|_{L^2}
+  \le C\bigl(\|d_n\tilde Q_-e_2\|_{L^2}+n^{-1}+e^{-n/C}\bigr)\le C\bigl(\varepsilon'_nn^{-1/2}+n^{-1}\bigr),
+\]
+which is~\eqref{eq:he-L2-diff}, using \eqref{eq:he-L2-columns}, the bound $O(1/n)$ for $v-\tilde v$ on the circles (where $\tilde Q_-$ is bounded), and
+$\Delta_3$. Similarly $\|(v-\tilde v)\tilde v^{-1}\tilde Q_-^{-1}\|_{L^2}\le C(\varepsilon'_nn^{-1/2}+n^{-1})$. By the
+Cauchy--Schwarz inequality,
+\[
+  \Bigl|\int(Q_--\tilde Q_-)(v-\tilde v)\tilde v^{-1}\tilde Q_-^{-1}\diff s\Bigr|\le C\bigl(\varepsilon'_nn^{-1/2}+n^{-1}\bigr)^2
+  \le C\bigl(\varepsilon_n'^2/n+n^{-2}\bigr).
+\]
+The factor $s$ in the second moment is bounded on the lips and the circles, and costs at most $n^p$ on the rest, where
+everything is exponentially small. Collecting terms gives the proposition.
+\end{proof}
+
+\begin{remark}[Where $|\alpha|<1$ is used; the case $\alpha\ge1$]\label{rem:alpha-ge-1}
+The restriction $|\alpha|<1$ is used in an essential way in the following three places, and nowhere else in
+Sections~\ref{sec:hardedge}--\ref{sec:extraction} and Appendices~\ref{app:apriori}--\ref{app:resolvent}.
+\begin{enumerate}
+\item[(a)] Square integrability at the Bessel scale. The bound $|z|^{-|\alpha|/2-\eta}$ is square integrable on the lips
+  near $0$ for small $\eta>0$ (any $\eta<\frac12(1-|\alpha|)$). This gives $Q_\pm\in I+\dC(L^2)$, that is,
+  Proposition~\ref{prop:frame}(vii) (Corollary~\ref{cor:L2}), and $\tilde Q_\pm^{\pm1}\in I+\dC(L^2)$
+  (Proposition~\ref{prop:UR-comparison}(i)). These are the hypotheses of \S\ref{sec:tool-cd}(b) with $r=r'=2$, used in
+  the uniqueness step of Appendix~\ref{app:resolvent}, in Proposition~\ref{prop:UR-true} and in
+  Proposition~\ref{prop:moments}.
+\item[(b)] The power-weighted Cauchy bound of Lemma~\ref{lem:star-power} with $\beta=\pm\alpha/2$, which needs
+  $|\beta|<\frac12$, in the uniform bound near $0$ (Lemma~\ref{lem:edge-block}).
+\item[(c)] The integrability of $|\zeta|^{-|\alpha|}$ on a ray near $0$. It is used in the Hilbert--Schmidt
+  bounds of Lemma~\ref{lem:edge-block} and in the Bessel localisation in the proof of
+  Proposition~\ref{prop:moments}.
+\end{enumerate}
+Three further uses are not essential. The vertex conditions in Appendix~\ref{app:resolvent} need only $|\alpha|<2$; the
+bound on $\Delta_3$ in the proof of Proposition~\ref{prop:moments} uses $|\alpha|\le1$ only to bound a power of $|z|$
+that is multiplied by an exponentially small factor; and Lemma~\ref{lem:bessel-local} is stated for
+$\alpha\in(-1,1)$, although its part (i) needs only $\alpha\notin\mathbb Z$. The a priori bound of
+Proposition~\ref{prop:apriori} itself holds for every $\alpha>-1$.
+
+For $\alpha\ge1$ all three essential uses fail: $\tilde Q$ is of size $n^{1/2}|\zeta|^{-\alpha/2}$ at the Bessel scale
+and is not square integrable on the lips near $0$; Lemma~\ref{lem:star-power} needs $|\beta|=\alpha/2<\frac12$; and
+$\int_0^2u^{-\alpha}\diff u$ diverges. (Since $s>1$, always $\alpha>-1$.) This is why Theorem~\ref{thm:window} is
+combined with the Christoffel shift (Theorem~\ref{thm:shift}) in Section~\ref{sec:extraction}. It is consistent with
+the remark of Deift and Piorkowski \cite[\S1]{DP} quoted in \S\ref{sec:context}. For pure powers with $p>1$ the
+difficulty does not arise: there the band weight continues across $(-\delta,0)$ up to a super-exponentially small
+jump, and the classical Bessel parametrix of Section~\ref{sec:classical} works for every $\alpha>-1$. A direct analysis
+of a non-constant analytic factor for $\alpha\ge1$ remains open (Section~\ref{sec:further}).
+\end{remark}
+
+\begin{remark}[The circle terms]\label{rem:circle-terms}
+Proposition~\ref{prop:moments} expresses $Q_1$ and $Q_2$, up to $O(\varepsilon'_n/n+n^{-2})$, through the coefficients
+$P_k$ of the global parametrix and the circle terms $\Xi_k$, but it does not compute the $\Xi_k$. On $\partial \mathbb D(0,\delta)$,
+$\tilde Q_{\mathrm{in}}\tilde Q_{\mathrm{out}}^{-1}=\hat P_0(P^\infty_0)^{-1}$ involves only $\alpha$, $f$ and $c$,
+whereas the Airy parametrix contains $\omega=D_W^2/W_0$ (see~\eqref{eq:airy}); so the $\Xi_k$ may depend on $\ell$ at order $1/n$,
+but only through the soft edge. We do not analyse this dependence, which is why the $O(1/n)$ of
+Theorem~\ref{thm:window} is absolute and not relative (Remark~\ref{rem:scope}).
+\end{remark}
