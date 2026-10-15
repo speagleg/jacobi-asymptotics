@@ -141,7 +141,7 @@ points outside the discs incl. the negative axis): max|D_∞^{−σ₃}(VN^{−1
 | 2.5 (½) | 0.572, 0.585, 0.591 | 0.424, 0.435, 0.441 | 0.238, 0.247, 0.251 | 0.207, 0.215, 0.219 | 0.227, 0.237, 0.242 | 0.250, 0.268, 0.278 | 0.468, 0.506, 0.526 | 0.048, 0.051, 0.052 | 0.085, 0.089, 0.091 |
 
 N·error is stable: V = (I + O(1/N))N at p = 1, as at p > 1 (RH_px probe P1: 0.37–1.04 at p = 2). The probe also reproduces
-Nb_N/c = 0.9531, 0.9758, 0.9877 (r = 2; = 1 − (r − 1)/(2N) + O(N^{−2})). |det V − 1| ≤ 3·10⁻³¹.
+Nb_N/c = 0.9531, 0.9758, 0.9877 (r = 2; = 1 − (r − 1)/(2N) + O(N^{−2})). |det V − 1| ≤ 4·10⁻³¹.
 *Numerical note (Rule N):* the RH_px probe evaluates D̃ = √(2π)exp((t − ½)ln t − t − LnΓ(t)) at dps 30; at p = 1 the Szegő
 quadrature reaches t ≈ N/x ≳ 10⁶⁰, where this difference cancels catastrophically. The first p = 1 run gave an N-independent O(1)
 error, diagnosed as a constant diagonal conjugation (V ≈ CNC^{−1}, κ² ≈ 5.5 from the 1/z coefficients at z = −300 + 200i) caused
