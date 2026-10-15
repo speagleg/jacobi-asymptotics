@@ -31,14 +31,15 @@
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\dist}{dist}
 \DeclareMathOperator{\Var}{Var}
-% PLACEHOLDER (decision D2 of the series plan): the hard-edge tail bound is planned as Proposition 8.6 of Paper II
-% (its proof is under review; numbering not frozen). Every use in this paper goes through this macro. See NOTES.md.
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+% The hard-edge tail bound is Proposition 8.6 of Paper II; every use in this paper goes through this macro.
 \newcommand{\tailbound}{\cite[Proposition~8.6]{PaperII}}
 
 \title[Stability and instability of recurrence asymptotics]{Stability and instability of recurrence asymptotics for
 discrete measures with power-law atoms}
-\author{Gordon [Surname]}
-\date{Draft of 15 October 2026}
+\author{Gordon Speagle}
+\date{October 2026}
 
 \subjclass[2020]{Primary 42C05; Secondary 47B36, 26A12, 11M06}
 \keywords{Orthogonal polynomials, Jacobi matrices, recurrence coefficients, discrete measures, slowly varying
@@ -60,8 +61,8 @@ $\sum_{m\le n}\log(b_m(s+p)/b_m(s))+\frac p2\log n\to\frac12\log(c(p)\zeta(s)/\z
 extends it to
 $\sum_{m\le n}\log(b_m(s_1)/b_m(s_0))=-\frac{s_1-s_0}{2}\log n+\frac12\log(c(p)^{(s_1-s_0)/p}\zeta(s_0)/\zeta(s_1))
 +o(1)$ for all $s_0,s_1>1$, and gives the law uniformly on compact sets of exponents (for $p\le1$, inside an
-explicit window, and for the diagonal coefficients away from one exponent). At $p=1$ this determines the
-averaged $1/n$ coefficient $-(s-1)/2$ for every $s>1$. All proofs rest on the first-variation formula for $\log h_n$
+explicit window, and for the diagonal coefficients away from one exponent). At $p=1$ this recovers, by soft
+methods, the averaged $1/n$ coefficient $-(s-1)/2$ for every $s>1$. All proofs rest on the first-variation formula for $\log h_n$
 under multiplicative changes of the weights, combined with localisation of the spectral weights.
 \end{abstract}
 
@@ -77,15 +78,15 @@ under multiplicative changes of the weights, combined with localisation of the s
 \input{sec8}
 
 \section*{Acknowledgements}
-The research and the exposition were developed with the assistance of an AI system (Claude, Anthropic). The main
-theorem of the first paper of this series is formally verified in the Lean proof assistant. The author takes
-responsibility for the content.
+The research and the exposition were developed with the assistance of an AI system (Claude, Anthropic); the main
+theorem of the first paper of this series \cite{PaperI} is formally verified in the Lean proof assistant; the author
+takes responsibility for the content.
 
 \section*{Data and code availability}
-The scripts that produced the numbers of Section~\ref{sec:numerics}, their stored outputs, and the Lean sources
-mentioned in Section~\ref{sec:christoffel} (declarations \texttt{christoffel\_shift\_law\_converse} and
-\texttt{chain\_limit}) are in the repository \url{https://github.com/speagleg/jacobi-asymptotics} (tag
-\texttt{v1.0-paper3} [placeholder: tag to be created at submission]).
+{\raggedright The Lean sources mentioned in Section~\ref{sec:christoffel} (declarations
+\texttt{christoffel\_shift\_law\_converse} and \texttt{chain\_limit}) and the scripts that produced the numbers of
+Section~\ref{sec:numerics}, with their outputs, are available in the repository
+\url{https://github.com/speagleg/jacobi-asymptotics} under the tag \texttt{v1.0-paper3}.\par}
 
 \bibliographystyle{amsplain}
 \bibliography{refs}

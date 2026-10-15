@@ -2,7 +2,7 @@
 
 `main.tex` (amsart 11pt, 28 pages) with `sec1.tex` … `sec8.tex`, `refs.bib`. Build (no latexmk):
 `pdflatex main; bibtex main; pdflatex main; pdflatex main` — 0 errors, 0 warnings, 0 overfull/underfull boxes,
-0 undefined references (last build of this draft). Author line "Gordon [Surname]" is a placeholder.
+0 undefined references (last build of this draft). Author line "Gordon Speagle" (Plan 73).
 
 **Status.** DRAFT. Every statement is taken from a REVIEWED repo source, except the items listed under
 "New arguments (need Rule R)" below. Nothing here has had a second reader as a paper.
@@ -108,7 +108,8 @@ compactly. Nothing in the outline's theorem list is missing.
   Conj 11.1, 11.2 (from PAPER_II_OUTLINE.md §§2, 6). Re-check when II is frozen.
 - Paper I numbers: Thm 1.1, Cor 1.2, Thm 1.3(i), Cor 1.4 (current papers/paper1). Paper I still writes u_s, ω_β; III
   uses u_sat, arc_β (SERIES §4; D11).
-- Titles of Papers I/II in refs.bib; repository tag `v1.0-paper3`; date line.
+- Done (Plan 73): titles of Papers I/II in refs.bib match their \title; tag `v1.0-paper3` stated plainly; date
+  `October 2026`; all Paper II numbers re-checked against II's build (papers/CONSISTENCY.md).
 
 ## 6. Open items
 

@@ -40,9 +40,9 @@ Paper III must cite the numbers of the frozen version; exported labels: thm:anal
 
 ## 2. Placeholders
 
-- Author line "Gordon [Surname]"; date line; repository tag "[to be fixed at submission]" in the data statement.
+- Done (Plan 73): author line "Gordon Speagle", `\date{October 2026}`, tag `v1.0-paper2` in the data statement,
+  Paper III bib entry with III's final title. See papers/CONSISTENCY.md.
 - MSC codes, affiliation, e-mail: not yet present.
-- Paper III bibliography entry: title provisional ("Stability and instability of recurrence asymptotics …").
 
 ## 3. Open items and items pending review
 

@@ -68,8 +68,8 @@ local paths in any tracked file of the folder.
   symbolic computation of the Laurent coefficients is disclosed there and in App. E. Theorem 7.1, Prop 8.4, 8.6, 9.5
   carry their own inputs next to the statements.
 - Conjectures 11.1 (1/n term, p ≤ 1) and 11.2 (tilt law) are labelled as such and placed in §11.
-- Acknowledgements: one plain sentence as required; author line "Gordon [Surname]".
-- Data/code availability: github.com/speagleg/jacobi-asymptotics, tag placeholder; Lean declarations named there only.
+- Acknowledgements: one plain sentence as required; author line "Gordon Speagle" (Plan 73).
+- Data/code availability: github.com/speagleg/jacobi-asymptotics, tag v1.0-paper2 (Plan 73); Lean declarations named there only.
 
 ## §7 Cross-paper consistency
 - "Recurrence coefficients" is the only term for a_n, b_n (was mixed with "Jacobi coefficients"). The disc is

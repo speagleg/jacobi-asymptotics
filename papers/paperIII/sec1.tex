@@ -131,10 +131,11 @@ Equivalently, with $D_n(s):=\det\bigl(\zeta(s+i+j)\bigr)_{0\le i,j\le n-1}$,
 \end{corollary}
 
 For $p=1$ and $s\in\frac32+\N_0$ the first statement is proved without the bound of \tailbound{}, and so is its
-analogue for $p=2$ and $s\in2+2\N_0$ (Corollary~\ref{cor:lattice}). For $p>1$ the pointwise $1/n$ term is known,
-$n^pb_n(s)=c(p)(1-\frac{s-1}{2n}+O(n^{-2}))$ \cite[Theorem~1.4]{PaperII}; its sum gives the logarithmic mean up to
-$O(1)$, and Theorem~\ref{thm:s}(ii) adds the exact differences of the constants. For $0<p<1$ only differences in $s$
-are determined (Section~\ref{sec:open}).
+analogue for $p=2$ and $s\in2+2\N_0$ (Corollary~\ref{cor:lattice}). The pointwise $1/n$ term is known for every
+$p>0$: $n^pb_n(s)=c(p)(1-\frac{s-1}{2n}+O(n^{-1-\min(p,1)}))$ by \cite[Theorem~1.4]{PaperII}, restated as
+Theorem~\ref{thm:imp-second} below. Its sum gives the logarithmic mean up to $o(1)$, with a constant that it does not
+determine; at $p=1$ it yields the first statement of Corollary~\ref{cor:p1}. The proof given here does not use the
+pointwise $1/n$ term, and Theorem~\ref{thm:s}(ii) adds the exact differences of the constants.
 
 \subsection{Context}\label{sec:context}
 \emph{Averaged and pointwise laws.} Specialised to the atoms $k^{-p}$, \cite[Theorem~1.1 and Corollary~1.2]{PaperI}
@@ -198,7 +199,9 @@ slow variation, the first variation and its second-order bounds, and localisatio
 \ref{thm:s}(i) and~\ref{thm:s}(ii)--(iii) with Corollary~\ref{cor:p1}. Section~\ref{sec:numerics} illustrates the
 results numerically, and Section~\ref{sec:open} states open problems and conjectures.
 
-Throughout, $p>0$ is fixed and $c=c(p)$. The atoms are $x_k=k^{-p}$, and $x$ also denotes the sequence $(x_k)$.
+Throughout, $p>0$ is fixed and $c=c(p)$. The atoms are $x_k=k^{-p}$, and $x$ also denotes the sequence $(x_k)$. As in
+\cite{PaperII}, the quotient $a_n/(2b_n)$ pairs the diagonal entry at $P_n$ with the off-diagonal entry $b_n$ between
+$P_{n-1}$ and $P_n$, as in \eqref{eq:rec}.
 Constants $C,C'$ are positive and may change from line to line; the letter $c$ is reserved for $c(p)$, and $c_1$
 for the lower-bound constant of the weights in \S\ref{sec:context}. Symbols local to this paper are the smoothing error
 $\rho_\ell$ and head margin $M_0$ (Section~\ref{sec:sv} and Lemma~\ref{lem:saturation}), the window constants

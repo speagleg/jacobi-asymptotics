@@ -9,16 +9,16 @@
 
 \bibitem{DPQ}
 Z.~Dai, D.~Piao, and J.~Qiao, \emph{Construction and characterization of
-  oscillatory chain sequences}, 2025, Preprint, arXiv:2508.07653.
+  oscillatory chain sequences}, 2025, Preprint, arXiv:2508.07653v1.
 
 \bibitem{DD}
 M.~Derevyagin and V.~Derkach, \emph{Darboux transformations of {J}acobi
   matrices and {P}ad{\'e} approximation}, Linear Algebra Appl. \textbf{435}
-  (2011), no.~12, 3056--3084, arXiv:1012.3712.
+  (2011), no.~12, 3056--3084, arXiv:1012.3712v2.
 
 \bibitem{DLMF}
-\emph{{NIST} digital library of mathematical functions},
-  \url{https://dlmf.nist.gov}, release 2026-09-15.
+\emph{{NIST Digital Library of Mathematical Functions}},
+  \url{https://dlmf.nist.gov}, release of 15 September 2026.
 
 \bibitem{Fischer}
 H.-J. Fischer, \emph{On generating orthogonal polynomials for discrete
@@ -31,7 +31,7 @@ A.~Haynes and W.~Zudilin, \emph{Hankel determinants of zeta values}, SIGMA
 
 \bibitem{Monien}
 H.~Monien, \emph{Hankel determinants of {D}irichlet series}, 2009, Preprint,
-  arXiv:0901.1883.
+  arXiv:0901.1883v1.
 
 \bibitem{Simon}
 B.~Simon, \emph{Ratio asymptotics and weak asymptotic measures for orthogonal
@@ -39,19 +39,17 @@ B.~Simon, \emph{Ratio asymptotics and weak asymptotic measures for orthogonal
   198--217.
 
 \bibitem{PaperI}
-Gordon [Surname], \emph{Hankel determinants of discrete measures with power-law
-  atoms, and of zeta values}, 2026, Preprint, 2026 (first paper of this
-  series).
+G.~Speagle, \emph{Hankel determinants of discrete measures with power-law
+  atoms, and of zeta values}, 2026, Preprint.
 
 \bibitem{PaperII}
 \bysame, \emph{Recurrence coefficients of discrete measures with power-law
-  atoms: pointwise asymptotics and the $1/n$ term}, 2026, Preprint, 2026
-  (second paper of this series); title and numbering provisional.
+  atoms: pointwise asymptotics and the $1/n$ term}, 2026, Preprint.
 
 \bibitem{VA}
 W.~Van~Assche, \emph{Compact {J}acobi matrices: from {S}tieltjes to {K}rein and
-  {$M(a,b)$}}, Ann. Fac. Sci. Toulouse Math. (6) \textbf{num{\'e}ro sp{\'e}cial
-  Stieltjes} (1996), 195--215, arXiv:math/9510214.
+  {$M(a,b)$}}, Ann. Fac. Sci. Toulouse Math. (6) (1996), 195--215, Num\'ero
+  sp\'ecial Stieltjes; arXiv:math/9510214.
 
 \bibitem{WLXZ}
 X.-B. Wu, Y.~Lin, S.-X. Xu, and Y.-Q. Zhao, \emph{Uniform asymptotics for

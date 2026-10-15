@@ -18,7 +18,7 @@ To regenerate `main.bbl` and the PDF: `pdflatex main; bibtex main; pdflatex main
 ## Metadata
 
 - **Title:** Hankel determinants of discrete measures with power-law atoms, and of zeta values
-- **Authors:** Gordon [Surname] (placeholder)
+- **Authors:** Gordon Speagle
 - **Primary category:** math.CA (Classical Analysis and ODEs). Cross-lists: math.NT, math.SP.
 - **MSC class:** 42C05 (primary); 15B05, 31A15, 11M06, 47B36
 - **Comments field (suggestion):** "19 pages. The main theorem and both corollaries are formalised in Lean 4/Mathlib;
@@ -31,18 +31,17 @@ Let $\sigma=\sum_k w_k\delta_{x_k}$ be a discrete measure whose atoms $x_k=f(k)$
 
 (The PDF abstract has the same text, typeset; it has no displayed formulas.)
 
-## Placeholders the user must fill before submitting
+## Author tasks before submitting
 
-1. **Author surname.** `\author{Gordon [Surname]}` in main.tex (and the arXiv author field). Optionally add
-   `\address{...}` and `\email{...}` after `\author`.
-2. **Repository tag.** The "Data and code availability" statement at the end of main.tex says "tag `v1.0-paper1`
-   [placeholder: tag to be created at submission]". Before submitting: make the repository public, create the tag on
-   the submission commit, and delete the bracketed placeholder text. Then rebuild.
-3. **Companion papers.** Paper I is posted alone first. The end of §1.2 says only "Companion papers in preparation
+Done in the Plan 73 consistency pass: the author line is `\author{Gordon Speagle}` (no affiliation or email), the date
+is `\date{October 2026}`, and the "Data and code availability" statement names the tag `v1.0-paper1` plainly.
+
+1. **Repository tag.** The repository is public and the tag `v1.0-paper1` marks the submission commit; if the submission changes, move the tag (the
+   paper already cites it; Papers II and III cite `v1.0-paper2` and `v1.0-paper3`).
+2. **Companion papers.** Paper I is posted alone first. The end of §1.2 says only "Companion papers in preparation
    treat the pointwise asymptotics of $b_n$ and $a_n$", with no citation and no bib entry (removed in the Plan 68
    referee pass). When II and III are on arXiv, a later version of I may cite them there.
-4. **Date.** `\date{15 October 2026}`: update it to the submission date.
-5. **Endorsement.** A first math.CA submission may need an endorser (see `research/program/paper1_outreach.md`,
+3. **Endorsement.** A first math.CA submission may need an endorser (see `research/program/paper1_outreach.md`,
    local only).
 
 ## Still open before submission (from NOTES.md §6 and §8; none blocks a specialist read)
