@@ -1,0 +1,264 @@
+% sec3_shift.tex: Section 3 (The Christoffel shift).
+% Labels defined here: sec:shift, thm:shift, eq:shift-identity, lem:zeros, lem:transfer, eq:transfer,
+%   eq:scaled-chain, eq:chain-map, lem:chain-limit, lem:chain-rate, rem:sharp.
+
+\section{The Christoffel shift}\label{sec:shift}
+
+This section proves that the pointwise law, together with its rate, passes from a measure $\sigma$ on $[0,\infty)$ to
+the measure $x\sigma$, $\diff(x\sigma):=x\diff\sigma(x)$. For our measures, multiplication by $x$ shifts the exponent
+$s$ by exactly $p$: for $x_k=k^{-p}$,
+\begin{equation}\label{eq:shift-identity}
+  x\,\sigma_{p,s,\ell}=\sum_{k\ge1}k^{-p}\,k^{-s}\ell(k)\,\delta_{k^{-p}}=\sigma_{p,s+p,\ell},
+\end{equation}
+with the same $\ell$, and it raises the Bessel order $\alpha=(s-1-p)/p$ by $1$. This is why the Riemann--Hilbert
+analysis of Sections~\ref{sec:frame}--\ref{sec:extraction} only has to cover the window $|\alpha|<1$.
+
+\begin{theorem}[Christoffel shift: law and rate]\label{thm:shift}
+Let $\sigma$ be a positive Borel measure on $[0,\infty)$ with infinite support and finite moments, let $p>0$ and
+$c>0$, and let $\eta_n$ be a regular rate \textup{(}Definition~\textup{\ref{def:regular})}. If
+\[
+  |n^pa_n(\sigma)-2c|+|n^pb_n(\sigma)-c|=O(\eta_n),
+\]
+then the measure $x\sigma$ satisfies the same estimate, with the same $c$ and rate $O(\eta_n)$. Without a rate: if
+$n^pa_n(\sigma)\to2c$ and $n^pb_n(\sigma)\to c$, then the same holds for $x\sigma$.
+\end{theorem}
+
+The Jacobi matrix of $x\sigma$ is obtained by factoring the Jacobi matrix of $\sigma$ as a product $LU$ of bidiagonal
+matrices and multiplying the factors in the opposite order; these transfer formulas are classical
+\cite[\S1]{DD}. The entries of the factors are not known in advance, since they involve the values $P_n(0)$. The point
+of the proof is that no information about $P_n(0)$ is needed beyond its sign: the factors satisfy a recursion whose
+limiting map has a double (parabolic) fixed point, and positivity alone forces them to converge to it. The factors
+form a chain sequence, and the statement without rate follows from a proposition of Dai, Piao and Qiao
+\cite[Proposition~2.1]{DPQ} together with the transfer formulas. The part with a rate is the one we need, since it lets
+the rate $O(1/n)$ survive the shift; we have not found the rate statement in the literature. The parameters of the
+chain converge only at the rate $O(\sqrt{\eta_n})$ in general, and this is sharp (Remark~\ref{rem:sharp}); the
+coefficients of $x\sigma$ involve only their increments, which are $O(\eta_n)$. Theorem~\ref{thm:shift}, for discrete
+measures $\sum_kw_k\delta_{x_k}$ with $w_k>0$, $\sum_kw_k<\infty$ and bounded, strictly decreasing atoms $x_k\ge0$
+(a class that contains every $\sigma_{p,s,\ell}$), and Lemmas~\ref{lem:chain-limit} and~\ref{lem:chain-rate} below
+have been formally verified in the Lean proof assistant.
+
+Throughout, $a_n,b_n$ are the Jacobi coefficients of $\sigma$ (\S\ref{sec:prelim-op}), and $\tilde a_n,\tilde b_n$
+are those of $x\sigma$.
+
+\subsection{The transfer formulas}
+
+\begin{lemma}\label{lem:zeros}
+Let $\sigma$ be a positive Borel measure on $[0,\infty)$ with infinite support and finite moments. Then for $n\ge1$ the
+polynomial $P_n$ has $n$ simple zeros, all in $(0,\infty)$. In particular $(-1)^nP_n(0)>0$ for all $n\ge0$.
+\end{lemma}
+
+\begin{proof}
+Let $y_1<\dots<y_m$ be the zeros of $P_n$ in $(0,\infty)$ of odd multiplicity, and put $\pi(x):=\prod_j(x-y_j)$
+($\pi:=1$ if $m=0$). Suppose $m<n$. Then $\int P_n\pi\diff\sigma=0$ by orthogonality. On the other hand, every
+remaining factor of $P_n$ is of the form $(x-y)^{2i}$ with $y$ real, or $(x-y)$ with $y\le0$, or
+$(x-z)(x-\bar z)=|x-z|^2$ with $z\notin\R$; each is non-negative on $[0,\infty)$. Hence $P_n\pi\ge0$ on $[0,\infty)$.
+Since $P_n\pi$ is a non-zero polynomial and $\sigma$ has infinite support, $\int P_n\pi\diff\sigma>0$, a contradiction.
+So $m=n$, the $n$ zeros are simple and positive, and $P_n(0)=\prod_j(-y_j)$ has the sign $(-1)^n$.
+\end{proof}
+
+By Lemma~\ref{lem:zeros} we may define
+\[
+  u_n:=-\frac{P_{n+1}(0)}{P_n(0)}>0\quad(n\ge0),\qquad l_0:=0,\qquad l_n:=\frac{b_n^2}{u_{n-1}}>0\quad(n\ge1).
+\]
+
+\begin{lemma}\label{lem:transfer}
+Let $\sigma$ be as in Lemma~\ref{lem:zeros}. Then:
+\begin{enumerate}
+\item[\textup{(i)}] $a_n=u_n+l_n$ for $n\ge0$, and $b_n^2=u_{n-1}l_n$ for $n\ge1$. Equivalently, $u_0=a_0$ and
+  $u_n=a_n-b_n^2/u_{n-1}$ for $n\ge1$.
+\item[\textup{(ii)}] The measure $x\sigma$ has infinite support, its monic orthogonal polynomials are
+  $\widetilde P_n(x):=\bigl(P_{n+1}(x)+u_nP_n(x)\bigr)/x$, and its Jacobi coefficients are
+  \begin{equation}\label{eq:transfer}
+    \tilde a_n=u_n+l_{n+1}\quad(n\ge0),\qquad \tilde b_n^2=u_nl_n\quad(n\ge1).
+  \end{equation}
+\end{enumerate}
+\end{lemma}
+
+In matrix form: $J(\sigma)=LU$, with $L$ unit lower bidiagonal with subdiagonal $(l_1,l_2,\dots)$ and $U$ upper
+bidiagonal with diagonal $(u_0,u_1,\dots)$ and superdiagonal $1$; and $J(x\sigma)=UL$. This is the classical Christoffel
+(or Darboux) transformation; see Derevyagin and Derkach~\cite[\S1]{DD}, where it is written $J=LU\mapsto UL$. We include
+the short proof.
+
+\begin{proof}
+(i) Evaluate \eqref{eq:rec-monic} at $x=0$: $0=P_{n+1}(0)+a_nP_n(0)+b_n^2P_{n-1}(0)$. Dividing by $P_n(0)\ne0$ gives
+$a_n=u_n-b_n^2P_{n-1}(0)/P_n(0)=u_n+b_n^2/u_{n-1}=u_n+l_n$ for $n\ge1$, and $a_0=u_0$ since $P_{-1}=0$. The identity
+$b_n^2=u_{n-1}l_n$ is the definition of $l_n$.
+
+(ii) The support of $x\sigma$ is $\supp\sigma\setminus\{0\}$, which is infinite, and $x\sigma$ has finite moments. The
+polynomial $P_{n+1}+u_nP_n$ vanishes at $0$ by the definition of $u_n$, so $\widetilde P_n$ is a monic polynomial of
+degree $n$. For $j\le n-1$, $\int\widetilde P_nx^j\diff(x\sigma)=\int(P_{n+1}+u_nP_n)x^j\diff\sigma=0$. Hence the
+$\widetilde P_n$ are the monic orthogonal polynomials of $x\sigma$.
+
+Next, for $n\ge1$ the polynomial $P_n-\widetilde P_n$ has degree at most $n-1$, and for $j\le n-2$
+\[
+  \int(P_n-\widetilde P_n)x^j\diff(x\sigma)=\int P_nx^{j+1}\diff\sigma-\int\widetilde P_nx^j\diff(x\sigma)=0 .
+\]
+So $P_n-\widetilde P_n=l_n'\widetilde P_{n-1}$ for some constant $l_n'$; put $l_0':=0$, consistent with
+$P_0=\widetilde P_0=1$. Then
+\[
+  xP_n=x\widetilde P_n+l_n'\,x\widetilde P_{n-1}=(P_{n+1}+u_nP_n)+l_n'(P_n+u_{n-1}P_{n-1}).
+\]
+Comparing with \eqref{eq:rec-monic} (the $P_j$ are linearly independent) gives $a_n=u_n+l_n'$ and $b_n^2=l_n'u_{n-1}$,
+so $l_n'=l_n$ by (i). Finally,
+\[
+  x\widetilde P_n=P_{n+1}+u_nP_n=(\widetilde P_{n+1}+l_{n+1}\widetilde P_n)+u_n(\widetilde P_n+l_n\widetilde P_{n-1}),
+\]
+which is the recurrence of $x\sigma$ with $\tilde a_n=u_n+l_{n+1}$ and $\tilde b_n^2=u_nl_n$.
+\end{proof}
+
+\subsection{The chain sequence converges}
+
+Assume now that $\sigma$ satisfies the pointwise law at scale $n^p$ with constant $c>0$. We work with the rescaled
+quantities
+\[
+  \hat a_n:=n^pa_n,\quad \hat b_n:=n^pb_n,\quad \hat u_n:=n^pu_n,\quad \hat l_n:=n^pl_n,\quad
+  \varsigma_n:=\Bigl(\frac{n-1}n\Bigr)^p .
+\]
+Multiplying the identities of Lemma~\ref{lem:transfer}(i) by $n^p$, and using $n^p\cdot(n-1)^p=n^{2p}\varsigma_n$, we
+get
+\begin{equation}\label{eq:scaled-chain}
+  \hat u_n+\hat l_n=\hat a_n,\qquad \hat u_{n-1}\hat l_n=\varsigma_n\hat b_n^2,\qquad\text{so}\qquad
+  \hat u_n=\hat a_n-\frac{\varsigma_n\hat b_n^2}{\hat u_{n-1}}\qquad(n\ge1).
+\end{equation}
+If $\hat a_n\to2c$, $\hat b_n\to c$ and $\hat u_{n-1}\to c$, the last identity tends to
+\begin{equation}\label{eq:chain-map}
+  \hat u_n\approx F(\hat u_{n-1}),\qquad F(t):=2c-\frac{c^2}t,\qquad
+  F(t)-t=-\frac{(t-c)^2}t,\qquad F(c+y)=c+\frac{cy}{c+y}.
+\end{equation}
+The map $F$ is increasing on $(0,\infty)$, has the single fixed point $c$, and this fixed point is double: $F(t)\le t$
+for every $t>0$. An orbit that settles below $c$ is therefore pushed down towards $0$, and one above $c$ is pulled down
+to $c$. Positivity of $u_n$ rules out the first possibility.
+
+\begin{lemma}\label{lem:chain-limit}
+Let $\sigma$ be as in Lemma~\ref{lem:zeros}, $p>0$ and $c>0$. If $\hat a_n\to2c$ and $\hat b_n\to c$, then
+$\hat u_n\to c$ and $\hat l_n\to c$.
+\end{lemma}
+
+Lemma~\ref{lem:chain-limit} is a special case of \cite[Proposition~2.1]{DPQ}: in the variables
+$\mathsf r_n:=b_n^2/(a_{n-1}a_n)$ and $\mathsf g_n:=l_n/a_n$ one has $\mathsf r_n=(1-\mathsf g_{n-1})\mathsf g_n$ with
+$\mathsf g_0=0$ and $0<\mathsf g_n<1$, so $(\mathsf r_n)$ is a chain sequence with parameter sequence $(\mathsf g_n)$; the
+hypothesis gives $\mathsf r_n=\varsigma_n\hat b_n^2/(\hat a_{n-1}\hat a_n)\to\frac14$, and \cite[Proposition~2.1]{DPQ}
+states that then every parameter sequence tends to $\frac12$. We include the short proof, because the rate version,
+Lemma~\ref{lem:chain-rate}, follows the same lines.
+
+\begin{proof}
+\emph{A priori bounds.} By Lemma~\ref{lem:zeros}, $u_n,l_n>0$, so $\hat u_n<\hat a_n$ and $\hat l_n<\hat a_n$. Hence
+$\hat u_{n-1}=\varsigma_n\hat b_n^2/\hat l_n>\varsigma_n\hat b_n^2/\hat a_n\to c/2$. So there is $n_1$ with
+$\hat u_n\in[c/3,3c]$ for $n\ge n_1$.
+
+\emph{Recursion.} For $n>n_1$, \eqref{eq:scaled-chain} reads $\hat u_n=F(\hat u_{n-1})+e_n$ with
+\[
+  e_n:=(\hat a_n-2c)-\frac{\varsigma_n\hat b_n^2-c^2}{\hat u_{n-1}},\qquad
+  |e_n|\le|\hat a_n-2c|+\frac3c\,|\varsigma_n\hat b_n^2-c^2|\longrightarrow0 .
+\]
+Fix $\delta\in(0,c/3)$ and put $d:=\delta^2/(3c)$. By \eqref{eq:chain-map}, $F(t)\le t-d$ for every
+$t\in[c/3,3c]$ with $|t-c|\ge\delta$. Choose $n_2>n_1$ with $|e_n|<\min(d/2,\delta)$ for $n\ge n_2$.
+
+\emph{Lower bound.} Suppose $\hat u_m<c-\delta$ for some $m\ge n_2$. Then
+$\hat u_{m+1}\le\hat u_m-d+|e_{m+1}|<\hat u_m-d/2<c-\delta$, and by induction $\hat u_{m+j}<\hat u_m-jd/2$ for all
+$j\ge1$. This contradicts $\hat u_n\ge c/3$. So $\hat u_n\ge c-\delta$ for all $n\ge n_2$.
+
+\emph{Upper bound.} Let $n\ge n_2$. If $\hat u_n\ge c+\delta$, then $\hat u_{n+1}<\hat u_n-d/2$. If $\hat u_n<c+\delta$,
+then, $F$ being increasing, $\hat u_{n+1}<F(c+\delta)+\delta<c+2\delta$, because $F(c+\delta)<c+\delta$. The first
+alternative cannot hold for all $n\ge n_2$, since $\hat u_n$ would then decrease by $d/2$ at every step while staying
+above $c/3$. So $\hat u_m<c+\delta$ for some $m\ge n_2$. From then on $\hat u_n<c+2\delta$: if $\hat u_n<c+\delta$ this
+was just shown, and if $c+\delta\le\hat u_n<c+2\delta$ then $\hat u_{n+1}<\hat u_n<c+2\delta$.
+
+Hence $c-\delta\le\liminf\hat u_n\le\limsup\hat u_n\le c+2\delta$ for every small $\delta>0$, so $\hat u_n\to c$, and
+$\hat l_n=\hat a_n-\hat u_n\to c$.
+\end{proof}
+
+\subsection{Rates}
+
+With a rate, the same argument gives a rate for $\hat u_n$, but only the square root of the input rate. What saves the
+transfer is that the coefficients of $x\sigma$ depend on $\hat u_n$ only through its increments, which converge at the
+full rate.
+
+\begin{lemma}\label{lem:chain-rate}
+Let $\sigma$ be as in Lemma~\ref{lem:zeros}, $p>0$, $c>0$, and let $\eta_n$ be a regular rate with
+$|\hat a_n-2c|+|\hat b_n-c|\le M\eta_n$ for $n\ge1$. Then
+\[
+  |\hat u_n-c|=O(\sqrt{\eta_n})\qquad\text{and}\qquad |\hat u_n-\hat u_{n-1}|=O(\eta_n).
+\]
+\end{lemma}
+
+\begin{proof}
+We keep the notation of the previous proof; in particular $\hat u_n\in[c/3,3c]$ for $n\ge n_1$, and $\hat u_n\to c$ by
+Lemma~\ref{lem:chain-limit}. We first bound the perturbation $e_n$. For every $p>0$ and $n\ge2$ we have
+$0\le1-\varsigma_n\le\max(p,1)/n$: for $p\ge1$ by Bernoulli's inequality $(1-1/n)^p\ge1-p/n$, and for $p<1$ because
+$(1-1/n)^p\ge1-1/n$. By \eqref{eq:regular-facts}, $1/n\le\eta_n/\eta_1$. Also $\hat b_n$ is bounded, so
+$|\hat b_n^2-c^2|=O(\eta_n)$. Hence $|\varsigma_n\hat b_n^2-c^2|\le(1-\varsigma_n)\hat b_n^2+|\hat b_n^2-c^2|=O(\eta_n)$,
+and there is $M_1$ with $|e_n|\le M_1\eta_n$ for $n>n_1$.
+
+Put $y_n:=\hat u_n-c$. By \eqref{eq:chain-map},
+\[
+  y_{n+1}=\frac{cy_n}{c+y_n}+e_{n+1}=y_n-\frac{y_n^2}{\hat u_n}+e_{n+1}\qquad(n\ge n_1).
+\]
+
+\emph{Lower bound.} Let $\lambda_-:=\sqrt{6cM_1}$. Suppose $y_m\le-\lambda_-\sqrt{\eta_m}$ for some $m\ge n_1$. Then
+$y_m^2/\hat u_m\ge\lambda_-^2\eta_m/(3c)=2M_1\eta_m$, so
+$y_{m+1}\le y_m-2M_1\eta_m+M_1\eta_{m+1}\le y_m-M_1\eta_m\le-\lambda_-\sqrt{\eta_m}\le-\lambda_-\sqrt{\eta_{m+1}}$. By
+induction $y_{m+j}\le y_m-M_1\sum_{i<j}\eta_{m+i}$, which tends to $-\infty$ because $\sum\eta_n=\infty$. This
+contradicts $\hat u_n>0$. Hence $y_n>-\lambda_-\sqrt{\eta_n}$ for all $n\ge n_1$.
+
+\emph{Upper bound.} Choose $n_3\ge n_1$ with $|y_n|\le c/2$ for $n\ge n_3$; then $\hat u_n\le2c$ there. Choose
+$\lambda_+>0$ with $\lambda_+^2/(2c)\ge2M_1+\lambda_+/(2\sqrt{\eta_1})$ (possible, since the left side is quadratic in
+$\lambda_+$), and $n_4\ge n_3$ with $\lambda_+\sqrt{\eta_n}\le c$ for $n\ge n_4$.
+
+\emph{Step.} Let $n\ge n_4$ and $y_n\le t:=\lambda_+\sqrt{\eta_n}$. The map $y\mapsto cy/(c+y)$ is increasing on
+$(-c,\infty)$ and $y_n\ge-c/2$, so
+\[
+  y_{n+1}\le\frac{ct}{c+t}+M_1\eta_{n+1}\le t-\frac{t^2}{2c}+M_1\eta_n
+  =t-\Bigl(\frac{\lambda_+^2}{2c}-M_1\Bigr)\eta_n\le t-\frac{\lambda_+\eta_n}{2\sqrt{\eta_1}},
+\]
+using $t\le c$ and the choice of $\lambda_+$. On the other hand, $\eta_{n+1}\ge\eta_nn/(n+1)$ gives
+$t-\lambda_+\sqrt{\eta_{n+1}}\le\lambda_+\sqrt{\eta_n}\bigl(1-\sqrt{n/(n+1)}\bigr)\le\lambda_+\sqrt{\eta_n}/(2n)$, where
+the last step is $\sqrt{n(n+1)}\ge n-1$. Since $1/n\le\eta_n/\eta_1\le\sqrt{\eta_n/\eta_1}$, this is at most
+$\lambda_+\eta_n/(2\sqrt{\eta_1})$. Together, $y_{n+1}\le\lambda_+\sqrt{\eta_{n+1}}$.
+
+\emph{Entry.} If $y_n>\lambda_+\sqrt{\eta_n}$ for some $n\ge n_4$, then $y_n^2/\hat u_n\ge y_n^2/(2c)\ge2M_1\eta_n$, so
+$y_{n+1}\le y_n-M_1\eta_n$. While $y$ stays above $\lambda_+\sqrt{\eta}\ge0$ it decreases by the non-summable amounts
+$M_1\eta_n$, which cannot go on for ever. So $y_m\le\lambda_+\sqrt{\eta_m}$ for some $m\ge n$, and by the step
+$y_k\le\lambda_+\sqrt{\eta_k}$ for all $k\ge m$.
+
+Hence $|y_n|=O(\sqrt{\eta_n})$ (the finitely many earlier terms only change the constant). Finally,
+$|\hat u_n-\hat u_{n-1}|=|y_n-y_{n-1}|\le y_{n-1}^2/\hat u_{n-1}+|e_n|=O(\eta_{n-1})+O(\eta_n)=O(\eta_n)$ by
+\eqref{eq:regular-facts}.
+\end{proof}
+
+\subsection{\texorpdfstring{Proof of Theorem~\ref{thm:shift}}{Proof of Theorem 3.1}}
+
+By Lemma~\ref{lem:transfer}(ii), $x\sigma$ is again a positive measure on $[0,\infty)$ with infinite support and finite
+moments, and by \eqref{eq:transfer} and \eqref{eq:scaled-chain},
+\begin{align*}
+  n^{2p}\tilde b_n^2&=\hat u_n\hat l_n=\frac{\varsigma_n\hat b_n^2\,\hat u_n}{\hat u_{n-1}},\\
+  n^p\tilde a_n&=\hat u_n+\Bigl(\frac n{n+1}\Bigr)^p\hat l_{n+1}
+  =\hat a_{n+1}-(\hat u_{n+1}-\hat u_n)+\Bigl(\Bigl(\frac n{n+1}\Bigr)^p-1\Bigr)\hat l_{n+1}.
+\end{align*}
+
+\emph{Without a rate.} By Lemma~\ref{lem:chain-limit}, $\hat u_n\to c$ and $\hat l_n\to c$, so $n^p\tilde b_n\to c$ and
+$n^p\tilde a_n\to2c$.
+
+\emph{With a regular rate $\eta_n$.} By Lemma~\ref{lem:chain-rate}, $\hat u_n/\hat u_{n-1}=1+O(\eta_n)$, since
+$\hat u_{n-1}\ge c/3$ for large $n$. Also $\varsigma_n=1+O(1/n)=1+O(\eta_n)$ and $\hat b_n=c+O(\eta_n)$. Hence
+$n^p\tilde b_n=\hat b_n\bigl(\varsigma_n\hat u_n/\hat u_{n-1}\bigr)^{1/2}=c+O(\eta_n)$. For the diagonal, $\hat
+a_{n+1}=2c+O(\eta_{n+1})$, $\hat u_{n+1}-\hat u_n=O(\eta_{n+1})$, $\hat l_{n+1}$ is bounded and
+$(n/(n+1))^p-1=O(1/n)$. Since $\eta_{n+1}\le\eta_n$ and $1/n\le\eta_n/\eta_1$, this gives $n^p\tilde a_n=2c+O(\eta_n)$.
+\qed
+
+\begin{remark}[only increments enter]\label{rem:sharp}
+The bound $|\hat u_n-c|=O(\sqrt{\eta_n})$ of Lemma~\ref{lem:chain-rate} cannot be improved under the hypotheses of the
+lemma. Take $\eta_n=1/n$, any $\theta_0>0$, and define $u_n:=n^{-p}(c+\theta_0 n^{-1/2})$ for $n\ge1$, $u_0:=1$,
+$b_n:=cn^{-p}$, $l_n:=b_n^2/u_{n-1}$ ($n\ge1$), $l_0:=0$ and $a_n:=u_n+l_n$. All $u_n,l_n$ are positive. The symmetric
+tridiagonal matrix with diagonal $a_n$ and off-diagonal $b_n$ equals $\mathcal L\mathcal L^{\mathsf T}$, where
+$\mathcal L$ is lower bidiagonal with diagonal $\sqrt{u_n}$ and subdiagonal $\sqrt{l_{n+1}}$. It is therefore a bounded
+positive semi-definite operator, so it is the Jacobi matrix of a unique positive measure with infinite compact support
+in $[0,\infty)$. By Lemma~\ref{lem:transfer}(i), the $u_n$ of that measure are the ones just defined, because
+$u_0=a_0$ and $u_n=a_n-b_n^2/u_{n-1}$ determine them. Here $\hat b_n=c$. Since
+$\hat l_n=n^pb_n^2/u_{n-1}=\varsigma_nc^2/(c+\theta_0(n-1)^{-1/2})$, $\varsigma_n=1-p/n+O(n^{-2})$ and
+$(n-1)^{-1/2}=n^{-1/2}+O(n^{-3/2})$, we get $\hat l_n=c-\theta_0n^{-1/2}+(\theta_0^2/c-pc)n^{-1}+O(n^{-3/2})$; the
+terms $\pm\theta_0n^{-1/2}$ cancel in $\hat a_n=\hat u_n+\hat l_n$, so $\hat a_n-2c=(\theta_0^2/c-pc)/n+O(n^{-3/2})$.
+So the law holds with rate $1/n$, while $\hat u_n-c=\theta_0\,n^{-1/2}$: the parameters $\hat u_n$ themselves converge
+only at the rate $\sqrt{\eta_n}$, and the transfer keeps the full rate only because $\tilde a_n$ and $\tilde b_n$
+involve $\hat u_n$ through the increments $\hat u_n-\hat u_{n-1}$ and the ratio $\hat u_n/\hat u_{n-1}$.
+\end{remark}
