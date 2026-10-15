@@ -1,95 +1,113 @@
 # jacobi-asymptotics
 
-Jacobi coefficients (a_n, b_n) and Hankel determinants of discrete positive measures σ = Σ w_k δ_{x_k} with
-x_k ↓ 0, and the "Law P" asymptotics b_n/x_n → c(p) = ¼(π/(2I(p)))^p for x_k ~ C k^{-p}
-(c(2) = π²/16). Continues math-pursuits item 11.
+**Asymptotics of orthogonal-polynomial recurrence coefficients for discrete measures whose atoms accumulate at 0.**
 
-**Index: [THEOREMS.md](THEOREMS.md)** lists every result with its exact label, location and dependencies, the open
-problems, and a name glossary. Labels are defined in VERIFICATION_POLICY.md. "RH" in file names (research/G1/RH)
-means Riemann–Hilbert. The Riemann Hypothesis occurs only as a labelled hypothesis of conditional G3′ results.
+Take a positive measure with atoms at the points $x_k = k^{-p}$ and weights $w_k$,
 
-## Status (2026-10-14)
+$$\sigma = \sum_{k\ge 1} w_k\,\delta_{x_k}, \qquad x_k = k^{-p}\ (p>0),$$
 
-- **Toolkit** (Plan 1): done (`src/jacobi_asym`).
-- **Lean** (Plans 2–6, lean/README.md): Theorem H_L (`theoremHL`) and Corollary H_L-ζ (`smoothZeta_HL`,
-  `smoothZeta_bLaw`) are PROVED-mod-input `TheoremHPure` (Theorem H for pure powers, a named input). The foundations
-  (Andreief/Heine, H2, three-term recurrence, Lemma P, the Toeplitz count (S4)) are sorry-free. On paper, the input
-  is supplied by item 11's Theorem H for p ∈ {1, 2}, s ≥ s₀(p) (p = 2 citation-free, which covers Corollary H_L-ζ),
-  and for all p > 0, s > 1 by G2 Corollary H-input, PROVED since Plan 47 (was mod-cite (P); REVIEWED, research/G2/review/REVIEW_Plan47.md). Neither
-  proof is formalized.
-- **G2** (Plan 8, research/G2): **Theorem H_all**, the averaged Law P for every p > 0, is PROVED (Plan 47: the citation
-  (P) is replaced by the self-contained Lemma EP; Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED); previously PROVED-mod-cite (P) and
-  REVIEWED. The n² constant is an explicitly solvable constrained logarithmic equilibrium, a superposition of arcsine
-  laws. Corollary HZ: log det ζ(a(i+j)+b) = −an² log n + (3a/2 + log c(a))n² + o(n²) for real a > 0 and 2a + b > 1
-  (PROVED since Plan 47, was PROVED-mod-cite (P); REVIEWED).
-- **G1, pointwise law for pure powers** (Plans 10–15, research/G1/RH): the pointwise Law P with an O(1/n) rate holds
-  for every σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, p > 0, s > 1. The results are RH₁(r) (p = 1), RH_p (p > 1) and the seam
-  construction (0 < p < 1). For the smooth-ζ model, Theorem RH_ζ gives
-  b_n/x_n = (π²/16)(1 + κ/log n + O(log log n/log²n)). All are PROVED-mod-cite + REVIEWED.
-- **G1, weights k^{−s}Ψ** (Plans 27–36, research/G1/PROOF.md):
-  - full pointwise Law P for bounded slowly varying Ψ (Theorem T3-all) and for log-type Ψ such as (log k)^α
-    (Theorem T3-log), both PROVED-mod-cite + REVIEWED;
-  - fixed-size rough weights can break (T3) and the pointwise b-law (Theorem R, PROVED-mod-cite + REVIEWED);
-  - (CL) and the tail-Cesàro a-law for p > 1 with rough weights (Theorem CL, A4′; PROVED since Plan 47, was PROVED-mod-cite (P);
-    REVIEWED, relabel REVIEWED by research/G2/review/REVIEW_Plan47.md).
-- **G3′, the true ζ-zero measure** (Plans 7, 16–26, research/G3prime; the ordinates are taken as real numbers):
-  - **(U)** limsup (1/n²)[log D_n − Φ_n] ≤ 0, with no hypothesis on the zeros. Label: PROVED-mod-cite + mod-input
-    Theorem H (Lean `TheoremHPure`) + REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H
-    (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)). The cited input is (C1).
-  - **(B)** liminf ≥ −3 log C > −∞, so log D_n = Φ_n + O(n²) with no hypothesis on the zeros. Label: PROVED-mod-cite
-    (C1), (C5, Fujii's Prop. 2 secondary) + mod-input Theorem H; REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by
-    item 11 Theorem H (PROVED + REVIEWED there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)).
-  - **Theorem Ch:** G3′ ⟺ 𝒞(K) = o(K²) (capped near-pair energy of the ordinates). Label: PROVED-mod-cite (C1) +
-    mod-input Theorem H; REVIEWED; Theorem H input (p = 2, s ≥ 2) supplied by item 11 Theorem H (PROVED + REVIEWED
-    there), and also by G2 Cor. H-input (PROVED since Plan 47; was mod-cite (P)).
-  - Necessary conditions: G3′ forces repeated ordinates (N″) and exponentially small gaps (N‴) to have density zero.
-    Prop N shows that counting-function information alone cannot decide G3′.
-  - Sufficient conditions, each a labelled hypothesis: (SG) (G3′-L), (LG*) (L′), PCC with no RH (Theorem C), SPC_ℂ⁺
-    (Theorem S), SPC_ℂ⁺(full) (Theorem S′), RH + (V⁺) (Theorem V⁺), RH + (V) (Corollary P). All are REVIEWED.
-  - The Theorem H input of every G3′ result is p = 2, s ≥ 2 only, supplied citation-free by item 11, so no G3′ result
-    depends on G2's citation (P) (THEOREMS.md §3.3). Since Plan 47 G2 uses no citation at all.
+and let $a_n, b_n$ be the coefficients of its orthogonal polynomials,
+$x P_n = P_{n+1} + a_n P_n + b_n^2 P_{n-1}$. Equivalently, $\sigma$ is the spectral measure of a compact Jacobi matrix
+whose eigenvalues are $k^{-p}$. This repository studies **"Law P"**:
 
-**Plans 39–44 (2026-10-14, all REVIEWED; THEOREMS.md §2.6):** Conjecture R in window form for ε ≤ ε₀ (Theorem RW);
-linear response with sharp ε² remainder (Lemma LR); rough weights also break the pointwise a-law (Theorem Ra); Law P ⟺
-arcsine limit of the rescaled μ_n, given an a priori bound (Lemma RL); the law for every slowly varying weight,
-conditional on one localization hypothesis QL (Theorem B-cond); G3′ is at least as hard as "100% of zeros simple and on
-the critical line", and d̄(E) ≤ 0.3275 unconditionally (G3′ §5.6). Novelty first pass and research program:
-research/program/RESEARCH_PROGRAM.md.
+$$n^p\, b_n \;\longrightarrow\; c(p) = \tfrac14\Bigl(\frac{\pi}{2I(p)}\Bigr)^{p},\qquad n^p a_n \longrightarrow 2c(p),
+\qquad I(p)=\frac{\sqrt\pi}{2}\,\frac{\Gamma(1/p+\tfrac12)}{\Gamma(1/p+1)},$$
 
-**Plans 45–49 (2026-10-14, all REVIEWED; THEOREMS.md §2.7):** the pointwise Law P now holds for p > 1, 1 < s < 1 + 2p and
-**every** slowly varying weight factor Ψ, including exp(√log k) (Theorem RII / Corollary B_{p>1}, Route II Riemann–Hilbert
-analysis); pure-power hard-edge localization QLP; the commutator route reduces the remaining cases to one open lemma (CB);
-G2's last external citation (P) is replaced by a self-contained proof (Lemma EP), so Theorem H_all and the zeta-value
-Hankel asymptotics are PROVED. Paper 1 draft: papers/paper1/.
+so $c(1) = \tfrac12$ and $c(2) = \pi^2/16$. The constant comes from an explicitly solvable constrained equilibrium
+problem.
 
-**Plans 50–52 (REVIEWED; THEOREMS.md §2.8):** with the Christoffel shift (Theorem SH: Law P for σ ⇒ for x·σ), the
-pointwise Law P holds for nodes k^{−p} and weights k^{−s}Ψ with Ψ **any** slowly varying function, for every p > 0 and
-s > 1 (the last case, p = 1 with integer r ≥ 2, closed by Plan 54's x-frame analysis at p = 1).
+---
 
-**Open** (details in THEOREMS.md §4):
-- G3′ with no hypothesis, i.e. 𝒞(K) = o(K²) for the ζ ordinates. It implies that 100% of zeros are simple and on the
-  critical line (§5.6), beyond the best unconditional results read (Lamzouri 2026: 67.25%).
-- An explicit constant in Theorem B.
-- G1: slowly varying Ψ with D(γ) = ∞ (PROVED for all p > 0 and s > 1; open: the 1/n coefficient); nodes other than pure powers; (CL)
-  for general nodes or p ≤ 1; density-one law for rough weights; sharp constants in Theorems R/RW/Ra.
-- Lean: Theorem H_all (and with it the discharge of `TheoremHPure`) is not formalized.
+## Main results
 
-## Setup
-    scripts/setup_env.sh
-    .venv/bin/python -m pytest            # fast suite
-    .venv/bin/python -m pytest -m slow    # regressions against item 11 (minutes)
+| Result | Statement (short) | Where |
+|---|---|---|
+| **Averaged law** | For every $p>0$, atoms $x_k \sim Ck^{-p}$ and weights with $\sum w_k<\infty$, $w_k \ge c_1 k^{-s}$: $\log D_n = -pn^2\log n + (3p/2+\log(c(p)C))\,n^2 + o(n^2)$, where $D_n$ is the Hankel determinant. Corollary: the $n^2$ asymptotics of $\det\zeta(a(i+j)+b)$ for every real $a>0$. | `papers/paper1/`, `research/G2/` |
+| **Pointwise law, slowly varying weights** | For every $p>0$, $s>1$ and **every slowly varying** $\ell$ (e.g. $\ell(k)=e^{\sqrt{\log k}}$), the weights $w_k=k^{-s}\ell(k)$ give $n^pb_n\to c(p)$ and $n^pa_n\to 2c(p)$; with rate $O(1/n)$ if $\ell$ extends analytically to a sector. | `papers/paper2/`, `research/G1/` |
+| **Christoffel shift** | For any positive measure on $[0,\infty)$ with infinite support: Law P for $\sigma$ implies Law P for $x\,\sigma$, with the same rate if the rate is regular; conversely, Law P for $x\,\sigma$ implies it for $\sigma$. | `papers/paper2/` §3 |
+| **Rough weights break it** | There are bounded weights $k^{-s}e^{f(k)}$ with $\lvert f\rvert\le\varepsilon$ for which $n^pb_n$ and $n^pa_n$ do not converge. | `research/G1/PROOF.md` §§3.6, 3.10, 3.12 |
+| **Zeta-zero measure** | For $\sigma=\sum 2x_k\delta_{x_k}$, $x_k = 1/(\gamma_k^2+\tfrac14)$ with $\gamma_k$ the zeta ordinates: the averaged law holds **iff** a capped near-pair energy of the ordinates is $o(K^2)$; it holds under Montgomery's pair-correlation conjecture, and proving it unconditionally is at least as hard as showing that 100% of zeros are simple and on the critical line. | `research/G3prime/` |
 
-Measures built from L-function zeros take the ordinates as real numbers. Nothing here is evidence about RH.
+The full index of every statement, with its exact status label and dependencies, is **[THEOREMS.md](THEOREMS.md)**.
 
-## Quick use
-```python
-from jacobi_asym.measures import smooth_zeta, pure_power
-from jacobi_asym.jacobi import jacobi_coeffs
-from jacobi_asym.laws import c_p, averaged_law, predict_b
+### How much to trust these results
 
-mu = pure_power(2, 200_000)                 # atoms k^-2, weights = atoms
-r = jacobi_coeffs(mu, 2000)                 # RKPW, float64 (numerical)
-print(r.b[1999] / mu.atoms[1999], c_p(2))   # b_n/x_n vs pi^2/16
-print(averaged_law(r.b, mu.atoms, 2, [2000]))
+* **Not peer reviewed.** Nothing here has been refereed by a journal or read by a human specialist yet.
+* **AI-assisted.** The research, proofs and write-ups were developed with an AI assistant (Claude Code, Anthropic).
+  Every lemma went through an adversarial self-check and an independent AI referee pass before being marked
+  `REVIEWED`. The referee reports are kept in `research/*/review/`. This verification trail is visible, but it is not a
+  substitute for expert review.
+* **Labels mean exactly what they say** (see [VERIFICATION_POLICY.md](VERIFICATION_POLICY.md)):
+  * `PROVED`: self-contained proof in the repo.
+  * `PROVED-mod-cite (X)`: proved, assuming the external results X. Each one is quoted with its exact hypotheses from
+    a source that was read, and recorded in a `CITATIONS.md`.
+  * `CONDITIONAL`: proved under a stated hypothesis.
+  * `NUMERICAL`: computed, not proved.
+  * `GAP`: a precise statement that is not proved.
+  * "Certified" is used only for interval arithmetic (Arb).
+* **Novelty.** A first-pass literature search is summarised in THEOREMS.md. Many statements are marked
+  "novelty UNCHECKED", and some ingredients are known (for example, the chain-sequence lemma behind the Christoffel
+  shift).
+* **No claim about the Riemann Hypothesis.** Measures built from zeta zeros take the ordinates as given real numbers,
+  and nothing here is evidence for or against RH.
+
+---
+
+## Papers (drafts)
+
+| | Title | Status |
+|---|---|---|
+| [`papers/paper1`](papers/paper1/main.pdf) | Hankel determinants of discrete measures with power-law atoms, and of zeta values | draft, 16 pp |
+| [`papers/paper2`](papers/paper2/main.pdf) | Recurrence coefficients of discrete measures with power-law atoms and slowly varying weights | draft, 67 pp |
+
+Each paper folder has a `NOTES.md` that lists open items and sources still to be verified.
+
+## Repository layout
+
 ```
-Certified (Arb) coefficients for small exact-float measures: `jacobi_asym.certify.certified_jacobi`.
+THEOREMS.md            index of all results: statements, labels, dependencies, open problems
+VERIFICATION_POLICY.md meaning of the status labels
+papers/                paper drafts (LaTeX + PDF + numerical checks)
+research/G2/           averaged law: constrained equilibrium, Hankel asymptotics
+research/G1/           pointwise law: Tauberian reductions, weight transport, Riemann–Hilbert analyses (RH/)
+research/G3prime/      the measure built from zeta zeros
+research/*/review/     independent referee reports for each step
+research/*/checks/     numerical checks (scripts + outputs)
+lean/                  Lean 4 / Mathlib formalisation of the Heine/Hankel reduction (sorry-free; see lean/README.md)
+src/jacobi_asym/       Python toolkit: measures, recurrence coefficients, Hankel determinants, certified (Arb) mode
+tests/                 pytest suite
+```
+
+Reading order: this README, then THEOREMS.md §1, then the paper drafts. `research/*/PROOF.md` holds the full working
+proofs, which are long and written as lab notebooks.
+
+## Running the code
+
+```bash
+scripts/setup_env.sh                     # .venv on top of the system numpy/scipy/mpmath/sympy (Python ≥ 3.12),
+                                         # adds python-flint, builds the C kernel in csrc/ (needs gcc + libquadmath)
+.venv/bin/python -m pytest               # fast suite
+.venv/bin/python -m pytest -m slow       # slow regression tests (minutes)
+```
+
+```python
+from jacobi_asym.measures import pure_power
+from jacobi_asym.jacobi import jacobi_coeffs
+from jacobi_asym.laws import c_p
+
+mu = pure_power(2, 200_000)                 # atoms k^-2, weights k^-2
+r = jacobi_coeffs(mu, 2000)                 # recurrence coefficients (float64; numerical)
+print(r.b[1999] / mu.atoms[1999], c_p(2))   # b_n / x_n  vs  pi^2/16
+```
+
+Certified coefficients for small exact measures: `jacobi_asym.certify.certified_jacobi`.
+
+Lean: `cd lean && ./check.sh` builds the library and audits axioms. It should print `AUDIT OK`, meaning no `sorry`
+and only the standard axioms.
+
+## Provenance
+
+This project continues item 11 of an earlier private notebook. Copied material and its sources are listed in
+[PROVENANCE.md](PROVENANCE.md). Zeta-zero data come from A. Odlyzko's tables (`data/fetch.py`, with checksums).
+Planning documents and working logs are kept outside the public tree, so a few internal cross-references to `LOG.md`
+files or plan documents point to unpublished notes.

@@ -1,7 +1,7 @@
 # Agent operating instructions: jacobi-asymptotics
 
-Read this file and VERIFICATION_POLICY.md before doing anything. Spec:
-docs/superpowers/specs/2026-10-13-jacobi-asymptotics-design.md.
+Read this file and VERIFICATION_POLICY.md before doing anything. (The design spec and plan documents are kept
+locally under docs/superpowers/, which is not published.)
 
 ## What this repo is
 A toolkit (`src/jacobi_asym`), a Lean library (`lean/`) and a research workspace (`research/G3prime`, `G2`, `G1`)

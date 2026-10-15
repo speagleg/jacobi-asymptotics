@@ -13,3 +13,8 @@ lean/.lake
 tmp/
 .superpowers/
 .venv
+
+# Internal working material kept locally, not published
+docs/superpowers/
+research/**/LOG.md
+research/program/

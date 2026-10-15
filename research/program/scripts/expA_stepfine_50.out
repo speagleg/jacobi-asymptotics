@@ -1,7 +1,0 @@
-n=50: B_n = sum_j |U_j|/j over [n/4,3n] = 1.549; max|U_j| = 4.029 at j/n = 0.680; sum_j U_j/j = -0.255; #(|U_j|>1) = 21
-   j/n in [0.25,0.5): sum|U|/j = 0.089, max|U| = 0.366
-   j/n in [0.5,0.6): sum|U|/j = 0.144, max|U| = 1.275
-   j/n in [0.6,0.7): sum|U|/j = 0.446, max|U| = 4.029
-   j/n in [0.7,1.0): sum|U|/j = 0.710, max|U| = 2.898
-   j/n in [1.0,1.5): sum|U|/j = 0.099, max|U| = 0.556
-   j/n in [1.5,3.0): sum|U|/j = 0.058, max|U| = 0.210
