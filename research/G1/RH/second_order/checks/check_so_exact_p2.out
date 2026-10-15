@@ -1,7 +1,10 @@
-(1) closed forms of the chains satisfy the chain relations of x * sigma_{2,s-2}:
-   s = 4: gamma_1^2 - alpha_0 = 0;  gamma_(2m-1)^2 gamma_(2m)^2 - b_m^2 = 0;  gamma_(2m)^2 + gamma_(2m+1)^2 - alpha_m = 0   (positivity: numerators/denominators > 0 for m >= 1)
-   s = 6: gamma_1^2 - alpha_0 = 0;  gamma_(2m-1)^2 gamma_(2m)^2 - b_m^2 = 0;  gamma_(2m)^2 + gamma_(2m+1)^2 - alpha_m = 0   (positivity: numerators/denominators > 0 for m >= 1)
-   s = 8: gamma_1^2 - alpha_0 = 0;  gamma_(2m-1)^2 gamma_(2m)^2 - b_m^2 = 0;  gamma_(2m)^2 + gamma_(2m+1)^2 - alpha_m = 0   (positivity: numerators/denominators > 0 for m >= 1)
+(0) base chain vs the Lommel input (Paper 2 Remark rem:pure-lommel, scaled by 1/pi^2):
+   alpha_0 = 1/15; b_n^2 = gamma_(2n-1)^2 gamma_(2n)^2 and alpha_n = gamma_(2n)^2 + gamma_(2n+1)^2 (n >= 1) agree: OK
+
+(1) closed forms of the chains satisfy the chain relations of x * sigma_{2,s-2} (identities in m; finite at all integers m >= 0):
+   s = 4: gamma_1^2 - alpha_0 = 0;  gamma_(2m-1)^2 gamma_(2m)^2 - b_m^2 = 0;  gamma_(2m)^2 + gamma_(2m+1)^2 - alpha_m = 0
+   s = 6: gamma_1^2 - alpha_0 = 0;  gamma_(2m-1)^2 gamma_(2m)^2 - b_m^2 = 0;  gamma_(2m)^2 + gamma_(2m+1)^2 - alpha_m = 0
+   s = 8: gamma_1^2 - alpha_0 = 0;  gamma_(2m-1)^2 gamma_(2m)^2 - b_m^2 = 0;  gamma_(2m)^2 + gamma_(2m+1)^2 - alpha_m = 0
 
 (2) expansions in u = 1/n  (c = 1/16 after x -> x/pi^2):
     s | n^2 b_n/c - 1 | alpha_{n-1}/(2b_n) - 1 (repo) | alpha_n/(2b_n) - 1 (standard) | conj d1 = -(s-1)/2

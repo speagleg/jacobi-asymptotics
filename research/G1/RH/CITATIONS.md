@@ -664,7 +664,8 @@ KMVV (6.24)–(6.25) evaluate H^{(1,2)}_α and their derivatives at 2(−ζ)^{1/
 
 Plan 62 (the 1/n coefficient, `second_order/SECOND.md`) quotes nothing new. It uses, with the hypotheses checked in SECOND.md:
 - **(VA, Paper 2)** and **(DLMF-Lommel, Paper 2)** — only through papers/paper2 Remark rem:pure-lommel (σ_{2,2}:
-  b_n = π²/((4n+1)√((4n−1)(4n+3))), α_n = 2π²/((4n+1)(4n+5))): SECOND.md §2, input of Theorem 2.3.
+  b_n = π²/((4n+1)√((4n−1)(4n+3))), α_n = 2π²/((4n+1)(4n+5)) for n ≥ 1, α₀ = π²/15; after x ↦ x/π² the chain is
+  γ_N² = 1/((2N+1)(2N+3)) for N ≥ 1, γ₀ = 0): SECOND.md §2, input of Theorem 2.3.
 - **(DLMF) §5.11** (5.11.1 with the §5.11(ii) remainder bound, real argument): H(k) = 1 + 1/(12k) + O(k⁻²), as in
   RH_p1.md §1: SECOND.md Cor 3.6(i).
 - **(DLMF-10.40, Paper 2)**, **(DLMF-9, Paper 2)**, **(KMVV)**, **(WLXZ-v1)**: named in SECOND.md §4 only, in the PROOF

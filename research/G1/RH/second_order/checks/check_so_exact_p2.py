@@ -33,7 +33,16 @@ def darboux(s):
     return al, b2
 
 
-print("(1) closed forms of the chains satisfy the chain relations of x * sigma_{2,s-2}:")
+print("(0) base chain vs the Lommel input (Paper 2 Remark rem:pure-lommel, scaled by 1/pi^2):")
+ge2, go2 = CH[2]
+assert go2.subs(m, 0) == sp.Rational(1, 15)            # alpha_0 = zeta(4)/(pi^2 zeta(2)) = 1/15
+b2_l = 1 / ((4*n + 1)**2 * (4*n - 1) * (4*n + 3))      # b_n^2 / pi^4 ... scaled: b_n = 1/((4n+1) sqrt((4n-1)(4n+3)))
+a_l = 2 / ((4*n + 1) * (4*n + 5))                      # alpha_n (n >= 1)
+assert sp.cancel(ge2.subs(m, n) * go2.subs(m, n - 1) - b2_l) == 0
+assert sp.cancel(ge2.subs(m, n) + go2.subs(m, n) - a_l) == 0
+print("   alpha_0 = 1/15; b_n^2 = gamma_(2n-1)^2 gamma_(2n)^2 and alpha_n = gamma_(2n)^2 + gamma_(2n+1)^2 (n >= 1) agree: OK\n")
+
+print("(1) closed forms of the chains satisfy the chain relations of x * sigma_{2,s-2} (identities in m; finite at all integers m >= 0):")
 for s in (4, 6, 8):
     al, b2 = darboux(s - 2)
     ge, go = CH[s]
@@ -41,7 +50,13 @@ for s in (4, 6, 8):
     r1 = sp.cancel(go.subs(m, m - 1) * ge - b2)
     r2 = sp.cancel(ge + go - al)
     print(f"   s = {s}: gamma_1^2 - alpha_0 = {r0};  gamma_(2m-1)^2 gamma_(2m)^2 - b_m^2 = {r1};"
-          f"  gamma_(2m)^2 + gamma_(2m+1)^2 - alpha_m = {r2}   (positivity: numerators/denominators > 0 for m >= 1)")
+          f"  gamma_(2m)^2 + gamma_(2m+1)^2 - alpha_m = {r2}")
+    assert r0 == 0 and r1 == 0 and r2 == 0
+    # finiteness at every integer m >= 0 (denominators have no root at m = 0, 1, 2, ...): uniqueness argument of SECOND §2
+    for expr in CH[s]:
+        den = sp.denom(sp.together(expr))
+        bad = [r for r in sp.solve(den, m) if r.is_integer and r >= 0]
+        assert not bad, bad
 
 
 def ser(expr, order=4):
@@ -74,6 +89,7 @@ for s in (2, 4, 6, 8, 10):
     rep = sp.expand(sp.series(rep, u, 0, 4).removeO()); std = sp.expand(sp.series(std, u, 0, 4).removeO())
     print(f"   {s:2d} | {B - 1} | {rep - 1} | {std - 1} | {sp.Rational(-(s - 1), 2)}")
     assert sp.expand(B - 1).coeff(u, 1) == sp.Rational(-(s - 1), 2)
+    assert sp.expand(B - 1).coeff(u, 2) == sp.Rational(s * s + 6 * s - 11, 16)
     assert sp.expand(rep - 1).coeff(u, 1) == 1 and sp.expand(std - 1).coeff(u, 1) == -1
 
 print("\n(3) chain: gamma_N^2 * 4 N^2 - 1 = (k0 + k1 (-1)^N)/N + ...  (conj k0 = -(s-1) - p/2 = -s, k1 = -(p+2)(2s-2-p)/(2p) = -2(s-2))")

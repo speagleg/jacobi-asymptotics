@@ -368,15 +368,17 @@ Pairings: repo a_n = α_{n−1}, so "a_n/(2b_n)" = α_{n−1}/(2b_n) (coefficien
 
 | Name | Statement | Label | Location |
 |---|---|---|---|
-| Grid numerics | d₁ = −(s−1)/2, e₁ = p/2, e₁ˢ = −p/2, k₀ = −(s−1) − p/2, k₁ = −(p+2)(2s−2−p)/(2p); errors ≤ 2·10⁻⁸ (p ≥ 1), ≤ 1.4·10⁻⁴ (p = ½, remainders n^{−1−p}) | NUMERICAL | SECOND §1, checks/check_so_grid.out |
+| Grid numerics | d₁ = −(s−1)/2, e₁ = p/2, e₁ˢ = −p/2, k₀ = −(s−1) − p/2, k₁ = −(p+2)(2s−2−p)/(2p); maximal fit half-ranges, p ≥ 1 / p = ½ (remainders n^{−1−p}): d₁ 1.6·10⁻⁸ / 1.3·10⁻⁴, e₁ 5.9·10⁻⁹ / 2.5·10⁻⁴, e₁ˢ 1.6·10⁻⁷ / 3.4·10⁻⁴, k₀ 8.3·10⁻⁷ / 6.6·10⁻⁴, k₁ 2.5·10⁻⁶ / 8.1·10⁻⁴ | NUMERICAL | SECOND §1, checks/check_so_grid.out |
 | Conjecture P62 | the same for all p > 0, s > 1, remainder O(n^{−1−min(1,p)}) | CONJECTURE | SECOND §1 |
 | Thm 2.3 | p = 2, s ∈ {2,4,6,8,10}: exact rational chains / coefficients; d₁ = −(s−1)/2, e₁ = 1, k₀ = −s, k₁ = −2(s−2), d₂ = (s²+6s−11)/16 | PROVED-mod-cite (VA §3, DLMF-Lommel via Paper 2 Remark rem:pure-lommel) + exact computer algebra | SECOND §2, checks/check_so_exact_p2.out |
 | Prop 3.1, Thm 3.2 | Π_{m≤n}(b_m(s+p)/b_m(s))² = g_n/g_0; Σ_{m≤n}log(b_m(s+p)/b_m(s)) + (p/2)log n → ½log(c(p)ζ(s)/ζ(s+p)) | 3.1 PROVED; 3.2 PROVED-mod-cite (Law P; G1 Lemma CS) | SECOND §3.1 |
-| Cor 3.3, Thm 3.4 | (E) at s, s+p ⇒ d₁(s+p) = d₁(s) − p/2 and n(G_n − G_{n−1}) → 0; (E_ε), ε > ½ ⇒ e₁ˢ = −p/2, e₁ = p/2 | CONDITIONAL on (E) | SECOND §3.1 |
-| Prop 3.5, Cor 3.6 | weight factors 1 + O(1/k) change Σ_{j≤n}log b_j by a convergent amount; TC anchor: d₁(1, 3/2 + m) = −(1+2m)/4 under (E) | 3.5 PROVED (internal Sat_p⁺); 3.6(i) PROVED-mod-cite (RH_p1 §1, DLMF 5.11); (ii)–(iii) CONDITIONAL on (E) | SECOND §3.2 |
-| Prop 3.7, Thm 3.8, Cor 3.9 | ∂_s log h_n = −Σ log k·μ_n(k); Cesàro s-slope −½; d₁(p,s) = −(s−1)/2 + g(p), g(1) = g(2) = 0 | 3.7 PROVED; 3.8 CONDITIONAL on (UΛ) (⇐ (RU)) or (CVX); 3.9 CONDITIONAL on (E) and (UΛ)/(CVX) | SECOND §3.3 |
-| Thm 3.10 | log-average d₁ = −(s−1)/2 for p = 2, s ∈ 2+2ℕ₀ and p = 1, s ∈ 3/2+ℕ₀ (⇔ log h_n of the zeta-value Hankel ratios to O(1)) | PROVED-mod-cite; other s CONDITIONAL on (UΛ)/(CVX) | SECOND §3.4 |
+| Cor 3.3, Thm 3.4 | (E) at s, s+p ⇒ d₁(s+p) = d₁(s) − p/2 and n(G_n − G_{n−1}) → 0; (E_ε), ε > ½ ⇒ e₁ˢ = −p/2, e₁ = p/2 | CONDITIONAL on (E) at s, s+p (Cor 3.3); (E_ε), ε > ½ (Thm 3.4); + PROVED-mod-cite (Law P; Lemma CS) | SECOND §3.1 |
+| Prop 3.5, Cor 3.6 | weight factors 1 + O(1/k) change Σ_{j≤n}log b_j by a convergent amount; TC anchor: d₁(1, 3/2 + m) = −(1+2m)/4 under (E) | 3.5 PROVED (internal Sat_p⁺); 3.6(i) PROVED-mod-cite (RH_p1 §1, DLMF 5.11); (ii)–(iii) CONDITIONAL on (E) + PROVED-mod-cite | SECOND §3.2 |
+| Prop 3.7, Thm 3.8, Cor 3.9 | ∂_s log h_n = −Σ log k·μ_n(k); Cesàro s-slope −½; d₁(p,s) = −(s−1)/2 + g(p), g(1) = g(2) = 0 | 3.7 PROVED; 3.8 CONDITIONAL on (UΛ) (⇐ (RU), PROOF SKETCH level) or (CVX), + PROVED-mod-cite (QLP-Λ, Law P); 3.9 CONDITIONAL on (E) and (UΛ)/(CVX) + PROVED-mod-cite | SECOND §3.3 |
+| Thm 3.10 | log-average d₁ = −(s−1)/2 for p = 2, s ∈ 2+2ℕ₀ and p = 1, s ∈ 3/2+ℕ₀ (⇔ log h_n of the zeta-value Hankel ratios to O(1)) | (a)–(c) PROVED-mod-cite; (d) other s CONDITIONAL on (UΛ) (o(log n) only) or (CVX) | SECOND §3.4 |
 | (E), g(p) | existence of d₁; its s-independent part for p ∉ {1, 2} | GAP (PROOF SKETCH of (E) for p > 1 via RH_px at second order; heuristic n_eff = n + α_x/2 + j₀ − ½, NUMERICAL) | SECOND §4 |
+
+Novelty UNCHECKED (Prop 3.1 classical, not claimed).
 
 ## 3. Dependency summary
 
@@ -514,12 +516,12 @@ and asked for item 11 to be named as the primary route. That changes no label; i
     statement does NOT follow" (§3, A4 text). For slowly varying Ψ the a-law is proved (T3a, T3-all, T3-log; A1 note).
 13. Second-order constants for pure powers: RH₁ n²(b_n^σ/b_n^{TC} − 1) → −1/24 "conjecture, not proved"
     (RH_p1.md §0); d₁ = −(s−1)/2, e₁ = p/2 are NUMERICAL Phase-0 fits (RH.md §0, RH_px §0); RH_p proves only O(1/n).
-    *Update (Plan 62, 2026-10-15, NOT REVIEWED; research/G1/RH/second_order/SECOND.md, §2.10 below):* NUMERICAL on
+    *Update (Plan 62, 2026-10-15, NOT REVIEWED; research/G1/RH/second_order/SECOND.md, §2.10 above):* NUMERICAL on
     p ∈ {½, 1, 3/2, 2, 3, 4}, s ∈ {3/2, 2, 3, 4} (n ≤ 1600): d₁ = −(s−1)/2, e₁ = p/2 (repo pairing α_{n−1}/(2b_n)) =
     e₁ˢ + p with e₁ˢ = −p/2 (standard pairing α_n/(2b_n)), chain k₀ = −(s−1) − p/2, k₁ = −(p+2)(2s−2−p)/(2p) (Conjecture P62).
-    PROVED: exact p = 2, s ∈ {2, 4, 6, 8, 10}; the log-average form of d₁ on the lattices s ∈ 2 + 2ℕ₀ (p = 2) and
-    s ∈ 3/2 + ℕ₀ (p = 1) (mod-cite); the Christoffel constraint d₁(s+p) = d₁(s) − p/2 and e₁ˢ = −p/2 given existence
-    (CONDITIONAL on (E)). Still open: **(E)**, the existence of the 1/n coefficient (GAP; PROOF SKETCH for p > 1), and the
+    PROVED(-mod-cite): exact p = 2, s ∈ {2, 4, 6, 8, 10}; the log-average form of d₁ on the lattices s ∈ 2 + 2ℕ₀
+    (p = 2) and s ∈ 3/2 + ℕ₀ (p = 1). CONDITIONAL on (E) at s and s + p (+ mod-cite): the Christoffel constraint
+    d₁(s+p) = d₁(s) − p/2 (Cor 3.3); CONDITIONAL on (E_ε), ε > ½, at s and s + p: e₁ˢ = −p/2 (Thm 3.4). Still open: **(E)**, the existence of the 1/n coefficient (GAP; PROOF SKETCH for p > 1), and the
     s-independent part g(p) for p ∉ {1, 2} (GAP). The −1/24 (second-order) conjecture is not addressed.
 14. Lemma R1's η, J are non-explicit (proof by contradiction) (§3.6 R-b). *Update:* explicit (but tiny) constants in the
     window version R1W (§3.10) and for the a-law R1a (§3.12); sharp constants (phase model 4/π, 8/π²) open.
