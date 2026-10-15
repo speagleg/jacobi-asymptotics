@@ -100,8 +100,7 @@ In averaged form, $\sum_{j\le n}\log\bigl(j^pb_j/c(p)\bigr) = -\tfrac{s-1}{2}\lo
 holds uniformly for $s$ in compact intervals.
 
 *Status:* proved, using the same Riemann–Hilbert citations as result 2. Each of the three ranges $p>1$, $p=1$ and
-$0<p<1$ has passed two independent referee passes. These are the newest results; they are proved in full in Paper II, whose sections on $p\le1$ are under
-review.
+$0<p<1$ has passed two independent referee passes. These are the newest results; they are proved in full in Paper II.
 
 ### 4. Slowly varying weights
 
@@ -174,8 +173,8 @@ The work is written up as a series of three papers, each built around one questi
 | | Title | Question | Status |
 |---|---|---|---|
 | I | [Hankel determinants of discrete measures with power-law atoms, and of zeta values](papers/paper1/main.pdf) | What is the $n^2$ term of $\log D_n$? (result 1) | release candidate, 19 pp ([`ARXIV.md`](papers/paper1/ARXIV.md)) |
-| II | [Recurrence coefficients of discrete measures with power-law atoms: pointwise asymptotics and the $1/n$ term](papers/paperII/main.pdf) | Does each $n^pb_n$ converge, how fast, and what is the next term? (results 2, 3) | draft, 105 pp; Sections 10–11 ($p\le1$) are under independent mathematical review |
-| III | [Stability and instability of recurrence asymptotics for discrete measures with power-law atoms](papers/paperIII/main.pdf) | Which weights keep the law, and which break it? (results 4, 5) | draft, 28 pp |
+| II | [Recurrence coefficients of discrete measures with power-law atoms: pointwise asymptotics and the $1/n$ term](papers/paperII/main.pdf) | Does each $n^pb_n$ converge, how fast, and what is the next term? (results 2, 3) | draft, 105 pp; all sections refereed (two independent mathematical referee passes) |
+| III | [Stability and instability of recurrence asymptotics for discrete measures with power-law atoms](papers/paperIII/main.pdf) | Which weights keep the law, and which break it? (results 4, 5) | draft, 29 pp |
 
 [`papers/paper2/`](papers/paper2/main.pdf) is the earlier combined draft that Papers II and III replace. Each paper folder
 has a `NOTES.md` listing open items.
