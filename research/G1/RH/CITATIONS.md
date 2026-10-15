@@ -659,3 +659,15 @@ Context (§10.17(i)): "let δ denote an arbitrary small positive constant. Then 
 KMVV (6.24)–(6.25) evaluate H^{(1,2)}_α and their derivatives at 2(−ζ)^{1/2}; for π − ϑ_lip < ±arg ζ < π, ph 2(−ζ)^{1/2} lies in
 (−½ϑ_lip, 0), resp. (0, ½ϑ_lip), inside both sectors above for every ϑ_lip ∈ (0, π); so KMVV (6.28) holds with rays at
 ±(π − ϑ_lip) (PROOF.md §3.24, row "§7.2"). Hypotheses checked: ν = α fixed, z → ∞ in a closed subsector.
+
+## (Plan 62 reuse) entries above used by second_order/SECOND.md — no new external source read for Plan 62
+
+Plan 62 (the 1/n coefficient, `second_order/SECOND.md`) quotes nothing new. It uses, with the hypotheses checked in SECOND.md:
+- **(VA, Paper 2)** and **(DLMF-Lommel, Paper 2)** — only through papers/paper2 Remark rem:pure-lommel (σ_{2,2}:
+  b_n = π²/((4n+1)√((4n−1)(4n+3))), α_n = 2π²/((4n+1)(4n+5))): SECOND.md §2, input of Theorem 2.3.
+- **(DLMF) §5.11** (5.11.1 with the §5.11(ii) remainder bound, real argument): H(k) = 1 + 1/(12k) + O(k⁻²), as in
+  RH_p1.md §1: SECOND.md Cor 3.6(i).
+- **(DLMF-10.40, Paper 2)**, **(DLMF-9, Paper 2)**, **(KMVV)**, **(WLXZ-v1)**: named in SECOND.md §4 only, in the PROOF
+  SKETCH of the GAP (E) (second-order expansions of the Bessel and Airy models); nothing is proved from them there.
+Internal (not external) inputs: G1 PROOF.md §3.21 Lemmas CT, CS; §3.3 Lemma Sat_p⁺; §3.16 Corollary QLP-Λ and hypothesis
+(RU); RH_p1.md §1 (TC identification); the pointwise Law P (Paper 2 Cor. thm:pure; RH_p, RH₁(r), RH_plt1b).

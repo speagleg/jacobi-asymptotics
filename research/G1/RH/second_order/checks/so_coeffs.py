@@ -25,27 +25,30 @@ def c_p_mp(p):
     return (mp.pi / (2 * I)) ** p / 4
 
 
-def measure(p, s, K, M):
-    k = np.arange(1, K + 1, dtype=np.float64)
+def measure(p, s, K, M, delta=0.0):
+    """atoms (k+delta)^{-p}, weights (k+delta)^{-s}, k = 1..K, plus the Gauss-Jacobi continuum tail beyond K + 1/2."""
+    k = np.arange(1, K + 1, dtype=np.float64) + delta
     x, w = k ** (-p), k ** (-s)
     beta = (s - 1) / p - 1
     u, wu = roots_jacobi(M, 0.0, beta)              # weight (1+u)^beta on [-1, 1]
-    X = (K + 0.5) ** (-p)
+    X = (K + 0.5 + delta) ** (-p)
     xt = X * (1 + u) / 2
     wt = wu * (X / 2) ** (beta + 1) / p
     return DiscreteMeasure.from_atoms(x, w, tail=(xt, wt))
 
 
-def coeffs(p, s, K, nmax):
-    """returns (alpha, b) as mpf arrays (dps 40), alpha_0..alpha_{nmax-1}, b_1..b_nmax; cached."""
+def coeffs(p, s, K, nmax, delta=0.0):
+    """returns (alpha, b) as mpf arrays (dps 40), alpha_0..alpha_{nmax-1}, b_1..b_nmax; cached.
+    delta != 0: shifted lattice (k+delta)^{-p} with weights (k+delta)^{-s} (used only by check_so_lattice.py)."""
     CACHE.mkdir(parents=True, exist_ok=True)
-    f = CACHE / f"p{p}_s{s}_K{K}_n{nmax}.txt"
+    tag = "" if delta == 0 else f"_d{delta}"
+    f = CACHE / f"p{p}_s{s}_K{K}_n{nmax}{tag}.txt"
     mp.mp.dps = 40
     if f.exists():
         rows = [l.split() for l in open(f)]
         return (np.array([mp.mpf(r[0]) for r in rows], dtype=object),
                 np.array([mp.mpf(r[1]) for r in rows], dtype=object))
-    mu = measure(p, s, K, nmax + 8)
+    mu = measure(p, s, K, nmax + 8, delta)
     jc = jacobi_rkpw(mu, nmax + 1, prec="q")
     alpha = np.array(jc.a[:nmax], dtype=object)
     b = np.array([mp.sqrt(v) for v in jc.b2[:nmax]], dtype=object)
