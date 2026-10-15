@@ -38,6 +38,32 @@ jobs:
       - name: Fast test suite (excludes -m slow; data tests skip if data absent)
         run: pytest -q -rs
 
+  integrity:
+    name: manifest + certified outputs
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - name: Integrity manifest (MANIFEST.sha256)
+        run: |
+          if ! python scripts/manifest.py --check; then
+            echo "::error file=MANIFEST.sha256::MANIFEST.sha256 is out of date or a covered file changed. If the change is intended, run 'python scripts/manifest.py' and commit MANIFEST.sha256."
+            exit 1
+          fi
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install numpy scipy mpmath sympy python-flint==0.9.0 pytest
+          pip install -e .
+      - name: Certified suite reproduces committed outputs byte-for-byte (+ manifest)
+        run: PYTHON=python bash scripts/reproduce.sh --quick
+
   slow:
     name: slow regressions
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'

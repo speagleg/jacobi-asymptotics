@@ -29,8 +29,10 @@ extended (long double) precision by the updating algorithm that adds one atom at
 plane rotations, for $K=10^5$ and $K=2\cdot10^5$, and for $K=2\cdot10^5$ with $T$ reduced by a factor $10^4$. The largest
 change of any tabulated entry under these variations is $10^{-7}$ ($p=\frac12$), $2\cdot10^{-8}$ ($p=1$) and
 $2\cdot10^{-11}$ ($p=2$). The column $\ell\equiv1$ at $p=2$ agrees in every digit shown with the closed form of
-Remark~\ref{rem:pure-lommel}, which in turn agrees, for $n\le9$ and to $90$ digits, with the coefficients computed from
-the Hankel determinants of the moments $\zeta(2j+2)$.
+Remark~\ref{rem:pure-lommel}. That closed form was in turn verified in interval (ball) arithmetic, with rigorous
+enclosures, for all $n<300$: the coefficients were computed by the Chebyshev algorithm from the moments $\zeta(2j+2)$,
+and the enclosures agree with the closed form to a relative accuracy better than $10^{-2000}$ (supplementary
+material, certified suite).
 
 \begin{table}[ht]
 \centering
