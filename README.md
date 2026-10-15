@@ -56,11 +56,17 @@ conditional on one localization hypothesis QL (Theorem B-cond); G3′ is at leas
 the critical line", and d̄(E) ≤ 0.3275 unconditionally (G3′ §5.6). Novelty first pass and research program:
 research/program/RESEARCH_PROGRAM.md.
 
+**Plans 45–49 (2026-10-14, all REVIEWED; THEOREMS.md §2.7):** the pointwise Law P now holds for p > 1, 1 < s < 1 + 2p and
+**every** slowly varying weight factor Ψ, including exp(√log k) (Theorem RII / Corollary B_{p>1}, Route II Riemann–Hilbert
+analysis); pure-power hard-edge localization QLP; the commutator route reduces the remaining cases to one open lemma (CB);
+G2's last external citation (P) is replaced by a self-contained proof (Lemma EP), so Theorem H_all and the zeta-value
+Hankel asymptotics are PROVED. Paper 1 draft: papers/paper1/.
+
 **Open** (details in THEOREMS.md §4):
 - G3′ with no hypothesis, i.e. 𝒞(K) = o(K²) for the ζ ordinates. It implies that 100% of zeros are simple and on the
   critical line (§5.6), beyond the best unconditional results read (Lamzouri 2026: 67.25%).
 - An explicit constant in Theorem B.
-- G1: slowly varying Ψ with D(γ) = ∞ (e.g. exp(√log k); reduced to hypothesis QL); nodes other than pure powers; (CL)
+- G1: slowly varying Ψ with D(γ) = ∞ (PROVED for p > 1, 1 < s < 1 + 2p by Route II; open for p ≤ 1 and s ≥ 1 + 2p); nodes other than pure powers; (CL)
   for general nodes or p ≤ 1; density-one law for rough weights; sharp constants in Theorems R/RW/Ra.
 - Lean: Theorem H_all (and with it the discharge of `TheoremHPure`) is not formalized.
 

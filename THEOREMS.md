@@ -276,7 +276,17 @@ research/G3prime/PROOF.md (Pos). Novelty UNCHECKED unless stated.
 | Thm B-cond | pure-power nodes, any slowly varying Ψ (sequence form): unconditional head/bulk/tail bounds; QL ⇒ full pointwise Law P | CONDITIONAL (QL₀, implied by QL) + PROVED-mod-cite; no new case of the law | G1 §3.14 |
 | Pos (Plan 43) | d(E) = 0 ⟺ 100% of zeros simple and on the critical line; G3′ ⇒ that (G3′ at least as hard); d̄(E) ≤ 1 − C_Lz ≈ 0.3275 unconditionally (Lamzouri, arXiv preprint); G3′ ⟺ d(E) = 0 ∧ 𝒞_dist = o(K²); G3′ ⇒ HMH not established | PROVED-mod-cite (C1), (C5), (C6) + mod-input Theorem H | G3′ §5.6 |
 
-## 3. Dependency summary
+### 2.7 Additions (Plans 45–49, all REVIEWED 2026-10-14)
+
+| Name | Short statement | Label | Location |
+|---|---|---|---|
+| **Thm RII / Cor B_{p>1}** | **pointwise Law P (b and a, rate O(1/n) + smoothing error) for x_k = k^{−p}, p > 1, w = k^{−s}Ψ, 1 < s < 1 + 2p, Ψ any slowly varying function (sequence form; incl. D(γ) = ∞, e.g. exp(√log k))**, via Lemma RedA (Gaussian smoothing to an entire L₁) and a Riemann–Hilbert analysis perturbing RH_px with a Conway–Deift comparison at the hard edge; bypasses QL | RedA PROVED; RII, B_{p>1} PROVED-mod-cite (WLXZ v1, KMVV §6, C–D Thm 4.4, DLMF, G2) | G1 §3.17; RH/route2/ROUTE2.md |
+| Thm QLP | pure powers, every fixed σ > 1, all M ≥ 1: μ_m((Mn,∞)) ≤ CM^{−p/2} up to the Bessel scale M ≍ n^{2/p}, faster below; QL at t = 0 (log-moment bounded); via a Stieltjes-transform bound in the non-oscillatory RH region | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b, KMVV, Vanlessen, DLMF); uniform in σ CONDITIONAL (RU) | G1 §3.16 |
+| QL-CB, BF, RF, FM, DB | commutator lemma CB ⇒ QL ⇒ law (all p); exact boundary-flux identities; free-model computation (log M sharp there); CB itself OPEN (obstruction: hard-edge density/phase along the path) | QL-CB CONDITIONAL (CB) + PROVED-mod-cite; identities PROVED; CB-ob HEURISTIC | G1 §3.18 |
+| QL numerics | tilt law at p = 1, ½; QL-b slopes, crossover M ≍ n^{2/p}; commutator ratio ≤ 0.93ε_n(1 + log M) (saturation beyond the hard edge is structural) | NUMERICAL | G1 §3.15 |
+| Lemma EP (Plan 47) | energy positivity for zero-mass signed measures (self-contained Fourier proof); removes citation (P): H_all, B*, HZ, Cor H-input, G1-T, G1-L, WC, CL, A4′, TC now PROVED | PROVED | G2 §1 |
+
+
 
 ### 3.1 External citations → results
 
@@ -393,7 +403,8 @@ and asked for item 11 to be named as the primary route. That changes no label; i
 **G1 (pointwise law)**
 7. **Slowly varying Ψ with D(γ) = ∞** (e.g. exp(√log k)): "here the truncated weight is not uniformly sandwiched and the
    Grönwall factor e^{4G} of Theorem L diverges" (§3.9 log1; §4). Known: bounded slowly varying (T3-all), log-type
-   (T3-log). *Update (Plan 44, §3.14):* reduced to the single hypothesis **QL** (log-moment localization along vΨ^t);
+   (T3-log). *Update (Plan 48, §3.17): PROVED-mod-cite for p > 1, 1 < s < 1 + 2p (Corollary B_{p>1}), bypassing QL.
+   Still open: p = 1, p < 1, s ≥ 1 + 2p; the 1/n coefficient (tilt law, CONJECTURE).* *Update (Plan 44, §3.14):* reduced to the single hypothesis **QL** (log-moment localization along vΨ^t);
    QL is open for D(γ) = ∞ (at t = 0 it is a uniform-in-M form of Lemma LP).
 8. **Nodes other than pure powers.** "Other nodes x_k = f(k) need a substitute for the pure-power law in Lemma LP"
    (§3.8 L4; §4). The analytic families done are pure powers (all p > 0) and the smooth-ζ model (README). The literature
