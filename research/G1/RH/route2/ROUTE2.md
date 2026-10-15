@@ -1,7 +1,7 @@
 # ROUTE2: Route II, stage 1 — the pointwise Law P for k^{−s}Ψ, Ψ slowly varying, p > 1, via an RH analysis that perturbs RH_px (Plan 48)
 
 Status: **Rule R: ACCEPT WITH FIXES (../../review/REVIEW_Plan48.md; RedA ACCEPT, RII and B_{p>1} ACCEPT WITH FIXES), fixes
-F1–F10 applied, re-check pending.** Novelty: UNCHECKED (no Rule L search).
+F1–F10 applied, re-check ACCEPT — REVIEWED.** Novelty: UNCHECKED (no Rule L search).
 
 Source: `research/program/outline_B_sv.md` §5 "Route II", work package WP4, stage 1. Template: `../px/RH_px.md`
 (PROVED-mod-cite, REVIEWED). Closest precedent: `../zeta/RH_zeta_close.md` §1 (non-Fisher–Hartwig hard-edge factor via the
@@ -18,8 +18,8 @@ Conway–Deift comparison; REVIEWED). Numerics: `checks/check_r2_*.py/.out`.
 | §4.2 Lemma W′ | log-commutator on a star of rays is L²-bounded | PROVED (DLMF 1.14.38–40) |
 | Stop condition (i) | jump of e^{ρ_N} at the hard edge | **RESOLVED-mod-cite**: never placed on (−δ, 0); absorbed in D_w; the sup-norm mismatch is o(1) without rate and that suffices (C–D comparison) |
 | Stop condition (ii) | KMVV Bessel construction uniform in a drifting order α_N | **MOOT (not needed)**: the order is the fixed α_x; uniformity in α_N is not established here and is not used |
-| **Theorem RII** | p > 1, 1 < s < 1 + 2p, w₁ = k^{−s}exp(L₁(log k)) with (H_an): n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n) | **PROVED-mod-cite** (WLXZ v1 §§3–5, §6.1; KMVV §6; C–D Thm 4.4 + the arguments of C–D Thm 4.7 / Prop. 4.9 as reproduced in RH_ζ_close §1; DLMF 1.13.4, 1.14, 5.5.3, 5.12, 10.25.2, 10.27.3–4, 10.28.2, 10.31.2; G2 μ*, B*(i)–(ii)); **Rule R ACCEPT WITH FIXES, fixes applied, re-check pending** (F1 closed for all \|α_x\| < 1 by UR′(b′)) |
-| **Corollary B_{p>1}** | p > 1, 1 < s < 1 + 2p, Ψ sequence-form slowly varying (e.g. exp(√log k), D(γ) = ∞): n^pb_n → c(p), n^pa_n → 2c(p) | PROVED-mod-cite (RII + RedA); Rule R ACCEPT WITH FIXES, fixes applied, re-check pending |
+| **Theorem RII** | p > 1, 1 < s < 1 + 2p, w₁ = k^{−s}exp(L₁(log k)) with (H_an): n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n) | **PROVED-mod-cite** (WLXZ v1 §§3–5, §6.1; KMVV §6; C–D Thm 4.4 + the arguments of C–D Thm 4.7 / Prop. 4.9 as reproduced in RH_ζ_close §1; DLMF 1.13.4, 1.14, 5.5.3, 5.12, 10.25.2, 10.27.3–4, 10.28.2, 10.31.2; G2 μ*, B*(i)–(ii)); **Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED** (F1 closed for all \|α_x\| < 1 by UR′(b′)) |
+| **Corollary B_{p>1}** | p > 1, 1 < s < 1 + 2p, Ψ sequence-form slowly varying (e.g. exp(√log k), D(γ) = ∞): n^pb_n → c(p), n^pa_n → 2c(p) | PROVED-mod-cite (RII + RedA); Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED |
 | GAP-α | s ≥ 1 + 2p (α_x ≥ 1) | GAP (the L² frame of the comparison fails; §6) |
 | GAP-rate | the 1/n coefficient (tilt law / Theorem B-rate) | GAP; CONJECTURE + NUMERICAL (§5) |
 

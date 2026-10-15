@@ -255,3 +255,94 @@ O(r/|ρ − r|). For W′ this is harmless either way: the factor log(r/ρ) vani
 `check_r2_mellin`, `check_r2_lw1` and `check_r2_coeff` reproduced exactly. `check_r2_redA` [1]–[2] reproduced exactly. [3] did not finish within ~45 min in the review session (it
 evaluates 2·10⁴ Gaussian quadratures per example); it was not re-run to completion. Its .out values are consistent with ROUTE2
 Remark RedA-3, but see F7 for what [3] actually tests.
+
+---
+
+## Re-check (fixes at commit 713b4e9)
+
+**Verdict: ACCEPT.** All of F1–F10 are resolved. One cosmetic nit (N1) remains; it does not block the labels.
+
+### F1: UR′(b′), every estimate re-derived — CLOSED for all |α_x| < 1
+
+1. **Removability and Liouville.** F := m − C(m₊ − m₋) has no jump and is O(1/z) at ∞.
+   - Pick r ∈ (ε, 2ε) with ∮_{|z|=r}|F| ≤ ε^{−1}∬_{annulus}|F|dA (mean value). Then |c_{−k}| ≤ (2π)^{−1}r^{k−1}∮|F| = o(ε^{k−1}),
+     so every negative coefficient vanishes. ✓
+   - C(m₊ − m₋) is the Cauchy transform of an L² function. Its L²(dA) norm on |z| < 2ε is O(ε^{1/2}), so its annulus L¹
+     norm is O(ε^{3/2}). ✓
+   - It therefore suffices to show ∬|m|dA = o(ε). Vertices other than 0 are as in RH_ζ_close (b). ✓
+2. **Factorization Q̃ = G(z)(−z)^{ασ₃/2}Θ(z) for fixed N.**
+   - ζ^{α/2} = (N²f/(−z))^{α/2}(−z)^{α/2}: N²f/(−z) is analytic and positive near 0 (f(0) = 0, f′(0) < 0, RH_px Lemma 4.1).
+     Both cuts lie on the band z > 0 and the branches agree on z < 0. ✓
+   - G is built from A₀, Ψ̂ (entire, det Ψ̂ ≠ 0) and that analytic power. It is analytic with analytic inverse on U(0, r_N). ✓
+   - The σ₃-placement in G's displayed formula is loose: σ₃Ψ̂σ₃ versus σ₃Ψ̂, with σ₃ commuting with the diagonal power. Every
+     constant is absorbed into G or Θ, so this is harmless.
+   - Θ = S_jσ₃e^{Nφσ₃}: |e^{±Nφ}| is bounded near 0 for fixed N, since φ(0±) = ∓iπ. ✓
+3. **The far part g₂.** C(g₂Q̃₊^{−1}) is analytic on U(0, r_N/2), so the term is ≤ C_N‖g‖|z|^{−|α|/2} and the annulus
+   integral is O(ε^{2−|α|/2}). ✓
+4. **The K-term.** G(s)^{−1}G(z) = I + (s − z)K_G with K_G bounded. Cauchy–Schwarz with ∫|s|^{−|α|}|ds| < ∞ (|α| < 1)
+   gives C_N‖g‖|z|^{−|α|/2}. ✓
+5. **The core term.** Column by column it is T_a with a = ±α/2, so the same a appears on the s side and on the z side. ✓
+   I(z) = ∫|s|^{−2a}|s − z|^{−2}|ds| splits into three ranges:
+   - |s| ≤ r/2: C r^{−1−2a}, which needs a < ½.
+   - r/2 ≤ |s| ≤ 2r: C r^{−2a}/d.
+   - |s| ≥ 2r: C r^{−1−2a}, which needs a > −½.
+
+   Since d ≤ r, I ≤ C r^{−2a}/d, so |T_a| ≤ C‖h‖d^{−1/2}. ✓ The three ranges hold on C² arcs through 0 with constants.
+   ∬_{annulus}d^{−1/2}dA = O(ε^{3/2}). ✓
+6. **α = 0.** Λ_s^{−1}Λ_z = I + κ(log(−z) − log(−s))e₁e₂ᵀ. Writing ℓ := 1 + |log(ρ/r)|, the three ranges with ℓ² give
+   C/r, C/d and C/r, so the bound is ≤ C‖h‖d^{−1/2}. The K-term is ≤ C_N‖g‖log(1/|z|). Both are o(ε) after the area
+   integral. ✓ Absorbing κ log(N²f/(−z)) into G is legitimate: the unipotent factors commute.
+
+Total: ∬|m|dA = O(ε^{3/2} + ε^{2−|α|/2}) = o(ε) for every |α| < 1. This is exactly the fix the review sketched, now written
+out correctly. UR′, C′, D′, RII and B_{p>1} hold on the whole range 1 < s < 1 + 2p.
+
+### F2–F10
+
+- **F2 ✓.** The entry is renamed (DLMF-4), with a note. No "(DLMF-4)" exists on master or on plan-49-cb. LOG and ROUTE2 §3.2
+  are updated, and no stray "DLMF-3" remains for Plan 48.
+- **F3 ✓.** The overclaim is removed from the §0 row, §3.17 and ROUTE2 RII. The replacement text, "lip mismatch moves Q₁, Q₂
+  by O(ε′_N/N) relative to Q̃ … not claimed", is accurate. ROUTE2 §5 now correctly attributes ϑ_n/(2n) to the unproved tilt
+  law, not to D′.
+- **F4 ✓.** (H_an) is now stated on {Re u ≥ −c₀, |Im u| ≤ π/p}, bounded for Re u ≤ 0. The justification for the top segment
+  and for Ω_∞ is correct, and RedA's L₁ qualifies (L constant on y ≤ 0, so L₁ is bounded there).
+- **F5 ✓.** DLMF 1.13.4 and 10.28.2 were re-fetched from dlmf.nist.gov and the quotes are verbatim. They are "𝒲{w₁,w₂} = w₁w₂′ − w₂w₁′"
+  with the introducing sentence, and "𝒲{K_ν(z), I_ν(z)} = I_ν(z)K_{ν+1}(z) + I_{ν+1}(z)K_ν(z) = 1/z".
+  - det Ψ = 2ζ^{1/2}(K_αI′_α − K′_αI_α)(2ζ^{1/2}) = 2ζ^{1/2}·𝒲{K_α, I_α} = 1. Re-derived from (6.23). ✓
+- **F6 ✓.** The d₁ remark is moved to the invariance step, with finiteness for each N stated.
+- **F7 ✓.** [3] now uses L₁ at every k via an FFT grid convolution.
+  - Kernel length 28001 is odd, so mode="same" is aligned.
+  - The edges are more than 14 away from [0, log K].
+  - Grid L₁ agrees with direct quadrature to 3.7e−9 (√log) and 2.3e−8 (oscillating).
+  - Re-run: the output is identical to the committed `.out`. The ROUTE2 RedA-3 values (4.8e−6 → 6.7e−7; 6.8e−5 → 4.2e−6) match.
+- **F8 ✓.** A K = 4.8·10⁵ run was added; re-run, identical to the committed `.out`. The text matches the data:
+  - nB converges to about 3 digits for n ≤ 200, and to under 10⁻³ between K = 2.4·10⁵ and 4.8·10⁵ at n = 400.
+  - n = 800 is −0.4285, −0.4111, −0.4065, explicitly not converged and no match claimed.
+  - T spread at n = 800 is 1.2·10⁻³; R spread is ≤ 4·10⁻⁴.
+- **F9 ✓.** Cross-references were added to the §0 G1-R row, §3.14 and §4, worded consistently: QL is still unproved and Route II
+  bypasses it.
+- **F10 ✓.** The flattening sentence now includes γ′(ρ)dρ, and the log factor is noted to make it harmless anyway.
+
+### Remaining nit (not blocking)
+
+- **N1 (cosmetic).** The citation lists in the PROOF.md §0 "RII / B_{p>1}" row and in §3.17 omit DLMF 1.13.4 and 10.28.2,
+  which ROUTE2's label table and RII's "Cited" list now include. Add them.
+
+### Numerics re-run (re-check)
+
+`check_r2_redA` (full, including the new [3]) and `check_r2_coeff` (K = 1.2, 2.4, 4.8·10⁵) were re-run from the
+jacobi-asymptotics root. Both outputs are identical to the committed `.out` files.
+
+### Final labels
+
+| Item | Label |
+|---|---|
+| RedA | PROVED, REVIEWED |
+| LW1′ | PROVED |
+| Lemma W′ | PROVED |
+| Local form (§3.2) | PROVED-mod-cite (KMVV (6.23)–(6.25); DLMF 1.13.4, 10.25.2, 10.27.3–4, 10.28.2, 10.31.2) |
+| UR′ (incl. (b′)), C′, D′ | PROVED-mod-cite |
+| **Theorem RII** | **PROVED-mod-cite** (WLXZ v1 §§3–5, §6.1; KMVV §6; C–D Thm 4.4 + the arguments of 4.7/4.9 via RH_ζ_close §1; DLMF as listed; G2 μ*, B*(i)–(ii)), **REVIEWED** |
+| **Corollary B_{p>1}** | **PROVED-mod-cite, REVIEWED** (p > 1, 1 < s < 1 + 2p) |
+| Other items | Stop (i) RESOLVED-mod-cite; (ii) MOOT; GAP-α, GAP-rate GAP; tilt law CONJECTURE; numerics NUMERICAL; novelty UNCHECKED |
+
+Rule R complete: ACCEPT (after fixes).

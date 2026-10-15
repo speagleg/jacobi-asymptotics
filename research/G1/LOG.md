@@ -339,4 +339,4 @@
     F6: the D_w 1/z-coefficient remark moved to the Q₁ vs V₁ step. F7: check_r2_redA [3] now uses L₁ for all k (FFT
     convolution on a τ-grid, validated against direct quadrature). F8: n = 800 convergence claim corrected (K = 4.8·10⁵ run
     added). F9: cross-references in PROOF.md §0 G1-R row, §3.14 and §4. F10: Lemma W′ flattening sentence.
-  - Rule R ACCEPT WITH FIXES (review/REVIEW_Plan48.md), fixes applied, re-check pending.
+  - Rule R ACCEPT WITH FIXES (review/REVIEW_Plan48.md), fixes applied, re-check ACCEPT — REVIEWED.
