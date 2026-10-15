@@ -337,9 +337,16 @@ Darboux transformation J = LU ↦ UL). **No source was read for Plan 52**, and n
 *Orthogonal Polynomials*, Thm 2.5; M. I. Bueno, F. Marcellán, "Darboux transformation and perturbation of linear functionals",
 Linear Algebra Appl. 384 (2004); F. A. Grünbaum, L. Haine, "Bispectral Darboux transformations" (1996).
 
+**Chain sequences (Rule R F1, Plan 52) — NOT READ, pointer only.** Lemma CS (ROUTE2_alpha.md §3.1) is, in the variables
+a_n := β_n/(α_{n−1}α_n), m_n := h_n/α_n, the statement that the minimal parameter sequence (a_n = (1 − m_{n−1})m_n, m_0 = 0) of
+a chain sequence with a_n → ¼ tends to ½. This is very likely in the chain-sequence literature: H. S. Wall, *Analytic Theory
+of Continued Fractions* (1948); T. S. Chihara, *An Introduction to Orthogonal Polynomials* (1978), Ch. I (kernel polynomials)
+and Ch. III (chain sequences). Not read; not used as an input (Lemma CS is proved in full).
+
 ## (RII-inherited, Plan 52) inputs of Corollary B_all
 
 Corollary B_all (ROUTE2_alpha.md §5) uses Theorem RII / Corollary B_{p>1} (ROUTE2.md, REVIEWED) at a base exponent
 s₀ ∈ (1, 1 + 2p) and nothing else external. Its citations are exactly those listed for RII (WLXZ-v1, KMVV, C–D, DLMF-2,
 DLMF-4 and the DLMF §5 entries above; G2 μ*, B*(i)–(ii)); no new quotation is used, and their hypotheses are checked in
-ROUTE2.md at s₀, which lies in RII's range by construction.
+ROUTE2.md at s₀, which lies in RII's range by construction. (Rule R F2/F7: for s > 1 + p/2 the base can be taken with
+α_x ∈ (−½, ½], so only the |α_x| ≤ ½ part of RII (original UR′) plus Lemma W′ is needed; UR′(b′) only for 1 < s ≤ 1 + p/2.)

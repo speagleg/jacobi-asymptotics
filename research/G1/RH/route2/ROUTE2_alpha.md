@@ -1,7 +1,10 @@
 # ROUTE2_alpha: Route II for s ≥ 1 + 2p (GAP-α of ROUTE2.md §6) via Christoffel transfer (Plan 52)
 
-Status: **Rule R pending.** Novelty: UNCHECKED (no Rule L search; the transfer formula of §2 is classical — Christoffel's
-theorem / the Darboux (LU ↔ UL) transformation of Jacobi matrices — and is re-proved here, not cited).
+Status: **Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan52.md), fixes applied — REVIEWED.** Fixes F1–F7 applied (F1 chain-sequence
+attribution, F2 base window, F3 numerics scope, F4 sharpness example, F5 tilt label, F6 scope sentences, F7 CITATIONS).
+Novelty: UNCHECKED (no Rule L search; the transfer formula of §2 is classical — Christoffel's
+theorem / the Darboux (LU ↔ UL) transformation of Jacobi matrices — and is re-proved here, not cited; Lemma CS is very likely
+KNOWN in chain-sequence form, §3.1).
 
 Source: ROUTE2.md §6 "GAP-α" (Plan 48, REVIEWED; review/REVIEW_Plan48.md). Numerics:
 `checks/check_r2alpha_christoffel.py/.out`, `checks/check_r2alpha_law.py/.out`.
@@ -9,7 +12,7 @@ Source: ROUTE2.md §6 "GAP-α" (Plan 48, REVIEWED; review/REVIEW_Plan48.md). Num
 **Result in one line.** Multiplying the measure by x = k^{−p} shifts s by p: x·σ_s = σ_{s+p} exactly. The Jacobi
 coefficients of x·σ are explicit in those of σ and the chain sequence g_n = −P_{n+1}(0)/P_n(0); the positivity of g_n and
 the parabolic fixed point of the chain recursion force n^pg_n → c from Law P alone, so **Law P (with or without a rate)
-passes from σ to x·σ, for every measure on [0, ∞)**. Since Theorem RII / Corollary B_{p>1} cover an s-interval of length
+passes from σ to x·σ, for every positive measure on [0, ∞) with infinite support**. Since Theorem RII / Corollary B_{p>1} cover an s-interval of length
 2p > p, every s > 1 is reached. No information on P_n(0) from the RH analysis is needed.
 
 **Labels.**
@@ -18,12 +21,12 @@ passes from σ to x·σ, for every measure on [0, ∞)**. Since Theorem RII / Co
 |---|---|---|
 | Lemma CP (§2.1) | σ ≥ 0 on [0, ∞), infinite support ⇒ all zeros of P_n are simple and in (0, ∞); (−1)^nP_n(0) > 0 | PROVED (self-contained) |
 | Lemma CT (§2.2) | Christoffel transfer: α_n = g_n + h_n, β_n = g_{n−1}h_n; x·σ has α̃_n = g_n + h_{n+1}, β̃_n = g_nh_n | PROVED (self-contained; classical, novelty not claimed) |
-| Lemma CS (§3.1) | n^pα_n → 2c, n^p√β_n → c (c > 0) ⇒ n^pg_n → c, n^ph_n → c | PROVED (self-contained); NEW-or-KNOWN: UNCHECKED |
+| Lemma CS (§3.1) | n^pα_n → 2c, n^p√β_n → c (c > 0) ⇒ n^pg_n → c, n^ph_n → c | PROVED (self-contained); very likely KNOWN (chain sequences: Wall; Chihara 1978 Ch. I, III — not read, pointer only) |
 | **Theorem SH** (§3.2) | Law P(c) for σ ⇒ Law P(c) for x·σ | PROVED (self-contained) |
 | Lemma CS-r (§4.1) | rate r_n (regular) ⇒ \|n^pg_n − c\| = O(√r_n), \|n^pg_n − (n−1)^pg_{n−1}\| = O(r_n) | PROVED (self-contained) |
 | **Theorem SH-r** (§4.2) | Law P(c) with rate r_n for σ ⇒ the same rate for x·σ (in particular O(1/n) ⇒ O(1/n)) | PROVED (self-contained) |
-| Remark SH-1/n (§4.3) | exact identity n^p√β̃_n = n^p√β_n·κ_n^{1/2}(G_n/G_{n−1})^{1/2}; the 1/n coefficient of n^pb_n shifts by −p/2 iff n(G_n/G_{n−1} − 1) → 0 | identity PROVED; the hypothesis NUMERICAL (p = 2); tilt-law consistency HEURISTIC |
-| **Corollary B_all** (§5) | p > 1, **every s > 1**, Ψ sequence-form slowly varying: n^pb_n → c(p), n^pa_n → 2c(p); rate O(1/n) if Ψ satisfies (H_an) | PROVED-mod-cite (inherits Theorem RII / Corollary B_{p>1}: WLXZ v1, KMVV §6, C–D, DLMF, G2 μ*, B*(i)–(ii)); the shift step PROVED |
+| Remark SH-1/n (§4.3) | exact identity n^p√β̃_n = n^p√β_n·κ_n^{1/2}(G_n/G_{n−1})^{1/2}; the 1/n coefficient of n^pb_n shifts by −p/2 iff n(G_n/G_{n−1} − 1) → 0 | identity and equivalence PROVED; the hypothesis NUMERICAL (p = 2); tilt-law transfer CONDITIONAL (implication PROVED) |
+| **Corollary B_all** (§5) | p > 1, **every s > 1**, Ψ sequence-form slowly varying: n^pb_n → c(p), n^pa_n → 2c(p); rate O(1/n) if Ψ satisfies (H_an) | PROVED-mod-cite (inherits Theorem RII / Corollary B_{p>1}: WLXZ v1, KMVV §6, C–D, DLMF, G2 μ*, B*(i)–(ii)); the shift step PROVED. For s > 1 + p/2 only the \|α_x\| ≤ ½ part of RII (plus Lemma W′) is needed (§5, Rule R F2) |
 | **GAP-α** (ROUTE2 §6) | the law for s ≥ 1 + 2p | **CLOSED for the law** (Corollary B_all). Still open: an RH analysis of the weight itself for α_x ≥ 1 (not needed for the law) |
 | Route (a) frame change (§6) | Q·((z − a)/z)^{mσ₃} | not pursued; superseded for the law; HEURISTIC link to §2 recorded |
 | GAP-rate | the 1/n coefficient (tilt law) | GAP; unchanged at the base, but **transferred** under SH if n(G_n/G_{n−1} − 1) → 0 (Remark SH-1/n) |
@@ -132,6 +135,14 @@ that settles below c would be pushed to 0 (impossible: g_n > 0 by Lemma CP); one
 of g_n — i.e. supp σ ⊂ [0, ∞) — plus the law at σ determine the limit of n^pg_n. **No hard-edge information on P_n(0) is
 needed.**
 
+*Chain-sequence form (Rule R F1).* Put a_n := β_n/(α_{n−1}α_n) (n ≥ 1) and m_n := h_n/α_n (so 1 − m_n = g_n/α_n). Lemma CT(i)
+gives a_n = (1 − m_{n−1})m_n with m_0 = 0, 0 < m_n < 1 (n ≥ 1): (a_n) is a chain sequence and (m_n) is its **minimal parameter
+sequence** (Wall; Chihara, *An Introduction to Orthogonal Polynomials* (1978), Ch. I kernel polynomials and Ch. III chain
+sequences — **not read**, pointer only). Law P gives a_n = κ_nB_n²/(A_{n−1}A_n) → ¼, and Lemma CS ⟺ m_n → ½: the parabolic
+chain-sequence limit (the map m ↦ a/(1 − m) at a = ¼ has the double fixed point ½, and m_n < 1 is the barrier). Convergence
+of parameter sequences of convergent chain sequences is classical, and this case is **very likely KNOWN**; not checked
+(no Rule L). The proof above is self-contained and does not use that literature.
+
 ### 3.2 Theorem SH (shift lemma, PROVED)
 
 Let σ be a positive measure on [0, ∞) with infinite support, p > 0 and c > 0. If σ satisfies Law P(c) (n^pα_n → 2c,
@@ -196,12 +207,16 @@ law at σ holds with rate O(1/n),
 so **the 1/n coefficient of n^pb_n shifts by exactly −p/2 iff n(G_n − G_{n−1}) → 0** (PROVED as an equivalence; the
 hypothesis is not proved). The pure-power value d₁ = −(s − 1)/2 (Plan 10 Phase 0) shifts by −p/2 under s ↦ s + p, which is
 consistent; and the tilt law (ROUTE2 §5, CONJECTURE) n(n^pb_n/c − 1) = −(s − 1 − ϑ_n)/2 + o(ϑ_n) is mapped to itself at s + p
-if n(G_n − G_{n−1}) = o(ϑ_n) (HEURISTIC: so the tilt law for s ∈ (1, 1 + 2p) would imply it for all s, given that hypothesis).
+if n(G_n − G_{n−1}) = o(ϑ_n). Precisely (Rule R F5; implication PROVED, conclusion CONDITIONAL): if the tilt law holds at s,
+n(G_n − G_{n−1}) = o(ϑ_n) and nϑ_n → ∞ (so that the O(1/n) remainder is o(ϑ_n); true for exp √log, ϑ_n ≍ (log n)^{−1/2}),
+then the tilt law holds at s + p with the same ϑ_n (same Ψ). So the tilt law for s ∈ (1, 1 + 2p) would give it for all
+s > 1, CONDITIONAL on that hypothesis at each step.
 NUMERICAL (`check_r2alpha_law.out`, p = 2): dB := n(n^pb_n/c − 1)|_{s} − (same)|_{s−2} = −0.980 … −0.983, −0.990 … −0.992, −0.995 (n =
 100, 200, 400; s = 5 and 6, Ψ = 1 and exp √log; K-stable to 2·10⁻³), i.e. → −p/2 = −1. The chain sequence itself is much closer
 to c than Lemma CS-r guarantees: e_n := ½log(g_n/h_n) satisfies n·e_n ≈ 0.50, 1.48, 2.46, 3.44 at n = 100 for the bases
-s = 3, 4, 5, 6 (Ψ = 1; ≈ s − 5/2 for p = 2; K-converged for n ≤ 200 only, since P_n(0) is tail-sensitive), i.e. e_n = O(1/n)
-rather than O(n^{−1/2}). No formula is claimed.
+s = 3, 4, 5, 6 (Ψ = 1; ≈ s − 5/2 for p = 2). K-convergence (Rule R F3): at n = 100 for all bases, and at n = 200 only for
+s ≥ 4 (for s = 3, n·e_200 = 0.676, 0.543, 0.509 at K = 6, 12, 24·10⁴), since P_n(0) is tail-sensitive. This is **consistent
+with** e_n = O(1/n) rather than O(n^{−1/2}) on these n only; no formula and no asymptotic claim is made.
 
 ---
 
@@ -224,17 +239,22 @@ SH-r m times (each x^jσ_{s₀} = σ_{s₀+jp} is a positive measure on [0, 1] w
 constants). The index conventions are immaterial (§1). ∎
 
 Remarks.
-- For s ≥ 1 + p the base is s₀ ∈ [1 + p, 1 + 2p), i.e. RII with α_x ∈ [0, 1): a window of length exactly p, which is what
-  one shift needs. It contains α_x = 0 (the log case, Lemma W′) and α_x ∈ (½, 1) (closed in Plan 48 only by UR′(b′) after
-  Rule R F1), so both of those parts of Plan 48 are used. A base window of length < p (e.g. α_x ∈ [0, ½] only) would leave
-  gaps.
+- *Dependency footprint (Rule R F2).* Any half-open s-window of length p inside (1, 1 + 2p) serves as a base. For
+  s > 1 + p/2 one may take s₀ := the unique point of s − pℕ₀ in (1 + p/2, 1 + 3p/2], i.e. α_x ∈ (−½, ½]; on that window
+  Theorem RII is covered by the **original** UR′ argument (|α_x| ≤ ½), so for every s > 1 + p/2 Corollary B_all does not
+  depend on UR′(b′) (Plan 48 Rule R F1) at all. UR′(b′) is needed only for 1 < s ≤ 1 + p/2, which is Corollary B_{p>1}'s own
+  range. Lemma W′ (α_x = 0) cannot be avoided: every α-window of length 1 in (−1, 1) contains 0, and for s ∈ 1 + p + pℕ₀ the
+  chain passes through α_x = 0. (The proof above, with m least, uses s₀ ∈ [1 + p, 1 + 2p); both choices are valid since RII is
+  REVIEWED for all |α_x| < 1.) A base window of length < p would leave gaps.
 - What remains of GAP-α is only the RH analysis of the weight k^{−s}Ψ itself for α_x ≥ 1 (e.g. to compute the 1/n term by
   Route II, or QL along the path). The law does not need it.
 - p ≤ 1 (WP5): Theorem SH applies to every p > 0, but there is no base case for slowly varying Ψ with D(γ) = ∞ at p ≤ 1
   (Route II needs p > 1); it would transfer one if found. For pure powers and for bounded / log-type Ψ the law is already
   known for all s > 1 (RH_px, RH₁(r), RH_plt1b; T3-all, T3-log), so SH adds nothing there.
 - SH is not specific to Route II: any statement "Law P (with a regular rate) for σ_s, s in an interval of length ≥ p"
-  propagates to all larger s.
+  propagates to all larger s. SH is node-agnostic (any atoms x_k > 0: the law for (x_k, w_k) ⇒ the law for (x_k, x_kw_k)), works
+  for every p > 0 and every scale s_n with s_{n−1}/s_n → 1; so any future base case at p ≤ 1 (or for other node families)
+  propagates upward in s (Rule R F6).
 
 ---
 
@@ -264,7 +284,9 @@ p = 2, s = 5, 6 (α_x = 1, 3/2: outside RII's range), Ψ = 1 and Ψ = exp √log
 | exp √log | 5 | −1.864, −1.882, −1.894 | 1.001, 1.001, 1.000 |
 | exp √log | 6 | −2.354, −2.377, −2.391 | 1.021, 1.011, 1.006 |
 
-(K = 1.2·10⁵ vs 2.4·10⁵ differ by ≤ 6·10⁻⁴ (nB) and ≤ 10⁻³ (E) at n ≤ 400; n = 800 is not K-converged — e.g. Ψ = 1, s = 5: −2.013 vs −1.999 —
+(For the s = 5, 6 rows of this table, K = 1.2·10⁵ vs 2.4·10⁵ differ by ≤ 6·10⁻⁴ (nB) and ≤ 10⁻³ (E) at n ≤ 400. For the
+bases s = 3, 4, which enter dB, the differences at n = 400 are 2–3·10⁻³ (e.g. Ψ = 1, s = 3: nB −1.0002 vs −0.9982, E 1.0008
+vs 0.9981); dB itself is K-stable to 2·10⁻³ (Rule R F3); n = 800 is not K-converged — e.g. Ψ = 1, s = 5: −2.013 vs −1.999 —
 and is not used.) The law holds with bounded n·deviation, consistent with Corollary B_all's O(1/n). Pure power: nB → −(s − 1)/2
 = −2, −2.5 (Plan 10 Phase 0's d₁); exp √log: close to the tilted baseline −(s − 1 − ϑ_n)/2 = −1.887, −1.893, −1.899 (s = 5)
 and −2.387, −2.393, −2.399 (s = 6), ϑ_n = L′(log n), as at s = 2 (ROUTE2 §5). E → p/2 = 1 for all s. dB and e_n: §4.3.
@@ -280,7 +302,10 @@ and −2.387, −2.393, −2.399 (s = 6), ϑ_n = L′(log n), as at s = 2 (ROUTE
 - (d) *Could G_n converge to something else, or oscillate?* F's only fixed point is c (F(G) = G ⟺ (G − c)² = 0); oscillation
   is excluded by the monotone-band argument. Tested: numerically G_n/c − 1 = O(1/n) (§4.3).
 - (e) *Rate loss.* Lemma CS-r gives only |u_n| = O(√r_n). The transferred coefficients involve u_n only through increments
-  and through u_n² (a-law), both O(r_n): no rate loss. A sign error in κ_n or an index slip would show as a dB ≠ −p/2; the
+  and through u_n² (a-law), both O(r_n): no rate loss. **The O(√r_n) bound is sharp** under the lemma's hypotheses (Rule R F4):
+  take G_n := c + a/√n (a > 0), B_n := c, A_n := G_n + κ_nc²/G_{n−1}; then g_n, h_n > 0, so (Favard + LU positivity) these are
+  the coefficients of a positive measure on [0, ∞), A_n − 2c = (a²/c − pc)/n + O(n^{−3/2}) = O(1/n), yet G_n − c ≍ n^{−1/2}.
+  So the "only increments enter" structure of SH-r is essential. The pure-power data have u_n = O(1/n) (§4.3). A sign error in κ_n or an index slip would show as a dB ≠ −p/2; the
   numerics give −0.995 → −1.
 - (f) *Converse.* Not used; it can fail to be unique (Geronimus parameter m).
 - (g) *Is the shift identity exact?* x_kw_k = k^{−p}k^{−s}Ψ(k): yes, with the same Ψ. Corollary B_{p>1} already gives the
