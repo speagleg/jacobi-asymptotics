@@ -48,3 +48,4 @@ import JacobiAsym.HallGamma
 import JacobiAsym.HallCorollaries
 import JacobiAsym.GenWeights
 import JacobiAsym.Spacing
+import JacobiAsym.GeneralAtoms
