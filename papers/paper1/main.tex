@@ -15,6 +15,7 @@
 \newtheorem{remark}[theorem]{Remark}
 \numberwithin{equation}{section}
 \raggedbottom
+\setlength{\emergencystretch}{3em}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
@@ -27,26 +28,34 @@
 \DeclareMathOperator{\supp}{supp}
 
 \title[Hankel determinants with power-law atoms]{Hankel determinants of discrete measures with power-law atoms, and of zeta values}
-\author{Gordon [surname] (draft)}
-\date{Draft of 14 October 2026}
+\author{Gordon [Surname]}
+\date{15 October 2026}
 
-
+\subjclass[2020]{Primary 42C05; Secondary 15B05, 31A15, 11M06, 47B36}
+\keywords{Hankel determinants, discrete orthogonal polynomials, Jacobi matrices, constrained equilibrium problem,
+logarithmic energy, arcsine law, Riemann zeta function, formal verification}
 
 \begin{document}
 \begin{abstract}
-Let $\sigma=\sum_{k\ge1}w_k\delta_{x_k}$ be a discrete measure whose atoms are regularly spaced with
-$x_k\sim Ck^{-p}$ for some $p>0$, and whose weights satisfy $\sum_k w_k<\infty$ and $w_k\ge c_1k^{-s}$. We prove that
-the Hankel determinants $D_n=\det(\int x^{i+j}\dd\sigma)_{i,j=0}^{n-1}$ satisfy
+Let $\sigma=\sum_{k\ge1}w_k\delta_{x_k}$ be a discrete measure with atoms $x_k=f(k)$, where
+$f'(\xi)\sim-pC\xi^{-p-1}$ for some $p>0$ and $C>0$ (so that $x_k-\lim_jx_j\sim Ck^{-p}$), and with weights
+satisfying $\sum_kw_k<\infty$ and $w_k\ge c_1k^{-s}$. We prove that the Hankel determinants
+$D_n=\det(\int x^{i+j}\dd\sigma)_{i,j=0}^{n-1}$ satisfy
 \[
   \log D_n=-pn^2\log n+\Bigl(\tfrac{3p}{2}+\log\bigl(c(p)C\bigr)\Bigr)n^2+o(n^2),\qquad
   c(p)=\tfrac14\Bigl(\tfrac{\sqrt\pi\,\Gamma(1/p+1)}{\Gamma(1/p+1/2)}\Bigr)^{p}.
 \]
-The constant comes from an explicitly solvable constrained equilibrium problem: the minimiser of the logarithmic
-energy $\iint\log\frac{1}{|u^{-p}-v^{-p}|}\dd\mu(u)\dd\mu(v)$ among probability measures $\mu\le\dd u$ on $(0,\infty)$ is
-unique, it is an average of arcsine laws, and its density is a regularised incomplete beta function. As a
-corollary, for every real $a>0$ and real $b$ with $2a+b>1$,
-$\log\det_{1\le i,j\le n}\zeta(a(i+j)+b)=-an^2\log n+(\tfrac{3a}{2}+\log c(a))n^2+o(n^2)$. For positive integers $a,b$
-this gives the leading-order behaviour $-an^2\log n$ expected by Haynes and Zudilin, together with the $n^2$ term.
+Equivalently, a double Ces\`aro mean of $\log(j^pb_j)$, where the $b_j$ are the off-diagonal Jacobi coefficients of
+$\sigma$, converges to $\log(c(p)C)$. The constant comes from an explicitly solvable constrained equilibrium problem:
+the minimiser of the logarithmic energy
+\[
+  \iint\log\frac{1}{|u^{-p}-v^{-p}|}\dd\mu(u)\dd\mu(v)
+\]
+among probability measures $\mu\le\dd u$ on $(0,\infty)$ is unique, it is an average of arcsine laws, and its density is a regularised
+incomplete beta function. As a corollary, for every real $a>0$ and real $b$ with $2a+b>1$,
+$\log\det_{1\le i,j\le n}\zeta(a(i+j)+b)=-an^2\log n+(\tfrac{3a}{2}+\log c(a))n^2+o(n^2)$. For positive integers
+$a,b$ this gives the leading-order behaviour $-an^2\log n$ expected by Haynes and Zudilin, together with the $n^2$
+term. The main theorem and both corollaries have been formalised in the Lean~4 proof assistant.
 \end{abstract}
 \maketitle
 
@@ -68,6 +77,7 @@ $p>0$ and
   c(p):=\frac14\Bigl(\frac{\pi}{2I(p)}\Bigr)^{p},\qquad
   \kappa_p:=\frac{3p}{2}+\log c(p).
 \end{equation}
+\enlargethispage{4pt}%
 For instance $I(1)=\pi/4$, $c(1)=\tfrac12$, and $I(2)=1$, $c(2)=\pi^2/16$.
 
 \begin{theorem}\label{thm:main}
@@ -184,8 +194,8 @@ proofs uses~\cite{Fauzan} or~\cite{Lai}.
 
 \emph{The equilibrium problem.} Since $-\cJ_p(\mu)$ is the logarithmic energy of the image measure $g_*\mu$, the
 maximisation of $\cJ_p$ over $\cA$ is a logarithmic energy minimisation with an upper constraint on the measure.
-Constrained energy problems of this kind are the subject of a substantial literature. We have only consulted the
-abstracts of the following works, and the summary below is restricted to what those abstracts say. According to the
+Constrained energy problems of this kind are the subject of a substantial literature. For the following works we
+have consulted only the abstracts, and the summary below is restricted to what those abstracts say. According to the
 abstract of~\cite{CDLO}, the constrained equilibrium problem was introduced by Rakhmanov~\cite{Rakhmanov} to describe
 the asymptotic zero distribution of discrete orthogonal polynomials in a compact interval, and was extended by
 Dragnev and Saff~\cite{DragnevSaff} and by Kuijlaars and Van Assche~\cite{KVA-PLMS}. The abstract of~\cite{DragnevSaff}
@@ -196,8 +206,8 @@ constrained extremal energy problem that can be solved explicitly. The abstract 
 Baelen~\cite{VAVB} concerns a $q$-lattice $\{q^k\}$, which accumulates at $0$. We use no result from this theory:
 existence, uniqueness and the value of the extremum are proved directly in Section~\ref{sec:equilibrium}. We have not
 found the problem $\sup_\cA\cJ_p$, whose constraint has infinite total mass near the accumulation point, or its
-solution, in the literature. Because the full texts of \cite{Rakhmanov,DragnevSaff,KVA-PLMS,KVA-JAT} have not been
-read, this statement is provisional.
+solution, in the literature. Since we have not read the full texts of \cite{Rakhmanov,DragnevSaff,KVA-PLMS,KVA-JAT},
+this statement is provisional.
 
 For $p=1$, Monien~\cite[\S3]{Monien} set up a constrained maximisation of this type heuristically: ``We seek a
 continuous test function $\rho(x)$ which maximizes the functional Eq.~3.5 subject to the constraint that $0<\rho(x)\le
@@ -240,17 +250,21 @@ part of Theorem~\ref{thm:equilibrium}(iii). It is a special case of a lemma of B
 Wielonsky~\cite[Lemma~2.1]{BKMW}; we include a short Fourier-analytic proof so that the paper is self-contained
 (Remark~\ref{rem:BKMW}).
 
-\subsection{Formal verification}
+\subsection{Formal verification}\label{sec:lean}
 Theorem~\ref{thm:main}, Corollary~\ref{cor:jacobi} and Corollary~\ref{cor:zeta} have been formalised in the Lean~4
-proof assistant with the Mathlib library, with hypotheses as stated above. The formalisation contains no unproved
-steps and uses only Lean's standard axioms. It also covers the parts of Theorem~\ref{thm:equilibrium} that the proof of
-Theorem~\ref{thm:main} uses: the value of $\cJ_p(\mu^*)$, the potential of $\mu^*$, the inequality
-$-\iint\log|x-y|\dd\nu\dd\nu\ge0$ of Lemma~\ref{lem:positivity} (not the Fourier identity), and the bound
-$\cJ_p(\mu)\le\kappa_p$ for compactly supported $\mu\in\cA$ with integrable energy, which is the case the proof uses.
-Uniqueness of the maximiser is not formalised.
+proof assistant (version 4.34.1) with the Mathlib library, with the hypotheses as stated above (Lean theorems
+\texttt{paper1\_thm11}, \texttt{paper1\_cor12} and \texttt{paper1\_cor14}; in Corollary~\ref{cor:zeta}, $\zeta$ is
+Mathlib's Riemann zeta function). The formalisation contains no unproved steps and uses only Lean's standard axioms
+(\texttt{propext}, \texttt{Quot.sound}, \texttt{Classical.choice}). It also covers the parts of
+Theorem~\ref{thm:equilibrium} that the proof of Theorem~\ref{thm:main} uses: admissibility of $\mu^*_u$ and its
+saturation on $(0,u_s]$ (but not the incomplete-beta formula for $\rho^*$), the potential of $\mu^*$ (part (ii)), the
+value $\cJ_p(\mu^*_u)=\kappa_p$, the inequality $-\iint\log|x-y|\dd\nu\dd\nu\ge0$ of Lemma~\ref{lem:positivity} (not
+the Fourier identity and not the equality case), and the bound $\cJ_p(\mu)\le\kappa_p$ for $\mu\in\cA$ with bounded
+support and integrable energy, which is the case the proof uses. Uniqueness of the maximiser is not formalised.
 In a few places the formal proof takes a different route from the one written here; for example, it proves
-Lemma~\ref{lem:positivity} with a Gaussian kernel instead of the Fourier transform. The Lean sources are part of the
-supplementary material (Section~\ref{sec:numerics}).
+Lemma~\ref{lem:arcsine} with log-sine integrals instead of Fourier series, and Lemma~\ref{lem:positivity} with a
+Gaussian kernel instead of the Fourier transform. The Lean sources are part of the supplementary material
+(Section~\ref{sec:numerics}).
 
 \subsection{Organisation and notation}
 Section~\ref{sec:prelim} collects the facts about Hankel determinants that we use. Section~\ref{sec:equilibrium}
@@ -365,7 +379,7 @@ $\int_1^n(n-x)\log x\dd x=\frac{n^2}{2}\log n-\frac34n^2+O(n)$.
 
 \section{The constrained equilibrium problem}\label{sec:equilibrium}
 
-\subsection{Energies}
+\subsection{Energies}\label{sec:energies}
 For finite positive Borel measures $\mu,\nu$ on $(0,\infty)$ with $\int\log(1+x)\dd\mu<\infty$ and
 $\int\log(1+x)\dd\nu<\infty$ put
 \[
@@ -558,7 +572,7 @@ Fubini
 \emph{Optimality.} Let $\mu\in\cA$. If $\cJ_p(\mu)=-\infty$ there is nothing to prove, so assume $\cJ_p(\mu)>-\infty$
 and let $\mu^x=g_*\mu\le\sigma_p$. We first check that all energies below converge absolutely.
 \begin{itemize}
-\item $\cL(\mu^x)$: the positive part of the integrand is integrable (Section~3.1), and the negative part is
+\item $\cL(\mu^x)$: the positive part of the integrand is integrable (Section~\ref{sec:energies}), and the negative part is
   integrable because $\cL(\mu^x)>-\infty$.
 \item $\cL(\mu^*)$: shown above.
 \item $\cL(\mu^x,\mu^*)$: using $|t|=2t^+-t$, $\log^+|x-y|\le\log(1+x)+\log(1+y)$ and part (ii),
@@ -582,14 +596,21 @@ $\cJ_p(\mu)\le\cL(\mu^*)=\kappa_p$, with equality only if $\nu=0$, that is, $\mu
 \begin{remark}
 The only step of the paper that uses Lemma~\ref{lem:positivity} (equivalently \cite[Lemma~2.1]{BKMW}) is the
 optimality and uniqueness part of Theorem~\ref{thm:equilibrium}(iii). In the proof of Theorem~\ref{thm:main} it is
-needed for the inequality $E_p\le\kappa_p$, which enters the upper bound. The lower bound uses only parts (i) and the
+needed for the inequality $E_p\le\kappa_p$, which enters the upper bound. The lower bound uses only part (i) and the
 value $\cJ_p(\mu^*_u)=\kappa_p$.
 \end{remark}
 
 \begin{remark}\label{rem:monien}
-For $p=1$ we have $c=\frac12$ and $\rho^*(u)=\cB_{\min(1,1/2u)}(\frac32,\frac12)$. We checked numerically (mpmath,
-30 digits; script \texttt{checks/monien\_check.py}) that this agrees with Monien's density $\rho$ quoted in
-Section~\ref{sec:context} at eleven points $x\in[0.1,10^4]$, to within $10^{-30}$.
+For $p=1$ we have $c=\frac12$, $u_s=\frac12$ and $\rho^*(u)=\cB_{\min(1,1/2u)}(\frac32,\frac12)$, which is Monien's
+density $\rho$ quoted in Section~\ref{sec:context}. Indeed both equal $1$ on $(0,\frac12]$. For $u>\frac12$ put
+$V=1/(2u)$; since $B(\frac32,\frac12)=\frac\pi2$, the substitution $s=\sin^2\phi$ gives
+\[
+  \cB_V\bigl(\tfrac32,\tfrac12\bigr)=\frac2\pi\int_0^V\sqrt{\frac{s}{1-s}}\dd s=\frac2\pi\bigl(\phi_V-\sin\phi_V\cos\phi_V\bigr),
+  \qquad \sin\phi_V=\sqrt V,
+\]
+and $\phi_V=\arctan(1/\sqrt{2u-1})$, $\sin\phi_V\cos\phi_V=\sqrt{2u-1}/(2u)$. As a check, the two expressions agree at
+eleven points of $[0.1,10^4]$ in certified (Arb) arithmetic, to within $4.5\cdot10^{-74}$ (supplementary script
+\texttt{certified/c04\_monien\_density.py}).
 \end{remark}
 
 \section{Discretisation and the upper bound}\label{sec:upper}
@@ -745,7 +766,8 @@ $0$ beyond. So $\theta\in\cA$, and by Lemma~\ref{lem:scaling}
 \[
   \cJ_p(\theta)=m_U^{-2}\cJ_p(\mu_U)+p\log m_U\ge\kappa_p-\eta
 \]
-for $U$ large enough, which we fix. Constants $C_U$ below depend on $p$ and $U$ only.
+for $U$ large enough, which we fix. Constants $C_U$ and $O_U(\cdot)$ below depend on $p$ and $U$ only (in
+Step~4 also on $c_1$ and $s$).
 
 \emph{Step 2: the quantile configuration.} Let $F$ be the distribution function of $\theta$; it is continuous and
 strictly increasing on $[0,U']$. For $1\le i\le n$ let $B_i=[l_i,r_i]:=[F^{-1}(\frac{i-1}{n}),F^{-1}(\frac in)]$,
@@ -877,14 +899,15 @@ for $a=1,2,3,4$ (Table~\ref{tab:constants}).
 
 \begin{remark}[$a=1$]
 Monien's $H_n^{(r)}[\zeta]=\det_{1\le i,j\le n}\zeta(i+j+r)$ is the case $a=1$, $b=r$ of Corollary~\ref{cor:zeta}, so
-$\log H_n^{(r)}[\zeta]=-n^2(\log2n-\frac32)+o(n^2)$ for every real $r>-1$. This is Monien's weak asymptotic form for $r=0,1$
-\cite{Monien}, read with an $o(n^2)$ error term, which is how the expansion from Zagier's numerics quoted there
-reads it. Monien's ``$\sim$'' by itself asserts only the leading term.
+$\log H_n^{(r)}[\zeta]=-n^2(\log2n-\frac32)+o(n^2)$ for every real $r>-1$. For $r=0,1$ this is Monien's weak
+asymptotic form~\cite{Monien}, read with an $o(n^2)$ error term, as the expansion from Zagier's numerics quoted there
+suggests; Monien's ``$\sim$'' by itself asserts only the leading term.
 \end{remark}
 
 \begin{remark}[$a=2$: comparison with closed forms]\label{rem:bs}
 Baricz and \v{S}tampach~\cite{BariczStampach} evaluate Hankel determinants of the Rayleigh functions
-$\sigma_{2m}(\nu)$. (The statements and their numbering below are as recorded in our literature notes on~\cite{BariczStampach} and remain to be re-checked against the published version; the closed forms themselves are confirmed independently below.)
+$\sigma_{2m}(\nu)$. (Statement numbers refer to the arXiv version of~\cite{BariczStampach}; the closed forms we
+use are confirmed independently below.)
 Their Corollary~3 reads ``For $n\in\N$, $\nu\notin-\N$, and $\ell\in\{0,1\}$, one has $\det H_n^{(\ell)}(\nu)=
 2^{-2n(n+\ell)}\prod_{k=1}^{2n+\ell-1}(\nu+k)^{k-2n-\ell}$'', where $H_n^{(\ell)}(\nu)$ has $(i,j)$ entry
 $\sigma_{2(i+j)+2\ell-2}(\nu)$; their Remark~5 gives $\det H_n^{(2)}(\nu)=2^{-2n(n+2)}(n+1)(n+\nu+1)\prod_{k=1}^{2n+1}
@@ -894,16 +917,17 @@ and columns by powers of $\pi$ yields closed forms for $\det_{1\le i,j\le n}\zet
 \[
   \log\det_{1\le i,j\le n}\zeta\bigl(2(i+j)\bigr)=2n(n+1)\log\frac\pi2+\sum_{k=1}^{2n}(k-2n-1)\log\bigl(k+\tfrac12\bigr).
 \]
-We verified these three closed forms against direct 60-digit determinants for $n\le8$ (agreement to at least
-$10^{-38}$; script \texttt{checks/bs\_check.py}). The asymptotics of the closed form are elementary: with
+We verified these three closed forms against direct determinants for $1\le n\le30$ in certified (Arb) ball
+arithmetic, with relative difference at most $4\cdot10^{-152}$ (supplementary script
+\texttt{certified/c03\_zeta\_hankel.py}). The asymptotics of the closed form are elementary: with
 $m=2n+1$, $\sum_{k<m}(m-k)\log(k+\frac12)=\frac{m^2}{2}\log m-\frac34m^2+O(m\log m)$ (as in Lemma~\ref{lem:sumlog}),
 which gives
 \[
   \log\det_{1\le i,j\le n}\zeta\bigl(2(i+j)\bigr)=-2n^2\log n+\bigl(3+\log\tfrac{\pi^2}{16}\bigr)n^2+O(n\log n),
 \]
-in agreement with Corollary~\ref{cor:zeta} for $a=2$, $b=0$, and with a better error term. Numerically, for
+in agreement with Corollary~\ref{cor:zeta} for $a=2$, $b=0$, and with a better error term. Numerically (floating-point; script \texttt{papers/paper1/checks/bs\_check.py}), for
 $\ell=0,1,2$ the quantity $(\log\det+2n^2\log n)/n^2-\kappa_2$ equals $-1.33\cdot10^{-4}$, $-3.48\cdot10^{-4}$ and
-$-5.63\cdot10^{-4}$ at $n=10^5$, and $(n/\log n)$ times it lies between $-1.15$ and $-4.89$ for
+$-5.63\cdot10^{-4}$ at $n=10^5$, and $(n/\log n)$ times it lies between $-4.90$ and $-1.15$ for
 $n\in\{10^2,10^3,10^4,10^5\}$. The closed forms for $\ell=0$ and $\ell=2$ differ from the case $\ell=1$ only by
 the power of $2$ ($2^{-2n(n+\ell)}$), the power of $\pi$ (exponent $2\sum_{i\le n}(2i+\ell-1)$), the range $2n+\ell-1$
 of the product (with $m=2n+\ell$ in place of $2n+1$), and, for $\ell=2$, the factor $(n+1)(n+\frac32)$. These changes
@@ -915,12 +939,22 @@ asymptotic statement is not made there.
 
 \section{Numerical illustrations}\label{sec:numerics}
 
-The computations below are floating-point (not certified) and serve only as illustrations. They were produced with
-scripts that will be made available as supplementary material (repository URL and commit hash: to be supplied
-before submission). They were re-run for this draft, and the outputs reproduce the stored ones exactly.
+The supplementary material is the repository
+\begin{center}
+\url{https://github.com/speagleg/jacobi-asymptotics}\quad(tag \texttt{v1.0-paper1}\,[placeholder: tag to be created at submission]).
+\end{center} It contains the scripts that produced the
+numbers below, together with their stored outputs, the Lean sources of the formalisation of
+Section~\ref{sec:lean} (directory \texttt{lean/}), and the certified (Arb ball arithmetic) checks cited in this
+paper (directory \texttt{certified/}). Script names below are paths in that repository.
+
+Except where marked as certified, the computations below are floating-point and serve only as illustrations. The
+scripts were re-run for this version, and the outputs reproduce the stored ones exactly.
 
 \emph{Constants and the maximiser.} Table~\ref{tab:constants} lists $c(p)$, $u_s$ and $\kappa_p$, together with a
 Monte Carlo estimate of $\cL(\mu^*)$ obtained by sampling $\mu^*$ directly (independently of the closed-form value).
+The entries in the columns $c(p)$, $u_s$ and $\kappa_p$, and the four values of $\frac{3a}{2}+\log c(a)$ quoted in
+Section~\ref{sec:zeta}, are certified to be correctly rounded (Arb, \texttt{certified/c01\_constants.py}); the Monte
+Carlo column is floating-point.
 The density ratio $\dd\mu^*/\dd\sigma_p$ evaluated by quadrature equals $1$ for $x\ge4c$ to four digits (one
 exception at $p=0.5$, $x=4000c$, where the quadrature returns $0.9862$; the closed form of
 Theorem~\ref{thm:equilibrium}(i) gives exactly $1$ there) and is strictly below $1$ for $x<4c$.
@@ -940,7 +974,8 @@ $p$ & $c(p)$ & $u_s=2I(p)/\pi$ & $\kappa_p$ & Monte Carlo $\cL(\mu^*)$\\
 6   & 0.801586 & 0.8235 & $8.778837$ & $8.7781\pm0.0109$\\
 \bottomrule
 \end{tabular}
-\caption{Constants of Theorem~\ref{thm:equilibrium}. Source: supplementary script \texttt{check\_energy}.}
+\caption{Constants of Theorem~\ref{thm:equilibrium}. Sources: \texttt{certified/c01\_constants.py} (columns 2--4,
+certified) and \texttt{research/G2/checks/check\_energy.py} (Monte Carlo column).}
 \label{tab:constants}
 \end{table}
 
@@ -952,7 +987,8 @@ Corollary~\ref{cor:jacobi}, $S_n\to0$. Doubling $K$ changes the tabulated values
 $2.8\cdot10^{-5}$ ($p=3$), $1.4\cdot10^{-6}$ ($p=4$) and $7\cdot10^{-8}$ ($p=6$). For $p=0.5$ the atoms
 decay too slowly for the truncation used ($K$-doubling changes $S_n$ by $10^{-2}$), so that case is not illustrated.
 For the zeta weights of Corollary~\ref{cor:zeta} with $(a,b)=(3,1)$ and $(4,1)$ the same statistic is
-$-0.5544,-0.2181,-0.0750$ and $-0.7452,-0.2922,-0.1004$ at $n=25,100,400$. The identification of
+$-0.5544,-0.2181,-0.0750$ and $-0.7452,-0.2922,-0.1004$ at $n=25,100,400$ (script
+\texttt{research/G2/checks/check\_hz.py}). The identification of
 $\det\zeta(a(i+j)+b)$ with $D_n$ of $\sum_kk^{-(2a+b)}\delta_{k^{-a}}$ was checked to 12 digits for
 $(a,b)\in\{(3,1),(4,1),(3,2)\}$ and $n\in\{4,8,12\}$.
 
@@ -968,7 +1004,7 @@ $p$ & $s$ & $K$ & $n=25$ & $50$ & $100$ & $200$ & $400$ & $1600$\\
 6   & 6   & 2000  & $-0.46811$ & $-0.29944$ & $-0.18324$ & $-0.10863$ & -- & --\\
 \bottomrule
 \end{tabular}
-\caption{The averaged statistic $S_n$ (supplementary scripts \texttt{check\_averaged}, \texttt{check\_hz}).}
+\caption{The averaged statistic $S_n$, floating-point.\\ Script: \texttt{research/G2/checks/check\_averaged.py}.}
 \label{tab:averaged}
 \end{table}
 

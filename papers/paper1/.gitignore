@@ -8,3 +8,6 @@
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+
+# main.bbl is tracked: it is part of the arXiv bundle (see ARXIV.md)
+!main.bbl
