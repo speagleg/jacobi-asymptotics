@@ -25,6 +25,9 @@ things in different places are listed in §6.
 Notation: c(p) := ¼(π/(2I(p)))^p, I(p) := (√π/2)Γ(1/p + ½)/Γ(1/p + 1); κ_p := 3p/2 + log c(p); c(2) = π²/16.
 σ_{p,s} := Σ_k k^{−s}δ_{k^{−p}}. β_n := n^p b_n/(c(p)C). Φ_n := −2n²log n + 2Σ_{j<n}(n−j)log L(j) + κn²,
 κ = 3 + log(π²/16) (smooth-ζ normalization).
+The numerical values of c(p), u_s, κ_p (Paper 1 Table), κ = −0.28946… (RH_ζ) and the identity κ = −2(log c)′(2) are
+CERTIFIED (Arb) in `certified/c01_constants.py`; the Lommel closed form (p = s = 2) is CERTIFIED for n < 300 and the
+Baricz–Štampach closed forms for n ≤ 30 (`certified/`). No theorem label changes.
 
 ---
 
