@@ -155,8 +155,28 @@ in a later result.
 | **`christoffel_shift_law(_converse, _pow)`** | s_na_n → 2c, s_nb_n → c for σ ⇔ for xσ (s_n/s_{n+1} → 1; `_pow`: s_n = n^p) (Paper 2 Thm `thm:shift` no rate, Remark `rem:converse`; G1 §3.21 SH, §3.19 CT₁ "⟸") | sorry-free (Plan 56) | Christoffel.lean | chain_limit_core |
 | **`chain_rate_core`** | regular η: O(η) inputs ⇒ U_n − c = O(√η_n), U_{n+1} − U_n = O(η_n) (Paper 2 Lemma `lem:chain-rate`; G1 §3.21 CS-r) | sorry-free (Plan 56) | ChainRate.lean | chain_limit_core |
 | **`christoffel_shift_rate(_pow)`** | s_na_n − 2c, s_nb_n − c = O(η_n) for σ ⇒ the same for xσ (`_pow`: s_n = n^p) (Paper 2 Thm `thm:shift`, rate; G1 §3.21 SH-r) | sorry-free (Plan 56) | ChristoffelRate.lean | chain_rate_core, christoffel_transfer |
+| `hallLam`, `hallC`, `hallKappa`, `four_hallC_rpow` | Λ(p) = ∫₀¹ arccos(2s^p − 1), c(p) = (π/Λ)^p/4, κ_p = 3p/2 + log c(p) (Paper 1 (1.2); Λ = 2I(p) not yet formalized) | (definitions) sorry-free (Plan 60) | HallConst.lean | — |
+| `arcsine_pot`, `arcsine_pot_ge` | ∫₀^π log\|β(1−cos φ)/2 − y\| dφ = π log(β/4) (0 ≤ y ≤ β), ≥ for y ≥ β (Paper 1 Lemma 3.2; G2 B0) | sorry-free (Plan 60) | Arcsine.lean | Mathlib `integral_log_sin_zero_pi` |
+| `muStar`, `muStar_Ioc_le`, `muStar_Ioc_eq` | μ\*_u admissible: μ\*_u(a,b] ≤ b − a, = on (0, Λ/π] (Paper 1 Thm 1.3(i); G2 B\*(i)) | sorry-free (Plan 60) | Equilibrium.lean | — |
+| **`muStar_energy`** | 𝒥_p(μ\*_u) = κ_p, absolutely convergent (Paper 1 Thm 1.3(iii), value) | sorry-free (Plan 60) | StarEnergy.lean | arcsine_pot |
+| **`quantile_lower`**, `quantile_sum_ge` | admissible θ on (0,U], F integrable: eventually n²(𝒥(θ) − η) ≤ 2Σ_{i<j}F(u_i,u_j) (Paper 1 Thm 5.2 Steps 2–3) | sorry-free (Plan 60) | QuantileLower.lean | — |
+| `Jp_scaleM`, `exists_good_theta` | scaling (Paper 1 Lemma 3.1); admissible θ with 𝒥 ≥ κ_p − η (Thm 5.2 Step 1) | sorry-free (Plan 60) | HallLower.lean | muStar_energy |
+| **`hall_lower`** | p > 0, s > 1: ∀η > 0 eventually hnorm p κ_p (heineD (powSeq p) (powSeq s)) 0 n ≥ −η (Paper 1 Thm 5.2 = G2 A-L, pure powers) | **sorry-free (Plan 60)** — the lower half of `TheoremHPure p κ_p s` | HallLower.lean | quantile_lower, exists_good_theta |
+| **`energy_pos`**, `gauss_pd`, `frK_integral` | 𝓛(A,A) + 𝓛(B,B) ≤ 2𝓛(A,B) for finite A, B of equal mass (Paper 1 Lemma 3.3 inequality; G2 Lemma EP), via Frullani + Gaussian kernel | sorry-free (Plan 60) | EnergyPos.lean | Mathlib `Frullani.integral_Ioi_eq` |
+| `starPot_eq`, `starPot_ge`, `le_volume_of_lip` | U\* = log c + p on [0,4c], ≥ on [0,∞) (Paper 1 Thm 1.3(ii)) | sorry-free (Plan 60) | Optimality.lean | arcsine_pot |
+| **`Jp_le_kappa`** | admissible μ on (0,U], F_p integrable ⇒ 𝒥_p(μ) ≤ κ_p (Paper 1 Thm 1.3(iii) optimality; G2 B\*(iii)) | sorry-free (Plan 60) | Optimality.lean | energy_pos, starPot_compare, muStar_energy |
+| **`disc_upper`**, `Fp_integrable_box`, `far_cell`, `any_cell` | 2Σ_{a<b}F(u_a,u_b) ≤ n²𝒥(μ̄_S) + \|S\|·eDisc (Paper 1 Lemma 4.1; G2 A1) | sorry-free (Plan 60) | Discretize.lean | — |
+| **`head_V_bound`**, `muBar_energy_le` | log V(S) ≤ −pN² log N + κ_pN² + pN log n + N·eDisc (Paper 1 Cor 4.2; G2 A2) | sorry-free (Plan 60) | HallUpper.lean | disc_upper, Jp_scaleM, Jp_le_kappa |
+| **`hall_upper`** | p > 0, s > 1: ∀η > 0 eventually hnorm p κ_p (heineD (powSeq p) (powSeq s)) 0 n ≤ η (Paper 1 Thm 4.3 = G2 A-U, pure powers) | **sorry-free (Plan 60)** | HallUpper.lean | head_V_bound, heineK_tail_split, phi_bound |
+| **`theoremHPure_all`** | `TheoremHPure p (hallKappa p) s` for all p > 0, s > 1 (Paper 1 Thm 1.1 pure powers; G2 Cor H-input) | **sorry-free (Plan 60)** — named input discharged, κ in Λ(p) form | TheoremHall.lean | hall_lower, hall_upper |
+| **`theoremHL_all`** | Theorem H_L with no named input, κ = hallKappa p | **sorry-free (Plan 60)** | TheoremHall.lean | theoremHL, theoremHPure_all |
+| **`hallLam_eq_gamma`**, `hallKappa_eq`, `hallKappa_one`, `hallKappa_two` | Λ(p) = √π Γ(1/p+1/2)/Γ(1/p+1) = 2I(p); Lean κ = Paper 1's κ_p; κ₁ = 3/2 − log 2, κ₂ = 3 + log(π²/16) | sorry-free (Plan 60) | HallGamma.lean | Mathlib beta distribution |
+| **`theoremHPure_kappa`**, `theoremHPure_two` | `TheoremHPure p κ_p s`, κ_p = 3p/2 + log(¼(π/(2I(p)))^p), all p > 0, s > 1 (G2 Cor H-input) | **sorry-free (Plan 60) — the named input is a theorem** | HallCorollaries.lean | theoremHPure_all, hallLam_eq_gamma |
+| **`smoothZeta_HL_uncond`, `smoothZeta_HL_det_uncond`, `smoothZeta_bLaw_uncond`** | Corollary H_L-ζ (Heine, Hankel-det, b_j forms) with no named input | **sorry-free (Plan 60)** | HallCorollaries.lean | smoothZeta_HL(_det), smoothZeta_bLaw, theoremHPure_two |
 
-Not formalized: the forward Weyl law (item 11 "Theorem B"; not G3′ Theorem B, see §6), Theorem H / H_all itself, everything in
+Not formalized: the forward Weyl law (item 11 "Theorem B"; not G3′ Theorem B, see §6), Theorem H_all for general atoms f(k) (Plan 60 formalized the pure-power case `theoremHPure_all` / `theoremHPure_kappa`, κ_p in Gamma form;
+Lemma 2.3 transfer to general f, the uniqueness of the maximiser and the equality case of Lemma 3.3 are not formalized,
+lean/HALL_PLAN.md), everything in
 research/ except the Christoffel shift of G1 §3.21 / Paper 2 §3 (Plan 56 rows above; for `DMeasure` σ with atoms x_k ≥ 0 —
 no atom at 0, general σ with finite moments not covered; zero location in `lem:zeros` and Remark `rem:sharp` not formalized).
 
