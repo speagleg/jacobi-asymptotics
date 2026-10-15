@@ -672,3 +672,26 @@ Plan 62 (the 1/n coefficient, `second_order/SECOND.md`) quotes nothing new. It u
   SKETCH of the GAP (E) (second-order expansions of the Bessel and Airy models); nothing is proved from them there.
 Internal (not external) inputs: G1 PROOF.md §3.21 Lemmas CT, CS; §3.3 Lemma Sat_p⁺; §3.16 Corollary QLP-Λ and hypothesis
 (RU); RH_p1.md §1 (TC identification); the pointwise Law P (Paper 2 Cor. thm:pure; RH_p, RH₁(r), RH_plt1b).
+
+## (DLMF-9.7.2, Plan 65) NIST DLMF §9.7(i), (9.7.2) — READ (page dlmf.nist.gov/9.7 fetched 2026-10-15 by curl; formula from the page text / TeX alttext)
+
+> §9.7(i): "Here δ denotes an arbitrary small positive constant and (9.7.1) ζ = (2/3)z^{3/2}. Also u_0 = v_0 = 1 and for
+> k = 1, 2, …, (9.7.2) u_k = (2k+1)(2k+3)(2k+5)⋯(6k−1)/(216^k k!) = ((6k−5)(6k−3)(6k−1)/((2k−1)216k)) u_{k−1},
+> v_k = ((6k+1)/(1−6k)) u_k."
+
+So u_1 = 3·5/216 = 5/72 and v_1 = −(7/5)u_1 = −7/72. (9.7.5)–(9.7.6) are quoted in "(DLMF-9, Paper 2)" above.
+**Used in:** second_order/E_pgt1.md Lemma E.3 (first correction X = [[−1/72, −i/12], [−i/12, 1/72]] of the Airy model
+Ψ^j of Paper 2 (eq. airy-model)); hypotheses: the sector conditions of 9.7.5–9.7.6, checked as in Paper 2 Lemma airy.
+
+## (Plan 65 reuse) entries above used by second_order/E_pgt1.md
+
+KMVV and (KMVV-orient, Paper 2) (Bessel model (6.23)–(6.28), endpoint −1 construction (6.42)–(6.53)); (DLMF-10.40, Paper 2)
+(10.40.1–10.40.4, 10.17.1); (DLMF-10.17, Plan 55) (10.17.5, .6, .8, .11, .12); (DLMF-9, Paper 2) (9.7.5–9.7.6) with
+(DLMF-9.7.2, Plan 65); (DLMF-5) (10.25.2); (DLMF) §5.11 and 5.5.1 through Paper 2 (eq. binet-bound), (eq. binet-small).
+Internal: RH_px (REVIEWED), Paper 2 §§5–6 and App. outer (Lemmas interp, invariance, signs, szego, airy, binetcut; Prop. frame).
+
+*Hypotheses checked (Rule R fixes A6, F6).* DLMF 10.40.1–10.40.4 and 10.17.5, .6, .11, .12 are stated for fixed (complex) ν
+with no restriction on |ν|; the "|α| < 1" recorded in the "(DLMF-10.40, Paper 2)" entry is Paper 2's standing assumption,
+not a DLMF hypothesis. E_pgt1 uses them with ν = α ∈ (−1, ∞) fixed (α ≥ 1 allowed), in the sectors checked in Lemma E.3:
+|ph w| < π/3 (w = 2ζ^{1/2}) for 10.40.1–4, and ph 2(−ζ)^{1/2} ∈ (−π/6, π/6) for 10.17.5–6, 10.17.11–12. DLMF 10.25.2 is used
+in E_pgt1 Cor E.6 for xI′_α(x)/I_α(x) → α as x → 0⁺ and I_α(x) > 0 for small x > 0 (α > −1, so Γ(α+1) > 0).

@@ -361,7 +361,7 @@ Proof labels are unchanged; only novelty status changes.
 - **Headline pointwise law (all slowly varying Ψ), Theorems R/RW/Ra, QLP, B-cond/CB**: NOT FOUND (Knopfmacher–Lubinsky–
   Nevai 1988 still unread; its review indicates a sufficient-condition result).
 
-### 2.10 Plan 62: the 1/n coefficient for pure powers (research/G1/RH/second_order/SECOND.md; REVIEWED 2026-10-15, REVIEW_Plan62.md) and Plan 64: uniformity in s (research/G1/RH/second_order/UL.md; REVIEWED 2026-10-15, REVIEW_Plan64.md)
+### 2.10 Plan 62: the 1/n coefficient for pure powers (research/G1/RH/second_order/SECOND.md; REVIEWED 2026-10-15, REVIEW_Plan62.md) and Plan 64: uniformity in s (research/G1/RH/second_order/UL.md; REVIEWED 2026-10-15, REVIEW_Plan64.md) and Plan 65: (E) for p > 1 (research/G1/RH/second_order/E_pgt1.md; REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md))
 
 Pairings: repo a_n = α_{n−1}, so "a_n/(2b_n)" = α_{n−1}/(2b_n) (coefficient e₁ = +p/2); standard/Paper 2 α_n/(2b_n)
 (coefficient e₁ˢ = −p/2). (E) = existence of d₁ in n^pb_n/c(p) = 1 + d₁/n + O(n^{−1−ε}).
@@ -369,18 +369,19 @@ Pairings: repo a_n = α_{n−1}, so "a_n/(2b_n)" = α_{n−1}/(2b_n) (coefficien
 | Name | Statement | Label | Location |
 |---|---|---|---|
 | Grid numerics | d₁ = −(s−1)/2, e₁ = p/2, e₁ˢ = −p/2, k₀ = −(s−1) − p/2, k₁ = −(p+2)(2s−2−p)/(2p); maximal fit half-ranges, p ≥ 1 / p = ½ (remainders n^{−1−p}): d₁ 1.6·10⁻⁸ / 1.3·10⁻⁴, e₁ 5.9·10⁻⁹ / 2.5·10⁻⁴, e₁ˢ 1.6·10⁻⁷ / 3.4·10⁻⁴, k₀ 8.3·10⁻⁷ / 6.6·10⁻⁴, k₁ 2.5·10⁻⁶ / 8.1·10⁻⁴ | NUMERICAL | SECOND §1, checks/check_so_grid.out |
-| Conjecture P62 | the same for all p > 0, s > 1, remainder O(n^{−1−min(1,p)}) | CONJECTURE | SECOND §1 |
+| Conjecture P62 | the same for all p > 0, s > 1, remainder O(n^{−1−min(1,p)}) | CONJECTURE (0 < p ≤ 1); PROVED-mod-cite for p > 1 (E_pgt1.md Thm E.1, Cor E.6) (Plan 65, REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)) | SECOND §1; E_pgt1.md |
 | Thm 2.3 | p = 2, s ∈ {2,4,6,8,10}: exact rational chains / coefficients; d₁ = −(s−1)/2, e₁ = 1, k₀ = −s, k₁ = −2(s−2), d₂ = (s²+6s−11)/16 | PROVED-mod-cite (VA §3, DLMF-Lommel via Paper 2 Remark rem:pure-lommel) + exact computer algebra | SECOND §2, checks/check_so_exact_p2.out |
 | Prop 3.1, Thm 3.2 | Π_{m≤n}(b_m(s+p)/b_m(s))² = g_n/g_0; Σ_{m≤n}log(b_m(s+p)/b_m(s)) + (p/2)log n → ½log(c(p)ζ(s)/ζ(s+p)) | 3.1 PROVED; 3.2 PROVED-mod-cite (Law P; G1 Lemma CS) | SECOND §3.1 |
-| Cor 3.3, Thm 3.4 | (E) at s, s+p ⇒ d₁(s+p) = d₁(s) − p/2 and n(G_n − G_{n−1}) → 0; (E_ε), ε > ½ ⇒ e₁ˢ = −p/2, e₁ = p/2 | CONDITIONAL on (E) at s, s+p (Cor 3.3); (E_ε), ε > ½ (Thm 3.4); + PROVED-mod-cite (Law P; Lemma CS) | SECOND §3.1 |
+| Cor 3.3, Thm 3.4 | (E) at s, s+p ⇒ d₁(s+p) = d₁(s) − p/2 and n(G_n − G_{n−1}) → 0; (E_ε), ε > ½ ⇒ e₁ˢ = −p/2, e₁ = p/2 | CONDITIONAL on (E) at s, s+p (Cor 3.3); (E_ε), ε > ½ (Thm 3.4); + PROVED-mod-cite (Law P; Lemma CS); unconditional for p > 1, Thm 3.4 superseded there by E_pgt1 Thm E.1 (Plan 65, REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)) | SECOND §3.1 |
 | Prop 3.5, Cor 3.6 | weight factors 1 + O(1/k) change Σ_{j≤n}log b_j by a convergent amount; TC anchor: d₁(1, 3/2 + m) = −(1+2m)/4 under (E) | 3.5 PROVED (internal Sat_p⁺); 3.6(i) PROVED-mod-cite (RH_p1 §1, DLMF 5.11); (ii)–(iii) CONDITIONAL on (E) + PROVED-mod-cite | SECOND §3.2 |
-| Prop 3.7, Thm 3.8, Cor 3.9 | ∂_s log h_n = −Σ log k·μ_n(k); Cesàro s-slope −½; d₁(p,s) = −(s−1)/2 + g(p), g(1) = g(2) = 0 | 3.7 PROVED; 3.8 PROVED-mod-cite (UL.md Cor UL-3.8: (P), (LP), (QLP-c) at fixed points only (finitely many for each grid, countably many in all); no uniformity in σ, (RU) not used; Lemma CS; with the constant ½log(c^{(s₁−s₀)/p}ζ(s₀)/ζ(s₁)) + o(1)); 3.9 CONDITIONAL on (E) only + PROVED-mod-cite (Plan 64 labels, REVIEWED) | SECOND §3.3; UL.md §3 |
+| Prop 3.7, Thm 3.8, Cor 3.9 | ∂_s log h_n = −Σ log k·μ_n(k); Cesàro s-slope −½; d₁(p,s) = −(s−1)/2 + g(p), g(1) = g(2) = 0 | 3.7 PROVED; 3.8 PROVED-mod-cite (UL.md Cor UL-3.8: (P), (LP), (QLP-c) at fixed points only (finitely many for each grid, countably many in all); no uniformity in σ, (RU) not used; Lemma CS; with the constant ½log(c^{(s₁−s₀)/p}ζ(s₀)/ζ(s₁)) + o(1)); 3.9 CONDITIONAL on (E) only + PROVED-mod-cite (Plan 64 labels, REVIEWED); for p > 1 3.9 unconditional and g(p) = 0 (E_pgt1 §8.2) (Plan 65, REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)) | SECOND §3.3; UL.md §3 |
 | Thm 3.10 | log-average d₁ = −(s−1)/2 for p = 2, s ∈ 2+2ℕ₀ and p = 1, s ∈ 3/2+ℕ₀ (⇔ log h_n of the zeta-value Hankel ratios to O(1)) | (a)–(c) PROVED-mod-cite; (d) every s > 1 for p ∈ {1, 2} (convergent remainder) and (c) for all real shifts: PROVED-mod-cite (UL.md Cor UL-3.10: UF-lim; SECOND §2 Input (VA, DLMF-Lommel); Cor 3.6(i) (RH_p1 §1, DLMF 5.11); Plan 64, REVIEWED) | SECOND §3.4; UL.md §3 |
 | UF-lim (Plan 64) | h_n(s)/h_n(s₀) = c(p)^{(s−s₀)/p}n^{−(s−s₀)}(1 + o(1)), uniformly for s, s₀ in compacts of (1, ∞), every p > 0 (via a minimum/duality sandwich, Lemma V) | PROVED-mod-cite ((P), (LP), (QLP-c) at fixed points only (finitely many for each grid, countably many in all); no uniformity in σ, (RU) not used; Lemma CS); Lemma V PROVED | UL.md §§1–2 |
 | UP (Plan 64) | Law P uniform on compacts in s: sup_K\|n^pb_n − c\|, \|n^pg_n − c\|, \|n^pα_n − 2c\| → 0 (removes the (RU) dependence of SECOND's (UΛ)-status α-part, review F10) | PROVED-mod-cite (Thm UF-lim, hence (P), (LP), (QLP-c) at fixed points; Lemma CT) | UL.md §3 |
 | UΛ (Plan 64) | sup_{s∈K}\|Λ_n(s)\| = o(log n); Λ_n → −(log c)/p pointwise and in L¹(K) | PROVED-mod-cite (Thm UP, Lemma LP's method, Lemma TL; Lemma W, Scheffé); sup_K\|Λ_n\| = O(1) GAP (⇐ (RU) at PROOF SKETCH level, ⇐ (SCVX), ⇐ (CVX)) | UL.md §4 |
 | SV, CVX (Plan 64) | ∂_s²log h_n = Σ_{j>n}f_{nj}² − Σ_{i<n}f_{in}²; (CVX) fails at the top level of finite truncations | SV PROVED; CVX-fin PROVED; (CVX) for σ_{p,s} HYPOTHESIS, NUMERICAL | UL.md §5 |
-| (E), g(p) | existence of d₁; its s-independent part for p ∉ {1, 2} | GAP (PROOF SKETCH of (E) for p > 1 via RH_px at second order; heuristic n_eff = n + α_x/2 + j₀ − ½, NUMERICAL) | SECOND §4 |
+| (E), g(p) | existence of d₁; its s-independent part for p ∉ {1, 2} | (E): PROVED-mod-cite for p > 1 (E_pgt1.md: second-order RH; Lemma E.2, H_n flat to O(n^{−p})) (Plan 65, REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)), GAP for 0 < p ≤ 1; g(p) = 0 for p > 1 PROVED-mod-cite (Plan 65, REVIEWED), GAP for 0 < p < 1 (heuristic n_eff = n + α_x/2 + j₀ − ½, NUMERICAL) | SECOND §4; E_pgt1.md |
+| Thm E.1, Cor E.6 (Plan 65) | p > 1, s > 1: n^pb_n = c(1 − (s−1)/(2n) + O(n⁻²)), n^pα_n = 2c(1 − (s−1+p)/(2n) + O(n⁻²)), α_n/(2b_n) = 1 − p/(2n) + O(n⁻²); n^pg_{n−1} = c(1 + a/n + O(n⁻²)), k₀ = −(s−1) − p/2, k₁ = −(p+2)a, a = (2s−2−p)/(2p) | PROVED-mod-cite (RH_px; Paper 2 Lemmas binetcut/szego/airy, Frame Prop.; KMVV §6; DLMF 9.7.2, 9.7.5–6, 10.17, 10.25.2, 10.40.1–4) + exact computer algebra (Plan 65, REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)) | research/G1/RH/second_order/E_pgt1.md, checks/check_e_*.out |
 
 Novelty UNCHECKED (Prop 3.1 classical, not claimed; UL.md Lemma V and Prop SV elementary, not claimed).
 
@@ -527,8 +528,9 @@ and asked for item 11 to be named as the primary route. That changes no label; i
     (p = 2) and s ∈ 3/2 + ℕ₀ (p = 1). CONDITIONAL on (E) at s and s + p (+ mod-cite): the Christoffel constraint
     d₁(s+p) = d₁(s) − p/2 (Cor 3.3); CONDITIONAL on (E_ε), ε > ½, at s and s + p: e₁ˢ = −p/2 (Thm 3.4). *Update (Plan 64, REVIEWED; UL.md):* the (UΛ)/(CVX) dependencies are removed — the Cesàro s-slope
     (Thm 3.8, with constant) and the log-average form at every s > 1 for p ∈ {1, 2} (Thm 3.10(d)) are PROVED-mod-cite, Cor 3.9
-    needs (E) only; (UΛ) holds in its o(log n) form. Open: sup_K|Λ_n| = O(1) (uniform hard edge); (CVX) for σ_{p,s}. Still open: **(E)**, the existence of the 1/n coefficient (GAP; PROOF SKETCH for p > 1), and the
-    s-independent part g(p) for p ∉ {1, 2} (GAP). The −1/24 (second-order) conjecture is not addressed.
+    needs (E) only; (UΛ) holds in its o(log n) form. Open: sup_K|Λ_n| = O(1) (uniform hard edge); (CVX) for σ_{p,s}. *Update (Plan 65, REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md); E_pgt1.md):* (E) is PROVED-mod-cite for p > 1 — n^pb_n = c(1 − (s−1)/(2n) + O(n⁻²)) and
+    all five constants of Conjecture P62 (d₁, e₁, e₁ˢ, k₀, k₁), with remainder O(n⁻²); hence g(p) = 0 for p > 1 and Cor 3.3, 3.9
+    unconditional there. Still open: (E) for 0 < p ≤ 1 and g(p) for 0 < p < 1 (GAP). The −1/24 (second-order) conjecture is not addressed.
 14. Lemma R1's η, J are non-explicit (proof by contradiction) (§3.6 R-b). *Update:* explicit (but tiny) constants in the
     window version R1W (§3.10) and for the a-law R1a (§3.12); sharp constants (phase model 4/π, 8/π²) open.
 15. Novelty searches (Rule L): first pass done 2026-10-14 (research/program/novelty_*.md; summary in
