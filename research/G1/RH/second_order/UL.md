@@ -1,7 +1,7 @@
 # UL: uniformity in s for the pure powers — the Cesàro s-law, a uniform Law P, and (UΛ) (Plan 64)
 
 Status (2026-10-15): written by the Plan 64 agent; Rule R: research/G1/review/REVIEW_Plan64.md, ACCEPT WITH FIXES; fixes
-F1–F12 applied; **not REVIEWED** until the diff check (then: REVIEWED, with REVIEW_Plan64.md). Labels per VERIFICATION_POLICY.md.
+F1–F12 applied; **REVIEWED 2026-10-15** (Rule R: research/G1/review/REVIEW_Plan64.md, ACCEPT WITH FIXES; fixes diff-checked). Labels per VERIFICATION_POLICY.md.
 "RH" means Riemann–Hilbert. This file upgrades SECOND.md §3.3–3.4 (Theorem 3.8, Corollary 3.9, Theorem 3.10(d)) and
 settles hypothesis (UΛ) of SECOND §3.3 in its stated (o(log n)) form. The integration into SECOND.md and THEOREMS.md
 is recorded in §7. No external source was newly read: every input is an internal result of G1 PROOF.md or SECOND.md,
