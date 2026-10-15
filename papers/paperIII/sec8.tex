@@ -1,0 +1,76 @@
+% Section 8: open problems and conjectures.
+\section{Open problems}\label{sec:open}
+
+This section records the questions that Theorems~\ref{thm:sv}--\ref{thm:s} leave open, and states three conjectures;
+the last two are taken from \cite{PaperII}. The evidence for them is numerical.
+
+\emph{Between slow variation and boundedness.} Theorems~\ref{thm:sv} and~\ref{thm:rough} leave a range of regularity
+conditions open. A simple test case is $w_k=k^{-s}e^{\varepsilon\sin\log k}$: the increments of $\varepsilon\sin\log k$
+tend to $0$, but $e^{\varepsilon\sin\log k}$ is not slowly varying, so Theorem~\ref{thm:sv} does not apply, and the
+first-order response of Remark~\ref{rem:accuracy} has not been analysed for it. For bounded rough weights one may also
+ask whether the pointwise law holds along a subsequence of density one; we do not know. Averaged forms of the diagonal
+law, such as Ces\`aro means of $a_n$ over tails, are the natural counterpart of \eqref{eq:paperI-cesaro} for the
+diagonal; we do not treat them here.
+
+\emph{Uniformity in $s$.} For $0<p\le1$, Theorem~\ref{thm:s}(ii)--(iii) are uniform only on compact subsets of
+$(1,1+2p)$, and the diagonal part of (iii) only away from $s=1+p$. Both restrictions come from the range of the tail
+bound, Proposition~\ref{prop:imp-tail}: they would disappear with a version of it beyond $\Sp$, and the first one also
+with a version of the chain-limit statement of Lemma~\ref{lem:imp-chain}(ii) that is uniform in $s$. A related question is the size of the logarithmic moment $\Theta_n(s)=-\Phi_n'(s)$.
+Theorem~\ref{thm:UFlim} shows that its integrals over intervals of $s$ converge, and for each fixed $s\in\Sp$ the bound of
+Lemma~\ref{lem:allM} (for $k>n$) and the law $n^pa_n\to2c$ (for $k<n$, via $\log(n/k)\le(n/k)^p/p$) give
+$\Theta_n(s)=O(1)$; whether $\sup_{s\in K}|\Theta_n(s)|=O(1)$ on compact sets is open. It
+would follow from the next conjecture: if $\Phi_n''=-\Theta_n'\ge0$ on a compact interval $K'\subset\Sp$ whose interior
+contains $K$, then $\Theta_n$ is non-increasing on $K'$, so on $K$ it lies between its averages over short intervals of
+$K'$, and these averages converge by Theorem~\ref{thm:UFlim}.
+
+\begin{conjecture}[convexity in $s$]\label{conj:convex}
+For every $p>0$ and every compact $K\subset(1,\infty)$ there is $n_0$ such that $s\mapsto\log h_n(\sigma_{p,s})$ is
+convex on $K$ for $n\ge n_0$.
+\end{conjecture}
+
+The evidence is numerical: the second differences in $s$ of $\log h_n$ are positive, from exact determinants for
+$n\in\{1,2,4,8\}$, $p\in\{\frac12,1,2\}$ and $s\in\{\frac32,2,\dots,4\}$, and from the computed coefficients for $n\le1600$
+on the grid $s\in\{\frac32,2,3,4\}$, $p\in\{\frac12,1,\frac32,2,3,4\}$; at $n=1600$ the second divided differences are
+close to $1/(2p^2n)$, that is, $\partial_s^2\log h_n\approx1/(p^2n)$. So the conjecture concerns the $1/n$ level and is not a soft statement. It also uses more than
+the exponential-family structure $\sigma_{p,s}=x^{(s-s')/p}\sigma_{p,s'}$, as the following remark shows.
+
+\begin{remark}\label{rem:cvx-fin}
+Let $f_{ij}:=\int p_ip_j\log k\diff\sigma$, where $p_j$ are the orthonormal polynomials of a measure
+$\sigma=\sum_kk^{-s}\delta_{k^{-p}}$ with finitely or infinitely many atoms and $\log k$ is evaluated at the atom $k^{-p}$.
+Differentiating $\int p_np_i\diff\sigma=\delta_{ni}$ in $s$ as in Lemma~\ref{lem:fv} gives
+$\partial_s^2\log h_n=\Var_{m_n}(\log k)-2\sum_{i<n}f_{in}^2$. For the truncation $\sigma^{(N)}:=\sum_{k\le N}k^{-s}\delta_{k^{-p}}$
+and $n=N-1$, the space $L^2(\sigma^{(N)})$ is spanned by $p_0,\dots,p_{N-1}$, so
+$\Var_{m_{N-1}}(\log k)=\sum_{i<N-1}f_{i,N-1}^2$ and $\partial_s^2\log h_{N-1}=-\sum_{i<N-1}f_{i,N-1}^2$. This is negative:
+otherwise $(\log k)p_{N-1}$ would be a multiple of $p_{N-1}$ on the atoms, so $p_{N-1}$ would vanish at
+all atoms but one, which is impossible since it is orthogonal to the constants. So convexity fails at the top level of
+every finite truncation.
+\end{remark}
+
+\emph{The pointwise $1/n$ term for $p\le1$.} For $p>1$ the $1/n$ term is Theorem~\ref{thm:imp-second}. For $0<p\le1$,
+Corollary~\ref{cor:p1} gives its logarithmic average at $p=1$, Theorem~\ref{thm:s}(ii) gives its dependence on $s$ in the
+same averaged sense for every $p$, and Proposition~\ref{prop:transfer} reduces the diagonal ratio to the off-diagonal
+term.
+
+\begin{conjecture}[{\cite[Conjecture~11.1]{PaperII}}]\label{conj:pleq1}
+For $0<p\le1$ and $s>1$, $n^pb_n(\sigma_{p,s})=c(p)\bigl(1-\frac{s-1}{2n}+o(1/n)\bigr)$ and
+$a_n(\sigma_{p,s})/(2b_n(\sigma_{p,s}))=1-\frac p{2n}+o(1/n)$.
+\end{conjecture}
+
+Numerically, at $p=\frac12$ the remainder in the first formula appears to be of order $n^{-1-p}=n^{-3/2}$, which is exactly
+the borderline $\varepsilon=\frac12$ of Proposition~\ref{prop:transfer}; so even a proof of the first formula with this
+remainder would not, through Proposition~\ref{prop:transfer} alone, give the second.
+
+\emph{Slowly varying factors at order $1/n$.} The numbers in Section~\ref{sec:numerics} suggest that a slowly varying
+factor acts at order $1/n$ like a change of $s$ by its local logarithmic derivative. This is the pointwise analogue of
+Theorem~\ref{thm:s}(ii) along the path $k^{-s}\ell(k)^t$.
+
+\begin{conjecture}[{\cite[Conjecture~11.2]{PaperII}}]\label{conj:tilt}
+Let $\ell$ be analytic of some angle, $\ell(k)=\exp\Lambda(\log k)$, and $s>1$. If $n\Lambda'(\log n)\to\infty$, then
+\[
+  \frac{n^pb_n(\sigma_{p,s,\ell})}{c(p)}=1-\frac{s-1-\Lambda'(\log n)}{2n}+o\Bigl(\frac{\Lambda'(\log n)}n\Bigr).
+\]
+\end{conjecture}
+
+\emph{Other atoms.} All results here use the exact atoms $k^{-p}$: Lemma~\ref{lem:arcsine} needs a pointwise law for a
+reference measure, and Section~\ref{sec:christoffel} needs $x\sigma_{p,s}=\sigma_{p,s+p}$. For atoms $x_k=f(k)$ regularly
+varying of index $-p$ the averaged law is \cite[Theorem~1.1]{PaperI}, and the pointwise law is open.
