@@ -1,0 +1,171 @@
+% sec10_numerics.tex
+% Section 10: numerical illustrations.
+% Labels defined here: sec:numerics, tab:numerics, tab:onen.
+
+\section{Numerical illustrations}\label{sec:numerics}
+
+This section compares the theorems with computed recurrence coefficients. Table~\ref{tab:numerics} shows the normalised
+deviations controlled by Theorem~\ref{thm:analytic} and Corollary~\ref{cor:pure} for a factor $\ell$ that grows faster
+than every power of $\log k$, and Table~\ref{tab:onen} compares fitted $1/n$ coefficients with Theorem~\ref{thm:onen}
+for $p>1$ and with Conjecture~\ref{conj:onen} for $p\le1$. The computations are floating-point illustrations; no proof
+in this paper uses them.
+
+\emph{Method.} The atoms $k\le K$ alone do not suffice. The spectral weight of $P_n$ near the hard edge sits at indices
+$k\asymp n^{1+2/p}$, about $10^{16}$ for $p=\frac12$ and $n=1600$, and a truncated measure has a soft edge at its
+smallest atom and obeys a different law. For $p=\frac12$, $s=\frac32$, the factor $\ell$ of Table~\ref{tab:numerics} and
+the atoms $k\le2\cdot10^5$ alone, $n(n^pb_n/c(p)-1)$ equals $-1.81$, $-13.3$ and $-105.9$ at $n=100$, $400$ and $1600$.
+We therefore replaced the atoms $k>K$ by a quadrature of the continuous tail $\int_{K+1/2}^{\infty}t^{-s}\ell(t)\,
+\delta_{t^{-p}}\diff t$ and computed the Jacobi matrix of the resulting discrete measure by the updating algorithm that
+adds one atom at a time and restores tridiagonal form by plane rotations, in extended precision (the precision and the
+truncation checks are given with each table). The scripts and their outputs are available as described in the statement
+on data and code availability at the end of the paper.
+
+\subsection{\texorpdfstring{The rate $O(1/n)$}{The rate O(1/n)}}
+Table~\ref{tab:numerics} compares the factor $\ell(k)=\exp\sqrt{\log(k+e)}$ with $\ell\equiv1$ for $p=\frac12$, $1$, $2$
+and $s=2$. Here $\ell(k)=\exp\Lambda(\log k)$ with $\Lambda(\xi)=\sqrt{\log(e^\xi+e)}$, whose singularities lie on the
+lines $|\im\xi|=\pi$, so $\ell$ is analytic of angle $\vartheta$ for every $\vartheta<\pi$
+(Definition~\ref{def:analytic}). By Theorem~\ref{thm:analytic} and Corollary~\ref{cor:pure} the normalised deviations
+$n(n^pb_n/c(p)-1)$ and $n(a_n/(2b_n)-1)$ stay bounded. The Bessel orders $\alpha=(s-1-p)/p$ are $\alpha=1$, which lies
+outside the window of Theorem~\ref{thm:window} and is reached through the shift (Theorem~\ref{thm:shift}) from
+$s=\frac32$; $\alpha=0$, the logarithmic case of the Bessel model; and $\alpha=-\frac12$.
+
+The tail was integrated by Gauss--Legendre quadrature on logarithmic panels (ratio $1.02$, eight nodes per panel) up to
+$T=10^{48}$ for $p=\frac12$ and $T=10^{16}$ for $p=1,2$, and the recurrence was run in long double precision. We
+repeated each computation with $K=10^5$, with $K=2\cdot10^5$, and with $K=2\cdot10^5$ and $T$ reduced by a factor
+$10^4$. The largest change of any tabulated entry under these variations is $9.5\cdot10^{-8}$ for $p=\frac12$,
+$1.9\cdot10^{-8}$ for $p=1$ and $1.7\cdot10^{-11}$ for $p=2$. The column $\ell\equiv1$ at $p=2$ agrees in every digit
+shown with the closed form of Remark~\ref{rem:lommel}.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{rrrrrr}
+\toprule
+ & \multicolumn{2}{c}{$n\bigl(n^pb_n/c(p)-1\bigr)$} & \multicolumn{2}{c}{$n\bigl(a_n/(2b_n)-1\bigr)$} & \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+$n$ & $\ell$ & $\ell\equiv1$ & $\ell$ & $\ell\equiv1$ & $\frac12\Lambda'(\log n)$\\
+\midrule
+\multicolumn{6}{l}{$p=\frac12$, $s=2$, $\alpha=1$ (reached through the shift)}\\
+ 100 & $-0.4039$ & $-0.5069$ & $-0.2442$ & $-0.2408$ & $0.1131$\\
+ 200 & $-0.4069$ & $-0.5052$ & $-0.2470$ & $-0.2453$ & $0.1070$\\
+ 400 & $-0.4101$ & $-0.5039$ & $-0.2484$ & $-0.2477$ & $0.1014$\\
+ 800 & $-0.4133$ & $-0.5028$ & $-0.2492$ & $-0.2488$ & $0.0963$\\
+1600 & $-0.4163$ & $-0.5020$ & $-0.2496$ & $-0.2494$ & $0.0919$\\
+\midrule
+\multicolumn{6}{l}{$p=1$, $s=2$, $\alpha=0$}\\
+  50 & $-0.3821$ & $-0.4934$ & $-0.4954$ & $-0.4950$ & $0.1191$\\
+ 100 & $-0.3893$ & $-0.4967$ & $-0.4978$ & $-0.4975$ & $0.1131$\\
+ 200 & $-0.3958$ & $-0.4983$ & $-0.4989$ & $-0.4987$ & $0.1070$\\
+ 400 & $-0.4015$ & $-0.4992$ & $-0.4994$ & $-0.4994$ & $0.1014$\\
+ 800 & $-0.4065$ & $-0.4996$ & $-0.4997$ & $-0.4997$ & $0.0963$\\
+\midrule
+\multicolumn{6}{l}{$p=2$, $s=2$, $\alpha=-\frac12$}\\
+  50 & $-0.3794$ & $-0.4938$ & $-0.9756$ & $-0.9780$ & $0.1191$\\
+ 100 & $-0.3868$ & $-0.4969$ & $-0.9878$ & $-0.9889$ & $0.1131$\\
+ 200 & $-0.3936$ & $-0.4984$ & $-0.9939$ & $-0.9944$ & $0.1070$\\
+ 400 & $-0.3995$ & $-0.4992$ & $-0.9970$ & $-0.9972$ & $0.1014$\\
+ 800 & $-0.4046$ & $-0.4996$ & $-0.9985$ & $-0.9986$ & $0.0963$\\
+\bottomrule
+\end{tabular}
+\caption{Normalised deviations from the pointwise law for $\sigma_{p,2,\ell}$, with $\ell(k)=e^{\sqrt{\log(k+e)}}$, and
+for $\ell\equiv1$, computed in extended precision from the atoms $k\le K$ and a quadrature of the continuous tail. All
+entries are stable under doubling of $K$ and under a change of the tail cut-off (see the text). Boundedness is what
+Theorem~\ref{thm:analytic} and Corollary~\ref{cor:pure} assert. The limits $-(s-1)/2$ and $-p/2$ in the columns
+$\ell\equiv1$ are proved for $p=2$ (Theorem~\ref{thm:onen}) and observed, not proved, for $p=\frac12$ and $p=1$. The
+slow drift of the first column is the effect of $\Lambda'(\log n)$ (Conjecture~\ref{conj:tilt}).}
+\label{tab:numerics}
+\end{table}
+
+All entries stay bounded, as the theorems require. For the pure powers the two normalised deviations approach
+$-(s-1)/2=-\frac12$ and $-p/2$ in all three geometries. At $p=1$ and $p=2$ the distance of the column $\ell\equiv1$ for
+$b_n$ from $-\frac12$ roughly halves when $n$ doubles, as a remainder $O(n^{-2})$ in $n^pb_n/c(p)$ requires; at
+$p=\frac12$ it shrinks only by a factor close to $2^{-1/2}$, which suggests a remainder of order $n^{-1-p}$ there. For
+$\ell$ the deviation of $n^pb_n$ is smaller in absolute value, and its difference from the pure power drifts slowly
+towards $0$, roughly like $\frac12\Lambda'(\log n)$ (last column); see Conjecture~\ref{conj:tilt}. The factor $\ell$ has
+almost no effect on $a_n/(2b_n)$ at order $1/n$.
+
+\emph{A factor analytic only in a thin strip.} Theorem~\ref{thm:analytic} needs $\ell$ to be analytic of some angle
+$\vartheta>0$ only. As a test we took $p=2$ and
+\[
+  \Lambda(\xi)=\sqrt{\xi+1}+(\xi+2)^{-1/2}\log(1-q\cos2\xi),\qquad q=1/\cosh(0.6).
+\]
+Here $1-q\cos2\xi$ vanishes at $\xi=\pi m\pm0.3i$ for every integer $m$, so $\Lambda$ is analytic of angle $\vartheta$
+exactly for $\vartheta<0.3$, and the singularities are not confined to a bounded part of the strip. The factor
+$\ell(k)=e^{\Lambda(\log k)}$ grows like $e^{\sqrt{\log k}}$ and carries a log-periodic oscillation of relative size
+$(\log k)^{-1/2}$. With the same numerical scheme, at $n=50\cdot2^{j/4}$, $0\le j\le24$ (so $50\le n\le3200$), the
+deviation $n(n^2b_n/c(2)-1)$ oscillates log-periodically between $-0.6031$ and $-0.0293$ for $s=2$
+($\alpha=-\frac12$) and between $-1.1014$ and $-0.5494$ for $s=3$ ($\alpha=0$). Its maximum modulus is $0.598$ on
+$50\le n<400$ and $0.589$ on $400<n\le3200$ for $s=2$, and $1.097$, respectively $1.088$, for $s=3$, while
+$n(a_n/(2b_n)-1)$ stays between $-1.0091$ and $-0.9505$. The range of $n$ covers only about $1.3$ periods of the
+oscillation (period $\pi$ in $\log n$), so this is weak evidence against growth. The deviations are bounded, as
+Theorem~\ref{thm:analytic} asserts, and the oscillation of the $1/n$ term reflects that of $\Lambda'$, which here has no
+sign.
+
+\subsection{\texorpdfstring{The $1/n$ coefficients}{The 1/n coefficients}}
+Write $n^pb_n/c(p)=1+d/n+\cdots$ and $a_n/(2b_n)=1+e/n+\cdots$ for the pure powers $\sigma_{p,s}$.
+Theorem~\ref{thm:onen} gives $d=-(s-1)/2$ and $e=-p/2$ for $p>1$, and Conjecture~\ref{conj:onen} asserts the same for
+$p\le1$. Table~\ref{tab:onen} lists $d$ and $e$ fitted to the computed coefficients with $n\le1600$. The tail was
+integrated by a Gauss--Jacobi rule in the variable $x=t^{-p}$ that is exact on all polynomials of the degree needed, so
+that the remaining error comes from replacing the atoms $k>K$ by the integral; the recurrence was run in quadruple
+precision, with $K=1.6\cdot10^5$ for $p\ge1$ and $K=3.2\cdot10^5$ for $p=\frac12$, and repeated with $2K$. At
+$(p,s)=(2,2)$ the computed $b_n$ and $a_n$ agree with the closed form of Remark~\ref{rem:lommel} for $n\le400$ to a
+relative error $6.6\cdot10^{-15}$ (at $K=4\cdot10^4$). The fits are least-squares fits in the powers
+$n^{-1-i-jp}$, $i,j\ge0$, with several numbers of terms and fitting windows; the table gives the median of the estimates
+and half their range as an error estimate. These estimates are not bounds.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{rrrrrrrr}
+\toprule
+ & & \multicolumn{3}{c}{coefficient $d$ of $n^pb_n/c(p)$} & \multicolumn{3}{c}{coefficient $e$ of $a_n/(2b_n)$}\\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}
+$p$ & $s$ & fitted & estimate & $-\frac{s-1}2$ & fitted & estimate & $-\frac p2$\\
+\midrule
+\multicolumn{8}{l}{$p>1$: Theorem~\ref{thm:onen}}\\
+$\frac32$ & $\frac32$ & $-0.250000000$ & $3.4\cdot10^{-9}$ & $-0.25$ & $-0.750000000$ & $1.9\cdot10^{-8}$ & $-0.75$\\
+$\frac32$ & $2$ & $-0.500000000$ & $4.8\cdot10^{-9}$ & $-0.5$ & $-0.750000000$ & $6.9\cdot10^{-9}$ & $-0.75$\\
+$\frac32$ & $3$ & $-1.000000000$ & $1.6\cdot10^{-8}$ & $-1$ & $-0.750000000$ & $1.4\cdot10^{-8}$ & $-0.75$\\
+$\frac32$ & $4$ & $-1.500000000$ & $1.4\cdot10^{-8}$ & $-1.5$ & $-0.750000000$ & $1.6\cdot10^{-7}$ & $-0.75$\\
+$2$ & $\frac32$ & $-0.250000000$ & $6.0\cdot10^{-10}$ & $-0.25$ & $-1.000000000$ & $1.6\cdot10^{-9}$ & $-1$\\
+$2$ & $2$ & $-0.500000000$ & $3.4\cdot10^{-11}$ & $-0.5$ & $-1.000000000$ & $1.1\cdot10^{-10}$ & $-1$\\
+$2$ & $3$ & $-1.000000000$ & $3.2\cdot10^{-11}$ & $-1$ & $-1.000000000$ & $1.2\cdot10^{-11}$ & $-1$\\
+$2$ & $4$ & $-1.500000000$ & $8.6\cdot10^{-11}$ & $-1.5$ & $-1.000000000$ & $2.6\cdot10^{-10}$ & $-1$\\
+$3$ & $\frac32$ & $-0.250000000$ & $2.9\cdot10^{-12}$ & $-0.25$ & $-1.500000000$ & $4.5\cdot10^{-10}$ & $-1.5$\\
+$3$ & $2$ & $-0.500000000$ & $3.9\cdot10^{-12}$ & $-0.5$ & $-1.500000000$ & $3.2\cdot10^{-10}$ & $-1.5$\\
+$3$ & $3$ & $-1.000000000$ & $2.2\cdot10^{-11}$ & $-1$ & $-1.500000000$ & $1.0\cdot10^{-10}$ & $-1.5$\\
+$3$ & $4$ & $-1.500000000$ & $8.1\cdot10^{-11}$ & $-1.5$ & $-1.500000000$ & $1.7\cdot10^{-11}$ & $-1.5$\\
+$4$ & $\frac32$ & $-0.250000000$ & $1.8\cdot10^{-12}$ & $-0.25$ & $-2.000000000$ & $1.1\cdot10^{-9}$ & $-2$\\
+$4$ & $2$ & $-0.500000000$ & $1.5\cdot10^{-12}$ & $-0.5$ & $-2.000000000$ & $8.8\cdot10^{-10}$ & $-2$\\
+$4$ & $3$ & $-1.000000000$ & $1.3\cdot10^{-11}$ & $-1$ & $-2.000000000$ & $4.6\cdot10^{-10}$ & $-2$\\
+$4$ & $4$ & $-1.500000000$ & $5.7\cdot10^{-11}$ & $-1.5$ & $-2.000000000$ & $1.7\cdot10^{-10}$ & $-2$\\
+\midrule
+\multicolumn{8}{l}{$p\le1$: support for Conjecture~\ref{conj:onen}}\\
+$\frac12$ & $\frac32$ & $-0.249999998$ & $3.8\cdot10^{-7}$ & $-0.25$ & $-0.250000021$ & $2.7\cdot10^{-7}$ & $-0.25$\\
+$\frac12$ & $2$ & $-0.500000014$ & $5.7\cdot10^{-7}$ & $-0.5$ & $-0.249999950$ & $6.3\cdot10^{-6}$ & $-0.25$\\
+$\frac12$ & $3$ & $-1.000000247$ & $2.9\cdot10^{-5}$ & $-1$ & $-0.249999294$ & $9.3\cdot10^{-5}$ & $-0.25$\\
+$\frac12$ & $4$ & $-1.500001361$ & $1.3\cdot10^{-4}$ & $-1.5$ & $-0.249996155$ & $3.4\cdot10^{-4}$ & $-0.25$\\
+$1$ & $\frac32$ & $-0.250000000$ & $1.3\cdot10^{-10}$ & $-0.25$ & $-0.500000000$ & $3.7\cdot10^{-10}$ & $-0.5$\\
+$1$ & $2$ & $-0.500000000$ & $5.6\cdot10^{-10}$ & $-0.5$ & $-0.500000000$ & $1.1\cdot10^{-9}$ & $-0.5$\\
+$1$ & $3$ & $-1.000000000$ & $5.6\cdot10^{-10}$ & $-1$ & $-0.500000000$ & $1.1\cdot10^{-9}$ & $-0.5$\\
+$1$ & $4$ & $-1.500000000$ & $2.1\cdot10^{-9}$ & $-1.5$ & $-0.500000000$ & $8.5\cdot10^{-9}$ & $-0.5$\\
+\bottomrule
+\end{tabular}
+\caption{Fitted $1/n$ coefficients $d$ and $e$ for the pure powers $\sigma_{p,s}$, from the coefficients with
+$n\le1600$, against the values of Theorem~\ref{thm:onen} ($p>1$) and of Conjecture~\ref{conj:onen} ($p\le1$). The
+estimate is half the range of the fits; the change under doubling of the truncation index $K$ is of the same order or
+smaller. Neither is a bound.}
+\label{tab:onen}
+\end{table}
+
+For $p>1$ every fitted value agrees with Theorem~\ref{thm:onen} in all nine digits shown. For $p=1$ the same holds, and
+for $p=\frac12$ the discrepancy is within the error estimate; at $p=\frac12$ the fits need the non-integer powers
+$n^{-1-jp}$, in line with the slower convergence seen in Table~\ref{tab:numerics}. One case is exact. At
+$(p,s)=(2,2)$ the closed form of Remark~\ref{rem:lommel} gives
+\begin{align*}
+  \frac{n^2b_n}{c(2)}&=\frac{16n^2}{(4n+1)\sqrt{16n^2+8n-3}}=1-\frac1{2n}+O(n^{-2}),\\
+  \frac{a_n}{2b_n}&=\frac{\sqrt{16n^2+8n-3}}{4n+5}=1-\frac1n+O(n^{-2}),
+\end{align*}
+as Theorem~\ref{thm:onen} predicts. The closed form itself was checked in interval (ball) arithmetic for $1\le n<300$:
+the coefficients computed by the Chebyshev algorithm from the moments $\zeta(2j+2)$ have rigorous enclosures that agree
+with the closed form to a relative accuracy better than $10^{-2000}$.
