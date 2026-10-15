@@ -64,13 +64,13 @@ Hankel asymptotics are PROVED. Paper 1 draft: papers/paper1/.
 
 **Plans 50–52 (REVIEWED; THEOREMS.md §2.8):** with the Christoffel shift (Theorem SH: Law P for σ ⇒ for x·σ), the
 pointwise Law P holds for nodes k^{−p} and weights k^{−s}Ψ with Ψ **any** slowly varying function, for every p > 0 and
-s > 1, except p = 1 with integer exponent r ≥ 2 (reduced to the single case r = 2).
+s > 1 (the last case, p = 1 with integer r ≥ 2, closed by Plan 54's x-frame analysis at p = 1).
 
 **Open** (details in THEOREMS.md §4):
 - G3′ with no hypothesis, i.e. 𝒞(K) = o(K²) for the ζ ordinates. It implies that 100% of zeros are simple and on the
   critical line (§5.6), beyond the best unconditional results read (Lamzouri 2026: 67.25%).
 - An explicit constant in Theorem B.
-- G1: slowly varying Ψ with D(γ) = ∞ (PROVED for all p > 0, s > 1 except p = 1 with integer r ≥ 2, which reduces to r = 2); nodes other than pure powers; (CL)
+- G1: slowly varying Ψ with D(γ) = ∞ (PROVED for all p > 0 and s > 1; open: the 1/n coefficient); nodes other than pure powers; (CL)
   for general nodes or p ≤ 1; density-one law for rough weights; sharp constants in Theorems R/RW/Ra.
 - Lean: Theorem H_all (and with it the discharge of `TheoremHPure`) is not formalized.
 
