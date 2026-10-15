@@ -1,0 +1,36 @@
+Psi A, r = 2.0 (alpha_x = +0.0)
+  n=  50: nB=-0.3821 (pure power -0.4934)  E=+0.4872   spread: nB 1.4e-10, E 1.9e-10
+  n= 100: nB=-0.3893 (pure power -0.4967)  E=+0.4935   spread: nB 4.2e-10, E 5.9e-10
+  n= 200: nB=-0.3958 (pure power -0.4983)  E=+0.4967   spread: nB 1.3e-09, E 1.8e-09
+  n= 400: nB=-0.4015 (pure power -0.4992)  E=+0.4983   spread: nB 4.2e-09, E 5.8e-09
+  n= 800: nB=-0.4065 (pure power -0.4996)  E=+0.4992   spread: nB 1.3e-08, E 1.9e-08
+Psi A, r = 2.5 (alpha_x = +0.5)
+  n=  50: nB=-0.6278 (pure power -0.7391)  E=+0.4870   spread: nB 1.7e-14, E 1.1e-14
+  n= 100: nB=-0.6372 (pure power -0.7445)  E=+0.4935   spread: nB 5.2e-13, E 1.1e-12
+  n= 200: nB=-0.6448 (pure power -0.7472)  E=+0.4967   spread: nB 8.9e-13, E 8.4e-13
+  n= 400: nB=-0.6510 (pure power -0.7486)  E=+0.4984   spread: nB 2.4e-11, E 3.6e-11
+  n= 800: nB=-0.6562 (pure power -0.7493)  E=+0.4992   spread: nB 5.1e-10, E 9.0e-10
+Psi A, r = 3.0 (alpha_x = +1.0)
+  n=  50: nB=-0.8745 (pure power -0.9859)  E=+0.4972   spread: nB 7.8e-14, E 1.3e-13
+  n= 100: nB=-0.8856 (pure power -0.9929)  E=+0.4988   spread: nB 1.1e-13, E 1.3e-13
+  n= 200: nB=-0.8940 (pure power -0.9965)  E=+0.4995   spread: nB 4.6e-12, E 9.4e-12
+  n= 400: nB=-0.9006 (pure power -0.9982)  E=+0.4998   spread: nB 4.8e-11, E 1.0e-10
+  n= 800: nB=-0.9060 (pure power -0.9991)  E=+0.4999   spread: nB 3.6e-10, E 8.9e-10
+Psi B, r = 2.0 (alpha_x = +0.0)
+  n=  50: nB=-0.3154 (pure power -0.4934)  E=+0.4882   spread: nB 1.9e-11, E 2.9e-11
+  n= 100: nB=-0.3399 (pure power -0.4967)  E=+0.4938   spread: nB 7.1e-11, E 1.0e-10
+  n= 200: nB=-0.3623 (pure power -0.4983)  E=+0.4968   spread: nB 2.7e-10, E 4.0e-10
+  n= 400: nB=-0.3817 (pure power -0.4992)  E=+0.4983   spread: nB 1.1e-09, E 1.6e-09
+  n= 800: nB=-0.3983 (pure power -0.4996)  E=+0.4992   spread: nB 4.2e-09, E 6.6e-09
+Psi B, r = 2.5 (alpha_x = +0.5)
+  n=  50: nB=-0.5622 (pure power -0.7391)  E=+0.4892   spread: nB 3.9e-14, E 2.2e-14
+  n= 100: nB=-0.5883 (pure power -0.7445)  E=+0.4946   spread: nB 4.6e-13, E 9.8e-13
+  n= 200: nB=-0.6115 (pure power -0.7472)  E=+0.4973   spread: nB 1.7e-12, E 2.4e-12
+  n= 400: nB=-0.6313 (pure power -0.7486)  E=+0.4987   spread: nB 3.2e-11, E 5.3e-11
+  n= 800: nB=-0.6481 (pure power -0.7493)  E=+0.4993   spread: nB 5.5e-10, E 1.0e-09
+Psi B, r = 3.0 (alpha_x = +1.0)
+  n=  50: nB=-0.8099 (pure power -0.9859)  E=+0.5000   spread: nB 7.8e-14, E 1.3e-13
+  n= 100: nB=-0.8372 (pure power -0.9929)  E=+0.5006   spread: nB 1.8e-13, E 2.2e-13
+  n= 200: nB=-0.8609 (pure power -0.9965)  E=+0.5005   spread: nB 4.6e-12, E 9.5e-12
+  n= 400: nB=-0.8810 (pure power -0.9982)  E=+0.5003   spread: nB 4.4e-11, E 9.6e-11
+  n= 800: nB=-0.8979 (pure power -0.9991)  E=+0.5002   spread: nB 2.6e-10, E 7.2e-10

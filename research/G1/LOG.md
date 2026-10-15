@@ -565,3 +565,27 @@
   KNOWN (chain sequences: Wall; Chihara 1978 Ch. I, III — not read, pointer only)"; F2 base-window remark (α_x ∈ (−½, ½] suffices
   for s > 1 + p/2); F3 numerics scope; F4 sharpness example for |G_n − c| = O(√r_n) in Rule A (e); F5 tilt transfer CONDITIONAL
   (implication PROVED); F6 "with infinite support" + SH propagates future p ≤ 1 / other-node base cases; F7 CITATIONS. Rule R ACCEPT WITH FIXES (review/REVIEW_Plan52.md), fixes applied — REVIEWED.
+## 2026-10-14 — Plan 54 (GAP-int: x-frame and other routes) — Rule R pending
+- Write-up: `RH/route2/ROUTE2_xframe1.md`; summary PROOF.md §3.23 and §0 row "RII_x1 / GAP-int / B_{p=1}^{all}". Plan:
+  docs/superpowers/plans/2026-10-14-plan-54-r2xframe.md.
+- **Route (B) works.** RH_px's "p > 1" was audited step by step. At p = 1, Lemma 1.1 holds as an open sector, but Γ's poles
+  t = −m lie on the negative z-axis. Lemma X1 (DLMF 5.5.1, 5.5.3): D = D̃/(1 − e^{∓2iθ}) = exp μ(−N/z), analytic off [0, ∞), so
+  ℓ̂ ≡ 0, B ≡ 1. Lemma X2: the only genuine failure is RH_px Lemma 3.2(v) (sin(π/p) = 0: the (h2) jump of D̃B on (−δ, 0) is
+  −e^{−2iθ}, O(1); the continued h_N has poles at −N/m), used only by RH_px's quotient hard-edge construction. ROUTE2's C–D hard
+  edge (W̃ := D_w) never continues across (−δ, 0), so **Theorem RII_x1** (p = 1, 1 < r < 3, incl. r = 2 = α_x 0) holds,
+  PROVED-mod-cite. With RedA and SH-r: **GAP-int closed**; p = 1 every r > 1; with §§3.20–3.21 the law holds for every p > 0, s > 1,
+  every sequence-form slowly varying Ψ.
+- Strip at p = 1: |Im u| ≤ π/3 + π/24 (lips at ±π/3), so (H_an^{x1}) on |Im u| ≤ π/2 suffices (exp √log(t + e) is singular at
+  Im u = ±π).
+- **Route (C)** (scoped, not needed): symmetrization = the obstructed RH₁(r) frame; Uvarov/rational factors keep r; Geronimus to
+  r = 1 (α_x = −1, finite only if ΣΨ(k)/k < ∞); interpolation in r has non-uniform constants.
+- **Numerics** (`RH/route2/checks/check_x1_{frame,e2e,coeff}.out`): Lemma X1 to 10⁻²⁷; (h2) jump O(1) at p = 1 vs 10⁻¹²⁰ at p = 1.1;
+  LW1-x1 ratio 2.09 → 2.75 (bounded); e2e N·err stable (N = 10, 20, 40) at r = 1.5, 2, 2.5; coefficients bounded at r = 2, 2.5, 3
+  for exp √log(k + e) and an oscillating Ψ (spreads ≤ 1.3·10⁻⁸). **Numerical incident:** the first p = 1 e2e run gave an
+  N-independent O(1) error; diagnosed as V ≈ CNC^{−1} from a wrong D_{w,∞}, caused by catastrophic cancellation in the probe's
+  D̃ = √(2π)exp((t − ½)ln t − t − LnΓ(t)) at t ≳ 10⁶⁰ (dps 30); fixed with the Stirling series for |t| > 10⁴. p > 1 probe
+  outputs not re-run.
+- **Rule A** (ROUTE2_xframe1 §7): Ψ ≡ 1, p → 1 limits of ℓ̂/B/monodromy, D̃ near the negative axis, strip, α_x = 0, k^ρ, top end.
+  No counterexample.
+- **Rule L:** not done. Novelty UNCHECKED.
+- **Open:** GAP-rate₁ (tilt law). **Rule R pending.**

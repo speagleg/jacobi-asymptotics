@@ -510,7 +510,7 @@ a − ½ ranges over (−1, 0) only, half of ROUTE2's (−1, 1), because L²(|dy
 L²(|x|^{−1/2}|dx|) in x = y², not L²(|dx|). A weighted-L² version of C–D's comparison (power weight |z|^β, β ∈ (−1, 1)), or an
 unsymmetrized p = 1 hard-edge analysis, might reach a < 1; neither is attempted (HEURISTIC).
 
-**GAP-int.** p = 1, r ∈ {2, 3, 4, …}, Ψ with D(γ) = ∞. (For D(γ) < ∞, T3-log already covers every r > 1.) Numerically the law
+**GAP-int.** p = 1, r ∈ {2, 3, 4, …}, Ψ with D(γ) = ∞. *(Plan 54 note, Rule R pending: closed by Route II in the unsymmetrized x-frame at p = 1, 1 < r < 3 incl. r = 2 (α_x = 0) — `ROUTE2_xframe1.md`, PROOF.md §3.23; the "unsymmetrized p = 1 hard-edge analysis" below turned out to be available: RH_px's frame holds at p = 1 except its quotient hard-edge construction, which Route II does not use.)* (For D(γ) < ∞, T3-log already covers every r > 1.) Numerically the law
 holds at r = 2 (§6).
 - **Reduction (Rule R F6).** By CT₁(ii) "⟸" and "⟹" (or master's SH), for a fixed Ψ the law at one integer r₀ ≥ 2 is equivalent
   to the law at every integer r ≥ 2. So GAP-int is equivalent to **the law for k^{−2}Ψ** (a = ½, α_x = 0). This is the main use
