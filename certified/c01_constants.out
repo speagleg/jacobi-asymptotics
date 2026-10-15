@@ -1,0 +1,75 @@
+== c01 constants (Arb, 256 bits) ==
+-- exact special values
+  c(1) = 0.500000000000000000000000000000 +/- 2.84e-77
+  c(2) = 0.616850275068084913677155687492 +/- 4.37e-77   pi^2/16 = 0.616850275068084913677155687492 +/- 1.55e-77
+  [PASS] c(1) ball contains 1/2
+  [PASS] c(2) ball overlaps pi^2/16
+  [PASS] [exact] sympy: c(1) = 1/2
+  [PASS] [exact] sympy: c(2) = pi^2/16
+  [PASS] [exact] sympy: c(1/2) = sqrt(6)/6, u_s(1/2) = 3/8
+  [PASS] I(2) ball contains 1
+-- Paper 1 Table tab:constants: c(p), u_s = 2I(p)/pi, kappa_p = 3p/2 + log c(p) (correct rounding)
+  p=1/2: c = 0.4082482904638630163662140 +/- 1.43e-77
+         u_s = 0.3750000000000000000000000 +/- 2.17e-77
+         kappa_p = -0.1458797346140275004062387 +/- 4.36e-77
+  [PASS] p=1/2: c(p) rounds to 0.408248
+  [PASS] p=1/2: u_s rounds to 0.3750
+  [PASS] p=1/2: kappa_p rounds to -0.145880
+  [PASS] p=1/2: 2I(p)/pi overlaps (4c(p))^(-1/p)
+  p=  1: c = 0.5000000000000000000000000 +/- 2.84e-77
+         u_s = 0.5000000000000000000000000 +/- 2.40e-77
+         kappa_p = 0.8068528194400546905827679 +/- 5.77e-77
+  [PASS] p=1: c(p) rounds to 0.500000
+  [PASS] p=1: u_s rounds to 0.5000
+  [PASS] p=1: kappa_p rounds to 0.806853
+  [PASS] p=1: 2I(p)/pi overlaps (4c(p))^(-1/p)
+  p=3/2: c = 0.5662723431005749207983897 +/- 9.48e-77
+         u_s = 0.5797976334819641828849960 +/- 5.54e-77
+         kappa_p = 1.681319855050920102246827 +/- 1.76e-76
+  [PASS] p=3/2: c(p) rounds to 0.566272
+  [PASS] p=3/2: u_s rounds to 0.5798
+  [PASS] p=3/2: kappa_p rounds to 1.681320
+  [PASS] p=3/2: 2I(p)/pi overlaps (4c(p))^(-1/p)
+  p=  2: c = 0.6168502750680849136771557 +/- 4.37e-77
+         u_s = 0.6366197723675813430755351 +/- 2.67e-77
+         kappa_p = 2.516871049459019110617926 +/- 1.10e-76
+  [PASS] p=2: c(p) rounds to 0.616850
+  [PASS] p=2: u_s rounds to 0.6366
+  [PASS] p=2: kappa_p rounds to 2.516871
+  [PASS] p=2: 2I(p)/pi overlaps (4c(p))^(-1/p)
+  p=  3: c = 0.6892126970888209693825108 +/- 2.62e-76
+         u_s = 0.7131741278126598550076291 +/- 8.58e-77
+         kappa_p = 4.127794648439866706658024 +/- 4.53e-76
+  [PASS] p=3: c(p) rounds to 0.689213
+  [PASS] p=3: u_s rounds to 0.7132
+  [PASS] p=3: kappa_p rounds to 4.127795
+  [PASS] p=3: 2I(p)/pi overlaps (4c(p))^(-1/p)
+  p=  4: c = 0.7385653130048197355197711 +/- 2.73e-76
+         u_s = 0.7627597635018131880623260 +/- 6.61e-77
+         kappa_p = 5.696954259166475597671243 +/- 4.43e-76
+  [PASS] p=4: c(p) rounds to 0.738565
+  [PASS] p=4: u_s rounds to 0.7628
+  [PASS] p=4: kappa_p rounds to 5.696954
+  [PASS] p=4: 2I(p)/pi overlaps (4c(p))^(-1/p)
+  p=  6: c = 0.8015863643355041247224901 +/- 6.23e-76
+         u_s = 0.8235025493434314762175533 +/- 1.02e-76
+         kappa_p = 8.778837440644281249832855 +/- 9.17e-76
+  [PASS] p=6: c(p) rounds to 0.801586
+  [PASS] p=6: u_s rounds to 0.8235
+  [PASS] p=6: kappa_p rounds to 8.778837
+  [PASS] p=6: 2I(p)/pi overlaps (4c(p))^(-1/p)
+  [PASS] kappa_2 overlaps 3 + log(pi^2/16) (papers/paper1/checks/bs_check.py)
+  [PASS] Paper 1 Sec. 5 text: 3a/2 + log c(a) = 0.806853..., 2.516871..., 4.127795..., 5.696954... (rounded)
+-- smooth-zeta constant kappa = -2(log(pi/2) - (1 - log 2))
+  kappa              = -0.289459771698800348286854702706 +/- 2.18e-77
+  (log c)'(2) [hand] = 0.144729885849400174143427351353 +/- 4.23e-77
+  (log c)'(2) [AD]   = 0.144729885849400174143427351353 +/- 3.67e-77
+  [PASS] (log c)'(2): hand-differentiated closed form overlaps arb_series Taylor-mode derivative
+  [PASS] kappa overlaps -2 (log c)'(2)
+  [PASS] psi(3/2) - psi(1) overlaps 2 - 2 log 2 (RH_zeta_close.md)
+  [PASS] README / RH_zeta.md: kappa = -0.28946 (rounded)
+  [PASS] RH_zeta_close.md: kappa = -0.289459... (truncated)
+  [PASS] checks/check_z_kappa.out: kappa = -0.2894597717 (rounded)
+  [PASS] REVIEW_RHzeta.md: d/dp[p log J] at 2 = log(pi/2) - (1 - log 2) = 0.14473 (rounded)
+c01 constants (Arb, 256 bits): 43/43 checks passed
+RESULT: PASS

@@ -104,7 +104,8 @@ The full index of every statement, with exact hypotheses, labels and dependencie
   * `CONDITIONAL`: proved under a stated hypothesis.
   * `NUMERICAL`: computed, not proved.
   * `GAP`: a precise statement that is not proved.
-  * "Certified" is used only for interval arithmetic (Arb).
+  * "Certified" is used only for interval arithmetic (Arb). The constants and closed forms the README and papers quote
+    (c(p), κ_p, κ, the Lommel and Baricz–Štampach closed forms) are certified in [`certified/`](certified/README.md).
 * **Novelty.** A first-pass literature search is summarised in THEOREMS.md. Many statements are marked
   "novelty UNCHECKED", and some ingredients are known (for example, the chain-sequence lemma behind the Christoffel
   shift).
@@ -162,7 +163,8 @@ r = jacobi_coeffs(mu, 2000)                 # recurrence coefficients (float64; 
 print(r.b[1999] / mu.atoms[1999], c_p(2))   # b_n / x_n  vs  pi^2/16
 ```
 
-Certified coefficients for small exact measures: `jacobi_asym.certify.certified_jacobi`.
+Certified coefficients for small exact measures: `jacobi_asym.certify.certified_jacobi`. Certified (Arb) checks of the
+quoted constants and closed forms: `certified/` (see [certified/README.md](certified/README.md)).
 
 Lean: `cd lean && ./check.sh` builds the library and audits axioms. It should print `AUDIT OK`, meaning no `sorry`
 and only the standard axioms.
