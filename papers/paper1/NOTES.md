@@ -1,7 +1,8 @@
-# Paper 1 — notes (draft of 2026-10-14)
+# Paper 1 — notes (release candidate of 2026-10-15, Plan 63)
 
-`main.tex` (amsart, 16 pages), `refs.bib`, `checks/`. Build: `pdflatex main; bibtex main; pdflatex main; pdflatex main`.
-Author line is a placeholder ("Gordon [surname] (draft)").
+`main.tex` (amsart, 17 pages), `refs.bib`, `main.bbl` (tracked, for the arXiv bundle), `checks/`. Build:
+`pdflatex main; bibtex main; pdflatex main; pdflatex main`. Author line is a placeholder ("Gordon [Surname]", user
+decision: keep). arXiv bundle and placeholders: `ARXIV.md`. Final referee/editor pass: `REFEREE_FINAL.md` (Plan 63).
 
 **Status.** DRAFT, Rule R done: `REVIEW_Paper1.md` (2026-10-14) gives **ACCEPT WITH FIXES**, Lemma 3.3 **CORRECT**,
 and no mathematical error. Fixes F1–F15 are applied (§7 below). The mathematics is research/G2 (PROVED-mod-cite (P) +
@@ -33,7 +34,7 @@ Item 11 = `math-pursuits/items/11-zero-measure-jacobi-asymptotics/work/proof/PRO
 | Lemma 3.3 | positivity of the log energy of zero-mass signed measures (Fourier proof) | **NEW in the paper.** It replaces the external input (P) | unreviewed |
 | Rem 3.4 | (P) quoted | research/G2/CITATIONS.md (P) | READ (2026-10-13) |
 | Thm 1.3(iii) optimality | bilinear expansion | G2 B*(iii). Finiteness of the mutual energy is now derived from U* ≥ log c + p (Thm 1.3(ii)) instead of the (P) §1 remark | modified, unreviewed |
-| Rem 3.6 | Monien's ρ = ρ* at p = 1 | G2 B* remark (reviewer's check); recomputed in `checks/monien_check.py` | NUMERICAL |
+| Rem 3.6 | Monien's ρ = ρ* at p = 1 | G2 B* remark (reviewer's check). **Plan 63: now proved in the Remark** (substitution s = sin²φ, two lines); certified check `certified/c04_monien_density.py` | PROVED (unreviewed, elementary) + CERTIFIED at 11 points |
 | Lemma 4.1 | discretisation | G2 Lemma A1. c₀ = 2 log 2 − 3/2 is evaluated here | PROVED + REVIEWED |
 | Cor 4.2 | head bound | G2 Corollary A2 | PROVED |
 | Thm 4.3 | upper bound ≤ E_p | G2 Theorem A-U = item 11 Lemma H7 with Cor A2 as the head input. **Change:** the tail factor is bounded directly from Heine (V(T) ≤ (Mn)^{−pm(m−1)}, Σ_T w(T) ≤ W^m) instead of by Hadamard's inequality, so no Hadamard citation is needed. The φ_M algebra is written out, with A = 4p + 2\|E_p\| | PROVED (+ REVIEWED in G2 form) |
@@ -41,8 +42,8 @@ Item 11 = `math-pursuits/items/11-zero-measure-jacobi-asymptotics/work/proof/PRO
 | Thm 5.2 | lower bound ≥ κ_p | G2 Theorem A-L (steps 1–4, reviewer's scheme, re-check ACCEPT) | PROVED + REVIEWED, citation-free |
 | §6 proof of Thm 1.1 | assembly; f′ < 0 and f bounded | G2 H_all proof | as H_all |
 | Rem after Thm 1.1 | the limit L of f is arbitrary (translation invariance) | **NEW observation**, a direct consequence of Lemma 2.2(ii) | unreviewed |
-| §7 Rem 7.2 | Baricz–Štampach closed forms, a = 2, b ∈ {−2, 0, 2} | research/program/novelty_G2.md §3 (quotes); recomputed in `checks/bs_check.py`; the O(n log n) asymptotic derivation for b = 0 is new here | quotes: novelty agent; numerics: NUMERICAL |
-| §8 Tables 1–2 | numerics | `research/G2/checks/check_energy.out`, `check_averaged.out`, `check_hz.out`. **Re-run 2026-10-14; byte-identical** (PYTHONPATH = main repo `src`, which has the built `csrc/build/rkpw_*`; the worktree has no csrc build) | NUMERICAL |
+| §7 Rem 7.2 | Baricz–Štampach closed forms, a = 2, b ∈ {−2, 0, 2} | research/program/novelty_G2.md §3 (quotes, arXiv PDF); closed forms CERTIFIED against direct determinants for n ≤ 30 (`certified/c03_zeta_hankel.py`); n = 10²…10⁵ statistic from `checks/bs_check.py`; the O(n log n) asymptotic derivation for b = 0 is new here | quotes: novelty agent; closed forms: CERTIFIED n ≤ 30; asymptotic statistic: NUMERICAL |
+| §8 Tables 1–2 | numerics | Table 1 columns c(p), u_s, κ_p: `certified/c01_constants.py` (CERTIFIED correctly rounded); Monte Carlo column and Table 2: `research/G2/checks/check_energy.out`, `check_averaged.out`, `check_hz.out`. **Re-run 2026-10-15 (Plan 63); byte-identical**, as are `certified/c01, c03, c04` and `checks/*.py` | Table 1 cols 2–4 CERTIFIED; rest NUMERICAL |
 
 **Which external input each result needs (paper version).** None. Lemma 3.3 replaces (P). If Lemma 3.3 fails review,
 fall back to the repo version: Thm 1.3(iii) optimality and uniqueness, and hence the upper bound in Thm 1.1 / Cor 1.4,
@@ -80,7 +81,9 @@ either version.
 
 "Read" here means read by an agent of this project, with quotes recorded in the repo. The drafting agent did **not**
 re-open any external source; all quotations in main.tex are copied from research/G2/CITATIONS.md or
-research/program/novelty_G2.md.
+research/program/novelty_G2.md. Plan 63 (2026-10-15) checked every quotation and every \cite in main.tex against
+those records (REFEREE_FINAL.md §3) and fetched only bibliographic metadata (arXiv API journal_ref/DOI, Crossref); no
+source content was read in Plan 63, and no read status below changed.
 
 | Key | Source | Read status (per repo) | Used for |
 |---|---|---|---|
@@ -103,62 +106,55 @@ Not cited although the repo mentions them: Saff–Totik, Cegrell–Kolodziej–L
 Beckermann 2000 and Zudilin 2017 (SEEN only); Carlitz / Tricomi–Carlitz and the Lommel family (item 11's p ∈ {1,2}
 route, not needed here).
 
-## 4. Numerics (Rule N: all NUMERICAL, none certified)
+## 4. Numerics (Rule N; certified items marked)
 
 - Table 1: `research/G2/checks/check_energy.py` (re-run, identical).
 - Table 2 and the HZ statistic and indexing in §8: `check_averaged.py`, `check_hz.py` (re-run, identical; about 1 min).
-- Rem 3.6: `papers/paper1/checks/monien_check.py` → `.out` (mpmath dps 30). The max difference is 8.9e−31 over 11
-  points. The mass check ∫ρ* = 1 is also there.
-- Rem 7.2: `papers/paper1/checks/bs_check.py` → `.out` (mpmath dps 60/30, ~8 s).
+- Rem 3.6: the identity is now proved in the Remark; the paper cites the certified check
+  `certified/c04_monien_density.py` (≤ 4.5e−74 at 11 points). `papers/paper1/checks/monien_check.py` (mpmath dps 30,
+  max difference 8.9e−31, plus the mass check ∫ρ* = 1) is kept but no longer cited.
+- Table 1 columns 2–4 and the §7 values 3a/2 + log c(a): `certified/c01_constants.py` (correct rounding, Arb).
+- Rem 7.2: closed forms vs direct determinants: `certified/c03_zeta_hankel.py` (n ≤ 30, cited). The asymptotic
+  statistic at n = 10²…10⁵: `papers/paper1/checks/bs_check.py` → `.out` (mpmath dps 60/30, ~8 s; cited).
 - Lemma 3.3 sanity check: `papers/paper1/checks/positivity_sanity.py` → `.out`.
 - Interpreter: `.venv/bin/python` (repo root) (`-I` for the paper's own
   scripts).
 
-## 5. Open issues / places needing an expert check
+## 5. Open items: status after Plan 63 (2026-10-15)
 
-1. Lemma 3.3 (new) was accepted by Rule R (REVIEW_Paper1.md: CORRECT). A human analyst's check is still advisable.
-   The fallback (cite BKMW Lemma 2.1) needs Saff–Totik and Cegrell–Kolodziej–Levenberg to be read first.
-2. Thm 1.3(iii): the bilinear expansion with signed measures on an unbounded set. Absolute convergence of all three
-   pieces is argued in the text; check it.
-3. Thm 5.2 step 3: the case analysis (a)–(d) was re-derived during drafting and agrees with G2 (REVIEWED). The
-   tex transcription itself (indices, the b > ½ case, the i = 1 block) has not had a second reader.
-4. Error term. The theorem gives only o(n²); the numerics suggest O(n log n) for pure powers. This could be stated as
-   a question.
-5. Positioning.
-   - The framework sentences rest on abstracts (§3 table). Read DS 1997, KVA PLMS 1999 and Rakhmanov 1996 in full and
-     confirm that none of them contains the problem sup_𝒜 J_p (Lebesgue constraint on (0,∞), kernel
-     log|u^{−p} − v^{−p}|).
-   - Beckermann 2000 (Constr. Approx. 16) was not read.
-6. Haynes–Zudilin attribute to Monien a rigorous (unpublished) treatment of r = 0. Check for later publications by
-   Monien. The novelty search found none via OpenAlex.
-7. Fauzan's manuscript. Re-check it once available. The paper currently claims only that its results are logically
-   independent of it.
-8. Author's own prior unpublished results (item 11 Theorem H: p ∈ {1, 2}, with O(n log n) error for exact pure
-   powers). The paper does not mention them. Decide whether to mention them (e.g. as a remark that for p = 2 the
-   Lommel family gives O(n log n)); citing them would need item 11's Lommel/Carlitz material.
-9. The bibliographic details of VAVB (volume, pages) and the journal version of BKMW (if any) are not recorded.
-   Check them.
-10. Title is negotiable. The current title is the one requested.
+| # | Item | Status |
+|---|---|---|
+| 1 | Lemma 3.3 needs a human analyst's check | **Left open (needs a human).** Rule R (agent) accepted it; the inequality part is also machine-checked in Lean (`energy_pos`, Gaussian-kernel route), which covers everything Thm 1.1 uses. The Fourier identity and the equality case are not formalised. Fallback via BKMW still needs Saff–Totik / Cegrell–Kolodziej–Levenberg to be read. |
+| 2 | Thm 1.3(iii) bilinear expansion on an unbounded set | **Resolved.** Re-derived line by line in REFEREE_FINAL.md (absolute convergence of the three energies, |ν| ≤ μ^x + μ*, sign of the middle term); Lean `Jp_le_kappa` proves the bounded-support case used by Thm 1.1. |
+| 3 | Thm 5.2 step 3 transcription (indices, b > ½ case, i = 1 block) not second-read | **Resolved (agent referee, Plan 63).** Every inequality of Steps 1–4 re-derived (REFEREE_FINAL.md §2); Lean `quantile_lower`, `hall_lower` prove the same lower bound independently. Only fix: O_U also depends on c₁, s in Step 4 (stated now). |
+| 4 | Error term o(n²) only | **Left as is (deliberate).** The paper states that numerics are consistent with O(n log n) for pure powers (Remark after Cor 1.2). Not posed as a formal question; no claim strengthened. |
+| 5 | Positioning: framework papers read only via abstracts; Beckermann 2000 unread | **Left open (needs library access).** Full texts of Rakhmanov 1996, Dragnev–Saff 1997, KVA PLMS/JAT 1999, Beckermann 2000 are paywalled and were not read. The paper keeps the visible hedge ("For the following works we have consulted only the abstracts…", "this statement is provisional"), which is accurate under Rule C. |
+| 6 | Monien later publications | **Partly resolved.** Crossref search (2026-10-15, metadata only) found no journal version of arXiv:0901.1883 and no later Monien paper on this topic; together with the novelty report's OpenAlex check this is recorded, not proved absent. Bib entry now "Preprint, arXiv:0901.1883". |
+| 7 | Fauzan manuscript | **Left open (external).** Unavailable; the paper claims only that no proof uses it and acknowledges possible overlap. Re-check before journal submission. |
+| 8 | Mention item 11's p ∈ {1,2} results? | **Decided: not mentioned.** They are unpublished, superseded by Thm 1.1 (except the O(n log n) rate for exact Lommel families, which the paper does not claim), and citing them would need the Lommel/Carlitz material. User may override. |
+| 9 | Bibliographic details (VAVB, BKMW journal version, statuses) | **Resolved** from arXiv API journal_ref/DOI and Crossref metadata (2026-10-15): BKMW = Constr. Approx. 37 (2013) 101–134; VAVB = Constr. Approx. 54 (2021) 117–144; CCV = Trans. AMS 360 (2008) 5571–5588; HZ = SIGMA 11 (2015) 101, 5 pp.; BS = LAA 548 (2018) 259–272. Monien, Coons–Sutherland, Lai, CDLO: no journal version found → "Preprint". Theorem numbers for BKMW, CCV, BS are those of the arXiv versions that were read (stated in refs.bib / Rem 7.2). No content was read in this step. |
+| 10 | Title | **Kept.** Consistent with what is proved (Thm 1.1 + Cor 1.4). |
 
 ## 6. Pre-submission checklist
 
-- [ ] Fill in the author name, affiliation, email and MSC codes (suggest 15B05, 31A15, 42C05, 11M06; to confirm).
+- [ ] Fill in the author surname (placeholder "Gordon [Surname]"; user decision to keep for now); optionally address/email.
+- [x] MSC 2020 and keywords in the front matter (Primary 42C05; Secondary 15B05, 31A15, 11M06, 47B36). 15B52 (random
+      matrices) was considered and rejected; 15B05 covers Hankel matrices.
 - [x] Independent review (Rule R) of the new material in §2, especially Lemma 3.3 (REVIEW_Paper1.md: CORRECT).
+- [x] Final referee + editor + consistency pass (REFEREE_FINAL.md, Plan 63; agent, not a Rule R second reader).
 - [ ] Optional: a human analyst's check of Lemma 3.3 (the Rule R reader was an agent).
-- [ ] Read the full texts of DS 1997, KVA PLMS 1999, KVA JAT 1999 and Rakhmanov 1996 (and Beckermann 2000).
-      Adjust the framework paragraph.
+- [ ] Read the full texts of DS 1997, KVA PLMS 1999, KVA JAT 1999 and Rakhmanov 1996 (and Beckermann 2000), then
+      revise the framework paragraph and the "provisional" sentence (needs library access).
 - [ ] Re-open BKMW, Monien, Haynes–Zudilin, Coons–Sutherland, Baricz–Štampach, CCV and Lai, and re-verify every
-      quotation character by character (the drafting agent copied them from repo notes).
-- [ ] Complete the bibliographic data (VAVB volume/pages; check whether the arXiv-only items have journal versions).
-- [ ] Rerun the novelty search (Rule L) close to submission: arXiv/MathSciNet for "Hankel determinant" + "zeta" and
-      for constrained equilibrium with accumulating nodes.
-- [ ] Decide on the treatment of item 11 (see §5.8) and of the error term (§5.4).
-- [ ] Resolve the visible hedges in main.tex once the sources are read: §1.2 "We have only consulted the abstracts…"
-      and "this statement is provisional", and Rem 7.2 "as recorded in our literature notes…". Resolve the
-      "to verify" fields in refs.bib and the supplementary-material URL placeholder in §8.
-- [ ] Recompile from clean (pdflatex, bibtex, pdflatex ×2) with no warnings except known bib gaps.
-- [ ] Decide whether `checks/` is distributed as supplementary material (scripts rely on mpmath only, except the
-      §8 tables, which need the repo toolkit and its C kernels).
+      quotation character by character (still copied from repo notes; not re-opened in Plan 63).
+- [x] Complete the bibliographic data (Plan 63, from arXiv/Crossref metadata).
+- [ ] Rerun the novelty search (Rule L) close to submission.
+- [x] Decide on item 11 (not mentioned) and the error term (remark only) — see §5.
+- [x] Supplementary-material sentence: https://github.com/speagleg/jacobi-asymptotics, tag `v1.0-paper1` marked as a
+      placeholder (the tag is **not** created; create it at submission and the repo must be public by then).
+- [x] Recompile from clean (pdflatex, bibtex, pdflatex ×2): no warnings, no overfull boxes; standalone build from
+      main.tex + main.bbl checked.
+- [x] `checks/` and the scripts behind the tables are distributed via the public repository (not in the arXiv bundle).
 
 ## 7. Rule R fixes applied (REVIEW_Paper1.md, 2026-10-14)
 
@@ -180,15 +176,14 @@ route, not needed here).
 | F14 | (i) "for i ≤ n−1" in Thm 5.2 step 2; (ii) the mixture μ*(B) = ∫ω(B)dt is defined in Thm 1.3 and §3.4; (iii) the weight scale is now ϑ, c₀ is now ϑ₀, and BKMW's I(μ) is distinguished from I(p); (iv) a remark that the sup in (1.3) is redundant. |
 | F15 | papers/paper1/.gitignore covers the LaTeX build products. |
 
-## 8. Visible "to verify" list (pre-submission)
+## 8. Visible "to verify" list (pre-submission), after Plan 63
 
 1. Full texts of Rakhmanov 1996, Dragnev–Saff 1997, Kuijlaars–Van Assche PLMS 1999 and JAT 1999, and Beckermann
-   2000. Then confirm or retract the "provisional" no-prior-art sentence in §1.2 and replace the abstract-based
-   paraphrases. If a full text is read, quote it verbatim and record it in §3.
-2. Baricz–Štampach: re-open and confirm Cor 3, Rem 5, (22) and the H_n^{(ℓ)} indexing. Then remove the hedge in
-   Rem 7.2.
+   2000. Then confirm or retract the "provisional" no-prior-art sentence in §1.2 (the hedge stays visible until then).
+2. Baricz–Štampach: the hedge in Rem 7.2 is now "statement numbers refer to the arXiv version" (which is what the
+   novelty agent read); the closed forms used are CERTIFIED for n ≤ 30. Optional: compare numbering with the journal.
 3. Re-verify every other quotation character by character: BKMW, Monien, Haynes–Zudilin, Coons–Sutherland, CCV,
    Lai and the Fauzan record.
-4. Fauzan's full manuscript, when available: check whether its energy estimate overlaps with Thm 1.3.
-5. refs.bib "to verify" fields.
-6. Supplementary material: public URL and commit hash (§8 of the paper).
+4. Fauzan's full manuscript, when available.
+5. refs.bib: done (no "to verify" fields left).
+6. Supplementary material: create tag `v1.0-paper1` at submission and make the repository public (user).
