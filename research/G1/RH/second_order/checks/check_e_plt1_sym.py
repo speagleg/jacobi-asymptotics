@@ -12,7 +12,7 @@ q = exp(-lam x) on [0, 4c] the Szego function is explicit:  D_q^2/q = exp(lam R(
   hard edge:  rho^2 -> rho^2 (1 - lam R + ...),  R = -v (4c + v^2)^{1/2} on z = -v^2.
 Outputs (coefficients of lam, i.e. of the first-order variation):
   A_r^lin, B_r^lin (= 0), A_0^lin (= 0), C_0^lin; the lam parts of n^{2p} b_n^2/c^2, n^p alpha_n/(2c), alpha_n/(2b_n)
-  and n^p g_{n-1}/c at order 1/n.  All asserted.  The model parts reproduce E_pgt1 Lemma E.5 / Thm E.1 / Cor E.6 (asserted).
+  and n^p g_{n-1}/c at order 1/n; [5] the unfolding to the symmetric chain gamma_N^2.  All asserted.  The model parts reproduce E_pgt1 Lemma E.5 / Thm E.1 / Cor E.6 (asserted).
 Series are truncated polynomial expansions (exact to the orders used: Delta_1 is meromorphic with the pole orders of
 E_plt1 Lemma E'.5, so the Laurent coefficients need only finitely many terms).  Inputs Q0, X and the Lemma E.4 closed forms as in check_e_sym.py."""
 import sympy as sp
@@ -90,7 +90,8 @@ assert sp.simplify(Ar0 - (c / 48) * sp.Matrix([[12 * al ** 2 * p + 24 * al * p +
                                                 [-I * (12 * al ** 2 * p + p + 2), -(12 * al ** 2 * p + 24 * al * p + 11 * p + 2)]])) == sp.zeros(2, 2)
 assert sp.simplify(sp.diff(ArK_all.applyfunc(lambda e: e.coeff(lam, 1)), k2)) == sp.zeros(2, 2)
 print("  A_r^lin = c^2 p [[-(alpha+1), i(alpha+2)], [i alpha, alpha+1]],  B_r^lin = 0  (asserted; A_r^lin free of kappa2)")
-print("  (A_r^mod, B_r^mod reproduce E_pgt1 Lemma E.5: asserted for A_r)")
+assert sp.simplify(Br0 - (5 * c ** 2 * p / 12) * sp.Matrix([[1, -I], [-I, -1]])) == sp.zeros(2, 2)
+print("  (A_r^mod, B_r^mod reproduce E_pgt1 Lemma E.5: asserted for both)")
 
 # ---------------- [2] hard edge, Laurent expansion on the negative axis z = -v^2 (truncated power series in v)
 ap = 1 / p + sp.Rational(1, 2)
@@ -204,5 +205,34 @@ print("  lam-part of the 1/n coefficient of n^p g_{n-1}/c:", gpl)
 assert sp.simplify(gpl - c * p) == 0
 assert sp.simplify(C0l - (c * (p + 2) / 4) * sp.Matrix([[al + 1, I * (al + 2)], [I * al, -(al + 1)]])) == sp.zeros(2, 2)
 print("  asserted: the lam-part is c p, the same as for b_n and alpha_n; so g_{n-1}, h_n, b_n, alpha_n all carry the same")
-print("  relative n^{-1-p} correction kappa_p = 2 p c zeta(-p) (and the symmetric chain gets 2^{1+p} kappa_p N^{-1-p}, no parity part)")
+print("  relative n^{-1-p} correction kappa_p = 2 p c zeta(-p)")
+
+# ---------------- [5] unfolding to the symmetric chain (E_plt1 §7.2, Cor E'.6), exact series algebra
+# Inputs (proved above / Thm E'.1): g_{n-1} = c n^{-p}(1 + a/n + K n^{-1-p}), b_n^2 = c^2 n^{-2p}(1 - (s-1)/n + 2K n^{-1-p}),
+# h_n = b_n^2/g_{n-1}; gamma_{2n}^2 = h_n, gamma_{2n-1}^2 = g_{n-1}.  Variables: e := 1/N, et := (N/2)^{-p} (so that
+# N^{-1-p} = 2^{-p} e et); expansions to first order in e, keeping e*et, dropping e^2, e^2 et and et^2 (= O(N^{-2p})).
+e, et, K, sv_ = sp.symbols('e eta K s', positive=True)
+aa_ = (2 * sv_ - 2 - p) / (2 * p)
+
+
+def trunc(expr):
+    expr = sp.expand(sp.series(expr, e, 0, 2).removeO())
+    return sp.expand(sum(e ** i * et ** j * expr.coeff(e, i).coeff(et, j) for i in (0, 1) for j in (0, 1)))
+
+
+# N = 2n even: n = N/2, 1/n = 2e, n^{-p} = et, n^{-1-p} = 2 e et
+ginv_even = 1 / (1 + aa_ * 2 * e + K * 2 * e * et)
+ratio_even = trunc((1 - (sv_ - 1) * 2 * e + 2 * K * 2 * e * et) * ginv_even)          # gamma_N^2/(c (N/2)^{-p}) = h_n/(c n^{-p})
+# N = 2n - 1 odd: n = (N+1)/2, 1/n = 2e/(1+e), n^{-p} = et (1+e)^{-p}; gamma_N^2 = g_{n-1}
+ninv = 2 * e / (1 + e)
+ratio_odd = trunc((1 + e) ** (-p) * (1 + aa_ * ninv + K * ninv * et * (1 + e) ** (-p)))
+k0_, k1_ = -(sv_ - 1) - p / 2, -(p + 2) * aa_
+for par, rat in ((1, ratio_even), (-1, ratio_odd)):
+    rat = sp.expand(rat)
+    assert sp.simplify(rat.coeff(e, 0) - 1) == 0
+    c1 = rat.coeff(e, 1)
+    assert sp.simplify(c1.coeff(et, 0) - (k0_ + par * k1_)) == 0, (par, sp.simplify(c1.coeff(et, 0)))
+    assert sp.simplify(c1.coeff(et, 1) - 2 * K) == 0, (par, sp.simplify(c1.coeff(et, 1)))
+print("[5] symmetric chain: gamma_N^2/(c(N/2)^{-p}) = 1 + (k0 + k1(-1)^N)/N + 2^{1+p} K N^{-1-p} + ..., both parities,")
+print("    k0 = -(s-1) - p/2, k1 = -(p+2)a (asserted; K = kappa_p, no parity part in the N^{-1-p} term)")
 print("ALL ASSERTIONS PASSED")

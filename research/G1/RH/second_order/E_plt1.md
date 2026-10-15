@@ -1,6 +1,9 @@
 # E_plt1: the 1/n coefficient (E) for pure powers, 0 < p < 1, and the n^{−1−p} term (Plan 67)
 
-Status (2026-10-15): written by the Plan 67 agent; **not REVIEWED** (Rule R pending). Labels per VERIFICATION_POLICY.md.
+Status (2026-10-15): written by the Plan 67 agent. Rule R reviews A (analysis) and B (algebra) are in
+(research/G1/review/REVIEW_Plan67_A.md, REVIEW_Plan67_B.md; both ACCEPT WITH FIXES, no mathematical error); fixes A1–A4,
+I1, I3 and B1–B6 are applied (I2, optional near-seam sample points, not added; the reviewer's own probe covers them).
+The REVIEWED mark is left to the integrator. Labels per VERIFICATION_POLICY.md.
 "RH" means Riemann–Hilbert throughout. This file closes, for 0 < p < 1, the GAP "(E)" of SECOND.md §4 (and E_pgt1 §9,
 second bullet), settles g(p) = 0 for 0 < p < 1, and identifies the n^{−1−p} term seen in SECOND §1. It does not touch
 p = 1 (worked on separately). SECOND.md and THEOREMS.md are **not** edited; §12 lists the changes for integration.
@@ -10,7 +13,7 @@ p = 1 (worked on separately). SECOND.md and THEOREMS.md are **not** edited; §12
 | # | Statement | Label |
 |---|---|---|
 | Thm E′.1 | 0 < p < 1, s > 1: n^pb_n = c(1 − (s−1)/(2n) + κ_pn^{−1−p} + O(n^{−1−2p} + n^{−2})), n^pα_n = 2c(1 − (s−1+p)/(2n) + κ_pn^{−1−p} + O(n^{−1−2p} + n^{−2})), **κ_p := 2p c(p) ζ(−p) < 0**; hence α_n/(2b_n) = 1 − p/(2n) + O(n^{−1−2p} + n^{−2}) (no n^{−1−p} term) | PROVED-mod-cite (RH_plt1b [REVIEWED], RH_px §5 [REVIEWED]; Paper 2 Lemmas seam, corner, szego, airy, invariance, Frame Prop.; E_pgt1 Lemmas E.3–E.5 [REVIEWED]; KMVV §6 incl. angle freedom; DLMF 5.2.1, 25.2.1, 25.4.1, 9.7.2, 9.7.5–6, 10.17, 10.40.1–4) + exact computer algebra (check_e_plt1_sym) |
-| Cor E′.6 | 0 < p < 1: n^pg_{n−1} = c(1 + a/n + γ_p n^{−1−p} + O(n^{−1−2p} + n^{−2})), γ_p = κ_p (the same relative correction as b_n, α_n); hence the symmetric chain γ_N² = c(N/2)^{−p}(1 + (k₀ + k₁(−1)^N)/N + 2^{1+p}κ_pN^{−1−p} + O(N^{−1−2p} + N^{−2})), k₀ = −(s−1) − p/2, k₁ = −(p+2)a | PROVED-mod-cite (as Thm E′.1, + DLMF 10.25.2) + exact computer algebra |
+| Cor E′.6 | 0 < p < 1: n^pg_{n−1} = c(1 + a/n + κ_p n^{−1−p} + O(n^{−1−2p} + n^{−2})) (the same relative correction as b_n, α_n); hence the symmetric chain γ_N² = c(N/2)^{−p}(1 + (k₀ + k₁(−1)^N)/N + 2^{1+p}κ_pN^{−1−p} + O(N^{−1−2p} + N^{−2})), k₀ = −(s−1) − p/2, k₁ = −(p+2)a | PROVED-mod-cite (as Thm E′.1, + DLMF 10.25.2) + exact computer algebra (n^pg_{n−1}: check_e_plt1_sym [4]; unfolding to γ_N²: by hand (§7.2) and asserted in check_e_plt1_sym [5]) |
 | Lemma F.1 | band factor of the seam geometry: log H_n(z) − log H_n(1) = −2ζ(−p)(z−1)n^{−p} + O(n^{−2p}) on \|z\| ≤ 4c + 2 (boundary values on the seams included); more precisely −2Σ_{k≤K}ζ(−kp)(z^k−1)/(k n^{kp}) + O(n^{−(K+1)p}) | PROVED-mod-cite (Paper 2 Lemmas seam, corner; (eq. binet-bound), (eq. binet-small); DLMF 5.2.1, 25.2.1, 25.4.1) |
 | Lemma F.2 | Szegő function of e^{−λx} on [0, 4c]: D_q²/q = e^{λ𝓡}, 𝓡 = (z(z−4c))^{1/2} | PROVED (Paper 2 (eq. szego-repr)) |
 | Lemma E′.3 | circle jumps I + Δ₁/n + O(n⁻²), Δ₁ = Δ₁^{mod} + λ_nΔ₁^{lin} + O(n^{−2p}), λ_n := 2ζ(−p)n^{−p} | PROVED-mod-cite (E_pgt1 Lemma E.3 transferred; RH_plt1b §2; KMVV angle freedom; DLMF as E_pgt1) |
@@ -25,7 +28,8 @@ Numerical cross-checks (NUMERICAL, not used in the proofs): `checks/check_e_plt1
 seam construction of Paper 2, three terms of the ζ(−kp) expansion, p = 0.3, 0.5, 0.7; the seam moment identity at
 p = 0.3, …, 0.9 to 10⁻⁴⁰), `checks/check_e_plt1_num.out` (the coefficients on the grid p ∈ {0.3, 0.5, 0.7, 0.9},
 s ∈ {1.5, 2, 3}, n ≤ 1600: d₁, the n^{−1−p} coefficient κ_p of b_n and α_n, its absence in α_n/(2b_n), the chain),
-and the Plan 62 table (SECOND §1.1, p = ½: the n^{−3/2} coefficient ≈ −0.0849 is κ_{1/2} = ζ(−½)/√6 = −0.08487).
+and the Plan 62 data at p = ½ (raw sequence in SECOND §1; the fitted n^{−3/2} coefficient ≈ −0.0849 of n^pb_n/c at
+s = 1.5, 2, 3 is in REVIEW_Plan62.md, bullet "Rule A claim on n^{−3/2} terms"): it is κ_{1/2} = ζ(−½)/√6 = −0.08487.
 
 Novelty: UNCHECKED (Rule L not done; §10).
 
@@ -67,7 +71,7 @@ and consequently
 
 In particular (E) of SECOND §4 holds for 0 < p < 1 with ε = p (that is, (E_p)), d₁ = −(s−1)/2, and the remainder O(n^{−1−p})
 is sharp: κ_p < 0 for every p ∈ (0, 1) (by DLMF 25.4.1, ζ(−p) = −2(2π)^{−1−p}sin(πp/2)Γ(1+p)ζ(1+p), and every factor after
-the sign is positive). At p = ½: κ_{1/2} = ζ(−½)·c(½) = ζ(−½)/√6 = −0.084870… (c(½) = ¼√(8/3) = 1/√6).
+the sign is positive). At p = ½: κ_{1/2} = ζ(−½)·c(½) = ζ(−½)/√6 = −0.0848692… (c(½) = ¼√(8/3) = 1/√6).
 
 **Corollary E′.6 (chain; PROVED-mod-cite).** For 0 < p < 1, s > 1:
 
@@ -83,7 +87,7 @@ the same relative factor 1 + κ_pn^{−1−p}: the n^{−1−p} term acts as an 
 
 **Mechanism (one paragraph).** In the seam geometry the band factor H_n is *not* flat to o(1/n): Lemma F.1 shows that,
 modulo constants, H_n(z) = exp(−λ_n z + O(n^{−2p})) with **λ_n = 2ζ(−p)n^{−p}** — in the original variable x = zn^{−p} this
-is the n-independent factor exp(−2ζ(−p)x + O(x²)), the zeta-regularised product over the nodes above the band (the
+is the n-independent factor exp(−2ζ(−p)x + O(x²)) — heuristically the zeta-regularised product over the nodes above the band (the
 moments of the seam jump −Log(1 − e^{∓2πit}) are exactly ζ(−kp)/k · n^{−kp}). Such a variation **cannot** enter b_n or
 α_n at order n^{−p}: the global parametrix is exactly invariant (its extraction functionals equal c², 2c for every band
 weight, Paper 2 Lemma invariance / E_pgt1 §0), so the weight enters only through the 1/n corrections Δ₁ of the Bessel and
@@ -136,13 +140,15 @@ DLMF 5.2.1, 25.2.1, 25.4.1 as quoted in RH/CITATIONS.md "(DLMF-zeta, Plan 67)").
   𝒢(z) − 𝒢(1) = (1/2πi)∫_0^∞ ℓ(r)[e^{iθ}K(re^{iθ}, z) − e^{−iθ}K(re^{−iθ}, z)]dr.   (F.1)
 
 (iii) For k ≥ 1, m_k := (1/2πi)∫_0^∞ ℓ(r)[e^{iθ}(re^{iθ})^{−k−1} − e^{−iθ}(re^{−iθ})^{−k−1}]dr = ζ(−kp)/(k n^{kp}).
-(iv) For every K ≥ 1 there is C = C(p, K) such that for n ≥ 1, |z| ≤ R₁ (boundary values on the seams included)
+(iv) For every K ≥ 1 there are C = C(p, K) and n₀ such that for n ≥ n₀, |z| ≤ R₁ (boundary values on the seams included)
 
   |𝒢(z) − 𝒢(1) − Σ_{k=1}^K m_k(z^k − 1)| ≤ Cn^{−(K+1)p};
 
   and, for η ∈ (0, 1], the derivative of the left side is ≤ Cn^{−(K+1)p}/η for |z| ≤ R₁ − η with dist(z, Γ₊ ∪ Γ₋) ≥ η.
   In particular (K = 1), with **E_n(z) := 𝒢(z) − 𝒢(1) − ζ(−p)(z − 1)n^{−p}**: |E_n| ≤ Cn^{−2p} on {|z| ≤ R₁}, and
-  |E_n′| ≤ Cn^{−2p}/η away from the seams. Moreover |E_n′(x)| ≤ Cn^{−2p} for 0 < x ≤ R₁/2.
+  |E_n′| ≤ Cn^{−2p}/η away from the seams. Moreover |E_n′(x)| ≤ Cn^{−2p} for real x with 0 < |x| ≤ R₁/2 (on (−R₁/2, 0) these are the S_out values, which
+  are analytic there), and E_n extends continuously to 0 with the same value E_n(0) from every sector; hence
+  |E_n(x) − E_n(0)| ≤ Cn^{−2p}|x| for 0 < |x| ≤ R₁/2.
 Hence log H_n(z) − log H_n(1) = −2ζ(−p)(z−1)n^{−p} − 2E_n(z), i.e. H_n ∝ e^{−λ_nz}e^{−2E_n}, λ_n := 2ζ(−p)n^{−p}.
 
 *Proof.* (i) Analyticity in each sector: in S_in, |arg t| < π/2 and −j(t) is analytic (Paper 2 Lemma seam(i)), Log(1+z) is
@@ -187,11 +193,16 @@ m_k (k ≤ K) are ≤ C∫_0^{2R₁}e^{−2πnr^{−1/p}}r^{−k−1}dr ≤ C′
 E_pgt1 Lemma E.2(c); since ℓ and ℓ′ are O(e^{−cn}) on [r₀, 2R₁] for any fixed r₀ > 0 and super-small near 0 (where
 |ζ − z| ≥ sin(θ)·|ζ| for |ζ| ≤ |z|/2), the near part is O(e^{−cn}), boundary values included. Collecting: the left side
 of (iv) is O(n^{−(K+1)p} + e^{−cn}). The derivative bound away from the seams is Cauchy's estimate on the disc U(z, η)
-(which avoids the seams and lies in {|w| ≤ R₁}). For 0 < x ≤ R₁/2 on the band: differentiate (F.1) under the integral; the far
-part gives ∫ℓ r^{−K−3}·C, O(n^{−(K+1)p}); the near part has |∂_zK(ζ, x)| ≤ C|ζ|^{−2} for ζ on the seams with |ζ| ≤ 2R₁
-(since |ζ − x| ≥ sin θ·max(|ζ|, x)) times ℓ = O(e^{−2πn|ζ|^{−1/p}}): O(e^{−cn}). ∎
+(which avoids the seams and lies in {|w| ≤ R₁}). For real x with 0 < |x| ≤ R₁/2: differentiate (F.1) under the integral; the far
+part gives ∫ℓ r^{−K−3}·C, O(n^{−(K+1)p}); the near part has |∂_zK(ζ, x)| ≤ C|ζ|^{−2} for ζ on the seams with |ζ| ≤ 2R₁,
+since |ζ − x| ≥ sin θ·max(|ζ|, x) for x > 0, and |ζ − x| ≥ max(|ζ|, |x|) for x < 0 (the angle at 0 between the seam
+and the negative axis is π − θ > π/2); times ℓ = O(e^{−2πn|ζ|^{−1/p}}) this is O(e^{−cn}). Continuity at 0: 𝒢 − 𝒢(1) = 𝒥
+by (F.1), and 𝒥 is the Cauchy integral of a density vanishing to infinite order at the corner 0, so it has one limit
+𝒥(0) from all sectors (dominated convergence: for |z| ≤ |ζ|/2 or |ζ| ≤ |z|/2, |K(ζ, z)| ≤ C(1 + |ζ|^{−1}), and near
+|ζ| ≍ |z| the density is O(e^{−2πn(2|z|)^{−1/p}}), dominated as in Paper 2 Lemma corner(iii)). ∎
 
-*Remarks.* (1) *What the constants are.* In the original variable x = zn^{−p}, Σ_k m_k z^k = Σ_k ζ(−kp)x^k/k, which is
+*Remarks.* (1) *What the constants are.* In the original variable x = zn^{−p}, Σ_k m_k z^k = Σ_k ζ(−kp)x^k/k. *Interpretation
+(HEURISTIC; not used: the proof uses only the convergent moment integrals (iii), and no regularised product is defined):* this is
 the zeta-regularised value of −Σ_{m≥1}log(1 − x m^p) (formally −Σ_m log(1 − x m^p) = Σ_k(x^k/k)Σ_m m^{kp}): H_n is,
 modulo constants and to all orders in n^{−p}, the n-independent smooth factor exp(−2Σ_kζ(−kp)x^k/k) = 1 − 2ζ(−p)x + O(x²)
 — the regularised square of the product over the nodes x_m = m^{−p} ≫ x. This is SECOND §1's heuristic "far field of the
@@ -204,7 +215,7 @@ expansion is asymptotic in n^{−p}, not convergent (the moments grow like Γ(kp
 
 **Remark F.3 (p ≥ 1; NUMERICAL + HEURISTIC, not used).** For p > 1, E_pgt1 (E.2.1) has the same structure with the jump
 𝔢 on (−∞, 0); `check_e_flat.out` gives n^p·max_z|G(z) − G(1)| = 0.022974 at p = 3 (n = 10, …, 80), which is
-4c(3)·ζ(−3) = 2.7570/120 = 0.022975 (the maximum is at z = 4c + 1, |z − 1| = 4c), and 0.0565 → 0.0577 at p = 3/2, n = 10 → 80,
+4c(3)·ζ(−3) = 2.7569/120 = 0.022974 (the maximum is at z = 4c + 1, |z − 1| = 4c), and 0.0565 → 0.0577 at p = 3/2, n = 10 → 80,
 approaching 4c(3/2)|ζ(−3/2)| = 0.0577; at p = 2 it is 0 (ζ(−2) = 0). At p = 1, E_pgt1 §9's H_n = e^{2j(n/z)} has
 log H_n = 2Σ_m B_{2m}(z/n)^{2m−1}/(2m(2m−1)) = −2Σ_kζ(−k)z^k/(kn^k) (ζ(−k) = −B_{k+1}/(k+1); the terms with even k ≥ 2 vanish on both sides).
 So the ζ(−kp) law is p-uniform; for 1 < p < 2 it predicts that E_pgt1's O(n⁻²) remainder contains κ_pn^{−1−p} (the slow drift
@@ -255,8 +266,10 @@ On both circles, away from the two points δ and 4c − ε where they meet [0, 4
 (Lemma F.1(iv), sup over |z| ≤ R₁, boundary values included) give O(n^{−2p}); near those two points (which are at
 distance ≥ δ sin θ_s from the seams) split off the window |x − Re z| ≤ η₀ and use |E_n′| ≤ Cn^{−2p}/η₀ there, as in
 E_pgt1 Lemma E.3 ("n-dependence"). So log(ω/ω^{λ_n}) = O(n^{−2p}) on both circles. Δ₁ depends analytically on
-(ρ²)^{±1} and (−ω)^{±1/2}, which are bounded above and below uniformly (Paper 2 Lemma szego(vi)(a)–(b), and e^{±λ_n𝓡}
-= 1 + O(n^{−p})); so Δ₁ = Δ₁^{λ_n} + O(n^{−2p}) and Δ₁^{λ_n} = Δ₁^{mod} + λ_nΔ₁^{lin} + O(λ_n²). ∎
+(ρ²)^{±1} and (−ω)^{±1/2}, which are bounded above and below uniformly: on ∂U_0 because ρ^{mod} is explicit and
+bounded above and below on |z| = δ (Paper 2 Lemma szego(i): D²_{x^α} = (4cz/Υ)^α, D²_{4c−x} = 4c(z−4c)/Υ; E_pgt1 Lemma
+E.4(iii)), e^{±λ_n𝓡/2} = 1 + O(n^{−p}), and log(D²_{q₂}/q₂) = O(n^{−2p}) as just shown; on ∂U_r by Paper 2 Lemma szego(vi)(b)
+and the same two factors; so Δ₁ = Δ₁^{λ_n} + O(n^{−2p}) and Δ₁^{λ_n} = Δ₁^{mod} + λ_nΔ₁^{lin} + O(λ_n²). ∎
 
 ## 5. Lemma E′.5: meromorphy and the Laurent data of Δ₁^{lin}
 
@@ -300,16 +313,21 @@ for the moments at ∞, with
   R⁽¹⁾(0) = −(C₀ + λ_nC₀^{lin}) − (A_r + λ_nA_r^{lin})/(4c) + B_r/(16c²).
 
 *Proof.* E_pgt1 Prop. E.5′ verbatim, with three changes. (1) The jumps away from the circles: on the lips, Σ_v, the saturated
-segment, Σ^△ and the top segment |J − I| ≤ Ce^{−n/C} resp. Cn^{−pn/4} (Paper 2 F5, all p); inside U_0 the hard-edge
-mismatch (lips at θ_L, and the glue jumps on the seams) is O(n^{−K}min(1, |z|^K)) (RH_plt1b §2, RH_px Lemma 4.3 with the
-lip constant 2π sin(θ_L/p) = 2π sin(π/4)); there is no jump of Q on the seams (Paper 2 F1). The first-order statement
-‖R₋ − I‖_{L²} = O(1/n) is RH_plt1b's Theorem (RH_px §5). (2) On the circles J − I = Δ₁/n + O(n⁻²) with Δ₁ =
+segment, Σ^△ and the top segment |J − I| ≤ Ce^{−n/C} resp. Cn^{−pn/4} (Paper 2 F5, all p); inside U_0 the pieces of
+Σ_R are (a) the lips at ±θ_L, where the mismatch is O(n^{−K}min(1, |z|^K)) (RH_plt1b §2, RH_px Lemma 4.3 with the lip
+constant 2π sin(θ_L/p) = 2π sin(π/4)), and (b) the two seam segments Γ± ∩ U_0, where Q has no jump (Paper 2 F1) but
+P̂₀ carries the glue jump W̃_out/W̃_in = 1 − e^{∓2πit}, |e^{∓2πit}| = e^{−2πn|z|^{−1/p}}; after amplification by P̂₀
+(|e^{±nφ}| ≤ e^{Cn|z|^{1/2}}, RH_plt1b §2 / RH_px Lemma 4.2(iii)) this gives |J − I| ≤ C exp(−n(2π|z|^{−1/p} − C|z|^{1/2}))
+≤ C exp(−n(2πδ^{−1/p} − Cδ^{1/2})) (δ small), super-small uniformly and vanishing to all orders at 0. Hence
+‖J − I‖_{L¹∩L²∩L^∞(Σ_R)} = O(1/n) on this (Q-frame) contour, and with the uniform Cauchy bound ‖𝒞₋‖_{L²→L²} ≤ C of Paper 2 F1
+the equation R₋ = I + 𝒞₋(R₋(J − I)) gives ‖R₋ − I‖_{L²} = O(1/n) for n ≥ n₀. RH_px §5 / RH_plt1b are used only for the
+identification of Q with this small-norm solution. (2) On the circles J − I = Δ₁/n + O(n⁻²) with Δ₁ =
 Δ₁^{mod} + λ_nΔ₁^{lin} + O(n^{−2p}) (Lemma E′.3), so the circle contribution to (1/2πi)∫(J − I)ds/(s − z) is
 (1/n)(1/2πi)∮_{cw}(Δ₁^{mod} + λ_nΔ₁^{lin})(s)ds/(s − z) + O(n⁻² + n^{−1−2p}). (3) Δ₁^{mod} + λΔ₁^{lin} is meromorphic in the discs
 (Lemma E′.5, differentiate in λ: Δ₁^{lin} has the same analyticity and pole orders), so the clockwise circle integrals are
 minus the residues: the principal parts for z outside, Σ Res Δ₁s^{k−1} for the moments, and the stated value at 0
 (the point 0 is reached as in E_pgt1 Prop. E.5′: the super-small local jumps are dominated near 0, including the glue
-jumps, which are O(e^{−n|z|^{−1/p}·2π}) on the seams). The quadratic term ≤ ‖R₋ − I‖_{L²}‖J − I‖_{L²}/d = O(n⁻²). ∎
+jumps on the seam segments; for z on (−δ, 0) and s on a seam, |s − z| ≥ max(|s|, |z|), the angle at 0 being π − θ_s > π/2). The quadratic term ≤ ‖R₋ − I‖_{L²}‖J − I‖_{L²}/d = O(n⁻²). ∎
 
 ## 7. Proof of Theorem E′.1 and Corollary E′.6
 
@@ -339,8 +357,10 @@ exactly to first order in λ:
   n^pg_{n−1} = c(1 + (α + ½)/n + cpλ_n/n) + O(n⁻² + n^{−1−2p}) = c(1 + a/n + κ_pn^{−1−p} + O(n^{−1−2p} + n^{−2})).
 
 *Remainder.* The true ρ is ρ^{λ_n}(D²_{q₂}/q₂)^{−1/2}, q₂ = e^{−2E_n}; on z = −v², by (eq. szego-repr) and
-|E_n(x) − E_n(0)| ≤ Cn^{−2p}x for 0 < x ≤ R₁/2 (Lemma F.1(iv), last clause) and |E_n| ≤ Cn^{−2p} on (0, 4c],
-log(D²_{q₂}/q₂)(−v²) = vμ_n + O(n^{−2p}v²) with |μ_n| ≤ Cn^{−2p}; so w⁽¹⁾ changes by O(n^{−2p}) and n^pg_{n−1} by
+|E_n(x) − E_n(0)| ≤ Cn^{−2p}|x| for 0 < |x| ≤ R₁/2 (Lemma F.1(iv), last clause) and |E_n| ≤ Cn^{−2p} on (0, 4c],
+log(D²_{q₂}/q₂)(−v²) = vμ_n + o(v) as v → 0 (at fixed n) with |μ_n| ≤ Cn^{−2p} — only the v-linear coefficient
+μ_n enters w⁽¹⁾ (the o(v) needs E_n(−v²) − E_n(0) = O(n^{−2p}v²), i.e. the negative-axis part of Lemma F.1(iv), last clause,
+and the continuity of E_n at 0 from S_out); so w⁽¹⁾ changes by O(n^{−2p}) and n^pg_{n−1} by
 O(n^{−1−2p}).
 *Unfolding.* G_m = m^pg_m: n^pg_{n−1} = (1 + p/n + O(n⁻²))G_{n−1} and (n−1)^{−1−p} = n^{−1−p} + O(n^{−2−p}) give the G_m
 formula; H_n = n^{2p}b_n²/(n^pg_{n−1}) = c(1 − (s−1)/n + 2κ_pn^{−1−p})(1 + a/n + κ_pn^{−1−p})^{−1} + O(·) gives the H_m
@@ -357,8 +377,11 @@ value = median, "fit" = half-range of the 12 estimates (estimates, not bounds; R
 coefficients of n^{−1} and n^{−1−p} from the free fit; (b) the n^{−1−p} coefficient after subtracting the proved 1/n term
 (J = 3…6 exponents of {1 + i + jp} ∖ {1}), which removes the near-degeneracy of n^{−1} and n^{−1−p} for small p.
 
-Results (`check_e_plt1_num.out`; "ok" is computed: |fit − prediction| ≤ max(fit half-range, dK, 10⁻⁸)): **131 of 132 rows ok**;
-the exception is the chain 1/n coefficient at (p, s) = (0.9, 1.5), off by 5.9·10⁻⁸ against a half-range of 5.4·10⁻⁸.
+Results (`check_e_plt1_num.out`; "ok" is computed: |fit − prediction| ≤ max(fit half-range, dK, 10⁻⁸) — this tolerance
+is itself an error *estimate*, not a bound): **131 of 132 rows ok**; the exception is the chain 1/n coefficient at
+(p, s) = (0.9, 1.5), off by 5.9·10⁻⁸ (relative 1·10⁻⁶) against a half-range of 5.4·10⁻⁸. At p = 0.9 the fit basis contains
+exponent pairs 0.1 apart, and that estimate moves by more than its half-range under changes of J and window and shrinks
+with K (REVIEW_Plan67_A.md I3); it is not evidence against the theorem.
 Highlights:
 - d₁ = −(s−1)/2 at all twelve (p, s) (to ≤ 2.5·10⁻⁷ for p ≥ ½; to ≤ 8·10⁻⁵ at p = 0.3, s = 3, where the fit half-range is 4·10⁻³);
   the 1/n coefficients of n^pα_n/(2c) (−(s−1+p)/2), of α_n/(2b_n) (−p/2) and of n^pg_{n−1}/c (a) likewise.
@@ -371,7 +394,8 @@ Highlights:
   p near 1, together with an n^{p−1} drift from the n⁻² term (e.g. p = 0.9, s = 3: 0.339 → 0.234 at n = 1600, consistent
   with a large d₂ > 0 term n^{p−1}d₂); the fits with the full exponent set separate the two.
 
-Earlier data: SECOND §1.1 (p = ½) and the remark "−0.0849 at p = ½" are κ_{1/2} = −0.084869…; the sharpness of the n^{−1−p}
+Earlier data: the p = ½ fit "−0.0849 for s = 1.5, 2 and 3" of REVIEW_Plan62.md (bullet "Rule A claim on n^{−3/2} terms";
+raw sequence in SECOND §1) is κ_{1/2} = −0.0848692…; the sharpness of the n^{−1−p}
 remainder (an "ε = p" (E_ε) and no better) is visible at every p in the table.
 
 ## 9. Consequences (for 0 < p < 1)
@@ -388,7 +412,7 @@ Theorem E′.1 gives (E_ε) with ε = p at every (p, s), 0 < p < 1, s > 1. Hence
   (sum of Theorem E′.1; Σ j^{−1−p} converges).
 - **Conjecture P62**: PROVED-mod-cite for 0 < p < 1, with the conjectured remainder O(n^{−1−min(1,p)}) = O(n^{−1−p}) for
   b_n, α_n and (by Cor E′.6) the chain; moreover the n^{−1−p} coefficient is identified (κ_p for b_n and α_n, 0 for
-  α_n/(2b_n), γ_p for the chain). With E_pgt1, P62 is now proved for every p ≠ 1.
+  α_n/(2b_n), κ_p for g_{n−1}, h_n and 2^{1+p}κ_p for γ_N²). With E_pgt1, P62 is now proved for every p ≠ 1.
 - **SECOND §1 "Non-integer exponents"**: the observed n^{−1−p} term at p = ½ is κ_{1/2}n^{−3/2}: SECOND's sequence
   n(n^{1/2}b_n/c − 1) + ½ at s = 2 should be κ_{1/2}n^{−1/2} + O(n^{−1}): at n = 1600, κ_{1/2}/40 = −2.12·10⁻³ against the
   tabulated −2.0·10⁻³ (the ratio 0.72 per doubling there is 2^{−1/2} = 0.71 plus the O(n⁻¹) drift).
@@ -421,7 +445,7 @@ Theorem E′.1 gives (E_ε) with ε = p at every (p, s), 0 < p < 1, s > 1. Hence
   produced spurious odd powers (v¹ terms at the hard edge); with the λ-expansion made polynomial before extraction the odd
   powers vanish, as Lemma E′.5's structural argument requires. Kept as a lesson: the odd-power assertions are a real test.
 - *s-independence.* A_r^{lin} depends on α, but the b- and a-functionals of λA_r^{lin} are cpλ for every α: the s-dependence
-  cancels, as the p = ½ grid (SECOND §1: n^{−3/2} coefficient −0.0849 at all s) suggested.
+  cancels, as the p = ½ grid (REVIEW_Plan62.md, bullet "Rule A claim on n^{−3/2} terms": n^{−3/2} coefficient −0.0849 at s = 1.5, 2, 3) suggested.
 - *Hard-edge residue A₀ and the seams.* A₀^{lin} = 0: the factor e^{−λ𝓡/2} in ρ is 1 + O(|z|^{1/2}), which cannot change the
   simple-pole residue at 0; it changes only C₀ (and the chain). Seam crossings of ∂U_0: the glue jumps are super-small and the
   bounds of Lemma F.1(iv) include boundary values.
