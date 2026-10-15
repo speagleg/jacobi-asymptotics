@@ -12,7 +12,7 @@ Section~\ref{sec:hardedge}, and $|\alpha|<1$ enters only when they are applied w
 $\gamma_j$, parametrised by arc length, with $\gamma_j(0)=0$, pairwise disjoint except at $0$, and with distinct
 tangent directions $\gamma_j'(0)=e^{i\theta_j}$. Each arc carries an orientation, and $\Cauchy_\pm$ are the boundary
 values of $\Cauchy$ on $\Gamma$ as in \S\ref{sec:tool-cd}. By compactness and transversality there is $C_\Gamma\ge1$ with
-\begin{equation}\label{eq:A-geom}
+\begin{equation}\label{eq:star-geom}
   |\gamma_j'(\rho)-e^{i\theta_j}|\le C_\Gamma\rho,\qquad |\gamma_j(\rho)-\gamma_i(r)|\ge(\rho+r)/C_\Gamma\ (i\ne j),\qquad
   |\gamma_j(\rho)-\gamma_j(r)|\ge|\rho-r|/C_\Gamma .
 \end{equation}
@@ -28,14 +28,14 @@ We use one elementary bound repeatedly. Let $\mathfrak k$ be measurable on $(0,\
   (\mathcal M_{\mathfrak k}\mathfrak h)(r):=\int_0^\infty\mathfrak k(\rho/r)\mathfrak h(\rho)\frac{\diff\rho}r .
 \]
 Then
-\begin{equation}\label{eq:A-minkowski}
+\begin{equation}\label{eq:star-minkowski}
   \|\mathcal M_{\mathfrak k}\mathfrak h\|_{L^2(0,\infty)}\le\|\mathfrak k\|_*\,\|\mathfrak h\|_{L^2(0,\infty)} .
 \end{equation}
 Indeed $(\mathcal M_{\mathfrak k}\mathfrak h)(r)=\int_0^\infty\mathfrak k(u)\mathfrak h(ru)\diff u$, and $\|\mathfrak h(\cdot\,u)\|_{L^2}=u^{-1/2}
-\|\mathfrak h\|_{L^2}$, so \eqref{eq:A-minkowski} is Minkowski's integral inequality. Operators
+\|\mathfrak h\|_{L^2}$, so \eqref{eq:star-minkowski} is Minkowski's integral inequality. Operators
 with kernels that are bounded on a bounded set are Hilbert--Schmidt, and we use that without comment.
 
-\begin{lemma}[power-weighted Cauchy operator on a star]\label{lem:A-power}
+\begin{lemma}[Power-weighted Cauchy operator on a star]\label{lem:star-power}
 Let $\Gamma$ be a star and $|\beta|<\frac12$. Then the operators
 \[
   \mathfrak h\ \longmapsto\ |z|^{\beta}\,\Cauchy_\pm\bigl(|s|^{-\beta}\mathfrak h\bigr)(z)
@@ -69,22 +69,22 @@ For $i\ne j$ we have $|ue^{i\theta_j}-e^{i\theta_i}|\ge\sin(|\theta_i-\theta_j|/
 $(u^{-\beta}-1)/(u-1)$ is continuous at $u=1$. So $|\mathfrak k_{ij}(u)|\le C(1+u^{-\beta})$ for $u\le2$ and
 $|\mathfrak k_{ij}(u)|\le C(u^{-\beta}+1)u^{-1}$ for $u\ge2$, and $\|\mathfrak k_{ij}\|_*<\infty$ precisely because
 $-\frac12<\beta<\frac12$: near $0$ the integrand is $O(u^{-1/2-\max(\beta,0)})$, near infinity $O(u^{-3/2-\min(\beta,0)})$.
-By \eqref{eq:A-minkowski} the flat operator is bounded on $L^2$ of the rays, hence on $L^2$ of the segments $[0,R_j]$.
+By \eqref{eq:star-minkowski} the flat operator is bounded on $L^2$ of the rays, hence on $L^2$ of the segments $[0,R_j]$.
 
 The difference $\mathfrak r_{ij}(\rho,r)-\mathfrak k_{ij}(\rho/r)/r$ is a sum of two terms. Put
-$w_j(\rho):=(|\gamma_j(\rho)|/\rho)^\beta$; by \eqref{eq:A-geom} and $\gamma_j\in C^2$, $w_j$ is $C^1$ on $[0,R_j]$ and
+$w_j(\rho):=(|\gamma_j(\rho)|/\rho)^\beta$; by \eqref{eq:star-geom} and $\gamma_j\in C^2$, $w_j$ is $C^1$ on $[0,R_j]$ and
 bounded above and below. The first term is
 \[
   \frac1{2\pi i}\Bigl(\frac r\rho\Bigr)^\beta\Bigl(\frac{w_i(r)}{w_j(\rho)}-1\Bigr)\frac{\gamma_j'(\rho)}{\gamma_j(\rho)-\gamma_i(r)};
 \]
-since $|w_i(r)-w_j(\rho)|\le C|\rho-r|$ for $i=j$ and $\le C(\rho+r)$ for $i\ne j$, \eqref{eq:A-geom} bounds it by
+since $|w_i(r)-w_j(\rho)|\le C|\rho-r|$ for $i=j$ and $\le C(\rho+r)$ for $i\ne j$, \eqref{eq:star-geom} bounds it by
 $C(r/\rho)^\beta$. The second term is $\frac1{2\pi i}((r/\rho)^\beta-1)\,\mathfrak e_{ij}(\rho,r)$ with
 \[
   \mathfrak e_{ij}(\rho,r):=\frac{\gamma_j'(\rho)}{\gamma_j(\rho)-\gamma_i(r)}-\frac{e^{i\theta_j}}{\rho e^{i\theta_j}-re^{i\theta_i}} .
 \]
 We claim $|\mathfrak e_{ij}|\le C$. For $i\ne j$ both denominators are at least $(\rho+r)/C$, and the numerator of the
 difference, $\gamma_j'(\rho)(\rho e^{i\theta_j}-re^{i\theta_i})-e^{i\theta_j}(\gamma_j(\rho)-\gamma_i(r))$, is
-$O(\rho(\rho+r))+O(\rho^2+r^2)$ by \eqref{eq:A-geom}. For $i=j$ the flat term is $1/(\rho-r)$, and
+$O(\rho(\rho+r))+O(\rho^2+r^2)$ by \eqref{eq:star-geom}. For $i=j$ the flat term is $1/(\rho-r)$, and
 $\gamma_j(\rho)-\gamma_j(r)=(\rho-r)(\gamma_j'(\rho)+O(\rho-r))$, so $\gamma_j'(\rho)/(\gamma_j(\rho)-\gamma_j(r))=
 (\rho-r)^{-1}(1+O(\rho-r))$, which gives $\mathfrak e_{jj}=O(1)$. Here the factor $\gamma_j'(\rho)$, i.e.\ the arc-length
 element $\diff s=\gamma_j'(\rho)\diff\rho$, must be kept: without it the difference is only $O(r/|\rho-r|)$ on a single
@@ -97,7 +97,7 @@ with $|\arg z|\le2\pi$, so the complex weights differ from the absolute ones by 
 $e^{2\pi|\beta|}$ on either side.
 \end{proof}
 
-\begin{lemma}[logarithmic commutator on a star]\label{lem:A-log}
+\begin{lemma}[Logarithmic commutator on a star]\label{lem:star-log}
 Let $\Gamma$ be a star and fix on each arc a continuous branch $\mathrm{l}(z)=\log|z|+i\arg z$ of the logarithm. Then the
 operator
 \[
@@ -117,18 +117,18 @@ $\arg z-\arg s$.
 \]
 This has no singularity at
 $u=1$ even for $i=j$ ($\log u/(u-1)\to1$), and $|\mathfrak k_{ij}(u)|u^{-1/2}$ is $O(|\log u|u^{-1/2})$ at $0$ and
-$O(|\log u|u^{-3/2})$ at infinity, so $\|\mathfrak k_{ij}\|_*<\infty$ and \eqref{eq:A-minkowski} applies. On the curved star
+$O(|\log u|u^{-3/2})$ at infinity, so $\|\mathfrak k_{ij}\|_*<\infty$ and \eqref{eq:star-minkowski} applies. On the curved star
 the difference from the flat kernel is
 \[
   \frac1{2\pi i}\Bigl[(\lambda_i(r)-\lambda_j(\rho))\frac{\gamma_j'(\rho)}{\gamma_j(\rho)-\gamma_i(r)}
   +\log\frac r\rho\;\mathfrak e_{ij}(\rho,r)\Bigr],
 \]
 with $\lambda_j(\rho):=\log(|\gamma_j(\rho)|/\rho)$, a $C^1$ function on
-$[0,R_j]$. As in the proof of Lemma~\ref{lem:A-power} this is $O(1+|\log(r/\rho)|)$, and
+$[0,R_j]$. As in the proof of Lemma~\ref{lem:star-power} this is $O(1+|\log(r/\rho)|)$, and
 $\iint_{[0,R]^2}(1+\log^2(r/\rho))\diff\rho\diff r<\infty$.
 
 \emph{The argument part.} Its kernel is $\frac{i}{2\pi i}(\arg\gamma_i(r)-\arg\gamma_j(\rho))\gamma_j'(\rho)/(\gamma_j(\rho)-
-\gamma_i(r))$. For $i=j$, $\arg\gamma_j(\rho)=\theta_j+O(\rho)$ is $C^1$ on $[0,R_j]$, so by \eqref{eq:A-geom} the kernel is
+\gamma_i(r))$. For $i=j$, $\arg\gamma_j(\rho)=\theta_j+O(\rho)$ is $C^1$ on $[0,R_j]$, so by \eqref{eq:star-geom} the kernel is
 bounded. For $i\ne j$ the numerator is bounded and the denominator is at least $(\rho+r)/C_\Gamma$, so the kernel is at most
 $C/(\rho+r)=C\,\mathfrak k(\rho/r)/r$ with $\mathfrak k(u)=(1+u)^{-1}$, $\|\mathfrak k\|_*=\pi$.
 
@@ -136,8 +136,8 @@ Both parts are bounded on $L^2(\Gamma)$. The kernel depends on $(s,z)$ only thro
 so the operator commutes with $\mathsf D_\lambda$ and the bound holds on $\lambda\Gamma$.
 \end{proof}
 
-\begin{remark}[the condition $|\beta|<\frac12$]\label{rem:mellin}
-For $\Gamma$ a union of rays the curvature terms vanish, and Lemma~\ref{lem:A-power} reduces to the boundedness of the
+\begin{remark}[The condition $|\beta|<\frac12$]\label{rem:mellin}
+For $\Gamma$ a union of rays the curvature terms vanish, and Lemma~\ref{lem:star-power} reduces to the boundedness of the
 Mellin multiplier $\int_0^\infty u^{w-1}\diff u/(u-e^{i\phi_{ij}})$ on the line $\re w=\frac12-\beta$; on a single
 ray its principal value is $-\pi\cot(\pi w)$ (by \cite[(5.12.3), (5.5.3)]{DLMF}, see \S\ref{sec:tool-dlmf}), which is
 bounded on that line exactly when $0<\frac12-\beta<1$. This explains the role of the condition $|\beta|<\frac12$.

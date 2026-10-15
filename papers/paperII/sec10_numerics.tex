@@ -160,12 +160,7 @@ smaller. Neither is a bound.}
 
 For $p>1$ every fitted value agrees with Theorem~\ref{thm:onen} in all nine digits shown. For $p=1$ the same holds, and
 for $p=\frac12$ the discrepancy is within the error estimate; at $p=\frac12$ the fits need the non-integer powers
-$n^{-1-jp}$, in line with the slower convergence seen in Table~\ref{tab:numerics}. One case is exact. At
-$(p,s)=(2,2)$ the closed form of Remark~\ref{rem:lommel} gives
-\begin{align*}
-  \frac{n^2b_n}{c(2)}&=\frac{16n^2}{(4n+1)\sqrt{16n^2+8n-3}}=1-\frac1{2n}+O(n^{-2}),\\
-  \frac{a_n}{2b_n}&=\frac{\sqrt{16n^2+8n-3}}{4n+5}=1-\frac1n+O(n^{-2}),
-\end{align*}
-as Theorem~\ref{thm:onen} predicts. The closed form itself was checked in interval (ball) arithmetic for $1\le n<300$:
-the coefficients computed by the Chebyshev algorithm from the moments $\zeta(2j+2)$ have rigorous enclosures that agree
-with the closed form to a relative accuracy better than $10^{-2000}$.
+$n^{-1-jp}$, in line with the slower convergence seen in Table~\ref{tab:numerics}. At $(p,s)=(2,2)$ the exact values
+$d=-\frac12$ and $e=-1$ also follow from the closed form of Remark~\ref{rem:lommel}. That closed form was checked in
+interval (ball) arithmetic for $1\le n<300$: the coefficients computed by the Chebyshev algorithm from the moments
+$\zeta(2j+2)$ have rigorous enclosures that agree with it to a relative accuracy better than $10^{-2000}$.

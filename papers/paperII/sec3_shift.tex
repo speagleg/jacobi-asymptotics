@@ -37,7 +37,7 @@ measures $\sum_kw_k\delta_{x_k}$ with $w_k>0$, $\sum_kw_k<\infty$ and bounded, s
 (a class that contains every $\sigma_{p,s,\ell}$), and Lemmas~\ref{lem:chain-limit} and~\ref{lem:chain-rate} below
 have been formally verified in the Lean proof assistant.
 
-Throughout, $a_n,b_n$ are the Jacobi coefficients of $\sigma$ (\S\ref{sec:prelim-op}), and $\tilde a_n,\tilde b_n$
+Throughout, $a_n,b_n$ are the recurrence coefficients of $\sigma$ (\S\ref{sec:prelim-op}), and $\tilde a_n,\tilde b_n$
 are those of $x\sigma$.
 
 \subsection{The transfer formulas}
@@ -67,7 +67,7 @@ Let $\sigma$ be as in Lemma~\ref{lem:zeros}. Then:
 \item[\textup{(i)}] $a_n=u_n+l_n$ for $n\ge0$, and $b_n^2=u_{n-1}l_n$ for $n\ge1$. Equivalently, $u_0=a_0$ and
   $u_n=a_n-b_n^2/u_{n-1}$ for $n\ge1$.
 \item[\textup{(ii)}] The measure $x\sigma$ has infinite support, its monic orthogonal polynomials are
-  $\widetilde P_n(x):=\bigl(P_{n+1}(x)+u_nP_n(x)\bigr)/x$, and its Jacobi coefficients are
+  $\widetilde P_n(x):=\bigl(P_{n+1}(x)+u_nP_n(x)\bigr)/x$, and its recurrence coefficients are
   \begin{equation}\label{eq:transfer}
     \tilde a_n=u_n+l_{n+1}\quad(n\ge0),\qquad \tilde b_n^2=u_nl_n\quad(n\ge1).
   \end{equation}
@@ -246,7 +246,7 @@ a_{n+1}=2c+O(\eta_{n+1})$, $\hat u_{n+1}-\hat u_n=O(\eta_{n+1})$, $\hat l_{n+1}$
 $(n/(n+1))^p-1=O(1/n)$. Since $\eta_{n+1}\le\eta_n$ and $1/n\le\eta_n/\eta_1$, this gives $n^p\tilde a_n=2c+O(\eta_n)$.
 \qed
 
-\begin{remark}[only increments enter]\label{rem:sharp}
+\begin{remark}[Only increments enter]\label{rem:sharp}
 The bound $|\hat u_n-c|=O(\sqrt{\eta_n})$ of Lemma~\ref{lem:chain-rate} cannot be improved under the hypotheses of the
 lemma. Take $\eta_n=1/n$, any $\theta_0>0$, and define $u_n:=n^{-p}(c+\theta_0 n^{-1/2})$ for $n\ge1$, $u_0:=1$,
 $b_n:=cn^{-p}$, $l_n:=b_n^2/u_{n-1}$ ($n\ge1$), $l_0:=0$ and $a_n:=u_n+l_n$. All $u_n,l_n$ are positive. The symmetric

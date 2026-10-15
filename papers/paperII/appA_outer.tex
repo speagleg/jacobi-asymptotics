@@ -96,7 +96,7 @@ $j(t)$ is bounded (by~\eqref{eq:binet-bound} for $|t|\ge1$ and by continuity on 
 $\{e^{-c_0}\le|t|\le1,\ |\arg t|\le\thw/p\}$), and~\eqref{eq:B-bounds} gives~(d).
 
 \emph{Property (e).} Fix $n$. Near $0$ and outside the lens, $|\arg z|\ge\frac34\thlip$, so $\upsilon_\pm\to1$ by~\eqref{eq:imtheta}
-and $\tilde D\to1$; $K$ is bounded; and $\log B$ is bounded on $U(0,\delta)\setminus(-\delta,0]$ uniformly up to the cut.
+and $\tilde D\to1$; $K$ is bounded; and $\log B$ is bounded on $\mathbb D(0,\delta)\setminus(-\delta,0]$ uniformly up to the cut.
 For the last point split $\int\mathfrak b(y)/(y-z)\diff y$ into the window $|y-\re z|\le|\re z|/2$ and the rest. On the
 window write $\mathfrak b(y)=\mathfrak b(\re z)+O(|y-\re z|\,|\re z|^{1/p-1})$ by~(ii); the constant part integrates to
 $\mathfrak b(\re z)\Log(\cdot)$ with a bounded logarithm (the end points of the window are at comparable distances from
@@ -233,7 +233,7 @@ Let $0<p<1$ and $\tau_0\in(0,1)$. There are $C=C(p,\tau_0)$ and $n_0$ such that 
   $|\chi(z)-\chi(0)|\le C|z|(1+\log\frac1{|z|})$ and $|\chi'(z)|\le C(1+\log\frac1{|z|})$ if $|z|\le1$, and
   $|\chi(z)-\chi(0)|\le C(1+\log|z|)^2$ if $|z|\ge1$. Here
   $\chi(0):=\frac1{2\pi i}\bigl[\int_{\Sseam_+}\chi_+(\zeta)\frac{\diff\zeta}\zeta-\int_{\Sseam_-}\chi_-(\zeta)\frac{\diff\zeta}\zeta\bigr]$.
-\item[(iii)] For each fixed $n$, $\chi$ is bounded on $U(0,1)\setminus(\Sseam_+\cup\Sseam_-)$, uniformly up to the seams.
+\item[(iii)] For each fixed $n$, $\chi$ is bounded on $\mathbb D(0,1)\setminus(\Sseam_+\cup\Sseam_-)$, uniformly up to the seams.
 \end{enumerate}
 \end{lemma}
 
@@ -263,7 +263,7 @@ and $|\chi'(z)|\le C[\int_0^1\rho(\rho+|z|)^{-2}\diff\rho+\int_1^\infty(1+\log\r
 For $|z|\ge1$ the same splitting gives
 $|z|\int_0^1\frac{\diff\rho}{|z|}+|z|\int_1^\infty\frac{(1+\log\rho)\diff\rho}{\rho(\rho+|z|)}\le C(1+\log|z|)^2$.
 
-(iii) Let $z\in U(0,1)$ be close to $\Sseam_+$, with nearest point $z^*\in\Sseam_+$, $r:=|z^*|$ (other $z$ are covered
+(iii) Let $z\in \mathbb D(0,1)$ be close to $\Sseam_+$, with nearest point $z^*\in\Sseam_+$, $r:=|z^*|$ (other $z$ are covered
 by~(ii)). Split $\int_{\Sseam_+}\chi_+(\zeta)\frac{\diff\zeta}{\zeta-z}$ into the part $|\zeta-z^*|\le r/2$ and the rest. On
 the first part write $\chi_+(\zeta)=\chi_+(z^*)+O(|\zeta-z^*|)$ by~(i): the constant contributes $\chi_+(z^*)$ times a
 logarithm whose modulus is at most $\pi+\log C$, because the two end points $z^*\pm\frac r2e^{i\thseam}$ are at comparable

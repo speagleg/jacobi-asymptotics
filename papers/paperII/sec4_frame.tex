@@ -63,7 +63,7 @@ function $X$ with an expansion $X(z)=I+X_1/z+X_2/z^2+O(z^{-3})$ at $\infty$ we w
   \mathsf a(X):=\frac{(X_2)_{12}}{(X_1)_{12}}-(X_1)_{22}\quad\text{(the latter when $(X_1)_{12}\ne0$).}
 \end{equation}
 
-\begin{lemma}[The interpolation problem]\label{lem:interp}
+\begin{lemma}[Interpolation problem]\label{lem:interp}
 Let $Y$ be the matrix \eqref{eq:Y-solution} of \S\ref{sec:tool-wlxz}(a), built from the monic orthogonal polynomials
 $P_n$, $P_{n-1}$ of $\sigma$ and $h_{n-1}=\int P_{n-1}^2\diff\sigma$. Then $\det Y\equiv1$. The rescaled matrix
 \begin{equation}\label{eq:U}
@@ -229,22 +229,22 @@ models.
   refers to the common real part of the two boundary values), and $\re\varphi_\pm=0$ on $(0,4c)$.
 \item[(ii)] For every compact $K\subset(0,4c)$ there is $y_K>0$ such that $\re\tvphi(x\pm iy)>0$ for $x\in K$ and
   $0<y\le y_K$. Moreover $\partial_y\re\tvphi(x+iy)|_{y=0^+}=\pi(\lambda_p-\psi^*)(x)>0$ on $(0,4c)$.
-\item[(iii)] (Hard edge.) There are $\delta_0>0$ and a function $f$, analytic and univalent on $U(0,2\delta_0)$,
-  real on the real axis, with $f(0)=0$ and $f'(0)<0$, such that $(\varphi\pm i\pi)^2=4f$ on $U(0,2\delta_0)\cap\C_\pm$.
+\item[(iii)] (Hard edge.) There are $\delta_0>0$ and a function $f$, analytic and univalent on $\mathbb D(0,2\delta_0)$,
+  real on the real axis, with $f(0)=0$ and $f'(0)<0$, such that $(\varphi\pm i\pi)^2=4f$ on $\mathbb D(0,2\delta_0)\cap\C_\pm$.
   More precisely $\varphi=\mp i\pi-2f^{1/2}$ in $\C_\pm$, with the principal root. In particular $f$ does not
-  depend on $n$, $|\re\varphi(z)|\le C|z|^{1/2}$ on $U(0,\delta_0)$, and
+  depend on $n$, $|\re\varphi(z)|\le C|z|^{1/2}$ on $\mathbb D(0,\delta_0)$, and
   \begin{equation}\label{eq:retvphi-zero}
-    \re\tvphi(z)\ge|\arg z|\Bigl(\frac2p|z|^{-1/p}-C|z|^{1/2}\Bigr)\qquad(z\in U(0,\delta_0),\ 0<|\arg z|\le\thw).
+    \re\tvphi(z)\ge|\arg z|\Bigl(\frac2p|z|^{-1/p}-C|z|^{1/2}\Bigr)\qquad(z\in \mathbb D(0,\delta_0),\ 0<|\arg z|\le\thw).
   \end{equation}
-\item[(iv)] (Soft edge.) There are $\eps_0>0$ and a function $f_r$, analytic and univalent on $U(4c,2\eps_0)$, real
-  on the real axis, with $f_r(4c)=0$ and $f_r'(4c)>0$, such that $\tvphi^2=\frac49f_r^3$ on $U(4c,2\eps_0)$, and
+\item[(iv)] (Soft edge.) There are $\eps_0>0$ and a function $f_r$, analytic and univalent on $\mathbb D(4c,2\eps_0)$, real
+  on the real axis, with $f_r(4c)=0$ and $f_r'(4c)>0$, such that $\tvphi^2=\frac49f_r^3$ on $\mathbb D(4c,2\eps_0)$, and
   $\tvphi=-\frac23f_r^{3/2}$ (principal branch, cut along $f_r^{-1}((-\infty,0])$). Hence, for
-  $z\in U(4c,2\eps_0)\setminus\R$,
+  $z\in \mathbb D(4c,2\eps_0)\setminus\R$,
   \[
     \re\tvphi(z)>0\iff\tfrac\pi3<|\arg f_r(z)|<\pi,\qquad \re\tvphi(z)<0\iff|\arg f_r(z)|<\tfrac\pi3 ,
   \]
   and $\re\tvphi<0$ on $(4c,4c+2\eps_0)$. Shrinking $\eps_0$, we may assume $|\arg f_r(z)-\arg(z-4c)|\le\pi/12$ on
-  $U(4c,2\eps_0)\setminus\R$; in particular $\re\tvphi>0$ on the vertical segments $\{4c\pm iy:0<y<2\eps_0\}$.
+  $\mathbb D(4c,2\eps_0)\setminus\R$; in particular $\re\tvphi>0$ on the vertical segments $\{4c\pm iy:0<y<2\eps_0\}$.
 \end{enumerate}
 \end{lemma}
 
@@ -268,13 +268,13 @@ and $\mathcal B_y(a',\frac12)=y^{a'}\mathfrak a_0(y)$ with $\mathfrak a_0$ analy
 $\lambda_p(x)(x/4c)^{1/p+1/2}=Cx^{-1/2}$, we get $\mu^*((0,x])=x^{1/2}\mathfrak a(x)$ with $\mathfrak a$ analytic near
 $0$ and $\mathfrak a(0)>0$ (in fact $\mathfrak a(0)=2C_*$ by Proposition~\ref{prop:equilibrium}(iii)). Put
 $f(z):=-\frac{\pi^2}{4}z\mathfrak a(z)^2$. Then $f$ is analytic and real on the real axis, $f(0)=0$,
-$f'(0)=-\pi^2\mathfrak a(0)^2/4<0$, so $f$ is univalent on a disc $U(0,2\delta_0)$. The functions
-$(\varphi+i\pi)^2$ (on $\C_+$) and $4f$ are analytic in $U(0,2\delta_0)\cap\C_+$ and have the same continuous boundary
+$f'(0)=-\pi^2\mathfrak a(0)^2/4<0$, so $f$ is univalent on a disc $\mathbb D(0,2\delta_0)$. The functions
+$(\varphi+i\pi)^2$ (on $\C_+$) and $4f$ are analytic in $\mathbb D(0,2\delta_0)\cap\C_+$ and have the same continuous boundary
 values $-\pi^2x\mathfrak a(x)^2$ on $(0,2\delta_0)$; by the reflection principle they coincide. The same holds in $\C_-$
-with $\varphi-i\pi$. In $U(0,2\delta_0)\cap\C_+$ the two analytic functions $f^{1/2}$ (principal) and
+with $\varphi-i\pi$. In $\mathbb D(0,2\delta_0)\cap\C_+$ the two analytic functions $f^{1/2}$ (principal) and
 $-\frac{i\pi}2z^{1/2}\mathfrak a(z)$ have the same square, so they differ by a constant sign; on the band both equal
 $-\frac{i\pi}2x^{1/2}\mathfrak a(x)$ (there $f(x+i0)$ lies on the negative axis approached from below), so they are
-equal, and $\varphi_++i\pi=-2f^{1/2}$ on the band gives $\varphi=-i\pi-2f^{1/2}$ in $U(0,2\delta_0)\cap\C_+$. The bound
+equal, and $\varphi_++i\pi=-2f^{1/2}$ on the band gives $\varphi=-i\pi-2f^{1/2}$ in $\mathbb D(0,2\delta_0)\cap\C_+$. The bound
 on $\re\varphi$ follows from $|f(z)|\le C|z|$. For~\eqref{eq:retvphi-zero} let $z=re^{i\phi}$ with
 $0<\phi\le\thw$ (the lower half-disc is the mirror image). Then
 \[
@@ -289,7 +289,7 @@ Lemma~\ref{lem:gfunction}(i), $\tvphi_+-\tvphi_-=2\pi i\int_x^\infty(\lambda_p-\
 Near $y=1$, $1-\mathcal B_y(a',\frac12)=(1-y)^{1/2}\mathfrak a_1(y)$ with $\mathfrak a_1$ analytic and
 $\mathfrak a_1(1)>0$, so $\tvphi_+(x)=i\pi(4c-x)^{3/2}\mathfrak a_2(x)$ with $\mathfrak a_2$ analytic near $4c$ and
 $\mathfrak a_2(4c)>0$. As in~(iii), $\tvphi^2$ and $\mathfrak h(z):=\pi^2(z-4c)^3\mathfrak a_2(z)^2$ are analytic in
-$U(4c,2\eps_0)\setminus[4c-2\eps_0,4c+2\eps_0]$ with equal boundary values on $(4c-2\eps_0,4c)$, and $\tvphi$ has no
+$\mathbb D(4c,2\eps_0)\setminus[4c-2\eps_0,4c+2\eps_0]$ with equal boundary values on $(4c-2\eps_0,4c)$, and $\tvphi$ has no
 jump on $(4c,4c+2\eps_0)$ (Lemma~\ref{lem:gfunction}(i)). So $\tvphi^2=\mathfrak h$. Put
 $f_r:=(9\mathfrak h/4)^{1/3}=(\frac{3\pi}{2})^{2/3}(z-4c)\mathfrak a_2(z)^{2/3}$. On $(4c,\infty)$, $\tvphi$ is real and
 negative (Lemma~\ref{lem:gfunction}(iii)), which fixes the branch $\tvphi=-\frac23f_r^{3/2}$. Then
@@ -302,15 +302,15 @@ statement about $\arg f_r$, and on the vertical segments $|\arg f_r|\in[\frac{5\
 The lens is bounded by two arcs, the lips, on which the triangular factors of the lens are exponentially small. We first
 show that such arcs exist, with all the properties we need.
 
-\begin{lemma}[The lips]\label{lem:lips}
+\begin{lemma}[Lips]\label{lem:lips}
 There is $\delta_1>0$ such that for every $\delta\in(0,\delta_1]$ there is $h_1=h_1(\delta)>0$ with the following
 property. For every $h_0\in(0,h_1]$ there are $C^2$ arcs $\Sigma^\pm_{\mathrm{lip}}\subset\C_\pm$ from $0$ to
 $4c\pm ih_0$, mirror images of each other and independent of $n$, such that:
 \begin{enumerate}
-\item[(a)] $\Sigma^\pm_{\mathrm{lip}}\cap U(0,\delta)$ is the preimage under $f$ (equivalently, under $\zeta=n^2f(z)$) of
+\item[(a)] $\Sigma^\pm_{\mathrm{lip}}\cap \mathbb D(0,\delta)$ is the preimage under $f$ (equivalently, under $\zeta=n^2f(z)$) of
   a segment of the ray $\arg\zeta=\mp(\pi-\thlip)$; on it $\frac34\thlip\le|\arg z|\le\frac54\thlip$;
 \item[(b)] on $\Sigma^\pm_{\mathrm{lip}}\setminus\{0,4c\pm ih_0\}$: $|\arg z|<\thw$, $\re\varphi<0$ and $\re\tvphi>0$;
-\item[(c)] $\Sigma^\pm_{\mathrm{lip}}\subset\{\re z\le4c\}\setminus U(4c,h_0)$, and $\Sigma^\pm_{\mathrm{lip}}$ meets the
+\item[(c)] $\Sigma^\pm_{\mathrm{lip}}\subset\{\re z\le4c\}\setminus \mathbb D(4c,h_0)$, and $\Sigma^\pm_{\mathrm{lip}}$ meets the
   line $\re z=4c$ only at $4c\pm ih_0$.
 \end{enumerate}
 \end{lemma}
@@ -318,13 +318,13 @@ $4c\pm ih_0$, mirror images of each other and independent of $n$, such that:
 \begin{proof}
 We construct the upper lip from four pieces and round the three corners inside the open set
 $G_+:=\{z\in\C_+:\ |\arg z|<\thw,\ \re\tvphi(z)>0\}$, which contains every piece except its two end points, and outside
-$\overline{U(0,\delta)}$; the lower lip is the mirror image. By Lemma~\ref{lem:signs}(i), $\re\varphi<0$ on all of
+$\overline{\mathbb D(0,\delta)}$; the lower lip is the mirror image. By Lemma~\ref{lem:signs}(i), $\re\varphi<0$ on all of
 $\C_+$, so only $\re\tvphi>0$ and $|\arg z|<\thw$ have to be checked.
 
 Choose $r_*\in(0,\delta_0)$ with $\frac2pr^{-1/p}>Cr^{1/2}$ for $0<r\le r_*$; then~\eqref{eq:retvphi-zero} gives
 $S_0:=\{0<|z|\le r_*,\ 0<\arg z<\thw\}\subset G_+$. Since $f(z)=f'(0)z(1+O(z))$ with $f'(0)<0$ and $f$ is univalent,
 the preimage of the ray $\arg\zeta=-(\pi-\thlip)$ near $0$ is an analytic arc leaving $0$ at the angle $\thlip$, and for
-$\delta_1\le r_*/4$ small its part in $U(0,2\delta)$ satisfies $\frac34\thlip\le\arg z\le\frac54\thlip$ (as
+$\delta_1\le r_*/4$ small its part in $\mathbb D(0,2\delta)$ satisfies $\frac34\thlip\le\arg z\le\frac54\thlip$ (as
 $\frac54\thlip<\thw$, it lies in $S_0$). This is the first piece; let $z_1$ be its end point on $|z|=2\delta$, so that
 the corner at $z_1$ can be rounded in $\{\delta<|z|<2\delta\}$ and~(a) is not affected. The second piece runs in $S_0$:
 along the ray $\arg z=\arg z_1$ to $|z|=\frac34r_*$, and then along the circle $|z|=\frac34r_*$ down to height
@@ -335,7 +335,7 @@ $h_1\le\min(y_K,\frac12\eps_0)$ so small that the angle $\phi$ with $\frac34r_*\
 and $\frac34r_*\cos\phi\ge\frac12r_*$, that $\arctan(2y_1/r_*)<\thw$, and that $\arcsin(h_0/4c)<\thw$ (the largest
 argument on the fourth piece). The third piece is the horizontal segment from the end of the second piece to the point
 $4c+h_0e^{i11\pi/12}$, at height $y_1$. For $\re z\in K$ it lies in $G_+$ by Lemma~\ref{lem:signs}(ii), as $y_1<y_K$.
-For $4c-\frac12\eps_0\le\re z\le4c-h_0\cos\frac\pi{12}$ it lies in $U(4c,\eps_0)$ with $\arg(z-4c)\ge\frac{11\pi}{12}$,
+For $4c-\frac12\eps_0\le\re z\le4c-h_0\cos\frac\pi{12}$ it lies in $\mathbb D(4c,\eps_0)$ with $\arg(z-4c)\ge\frac{11\pi}{12}$,
 hence $\frac{5\pi}6\le\arg f_r(z)<\pi$ and $\re\tvphi>0$ by Lemma~\ref{lem:signs}(iv). The fourth piece is the arc
 $\{4c+h_0e^{i\phi}:\ \frac\pi2\le\phi\le\frac{11\pi}{12}\}$, on which $\frac{5\pi}{12}\le\arg f_r<\pi$, so again
 $\re\tvphi>0$ (except at the end point $4c+ih_0$ itself, where $\arg f_r\in[\frac{5\pi}{12},\frac{7\pi}{12}]$ also
@@ -348,7 +348,7 @@ We fix, once and for all and independently of $n$, numbers $\delta,h_0,\eps,\del
   0<\delta\le\min\bigl(\delta_1,\tfrac14,\tfrac c2\bigr),\qquad 0<h_0\le\min\bigl(h_1(\delta),\tfrac12\delta\tan\thw\bigr),\\
   0<\eps<\min(h_0,\eps_0,c\sin\thw),\qquad 0<\delta'<1,
 \end{gather*}
-(the condition $\eps<c\sin\thw$ gives $U(4c,4\eps)\subset\Zn$, which Lemma~\ref{lem:szego}(vi)(b) uses), and the
+(the condition $\eps<c\sin\thw$ gives $\mathbb D(4c,4\eps)\subset\Zn$, which Lemma~\ref{lem:szego}(vi)(b) uses), and the
 following arcs (Figure~\ref{fig:geometry}).
 \begin{itemize}
 \item The \emph{band} $[0,4c]$, the \emph{saturated segment} $(4c,n^p+\delta')$ and the \emph{top segment}
@@ -362,7 +362,7 @@ These arcs bound the \emph{lens} $\Ob^\pm$ (between the band and $\Sigma^\pm_{\m
 $\Sigma^\pm_v$) and the \emph{saturated regions} $\Osat_\pm:=\{4c<\re z<n^p+\delta',\ 0<\pm\im z<h_0\}$. The rest of
 $\C$ is $\Oinf$. We write $\Sigma$ for the union of all these arcs. Only finitely many arcs meet at each vertex, and
 for fixed $n$, $\Sigma$ is bounded. By Lemma~\ref{lem:lips}(c) the lips meet the saturated lips only at $4c\pm ih_0$. In
-$U(4c,\eps)$ the only arcs are the band, the saturated segment and $\Sigma^\pm_v$; at $0$ only the band and the two lips
+$\mathbb D(4c,\eps)$ the only arcs are the band, the saturated segment and $\Sigma^\pm_v$; at $0$ only the band and the two lips
 meet. Nothing lies on $(-\infty,0)$ or on $(n^p+\delta',\infty)$.
 
 The closures of $\Ob^\pm$ and $\Osat_\pm$, minus the point $0$, lie in $\Zn$: the lens lies in $|\arg z|<\thw$ by
@@ -484,7 +484,7 @@ The following bookkeeping explains why an angle $\vartheta>0$ of any size suffic
 The functions $w$, $W$, $r_n$ and $W_0$ (defined in~\eqref{eq:W0}) are evaluated only at points of $\Zn$.
 Specifically, they are evaluated (a) in $\overline{\Ob\cup\Osat}\setminus\{0\}$, which contains every arc of $\Sigma$
 except the top segment and the parts of the lips outside the lens; (b) on the lips and on the top segment; and (c) in
-the sectors $\{|\arg z|\le\frac54\thlip\}\cap U(0,\delta)$ used in Section~\ref{sec:hardedge} and
+the sectors $\{|\arg z|\le\frac54\thlip\}\cap \mathbb D(0,\delta)$ used in Section~\ref{sec:hardedge} and
 Appendix~\ref{app:apriori}. The region $\Oinf$ never uses the weight: there $M=e^{n\varphi\sigma_3}F^{\sigma_3}$
 contains neither $w$ nor $W$. Consequently $\xi(z)=\log t(z)$ always lies in
 $\{\re\xi\ge-c_0,\ |\im\xi|\le\thw/p\}\subset S_\vartheta$.
@@ -572,8 +572,8 @@ properties for every $n\ge n_0$, where the constants $C$ in~(c) and~(d) do not d
 \item[(c)] For $z\in\Zn$ with $|z|\le1$:
   $|\log H_n(z)-\log H_n(0^+)|\le C|z|^{\nu_p}$ and $|(\log H_n)'(z)|\le C|z|^{\nu_p-1}$.
 \item[(d)] For $z\in\Zn$ with $|z|\ge1$: $|\log H_n(z)-\log H_n(0^+)|\le C\bigl(1+\log(1+|z|)\bigr)^2$.
-\item[(e)] (For each fixed $n$.) $|F|^{\pm1}$ is bounded on $U(0,\delta)\setminus(\overline{\Ob}\cup[0,\infty))$, and
-  $\tilde F^{\pm1}$ is bounded on $U(0,\delta)\cap\Ob$. There is $N_n$ with $|F(z)|^{\pm1}\le C_n|z|^{N_n}$ for
+\item[(e)] (For each fixed $n$.) $|F|^{\pm1}$ is bounded on $\mathbb D(0,\delta)\setminus(\overline{\Ob}\cup[0,\infty))$, and
+  $\tilde F^{\pm1}$ is bounded on $\mathbb D(0,\delta)\cap\Ob$. There is $N_n$ with $|F(z)|^{\pm1}\le C_n|z|^{N_n}$ for
   $|z|\ge n^p+\delta'$, $z\notin\R$, and $F(iy)$ is bounded and bounded away from $0$ as $y\to\pm\infty$.
 \end{enumerate}
 \end{definition}

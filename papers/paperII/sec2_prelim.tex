@@ -17,9 +17,10 @@ every $s>1$. Sections~\ref{sec:frame} and~\ref{sec:outer} hold for every $\alpha
 of some angle; Sections~\ref{sec:hardedge} and~\ref{sec:extraction} assume $|\alpha|<1$, that is, $1<s<1+2p$; and
 Sections~\ref{sec:classical} and~\ref{sec:second} assume $p>1$ and $\ell\equiv1$. The Riemann--Hilbert notation is
 introduced in Section~\ref{sec:frame}, and Table~\ref{tab:geometry} lists the quantities that depend on whether $p>1$,
-$p=1$ or $p<1$. Symbols used only inside one proof are local to it.
+$p=1$ or $p<1$. Symbols used only inside one proof are local to it. We write $\mathbb D(z_0,r)$ for the open disc of
+radius $r$ about $z_0$, and $\C_\pm$ for the open upper and lower half-planes.
 
-\subsection{Orthogonal polynomials and Jacobi coefficients}\label{sec:prelim-op}
+\subsection{Orthogonal polynomials and recurrence coefficients}\label{sec:prelim-op}
 
 Let $\sigma$ be a positive Borel measure on $[0,\infty)$ with infinite support and finite moments. Its Hankel
 determinants are positive, so the monic orthogonal polynomials $P_n$ ($\deg P_n=n$) exist for every $n\ge0$. Put
@@ -27,10 +28,8 @@ $h_n:=\int P_n^2\diff\sigma>0$, $P_{-1}:=0$ and $b_0:=0$. The polynomials satisf
 \begin{equation}\label{eq:rec-monic}
   xP_n=P_{n+1}+a_nP_n+b_n^2P_{n-1}\qquad(n\ge0),\qquad b_n^2=\frac{h_n}{h_{n-1}}\quad(n\ge1),
 \end{equation}
-with $a_n\in\R$ and $b_n>0$ for $n\ge1$. We call $a_n$ and $b_n$ the \emph{Jacobi coefficients} of
-$\sigma$.\footnote{The companion paper~\cite{Paper1} writes $xP_k=P_{k+1}+a_{k+1}P_k+b_k^2P_{k-1}$; its $a_{n+1}$ is
-our $a_n$, and $b_n$ agrees.}
-Multiplying $\sigma$ by a positive constant does not change them. The orthonormal polynomials $p_n:=P_n/\sqrt{h_n}$
+with $a_n\in\R$ and $b_n>0$ for $n\ge1$. We call $a_n$ and $b_n$ the \emph{recurrence coefficients} of
+$\sigma$. Multiplying $\sigma$ by a positive constant does not change them. The orthonormal polynomials $p_n:=P_n/\sqrt{h_n}$
 satisfy
 \begin{equation}\label{eq:rec-orth}
   xp_n=b_{n+1}p_{n+1}+a_np_n+b_np_{n-1}\qquad(n\ge0),
@@ -44,7 +43,8 @@ In matrix form, \eqref{eq:rec-orth} says that the Jacobi matrix of $\sigma$ is t
 $\mathcal J(\sigma)$ with diagonal $(a_0,a_1,\dots)$ and off-diagonal $(b_1,b_2,\dots)$. The monic form
 \eqref{eq:rec-monic} corresponds to the non-symmetric matrix $J=J(\sigma)$ with $J_{n,n}=a_n$, $J_{n,n+1}=1$ and
 $J_{n+1,n}=b_{n+1}^2$; this is the form used in Section~\ref{sec:shift}. The ratio $a_n/(2b_n)$ always pairs the
-diagonal entry at $P_n$ with the off-diagonal entry $b_n$ between $P_{n-1}$ and $P_n$.
+diagonal entry at $P_n$ with the off-diagonal entry $b_n$ between $P_{n-1}$ and $P_n$; both are read off from the same
+Riemann--Hilbert matrix of degree $n$ (Proposition~\ref{prop:frame}(viii)).
 
 If $\ell$ is analytic of angle $\vartheta$ for some $\vartheta>0$, then $\ell(k)\le C_\eta k^\eta$ for every $\eta>0$
 by the Potter bound of Lemma~\ref{lem:pottersector}(i). Taking $\eta<s-1$ shows that $\sigma_{p,s,\ell}$ is a finite
@@ -64,7 +64,7 @@ The basic example is $\eta_n=1/n$. Every regular rate satisfies
 The first holds because $n\eta_n\ge\eta_1$; the second because $(n-1)\eta_{n-1}\le n\eta_n$; the third follows from
 the first.
 
-\begin{remark}[regular majorants]\label{rem:majorant}
+\begin{remark}[Regular majorants]\label{rem:majorant}
 Every non-increasing sequence $\mathsf v_n>0$ with $\mathsf v_n\to0$ is dominated by a regular rate, namely
 $\eta_n:=\max_{m\le n}(m\mathsf v_m)/n$. Here $\eta_n\ge\mathsf v_n$ and $n\eta_n$ is non-decreasing by construction;
 $\eta_{n+1}\le\max\bigl(\eta_n\,n/(n+1),\mathsf v_{n+1}\bigr)\le\eta_n$ because $\mathsf v_{n+1}\le\mathsf v_n\le\eta_n$;

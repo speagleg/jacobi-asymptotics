@@ -2,14 +2,9 @@
 
 \section{\texorpdfstring{The $1/n$ term for $p>1$}{The 1/n term for p>1}}\label{sec:second}
 
-This section proves Theorem~\ref{thm:onen}: for $p>1$ and $s>1$ the Jacobi coefficients of $\sigma_{p,s}$ satisfy
-\[
-  n^pb_n=c(p)\Bigl(1-\frac{s-1}{2n}+O(n^{-2})\Bigr),\qquad n^pa_n=2c(p)\Bigl(1-\frac{s-1+p}{2n}+O(n^{-2})\Bigr),
-\]
-and hence $a_n/(2b_n)=1-p/(2n)+O(n^{-2})$, where, as everywhere in this paper, $a_n/(2b_n)$ pairs the diagonal entry at
-$P_n$ with the off-diagonal entry $b_n$ between $P_{n-1}$ and $P_n$. We expand the error matrix $\mathsf R$ of
-\S\ref{sec:classical-small} to second order in $1/n$. The standing assumptions and the notation of
-Section~\ref{sec:classical} are in force: $p>1$, $s>1$, $\ell\equiv1$, every $\alpha>-1$.
+This section proves Theorem~\ref{thm:onen} by expanding the error matrix $\mathsf R$ of \S\ref{sec:classical-small}
+to second order in $1/n$. The standing assumptions and the notation of Section~\ref{sec:classical} are in force: $p>1$,
+$s>1$, $\ell\equiv1$, and $\alpha>-1$ is arbitrary.
 
 \emph{Outline.} The global parametrix $P^\infty_0$ does not depend on $n$ or on the weight, and it contributes exactly
 $c^2$ and $2c$ to the two extraction functionals. So the $1/n$ terms of $b_n$ and $a_n$ come only from the first
@@ -39,7 +34,7 @@ and, for any numbers $y_{11},y_{12},y_{21}$,
 
 \subsection{The first corrections}\label{sec:second-corrections}
 
-\begin{lemma}[first corrections of the two models]\label{lem:model-corrections}
+\begin{lemma}[First corrections of the two models]\label{lem:model-corrections}
 \begin{enumerate}
 \item[(a)] Let $\alpha>-1$ and
   \[
@@ -102,13 +97,13 @@ respectively,
   \Delta_0:=\frac1{16f^{1/2}}\,P^\infty_0\rho_n^{\sigma_3}\mathsf Z_{\mathrm B}\rho_n^{-\sigma_3}(P^\infty_0)^{-1},\qquad
   \Delta_r:=-\frac1{\tvphi}\,P^\infty_0(-\omega)^{-\sigma_3/2}\mathsf Z_{\mathrm{Ai}}(-\omega)^{\sigma_3/2}(P^\infty_0)^{-1},
 \end{equation}
-with $\rho_n$ of~\eqref{eq:Wtilde} and the root~\eqref{eq:omega-root}. Note that $\Delta_0$ depends on $\rho_n$ only
+with $\rho_n$ of~\eqref{eq:Wtilde} and the root~\eqref{eq:omega-root}. Here $\Delta_0$ depends on $\rho_n$ only
 through $\rho_n^{\pm2}=(e^{\mp i\pi\alpha}/\omega)^{\pm1}$, and $\Delta_r$ only through $(-\omega)^{\pm1}$. Let
 $\Delta_0^{\mathrm{mod}}$ and $\Delta_r^{\mathrm{mod}}$ be the same expressions with $\omega$ replaced by $\omega^{\mathrm{mod}}$ of
-\eqref{eq:omega-mod}, on the whole punctured discs $U(0,2\delta)\setminus\{0\}$ and $U(4c,2\eps)\setminus\{4c\}$ (off
+\eqref{eq:omega-mod}, on the whole punctured discs $\mathbb D(0,2\delta)\setminus\{0\}$ and $\mathbb D(4c,2\eps)\setminus\{4c\}$ (off
 $[0,4c]$ to begin with).
 
-\begin{lemma}[the jumps on the two circles]\label{lem:circle-jumps}
+\begin{lemma}[Jumps on the two circles]\label{lem:circle-jumps}
 Uniformly on the circles, with boundary values where they cross the contour,
 \[
   \check P_0(P^\infty_0)^{-1}=I+\frac{\Delta_0}n+O(n^{-2})\ \text{on }\partial U_0,\qquad
@@ -147,7 +142,7 @@ the last claim follows.
 
 \subsection{The local data and the Laurent coefficients}\label{sec:second-laurent}
 
-\begin{lemma}[local data of the model]\label{lem:local-data}
+\begin{lemma}[Local data of the model]\label{lem:local-data}
 \begin{enumerate}
 \item[(i)] $f(z)=f'(0)z\bigl(1+f_2z+O(z^2)\bigr)$ near $0$, with
   \[
@@ -205,8 +200,8 @@ i\pi\alpha}$. Hence $\omega^{\mathrm{mod}}=e^{\mp i\pi\alpha}(4c/\hat\Upsilon)^{
 \end{proof}
 
 \begin{lemma}[Laurent coefficients]\label{lem:laurent}
-$\Delta_0^{\mathrm{mod}}$ is meromorphic in $U(0,2\delta)$ with at most a simple pole at $0$, and $\Delta_r^{\mathrm{mod}}$ is
-meromorphic in $U(4c,2\eps)$ with at most a double pole at $4c$:
+$\Delta_0^{\mathrm{mod}}$ is meromorphic in $\mathbb D(0,2\delta)$ with at most a simple pole at $0$, and $\Delta_r^{\mathrm{mod}}$ is
+meromorphic in $\mathbb D(4c,2\eps)$ with at most a double pole at $4c$:
 \[
   \Delta_0^{\mathrm{mod}}(z)=\frac{\mathfrak A_0}z+O(1),\qquad
   \Delta_r^{\mathrm{mod}}(z)=\frac{\mathfrak B_r}{(z-4c)^2}+\frac{\mathfrak A_r}{z-4c}+O(1).
@@ -286,7 +281,7 @@ $a^{\pm2}$, $Y$ and $\tvphi$ were used. They do enter $\mathfrak A_r$ itself and
 
 \subsection{The second-order small-norm estimate}\label{sec:second-small}
 
-\begin{proposition}[second-order small norm]\label{prop:second}
+\begin{proposition}[Second-order small norm]\label{prop:second}
 Let $p>1$, $s>1$, $\ell\equiv1$. For $n\ge n_0$,
 \[
   \mathsf R(z)=I+\frac{\mathsf R^{(1)}(z)}n+O(n^{-2})
@@ -355,13 +350,29 @@ contributions of $\mathsf R_1$ and $\mathsf R_2$. Since $p(\alpha+2)=s-1+p$, $n^
 Finally $c(n+\frac{s-1}{2p})^{-p}=cn^{-p}(1-\frac{s-1}{2n}+O(n^{-2}))$, which gives the last form of $b_n$.
 \qed
 
-\begin{remark}[the hard edge at order $1/n$; the case $p=2$]\label{rem:second}
+\begin{remark}[The hard edge at order $1/n$; the case $p=2$]\label{rem:second}
 The hard edge contributes nothing at order $1/n$: its residue $\mathfrak A_0$ is a multiple of
 $\mathsf Te_1e_2^{\mathsf T}\mathsf T^{-1}$, because only the entry $a^2Y_{12}$ in~\eqref{eq:conj-T} has a pole at $0$, and this
 direction is annihilated by both functionals. Hence the $1/n$ terms of $b_n$ and $a_n$ are those of the Airy correction
 at the soft edge, and of these only the residue combinations~\eqref{eq:Ar-combinations} enter; the coefficient of $b_n$ comes
 from the simple pole alone. At $p=2$ the band factor is exactly constant (the remark after Lemma~\ref{lem:bandfactor}), so
-$\Delta_0=\Delta_0^{\mathrm{mod}}$ and $\Delta_r=\Delta_r^{\mathrm{mod}}$ exactly. For $(p,s)=(2,2)$, where $c(2)=\pi^2/16$, the closed
-forms of Remark~\ref{rem:lommel} give $n^2b_n/c(2)=16n^2/((4n+1)\sqrt{(4n-1)(4n+3)})=1-\frac1{2n}+O(n^{-2})$ and
-$n^2a_n/(2c(2))=16n^2/((4n+1)(4n+5))=1-\frac3{2n}+O(n^{-2})$, which are the values of Theorem~\ref{thm:onen} at $(2,2)$.
+$\Delta_0=\Delta_0^{\mathrm{mod}}$ and $\Delta_r=\Delta_r^{\mathrm{mod}}$ exactly, and the closed forms of
+Remark~\ref{rem:lommel} for $(p,s)=(2,2)$ give the values of Theorem~\ref{thm:onen} there.
+
+\emph{Derivation of the closed form of Remark~\ref{rem:lommel}.} Put
+$\beta_{n+1}:=[2\sqrt{(n+\nu)(n+\nu+1)}]^{-1}$. Van Assche \cite[\S3]{VA} records that the orthonormal Lommel
+polynomials satisfy $xp_n=\beta_{n+1}p_{n+1}+\beta_np_{n-1}$. For
+$\nu=\frac32$ the orthogonality measure $\mu$ is identified as follows. By the Bessel recurrence
+\cite[(10.6.1)]{DLMF}, $\mathsf u_n:=\sqrt{n+\nu}\,J_{\nu+n}(1/x)$ solves $x\mathsf u_n=\beta_{n+1}\mathsf
+u_{n+1}+\beta_n\mathsf u_{n-1}$ for $n\ge0$ (with $\beta_0:=[2\sqrt{\nu(\nu-1)}]^{-1}$), and it is square summable by
+\cite[(10.2.2)]{DLMF}. For $x\notin\R$ the resolvent vector $(\mathcal J-x)^{-1}e_0$ of the Jacobi matrix $\mathcal J$
+solves the same recurrence for $n\ge1$ and is square summable, and such solutions form a line, since the Wronskian
+$\beta_n(\mathsf u_n\tilde{\mathsf u}_{n-1}-\mathsf u_{n-1}\tilde{\mathsf u}_n)$ of two of them is constant and tends to $0$. Hence
+$\int(t-x)^{-1}\diff\mu(t)$, the first entry of the resolvent, equals $-\mathsf u_0/(\beta_0\mathsf u_{-1})=-2\nu
+J_\nu(1/x)/J_{\nu-1}(1/x)$. For $\nu=\frac32$ this is $-3(z^{-1}-\cot z)$ with $z=1/x$ \cite[(10.16.1),
+(10.6.1)]{DLMF}, and the partial fractions of $\cot$ \cite[(4.22.3)]{DLMF} show that $\mu$ has mass $3/(\pi k)^2$ at
+$\pm1/(\pi k)$, $k\ge1$. Its image under $t\mapsto\pi^2t^2$ is $(6/\pi^2)\sigma_{2,2}$. The quadratic transformation
+(the monic orthogonal polynomials of $\mu$ of degree $2n$ are $q_n(t^2)$, where $q_n$ are those of the image of $\mu$
+under $t\mapsto t^2$) gives $a_n=\pi^2(\beta_{2n}^2+\beta_{2n+1}^2)$ and $b_n=\pi^2\beta_{2n-1}\beta_{2n}$ for
+$\sigma_{2,2}$, which are the formulas of Remark~\ref{rem:lommel}.
 \end{remark}

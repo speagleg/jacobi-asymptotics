@@ -8,7 +8,7 @@ following theorem, the base case of the argument, in the window $|\alpha|<1$ to 
 restricted. The Christoffel shift of Section~\ref{sec:shift} then carries the result to every $s>1$, and the case
 $\ell\equiv1$ gives Corollary~\ref{cor:pure}.
 
-\begin{theorem}[base window]\label{thm:window}
+\begin{theorem}[Base window]\label{thm:window}
 Let $p>0$ and $1<s<1+2p$, so that $\alpha=(s-1-p)/p\in(-1,1)$, and let $\ell$ be analytic of angle $\vartheta$ for some
 $\vartheta>0$ (Definition~\ref{def:analytic}). Then the recurrence coefficients of $\sigma_{p,s,\ell}$ satisfy
 \[
@@ -17,19 +17,14 @@ $\vartheta>0$ (Definition~\ref{def:analytic}). Then the recurrence coefficients 
 with constants depending on $p$, $s$ and $\ell$.
 \end{theorem}
 
-Theorem~\ref{thm:window} rests on Sections~\ref{sec:frame}--\ref{sec:hardedge}, and through them on the
-Riemann--Hilbert formulation of Wu, Lin, Xu and Zhao (\S\ref{sec:tool-wlxz}, used as a pattern), the Bessel model of
-Kuijlaars, McLaughlin, Van Assche and Vanlessen (\S\ref{sec:tool-bessel}), the comparison argument of Conway and Deift
-(\S\ref{sec:tool-cd}) and the special-function facts of \S\ref{sec:tool-dlmf}.
+Theorem~\ref{thm:window} rests on Sections~\ref{sec:frame}--\ref{sec:hardedge}, and through them on the external
+results of \S\S\ref{sec:tool-wlxz}--\ref{sec:tool-dlmf}.
 
 \subsection{Extraction}\label{sec:extraction-proof}
 
-The recurrence coefficients are read off from the first two coefficients at infinity through the functionals
+The recurrence coefficients are read off from the first two coefficients of $Q$ at infinity through the functionals
 $\mathsf a$ and $\mathsf b$ of~\eqref{eq:functional-a}: by Proposition~\ref{prop:frame}(viii), which rests on the
-invariance of these functionals (Lemma~\ref{lem:invariance}), $\mathsf b(Q)=n^{2p}b_n^2$ and $\mathsf a(Q)=n^pa_n$. Both
-come from the \emph{same} matrix of degree $n$, so the ratio $a_n/(2b_n)$ in Theorem~\ref{thm:window} pairs the
-diagonal entry at $P_n$ with the off-diagonal entry $b_n$ between $P_{n-1}$ and $P_n$, as in~\eqref{eq:rec-monic}.
-This matters for any statement about the $1/n$ terms (Theorem~\ref{thm:onen}).
+invariance of these functionals (Lemma~\ref{lem:invariance}), $\mathsf b(Q)=n^{2p}b_n^2$ and $\mathsf a(Q)=n^pa_n$.
 
 \begin{proof}[Proof of Theorem~\ref{thm:window}]
 For $n\ge n_1$, Proposition~\ref{prop:moments} gives $Q_1=P_1+O(1/n)$ and $Q_2=P_2+O(1/n)$, where $P_1,P_2$ are the
@@ -61,7 +56,7 @@ slowly varying factor, affects only the $O(1/n)$ terms.
 
 \subsection{From the base window to every \texorpdfstring{$s>1$}{s>1}}\label{sec:assembly}
 
-For a sequence of measures with Jacobi coefficients $a_n,b_n$ and a constant $c>0$, the two forms of the rate
+For a sequence of measures with recurrence coefficients $a_n,b_n$ and a constant $c>0$, the two forms of the rate
 statement are equivalent:
 \begin{equation}\label{eq:forms}
   \Bigl\{n^pb_n=c\bigl(1+O(1/n)\bigr),\ \ \frac{a_n}{2b_n}=1+O(1/n)\Bigr\}
@@ -96,7 +91,7 @@ coefficients are those of the moment sequence $(\zeta(qj+2q+r))_{j\ge0}$. The fi
 $s=2q+r>1$, gives $n^qb_n=c(q)(1+O(1/n))$ and $a_n/(2b_n)=1+O(1/n)$.
 \end{proof}
 
-\begin{remark}[which part of Theorem~\ref{thm:window} is used]\label{rem:base-window}
+\begin{remark}[Which part of Theorem~\ref{thm:window} is used]\label{rem:base-window}
 Any half-open $s$-window of length $p$ inside $(1,1+2p)$ can serve as the base in the proof of
 Theorem~\ref{thm:analytic}. For $s>1+p/2$ one may take $s_0$ to be the unique point of $s-p\N_0$ in
 $(1+p/2,1+3p/2]$, so that $\alpha=(s_0-1-p)/p\in(-\frac12,\frac12]$. Thus for every $s>1+p/2$ only the case

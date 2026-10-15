@@ -15,16 +15,16 @@ infinitely many nodes accumulate. There we bound the Cauchy sums in $Y$ directly
 thin sectors around the band, where the poles are removed by $R$ and a contour argument is needed
 (Lemma~\ref{lem:lenssector}). Throughout this appendix $n\ge n_0$ is \emph{fixed}, and constants may depend on $n$.
 
-\subsection{Three facts about Cauchy integrals}\label{sec:B-prelim}
+\subsection{Three facts about Cauchy integrals}\label{sec:apriori-cauchy}
 
 The following facts hold for general contours and are used here and in Appendix~\ref{app:resolvent}. In this
-subsection $\Gamma$ is a bounded, finite union of oriented $C^2$ arcs with $|\Gamma\cap U(z,\rho)|\le C_\Sigma\rho$ for
+subsection $\Gamma$ is a bounded, finite union of oriented $C^2$ arcs with $|\Gamma\cap \mathbb D(z,\rho)|\le C_\Sigma\rho$ for
 all $z\in\C$, $\rho>0$, and $\mathcal V$ is the finite set of endpoints and intersection points of the arcs. We say that a
 function $\mathfrak F$ analytic in $\C\setminus\Gamma$ is \emph{continuous up to $\Gamma$} if near every point of
 $\Gamma\setminus\mathcal V$ its restriction to each side of $\Gamma$ extends continuously to the arc; $\mathfrak F_\pm$ then
 denote these extensions. We use only Cauchy's integral formula, Green's formula and the facts of \S\ref{sec:tool-cd}(a).
 
-\begin{lemma}[Cauchy integrals on a union of arcs]\label{lem:B-cauchy}
+\begin{lemma}[Cauchy integrals on a union of arcs]\label{lem:cauchy-arcs}
 \begin{enumerate}
 \item[(a)] For $\mathfrak h\in L^2(\Gamma)$ and $z\notin\Gamma$,
   \[
@@ -62,7 +62,7 @@ $(\Cauchy\mathfrak k)_+-(\Cauchy\mathfrak k)_-=K=\mathfrak k$. As continuous ext
 limits $\Cauchy_\pm\mathfrak k$ of \S\ref{sec:tool-cd}.
 
 (c) Fix $z\notin\Gamma$. For small $\rho$ and large $R$ apply Cauchy's integral formula to $\mathfrak F$ on the open set
-$U(0,R)\setminus\bigl(\Gamma\cup\bigcup_{z_0\in\mathcal V}\overline{U(z_0,\rho)}\bigr)$, whose boundary consists of the two sides
+$\mathbb D(0,R)\setminus\bigl(\Gamma\cup\bigcup_{z_0\in\mathcal V}\overline{\mathbb D(z_0,\rho)}\bigr)$, whose boundary consists of the two sides
 of the arcs of $\Gamma$ outside the small discs, the circles $|s-z_0|=\rho$ and the circle $|s|=R$; $\mathfrak F$ is continuous on
 the closure (taken separately on the two sides of each arc). The two sides of an arc contribute
 $\frac1{2\pi i}\int(\mathfrak F_+-\mathfrak F_-)(s)\diff s/(s-z)$, the left side being traversed in the direction of the arc. As $\rho\to0$
@@ -72,7 +72,7 @@ circle contributes $O(1/R)$. Hence $\mathfrak F(z)=\Cauchy(\mathfrak F_+-\mathfr
 $\mathfrak F_\pm=\Cauchy_\pm(\mathfrak F_+-\mathfrak F_-)$ wherever the non-tangential limits $\Cauchy_\pm$ exist, i.e.\ almost everywhere.
 \end{proof}
 
-\subsection{The bound at the hard edge}\label{sec:B-bound}
+\subsection{The bound at the hard edge}\label{sec:apriori-bound}
 
 Recall from Lemma~\ref{lem:interp} that
 \begin{equation}\label{eq:U-sum}
@@ -80,7 +80,7 @@ Recall from Lemma~\ref{lem:interp} that
 \end{equation}
 and that $U_{11},U_{21}$ are polynomials. Put $\varphi_1:=\frac12\thlip$.
 
-\begin{lemma}[sum bound]\label{lem:sumbound}
+\begin{lemma}[Sum bound]\label{lem:sumbound}
 For every $\eta>0$ there is $C$ (depending on $n$ and $\eta$) such that $|U_{j2}(z)|\le C|z|^{-\eta}(1+|z|^{\alpha})$ for
 $0<|z|\le1$, $\varphi_1\le|\arg z|\le\pi$.
 \end{lemma}
@@ -97,9 +97,9 @@ Since $t_z^{1+p-s}=n^{1+p-s}|z|^{\alpha}$ and $|z|^{-1}t_z^{1-s}=n^{1-s}|z|^{\al
 $t_z^\eta=n^\eta|z|^{-\eta/p}$, the claim follows after renaming $\eta$.
 \end{proof}
 
-\begin{lemma}[lens sectors]\label{lem:lenssector}
+\begin{lemma}[Lens sectors]\label{lem:lenssector}
 For every $\eta>0$ there are $\delta_{\mathrm s}\in(0,\delta)$ and $C$ such that $|R_{j2}(z)|\le C|z|^{-\eta}(1+|z|^\alpha)$ for
-$0<|z|\le\delta_{\mathrm s}/2$, $0<|\arg z|<\varphi_1$, and also for $z\in\Ob\cap U(0,\delta_{\mathrm s}/2)$.
+$0<|z|\le\delta_{\mathrm s}/2$, $0<|\arg z|<\varphi_1$, and also for $z\in\Ob\cap \mathbb D(0,\delta_{\mathrm s}/2)$.
 \end{lemma}
 
 \begin{proof}
@@ -132,14 +132,14 @@ $|e^{2\pi it}-1|\ge1/C>0$: if $|v|\ge\frac14$ this is clear, and if $|v|<\frac14
 $\mathbb Z$, so $|e^{2\pi it}-1|=2e^{-\pi v}|\sin\pi t|\ge2e^{-\pi/4}\sin(3\pi/8)$. Hence $|\mathcal K_j|\le C|W|\le C|s|^{\alpha-\eta}$
 there. The arc $|s|=r$ has length $\le2\thlip r$ and $|s-z|\ge\frac12|z|$, so its contribution is $\le Cr^{1+\alpha-\eta}/|z|\to0$
 as $r\to0$; the arc $|s|=\delta_{\mathrm s}$ contributes a bounded amount. Letting $r\to0$ in~\eqref{eq:R-contour} proves the bound for
-$0<\arg z<\varphi_1$. For $z\in\Ob\cap U(0,\delta_{\mathrm s}/2)$ with $\varphi_1\le|\arg z|<\frac54\thlip$, $R_{j2}=U_{j2}-U_{j1}We^{\mp2i\theta}\upsilon_\pm$
+$0<\arg z<\varphi_1$. For $z\in\Ob\cap \mathbb D(0,\delta_{\mathrm s}/2)$ with $\varphi_1\le|\arg z|<\frac54\thlip$, $R_{j2}=U_{j2}-U_{j1}We^{\mp2i\theta}\upsilon_\pm$
 is bounded by Lemma~\ref{lem:sumbound} plus a super-small term.
 \end{proof}
 
-\begin{proposition}[a priori bound]\label{prop:apriori}
+\begin{proposition}[A priori bound]\label{prop:apriori}
 Fix $n\ge n_0$. Then $\det Q\equiv1$, and:
 \begin{enumerate}
-\item[(i)] for every $\eta>0$ there is $C_{n,\eta}$ with $|Q(z)|\le C_{n,\eta}|z|^{-|\alpha|/2-\eta}$ for $z\in U(0,\delta)\setminus\Sigma$;
+\item[(i)] for every $\eta>0$ there is $C_{n,\eta}$ with $|Q(z)|\le C_{n,\eta}|z|^{-|\alpha|/2-\eta}$ for $z\in \mathbb D(0,\delta)\setminus\Sigma$;
 \item[(ii)] $Q$ is bounded on every bounded set at positive distance from $0$, and $Q(z)\to I$ as $z\to\infty$;
 \item[(iii)] $Q$ has continuous boundary values on $\Sigma$ minus its vertices.
 \end{enumerate}
@@ -173,7 +173,7 @@ $C|z|^{-\eta}(1+|z|^\alpha)|z|^{-\alpha/2-\eta}\le C|z|^{-|\alpha|/2-2\eta}$. Re
 and diagonal factors in~\eqref{eq:R}--\eqref{eq:V}, $F$, $\tilde F$ and $D_W$ is analytic in each region up to its boundary, except
 for the poles of $U$ and of $\upsilon_\pm$ at the nodes, which cancel in $R$ (Step~1 of \S\ref{sec:frame-transf}). Near $4c$ the
 only singular factors are $\tilde F\sim(4c-z)^{-1/2}$ and $D_W\sim(4c-z)^{1/2}$, and they occur only in the product
-$\tilde FD_W$, whose square $(\tilde FD_W)^2=\mathsf w_nz^\alpha r_n\omega$ is bounded above and below on $U(4c,\eps)$
+$\tilde FD_W$, whose square $(\tilde FD_W)^2=\mathsf w_nz^\alpha r_n\omega$ is bounded above and below on $\mathbb D(4c,\eps)$
 (Lemma~\ref{lem:szego}(vi)(b)). At the remaining vertices ($4c\pm ih_0$, $n^p+\delta'\pm ih_0$, $n^p+\delta'$) all factors are
 analytic and bounded. At $\infty$, $Q\to I$ by Lemma~\ref{lem:normalisation}. (iii) follows from the same description and
 Lemma~\ref{lem:jumpsV}.
@@ -185,8 +185,8 @@ the sense of \S\ref{sec:tool-cd}, and the same holds for $Q^{-1}$.
 \end{corollary}
 
 \begin{proof}
-We apply Lemma~\ref{lem:B-cauchy}(c) to $\mathfrak F:=Q-I$ on $\Gamma=\Sigma$, which for fixed $n$ is bounded and satisfies
-$|\Sigma\cap U(z,\rho)|\le C\rho$ (Proposition~\ref{prop:frame}(i)). By Proposition~\ref{prop:apriori}(iii), $\mathfrak F$ is continuous up to $\Sigma$. By
+We apply Lemma~\ref{lem:cauchy-arcs}(c) to $\mathfrak F:=Q-I$ on $\Gamma=\Sigma$, which for fixed $n$ is bounded and satisfies
+$|\Sigma\cap \mathbb D(z,\rho)|\le C\rho$ (Proposition~\ref{prop:frame}(i)). By Proposition~\ref{prop:apriori}(iii), $\mathfrak F$ is continuous up to $\Sigma$. By
 Proposition~\ref{prop:apriori}(i) with $\eta=(1-|\alpha|)/4$, which is positive because $|\alpha|<1$, we have
 $|Q(z)|\le C|z|^{-(1+|\alpha|)/4}$ near $0$, and $(1+|\alpha|)/4<\frac12$; with~(ii) this gives $\mathfrak F_\pm\in L^2(\Sigma)$ and
 $\rho\sup_{|z|=\rho}|\mathfrak F(z)|=O(\rho^{1-(1+|\alpha|)/4})\to0$ at the vertex $0$, while at every other vertex the
