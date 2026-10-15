@@ -289,3 +289,17 @@ import JacobiAsym
 #print axioms JacobiAsym.hall_upper
 #print axioms JacobiAsym.theoremHPure_all
 #print axioms JacobiAsym.theoremHL_all
+#print axioms JacobiAsym.betaF_integral
+#print axioms JacobiAsym.arccos_eq_integral
+#print axioms JacobiAsym.hallLam_eq_gamma
+#print axioms JacobiAsym.hallC_eq
+#print axioms JacobiAsym.hallKappa_eq
+#print axioms JacobiAsym.hallLam_one
+#print axioms JacobiAsym.hallLam_two
+#print axioms JacobiAsym.hallKappa_one
+#print axioms JacobiAsym.hallKappa_two
+#print axioms JacobiAsym.theoremHPure_kappa
+#print axioms JacobiAsym.theoremHPure_two
+#print axioms JacobiAsym.smoothZeta_HL_uncond
+#print axioms JacobiAsym.smoothZeta_HL_det_uncond
+#print axioms JacobiAsym.smoothZeta_bLaw_uncond

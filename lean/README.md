@@ -51,7 +51,7 @@ stay PROVED-mod-input.
 | **`christoffel_shift_law`**, **`christoffel_shift_law_converse`**, **`christoffel_shift_law_pow`** | Paper 2 Theorem `thm:shift` (no rate) + Remark `rem:converse`; G1 §3.21 Theorem SH, §3.19 CT₁ "⟸" | s_n a_n → 2c and s_n b_n → c for σ ⇔ the same for xσ; `_pow`: the iff at scale n^p exactly as in Paper 2 |
 | `RegularRate`, `RegularRate.not_summable`, `RegularRate.sqrt_sub_le`, **`chain_rate_core`** | Paper 2 Lemma `lem:chain-rate` (G1 §3.21 Lemma CS-r) | η regular (positive, non-increasing, nη_n non-decreasing, → 0); U_n + V_n − 2c = O(η), U_n V_{n+1} − c² = O(η) ⇒ U_n − c = O(√η_n) and U_{n+1} − U_n = O(η_n) |
 | **`christoffel_shift_rate`**, `bigO_rpow_succ_iff`, **`christoffel_shift_rate_pow`** | Paper 2 Theorem `thm:shift` (rate part; G1 §3.21 Theorem SH-r) | s_n a_n − 2c = O(η_n), s_n b_n − c = O(η_n) (and s_n/s_{n+1} − 1 = O(η_n)) ⇒ the same for xσ; `_pow`: at scale n^p exactly as in Paper 2 |
-| `hallLam`, `hallC`, `hallKappa`, `four_hallC_rpow` | Paper 1 (1.2) (Plan 60, S0) | Λ(p) = ∫₀¹ arccos(2s^p − 1) ds, c(p) = (π/Λ(p))^p/4, κ_p = 3p/2 + log c(p), so (4c)^{1/p} = π/Λ; the identification Λ(p) = 2I(p) (Gamma form) is stage S6, not yet formalized |
+| `hallLam`, `hallC`, `hallKappa`, `four_hallC_rpow` | Paper 1 (1.2) (Plan 60, S0) | Λ(p) = ∫₀¹ arccos(2s^p − 1) ds, c(p) = (π/Λ(p))^p/4, κ_p = 3p/2 + log c(p), so (4c)^{1/p} = π/Λ; Λ(p) = 2I(p) is `hallLam_eq_gamma` (S6) |
 | `arcX`, `arcsine_pot`, `arcsine_pot_ge` | Paper 1 Lemma 3.2 (G2 Lemma B0) | ∫₀^π log\|β(1 − cos φ)/2 − y\| dφ = π log(β/4) for 0 ≤ y ≤ β, and ≥ for y ≥ β (via log-sin integrals, no Fourier series) |
 | `muStar`, `starTail_add`, `muStar_Ioc_le`, `muStar_Ioc_eq`, `muStar_Iic_zero` | Paper 1 Theorem 1.3(i) (G2 B\*(i)) | μ\*_u = image of Leb(0,1] ⊗ dφ/π under (t,φ) ↦ (β_t(1 − cos φ)/2)^{−1/p}; μ\*_u(a,b] ≤ b − a, with equality on (0, Λ/π] |
 | `Fp`, `Jp`, `muStar_energy_integrable`, **`muStar_energy`** | Paper 1 Theorem 1.3(iii), the value | 𝒥_p(μ\*_u) = ∬ log\|u^{−p} − v^{−p}\| dμ\*_u dμ\*_u = κ_p, absolutely convergent |
@@ -72,10 +72,15 @@ of P_n(0) is used) and Remark `rem:sharp` are not formalized.
 | `hTerm`, `heineK_le_hTerm`, `log_term_le`, **`hall_upper`** | **Paper 1 Theorem 4.3 (G2 Theorem A-U), pure powers** | **p > 0, s > 1: ∀ η > 0, eventually hnorm p κ_p (heineD (powSeq p) (powSeq s)) 0 n ≤ η — sorry-free** |
 | **`theoremHPure_all`** | **Paper 1 Theorem 1.1, pure powers; G2 Corollary H-input** | **`TheoremHPure p (hallKappa p) s` for all p > 0, s > 1 — the named input is now a theorem (with κ_p in the Λ(p) form; Gamma form = stage S6)** |
 | **`theoremHL_all`** | **Theorem H_L, no named input** | **`theoremHL` with both `TheoremHPure` instances discharged: log D_n = −pn² log n + n² log L(n) + κ_pn² + o(n²) for p > 0, s, s0 > 1 — sorry-free** |
+| `betaF_integral`, `arccos_eq_integral`, **`hallLam_eq_gamma`**, `hallI`, `hallC_eq`, `hallKappa_eq`, `hallKappa_one`, `hallKappa_two` | Paper 1 (1.2) (Plan 60, S6) | Λ(p) = B(1/p+1/2, 1/2) = √π Γ(1/p+1/2)/Γ(1/p+1) = 2I(p), so `hallKappa p` = 3p/2 + log(¼(π/(2I(p)))^p) = κ_p; κ₁ = 3/2 − log 2, κ₂ = 3 + log(π²/16) |
+| **`theoremHPure_kappa`**, `theoremHPure_two` | **G2 Corollary H-input, in the paper's normalisation** | **`TheoremHPure p κ_p s` for all p > 0, s > 1 with κ_p = 3p/2 + log(¼(π/(2I(p)))^p) — sorry-free** |
+| **`smoothZeta_HL_uncond`, `smoothZeta_HL_det_uncond`, `smoothZeta_bLaw_uncond`** | **Corollary H_L-ζ (all three forms), no named input** | **the smooth-ζ corollaries with `TheoremHPure 2 (3 + log(π²/16)) 2` discharged — sorry-free** |
 
-Plan 60 (lean/HALL_PLAN.md) formalizes Theorem H_all for pure powers: `theoremHPure_all` proves the named input
-`TheoremHPure p (hallKappa p) s` for every p > 0, s > 1, sorry-free (rows marked Paper 1 above), and `theoremHL_all` is
-Theorem H_L with no named input. Results stated for an arbitrary κ (e.g. the smooth-ζ corollaries with κ = 3 + log(π²/16))
-remain PROVED-mod-input until the constant is identified (stage S6: Λ(p) = √π Γ(1/p+1/2)/Γ(1/p+1)).
+Plan 60 (lean/HALL_PLAN.md) formalizes Theorem H_all for pure powers: `theoremHPure_all` / `theoremHPure_kappa` prove
+the named input `TheoremHPure p κ_p s` for every p > 0, s > 1, sorry-free, with κ_p in the paper's Gamma form (rows marked
+Paper 1 above). Consequently `theoremHL_all` (Theorem H_L) and `smoothZeta_HL_uncond`, `smoothZeta_HL_det_uncond`,
+`smoothZeta_bLaw_uncond` (Corollary H_L-ζ) are sorry-free with no named input. The older PROVED-mod-input statements are
+kept unchanged (they take `TheoremHPure` as a hypothesis). Not formalized: Theorem 1.1 for general atoms f(k) (Lemma 2.3
+transfer), the uniqueness of the maximiser, and the equality case of Lemma 3.3.
 
 Check: `./check.sh` (build + axioms audit + completeness list; prints AUDIT OK).

@@ -167,9 +167,13 @@ in a later result.
 | **`hall_upper`** | p > 0, s > 1: ∀η > 0 eventually hnorm p κ_p (heineD (powSeq p) (powSeq s)) 0 n ≤ η (Paper 1 Thm 4.3 = G2 A-U, pure powers) | **sorry-free (Plan 60)** | HallUpper.lean | head_V_bound, heineK_tail_split, phi_bound |
 | **`theoremHPure_all`** | `TheoremHPure p (hallKappa p) s` for all p > 0, s > 1 (Paper 1 Thm 1.1 pure powers; G2 Cor H-input) | **sorry-free (Plan 60)** — named input discharged, κ in Λ(p) form | TheoremHall.lean | hall_lower, hall_upper |
 | **`theoremHL_all`** | Theorem H_L with no named input, κ = hallKappa p | **sorry-free (Plan 60)** | TheoremHall.lean | theoremHL, theoremHPure_all |
+| **`hallLam_eq_gamma`**, `hallKappa_eq`, `hallKappa_one`, `hallKappa_two` | Λ(p) = √π Γ(1/p+1/2)/Γ(1/p+1) = 2I(p); Lean κ = Paper 1's κ_p; κ₁ = 3/2 − log 2, κ₂ = 3 + log(π²/16) | sorry-free (Plan 60) | HallGamma.lean | Mathlib beta distribution |
+| **`theoremHPure_kappa`**, `theoremHPure_two` | `TheoremHPure p κ_p s`, κ_p = 3p/2 + log(¼(π/(2I(p)))^p), all p > 0, s > 1 (G2 Cor H-input) | **sorry-free (Plan 60) — the named input is a theorem** | HallCorollaries.lean | theoremHPure_all, hallLam_eq_gamma |
+| **`smoothZeta_HL_uncond`, `smoothZeta_HL_det_uncond`, `smoothZeta_bLaw_uncond`** | Corollary H_L-ζ (Heine, Hankel-det, b_j forms) with no named input | **sorry-free (Plan 60)** | HallCorollaries.lean | smoothZeta_HL(_det), smoothZeta_bLaw, theoremHPure_two |
 
-Not formalized: the forward Weyl law (item 11 "Theorem B"; not G3′ Theorem B, see §6), Theorem H_all for general atoms f(k) (Plan 60 formalized the pure-power case `theoremHPure_all`; the Gamma form of κ_p,
-Lemma 2.3 transfer to general f, and the uniqueness of the maximiser are not formalized, lean/HALL_PLAN.md), everything in
+Not formalized: the forward Weyl law (item 11 "Theorem B"; not G3′ Theorem B, see §6), Theorem H_all for general atoms f(k) (Plan 60 formalized the pure-power case `theoremHPure_all` / `theoremHPure_kappa`, κ_p in Gamma form;
+Lemma 2.3 transfer to general f, the uniqueness of the maximiser and the equality case of Lemma 3.3 are not formalized,
+lean/HALL_PLAN.md), everything in
 research/ except the Christoffel shift of G1 §3.21 / Paper 2 §3 (Plan 56 rows above; for `DMeasure` σ with atoms x_k ≥ 0 —
 no atom at 0, general σ with finite moments not covered; zero location in `lem:zeros` and Remark `rem:sharp` not formalized).
 

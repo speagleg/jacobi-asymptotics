@@ -77,4 +77,10 @@ Dependency order: S0 → S2a → S2b/S2c → S1a, S1b → S1; S4 → S4b (uses S
 | S4, S4b | DONE | `energy_pos` (Frullani + Gaussian kernel), `Jp_le_kappa` | — |
 | S3, S3b | DONE | `disc_upper`, `head_V_bound`, `heineK_le_hTerm`, `log_term_le`, `hall_upper` | — |
 | S5 | DONE | `theoremHPure_all : 0 < p → 1 < s → TheoremHPure p (hallKappa p) s`, `theoremHL_all` | — |
-| S6 | planned | | — |
+| S6 | DONE | `hallLam_eq_gamma`, `hallKappa_eq`, `hallKappa_one`, `hallKappa_two`; consequences `theoremHPure_kappa`, `theoremHL_all`, `smoothZeta_*_uncond` | — |
+
+**Status (end of Plan 60).** All stages are done and sorry-free; there are no remaining named hypotheses for the
+pure-power case. `TheoremHPure` is kept as a structure (the older theorems take it as a hypothesis); it is now proved by
+`theoremHPure_all` / `theoremHPure_kappa`. Not formalized (beyond the scope of `TheoremHPure`): Paper 1 Theorem 1.1 for
+general atoms `f(k)` (Lemma 2.3 regular-spacing transfer), Corollary 1.2 (Jacobi form) and Corollary 1.4 (zeta values) in
+general, the uniqueness of the maximiser, and the equality case of Lemma 3.3.
