@@ -81,3 +81,32 @@ and his indices start at 1):
 **not applied**; Lemma RL re-proves the scaled statement by the same path-sum argument (Proposition 3.3 is re-proved
 there as (M)). The citation is for attribution only. In G1's notation, Simon's (3.10)–(3.11) are §3.13's (∗) and (∗∗),
 and the arcsine target is the case 3A_2² − 2A_4 = 0 (centred A_2 = 2β², A_4 = 6β⁴).
+
+## (DLMF-3) NIST DLMF §§10.25, 10.27, 10.32, 10.34, 10.40 — READ (web pages, 2026-10-14), for Plan 46 (Lemma QLP)
+
+Read on dlmf.nist.gov (pages 10.25, 10.27, 10.32, 10.34, 10.40). Formulas transcribed from the rendered pages.
+
+> (10.25.2) "I_ν(z) = (½z)^ν Σ_{k=0}^∞ (¼z²)^k/(k!Γ(ν+k+1))"; the page: this "corresponds to the principal value of
+> (½z)^ν, is analytic in ℂ∖(−∞,0]"; "Except where indicated otherwise it is assumed throughout the DLMF that the symbols
+> I_ν(z) and K_ν(z) denote the principal values of these functions."
+>
+> (10.32.4) "I_ν(z) = (1/π)∫₀^π e^{z cos θ}cos(νθ)dθ − (sin(νπ)/π)∫₀^∞ e^{−z cosh t − νt}dt, |ph z| < ½π."
+>
+> (10.32.9) "K_ν(z) = ∫₀^∞ e^{−z cosh t}cosh(νt)dt, |ph z| < ½π."
+>
+> (10.34.2) "K_ν(ze^{mπi}) = e^{−mνπi}K_ν(z) − πi sin(mνπ)csc(νπ)I_ν(z)", "When m ∈ ℤ" (limiting values for integer ν).
+>
+> (10.27.8) "K_ν(z) = ½πi e^{νπi/2}H^{(1)}_ν(ze^{πi/2}), −π ≤ ph z ≤ ½π; = −½πi e^{−νπi/2}H^{(2)}_ν(ze^{−πi/2}),
+> −½π ≤ ph z ≤ π."
+>
+> §10.40(iii) "Error Bounds for Complex Argument and Order": (10.40.10) "K_ν(z) = (π/(2z))^{1/2}e^{−z}(Σ_{k=0}^{ℓ−1}
+> a_k(ν)/z^k + R_ℓ(ν, z)), ℓ = 1, 2, …"; (10.40.11) "|R_ℓ(ν, z)| ≤ 2|a_ℓ(ν)|𝒱_{z,∞}(t^{−ℓ})exp(|ν² − ¼|𝒱_{z,∞}(t^{−1}))",
+> "where 𝒱 denotes the variational operator (§2.3(i)), and the paths of variation are subject to the condition that
+> |ℜt| changes monotonically"; (10.40.12) "𝒱_{z,∞}(t^{−ℓ}) ≤ |z|^{−ℓ}, |ph z| ≤ ½π; χ(ℓ)|z|^{−ℓ}, ½π ≤ |ph z| ≤ π;
+> 2χ(ℓ)|ℜz|^{−ℓ}, π ≤ |ph z| < 3π/2", "χ(ℓ) = π^{1/2}Γ(½ℓ + 1)/Γ(½ℓ + ½)". No restriction on ν is stated (ν complex).
+
+**Used in:** PROOF.md §3.16 — Lemma BK (10.25.2, 10.32.4, 10.32.9: explicit bounds for I_ν, K_ν and derivatives,
+uniform for real ν in compacts of (−1, ∞)); Audit U, item U5 (10.40.10–12 with 10.34.2 and 10.27.8: the large-argument
+Bessel/Hankel asymptotics behind KMVV (6.28) and Vanlessen/WLXZ (4.43)–(4.46) hold with remainders uniform for bounded
+order). Hypotheses: |ph u| ≤ π/3 < π/2 in Lemma BK; ν real and bounded in U5, where the factor exp(|ν² − ¼|𝒱) is
+bounded uniformly.
