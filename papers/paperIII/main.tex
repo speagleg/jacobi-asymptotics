@@ -1,0 +1,93 @@
+\documentclass[11pt]{amsart}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage[margin=1.15in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+\setlength{\emergencystretch}{3em}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\diff}{\,\mathrm{d}}
+\newcommand{\usat}{u_{\mathrm{sat}}}
+\newcommand{\Sp}{\mathcal{S}_p}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\Proj}{\mathsf{P}}
+\newcommand{\ia}{\mathfrak{i}}
+\DeclareMathOperator{\osc}{osc}
+\DeclareMathOperator{\arc}{arc}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\Var}{Var}
+% PLACEHOLDER (decision D2 of the series plan): the hard-edge tail bound is to be proved in Paper II; its number is
+% not yet fixed. Every use in this paper goes through this macro. See NOTES.md, "Placeholders".
+\newcommand{\tailbound}{\cite[Proposition~(tail bound)]{PaperII}}
+
+\title[Stability and instability of recurrence asymptotics]{Stability and instability of recurrence asymptotics for
+discrete measures with power-law atoms}
+\author{Gordon [Surname]}
+\date{Draft of 15 October 2026}
+
+\subjclass[2020]{Primary 42C05; Secondary 47B36, 26A12, 11M06}
+\keywords{Orthogonal polynomials, Jacobi matrices, recurrence coefficients, discrete measures, slowly varying
+functions, Christoffel transformation, Hankel determinants, zeta values}
+
+\begin{document}
+
+\begin{abstract}
+We continue the study of the recurrence coefficients $a_n,b_n$ of discrete measures $\sum_kw_k\delta_{k^{-p}}$ with
+power-law atoms. For weights $w_k=k^{-s}\ell(k)$ with $s>1$, a previous paper proved the pointwise law
+$n^pb_n\to c(p)$, $n^pa_n\to2c(p)$, with rate $O(1/n)$, when $\ell$ is analytic and slowly varying. Here we show by
+soft methods that the law holds for every slowly varying $\ell$, bounded or not, with a rate controlled by how well
+$\ell$ can be smoothed in the logarithmic variable. Slow variation cannot be replaced by boundedness: for every
+$p>0$, $s>1$ and every small $\varepsilon>0$ there are weights $k^{-s}e^{\varepsilon_k}$ with
+$|\varepsilon_k|\le\varepsilon$ for which $n^pb_n$ does not converge, and others for which $n^pa_n$ does not
+converge, although the averaged law of the first paper holds for all of them. For pure powers we then let $s$ vary.
+A Christoffel identity gives
+$\sum_{m\le n}\log(b_m(s+p)/b_m(s))+\frac p2\log n\to\frac12\log(c(p)\zeta(s)/\zeta(s+p))$. A variational argument
+extends it to
+$\sum_{m\le n}\log(b_m(s_1)/b_m(s_0))=-\frac{s_1-s_0}{2}\log n+\frac12\log(c(p)^{(s_1-s_0)/p}\zeta(s_0)/\zeta(s_1))
++o(1)$ for all $s_0,s_1>1$, and gives the law uniformly on compact sets of exponents (for $p\le1$, inside an
+explicit window). At $p=1$ this determines the
+averaged $1/n$ coefficient $-(s-1)/2$ for every $s>1$. All proofs rest on the first-variation formula for $\log h_n$
+under multiplicative changes of the weights, combined with localisation of the spectral weights.
+\end{abstract}
+
+\maketitle
+
+\input{sec1}
+\input{sec2}
+\input{sec3}
+\input{sec4}
+\input{sec5}
+\input{sec6}
+\input{sec7}
+\input{sec8}
+
+\section*{Acknowledgements}
+The research and the exposition were developed with the assistance of an AI system (Claude, Anthropic). The main
+theorem of the first paper of this series is formally verified in the Lean proof assistant. The author takes
+responsibility for the content.
+
+\section*{Data and code availability}
+The scripts that produced the numbers of Section~\ref{sec:numerics}, their stored outputs, and the Lean sources
+mentioned in Section~\ref{sec:christoffel} (declarations \texttt{christoffel\_shift\_law\_converse} and
+\texttt{chain\_limit}) are in the repository \url{https://github.com/speagleg/jacobi-asymptotics} (tag
+\texttt{v1.0-paper3} [placeholder: tag to be created at submission]).
+
+\bibliographystyle{amsplain}
+\bibliography{refs}
+
+\end{document}

@@ -1,0 +1,206 @@
+% Section 1: Introduction.
+\section{Introduction}\label{sec:intro}
+
+\subsection{Setting and results}\label{sec:results}
+For $p>0$, $s>1$ and a sequence $\ell\colon\N\to(0,\infty)$ consider the discrete measure
+\begin{equation}\label{eq:sigma}
+  \sigma_{p,s,\ell}:=\sum_{k\ge1}k^{-s}\ell(k)\,\delta_{k^{-p}},\qquad \sigma_{p,s}:=\sigma_{p,s,1}.
+\end{equation}
+Its atoms $x_k=k^{-p}$ accumulate only at $0$. Let $P_n$ be its monic orthogonal polynomials and
+$h_n:=\int P_n^2\diff\sigma$. They satisfy the three-term recurrence
+\begin{equation}\label{eq:rec}
+  xP_n=P_{n+1}+a_nP_n+b_n^2P_{n-1}\qquad(n\ge0,\ b_0:=0,\ b_n>0),
+\end{equation}
+so that $b_n^2=h_n/h_{n-1}$, and $a_n,b_n$ are the entries of the Jacobi matrix of the measure. Put
+\begin{equation}\label{eq:cp}
+  I(p):=\frac{\sqrt\pi}{2}\,\frac{\Gamma(\frac1p+\frac12)}{\Gamma(\frac1p+1)},\qquad
+  c(p):=\frac14\Bigl(\frac{\pi}{2I(p)}\Bigr)^{p},
+\end{equation}
+so that $c(1)=\frac12$ and $c(2)=\pi^2/16$. We say that a measure satisfies the \emph{pointwise law} if
+\begin{equation}\label{eq:law}
+  n^pb_n\longrightarrow c(p)\qquad\text{and}\qquad n^pa_n\longrightarrow2c(p)\qquad(n\to\infty).
+\end{equation}
+The first paper of this series \cite{PaperI} proves \eqref{eq:law} in a doubly averaged form for all weights
+between $c_1k^{-s}$ and a summable sequence; the constant $c(p)$ comes from an explicitly solvable constrained
+equilibrium problem. The second paper \cite{PaperII} proves \eqref{eq:law} itself, with rate $O(1/n)$, by
+Riemann--Hilbert analysis, when $\ell$ extends to a slowly varying analytic function in a sector, and in particular
+for the pure powers $\sigma_{p,s}$. The present paper uses the second paper only through the numbered statements
+restated in \S\ref{sec:imports}, and contains no Riemann--Hilbert analysis. It asks which weights the pointwise law
+tolerates, and how the coefficients of the pure powers depend on $s$.
+
+\begin{definition}[slow variation]\label{def:sv}
+A sequence $\ell\colon\N\to(0,\infty)$ is \emph{slowly varying} if, for every $\lambda\ge1$,
+\[
+  \osc_n(\lambda):=\max\bigl\{|\log\ell(k)-\log\ell(n)|:\ k\in\N,\ n/\lambda\le k\le\lambda n\bigr\}\longrightarrow0
+  \qquad(n\to\infty).
+\]
+\end{definition}
+
+The case $\lambda=2$ implies the others (Remark~\ref{rem:lambda2}). No boundedness, monotonicity or measurability is
+involved.
+
+\begin{theorem}[every slowly varying factor]\label{thm:sv}
+Let $p>0$, $s>1$, and let $\ell$ be slowly varying. Then the recurrence coefficients of $\sigma_{p,s,\ell}$ satisfy
+$n^pb_n\to c(p)$ and $n^pa_n\to2c(p)$. More precisely,
+\begin{equation}\label{eq:sv-rate}
+  |n^pb_n-c(p)|+|n^pa_n-2c(p)|=O\bigl(1/n+\rho_\ell(\lceil n/M_0\rceil)\bigr),
+\end{equation}
+where $\rho_\ell(m)\to0$ is the error of Gaussian smoothing of $\log\ell$ in the logarithmic variable
+(Definition~\ref{def:smoothing}) and $M_0=M_0(p)\ge4$ is an integer depending only on $p$ (Lemma~\ref{lem:saturation}).
+\end{theorem}
+
+For example, $\ell(k)=\exp\sqrt{\log k}$ and $\ell(k)=\exp(\sqrt{\log k}\,\sin\log\log k)$ ($k\ge3$) are covered; the
+second is not eventually comparable with any power of $\log k$. The only analytic input is the case of analytic
+factors, \cite[Theorem~1.2]{PaperII}, which we apply to a smoothed factor.
+
+Slow variation cannot be replaced by boundedness. To state this, put $\usat(p):=(4c(p))^{-1/p}$; we show
+$\usat(p)<1$ in Lemma~\ref{lem:usat}.
+
+\begin{theorem}[bounded rough weights]\label{thm:rough}
+Let $p>0$ and $s>1$.
+\begin{enumerate}
+\item[\textup{(i)}] Let $0<\tau_1<\tau_2$ with $\tau_2>\usat(p)$; every $\tau_2\ge1$ qualifies, for example
+  $[\tau_1,\tau_2]=[0.6,1.6]$. There is $\gamma_W>0$, depending only on $p,\tau_1,\tau_2$ and given by an integral
+  over the arcsine law \eqref{eq:window-constants}, with the following property. For every
+  $\varepsilon\in(0,\gamma_W/16]$ there are integers $N_1<N_2<\cdots$ and numbers
+  $\varepsilon_k\in\{-\varepsilon,0,\varepsilon\}$, vanishing outside $\bigcup_i[\tau_1N_i,\tau_2N_i]$, such that the
+  weights $w_k=k^{-s}e^{\varepsilon_k}$ satisfy
+  \[
+    \limsup_{n\to\infty}\log\frac{b_n^2}{b_{n-1}^2}\ge\frac{\varepsilon\gamma_W}{4}.
+  \]
+\item[\textup{(ii)}] Let $\ia\in(0,1]$ be the number defined in \eqref{eq:ia} and $\gamma_{\mathrm a}:=c(p)\ia/2$.
+  For every $\varepsilon\in(0,\ia/16]$ there are $\varepsilon_k\in\{-\varepsilon,0,\varepsilon\}$ such that the weights
+  $w_k=k^{-s}e^{\varepsilon_k}$ satisfy
+  \[
+    \limsup_{n\to\infty}\bigl(n^pa_n-2c(p)\bigr)\ge\frac{\varepsilon\gamma_{\mathrm a}}2,\qquad
+    \liminf_{n\to\infty}\bigl(n^pa_n-2c(p)\bigr)\le-\frac{\varepsilon\gamma_{\mathrm a}}2.
+  \]
+\item[\textup{(iii)}] For all weights with $e^{-\varepsilon}k^{-s}\le w_k\le e^{\varepsilon}k^{-s}$, in particular those
+  of \textup{(i)} and \textup{(ii)}, the Hankel determinants and the coefficients $b_n$ of $\sum_kw_k\delta_{k^{-p}}$
+  satisfy the averaged law of \cite{PaperI}, \eqref{eq:paperI-logD} and \eqref{eq:paperI-cesaro} below. In case
+  \textup{(i)} the sequence $n^pb_n$ has no limit in $[0,\infty]$; in case \textup{(ii)} the sequence $n^pa_n$ has no
+  limit.
+\end{enumerate}
+\end{theorem}
+
+Numerically $\ia\approx0.314$, while the proved constant $\gamma_W$ is very small (about $10^{-7}$ for $p=2$ and
+$[0.6,1.6]$); the effect itself is of size about $\varepsilon$ (Remark~\ref{rem:constants} and
+Section~\ref{sec:numerics}). The only analytic input of Theorem~\ref{thm:rough} is the pure-power law without rate,
+\cite[Corollary~1.3]{PaperII}.
+
+For pure powers we write $a_n(s),b_n(s),h_n(s)$ for the quantities of $\sigma_{p,s}$, and $\zeta$ for the Riemann zeta
+function, so that $\sigma_{p,s}$ has total mass $\zeta(s)$. Some of the statements below use a bound for the spectral
+weights of $\sigma_{p,s}$ near the accumulation point of the atoms, proved in \tailbound{} for $s$ in the set
+\begin{equation}\label{eq:Sp}
+  \Sp:=(1,1+2p)\quad\text{if }0<p\le1,\qquad \Sp:=(1,\infty)\quad\text{if }p>1.
+\end{equation}
+
+\begin{theorem}[pure powers as $s$ varies]\label{thm:s}
+Let $p>0$.
+\begin{enumerate}
+\item[\textup{(i)}] For every $s>1$,
+  \[
+    \sum_{m=1}^n\log\frac{b_m(s+p)}{b_m(s)}+\frac p2\log n\longrightarrow\frac12\log\frac{c(p)\zeta(s)}{\zeta(s+p)}.
+  \]
+\item[\textup{(ii)}] For all $s_0,s_1>1$,
+  \[
+    \sum_{m=1}^n\log\frac{b_m(s_1)}{b_m(s_0)}=-\frac{s_1-s_0}2\log n
+    +\frac12\log\frac{c(p)^{(s_1-s_0)/p}\zeta(s_0)}{\zeta(s_1)}+o(1).
+  \]
+  Equivalently $h_n(s_1)/h_n(s_0)=c(p)^{(s_1-s_0)/p}n^{-(s_1-s_0)}(1+o(1))$, and this holds uniformly for $s_0,s_1$
+  in compact subsets of $\Sp$.
+\item[\textup{(iii)}] For every compact $K\subset\Sp$, $\sup_{s\in K}|n^pb_n(s)-c(p)|\to0$. If moreover $K+p\subset\Sp$
+  \textup{(}automatic for $p>1$; for $0<p\le1$ it means $K\subset(1,1+p)$\textup{)}, then also
+  $\sup_{s\in K}|n^pa_n(s)-2c(p)|\to0$.
+\end{enumerate}
+\end{theorem}
+
+Part (i) uses only the limits of \cite[Corollary~1.3]{PaperII}; parts (ii) and (iii) also use \tailbound{}. Summing
+the $1/n$ expansion that a pointwise statement would give, part (ii) says that, in logarithmic Ces\`aro mean, the
+coefficient of $1/n$ in $n^pb_n(s)/c(p)$ decreases in $s$ with slope exactly $-\frac12$. An anchor fixes it at $p=1$.
+
+\begin{corollary}[the averaged $1/n$ coefficient at $p=1$]\label{cor:p1}
+For every $s>1$ there is $C(s)\in\R$ such that the coefficients of $\sigma_{1,s}=\sum_kk^{-s}\delta_{1/k}$ satisfy
+\[
+  \sum_{j=1}^n\log\bigl(2j\,b_j(s)\bigr)=-\frac{s-1}2\log n+C(s)+o(1).
+\]
+Equivalently, with $D_n(s):=\det\bigl(\zeta(s+i+j)\bigr)_{0\le i,j\le n-1}$,
+\[
+  \log\frac{D_{n+1}(s)}{D_n(s)}=\log\zeta(s)-2\log n!-2n\log2-(s-1)\log n+2C(s)+o(1).
+\]
+\end{corollary}
+
+For $p=1$ and $s\in\frac32+\N_0$ the first statement is proved without the bound of \tailbound{}, and so is its
+analogue for $p=2$ and $s\in2+2\N_0$ (Corollary~\ref{cor:lattice}). For $p>1$ the pointwise $1/n$ term is known,
+$n^pb_n(s)=c(p)(1-\frac{s-1}{2n}+O(n^{-2}))$ \cite[Theorem~1.4]{PaperII}; its sum gives the logarithmic mean up to
+$O(1)$, and Theorem~\ref{thm:s}(ii) adds the exact differences of the constants. For $0<p<1$ only differences in $s$
+are determined (Section~\ref{sec:open}).
+
+\subsection{Context}\label{sec:context}
+\emph{Averaged and pointwise laws.} Specialised to the atoms $k^{-p}$, \cite[Theorem~1.1 and Corollary~1.2]{PaperI}
+state that if $\sum_kw_k<\infty$ and $w_k\ge c_1k^{-s'}$ for some $c_1>0$ and $s'\in\R$, then the Hankel
+determinants $D_n$ of $\sum_kw_k\delta_{k^{-p}}$ satisfy
+\begin{equation}\label{eq:paperI-logD}
+  \log D_n=-pn^2\log n+\kappa_pn^2+o(n^2),\qquad \kappa_p:=\tfrac{3p}2+\log c(p),
+\end{equation}
+equivalently
+\begin{equation}\label{eq:paperI-cesaro}
+  \frac2{n^2}\sum_{j=1}^{n-1}(n-j)\log\bigl(j^pb_j\bigr)\longrightarrow\log c(p).
+\end{equation}
+By Heine's formula, multiplying every weight by a factor in $[e^{-\varepsilon},e^{\varepsilon}]$ changes $D_n$ by a
+factor in $[e^{-\varepsilon n},e^{\varepsilon n}]$, so \eqref{eq:paperI-logD} cannot distinguish such weights.
+Theorems~\ref{thm:sv} and~\ref{thm:rough} show that the pointwise law does distinguish them: it is stable under
+slowly varying perturbations of any size, and unstable under rough ones, however small. We have not found
+Theorem~\ref{thm:rough} in the literature.
+
+\emph{Spectral weights.} For a fixed measure with bounded support, Simon \cite[Theorems~3.1 and~3.2]{Simon} relates
+the convergence of the Jacobi parameters to weak limits of the measures $p_n^2\diff\mu$, by counting lattice paths
+\cite[Proposition~3.3]{Simon}. Our localisation lemma (Lemma~\ref{lem:arcsine}) is the forward half of this argument
+at the moving scale $n^{-p}$: the spectral weights of the pure powers, rescaled by $n^p$, converge to the arcsine law
+on $[0,4c(p)]$.
+
+\emph{First variation.} Fischer \cite[Lemma~4, (20)--(21)]{Fischer} computes the derivatives of the recurrence
+coefficients with respect to a parameter of the orthogonality functional; for a multiplicative change of the weights
+these are the formulas of Lemmas~\ref{lem:fv} and~\ref{lem:toda}. What we add in \S\ref{sec:lr} is a bound on the
+second derivative with absolute constants, which turns the first-order formulas into estimates for perturbations of
+fixed size.
+
+\emph{The Christoffel transformation.} Multiplying $\sigma_{p,s}$ by $x$ gives $\sigma_{p,s+p}$. The Jacobi matrix of
+$x\sigma$ is obtained by factorising that of $\sigma$ as $LU$ and reversing the factors \cite[\S1]{DD}, and the
+factors form a chain sequence in the sense of Dai, Piao and Qiao \cite[Proposition~2.1]{DPQ}. The second paper
+uses this to transfer the law with its rate from $s$ to $s+p$ \cite[Theorem~3.1]{PaperII}. Here the same
+factorisation, combined with the product structure of $h_n$, gives the Ces\`aro-level identities of
+Section~\ref{sec:christoffel}.
+
+\emph{Special cases.} The moments of $\sigma_{1,s}$ are $\zeta(s+j)$, so Corollary~\ref{cor:p1} concerns Hankel
+determinants of zeta values, studied by Monien \cite{Monien} and by Haynes and Zudilin \cite{HaynesZudilin}; their
+leading order is \cite[Corollary~1.4]{PaperI}. Our anchor at $p=1$ is the Tricomi--Carlitz measure, whose
+orthogonality and recurrence are recorded by Wu, Lin, Xu and Zhao \cite[(1.4)--(1.9)]{WLXZ}; at $p=2$ it is the
+Lommel case \cite[Remark~1.6]{PaperII}, which rests on the recurrence recorded by Van Assche \cite[\S3]{VA}.
+
+\subsection{Method}\label{sec:method}
+Everything rests on one device. Along a path of weights $w(t)=w\,e^{t\varphi}$, the first variation of $\log h_n$ is
+the average of $\varphi$ against the spectral weights $m_n(k)=w_kp_n(x_k)^2$ of the orthonormal polynomial $p_n$
+(Lemma~\ref{lem:fv}). Two facts locate these weights: the atoms $k<n/M_0$ are saturated, so that $m_n$ is
+exponentially small there (Lemma~\ref{lem:saturation}), and for pure powers $m_n$ lives at indices $k\asymp n$, where its
+image under $x\mapsto n^px$ converges to the arcsine law (Lemma~\ref{lem:arcsine}). Each later section is one choice
+of $\varphi$. In Section~\ref{sec:sv}, $\varphi=\log(\ell/\ell_1)$ with $\ell_1$ a smoothing of $\ell$; it is small
+where $m_n$ lives, which gives stability. In Section~\ref{sec:rough}, $\varphi=\pm\varepsilon$ with the sign of the
+second difference $m_n-2m_{n-1}+m_{n-2}$ on a window of indices of size $n$; the linear response then does not
+average out, and a second-order bound shows that the remainder cannot cancel it. In Section~\ref{sec:christoffel},
+$\varphi=-p\log k$ is multiplication by $x$, which shifts $s$ by $p$. In Section~\ref{sec:s}, $\varphi=-(s_1-s_0)\log
+k$ with $s_1-s_0$ small; this gives the derivative in $s$ and a variational two-sided bound for $h_n(s_1)/h_n(s_0)$.
+
+\subsection{Organisation and notation}\label{sec:organisation}
+Section~\ref{sec:prelim} collects the tools: conventions, the results imported from \cite{PaperI,PaperII},
+slow variation, the first variation and its second-order bounds, and localisation. Sections~\ref{sec:sv},
+\ref{sec:rough}, \ref{sec:christoffel} and~\ref{sec:s} prove Theorems~\ref{thm:sv}, \ref{thm:rough},
+\ref{thm:s}(i) and~\ref{thm:s}(ii)--(iii) with Corollary~\ref{cor:p1}. Section~\ref{sec:numerics} illustrates the
+results numerically, and Section~\ref{sec:open} states open problems and conjectures.
+
+Throughout, $p>0$ is fixed and $c=c(p)$. The atoms are $x_k=k^{-p}$, and $x$ also denotes the sequence $(x_k)$.
+Constants $C,C'$ are positive and may change from line to line; the letter $c$ is reserved for $c(p)$, and $c_1$
+for the lower-bound constant of the weights in \S\ref{sec:context}. Symbols local to this paper are the smoothing error
+$\rho_\ell$ and head margin $M_0$ (Section~\ref{sec:sv} and Lemma~\ref{lem:saturation}), the window constants
+$\iota_W,\gamma_W$ and the number $\ia$ (Section~\ref{sec:rough}), the arcsine tail $T_p$ (Lemma~\ref{lem:arcsine}),
+and $\Phi_n,\Theta_n$ (Section~\ref{sec:s}).
