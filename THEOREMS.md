@@ -501,8 +501,9 @@ and asked for item 11 to be named as the primary route. That changes no label; i
     window version R1W (§3.10) and for the a-law R1a (§3.12); sharp constants (phase model 4/π, 8/π²) open.
 15. Novelty searches (Rule L): first pass done 2026-10-14 (research/program/novelty_*.md; summary in
     research/program/RESEARCH_PROGRAM.md §1); gating unread items listed there. Earlier text: not done for any result; prior-art pointers recorded but unread (G2 §3; G1 CL3, R-d, TL).
-16. Lean: Theorem H / H_all (`TheoremHPure`, supplied on paper by G2 Cor. H-input) and the forward Weyl law are not
-    formalized (lean/README).
+16. ~~Lean: Theorem H / H_all~~: **CLOSED** (Plans 60–61). `theoremHPure_all` (all p > 0, s > 1) and Paper 1
+    Theorem 1.1 / Cor. 1.2 / Cor. 1.4 in full (`paper1_thm11`, `paper1_cor12`, `paper1_cor14`) are sorry-free in Lean.
+    Still not formalized: uniqueness of the maximiser, the forward Weyl law (lean/README).
 17. In review: none on master. New (Plan 42): **RL-UI** — whether weak convergence ν_n → arcsine *without* the a priori
     bound implies Law P (§3.13).
 

@@ -240,6 +240,18 @@ part of Theorem~\ref{thm:equilibrium}(iii). It is a special case of a lemma of B
 Wielonsky~\cite[Lemma~2.1]{BKMW}; we include a short Fourier-analytic proof so that the paper is self-contained
 (Remark~\ref{rem:BKMW}).
 
+\subsection{Formal verification}
+Theorem~\ref{thm:main}, Corollary~\ref{cor:jacobi} and Corollary~\ref{cor:zeta} have been formalised in the Lean~4
+proof assistant with the Mathlib library, with hypotheses as stated above. The formalisation contains no unproved
+steps and uses only Lean's standard axioms. It also covers the parts of Theorem~\ref{thm:equilibrium} that the proof of
+Theorem~\ref{thm:main} uses: the value of $\cJ_p(\mu^*)$, the potential of $\mu^*$, the inequality
+$-\iint\log|x-y|\dd\nu\dd\nu\ge0$ of Lemma~\ref{lem:positivity} (not the Fourier identity), and the bound
+$\cJ_p(\mu)\le\kappa_p$ for compactly supported $\mu\in\cA$ with integrable energy, which is the case the proof uses.
+Uniqueness of the maximiser is not formalised.
+In a few places the formal proof takes a different route from the one written here; for example, it proves
+Lemma~\ref{lem:positivity} with a Gaussian kernel instead of the Fourier transform. The Lean sources are part of the
+supplementary material (Section~\ref{sec:numerics}).
+
 \subsection{Organisation and notation}
 Section~\ref{sec:prelim} collects the facts about Hankel determinants that we use. Section~\ref{sec:equilibrium}
 proves Theorem~\ref{thm:equilibrium}. Sections~\ref{sec:upper} and~\ref{sec:lower} prove the upper and lower bounds
