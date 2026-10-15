@@ -1,6 +1,6 @@
 # SECOND: the 1/n coefficient in the pointwise Law P for pure powers (Plan 62)
 
-Status (2026-10-15): written by the Plan 62 agent; **not REVIEWED** (Rule R pending). Labels per VERIFICATION_POLICY.md.
+Status (2026-10-15): written by the Plan 62 agent; **REVIEWED 2026-10-15** (Rule R: research/G1/review/REVIEW_Plan62.md, ACCEPT WITH FIXES; fixes F1–F11, O1 applied in 5aa04e3 and diff-checked). Labels per VERIFICATION_POLICY.md; REVIEWED applies to the PROVED / PROVED-mod-cite / CONDITIONAL statements as labelled (NUMERICAL, CONJECTURE, HEURISTIC and GAP items keep those labels).
 "RH" below means Riemann–Hilbert. Open item 13 of THEOREMS.md §4.
 
 **Summary of labels.**

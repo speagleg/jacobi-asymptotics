@@ -361,7 +361,7 @@ Proof labels are unchanged; only novelty status changes.
 - **Headline pointwise law (all slowly varying Ψ), Theorems R/RW/Ra, QLP, B-cond/CB**: NOT FOUND (Knopfmacher–Lubinsky–
   Nevai 1988 still unread; its review indicates a sufficient-condition result).
 
-### 2.10 Plan 62: the 1/n coefficient for pure powers (research/G1/RH/second_order/SECOND.md; NOT REVIEWED)
+### 2.10 Plan 62: the 1/n coefficient for pure powers (research/G1/RH/second_order/SECOND.md; REVIEWED 2026-10-15, REVIEW_Plan62.md)
 
 Pairings: repo a_n = α_{n−1}, so "a_n/(2b_n)" = α_{n−1}/(2b_n) (coefficient e₁ = +p/2); standard/Paper 2 α_n/(2b_n)
 (coefficient e₁ˢ = −p/2). (E) = existence of d₁ in n^pb_n/c(p) = 1 + d₁/n + O(n^{−1−ε}).
