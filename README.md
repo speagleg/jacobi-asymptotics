@@ -126,7 +126,7 @@ The full index of every statement, with exact hypotheses, labels and dependencie
 
 | | Title | Status |
 |---|---|---|
-| [`papers/paper1`](papers/paper1/main.pdf) | Hankel determinants of discrete measures with power-law atoms, and of zeta values | draft, 16 pp |
+| [`papers/paper1`](papers/paper1/main.pdf) | Hankel determinants of discrete measures with power-law atoms, and of zeta values | release candidate, 17 pp (arXiv bundle: [`ARXIV.md`](papers/paper1/ARXIV.md)) |
 | [`papers/paper2`](papers/paper2/main.pdf) | Recurrence coefficients of discrete measures with power-law atoms and slowly varying weights | draft, 67 pp |
 
 Each paper folder has a `NOTES.md` that lists open items and sources still to be verified.
