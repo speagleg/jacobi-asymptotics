@@ -288,7 +288,7 @@ research/G3prime/PROOF.md (Pos). Novelty UNCHECKED unless stated.
 
 
 
-### 2.8 Line B completed (Plans 50–52, all REVIEWED 2026-10-14)
+### 2.8 Line B completed (Plans 50–52, 54, all REVIEWED 2026-10-14)
 
 **Pointwise Law P for weights k^{−s}Ψ, Ψ any slowly varying function (sequence form, incl. D(γ) = ∞, e.g. exp(√log k)),
 nodes x_k = k^{−p}:** n^pb_n → c(p), n^pa_n → 2c(p), with rate O(1/n) when Ψ satisfies the analyticity hypothesis
@@ -299,11 +299,12 @@ nodes x_k = k^{−p}:** n^pb_n → c(p), n^pa_n → 2c(p), with rate O(1/n) when
 | p > 1, every s > 1 | RII (1 < s < 1 + 2p) + Christoffel shift SH (s ↦ s + p) = Corollary B_all | PROVED-mod-cite | G1 §3.17, §3.21 |
 | 0 < p < 1, every s > 1 | RII_{<1} (seam geometry; strip half-width π/2 suffices) + shift = Corollary B_{p<1} | PROVED-mod-cite | G1 §3.20 |
 | p = 1, every non-integer r > 1 | RII₁ (1 < r < 2) + shift = Corollary B_{p=1}⁺ | PROVED-mod-cite | G1 §3.19 |
-| p = 1, integer r ≥ 2 | **GAP-int**, equivalent (by CT₁'s converse) to the single case r = 2 (incl. the ζ(i+j) measure with general Ψ); base at \|a\| = ½ obstructed | GAP | G1 §3.19 |
+| p = 1, every r > 1 incl. integer r ≥ 2 | x-frame Route II at p = 1 (RII_x1, 1 < r < 3, incl. r = 2 at α_x = 0) + shift = Corollaries GAP-int (closed), B_{p=1}^{all} — **closes GAP-int** (Plan 54) | PROVED-mod-cite | G1 §3.23 |
 
 Supporting results: Theorem SH (Law P(c) for σ ⇒ for x·σ, any positive σ on [0, ∞) with infinite support, any p > 0;
 rates carried by SH-r) PROVED; CT₁ converse (law for x·σ ⇒ for σ) PROVED; Lemma CS PROVED, "very likely KNOWN" (chain
-sequences). Open: the 1/n coefficient (tilt law, CONJECTURE), GAP-int (r = 2), and the true ζ-zero measure (barrier).
+sequences). **With Plan 54 the pointwise Law P holds for every p > 0, every s > 1 and every sequence-form slowly varying Ψ.**
+Open: the 1/n coefficient (tilt law, CONJECTURE) and the true ζ-zero measure (barrier).
 
 ## 3. Dependency summary
 
@@ -423,8 +424,8 @@ and asked for item 11 to be named as the primary route. That changes no label; i
 7. **Slowly varying Ψ with D(γ) = ∞** (e.g. exp(√log k)): "here the truncated weight is not uniformly sandwiched and the
    Grönwall factor e^{4G} of Theorem L diverges" (§3.9 log1; §4). Known: bounded slowly varying (T3-all), log-type
    (T3-log). *Update (Plan 48, §3.17): PROVED-mod-cite for p > 1, 1 < s < 1 + 2p (Corollary B_{p>1}), bypassing QL.
-   Plans 50–52 extend this to every p > 0 and s > 1 except p = 1 with integer r ≥ 2 (GAP-int ⟺ r = 2) — §2.8.
-   Still open: GAP-int; the 1/n coefficient (tilt law, CONJECTURE).* *Update (Plan 44, §3.14):* reduced to the single hypothesis **QL** (log-moment localization along vΨ^t);
+   Plans 50–52 and 54 extend this to every p > 0 and every s > 1 — §2.8. **CLOSED.** Still open: the 1/n coefficient
+   (tilt law, CONJECTURE).* *Update (Plan 44, §3.14):* reduced to the single hypothesis **QL** (log-moment localization along vΨ^t);
    QL is open for D(γ) = ∞ (at t = 0 it is a uniform-in-M form of Lemma LP).
 8. **Nodes other than pure powers.** "Other nodes x_k = f(k) need a substitute for the pure-power law in Lemma LP"
    (§3.8 L4; §4). The analytic families done are pure powers (all p > 0) and the smooth-ζ model (README). The literature

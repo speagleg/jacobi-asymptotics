@@ -25,7 +25,7 @@ points, Lemma M amplification). Numerics: `checks/check_r2p1_{lw1,coeff,ct}.py/.
 | Lemma D | parabolic dynamics: (a) x_n > 0, x_{n+1} = A_{n+1} − B_n/x_n ⇒ x_n → 1 (alternative proof of master's CS); (b) 0 < z_n < A_n, z_{n+1} = B_n/(A_n − z_n) ⇒ z_n → 1 (used for "⟸") | PROVED |
 | **Corollary B_{p=1}⁺** | p = 1, **every non-integer r > 1**, Ψ sequence-form slowly varying: the law, with rate O(1/n) if Ψ satisfies (H_an₁), and with the regular majorant of 1/n + ρ(⌈n/M₀⌉) in general | PROVED-mod-cite (B_{p=1} + master's Theorem SH-r, §3.21); Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan50.md), fixes applied — REVIEWED |
 | (Corollary B_{p>1}⁺ — withdrawn as a separate result) | p > 1, every s > 1 | = master's **Corollary B_all** (Plan 52, §3.21, REVIEWED, with rate); not claimed here |
-| GAP-int | p = 1, r ∈ {2, 3, 4, …} with D(γ) = ∞; by CT₁ "⟺" equivalent to the law at the single exponent r = 2 (a = ½, α_x = 0) | GAP (§7) |
+| GAP-int | *(Plan 54 note, 2026-10-14, Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan54.md), fixes applied — REVIEWED: GAP-int is closed — p = 1, every integer r ≥ 2, by Route II in the unsymmetrized x-frame (Theorem RII_x1, 1 < r < 3) and SH-r; PROOF.md §3.23, `ROUTE2_xframe1.md`.)* p = 1, r ∈ {2, 3, 4, …} with D(γ) = ∞; by CT₁ "⟺" equivalent to the law at the single exponent r = 2 (a = ½, α_x = 0) | GAP (§7) |
 | OBSTRUCTION-a | the C–D frame at the band centre needs \|a\| < ½: Q̃ ∉ L²_loc and Lemma W fails at \|a\| ≥ ½ | OBSTRUCTION (scoped to this frame; §7) |
 | GAP-rate₁ | the 1/n coefficient (tilt law) | GAP; tilt law CONJECTURE + NUMERICAL (§6) |
 
@@ -510,7 +510,7 @@ a − ½ ranges over (−1, 0) only, half of ROUTE2's (−1, 1), because L²(|dy
 L²(|x|^{−1/2}|dx|) in x = y², not L²(|dx|). A weighted-L² version of C–D's comparison (power weight |z|^β, β ∈ (−1, 1)), or an
 unsymmetrized p = 1 hard-edge analysis, might reach a < 1; neither is attempted (HEURISTIC).
 
-**GAP-int.** p = 1, r ∈ {2, 3, 4, …}, Ψ with D(γ) = ∞. (For D(γ) < ∞, T3-log already covers every r > 1.) Numerically the law
+**GAP-int.** p = 1, r ∈ {2, 3, 4, …}, Ψ with D(γ) = ∞. *(Plan 54 note, Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan54.md), fixes applied — REVIEWED: closed by Route II in the unsymmetrized x-frame at p = 1, 1 < r < 3 incl. r = 2 (α_x = 0) — `ROUTE2_xframe1.md`, PROOF.md §3.23; the "unsymmetrized p = 1 hard-edge analysis" below turned out to be available: RH_px's frame holds at p = 1 except its quotient hard-edge construction, which Route II does not use.)* (For D(γ) < ∞, T3-log already covers every r > 1.) Numerically the law
 holds at r = 2 (§6).
 *(Plan 53 note, Rule R pending: closed by folding the symmetric problem — `ROUTE2_bnd.md`, Theorem RII₁ᶠ (1 < r < 3) and
 Corollary B_{p=1}^{all}; OBSTRUCTION-a above stays as scoped to this frame.)*
@@ -521,7 +521,7 @@ Corollary B_{p=1}^{all}; OBSTRUCTION-a above stays as scoped to this frame.)*
   from the open interval (1, 2); a base at a = ½ is obstructed (OBSTRUCTION-a: logarithmic divergence in UR₁(a), Lemma W, D₁);
   a Geronimus step (÷x) moves r down; a base at r = 1 exists as a finite measure only when ΣΨ(k)/k < ∞ and is a = −½, equally
   obstructed; Christoffel factors x + c do not change r; an unsymmetrized p = 1 hard-edge analysis at α_x = 0 (which ROUTE2
-  handles for p > 1 with Lemma W′) is not available in this repo (HEURISTIC).
+  handles for p > 1 with Lemma W′) is not available in this repo (HEURISTIC). *(Plan 54 note, 2026-10-14: superseded — that analysis is `ROUTE2_xframe1.md` (PROOF.md §3.23; Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan54.md), fixes applied — REVIEWED), which closes GAP-int.)*
 
 **GAP-rate₁.** Only the 1/n coefficient (tilt law; CONJECTURE, NUMERICAL). The O(1/n) rate for non-integer r > 2 follows from
 master's Theorem SH-r (Corollary B_{p=1}⁺; Rule R F2), and for s ≥ 1 + 2p (p > 1) it is master's Corollary B_all.

@@ -430,7 +430,7 @@ not in L²_loc, so C–D Theorem 4.4 (with any p, q, 1/p + 1/q = 1) and the area
 needs |a| = α_x/2 < ½. A partial frame change Q·((z − a)/z)^{mσ₃} would fix the exponents at 0 for α_x ∈ (1, 3) but adds a
 pole at a; not attempted. (α_x = 1 exactly is also excluded.) Precise open statement: Theorem RII for s ≥ 1 + 2p.
 
-**Other remaining items.** WP5 (p = 1: RH₁(r); p < 1: RH_plt1b seam) is untouched. GAP-rate (§5). Rule R re-check of the
+**Other remaining items.** WP5 (p = 1: RH₁(r); p < 1: RH_plt1b seam) is untouched. *(Later notes, 2026-10-14: p < 1 done in Plan 51 (PROOF.md §3.20); p = 1 done in Plan 50 (non-integer r, §3.19) and Plan 54 (this file's construction at p = 1, 1 < r < 3, hence every r > 1; `ROUTE2_xframe1.md`, PROOF.md §3.23; Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan54.md), fixes applied — REVIEWED).)* GAP-rate (§5). Rule R re-check of the
 fixes (F1 in particular). Rule L (novelty) not done.
 
 **Rule A (adversarial pass; logged in ../LOG.md).**

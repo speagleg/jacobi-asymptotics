@@ -465,3 +465,18 @@ D̂(−z) = D̃(z)).
 Lemma F0 (route2/ROUTE2_bnd.md §2.1: π_{2m}(y) = P_m(y²), π_{2m−1}(y) = yP̃_{m−1}(y²) for an even measure, and the resulting
 identity for the Fokas–Its–Kitaev matrix) is classical in substance (symmetric measures and their quadratic transformations;
 e.g. Chihara 1978, Ch. I §8 — pointer only, not read). It is proved in full in ROUTE2_bnd.md §2.1 and not cited.
+
+## (DLMF-5.5/5.11, Plan 54) NIST DLMF §§5.5(i), 5.11 — READ (web pages dlmf.nist.gov/5.5 and /5.11, re-fetched 2026-10-14), for Plan 54 (route2/ROUTE2_xframe1.md Lemma X1)
+
+(Distinct name: re-verifies the quotes of "(DLMF)", "(DLMF-2)" and "(DLMF-5.11, Plan 51)" for this use.)
+
+> (5.5.1) "Γ(z+1) = zΓ(z)," (no condition stated).
+>
+> (5.5.3) "Γ(z)Γ(1−z) = π/sin(πz)," with the condition "z≠0,±1,…".
+>
+> (5.11.1) "As z→∞ in the sector |ph z|≤π−δ, Ln Γ(z) ∼ (z−½) ln z − z + ½ ln(2π) + Σ_{k=1}^∞ B_{2k}/(2k(2k−1)z^{2k−1})"
+> (B_{2k} Bernoulli numbers; Ln the general logarithm, ln its principal branch).
+
+**Used in:** ROUTE2_xframe1.md Lemma X1 (p = 1: D = D̃/(1 − e^{∓2iθ}) = exp μ(−N/z)). Hypotheses checked: 5.5.3 at z = t ∉ ℤ
+(t = N/z with z ∈ ℂ±, so Im t ≠ 0); 5.5.1 at z = u = −t (any complex u); 5.11.1 for μ(u) in |ph u| ≤ π − δ (Ω_∞ away from the
+positive axis; D̃ only in |ph t| ≤ π/3 + π/24).
