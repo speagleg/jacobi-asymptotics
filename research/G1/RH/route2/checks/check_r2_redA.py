@@ -8,7 +8,7 @@ Examples: "sqrt": log Psi(k) = sqrt(log(k+e));  "osc": log Psi(k) = sqrt(log k +
 oscillating, cf. outline B3).
 [1] e_n := max_{k in sample, k >= n} |log Psi(k) - L1(log k)|  (RedA (i): -> 0).
 [2] eta(T) := max over tau in [T, T+25], |sigma| <= pi/2 (p = 2: the strip |Im u| <= pi/p) of |L1'(tau+i sigma)| (RedA (ii)).
-[3] p = s = 2, long double RKPW, K = 120000: |beta_n(v Psi)/beta_n(v Psi1) - 1| and n^p|a_n(v Psi) - a_n(v Psi1)|/c (RedA (iii)).
+[3] p = s = 2, long double RKPW, K = 120000: |beta_n(v Psi)/beta_n(v Psi1) - 1| and n^p|a_n(v Psi) - a_n(v Psi1)|/c (RedA (iii)),\n    with L1 at every k <= K (grid convolution, validated against direct quadrature).
 Run from the jacobi-asymptotics root: .venv/bin/python ../ja-plan48/research/G1/RH/route2/checks/check_r2_redA.py"""
 import numpy as np
 from jacobi_asym.measures.base import DiscreteMeasure
@@ -56,14 +56,21 @@ for name, lp in LOGPSI.items():
         row.append(f"T={T}: eta={eta:.4f} (sup|L'|={ref:.4f})")
     print(f"  {name:4s}: " + " | ".join(row), flush=True)
 
-print("[3] RedA (iii): p = s = 2, K = 120000, long double RKPW; Psi vs Psi1 (should -> 0)", flush=True)
+print("[3] RedA (iii): p = s = 2, K = 120000, long double RKPW; v Psi vs v Psi1 with L1 evaluated at every k <= K", flush=True)
+# L1 for all k: L sampled on a uniform tau-grid (step H) and convolved with the sampled Gaussian (FFT), then linear
+# interpolation at log k.  Validated against the direct quadrature L1() at sample k (printed).  (REVIEW_Plan48.md F7: the
+# earlier version used L1 only for k <= 2e4 and log Psi beyond, i.e. a hybrid weight.)
+from scipy.signal import fftconvolve
 p, s, K = 2.0, 2.0, 120000
 k = np.arange(1, K + 1, dtype=float)
+H = 1e-3; ZG = np.arange(-14, 14 + H / 2, H); KER = np.exp(-ZG ** 2 / 2) / np.sqrt(2 * np.pi) * H
+TG = np.arange(-14, np.log(K) + 14 + H / 2, H)
 for name, lp in LOGPSI.items():
-    l1 = np.array([L1(lp, np.log(kk)).real for kk in k[:20000]])
-    tail = lp(k[20000:])  # for k > 2e4, |log Psi - L1| < 1e-6 (see [1]); use log Psi there (difference below printed digits)
+    L1g = fftconvolve(Lint(lp, TG), KER, mode="same")
+    l1 = np.interp(np.log(k), TG, L1g)
+    val = max(abs(np.interp(np.log(kk), TG, L1g) - L1(lp, np.log(kk)).real) for kk in (1, 2, 10, 100, 1000, 10**4, 10**5))
     res = {}
-    for tag, lw in (("Psi", -s * np.log(k) + lp(k)), ("Psi1", -s * np.log(k) + np.concatenate([l1, tail]))):
+    for tag, lw in (("Psi", -s * np.log(k) + lp(k)), ("Psi1", -s * np.log(k) + l1)):
         lw = lw - lw.max(); r = jacobi_coeffs(DiscreteMeasure(k ** -p, np.exp(lw)), 801, prec="ld")
         res[tag] = (np.sqrt(np.asarray(r.b2, float)), np.asarray(r.a, float))
     row = []
@@ -71,4 +78,5 @@ for name, lp in LOGPSI.items():
         db = res["Psi"][0][n - 1] / res["Psi1"][0][n - 1] - 1
         da = n ** p * abs(res["Psi"][1][n] - res["Psi1"][1][n]) / c_p(p)
         row.append(f"n={n}: {db:+.2e}/{da:.2e}")
-    print(f"  {name:4s} (beta ratio - 1 / n^p|da|/c): " + ", ".join(row), flush=True)
+    print(f"  {name:4s} (grid L1 vs direct quadrature: max err {val:.1e}; beta ratio - 1 / n^p|da|/c): " + ", ".join(row),
+          flush=True)

@@ -1,6 +1,7 @@
 # ROUTE2: Route II, stage 1 — the pointwise Law P for k^{−s}Ψ, Ψ slowly varying, p > 1, via an RH analysis that perturbs RH_px (Plan 48)
 
-Status: **DRAFT, Rule R: pending.** Novelty: UNCHECKED (no Rule L search).
+Status: **Rule R: ACCEPT WITH FIXES (../../review/REVIEW_Plan48.md; RedA ACCEPT, RII and B_{p>1} ACCEPT WITH FIXES), fixes
+F1–F10 applied, re-check pending.** Novelty: UNCHECKED (no Rule L search).
 
 Source: `research/program/outline_B_sv.md` §5 "Route II", work package WP4, stage 1. Template: `../px/RH_px.md`
 (PROVED-mod-cite, REVIEWED). Closest precedent: `../zeta/RH_zeta_close.md` §1 (non-Fisher–Hartwig hard-edge factor via the
@@ -13,12 +14,12 @@ Conway–Deift comparison; REVIEWED). Numerics: `checks/check_r2_*.py/.out`.
 | §1 RedA | sequence-form slow variation ⇒ entire L₁ with L₁^{(j)} → 0 in every horizontal strip, Ψ/Ψ₁ → 1, and the law for vΨ ⟺ the law for vΨ₁ | PROVED (internal: L0, FV, FVa, Sat_p⁺; no BGT, no measurability) |
 | §2 set-up | which steps of RH_px change for w = k^{−s}Ψ₁ (table) | PROVED (bookkeeping), each changed step proved in §3 |
 | §3.3 LW1′ | lip mismatch \|D_w²/w₀ − c_±\| ≤ C(\|z\|^ν log(1/\|z\|) + ε₁(T_N)) | PROVED (given RH_px Lemma 3.4) |
-| §3.2 local form | Ψ = Ψ̂ζ^{ασ₃/2}S (α ∉ ℤ), Ψ = Ψ̂[[1, κ log ζ], [0, 1]]S (α = 0) | PROVED-mod-cite (KMVV (6.23)–(6.25); DLMF 10.25.2, 10.27.3–4, 10.31.2) |
+| §3.2 local form | Ψ = Ψ̂ζ^{ασ₃/2}S (α ∉ ℤ), Ψ = Ψ̂[[1, κ log ζ], [0, 1]]S (α = 0) | PROVED-mod-cite (KMVV (6.23)–(6.25); DLMF 1.13.4, 10.25.2, 10.27.3–4, 10.28.2, 10.31.2) |
 | §4.2 Lemma W′ | log-commutator on a star of rays is L²-bounded | PROVED (DLMF 1.14.38–40) |
 | Stop condition (i) | jump of e^{ρ_N} at the hard edge | **RESOLVED-mod-cite**: never placed on (−δ, 0); absorbed in D_w; the sup-norm mismatch is o(1) without rate and that suffices (C–D comparison) |
 | Stop condition (ii) | KMVV Bessel construction uniform in a drifting order α_N | **MOOT (not needed)**: the order is the fixed α_x; uniformity in α_N is not established here and is not used |
-| **Theorem RII** | p > 1, 1 < s < 1 + 2p, w₁ = k^{−s}exp(L₁(log k)) with (H_an): n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n) | **PROVED-mod-cite** (WLXZ v1 §§3–5, §6.1; KMVV §6; C–D Thm 4.4 + the arguments of C–D Thm 4.7 / Prop. 4.9 as reproduced in RH_ζ_close §1; DLMF 1.14, 5.5.3, 5.12, 10.25.2, 10.27.3–4, 10.31.2; G2 μ*, B*(i)–(ii)); **Rule R pending** |
-| **Corollary B_{p>1}** | p > 1, 1 < s < 1 + 2p, Ψ sequence-form slowly varying (e.g. exp(√log k), D(γ) = ∞): n^pb_n → c(p), n^pa_n → 2c(p) | PROVED-mod-cite (RII + RedA); Rule R pending |
+| **Theorem RII** | p > 1, 1 < s < 1 + 2p, w₁ = k^{−s}exp(L₁(log k)) with (H_an): n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n) | **PROVED-mod-cite** (WLXZ v1 §§3–5, §6.1; KMVV §6; C–D Thm 4.4 + the arguments of C–D Thm 4.7 / Prop. 4.9 as reproduced in RH_ζ_close §1; DLMF 1.13.4, 1.14, 5.5.3, 5.12, 10.25.2, 10.27.3–4, 10.28.2, 10.31.2; G2 μ*, B*(i)–(ii)); **Rule R ACCEPT WITH FIXES, fixes applied, re-check pending** (F1 closed for all \|α_x\| < 1 by UR′(b′)) |
+| **Corollary B_{p>1}** | p > 1, 1 < s < 1 + 2p, Ψ sequence-form slowly varying (e.g. exp(√log k), D(γ) = ∞): n^pb_n → c(p), n^pa_n → 2c(p) | PROVED-mod-cite (RII + RedA); Rule R ACCEPT WITH FIXES, fixes applied, re-check pending |
 | GAP-α | s ≥ 1 + 2p (α_x ≥ 1) | GAP (the L² frame of the comparison fails; §6) |
 | GAP-rate | the 1/n coefficient (tilt law / Theorem B-rate) | GAP; CONJECTURE + NUMERICAL (§5) |
 
@@ -92,16 +93,21 @@ Sat_p⁺ (B-cond step 7), give n^p|ȧ_n| ≤ 3C_pρ(⌈n/M₀⌉) + 2Gn^p·(head
   e_n := max_{k≥n}|log Ψ(k) − L₁(log k)| = 8.3e−3, 2.4e−3, 1.1e−3, 8.6e−4 at n = 10², 10⁶, 10¹⁰, 10¹²; for the oscillating
   √(log k + 1)·sin log(log k + 1), 4.8e−2 → 1.2e−3.
 - (RedA-3) NUMERICAL ([2]): ε₁(T) over the strip |Im u| ≤ π/2 (p = 2) equals sup_{τ≥T}|L′| to 3 digits (0.221, 0.159,
-  0.112, 0.079 at T = 5, 10, 20, 40 for √log). ([3]) p = s = 2: |β_n(vΨ)/β_n(vΨ₁) − 1| = 4.8e−6 → 6.4e−7 (n = 100 → 800;
-  √log), 6.9e−5 → 4.2e−6 (oscillating).
+  0.112, 0.079 at T = 5, 10, 20, 40 for √log). ([3]) p = s = 2, with L₁ evaluated at every k ≤ K (grid convolution, max
+  error vs direct quadrature 4e−9 / 2e−8; Rule R F7 — the first version used a hybrid weight): |β_n(vΨ)/β_n(vΨ₁) − 1| =
+  4.8e−6 → 6.7e−7 (n = 100 → 800; √log), 6.8e−5 → 4.2e−6 (oscillating).
 
 ---
 
 ## 2. RH set-up for w₁ = k^{−s}Ψ₁, p > 1: what changes in RH_px
 
-**Hypothesis (H_an).** Ψ₁(t) = exp L₁(log t), where L₁ is analytic on a neighbourhood of the closed half-strip
-Σ_p := {u : Re u ≥ 0, |Im u| ≤ π/p}, real on ℝ₊, and ε₁(T) := sup{|L₁′(u)| : u ∈ Σ_p, Re u ≥ T} → 0 as T → ∞.
-(RedA's L₁ satisfies (H_an) with σ₀ = π/p. So does L₁(u) = √(log(e^u + e)), i.e. Ψ₁(t) = exp √log(t + e), and
+**Hypothesis (H_an)** (domain corrected per Rule R F4). For some c₀ > 0, Ψ₁(t) = exp L₁(log t), where L₁ is analytic on
+Σ_p := {u : Re u ≥ −c₀, |Im u| ≤ π/p}, real on the real axis, bounded on {u ∈ Σ_p : Re u ≤ 0}, and
+ε₁(T) := sup{|L₁′(u)| : u ∈ Σ_p, Re u ≥ T} → 0 as T → ∞. (The part Re u ∈ [−c₀, 0] is needed because RH_px's top closing
+segment N^p + δ′ + i(0, ±δ) has t = N(N^p + δ′)^{−1/p} < 1, i.e. Re log t < 0; with δ′ fixed, Re log t ≥ −c₀ there. The
+region Ω_∞ = {|z| > N^p + δ′}, where Re log t < −c₀ is possible, never uses w: V = C_∞QF^{σ₃} there has no weight in its
+jumps.) (RedA's L₁ satisfies (H_an) for every c₀, with σ₀ = π/p: it is entire, and bounded on {−c₀ ≤ Re u ≤ 0,
+|Im u| ≤ π/p} by continuity (L is constant on y ≤ 0). So does L₁(u) = √(log(e^u + e)), i.e. Ψ₁(t) = exp √log(t + e), and
 L₁(u) = (log(e^u + e))^θ, θ < 1.) Consequences: |L₁(u)| ≤ A + η Re u on Σ_p (any η > 0, A = A(η)), so
 |Ψ₁(t)|^{±1} ≤ C_η|t|^{η} for |arg t| ≤ π/p, |t| ≥ 1 (Potter in the sector).
 
@@ -120,7 +126,7 @@ we may divide w by Ψ₁(N). Put
 | §2 μ*, g, φ, φ̃, Lemmas 2.1–2.2 | no (μ* depends only on the nodes; the external field (1/N)log w → 0) | none. Validity a posteriori needs \|log w₁\| = o(N) on the contours: \|log q_N\| ≤ C log N by Potter |
 | §3 D̃, D, B, K, F, F̃, Lemmas 3.1–3.5, normalization at ∞ (κ, C_∞) | no (Γ/Binet and node data only) | none |
 | band jump, global parametrix | w₀ = W(b − x)/(D̃²B²) | **w₀ = C_N x^{α_x}(b − x)h_N(x)·q_N(x)**; D_w = (D_w of RH_px)·D_q, with D_q the Szegő function of q_N on [0, b] (outline step 3; finite since \|log q_N(x)\| ≤ ε₁(T_N)(\|log x\| + C)/p) |
-| saturated region, Σ^△ lips, top end (§3, §4.3) | 1/w₀, w through e^{2Nφ̃}/w₀ and FF̃/W | extra factor q_N^{∓1} = poly(N) (Potter; on the top pieces t ≈ 1 and L₁ is bounded on compacts of Σ_p), absorbed by e^{−cN} resp. N^{−pN} |
+| saturated region, Σ^△ lips, top end (§3, §4.3) | 1/w₀, w through e^{2Nφ̃}/w₀ and FF̃/W | extra factor q_N^{∓1} = poly(N) (Potter; on the top pieces Re log t ∈ [−c₀, C] and L₁ is bounded there by (H_an)), absorbed by e^{−cN} resp. N^{−pN} |
 | §4.2 soft edge (WLXZ §6.1 Airy) | w̃ analytic nonvanishing in U(b, ε) | q_N is analytic in U(b, 2ε) with \|log q_N\| ≤ Cε₁(T_N); construction unchanged and uniform |
 | §4.1 hard edge (KMVV left endpoint, W̃ = continuation of w₀^{1/2}) | yes | **replaced** (§3): the factor q_N(z) = z^{−ϑ_N/p}·e^{ρ_N(z)} (ϑ_N := L₁′(log N), ρ_N := log q_N + (ϑ_N/p)log z) is not Fisher–Hartwig, and its continuation does not glue with the KMVV W̃ |
 | §5 (Y4)_x, identification, small norm, extraction | masses w_k; small norm | (Y4)_x with a Potter loss \|z\|^{−η}; small norm replaced by the C–D comparison (§4) |
@@ -174,14 +180,17 @@ U(0, δ), where ṽ = [[1, 0], [c_±e^{2Nφ}, 1]] (Q-frame) and the (h1) entries
 
 Sources (quoted in `../CITATIONS.md`): KMVV (6.23) Ψ = [[I_α(2ζ^{1/2}), (i/π)K_α(2ζ^{1/2})], [2πiζ^{1/2}I′_α(2ζ^{1/2}),
 −2ζ^{1/2}K′_α(2ζ^{1/2})]] in |arg ζ| < 2π/3; DLMF 10.25.2 I_ν(z) = (½z)^νΣ_k(¼z²)^k/(k!Γ(ν + k + 1)) (principal branch);
-10.27.3–4; 10.31.2 (K₀).
+10.27.3–4; 10.31.2 (K₀); 1.13.4 and 10.28.2 (Wronskian). These are in `../CITATIONS.md` entries DLMF-2 and **DLMF-4**
+(the latter renamed from "DLMF-3", which on master denotes Plan 46's entry; Rule R F2).
 - **α ∉ ℤ.** By 10.25.2, I_{±α}(2ζ^{1/2}) = ζ^{±α/2}E_±(ζ) with E_± entire, and 2πiζ^{1/2}I′_{±α}(2ζ^{1/2}) = ζ^{±α/2}F_±(ζ)
   with F_± entire (term-by-term: ζ^{1/2}·d/dx[(x/2)^{±α+2k}] at x = 2ζ^{1/2} is (±α/2 + k)ζ^{±α/2+k}·const). By 10.27.4,
   K_α = (π/2)(I_{−α} − I_α)/sin(απ). So the second column of (6.23) is (i/(2 sin απ))·[(I_{−α}, 2πiζ^{1/2}I′_{−α}) −
   (I_α, 2πiζ^{1/2}I′_α)]ᵀ (check: (i/(2 sin απ))·2πi = −π/sin απ, and −2ζ^{1/2}K′_α = −πζ^{1/2}(I′_{−α} − I′_α)/sin απ).
   Hence in |arg ζ| < 2π/3
     **Ψ = Ψ̂(ζ)ζ^{ασ₃/2}S,** Ψ̂ := [[E₊, E₋], [F₊, F₋]] entire, S := [[1, −i/(2 sin απ)], [0, i/(2 sin απ)]],
-  and det Ψ̂ = 1/det S = −2i sin απ ≠ 0 (det Ψ ≡ 1, KMVV (6.33)-type). In the other two sectors S is multiplied by the
+  and det Ψ̂ = 1/det S = −2i sin απ ≠ 0, since det Ψ ≡ 1: by (6.23), det Ψ = 2ζ^{1/2}(K_αI′_α − K′_αI_α)(2ζ^{1/2}) =
+  2ζ^{1/2}·𝒲{K_α, I_α}(2ζ^{1/2}) = 2ζ^{1/2}/(2ζ^{1/2}) = 1 (DLMF 1.13.4, 10.28.2, quoted in DLMF-4; Rule R F5). Only det Ψ̂ ≠ 0
+  (Ψ̂^{−1} bounded on |ζ| ≤ 3) is used. In the other two sectors S is multiplied by the
   constant jump matrices (6.16), (6.18) (Ψ̂ζ^{ασ₃/2} is analytic off the cut of ζ^{α/2}, and Ψ's jumps are constant). At α = −½ this is
   RH_ζ_close's Ψ = Ψ̂ζ^{−σ₃/4}S.
 - **α = 0.** By 10.31.2, K₀(x) = −(log(x/2) + γ)I₀(x) + (entire, even in x). With x = 2ζ^{1/2}: K₀(2ζ^{1/2}) =
@@ -244,14 +253,58 @@ part a drifting Bessel order α_x − ϑ_N/p would remove (§5); it is O(ε₁,N
 *Proof.* RH_ζ_close's proof (a)–(e), with these changes only:
 - (a) area estimate: |Q̃^{−1}| ≤ C_N|z − z₀|^{−|α|/2} (log for α = 0) near 0, so ∬_{ε<|z|<2ε}|mQ̃^{−1}|dA ≤
   Cε^{1/2}·ε^{1−|α|/2} and every negative Laurent coefficient is O(ε^{(1−|α|)/2}) → 0 **because |α| < 1**.
-- (b), (c), (e): unchanged (they do not involve α; the q_N-dependence enters only through D_w, which cancels in Q̃ inside
+- (c), (e): unchanged (they do not involve α; the q_N-dependence enters only through D_w, which cancels in Q̃ inside
   U(0, δ) and outside the discs — Q̃ = 𝒵̃′N₀ there — and through the bounded multiplier (D_w/W_r)^{±σ₃} at b).
+- (b) **does** involve α (Rule R F1): RH_ζ_close's crude bound |C(gQ̃₊^{−1})| ≲ ‖g‖|z|^{−1/4}d^{−1/2}, |Q̃| ≲ |z|^{−1/4} becomes
+  |m| ≲ ‖g‖|z|^{−|α|}d^{−1/2} for general α, whose annulus integral ≍ ε^{3/2−|α|} is not o(ε) for |α| > ½. It is replaced by
+  (b′) below, valid for every |α| < 1.
 - (d) hard-edge piece: Φ(ζ) = σ₃Ψ_α(ζ)σ₃e^{Nφσ₃} with the local form of §3.2. For |ζ| ≥ 2 unchanged (KMVV (6.28)). For
   |ζ| ≤ 3 the core operator is h ↦ C(hζ^{−ασ₃/2})ζ^{ασ₃/2}, i.e. two copies of RH_ζ_close **Lemma W with a = ±α/2,
   |a| < ½ ⇔ |α| < 1**; for α = 0 the core is h ↦ C(hL^{−1})L, L = [[1, κ log ζ], [0, 1]], whose only non-trivial entry is
   the log-commutator g ↦ κC(g(log z − log s))-kernel, bounded by **Lemma W′** (§4.2). The Ψ̂- and A₀-commutator kernels are
   bounded analytic; the K-term Hilbert–Schmidt bounds become ∬|s|^{−|α|}|z|^{−|α|} < ∞ (|α| < 1) and, at |ζ| ≤ 2,
-  HS² ≲ N²(N^{−2}∫_{|ζ|≤2}|ζ|^{−|α|})² = O(N^{−2}) (log² for α = 0). ∎
+  HS² ≲ N²(N^{−2}∫_{|ζ|≤2}|ζ|^{−|α|})² = O(N^{−2}) (log² for α = 0).
+- **(b′) m ∈ ∂C(L²) for every |α| < 1** (Rule R F1; the reviewer's sketch, written out). As in RH_ζ_close (b),
+  m := C(gQ̃₊^{−1})Q̃ (g ∈ L²(Σ)) satisfies m₊ − m₋ṽ = g, and ‖m±‖ ≤ C‖g‖ by (c)–(e); what must be shown is m = C(m₊ − m₋).
+  The difference F := m − C(m₊ − m₋) has no jump on Σ, is O(1/z) at ∞, and is analytic off the finitely many vertices of Σ.
+  At a vertex z₀, if ∬_{ε<|z−z₀|<2ε}|F|dA = o(ε), then choosing r ∈ (ε, 2ε) with ∮_{|z−z₀|=r}|F||dz| ≤ ε^{−1}∬|F|dA gives
+  |c_{−k}| ≤ (2π)^{−1}r^{k−1}∮|F||dz| = o(ε^{k−1}) → 0 for every Laurent coefficient c_{−k} (k ≥ 1), so z₀ is removable and
+  F ≡ 0 by Liouville. Since C(m₊ − m₋) is the Cauchy transform of an L² function, its annulus integral is O(ε^{3/2})
+  (RH_ζ_close (a)). So it suffices to show ∬_{ε<|z−z₀|<2ε}|m|dA = o(ε). Vertices away from 0: as in RH_ζ_close (b) (bounded
+  Q̃^{±1}, or the Airy edge, where (e) is α-free). **At z₀ = 0** we work for fixed N (only membership in ∂C(L²) is needed;
+  constants C_N may depend on N).
+  - *Factorization.* On U(0, r_N) with r_N small (so that |N²f(z)| ≤ 3), Q̃ = G(z)·(−z)^{ασ₃/2}·Θ(z) for α ≠ 0, resp.
+    Q̃ = G(z)·Λ(z)·Θ(z) with Λ(z) := [[1, κ log(−z)], [0, 1]] for α = 0. Here, from (d) and §3.2,
+    G(z) := A₀(z)N^{σ₃/2}σ₃Ψ̂(N²f(z))·(N²f(z)/(−z))^{ασ₃/2} (resp. with the constant shift κ log(N²f(z)/(−z)) absorbed:
+    Λ(ζ-variable) = Λ(z)·[[1, κ log(N²f/(−z))], [0, 1]], the second factor analytic), which is analytic with analytic inverse
+    on U(0, r_N): N²f(z)/(−z) is analytic and positive near 0 (f(0) = 0, f′(0) < 0, Lemma 4.1), so its powers/logs are
+    analytic, and the cut of ζ^{α/2} (ζ < 0 ⇔ the band z > 0) is that of (−z)^{α/2} (principal). Θ(z) := S_jσ₃e^{Nφσ₃}·
+    (constant sign) on each sector j is bounded with bounded inverse (|e^{±Nφ}| bounded near 0, φ(0±) = ∓iπ).
+  - *Splitting.* Write g = g₁ + g₂, g₁ := g·1_{U(0,r_N)}. The g₂-part: C(g₂Q̃₊^{−1}) is analytic and bounded on U(0, r_N/2),
+    so its contribution to m is ≤ C_N‖g‖|Q̃(z)| ≤ C_N‖g‖|z|^{−|α|/2} (resp. log), with annulus integral O(ε^{2−|α|/2}) = o(ε).
+  - For the g₁-part write G(s)^{−1}G(z) = I + (s − z)K_G(s, z), K_G analytic and bounded on U(0, r_N)², and
+    h := g₁Θ^{−1} (‖h‖ ≤ C‖g‖). Then (α ≠ 0)
+      C(g₁Q̃₊^{−1})(z)Q̃(z) = [C(h(−s)^{−ασ₃/2})(z)(−z)^{ασ₃/2} + (1/2πi)∫h(s)(−s)^{−ασ₃/2}K_G(s, z)ds·(−z)^{ασ₃/2}]Θ(z).
+  - *K-term.* |∫h(−s)^{−ασ₃/2}K_G ds| ≤ C_N‖h‖·(∫_{Σ∩U}|s|^{−|α|}|ds|)^{1/2} ≤ C_N‖g‖ (|α| < 1), times |(−z)^{±α/2}| ≤ |z|^{−|α|/2}:
+    ≤ C_N‖g‖|z|^{−|α|/2}, annulus integral O(ε^{2−|α|/2}) = o(ε).
+  - *Core term.* Column by column it is T_a(z) := (−z)^a∫_{Σ∩U}h(s)(−s)^{−a}(s − z)^{−1}ds with a ∈ {α/2, −α/2}, |a| < ½.
+    Put r := |z|, d := dist(z, Σ) ≤ r. By Cauchy–Schwarz |T_a(z)| ≤ C|z|^{Re a}‖h‖·I(z)^{1/2}, I(z) := ∫_Σ|s|^{−2Re a}|s − z|^{−2}|ds|
+    (|(−s)^{−a}| ≤ C|s|^{−Re a}; here a is real). On each ray: |s| ≤ r/2 gives ≤ (4/r²)∫_0^{r/2}ρ^{−2a}dρ = C r^{−1−2a} (2a < 1);
+    r/2 ≤ |s| ≤ 2r gives ≤ C r^{−2a}∫|s − z|^{−2}|ds| ≤ C r^{−2a}/d; |s| ≥ 2r gives ≤ 4∫_{2r}^∞ρ^{−2a−2}dρ = C r^{−1−2a}. Hence
+    I(z) ≤ C r^{−2a}/d (d ≤ r) and **|T_a(z)| ≤ C‖h‖d^{−1/2}** — no power of |z| survives. (The reviewer's form
+    ‖h‖_ηd^{−1/2} + C_η|z|^{−|a|} is the same estimate with the far part split off.)
+  - *Area integral.* Σ ∩ U(0, r_N) is a finite union of C² arcs through 0 at distinct angles, so
+    ∬_{ε<|z|<2ε}d(z)^{−1/2}dA ≤ C∫_ε^{2ε}ρ dρ∫_0^{2π}(ρ|θ − θ_j|)^{−1/2}dθ (sum over arcs) = O(ε^{3/2}). With Θ bounded, the
+    core term contributes O(ε^{3/2}) = o(ε).
+  - *α = 0.* Λ_s^{−1}Λ_z = I + κ(log(−z) − log(−s))e₁e₂ᵀ, so the core is C(h)(z) plus the column
+    κ(2πi)^{−1}∫h_{·1}(s)(log(−z) − log(−s))(s − z)^{−1}ds. The first is ≤ C‖h‖d^{−1/2} (a = 0 above). For the second, the
+    same three ranges with |log(−z) − log(−s)| ≤ C(1 + |log(|s|/r)|) give ∫(1 + |log(ρ/r)|)²|s − z|^{−2}|ds| ≤ C/d, so it is
+    ≤ C‖h‖d^{−1/2}. The K-term carries Λ_s^{−1} = O(1 + |log|s||) ∈ L² and Λ_z = O(log(1/|z|)): ≤ C_N‖g‖log(1/|z|). The area
+    integrals are O(ε^{3/2}) and O(ε²log(1/ε)), both o(ε).
+  So ∬_{ε<|z|<2ε}|m|dA = O(ε^{3/2} + ε^{2−|α|/2}) = o(ε) for every |α| < 1 (and α = 0), and m ∈ ∂C(L²). ∎
+
+**Outcome of F1:** UR′, hence Theorem C′, Proposition D′, Theorem RII and Corollary B_{p>1}, hold on the whole range
+α_x ∈ (−1, 1), i.e. 1 < s < 1 + 2p. (Fallback not needed: no restriction to |α_x| ≤ ½.)
 
 ### 4.2 Lemma W′ (log-commutator on a star; needed only for α_x = 0) — PROVED
 
@@ -270,7 +323,9 @@ equal to π² at τ = 0; the closed form is not used); rays at angle differences
 3.61 below the absolute bounds 8.33, 7.56, 7.33.
 
 *The flattening step, in detail.* On a C² arc γ_j(ρ) = z₀ + ρe^{iθ_j}(1 + O(ρ)), log(γ_j(ρ) − z₀) = log ρ + iθ_j + O(ρ),
-and 1/(γ_j(ρ) − γ_i(r)) − 1/(ρe^{iθ_j} − re^{iθ_i}) = O(1) (RH_ζ_close Lemma W's flattening). The resulting error
+and γ_j′(ρ)/(γ_j(ρ) − γ_i(r)) − e^{iθ_j}/(ρe^{iθ_j} − re^{iθ_i}) = O(1) (RH_ζ_close Lemma W's flattening; the arclength factor
+γ_j′(ρ)dρ must be included — without it, on a single arc the difference is only O(r/|ρ − r|); Rule R F10). For W′ this is
+harmless either way, since the factor log(r/ρ) vanishes at ρ = r and makes the product O(1 + |log(r/ρ)|). The resulting error
 kernels are O(1 + |log(r/ρ)|) on U(z₀, r)², which is Hilbert–Schmidt (∬log²(r/ρ)dρdr < ∞ on a bounded set).
 
 ### 4.3 Theorem C′ and Proposition D′
@@ -302,19 +357,22 @@ C–D Theorem 4.7's Neumann argument (quoted) with UR′. ∎ **This is where "n
 **Theorem RII.** Let p > 1, 1 < s < 1 + 2p (α_x ∈ (−1, 1)), and Ψ₁ = exp L₁(log t) with (H_an). For
 σ₁ = Σ_kk^{−s}Ψ₁(k)δ_{k^{−p}}:
 
-  n^pb_n = c(p)(1 + O(1/n)),  a_n/(2b_n) = 1 + O(1/n),
+  n^pb_n = c(p)(1 + O(1/n)),  a_n/(2b_n) = 1 + O(1/n).
 
-and more precisely the effect of the slowly varying factor beyond the comparison problem is O((ε₁(log n − C) + n^{−2ν}log n)/n).
+What is proved about the non-Fisher–Hartwig part (Rule R F3): the lip mismatch moves Q₁, Q₂ by O(ε′_N/N) relative to the
+comparison problem Q̃ (Proposition D′). Q̃ itself depends on Ψ₁ at order 1/N (e.g. through 𝒵̃ at the Airy edge, where w₀ ∋ q_N),
+so **no claim** is made that b_n(w₁)/b_n(k^{−s}) − 1 = O(ε₁/n); that is GAP-rate (§5).
 
-*Proof.* Extraction as RH_ζ_close §1.7 / RH_px §5 (invariance lemma): (Q₁)₁₂(Q₁)₂₁ = N^{2p}b_N² and a(Q) = N^pa_N. For
-Q̃ = (D_∞^{−σ₃}𝒵̃D_∞^{σ₃})N₀ outside the discs: (Q̃₁)₁₂(Q̃₁)₂₁ = c(p)²(1 + O(1/N)), a(Q̃) = 2c(p)(1 + O(1/N)), with Q̃₁ = O(1)
-in this frame (the 1/z-coefficient of log D_w is ∫log w₀·(bounded kernel), finite and N-uniform since |log q_N(x)| ≤
-ε₁,N(|log x| + C)/p). Proposition D′ gives Q₁ − Q̃₁ = O(ε′_N/N). ∎
+*Proof.* Extraction as RH_ζ_close §1.7 / RH_px §5 (invariance lemma): (Q₁)₁₂(Q₁)₂₁ = N^{2p}b_N² and a(Q) = N^pa_N. Here Q = D_∞^{−σ₃}VD_w^{σ₃}, and the invariance lemma applies to Y ↦ CYk^{σ₃} with k = D_w/D_∞ = 1 + d₁/z + …; it only needs d₁
+finite for each N, which holds since d₁ is ∫log w₀·(bounded kernel) and |log q_N(x)| ≤ ε₁,N(|log x| + C)/p is integrable
+against dx/√(x(b − x)) (Rule R F6: this is where D_w's 1/z-coefficient enters; no uniformity in N is needed). For
+Q̃ = (D_∞^{−σ₃}𝒵̃D_∞^{σ₃})N₀ outside the discs (no D_w): (Q̃₁)₁₂(Q̃₁)₂₁ = c(p)²(1 + O(1/N)), a(Q̃) = 2c(p)(1 + O(1/N)), and Q̃₁, Q̃₂
+are O(1) in this frame. Proposition D′ gives Q₁ − Q̃₁, Q₂ − Q̃₂ = O(ε′_N/N). ∎
 
 *Cited (Rule C; all quoted in `../CITATIONS.md`):* WLXZ v1 §§3–5, §6.1; KMVV §6 ((6.16)–(6.28), (6.42)–(6.53), Prop. 6.5);
 C–D Theorem 4.4 and the arguments of Theorem 4.7, Proposition 4.9 (reproduced in RH_ζ_close §§1.4–1.6); DLMF 1.14.38–40,
-5.5.3, 5.12.1/3, 10.25.2, 10.27.3–4, 10.31.2; G2 μ*, B*(i)–(ii). *New here:* RedA; the table of §2; Lemma LW1′ (the
-q_N-part); the general-α local form; Lemma W′; the α-bookkeeping in UR′ and D′.
+5.5.3, 5.12.1/3, 1.13.4, 10.25.2, 10.27.3–4, 10.28.2, 10.31.2; G2 μ*, B*(i)–(ii). *New here:* RedA; the table of §2; Lemma
+LW1′ (the q_N-part); the general-α local form; Lemma W′; UR′(b′); the α-bookkeeping in UR′ and D′.
 
 ### 4.5 Corollary B_{p>1} (Theorem B for p > 1, 1 < s < 1 + 2p)
 
@@ -332,16 +390,21 @@ s < 1 + 2p. It does not pass through QL.
 
 ## 5. Numerics for the law and the drifting-order (tilt) model (NUMERICAL, p = s = 2, α_x = −½)
 
-`check_r2_coeff.out`, w = k^{−2}exp √log(k + e) (satisfies (H_an) directly), long double RKPW, K = 1.2·10⁵ and 2.4·10⁵:
-- n(n^pb_n/c − 1) = −0.387, −0.394, −0.401, −0.411 (n = 100 … 800, K = 2.4·10⁵): bounded, i.e. O(1/n) as RII states, and
-  close to the tilted baseline −(s − 1 − ϑ_n)/2 = −0.387, −0.393, −0.399, −0.404 (ϑ_n = L′(log n) = 0.226 … 0.193).
-- n(a_n/(2b_n) − 1) = 0.998 … 1.007 (pairing a[n]/(2√b2[n]) of `../../checks/check_fine.py`; pure-power e₁ = p/2 = 1).
-- Tilt law: n(b_n(w)/b_n(v) − 1)/ϑ_n = 0.489, 0.491, 0.492, 0.493 (→ ½).
+`check_r2_coeff.out`, w = k^{−2}exp √log(k + e) (satisfies (H_an) directly), long double RKPW, K = 1.2·10⁵, 2.4·10⁵, 4.8·10⁵
+(convergence corrected per Rule R F8):
+- n(n^pb_n/c − 1) = −0.3869, −0.3938, −0.4000 (n = 100, 200, 400; K = 4.8·10⁵; K-converged to ~3 digits for n ≤ 200, to
+  ~2·10⁻³ at n = 400), close to the tilted baseline −(s − 1 − ϑ_n)/2 = −0.387, −0.393, −0.399. At n = 800 the values
+  −0.4285, −0.4111, −0.4065 (K = 1.2, 2.4, 4.8·10⁵) are **not** K-converged (second digit), so no match is claimed there;
+  they remain bounded, consistent with O(1/n).
+- n(a_n/(2b_n) − 1) = 0.9985, 0.9991, 0.9996 (n = 100, 200, 400; n = 800 not converged: 1.028, 1.007, 1.001) (pairing
+  a[n]/(2√b2[n]) of `../../checks/check_fine.py`; pure-power e₁ = p/2 = 1).
+- Tilt law: n(b_n(w)/b_n(v) − 1)/ϑ_n = 0.489, 0.491, 0.4925, 0.493 (n = 100 … 800; stable in K to ≤ 1.2·10⁻³) (→ ½).
 - **Drifting-order model:** comparing with v_σ = k^{−σ}, σ = s − ϑ_n (hard-edge Bessel order α_x − ϑ_n/p),
   n(b_n(w)/b_n(v_σ) − 1)/ϑ_n = −0.0073, −0.0069, −0.0065, −0.0059: the drifting-order model accounts for ≈ 99% of the
-  1/n effect of Ψ. K-converged except n = 800 (third digit).
-- These corroborate Theorem RII (bounded n·deviation) and Proposition D′'s size O(ε₁/N) (the effect of Ψ beyond v is
-  ≈ ϑ_n/(2n)); they do not test the comparison problem Q̃ itself (as in RH_ζ_close §1.7, Rule R F6 there).
+  1/n effect of Ψ (T and R vary by ≤ 4·10⁻⁴ over the three K).
+- These are consistent with Theorem RII (bounded n·deviation). The observed size ϑ_n/(2n) of the effect of Ψ relative to
+  the pure power is the (unproved) tilt law, not Proposition D′ (which compares Q with Q̃, not with the pure power); they do
+  not test the comparison problem Q̃ itself (as in RH_ζ_close §1.7, Rule R F6 there).
 
 **Tilt law (CONJECTURE, unchanged from outline §1 "B-rate").** n^pb_n(w)/c = 1 − (s − 1 − ϑ_n)/(2n) + o(ϑ_n/n). Within
 Route II this is the statement that the main term of Proposition D′ equals ϑ_N/(2N)·(…) + o(ϑ_N/N). Computing that main
@@ -367,8 +430,8 @@ not in L²_loc, so C–D Theorem 4.4 (with any p, q, 1/p + 1/q = 1) and the area
 needs |a| = α_x/2 < ½. A partial frame change Q·((z − a)/z)^{mσ₃} would fix the exponents at 0 for α_x ∈ (1, 3) but adds a
 pole at a; not attempted. (α_x = 1 exactly is also excluded.) Precise open statement: Theorem RII for s ≥ 1 + 2p.
 
-**Other remaining items.** WP5 (p = 1: RH₁(r); p < 1: RH_plt1b seam) is untouched. GAP-rate (§5). Rule R review of this
-file. Rule L (novelty) not done.
+**Other remaining items.** WP5 (p = 1: RH₁(r); p < 1: RH_plt1b seam) is untouched. GAP-rate (§5). Rule R re-check of the
+fixes (F1 in particular). Rule L (novelty) not done.
 
 **Rule A (adversarial pass; logged in ../LOG.md).**
 - (a) Ψ₁ ≡ const: ε₁ = 0, LW1′ reduces to the Hölder part, RII reduces to RH_px (consistent).

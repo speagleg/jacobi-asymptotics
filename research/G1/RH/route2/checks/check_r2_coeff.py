@@ -7,7 +7,7 @@ Columns:
   with the other pairing a[n]/(2 sqrt(b2[n-1])) the pure power gives -1: an index-convention shift of the 1/n term);
   T_n := n (b_n(w)/b_n(v) - 1)/theta_n  (tilt law: -> 1/2; ROUTE2 §5: the O(eta_N/N) term of Prop. D');
   R_n := n (b_n(w)/b_n(v_sig) - 1)/theta_n  (drifting-order model residual; -> 0 means the tilt captures the 1/n term).
-long double RKPW at K = 120000 and 240000 (truncation check).
+long double RKPW at K = 120000, 240000 and 480000 (truncation check; REVIEW_Plan48.md F8).
 Run from the jacobi-asymptotics root: .venv/bin/python ../ja-plan48/research/G1/RH/route2/checks/check_r2_coeff.py"""
 import numpy as np
 from jacobi_asym.measures.base import DiscreteMeasure
@@ -26,7 +26,7 @@ def coeffs(K, logw, N):
     return np.sqrt(np.asarray(r.b2, float)), np.asarray(r.a, float)
 
 
-for K in (120000, 240000):
+for K in (120000, 240000, 480000):
     bw, aw = coeffs(K, lambda k: -s * np.log(k) + L(np.log(k)), 802)
     bv, _ = coeffs(K, lambda k: -s * np.log(k), 802)
     rows = []

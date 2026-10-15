@@ -316,7 +316,7 @@
   enough for C–D's resolvent comparison; Proposition D′ gains 1/N from Bessel localization.
 - **Stop condition (ii): MOOT** (fixed order α_x; drifting-order uniformity not established, not used; relevant only for the
   1/n coefficient).
-- New for general α_x ∈ (−1, 1): local form of KMVV's Ψ (DLMF 10.25.2, 10.31.2 read and quoted in RH/CITATIONS.md "DLMF-3");
+- New for general α_x ∈ (−1, 1): local form of KMVV's Ψ (DLMF 10.25.2, 10.31.2 read and quoted in RH/CITATIONS.md "DLMF-4", renamed from "DLMF-3" per REVIEW_Plan48.md F2);
   Lemma UR′ (Lemma W with a = ±α/2); Lemma W′ (log-commutator, α = 0).
 - **Theorem RII** (PROVED-mod-cite): p > 1, 1 < s < 1 + 2p, (H_an) ⇒ n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n).
   **Corollary B_{p>1}**: Theorem B for p > 1, 1 < s < 1 + 2p, every sequence-form slowly varying Ψ (first D(γ) = ∞ case).
@@ -327,4 +327,16 @@
 - **Numerics** (`RH/route2/checks/`, p = s = 2): RedA [1]–[3]; LW1′ mismatch/ε₁ = 2.40 → 2.90 (N = 10² → 10¹², → π, the
   pure-tilt value); n(n^pb_n/c − 1) bounded (−0.39 … −0.41); tilt ratio 0.489 → 0.493; drifting-order model residual
   n·dev/ϑ_n ≈ −0.006; Lemma W′ Mellin symbol bounded (π² on the diagonal).
-- **Rule R:** pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan48.md; RedA ACCEPT; RII and B_{p>1} ACCEPT WITH FIXES). Fixes applied:
+  - F1 (high): UR′(b) depended on α (the crude product bound for m := C(gQ̃₊^{−1})Q̃ gives c_{−1} ≲ ε^{1/2−|α|}, which blows up
+    for |α_x| > ½). New UR′(b′) in ROUTE2 §4.1: estimate m through UR′(d)'s factorization Q̃ = G(z)(−z)^{ασ₃/2}Θ(z) (fixed N):
+    core terms (−z)^a∫h(s)(−s)^{−a}/(s − z)ds ≲ ‖h‖_η d^{−1/2} + C_η|z|^{−|a|} (|a| = |α|/2 < ½), K-term ≲ C_N‖g‖|z|^{−|α|/2},
+    log variant for α = 0; area integral ≲ ε^{3/2} + ε^{2−|α|/2} = o(ε) for every |α| < 1. **F1 closed for all |α_x| < 1**;
+    the claim stays 1 < s < 1 + 2p.
+  - F2: "(DLMF-3)" renamed "(DLMF-4)". F3: the overclaim "the slowly varying factor costs O(ε₁/n)" removed; what is proved is
+    Q₁ − Q̃₁, Q₂ − Q̃₂ = O(ε′_N/N) (the lip mismatch versus the comparison problem, which itself depends on Ψ₁).
+    F4: (H_an) stated on {Re u ≥ −c₀, |Im u| ≤ π/p}; Ω_∞ never uses w. F5: det Ψ ≡ 1 from DLMF 1.13.4 + 10.28.2 (read, quoted).
+    F6: the D_w 1/z-coefficient remark moved to the Q₁ vs V₁ step. F7: check_r2_redA [3] now uses L₁ for all k (FFT
+    convolution on a τ-grid, validated against direct quadrature). F8: n = 800 convergence claim corrected (K = 4.8·10⁵ run
+    added). F9: cross-references in PROOF.md §0 G1-R row, §3.14 and §4. F10: Lemma W′ flattening sentence.
+  - Rule R ACCEPT WITH FIXES (review/REVIEW_Plan48.md), fixes applied, re-check pending.
