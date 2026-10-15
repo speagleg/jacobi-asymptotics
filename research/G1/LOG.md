@@ -441,3 +441,38 @@
   cross-reference to Plan 48 §3.17, in review: law for p > 1, 1 < s < 1 + 2p without QL; QL-CB's prospective new content would be
   p ≤ 1, s ≥ 1 + 2p and QL itself), F9 (NO: attribution only; any a ≥ 0; no monotonicity), F10 (BF(iii) not to be split;
   m = 0 conventions) applied — REVIEWED.
+
+## 2026-10-14 — Plan 50 (Route II for p = 1, WP5a; Christoffel transfer)
+- Write-up: `RH/route2/ROUTE2_p1.md`; summary PROOF.md §3.19 and §0 row "RII₁ / B_{p=1} / CT". Plan:
+  docs/superpowers/plans/2026-10-14-plan-50-r2p1.md.
+- **Range check.** RH₁(r) covers every r > 1 (pure powers). Its hard point is the band centre of the symmetrized problem, with
+  Fisher–Hartwig exponent a = r − 3/2 (KV/Vanlessen Bessel model, orders a ± ½); unsymmetrized hard-edge order α_x = r − 2.
+- **RedA** carries over unchanged (stated for every p > 0 and every strip). Strip needed at p = 1: the open strip |Im u| < π
+  (WLXZ's regions in |arg(±z)| ≤ π/2 − θ_W; lips |Im u| ≤ π/2 + π/12); openness is necessary for exp √log(t + e).
+- **Stop condition (i) at p = 1: RESOLVED-mod-cite for 1 < r < 2.** A quotient construction must continue q_n = Ψ₁(n/z²)/Ψ₁(n)
+  across iℝ (Im u = ±π: the branch line of the model example; otherwise a jump 1 + O(ε₁) amplified by ρ^{−2|a|}). Avoided by the
+  C–D comparison with W̃ := W·D_ϱ, D_ϱ the Szegő function of the whole non-FH band factor e^L(4 − x²)H_n²q_n: Ẽ_n = const·KV's E_n for
+  the pure |x|^{2a}; the comparison problem has no jumps inside U(0, δ) (RH₁(r)'s Q_m/κ_n/Lemma M are not used). (ii) MOOT.
+- **New:** Lemma LW1₁ (|D_ϱ²/ϱ − 1| ≤ C(|z| + ε₁,n); the q_n-part needs the even pairing 2z/(z² − x²) because R(z) does not vanish at
+  the band centre; no decay in |z|); Lemma LF₁ (Ψ_a = Ψ̂ζ^{aσ₃}S_j, det Ψ̂ = 1, |a| < ½; Vanlessen (4.27), (4.53), DLMF 10.25.2,
+  10.27.4 — no log case); UR₁ (Lemma W at ±a; large-ζ block commutator-free by Vanlessen (4.43)–(4.46)); UR₁(b′); Q ∈ L²_loc;
+  C₁; D₁ (Q₁ − Q̃₁ = O(ε′_n/n)).
+- **Theorem RII₁** (PROVED-mod-cite): p = 1, 1 < r < 2, (H_an₁) ⇒ nβ_n = 1 + O(1/n), nb_n = ½(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n).
+  **Corollary B_{p=1}** (PROVED-mod-cite): the law for every sequence-form slowly varying Ψ (incl. D(γ) = ∞), 1 < r < 2.
+- **Lemma CT** (PROVED, self-contained): J(xμ) = LᵀL for the Cholesky factor of J(μ) (classical Christoffel/Darboux step; proved,
+  attribution only), and Law P for μ ⟺ Law P for xμ, any weights, any p > 0 (**Lemma D**: parabolic map x ↦ 2 − 1/x, positivity
+  excludes the repelling side). **Corollary B_{p=1}⁺**: every non-integer r > 1 at p = 1. **Corollary B_{p>1}⁺**: every s > 1 at
+  p > 1 — closes Plan 48's GAP-α for the law (no rate).
+- **GAP:** p = 1, r ∈ {2, 3, …} (GAP-int); O(1/n) for r > 2 and for s ≥ 1 + 2p; tilt law (CONJECTURE). **OBSTRUCTION** (scoped to
+  the band-centre C–D frame): |a| ≥ ½ (Q̃ ∉ L²_loc, Lemma W fails; the symmetrization halves ROUTE2's α-range).
+- **Rule A attempts** (ROUTE2_p1 §7): Ψ₁ const (second proof of RH₁(r) on 1 < r < 2); Ψ = k^ρ (ε₁ ↛ 0, method inapplicable,
+  correctly); a → ±½ (constants blow up); necessity of the even pairing; strip edge never used; Lemma CT on degenerate μ (finite
+  support, atom at 0 — excluded by hypothesis) and the repelling side of the dynamics (excluded by positivity); UR₁ independent
+  of ε₁; analyticity of 𝒵̃ in U(0, δ). No counterexample found.
+- **Literature (Rule L) not done.** Lemma CT(i) is classical (Christoffel's theorem / Darboux "LU ↦ UL"); no source was read, so it
+  is proved in full and not cited. Whether CT(ii) (transfer of Law P) is in the literature: UNCHECKED.
+- **Numerics** (`RH/route2/checks/check_r2p1_{lw1,coeff,ct}`): LW1₁ mismatch/ε₁-sample 2.04 → 2.76 (n = 10² → 10¹²), no decay to
+  |z| = 10⁻¹⁴; Ψ̂ entire with det 1 (a ∈ {−0.4, 0, 0.3, 0.45}); s = 1.5: n(nb_n/c − 1) = −0.137 … −0.157 (n = 50 … 800, five
+  truncations incl. tail cut-off 10¹⁴, spread ≤ 2·10⁻⁶); s = 2 (GAP-int): −0.382 … −0.407; tilt ratio → ½ slowly; drifting
+  model residual ≈ −0.02; CT identity to 3·10⁻¹⁶; x_n = n^pl_n²/c → 1 like 1 − 1.05/n; p = 2, s = 6 law bounded.
+- **Rule R:** pending.

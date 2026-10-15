@@ -1,0 +1,31 @@
+[1] q_n lip mismatch sup|D_q^2/q_n - 1| over |z| in [1e-14, 0.3]; eta_n = eps_1-sample; ratio = sup/eta_n
+  n=1e2: eta_n=0.2642  arg=0.250pi: sup=0.5386 (|z|=1e-14: 0.1886)  arg=0.167pi: sup=0.5305 (|z|=1e-14: 0.1887)  arg=0.333pi: sup=0.5479 (|z|=1e-14: 0.1885)  arg=0.750pi: sup=0.5386 (|z|=1e-14: 0.1886)  ratio(pi/4)=2.039
+  n=1e4: eta_n=0.1785  arg=0.250pi: sup=0.4251 (|z|=1e-14: 0.1826)  arg=0.167pi: sup=0.4171 (|z|=1e-14: 0.1827)  arg=0.333pi: sup=0.4345 (|z|=1e-14: 0.1825)  arg=0.750pi: sup=0.4251 (|z|=1e-14: 0.1826)  ratio(pi/4)=2.381
+  n=1e6: eta_n=0.1418  arg=0.250pi: sup=0.3616 (|z|=1e-14: 0.1772)  arg=0.167pi: sup=0.3542 (|z|=1e-14: 0.1773)  arg=0.333pi: sup=0.3702 (|z|=1e-14: 0.1771)  arg=0.750pi: sup=0.3616 (|z|=1e-14: 0.1772)  ratio(pi/4)=2.549
+  n=1e9: eta_n=0.1137  arg=0.250pi: sup=0.3039 (|z|=1e-14: 0.1699)  arg=0.167pi: sup=0.3018 (|z|=1e-14: 0.1699)  arg=0.333pi: sup=0.3114 (|z|=1e-14: 0.1698)  arg=0.750pi: sup=0.3039 (|z|=1e-14: 0.1699)  ratio(pi/4)=2.672
+  n=1e12: eta_n=0.0976  arg=0.250pi: sup=0.2693 (|z|=1e-14: 0.1634)  arg=0.167pi: sup=0.2679 (|z|=1e-14: 0.1635)  arg=0.333pi: sup=0.2738 (|z|=1e-14: 0.1634)  arg=0.750pi: sup=0.2693 (|z|=1e-14: 0.1634)  ratio(pi/4)=2.759
+[2] band sanity: |log D_+ + log D_- - log q| at x = 0.5, 1e-3 (n = 1e6), via eps -> 0 from both sides
+  x=0.5: 9.69e-11
+  x=0.001: 1.09e-08
+[3] the analytic band factors on the lip ray pi/4: h = 4 - x^2 (|D_h^2/h - 1|/|z|), H_n^2 (n|D_H^2/H_n^2 - 1|)
+  |z|=0.0001: h-part/|z| = 1.0000;  n*H-part = 0.0000 (n=1e2), 0.0000 (n=1e4)
+  |z|=0.01: h-part/|z| = 0.9965;  n*H-part = 0.0033 (n=1e2), 0.0033 (n=1e4)
+  |z|=0.1: h-part/|z| = 0.9652;  n*H-part = 0.0333 (n=1e2), 0.0333 (n=1e4)
+  |z|=0.3: h-part/|z| = 0.8990;  n*H-part = 0.1000 (n=1e2), 0.1000 (n=1e4)
+[4] local form of Vanlessen (4.27), sector II (arg zeta = 3pi/8): det Psi, |Psi| |zeta|^{|a|}, Psihat -> finite, det Psihat
+  a=-0.4:
+    |zeta|=1e-01: det=1.000000-0.000000j |Psi||zeta|^|a|=0.553 Psihat21=0.3485-0.0614j detPsihat=1.000000+0.000000j
+    |zeta|=1e-04: det=1.000000+0.000000j |Psi||zeta|^|a|=0.563 Psihat21=0.3434-0.0544j detPsihat=1.000000-0.000000j
+    |zeta|=1e-08: det=1.000000-0.000000j |Psi||zeta|^|a|=0.563 Psihat21=0.3434-0.0544j detPsihat=1.000000-0.000000j
+  a=0.0:
+    |zeta|=1e-01: det=1.000000+0.000000j |Psi||zeta|^|a|=1.419 Psihat21=1.0000-1.0071j detPsihat=1.000000-0.000000j
+    |zeta|=1e-04: det=1.000000+0.000000j |Psi||zeta|^|a|=1.414 Psihat21=1.0000-1.0000j detPsihat=1.000000-0.000000j
+    |zeta|=1e-08: det=1.000000-0.000000j |Psi||zeta|^|a|=1.414 Psihat21=1.0000-1.0000j detPsihat=1.000000-0.000000j
+  a=0.3:
+    |zeta|=1e-01: det=1.000000+0.000000j |Psi||zeta|^|a|=0.558 Psihat21=0.5379-1.6681j detPsihat=1.000000+0.000000j
+    |zeta|=1e-04: det=1.000000+0.000000j |Psi||zeta|^|a|=0.572 Psihat21=0.5404-1.6632j detPsihat=1.000000+0.000000j
+    |zeta|=1e-08: det=1.000000-0.000000j |Psi||zeta|^|a|=0.572 Psihat21=0.5404-1.6632j detPsihat=1.000000-0.000000j
+  a=0.45:
+    |zeta|=1e-01: det=1.000000-0.000000j |Psi||zeta|^|a|=0.554 Psihat21=0.1365-1.7771j detPsihat=1.000000-0.000000j
+    |zeta|=1e-04: det=1.000000+0.000000j |Psi||zeta|^|a|=0.562 Psihat21=0.1396-1.7735j detPsihat=1.000000-0.000000j
+    |zeta|=1e-08: det=1.000000+0.000000j |Psi||zeta|^|a|=0.562 Psihat21=0.1396-1.7735j detPsihat=1.000000+0.000000j

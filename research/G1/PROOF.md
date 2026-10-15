@@ -59,6 +59,7 @@ different measure) is not changed. Each changed label says "Rule R ACCEPT WITH F
 | **QL-num** | numerics N1–N3 for QL (s = 2; N1: Ψ = exp(√log(k+e)), exp((log(k+e))^{0.8}); N2–N3: exp(√log(k+e)) only; p ∈ {2, 1, ½}): tilt ratio n·dev/ϑ_n = 0.465–0.497 at n = 1600, rising toward 0.5 with a defect decaying at least like 1/log n (limit not established); QL-b power tail μ_n((Mn, ∞)) ≤ CM^{−α}, α = min(p/2, 0.8), C ≈ 0.4–0.6 flat in n, t; crossover M_x ≍ n^{2/p} (grid brackets [1.6, 6.6]n² at p = 1, [0.17, 0.67]n⁴ at p = ½); Λ_n → LP constant, flat in t (sup at t = 1 with the tail), ε_nΛ_n decreasing; Route I′: R ≤ 0.93·ε_n(1 + log M) on all tested data — Route I′ not dead on the outline's criterion (saturation beyond the hard edge is structural, not evidence; p = ½ does not discriminate CB from Cauchy–Schwarz scales) (§3.15, Plan 45) | NUMERICAL (K-doubling, quad/long double, Lanczos and TV finite-difference cross-checks); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan45.md), fixes applied — REVIEWED |
 | **QLP** | pure power v_σ = k^{−σ}, all p > 0: for m ∈ {n−1, n}, n ≥ n₀ and **every** M ≥ 1, μ_m((Mn, ∞)) ≤ CM^{−p/2} for M ≤ n^{2/p} (arcsine range), ≤ Cn^{−1}(M/n^{2/p})^{−β}(1 + log(M/n^{2/p})) below the Bessel scale (β = min(p, σ−1), p ≠ 1; min(½, σ−1), p = 1), hence ≤ C_ϑM^{−ϑ} for all M (ϑ < min(p/2, σ−1); ϑ = p/2 if σ−1 > p/2, p ≠ 1 only); Corollary QLP-Λ: Σ_{k≥n}log(k/n)μ_m(k) = O(1), i.e. QL of §3.14 at t = 0. Method: Stieltjes transform at z = τe^{5πi/6} (Lemma ST) = row product of the RH solution (Lemma GS), hard-edge Bessel model I_α·K_α (Lemma BK) (§3.16, Plan 46) | ST, GS PROVED; BK PROVED-mod-cite (DLMF 10.25.2, 10.32.4, 10.32.9); QLP, QLP-Λ PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b; KMVV (6.23); Vanlessen (4.27); KV (5.21)–(5.22) as a consistency check) for each fixed σ; uniform in σ on compacts CONDITIONAL on (RU) (Audit U: PROOF SKETCH, via DLMF 10.40.10–12); no new case of the law (QL for t > 0 still HYPOTHESIS); Lemmas Z, A PROVED-mod-cite; Rule R ACCEPT WITH FIXES (review/REVIEW_Plan46.md), fixes applied — REVIEWED; novelty UNCHECKED |
 | **RII / B_{p>1}** | Route II (Plan 48): for p > 1, **1 < s < 1 + 2p** and w₁ = k^{−s}exp(L₁(log k)) with L₁ analytic on {Re u ≥ −c₀, \|Im u\| ≤ π/p}, bounded for Re u ≤ 0, L₁′ → 0 as Re u → ∞ there (H_an): n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n) (Theorem RII; RH_px with the hard edge done by a Conway–Deift comparison, W̃ := D_w; the non-Fisher–Hartwig lip mismatch moves Q₁, Q₂ by O(ε′_N/N) relative to the comparison problem). With RedA (Gaussian smoothing; sequence form only): **the full pointwise Law P for every sequence-form slowly varying Ψ, incl. D(γ) = ∞ (e.g. exp(√log k)), p > 1, 1 < s < 1 + 2p** (Corollary B_{p>1}; §3.17, `RH/route2/ROUTE2.md`) | RedA PROVED; RII, B_{p>1} PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; C–D Thm 4.4 (+ arguments of 4.7/4.9 as in RH_ζ_close §1); DLMF (incl. 1.13.4, 10.28.2) 1.14, 5.5.3, 5.12, 10.25.2, 10.27.3–4, 10.31.2; G2 μ*, B*(i)–(ii)); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan48.md), fixes applied, re-check ACCEPT — REVIEWED; novelty UNCHECKED. GAP: s ≥ 1 + 2p; p ≤ 1; the 1/n coefficient (tilt law: CONJECTURE, NUMERICAL) |
+| **RII₁ / B_{p=1} / CT** | Route II for p = 1 (Plan 50): for x_k = 1/k, **1 < r < 2** (band-centre exponent a = r − 3/2 ∈ (−½, ½)) and w₁ = k^{−r}exp(L₁(log k)) with L₁ analytic on the open strip {Re u > −c₀, \|Im u\| < π} (c₀ > log 2), bounded for Re u ≤ 0 and L₁′ → 0 as Re u → ∞ on every closed substrip (H_an₁): nβ_n = 1 + O(1/n), nb_n = ½(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n) (Theorem RII₁; RH₁(r) with the band centre done by a Conway–Deift comparison, W̃ := W·D_ϱ, D_ϱ the Szegő function of the whole non-Fisher–Hartwig band factor). With RedA: **the law for every sequence-form slowly varying Ψ, incl. D(γ) = ∞, p = 1, 1 < r < 2** (Corollary B_{p=1}). **Lemma CT** (Christoffel transfer): J(xμ) = LᵀL for J(μ) = LLᵀ, and Law P for μ ⟺ Law P for xμ (any weights, any p > 0). Hence **the law for every non-integer r > 1 at p = 1** (Corollary B_{p=1}⁺) and **for every s > 1 at p > 1** (Corollary B_{p>1}⁺; closes Plan 48's GAP-α for the law, without rate) (§3.19, `RH/route2/ROUTE2_p1.md`) | RII₁, B_{p=1} PROVED-mod-cite (WLXZ v1 §§2–6 via RH₁/RH₁(r); KV §5; Vanlessen §4 (4.27), (4.43)–(4.46), (4.53); C–D Thm 4.4 (+ arguments of 4.7/4.9 as in RH_ζ_close §1); DLMF 5.11, 10.25.2, 10.27.4 and those of Lemma W); Lemma CT, Lemma D PROVED (self-contained; CT(i) classical, novelty not claimed); B_{p=1}⁺, B_{p>1}⁺ PROVED-mod-cite (inherit); Rule R pending; novelty UNCHECKED. GAP: p = 1, r ∈ {2, 3, …} (GAP-int); the O(1/n) rate for r > 2 and for s ≥ 1 + 2p; the 1/n coefficient (tilt law: CONJECTURE, NUMERICAL). OBSTRUCTION (this frame): \|a\| ≥ ½ |
 | **CB / QL-CB** | Route I′ (outline_B_sv §5): boundary-flux identities X_A = Σ_{A×A^c}q_mK_mq_m(f(l)−f(k)) and d/dt μ_m(A) = flux of K_m+K_{m+1} (BF), X_A = ∫_A R_m dμ_m with R_m = P_m/p_m (RF); TV for unbounded f (TV⁺); free (Toeplitz) model: commutator = ½ covariance exactly, X/μ(A) = (ε/p)Cl₂(φ)/φ (FM; log M in CB sharp in the free model, HEURISTIC for μ_m^{(t)}, NUMERICAL support); dyadic block bound (DB); Nishida–Ovsyannikov lemma (NO); **Theorem QL-CB**: CB with a small constant η ≤ η₀(p,s,α,a) along vΨ^t ⇒ QL-b (any α < min(p/2, s−1)) ⇒ QL ⇒ full pointwise Law P for every sequence-form slowly varying Ψ; **Theorem B-OD**: two block bounds (OD-E, OD-F) ⇒ CB ⇒ law. CB itself NOT proved (§3.18, Plan 49) | TV⁺ PROVED (standard extension); BF, RF, DB, NO PROVED; FM (i)–(iii) PROVED, model reading HEURISTIC; QL-CB CONDITIONAL (CB(η, a), η ≤ η₀(p,s,α,a)) + PROVED-mod-cite (inherits QLP §3.16: RH_px, RH₁(r), RH_plt1b, KMVV (6.23), Vanlessen (4.27), DLMF 10.25.2/10.32.4/10.32.9 via Lemma BK; B-cond: RH_px, RH₁(r), RH_plt1b); B-OD CONDITIONAL (OD-E, OD-F); CB-ob HEURISTIC/OBSTRUCTION; numerics NUMERICAL; no new case of the law (cross-ref. Plan 48, §3.17, in review: law for p > 1, 1 < s < 1 + 2p without QL); Rule R ACCEPT WITH FIXES (review/REVIEW_Plan49.md), fixes applied — REVIEWED; novelty UNCHECKED |
 | **RH₁** | pointwise Law P with O(1/n) rate for σ = Σ k^{−3/2}δ_{1/k} (p = 1, r = 3/2), via TC(α = 1) and WLXZ (`RH/RH_p1.md`) | PROVED-mod-cite (WLXZ v1 §§2–6) + REVIEWED |
 | **RH_p** | the same for σ_{p,s} = Σ k^{−s}δ_{k^{−p}}, **every p > 1, s > 1**: n^p b_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n), via a one-sided x-variable RH analysis (exact Binet-cut scalar, KMVV left-endpoint Bessel at the hard edge, no truncation); validated end to end vs the true OPs (`RH/px/RH_px.md`) | PROVED-mod-cite (WLXZ v1 §§3–5, §6.1; KMVV §6; G2 PROOF.md μ*, B* — only μ* and B*(i)–(ii), which do not use (P)) + REVIEWED |
@@ -2696,6 +2697,67 @@ on atoms k ≤ 6·10⁴ plus a Gauss–Legendre log-panel tail to 10^{16} as in 
   the growth at β near ϑ is the far-tail tilt of remark (2).
 - Limits: n ≤ 400 (p = 2), n ≤ 200 (p = 1), one Ψ, s = 2, a continuum tail model beyond k = 6·10⁴; finite checks of
   universally quantified statements (Rule N2).
+
+### 3.19 Route II for p = 1 (Plan 50): the pointwise Law P for k^{−r}Ψ, x_k = 1/k, Ψ slowly varying (incl. D(γ) = ∞), 1 < r < 2, via a band-centre Conway–Deift comparison; Christoffel transfer to all non-integer r (and to all s > 1 for p > 1) — Theorem RII₁, Corollaries B_{p=1}, B_{p=1}⁺, B_{p>1}⁺ PROVED-mod-cite; Lemmas CT, D PROVED; Rule R pending; novelty UNCHECKED
+
+Full text: `RH/route2/ROUTE2_p1.md` (labels per step there). Source: `research/program/outline_B_sv.md` §5 Route II (WP5, p = 1).
+Numerics: `RH/route2/checks/check_r2p1_{lw1,coeff,ct}.py/.out` (NUMERICAL).
+
+**Setting.** RH₁(r) (`RH/RH_p1_general.md`): symmetrized measure, WLXZ's rescaled variable z, band [−2, 2], t = n/z²; the hard
+point is the **band centre** z = 0 with Fisher–Hartwig exponent a = r − 3/2 > −½ (KV/Vanlessen Bessel model Ψ_a, orders a ± ½;
+lips at ±π/4, ±3π/4; Ψ_a's jump on iℝ cancelled by W's cut); the unsymmetrized hard-edge order is α_x = r − 2 = a − ½.
+RH₁(r) covers every r > 1 (pure powers).
+
+**RedA (§3.17) at p = 1:** unchanged (stated for all p > 0 and every strip). The strip needed is the **open** strip |Im u| < π
+(WLXZ's regions lie in |arg(±z)| ≤ π/2 − θ_W; the lips in U(0, δ) need |Im u| ≤ π/2 + π/12); open is necessary for
+exp √log(t + e), whose branch points lie on Im u = ±π.
+
+**Theorem RII₁ (PROVED-mod-cite; Rule R pending; ROUTE2_p1 §§2–4).** Let 1 < r < 2 and Ψ₁(t) = exp L₁(log t), L₁ analytic on
+{Re u > −c₀, |Im u| < π} (c₀ > log 2), real on ℝ, and for every θ > 0 bounded on {−c₀ < Re u ≤ 0, |Im u| ≤ π − θ} with
+sup{|L₁′(u)| : Re u ≥ T, |Im u| ≤ π − θ} → 0 (H_an₁; RedA's L₁ qualifies). Then σ = Σk^{−r}Ψ₁(k)δ_{1/k} satisfies nβ_n = 1 + O(1/n),
+nb_n = ½(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n). What is proved about the non-Fisher–Hartwig part: the lip mismatch moves Q₁ by
+O(ε′_n/n), ε′_n = 1/n + ε₁(log n − 2 log 2), relative to the comparison problem; b_n(w₁)/b_n(k^{−r}) − 1 = O(ε₁/n) is **not** claimed.
+- *What changes in RH₁(r):* the band weight m_σ = e^L(4 − x²)H_n²|x|^{2a}q_n, q_n(z) = Ψ₁(n/z²)/Ψ₁(n) (even, analytic off iℝ);
+  poly(n) factors on the saturated pieces; the global parametrix is the exact Szegő parametrix N_σ = 𝔇_∞^{σ₃}N₀𝔇^{−σ₃} of m_σ
+  (RH₁(r)'s Stirling truncation Q_m, the model mismatch κ_n and Lemma M are not used); Airy discs via RH₁(r) §4 with
+  g = (|x|^{2a}q_n)^{1/2}/(D_aD_q); the origin is replaced.
+- *Band centre.* A quotient (KV-parametrix) construction must continue q_n across iℝ, i.e. evaluate L₁ at Im u = ±π (branch line
+  of the model example; otherwise a jump 1 + O(ε₁) without rate, amplified by ρ^{−2|a|}): it fails. Instead (C–D, as RH_ζ_close
+  §1, ROUTE2 §3): **W̃ := W·D_ϱ**, D_ϱ the Szegő function of the whole non-FH factor ϱ = e^L(4 − x²)H_n²q_n; then Ẽ_n is a
+  constant times KV's E_n for the pure |x|^{2a} (Lemma H1₁), the comparison problem has no jump inside U(0, δ), and **Lemma LW1₁**
+  |D_ϱ²/ϱ − 1| ≤ C(|z| + ε₁,n) on the lips (NEW: the q_n-part needs the even pairing 1/(z − x) + 1/(z + x) = 2z/(z² − x²), since
+  R(z) = √(z² − 4) does not vanish at the band centre; no decay in |z|).
+- *New for |a| < ½:* local form Ψ_a = Ψ̂ζ^{aσ₃}S_j, Ψ̂ entire, det Ψ̂ = 1 (Vanlessen (4.27), (4.53); DLMF 10.25.2, 10.27.4; orders
+  a ± ½ never integers, so no logarithm); Lemma UR₁ (RH_ζ_close Lemma W with exponents ±a; the large-ζ block is commutator-free
+  because Ψ_ae^{±iζσ₃} is bounded, Vanlessen (4.43)–(4.46)); UR₁(b′) as ROUTE2; Q = O(|z|^{−|a|−3η}) ∈ L²_loc ((Y4)_r with Potter);
+  Theorem C₁ (no rate needed); Proposition D₁ (Bessel localization |dz| = |dζ|/n, amplification |ζ|^{−2|a|} integrable).
+
+**Corollary B_{p=1} (PROVED-mod-cite; Rule R pending).** p = 1, 1 < r < 2, Ψ sequence-form slowly varying (no boundedness, no
+D(γ) < ∞): nb_n(k^{−r}Ψ) → ½, na_n(k^{−r}Ψ) → 1, rate O(1/n + ρ(n/M₀)).
+
+**Lemma CT (Christoffel transfer; PROVED, self-contained).** For μ on (0, ∞) with infinite compact support: (i) J(μ) = LLᵀ
+(Cholesky, L lower bidiagonal) and J(xμ) = LᵀL (classical; proved, novelty not claimed); (ii) for every p > 0: Law P for μ ⟺
+Law P for xμ. Proof of (ii): x_n = n^pl_n²/c satisfies x_{n+1} = A_{n+1} − B_n/x_n with A → 2, B → 1, x_n > 0; the parabolic map
+x ↦ 2 − 1/x attracts from above and repels from below, and positivity excludes the repelling side (**Lemma D**, PROVED). No
+weight regularity is used; no rate is transferred.
+
+**Corollary B_{p=1}⁺ (PROVED-mod-cite; Rule R pending).** p = 1, **every non-integer r > 1**, Ψ sequence-form slowly varying: the
+full pointwise law (B_{p=1} at r − ⌊r⌋ + 1, then ⌊r⌋ − 1 Christoffel steps k^{−r′} ↦ k^{−r′−1}). No rate claimed for r > 2.
+
+**Corollary B_{p>1}⁺ (PROVED-mod-cite; Rule R pending).** p > 1, **every s > 1**, Ψ sequence-form slowly varying: the full
+pointwise law (Corollary B_{p>1} on [1 + p, 1 + 2p), then Christoffel steps s ↦ s + p). This closes §3.17's GAP s ≥ 1 + 2p for
+the law (not for the O(1/n) rate).
+
+**Remaining (GAP).** p = 1, r ∈ {2, 3, …} with D(γ) = ∞ (GAP-int: Lemma CT shifts by integers, the base interval (1, 2) is open;
+for D(γ) < ∞, T3-log covers all r); the O(1/n) rate for r > 2 (p = 1) and s ≥ 1 + 2p (p > 1); the tilt law. **OBSTRUCTION
+(scoped to this frame):** |a| ≥ ½ — Q̃ ∉ L²_loc and Lemma W fails (A₂); the symmetrization halves ROUTE2's α-range
+(α_x ∈ (−1, 0) instead of (−1, 1)). p < 1 (WP5b) untouched.
+
+**NUMERICAL (p = 1, Ψ = exp √log(k + e)).** LW1₁: sup_{lips}|D_q²/q_n − 1|/ε₁-sample = 2.04 → 2.76 (n = 10² → 10¹², bounded; no
+decay as |z| → 10⁻¹⁴). Coefficients (five truncations incl. tail cut-off 10¹⁴ and a finer tail quadrature; spreads ≤ 2·10⁻⁶):
+s = 1.5: n(nb_n/c − 1) = −0.137 … −0.157 (n = 50 … 800), n(a_n/(2b_n) − 1) → ½; s = 2 (GAP-int): −0.382 … −0.407, bounded; tilt
+ratio 0.47 → 0.48 (→ ½), drifting-exponent model residual ≈ −0.016 … −0.022. Lemma CT: J(xμ) = LᵀL to 3·10⁻¹⁶; x_n = 0.979 → 0.999;
+p = 2, s = 6 (α_x = 3/2): n(n²b_n/c − 1) bounded (−2.31 … −2.40).
 
 ## 4. G1-R: what remains (stop report)
 

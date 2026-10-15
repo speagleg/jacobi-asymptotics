@@ -327,3 +327,52 @@ principal branches, which match KMVV (6.23) in |arg ζ| < 2π/3. 1.13.4 + 10.28.
 det Ψ = 2ζ^{1/2}(K_αI′_α − K′_αI_α)(2ζ^{1/2}) = 2ζ^{1/2}·𝒲{K_α, I_α}(2ζ^{1/2}) = 1 (REVIEW_Plan48.md F5). KMVV (6.16)–(6.18), (6.23)–(6.25), (6.28), (6.45), Prop. 6.5
 and C–D Theorem 4.4 / the arguments of 4.7, 4.9 are used as quoted above (KMVV, C–D entries); no new statement of those
 sources is used.
+
+## (KV, additional quotes for Plan 50) — read in arXiv:math-ph/0305044 (pdftotext of the arXiv PDF, fetched 2026-10-14), §§3, 5
+
+> (3.6) "As in [38] we take an analytic contination of the factor |x|^{2α} by defining ω(z) = (−z)^{2α}, if Re z < 0,
+> z^{2α}, if Re z > 0, with principal branches of powers."
+>
+> (5.6) "f(z) = iφ(z) − iφ₊(0), if Im z > 0; −iφ(z) − iφ₊(0), if Im z < 0." "Since φ₊ = −φ₋, we have that f is analytic for z
+> in a neighborhood of the origin."
+>
+> (5.17)–(5.20) "Ψα,+(ζ) = Ψα,−(ζ)[[0, 1], [−1, 0]], for ζ ∈ Γ1 ∪ Γ5; Ψα,+(ζ) = Ψα,−(ζ)[[1, 0], [e^{−2πiα}, 1]], for ζ ∈ Γ2 ∪ Γ6;
+> Ψα,+(ζ) = Ψα,−(ζ)e^{πiασ3}, for ζ ∈ Γ3 ∪ Γ7; Ψα,+(ζ) = Ψα,−(ζ)[[1, 0], [e^{2πiα}, 1]], for ζ ∈ Γ4 ∪ Γ8." (5.13) is the same
+> e^{πiασ3} jump for P^{(1)} on Σo3 ∪ Σo7, and "Γj = {ζ ∈ ℂ | arg ζ = (j − 1)π/4}".
+>
+> (after (5.25)) "So far, we have proven that for every matrix valued function En analytic in a neighborhood of Uδ, the matrix
+> valued function P given by (5.25), satisfies conditions (a), (b) and (d) of the RH problem for P." (5.3) "(c) On ∂Uδ we have,
+> as n → ∞, P(z)P^{(∞)}(z)^{−1} = I + O(1/n), uniformly for z ∈ ∂Uδ \ Σ."
+
+**Used in:** route2/ROUTE2_p1.md §3.1 (Lemma H1₁: the comparison parametrix with W̃ := W·D_ϱ; only the scalar W enters the jump
+computation, so replacing W by W·D_ϱ with D_ϱ analytic off the band changes the band entry by D_{ϱ,+}D_{ϱ,−} and the lip entry by
+D_ϱ^{−2}), §3.2 (constant jumps of Ψ_a), §4.3 (−nφ = ±iζ ∓ nφ₊(0) in ℂ±, from (5.6)). Hypotheses: an interior band point with
+f′(0) = πψ(0) > 0 (RH₁(r) §5), four lips on the rays Γ2, Γ4, Γ6, Γ8 — as in RH₁(r).
+
+## (Van, additional quotes for Plan 50) — read in arXiv:math/0212014 (pdftotext of the arXiv PDF, fetched 2026-10-14), §4.2
+
+> (4.20)–(4.23): the same jump relations for Ψλ as KV (5.17)–(5.20), with λ for α.
+>
+> (4.43) "Ψλν(ζ) = (1/√2)[[1, −i], [−i, 1]](I + O(1/ζ))e^{(πi/4)σ3}e^{−iζσ3}e^{−½λνπiσ3}, uniformly for ζ in the first quadrant";
+> (4.44) the same with e^{½λνπiσ3}, "uniformly for ζ in the second quadrant"; "For the lower half-plane we find as ζ → ∞",
+> (4.45) "Ψλν(ζ) = (1/√2)[[1, −i], [−i, 1]](I + O(1/ζ))e^{(πi/4)σ3}e^{−iζσ3}e^{½λνπiσ3}[[0, −1], [1, 0]], uniformly for ζ in the
+> third quadrant", (4.46) the same with e^{−½λνπiσ3}, "uniformly for ζ in the fourth quadrant".
+>
+> (4.27) as quoted above (sector II, I_{λ±½}, K_{λ±½} at ζe^{−πi/2}); (4.28) is the same matrix with e^{½λπiσ3} (sector III).
+
+**Used in:** route2/ROUTE2_p1.md §3.1 ("large-ζ form": Ψ_ae^{±iζσ₃} bounded with bounded inverse for |ζ| ≥ 2), §3.2 (Lemma LF₁ from
+(4.27) and (4.53)), §4.1(d), §4.3. (4.43)–(4.46) are "as ζ → ∞" statements; on 2 ≤ |ζ| ≤ R₀ boundedness is by continuity of Ψ up
+to the rays and det Ψ = 1.
+
+## (DLMF-5) NIST DLMF §§10.25, 10.27 — READ (web pages dlmf.nist.gov/10.25 and /10.27, fetched 2026-10-14), for Plan 50
+
+(Named DLMF-5 to avoid clashes with DLMF-3 (Plan 46, research/G1/CITATIONS.md) and DLMF-4 (Plan 48, above).)
+
+> (10.25.2) "I_ν(z) = (½z)^ν Σ_{k=0}^∞ (¼z²)^k/(k! Γ(ν+k+1))." (Defines I_ν; ν a complex parameter.)
+>
+> (10.27.4) "K_ν(z) = ½π (I_{−ν}(z) − I_ν(z))/sin(νπ)." (10.27.3) "K_{−ν}(z) = K_ν(z)."
+
+Re-verified against the live pages; identical to the DLMF-2 (10.27.3–4) and DLMF-4 (10.25.2, with the §10.25(ii)
+principal-branch sentence) quotes above. **Used in:** route2/ROUTE2_p1.md §3.2 (Lemma LF₁): ν = a ± ½ with |a| < ½, so ν ∈ (−1, 1) ∖
+{0} is never an integer and 10.27.4 applies as written; ζ^{1/2}I_ν(ζe^{−πi/2}) = ζ^{ν+1/2}E_ν(ζ) with E_ν entire for arg ζ ∈
+(−π/2, π) (principal branch of (½w)^ν).
