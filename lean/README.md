@@ -67,9 +67,15 @@ of P_n(0) is used) and Remark `rem:sharp` are not formalized.
 | `frK`, `frK_integral`, `two_logEnergy_eq`, `gauss_conv`, `gauss_pd`, **`energy_pos`** | Paper 1 Lemma 3.3 (inequality part; G2 Lemma EP) | finite A, B of equal mass, log\|x−y\| integrable, null diagonals ⇒ 𝓛(A,A) + 𝓛(B,B) ≤ 2𝓛(A,B); proved with Frullani's integral (Mathlib) and the Gaussian kernel, not the Fourier transform; the equality case is not formalized |
 | `le_volume_of_lip`, `starPot`, `starPot_ge`, `starPot_eq`, `muStar_restrict_us` | Paper 1 Theorem 1.3(ii) (G2 B\*(ii)) | μ(a,b] ≤ b − a ⇒ μ ≤ Leb; U\*(x) = log c + p on [0, 4c], ≥ log c + p on [0, ∞); μ\*_u = Leb on (0, Λ/π] |
 | `starPot_compare`, **`Jp_le_kappa`** | Paper 1 Theorem 1.3(iii), optimality (G2 B\*(iii)) | every admissible μ on (0,U] with F_p integrable has 𝒥_p(μ) ≤ κ_p (uniqueness not formalized) |
+| `Fp_integrable_box`, `integral_log_abs_sub_ge`, `cell_F_ge`, `far_cell`, `any_cell`, `muBar`, **`disc_upper`** | Paper 1 Lemma 4.1 (G2 Lemma A1) | for S ⊆ {0,…,Mn−1}: 2Σ_{a<b∈S} F(u_a,u_b) ≤ n²𝒥_p(μ̄_S) + \|S\|·eDisc, eDisc = O(log n) for fixed M (u_a = (a+1)/n, μ̄_S = Leb on the cells) |
+| `muBar_energy_le`, **`head_V_bound`**, `head_heineK_bound` | Paper 1 Corollary 4.2 (G2 Corollary A2) | log V(S) ≤ −pN² log N + κ_pN² + pN log n + N·eDisc for S ⊆ {0,…,Mn−1}, \|S\| = N ≥ 1 (scaling + `Jp_le_kappa`) |
+| `hTerm`, `heineK_le_hTerm`, `log_term_le`, **`hall_upper`** | **Paper 1 Theorem 4.3 (G2 Theorem A-U), pure powers** | **p > 0, s > 1: ∀ η > 0, eventually hnorm p κ_p (heineD (powSeq p) (powSeq s)) 0 n ≤ η — sorry-free** |
+| **`theoremHPure_all`** | **Paper 1 Theorem 1.1, pure powers; G2 Corollary H-input** | **`TheoremHPure p (hallKappa p) s` for all p > 0, s > 1 — the named input is now a theorem (with κ_p in the Λ(p) form; Gamma form = stage S6)** |
+| **`theoremHL_all`** | **Theorem H_L, no named input** | **`theoremHL` with both `TheoremHPure` instances discharged: log D_n = −pn² log n + n² log L(n) + κ_pn² + o(n²) for p > 0, s, s0 > 1 — sorry-free** |
 
-Plan 60 (lean/HALL_PLAN.md) formalizes Theorem H_all for pure powers in stages; the rows marked Paper 1 above are
-sorry-free. Still missing for `TheoremHPure p κ_p s` as a theorem: the discretisation (Lemma 4.1), head bound (Corollary 4.2) and
-upper bound (Theorem 4.3), and the Gamma form of the constant.
+Plan 60 (lean/HALL_PLAN.md) formalizes Theorem H_all for pure powers: `theoremHPure_all` proves the named input
+`TheoremHPure p (hallKappa p) s` for every p > 0, s > 1, sorry-free (rows marked Paper 1 above), and `theoremHL_all` is
+Theorem H_L with no named input. Results stated for an arbitrary κ (e.g. the smooth-ζ corollaries with κ = 3 + log(π²/16))
+remain PROVED-mod-input until the constant is identified (stage S6: Λ(p) = √π Γ(1/p+1/2)/Γ(1/p+1)).
 
 Check: `./check.sh` (build + axioms audit + completeness list; prints AUDIT OK).

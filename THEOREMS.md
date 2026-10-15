@@ -162,9 +162,14 @@ in a later result.
 | **`energy_pos`**, `gauss_pd`, `frK_integral` | 𝓛(A,A) + 𝓛(B,B) ≤ 2𝓛(A,B) for finite A, B of equal mass (Paper 1 Lemma 3.3 inequality; G2 Lemma EP), via Frullani + Gaussian kernel | sorry-free (Plan 60) | EnergyPos.lean | Mathlib `Frullani.integral_Ioi_eq` |
 | `starPot_eq`, `starPot_ge`, `le_volume_of_lip` | U\* = log c + p on [0,4c], ≥ on [0,∞) (Paper 1 Thm 1.3(ii)) | sorry-free (Plan 60) | Optimality.lean | arcsine_pot |
 | **`Jp_le_kappa`** | admissible μ on (0,U], F_p integrable ⇒ 𝒥_p(μ) ≤ κ_p (Paper 1 Thm 1.3(iii) optimality; G2 B\*(iii)) | sorry-free (Plan 60) | Optimality.lean | energy_pos, starPot_compare, muStar_energy |
+| **`disc_upper`**, `Fp_integrable_box`, `far_cell`, `any_cell` | 2Σ_{a<b}F(u_a,u_b) ≤ n²𝒥(μ̄_S) + \|S\|·eDisc (Paper 1 Lemma 4.1; G2 A1) | sorry-free (Plan 60) | Discretize.lean | — |
+| **`head_V_bound`**, `muBar_energy_le` | log V(S) ≤ −pN² log N + κ_pN² + pN log n + N·eDisc (Paper 1 Cor 4.2; G2 A2) | sorry-free (Plan 60) | HallUpper.lean | disc_upper, Jp_scaleM, Jp_le_kappa |
+| **`hall_upper`** | p > 0, s > 1: ∀η > 0 eventually hnorm p κ_p (heineD (powSeq p) (powSeq s)) 0 n ≤ η (Paper 1 Thm 4.3 = G2 A-U, pure powers) | **sorry-free (Plan 60)** | HallUpper.lean | head_V_bound, heineK_tail_split, phi_bound |
+| **`theoremHPure_all`** | `TheoremHPure p (hallKappa p) s` for all p > 0, s > 1 (Paper 1 Thm 1.1 pure powers; G2 Cor H-input) | **sorry-free (Plan 60)** — named input discharged, κ in Λ(p) form | TheoremHall.lean | hall_lower, hall_upper |
+| **`theoremHL_all`** | Theorem H_L with no named input, κ = hallKappa p | **sorry-free (Plan 60)** | TheoremHall.lean | theoremHL, theoremHPure_all |
 
-Not formalized: the forward Weyl law (item 11 "Theorem B"; not G3′ Theorem B, see §6), Theorem H / H_all itself (Plan 60 has formalized its lower half `hall_lower` and the optimality `Jp_le_kappa`; the discretised upper half
-A-U and the Gamma form of κ_p are open, lean/HALL_PLAN.md), everything in
+Not formalized: the forward Weyl law (item 11 "Theorem B"; not G3′ Theorem B, see §6), Theorem H_all for general atoms f(k) (Plan 60 formalized the pure-power case `theoremHPure_all`; the Gamma form of κ_p,
+Lemma 2.3 transfer to general f, and the uniqueness of the maximiser are not formalized, lean/HALL_PLAN.md), everything in
 research/ except the Christoffel shift of G1 §3.21 / Paper 2 §3 (Plan 56 rows above; for `DMeasure` σ with atoms x_k ≥ 0 —
 no atom at 0, general σ with finite moments not covered; zero location in `lem:zeros` and Remark `rem:sharp` not formalized).
 

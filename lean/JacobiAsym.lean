@@ -41,3 +41,6 @@ import JacobiAsym.QuantileLower
 import JacobiAsym.HallLower
 import JacobiAsym.EnergyPos
 import JacobiAsym.Optimality
+import JacobiAsym.Discretize
+import JacobiAsym.HallUpper
+import JacobiAsym.TheoremHall

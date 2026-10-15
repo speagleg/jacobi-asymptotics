@@ -75,6 +75,6 @@ Dependency order: S0 → S2a → S2b/S2c → S1a, S1b → S1; S4 → S4b (uses S
 | S1b | DONE | `Jp_scaleM`, `exists_good_theta` | — |
 | S1 | DONE | `hall_lower` | — |
 | S4, S4b | DONE | `energy_pos` (Frullani + Gaussian kernel), `Jp_le_kappa` | — |
-| S3, S3b | planned | | |
-| S5 | planned | | upper half of `TheoremHPure` |
+| S3, S3b | DONE | `disc_upper`, `head_V_bound`, `heineK_le_hTerm`, `log_term_le`, `hall_upper` | — |
+| S5 | DONE | `theoremHPure_all : 0 < p → 1 < s → TheoremHPure p (hallKappa p) s`, `theoremHL_all` | — |
 | S6 | planned | | — |
