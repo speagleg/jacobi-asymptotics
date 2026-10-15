@@ -67,7 +67,7 @@ statement are equivalent:
   \Bigl\{n^pb_n=c\bigl(1+O(1/n)\bigr),\ \ \frac{a_n}{2b_n}=1+O(1/n)\Bigr\}
   \iff |n^pa_n-2c|+|n^pb_n-c|=O(1/n).
 \end{equation}
-Indeed, from the left side, $n^pa_n=2n^pb_n\cdot a_n/(2b_n)=2c(1+O(1/n))^2$; from the right side,
+From the left side, $n^pa_n=2n^pb_n\cdot a_n/(2b_n)=2c(1+O(1/n))^2$; from the right side,
 $n^pb_n=c+O(1/n)$ and $a_n/(2b_n)=(2c+O(1/n))/(2c+O(1/n))$. We write $c=c(p)$.
 
 \begin{proof}[Proof of Theorem~\ref{thm:analytic}]
@@ -86,14 +86,14 @@ the regular rate $\eta_n=1/n$, gives \eqref{eq:analytic-all-s} for $\sigma_{p,s,
 \begin{proof}[Proof of Corollary~\ref{cor:pure}]
 The constant sequence $\ell\equiv1$ is $e^{\Lambda(\log k)}$ with $\Lambda\equiv0$, which is analytic of angle
 $\vartheta$ for every $\vartheta>0$ (with $\varepsilon_\Lambda\equiv0$). Theorem~\ref{thm:analytic} gives the claim for
-$\sigma_{p,s}$, for every $p>0$ and $s>1$. For the moment sequence of zeta values, let $a>0$ and $2a+b>1$. The measure
-$\sigma_{a,2a+b}=\sum_kk^{-(2a+b)}\delta_{k^{-a}}$ has the moments
+$\sigma_{p,s}$, for every $p>0$ and $s>1$. For the moment sequence of zeta values, let $q>0$ and $2q+r>1$. The measure
+$\sigma_{q,2q+r}=\sum_kk^{-(2q+r)}\delta_{k^{-q}}$ has the moments
 \[
-  \int x^j\diff\sigma_{a,2a+b}=\sum_{k\ge1}k^{-(2a+b)}k^{-aj}=\zeta(aj+2a+b)\qquad(j\ge0),
+  \int x^j\diff\sigma_{q,2q+r}=\sum_{k\ge1}k^{-(2q+r)}k^{-qj}=\zeta(qj+2q+r)\qquad(j\ge0),
 \]
-so its Hankel determinants are $\det_{1\le i,j\le n}\zeta(a(i+j)+b)$ \cite[Corollary~1.4]{Paper1}, and its recurrence
-coefficients are those of the moment sequence $(\zeta(aj+2a+b))_{j\ge0}$. The first part, with $p=a$ and
-$s=2a+b>1$, gives $n^ab_n=c(a)(1+O(1/n))$ and $a_n/(2b_n)=1+O(1/n)$.
+so its Hankel determinants are $\det_{1\le i,j\le n}\zeta(q(i+j)+r)$ \cite[Corollary~1.4]{Paper1}, and its recurrence
+coefficients are those of the moment sequence $(\zeta(qj+2q+r))_{j\ge0}$. The first part, with $p=q$ and
+$s=2q+r>1$, gives $n^qb_n=c(q)(1+O(1/n))$ and $a_n/(2b_n)=1+O(1/n)$.
 \end{proof}
 
 \begin{remark}[which part of Theorem~\ref{thm:window} is used]\label{rem:base-window}

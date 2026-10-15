@@ -41,10 +41,14 @@ and, for any numbers $y_{11},y_{12},y_{21}$,
 
 \begin{lemma}[first corrections of the two models]\label{lem:model-corrections}
 \begin{enumerate}
-\item[(a)] Let $\alpha>-1$ and $\mathsf Z_{\mathrm B}:=\bigl(\begin{smallmatrix}-(1+4\alpha^2)&2i\\2i&1+4\alpha^2\end{smallmatrix}\bigr)$.
+\item[(a)] Let $\alpha>-1$ and
+  \[
+    \mathsf Z_{\mathrm B}:=\begin{pmatrix}-(1+4\alpha^2)&2i\\2i&1+4\alpha^2\end{pmatrix}.
+  \]
   Uniformly as $\zeta\to\infty$ off the rays of $\Psi_\alpha$,
   \[
-    \Psi_\alpha(\zeta)=(2\pi\zeta^{1/2})^{-\sigma_3/2}M\Bigl[I+\frac{\sigma_3\mathsf Z_{\mathrm B}\sigma_3}{16\zeta^{1/2}}+O(\zeta^{-1})\Bigr]e^{2\zeta^{1/2}\sigma_3},
+    \Psi_\alpha(\zeta)=(2\pi\zeta^{1/2})^{-\sigma_3/2}M\Bigl[I+\frac{\sigma_3\mathsf Z_{\mathrm B}\sigma_3}{16\zeta^{1/2}}
+    +O(\zeta^{-1})\Bigr]e^{2\zeta^{1/2}\sigma_3},
   \]
   equivalently $\Phi_\alpha(\zeta)=(2\pi\zeta^{1/2})^{-\sigma_3/2}M^{-1}\bigl[I+\mathsf Z_{\mathrm B}/(16\zeta^{1/2})+O(\zeta^{-1})\bigr]$.
 \item[(b)] Let $\mathsf Z_{\mathrm{Ai}}:=\bigl(\begin{smallmatrix}-1/72&-i/12\\-i/12&1/72\end{smallmatrix}\bigr)$ and
@@ -113,8 +117,8 @@ Uniformly on the circles, with boundary values where they cross the contour,
 and $\Delta_0-\Delta_0^{\mathrm{mod}}=O(n^{-p})$, $\Delta_r-\Delta_r^{\mathrm{mod}}=O(n^{-p})$ there.
 \end{lemma}
 
-The lemma uses Lemma~\ref{lem:model-corrections} (hence \cite[\S6]{KMVV} and the expansions of \cite{DLMF} quoted
-there), Lemma~\ref{lem:bandfactor}, and Lemmas~\ref{lem:signs}, \ref{lem:szego} and~\ref{lem:airy}.
+The lemma rests on Lemma~\ref{lem:model-corrections}, hence on \cite[\S6]{KMVV} and the expansions of \cite{DLMF}
+quoted there, and on Lemmas~\ref{lem:bandfactor}, \ref{lem:signs}, \ref{lem:szego} and~\ref{lem:airy}.
 
 \begin{proof}
 \emph{Bessel.} On $\partial U_0$, $\zeta=n^2f$ and $\zeta^{1/2}=nf^{1/2}$, with $|\zeta|\asymp n^2$. By~\eqref{eq:Pcheck} and
@@ -154,10 +158,16 @@ the last claim follows.
   \[
     \mathsf g_3=\frac1{6pc^{3/2}},\qquad \mathsf g_5=-\frac{7p+4}{240p^2c^{5/2}}.
   \]
-\item[(iii)] Near $4c$, $(-\omega^{\mathrm{mod}})^{1/2}=\bigl(2\sqrt c/(z^{1/2}+\mathsf u)\bigr)^{1+\alpha}$; equivalently, with
-  $L_r:=(1+\alpha)\operatorname{arsinh}(\mathsf u/(2\sqrt c))$, $(-\omega^{\mathrm{mod}})^{\mp1}=e^{\pm2L_r}$. Near $0$, in $\C_\pm$,
-  $e^{\mp i\pi\alpha}/\omega^{\mathrm{mod}}=\bigl(((-z)^{1/2}+(4c-z)^{1/2})^2/(4c)\bigr)^{1+\alpha}$; equivalently, with
-  $\mathsf y:=(-z)^{1/2}$ and $L_0:=(1+\alpha)\operatorname{arsinh}(\mathsf y/(2\sqrt c))$, $e^{\mp i\pi\alpha}/\omega^{\mathrm{mod}}=e^{2L_0}$.
+\item[(iii)] Near $4c$ and near $0$ (in $\C_\pm$), respectively,
+  \[
+    (-\omega^{\mathrm{mod}})^{1/2}=\Bigl(\frac{2\sqrt c}{z^{1/2}+\mathsf u}\Bigr)^{1+\alpha},\qquad
+    \frac{e^{\mp i\pi\alpha}}{\omega^{\mathrm{mod}}}=\Bigl(\frac{((-z)^{1/2}+(4c-z)^{1/2})^2}{4c}\Bigr)^{1+\alpha};
+  \]
+  equivalently, with $\mathsf y:=(-z)^{1/2}$,
+  \[
+    L_r:=(1+\alpha)\operatorname{arsinh}\frac{\mathsf u}{2\sqrt c},\quad L_0:=(1+\alpha)\operatorname{arsinh}\frac{\mathsf y}{2\sqrt c},
+    \quad(-\omega^{\mathrm{mod}})^{\mp1}=e^{\pm2L_r},\quad\frac{e^{\mp i\pi\alpha}}{\omega^{\mathrm{mod}}}=e^{2L_0}.
+  \]
 \end{enumerate}
 \end{lemma}
 

@@ -31,8 +31,10 @@ factor is replaced by a constant. Constants $C$ depend on $p$, $s$ and the conto
 
 Write $t_+(y)$, $\theta_+(y)$ for the boundary values from $\C_+$ at $y<0$, and put
 \begin{equation}\label{eq:G-def}
-  G:=-j(t)+\log B\quad\text{on }\C\setminus(-\infty,0],\qquad
+\begin{gathered}
+  G:=-j(t)+\log B\quad\text{on }\C\setminus(-\infty,0],\\
   \mathfrak e(y):=2\im\Log\bigl(1-e^{-2i\theta_+(y)}\bigr)\quad(y<0),\qquad r_*:=4c+2,
+\end{gathered}
 \end{equation}
 with Binet's function $j$ of Section~\ref{sec:outer}. Then $H_n=e^{-2G}$ by Lemma~\ref{lem:binetcut}(iv), since
 $\tilde D=e^{-j(t)}$.
@@ -60,7 +62,7 @@ Let $p>1$. There are $C$ and $n_0$ such that for $n\ge n_0$:
 \end{lemma}
 
 Part~(iii) says that the band factor is constant up to $O(n^{-p})$ on a fixed neighbourhood of the band, although each
-of its two factors varies at order $1/n$. Indeed $-j(t(z))=-z^{1/p}/(12n)+O(n^{-3})$ on compact sets by
+of its two factors varies at order $1/n$. Here $-j(t(z))=-z^{1/p}/(12n)+O(n^{-3})$ on compact sets by
 \S\ref{sec:tool-dlmf}(a), while~(iii) and $\log B(1)=0$, $-j(n)=-1/(12n)+O(n^{-3})$ give $\log B(z)=(z^{1/p}-1)/(12n)+O(n^{-p})$:
 the Binet-cut scalar removes exactly the cut of the Binet term, and the two $1/(12n)$ terms cancel up to a constant. The
 non-constant part of $G$ comes from $|y|\asymp n^p$ in~\eqref{eq:G-repr}. At $p=2$, $\theta_+(y)=-i\pi n|y|^{-1/2}$ is
@@ -92,7 +94,7 @@ $K(z)=O(\log|z|)$, hence constant, and $K(1)=0$.
 (iii) Split~\eqref{eq:G-repr} at $y=-2r_*$. For $|y|\ge2r_*$ and $|z|\le r_*$ the kernel is at most $C|y|^{-2}$, and the
 substitution $|y|=n^pw$ gives
 \[
-  \int_{2r_*}^\infty e^{-c_1nu^{-1/p}}u^{-2}\diff u\le n^{-p}\int_0^\infty e^{-c_1w^{-1/p}}w^{-2}\diff w=Cn^{-p},\qquad c_1:=2\pi\sin(\pi/p),
+  \int_{2r_*}^\infty e^{-\varrho nu^{-1/p}}u^{-2}\diff u\le n^{-p}\int_0^\infty e^{-\varrho w^{-1/p}}w^{-2}\diff w=Cn^{-p},\qquad \varrho:=2\pi\sin(\pi/p),
 \]
 the last integral being finite at both ends. On $[-2r_*,0)$ the density $\mathfrak e$ is $C^1$ with norm $O(e^{-n/C})$ and
 vanishes to infinite order at $0$; the Cauchy integral of such a density, and its boundary values on $(-r_*,0)$, are
@@ -126,8 +128,10 @@ frame of $Q$. Fix a square root $\wn^{1/2}$ and put, on $U(0,2\delta)\setminus(-
 with principal powers, so that $\tilde W^2=\wn(-z)^\alpha(4c-z)H_n$. Since $(-z)^\alpha=e^{\mp i\pi\alpha}z^\alpha$ in
 $\C_\pm$, the identities
 \begin{equation}\label{eq:rho-props}
-  \tilde W^2=e^{\mp i\pi\alpha}W_0,\qquad \rho_n^2=\frac{e^{\mp i\pi\alpha}}{\omega}\quad\text{in }\C_\pm,\qquad
+\begin{gathered}
+  \tilde W^2=e^{\mp i\pi\alpha}W_0,\qquad \rho_n^2=\frac{e^{\mp i\pi\alpha}}{\omega}\quad\text{in }\C_\pm,\\
   \rho_{n,+}\rho_{n,-}=1\ \text{on }(0,2\delta),\qquad \rho_{n,+}=\rho_{n,-}e^{-i\mathfrak e}\ \text{on }(-2\delta,0)
+\end{gathered}
 \end{equation}
 hold: on the band $\tilde W_+\tilde W_-=W_0=D_{W,+}D_{W,-}$, and on the negative axis $D_W$ and $(-z)^{\alpha/2}$ are
 analytic while $e^{-G}$ jumps by $e^{-i\mathfrak e}$ (Lemma~\ref{lem:bandfactor}(i)). This is the analogue of
@@ -138,8 +142,8 @@ every $\alpha>-1$), and define in $U(0,2\delta)$
   \check A:=P^\infty_0\,\rho_n^{\sigma_3}Mf^{\sigma_3/4},\qquad
   \check P_0:=\check A\,(2\pi n)^{\sigma_3/2}\,\Phi_\alpha(n^2f)\,\rho_n^{-\sigma_3}.
 \end{equation}
-If $\tilde W$ is replaced by $D_W$ in~\eqref{eq:Wtilde}, then $\rho_n=1$, $\check A=A_0$ and $\check P_0$ is the comparison
-parametrix~\eqref{eq:he-P0hat} of Section~\ref{sec:hardedge}.
+If $\tilde W$ is replaced by $D_W$ in~\eqref{eq:Wtilde}, then $\rho_n=1$ and $\check A=A_0$, and $\check P_0$
+becomes the comparison parametrix~\eqref{eq:he-P0hat} of Section~\ref{sec:hardedge}.
 
 \begin{lemma}[the classical Bessel parametrix]\label{lem:classical-param}
 Let $p>1$, $s>1$, $\ell\equiv1$. For $n\ge n_0$:
@@ -189,10 +193,14 @@ an isolated singularity with this growth is removable. On $|z|=\frac54\delta$ we
 $U(0,\delta)$. Since $\det\check A=1$, $\check A^{-1}$ is the adjugate of $\check A$ and obeys the same bound.
 
 (ii) Each factor has determinant $1$. On the band, $\check A$ has no jump,
-$\Phi_{\alpha,+}=\Phi_{\alpha,-}J$ by~\eqref{eq:he-Phi-jumps} (whose derivation from \cite[(6.16)--(6.18)]{KMVV} uses
-no restriction on $\alpha$), and $\rho_{n,-}^{\sigma_3}J\rho_{n,+}^{-\sigma_3}=\rho_{n,-}^{\sigma_3}J\rho_{n,-}^{\sigma_3}=J$.
+$\Phi_{\alpha,+}=\Phi_{\alpha,-}J$ by~\eqref{eq:he-Phi-jumps}, whose derivation from \cite[(6.16)--(6.18)]{KMVV} uses
+no restriction on $\alpha$. Since $\rho_{n,+}^{-1}=\rho_{n,-}$ there, we also have
+$\rho_{n,-}^{\sigma_3}J\rho_{n,+}^{-\sigma_3}=\rho_{n,-}^{\sigma_3}J\rho_{n,-}^{\sigma_3}=J$.
 The upper lip in $U(0,\delta)$ is mapped by $\zeta=n^2f$ onto the ray $\arg\zeta=-2\pi/3$, where by~\eqref{eq:he-Phi-jumps}
-and~\eqref{eq:he-ephi} $\Phi_\alpha$ jumps by $\bigl(\begin{smallmatrix}1&0\\e^{-i\pi\alpha}e^{2n\varphi}&1\end{smallmatrix}\bigr)$;
+and~\eqref{eq:he-ephi} $\Phi_\alpha$ jumps by
+\[
+  \begin{pmatrix}1&0\\e^{-i\pi\alpha}e^{2n\varphi}&1\end{pmatrix};
+\]
 conjugation by $\rho_n^{-\sigma_3}$ multiplies the lower-left entry by $\rho_n^{-2}=e^{i\pi\alpha}\omega$
 by~\eqref{eq:rho-props}. The lower lip is the mirror image. On $(-\delta,0)$, $\Phi_\alpha$ is analytic ($\zeta>0$), so
 \[
@@ -210,10 +218,11 @@ and $e^{\pm2\zeta^{1/2}}$ is bounded there. With $\zeta=n^2f$, $|f|\asymp|z|$, p
 $(2\pi n)^{\pm1/2}$, this gives~(iii).
 
 (iv) For $\frac12\delta\le|z|\le\delta$, $|\zeta|\ge n^2\delta/C\ge2$, and, since $(n^2f)^{-\sigma_3/4}=n^{-\sigma_3/2}f^{-\sigma_3/4}$,
-\[
-  \check P_0=P^\infty_0\rho_n^{\sigma_3}Mf^{\sigma_3/4}(2\pi n)^{\sigma_3/2}(n^2f)^{-\sigma_3/4}(2\pi)^{-\sigma_3/2}
-  \bigl(M^{-1}+O(n^{-1})\bigr)\rho_n^{-\sigma_3}=P^\infty_0\rho_n^{\sigma_3}\bigl(I+O(n^{-1})\bigr)\rho_n^{-\sigma_3}.
-\]
+\begin{align*}
+  \check P_0&=P^\infty_0\rho_n^{\sigma_3}Mf^{\sigma_3/4}(2\pi n)^{\sigma_3/2}(n^2f)^{-\sigma_3/4}(2\pi)^{-\sigma_3/2}
+  \bigl(M^{-1}+O(n^{-1})\bigr)\rho_n^{-\sigma_3}\\
+  &=P^\infty_0\rho_n^{\sigma_3}\bigl(I+O(n^{-1})\bigr)\rho_n^{-\sigma_3}.
+\end{align*}
 Since $P^\infty_0$, $(P^\infty_0)^{-1}$ and $\rho_n^{\pm1}$ are bounded on the annulus uniformly in $n$, both claims follow.
 \end{proof}
 
@@ -393,7 +402,7 @@ Let $p>0$, $s>1$, and assume either
 \item[(a)] $1<s<1+2p$, or
 \item[(b)] $p>1$.
 \end{enumerate}
-There are $C$, $c_1>0$ and $n_0$ such that for $n\ge n_0$, $j\in\{n-1,n\}$ and $1\le M\le c_1n^{2/p}$,
+There are $C$, $\gamma_*>0$ and $n_0$ such that for $n\ge n_0$, $j\in\{n-1,n\}$ and $1\le M\le \gamma_*n^{2/p}$,
 \begin{equation}\label{eq:tail-arcsine}
   \sum_{k>Mn}m_j(k)\le C\,M^{-p/2}.
 \end{equation}
@@ -449,7 +458,7 @@ Lemmas~\ref{lem:stieltjes} and~\ref{lem:rowproduct} give
 the latter by Proposition~\ref{prop:moments} in case~(a) and by Proposition~\ref{prop:classical} in case~(b), together
 with~\eqref{eq:P1P2}. For $r_0<r\le1$, where $r_0:=\frac14\delta$ in case~(a) and $r_0:=\frac12\delta_1$ in case~(b)
 ($\delta_1$ is fixed below), we use $\nu_n([0,r])\le1\le r_0^{-1/2}r^{1/2}$. For $j=n-1$ apply the
-result at degree $n-1$ with $M':=Mn/(n-1)\ge M$; this costs a factor $\frac12$ in $c_1$. The geometric fact used below is
+result at degree $n-1$ with $M':=Mn/(n-1)\ge M$; this costs a factor $\frac12$ in $\gamma_*$. The geometric fact used below is
 that for $s'$ on the band or on a lip in $U(0,\delta)$ the angle between $s'$ and $z$ is at least $\pi/3$, so
 $|s'-z|\ge\frac12(|s'|+|z|)$; and that $|f(z)|\asymp r$, $\zeta_z:=n^2f(z)$ satisfies $|\arg\zeta_z|<\pi/6+\pi/24$.
 
@@ -481,17 +490,20 @@ $d_n(\tilde Q(s')e_2)(e_1^{\mathsf T}\Theta_\infty(\zeta_{s'})^{-1}N)$, $N:=D_{s
 C\varrho^{-1/4}$, and the entries of $D_w^{\pm1}$ have moduli $\asymp|w|^{\mp1/4},|w|^{\pm1/4}$, which with $|B-I|\le C(\varrho+r)$
 gives $|N|\le C((\varrho/r)^{1/4}+(r/\varrho)^{1/4})$. So, using $|\diff s'|\le C\diff\varrho$ and $|s'-z|\ge\frac12(\varrho+r)$, this
 part of~\eqref{eq:K-weighted} is at most
-\[
-  Cr^{-1/4}\int\mathfrak m_ne^{-t/C}\bigl[1+(r/\varrho)^{1/2}\bigr]\frac{\diff\varrho}{\varrho+r}
-  =Cr^{-1/4}\int_{t\ge1/C}\mathfrak m_n\bigl(\tfrac{t^2}{n^2}\bigr)e^{-t/C}\Bigl[\frac{2t}{t^2+y}+\frac{2\sqrt y}{t^2+y}\Bigr]\diff t
+\begin{align*}
+  &Cr^{-1/4}\int\mathfrak m_ne^{-t/C}\bigl[1+(r/\varrho)^{1/2}\bigr]\frac{\diff\varrho}{\varrho+r}\\
+  &\qquad=Cr^{-1/4}\int_{t\ge1/C}\mathfrak m_n\bigl(\tfrac{t^2}{n^2}\bigr)e^{-t/C}\Bigl[\frac{2t}{t^2+y}+\frac{2\sqrt y}{t^2+y}\Bigr]\diff t
   \le C\varepsilon'_nr^{-1/4},
-\]
+\end{align*}
 since $2t\le t^2+y$ (as $y\ge1$), $2\sqrt y\le(t^2+y)/t$, and $\mathfrak m_n(t^2/n^2)\le Ct^{2\nu_p}n^{-2\nu_p}(\log n+|\log t|+1)$.
 
 \emph{The lips, $|\zeta_{s'}|\le2$.} Then $\varrho\le Cn^{-2}\le Cr$ and $\mathfrak m_n(s')\le C\varepsilon'_n$. By
 \eqref{eq:he-Phi-small} and Lemma~\ref{lem:bessel-local}(iii), $|\tilde Q(s')e_2|\le Cn^{1/2}|\zeta_{s'}|^{-|\alpha|/2}$, and
-$e_1^{\mathsf T}\tilde Q(s')^{-1}A_0(z)D_z=e_1^{\mathsf T}\Phi_\alpha(\zeta_{s'})^{-1}(2\pi n)^{-\sigma_3/2}B(2\pi n)^{\sigma_3/2}
-\zeta_z^{-\sigma_3/4}$, whose norm is at most $C|\zeta_{s'}|^{-|\alpha|/2}|\zeta_z|^{1/4}\le C|\zeta_{s'}|^{-|\alpha|/2}n^{1/2}r^{1/4}$
+\[
+  e_1^{\mathsf T}\tilde Q(s')^{-1}A_0(z)D_z=e_1^{\mathsf T}\Phi_\alpha(\zeta_{s'})^{-1}(2\pi n)^{-\sigma_3/2}B(2\pi n)^{\sigma_3/2}
+  \zeta_z^{-\sigma_3/4},
+\]
+whose norm is at most $C|\zeta_{s'}|^{-|\alpha|/2}|\zeta_z|^{1/4}\le C|\zeta_{s'}|^{-|\alpha|/2}n^{1/2}r^{1/4}$
 (the lower-left entry of $B$ is $O(r)$ and $nr|\zeta_z|^{-1/4}\asymp|\zeta_z|^{1/4}r^{1/2}$). With $|s'-z|\ge r/2$ and
 $\int_0^{Cn^{-2}}(n^2\varrho)^{-|\alpha|}\diff\varrho\le Cn^{-2}$ ($|\alpha|<1$; logarithms at $\alpha=0$), this part is at most
 $C\varepsilon'_nn\,r^{1/4}r^{-1}n^{-2}=C\varepsilon'_nr^{-1/4}y^{-1/2}$.
@@ -504,13 +516,13 @@ gives $Cr^{-1/4}e^{-n/C}$ (as $r\ge y_0n^{-2}$); the rest of $\hat\Sigma$, of le
 $C(\varepsilon'_nn^{-1/2}+n^{-1})\,\|(v-\tilde v)\tilde v^{-1}\tilde Q_-^{-1}A_0(z)D_z/(s'-z)\|_{L^2(\hat\Sigma)}$. In the last norm, the
 part $|\zeta_{s'}|\le2$ of $\Delta_1$ is at most $C\varepsilon'_nn^{1/2}r^{1/4}r^{-1}n^{-1}=C\varepsilon'_nn^{-1/2}r^{-3/4}$; the part
 $|\zeta_{s'}|\ge2$ has square at most
-\[
-  C\int\mathfrak m_n^2e^{-2t/C}\Bigl[\Bigl(\frac\varrho r\Bigr)^{1/2}+\Bigl(\frac r\varrho\Bigr)^{1/2}\Bigr]\frac{\diff\varrho}{(\varrho+r)^2}
-  =C\int\mathfrak m_n^2e^{-2t/C}\Bigl(\frac{2t^2}{\sqrt y}+2\sqrt y\Bigr)\frac{n^2\diff t}{(t^2+y)^2}\le C\varepsilon_n'^2n^2y^{-3/2},
-\]
+\begin{align*}
+  &C\int\mathfrak m_n^2e^{-2t/C}\Bigl[\Bigl(\frac\varrho r\Bigr)^{1/2}+\Bigl(\frac r\varrho\Bigr)^{1/2}\Bigr]\frac{\diff\varrho}{(\varrho+r)^2}\\
+  &\qquad=C\int\mathfrak m_n^2e^{-2t/C}\Bigl(\frac{2t^2}{\sqrt y}+2\sqrt y\Bigr)\frac{n^2\diff t}{(t^2+y)^2}\le C\varepsilon_n'^2n^2y^{-3/2},
+\end{align*}
 that is, the part is at most $C\varepsilon'_nn^{-1/2}r^{-3/4}$; $\Delta_2$ gives $Cn^{-1}r^{-1/4}$ and $\Delta_3$ an exponentially small
 multiple of $r^{-1/4}$. Since $nr^{1/2}=\sqrt y\ge1$, the product is at most $Cr^{-1/4}(\varepsilon'_n+n^{-1})$. Summing the
-four parts gives~\eqref{eq:K-weighted}, hence~\eqref{eq:Q-ray}, and~\eqref{eq:tail-arcsine} follows with $c_1=\frac12y_0^{-1/p}$.
+four parts gives~\eqref{eq:K-weighted}, hence~\eqref{eq:Q-ray}, and~\eqref{eq:tail-arcsine} follows with $\gamma_*=\frac12y_0^{-1/p}$.
 
 \emph{Case (b).} Here $p>1$ and $\alpha>-1$ is arbitrary, and we work in the frame of \S\ref{sec:classical-small}.
 First, $|\mathsf R(z)-I|\le C/n$ for $0<r\le\frac12\delta_1$, with a fixed $\delta_1\le\delta$. To see this, note
@@ -540,7 +552,7 @@ for $\varrho\ge2$. By~\eqref{eq:tail-reduction}, with $|u|\asymp\sqrt y$, $y=n^2
 if $|u|\ge2$ then $\nu_n([0,r])\le Crn/(n\sqrt r)=Cr^{1/2}$; if $|u|\le2$ then
 $\nu_n([0,r])\le Cn^{-1}y^{1+\min(\alpha,0)}(1+\log(C/y))$. With $r=M^{-p}$ and $p(1+\min(\alpha,0))=\min(p,s-1)=:\beta$, the
 first case gives~\eqref{eq:tail-arcsine} for $M\le Cn^{2/p}$; the second gives it for the remaining
-$M\le c_1n^{2/p}$, where $y$ is bounded below and above, so that $n^{-1}\le CM^{-p/2}$; and the second gives
+$M\le \gamma_*n^{2/p}$, where $y$ is bounded below and above, so that $n^{-1}\le CM^{-p/2}$; and the second gives
 $\sum_{k>Mn}m_n(k)\le Cn^{-1}(M/n^{2/p})^{-\beta}(1+\log(M/n^{2/p}))$ for $M\ge n^{2/p}$. For $\tau<\min(p/2,s-1)\le\beta$ we have
 $n^{-1}=(n^{2/p})^{-p/2}\le(n^{2/p})^{-\tau}$ and $(M/n^{2/p})^{-\beta}(1+\log(M/n^{2/p}))\le C_\tau(M/n^{2/p})^{-\tau}$, so the
 second bound is at most $C_\tau M^{-\tau}$; and $M^{-p/2}\le M^{-\tau}$ in the first range.
