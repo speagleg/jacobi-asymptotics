@@ -1,8 +1,8 @@
 # E_pgt1: the 1/n coefficient (E) for pure powers, p > 1, by second-order Riemann–Hilbert analysis (Plan 65)
 
-Status (2026-10-15): written by the Plan 65 agent; **not REVIEWED** — Rule R reviews A (analysis) and B (algebra) are in
+Status (2026-10-15): written by the Plan 65 agent; **REVIEWED 2026-10-15 (REVIEW_Plan65_A.md, REVIEW_Plan65_B.md)** — Rule R reviews A (analysis) and B (algebra) are in
 (research/G1/review/REVIEW_Plan65_A.md, REVIEW_Plan65_B.md; both ACCEPT WITH FIXES); fixes A1–A6 and B F1–F6 are applied
-(A5, F2, F5 INFO items included), pending the coordinator's diff check. Labels per VERIFICATION_POLICY.md.
+(A5, F2, F5 INFO items included). Labels per VERIFICATION_POLICY.md.
 "RH" means Riemann–Hilbert throughout. This file closes, for p > 1, the GAP "(E)" of SECOND.md §4 and settles g(p) = 0
 for p > 1. The resulting changes to SECOND.md and THEOREMS.md are applied and listed in §11 (Integration).
 
@@ -444,7 +444,7 @@ Theorem E.1 gives (E_1), i.e. (E_ε) with ε = 1, at every (p, s) with p > 1, s 
 ## 11. Integration (applied)
 
 Applied in the Rule R fix commit (after merging master 3ad2565, i.e. after Plan 64), reconciled with the Plan 64 wording.
-Every changed label carries the tag "Plan 65 … not REVIEWED" so that it can be flipped after the diff check.
+Every changed label carries a "Plan 65" tag; after the diff check of the Rule R fixes (2026-10-15) these read REVIEWED.
 
 **SECOND.md:** status line (Plan 65 update note); summary rows Conj. P62 (PROVED-mod-cite for p > 1), Cor 3.3
 (unconditional for p > 1), Thm 3.4 (superseded for p > 1), Cor 3.9 (unconditional for p > 1), Thm 3.10 (log-average form for
