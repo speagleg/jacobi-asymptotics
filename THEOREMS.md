@@ -146,9 +146,16 @@ in a later result.
 | **`smoothZeta_HL`, `smoothZeta_HL_det`** | Corollary H_L-ζ, Hankel-det form | **PROVED-mod-input (TheoremHPure 2 κ 2)** | SmoothZetaHL.lean | theoremHL |
 | `toeplitzTri`, `toeplitz_eigen`, `toeplitz_charpoly_roots` | T_ℓ(A,B), B > 0: eigenvalues A + 2B cos(πi/(ℓ+1)) | sorry-free | Toeplitz.lean | — |
 | **`eigCount`, `toeplitz_count`** | (S4): \|N(T_ℓ(A,B); μ) − (ℓ/π)θ\| ≤ 1, B ≥ 0 | sorry-free | Toeplitz.lean | — |
+| `chain_limit_core`, `chain_limit` | U_n + V_n → 2c, U_nV_{n+1} → c², U, V > 0 ⇒ U_n, V_n → c (Paper 2 Lemma `lem:chain-limit`; G1 §3.21 Lemma CS) | sorry-free (Plan 56) | ChainLimit.lean | — |
+| **`christoffel_sign`**, `opoly_eval_zero` | x_k ≥ 0: P_n(0) = (−1)ⁿD_n(xσ)/D_n(σ), (−1)ⁿP_n(0) > 0 (Paper 2 Lemma `lem:zeros`, sign part) | sorry-free (Plan 56) | Christoffel.lean | hankel_det_pos |
+| **`christoffel_transfer`**, `christoffel_poly`, `christoffel_ja_split`, `christoffel_jb2_split` | a_n = u_n + l_n, b_{n+1}² = u_nl_{n+1}; XP̃_n = P_{n+1} + u_nP_n; ã_n = u_n + l_{n+1}, b̃_{n+1}² = u_{n+1}l_{n+1} (Paper 2 Lemma `lem:transfer`) | sorry-free (Plan 56) | Christoffel.lean | opoly_recurrence, eq_zero_of_orth |
+| **`christoffel_shift_law(_converse, _pow)`** | s_na_n → 2c, s_nb_n → c for σ ⇔ for xσ (s_n/s_{n+1} → 1; `_pow`: s_n = n^p) (Paper 2 Thm `thm:shift` no rate, Remark `rem:converse`; G1 §3.21 SH, §3.19 CT₁ "⟸") | sorry-free (Plan 56) | Christoffel.lean | chain_limit_core |
+| **`chain_rate_core`** | regular η: O(η) inputs ⇒ U_n − c = O(√η_n), U_{n+1} − U_n = O(η_n) (Paper 2 Lemma `lem:chain-rate`; G1 §3.21 CS-r) | sorry-free (Plan 56) | ChainRate.lean | chain_limit_core |
+| **`christoffel_shift_rate(_pow)`** | s_na_n − 2c, s_nb_n − c = O(η_n) for σ ⇒ the same for xσ (`_pow`: s_n = n^p) (Paper 2 Thm `thm:shift`, rate; G1 §3.21 SH-r) | sorry-free (Plan 56) | ChristoffelRate.lean | chain_rate_core, christoffel_transfer |
 
 Not formalized: the forward Weyl law (item 11 "Theorem B"; not G3′ Theorem B, see §6), Theorem H / H_all itself, everything in
-research/.
+research/ except the Christoffel shift of G1 §3.21 / Paper 2 §3 (Plan 56 rows above; for `DMeasure` σ with atoms x_k ≥ 0 —
+no atom at 0, general σ with finite moments not covered; zero location in `lem:zeros` and Remark `rem:sharp` not formalized).
 
 ### 2.2 G2 (research/G2/PROOF.md; REVIEWED 2026-10-13)
 

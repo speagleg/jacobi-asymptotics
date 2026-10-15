@@ -44,7 +44,18 @@ stay PROVED-mod-input.
 | **`smoothZeta_HL`, `smoothZeta_HL_det`** | **Corollary H_L-ζ** | **smooth-ζ measure, Hankel-determinant form; PROVED-mod-input (TheoremHPure 2 κ 2)** |
 | `toeplitzTri`, `toeplitz_eigen`, `toeplitz_charpoly_roots` | (S4) | for B > 0, T_ℓ(A,B) has the simple eigenvalues A + 2B cos(πi/(ℓ+1)), sine eigenvectors (B = 0: `toeplitz_eigCount_zero`) |
 | **`eigCount`, `toeplitz_count`** | **(S4) Toeplitz count** | **\|N(T_ℓ(A,B); μ) − (ℓ/π)θ\| ≤ 1, B ≥ 0; `eigCount` counts charpoly roots > μ with multiplicity (= spectral count for symmetric T)** |
+| `chain_limit_core`, `chain_limit` | Paper 2 §3 Lemma `lem:chain-limit` (G1 §3.21 Lemma CS) | positive sequences with U_n + V_n → 2c and U_n V_{n+1} → c² converge: U_n, V_n → c; scale form: s_n a_n → 2c, s_n b_n → c, a_n = u_n + l_n, b_n² = u_{n−1} l_n ⇒ s_n u_n, s_n l_n → c (s_n > 0, s_n/s_{n+1} → 1, e.g. n^p) |
+| `xw`, `christoffel_DMeasure`, `opoly_eval_zero`, **`christoffel_sign`** | Paper 2 Lemma `lem:zeros` (sign part) | for atoms x_k ≥ 0, x·σ (weights x_k w_k) is again a `DMeasure`; P_n(0) = (−1)ⁿ D_n(xσ)/D_n(σ), so (−1)ⁿ P_n(0) > 0 (the zero-location statement itself is not formalized) |
+| `cg`, `ch`, `cg_pos`, `ch_pos`, `christoffel_ja_split`, `christoffel_jb2_split`, `opoly_recurrence_zero` | Paper 2 Lemma `lem:transfer`(i) | u_n = −P_{n+1}(0)/P_n(0) > 0, l_0 = 0, l_n = b_n²/u_{n−1} > 0; a_n = u_n + l_n, b_{n+1}² = u_n l_{n+1}; the k = 0 recurrence X P_0 = P_1 + a_0 P_0 |
+| `christoffel_poly`, `christoffel_back`, **`christoffel_transfer`** | Paper 2 Lemma `lem:transfer`(ii), eq. `eq:transfer` | X·P̃_n = P_{n+1} + u_n P_n (P̃_n monic OPs of xσ), P_{n+1} = P̃_{n+1} + l_{n+1} P̃_n; ã_n = u_n + l_{n+1}, b̃_{n+1}² = u_{n+1} l_{n+1} |
+| **`christoffel_shift_law`**, **`christoffel_shift_law_converse`**, **`christoffel_shift_law_pow`** | Paper 2 Theorem `thm:shift` (no rate) + Remark `rem:converse`; G1 §3.21 Theorem SH, §3.19 CT₁ "⟸" | s_n a_n → 2c and s_n b_n → c for σ ⇔ the same for xσ; `_pow`: the iff at scale n^p exactly as in Paper 2 |
+| `RegularRate`, `RegularRate.not_summable`, `RegularRate.sqrt_sub_le`, **`chain_rate_core`** | Paper 2 Lemma `lem:chain-rate` (G1 §3.21 Lemma CS-r) | η regular (positive, non-increasing, nη_n non-decreasing, → 0); U_n + V_n − 2c = O(η), U_n V_{n+1} − c² = O(η) ⇒ U_n − c = O(√η_n) and U_{n+1} − U_n = O(η_n) |
+| **`christoffel_shift_rate`**, `bigO_rpow_succ_iff`, **`christoffel_shift_rate_pow`** | Paper 2 Theorem `thm:shift` (rate part; G1 §3.21 Theorem SH-r) | s_n a_n − 2c = O(η_n), s_n b_n − c = O(η_n) (and s_n/s_{n+1} − 1 = O(η_n)) ⇒ the same for xσ; `_pow`: at scale n^p exactly as in Paper 2 |
 
 Not here: the true-zero measure (G3′) is research; the forward Weyl law (Theorem B) itself is not formalized.
+Christoffel shift (Plan 56; ChainLimit.lean, Christoffel.lean, ChainRate.lean, ChristoffelRate.lean): stated for `DMeasure`
+(positive summable weights, bounded strictly decreasing atoms) with atoms x_k ≥ 0, so Paper 2's general σ on [0, ∞) with
+finite moments, and an atom at 0, are not covered; the location/simplicity of the zeros in Lemma `lem:zeros` (only the sign
+of P_n(0) is used) and Remark `rem:sharp` are not formalized.
 
 Check: `./check.sh` (build + axioms audit + completeness list; prints AUDIT OK).

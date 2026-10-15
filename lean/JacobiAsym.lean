@@ -28,3 +28,7 @@ import JacobiAsym.H2
 import JacobiAsym.SuperFactorial
 import JacobiAsym.BLaw
 import JacobiAsym.Toeplitz
+import JacobiAsym.ChainLimit
+import JacobiAsym.Christoffel
+import JacobiAsym.ChainRate
+import JacobiAsym.ChristoffelRate
