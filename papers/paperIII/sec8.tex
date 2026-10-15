@@ -46,25 +46,17 @@ all atoms but one, which is impossible since it is orthogonal to the constants. 
 every finite truncation.
 \end{remark}
 
-\emph{The pointwise $1/n$ term for $p\le1$.} For $p>1$ the $1/n$ term is Theorem~\ref{thm:imp-second}. For $0<p\le1$,
-Corollary~\ref{cor:p1} gives its logarithmic average at $p=1$, Theorem~\ref{thm:s}(ii) gives its dependence on $s$ in the
-same averaged sense for every $p$, and Proposition~\ref{prop:transfer} reduces the diagonal ratio to the off-diagonal
-term.
-
-\begin{conjecture}[{\cite[Conjecture~11.1]{PaperII}}]\label{conj:pleq1}
-For $0<p\le1$ and $s>1$, $n^pb_n(\sigma_{p,s})=c(p)\bigl(1-\frac{s-1}{2n}+o(1/n)\bigr)$ and
-$a_n(\sigma_{p,s})/(2b_n(\sigma_{p,s}))=1-\frac p{2n}+o(1/n)$.
-\end{conjecture}
-
-Numerically, at $p=\frac12$ the remainder in the first formula appears to be of order $n^{-1-p}=n^{-3/2}$, which is exactly
-the borderline $\varepsilon=\frac12$ of Proposition~\ref{prop:transfer}; so even a proof of the first formula with this
-remainder would not, through Proposition~\ref{prop:transfer} alone, give the second.
+\emph{The pointwise $1/n$ term for $p\le1$.} For $p>1$ the $1/n$ term is Theorem~\ref{thm:imp-second}. The second
+paper of the series proves it for every $p>0$ \cite[Theorem~1.4]{PaperII}: the $1/n$ coefficients are the same, and for
+$0<p<1$ a further term $2p\,c(p)\zeta(-p)\,n^{-1-p}$ appears in both $n^pb_n/c(p)$ and $n^pa_n/(2c(p))$, so that it
+cancels in $a_n/(2b_n)$. Corollary~\ref{cor:p1} and Theorem~\ref{thm:s}(ii) give the averaged form of these statements
+without Riemann--Hilbert analysis.
 
 \emph{Slowly varying factors at order $1/n$.} The numbers in Section~\ref{sec:numerics} suggest that a slowly varying
 factor acts at order $1/n$ like a change of $s$ by its local logarithmic derivative. This is the pointwise analogue of
 Theorem~\ref{thm:s}(ii) along the path $k^{-s}\ell(k)^t$.
 
-\begin{conjecture}[{\cite[Conjecture~11.2]{PaperII}}]\label{conj:tilt}
+\begin{conjecture}[{\cite[Conjecture~13.2]{PaperII}}]\label{conj:tilt}
 Let $\ell$ be analytic of some angle, $\ell(k)=\exp\Lambda(\log k)$, and $s>1$. If $n\Lambda'(\log n)\to\infty$, then
 \[
   \frac{n^pb_n(\sigma_{p,s,\ell})}{c(p)}=1-\frac{s-1-\Lambda'(\log n)}{2n}+o\Bigl(\frac{\Lambda'(\log n)}n\Bigr).
