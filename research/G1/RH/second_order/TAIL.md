@@ -1,6 +1,7 @@
 # TAIL: the hard-edge tail bound that UL.md needs, proved in Paper 2's frame; the telescoping reduction (Plan 69)
 
-Status (2026-10-15): written by the Plan 69 agent; **not REVIEWED** (Rule R pending). Labels per VERIFICATION_POLICY.md.
+Status (2026-10-15): written by the Plan 69 agent; Rule R: research/G1/review/REVIEW_Plan69.md, ACCEPT WITH FIXES; fixes
+F1–F7 applied; **not REVIEWED** (diff check pending). Labels per VERIFICATION_POLICY.md.
 "RH" means Riemann–Hilbert throughout. This file serves decision D2 of the three-paper split (planning documents kept
 locally under research/program/papers_split/, not published): Paper III's uniform-in-s results (UL.md) use the hard-edge
 tail bound Theorem QLP(c) of G1 PROOF.md §3.16, which is proved there only through the older RH analyses (RH_px,
@@ -18,13 +19,13 @@ k^{−s}π_n^{(s)}(x_k)²/h_n(s) (Paper III's m_n); c = c(p); α := (s − 1 −
 | Lemma TS | telescoping: Γ_n(s₀, s₁) is additive; Christoffel–Cesàro gives Γ_n(s, s + p) → 0 for every s > 1 | PROVED (elementary) + PROVED-mod-cite (II Cor 1.3, as SECOND Thm 3.2) |
 | **Thm TS** | for every p > 0 and all s₀, s₁ > 1, Γ_n(s₀, s₁) → 0 (the Cesàro s-law with constant), using the tail bound only at points of the window; uniform on K × K for compact K ⊂ (1, 1 + 2p) | PROVED-mod-cite (UL.md UF-lim restricted to the window + Cor TB-C; SECOND Thm 3.2) |
 | Prop UP-w | uniform law on compact K ⊂ (1, 1 + 2p): the b-part on every such K; the a-part on every compact K ⊂ (1, 1 + 2p) ∖ {1 + p} | PROVED-mod-cite (as Thm TS; Paper 2 lem:transfer) |
-| GAP UP-1+p | for p ≤ 1: the a-part of the uniform law on a neighbourhood of s = 1 + p | **GAP** |
+| GAP UP-1+p | for p ≤ 1: the uniform *limit* of the a-part on a neighbourhood of s = 1 + p (uniform *boundedness* of n^pα_n there is PROVED-mod-cite, as Thm TS; review F2) | **GAP** (limit only) |
 | Lemma ST | Stieltjes tail bound (= G1 §3.16 Lemma ST) | PROVED (elementary) |
 | Lemma GS | row-product identity for the Stieltjes transform of μ_n (= G1 §3.16 Lemma GS; KNOWN, Teschl (1.99)–(1.100), (2.122), not re-read) | PROVED |
 | **Prop TB-Q** | comparison frame, p > 0, 1 < s < 1 + 2p: \|Q(z)\| ≤ C\|z\|^{−1/4} on the ray arg z = 5π/6 for y₀n^{−2} ≤ \|z\| ≤ δ/4 (i.e. down to the Bessel scale) | PROVED-mod-cite (Paper 2 rev. 3 §§5–7, App. A–D, as reviewed in G1 §3.24 (Plan 55); Conway–Deift Thm 4.4 via Paper 2 T3(b)) |
 | **Prop TB-A** | p > 0, 1 < s < 1 + 2p: μ_m((Mn, ∞)) ≤ C·M^{−p/2} for 1 ≤ M ≤ c₁n^{2/p}, n ≥ n₀, m ∈ {n − 1, n} (QLP(a) up to the Bessel scale) | PROVED-mod-cite (Prop TB-Q; Lemmas ST, GS; Paper 2 Prop. prop:moments) |
 | **Cor TB-C** | p > 0, 1 < s < 1 + 2p: μ_m((Mn, ∞)) ≤ C·M^{−ϑ_*} for **all** M ≥ 1, ϑ_* := (s − 1)/(s(1 + 2/p) + 2) | PROVED-mod-cite (Prop TB-A; G1 §3.4 Lemma TL, whose Markov/Chebyshev inputs are quoted as textbook, not checked against a source — decision D5) |
-| Prop TB-P | p > 1, every s > 1: Theorem QLP (a)–(c) of G1 §3.16 in the frame of Paper II's classical module (planned §8 = RH_px §§4–5 in the Q-frame, E_pgt1 §§0, 3, 6) | PROVED-mod-cite (= QLP's proof for p ≠ 1, re-read in that frame: RH_px [REVIEWED]; KMVV (6.23), (6.28); DLMF 10.25.2, 10.32.4, 10.32.9) |
+| Prop TB-P | p > 1, every s > 1: Theorem QLP (a)–(c) of G1 §3.16 in the frame of Paper II's classical module (planned §8 = RH_px §§4–5 in the Q-frame, E_pgt1 §§0, 3, 6) | PROVED-mod-cite (= G1 §3.16 Theorem QLP for p > 1, REVIEWED, proved in RH_px's frame); the Q-frame translation of §3.5 is a presentation note for Paper II §8, checked in outline only |
 | GAP TB-opt | p ≤ 1, window: QLP(b)–(c) with the exponent min(p/2, s − 1) inside Paper 2's frame (below the Bessel scale). Not needed by III. (Proved in the repo by RH₁(r), RH_plt1b, G1 §3.16.) | GAP (in II's frame only) |
 
 **Verdicts.** Telescoping (task 2): **correct**, written out in §2; it reduces the *pointwise* Cesàro s-law to the
@@ -32,8 +33,8 @@ window, but not the uniform statements outside it. p ≤ 1 (task 3): the compari
 has no rate, but after conjugation by the comparison solution and Bessel localisation it contributes O(ε′_n) relative to
 the main term on the ray, for every point down to the Bessel scale; the deep tail is soft (Lemma TL). The price is a
 small, explicit exponent ϑ_* in place of min(p/2, s − 1); UL.md needs only some positive exponent. What III loses relative
-to `PAPER_III_OUTLINE.md`: only the a-part of the uniform law (Thm 1.4(iii)) near s = 1 + p when p ≤ 1 (and with it Thm UΛ
-/ Prop 6.6 on compacts containing 1 + p). Cor 1.5 survives for **every** s > 1 (not only s ∈ 3/2 + ℕ₀).
+to `PAPER_III_OUTLINE.md`: only the uniform *limit* of the a-part (Thm 1.4(iii)) near s = 1 + p when p ≤ 1 (and with it Thm UΛ
+/ Prop 6.7 on compacts containing 1 + p); uniform boundedness of n^pα_n, hence Prop UΛ⁻, holds on every window compact. Cor 1.5 survives for **every** s > 1 (not only s ∈ 3/2 + ℕ₀).
 
 Novelty: UNCHECKED (no Rule L search). Checks: `checks/check_tail.py` (.out), NUMERICAL (§5).
 
@@ -91,7 +92,7 @@ not needed), only that the admissible exponent is bounded below on K (for the gr
 
 **(N) — the statement UL.md needs.** For each t in the set of base points used (a compact K ⊂ (1, ∞), together with the
 enlargement of K in the proof of UF-lim): there are ϑ(t) > 0 with inf_{t∈K}ϑ(t) > 0, and C_t, n₀(t), such that
-μ_n^{(t)}((Mn, ∞)) ≤ C_tM^{−ϑ(t)} for all M ≥ 1 and n ≥ n₀(t). Equivalently (Tonelli one way, Markov the other):
+μ_n^{(t)}((Mn, ∞)) ≤ C_tM^{−ϑ(t)} for all M ≥ 1 and n ≥ n₀(t). Equivalently, up to the endpoint exponent (Tonelli one way, Markov the other; review F5):
 sup_{n≥n₀}E_{μ_n^{(t)}}[(k/n)^u] < ∞ for every u < ϑ(t).
 
 Since the deep tail M ≥ n^{γ} (some γ = γ(p, s)) is soft (Lemma TL), (N) reduces to a bound in a polynomial range of M
@@ -162,14 +163,22 @@ n^pg_n(s − p) = exp(F_n(s) − F_n(s − p)) → c and (n + 1)^pb_{n+1}(s − 
 
 **GAP UP-1+p (p ≤ 1).** The a-part of the uniform law on a neighbourhood of s = 1 + p (α = 0). At s = 1 + p both routes in
 the proof of (ii) need F_n at a boundary point of the window (s + p = 1 + 2p, i.e. α = 1, or s − p = 1). Pointwise Law P at
-s = 1 + p holds (II Cor 1.3). For p > 1 there is no gap (Prop TB-P and UL.md Thm UP on any compact of (1, ∞)). Consequences
-for III: Thm 1.4(iii)'s a-part, Thm UΛ (o(log n)) and Prop UΛ⁻ hold, for p ≤ 1, on compacts of (1, 1 + 2p) ∖ {1 + p}
-(UΛ and UΛ⁻ use the uniform a-part); the b-part, Thm 1.4(ii) and Cor 1.5 are not affected.
+s = 1 + p holds (II Cor 1.3). For p > 1 there is no gap (Prop TB-P and UL.md Thm UP on any compact of (1, ∞)).
+*Uniform boundedness survives (PROVED-mod-cite, as Thm TS; review F2).* Thm UF's bounded form needs base points only at
+t_0, …, t_{J−1}; the last cell [t_{J−1}, b] only needs b − t_{J−1} ≤ u₀. With all base points in the window and
+u₀ = ½ϑ_*(p, a), Thm UF holds on [a, b] for every b < 1 + 2p + ½ϑ_*(p, a). So for η < u₀ and s ∈ [1 + p − η, 1 + p + η],
+F_n(s + p) − F_n(s) = log(n^pg_n(s)) is bounded uniformly in n and s, n^pg_n(s) is bounded above and below, and with
+Prop UP-w(i) and α_n = g_n + b_n²/g_{n−1}: sup_{n, s∈K}n^pα_n(s) < ∞ on every compact K ⊂ (1, 1 + 2p). Only uniform
+*convergence* of the a-part near 1 + p is open (a refinement of UF-lim would need base points dense up to 1 + 2p + η).
+Consequences for III (p ≤ 1): the uniform limit of Thm 1.4(iii)'s a-part and Thm UΛ (o(log n); its step 1 uses the uniform
+a-part limit) hold on compacts of (1, 1 + 2p) ∖ {1 + p}; Prop UΛ⁻ holds on every compact of (1, 1 + 2p) (it uses only uniform
+boundedness); the b-part, Thm 1.4(ii) and Cor 1.5 are not affected.
 
 *Check of the outline's claim.* `PAPER_III_OUTLINE.md` (Thm 1.4) says: "(ii) … uniformly for s₀, s₁ in compact subsets of
 (1, 1 + 2p) (of (1, ∞) if p > 1)", and the telescoping reduces (ii) for arbitrary s₀, s₁ to the window. Both are correct
 (Thm TS; Prop TB-P for p > 1). "(iii) For every compact K ⊂ (1, 1 + 2p) … sup(|n^pb_n − c| + |n^pa_n − 2c|) → 0": correct for
-the b-part; for the a-part with p ≤ 1 only on compacts avoiding 1 + p (GAP UP-1+p). For p > 1 (iii) holds on compacts of
+the b-part; for the a-part with p ≤ 1 the limit only on compacts avoiding 1 + p (GAP UP-1+p; uniform boundedness holds on
+every window compact). For p > 1 (iii) holds on compacts of
 (1, ∞).
 
 ## 3. The tail bound in Paper 2's frame (task 3)
@@ -253,7 +262,7 @@ main term is ∫ε′_n·n|ζ_s|^{−|α|}|ds|/|s − z| ≍ ε′_n/(nτ) = ε�
 1/|s − z| instead of 1), which is small only for τ ≫ ε′_n/n. Right-multiplying by A₀(z)D_z, the scale of the comparison
 solution at z, replaces n|ζ_s|^{−|α|} by √n|ζ_s|^{−|α|}·|ζ_z|^{1/4} and gains the factor y^{−1/2}. (With the plain bound,
 the argument below still works for τ ≥ K₀/n, i.e. M ≤ c n^{1/p}, and Cor TB-C holds with the smaller exponent
-(s − 1)/(2s(1 + 2/p) + 3); this is a fallback if the row computation is not accepted.)
+(s − 1)/(2s(1 + 2/p) + 3); remark, not used — a fallback if the row computation is not accepted.)
 
 ### 3.3 The tail bound in the arcsine range, every p > 0, window
 
@@ -300,23 +309,27 @@ s = 1.2, 2, 2.8. Small, but UL.md needs only positivity and a positive lower bou
 
 ### 3.5 p > 1, every s > 1: the classical module
 
-**Proposition TB-P (PROVED-mod-cite: as G1 §3.16 Theorem QLP for p ≠ 1 — RH_px [REVIEWED] Lemmas 4.1–4.3 and §5 small norm;
-KMVV (6.23), (6.28); DLMF 10.25.2, 10.32.4, 10.32.9 via Lemma BK; in the Q-frame of Paper 2 as set up in E_pgt1 §§0, 3, 6
-[REVIEWED]).** Let p > 1 and s > 1. Theorem QLP (a)–(c) of G1 §3.16 holds: for n ≥ n₀, m ∈ {n − 1, n}: (a) μ_m((Mn, ∞)) ≤ CM^{−p/2}
+**Proposition TB-P (PROVED-mod-cite: = G1 §3.16 Theorem QLP for p > 1, REVIEWED, proved in RH_px's frame — RH_px Lemmas
+4.1–4.3 and §5; KMVV (6.23), (6.28); DLMF 10.25.2, 10.32.4, 10.32.9 via Lemma BK. The Q-frame translation below (E_pgt1
+§§0, 3, 6) is a presentation note for Paper II §8, checked in outline only).** Let p > 1 and s > 1. Theorem QLP (a)–(c) of G1 §3.16 holds: for n ≥ n₀, m ∈ {n − 1, n}: (a) μ_m((Mn, ∞)) ≤ CM^{−p/2}
 for 1 ≤ M ≤ n^{2/p}; (b) ≤ Cn^{−1}(M/n^{2/p})^{−β}(1 + log(M/n^{2/p})) for M ≥ n^{2/p}, β = min(p, s − 1); (c) for every
 ϑ < min(p/2, s − 1), ≤ C_ϑM^{−ϑ} for all M ≥ 1 (and ϑ = p/2 if s − 1 > p/2).
 
-*Proof (a re-reading, not new mathematics).* G1 §3.16's proof for p ≠ 1 uses: (Z) the small-norm error matrix 𝒵 of RH_px at
+*Proof (= G1 §3.16; the Q-frame dictionary below is a presentation note).* G1 §3.16's proof for p ≠ 1 uses: (Z) the small-norm error matrix 𝒵 of RH_px at
 z = τe^{5πi/6} satisfies |𝒵(z) − I| ≤ C/n for 0 < τ ≤ δ₁/2, which follows from ‖𝒵₋ − I‖_{L²} = O(1/n),
 ‖J_𝒵 − I‖_{L¹∩L²∩L^∞} = O(1/n) and the hard-edge mismatch |J_𝒵 − I| ≤ C_Kn^{−K}min(1, |s|^K) in U(0, δ) (RH_px Lemma 4.3);
 (A) the prefactor A := P₀^∞ρ^{σ₃}Mf^{σ₃/4} (ρ := W̃/D_W, in the Q-frame) is bounded with bounded inverse on U(0, δ/2), uniformly
-in n (maximum principle on |z| = δ; ρ² = e^{∓iπα}/ω with ω bounded above and below there); (GS), (ST), and Lemma BK for the
+in n: A = A^a + O(n^{1/2}e^{−c′n}) with A^a analytic in U(0, δ) (RH_px Lemma 4.2(iii), as in G1 Lemma A; W̃ has the (h2) jump
+on (−δ, 0), so A itself is not analytic there), and the maximum principle on |z| = δ is applied to A^a (ρ² = e^{∓iπα}/ω with ω
+bounded above and below there); (GS), (ST), and Lemma BK for the
 Bessel functions I_α, K_α at u = 2ζ^{1/2}, uniformly in the order. In the Q-frame these are: 𝒵 = R := QP̂₀^{−1} in U(0, δ),
 the error matrix of E_pgt1 Prop E.5′, whose proof records ‖R₋ − I‖_{L²} = O(1/n), the jump O(n^{−K}min(1, |z|^K)) inside U(0, δ)
 (RH_px Lemma 4.3) and the uniform Cauchy bound (Paper 2 F1), valid for every s > 1 (E_pgt1 §6 checks that F1, F5 and Lemma
 szego (vi)(b)–(c) do not use α < 1); and P̂₀ = A(2πn)^{σ₃/2}σ₃Ψ_α(n²f)σ₃·(diagonal of determinant 1) (E_pgt1 §3: Ẽ_N
-(2πζ^{1/2})^{−σ₃/2} = N W̃^{σ₃}M). The bound on ω on ∂U(0, δ) is Paper 2 Lemma szego (vi)(a), (c), α-independent by the same
-check. With these identifications G1 §3.16's proof applies line by line. ∎
+(2πζ^{1/2})^{−σ₃/2} = N W̃^{σ₃}M). The bound on ω on ∂U(0, δ) is Paper 2 Lemma szego (vi)(a), (c). Lemma szego (vi)(a) is
+α-independent (its first factor's bound, z^α against (4cz/Υ)^α, holds for every real α); this extends E_pgt1 §6's check.
+With these identifications G1 §3.16's proof applies line by line. (This paragraph is a presentation note for Paper II §8,
+checked in outline only; the proof of record is G1 §3.16, REVIEWED.) ∎
 
 In Paper II this is the natural place for the full statement: the classical module (planned §8, from RH_px §§4–5) has a
 super-small hard-edge mismatch, so the Stieltjes-point argument gives the optimal exponents.
@@ -325,22 +338,23 @@ super-small hard-edge mismatch, so the Stieltjes-point argument gives the optima
 
 - For p ≤ 1 the comparison frame proves (N) at every point of the window (Cor TB-C), which is all that Thm TS, Prop UP-w and
   Cor 1.5 need. The mismatch's lack of a rate is harmless because the estimate needed is O(1) relative to the comparison
-  solution, not o(1/n): only ε′_n → 0 (indeed only boundedness of ε′_n) is used.
-- **GAP TB-opt.** In Paper 2's frame, QLP(b) and the exponent min(p/2, s − 1) in (c) for p ≤ 1. Below the Bessel scale
-  (|ζ_z| ≤ 2) the same row-weighted bound loses a factor |ζ_z|^{−|α|} (the Bessel part of the main term is
+  solution, not o(1/n). The estimate of Prop TB-Q itself uses only boundedness of ε′_n; its inputs (thm:UR-true, hence
+  (P2-e)) use ε′_n → 0, without a rate.
+- **GAP TB-opt.** In Paper 2's frame, QLP(b) and the exponent min(p/2, s − 1) in (c) for p ≤ 1. HEURISTIC / OBSTRUCTION (scoped to this route): below the Bessel scale
+  (|ζ_z| ≤ 2) the same row-weighted bound appears to lose a factor |ζ_z|^{−|α|} (the Bessel part of the main term is
   ≍ ε′_n√n|ζ_z|^{−3|α|/2}, against row entries ≍ √n|ζ_z|^{±α/2}), so the row product is not controlled uniformly as ζ_z → 0;
   a finer (column-wise) analysis of the rank-one mismatch might close this, but it is not attempted. Not needed by III.
   (In the repo, QLP(b), (c) for p ≤ 1 are proved through RH₁(r) and RH_plt1b, G1 §3.16, REVIEWED; those frames are not in II.)
 - **Outside the window for p ≤ 1** (s ≥ 1 + 2p): no tail bound in II's frame (the comparison frame needs |α| < 1, Paper 2
-  rem:alpha-ge-1; the Christoffel step does not transfer tail bounds: μ_n^{xσ}(k) ≤ C(k/n)^p(μ_n^σ + μ_{n+1}^σ)(k) loses
-  exactly the arcsine decay). By Thm TS this is not needed for the s-law; it is needed only for uniformity outside the window.
+  rem:alpha-ge-1; the Christoffel step does not transfer tail bounds along this route: the inequality μ_n^{xσ}(k) ≤ C(k/n)^p(μ_n^σ + μ_{n+1}^σ)(k)
+  is correct, and the conclusion that it loses exactly the arcsine decay is HEURISTIC). By Thm TS this is not needed for the s-law; it is needed only for uniformity outside the window.
 - **GAP UP-1+p** (§2).
 
 ## 4. Rule A (adversarial pass) — log
 
 - *Lemma TS / Thm TS.* Boundary cases: s exactly 1 + jp gives r = 1 + p (in the window; m(s) = j − 1); s₀ = s₁ trivial; pairs on
-  opposite sides of the window handled by antisymmetry. The constant ½log(c^{(s₁−s₀)/p}ζ(s₀)/ζ(s₁)) is additive — checked
-  exactly (`check_tail.out` [2]: additivity defect ≤ 3·10⁻⁴⁰ at dps 40). Is UF-lim really confined to K″? Its proof uses (QLP-c)
+  opposite sides of the window handled by antisymmetry. The constant ½log(c^{(s₁−s₀)/p}ζ(s₀)/ζ(s₁)) is additive (proof of
+  Lemma TS(i); `check_tail.out` [2] reproduces it to ≤ 3·10⁻⁴⁰ at dps 40, an implementation check, not evidence). Is UF-lim really confined to K″? Its proof uses (QLP-c)
   only at grid points t_i ∈ K″ and (CS) at a″ (no tail bound); Lemma W at those t_i. Yes. Does the identification φ′(0) = log c
   need a + p ∈ K? Yes in UL's proof; K″ provides it inside the window (b″ − a″ ≥ p). Converse/limits: telescoping does not give
   uniformity outside the window (stated).
@@ -367,7 +381,7 @@ super-small hard-edge mismatch, so the Stieltjes-point argument gives the optima
 
 ## 5. Checks
 
-`checks/check_tail.py` (.out), NUMERICAL (finite checks of proved statements; Rule N: not certified). Runtime ≈ 3 min; needs
+`checks/check_tail.py` (.out), NUMERICAL (finite checks of proved statements; Rule N: not certified). Runtime ≈ 20 s wall on 8 cores (≈ 1.5 min CPU); needs
 `make -C csrc` for part [2].
 - [1] Prop TB-Q/TB-A/Cor TB-C conclusions in the window, float64 Lanczos (method of G1 check_qlp.py, K ≥ 8n^{1+2/p}):
   R_S := sup_{2/n² ≤ τ ≤ 1/2}τ^{1/2}|S_n(τe^{5πi/6})| (the proof bounds it by C|Q|² τ^{1/2} ≤ C) = 0.70–0.83 in all 18 runs
@@ -377,7 +391,8 @@ super-small hard-edge mismatch, so the Stieltjes-point argument gives the optima
 - [2] Thm TS at p = ½ (window (1, 2)), binary128 RKPW + Gauss–Jacobi tail (SECOND's so_coeffs), n = 25, 50, 100, 200:
   Γ_n(s₀, s₁) for a window pair, s₁ outside, both outside, three Christoffel steps, and single steps (s, s + p) inside and
   outside: all decrease like 1/n (e.g. (1.25, 3.0): 4.4·10⁻², 2.4·10⁻², 1.2·10⁻², 6.4·10⁻³); K → 2K changes ≤ 1.5·10⁻¹⁰.
-  (UL.md's check_ul [4] covered p ∈ {1, 2} only.)
+  (UL.md's check_ul [4] covered p ∈ {1, 2} only.) The additivity line of [2] tests the code's own Γ on the same arrays: an
+  implementation check.
 
 ## 6. Integration for the authors of Papers II and III
 
@@ -410,6 +425,9 @@ super-small hard-edge mismatch, so the Stieltjes-point argument gives the optima
 > below the Bessel scale, n^{−1}(M/n^{2/p})^{−min(p, s−1)} up to a logarithm, hence the all-M statement.
 > *Source:* research/G1/RH/second_order/TAIL.md (Props TB-Q, TB-A, TB-P); G1 PROOF.md §3.16.
 
+Required edit of II's Prop 6.6 (= prop:moments): add ‖Q₋ − Q̃₋‖_{L²(Σ̂)} ≤ C(ε′_nn^{−1/2} + n^{−1}) to the statement (required by
+Prop 8.6(a); now it is only in the proof).
+
 Length: about 2.5 pp (a: 1.5 pp; b: 1 pp, mostly the Bessel bound). Labels after writing: PROVED-mod-cite, inputs as in
 the table above; needs Rule R in its II form (new writing).
 
@@ -424,12 +442,14 @@ the table above; needs Rule R in its II form (new writing).
 - Lemma 6.6 (telescoping; new) = Lemma TS + Thm TS(b) of §2, with the window enlargement K″ of Thm TS(a) for the constant.
 - Theorem 1.4 as it can be stated:
   (ii) for every p > 0 and all s₀, s₁ > 1, with uniformity on compacts of (1, 1 + 2p), and on compacts of (1, ∞) if p > 1;
-  (iii) for p > 1 on every compact K ⊂ (1, ∞); for 0 < p ≤ 1: the b-part on every compact K ⊂ (1, 1 + 2p), the a-part on every
-  compact K ⊂ (1, 1 + 2p) ∖ {1 + p} (Prop UP-w). Either state (iii) in this form, or state only the b-part for p ≤ 1 and put
-  the a-part near s = 1 + p among the open questions of §8 (GAP UP-1+p).
+  (iii) for p > 1 on every compact K ⊂ (1, ∞); for 0 < p ≤ 1: the b-part on every compact K ⊂ (1, 1 + 2p), the a-part limit on
+  every compact K ⊂ (1, 1 + 2p) ∖ {1 + p} (Prop UP-w), and sup_{n, s∈K}n^pa_n(s) < ∞ on every compact K ⊂ (1, 1 + 2p) (§2,
+  F2). Either state (iii) in this form, or state only the b-part for p ≤ 1 and put the uniform a-limit near s = 1 + p among
+  the open questions of §8 (GAP UP-1+p).
 - Corollary 1.5 (p = 1): holds for **every** s > 1 (anchor s₀ = 3/2 in the window (1, 3); Thm TS(b) for the pair (3/2, s)). The
   fallback "only s ∈ 3/2 + ℕ₀" of D2(b) is not needed.
-- Prop 6.7 (o(log n) log-moment, optional): for p ≤ 1 only on compacts avoiding 1 + p (it uses the uniform a-part).
+- Prop 6.7 (o(log n) log-moment, optional): for p ≤ 1 only on compacts avoiding 1 + p (it uses the uniform a-part limit).
+- Prop UΛ⁻ (Λ_n ≥ −C, if stated): on every compact of (1, 1 + 2p), all p (it uses only uniform boundedness of n^pa_n).
 - The abstract sentence "gives the law uniformly on compact sets of s" should say "on compact subsets of (1, 1 + 2p)" (and
   the a-part caveat for p ≤ 1), or be limited to the b-law.
 

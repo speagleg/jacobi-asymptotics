@@ -1,6 +1,6 @@
 """Plan 69 (NUMERICAL sanity checks for TAIL.md; finite checks of proved statements, Rule N: not certified).
 
-[1] Proposition TB-S / TB-A (comparison frame, window 1 < s < 1 + 2p): for z = tau e^{5 pi i/6},
+[1] Proposition TB-Q / TB-A (comparison frame, window 1 < s < 1 + 2p): for z = tau e^{5 pi i/6},
       tau^{1/2} |S_n(z)|,  S_n(z) = sum_k mu_n(k) / (n^p x_k - z),
     stays bounded uniformly in n for 2 n^{-2} <= tau <= 1/2 (the proof bounds |Q(z)| <= C |z|^{-1/4}, and
     |S_n| = |Q_11 Q_12| / |(Q_1)_12|), and hence tail_n(M) := mu_n((Mn, inf)) <= C M^{-p/2} for 1 <= M <= n^{2/p}/2.
