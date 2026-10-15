@@ -1,6 +1,6 @@
 # ROUTE2_xframe1: GAP-int closed — Route II in the unsymmetrized x-frame at p = 1 (Plan 54)
 
-Status: **Rule R pending.** Novelty: UNCHECKED (no Rule L search).
+Status: **Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan54.md), fixes applied — REVIEWED** (F1–F8 applied). Novelty: UNCHECKED (no Rule L search).
 
 Source: GAP-int of `ROUTE2_p1.md` §7 / PROOF.md §3.19 (review `../../review/REVIEW_Plan50.md`). Templates: `../px/RH_px.md`
 (Theorem RH_p, p > 1, PROVED-mod-cite, REVIEWED) and `ROUTE2.md` (Theorem RII, p > 1, PROVED-mod-cite, REVIEWED, incl. UR′(b′)
@@ -12,19 +12,19 @@ SH, SH-r, REVIEWED). Numerics: `checks/check_x1_{frame,e2e,coeff}.py/.out`.
 | Item | Statement (short) | Label |
 |---|---|---|
 | §1 Lemma X1 (reflection) | at p = 1, RH_px's D = D̃/(1 − e^{∓2iθ}) equals exp μ(−N/z) on ℂ ∖ [0, ∞): no jump on (−∞, 0), ℓ̂ ≡ 0, B ≡ 1 | PROVED-mod-cite (DLMF 5.5.1, 5.5.3; DLMF 5.11.1 for the bounds) |
-| §1 Lemma X2 (why RH_px says p > 1) | the only steps of RH_px that fail at p = 1 are Lemma 1.1's uniformity near arg z = ±π for D̃, Lemma 3.2(v) (the (h2) jump of D̃B on (−δ, 0) is O(1): 1 − e^{−2πN sin(π/p)…} with sin π = 0) and its uses in the quotient hard-edge construction (Lemma 4.2(iii), Lemma 4.3 (h2)) | PROVED (bookkeeping, with the computation); OBSTRUCTION (precise) for the **quotient** construction at p = 1 |
+| §1 Lemma X2 (why RH_px says p > 1) | the only step of RH_px whose proof fails at p = 1 is Lemma 3.2(v) (the (h2) jump of D̃B on (−δ, 0) is O(1): the factor sin(π/p) vanishes) and its uses in the quotient hard-edge construction (Lemma 4.2(iii), Lemma 4.3 (h2)); Lemma 1.1 holds, but Stirling for D̃ is non-uniform near arg z = ±π, which is never needed (Rule R F2) | PROVED (computation); OBSTRUCTION (RH_px §4.1 as written: W̃ = continuation of w₀^{1/2} with D̃B) |
 | §2 transfer table | every other step of RH_px and ROUTE2 holds at p = 1 verbatim or with the stated replacement | PROVED (bookkeeping), each changed step proved here |
 | §3 Lemma LW1-x1 | lip mismatch \|D_w²/w₀ − c_±\| ≤ C(\|z\|^{1/2}log(2/\|z\|) + ε₁,N) at p = 1 | PROVED (as ROUTE2 LW1′; ν = ½) |
-| **Theorem RII_x1** | p = 1, **1 < r < 3** (α_x = r − 2 ∈ (−1, 1), incl. **r = 2**), (H_an^{x1}): nb_n = ½(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n) | **PROVED-mod-cite** (inherits RII's citations: WLXZ v1 §§3–5, §6.1; KMVV §6; C–D Thm 4.4 + arguments of 4.7/4.9; DLMF 1.13.4, 1.14, 5.5.1, 5.5.3, 5.11.1, 5.12, 10.25.2, 10.27.3–4, 10.28.2, 10.31.2; G2 μ*, B*(i)–(ii)); Rule R pending |
-| **Corollary B_{p=1}^{x}** | p = 1, 1 < r < 3, Ψ sequence-form slowly varying (incl. D(γ) = ∞) | PROVED-mod-cite (RII_x1 + RedA); Rule R pending |
-| **Corollary GAP-int (closed)** | p = 1, **every integer r ≥ 2**, Ψ sequence-form slowly varying: the full pointwise Law P; rate O(1/n) under (H_an^{x1}) | PROVED-mod-cite (B_{p=1}^{x} at r = 2 + §3.21 SH-r); Rule R pending |
-| **Corollary B_{p=1}^{all}** | p = 1, **every r > 1** (with B_{p=1}⁺ for non-integers) | PROVED-mod-cite; Rule R pending |
+| **Theorem RII_x1** | p = 1, **1 < r < 3** (α_x = r − 2 ∈ (−1, 1), incl. **r = 2**), (H_an^{x1}): nb_n = ½(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n) | **PROVED-mod-cite** (inherits RII's citations: WLXZ v1 §§3–5, §6.1; KMVV §6; C–D Thm 4.4 + arguments of 4.7/4.9; DLMF 1.13.4, 1.14, 5.5.1, 5.5.3, 5.11.1, 5.12, 10.25.2, 10.27.3–4, 10.28.2, 10.31.2; G2 μ*, B*(i)–(ii)); Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan54.md), fixes applied — REVIEWED |
+| **Corollary B_{p=1}^{x}** | p = 1, 1 < r < 3, Ψ sequence-form slowly varying (incl. D(γ) = ∞) | PROVED-mod-cite (RII_x1 + RedA); Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan54.md), fixes applied — REVIEWED |
+| **Corollary GAP-int (closed)** | p = 1, **every integer r ≥ 2**, Ψ sequence-form slowly varying: the full pointwise Law P; rate O(1/n) under (H_an^{x1}) | PROVED-mod-cite (B_{p=1}^{x} at r = 2 + §3.21 SH-r); Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan54.md), fixes applied — REVIEWED |
+| **Corollary B_{p=1}^{all}** | p = 1, **every r > 1** (with B_{p=1}⁺ for non-integers) | PROVED-mod-cite; Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan54.md), fixes applied — REVIEWED |
 | §6 route (C) | symmetrization, Uvarov, Geronimus, rational factors, interpolation in r | OBSTRUCTION / not needed (scoped) |
 | GAP-rate₁ | the 1/n coefficient (tilt law) | GAP (unchanged); CONJECTURE + NUMERICAL |
 
 Notation: RH_px and ROUTE2 at **p = 1**: N the degree, nodes X_k = N/k (top X₁ = N), t(z) = N/z, θ = πt, w(z) = N t^{−r},
 W = 2iθ′w, band [0, b], b = 4c(1) = 2 (c(1) = ½), α_x = (r − 1 − p)/p = r − 2, μ(u) := Ln Γ(u) − (u − ½)ln u + u − ½ln(2π)
-(Binet's function, principal branches), D̃ = e^{−μ(t)}, D = D̃/(1 − e^{∓2iθ}) in ℂ±, B, K = (b − z)^{−1/2}, F = DBK, F̃ = D̃BK,
+(Binet's function; LnΓ the branch analytic on ℂ ∖ (−∞, 0], real on (0, ∞) — DLMF's Ln; ln, u^{…} principal; Rule R F8), D̃ = e^{−μ(t)}, D = D̃/(1 − e^{∓2iθ}) in ℂ±, B, K = (b − z)^{−1/2}, F = DBK, F̃ = D̃BK,
 φ, φ̃, f, Ψ_α (KMVV (6.23)–(6.25)), D_w (Szegő function of the band weight w₀ on [0, b]), q_N(z) := Ψ₁(N/z)/Ψ₁(N).
 
 ---
@@ -51,6 +51,10 @@ enters only through:
 3. **Lemma 3.2(v)**: on (−δ, 0) the jump of D̃B is (1 − e^{−2iθ₊})/(1 − e^{2iθ₋}) = 1 + O(exp(−2πN sin(π/p)|x|^{−1/p})).
 4. Exponents |z|^{−1/p}, Hölder ν = min(1/p, ½), the top node N^p, the length O(N^p) of the saturated region — all harmless at
    p = 1.
+4′. *(Rule R F1)* The rate in Lemma 3.5: for p > 1, g − log z ≍ z^{−1/p}; at p = 1 the first moment of μ* diverges (density x^{−2}
+   on [2, ∞)), so g(z) − log z = −(log z)/z·(1 + o(1)) = O(|z|^{−1}log|z|), and D = e^{μ(−N/z)} contains a u log u term. Lemma 3.5
+   uses only that κ = F^{−1}e^{N(g − log z)} is bounded and jump-free in |z| > N + δ′ (both true; the log terms cancel), hence
+   analytic at ∞ — unchanged.
 5. G2's μ*, B*(i)–(ii) — proved for **every p > 0** (G2 PROOF.md title and Theorem B*), so valid at p = 1 (c(1) = ½: I(1) = ½B(3/2, ½)
    = π/4, (4c)^{1} = π/(2I) = 2).
 
@@ -76,12 +80,14 @@ So at p = 1 items 1–2 are *better* than at p > 1 in Ω_∞: D needs no Binet c
 ph t = ±π concerns only D̃, which RH_px uses only in the band lens Ω_b, the saturated regions Ω^△, U(b, ε) and the top pieces
 — all inside |arg z| ≤ π/3 + o(1) (§2), i.e. |ph t| ≤ π/3 + o(1).
 
-**Lemma X2 (the genuine p = 1 failure, and its scope).** At p = 1, for x ∈ (−δ, 0), θ₊ = θ₋ = πN/x is real, and the jump of D̃B
+**Lemma X2 (the genuine p = 1 failure, and its scope; wording per Rule R F2).** The only step of RH_px whose *proof* fails at
+p = 1 is Lemma 3.2(v) and its uses (Lemma 4.2(iii), Lemma 4.3 (h2)); Lemma 1.1 holds, and the non-uniformity of Stirling for D̃
+near arg z = ±π is never needed. At p = 1, for x ∈ (−δ, 0), θ₊ = θ₋ = πN/x is real, and the jump of D̃B
 (B ≡ 1) is (1 − e^{−2iθ})/(1 − e^{2iθ}) = −e^{−2iθ}: unimodular and **not** close to 1 (|J − 1| = 2|cos θ|). Moreover the analytic
 continuation of the band factor h_N = const·e^{2μ(N/x)} across (−δ, 0) has double poles (as boundary values) at z = −N/m, m ∈ ℕ,
 accumulating at 0 (1/Γ(t)² there). Hence RH_px's **quotient** hard-edge construction — W̃ = continuation of w₀^{1/2} to U(0, δ),
-Lemma 3.2(v), Lemma 4.2(iii) (Ẽ_N analytic up to O(e^{−c′N})), Lemma 4.3 (the (h2) mismatch) — fails at p = 1 for the pure power
-already. This is the precise structural reason for "p > 1" in RH_px §4.1: the factor sin(π/p) of Lemma 3.2(v) vanishes at p = 1
+Lemma 3.2(v), Lemma 4.2(iii) (Ẽ_N analytic up to O(e^{−c′N})), Lemma 4.3 (the (h2) mismatch) — fails at p = 1 *as written*, for the pure power
+already (OBSTRUCTION scoped to RH_px §4.1 as written; not a claim about every quotient/small-norm construction). This is the precise structural reason for "p > 1" in RH_px §4.1: the factor sin(π/p) of Lemma 3.2(v) vanishes at p = 1
 (the poles of Γ(t) reach the boundary of the slit plane). *Proof.* Direct substitution; the poles: 1/Γ(t) = 0 at t = −m.
 NUMERICAL (`check_x1_frame.out` [2]): |J − 1| at x = −0.0123, −0.0517, −0.1043, N = 20: 10⁻⁵¹³ … 10⁻¹⁹¹ (p = 2), 10⁻⁸³⁹ … 10⁻¹²⁰
 (p = 1.1), but 2.0, 1.77, 1.43 at p = 1; |e^{2μ(N/z)}| ≈ 10^{19}, 10^{17}, 10^{15} at z = −N/m + i10⁻¹²|z|, m = 40, 400, 4000.
@@ -119,7 +125,7 @@ which is why the smaller strip is used.)
 | Lemma 3.2 (B) | B ≡ 1; (i)–(iv) trivial; **(v) fails** (Lemma X2) — used only in RH_px §4.1, which ROUTE2 replaces |
 | Lemma 3.3 | (i) trivial; (ii) unchanged; (iii) D ~ (−z/N)^{1/2}/√(2π), K ~ (−z)^{−1/2}: F → F_∞ = 1/√(2πN)·(phase), the monodromy count closes because 1/p = 1 ∈ ℤ (RH_px's own remark) |
 | Lemma 3.4 + Consequence | log h_N = const + 2μ(N/x) is C^∞ on [0, η] (μ(N/x) has the asymptotic expansion x/(12N) − …); Hölder-ν with ν = ½ a fortiori |
-| Lemma 3.5 | unchanged (g − log z ≍ z^{−1}; κ analytic at ∞). NUMERICAL: F e^{−N(g − log z)} at \|z\| = 10⁹ in two directions agree to 10⁻⁸ (`check_x1_e2e_*.out`, F_inf = 0.126157 = 1/√(20π) at N = 10) |
+| Lemma 3.5 | g − log z = O(|z|^{−1}log|z|) (first moment of μ* diverges at p = 1; Rule R F1); κ bounded and jump-free, hence analytic at ∞ — unchanged. NUMERICAL: F e^{−N(g − log z)} at \|z\| = 10⁹ in two directions agree to 10⁻⁸ (`check_x1_e2e_*.out`, F_inf = 0.126157 = 1/√(20π) at N = 10) |
 | band weight, global parametrix | w₀ = C_N x^{r−2}(b − x)h_N(x)q_N(x); N = D_{w,∞}^{σ₃}N₀D_w^{−σ₃} |
 | §4.1 quotient Bessel construction | **not used** (fails, Lemma X2); replaced by ROUTE2 §3 (H1′, comparison with W̃ = D_w), which is p-free: Ẽ_N = D_∞^{σ₃}N₀Mf^{σ₃/4}(2πN)^{σ₃/2} does not involve the weight |
 | Lemma 4.3 (h1) entries on the lips | D/D̃ − 1 = e^{∓2iθ}/(1 − e^{∓2iθ}), |e^{∓2iθ}| = exp(−2πN sin|arg z|/|z|), and e^{−2Nφ̃}: Re(iπ/z) = π sin(arg z)/|z| > 0 in ℂ₊: O(exp(−cN/|z|)) on the lips (rays at ±π/3) — the p = 1 instance of exp(−cN|z|^{−1/p}) |
@@ -130,23 +136,31 @@ which is why the smaller strip is used.)
 | ROUTE2 §3 H1′, local form (§3.2, incl. α = 0 with log ζ), LW1′ | p-free except LW1′'s constants: §3 below |
 | ROUTE2 §4 UR′ (incl. (b′) for every \|α\| < 1 and α = 0), Lemma W′, Q ∈ I + ∂C(L²), Theorem C′, Proposition D′, extraction | p-free (they use only: α_x ∈ (−1, 1), the local form, LW1′, the (h1) bounds, (Y4)_x, the small norm of 𝒵̃) |
 
-NUMERICAL end-to-end validation of the frame (`check_x1_e2e.py`, adapted from RH_px's Rule R probe with D := e^{μ(−N/z)}, B ≡ 1;
+NUMERICAL end-to-end validation of the frame **outside the discs, for the pure power** (Rule R F5: it validates D, B ≡ 1, K, l, w₀,
+D_w and N at p = 1; it does not probe the hard-edge comparison parametrix P̃₀ nor a non-trivial Ψ in the RH frame) (`check_x1_e2e.py`, adapted from RH_px's Rule R probe with D := e^{μ(−N/z)}, B ≡ 1;
 true U from the discrete OPs: atoms k ≤ 4N exact plus an (N + 12)-point Gauss rule from exact Hurwitz-zeta tail moments; nine
 points outside the discs incl. the negative axis): max|D_∞^{−σ₃}(VN^{−1} − I)D_∞^{σ₃}| × N, for N = 10, 20, 40:
 
 | r (α_x) | z = 1.2 + i | 0.5 + 0.8i | −1 + 0.5i | −1.5 + i0 | 2.5i | 4.5 + 1.5i | 3 − 1.2i | 15 + 8i | −6 − 3i |
 |---|---|---|---|---|---|---|---|---|---|
-| 1.5 (−½) | 0.216, 0.213, 0.212 | 0.154, 0.154, 0.153 | 0.091 | 0.080 | 0.090 | 0.110, 0.114, 0.116 | 0.211, 0.220, 0.225 | 0.020 | 0.034 |
+| 1.5 (−½) | 0.216, 0.213, 0.212 | 0.154, 0.154, 0.153 | 0.0906, 0.0912, 0.0914 | 0.0796, 0.0802, 0.0805 | 0.0899, 0.0908, 0.0912 | 0.110, 0.114, 0.116 | 0.211, 0.220, 0.225 | 0.0199, 0.0204, 0.0206 | 0.0342, 0.0347, 0.0350 |
 | 2 (0) | 0.374, 0.376, 0.376 | 0.277, 0.282, 0.284 | 0.225, 0.234, 0.239 | 0.189, 0.197, 0.201 | 0.176, 0.183, 0.186 | 0.189, 0.200, 0.206 | 0.347, 0.369, 0.381 | 0.037, 0.039, 0.040 | 0.069, 0.072, 0.073 |
 | 2.5 (½) | 0.572, 0.585, 0.591 | 0.424, 0.435, 0.441 | 0.238, 0.247, 0.251 | 0.207, 0.215, 0.219 | 0.227, 0.237, 0.242 | 0.250, 0.268, 0.278 | 0.468, 0.506, 0.526 | 0.048, 0.051, 0.052 | 0.085, 0.089, 0.091 |
 
 N·error is stable: V = (I + O(1/N))N at p = 1, as at p > 1 (RH_px probe P1: 0.37–1.04 at p = 2). The probe also reproduces
 Nb_N/c = 0.9531, 0.9758, 0.9877 (r = 2; = 1 − (r − 1)/(2N) + O(N^{−2})). |det V − 1| ≤ 4·10⁻³¹.
-*Numerical note (Rule N):* the RH_px probe evaluates D̃ = √(2π)exp((t − ½)ln t − t − LnΓ(t)) at dps 30; at p = 1 the Szegő
-quadrature reaches t ≈ N/x ≳ 10⁶⁰, where this difference cancels catastrophically. The first p = 1 run gave an N-independent O(1)
+*Numerical note (Rule N; Rule R F3):* the RH_px probe evaluates D̃ = √(2π)exp((t − ½)ln t − t − LnΓ(t)) at dps 30. Measured by
+the reviewer: the difference is accurate to ~10⁻¹⁵ at t = 10¹⁵, wrong by 2·10⁻¹⁰ at 10²⁰, wrong by O(1) (bounded) for
+10²⁵ ≲ t ≲ 10⁶⁰, and by ~10³⁸ at t ≈ 4·10⁶⁶. mp.quad's smallest tanh-sinh node at dps 30 is θ ≈ 2·10⁻³³, i.e. x ≈ 10⁻⁶⁶ and
+t = Nx^{−1/p} ≈ N·10⁶⁶ at p = 1 (catastrophic), N·10⁴⁴ (p = 1.5), N·10³³ (p = 2), N·10²² (p = 3). The first p = 1 run gave an N-independent O(1)
 error, diagnosed as a constant diagonal conjugation (V ≈ CNC^{−1}, κ² ≈ 5.5 from the 1/z coefficients at z = −300 + 200i) caused
-by a wrong D_{w,∞}; with μ(t) from the Stirling series for |t| > 10⁴ (`check_x1_e2e.py`, Plan 54 fix) it disappeared. The p > 1
-outputs in `../px/checks/` were not re-run here (there t ≈ Nx^{−1/p}, a smaller range; their N·errors were already stable).
+by a wrong D_{w,∞}; with μ(t) from the Stirling series for |t| > 10⁴ (`check_x1_e2e.py`, Plan 54 fix) it disappeared. **Rule R re-ran**
+`check_px_e2e` at (p, s) = (2, 3) N = 10, 20; (1.5, 3) N = 10; (3, 2.5) N = 10, and `check_px_bessel.py` (p = 2) with this fix:
+outputs identical in every printed digit (at p > 1 the inaccurate nodes carry weights ~10⁻³³); phase3a/3b are not affected in any
+printed digit a conclusion uses. **No REVIEWED p > 1 conclusion is affected.** Precedent: the plt1 probes and `check_r2p_lw1.py`
+already used a Binet series for large t. Adding the same guard to the px probes is optional housekeeping (not done here).
+(`check_x1_frame.py` [4] evaluates μ without the guard down to x = 10⁻⁴⁰, t ≲ 2·10⁴²: O(1) errors at nodes of negligible weight;
+results unaffected at the printed precision — Rule R F4, INFO.)
 
 ## 3. Lemma LW1-x1 (lip mismatch at p = 1)
 
@@ -197,16 +211,16 @@ GAP-int ⟺ the law at r = 2.) ∎
 **Corollary B_{p=1}^{all}.** p = 1, **every r > 1**, Ψ sequence-form slowly varying: the full pointwise Law P (non-integer r:
 Corollary B_{p=1}⁺, §3.19; integer r: GAP-int above). With §3.20 (0 < p < 1) and §3.21 (p > 1): **for x_k = k^{−p}, every p > 0,
 every s > 1 and every sequence-form slowly varying Ψ (incl. D(γ) = ∞), the full pointwise Law P holds** (PROVED-mod-cite; this
-plan's part Rule R pending). Direct RH coverage at p = 1 is now 1 < r < 3 (x-frame); the symmetrized RII₁ (1 < r < 2) is
+plan's part Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan54.md), fixes applied — REVIEWED). Direct RH coverage at p = 1 is now 1 < r < 3 (x-frame); the symmetrized RII₁ (1 < r < 2) is
 contained in it.
 
 NUMERICAL (`check_x1_coeff.out`; long double RKPW; five truncations: K = 1, 2, 4·10⁵ with tail to 10¹⁶, K = 2·10⁵ with tail to
 10¹⁴ and with a finer tail quadrature):
-- Ψ = exp √log(k + e): r = 2: n(nb_n/c − 1) = −0.382, −0.389, −0.396, −0.402, −0.407 (n = 50 … 800; spread ≤ 1.3·10⁻⁸),
+- Ψ = exp √log(k + e): r = 2: n(nb_n/c − 1) = −0.382, −0.389, −0.396, −0.402, −0.407 (n = 50 … 800; nB spread ≤ 1.3·10⁻⁸, E spread ≤ 1.9·10⁻⁸),
   n(a_n/(2b_n) − 1) = 0.487 … 0.499; r = 2.5: −0.628 … −0.656 (spread ≤ 5·10⁻¹⁰); r = 3 (via SH): −0.875 … −0.906; E → ½ in all.
   Bounded, consistent with O(1/n); each value sits ≈ +0.11 … +0.09 above the pure power −(r − 1)/2 (the tilt ϑ_n/2, GAP-rate₁).
 - the oscillating Ψ = exp(√log(k + e)(1 + ½ sin log log(k + e))) (D(γ) = ∞; RedA not applied): r = 2: −0.315, −0.340, −0.362,
-  −0.382, −0.398 (spread ≤ 4.2·10⁻⁹); r = 2.5: −0.562 … −0.648; r = 3: −0.810 … −0.898; E = 0.488 … 0.500. Bounded (the drift is
+  −0.382, −0.398 (spread ≤ 4.2·10⁻⁹); r = 2.5: −0.562 … −0.648; r = 3: −0.810 … −0.898; E = 0.488 … 0.5006 (Rule R F7). Bounded (the drift is
   the slowly varying tilt ϑ_n/2 → 0).
 
 ## 6. Route (C): other routes considered (scoped; none needed after §4)
@@ -239,4 +253,4 @@ NUMERICAL (`check_x1_coeff.out`; long double RKPW; five truncations: K = 1, 2, 4
   converse CT₁: if the law failed at r = 2 it would fail at every integer r ≥ 2 (CT₁ ⟸), contradicting nothing proved before.
 - (h) Top end: t ≈ 1 there; Re u ∈ [−c₀, C]; L₁ bounded by (H_an^{x1}); q_N^{±1} = poly(N) absorbed by N^{−N}.
 
-**Open:** GAP-rate₁ (tilt law); the RH analysis at α_x ≥ 1 itself (not needed); Rule R for this file.
+**Open:** GAP-rate₁ (tilt law); the RH analysis at α_x ≥ 1 itself (not needed); optional: a P̃₀ matching probe at α_x = 0 (Rule R F5).

@@ -565,7 +565,7 @@
   KNOWN (chain sequences: Wall; Chihara 1978 Ch. I, III — not read, pointer only)"; F2 base-window remark (α_x ∈ (−½, ½] suffices
   for s > 1 + p/2); F3 numerics scope; F4 sharpness example for |G_n − c| = O(√r_n) in Rule A (e); F5 tilt transfer CONDITIONAL
   (implication PROVED); F6 "with infinite support" + SH propagates future p ≤ 1 / other-node base cases; F7 CITATIONS. Rule R ACCEPT WITH FIXES (review/REVIEW_Plan52.md), fixes applied — REVIEWED.
-## 2026-10-14 — Plan 54 (GAP-int: x-frame and other routes) — Rule R pending
+## 2026-10-14 — Plan 54 (GAP-int: x-frame and other routes) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan54.md), fixes applied — REVIEWED
 - Write-up: `RH/route2/ROUTE2_xframe1.md`; summary PROOF.md §3.23 and §0 row "RII_x1 / GAP-int / B_{p=1}^{all}". Plan:
   docs/superpowers/plans/2026-10-14-plan-54-r2xframe.md.
 - **Route (B) works.** RH_px's "p > 1" was audited step by step. At p = 1, Lemma 1.1 holds as an open sector, but Γ's poles
@@ -588,4 +588,14 @@
 - **Rule A** (ROUTE2_xframe1 §7): Ψ ≡ 1, p → 1 limits of ℓ̂/B/monodromy, D̃ near the negative axis, strip, α_x = 0, k^ρ, top end.
   No counterexample.
 - **Rule L:** not done. Novelty UNCHECKED.
-- **Open:** GAP-rate₁ (tilt law). **Rule R pending.**
+- **Open:** GAP-rate₁ (tilt law).
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan54.md; main line correct; all fixes LOW/INFO; all three checks reproduced
+  bit-for-bit). Fixes applied: F1 Lemma 3.5 rate at p = 1 is g − log z = O(|z|^{−1}log|z|) (first moment of μ* diverges), argument
+  unchanged — added to §1's p-dependent list and the transfer table; F2 X2 reworded (only Lemma 3.2(v) and its uses fail; Lemma 1.1's
+  non-uniformity never needed), OBSTRUCTION scoped to "RH_px §4.1 as written"; F3 Rule N note: the old D̃ formula is O(1) wrong for
+  10²⁵ ≲ t ≲ 10⁶⁰, catastrophic near 10⁶⁶; reviewer's re-run of the REVIEWED p > 1 probes (check_px_e2e (2,3), (1.5,3), (3,2.5);
+  check_px_bessel) with the fix is digit-identical — no reviewed conclusion affected (plt1 precedent); F4 Stirling guard note
+  (check_x1_frame [4] unaffected); F5 e2e = pure power outside the discs; F6 dated notes at the stale GAP-int places (PROOF.md §0
+  RII₁ row, G1-R row, §3.19 "Remaining (GAP)"; ROUTE2_p1.md label table and §7; ROUTE2.md §6) — THEOREMS.md left to the
+  coordinator; F7 numerics wording (E up to 0.5006, E spread 1.9·10⁻⁸, r = 1.5 e2e row with all three N); F8 LnΓ branch wording.
+  Rule R ACCEPT WITH FIXES (review/REVIEW_Plan54.md), fixes applied — REVIEWED.
