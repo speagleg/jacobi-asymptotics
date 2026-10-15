@@ -47,7 +47,7 @@ for example $c(1)=\frac12$ and $c(2)=\pi^2/16$, the question is whether
 \begin{equation}\label{eq:law}
   n^pb_n\longrightarrow c(p)\qquad\text{and}\qquad n^pa_n\longrightarrow2c(p)\qquad(n\to\infty),
 \end{equation}
-and at what rate. We call \eqref{eq:law} the \emph{pointwise law}. The constant $c(p)$ comes from the companion paper
+and at what rate. We call \eqref{eq:law} the \emph{pointwise law}. The constant $c(p)$ comes from the first paper of this series
 \cite{Paper1}, which proves the first half of \eqref{eq:law} in an averaged sense (see \eqref{eq:paper1-averaged}
 below).
 
@@ -154,15 +154,16 @@ produce. But \eqref{eq:paper1-averaged} is a double Ces\`aro mean of $\log(j^pb_
 logarithm of the Hankel determinant $D_n$ of $\sigma$ at order $n^2$. Multiplying the weights by factors in
 $[e^{-\varepsilon},e^{\varepsilon}]$ changes $\log D_n$ by at most $\varepsilon n$, so the averaged law cannot see such
 perturbations. Passing from it to \eqref{eq:law} is a Tauberian step, and the regularity of $j^pb_j$ that this step
-needs has to come from the weights. That this is not a technicality is shown in the companion paper \cite{Paper3}:
+needs has to come from the weights. That this is not a technicality is shown in the third paper of the series \cite{Paper3}:
 bounded rough weights can break the pointwise law although the averaged law holds for them. That paper also uses the
 theorems proved here, as black boxes, to treat general slowly varying weights.
 
 \emph{Two difficulties.} A Riemann--Hilbert proof of \eqref{eq:law} meets two obstacles. First, the atoms accumulate at
-$0$, which after rescaling is a hard edge of $\mu^*$, so infinitely many nodes lie in and next to the band where the
-polynomials oscillate. Second, in the rescaled variable $z=n^px$
-used below, a slowly varying factor enters the weight through $r_n(z):=\ell(nz^{-1/p})/\ell(n)$, which is not analytic
-at the hard edge $z=0$, so the standard local parametrix does not exist there.
+$0$, which is a hard edge of $\mu^*$ (its density behaves like $x^{-1/2}$ there). After the rescaling $z=n^px$ used
+below, the band $(0,4c(p))$ in which the polynomials oscillate contains infinitely many nodes near its left end, a
+situation not covered by the Riemann--Hilbert theory of discrete orthogonal polynomials on finite node sets. Second, a
+slowly varying factor enters the rescaled weight through $r_n(z):=\ell(nz^{-1/p})/\ell(n)$, which is not analytic at the
+hard edge $z=0$, so the standard local parametrix does not exist there.
 
 \emph{Discrete orthogonal polynomials.} The Riemann--Hilbert approach to discrete orthogonal polynomials was developed
 by Baik, Kriecherbauer, McLaughlin and Miller \cite{BKMM} for measures on finite node sets in a bounded interval, with
@@ -207,7 +208,7 @@ regular rate, and $x\sigma_{p,s,\ell}=\sigma_{p,s+p,\ell}$. What is new there is
 follows from a proposition of Dai, Piao and Qiao \cite[Proposition~2.1]{DPQ} and the classical transfer formulas
 \cite[\S1]{DD}. The shift reduces Theorem~\ref{thm:analytic} to the window $1<s<1+2p$, where the Bessel order
 $\alpha:=(s-1-p)/p$ of the hard edge lies in $(-1,1)$ (Theorem~\ref{thm:window}). For the Riemann--Hilbert part we
-rescale $z\mapsto n^pz$. The equilibrium measure $\mu^*$ of \cite{Paper1} then has the band $(0,4c(p))$, where the
+work in the rescaled variable $z=n^px$. There the equilibrium measure $\mu^*$ of \cite{Paper1} has the band $(0,4c(p))$, where the
 polynomials oscillate, the saturated region $(4c(p),\infty)$, where their zeros follow the nodes, and a soft edge at
 $4c(p)$, and on it we build one frame for all $p>0$ (Section~\ref{sec:frame}). The three geometries $p>1$, $p=1$ and
 $p<1$ enter only through the outer scalar function that removes the Gamma-function growth of the node masses
@@ -229,9 +230,11 @@ and~\ref{sec:outer} build the Riemann--Hilbert frame for all $p>0$ and $\alpha>-
 collects everything the later sections use from it. Sections~\ref{sec:hardedge} and~\ref{sec:extraction} treat the hard
 edge by comparison for $|\alpha|<1$ and complete the proofs of Theorem~\ref{thm:analytic} and
 Corollary~\ref{cor:pure}; Sections~\ref{sec:classical} and~\ref{sec:second} prove Theorem~\ref{thm:onen}, and
-Section~\ref{sec:classical} also proves a localisation bound for the spectral weights used in \cite{Paper3}.
+Section~\ref{sec:classical} also states a localisation bound for the spectral weights, used in \cite{Paper3} and
+proved in Appendix~\ref{app:tail}.
 Section~\ref{sec:numerics} gives numerical illustrations and Section~\ref{sec:further} conjectures and open problems.
-A reader interested only in Theorem~\ref{thm:analytic} can stop after Section~\ref{sec:extraction}; one interested only
+A reader interested only in Theorem~\ref{thm:analytic} can stop after Section~\ref{sec:extraction} (with
+Appendices~\ref{app:outer}--\ref{app:resolvent}); one interested only
 in Theorem~\ref{thm:onen} needs Sections~\ref{sec:prelim}, \ref{sec:frame}, \ref{sec:outer}, \ref{sec:classical}
 and~\ref{sec:second} with Appendices~\ref{app:outer}, \ref{app:apriori} and~\ref{app:residues}; from
 Section~\ref{sec:hardedge} it needs only the normalised Bessel model of \S\ref{sec:he-model} and the
