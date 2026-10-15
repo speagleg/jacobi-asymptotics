@@ -441,3 +441,34 @@
   cross-reference to Plan 48 §3.17, in review: law for p > 1, 1 < s < 1 + 2p without QL; QL-CB's prospective new content would be
   p ≤ 1, s ≥ 1 + 2p and QL itself), F9 (NO: attribution only; any a ≥ 0; no monotonicity), F10 (BF(iii) not to be split;
   m = 0 conventions) applied — REVIEWED.
+
+## 2026-10-14 — Plan 51 (Route II for 0 < p < 1, WP5b; Christoffel step for all s > 1)
+- Write-up: `RH/route2/ROUTE2_plt1.md`; summary PROOF.md §3.20 and §0 row "RII_{<1} / CT / B_{p<1}". Plan:
+  docs/superpowers/plans/2026-10-14-plan-51-r2plt1.md.
+- **Strip (Lemma S_w):** for p < 1 the weight is evaluated only in S_in = {|arg z| < πp/2} (band lens, Ω^△, lips at ±πp/4,
+  (Y4)_x sector, top segment), so |Im u| ≤ π/2 suffices — not π/p. RedA's L₁ satisfies any strip (RedA(ii) for every σ₀; the
+  constant e^{σ₀²/2} only). exp √log(t + e) (branch points at Im u = ±π) satisfies the π/2 strip but not π/p for p ≤ 1.
+- **Seams:** Ψ₁ does not enter the seam scalar F (L±, X are node data); V, Q have no seam jump; with W̃ := D_w the comparison
+  parametrix has none either (RH_plt1b's super-small glued-W̃ seam jump disappears). The seams enter only through e^{−2X} in h_N.
+- **Lemma X0** (PROVED-mod-cite DLMF 5.5.1, 5.11.1 + §5.11(ii); new quote entry "(DLMF-5.11, Plan 51)"): N-uniform
+  |L±(ζ)| ≤ C|ζ| (|ζ| ≤ 1), ≤ C(1 + log|ζ|) (|ζ| ≥ 1), hence |X(z) − X(0)| ≤ C|z|(1 + log(1/|z|)), |X′| ≤ C(1 + log(1/|z|)) off the seams.
+- **LW1′_{<1}** (PROVED): lip mismatch ≤ C(|z|^{1/2}log(2/|z|) + ε₁(T_N)) at the lips ±πp/4; ε′_N = N^{−1}log N + ε₁.
+- **UR′_{<1}** incl. (b′), C′_{<1}, D′_{<1}: ROUTE2 §4 with the star {0, ±πp/4} at the hard edge (KMVV angle π − θ_L).
+- **Theorem RII_{<1}** (PROVED-mod-cite): 0 < p < 1, 1 < s < 1 + 2p, (H_an^{<1}) ⇒ O(1/n) law.
+- **Lemma CT** (PROVED, self-contained; Christoffel/Darboux identity J(xσ) = LᵀL for J(σ) = LLᵀ, novelty of the identity not
+  claimed): a_n/b_n → 2, b_{n−1}/b_n → 1 ⇒ the same for xσ (r_n = l_n/m_n → 1 by a parabolic-recursion argument using r_n > 0);
+  O(1/n) in ⇒ O(1/n) out (r_n − 1 = O(n^{−1/2})). Since xσ_{s,Ψ} = σ_{s+p,Ψ}: **Corollary RII⁺_{<1} and B_{p<1} for every s > 1**;
+  **Remark CT-px**: the same for p > 1 (Plan 48's GAP-α closed for the law and the O(1/n) rate; the C–D frame still fails at
+  α_x ≥ 1 but is not needed). Corollary B_{p<1}: law for every sequence-form slowly varying Ψ (incl. D(γ) = ∞), all s > 1.
+- **GAP:** the 1/n coefficient (tilt law, CONJECTURE); p = 1 (WP5a, not treated).
+- **Rule A** (ROUTE2_plt1 §5.1, §7): Ψ₁ const; Ψ = k^ρ; strip edge cases (nothing evaluated at |arg z| ≥ πp/2); N-uniformity of
+  X0 (log N only in X(0), a constant); α_x → ±1; CT on Laguerre (exact) and on truncated measures (hypothesis fails, r_n ↛ 1 —
+  consistent); existence of s₀ ∈ (1, 1 + p]. No counterexample.
+- **Numerics** (`RH/route2/checks/check_r2p_{coeff,lw1}.py/.out`, p = ½, Ψ = exp √log(k + e), quadrature tail to 10⁴⁸ as in
+  Plan 45): n(n^pb_n/c − 1) bounded for s = 1.5, 1.75, 2, 2.5 (−0.40 … −0.42 at s = 2), n(a_n/(2b_n) − 1) → ¼ = p/2;
+  K-doubling ≤ 10⁻⁷, quad ≤ 5·10⁻¹⁴; CT identity to 8·10⁻¹⁷, r_n − 1 = O(1/n); LW1′ ratio 1.65 → 2.51 (N = 10² → 10¹², → π);
+  Lemma X0 ratio flat in N. Atoms-only (no tail) values are wrong (law fails for the truncated measure).
+- **Rule R:** pending.
+- **Found while reading (for the reviewer; RH_plt1b.md not edited):** RH_plt1b §1 defines μ(t) := ½log 2π + (t − ½)Log t − t − LogΓ(t)
+  and writes L± = −μ(t) − …; with that μ, D̃ = e^{+μ}, so "+μ" is meant (the proof's t → 0 expansion and check_plt1_seam_winding.py
+  use +μ). Text-only sign slip; no statement affected. check_r2p_lw1.py [2a] reproduces RH_plt1b's X(0) probe with +μ.

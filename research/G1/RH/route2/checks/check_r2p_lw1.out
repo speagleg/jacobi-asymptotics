@@ -1,0 +1,11 @@
+[1] p = 1/2, b = 4c(p) = 1.6329932, lips at theta_L = pi/8: sup |D_q^2/q_N - 1| vs eta_N (strip |Im u| <= pi/2)
+  N=1e2: eta_N = 0.5035, sup m_N = 0.8295, ratio = 1.647
+  N=1e4: eta_N = 0.3483, sup m_N = 0.6871, ratio = 1.972
+  N=1e6: eta_N = 0.2791, sup m_N = 0.6112, ratio = 2.19
+  N=1e9: eta_N = 0.2251, sup m_N = 0.5377, ratio = 2.389
+  N=1e12: eta_N = 0.1937, sup m_N = 0.4859, ratio = 2.508
+[2a] X(0) at p = 0.4 (RH_plt1b probe: -1.24, -1.93, -3.31, -4.70): N=1e1: -1.242 (tail 3.1e-6), N=1e2: -1.933 (tail 3.1e-5), N=1e4: -3.314 (tail 0.00031), N=1e6: -4.695 (tail 0.0031)
+[2b] p = 1/2: Q_N = sup |X(z) - X(0)|/(|z|(1 + log(1/|z|))), z on arg 0 and arg theta_L, |z| = 1e-8..0.5
+  N=1e2: X(0) = -1.6108, Q_N = 0.2297 (attained at arg, |z| = ('0.393', '0.5'))
+  N=1e4: X(0) = -2.762, Q_N = 0.2406 (attained at arg, |z| = ('0.393', '0.5'))
+  N=1e6: X(0) = -3.9126, Q_N = 0.2417 (attained at arg, |z| = ('0.393', '0.5'))

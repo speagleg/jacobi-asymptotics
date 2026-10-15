@@ -327,3 +327,18 @@ principal branches, which match KMVV (6.23) in |arg ζ| < 2π/3. 1.13.4 + 10.28.
 det Ψ = 2ζ^{1/2}(K_αI′_α − K′_αI_α)(2ζ^{1/2}) = 2ζ^{1/2}·𝒲{K_α, I_α}(2ζ^{1/2}) = 1 (REVIEW_Plan48.md F5). KMVV (6.16)–(6.18), (6.23)–(6.25), (6.28), (6.45), Prop. 6.5
 and C–D Theorem 4.4 / the arguments of 4.7, 4.9 are used as quoted above (KMVV, C–D entries); no new statement of those
 sources is used.
+
+## (DLMF-5.11, Plan 51) NIST DLMF §§5.5(i), 5.11 — READ (web pages dlmf.nist.gov/5.5 and /5.11, re-fetched 2026-10-14), for Plan 51 (route2/ROUTE2_plt1.md §3.2)
+
+(Distinct name: the "(DLMF)" entry above quotes 5.11 for Plans 10–15; this entry re-verifies it and adds 5.5.1.)
+
+> (5.5.1) "Γ(z+1) = zΓ(z)," (§5.5(i) "Recurrence"; no condition stated beyond z complex).
+>
+> (5.11.1) "As z→∞ in the sector |ph z| ≤ π−δ, Ln Γ(z) ∼ (z−½) ln z − z + ½ ln(2π) + Σ_{k=1}^∞ B_{2k}/(2k(2k−1)z^{2k−1})."
+> §5.11(ii): "If the sums in the expansions (5.11.1) and (5.11.2) are terminated at k=n−1 (k≥0) …"; "If z is complex, then the
+> remainder terms are bounded in magnitude by sec^{2n}(½ ph z) for (5.11.1), and sec^{2n+1}(½ ph z) for (5.11.2), times the first
+> neglected terms." (Matches the "(DLMF)" entry above.)
+
+**Used in:** route2/ROUTE2_plt1.md Lemma X0(i): |μ(t)| ≤ sec²(½ph t)·|B₂|/(2|t|) (first neglected term, n = 1) on |ph t| ≤ π/2,
+|t| ≥ 1 (hypothesis: |ph t| ≤ π − δ with δ = π/2 ✓); LogΓ(t) = LogΓ(1 + t) − Log t on Re t ≥ 0 (5.5.1, principal branches
+agreeing on (0, ∞)) for |t| < 1; Lemma LW1′_{<1} (|log D̃| = |μ(t)| ≤ C/|t| on |ph t| ≤ π/4). Same use as RH_plt1b Lemma S.
