@@ -1,0 +1,357 @@
+% sec9_second.tex: the 1/n term for pure powers with p>1 (Theorem thm:onen).
+
+\section{\texorpdfstring{The $1/n$ term for $p>1$}{The 1/n term for p>1}}\label{sec:second}
+
+This section proves Theorem~\ref{thm:onen}: for $p>1$ and $s>1$ the Jacobi coefficients of $\sigma_{p,s}$ satisfy
+\[
+  n^pb_n=c(p)\Bigl(1-\frac{s-1}{2n}+O(n^{-2})\Bigr),\qquad n^pa_n=2c(p)\Bigl(1-\frac{s-1+p}{2n}+O(n^{-2})\Bigr),
+\]
+and hence $a_n/(2b_n)=1-p/(2n)+O(n^{-2})$, where, as everywhere in this paper, $a_n/(2b_n)$ pairs the diagonal entry at
+$P_n$ with the off-diagonal entry $b_n$ between $P_{n-1}$ and $P_n$. We expand the error matrix $\mathsf R$ of
+\S\ref{sec:classical-small} to second order in $1/n$. The standing assumptions and the notation of
+Section~\ref{sec:classical} are in force: $p>1$, $s>1$, $\ell\equiv1$, every $\alpha>-1$.
+
+\emph{Outline.} The global parametrix $P^\infty_0$ does not depend on $n$ or on the weight, and it contributes exactly
+$c^2$ and $2c$ to the two extraction functionals. So the $1/n$ terms of $b_n$ and $a_n$ come only from the first
+corrections of the two local models, the Bessel model at $0$ and the Airy model at $4c$, on the two circles
+(Lemmas~\ref{lem:model-corrections} and~\ref{lem:circle-jumps}). These corrections depend on $n$ only through the band
+factor $H_n$, and $H_n$ is constant up to $O(n^{-p})$ because the two $1/(12n)$ Binet terms cancel
+(Lemma~\ref{lem:bandfactor}); so at order $1/n$ the corrections are those of the fixed model weight $x^\alpha(4c-x)$,
+whose local data are explicit (Lemma~\ref{lem:local-data}). The corrections are meromorphic in the two discs, and the
+residues enter the coefficients at infinity (Proposition~\ref{prop:second}). The residue at the hard edge is a multiple of
+$\bigl(\begin{smallmatrix}1&i\\i&-1\end{smallmatrix}\bigr)$, which both extraction functionals annihilate; so the $1/n$ terms
+come entirely from the Airy correction, through two combinations of its Laurent coefficients that we compute by hand
+(Lemma~\ref{lem:laurent}).
+
+Throughout, $\mathsf T:=\frac1{\sqrt2}\bigl(\begin{smallmatrix}1&1\\i&-i\end{smallmatrix}\bigr)$, so that
+$P^\infty_0=\mathsf Ta^{\sigma_3}\mathsf T^{-1}$ with the function $a(z)=((z-4c)/z)^{1/4}$ of~\eqref{eq:Pinf0} (it is never
+indexed, and is not to be confused with the coefficients $a_n$). For a matrix $Z$ with $Z_{22}=-Z_{11}$, a direct
+computation gives
+\begin{equation}\label{eq:conj-T}
+  P^\infty_0Z(P^\infty_0)^{-1}=\mathsf T\begin{pmatrix}Y_{11}&a^2Y_{12}\\a^{-2}Y_{21}&-Y_{11}\end{pmatrix}\mathsf T^{-1},\qquad
+  \begin{aligned}Y_{11}&=\tfrac i2(Z_{12}-Z_{21}),\\ Y_{12}&=Z_{11}-\tfrac i2(Z_{12}+Z_{21}),\\ Y_{21}&=Z_{11}+\tfrac i2(Z_{12}+Z_{21}),\end{aligned}
+\end{equation}
+and, for any numbers $y_{11},y_{12},y_{21}$,
+\begin{equation}\label{eq:T-back}
+  \mathsf T\begin{pmatrix}y_{11}&y_{12}\\y_{21}&-y_{11}\end{pmatrix}\mathsf T^{-1}=
+  \begin{pmatrix}\frac12(y_{12}+y_{21})&\frac i2(y_{12}-y_{21}-2y_{11})\\[1mm]\frac i2(y_{12}-y_{21}+2y_{11})&-\frac12(y_{12}+y_{21})\end{pmatrix}.
+\end{equation}
+
+\subsection{The first corrections}\label{sec:second-corrections}
+
+\begin{lemma}[first corrections of the two models]\label{lem:model-corrections}
+\begin{enumerate}
+\item[(a)] Let $\alpha>-1$ and $\mathsf Z_{\mathrm B}:=\bigl(\begin{smallmatrix}-(1+4\alpha^2)&2i\\2i&1+4\alpha^2\end{smallmatrix}\bigr)$.
+  Uniformly as $\zeta\to\infty$ off the rays of $\Psi_\alpha$,
+  \[
+    \Psi_\alpha(\zeta)=(2\pi\zeta^{1/2})^{-\sigma_3/2}M\Bigl[I+\frac{\sigma_3\mathsf Z_{\mathrm B}\sigma_3}{16\zeta^{1/2}}+O(\zeta^{-1})\Bigr]e^{2\zeta^{1/2}\sigma_3},
+  \]
+  equivalently $\Phi_\alpha(\zeta)=(2\pi\zeta^{1/2})^{-\sigma_3/2}M^{-1}\bigl[I+\mathsf Z_{\mathrm B}/(16\zeta^{1/2})+O(\zeta^{-1})\bigr]$.
+\item[(b)] Let $\mathsf Z_{\mathrm{Ai}}:=\bigl(\begin{smallmatrix}-1/72&-i/12\\-i/12&1/72\end{smallmatrix}\bigr)$ and
+  $\xi:=\frac23\zeta^{3/2}$. Uniformly for $\zeta\in\mathcal S_j$, $|\zeta|\ge1$, the Airy model~\eqref{eq:airy-model} satisfies
+  \[
+    \Psi^j(\zeta)=\zeta^{-\sigma_3/4}M\bigl(I+\mathsf Z_{\mathrm{Ai}}/\xi+O(\xi^{-2})\bigr)e^{\xi\sigma_3}\qquad(j=\mathrm I,\dots,\mathrm{IV}).
+  \]
+\end{enumerate}
+\end{lemma}
+
+Part~(a) uses \cite[(6.23)--(6.25)]{KMVV} and the large-argument expansions (10.40.1)--(10.40.4) with the coefficients
+(10.17.1), (10.17.8), and (10.17.5), (10.17.6), (10.17.11), (10.17.12) for the Hankel functions
+(\S\ref{sec:tool-dlmf}(d)); these hold for every fixed order, so no restriction on $\alpha$ arises. Part~(b) uses
+(9.7.2), (9.7.5) and (9.7.6) (\S\ref{sec:tool-dlmf}(b)). Both are the computations behind \cite[(6.28)]{KMVV}
+and~\eqref{eq:airy-infty}, carried one term further.
+
+\begin{proof}
+(a) In $|\arg\zeta|<2\pi/3$, \cite[(6.23)]{KMVV} expresses $\Psi_\alpha$ through $I_\alpha$, $K_\alpha$ and their
+derivatives at $w=2\zeta^{1/2}$, and $|\mathrm{ph}\,w|<\pi/3$, inside the sectors of (10.40.1)--(10.40.4). With the first
+coefficients $a_1(\alpha)=(4\alpha^2-1)/8$ and $b_1(\alpha)=(4\alpha^2+3)/8$ these give, entrywise with relative errors
+$O(w^{-2})$, $\Psi_\alpha e^{-w\sigma_3}=(2\pi\zeta^{1/2})^{-\sigma_3/2}\bigl[M+w^{-1}\frac1{\sqrt2}
+\bigl(\begin{smallmatrix}-a_1&ia_1\\-ib_1&b_1\end{smallmatrix}\bigr)\bigr]$. Since
+\[
+  M^{-1}\frac1{\sqrt2}\begin{pmatrix}-a_1&ia_1\\-ib_1&b_1\end{pmatrix}=\frac12\begin{pmatrix}-(a_1+b_1)&i(a_1-b_1)\\i(a_1-b_1)&a_1+b_1\end{pmatrix},
+  \qquad a_1+b_1=\frac{4\alpha^2+1}4,\quad a_1-b_1=-\frac12,
+\]
+the correction is $\sigma_3\mathsf Z_{\mathrm B}\sigma_3/(16\zeta^{1/2})$. In the sectors $2\pi/3<\pm\arg\zeta<\pi$,
+\cite[(6.24)--(6.25)]{KMVV} use $H^{(1,2)}_\alpha$ and their derivatives at $2(-\zeta)^{1/2}$, whose phase lies in
+$(-\pi/6,\pi/6)$, inside the sectors of (10.17.5)--(10.17.6) and (10.17.11)--(10.17.12); the same computation with the first two
+terms gives the same formula. The form for $\Phi_\alpha$ follows from $\sigma_3M\sigma_3=M^{-1}$.
+
+(b) In $\mathcal S_{\mathrm I}$ the columns of $\Psi^{\mathrm I}$ are $k_{\mathrm{Ai}}e^{-i\pi\sigma_3/4}y_+$ and
+$k_{\mathrm{Ai}}e^{-i\pi\sigma_3/4}\mathsf qy_0$. By (9.7.5)--(9.7.6) with $u_1=\frac5{72}$, $v_1=-\frac7{72}$ from (9.7.2), applied
+at $\zeta$ and at $\mathsf q^{-1}\zeta$ (where $(\mathsf q^{-1}\zeta)^{1/4}=e^{-i\pi/6}\zeta^{1/4}$ and
+$\frac23(\mathsf q^{-1}\zeta)^{3/2}=-\xi$), with relative errors $O(\xi^{-2})$,
+\[
+  y_+=\frac{e^\xi e^{i\pi/6}}{2\sqrt\pi}\zeta^{-\sigma_3/4}\begin{pmatrix}1+u_1/\xi\\1+v_1/\xi\end{pmatrix},\qquad
+  y_0=\frac{e^{-\xi}}{2\sqrt\pi}\zeta^{-\sigma_3/4}\begin{pmatrix}1-u_1/\xi\\-(1-v_1/\xi)\end{pmatrix}.
+\]
+So $\Psi^{\mathrm I}=\zeta^{-\sigma_3/4}(N_0+N_1/\xi+O(\xi^{-2}))e^{\xi\sigma_3}$ with $N_0=M$ (this is~\eqref{eq:airy-infty}) and
+$M^{-1}N_1=\bigl(\begin{smallmatrix}(u_1+v_1)/2&-i(u_1-v_1)/2\\-i(u_1-v_1)/2&-(u_1+v_1)/2\end{smallmatrix}\bigr)=\mathsf Z_{\mathrm{Ai}}$,
+using $\mathsf qe^{-i\pi/6}=i$. In each of the other sectors the two columns of $\Psi^j$ are evaluated at points with the
+same leading asymptotics as in $\mathcal S_{\mathrm I}$ (this is the computation behind~\eqref{eq:airy-infty}; for
+instance, in $\mathcal S_{\mathrm{II}}$, $-\mathsf q^{-1}y_-$ has the same two-term expansion as $\mathsf qy_0$, since
+$(\mathsf q\zeta)^{1/4}=e^{-i\pi/3}\zeta^{1/4}$ and $(\mathsf q\zeta)^{3/2}=\zeta^{3/2}$ there), so the correction is the same.
+\end{proof}
+
+Let $f^{1/2}$ be the principal root; it is analytic and non-zero on $\partial U_0$. Put, on $\partial U_0$ and $\partial U_r$
+respectively,
+\begin{equation}\label{eq:Delta}
+  \Delta_0:=\frac1{16f^{1/2}}\,P^\infty_0\rho_n^{\sigma_3}\mathsf Z_{\mathrm B}\rho_n^{-\sigma_3}(P^\infty_0)^{-1},\qquad
+  \Delta_r:=-\frac1{\tvphi}\,P^\infty_0(-\omega)^{-\sigma_3/2}\mathsf Z_{\mathrm{Ai}}(-\omega)^{\sigma_3/2}(P^\infty_0)^{-1},
+\end{equation}
+with $\rho_n$ of~\eqref{eq:Wtilde} and the root~\eqref{eq:omega-root}. Note that $\Delta_0$ depends on $\rho_n$ only
+through $\rho_n^{\pm2}=(e^{\mp i\pi\alpha}/\omega)^{\pm1}$, and $\Delta_r$ only through $(-\omega)^{\pm1}$. Let
+$\Delta_0^{\mathrm{mod}}$ and $\Delta_r^{\mathrm{mod}}$ be the same expressions with $\omega$ replaced by $\omega^{\mathrm{mod}}$ of
+\eqref{eq:omega-mod}, on the whole punctured discs $U(0,2\delta)\setminus\{0\}$ and $U(4c,2\eps)\setminus\{4c\}$ (off
+$[0,4c]$ to begin with).
+
+\begin{lemma}[the jumps on the two circles]\label{lem:circle-jumps}
+Uniformly on the circles, with boundary values where they cross the contour,
+\[
+  \check P_0(P^\infty_0)^{-1}=I+\frac{\Delta_0}n+O(n^{-2})\ \text{on }\partial U_0,\qquad
+  \hat P_r(P^\infty_0)^{-1}=I+\frac{\Delta_r}n+O(n^{-2})\ \text{on }\partial U_r,
+\]
+and $\Delta_0-\Delta_0^{\mathrm{mod}}=O(n^{-p})$, $\Delta_r-\Delta_r^{\mathrm{mod}}=O(n^{-p})$ there.
+\end{lemma}
+
+The lemma uses Lemma~\ref{lem:model-corrections} (hence \cite[\S6]{KMVV} and the expansions of \cite{DLMF} quoted
+there), Lemma~\ref{lem:bandfactor}, and Lemmas~\ref{lem:signs}, \ref{lem:szego} and~\ref{lem:airy}.
+
+\begin{proof}
+\emph{Bessel.} On $\partial U_0$, $\zeta=n^2f$ and $\zeta^{1/2}=nf^{1/2}$, with $|\zeta|\asymp n^2$. By~\eqref{eq:Pcheck} and
+Lemma~\ref{lem:model-corrections}(a), since $f^{\sigma_3/4}(2\pi n)^{\sigma_3/2}(2\pi nf^{1/2})^{-\sigma_3/2}=I$,
+\[
+  \check P_0=P^\infty_0\rho_n^{\sigma_3}MM^{-1}\Bigl[I+\frac{\mathsf Z_{\mathrm B}}{16nf^{1/2}}+O(n^{-2})\Bigr]\rho_n^{-\sigma_3},
+\]
+which is the first claim, because $P^\infty_0$, $(P^\infty_0)^{-1}$ and $\rho_n^{\pm1}$ are bounded on $\partial U_0$
+uniformly in $n$ (Lemma~\ref{lem:classical-param}(i)).
+
+\emph{Airy.} On $\partial U_r$, by~\eqref{eq:airy}, $\hat P_r=P^\infty_0(-\omega)^{-\sigma_3/2}M^{-1}f_r^{\sigma_3/4}n^{\sigma_3/6}
+\Psi_r(\zeta)((-\omega)^{1/2}e^{n\tvphi})^{\sigma_3}$ with $\zeta=n^{2/3}f_r$, so $\zeta^{-\sigma_3/4}=n^{-\sigma_3/6}f_r^{-\sigma_3/4}$
+and $\xi=\frac23nf_r^{3/2}=-n\tvphi$ (Lemma~\ref{lem:signs}(iv)). Lemma~\ref{lem:model-corrections}(b) and
+$e^{\xi\sigma_3}e^{n\tvphi\sigma_3}=I$ give
+\[
+  \hat P_r=P^\infty_0(-\omega)^{-\sigma_3/2}\Bigl(I-\frac{\mathsf Z_{\mathrm{Ai}}}{n\tvphi}+O(n^{-2})\Bigr)(-\omega)^{\sigma_3/2},
+\]
+uniformly on $\partial U_r$ because $|\xi|\asymp n$ there and $P^\infty_0$, $(P^\infty_0)^{-1}$, $(-\omega)^{\pm1/2}$ are bounded
+(Lemmas~\ref{lem:szego}(vi)(b) and~\ref{lem:airy}).
+
+\emph{Dependence on $n$.} The functions $f$, $\tvphi$ and $P^\infty_0$ do not depend on $n$. By
+Lemma~\ref{lem:bandfactor}(iv), $\omega/\omega^{\mathrm{mod}}=1+O(n^{-p})$ on both circles, and $\omega$, $\omega^{\mathrm{mod}}$
+are bounded above and below there; since $\Delta_0$, $\Delta_r$ are smooth functions of $\omega^{\pm1}$ with these bounds,
+the last claim follows.
+\end{proof}
+
+\subsection{The local data and the Laurent coefficients}\label{sec:second-laurent}
+
+\begin{lemma}[local data of the model]\label{lem:local-data}
+\begin{enumerate}
+\item[(i)] $f(z)=f'(0)z\bigl(1+f_2z+O(z^2)\bigr)$ near $0$, with
+  \[
+    f'(0)=-\frac1{c(p+2)^2},\qquad f_2=\frac{p+2}{12c(3p+2)}.
+  \]
+\item[(ii)] With $\mathsf u:=(z-4c)^{1/2}$ (principal root), $\tvphi=-\mathsf g_3\mathsf u^3-\mathsf g_5\mathsf u^5+O(\mathsf u^7)$ near
+  $4c$, where $\tvphi/\mathsf u^3$ is analytic at $4c$ and
+  \[
+    \mathsf g_3=\frac1{6pc^{3/2}},\qquad \mathsf g_5=-\frac{7p+4}{240p^2c^{5/2}}.
+  \]
+\item[(iii)] Near $4c$, $(-\omega^{\mathrm{mod}})^{1/2}=\bigl(2\sqrt c/(z^{1/2}+\mathsf u)\bigr)^{1+\alpha}$; equivalently, with
+  $L_r:=(1+\alpha)\operatorname{arsinh}(\mathsf u/(2\sqrt c))$, $(-\omega^{\mathrm{mod}})^{\mp1}=e^{\pm2L_r}$. Near $0$, in $\C_\pm$,
+  $e^{\mp i\pi\alpha}/\omega^{\mathrm{mod}}=\bigl(((-z)^{1/2}+(4c-z)^{1/2})^2/(4c)\bigr)^{1+\alpha}$; equivalently, with
+  $\mathsf y:=(-z)^{1/2}$ and $L_0:=(1+\alpha)\operatorname{arsinh}(\mathsf y/(2\sqrt c))$, $e^{\mp i\pi\alpha}/\omega^{\mathrm{mod}}=e^{2L_0}$.
+\end{enumerate}
+\end{lemma}
+
+The lemma uses only the equilibrium measure of Proposition~\ref{prop:equilibrium} (that is, \cite[Theorem~1.3]{Paper1}),
+the formulas for $f$ and $\tvphi$ in the proof of Lemma~\ref{lem:signs}, and Lemma~\ref{lem:szego}(i).
+
+\begin{proof}
+Put $a':=\frac1p+\frac12$; recall $(4c)^{-1/p}=2I(p)/\pi$ and $B(a',\frac12)=2I(p)$ by~\eqref{eq:cp} and (5.12.1).
+
+(i) By Proposition~\ref{prop:equilibrium}, on $(0,4c)$, $\psi^*(x)=\lambda_p(x)\mathcal B_{x/4c}(a',\frac12)$, and
+$\mathcal B_y(a',\frac12)=\frac{y^{a'}}{a'B(a',\frac12)}\bigl(1+\frac{a'y}{2(a'+1)}+O(y^2)\bigr)$. Hence
+$\psi^*(x)=C_*x^{-1/2}(1+\tau_*x+O(x^2))$ with $C_*=(4c)^{-1/2}/(\pi(1+p/2))$ (Proposition~\ref{prop:equilibrium}(iii)) and
+$\tau_*=a'/(8c(a'+1))=(p+2)/(8c(3p+2))$. So $\mu^*((0,x])=x^{1/2}\mathfrak a(x)$ with $\mathfrak a(z)=2C_*(1+\tau_*z/3+O(z^2))$,
+and $f=-\frac{\pi^2}4z\mathfrak a^2$ (proof of Lemma~\ref{lem:signs}(iii)) gives $f'(0)=-\pi^2C_*^2=-1/(c(p+2)^2)$ and
+$f_2=2\tau_*/3$.
+
+(ii) By the proof of Lemma~\ref{lem:signs}(iv), $\tvphi_+(x)=i\pi\int_x^{4c}(\lambda_p-\psi^*)$ on the band. With
+$y=4c(1-e)$, $1-\mathcal B_{1-e}(a',\frac12)=\frac1{B(a',1/2)}\bigl(2e^{1/2}-\frac23(a'-1)e^{3/2}+O(e^{5/2})\bigr)$ and
+$\lambda_p(y)=\frac1p(4c)^{-1-1/p}(1+(1+\frac1p)e+O(e^2))$; integrating, with $v:=4c-x$,
+\[
+  \int_x^{4c}(\lambda_p-\psi^*)=\frac1{\pi p}\Bigl[\frac43\Bigl(\frac v{4c}\Bigr)^{3/2}+\frac25\Bigl(\frac73+\frac4{3p}\Bigr)\Bigl(\frac v{4c}\Bigr)^{5/2}
+  +O(v^{7/2})\Bigr].
+\]
+On the band, approached from $\C_+$, $\mathsf u=iv^{1/2}$, so $-\mathsf g_3\mathsf u^3-\mathsf g_5\mathsf u^5=i\mathsf g_3v^{3/2}-i\mathsf g_5v^{5/2}$;
+comparing coefficients gives the values. The quotient $\tvphi/\mathsf u^3$ is analytic at $4c$ because
+$\tvphi=-\frac23f_r^{3/2}$ with $f_r$ conformal and $f_r(4c)=0$ (Lemma~\ref{lem:signs}(iv)), so the band values determine
+the expansion.
+
+(iii) By Lemma~\ref{lem:szego}(i), $\omega^{\mathrm{mod}}=(4cz/\Upsilon)^\alpha z^{-\alpha}\cdot(-4c/\Upsilon)$. Near $4c$ all
+arguments are close to $0$, so $-\omega^{\mathrm{mod}}=(4c/\Upsilon)^{1+\alpha}$ and, as in~\eqref{eq:omega-root}, its root is the
+stated one; $z^{1/2}=2\sqrt c(1+\mathsf u^2/(4c))^{1/2}$ gives the form with $\operatorname{arsinh}$. Near $0$, in $\C_\pm$,
+$z^{1/2}=\pm i(-z)^{1/2}$ and $(z-4c)^{1/2}=\pm i(4c-z)^{1/2}$, so $\Upsilon=-\hat\Upsilon$ with
+$\hat\Upsilon:=((-z)^{1/2}+(4c-z)^{1/2})^2$; and $(4cz/\Upsilon)^\alpha=(-z)^\alpha(4c/\hat\Upsilon)^\alpha$, $z^{-\alpha}=(-z)^{-\alpha}e^{\mp
+i\pi\alpha}$. Hence $\omega^{\mathrm{mod}}=e^{\mp i\pi\alpha}(4c/\hat\Upsilon)^{1+\alpha}$.
+\end{proof}
+
+\begin{lemma}[Laurent coefficients]\label{lem:laurent}
+$\Delta_0^{\mathrm{mod}}$ is meromorphic in $U(0,2\delta)$ with at most a simple pole at $0$, and $\Delta_r^{\mathrm{mod}}$ is
+meromorphic in $U(4c,2\eps)$ with at most a double pole at $4c$:
+\[
+  \Delta_0^{\mathrm{mod}}(z)=\frac{\mathfrak A_0}z+O(1),\qquad
+  \Delta_r^{\mathrm{mod}}(z)=\frac{\mathfrak B_r}{(z-4c)^2}+\frac{\mathfrak A_r}{z-4c}+O(1).
+\]
+Here
+\[
+  \mathfrak A_0=\frac{c(p+2)(4\alpha^2-1)}{16}\begin{pmatrix}1&i\\i&-1\end{pmatrix},\qquad
+  \mathfrak B_r=\frac{5c^2p}{12}\begin{pmatrix}1&-i\\-i&-1\end{pmatrix},
+\]
+and
+\begin{equation}\label{eq:Ar-combinations}
+  (\mathfrak A_r)_{21}-(\mathfrak A_r)_{12}=ipc(1+\alpha),\qquad
+  (\mathfrak A_r)_{11}-(\mathfrak A_r)_{22}-2i(\mathfrak A_r)_{12}-\frac ic(\mathfrak B_r)_{12}=-pc(\alpha+2).
+\end{equation}
+The full matrix $\mathfrak A_r$ is given in Lemma~\ref{lem:residues-full}.
+\end{lemma}
+
+\begin{proof}
+\emph{Meromorphy.} On $(0,2\delta)$, $f^{1/2}_+=-f^{1/2}_-$ (as $f<0$ there and $f$ maps $\C_\pm$ into $\C_\mp$),
+$P^\infty_{0,+}=P^\infty_{0,-}J$, and the model value of $\rho^2$ in Lemma~\ref{lem:local-data}(iii) satisfies
+$\rho^2_+\rho^2_-=1$; since $J\mathsf Z_{\mathrm B}J^{-1}=-\mathsf Z_{\mathrm B}$ and
+$Jd^{-\sigma_3}=d^{\sigma_3}J$ for scalars $d$, $\Delta^{\mathrm{mod}}_{0,+}=\Delta^{\mathrm{mod}}_{0,-}$. On $(-2\delta,0)$ every
+factor is analytic. So $\Delta_0^{\mathrm{mod}}$ is analytic in the punctured disc, and $|\Delta_0^{\mathrm{mod}}|\le C|z|^{-1}$
+by~\eqref{eq:Pinf0-bound} and $|f|\asymp|z|$; hence $0$ is at most a simple pole. On $(4c-2\eps,4c)$,
+$\tvphi_+=-\tvphi_-$ (Lemma~\ref{lem:gfunction}(i)), $(-\omega)^{1/2}_+(-\omega)^{1/2}_-=1$ by~\eqref{eq:omega-root-band} (in
+particular for the model), and $J\mathsf Z_{\mathrm{Ai}}J^{-1}=-\mathsf Z_{\mathrm{Ai}}$, so again there is no jump; on
+$(4c,4c+2\eps)$ all factors are analytic. Since $|\tvphi|\asymp|z-4c|^{3/2}$ and $|P^\infty_0|\le C|z-4c|^{-1/4}$ near $4c$,
+$|\Delta_r^{\mathrm{mod}}|\le C|z-4c|^{-2}$.
+
+\emph{The coefficient $\mathfrak A_0$.} By~\eqref{eq:conj-T} with $Z=\rho^{\sigma_3}\mathsf Z_{\mathrm B}\rho^{-\sigma_3}$ and $\rho^2=e^{2L_0}$,
+\[
+  Y_{11}=-2\sinh2L_0,\qquad Y_{12}=1-4\alpha^2+(\rho-\rho^{-1})^2,\qquad Y_{21}=-(3+4\alpha^2)-(\rho-\rho^{-1})^2 .
+\]
+Let $z\to0$ along $(-2\delta,0)$, where $f>0$, $L_0=O(|z|^{1/2})$, $a^2=(4c-z)^{1/2}(-z)^{-1/2}$ and
+$f^{1/2}=|f'(0)|^{1/2}(-z)^{1/2}(1+O(z))$. Then $zY_{11}/f^{1/2}\to0$, $za^{-2}Y_{21}/f^{1/2}\to0$, and
+$za^2Y_{12}/f^{1/2}\to-2\sqrt c|f'(0)|^{-1/2}(1-4\alpha^2)=-2c(p+2)(1-4\alpha^2)$ by Lemma~\ref{lem:local-data}(i).
+Since the pole is at most simple, $\mathfrak A_0=\lim_{z\to0}z\Delta_0^{\mathrm{mod}}(z)$, and~\eqref{eq:T-back} with
+$y_{12}=1$, $y_{11}=y_{21}=0$ gives $\mathsf Te_1e_2^{\mathsf T}\mathsf T^{-1}=\frac12\bigl(\begin{smallmatrix}1&i\\i&-1\end{smallmatrix}\bigr)$; so
+$\mathfrak A_0=\frac1{16}\cdot(-2c(p+2)(1-4\alpha^2))\cdot\frac12\bigl(\begin{smallmatrix}1&i\\i&-1\end{smallmatrix}\bigr)$.
+
+\emph{The Airy coefficients.} By~\eqref{eq:conj-T} with $Z=(-\omega^{\mathrm{mod}})^{-\sigma_3/2}\mathsf Z_{\mathrm{Ai}}(-\omega^{\mathrm{mod}})^{\sigma_3/2}$,
+whose off-diagonal entries are $-\frac i{12}e^{2L_r}$ and $-\frac i{12}e^{-2L_r}$ by Lemma~\ref{lem:local-data}(iii),
+\begin{equation}\label{eq:Y-airy}
+  Y_{11}=\frac{\sinh2L_r}{12},\qquad Y_{12}=-\frac1{72}-\frac{\cosh2L_r}{12},\qquad Y_{21}=-\frac1{72}+\frac{\cosh2L_r}{12},
+\end{equation}
+and $\Delta_r^{\mathrm{mod}}=-\tvphi^{-1}\mathsf T\bigl(\begin{smallmatrix}Y_{11}&a^2Y_{12}\\a^{-2}Y_{21}&-Y_{11}\end{smallmatrix}\bigr)\mathsf T^{-1}$.
+Take $z\in(4c,4c+2\eps)$, so $\mathsf u>0$, and put $\epsilon:=\mathsf u/(2\sqrt c)$. Then $a^2=\epsilon(1+\epsilon^2)^{-1/2}$ is odd
+in $\mathsf u$, $L_r=(1+\alpha)\epsilon+O(\epsilon^3)$, $Y_{11}$ is odd and $Y_{12}$, $Y_{21}$ are even, and $\tvphi^{-1}$ is
+$\mathsf u^{-3}$ times an even series. A function meromorphic at $4c$ is an even Laurent series in $\mathsf u$, and its residue
+is the coefficient of $\mathsf u^{-2}$. Since the pole is at most double,
+$\mathfrak B_r=\lim(z-4c)^2\Delta_r^{\mathrm{mod}}=\mathsf g_3^{-1}\lim\mathsf u\,\mathsf T(\cdots)\mathsf T^{-1}$, and
+$\mathsf ua^{-2}Y_{21}\to2\sqrt c\cdot\frac5{72}$ while the other entries times $\mathsf u$ tend to $0$; with
+$\mathsf Te_2e_1^{\mathsf T}\mathsf T^{-1}=\frac12\bigl(\begin{smallmatrix}1&-i\\-i&-1\end{smallmatrix}\bigr)$ and $\mathsf g_3^{-1}=6pc^{3/2}$ this
+gives $\mathfrak B_r$.
+
+For the first combination in~\eqref{eq:Ar-combinations}, \eqref{eq:T-back} gives
+$(\Delta_r^{\mathrm{mod}})_{21}-(\Delta_r^{\mathrm{mod}})_{12}=-2iY_{11}/\tvphi$, and
+\[
+  \frac{Y_{11}}{\tvphi}=\frac{(1+\alpha)\mathsf u/(12\sqrt c)+O(\mathsf u^3)}{-\mathsf g_3\mathsf u^3(1+O(\mathsf u^2))}
+  =-\frac{1+\alpha}{12\sqrt c\,\mathsf g_3}\,\mathsf u^{-2}+O(1);
+\]
+so the difference has no double pole and its residue is $\frac{i(1+\alpha)}{6\sqrt c\,\mathsf g_3}=ipc(1+\alpha)$. For the second,
+$(\mathfrak A_r)_{11}-(\mathfrak A_r)_{22}-2i(\mathfrak A_r)_{12}-\frac ic(\mathfrak B_r)_{12}$ is the residue of
+$g:=(\Delta)_{11}-(\Delta)_{22}-2i(\Delta)_{12}-\frac ic(z-4c)(\Delta)_{12}$, $\Delta=\Delta_r^{\mathrm{mod}}$, and~\eqref{eq:T-back} gives
+\[
+  g=-\frac2{\tvphi}\bigl(a^2Y_{12}-Y_{11}\bigr)-\frac{\mathsf u^2}{2c\,\tvphi}\bigl(a^2Y_{12}-a^{-2}Y_{21}-2Y_{11}\bigr).
+\]
+In the first term $a^2Y_{12}-Y_{11}=\bigl(-\frac7{144\sqrt c}-\frac{1+\alpha}{12\sqrt c}\bigr)\mathsf u+O(\mathsf u^3)$, an odd series,
+which contributes $\frac2{\mathsf g_3}\cdot\bigl(-\frac{12\alpha+19}{144\sqrt c}\bigr)=-\frac{pc(12\alpha+19)}{12}$ to the coefficient of
+$\mathsf u^{-2}$. In the second, the bracket is $-\frac{2\sqrt c}{\mathsf u}\cdot\frac5{72}+O(\mathsf u)$, which contributes
+$\frac1{2c\,\mathsf g_3}\cdot\bigl(-\frac{10\sqrt c}{72}\bigr)=-\frac{5pc}{12}$. The sum is $-pc(\alpha+2)$.
+\end{proof}
+
+The higher Taylor coefficients $f_2$ and $\mathsf g_5$ do not enter~\eqref{eq:Ar-combinations}: only the leading terms of
+$a^{\pm2}$, $Y$ and $\tvphi$ were used. They do enter $\mathfrak A_r$ itself and the constant term at $0$
+(Lemma~\ref{lem:residues-full}).
+
+\subsection{The second-order small-norm estimate}\label{sec:second-small}
+
+\begin{proposition}[second-order small norm]\label{prop:second}
+Let $p>1$, $s>1$, $\ell\equiv1$. For $n\ge n_0$,
+\[
+  \mathsf R(z)=I+\frac{\mathsf R^{(1)}(z)}n+O(n^{-2})
+\]
+uniformly for $\mathrm{dist}(z,\Sigma_{\mathsf R})\ge d>0$, and the coefficients at infinity satisfy $\mathsf R_k=\mathsf R_k^{(1)}/n+O(n^{-2})$,
+$k=1,2$, where
+\[
+  \mathsf R^{(1)}(z)=\frac{\mathfrak A_0}z+\frac{\mathfrak A_r}{z-4c}+\frac{\mathfrak B_r}{(z-4c)^2}\quad(z\notin\overline{U_0}\cup\overline{U_r}),\qquad
+  \mathsf R_1^{(1)}=\mathfrak A_0+\mathfrak A_r,\qquad \mathsf R_2^{(1)}=4c\,\mathfrak A_r+\mathfrak B_r .
+\]
+\end{proposition}
+
+The proposition uses Proposition~\ref{prop:classical} (hence everything listed after it) and
+Lemmas~\ref{lem:circle-jumps} and~\ref{lem:laurent}.
+
+\begin{proof}
+By Proposition~\ref{prop:classical}(iii),
+\[
+  \mathsf R(z)-I=\frac1{2\pi i}\int_{\Sigma_{\mathsf R}}\frac{(J_{\mathsf R}-I)(s)}{s-z}\diff s
+  +\frac1{2\pi i}\int_{\Sigma_{\mathsf R}}\frac{(\mathsf R_--I)(J_{\mathsf R}-I)(s)}{s-z}\diff s .
+\]
+By Cauchy--Schwarz and Proposition~\ref{prop:classical}(ii), (iv) the second integral is at most
+$\|\mathsf R_--I\|_{L^2}\|J_{\mathsf R}-I\|_{L^2}/(2\pi d)=O(n^{-2})$. In the first, the arcs inside $U_0$ contribute
+$O(n^{-K})$ and the remaining arcs off the circles $O(e^{-n/C})$; by Lemma~\ref{lem:circle-jumps} the circles contribute
+\[
+  \frac1n\cdot\frac1{2\pi i}\oint_{\mathrm{cw}}\frac{\Delta^{\mathrm{mod}}(s)}{s-z}\diff s+O(n^{-2}+n^{-1-p}),
+\]
+where $\Delta^{\mathrm{mod}}$ is $\Delta_0^{\mathrm{mod}}$ on $\partial U_0$ and $\Delta_r^{\mathrm{mod}}$ on $\partial U_r$, both circles
+oriented clockwise; and $n^{-1-p}\le n^{-2}$ since $p>1$. For $z$ outside the discs, by Lemma~\ref{lem:laurent} the
+clockwise integrals equal minus the sums of the residues of $\Delta^{\mathrm{mod}}(s)/(s-z)$ at $s=0$ and $s=4c$, that is,
+$\mathfrak A_0/z+\mathfrak A_r/(z-4c)+\mathfrak B_r/(z-4c)^2$. For the coefficients at infinity,
+$\mathsf R_k=-\frac1{2\pi i}\int_{\Sigma_{\mathsf R}}\mathsf R_-(J_{\mathsf R}-I)s^{k-1}\diff s$ with the same splitting; on the far arcs
+$|s|^{k-1}\le Cn^p$ is absorbed by $e^{-n/C}$, and $-\frac1{2\pi i}\oint_{\mathrm{cw}}\Delta^{\mathrm{mod}}(s)s^{k-1}\diff s$ is the sum of the
+residues of $\Delta^{\mathrm{mod}}(s)s^{k-1}$, which is $\mathfrak A_0+\mathfrak A_r$ for $k=1$ and $4c\mathfrak A_r+\mathfrak B_r$ for $k=2$
+(the simple pole at $0$ is removed by the factor $s$).
+\end{proof}
+
+\subsection{\texorpdfstring{Proof of Theorem~\ref{thm:onen}}{Proof of Theorem 1.4}}\label{sec:second-proof}
+
+By Proposition~\ref{prop:frame}(viii) and Lemma~\ref{lem:invariance}, $n^{2p}b_n^2=\mathsf b(Q)$ and $n^pa_n=\mathsf a(Q)$. For $|z|$
+large, $Q=\mathsf RP^\infty_0$, so $Q_1=P_1+\mathsf R_1$ and $Q_2=P_2+\mathsf R_1P_1+\mathsf R_2$ with $P_1,P_2$ of~\eqref{eq:P1P2}. Write
+$\mathsf R_1=\mathcal A/n+O(n^{-2})$ and $\mathsf R_2=\mathcal B/n+O(n^{-2})$, with $\mathcal A:=\mathfrak A_0+\mathfrak A_r$ and
+$\mathcal B:=4c\mathfrak A_r+\mathfrak B_r$ (Proposition~\ref{prop:second}).
+
+\emph{The coefficient $b_n$.} We have
+\[
+  n^{2p}b_n^2=\Bigl(ic+\frac{\mathcal A_{12}}n\Bigr)\Bigl(-ic+\frac{\mathcal A_{21}}n\Bigr)+O(n^{-2})
+  =c^2\Bigl(1+\frac{i(\mathcal A_{21}-\mathcal A_{12})}{cn}\Bigr)+O(n^{-2}).
+\]
+The off-diagonal entries of $\mathfrak A_0$ are equal, so by~\eqref{eq:Ar-combinations}
+$i(\mathcal A_{21}-\mathcal A_{12})/c=i\cdot ipc(1+\alpha)/c=-p(1+\alpha)=-(s-1)$. Since $b_n>0$,
+$n^pb_n=c(1-(s-1)/(2n)+O(n^{-2}))$.
+
+\emph{The coefficient $a_n$.} Since $(Q_1)_{12}=ic+O(1/n)$ and $\mathsf a$ is smooth near $(P_1,P_2)$, expanding
+$\mathsf a(Q)=(Q_2)_{12}/(Q_1)_{12}-(Q_1)_{22}$ to first order, with $(\mathsf R_1P_1)_{12}=ic(\mathsf R_1)_{11}$, gives
+\[
+  n^pa_n=2c+\frac1n\Bigl(\mathcal A_{11}-\mathcal A_{22}+2i\mathcal A_{12}-\frac ic\mathcal B_{12}\Bigr)+O(n^{-2}).
+\]
+For $\mathfrak A_0=k\bigl(\begin{smallmatrix}1&i\\i&-1\end{smallmatrix}\bigr)$ the bracket vanishes ($k(1+1+2i\cdot i)=0$), and
+$\mathfrak A_0$ does not enter $\mathcal B$. The Airy part of the bracket is
+$(\mathfrak A_r)_{11}-(\mathfrak A_r)_{22}+2i(\mathfrak A_r)_{12}-4i(\mathfrak A_r)_{12}-\frac ic(\mathfrak B_r)_{12}=-pc(\alpha+2)$
+by~\eqref{eq:Ar-combinations}; the terms $12\alpha^2p$ of $\mathfrak A_r$ (Lemma~\ref{lem:residues-full}) cancel between the
+contributions of $\mathsf R_1$ and $\mathsf R_2$. Since $p(\alpha+2)=s-1+p$, $n^pa_n=2c(1-(s-1+p)/(2n)+O(n^{-2}))$.
+
+\emph{Consequences.} Dividing, $a_n/(2b_n)=(1-\frac{s-1+p}{2n})(1-\frac{s-1}{2n})^{-1}+O(n^{-2})=1-\frac p{2n}+O(n^{-2})$.
+Finally $c(n+\frac{s-1}{2p})^{-p}=cn^{-p}(1-\frac{s-1}{2n}+O(n^{-2}))$, which gives the last form of $b_n$.
+\qed
+
+\begin{remark}[the hard edge at order $1/n$; the case $p=2$]\label{rem:second}
+The hard edge contributes nothing at order $1/n$: its residue $\mathfrak A_0$ is a multiple of
+$\mathsf Te_1e_2^{\mathsf T}\mathsf T^{-1}$, because only the entry $a^2Y_{12}$ in~\eqref{eq:conj-T} has a pole at $0$, and this
+direction is annihilated by both functionals. Hence the $1/n$ terms of $b_n$ and $a_n$ are those of the Airy correction
+at the soft edge, and of these only the residue combinations~\eqref{eq:Ar-combinations} enter; the coefficient of $b_n$ comes
+from the simple pole alone. At $p=2$ the band factor is exactly constant (the remark after Lemma~\ref{lem:bandfactor}), so
+$\Delta_0=\Delta_0^{\mathrm{mod}}$ and $\Delta_r=\Delta_r^{\mathrm{mod}}$ exactly. For $(p,s)=(2,2)$, where $c(2)=\pi^2/16$, the closed
+forms of Remark~\ref{rem:lommel} give $n^2b_n/c(2)=16n^2/((4n+1)\sqrt{(4n-1)(4n+3)})=1-\frac1{2n}+O(n^{-2})$ and
+$n^2a_n/(2c(2))=16n^2/((4n+1)(4n+5))=1-\frac3{2n}+O(n^{-2})$, which are the values of Theorem~\ref{thm:onen} at $(2,2)$.
+\end{remark}

@@ -1,0 +1,547 @@
+% sec8_classical.tex: pure powers with p>1, the classical hard-edge parametrix; localisation of the spectral weights.
+
+\section{\texorpdfstring{Pure powers with $p>1$: the classical hard-edge parametrix}{Pure powers with p>1: the classical hard-edge parametrix}}\label{sec:classical}
+
+For $\ell\equiv1$ and $p>1$ the band weight continues across $(-\delta,0)$ up to a super-exponentially small jump, so
+the classical left-endpoint Bessel parametrix of \cite[\S6]{KMVV} can be used at the hard edge for every Bessel order
+$\alpha>-1$. This section proves the first-order small-norm estimate in that setting
+(Proposition~\ref{prop:classical}); it gives a second proof of Corollary~\ref{cor:pure} for $p>1$ which does not use the
+Christoffel shift, and it sets up the error matrix whose expansion to second order gives Theorem~\ref{thm:onen} in
+Section~\ref{sec:second}. The module fails at $p=1$ (Remark~\ref{rem:quotient-p1}), and for $p\le1$ it is not used.
+The last subsection proves a localisation bound for the spectral weights (Proposition~\ref{prop:tail}) that the
+companion paper \cite{Paper3} uses.
+
+\emph{Standing assumptions.} In \S\S\ref{sec:classical-band}--\ref{sec:classical-small} we fix $p>1$, $s>1$ and
+$\ell\equiv1$, so that $\sigma=\sigma_{p,s}$, $r_n\equiv1$ and $\alpha=(s-1-p)/p>-1$ is arbitrary. The function
+$\Lambda\equiv0$ is analytic of every angle, so we may take $\vartheta\ge7\pi/(16p)$ in~\eqref{eq:thetaw}; then
+$\mathsf m=1$, $\thlip=\pi/3$, $\thw=7\pi/16$, and the Bessel rays $\arg\zeta=\pm(\pi-\thlip)=\pm2\pi/3$ are those of
+\cite[\S6]{KMVV}. Sections~\ref{sec:frame} and~\ref{sec:outer} apply without change; we use the items (i)--(vi) and
+(viii) of Proposition~\ref{prop:frame}, never item (vii), which needs $|\alpha|<1$. The outer scalar is $F=DBK$ with the
+Binet-cut scalar $B$ of Lemma~\ref{lem:binetcut}, the band factor is $H_n=(\tilde DB)^{-2}$, and
+$W_0=\wn z^\alpha(4c-z)H_n(z)$ is analytic on $\C\setminus(-\infty,0]$. We write $\Hc=H_n/H_n(0^+)$ as in
+\eqref{eq:DW-factor}, $\omega=D_W^2/W_0$ as in~\eqref{eq:omega}, and
+\begin{equation}\label{eq:omega-mod}
+  \omega^{\mathrm{mod}}:=\frac{D_{x^\alpha}^2}{z^\alpha}\cdot\frac{D_{4c-x}^2}{4c-z},\qquad\text{so that}\qquad
+  \omega=\omega^{\mathrm{mod}}\,\frac{D_{\Hc}^2}{\Hc};
+\end{equation}
+$\omega^{\mathrm{mod}}$ is the ratio~\eqref{eq:omega} for the model weight $\wn x^\alpha(4c-x)$, in which the band
+factor is replaced by a constant. Constants $C$ depend on $p$, $s$ and the contour parameters, never on $n$ or $z$.
+
+\subsection{The band factor near the negative axis}\label{sec:classical-band}
+
+Write $t_+(y)$, $\theta_+(y)$ for the boundary values from $\C_+$ at $y<0$, and put
+\begin{equation}\label{eq:G-def}
+  G:=-j(t)+\log B\quad\text{on }\C\setminus(-\infty,0],\qquad
+  \mathfrak e(y):=2\im\Log\bigl(1-e^{-2i\theta_+(y)}\bigr)\quad(y<0),\qquad r_*:=4c+2,
+\end{equation}
+with Binet's function $j$ of Section~\ref{sec:outer}. Then $H_n=e^{-2G}$ by Lemma~\ref{lem:binetcut}(iv), since
+$\tilde D=e^{-j(t)}$.
+
+\begin{lemma}[the band factor near the negative axis]\label{lem:bandfactor}
+Let $p>1$. There are $C$ and $n_0$ such that for $n\ge n_0$:
+\begin{enumerate}
+\item[(i)] $G$ has continuous boundary values $G_\pm$ on $(-\infty,0)$ and $G_+-G_-=i\mathfrak e$ there. The function
+  $\mathfrak e$ is real-analytic on $(-\infty,0)$, and
+  \[
+    |\mathfrak e(y)|\le\pi\exp\bigl(-2\pi\sin(\pi/p)\,n|y|^{-1/p}\bigr)\qquad(y<0);
+  \]
+  on $[-2r_*,0)$ both $\mathfrak e$ and $\mathfrak e'$ are bounded by $Ce^{-n/C}$ and tend to $0$ faster than every
+  power of $|y|$ as $y\to0^-$.
+\item[(ii)] For $z\in\C\setminus(-\infty,0]$,
+  \begin{equation}\label{eq:G-repr}
+    G(z)-G(1)=\frac1{2\pi}\int_{-\infty}^0\mathfrak e(y)\,\frac{z-1}{(y-z)(y-1)}\diff y .
+  \end{equation}
+\item[(iii)] $|G(z)-G(1)|\le Cn^{-p}$ for $|z|\le r_*$, $z\notin(-\infty,0]$, and for the boundary values on $(-r_*,0)$;
+  $|G'(z)|\le Cn^{-p}$ for $|z|\le\frac12r_*$, with the same convention; and $|G'(z)|\le Cn^{-p}/\eta$ whenever
+  $0<\eta\le1$, $|z|\le r_*-\eta$ and $\mathrm{dist}(z,(-\infty,0])\ge\eta$.
+\item[(iv)] $\bigl|\log\bigl(\omega(z)/\omega^{\mathrm{mod}}(z)\bigr)\bigr|\le Cn^{-p}$ for $z\in U(0,2\delta)\cup
+  U(4c,2\eps)$, $z\notin[0,4c]$, including the boundary values on $(-2\delta,0)$.
+\end{enumerate}
+\end{lemma}
+
+Part~(iii) says that the band factor is constant up to $O(n^{-p})$ on a fixed neighbourhood of the band, although each
+of its two factors varies at order $1/n$. Indeed $-j(t(z))=-z^{1/p}/(12n)+O(n^{-3})$ on compact sets by
+\S\ref{sec:tool-dlmf}(a), while~(iii) and $\log B(1)=0$, $-j(n)=-1/(12n)+O(n^{-3})$ give $\log B(z)=(z^{1/p}-1)/(12n)+O(n^{-p})$:
+the Binet-cut scalar removes exactly the cut of the Binet term, and the two $1/(12n)$ terms cancel up to a constant. The
+non-constant part of $G$ comes from $|y|\asymp n^p$ in~\eqref{eq:G-repr}. At $p=2$, $\theta_+(y)=-i\pi n|y|^{-1/2}$ is
+purely imaginary, so $e^{-2i\theta_+}\in(0,1)$, $\mathfrak e\equiv0$, and $H_n$ is exactly constant.
+
+\begin{proof}
+(i) On $(-\infty,0)$, $t_-=\overline{t_+}$ and $j$ is real on $(0,\infty)$, so $j(t_-)=\overline{j(t_+)}$; by
+Lemma~\ref{lem:binetcut}(ii)--(iii), $(\log B)_+-(\log B)_-=-i\mathfrak b$ with
+$\mathfrak b=2\im(-j(t_+)-\Log(1-e^{-2i\theta_+}))$. Hence
+$G_+-G_-=-2i\im j(t_+)-i\mathfrak b=2i\im\Log(1-e^{-2i\theta_+})=i\mathfrak e$. With $q:=e^{-2i\theta_+(y)}$ we have
+$|q|=\exp(-2\pi\sin(\pi/p)n|y|^{-1/p})<1$ by~\eqref{eq:imtheta}, since $p>1$; and $|\im\Log(1-q)|\le\arcsin|q|\le\frac\pi2|q|$,
+which is the bound on $\mathfrak e$. Real-analyticity follows from that of $\theta_+$. For the derivative,
+$\diff t_+/\diff y=-t_+/(py)$ gives $|q'|\le Cn|y|^{-1-1/p}|q|$, and $|(\Log(1-q))'|\le2|q'|$ when $|q|\le\frac12$; on
+$[-2r_*,0)$ we have $|y|^{-1/p}\ge(2r_*)^{-1/p}$, so $|q|\le e^{-n/C}\le\frac12$ for $n\ge n_0$, and the remaining
+claims follow.
+
+(ii) Let $K$ be $G(z)-G(1)$ minus the right-hand side of~\eqref{eq:G-repr}. The integral converges absolutely, because
+$\mathfrak e$ is bounded and the kernel is $O(|y|^{-2})$; by the Sokhotski--Plemelj formula its jump across
+$(-\infty,0)$ is $i\mathfrak e$, with continuous boundary values. So $K$ has no jump, and it is analytic on
+$\C\setminus\{0\}$ by Morera's theorem. Near $0$, $|\arg t|\le\pi/p<\pi$ and $|t|\to\infty$, so $j(t)\to0$
+by~\eqref{eq:binet-bound}; $\log B$ is bounded near $0$, together with its boundary values on $(-\infty,0)$, by the proof
+of Lemma~\ref{lem:binetcut}(iv) (the verification of Definition~\ref{def:outer-admissible}(e)); and the integral is bounded near $0$
+because $\mathfrak e$ vanishes to infinite order there. So $0$ is a removable singularity. At infinity, for $|t|\le1$
+and $|\arg t|\le\pi/p$, \S\ref{sec:tool-dlmf}(a) gives $\mathrm{Ln}\,\Gamma(t)=\mathrm{Ln}\,\Gamma(1+t)-\ln t$ with
+$|1+t|\ge\sin(\pi-\pi/p)>0$, so $|j(t)|\le C(1+|\log|z||)$; $|\log B(z)|\le C_n(1+\log|z|)$ for $|z|\ge2$ off the cut,
+again by the proof of Lemma~\ref{lem:binetcut}(iv); and the integral is $O(\log|z|)$. So $K$ is entire with
+$K(z)=O(\log|z|)$, hence constant, and $K(1)=0$.
+
+(iii) Split~\eqref{eq:G-repr} at $y=-2r_*$. For $|y|\ge2r_*$ and $|z|\le r_*$ the kernel is at most $C|y|^{-2}$, and the
+substitution $|y|=n^pw$ gives
+\[
+  \int_{2r_*}^\infty e^{-c_1nu^{-1/p}}u^{-2}\diff u\le n^{-p}\int_0^\infty e^{-c_1w^{-1/p}}w^{-2}\diff w=Cn^{-p},\qquad c_1:=2\pi\sin(\pi/p),
+\]
+the last integral being finite at both ends. On $[-2r_*,0)$ the density $\mathfrak e$ is $C^1$ with norm $O(e^{-n/C})$ and
+vanishes to infinite order at $0$; the Cauchy integral of such a density, and its boundary values on $(-r_*,0)$, are
+bounded by $Ce^{-n/C}(1+|\log\mathrm{dist}(z,-2r_*)|)\le C'e^{-n/C}$ for $|z|\le r_*$ (subtract $\mathfrak e(\re z)$ on a
+window around $\re z$, as in the proof of Lemma~\ref{lem:binetcut}(iv)). This proves the first bound. Differentiating
+\eqref{eq:G-repr}, the far part gives $\int_{|y|\ge2r_*}|\mathfrak e||y|^{-2}\diff y=O(n^{-p})$ and the near part, after an
+integration by parts, is the Cauchy integral of the $C^1$ density $\mathfrak e'$ plus a boundary term at $-2r_*$ that is
+bounded for $|z|\le\frac12r_*$; this gives the second bound. The third is Cauchy's estimate applied to the first on the
+disc $U(z,\eta)\subset\{|w|\le r_*\}\setminus(-\infty,0]$.
+
+(iv) By~\eqref{eq:omega-mod} and~\eqref{eq:szego-repr} with $\mathfrak c=\log\Hc(z)$,
+\[
+  \log\frac{\omega(z)}{\omega^{\mathrm{mod}}(z)}=\frac{\mathcal R(z)}\pi\int_0^{4c}\frac{\log\Hc(x)-\log\Hc(z)}{\sqrt{x(4c-x)}}\,\frac{\diff x}{z-x}.
+\]
+Since $\log\Hc=-2(G-G(0^+))$ and $G(0^+)=\lim_{x\to0^+}G(x)$, (iii) gives $|\log\Hc|\le Cn^{-p}$ on $\{|z|\le r_*\}$, boundary
+values on the cut included. Let $z\in U(0,2\delta)\setminus[0,2\delta)$. For $x\le\frac12r_*$ the segment from $x$ to $z$
+(from $x$ to $z\pm i0$ if $z$ lies on the cut) avoids $(-\infty,0)$, so $|\log\Hc(x)-\log\Hc(z)|\le Cn^{-p}|x-z|$ by the
+second bound of~(iii); for $x>\frac12r_*$ we have $|x-z|\ge c$ and use the sup bound. With $|\mathcal R(z)|\le C$ the
+integral is $O(n^{-p})$. For $z\in U(4c,2\eps)\setminus[0,4c]$ the same argument applies with the third bound of~(iii)
+and $\eta=1$ on $x\in(4c-4\eps,4c)$ (here $|w|\le r_*-1$ and $\mathrm{dist}(w,(-\infty,0])\ge4c-4\eps\ge1$ on the segment,
+as $c>\frac12$ for $p>1$ by~\eqref{eq:cp}), and the sup bound with $|x-z|\ge\eps$ elsewhere.
+\end{proof}
+
+\subsection{The classical Bessel parametrix}\label{sec:classical-param}
+
+We transcribe the left-endpoint construction of \cite[(6.42)--(6.53)]{KMVV} (\S\ref{sec:tool-bessel}(c)) into the
+frame of $Q$. Fix a square root $\wn^{1/2}$ and put, on $U(0,2\delta)\setminus(-2\delta,2\delta)$,
+\begin{equation}\label{eq:Wtilde}
+  \tilde W(z):=\wn^{1/2}(-z)^{\alpha/2}(4c-z)^{1/2}e^{-G(z)},\qquad \rho_n:=\tilde W/D_W ,
+\end{equation}
+with principal powers, so that $\tilde W^2=\wn(-z)^\alpha(4c-z)H_n$. Since $(-z)^\alpha=e^{\mp i\pi\alpha}z^\alpha$ in
+$\C_\pm$, the identities
+\begin{equation}\label{eq:rho-props}
+  \tilde W^2=e^{\mp i\pi\alpha}W_0,\qquad \rho_n^2=\frac{e^{\mp i\pi\alpha}}{\omega}\quad\text{in }\C_\pm,\qquad
+  \rho_{n,+}\rho_{n,-}=1\ \text{on }(0,2\delta),\qquad \rho_{n,+}=\rho_{n,-}e^{-i\mathfrak e}\ \text{on }(-2\delta,0)
+\end{equation}
+hold: on the band $\tilde W_+\tilde W_-=W_0=D_{W,+}D_{W,-}$, and on the negative axis $D_W$ and $(-z)^{\alpha/2}$ are
+analytic while $e^{-G}$ jumps by $e^{-i\mathfrak e}$ (Lemma~\ref{lem:bandfactor}(i)). This is the analogue of
+\cite[(6.44)--(6.46)]{KMVV}. Let $\Psi_\alpha$ be the Bessel model of \S\ref{sec:tool-bessel}(a) on KMVV's rays,
+$\Phi_\alpha(\zeta):=\sigma_3\Psi_\alpha(\zeta)\sigma_3e^{-2\zeta^{1/2}\sigma_3}$ (the matrix~\eqref{eq:he-Phi}, now for
+every $\alpha>-1$), and define in $U(0,2\delta)$
+\begin{equation}\label{eq:Pcheck}
+  \check A:=P^\infty_0\,\rho_n^{\sigma_3}Mf^{\sigma_3/4},\qquad
+  \check P_0:=\check A\,(2\pi n)^{\sigma_3/2}\,\Phi_\alpha(n^2f)\,\rho_n^{-\sigma_3}.
+\end{equation}
+If $\tilde W$ is replaced by $D_W$ in~\eqref{eq:Wtilde}, then $\rho_n=1$, $\check A=A_0$ and $\check P_0$ is the comparison
+parametrix~\eqref{eq:he-P0hat} of Section~\ref{sec:hardedge}.
+
+\begin{lemma}[the classical Bessel parametrix]\label{lem:classical-param}
+Let $p>1$, $s>1$, $\ell\equiv1$. For $n\ge n_0$:
+\begin{enumerate}
+\item[(i)] $|\rho_n^{\pm1}|\le C$ on $U(0,2\delta)\setminus\R$, with boundary values; $\det\check A=1$; and
+  $\check A=\check A^{\mathrm a}+\check A^{\mathrm s}$ on $U(0,\delta)$, where $\check A^{\mathrm a}$ is analytic on
+  $U(0,\delta)$ and $|\check A^{\mathrm s}|\le Ce^{-n/C}$. In particular $|\check A^{\pm1}|\le C$ on $U(0,\delta)$.
+\item[(ii)] $\check P_0$ is analytic in $U(0,\delta)\setminus(\Sigma\cup(-\delta,0))$, $\det\check P_0=1$, and
+  \[
+    \check P_{0,+}=\check P_{0,-}J\ \text{on }(0,\delta),\qquad
+    \check P_{0,+}=\check P_{0,-}\begin{pmatrix}1&0\\\omega e^{2n\varphi}&1\end{pmatrix}\ \text{on the lips in }U(0,\delta),
+  \]
+  and $\check P_{0,+}=\check P_{0,-}v_{\mathrm h}$ on $(-\delta,0)$ with
+  $|v_{\mathrm h}-I|\le Cn^C|x|^{-C}\exp(-2\pi\sin(\pi/p)\,n|x|^{-1/p})$.
+\item[(iii)] $|\check P_0^{\pm1}(z)|\le Cn^C|z|^{-C}$ on $U(0,\delta)$ off the contour, with boundary values.
+\item[(iv)] Uniformly for $\frac12\delta\le|z|\le\delta$ off the contour, $\check P_0(z)P^\infty_0(z)^{-1}=I+O(1/n)$ and
+  $|\check P_0^{\pm1}(z)|\le C$.
+\end{enumerate}
+\end{lemma}
+
+The lemma uses the Bessel model \cite[(6.16)--(6.18), (6.23)--(6.28), Theorem~6.3]{KMVV} with its behaviour at $0$
+\cite[(6.19)--(6.21)]{KMVV}, and the removability argument of \cite[proof of Proposition~6.5]{KMVV}
+(\S\ref{sec:tool-bessel}(a), (c)). Since $h(z)$ in \cite[(1.1)]{KMVV} is not analytic at our endpoint, that argument is
+applied after the super-small jump of $\rho_n$ on $(-\delta,0)$ has been split off, as in~(i).
+
+\begin{proof}
+(i) By~\eqref{eq:rho-props}, $\rho_n^2=e^{\mp i\pi\alpha}/\omega$, and by~\eqref{eq:omega-mod} and
+Lemma~\ref{lem:bandfactor}(iv) it suffices to bound $\omega^{\mathrm{mod}}$ above and below on $U(0,2\delta)\setminus\R$.
+This follows from Lemma~\ref{lem:szego}(i): $|D_{x^\alpha}(z)^2|\asymp|z|^\alpha$ and $|D_{4c-x}(z)^2|\asymp|z-4c|$. Each
+factor of $\check A$ has determinant $1$. On $(0,\delta)$, $P^\infty_{0,+}=P^\infty_{0,-}J$,
+$\rho_{n,+}^{\sigma_3}=\rho_{n,-}^{-\sigma_3}$ and $f_+^{\sigma_3/4}=f_-^{\sigma_3/4}\mathrm{diag}(-i,i)$ (the proof of
+Lemma~\ref{lem:comparison-parametrix}(i)); with $J\rho^{-\sigma_3}=\rho^{\sigma_3}J$ and $JM\,\mathrm{diag}(-i,i)=M$ this
+gives $\check A_+=\check A_-$. On $(-2\delta,0)$ the factors $P^\infty_0$ and $f^{1/4}$ are analytic ($f>0$ there), so by
+\eqref{eq:rho-props}
+\begin{equation}\label{eq:A-jump}
+  \check A_-^{-1}\check A_+=f^{-\sigma_3/4}M^{-1}e^{-i\mathfrak e\sigma_3}Mf^{\sigma_3/4},\qquad
+  |\check A_-^{-1}\check A_+-I|\le C|x|^{-1/2}|\mathfrak e(x)| .
+\end{equation}
+The crude bound $|\check A|\le C|z|^{-1/2}$ on $U(0,2\delta)$ follows from~\eqref{eq:Pinf0-bound}, the bound on $\rho_n$ and
+$|f^{\pm1/4}|\le C|z|^{\pm1/4}$. Put $\check A^{\mathrm s}(z):=\frac1{2\pi i}\int_{-2\delta}^0\check A_-(y)(\check A_-^{-1}\check A_+-I)(y)
+\frac{\diff y}{y-z}$. By~\eqref{eq:A-jump} and Lemma~\ref{lem:bandfactor}(i),(iv) the density is $C^1$ on $[-2\delta,0)$ with
+norm $O(e^{-n/C})$ and vanishes to infinite order at $0$, so $|\check A^{\mathrm s}|\le Ce^{-n/C}$ on $U(0,\frac32\delta)$,
+boundary values included. Then $\check A^{\mathrm a}:=\check A-\check A^{\mathrm s}$ has no jump on $(-\frac32\delta,0)$
+and none on the band, so it is analytic in $U(0,\frac32\delta)\setminus\{0\}$, with $|\check A^{\mathrm a}(z)|\le C|z|^{-1/2}$;
+an isolated singularity with this growth is removable. On $|z|=\frac54\delta$ we have $|\check A^{\mathrm a}|\le C$, by
+\eqref{eq:Pinf0-bound} and the bounds on $\rho_n$ and $f$, so the maximum principle gives $|\check A^{\mathrm a}|\le C$ on
+$U(0,\delta)$. Since $\det\check A=1$, $\check A^{-1}$ is the adjugate of $\check A$ and obeys the same bound.
+
+(ii) Each factor has determinant $1$. On the band, $\check A$ has no jump,
+$\Phi_{\alpha,+}=\Phi_{\alpha,-}J$ by~\eqref{eq:he-Phi-jumps} (whose derivation from \cite[(6.16)--(6.18)]{KMVV} uses
+no restriction on $\alpha$), and $\rho_{n,-}^{\sigma_3}J\rho_{n,+}^{-\sigma_3}=\rho_{n,-}^{\sigma_3}J\rho_{n,-}^{\sigma_3}=J$.
+The upper lip in $U(0,\delta)$ is mapped by $\zeta=n^2f$ onto the ray $\arg\zeta=-2\pi/3$, where by~\eqref{eq:he-Phi-jumps}
+and~\eqref{eq:he-ephi} $\Phi_\alpha$ jumps by $\bigl(\begin{smallmatrix}1&0\\e^{-i\pi\alpha}e^{2n\varphi}&1\end{smallmatrix}\bigr)$;
+conjugation by $\rho_n^{-\sigma_3}$ multiplies the lower-left entry by $\rho_n^{-2}=e^{i\pi\alpha}\omega$
+by~\eqref{eq:rho-props}. The lower lip is the mirror image. On $(-\delta,0)$, $\Phi_\alpha$ is analytic ($\zeta>0$), so
+\[
+  v_{\mathrm h}=\rho_{n,-}^{\sigma_3}\Phi_\alpha^{-1}(2\pi n)^{-\sigma_3/2}\bigl(\check A_-^{-1}\check A_+\bigr)(2\pi n)^{\sigma_3/2}
+  \Phi_\alpha\,\rho_{n,-}^{-\sigma_3}e^{i\mathfrak e\sigma_3},
+\]
+and the bound follows from~\eqref{eq:A-jump}, Lemma~\ref{lem:bandfactor}(i), the bounds on $\rho_n$ and the bound on
+$\Phi_\alpha^{\pm1}$ in~(iii) below.
+
+(iii) For $|\zeta|\ge2$, \cite[(6.28)]{KMVV} gives $\Phi_\alpha(\zeta)=\zeta^{-\sigma_3/4}(2\pi)^{-\sigma_3/2}(M^{-1}+O(\zeta^{-1/2}))$,
+so $|\Phi_\alpha^{\pm1}|\le C|\zeta|^{1/4}$; this is~\eqref{eq:he-Phi-large}, whose derivation is valid for every
+$\alpha>-1$. For $|\zeta|\le3$, \cite[(6.19)--(6.21)]{KMVV} give $|\Psi_\alpha(\zeta)|\le C|\zeta|^{-|\alpha|/2}$ for
+$\alpha\ne0$ and $\le C(1+|\log|\zeta||)$ for $\alpha=0$; since $\det\Psi_\alpha=1$ the same holds for $\Psi_\alpha^{-1}$,
+and $e^{\pm2\zeta^{1/2}}$ is bounded there. With $\zeta=n^2f$, $|f|\asymp|z|$, part~(i), and the factor
+$(2\pi n)^{\pm1/2}$, this gives~(iii).
+
+(iv) For $\frac12\delta\le|z|\le\delta$, $|\zeta|\ge n^2\delta/C\ge2$, and, since $(n^2f)^{-\sigma_3/4}=n^{-\sigma_3/2}f^{-\sigma_3/4}$,
+\[
+  \check P_0=P^\infty_0\rho_n^{\sigma_3}Mf^{\sigma_3/4}(2\pi n)^{\sigma_3/2}(n^2f)^{-\sigma_3/4}(2\pi)^{-\sigma_3/2}
+  \bigl(M^{-1}+O(n^{-1})\bigr)\rho_n^{-\sigma_3}=P^\infty_0\rho_n^{\sigma_3}\bigl(I+O(n^{-1})\bigr)\rho_n^{-\sigma_3}.
+\]
+Since $P^\infty_0$, $(P^\infty_0)^{-1}$ and $\rho_n^{\pm1}$ are bounded on the annulus uniformly in $n$, both claims follow.
+\end{proof}
+
+\begin{lemma}[the hard-edge mismatch]\label{lem:mismatch-classical}
+For $n\ge n_0$ put $\mathsf R:=Q\check P_0^{-1}$ in $U(0,\delta)$. Then $\mathsf R$ has no jump on $(0,\delta)$, and
+$\mathsf R_+=\mathsf R_-J_{\mathsf R}$ on the lips in $U(0,\delta)$ and on $(-\delta,0)$, where for every $K\ge1$
+\[
+  |J_{\mathsf R}(z)-I|\le C_Kn^{-K}\min(1,|z|^K).
+\]
+\end{lemma}
+
+\begin{proof}
+On the band $Q$ and $\check P_0$ both jump by $J$ (Proposition~\ref{prop:frame}(i), Lemma~\ref{lem:classical-param}(ii)),
+and the boundary values of $\mathsf R$ are continuous, so $\mathsf R$ is analytic across $(0,\delta)$. On a lip,
+$Q_+=Q_-v$ with $v=v_{\mathrm m}+E$, $v_{\mathrm m}:=\bigl(\begin{smallmatrix}1&0\\\omega e^{2n\varphi}&1\end{smallmatrix}\bigr)$
+(Proposition~\ref{prop:frame}(i)), and $\check P_{0,+}=\check P_{0,-}v_{\mathrm m}$; so
+$J_{\mathsf R}=\check P_{0,-}(I+Ev_{\mathrm m}^{-1})\check P_{0,-}^{-1}$. Here $|\omega e^{2n\varphi}|\le C$ on the lips
+(Lemma~\ref{lem:szego}(vi)(a), Proposition~\ref{prop:frame}(vi)) and $|E|\le C\exp(-n|z|^{-1/p}/C)$ (Proposition~\ref{prop:frame}(iv)). On
+$(-\delta,0)$, $Q$ has no jump, so $J_{\mathsf R}=\check P_{0,-}v_{\mathrm h}^{-1}\check P_{0,-}^{-1}$. In both cases
+Lemma~\ref{lem:classical-param}(ii), (iii) give $|J_{\mathsf R}-I|\le Cn^C|z|^{-C}\exp(-n|z|^{-1/p}/C)$, and
+$e^{-u}\le C_Mu^{-M}$ with $u=n|z|^{-1/p}$ and $M$ large gives the claim, since $|z|<1$.
+\end{proof}
+
+\subsection{The small-norm estimate}\label{sec:classical-small}
+
+Let $U_0:=U(0,\delta)$ and $U_r:=U(4c,\eps)$, and define the \emph{error matrix}
+\begin{equation}\label{eq:error-matrix}
+  \mathsf R:=Q\check P_0^{-1}\ \text{in }U_0,\qquad \mathsf R:=Q\hat P_r^{-1}\ \text{in }U_r,\qquad
+  \mathsf R:=Q(P^\infty_0)^{-1}\ \text{elsewhere},
+\end{equation}
+with the Airy parametrix $\hat P_r$ of~\eqref{eq:airy}. (The letter $\mathsf R$ is not the matrix $R$ of~\eqref{eq:R}.)
+Orient $\partial U_0$ and $\partial U_r$ clockwise, so that their $+$ side is the outside, and let $\Sigma_{\mathsf R}$ be the
+union of the two circles, of $\Sigma\setminus(\overline{U_0}\cup\overline{U_r}\cup[0,4c])$, and of the lips and the segment
+$(-\delta,0)$ inside $U_0$. Then $\mathsf R_+=\mathsf R_-J_{\mathsf R}$ on $\Sigma_{\mathsf R}$ with
+$J_{\mathsf R}=\check P_0(P^\infty_0)^{-1}$ on $\partial U_0$, $\hat P_r(P^\infty_0)^{-1}$ on $\partial U_r$,
+$P^\infty_0v(P^\infty_0)^{-1}$ on the arcs of $\Sigma$ outside the discs, and $J_{\mathsf R}$ of
+Lemma~\ref{lem:mismatch-classical} inside $U_0$.
+
+\begin{proposition}[first-order small norm]\label{prop:classical}
+Let $p>1$, $s>1$ and $\ell\equiv1$. There are $n_0$ and $C$ such that for $n\ge n_0$:
+\begin{enumerate}
+\item[(i)] $\mathsf R$ is analytic off $\Sigma_{\mathsf R}$, $\mathsf R(z)\to I$ as $z\to\infty$, and $\mathsf R$ has no jump
+  on $\Sigma\cap U_r$ or on the band outside $U_0$;
+\item[(ii)] $|J_{\mathsf R}-I|\le C/n$ on the circles, $|J_{\mathsf R}-I|\le C_Kn^{-K}\min(1,|z|^K)$ on $\Sigma_{\mathsf R}\cap U_0$
+  for every $K$, and $|J_{\mathsf R}-I|\le Ce^{-n/C}$ on the remaining arcs, whose total length is $O(n^p)$; in particular
+  $\|J_{\mathsf R}-I\|_{L^1\cap L^2\cap L^\infty(\Sigma_{\mathsf R})}\le C/n$;
+\item[(iii)] $\mathsf R_\pm-I\in L^2(\Sigma_{\mathsf R})$ and $\mathsf R=I+\Cauchy\bigl(\mathsf R_-(J_{\mathsf R}-I)\bigr)$ off
+  $\Sigma_{\mathsf R}$;
+\item[(iv)] $\|\mathsf R_--I\|_{L^2(\Sigma_{\mathsf R})}\le C/n$, $|\mathsf R(z)-I|\le C_d/n$ for $\mathrm{dist}(z,\Sigma_{\mathsf R})\ge d>0$,
+  and, with $\mathsf R=I+\mathsf R_1/z+\mathsf R_2/z^2+O(z^{-3})$ at infinity, $|\mathsf R_1|+|\mathsf R_2|\le C/n$.
+\end{enumerate}
+Consequently $n^pb_n=c(p)(1+O(1/n))$ and $a_n/(2b_n)=1+O(1/n)$ for $\sigma_{p,s}$, $p>1$, $s>1$.
+\end{proposition}
+
+Besides Lemmas~\ref{lem:classical-param} and~\ref{lem:mismatch-classical} (and so \cite[\S6]{KMVV}), the proof uses
+Proposition~\ref{prop:frame}(i)--(vi), (viii), the Airy parametrix (Lemma~\ref{lem:airy}, which rests on
+\S\ref{sec:tool-dlmf}(b)), the sum bounds of Lemmas~\ref{lem:sumbound} and~\ref{lem:lenssector} (whose proofs use the
+Bessel order only through $\alpha-\eta>-1$), the behaviour of the Bessel model at $0$ \cite[(6.19)--(6.21)]{KMVV}, the
+series (10.25.2) of \S\ref{sec:tool-dlmf}(c), and the boundedness of the Cauchy operator on Carleson curves
+(\S\ref{sec:tool-cd}(a)). It does not use Proposition~\ref{prop:frame}(vii) or Corollary~\ref{cor:L2}.
+
+\begin{proof}
+\emph{Outline.} Step~1 collects the jumps. Step~2 is the identification: for fixed $n$ it shows that $\mathsf R$ is not
+too singular at $0$ and is the Cauchy integral of its jump; this replaces the a priori bound of
+Appendix~\ref{app:apriori}, which needs $|\alpha|<1$, by an argument at the level of $\mathsf R$, whose columns are
+balanced by the parametrix. Step~3 is the small-norm estimate and Step~4 the extraction.
+
+\emph{Step 1: jumps.} Inside $U_r$, $\hat P_r$ has exactly the jumps of $Q$ (Proposition~\ref{prop:frame}(v)). On the band
+outside $U_0$ both $Q$ and $P^\infty_0$ jump by $J$. Inside $U_0$ the jumps are those of Lemma~\ref{lem:mismatch-classical}.
+On the circles, Lemma~\ref{lem:classical-param}(iv) and Proposition~\ref{prop:frame}(v) give $J_{\mathsf R}=I+O(1/n)$. On the
+remaining arcs $|v-I|\le Ce^{-n/C}$ (Proposition~\ref{prop:frame}(v)), and $P^\infty_0$ is bounded with bounded inverse there
+by~\eqref{eq:Pinf0-bound}. The lengths are those of Proposition~\ref{prop:frame}(i). At infinity $\mathsf R=Q(P^\infty_0)^{-1}\to I$.
+This proves~(i) and~(ii).
+
+\emph{Step 2: behaviour at $0$ for fixed $n$, and identification.} Fix $n$; constants in this step may depend on $n$.
+We first show that for every $\eta>0$
+\begin{equation}\label{eq:R-at-zero}
+  |\mathsf R(z)|\le C_{n,\eta}|z|^{\min(0,\alpha)-\eta}\qquad(0<|z|<\delta_{\mathrm s}/2,\ z\notin\Sigma_{\mathsf R}),
+\end{equation}
+with boundary values, where $\delta_{\mathrm s}$ is that of Lemma~\ref{lem:lenssector}. By~\eqref{eq:VM}, \eqref{eq:Q},
+\eqref{eq:he-ephi} and~\eqref{eq:Pcheck}, outside the lens
+$Q=c_n\,U\,(e^{n\varphi}FD_W)^{\sigma_3}$ with a constant diagonal $c_n$, and therefore
+\[
+  \mathsf R=\pm c_n\,U\,(F\tilde W)^{\sigma_3}\,\sigma_3\Psi_\alpha(n^2f)^{-1}\sigma_3\,(2\pi n)^{-\sigma_3/2}\check A^{-1},
+\]
+because $e^{n\varphi\sigma_3}\Phi_\alpha^{-1}=(-1)^n\sigma_3\Psi_\alpha^{-1}\sigma_3$ by~\eqref{eq:he-ephi} and
+$D_W\rho_n=\tilde W$. Here $F^{\pm1}$ is bounded near $0$ outside the lens (Definition~\ref{def:outer-admissible}(e)),
+$|\tilde W|\asymp|z|^{\alpha/2}$, $\check A^{-1}$ is bounded (Lemma~\ref{lem:classical-param}(i)), the first column of $U$ is
+polynomial and its second column is $O(|z|^{-\eta}(1+|z|^\alpha))$ (Lemma~\ref{lem:sumbound}). Outside the lens
+$\zeta=n^2f$ lies in the sector $|\arg\zeta|<2\pi/3$, where \cite[(6.19)--(6.21)]{KMVV} give, for $\alpha>0$, columns of
+$\Psi_\alpha$ of sizes $|\zeta|^{\alpha/2}$ and $|\zeta|^{-\alpha/2}$, hence rows of $\Psi_\alpha^{-1}=\mathrm{adj}\,\Psi_\alpha$ of
+sizes $|\zeta|^{-\alpha/2}$ and $|\zeta|^{\alpha/2}$; for $\alpha<0$ all entries are $O(|\zeta|^{\alpha/2})$, and for $\alpha=0$
+they are logarithmic. Multiplying out gives~\eqref{eq:R-at-zero}: for $\alpha\ge0$ the powers of $|z|$ cancel column by
+row, and for $\alpha<0$ the worst product is $|z|^{\alpha-\eta}$. Inside the lens, by~\eqref{eq:VM} and~\eqref{eq:R},
+$Q=Q^{\mathrm u}L$ with $Q^{\mathrm u}:=c_n\,(UL_\pm)(e^{n\varphi}\tilde FD_W)^{\sigma_3}$ and
+$L:=\bigl(\begin{smallmatrix}1&0\\\mp\omega e^{2n\varphi}&1\end{smallmatrix}\bigr)$, and by
+Lemma~\ref{lem:classical-param}(ii) $\check P_0=\check P^{\mathrm u}L$ with the same $L$, where $\check P^{\mathrm u}$ is
+the continuation of $\check P_0$ from outside the lens. So $\mathsf R=Q^{\mathrm u}(\check P^{\mathrm u})^{-1}$ there.
+The continuation of $\Psi_\alpha$ from $|\arg\zeta|<2\pi/3$ into the lens is the formula \cite[(6.23)]{KMVV}, analytic in
+$|\arg\zeta|<\pi$; its first column is $\zeta^{\alpha/2}$ times an entire function by (10.25.2), and its second column is
+that of $\Psi_\alpha$ in the thin sectors, because the jumps \cite[(6.16), (6.18)]{KMVV} are lower triangular; so
+\cite[(6.19)--(6.21)]{KMVV} give the same column sizes as outside. With Lemma~\ref{lem:lenssector} for the second column
+of $UL_\pm$ and Definition~\ref{def:outer-admissible}(e) for $\tilde F$, the same computation gives~\eqref{eq:R-at-zero}
+in the lens.
+
+Next, let $\delta_2<\delta_{\mathrm s}/2$ and $\Gamma:=\Sigma_{\mathsf R}\cap U(0,\delta_2)$, the two lips and $(-\delta_2,0)$,
+which meet only at $0$ and leave it at fixed angles. Since $\|J_{\mathsf R}^{-1}-I\|_{L^2\cap L^\infty(\Gamma)}\le C_Kn^{-K}$
+by Lemma~\ref{lem:mismatch-classical} and the Cauchy operators are bounded on $L^2(\Gamma)$
+(\S\ref{sec:tool-cd}(a)), for $n\ge n_0$ there is, by a Neumann series for the transposed problem, a matrix $\tilde X$,
+analytic in $\C\setminus\Gamma$, with $\tilde X-I=\Cauchy_\Gamma(\mathfrak h)$ for some $\mathfrak h\in L^2(\Gamma)$ and
+$\tilde X_+=J_{\mathsf R}^{-1}\tilde X_-$ on $\Gamma$. By Cauchy--Schwarz and $|J_{\mathsf R}-I|\le C_K|s|^K$,
+$|\tilde X(z)|\le C(1+|z|^K\mathrm{dist}(z,\Gamma)^{-1/2})$ near $0$. The determinant of $\tilde X$ has no jump, and
+the sub-mean-value property of $|\det\tilde X-1|^{1/2}$ on discs of radius comparable to $|z|$ shows that its singularity
+at $0$ is removable and that $\det\tilde X=1+O(n^{-K})$ near $0$. Hence $\mathsf G:=\mathsf R\tilde X$ has no jump on
+$\Gamma\setminus\{0\}$, and its Laurent coefficients at $0$ satisfy
+\[
+  |c_{-k}|\le\frac{r^{k-1}}{2\pi}\int_{|z|=r}|\mathsf R||\tilde X||\diff z|\le C_{n,\eta}\,r^{k-1}r^{\min(0,\alpha)-\eta}\bigl(r+r^{K+1/2}\bigr)
+\]
+by~\eqref{eq:R-at-zero}, since $\int_{|z|=r}\mathrm{dist}(z,\Gamma)^{-1/2}|\diff z|\le Cr^{1/2}$. As $\alpha>-1$, choosing
+$\eta<1+\min(0,\alpha)$ and letting $r\to0$ gives $c_{-k}=0$ for all $k\ge1$; so $\mathsf G$ is analytic near $0$. Then
+$\mathsf R=\mathsf G\,\mathrm{adj}(\tilde X)/\det\tilde X$, where $\mathrm{adj}(\tilde X)-I$ is a Cauchy integral over $\Gamma$
+of an $L^2$ density (the adjugate of a $2\times2$ matrix is affine in its entries) and $\mathsf G/\det\tilde X$ is analytic
+near $0$. Since $\mathfrak g\,\Cauchy_\Gamma(\mathfrak h)-\Cauchy_\Gamma(\mathfrak g\mathfrak h)$ is analytic near $0$ for
+analytic $\mathfrak g$, $\mathsf R$ is, near $0$, the sum of an analytic function and a Cauchy integral over $\Gamma$ of an
+$L^2$ density. Away from $0$ the matrix $\mathsf R$ is continuous up to $\Sigma_{\mathsf R}$ off the vertices and bounded near
+them (Proposition~\ref{prop:apriori}(ii)--(iii), whose proof does not involve $\alpha$, and the boundedness of the
+parametrices there), and $\mathsf R=I+O(1/z)$ at infinity. Subtracting the local Cauchy integral near $0$ and applying
+Lemma~\ref{lem:B-cauchy}(c) to the rest, we obtain $\mathsf R_\pm-I\in L^2(\Sigma_{\mathsf R})$ and
+$\mathsf R=I+\Cauchy(\mathsf R_+-\mathsf R_-)$, which is~(iii) because $\mathsf R_+-\mathsf R_-=\mathsf R_-(J_{\mathsf R}-I)$.
+
+\emph{Step 3: small norm.} The proof of Proposition~\ref{prop:frame}(i) applies without change to
+$\Sigma\cup\partial U_0\cup\partial U_r\cup[-\delta,0]$, since the added arcs are fixed and lie in $\{\re z\le4c+1\}$; and
+$\Sigma_{\mathsf R}$ is a subset, so $\|\Cauchy_-\|_{L^2(\Sigma_{\mathsf R})}\le C$. Taking boundary values in~(iii),
+$(1-\Cauchy_{J_{\mathsf R}})(\mathsf R_--I)=\Cauchy_-(J_{\mathsf R}-I)$, and $\|\Cauchy_{J_{\mathsf R}}\|\le C\|J_{\mathsf R}-I\|_{L^\infty}\le
+\frac12$ for $n\ge n_0$ by~(ii); so $\|\mathsf R_--I\|_{L^2}\le C\|J_{\mathsf R}-I\|_{L^2}\le C/n$. Then
+$\mathsf R-I=\Cauchy(J_{\mathsf R}-I)+\Cauchy((\mathsf R_--I)(J_{\mathsf R}-I))$ gives the pointwise bound, and
+$\mathsf R_k=-\frac1{2\pi i}\int_{\Sigma_{\mathsf R}}\mathsf R_-(J_{\mathsf R}-I)s^{k-1}\diff s$ ($k=1,2$) gives the bound on the
+moments: on the far arcs $|s|\le Cn^p$ is absorbed by $e^{-n/C}$.
+
+\emph{Step 4: extraction.} For $|z|$ large, $Q=\mathsf RP^\infty_0$, so $Q_1=P_1+\mathsf R_1$ and $Q_2=P_2+\mathsf R_1P_1+\mathsf R_2$,
+where $P^\infty_0=I+P_1/z+P_2/z^2+O(z^{-3})$. Expanding $a(z)=(1-4c/z)^{1/4}$ in~\eqref{eq:Pinf0},
+\begin{equation}\label{eq:P1P2}
+  P_1=\begin{pmatrix}0&ic\\-ic&0\end{pmatrix},\qquad P_2=\begin{pmatrix}c^2/2&2ic^2\\-2ic^2&c^2/2\end{pmatrix},
+\end{equation}
+so $\mathsf b(P^\infty_0)=c^2$ and $\mathsf a(P^\infty_0)=2c$. By Proposition~\ref{prop:frame}(viii) and~(iv),
+$n^{2p}b_n^2=\mathsf b(Q)=c^2+O(1/n)$ and $n^pa_n=\mathsf a(Q)=2c+O(1/n)$, as $(Q_1)_{12}=ic+O(1/n)\ne0$.
+\end{proof}
+
+\begin{remark}[the classical hard-edge parametrix at $p=1$]\label{rem:quotient-p1}
+For pure powers and $p\ne1$ the hard-edge parametrix can be built in the classical way, from a square root $\tilde W$ of
+the band weight continued to a full neighbourhood of $0$; for $p>1$ its jump on $(-\delta,0)$ is super-exponentially
+close to $I$ (Lemma~\ref{lem:bandfactor}(i)), and this is the construction of the present section. At $p=1$ it fails,
+already for $\ell\equiv1$: on $(-\delta,0)$, $\theta=\pi n/x$ is real, the continuations of the lens scalar from the two
+half-planes differ by the unimodular factor $\tilde F_+/\tilde F_-=-e^{-2i\theta}$, which is not close to $1$, and the
+continuation of $H_n=e^{2j(n/z)}$ (Lemma~\ref{lem:outer}) has double poles at $z=-n/m$, $m\in\N$, accumulating at $0$.
+The comparison parametrix of Section~\ref{sec:hardedge} never continues anything across $(-\delta,0)$: neither $V$ nor $Q$
+has a jump there, and it uses only $D_W$. This is why Theorem~\ref{thm:analytic} at $p=1$ is proved by that route. (The
+obstruction concerns this classical construction, not every quotient construction.) For $p<1$ we do not use the present
+module either: the expansion of Section~\ref{sec:second} to order $1/n$ also needs the band factor to be constant to
+$o(1/n)$ near $0$, as Lemma~\ref{lem:bandfactor}(iii) provides for $p>1$, and for the seam construction of
+Appendix~\ref{app:outer} the available bound near $0$ is only $|\log\Hc(z)|\le C|z|(1+\log(1/|z|))$
+(Table~\ref{tab:geometry}), which does not give this.
+\end{remark}
+
+\subsection{Localisation of the spectral weights}\label{sec:tail}
+
+For $\sigma_{p,s}$ let $p_n=P_n/\sqrt{h_n}$ be the orthonormal polynomials and
+\[
+  m_n(k):=k^{-s}p_n(k^{-p})^2=\frac{w_kP_n(x_k)^2}{h_n}\qquad(k\ge1),
+\]
+so that $\sum_km_n(k)=1$. The following proposition says that the spectral weights of degree $n$ live on indices $k$ of
+order $n$, with a power tail beyond. In this subsection $p>0$ is arbitrary.
+
+\begin{proposition}[localisation of the spectral weights]\label{prop:tail}
+Let $p>0$, $s>1$, and assume either
+\begin{enumerate}
+\item[(a)] $1<s<1+2p$, or
+\item[(b)] $p>1$.
+\end{enumerate}
+There are $C$, $c_1>0$ and $n_0$ such that for $n\ge n_0$, $j\in\{n-1,n\}$ and $1\le M\le c_1n^{2/p}$,
+\begin{equation}\label{eq:tail-arcsine}
+  \sum_{k>Mn}m_j(k)\le C\,M^{-p/2}.
+\end{equation}
+In case~(b), moreover, for every $\tau$ with $0<\tau<\min(p/2,s-1)$ there is $C_\tau$ with
+$\sum_{k>Mn}m_j(k)\le C_\tau M^{-\tau}$ for all $n\ge n_0$, $j\in\{n-1,n\}$ and $M\ge1$.
+\end{proposition}
+
+In case~(a) the proof uses the comparison frame of Section~\ref{sec:hardedge} (so \cite[Theorem~4.4]{CD} through
+\S\ref{sec:tool-cd}(b), and \cite[\S6]{KMVV}); in case~(b) it uses Proposition~\ref{prop:classical} and the integral
+representations (10.32.4) and (10.32.9) of \cite{DLMF} for $I_\alpha$ and $K_\alpha$. In case~(a) the bound is stated
+only up to the Bessel scale $M\asymp n^{2/p}$; the companion paper \cite{Paper3} combines it with a polynomial-inequality
+argument to reach larger $M$. Both cases rest on two elementary lemmas.
+
+\begin{lemma}[a Stieltjes bound]\label{lem:stieltjes}
+Let $\nu$ be a probability measure on $[0,\infty)$, $r>0$ and $z=re^{5\pi i/6}$. Then
+$\nu([0,r])\le\frac8{\sqrt3}\,r\,\bigl|\int\diff\nu(X)/(X-z)\bigr|$.
+\end{lemma}
+
+\begin{proof}
+For $X\ge0$, $\re\frac1{X-z}=\frac{X+r|\cos(5\pi/6)|}{|X-z|^2}\ge0$, and for $0\le X\le r$ also $|X-z|^2\le4r^2$, so
+$\re\frac1{X-z}\ge\frac{\sqrt3/2}{4r}$. Hence $\nu([0,r])\frac{\sqrt3}{8r}\le\re\int\frac{\diff\nu(X)}{X-z}$.
+\end{proof}
+
+\begin{lemma}[row product]\label{lem:rowproduct}
+Let $\nu_n:=\sum_km_n(k)\delta_{X_k}$, with the nodes $X_k=(n/k)^p$ of~\eqref{eq:Xk}, and $S_n(z):=\int\diff\nu_n(X)/(X-z)$.
+Suppose that $Q=\mathsf c\,U\,\mathsf k^{\sigma_3}$ on a connected open set containing $z\notin\{X_k\}\cup\{0\}$ and a
+neighbourhood of infinity, where $\mathsf c=\mathrm{diag}(\mathsf c_1,\mathsf c_2)$ is constant, $\mathsf k$ is scalar, and
+$Q=I+Q_1/z+O(z^{-2})$. Then $S_n(z)=-Q_{11}(z)Q_{12}(z)/(Q_1)_{12}$.
+\end{lemma}
+
+\begin{proof}
+By~\eqref{eq:U-sum}, $U_{12}(z)=\sum_kn^pw_kU_{11}(X_k)/(z-X_k)$, and $U_{11}(X)=n^{pn}P_n(Xn^{-p})$ is monic of degree $n$
+in $X$. Since $(U_{11}(z)-U_{11}(X))/(z-X)$ is a polynomial of degree $n-1$ in $X$, orthogonality gives
+$U_{11}(z)U_{12}(z)=\sum_kn^pw_kU_{11}(X_k)^2/(z-X_k)=-\mathsf hS_n(z)$ with $\mathsf h:=\sum_kn^pw_kU_{11}(X_k)^2$, because
+$m_n(k)=n^pw_kU_{11}(X_k)^2/\mathsf h$. Expanding $U_{12}$ at infinity, orthogonality kills the terms $z^{-j-1}$, $j<n$, and
+the coefficient of $z^{-n-1}$ is $\mathsf h$; so the $(1,2)$ entry of the first coefficient of $Uz^{-n\sigma_3}$ is $\mathsf h$.
+Now $Q_{11}Q_{12}=\mathsf c_1^2U_{11}U_{12}$, and $Q_{11}\to1$ forces $\mathsf c_1z^n\mathsf k(z)\to1$, so
+$(Q_1)_{12}=\lim_{z\to\infty}zQ_{12}=\mathsf c_1^2\mathsf h$.
+\end{proof}
+
+The identity of Lemma~\ref{lem:rowproduct} expresses the diagonal of the resolvent of the Jacobi matrix through the
+product of the two solutions of the recurrence; we use it only in the form stated.
+
+\begin{proof}[Proof of Proposition~\ref{prop:tail}]
+\emph{Reduction.} Take $j=n$ first. Since $k>Mn$ exactly when $X_k<M^{-p}$, we have
+$\sum_{k>Mn}m_n(k)\le\nu_n([0,r])$ with $r:=M^{-p}\in(0,1]$. Let $z:=re^{5\pi i/6}$. For $r\le\frac14\delta$ the point
+$z$ lies in $\Oinf$ (the lips stay in $|\arg z|\le\frac54\thlip<\pi/2$) and off all contours, and there
+$Q=\mathsf c\,U(e^{n\varphi}FD_W)^{\sigma_3}$ by~\eqref{eq:VM} and~\eqref{eq:Q}, as also near infinity; so
+Lemmas~\ref{lem:stieltjes} and~\ref{lem:rowproduct} give
+\begin{equation}\label{eq:tail-reduction}
+  \nu_n([0,r])\le\frac8{\sqrt3}\,r\,\frac{|Q_{11}(z)Q_{12}(z)|}{|(Q_1)_{12}|},\qquad (Q_1)_{12}=ic+O(1/n),
+\end{equation}
+the latter by Proposition~\ref{prop:moments} in case~(a) and by Proposition~\ref{prop:classical} in case~(b), together
+with~\eqref{eq:P1P2}. For $r_0<r\le1$, where $r_0:=\frac14\delta$ in case~(a) and $r_0:=\frac12\delta_1$ in case~(b)
+($\delta_1$ is fixed below), we use $\nu_n([0,r])\le1\le r_0^{-1/2}r^{1/2}$. For $j=n-1$ apply the
+result at degree $n-1$ with $M':=Mn/(n-1)\ge M$; this costs a factor $\frac12$ in $c_1$. The geometric fact used below is
+that for $s'$ on the band or on a lip in $U(0,\delta)$ the angle between $s'$ and $z$ is at least $\pi/3$, so
+$|s'-z|\ge\frac12(|s'|+|z|)$; and that $|f(z)|\asymp r$, $\zeta_z:=n^2f(z)$ satisfies $|\arg\zeta_z|<\pi/6+\pi/24$.
+
+\emph{Case (a).} Here $1<s<1+2p$, $|\alpha|<1$, $\ell\equiv1$, so $\varepsilon_\Lambda\equiv0$ and
+$\varepsilon'_n=n^{-2\nu_p}\log n$. Put $y:=n^2r$, $D_z:=(2\pi n)^{\sigma_3/2}\zeta_z^{-\sigma_3/4}$ and let $y_0\ge1$ be such
+that $|\zeta_z|\ge2$ for $y\ge y_0$. We show
+\begin{equation}\label{eq:Q-ray}
+  |Q(z)|\le Cr^{-1/4}\qquad(y_0n^{-2}\le r\le\tfrac14\delta),
+\end{equation}
+which with~\eqref{eq:tail-reduction} gives $\nu_n([0,r])\le Cr^{1/2}=CM^{-p/2}$ for $1\le M\le(n^2/y_0)^{1/p}$.
+
+By Proposition~\ref{prop:UR-comparison}(i), Theorem~\ref{thm:UR-true} and \S\ref{sec:tool-cd}(b), as in the proof of
+Proposition~\ref{prop:moments}, $\mathsf K:=Q\tilde Q^{-1}=I+\Cauchy(\mathcal E)$ off $\hat\Sigma$, with
+$\mathcal E=Q_-(v-\tilde v)\tilde v^{-1}\tilde Q_-^{-1}$. For $|\zeta_z|\ge2$, $\tilde Q(z)=A_0(z)D_z\Theta_\infty(\zeta_z)$ by
+\eqref{eq:he-P0hat} and~\eqref{eq:he-Phi-large}, and $|A_0(z)D_z|\le Cr^{-1/4}$ since the entries of $D_z$ have moduli
+$\asymp r^{\mp1/4}$. Since $Q=[A_0D_z+(\mathsf K-I)A_0D_z]\Theta_\infty$, it suffices to show
+\begin{equation}\label{eq:K-weighted}
+  |(\mathsf K(z)-I)A_0(z)D_z|\le C(\varepsilon'_n+n^{-1})\,r^{-1/4}.
+\end{equation}
+The right factor $A_0(z)D_z$ is the scale of the comparison solution at $z$; without it the bound would not be small at
+the Bessel scale. We split $(v-\tilde v)\tilde v^{-1}=\Delta_1+\Delta_2+\Delta_3$ and $Q_-=\tilde Q_-+(Q_--\tilde Q_-)$ as in
+the proof of Proposition~\ref{prop:moments}, and put $\mathfrak m_n(s'):=|s'|^{\nu_p}\log(2/|s'|)$, so that
+$|d_n(s')|\le C\mathfrak m_n(s')e^{-n|s'|^{1/2}/C}$ by~\eqref{eq:he-mismatch} and~\eqref{eq:he-localisation}. Write
+$\varrho:=|s'|$, $t:=n\varrho^{1/2}$ and $B(s'):=A_0(s')^{-1}A_0(z)$; since $A_0^{\pm1}$ are bounded and $A_0$ is Lipschitz on
+$U(0,\delta/2)$, $|B(s')-I|\le C(\varrho+r)$.
+
+\emph{The lips, $|\zeta_{s'}|\ge2$.} The integrand is the rank-one matrix
+$d_n(\tilde Q(s')e_2)(e_1^{\mathsf T}\Theta_\infty(\zeta_{s'})^{-1}N)$, $N:=D_{s'}^{-1}BD_z$. Here $|\tilde Q(s')e_2|\le
+C\varrho^{-1/4}$, and the entries of $D_w^{\pm1}$ have moduli $\asymp|w|^{\mp1/4},|w|^{\pm1/4}$, which with $|B-I|\le C(\varrho+r)$
+gives $|N|\le C((\varrho/r)^{1/4}+(r/\varrho)^{1/4})$. So, using $|\diff s'|\le C\diff\varrho$ and $|s'-z|\ge\frac12(\varrho+r)$, this
+part of~\eqref{eq:K-weighted} is at most
+\[
+  Cr^{-1/4}\int\mathfrak m_ne^{-t/C}\bigl[1+(r/\varrho)^{1/2}\bigr]\frac{\diff\varrho}{\varrho+r}
+  =Cr^{-1/4}\int_{t\ge1/C}\mathfrak m_n\bigl(\tfrac{t^2}{n^2}\bigr)e^{-t/C}\Bigl[\frac{2t}{t^2+y}+\frac{2\sqrt y}{t^2+y}\Bigr]\diff t
+  \le C\varepsilon'_nr^{-1/4},
+\]
+since $2t\le t^2+y$ (as $y\ge1$), $2\sqrt y\le(t^2+y)/t$, and $\mathfrak m_n(t^2/n^2)\le Ct^{2\nu_p}n^{-2\nu_p}(\log n+|\log t|+1)$.
+
+\emph{The lips, $|\zeta_{s'}|\le2$.} Then $\varrho\le Cn^{-2}\le Cr$ and $\mathfrak m_n(s')\le C\varepsilon'_n$. By
+\eqref{eq:he-Phi-small} and Lemma~\ref{lem:bessel-local}(iii), $|\tilde Q(s')e_2|\le Cn^{1/2}|\zeta_{s'}|^{-|\alpha|/2}$, and
+$e_1^{\mathsf T}\tilde Q(s')^{-1}A_0(z)D_z=e_1^{\mathsf T}\Phi_\alpha(\zeta_{s'})^{-1}(2\pi n)^{-\sigma_3/2}B(2\pi n)^{\sigma_3/2}
+\zeta_z^{-\sigma_3/4}$, whose norm is at most $C|\zeta_{s'}|^{-|\alpha|/2}|\zeta_z|^{1/4}\le C|\zeta_{s'}|^{-|\alpha|/2}n^{1/2}r^{1/4}$
+(the lower-left entry of $B$ is $O(r)$ and $nr|\zeta_z|^{-1/4}\asymp|\zeta_z|^{1/4}r^{1/2}$). With $|s'-z|\ge r/2$ and
+$\int_0^{Cn^{-2}}(n^2\varrho)^{-|\alpha|}\diff\varrho\le Cn^{-2}$ ($|\alpha|<1$; logarithms at $\alpha=0$), this part is at most
+$C\varepsilon'_nn\,r^{1/4}r^{-1}n^{-2}=C\varepsilon'_nr^{-1/4}y^{-1/2}$.
+
+\emph{The circles and the rest.} On $\Sigma_\circ$, $|\Delta_2|\le C/n$, $|\tilde Q_-^{\pm1}|\le C$ and $|s'-z|\ge\frac34\delta$,
+which gives $Cn^{-1}r^{-1/4}$. On the lips, $|E|\le Ce^{-n|s'|^{-1/p}/C}$ and $|\tilde Q_-^{\pm1}|\le Cn^{1/2}|s'|^{-1/2}$, which
+gives $Cr^{-1/4}e^{-n/C}$ (as $r\ge y_0n^{-2}$); the rest of $\hat\Sigma$, of length $O(n^p)$, gives $Cn^pe^{-n/C}r^{-1/4}$.
+
+\emph{The correction term.} By Cauchy--Schwarz and~\eqref{eq:he-L2-diff} it is at most
+$C(\varepsilon'_nn^{-1/2}+n^{-1})\,\|(v-\tilde v)\tilde v^{-1}\tilde Q_-^{-1}A_0(z)D_z/(s'-z)\|_{L^2(\hat\Sigma)}$. In the last norm, the
+part $|\zeta_{s'}|\le2$ of $\Delta_1$ is at most $C\varepsilon'_nn^{1/2}r^{1/4}r^{-1}n^{-1}=C\varepsilon'_nn^{-1/2}r^{-3/4}$; the part
+$|\zeta_{s'}|\ge2$ has square at most
+\[
+  C\int\mathfrak m_n^2e^{-2t/C}\Bigl[\Bigl(\frac\varrho r\Bigr)^{1/2}+\Bigl(\frac r\varrho\Bigr)^{1/2}\Bigr]\frac{\diff\varrho}{(\varrho+r)^2}
+  =C\int\mathfrak m_n^2e^{-2t/C}\Bigl(\frac{2t^2}{\sqrt y}+2\sqrt y\Bigr)\frac{n^2\diff t}{(t^2+y)^2}\le C\varepsilon_n'^2n^2y^{-3/2},
+\]
+that is, the part is at most $C\varepsilon'_nn^{-1/2}r^{-3/4}$; $\Delta_2$ gives $Cn^{-1}r^{-1/4}$ and $\Delta_3$ an exponentially small
+multiple of $r^{-1/4}$. Since $nr^{1/2}=\sqrt y\ge1$, the product is at most $Cr^{-1/4}(\varepsilon'_n+n^{-1})$. Summing the
+four parts gives~\eqref{eq:K-weighted}, hence~\eqref{eq:Q-ray}, and~\eqref{eq:tail-arcsine} follows with $c_1=\frac12y_0^{-1/p}$.
+
+\emph{Case (b).} Here $p>1$ and $\alpha>-1$ is arbitrary, and we work in the frame of \S\ref{sec:classical-small}.
+First, $|\mathsf R(z)-I|\le C/n$ for $0<r\le\frac12\delta_1$, with a fixed $\delta_1\le\delta$. To see this, note
+$\mathsf R(z)-I=\Cauchy(\mathsf R_-(J_{\mathsf R}-I))(z)$ by Proposition~\ref{prop:classical}(iii); the part of
+$\Sigma_{\mathsf R}$ outside $U(0,\delta_1)$ is at distance $\ge\frac12\delta_1$ from $z$ and contributes $O(1/n)$
+by Proposition~\ref{prop:classical}(ii), (iv); on $\Sigma_{\mathsf R}\cap U(0,\delta_1)$ (two lips leaving $0$ at angles
+$\pm\pi/3$ and the segment $(-\delta_1,0)$) we have $|s'-z|\ge\frac14(|s'|+|z|)$ for $\delta_1$ small, and by
+Lemma~\ref{lem:mismatch-classical} and Cauchy--Schwarz the contribution is $O(n^{-K})$. Next, in $U_0$,
+$Q=\mathsf R\check A(2\pi n)^{\sigma_3/2}\sigma_3\Psi_\alpha(\zeta)\sigma_3\,(e^{-2\zeta^{1/2}}\rho_n^{-1})^{\sigma_3}$, and the last
+factor is diagonal with determinant $1$, so it does not change $Q_{11}Q_{12}$. With
+$(\mathsf r_1,\mathsf r_2):=e_1^{\mathsf T}\mathsf R(z)\check A(z)$, which is bounded by Lemma~\ref{lem:classical-param}(i),
+and $u:=2\zeta_z^{1/2}$, \cite[(6.23)]{KMVV} gives
+\[
+  Q_{11}=\sqrt{2\pi n}\Bigl[\mathsf r_1I_\alpha(u)-\frac{i\,\mathsf r_2}{2n}uI_\alpha'(u)\Bigr],\qquad
+  Q_{12}=-\sqrt{2\pi n}\Bigl[\frac{i\,\mathsf r_1}\pi K_\alpha(u)+\frac{\mathsf r_2}{2\pi n}uK_\alpha'(u)\Bigr].
+\]
+Here $|\mathrm{ph}\,u|\le\pi/3$. We use the following bounds, for $|\mathrm{ph}\,u|\le\pi/3$ and with $C$ depending on $\alpha$:
+$|I_\alpha(u)|+|uI_\alpha'(u)|\le C|u|^\alpha$, $|K_\alpha(u)|\le C(1+\log(4/|u|))|u|^{-|\alpha|}$ and $|uK_\alpha'(u)|\le
+C|u|^{-|\alpha|}$ for $|u|\le2$; and, with $\mathfrak r:=\re u\ge|u|/2$, $|I_\alpha(u)|+|I_\alpha'(u)|\le C(\mathfrak r^{-1/2}e^{\mathfrak r}+1)$
+and $|K_\alpha(u)|+|K_\alpha'(u)|\le C\mathfrak r^{-1/2}e^{-\mathfrak r}$ for $\mathfrak r\ge1$. The first pair follows from the series
+(10.25.2), with $\Gamma(\alpha+k+1)$ bounded below for $\alpha>-1$; the others from (10.32.9),
+$K_\alpha(u)=\int_0^\infty e^{-u\cosh t}\cosh(\alpha t)\diff t$, which gives $|K_\alpha(u)|\le K_\alpha(\mathfrak r)$ and the same for
+the derivative, and from (10.32.4) for $I_\alpha$, by elementary estimates of the integrals (for small $\mathfrak r$ use
+$\cosh t\ge e^t/2$, for large $\mathfrak r$ use $\cosh t\ge1+t^2/2$ and $1-\cos\theta\ge2\theta^2/\pi^2$). Since $|u|\le Cn$, these
+give $|Q_{11}Q_{12}|\le Cn\,b(|u|)$ with $b(\varrho):=(1+\log(4/\varrho))\varrho^{\alpha-|\alpha|}$ for $\varrho\le2$ and $b(\varrho):=1/\varrho$
+for $\varrho\ge2$. By~\eqref{eq:tail-reduction}, with $|u|\asymp\sqrt y$, $y=n^2r$:
+if $|u|\ge2$ then $\nu_n([0,r])\le Crn/(n\sqrt r)=Cr^{1/2}$; if $|u|\le2$ then
+$\nu_n([0,r])\le Cn^{-1}y^{1+\min(\alpha,0)}(1+\log(C/y))$. With $r=M^{-p}$ and $p(1+\min(\alpha,0))=\min(p,s-1)=:\beta$, the
+first case gives~\eqref{eq:tail-arcsine} for $M\le Cn^{2/p}$; the second gives it for the remaining
+$M\le c_1n^{2/p}$, where $y$ is bounded below and above, so that $n^{-1}\le CM^{-p/2}$; and the second gives
+$\sum_{k>Mn}m_n(k)\le Cn^{-1}(M/n^{2/p})^{-\beta}(1+\log(M/n^{2/p}))$ for $M\ge n^{2/p}$. For $\tau<\min(p/2,s-1)\le\beta$ we have
+$n^{-1}=(n^{2/p})^{-p/2}\le(n^{2/p})^{-\tau}$ and $(M/n^{2/p})^{-\beta}(1+\log(M/n^{2/p}))\le C_\tau(M/n^{2/p})^{-\tau}$, so the
+second bound is at most $C_\tau M^{-\tau}$; and $M^{-p/2}\le M^{-\tau}$ in the first range.
+\end{proof}

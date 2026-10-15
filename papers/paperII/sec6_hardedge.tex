@@ -422,7 +422,10 @@ For $n\ge n_1$,
   Q_2&=P_2+\Xi_2+(Q_1-P_1)P_1+O\bigl(\varepsilon'_n/n+n^{-2}\bigr).
 \end{align*}
 The lip mismatch $d_n$ contributes $O(\varepsilon'_n/n)$; the remaining errors come from the interaction of the circle
-terms with themselves and are $O(n^{-2})$. In particular $Q_k=P_k+O(1/n)$ for $k=1,2$.
+terms with themselves and are $O(n^{-2})$. In particular $Q_k=P_k+O(1/n)$ for $k=1,2$. Moreover
+\begin{equation}\label{eq:he-L2-diff}
+  \|Q_--\tilde Q_-\|_{L^2(\hat\Sigma)}\le C\bigl(\varepsilon'_nn^{-1/2}+n^{-1}\bigr).
+\end{equation}
 \end{proposition}
 
 \begin{proof}
@@ -505,7 +508,7 @@ Q_-$ and $\tilde Q_-=I+\Cauchy_{\tilde v}\tilde Q_-$, so $(1-\Cauchy_v)(Q_--\til
   \|Q_--\tilde Q_-\|_{L^2}\le2C\,\|\Cauchy_-\|\,\|\tilde Q_-(v-\tilde v)\|_{L^2}
   \le C\bigl(\|d_n\tilde Q_-e_2\|_{L^2}+n^{-1}+e^{-n/C}\bigr)\le C\bigl(\varepsilon'_nn^{-1/2}+n^{-1}\bigr),
 \]
-using \eqref{eq:he-L2-columns}, the bound $O(1/n)$ for $v-\tilde v$ on the circles (where $\tilde Q_-$ is bounded), and
+which is~\eqref{eq:he-L2-diff}, using \eqref{eq:he-L2-columns}, the bound $O(1/n)$ for $v-\tilde v$ on the circles (where $\tilde Q_-$ is bounded), and
 $\Delta_3$. Similarly $\|(v-\tilde v)\tilde v^{-1}\tilde Q_-^{-1}\|_{L^2}\le C(\varepsilon'_nn^{-1/2}+n^{-1})$. By the
 Cauchy--Schwarz inequality,
 \[
