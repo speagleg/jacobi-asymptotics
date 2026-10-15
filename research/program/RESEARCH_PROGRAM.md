@@ -105,3 +105,30 @@ papers (the PROOF.md files are working documents).
 2. In parallel: the reading list in §1 and drafting Paper 1.
 3. Then choose one major line: **C-Theorem D** (~50%, clean dichotomy) or **A-T1** (regularly varying nodes by RH,
    ~50%, explains RH_ζ structurally) or **D3–D5** (decided examples for the zeta-zero note, 70–80% each).
+
+## 6. Novelty, line B and Plans 39–54 (Rule L, second pass, 2026-10-14)
+
+Reports: `novelty_lineB_A.md` (Christoffel shift), `novelty_lineB_B.md` (slowly varying law, RH technique, QLP, RedA),
+`novelty_lineB_C.md` (Plans 39–45, 49). Same caveats as §1 (one session per area; paywalled sources unread; "NOT FOUND"
+≠ proved new). Status: PLANNING / agent output; the label changes below are recorded in THEOREMS.md §2.9.
+
+| Result | Verdict | Closest prior work |
+|---|---|---|
+| Pointwise Law P for k^{−s}Ψ, Ψ any slowly varying, all p > 0, s > 1 (Cor. B_all, B_{p<1}, B_{p=1}^{all}) | NOT FOUND | RH for non-analytic weights is for continuous weights on intervals (Conway–Deift 1711.01590; Deift–Piorkowski 2307.09277; Piorkowski 1910.00564; Trogdon 2412.18656; McLaughlin–Miller 0805.1980); Levin–Lubinsky (exponential weights, no RH); WLXZ only discrete-accumulating RH |
+| Route II technique (smoothing + C–D comparison at a Bessel edge) | PARTIALLY KNOWN | mechanism = Conway–Deift Thm 4.7 (sup-norm o(1), no rate) — must be credited explicitly; analytic-approximation precedent Deift–Its–Krasovsky §6.2; new: arbitrary slowly varying factor, |α| < 1 via UR′/(b′), KMVV model with W̃ = D_w, discrete accumulating nodes. Deift–Piorkowski note C–D 4.7 "requires a different proof" at exponent 1 — consistent with GAP-α; UR′ is the step experts will check first |
+| RedA | very likely KNOWN in substance | smooth variation theorem (BGT Thm 1.3.3/1.8.2, quoted via secondary sources); Vuilleumier, Trans. AMS 218 (1976) analytic slow variation in sectors — full text not read |
+| QLP | NOT FOUND as stated; Lemma GS KNOWN | Teschl, Jacobi Operators (1.99)–(1.100), (2.122) |
+| Lemma CS | KNOWN | Dai–Piao–Qiao arXiv:2508.07653, Prop. 2.1 (a_n → ¼ ⇒ every parameter sequence → ½) |
+| Christoffel transfer formulas (CT, CT-Ch, CT₁(i)) | KNOWN (classical) | Bueno–Marcellán LAA 384 (2004); Derevyagin–Derkach 1012.3712; Bailey–Derevyagin 2107.09824 |
+| Theorem SH and CT₁ converse (no rate) | PARTIALLY KNOWN: a corollary of Dai–Piao–Qiao Prop. 2.1 + CT | Bailey–Derevyagin Props 3.3/4.4 (non-real κ only) |
+| SH-r / CS-r (rates) | NOT FOUND (elementary) | — |
+| Lemma LR / LR′ / LRa | PARTIALLY KNOWN | first-order formulas: Fischer, Z. Anal. Anwend. 17 (1998) Lemmas 4–5; sharp ε² second-order bounds NOT FOUND |
+| Lemma RL | PARTIALLY KNOWN | Simon JAT 2004 Thm 3.2 (fixed measure); Erb 1803.05583; new: a-priori-bound clause, RL-loc, RL-n/RL-n2 |
+| Theorem R / RW / Ra | NOT FOUND | only positive stability results (LMS 1988; Van Assche–Magnus 1989; Totik 1992); Knopfmacher–Lubinsky–Nevai 1988: full text NOT read, zbMATH review shows a sufficient-condition (Freud) result, not a counterexample — read before publication |
+| B-cond, QL, CB, BF, RF, FM, DB | NOT FOUND | BF relative of the determinantal variance boundary form (Breuer–Duits (3.7)) |
+
+**Must read before any publication claim:** Vuilleumier 1976 and BGT §1.8–1.9 (RedA); Knopfmacher–Lubinsky–Nevai 1988;
+Szwarc, Math. Z. 217 (1994); Geronimo–Van Assche, JAT 62 (1990); Chihara 1978 Ch. III / Wall 1948 / Ismail §7.2;
+Bueno–Marcellán 2004; Fischer 1998. **Natural expert readers (line B):** Deift, Piorkowski (RII/UR′); Trogdon, McLaughlin,
+Miller, Yattselev; Kuijlaars, Van Assche; Lubinsky, Levin; Zhao, Dai, Wong; Krasovsky; Derevyagin (Christoffel/chain
+sequences); Bingham or Goldie (RedA).
