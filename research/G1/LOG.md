@@ -302,6 +302,104 @@
   cross piece), F5 (K-gap grows with n), F6 (QL₀ framing), F7 (labels: FV⁺ standard; L0 in §0; "full sequence"; QL/QL₀
   HYPOTHESIS; tilt law CONJECTURE) applied. Re-check ACCEPT (N1 QL wording, N2 K-qualifier applied) — REVIEWED.
 
+## 2026-10-14 — Plan 45 (QL numerics N1–N3; outline_B_sv.md WP2) — NUMERICAL; Rule R ACCEPT WITH FIXES — REVIEWED
+- **Script** `checks/check_ql_numerics.py` / `.out` (≈ 8 min). Model: atoms k ≤ K plus a Gauss–Legendre log-panel tail
+  quadrature to 10⁴⁸ (as Plan 10 Phase 0), so the hard-edge region k ≍ n^{1+2/p} is represented at p ≤ 1. RKPW long double;
+  μ_m by long-double recurrence above an adaptive start index (long double vs float64 agreement); K_m(fq_m) by streaming.
+  Checks: K vs 2K, quad vs long double, Lanczos (full reorthogonalization), TV identity by finite difference in t.
+- **Tooling note (exploratory runs, not in the .out).** A fixed head cutoff k0 = θ·m for the recurrence fails (garbage of size 10²⁰–10⁵⁰ for θ below ~0.8 of
+  the band edge (4c)^{−1/p}m; the safe θ grows with m); the first adaptive rule (relative agreement only) cut too high
+  (missing mass 10⁻⁷, flagged near zeros of p_m); the final rule (1e−9 relative or 1e−14 absolute) loses ≤ 5·10⁻¹⁸ where checked (Lanczos, m ≤ 200, K = 2·10⁴, no tail); for m ≤ 1600 with the tail only |1 − Σμ| ≤ 2·10⁻¹³ is shown.
+- **N1:** at p = 1 and ½ the tilt ratio n·dev/ϑ_n rises toward 0.5 (0.465–0.493 at n = 1600) but more slowly than at p = 2;
+  the exact pure-power tilt k^{−(s−ϑ_n)} gives 0.5 (d₁ shift confirmed), and dev_w/dev_tilt = 0.93 (p = ½), 0.97 (p = 1),
+  0.99 (p = 2) at n = 1600 (sqrt only); (1 − dev_w/dev_tilt)·log n decreases for every p, so the defect decays at least like 1/log n. Limit 0.5 consistent, not established; tilt law stays CONJECTURE.
+- **N2:** QL-b power tails with α = min(p/2, 0.8) and C ≈ 0.4–0.6 flat in n and t; arcsine slope −p/2 then far-tail
+  slope −(s − 1) (−0.9 at t = 1), crossover M_x ≍ n^{2/p} (grid-quantized brackets [1.6, 6.6]n² at p = 1, [0.17, 0.67]n⁴ at p = ½; sqrt only); Λ_n with the tail approaches the LP
+  constants 0.4156 / 0.9297 / 2.0762, flat in t; ε_nΛ_n decreasing in every case.
+- **N3 (go/no-go):** R = |⟨1_Aq_m, K_m(g_nq_m)⟩|/μ_m(A) ≤ 0.93·ε_n(1 + log M) on all data (p ∈ {2, 1, ½}, t ∈ {0, ½, 1},
+  n ≤ 400, M ≤ 2²⁹, sqrt only). **Route I′ not dead** on the outline's literal criterion; CB plausible numerically
+  (mainly at p = 2, partly p = 1), unproved. (Rule R F1: the saturation beyond the hard edge, R → |P(0)/p_m(0)|, is
+  structural for any f and is not evidence; at p = ½ the tested window cannot separate the CB and Cauchy–Schwarz scales.)
+- No proof claimed; README.md and THEOREMS.md not edited.
+- **Plan 44 correction (F8).** With the tail, sup_tΛ_n is attained at t = 1 in every row; Plan 44's "sup at t = 0" (§3.14
+  Bc2) was a truncation artifact (size ≤ 5·10⁻³; no conclusion changes). Dated note added in Bc2.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan45.md). F1 (saturation structural; p = ½ non-discriminating; verdict on
+  the literal criterion), F2 (R vs mean_A g_n), F3 (one weight in N2–N3), F4 (crossover brackets; exception n ∈ {25, 50};
+  exponent 2/p), F5 (p = 2 plateau −0.3 … −0.8), F6 (defect decays ≥ 1/log n; tilt comparison sqrt only; 0.465; fit bias),
+  F7 (tail-mass K-gap = boundary quantization), F8 (sup at t = 1), F9 (check scope; TV finite-difference check added at
+  p = 1 and ½, agreeing to 5 digits for M = 2 … 2²⁹; script rerun, all other output identical), F10 (tooling note marked
+  exploratory), F11 (QL-b constant uses m = n, t ∈ {0, 1}) applied — REVIEWED.
+
+## 2026-10-14 — Plan 46 (Lemma QLP: uniform hard-edge localization for pure powers)
+- **Route.** Not asymptotics on the band: the hard-edge tail is bounded by the Stieltjes transform at z = τe^{5πi/6}
+  (Lemma ST, a Markov-type inequality: ν([0, τ]) ≤ (8/√3)τ|S(z)|), and S = −V₁₁V₁₂/(V₁)₁₂ exactly (Lemma GS: Green's function
+  = p_n·Cauchy transform of p_n by orthogonality; the scalar/diagonal factors of the RH chain cancel). At z the RH solution is
+  in Ω_∞, non-oscillatory, at distance ≍ |z| from every jump contour, so the small-norm matrix is I + O(1/N) there (Lemma Z;
+  p = 1: O(N^{−1/2}) because RH₁(r)'s jump inside the disc is only O(1/n)·min(1, (n|s|)^δ), δ ≥ 2). The hard-edge prefactor
+  is N-uniformly bounded (Lemma A: maximum principle on |z| = δ; h_N is σ-free). The Bessel model enters as I_α(u)·K_α(u),
+  bounded by explicit integral/series estimates uniform in the order (Lemma BK; DLMF 10.25.2, 10.32.4, 10.32.9 read and quoted
+  in CITATIONS.md (DLMF-3)).
+- **Result.** For each fixed σ > 1, all p > 0, m ∈ {n−1, n}, every M ≥ 1: μ_m((Mn, ∞)) ≤ CM^{−p/2} for M ≤ n^{2/p};
+  ≤ Cn^{−1}(M/n^{2/p})^{−β}(1 + log) beyond (β = min(p, σ−1), p ≠ 1; min(½, σ−1), p = 1); ≤ C_ϑM^{−ϑ} for all M,
+  ϑ < min(p/2, σ − 1) (endpoint ϑ = p/2 when σ − 1 > p/2 for p ≠ 1 only). Corollary: Σ_{k≥n}log(k/n)μ_m(k) = O(1) — QL at t = 0. Bessel crossover at M ≍ n^{2/p}
+  (k ≍ n^{1+2/p}). Labels: ST, GS PROVED; BK PROVED-mod-cite (DLMF); QLP/QLP-Λ PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b,
+  KMVV (6.23), Vanlessen (4.27); KV (5.21)–(5.22) as a consistency check) for fixed σ.
+- **Gap (precise).** Uniformity in σ on compacts is CONDITIONAL on (RU): the cited small-norm estimates hold with σ-free N₀ and
+  constants. Audit U (PROOF SKETCH) locates the σ-dependence: only α_x and C_N; the one quantitative input is the Bessel
+  matching on ∂U(0, δ) uniform in the order, for which DLMF 10.40.10–12 (+10.34.2, 10.27.8; read, quoted) give order-uniform
+  remainders; plus RH₁(r) Lemma M's amplification constant uniform in a. Not re-proved line by line.
+- **Not obtained.** QL along vΨ^t for t > 0 (B-cond's hypothesis): no new case of the pointwise law. The proved exponent β
+  is below the heuristic σ − 1 when σ − 1 > p (resp. ½): Lemma ST is lossy there (harmless for (a), (c)).
+- **Soft route (Remark QLP2).** LP + monotonicity in M (Pólya-type uniformity) gives the bound only for M ≤ M_n → ∞ at an
+  unknown rate, hence Λ_n = o(log n) only; ensemble/Christoffel bounds lose a factor n. Recorded: no soft uniform-in-M bound.
+- **Rule A.** σ ↓ 1 (constants blow up; K compact needed); α = 0 log (numerically visible at p = 0.5, σ = 1.5); z ∈ Ω_∞ for
+  every p (lip/seam angles); scale invariance of Lemma Z; N-uniformity of A; m = n − 1. No counterexample.
+- **Numerics** (`checks/check_qlp.out`, NUMERICAL): sup_{M≤n^{2/p}} tail·M^{p/2} = 0.48–0.71, flat in n, p ∈ {2, 1, 0.5},
+  σ ∈ {1.5, 2, 3}; deep slopes ≈ −(σ−1); Lemma ST's inequality holds in every row. Small n, lumped tail (≤ 1.4%).
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan46.md; main argument correct). F1 (sector-II formula is Vanlessen
+  (4.27), not WLXZ (4.27)), F2 (endpoint ϑ = p/2 of (c) restricted to p ≠ 1), F3 (Lemma Z for |z| ≤ δ₁/2), F4 (check_qlp β at
+  p = 1 = min(½, σ − 1); .out regenerated), F5 (QLP3(ii) reworded), F6 (Audit U6 gap disclosed: band rays/lips need BK beyond
+  |ph u| ≤ π/3), F7–F9 (J2 terms, GS wording, closed-disc maximum principle, max(A, 1)) applied — REVIEWED.
+
+## 2026-10-14 — Plan 48 (Route II, stage 1: RH analysis for slowly varying weights, p > 1)
+- Write-up: `RH/route2/ROUTE2.md`; summary PROOF.md §3.17 and §0 row "RII / B_{p>1}". Plan: docs/superpowers/plans/2026-10-14-plan-48-route2.md.
+- **RedA** (PROVED): Gaussian smoothing of the piecewise-linear interpolant of log Ψ(e^τ); entire L₁, L₁^{(j)} → 0 in strips,
+  Ψ/Ψ₁ → 1, from the sequence form only (local oscillation ≤ 2δ_m(2e²)); base change by T3-conv's proof. The outline's claim
+  "T3-conv's proof never uses the base weight" checked line by line: true except that Sat_p⁺'s ratio W/w_k involves the
+  base; Potter (L0(ii)) supplies k^{s+η}. No BGT/UCT cited or used.
+- **RH set-up** (ROUTE2 §2): only w₀ (factor q_N = Ψ₁(Nz^{−1/p})/Ψ₁(N)), D_w, poly(N) factors on saturated/top pieces, and the
+  hard edge change; μ*, g, φ, D̃, B, K, F, normalization, Airy unchanged.
+- **Stop condition (i): RESOLVED-mod-cite.** The direct (glued-W̃, possibly drifting-order) parametrix does fail: the jump
+  1 + O(ε₁) on (−δ, 0) without rate becomes O(Nε₁) at the Bessel scale. Avoided as in RH_ζ_close §1: fixed-order comparison
+  parametrix with W̃ := D_w; new Lemma LW1′ (lip mismatch ≤ C(|z|^ν log + ε₁(log N − C))) gives ‖v − ṽ‖_∞ → 0 without rate,
+  enough for C–D's resolvent comparison; Proposition D′ gains 1/N from Bessel localization.
+- **Stop condition (ii): MOOT** (fixed order α_x; drifting-order uniformity not established, not used; relevant only for the
+  1/n coefficient).
+- New for general α_x ∈ (−1, 1): local form of KMVV's Ψ (DLMF 10.25.2, 10.31.2 read and quoted in RH/CITATIONS.md "DLMF-4", renamed from "DLMF-3" per REVIEW_Plan48.md F2);
+  Lemma UR′ (Lemma W with a = ±α/2); Lemma W′ (log-commutator, α = 0).
+- **Theorem RII** (PROVED-mod-cite): p > 1, 1 < s < 1 + 2p, (H_an) ⇒ n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n).
+  **Corollary B_{p>1}**: Theorem B for p > 1, 1 < s < 1 + 2p, every sequence-form slowly varying Ψ (first D(γ) = ∞ case).
+- **GAP:** s ≥ 1 + 2p (α_x ≥ 1: Q̃ not L²_loc, C–D frame fails); p ≤ 1 (WP5); the 1/n coefficient (tilt law, CONJECTURE).
+- **Rule A attempts** (ROUTE2 §6): Ψ₁ const (reduces to RH_px); Ψ = k^ρ (ε₁ ↛ 0, mismatch ≈ |e^{iπρ/p} − 1|, method
+  correctly inapplicable); α_x → ±1 (constants blow up, consistent with GAP); log-type (consistent with check_log_weights);
+  oscillating L; strip width (only |Im log t| < π/p used); UR′ independent of ε₁. No counterexample found.
+- **Numerics** (`RH/route2/checks/`, p = s = 2): RedA [1]–[3]; LW1′ mismatch/ε₁ = 2.40 → 2.90 (N = 10² → 10¹², → π, the
+  pure-tilt value); n(n^pb_n/c − 1) bounded (−0.39 … −0.41); tilt ratio 0.489 → 0.493; drifting-order model residual
+  n·dev/ϑ_n ≈ −0.006; Lemma W′ Mellin symbol bounded (π² on the diagonal).
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan48.md; RedA ACCEPT; RII and B_{p>1} ACCEPT WITH FIXES). Fixes applied:
+  - F1 (high): UR′(b) depended on α (the crude product bound for m := C(gQ̃₊^{−1})Q̃ gives c_{−1} ≲ ε^{1/2−|α|}, which blows up
+    for |α_x| > ½). New UR′(b′) in ROUTE2 §4.1: estimate m through UR′(d)'s factorization Q̃ = G(z)(−z)^{ασ₃/2}Θ(z) (fixed N):
+    core terms (−z)^a∫h(s)(−s)^{−a}/(s − z)ds ≲ ‖h‖_η d^{−1/2} + C_η|z|^{−|a|} (|a| = |α|/2 < ½), K-term ≲ C_N‖g‖|z|^{−|α|/2},
+    log variant for α = 0; area integral ≲ ε^{3/2} + ε^{2−|α|/2} = o(ε) for every |α| < 1. **F1 closed for all |α_x| < 1**;
+    the claim stays 1 < s < 1 + 2p.
+  - F2: "(DLMF-3)" renamed "(DLMF-4)". F3: the overclaim "the slowly varying factor costs O(ε₁/n)" removed; what is proved is
+    Q₁ − Q̃₁, Q₂ − Q̃₂ = O(ε′_N/N) (the lip mismatch versus the comparison problem, which itself depends on Ψ₁).
+    F4: (H_an) stated on {Re u ≥ −c₀, |Im u| ≤ π/p}; Ω_∞ never uses w. F5: det Ψ ≡ 1 from DLMF 1.13.4 + 10.28.2 (read, quoted).
+    F6: the D_w 1/z-coefficient remark moved to the Q₁ vs V₁ step. F7: check_r2_redA [3] now uses L₁ for all k (FFT
+    convolution on a τ-grid, validated against direct quadrature). F8: n = 800 convergence claim corrected (K = 4.8·10⁵ run
+    added). F9: cross-references in PROOF.md §0 G1-R row, §3.14 and §4. F10: Lemma W′ flattening sentence.
+  - Rule R ACCEPT WITH FIXES (review/REVIEW_Plan48.md), fixes applied, re-check ACCEPT — REVIEWED.
+
 ## 2026-10-14 — Plan 49 (Route I′: commutator lemma CB; CB ⇒ QL ⇒ law)
 - **Goal** (outline_B_sv.md §5, Route I′): prove CB, |⟨1_Aq_m, K_m(g_nq_m)⟩| ≲ ε_nμ_m(A)(1 + log M), and from it QL. **CB is not
   proved.** What is proved (§3.18):

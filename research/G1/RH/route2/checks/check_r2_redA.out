@@ -1,0 +1,9 @@
+[1] RedA (i): e_n = max_{k>=n} |log Psi(k) - L1(log k)| (k sampled log-uniformly up to 1e14)
+  sqrt: n=1e2: 8.333e-03, n=1e4: 4.484e-03, n=1e6: 2.443e-03, n=1e8: 1.584e-03, n=1e10: 1.132e-03, n=1e12: 8.608e-04
+  osc : n=1e2: 4.784e-02, n=1e4: 1.418e-02, n=1e6: 4.776e-03, n=1e8: 1.289e-03, n=1e10: 1.153e-03, n=1e12: 1.153e-03
+[2] RedA (ii): eta(T) = max_{tau in [T,T+25], |sigma|<=pi/2} |L1'(tau + i sigma)|; compare max_{tau>=T}|L'| (smooth L)
+  sqrt: T=5: eta=0.2210 (sup|L'|=0.2192) | T=10: eta=0.1587 (sup|L'|=0.1581) | T=20: eta=0.1119 (sup|L'|=0.1118) | T=40: eta=0.0791 (sup|L'|=0.0791)
+  osc : T=5: eta=0.2082 (sup|L'|=0.2079) | T=10: eta=0.2082 (sup|L'|=0.2079) | T=20: eta=0.2082 (sup|L'|=0.2079) | T=40: eta=0.1736 (sup|L'|=0.1736)
+[3] RedA (iii): p = s = 2, K = 120000, long double RKPW; v Psi vs v Psi1 with L1 evaluated at every k <= K
+  sqrt (grid L1 vs direct quadrature: max err 3.7e-09; beta ratio - 1 / n^p|da|/c): n=25: +1.65e-04/2.97e-04, n=50: +3.76e-05/7.08e-05, n=100: +4.80e-06/9.16e-06, n=200: -1.07e-06/2.15e-06, n=400: -1.20e-06/2.39e-06, n=800: -6.69e-07/1.33e-06
+  osc  (grid L1 vs direct quadrature: max err 2.3e-08; beta ratio - 1 / n^p|da|/c): n=25: -4.22e-04/8.00e-04, n=50: -1.75e-04/3.39e-04, n=100: -6.84e-05/1.35e-04, n=200: -2.68e-05/5.31e-05, n=400: -1.06e-05/2.11e-05, n=800: -4.23e-06/8.45e-06
