@@ -1,8 +1,7 @@
 # E_p1: the 1/n coefficient (E) for pure powers at p = 1 (Plan 66)
 
 Status (2026-10-15): written by the Plan 66 agent. Rule R: research/G1/review/REVIEW_Plan66_A.md (Route C) and REVIEW_Plan66_B.md
-(Route A, constants), both ACCEPT WITH FIXES; fixes A1–A5, A7, B F1–F5 applied (A6 recorded in §8); **not yet REVIEWED** (pending
-the coordinator's diff-check). Labels per VERIFICATION_POLICY.md.
+(Route A, constants), both ACCEPT WITH FIXES; fixes A1–A5, A7, B F1–F5 applied (A6 recorded in §8); **REVIEWED 2026-10-15** (fixes diff-checked). Labels per VERIFICATION_POLICY.md.
 "RH" means Riemann–Hilbert throughout. This file closes, for p = 1, the GAP "(E)" of SECOND.md §4 (the p > 1 case is
 E_pgt1.md), and proves the "−1/24" second-order conjecture of RH_p1.md §0 / THEOREMS.md §4 item 13. §10 (Integration) lists the changes made to SECOND.md and THEOREMS.md.
 
@@ -480,9 +479,9 @@ Reused entries (hypotheses re-checked above): (KV) (5.23), (5.26)–(5.30); (DLM
 Internal (REVIEWED): RH₁(r) (RH_p1_general.md), RH₁ (RH_p1.md), SECOND Lemmas 2.1, 2.2, UL Lemma V and Cor UL-3.10.
 
 ## 10. Integration (applied after the Rule R fixes, reconciled with master cb054bc (Plans 65, 69 wording); labels tagged
-"(Plan 66, E_p1.md; not yet REVIEWED)" for the coordinator's diff-check)
+"(Plan 66, E_p1.md; REVIEWED 2026-10-15, REVIEW_Plan66_A.md, REVIEW_Plan66_B.md)" for the coordinator's diff-check)
 
-Tag every changed label "(Plan 66, E_p1.md; not yet REVIEWED)".
+Tag every changed label "(Plan 66, E_p1.md; REVIEWED 2026-10-15, REVIEW_Plan66_A.md, REVIEW_Plan66_B.md)".
 
 **SECOND.md**
 1. Status block: add a line "*Plan 66 update (2026-10-15, not yet REVIEWED):* `E_p1.md` (same directory) proves (E) at p = 1 for every
