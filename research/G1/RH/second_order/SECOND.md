@@ -1,6 +1,8 @@
 # SECOND: the 1/n coefficient in the pointwise Law P for pure powers (Plan 62)
 
 Status (2026-10-15): written by the Plan 62 agent; **REVIEWED 2026-10-15** (Rule R: research/G1/review/REVIEW_Plan62.md, ACCEPT WITH FIXES; fixes F1–F11, O1 applied in 5aa04e3 and diff-checked). Labels per VERIFICATION_POLICY.md; REVIEWED applies to the PROVED / PROVED-mod-cite / CONDITIONAL statements as labelled (NUMERICAL, CONJECTURE, HEURISTIC and GAP items keep those labels).
+*Plan 64 update (2026-10-15, not REVIEWED):* Thm 3.8, Cor 3.9, Thm 3.10(d) and (UΛ) are upgraded by `UL.md` (same
+directory); the rows and paragraphs marked "Plan 64" carry UL.md's labels, which are not yet REVIEWED.
 "RH" below means Riemann–Hilbert. Open item 13 of THEOREMS.md §4.
 
 **Summary of labels.**
@@ -17,10 +19,13 @@ Status (2026-10-15): written by the Plan 62 agent; **REVIEWED 2026-10-15** (Rule
 | Prop 3.5 | weights with \|log(w_k/v_k)\| ≤ C/k: log h_n(w) − log h_n(v) = O(1/n), so Σ_{j≤n} log(b_j(w)/b_j(v)) converges | PROVED (internal: G1 Lemma Sat_p⁺) |
 | Cor 3.6 | p = 1, s = 3/2 vs Tricomi–Carlitz: Σ_{j≤n} log(b_j/b_j^{TC}) → −½log(ζ(3/2)/(√(2π)W_TC)); (E) at (1, 3/2) ⇒ d₁ = −1/4; with Cor 3.3, d₁(1, 3/2 + m) = −(1 + 2m)/4 | (i) PROVED-mod-cite (RH_p1 §1; DLMF 5.11); (ii)–(iii) CONDITIONAL on (E) + PROVED-mod-cite (as (i); Law P, Lemma CS) |
 | Prop 3.7 | ∂_s log h_n(s) = −Σ_k log k·μ_n^{(s)}(k) | PROVED (elementary) |
-| Thm 3.8 | (UΛ) on [s₀, s₁] ⇒ Σ_{j≤n} log(b_j(s₁)/b_j(s₀)) = −((s₁ − s₀)/2 + o(1))log n | CONDITIONAL on (UΛ) or (CVX) + PROVED-mod-cite (QLP-Λ, Law P); (UΛ) ⇐ (RU) of G1 §3.16 (PROOF SKETCH level) |
-| Cor 3.9 | (E) at s₀, s₁ + (UΛ) or (CVX) ⇒ d₁(s₁) − d₁(s₀) = −(s₁ − s₀)/2. Hence d₁(2, s) = −(s − 1)/2 for all s > 1 and d₁(1, s) = −(s − 1)/2 for all s > 1, under (E) and (UΛ)/(CVX) | CONDITIONAL on (E), (UΛ)/(CVX) + PROVED-mod-cite (Law P, Lemma CS, QLP-Λ) |
-| Thm 3.10 | log-average form: Σ_{j≤n}log(j^pb_j/c) = −((s−1)/2)log n + O(1) for p = 2, s ∈ 2 + 2ℕ₀ and p = 1, s ∈ 3/2 + ℕ₀; equivalently log h_n of the zeta-value Hankel ratios to O(1) | PROVED-mod-cite (Law P; Lemma CS; Lommel input; RH_p1 §1, DLMF 5.11); other s (part (d)): CONDITIONAL on (UΛ) (o(log n) only) or (CVX) + PROVED-mod-cite (QLP-Λ) |
-| (CVX) | s ↦ log h_n(σ_{p,s}) convex (sufficient for Thm 3.8 with O(1)) | HYPOTHESIS; NUMERICAL support (n ≤ 8, 300-digit determinants; n ≤ 1600 grid: positive second divided differences at the grid points) |
+| Thm 3.8 | Σ_{j≤n} log(b_j(s₁)/b_j(s₀)) = −((s₁ − s₀)/2)log n + ½log(c^{(s₁−s₀)/p}ζ(s₀)/ζ(s₁)) + o(1), every p > 0, s₀, s₁ > 1 | PROVED-mod-cite (UL.md Cor UL-3.8: (P), (LP), (QLP-c) at fixed points only (finitely many for each grid, countably many in all); no uniformity in σ, (RU) not used; Lemma CS) (Plan 64, UL.md; not REVIEWED). Earlier route: CONDITIONAL on (UΛ) or (CVX) |
+| Cor 3.9 | (E) at s₀, s₁ ⇒ d₁(s₁) − d₁(s₀) = −(s₁ − s₀)/2. Hence d₁(2, s) = −(s − 1)/2 and d₁(1, s) = −(s − 1)/2 for all s > 1, under (E) at s | CONDITIONAL on (E) only + PROVED-mod-cite (UL.md Cor UL-3.9; as Thm 3.8) (Plan 64, UL.md; not REVIEWED) |
+| Thm 3.10 | log-average form: Σ_{j≤n}log(j^pb_j/c) = −((s−1)/2)log n + O(1) for p = 2, s ∈ 2 + 2ℕ₀ and p = 1, s ∈ 3/2 + ℕ₀; equivalently log h_n of the zeta-value Hankel ratios to O(1) | (a)–(c) PROVED-mod-cite (Law P; Lemma CS; Lommel input; RH_p1 §1, DLMF 5.11); (d) every s > 1 for p ∈ {1, 2} (log-average coefficient −(s − 1)/2, convergent remainder) and (c) for all real shifts: PROVED-mod-cite (UL.md Cor UL-3.10: UF-lim; SECOND §2 Input (VA, DLMF-Lommel); Cor 3.6(i) (RH_p1 §1, DLMF 5.11)) (Plan 64, UL.md; not REVIEWED) |
+| (CVX) | s ↦ log h_n(σ_{p,s}) convex (no longer needed for Thms 3.8–3.10; sufficient for sup_K\|Λ_n\| = O(1), UL.md Prop R; fails for finite truncations, UL.md Remark CVX-fin) | HYPOTHESIS; NUMERICAL support (n ≤ 8, 300-digit determinants; n ≤ 1600 grid: positive second divided differences at the grid points) |
+| (UΛ) | sup_{s∈K}\|Λ_n(s)\| = o(log n), K ⊂ (1, ∞) compact | PROVED-mod-cite (UL.md Thm UΛ: Thm UP, Lemma LP's method, Lemma TL) (Plan 64, UL.md; not REVIEWED); sup_K\|Λ_n\| = O(1): **GAP** (⇐ (RU) at PROOF SKETCH level, ⇐ (SCVX), ⇐ (CVX)) |
+| UF-lim | h_n(s)/h_n(s₀) = c^{(s−s₀)/p}n^{−(s−s₀)}(1 + o(1)) uniformly on compacts | PROVED-mod-cite (UL.md Thm UF-lim: (P), (LP), (QLP-c) at fixed points only (finitely many for each grid, countably many in all); no uniformity in σ, (RU) not used; Lemma CS) (Plan 64, UL.md; not REVIEWED) |
+| UP | Law P uniform on compacts in s: sup_K\|n^pb_n − c\|, \|n^pg_n − c\|, \|n^pα_n − 2c\| → 0 | PROVED-mod-cite (UL.md Thm UP: Thm UF-lim, hence (P), (LP), (QLP-c) at fixed points; Lemma CT) (Plan 64, UL.md; not REVIEWED) |
 | §4.1 | n_eff = n + α_x/2 + (j₀ − ½) (hard edge + lattice offset) | HEURISTIC; NUMERICAL (shifted lattices); at p = 1 the chain value d₁(TC(α)) = ¾ − α is exact for all α (the TC(α) masses are not checked) |
 | §4 (E) | existence of the 1/n coefficient (with a remainder O(n^{−1−ε})) for pure powers | **GAP** (precise statement and what is missing in §4; PROOF SKETCH for p > 1) |
 | §4 g(p) | the s-independent part g(p) := d₁(p, s) + (s − 1)/2 for p ∉ {1, 2} | **GAP** (NUMERICAL: |g| ≤ 2·10⁻⁸ for p ≥ 1, ≤ 1.4·10⁻⁶ (fit spread ≤ 1.3·10⁻⁴) at p = ½) |
@@ -285,14 +290,17 @@ So, with Λ_m(s) := L_m(s) − log m = Σ_k log(k/m)μ_m(k) (m ≥ 1): ∂_s log
 measure μ_n (scale k ≍ n, Lemma LP) has a log-moment Λ_n(s) that is bounded and, pointwise, changes by o(1/n) from n − 1
 to n (HEURISTIC reading; only the Cesàro form below is proved).
 
-**Hypothesis (UΛ) on [s₀, s₁].** sup_{s∈[s₀,s₁]}|Λ_n(s)| = o(log n) as n → ∞.
+**Hypothesis (UΛ) on [s₀, s₁].** sup_{s∈[s₀,s₁]}|Λ_n(s)| = o(log n) as n → ∞. — *Plan 64:* PROVED-mod-cite, UL.md Theorem UΛ
+(not REVIEWED).
 
 *Status of (UΛ).* For each fixed s, Λ_n(s) = O(1): the part k ≥ n is Corollary QLP-Λ (G1 §3.16, PROVED-mod-cite, REVIEWED,
 for each fixed σ); for k < n, 0 ≤ log(n/k) ≤ (1/p)(n/k)^p = (1/p)n^px_k, so Σ_{k<n}log(n/k)μ_n(k) ≤ (1/p)n^pΣ_kx_kμ_n(k) =
 (1/p)n^pα_n → 2c/p (Law P). Uniformity in s on [s₀, s₁] is what (UΛ) adds: it holds under hypothesis (RU) of G1 §3.16
 (σ-uniformity of the cited RH analyses; Audit U: PROOF SKETCH), which makes QLP-Λ uniform on compacts, and (for the k < n half) Law P's α-part n^pα_n → 2c uniform on [s₀, s₁],
-also from the uniform small-norm bounds of (RU). So (UΛ) ⇐ (RU), an implication at PROOF SKETCH level (as Audit U);
-(UΛ) itself is a HYPOTHESIS here.
+also from the uniform small-norm bounds of (RU). So (UΛ) ⇐ (RU), an implication at PROOF SKETCH level (as Audit U).
+*Plan 64 update:* (UΛ) holds (UL.md Thm UΛ, PROVED-mod-cite, not REVIEWED), without (RU); the α-part of Law P uniform on
+[s₀, s₁] required above (review F10) is UL.md Thm UP. Only the O(1) strengthening sup|Λ_n| = O(1) needs uniform
+hard-edge control ((RU), or (SCVX)/(CVX): UL.md Prop R); it is a GAP.
 
 **Hypothesis (CVX) on [s₀, s₁] (alternative to (UΛ)).** For all large n, s ↦ log h_n(σ_{p,s}) is convex on [s₀, s₁].
 
@@ -301,28 +309,34 @@ exponentials e^{−sΣ_{k∈S}log k} over n-subsets S; its second derivative is 
 OP ensemble. So (log h_n)″ = Var_{n+1} − Var_n, and with the projection P_n onto span{q_0, …, q_{n−1}},
 Var_n = ‖(I − P_n)fP_n‖²_HS = Σ_{i<n≤j}|f(J)_{ij}|² (f = log k as a function of the Jacobi operator J). For f = log k the
 cross-cut flux is log-correlated (Toeplitz symbol log(2 + 2cos θ), Fourier coefficients ≍ 1/m), so it grows like log n and
-its increments are positive asymptotically (HEURISTIC). (For f = x it is b_n², which decreases.) Numerically consistent with (CVX)
+its increments are positive asymptotically (HEURISTIC). (For f = x it is b_n², which decreases.) (Exact level-n form: UL.md Prop SV, ∂_s²log h_n = Σ_{j>n}f_{nj}² − Σ_{i<n}f_{in}²; (CVX) fails at the top level of finite
+truncations, UL.md Remark CVX-fin.) Numerically consistent with (CVX)
 (`checks/check_so_convex.out`): 300-digit Hankel determinants for n ≤ 8, p ∈ {½, 1, 2}, s ∈ [3/2, 4] (positive second
 differences, step ½); and the grid data for n ≤ 1600 (positive second divided differences at the grid points s = 3/2, 2,
-3, 4, roughly 1/(2p²n)). Not proved.
+3, 4, roughly 1/(2p²n); dd ≈ (log h_n)″/2, so (log h_n)″ ≈ 1/(p²n)). Not proved.
 
-*(CVX) suffices.* If log h_n is convex on [s₀, s₁], then −L_n(s₀) ≤ (log h_n(s₁) − log h_n(s₀))/(s₁ − s₀) ≤ −L_n(s₁),
+*(CVX) suffices (no longer needed for Thms 3.8–3.10 after Plan 64: UL.md UF-lim).* If log h_n is convex on [s₀, s₁], then −L_n(s₀) ≤ (log h_n(s₁) − log h_n(s₀))/(s₁ − s₀) ≤ −L_n(s₁),
 and L_n(s_i) = log n + O(1) at the two **fixed** endpoints (QLP-Λ + Law P, no uniformity). So Theorem 3.8 below holds with
 o(log n) improved to O(1), under (CVX) instead of (UΛ).
 
-**Theorem 3.8 (s-slope, Cesàro form; CONDITIONAL on (UΛ) or on (CVX), on [s₀, s₁], + PROVED-mod-cite (QLP-Λ, Law P) for the (CVX) route).**
+**Theorem 3.8 (s-slope, Cesàro form; Plan 64: PROVED-mod-cite, UL.md Cor UL-3.8 ((P), (LP), (QLP-c) at fixed points only (finitely many for each grid, countably many in all); no uniformity in σ, (RU) not used; Lemma CS), not REVIEWED. The
+proof below is the earlier route, CONDITIONAL on (UΛ) or on (CVX), on [s₀, s₁], + PROVED-mod-cite (QLP-Λ, Law P)).**
 
   Σ_{j=1}^n log(b_j(s₁)/b_j(s₀)) = −((s₁ − s₀)/2)log n + o(log n)  (+ O(1) instead of o(log n) under (CVX)).
+
+*Plan 64 (UL.md Cor UL-3.8):* unconditionally, for every p > 0 and s₀, s₁ > 1, the right side is
+−((s₁ − s₀)/2)log n + ½log(c^{(s₁−s₀)/p}ζ(s₀)/ζ(s₁)) + o(1).
 
 *Proof.* Integrate Prop 3.7 over s ∈ [s₀, s₁] (everything is continuous in s): 2Σ_{j≤n}log(b_j(s₁)/b_j(s₀)) =
 −(s₁ − s₀)log n − ∫Λ_n ds + ∫L_0 ds, and |∫Λ_n ds| ≤ (s₁ − s₀)sup|Λ_n| = o(log n) under (UΛ). Under (CVX) use the
 secant bound above: 2Σ_{j≤n}log(b_j(s₁)/b_j(s₀)) = log h_n(s₁) − log h_n(s₀) − log(ζ(s₁)/ζ(s₀)) = −(s₁ − s₀)log n + O(1). ∎
 
-**Corollary 3.9 (CONDITIONAL on (E) at s₀, s₁ and on (UΛ) or (CVX) on [s₀, s₁], + PROVED-mod-cite (Law P, Lemma CS, QLP-Λ)).** d₁(s₁) − d₁(s₀) = −(s₁ − s₀)/2. Combined with
+**Corollary 3.9 (CONDITIONAL on (E) at s₀, s₁ (+ PROVED-mod-cite: UL.md Cor UL-3.8; Plan 64, not REVIEWED; earlier: also
+on (UΛ) or (CVX) on [s₀, s₁])).** d₁(s₁) − d₁(s₀) = −(s₁ − s₀)/2. Combined with
 the anchors:
-- p = 2: d₁(2, s) = −(s − 1)/2 for every s > 1 (anchor s₀ = 2, Theorem 2.3), under (E) at s and (UΛ) or (CVX) on [min(2, s), max(2, s)];
-- p = 1: d₁(1, s) = −(s − 1)/2 for every s > 1 (anchor s₀ = 3/2), under (E) at s and (UΛ) or (CVX) — (E) at 3/2 is not needed: Theorem 3.10(b) and Theorem 3.8 give 𝒟_n(s) = −((s−1)/2)log n + o(log n) directly (O1);
-- every p: d₁(p, s) = −(s − 1)/2 + g(p) with g independent of s, under (E) for all s and (UΛ) or (CVX) on compacts. The value
+- p = 2: d₁(2, s) = −(s − 1)/2 for every s > 1 (anchor s₀ = 2, Theorem 2.3), under (E) at s;
+- p = 1: d₁(1, s) = −(s − 1)/2 for every s > 1 (anchor s₀ = 3/2), under (E) at s — (E) at 3/2 is not needed: Theorem 3.10(b),(d) give 𝒟_n(s) = −((s−1)/2)log n + O(1) directly (O1; UL.md Cor UL-3.10);
+- every p: d₁(p, s) = −(s − 1)/2 + g(p) with g independent of s, under (E) at the points used. The value
   g(p) = 0 for p ∉ {1, 2} is **not** obtained by any soft argument here (GAP; NUMERICAL g = 0).
 
 *Proof.* As in Cor 3.3: under (E) the left side of Theorem 3.8 is (d₁(s₁) − d₁(s₀))log n + O(1). ∎
@@ -337,27 +351,30 @@ path). At the pointwise level this is the tilt law n^pb_n/c = 1 − (s − 1 −
 Put 𝒟_n(p, s) := Σ_{j=1}^n log(j^pb_j/c(p)) = ½log h_n − ½log ζ(s) + p log n! − n log c(p). Under (E),
 𝒟_n = d₁ log n + O(1). Without (E), say that σ_{p,s} has **log-average coefficient** d if 𝒟_n = d·log n + O(1).
 
-**Theorem 3.10 ((a)–(c) PROVED-mod-cite: Paper 2 Cor. thm:pure (Law P), G1 Lemma CS, Theorem 2.3's input; RH_p1 §1, DLMF 5.11. (d) CONDITIONAL on (UΛ) or (CVX), + QLP-Λ).**
+**Theorem 3.10 ((a)–(c) PROVED-mod-cite: Paper 2 Cor. thm:pure (Law P), G1 Lemma CS, Theorem 2.3's input; RH_p1 §1, DLMF 5.11. (d) Plan 64: PROVED-mod-cite, UL.md Cor UL-3.10 (UF-lim; SECOND §2 Input (VA, DLMF-Lommel); Cor 3.6(i) (RH_p1 §1, DLMF 5.11)), not REVIEWED).**
 - (a) p = 2 and every even s = 2 + 2m (m ≥ 0): σ_{2,s} has log-average coefficient −(s − 1)/2.
 - (b) p = 1 and every s = 3/2 + m (m ≥ 0): σ_{1,s} has log-average coefficient −(s − 1)/2.
 - (c) For every p > 0, s > 1: σ_{p,s} has a log-average coefficient iff σ_{p,s+p} has, and the two differ by −p/2.
-- (d) For every s > 1 (p = 2 resp. p = 1): 𝒟_n = −((s−1)/2)log n + o(log n) under (UΛ) on the relevant interval; log-average coefficient −(s − 1)/2 (i.e. O(1)) under (CVX).
+- (d) For every s > 1 (p = 2 resp. p = 1): log-average coefficient −(s − 1)/2, with 𝒟_n + ((s − 1)/2)log n convergent.
+- (c′) (UL.md Cor UL-3.10) For every p > 0 and s, s₀ > 1: 𝒟_n(p, s) − 𝒟_n(p, s₀) + ((s − s₀)/2)log n →
+  ((s − s₀)/(2p))log c − ½log(ζ(s)/ζ(s₀)); so (c) holds for all real shifts.
 
 Equivalently, for the Hankel ratios of zeta values (Paper 2 Remark rem:pure-zeta): with h_n = D_{n+1}/D_n,
-D_n = det(ζ(s + p(i + j)))_{0≤i,j<n}, log h_n = log ζ(s) − 2p log n! + 2n log c(p) − (s − 1)log n + O(1) in cases (a), (b).
+D_n = det(ζ(s + p(i + j)))_{0≤i,j<n}, log h_n = log ζ(s) − 2p log n! + 2n log c(p) − (s − 1)log n + O(1) in cases (a), (b), and (Plan 64, UL.md Cor UL-3.10(d′)) for every s > 1 at p ∈ {1, 2}, with O(1)
+improvable to const + o(1).
 
 *Proof.* (c) is Theorem 3.2. (a): at s = 2, 𝒟_n = −½log n + O(1) by the exact b_n (input of Theorem 2.3); then (c) m
-times. (b): at s = 3/2, Cor 3.6(i) and nb_n^{TC} = ½(1 − 1/(4n) + O(n⁻²)) give 𝒟_n = −¼log n + O(1); then (c). (d) Theorem
-3.8. ∎
+times. (b): at s = 3/2, Cor 3.6(i) and nb_n^{TC} = ½(1 − 1/(4n) + O(n⁻²)) give 𝒟_n = −¼log n + O(1); then (c). (d) UL.md Cor UL-3.10 (earlier
+route: Theorem 3.8 under (UΛ) or (CVX)). ∎
 
 This is the only form in which the 1/n coefficient is proved here without (E): it identifies the coefficient on the
-lattices s₀ + pℕ₀ (s₀ = 2 at p = 2, s₀ = 3/2 at p = 1). For p ∉ {1, 2} there is no anchor (§4).
+lattices s₀ + pℕ₀ (s₀ = 2 at p = 2, s₀ = 3/2 at p = 1), and by UL.md Cor UL-3.10 at every s > 1 for p ∈ {1, 2}. For p ∉ {1, 2} there is no anchor (§4).
 
 ## 4. Existence of the 1/n coefficient — GAP
 
 **(E) for pure powers (GAP).** For which (p, s) does n^pb_n/c(p) = 1 + d₁/n + O(n^{−1−ε}) hold with some ε > 0?
 Known: all (p, s) with an O(1/n) remainder (RH_p, RH₁(r), RH_plt1b; Paper 2 Cor. thm:pure); exactly p = 2, s ∈ {2, …, 10}
-even (Theorem 2.3). With (E), §3 gives d₁ for p ∈ {1, 2} (via (UΛ) off the lattices s₀ + pℕ) and the s-dependence for
+even (Theorem 2.3). With (E), §3 gives d₁ for p ∈ {1, 2} (UL.md: all s, given (E) at s) and the s-dependence for
 all p; e₁ follows from d₁ (Theorem 3.4).
 
 **What the O(1/n) proofs give, and what is missing (PROOF SKETCH for p > 1, RH_px frame).**
@@ -390,7 +407,7 @@ none of steps 2–5 is written out symbol by symbol, and step 3 is the only non-
 **Computing d₁ itself** from steps 2–5 needs the residues of Δ₁^{(∞)} at 0 and 4c, i.e. f′(0), the first two Taylor
 coefficients of φ̃ at 4c, and the Szegő function of x^{α_x}(4c − x) near 0 and 4c; these are explicit but p-dependent
 through μ* (G2 B*). Conjecture P62 predicts that the p-dependence cancels, leaving −(s − 1)/2. Given §3, it suffices to
-do this at one s per p (g(p) := d₁ + (s − 1)/2 is s-independent under (E), (UΛ)); α_x = 0 (s = 1 + p) is the natural
+do this at one s per p (g(p) := d₁ + (s − 1)/2 is s-independent under (E)); α_x = 0 (s = 1 + p) is the natural
 choice (Bessel order 0, no Fisher–Hartwig factor). **GAP.**
 
 **p ≤ 1.** p = 1: RH₁(r) (symmetric WLXZ frame) or RII_x1's x-frame; 0 < p < 1: RH_plt1b's seam geometry. The same
@@ -427,7 +444,7 @@ parametrix applies.
   (d₁)·log n term in log h_n, i.e. an n log n term in log D_n beyond Theorem H's leading order. Paper 1's method gives the
   averaged law (o(n²)-level information on log D_n), not an O(log n)-accurate expansion of log h_n. Not available.
 - Christoffel shift + averaged law (§3.1): gives the s ↦ s + p constraint exactly (Theorem 3.2), but no single value.
-- s-derivative (§3.3): gives the slope in s under (UΛ), but not the s-independent part g(p).
+- s-derivative (§3.3): gives the slope in s (UL.md UF-lim; unconditional), but not the s-independent part g(p).
 - The limit s → 1⁺: σ_{p,s}/ζ(s) → δ_0, and b_n(s) → b_{n−1}(σ_{p,1+2p}) shifted (the OPs of "∞·δ_0 + σ_{p,1}" are
   x·π_{n−1}^{x²σ_{p,1}}); this reproduces Cor 3.3 twice and gives no new constraint.
 
@@ -460,6 +477,7 @@ parametrix applies.
 - `checks/check_so_validate.py` (.out) — §1 validation against Lommel (NUMERICAL).
 - `checks/check_so_shift.py` (.out) — Prop 3.1, Thm 3.2, Cor 3.3, Cor 3.6(i) numerically.
 - `checks/check_so_convex.py` (.out) — (CVX), exact small n and grid data (NUMERICAL).
+- `checks/check_ul.py` (.out) — UL.md (Plan 64): Lemma V, Prop SV, Remark CVX-fin, Thms UF/UF-lim/UP (NUMERICAL).
 - `checks/check_so_lattice.py` (.out) — §4.1 shifted lattices (NUMERICAL).
 
 Run with `PYTHONPATH=src` and the repo `.venv`; the grid caches coefficients in `tmp/plan62_cache/` (gitignored).

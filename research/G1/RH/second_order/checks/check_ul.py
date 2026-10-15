@@ -1,6 +1,6 @@
 """Plan 64 (NUMERICAL sanity checks for UL.md): the variational sandwich (Lemma V), the second-variation identity
 (Proposition SV), the finite-truncation failure of (CVX) (Remark CVX-fin), and the uniform-in-s boundedness of
-F_n(s) - F_n(s0), F_n(s) := log h_n(sigma_{p,s}) + s log n (Theorem UF), with the uniform coefficient bounds (Prop. UB).
+F_n(s) - F_n(s0), F_n(s) := log h_n(sigma_{p,s}) + s log n (Theorem UF), with the uniform Law P on compacts (Thm UP; b- and alpha-parts).
 
 These are finite checks of proved statements (Rule N: NUMERICAL, not certified).
 [1]-[3]: mpmath, Hankel matrices of zeta values / zeta derivatives (dps 60), small n.
@@ -115,7 +115,7 @@ for p in (mp.mpf(1), mp.mpf(2)):
               f"Var-2down = {mp.nstr(rhs, 8)}")
 print(f"   all negative: {allneg}")
 
-print("\n[4] Theorem UF / Prop. UB: s on a grid in [1.5, 4], n <= NMAX; F_n(s) := log h_n(s) + s log n")
+print("\n[4] Theorems UF, UF-lim / Thm UP: s on a grid in [1.5, 4], n <= NMAX; F_n(s) := log h_n(s) + s log n")
 from so_coeffs import measure
 from jacobi_asym.jacobi.rkpw import jacobi_rkpw
 NMAX = 400
@@ -123,7 +123,7 @@ SG = [1.5 + 0.25 * i for i in range(11)]
 for p in (1.0, 2.0):
     K = 100 * NMAX
     c = float((mp.pi / (2 * (mp.sqrt(mp.pi) / 2 * mp.gamma(1 / mp.mpf(p) + 0.5) / mp.gamma(1 / mp.mpf(p) + 1)))) ** p / 4)
-    Fs, nb = [], []
+    Fs, nb, na = [], [], []
     for s in SG:
         jc = jacobi_rkpw(measure(p, s, K, NMAX + 8), NMAX + 1, prec="q")
         b2 = np.array([float(v) for v in jc.b2[:NMAX]])
@@ -131,7 +131,9 @@ for p in (1.0, 2.0):
         logh_ = float(mp.log(mp.zeta(s))) + np.cumsum(np.log(b2))
         Fs.append(logh_ + s * np.log(n))
         nb.append(n ** p * np.sqrt(b2) / c)
-    Fs, nb = np.array(Fs), np.array(nb)
+        al = np.array([float(v) for v in jc.a[:NMAX + 1]])   # alpha_0..alpha_NMAX
+        na.append(n ** p * al[1:NMAX + 1] / (2 * c))          # n^p alpha_n / (2c), n = 1..NMAX
+    Fs, nb, na = np.array(Fs), np.array(nb), np.array(na)
     D = Fs - Fs[0]                              # F_n(s) - F_n(1.5)
     lim = (np.array(SG) - SG[0])[:, None] * np.log(c) / p   # Theorem UF-lim: (s - s0) log c / p
     print(f"   p={p}: sup_s |F_n(s) - F_n(1.5)| at n = 50, 100, 200, 400: "
@@ -145,3 +147,5 @@ for p in (1.0, 2.0):
     print(f"          n^p b_n(s)/c over s in grid, n in [10, 400]: min {nb[:, 9:].min():.4f}, max {nb[:, 9:].max():.4f}")
     print(f"          sup_s |n^p b_n(s)/c - 1| at n = 50, 100, 200, 400: "
           + ", ".join(f"{np.abs(nb[:, m - 1] - 1).max():.2e}" for m in (50, 100, 200, 400)))
+    print(f"          sup_s |n^p alpha_n(s)/(2c) - 1| at n = 50, 100, 200, 400: "
+          + ", ".join(f"{np.abs(na[:, m - 1] - 1).max():.2e}" for m in (50, 100, 200, 400)))
