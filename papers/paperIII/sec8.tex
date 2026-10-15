@@ -1,8 +1,8 @@
 % Section 8: open problems and conjectures.
 \section{Open problems}\label{sec:open}
 
-This section records the questions that Theorems~\ref{thm:sv}--\ref{thm:s} leave open, and states three conjectures;
-the last two are taken from \cite{PaperII}. The evidence for them is numerical.
+This section records the questions that Theorems~\ref{thm:sv}--\ref{thm:s} leave open, and states two conjectures;
+the second is taken from \cite{PaperII}. The evidence for them is numerical.
 
 \emph{Between slow variation and boundedness.} Theorems~\ref{thm:sv} and~\ref{thm:rough} leave a range of regularity
 conditions open. A simple test case is $w_k=k^{-s}e^{\varepsilon\sin\log k}$: the increments of $\varepsilon\sin\log k$
@@ -46,10 +46,10 @@ all atoms but one, which is impossible since it is orthogonal to the constants. 
 every finite truncation.
 \end{remark}
 
-\emph{The pointwise $1/n$ term for $p\le1$.} For $p>1$ the $1/n$ term is Theorem~\ref{thm:imp-second}. The second
-paper of the series proves it for every $p>0$ \cite[Theorem~1.4]{PaperII}: the $1/n$ coefficients are the same, and for
-$0<p<1$ a further term $2p\,c(p)\zeta(-p)\,n^{-1-p}$ appears in both $n^pb_n/c(p)$ and $n^pa_n/(2c(p))$, so that it
-cancels in $a_n/(2b_n)$. Corollary~\ref{cor:p1} and Theorem~\ref{thm:s}(ii) give the averaged form of these statements
+\emph{The pointwise $1/n$ term.} For pure powers the $1/n$ term is known for every $p>0$
+(Theorem~\ref{thm:imp-second}): the $1/n$ coefficients do not depend on whether $p<1$ or $p\ge1$, and for $0<p<1$ a
+further term $\mathsf k_pn^{-1-p}$ appears in both $n^pb_n/c(p)$ and $n^pa_n/(2c(p))$, so that it cancels in
+$a_n/(2b_n)$. Corollary~\ref{cor:p1} and Theorem~\ref{thm:s}(ii) give the averaged form of these statements
 without Riemann--Hilbert analysis.
 
 \emph{Slowly varying factors at order $1/n$.} The numbers in Section~\ref{sec:numerics} suggest that a slowly varying
@@ -67,7 +67,7 @@ $\ell(k)=\exp\Lambda(\log k)$. Then
 
 For $0<p<1$ the condition $n\Lambda'(\log n)\to\infty$ would not suffice: for $\ell(k)=1-\epsilon k^{-p}$, $0<\epsilon<1$, the measure
 $\sigma_{p,s,\ell}=(1-\epsilon x)\sigma_{p,s}$ is a polynomial Christoffel transform of $\sigma_{p,s}$, and its coefficient of
-$n^{-1-p}$ is $2p\,c(p)\zeta(-p)+p\,c(p)\epsilon$, not $\frac12p\epsilon$ \cite[\S13]{PaperII}.
+$n^{-1-p}$ is $\mathsf k_p+p\,c(p)\epsilon$, not $\frac12p\epsilon$ \cite[\S13]{PaperII}.
 
 \emph{Other atoms.} All results here use the exact atoms $k^{-p}$: Lemma~\ref{lem:arcsine} needs a pointwise law for a
 reference measure, and Section~\ref{sec:christoffel} needs $x\sigma_{p,s}=\sigma_{p,s+p}$. For atoms $x_k=f(k)$ regularly

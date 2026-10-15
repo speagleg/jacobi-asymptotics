@@ -1,8 +1,8 @@
 # Paper 1 — notes (release candidate of 2026-10-15, Plan 63; style revision Plan 68)
 
 `main.tex` (amsart 10pt, 19 pages after Plan 68; 17 pages at 11pt with 1.15in margins before), `refs.bib`, `main.bbl` (tracked, for the arXiv bundle), `checks/`. Build:
-`pdflatex main; bibtex main; pdflatex main; pdflatex main`. Author line is a placeholder ("Gordon [Surname]", user
-decision: keep). arXiv bundle and placeholders: `ARXIV.md`. Final referee/editor pass: `REFEREE_FINAL.md` (Plan 63). Readability revision: §9 below (Plan 68).
+`pdflatex main; bibtex main; pdflatex main; pdflatex main`. Author line "Gordon Speagle" (Plan 73; no
+affiliation or email). arXiv bundle and placeholders: `ARXIV.md`. Final referee/editor pass: `REFEREE_FINAL.md` (Plan 63). Readability revision: §9 below (Plan 68).
 
 **Status.** DRAFT, Rule R done: `REVIEW_Paper1.md` (2026-10-14) gives **ACCEPT WITH FIXES**, Lemma 3.3 **CORRECT**,
 and no mathematical error. Fixes F1–F15 are applied (§7 below). The mathematics is research/G2 (PROVED-mod-cite (P) +
@@ -139,7 +139,7 @@ route, not needed here).
 
 ## 6. Pre-submission checklist
 
-- [ ] Fill in the author surname (placeholder "Gordon [Surname]"; user decision to keep for now); optionally address/email.
+- [x] Author line "Gordon Speagle" (Plan 73); no address or email.
 - [x] MSC 2020 and keywords in the front matter (Primary 42C05; Secondary 15B05, 31A15, 11M06, 47B36). 15B52 (random
       matrices) was considered and rejected; 15B05 covers Hankel matrices.
 - [x] Independent review (Rule R) of the new material in §2, especially Lemma 3.3 (REVIEW_Paper1.md: CORRECT).
@@ -152,8 +152,8 @@ route, not needed here).
 - [x] Complete the bibliographic data (Plan 63, from arXiv/Crossref metadata).
 - [ ] Rerun the novelty search (Rule L) close to submission.
 - [x] Decide on item 11 (not mentioned) and the error term (remark only) — see §5.
-- [x] Supplementary-material sentence: https://github.com/speagleg/jacobi-asymptotics, tag `v1.0-paper1` marked as a
-      placeholder (the tag is **not** created; create it at submission and the repo must be public by then).
+- [x] Supplementary-material sentence: https://github.com/speagleg/jacobi-asymptotics, tag `v1.0-paper1`, stated plainly
+      (Plan 73). The tag is created after the Plan 73 pass; the repo must be public by submission.
 - [x] Recompile from clean (pdflatex, bibtex, pdflatex ×2): no warnings, no overfull boxes; standalone build from
       main.tex + main.bbl checked.
 - [x] `checks/` and the scripts behind the tables are distributed via the public repository (not in the arXiv bundle).
@@ -189,7 +189,8 @@ route, not needed here).
    one quote). BKMW, Coons–Sutherland, Baricz–Štampach and Monien §3 are now paraphrased (Plan 68), not quoted.
 4. (Dropped, Plan 68: Fauzan no longer cited.)
 5. refs.bib: done (no "to verify" fields left).
-6. Supplementary material: create tag `v1.0-paper1` at submission and make the repository public (user).
+6. Supplementary material: create tag `v1.0-paper1` (cited in the paper since Plan 73) and make the repository public
+   (user).
 
 ## 9. Plan 68 readability revision (2026-10-15)
 

@@ -80,7 +80,7 @@ Lemma~\ref{lem:imp-chain}(ii).
 \end{proof}
 
 Only the law without rate is used. With the rate $O(1/n)$, the parameters converge only like
-$n^pu_n-c=O(n^{-1/2})$ in general \cite[Section~3]{PaperII}, so the convergence in Theorem~\ref{thm:s}(i) has no
+$n^pu_n-c=O(n^{-1/2})$ in general \cite[Lemma~3.5 and Remark~3.6]{PaperII}, so the convergence in Theorem~\ref{thm:s}(i) has no
 better rate a priori; numerically the error is of order $1/n$ (Section~\ref{sec:numerics}).
 
 \subsection{Perturbations of relative size \texorpdfstring{$O(1/k)$}{O(1/k)}}
@@ -163,9 +163,9 @@ coefficient decreases by $\frac12$ at each step.
 \end{proof}
 
 \subsection{Transfer of the pointwise \texorpdfstring{$1/n$}{1/n} coefficient}
-For $0<p\le1$ the pointwise $1/n$ term of $n^pb_n(s)$ is not known (Section~\ref{sec:open}). The product identity
-shows how the coefficients at $s$ and $s+p$ must be related if they exist, and that their existence alone determines
-the $1/n$ term of $a_n/(2b_n)$.
+The pointwise $1/n$ term of $n^pb_n(s)$ is Theorem~\ref{thm:imp-second}, proved by Riemann--Hilbert analysis. The
+product identity alone shows how the coefficients at $s$ and $s+p$ must be related if they exist, and that their
+existence determines the $1/n$ term of $a_n/(2b_n)$.
 
 \begin{proposition}\label{prop:transfer}
 Let $p>0$, $s>1$ and $\varepsilon>0$, and suppose that there are $d(s),d(s+p)\in\R$ with
@@ -196,6 +196,7 @@ $a_n/(2b_n)=\frac12(X+X^{-1})-p/(2n)+O(n^{-1-\varepsilon'})=1+(X-1)^2/(2X)-p/(2n
 claim since $2\varepsilon'\le1+\varepsilon'$.
 \end{proof}
 
-For $p>1$ the hypothesis holds with $\varepsilon=1$ and $d(s)=-(s-1)/2$ by Theorem~\ref{thm:imp-second}, and the
-conclusion agrees with that theorem. For $0<p\le1$ the proposition reduces the $1/n$ term of $a_n/(2b_n)$ to the
-existence of the $1/n$ term of $n^pb_n$ at $s$ and at $s+p$, with a remainder $O(n^{-1-\varepsilon})$, $\varepsilon>\frac12$.
+By Theorem~\ref{thm:imp-second} the hypothesis holds for every $p>0$, with $d(s)=-(s-1)/2$, and with $\varepsilon=1$
+if $p\ge1$ and $\varepsilon=p$ if $0<p<1$; the conclusion agrees with that theorem. The point of the proposition is
+that the relation $d(s+p)=d(s)-\frac p2$, and the $1/n$ term of $a_n/(2b_n)$ when $\varepsilon>\frac12$, follow from
+the Christoffel structure alone once the expansions of $n^pb_n$ at $s$ and $s+p$ exist.

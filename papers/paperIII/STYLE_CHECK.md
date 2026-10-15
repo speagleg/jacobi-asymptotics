@@ -63,7 +63,7 @@ research/program/novelty_lineB_C.md.
 - Imported results are restated with their numbers in §2.2 and named where used ("[II, Corollary 1.3]",
   "\tailbound"); §1 says which parts use which imports.
 - Conjectures only in §8, labelled Conjecture.
-- Acknowledgement sentence and author placeholder as required; data/code availability with tag placeholder.
+- Acknowledgement sentence as required; author "Gordon Speagle"; data/code availability with tag v1.0-paper3 (Plan 73).
 
 ## §7 Cross-paper consistency
 - σ_{p,s,ℓ}, x_k, w_k, p, s, ℓ, a_n, b_n (recurrence xP_n = P_{n+1} + a_nP_n + b_n²P_{n−1}), c(p), I(p), κ_p, D_n, h_n,
