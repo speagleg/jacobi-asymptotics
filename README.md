@@ -106,6 +106,9 @@ The full index of every statement, with exact hypotheses, labels and dependencie
   * `GAP`: a precise statement that is not proved.
   * "Certified" is used only for interval arithmetic (Arb). The constants and closed forms the README and papers quote
     (c(p), κ_p, κ, the Lommel and Baricz–Štampach closed forms) are certified in [`certified/`](certified/README.md).
+* **Reproducible outputs.** `scripts/reproduce.sh` re-runs the certified suite and 47 numerical checks and diffs each
+  output byte-for-byte against the committed `.out`; `MANIFEST.sha256` pins the SHA-256 of every check, output, paper
+  PDF and Lean file. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for what is re-run and what is excluded.
 * **Novelty.** A first-pass literature search is summarised in THEOREMS.md. Many statements are marked
   "novelty UNCHECKED", and some ingredients are known (for example, the chain-sequence lemma behind the Christoffel
   shift).
@@ -144,13 +147,16 @@ proofs, which are long and written as lab notebooks.
 
 ## Running the code
 
-CI (GitHub Actions) runs both on every push to `master`: the fast pytest suite with the C kernel built (`python.yml`; slow regressions weekly) and the Lean build + axiom audit `lean/check.sh` (`lean.yml`, when `lean/` changes).
+CI (GitHub Actions) runs both on every push to `master`: the fast pytest suite with the C kernel built plus the manifest check and the certified-output comparison (`python.yml`; slow regressions weekly) and the Lean build + axiom audit `lean/check.sh` (`lean.yml`, when `lean/` changes).
 
 ```bash
 scripts/setup_env.sh                     # .venv on top of the system numpy/scipy/mpmath/sympy (Python ≥ 3.12),
                                          # adds python-flint, builds the C kernel in csrc/ (needs gcc + libquadmath)
 .venv/bin/python -m pytest               # fast suite
 .venv/bin/python -m pytest -m slow       # slow regression tests (minutes)
+scripts/reproduce.sh                     # build + tests + re-run certified suite and numerical checks, diff vs the
+                                         # committed outputs, Lean audit, manifest check (~5 min; --quick ~20 s)
+python scripts/manifest.py --check       # verify MANIFEST.sha256 (rerun without --check after changing a covered file)
 ```
 
 ```python
