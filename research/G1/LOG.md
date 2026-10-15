@@ -651,3 +651,33 @@
   RII₁ row, G1-R row, §3.19 "Remaining (GAP)"; ROUTE2_p1.md label table and §7; ROUTE2.md §6) — THEOREMS.md left to the
   coordinator; F7 numerics wording (E up to 0.5006, E spread 1.9·10⁻⁸, r = 1.5 e2e row with all three N); F8 LnΓ branch wording.
   Rule R ACCEPT WITH FIXES (review/REVIEW_Plan54.md), fixes applied — REVIEWED.
+
+## 2026-10-15 — Plan 55 (any strip: the O(1/n)-rate results under analyticity in an arbitrarily thin strip) — Rule R pending
+- Write-up: PROOF.md §3.24 (Theorem AS) and §0 row "AS (Plan 55)"; paper: papers/paper2 revision 3 (NOTES.md "Revision 3").
+  Plan: docs/superpowers/plans/2026-10-15-plan-55-strip.md.
+- **Result.** For every p > 0, s > 1: if Ψ₁ = exp L₁(log t) with L₁ analytic on {Re u ≥ −c₀, |Im u| ≤ ϑ} for **some** ϑ > 0
+  (real, bounded for Re u ≤ 0, L₁′ → 0) — (A_ϑ) — then n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n). Previously
+  (H_an) |Im u| ≤ π/p (p > 1), (H_an^{<1}), (H_an^{x1}) π/2, (H_an₁) π (p = 1, band centre). PROVED-mod-cite (inherits RII,
+  RII_{<1}, RII_x1); Rule R pending.
+- **Mechanism.** Paper 2 Lemma 5.7: the weight is evaluated only in Z_n = {|arg z| < ϑ_w}; the lens leaves 0 at ϑ_lip, the
+  Bessel rays are at ±(π − ϑ_lip), and KMVV's angle freedom (CITATIONS "(KMVV, angle freedom; Plan 15b)": any angle in (0, π))
+  lets ϑ_lip → 0. Scaling the old angles by m = min(1, pϑ/ϑ_w⁰) keeps (5/4)ϑ_lip < ϑ_w < π/2, ϑ_w < πp/2 (p < 1) and gives
+  ϑ_w ≤ pϑ.
+- **Audit** (PROOF.md §3.24 table, 26 locations): decay factors sin(ϑ_lip/2), sin(¾ϑ_lip/p); Lemma 5.5(iii) needs ϑ_w/p < π/2;
+  Lemma 5.6 (corner rounding in the open set G₊, h₁ with arcsin(h₀/4c) < ϑ_w); Table 1; Binet-cut (|arg z| < π/2 only), p = 1
+  reflection ((O5) |arg u| ≤ π − ¾ϑ_lip), seams (lens inside S_in; τ₀ = sin(πp/2 − ϑ_w)); Lemma 6.3 (convex sector, |arg z| ≥
+  ½ϑ_lip separation); Frame Proposition; §7 Bessel model (DLMF 10.40 used on |ph 2ζ^{1/2}| ≤ ½(π − ϑ_lip), a closed subsector
+  of |ph| < π/2 for fixed ϑ_lip > 0; Hankel formulas in the thin sectors), Lemmas 7.1, 7.3; App. B (φ₁ = ½ϑ_lip,
+  sin(ϑ_lip/p)), App. C (angle-free star lemmas), App. D; Airy edge independent of ϑ_lip (confirmed). **No minimum angle.**
+  Upper bounds only internal: ϑ_lip < (4/5)ϑ_w, ϑ_w < min(π/2, πp/2 for p < 1) and ≤ pϑ.
+- **Scope.** Verified on Paper 2's write-up (x-frame, all p). ROUTE2*.md as written use wider strips; the band-centre (§3.19) and
+  fold (§3.22) proofs were not re-examined; their conclusions are covered via RII_x1. Dated Plan 55 notes added (no history
+  rewritten) in PROOF.md §§3.17, 3.19–3.23, ROUTE2*.md (6 files), THEOREMS.md §§2.7–2.8.
+- **Numerics** (`RH/route2/checks/check_p55_strip.py/.out`, NUMERICAL): p = 2, L₁(u) = √(u+1) + (u+2)^{−1/2}log(1 − q cos 2u),
+  q = 1/cosh 0.6 (singular at u = πm ± 0.3i for every m: (A_ϑ) only for ϑ < 0.3; the old (A_{π/2}) fails). n = 50…3200 (25
+  points), five truncations (spread ≤ 2·10⁻⁹): s = 2: n(n²b_n/c − 1) ∈ [−0.603, −0.029], s = 3: [−1.101, −0.549], same maximum
+  modulus on [50, 400] and [400, 3200] (log-periodic oscillation, no growth); n(a_n/(2b_n) − 1) ∈ [−1.009, −0.951].
+- **Rule A:** minimum-angle search, order of smallness choices, domain of ε₁, choice of a test function with singularities
+  along the whole strip boundary. No counterexample.
+- **Rule L:** not done. Novelty UNCHECKED.
+- **Rule R:** pending.

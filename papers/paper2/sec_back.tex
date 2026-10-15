@@ -13,7 +13,7 @@ The computations in this section are floating-point illustrations; they play no 
 be made available as supplementary material (repository URL and commit hash: to be supplied before submission).
 
 \emph{What is shown.} Table~\ref{tab:numerics} compares the factor $\ell(k)=\exp\sqrt{\log(k+e)}$, which satisfies
-\Ath{\vartheta_p} for every $p>0$, with $\ell\equiv1$, for $p=\frac12$, $1$, $2$ and $s=2$. By Theorem~\ref{thm:main}(ii)
+\Ath{\vartheta} for every $\vartheta<\pi$, with $\ell\equiv1$, for $p=\frac12$, $1$, $2$ and $s=2$. By Theorem~\ref{thm:main}(ii)
 and Corollary~\ref{thm:pure} the normalised deviations $n(n^pb_n/c(p)-1)$ and $n(a_n/(2b_n)-1)$ stay bounded. The Bessel
 orders are $\alpha=1$ (outside the window of Theorem~\ref{thm:engine}, reached through the shift from $s=\frac32$),
 $\alpha=0$ (the logarithmic case of the Bessel model) and $\alpha=-\frac12$.
@@ -78,6 +78,19 @@ $n^pb_n$ is smaller in absolute value, and the difference from the pure power dr
 $\frac12\Lambda'(\log n)$ with $\Lambda(\xi)=\sqrt{\log(e^\xi+e)}$; see \S\ref{sec:tilt}. The factor $\ell$ has almost
 no effect on $a_n/(2b_n)$ at order $1/n$.
 
+\emph{A factor analytic only in a thin strip.} Theorem~\ref{thm:main}(ii) needs \Ath{\vartheta} for some $\vartheta>0$
+only. As a test we took $p=2$ and $\Lambda(\xi)=\sqrt{\xi+1}+(\xi+2)^{-1/2}\log(1-q\cos2\xi)$ with $q=1/\cosh(0.6)$, the
+example of \S\ref{sec:results}. Here $1-q\cos2\xi$ vanishes at $\xi=\pi m\pm0.3i$ for every integer $m$, so $\Lambda$
+satisfies \Ath{\vartheta} exactly for $\vartheta<0.3$, and the singularities are not confined to a bounded part of the strip
+(singularities near $\Re\xi=0$ alone would be a weaker test, since they concern only the head of the measure, whose
+influence is exponentially small by Proposition~\ref{prop:stability}). The factor
+$\ell(k)=e^{\Lambda(\log k)}$ grows like $e^{\sqrt{\log k}}$ and carries a log-periodic oscillation of relative size
+$(\log k)^{-1/2}$. With the same numerical scheme, at $n=50\cdot2^{j/4}$, $0\le j\le24$ (so $50\le n\le3200$), the
+deviation $n(n^2b_n/c(2)-1)$ oscillates log-periodically in $[-0.603,-0.029]$ for $s=2$ ($\alpha=-\frac12$) and in
+$[-1.101,-0.549]$ for $s=3$ ($\alpha=0$), with the same maximum modulus on $50\le n\le400$ and on $400\le n\le3200$, while
+$n(a_n/(2b_n)-1)$ stays in $[-1.009,-0.951]$. The deviations are bounded, as Theorem~\ref{thm:main}(ii) requires; the
+oscillation of the $1/n$ term reflects that of $\Lambda'$, which here has no sign (compare \S\ref{sec:tilt}).
+
 \section{Further remarks and open problems}\label{sec:further}
 
 \subsection{\texorpdfstring{The $1/n$ term}{The 1/n term}}\label{sec:tilt}
@@ -93,7 +106,7 @@ the other pairing $a_n/(2b_{n+1})$ the coefficient $-p/2$ below becomes $+p/2$, 
   \frac{n^pb_n(\sigma_{p,s})}{c(p)}=1-\frac{s-1}{2n}+o\Bigl(\frac1n\Bigr),\qquad
   \frac{a_n(\sigma_{p,s})}{2b_n(\sigma_{p,s})}=1-\frac{p}{2n}+o\Bigl(\frac1n\Bigr).
 \]
-\textup{(b)} If $\ell$ satisfies \Ath{\vartheta_p} with $\ell(k)=\exp\Lambda(\log k)$, then
+\textup{(b)} If $\ell$ satisfies \Ath{\vartheta} for some $\vartheta>0$, with $\ell(k)=\exp\Lambda(\log k)$, then
 \[
   \frac{n^pb_n(\sigma_{p,s,\ell})}{c(p)}=1-\frac{s-1-\Lambda'(\log n)}{2n}+o\Bigl(\frac{\Lambda'(\log n)}{n}\Bigr)
   \qquad\text{whenever}\quad n\Lambda'(\log n)\to\infty.

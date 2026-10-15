@@ -136,7 +136,7 @@ both seams oriented away from $0$, and
 \]
 with principal powers; the cut $(-\infty,-1]$ of $B_{\mathrm{in}}$ lies in $\Sout$, and the cut $[2\pi n,\infty)$ of
 $B_{\mathrm{out}}$ lies in $\Sin$. The lens, the saturated regions and the top segment lie in $\Zn\subset\Sin$, since
-$\thw=3\pi p/8<\thseam$.
+$\thw<\thseam$ by~\eqref{eq:angles}.
 
 \begin{lemma}[Seam scalar]\label{lem:seam}
 Let $0<p<1$.
@@ -203,8 +203,8 @@ the same holds by~(i). On $(4c,\infty)$, $B_{\mathrm{in}}$ and $\chi$ are analyt
 $\tilde F_+=-\tilde F_-$ there. $H_n=(\tilde DB_{\mathrm{in}}e^{\chi})^{-2}>0$ on $(0,\infty)$ by~(iii), and
 $H_n(0^+)=e^{-2\chi(0)}$, where $\chi(0):=\lim_{z\to0}\chi(z)$ exists by Lemma~\ref{lem:corner}.
 
-\emph{(O3), (O4).} Points of $\Zn$ satisfy $|\arg z|\le3\pi p/8$, hence $\mathrm{dist}(z,\Sseam_+\cup\Sseam_-)\ge\sin(\pi p/8)|z|$.
-So Lemma~\ref{lem:corner}(ii) applies with $\tau_0=\sin(\pi p/8)$. For $|z|\le1$,
+\emph{(O3), (O4).} Points of $\Zn$ satisfy $|\arg z|<\thw$, hence $\mathrm{dist}(z,\Sseam_+\cup\Sseam_-)\ge\sin(\thseam-\thw)|z|$
+(note $0<\thseam-\thw<\pi/2$). So Lemma~\ref{lem:corner}(ii) applies with $\tau_0=\sin(\thseam-\thw)$. For $|z|\le1$,
 \begin{align*}
   |\log H_n-\log H_n(0^+)|&\le2\bigl(|j(t)|+|\varpi||\Log(1+z)|+|\chi-\chi(0)|\bigr)\\
   &\le C\bigl(|z|^{1/p}/n+|z|+|z|(1+\log\tfrac1{|z|})\bigr)\le C|z|^{1/2},
@@ -213,8 +213,8 @@ and similarly $|(\log H_n)'|\le C(|z|^{1/p-1}/n+1+\log\frac1{|z|})\le C|z|^{-1/2
 $|z|\ge1$ in $\Zn$, $j(t)$ is bounded, $|\Log(1+z)|\le C(1+\log|z|)$, and $|\chi-\chi(0)|\le C(1+\log|z|)^2$ by
 Lemma~\ref{lem:corner}(ii); this is (O4).
 
-\emph{(O5).} Fix $n$. Near $0$: in $\Sin$ outside the lens, $\kappa_\pm\to1$ (as $\frac34\thlip/p=3\pi/16$ bounds
-$|\arg t|$ from below) and $\tilde D,B_{\mathrm{in}}\to1$; in $\Sout$, $B_{\mathrm{out}}\to1$; $K$ is bounded; and $\chi$ is
+\emph{(O5).} Fix $n$. Near $0$: in $\Sin$ outside the lens, $\kappa_\pm\to1$ (as $\frac34\thlip/p\le|\arg t|<\frac\pi2$ there, so that
+$\sin|\arg t|\ge\sin(\frac34\thlip/p)>0$ in~\eqref{eq:imtheta}) and $\tilde D,B_{\mathrm{in}}\to1$; in $\Sout$, $B_{\mathrm{out}}\to1$; $K$ is bounded; and $\chi$ is
 bounded near $0$ uniformly up to the seams by Lemma~\ref{lem:corner}(iii). In the lens, $\tilde F$ is bounded above and
 below by the same facts. Near $\infty$: in $\Sout$ (which contains the imaginary axis, as $\thseam<\pi/2$),
 $F=B_{\mathrm{out}}Ke^\chi\to(2\pi n)^{-1/2}$, because $B_{\mathrm{out}}(z)K(z)=\bigl(\frac{-z}{2\pi n}\bigr)^{1/2}(-z)^{-1/2}(1+o(1))$
@@ -244,7 +244,7 @@ Let $0<p<1$ and $\tau_0\in(0,1)$. There are $C=C(p,\tau_0)$ and $n_0$ such that 
 
 \begin{proof}
 (i) On $\Sseam_+$, $t=-i|t|$ with $|t|=n|\zeta|^{-1/p}$. If $|\zeta|\le1$, then $|t|\ge n$; by~\eqref{eq:binet-bound} with
-$\vartheta=\pi/2$, $|j(t)|\le\frac1{6|t|}\le|\zeta|^{1/p}/n\le|\zeta|$; $|\Log(1-e^{-2\pi|t|})|\le2e^{-2\pi n|\zeta|^{-1/p}}\le C|\zeta|$;
+$\phi=\pi/2$, $|j(t)|\le\frac1{6|t|}\le|\zeta|^{1/p}/n\le|\zeta|$; $|\Log(1-e^{-2\pi|t|})|\le2e^{-2\pi n|\zeta|^{-1/p}}\le C|\zeta|$;
 $|\varpi\Log(1+\zeta)|\le C|\zeta|$; $|\Log(1-\zeta/(2\pi n))|\le C|\zeta|/n$. If $|\zeta|\ge1$ and $|t|\ge1$, then
 $|j(t)|\le\frac16$; if $|t|<1$, then~\eqref{eq:binet-small} (with a bounded remainder on $\{|t|\le1,\re t\ge0\}$) and
 $|\log|t||\le\frac1p\log|\zeta|$ give $|j(t)|\le C(1+\log|\zeta|)$. Next $|\Log(1-e^{-2\pi|t|})|\le C(1+|\log|t||)\le

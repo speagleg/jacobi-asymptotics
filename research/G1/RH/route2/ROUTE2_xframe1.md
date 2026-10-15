@@ -2,6 +2,8 @@
 
 Status: **Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan54.md), fixes applied — REVIEWED** (F1–F8 applied). Novelty: UNCHECKED (no Rule L search).
 
+*(Plan 55 note, 2026-10-15: Theorem RII_x1 and the rate clauses of its corollaries hold with (H_an^{x1}) (strip π/2) weakened to (A_ϑ) for any ϑ > 0: the lips may leave 0 at any small ϑ_lip instead of π/3 and the weight is then needed only in |arg z| < ϑ_w ≤ ϑ; verified on Paper 2's consolidated write-up (papers/paper2), see ../../PROOF.md §3.24 (Theorem AS, PROVED-mod-cite, Rule R pending). This file is unchanged and proves its results as stated.)*
+
 Source: GAP-int of `ROUTE2_p1.md` §7 / PROOF.md §3.19 (review `../../review/REVIEW_Plan50.md`). Templates: `../px/RH_px.md`
 (Theorem RH_p, p > 1, PROVED-mod-cite, REVIEWED) and `ROUTE2.md` (Theorem RII, p > 1, PROVED-mod-cite, REVIEWED, incl. UR′(b′)
 for |α_x| < 1 and Lemma W′ for α_x = 0). Converse transfer: `ROUTE2_p1.md` §5 (Lemma CT₁, REVIEWED) and PROOF.md §3.21 (Theorems

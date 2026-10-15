@@ -121,6 +121,26 @@ Note for readers of REFEREE_REPORT.md: its appendix letters are pre-revision.
    since Van is uncited). refs.bib keeps uncited entries KV, Van, BD, BueMar, BGT, Vuil, Fischer (not printed).
 4. Author line, MSC codes, supplementary-material URL (§9).
 
+### Revision 3 — Plan 55: any strip (2026-10-15; 68 pp)
+
+Build: pdflatex, bibtex, pdflatex ×2 — 0 errors, 0 undefined references, 0 overfull boxes. Repo record:
+research/G1/PROOF.md §3.24 (location-by-location audit), plan docs/superpowers/plans/2026-10-15-plan-55-strip.md.
+
+- The hypothesis of Theorem 1(ii), Theorem 3, §4 Steps 1/2/4, §8, Frame Proposition and Conjecture 10.1(b) is now
+  "(A_ϑ) for some ϑ > 0"; ϑ_p (old eq:thetap) is removed (this answers item 2 of the revision-2 TODO list above).
+- §5.1: ϑ_w := m·ϑ_w⁰, ϑ_lip := m·ϑ_lip⁰, m := min(1, pϑ/ϑ_w⁰), defaults (7π/16, π/3) for p ≥ 1, (3πp/8, πp/4) for p < 1
+  (eq:thetaw); relations (eq:angles) 0 < ϑ_lip < (5/4)ϑ_lip < ϑ_w < π/2, ϑ_w < πp/2 (p < 1), ϑ_w ≤ pϑ. New Remark 5.8
+  (rem:angles) lists where the angles are used and why no minimum angle is needed; **Lemma 5.8 (Potter in the sector) is
+  now Lemma 5.9, and Lemma 5.9 (jumps of V) is now 5.10.**
+- Table 1 rows (lip angle, ϑ_w, super-small entries, strip) and caption; Figure 1 labels/caption; Lemma 5.7 lead-in;
+  §7 opening remark (quotient continuation would need |Im ξ| ≤ π/p); App. A seams: τ₀ = sin(ϑ_seam − ϑ_w), (O5) wording;
+  Lemma 6.1 (p = 1): |arg t| < ϑ_w < π/2. Local angle variables (proof of Lemma 5.5(iii), Lemma 5.6, (eq:binet-bound),
+  Lemma A.3) renamed φ, since ϑ now denotes the strip width.
+- §1: examples rewritten (exp √log(k+e) and exp((log(k+e))^β) satisfy (A_ϑ) for every ϑ < π) and a thin-strip example
+  Λ(ξ) = √(ξ+1) + (ξ+2)^{−1/2}log(1 − q cos 2ξ), q = 1/cosh 0.6 (singular at πm ± 0.3i); §9 paragraph "A factor analytic only
+  in a thin strip" with numbers from research/G1/RH/route2/checks/check_p55_strip.out (p = 2, s = 2, 3, n ≤ 3200). This
+  script is not yet in papers/paper2/checks (supplementary material: TODO).
+
 ---
 
 ## 1. Front matter (chunk A): claim → source (numbering updated)

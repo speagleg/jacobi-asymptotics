@@ -304,6 +304,7 @@ local form Ψ = Ψ̂ζ^{−σ₃/4}S for α = −½). RH_plt1.md Lemma 1.1′ (5
 > the mapping ζ = n²f(z) … Note that this definition does not depend on n."
 
 **Used in:** RH_plt1b.md §2. For all 0 < p < 1 the Ψ-rays are taken at angle π − θ_L, θ_L = πp/4, so that the lips lie in the inner sector.
+*(Plan 55, 2026-10-15:)* also used in papers/paper2 §7.2 / Remark 5.8 and research/G1/PROOF.md §3.24 with rays at π − ϑ_lip for an arbitrary small ϑ_lip ∈ (0, (4/5)ϑ_w), so that the analyticity strip of the weight can be arbitrarily thin; the quoted range (0, π) covers every such angle.
 
 ## (DLMF-4) NIST DLMF §§1.13, 10.25, 10.28, 10.31 — READ (web pages, 2026-10-14), for Plan 48 (route2/ROUTE2.md §3.2)
 

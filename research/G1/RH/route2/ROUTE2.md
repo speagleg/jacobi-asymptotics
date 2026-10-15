@@ -3,6 +3,8 @@
 Status: **Rule R: ACCEPT WITH FIXES (../../review/REVIEW_Plan48.md; RedA ACCEPT, RII and B_{p>1} ACCEPT WITH FIXES), fixes
 F1–F10 applied, re-check ACCEPT — REVIEWED.** Novelty: UNCHECKED (no Rule L search).
 
+*(Plan 55 note, 2026-10-15: Theorem RII and the rate clause of Corollary B_{p>1} hold with (H_an) (strip |Im u| ≤ π/p) weakened to (A_ϑ) for any ϑ > 0 (L₁ analytic on {Re u ≥ −c₀, |Im u| ≤ ϑ}, real, bounded for Re u ≤ 0, L₁′ → 0 there): the weight is needed only in |arg z| < ϑ_w ≤ pϑ once the lens leaves 0 at a small angle ϑ_lip (Bessel rays at ±(π − ϑ_lip), KMVV angle freedom); verified on Paper 2's consolidated write-up (papers/paper2), see ../../PROOF.md §3.24 (Theorem AS, PROVED-mod-cite, Rule R pending). This file is unchanged and proves its results as stated.)*
+
 Source: `research/program/outline_B_sv.md` §5 "Route II", work package WP4, stage 1. Template: `../px/RH_px.md`
 (PROVED-mod-cite, REVIEWED). Closest precedent: `../zeta/RH_zeta_close.md` §1 (non-Fisher–Hartwig hard-edge factor via the
 Conway–Deift comparison; REVIEWED). Numerics: `checks/check_r2_*.py/.out`.
