@@ -1,0 +1,42 @@
+[1] Lemma V (exact, small n): with u := s - t,
+    (U) log h_n(s) - log h_n(t) <= log E_t[k^{-u}],   (D) log h_n(s) - log h_n(t) >= -log E_t[k^{u}]
+   p=0.5: done
+   p=1.0: done
+   p=2.0: done
+   min slack over all (p, t, u, n): 0.00882241  (both inequalities hold: True)
+
+[2] Proposition SV: d^2/ds^2 log h_n = Var_{mu_n}(log k) - 2 sum_{i<n} f_{in}^2 (exact, small n)
+   p=1.0 s=1.5 n=1: (log h_n)'' = 0.926877245547,  Var - 2*down = 0.926877245547
+   p=1.0 s=1.5 n=2: (log h_n)'' = 0.485202760069,  Var - 2*down = 0.485202760069
+   p=1.0 s=1.5 n=4: (log h_n)'' = 0.247577323136,  Var - 2*down = 0.247577323136
+   p=1.0 s=2.5 n=1: (log h_n)'' = 0.315735127567,  Var - 2*down = 0.315735127567
+   p=1.0 s=2.5 n=2: (log h_n)'' = 0.244367670417,  Var - 2*down = 0.244367670417
+   p=1.0 s=2.5 n=4: (log h_n)'' = 0.165307061245,  Var - 2*down = 0.165307061245
+   p=2.0 s=1.5 n=1: (log h_n)'' = 0.331512429495,  Var - 2*down = 0.331512429495
+   p=2.0 s=1.5 n=2: (log h_n)'' = 0.157840852221,  Var - 2*down = 0.157840852221
+   p=2.0 s=1.5 n=4: (log h_n)'' = 0.0730761905267,  Var - 2*down = 0.0730761905267
+   p=2.0 s=2.5 n=1: (log h_n)'' = 0.156231224476,  Var - 2*down = 0.156231224476
+   p=2.0 s=2.5 n=2: (log h_n)'' = 0.0986483200069,  Var - 2*down = 0.0986483200069
+   p=2.0 s=2.5 n=4: (log h_n)'' = 0.0558657216872,  Var - 2*down = 0.0558657216872
+   max relative discrepancy: 2.17e-51  (identity holds to working precision: True)
+
+[3] Remark CVX-fin: truncation sigma^(N) = sum_{k<=N} k^{-s} delta_{k^{-p}}, n = N - 1: (log h_{N-1})'' = -sum_{i<n} f_in^2 < 0
+   p=1.0 N=3: (log h_n)'' = -0.046011052,  -down = -0.046011052,  Var-2down = -0.046011052
+   p=1.0 N=5: (log h_n)'' = -0.024298038,  -down = -0.024298038,  Var-2down = -0.024298038
+   p=1.0 N=8: (log h_n)'' = -0.014480062,  -down = -0.014480062,  Var-2down = -0.014480062
+   p=2.0 N=3: (log h_n)'' = -0.040885829,  -down = -0.040885829,  Var-2down = -0.040885829
+   p=2.0 N=5: (log h_n)'' = -0.019422537,  -down = -0.019422537,  Var-2down = -0.019422537
+   p=2.0 N=8: (log h_n)'' = -0.010936311,  -down = -0.010936311,  Var-2down = -0.010936311
+   all negative: True
+
+[4] Theorem UF / Prop. UB: s on a grid in [1.5, 4], n <= NMAX; F_n(s) := log h_n(s) + s log n
+   p=1.0: sup_s |F_n(s) - F_n(1.5)| at n = 50, 100, 200, 400: 1.7466, 1.7394, 1.7361, 1.7345
+          sup_s |F_n(s) - F_n(1.5) - (s - 1.5) log c / p| at n = 50, 100, 200, 400: 2.25e-02, 1.12e-02, 5.62e-03, 2.81e-03
+          secant proxy of Lambda_n, min/max over cells at n = 100, 400: 0.6849/0.7068, 0.6910/0.6966   (fixed-s limit -(log c)/p = 0.6931)
+          n^p b_n(s)/c over s in grid, n in [10, 400]: min 0.8602, max 0.9994
+          sup_s |n^p b_n(s)/c - 1| at n = 50, 100, 200, 400: 2.96e-02, 1.49e-02, 7.48e-03, 3.74e-03
+   p=2.0: sup_s |F_n(s) - F_n(1.5)| at n = 50, 100, 200, 400: 0.6565, 0.6303, 0.6172, 0.6105
+          sup_s |F_n(s) - F_n(1.5) - (s - 1.5) log c / p| at n = 50, 100, 200, 400: 5.26e-02, 2.64e-02, 1.32e-02, 6.63e-03
+          secant proxy of Lambda_n, min/max over cells at n = 100, 400: 0.2494/0.2549, 0.2435/0.2449   (fixed-s limit -(log c)/p = 0.2416)
+          n^p b_n(s)/c over s in grid, n in [10, 400]: min 0.8663, max 0.9994
+          sup_s |n^p b_n(s)/c - 1| at n = 50, 100, 200, 400: 2.93e-02, 1.48e-02, 7.45e-03, 3.74e-03
