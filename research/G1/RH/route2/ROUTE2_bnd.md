@@ -1,6 +1,12 @@
-# ROUTE2_bnd: the boundary a = ½ at p = 1 — GAP-int closed by folding the symmetric problem (Plan 53)
+# ROUTE2_bnd: the boundary a = ½ at p = 1 by folding the symmetric problem — a second proof of §3.23's p = 1 result (Plan 53)
 
-Status: **Rule R pending.** Novelty: UNCHECKED (no Rule L search).
+Status: **Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan53.md), fixes applied — REVIEWED** (F1–F11 applied after merging master, which contains Plan 54, PROOF.md §3.23). Novelty: UNCHECKED (no Rule
+L search).
+
+**Framing (Rule R F1).** GAP-int is closed by Plan 54 (PROOF.md §3.23, `ROUTE2_xframe1.md`, REVIEWED: Route II in the
+unsymmetrized x-frame). This file is an independent **second proof** of the (a_m, b_m) part of §3.23's Theorem RII_x1 on 1 < r < 3
+and of its Corollary B_{p=1}^{all}, through a different global frame (WLXZ's symmetric problem, folded); see §3.8 "Relation to
+§3.23" for what is shared.
 
 Source: GAP-int and OBSTRUCTION-a of `ROUTE2_p1.md` §7 (Plan 50, REVIEWED; `../../review/REVIEW_Plan50.md`) and PROOF.md §3.19.
 Templates: `ROUTE2.md` §§3–4 (Plan 48, REVIEWED: the x-plane hard-edge Conway–Deift comparison for every α_x ∈ (−1, 1), incl.
@@ -24,9 +30,9 @@ Lemma W′ at α_x = 0), `ROUTE2_p1.md` (the symmetric p = 1 frame), `../RH_p1_g
 | §2.6 Lemma Fφ | e^{−2nφ_KV} on the folded lips = e^{−4(n²f_K)^{1/2}}, f_K(x) := −f(√x)²/4 conformal, f_K′(0) < 0, band ↦ ζ < 0, ℝ₋ ↦ ζ > 0 | PROVED-mod-cite (KV (5.6)–(5.8) via RH₁(r) §5) |
 | §2.7 Lemma FY ((Y4)ᶠ) | fold(R) is RH_px's one-sided x-interpolation problem at p = 1; RH_px's (Y4)_x applies | PROVED-mod-cite (RH_px §5 argument; RH₁(r) §6) |
 | §3 H1ᶠ, LW1ᶠ, URᶠ, Q^x ∈ I + ∂C(L²), Cᶠ, Dᶠ | ROUTE2 §§3–4 at the folded hard edge, α_x = r − 2 ∈ (−1, 1); the rest of the contour folded from Plan 50 | PROVED-mod-cite (as ROUTE2, ROUTE2_p1) |
-| **Theorem RII₁ᶠ** | p = 1, **1 < r < 3**, (H_an₁): m b_m = ½(1 + O(1/m)), a_m/(2b_m) = 1 + O(1/m) | **PROVED-mod-cite**; Rule R pending |
-| **Corollary B_{p=1}^{all}** | p = 1, **every r > 1** (integers included), every sequence-form slowly varying Ψ (incl. D(γ) = ∞): the full pointwise Law P; rate O(1/n) under (H_an₁), regular majorant of 1/n + ρ(⌈n/M₀⌉) in general | **PROVED-mod-cite**; Rule R pending |
-| GAP-int (Plan 50) | p = 1, r ∈ {2, 3, …}, D(γ) = ∞ | **closed** by B_{p=1}^{all} (Rule R pending) |
+| **Theorem RII₁ᶠ** | p = 1, **1 < r < 3**, (H_an₁): m b_m = ½(1 + O(1/m)), a_m/(2b_m) = 1 + O(1/m) | **PROVED-mod-cite**; Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan53.md), fixes applied — REVIEWED; a second, partly independent proof of the (a_m, b_m) part of §3.23's RII_x1 on 1 < r < 3 |
+| **Corollary B_{p=1}^{all,ᶠ}** | p = 1, **every r > 1** (integers included), every sequence-form slowly varying Ψ (incl. D(γ) = ∞): the full pointwise Law P; rate O(1/n) under (H_an₁), regular majorant of 1/n + ρ(⌈n/M₀⌉) in general | **PROVED-mod-cite**; Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan53.md), fixes applied — REVIEWED; second proof of §3.23's B_{p=1}^{all} (not a new closure) |
+| GAP-int (Plan 50) | p = 1, r ∈ {2, 3, …}, D(γ) = ∞ | closed by §3.23 (Plan 54); **second proof** here (B_{p=1}^{all,ᶠ}) |
 | OBSTRUCTION-a (Plan 50) | \|a\| ≥ ½ in the symmetric band-centre C–D frame | stands as stated (scoped to that frame); it is an obstruction of the frame and of extracting β_n individually, not of the law (§1.3, §4) |
 | §5 Lemma IR | interpolation in r: \|log b_n²(k^{−2}Ψ) − log b_n²(k^{−2+δ}Ψ)\| ≤ δ·sup_τ Σ_k\|log(k/n)\|(μ_n^τ + μ_{n−1}^τ)(k) | PROVED (FV⁺); not used (it needs a QL-type localization) |
 | GAP-rate₁ | the 1/n coefficient (tilt law) | GAP; CONJECTURE + NUMERICAL (§6) |
@@ -63,8 +69,8 @@ At r = 2 (p = 1): Ψ bounded slowly varying — Theorem T3-all (§3.8); Ψ log-t
 ### 1.3 Remark Div (why the symmetric frame must fail at a = ½; HEURISTIC)
 
 In the symmetric frame, Proposition D₁'s main term is ∫δ_n·μ̃e₂e₁ᵀμ̃^{−1} over the lips, with μ̃e₂e₁ᵀμ̃^{−1} =
-A₀Ψ_ae₂e₁ᵀΨ_a^{−1}A₀^{−1}(phases). At a = ½ the rank-one factor is **exactly of size 1/(π|ζ|)** as ζ → 0 on a lip ray
-(`check_bnd_fold.out` [4]: |Ψe₂e₁ᵀΨ^{−1}|·|ζ| = 0.31831 = 1/π for |ζ| = 10⁻⁴ … 10⁻¹², Vanlessen (4.27) at λ = ½), and it sits in
+A₀Ψ_ae₂e₁ᵀΨ_a^{−1}A₀^{−1}(phases). At a = ½ the rank-one factor is of size ≈ 1/(π|ζ|) (5 digits, numerical) as ζ → 0 on a lip ray
+(`check_bnd_fold.out` [4]: |Ψe₂e₁ᵀΨ^{−1}|·|ζ| = 0.31831 ≈ 1/π for |ζ| = 10⁻⁴ … 10⁻¹², Vanlessen (4.27) at λ = ½), and it sits in
 the off-diagonal entry that is odd in z. With |dz| ≍ |dζ|/n, the integral ∫_0 δ_n(r)(nr)^{−1}dr converges absolutely only if
 δ_n(r) = D_ϱ²/ϱ − 1 is Dini at r = 0. For fixed n, δ_n(r) → 0 as r → 0 only like the local tilt
 ε₁(log n + 2 log(1/r)) (the argument of LW1₁ with the far part split off), so absolute convergence needs ∫^∞ε₁(u)du < ∞ —
@@ -78,11 +84,14 @@ off a different frame in which the dangerous entry is multiplied by z (§2, §3.
 UR₁(d)'s core operators are, column by column, h ↦ z^{±a}C(h s^{∓a}) on a star of rays (Lemma W with exponents ±a). On L^p
 (1 < p < ∞) these are bounded iff |s|^{∓ap} is an A_p weight on the rays, i.e. −1 < ∓ap < p − 1. At a = ½ the two columns
 require p < 2 and p > 2 respectively; with a scalar power weight |s|^β on L² they require −1 < β ∓ 1 < 1, i.e. β ∈ (0, 2) and
-β ∈ (−2, 0). (Column-dependent exponents are excluded because the band jump [[0, 1], [−1, 0]] exchanges the columns.) So no
+β ∈ (−2, 0). (A column-dependent weight on the full matrix space is excluded, heuristically, because the band jump
+[[0, 1], [−1, 0]] exchanges the columns.) So no
 L^p theory and no scalar weight rescues the symmetric frame at a = ½; the Conway–Deift / Deift–Zhou L^p machinery (C–D §4.1:
 C_Σ^± bounded on L^p for Carleson Σ) is available but does not help. *Label:* OBSTRUCTION (heuristic): the "only if" of the A_p
 characterization (Hunt–Muckenhoupt–Wheeden) was **not read**, so this is recorded as a reason not to pursue option (i), not as
-a theorem. The fold of §2 is the matrix-weighted space that works: on σ₃-even functions it is L²(|dx|) in x = z² (§2.4).
+a theorem. The fold of §2 avoids this by **restricting to the subspace of σ₃-even functions and changing variable**: on that
+subspace ‖fold X‖_{L²(|dx|)} weights the entries by |z|, |z|^{−1}, |z|³, |z| (a conjugation-type weight, not a column weight on the
+full space), and the C–D comparison is then run in L²(|dx|) on Σ_x (§2.4, §3).
 
 Option (ii) (a log-modified local frame at the integer Bessel orders 1, 0) is realized in §2–§3, but **in the folded variable**:
 the integer-order model is KMVV's hard-edge Bessel model of order α_x = 0 (logs, Lemma W′), not a modification of KV's Ψ_½ in
@@ -124,8 +133,8 @@ points x and for both z = ±√x; a_j(μ) = β_{2j} + β_{2j+1}, b_j(μ)² = β_
 ### 2.2 Lemma P (parity of the WLXZ chain, n even) — PROVED-mod-cite (WLXZ v1, quoted in `../CITATIONS.md` "(WLXZ-v1, Plan 53)")
 
 Take WLXZ's contour symmetric: Σ_{l,±} := −Σ_{r,∓}, Σ^△_{l,±} := −Σ^△_{r,∓} (admissible: WLXZ's requirements — avoid the zeros of
-Π and w (3.9)–(3.10), Re φ < 0 on the lips (4.33), (5.8) — are invariant under z ↦ −z by (a)–(c) below; their Figure 3 is
-symmetric), and inside U(0, ε) Plan 50's lips f^{−1}(arg ζ = ±π/4, ±3π/4), symmetric since f is odd. Then for n even each of
+Π and w (3.9)–(3.10), Re φ < 0 on the lips (4.33), and (5.8)'s Re φ̃ > 0, Re φ̂ > 0 — are invariant under z ↦ −z by (a)–(c)
+below and by **φ̂(−z) = φ̃(z)** (from (2.4), (4.28) and g′ odd; Rule R F3); their Figure 3 is symmetric), and inside U(0, ε) Plan 50's lips f^{−1}(arg ζ = ±π/4, ±3π/4), symmetric since f is odd. Then for n even each of
 Y (rescaled), U, R, T, WLXZ's Q (here Q_W), V — for TC(α_W = 1) and for the weights w·F (RH₁(r)) and w·F·q_n (Plan 50) — and
 Plan 50's Q = 𝔇_∞^{−σ₃}σ₃Vσ₃𝔇^{σ₃} is σ₃-even, except that R and T are σ₃-even **up to the scalar −1 on Ω^△**.
 
@@ -135,7 +144,9 @@ and q_n are even; θ = nπ/z² − πα_W (3.7) is even; γ = −2nπ/z³ is odd
 e^{−ng(−z)} = e^{−ng(z)} (n even) and, by (2.3), e^{2nφ(−z)} = e^{2nφ(z)}. (c) D (2.6) is a function of t = −n/z² with the
 principal log ("−1/z² = e^{±πi}/z² for z ∈ ℂ±, arg z ∈ (−π, π)" is the principal argument of −n/z²), hence even; D̂(z) = D̃(−z)
 by (4.15), (4.22); E (4.19) is even. NUMERICAL ([2]): g(−z) − g(z) = −iπ to 10⁻⁹ (quadrature), D(−z) = D(z), D̂(−z) = D̃(z) exactly.
-Now: Y_ν is σ₃-even (Lemma F0); U = n^{nσ₃/2}Y(n^{−1/2}z) too. In (3.11) the regions pair as Ω_{r,±} ↔ −Ω_{r,±} = Ω_{l,∓} with the
+Now: Y_ν is σ₃-even (Lemma F0; WLXZ's Y uses the residue form (2.14), Y₁₂ = Σ wπ/(z − x_k) = −2πi·C(πν), which differs from the
+FIK convention of F0 by a constant diagonal conjugation — this changes L but not σ₃-evenness, M's diagonality in §3.6 or the
+invariance lemma; Rule R F4); U = n^{nσ₃/2}Y(n^{−1/2}z) too. In (3.11) the regions pair as Ω_{r,±} ↔ −Ω_{r,±} = Ω_{l,∓} with the
 same factor (U₋ on Ω_{l,−} ∪ Ω_{r,+}, U₊ on Ω_{l,+} ∪ Ω_{r,−}; likewise U^△±); U± (3.9) has (1,2) entry −(w/Π)e^{±iθ}, odd, so
 U± is σ₃-even; U^△± = Π^{−σ₃}[[1, 0], [−e^{±iθ}/(Πw), 1]] satisfies U^△±(−z) = −σ₃U^△±(z)σ₃ (Π^{−σ₃} is odd as a whole,
 diag(1/Π, Π)(−z) = −diag(1/Π, Π)(z), and the triangular factor is σ₃-even). So R is σ₃-even with the factor −1 on Ω^△. T (4.1)
@@ -284,7 +295,8 @@ For n ≥ n₀, 1 − C_{ṽ^x} is invertible on L²(Σ_x) with ‖(1 − C_{ṽ
   comparison problem near 0 has exactly ROUTE2's form Q̃^x = A₀^x·n^{σ₃/2}σ₃Ψ_α(n²f_K)σ₃·Θ^x with A₀^x analytic and bounded with
   bounded inverse uniformly in n (Ẽ^x and 𝒵̃^x = I + O(1/n)) and Θ^x bounded (e^{±nφ^x} bounded near 0 for fixed n), the local
   form of ROUTE2 §3.2 (Ψ = Ψ̂ζ^{ασ₃/2}S for α ≠ 0; Ψ = Ψ̂[[1, κ log ζ], [0, 1]]S at **α = 0**, i.e. r = 2), Lemma W with ±α/2
-  (|α| < 1) and **Lemma W′** at α = 0, and the star Σ_x ∩ U_x(0, ·) = band, ℝ₋ (no jump), two folded lips at angles ±π/2;
+  (|α| < 1) and **Lemma W′** at α = 0, and the star Σ_x ∩ U_x(0, ·) = band, ℝ₋ (no jump), two folded lips at angles ±π/2 (the ray angle changes only Lemma W's star constants; precedents: Plan 51's ±πp/4, Plan 54's
+  ±π/3; Rule R F11);
 - **at 4** — (e): Q̃^x = (𝒵̃^xA₄^x)·[folded Airy model]·(bounded diagonal), the fold of ROUTE2_p1 UR₁(e)'s factorization at +2 (the
   fold is a conformal change of variable near z = 2 with bounded factors z^{±1/2}, so the commutator-kernel and multiplier bounds
   transfer);
@@ -347,7 +359,8 @@ symmetric problem are not extracted — cf. §1.3.)
 Lemma P needs n even, which is the only case used), §3.1–3.5. ∎
 What is proved about the non-Fisher–Hartwig part: the lip mismatch moves Q^x₁, Q^x₂ by O(ε′_n/n) relative to Q̃^x; Q̃^x depends on
 Ψ₁ at order 1/n (through 𝒵̃^x), so b_m(μ)/b_m(k^{−r}) − 1 = O(ε₁/m) is **not** claimed (GAP-rate₁).
-For 1 < r < 2 this is a second proof of Theorem RII₁ (Plan 50) that never extracts β_n.
+For 1 < r < 2 this is another proof of the (a_n, b_n) part of Theorem RII₁ (Plan 50; nβ_n = 1 + O(1/n) is not obtained here), and
+on 1 < r < 3 a second proof of the (a_m, b_m) part of §3.23's RII_x1 (Rule R F6).
 
 *Cited (Rule C; quoted in `../CITATIONS.md`):* WLXZ v1 (via RH₁, RH₁(r), Plan 50, and the parity formulas "(WLXZ-v1, Plan 53)");
 KV §5 (3.6), (5.1), (5.6)–(5.8) (through RH₁(r) §5 and Plan 50); KMVV §6 ((6.16)–(6.28), (6.42)–(6.53), Prop. 6.5, angle freedom);
@@ -357,24 +370,42 @@ ROUTE2 (H1′, §3.2, LW1′'s x^α part, UR′ incl. (b′), Lemma W′, C′, 
 §4.2); RH_px §1, §5 ((Y4)_x, invariance lemma). *New here:* the fold (Lemma F0 in RH form), Lemma P, Lemmas FS, FJ, FN, Fφ, FY,
 the dictionary of §3, and the observation that the folded frame is ROUTE2's hard edge with α = r − 2.
 
+### 3.8 Relation to §3.23 (Plan 54) — Rule R F2
+
+Plan 54 (REVIEWED) proves the same statement on 1 < r < 3 (Theorem RII_x1, under (H_an^{x1}): strip |Im u| ≤ π/2; both hypotheses
+hold for RedA's entire L₁, so the corollaries coincide) by Route II directly in RH_px's unsymmetrized x-frame at p = 1.
+- **Independent here:** the global frame (WLXZ's symmetric chain + Lemma P + the fold, versus RH_px at p = 1 with Lemma X1 and its
+  transfer table); the outer model (Lemma FN versus RH_px's p = 1 outer model); the Airy disc (fold of Plan 50 / WLXZ §6.1 at +2,
+  versus RH_px's at b); the lip mismatch (LW1₁'s even-pairing Szegő integral × the x^α factor, versus LW1-x1 = LW1′ with ν = ½); the
+  equilibrium input (WLXZ's ψ, versus G2 μ*/B* at p = 1). The "no jump on ℝ₋" of FJ(c) is the folded form of Plan 54's Lemma X1;
+  nothing is continued across ℝ₋, so Plan 54's Lemma X2 obstruction is not triggered.
+- **Shared (a common failure point for both at r = 2):** ROUTE2's α_x = 0 hard-edge comparison — H1′, the log local form §3.2,
+  **Lemma W′**, **UR′(a), (b′), (d)**, C′, D′ with the log² bound (Plan 48); KMVV §6 (Bessel model, (6.28), angle freedom); C–D
+  Theorem 4.4 and the arguments of 4.7/4.9; RH_px's invariance lemma and (Y4)_x argument; RedA; §3.21 SH-r; WLXZ v1 (which Plan 54
+  uses through RH_px §§3–5). A failure of ROUTE2's α_x = 0 comparison would sink both proofs.
+- **Numerics:** `check_bnd_coeff.out` and Plan 54's `check_x1_coeff.out` are the same computation and agree in every printed
+  digit for n ≤ 800; they validate the law, not either route. So this file independently cross-validates the global frame, not
+  the α_x = 0 local comparison on which GAP-int rests.
+
 ---
 
-## 4. Corollaries: GAP-int closed
+## 4. Corollaries (second proof of §3.23's)
 
-**Corollary B_{p=1}^{bnd}.** p = 1, 1 < r < 3, Ψ > 0 slowly varying in sequence form (no boundedness, no D(γ) < ∞): nb_n(k^{−r}Ψ) → ½
+**Corollary B_{p=1}^{bnd,ᶠ}** (second proof of §3.23's B_{p=1}^{x}). p = 1, 1 < r < 3, Ψ > 0 slowly varying in sequence form (no boundedness, no D(γ) < ∞): nb_n(k^{−r}Ψ) → ½
 and na_n(k^{−r}Ψ) → 1, with rate O(1/n + ρ(⌈n/M₀⌉)), and O(1/n) if Ψ itself satisfies (H_an₁). *Proof:* RedA (ROUTE2 §1; stated
 for every p > 0, s > 1 and every strip, checked at p = 1 in ROUTE2_p1 §1) gives L₁ with (H_an₁) and the base change (iii);
 Theorem RII₁ᶠ gives the law for k^{−r}Ψ₁. ∎
 
-**Corollary B_{p=1}^{all} (GAP-int closed).** p = 1, **every r > 1**, Ψ sequence-form slowly varying (incl. D(γ) = ∞, e.g.
+**Corollary B_{p=1}^{all,ᶠ}** (second proof of §3.23's B_{p=1}^{all}; GAP-int is closed by §3.23). p = 1, **every r > 1**, Ψ sequence-form slowly varying (incl. D(γ) = ∞, e.g.
 exp √log(k + e), exp((log k)^θ), θ < 1): the full pointwise Law P nb_n → ½, na_n → 1, with rate O(1/n) under (H_an₁) and in general
 O(r_n), r_n the regular majorant of 1/n + ρ(⌈n/M₀⌉). *Proof:* r₀ := r − j with j ≥ 0 the least integer such that r − j < 3; then
-r₀ ∈ (1, 3) (r₀ ≥ 2 if j ≥ 1). B_{p=1}^{bnd} at r₀, then j applications of PROOF.md §3.21's Theorem SH-r (x·σ_{r′} = σ_{r′+1} at
-x_k = 1/k). ∎ In particular **r = 2, 3, 4, … with D(γ) = ∞ — GAP-int — is covered.** (Equivalently: B_{p=1}⁺ for non-integer r,
+r₀ ∈ (1, 3) (r₀ ≥ 2 if j ≥ 1). B_{p=1}^{bnd,ᶠ} at r₀, then j applications of PROOF.md §3.21's Theorem SH-r (x·σ_{r′} = σ_{r′+1} at
+x_k = 1/k). ∎ In particular r = 2, 3, 4, … with D(γ) = ∞ (GAP-int) is covered a second time. (Equivalently: B_{p=1}⁺ for non-integer r,
 and r = 2 from RII₁ᶠ plus SH-r for r = 3, 4, …; the converse CT₁ "⟸" is not needed.)
 
-*Remark (β_n).* The individual symmetric coefficients satisfy nβ_n → 1 as well: given the law for μ, a_m = β_{2m−2} + β_{2m−1},
-b_m² = β_{2m−1}β_{2m} with β_j > 0 is the Cholesky system of CT₁(ii) "⟸" (u = β_{odd}, v = β_{even}), and Lemma D(b) applies (no
+*Remark (β_n)* — PROVED (CT₁(ii) "⟸" + Lemma D(b), REVIEWED; no rate; Rule R F7). The individual symmetric coefficients satisfy
+nβ_n → 1 as well: given the law for μ, a_m = β_{2m−2} + β_{2m−1}, b_m² = β_{2m−1}β_{2m} (Plan 50's 1-based convention; 0-based, as
+in check_bnd_fold [1]: a_j = β_{2j} + β_{2j+1}, b_j² = β_{2j−1}β_{2j}) with β_j > 0 is the Cholesky system of CT₁(ii) "⟸" (u = β_{odd}, v = β_{even}), and Lemma D(b) applies (no
 rate). Not needed for the law.
 
 **Status of OBSTRUCTION-a (Plan 50).** It stands as stated (the symmetric band-centre C–D frame needs |a| < ½), but it is an
@@ -410,20 +441,24 @@ with a finer tail quadrature):
 | 2.5 (½): n(nb_n/c − 1) | −0.628 | −0.637 | −0.645 | −0.651 | −0.656 | −0.661 | 5.2·10⁻⁹ |
 | 3 (1; via SH-r): n(nb_n/c − 1) | −0.875 | −0.886 | −0.894 | −0.901 | −0.906 | −0.911 | 3.7·10⁻⁹ |
 
-The K-doubling differences are ≤ 6·10⁻¹⁰. All columns are bounded (rate O(1/n), as Theorem RII₁ᶠ and B_{p=1}^{all} assert). The
+The K-doubling differences are ≤ 6·10⁻¹⁰ (nB) and ≤ 1.1·10⁻⁹ (E). All columns are bounded (rate O(1/n), as Theorem RII₁ᶠ and
+B_{p=1}^{all,ᶠ} assert). They coincide with Plan 54's check_x1_coeff (same computation; §3.8). The
 values sit on the tilted baseline −(r − 1 − ϑ_n)/2 (r = 2, n = 1600: −0.408 vs −0.411; ϑ_n = L′(log n)); the tilt ratio
 T = n(b_n(w)/b_n(k^{−r}) − 1)/ϑ_n = 0.472 → 0.485 (r = 2), 0.475 → 0.485 (r = 2.5), 0.477 → 0.485 (r = 3), rising slowly toward ½
 (tilt law, CONJECTURE; GAP-rate₁).
 
-`checks/check_bnd_fold.out`: [1] Lemma F0 to 10⁻³⁹; [2] Lemma P's scalar parities (g(−z) − g(z) = −iπ, D even, D̂(−z) = D̃(z));
-[3] Lemma FN: constant [[1, 0], [−i, 1]] to 10⁻³⁹ (a = 0.5, 0.8, 0.1); [4] the local amplification: unfolded (KV, a = ½) |·||ζ| =
-1/π exactly as |ζ| → 0 (the non-integrable 1/ζ of §1.3), folded (KMVV, α = 0) |·|/(1 + log²|ζ|) ≤ 0.126; det Ψ = 1 to 10⁻⁴⁰ in both.
+`checks/check_bnd_fold.out`: [1] Lemma F0 to 10⁻³⁹; [2] Lemma P's scalar parities: g(−z) − g(z) = −iπ is a genuine numerical check (4·10⁻¹⁰); the D-even and D̂(−z) = D̃(z) lines are
+tautological (both sides evaluate the same expression) — those parities rest on the analytic branch argument of §2.2(c) (Rule R F9);
+[3] Lemma FN: constant [[1, 0], [−i, 1]] to 10⁻³⁹ (a = 0.5, 0.8, 0.1); [4] the local amplification of the model factors (KV Ψ_½ vs KMVV Ψ_0; it does not probe the folded problem itself; no end-to-end
+probe of the folded frame was run): unfolded (KV, a = ½) |·||ζ| =
+→ 1/π (5 digits) as |ζ| → 0 (the non-integrable 1/ζ of §1.3), folded (KMVV, α = 0) |·|/(1 + log²|ζ|) ≤ 0.126; det Ψ = 1 to 10⁻⁴⁰ in both.
 
 ---
 
 ## 7. Rule A (adversarial pass; logged in ../../LOG.md), gaps
 
-- (a) **Ψ ≡ 1:** RII₁ᶠ reduces to a third proof of RH₁(r) for 1 < r < 3 (via the x-plane hard edge); consistent with RH₁(r) and
+- (a) **Ψ ≡ 1:** RII₁ᶠ reduces to another proof of the (a_n, b_n) part of RH₁(r) for 1 < r < 3 (besides RH₁(r) itself and Plan 54's RII_x1 at
+  Ψ ≡ 1); consistent with RH₁(r) and
   with the pure-power column of §6 (−(r − 1)/2).
 - (b) **n odd:** Lemma P fails (e^{−ng(−z)} = −e^{−ng(z)}); the fold of Y_ν^{(2m+1)} is the xμ-problem. Only n = 2m is used, which
   gives every m. Not a gap.
@@ -438,7 +473,9 @@ T = n(b_n(w)/b_n(k^{−r}) − 1)/ϑ_n = 0.472 → 0.485 (r = 2), 0.475 → 0.48
   part of the [0, 4] Szegő integral is damped by R_x(x) ~ x^{1/2}, as in ROUTE2 §3.3 — consistent.
 - (g) **α = 0 exactly (r = 2):** ROUTE2's log case (Lemma W′, the K-term log² HS bound, D′'s log²) is used; ROUTE2 proved UR′ for
   α = 0 (and REVIEW_Plan48's F1 extended (b′) to all |α| < 1). No new estimate is needed at α = 0.
-- (h) **Does anything need |a| < ½?** Only Plan 50's symmetric-frame steps (UR₁, D₁), which are not used here.
+- (h) **Does anything need |a| < ½?** Only Plan 50's symmetric-frame steps (UR₁, D₁), which are not used here. Plan 50's non-local
+  ingredients used on 1 < r < 3 — W1(r) with the q_n factors, the Airy discs with ϱ₁ = |x|^{2a}q_n, the (J2) bounds, LW1₁ — do not use
+  |a| < ½: RH₁(r) holds for every r > 1, LW1₁'s proof involves only h_W, H_n, q_n, and ϱ₁ is analytic near ±2 for every a (Rule R F10).
 - (i) **Consistency with Remark Div:** the coefficients extracted in x are (Q^x₁)₁₂ = (Q₁)₁₂ and (Q^x₁)₂₁ = (Q₃)₂₁ − (Q₁)₂₁(Q₂)₁₁
   (from the normalization [[1, 0], [−(Q₁)₂₁, 1]] and Γ = 1 + γ₁/x + …; the γ₁ terms cancel), and (Q^x₂); never (Q₁)₂₁ alone. The
   symmetric-frame C–D representation of (Q₁)₂₁ − (Q̃₁)₂₁, which fails at a = ½ (§1.3; consistent with OBSTRUCTION-a), is not used:
@@ -447,4 +484,4 @@ T = n(b_n(w)/b_n(k^{−r}) − 1)/ϑ_n = 0.472 → 0.485 (r = 2), 0.475 → 0.48
   depend on Ψ beyond evenness of q_n. No counterexample.
 
 **Remaining.** GAP-rate₁ (the 1/n coefficient; tilt law CONJECTURE, §6). The O(1/n) rate holds for every r > 1 under (H_an₁). The
-symmetric-frame OBSTRUCTION-a stands as scoped. Rule R pending for everything in this file.
+symmetric-frame OBSTRUCTION-a stands as scoped. GAP-int itself is closed by §3.23; this file is a second proof.

@@ -456,9 +456,19 @@ positive parameter"; we use α = 1 (α_W).
 
 **Hypotheses checked in the application (ROUTE2_bnd.md §2.2):** α = 1 > 0; n even (n = 2m); the contour is taken symmetric
 (Σ_{l,±} = −Σ_{r,∓}, Σ^△_{l,±} = −Σ^△_{r,∓}), which is admissible because the zeros of Π (odd) and w (even) and the sign of
-Re φ (e^{2nφ(−z)} = e^{2nφ(z)}) are symmetric. (2.15), (3.1), (3.10)–(3.12), (4.1), (4.13), (5.1) are used as quoted in the
-two WLXZ entries above. NUMERICAL cross-check: `route2/checks/check_bnd_fold.out` [2] (g(−z) − g(z) = −iπ, D(−z) = D(z),
-D̂(−z) = D̃(z)).
+Re φ (e^{2nφ(−z)} = e^{2nφ(z)}) are symmetric, and so are (5.8)'s conditions Re φ̃ > 0, Re φ̂ > 0, since φ̂(−z) = φ̃(z) by (2.4),
+(4.28) and g′ odd (Rule R F3). (2.15), (3.10)–(3.12), (4.1), (4.13), (5.1) are used as quoted in the two WLXZ entries above; (3.1),
+(3.4), (2.14), (2.4), (4.28) are quoted here (Rule R F3; the earlier entries do not quote them):
+
+> (2.14) "Res_{z=±x_k} Y(z) = lim_{z→±x_k} Y(z)[[0, w_d(z)], [0, 0]]"; (3.1) "U(z) := n^{nσ3/2}Y(n^{−1/2}z)"; (3.4) "w(z) :=
+> n^{1/2}w_d(n^{−1/2}z)"; (2.4) "φ̃(z) := ∫_2^z (−g′(s) ∓ 2πi/s³)ds for z ∈ ℂ±, where the path of integration lies entirely in the
+> regions z ∈ ℂ \ (−∞, 2] except for the initial point"; (4.28) "φ̂(z) := ∫_{−2}^z (−g′(s) ± 2πi/s³)ds for z ∈ ℂ±, which is analytic
+> in ℂ \ [−2, +∞)".
+
+NUMERICAL cross-check: `route2/checks/check_bnd_fold.out` [2]: g(−z) − g(z) = −iπ (genuine, 4·10⁻¹⁰); the D(−z) = D(z) and
+D̂(−z) = D̃(z) lines are tautological (same expression on both sides), so those two parities rest on the analytic branch argument
+(Rule R F9). Convention (Rule R F4): WLXZ's Y uses the residue form (2.14), Y₁₂ = Σwπ/(z − x_k) = −2πi·C(πν) in the FIK convention
+of ROUTE2_bnd Lemma F0; the two differ by a constant diagonal conjugation.
 
 ## (Fold-attrib, Plan 53) quadratic transformation of orthogonal polynomials — NOT READ, NOT USED AS INPUT (attribution only)
 
