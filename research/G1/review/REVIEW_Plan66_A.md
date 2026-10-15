@@ -43,7 +43,7 @@ check). A6 is an INFO note: an opportunity to close the k₁ GAP.
 
 ## 1. Re-runs (Rule N)
 
-I used `/mnt/c/Users/gspea/source/repos/jacobi-asymptotics/.venv/bin/python` with `PYTHONPATH=<worktree>/src`
+I used the repository venv (`.venv/bin/python`) with `PYTHONPATH=<worktree>/src`
 (csrc already built).
 - **check_e1_models.py**: the output is **byte-identical** to checks/check_e1_models.out.
 - **check_e1_rate.py**: the output is **byte-identical** to checks/check_e1_rate.out.
