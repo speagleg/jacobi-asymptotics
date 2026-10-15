@@ -1,0 +1,452 @@
+% sec10_plt1.tex: the 1/n term for pure powers with 0<p<1 (Theorem thm:onen for p<1), as a perturbation of
+%   Sections sec:classical and sec:second.
+
+\section{\texorpdfstring{Pure powers with $0<p<1$}{Pure powers with 0<p<1}}\label{sec:plt1}
+
+This section proves Theorem~\ref{thm:onen} for $0<p<1$, including the term of order $n^{-1-p}$ with the constant
+$\mathsf k_p=2p\,c(p)\,\zeta(-p)$. The argument of Sections~\ref{sec:classical} and~\ref{sec:second} does not apply
+verbatim, for two reasons. First, for $p<1$ the poles of $\Gamma(t)$ lie inside the slit plane, so the Binet-cut scalar
+of Lemma~\ref{lem:binetcut} does not exist, and the outer scalar is the seam construction of \S\ref{sec:outer-plt1}.
+Second, the band factor of that construction is not constant to $o(1/n)$ near the band: modulo constants it equals
+$e^{-\mathsf d_nz}$ up to a factor $1+O(n^{-2p})$, with $\mathsf d_n:=2\zeta(-p)n^{-p}$ (Lemma~\ref{lem:plt1-band}). We show that
+everything else survives. The hard edge is handled by a classical Bessel parametrix whose square root of the weight is
+glued along the seams, with super-small jumps there (\S\ref{sec:plt1-param}); and the factor $e^{-\mathsf d_nz}$ changes,
+among the residues that enter $a_n$ and $b_n$, only the Airy residue, by an amount linear in $\mathsf d_n$ that is
+computed exactly (\S\ref{sec:plt1-second}).
+
+\emph{Standing assumptions.} Throughout this section $0<p<1$, $s>1$ and $\ell\equiv1$, so that $\sigma=\sigma_{p,s}$,
+$r_n\equiv1$ and $\alpha=(s-1-p)/p>-1$ is arbitrary. As in Section~\ref{sec:classical}, $\Lambda\equiv0$ is analytic of
+every angle, so we may take $\vartheta\ge3\pi/8$ in~\eqref{eq:thetaw}; then $\mathsf m=1$,
+\[
+  \thlip=\tfrac{\pi p}4,\qquad\thw=\tfrac{3\pi p}8,\qquad\thseam=\tfrac{\pi p}2,
+\]
+and the Bessel rays are $\arg\zeta=\pm(\pi-\thlip)$ (Proposition~\ref{prop:frame}(iii)). The outer scalar is the seam
+scalar $F$ of Lemma~\ref{lem:seam}, with the sectors $\Sin$, $\Sout$, the seams $\Sseam_\pm$ (oriented away from $0$),
+$\varpi$, $B_{\mathrm{in}}$, $B_{\mathrm{out}}$ and $\chi$ of \S\ref{sec:outer-plt1}. We use the notation
+$\omega^{\mathrm{mod}}$ of~\eqref{eq:omega-mod}, $r_*:=4c+2$, the error matrix $\mathsf R$, the corrections $\Delta_0$,
+$\Delta_r$ of~\eqref{eq:Delta}, the functionals $\mathsf a$, $\mathsf b$ of Proposition~\ref{prop:frame}(viii), and the
+matrix $\mathsf T$ with the identities~\eqref{eq:conj-T}, \eqref{eq:T-back}. Since $0<p<1$, we have $c\le\frac12$ by
+\eqref{eq:cp}, hence $4c<\frac12r_*$. Constants $C$ depend on $p$, $s$ and the contour parameters only.
+
+\subsection{The band factor in the seam geometry}\label{sec:plt1-band}
+
+Put
+\begin{equation}\label{eq:plt1-G}
+\begin{aligned}
+  G(z)&:=-j(t(z))+\varpi\Log(1+z)+\chi(z)&&(z\in\Sin),\\
+  G(z)&:=\tfrac12\Log\Bigl(1-\frac z{2\pi n}\Bigr)+\chi(z)&&(z\in\Sout),
+\end{aligned}
+\end{equation}
+with principal logarithms, and
+\begin{equation}\label{eq:plt1-jfun}
+  \mathfrak j(r):=-\log\bigl(1-e^{-2\pi nr^{-1/p}}\bigr)>0\qquad(r>0).
+\end{equation}
+This $G$ plays the role of the function~\eqref{eq:G-def} of Section~\ref{sec:classical}: by Lemma~\ref{lem:seam}(iv),
+$H_n=(\tilde DB_{\mathrm{in}}e^\chi)^{-2}=e^{-2G}$ on $\Zn\subset\Sin$, since $\tilde D=e^{-j(t)}$.
+
+\begin{lemma}[Band factor for $0<p<1$]\label{lem:plt1-band}
+Let $0<p<1$.
+\begin{enumerate}
+\item[(i)] $G$ is analytic in $\Sin$ and in $\Sout$, has continuous boundary values on the open seams, is bounded near $0$
+  for each fixed $n$, and $G_{\mathrm{out}}-G_{\mathrm{in}}=\mathfrak j(|\zeta|)$ at $\zeta\in\Sseam_\pm$.
+\item[(ii)] For $z\notin\Sseam_+\cup\Sseam_-\cup\{0\}$, with $\mathfrak K(\zeta,z):=(z-1)/((\zeta-z)(\zeta-1))$,
+  \begin{equation}\label{eq:plt1-repr}
+    G(z)-G(1)=\frac1{2\pi i}\int_0^\infty\mathfrak j(r)\bigl[e^{i\thseam}\mathfrak K(re^{i\thseam},z)-e^{-i\thseam}\mathfrak K(re^{-i\thseam},z)\bigr]\diff r .
+  \end{equation}
+\item[(iii)] For every integer $k\ge1$,
+  \[
+    \mathsf M_k:=\frac1{2\pi i}\int_0^\infty\mathfrak j(r)\bigl[e^{i\thseam}(re^{i\thseam})^{-k-1}-e^{-i\thseam}(re^{-i\thseam})^{-k-1}\bigr]\diff r
+    =\frac{\zeta(-kp)}{k\,n^{kp}} .
+  \]
+\item[(iv)] For every $K\ge1$ there are $C$ and $n_0$ such that for $n\ge n_0$ and $|z|\le r_*$, boundary values on the
+  seams included,
+  \[
+    \Bigl|G(z)-G(1)-\sum_{k=1}^K\mathsf M_k(z^k-1)\Bigr|\le Cn^{-(K+1)p}.
+  \]
+\item[(v)] Let $\mathsf E_n(z):=G(z)-G(1)-\zeta(-p)(z-1)n^{-p}$. Then $|\mathsf E_n(z)|\le Cn^{-2p}$ for $|z|\le r_*$
+  (boundary values included); $\mathsf E_n$ extends continuously to $0$, with the same value from every sector;
+  $|\mathsf E_n'(x)|\le Cn^{-2p}$ for real $x$ with $0<|x|\le\frac12r_*$; and $|\mathsf E_n'(z)|\le Cn^{-2p}/\eta$ whenever
+  $0<\eta\le1$, $|z|\le r_*-\eta$ and $\mathrm{dist}(z,\Sseam_+\cup\Sseam_-)\ge\eta$.
+\end{enumerate}
+\end{lemma}
+
+So, modulo constants, $H_n=e^{-\mathsf d_nz}e^{-2\mathsf E_n}$ with $\mathsf d_n=2\zeta(-p)n^{-p}<0$ and
+$\mathsf E_n=O(n^{-2p})$. In the variable $x=zn^{-p}$ the exponent $\sum_k\mathsf M_kz^k=\sum_k\zeta(-kp)x^k/k$ does not depend on $n$; it
+is the formal logarithm of the product $\prod_m(1-xm^p)^{-1}$ over the nodes $m^{-p}\gg x$, regularised by the values
+of the zeta function. (This interpretation is not used: the proof below uses only the convergent integrals of~(iii).)
+The bound $|\log\Hc(z)|\le C|z|(1+\log(1/|z|))$ of Table~\ref{tab:geometry} does not see the cancellation behind~(iv),
+because it bounds the three terms of $G$ in $\Sin$ separately, each of which varies at order $|z|$ or $|z|^{1/p}/n$; only
+their sum is small. The expansion in~(iv) is asymptotic in $n^{-p}$, not convergent.
+
+\begin{proof}
+(i) In $\Sin$, $|\arg t|<\pi/2$, so $-j(t)$ is analytic (Lemma~\ref{lem:seam}(i)); the cut $(-\infty,-1]$ of $\Log(1+z)$
+lies in $\Sout$, the cut $[2\pi n,\infty)$ of $\Log(1-z/(2\pi n))$ lies in $\Sin$, and $\chi$ is analytic off the seams
+with continuous boundary values (Lemma~\ref{lem:seam}(iii)). On $\Sseam_+$, by Lemma~\ref{lem:seam}(iii) and~\eqref{eq:Lpm},
+\[
+  G_{\mathrm{out}}-G_{\mathrm{in}}=\tfrac12\Log\Bigl(1-\frac\zeta{2\pi n}\Bigr)+\chi_+(\zeta)+j(t)-\varpi\Log(1+\zeta)
+  =-\Log\bigl(1-e^{-2\pi it}\bigr),
+\]
+and $t=-i|t|$ with $|t|=n|\zeta|^{-1/p}$ there, so the jump is $\mathfrak j(|\zeta|)$. The lower seam follows by
+conjugation. Near $0$, $j(t)\to0$ in $\Sin$ by~\eqref{eq:binet-bound}, $B_{\mathrm{in}},B_{\mathrm{out}}\to1$, and $\chi$ is
+bounded near $0$ up to the seams by Lemma~\ref{lem:corner}(iii).
+
+(ii) Call $\mathcal J(z)$ the right-hand side. It converges absolutely: $\mathfrak j(r)\le2e^{-2\pi nr^{-1/p}}$ when
+$e^{-2\pi nr^{-1/p}}\le\frac12$, and $\mathfrak j(r)\le C_n(1+\log r)$ for $r\ge1$, while $\mathfrak K(re^{\pm i\thseam},z)=O_z(r^{-2})$
+at $\infty$ and is bounded near $r=0$. Since $\Sseam_+$ has $\Sout$ on its left and $\Sseam_-$ has $\Sin$ on its left,
+the Sokhotski--Plemelj formula gives $\mathcal J_{\mathrm{out}}-\mathcal J_{\mathrm{in}}=\mathfrak j$ on both seams, with continuous
+boundary values ($\mathfrak j$ is real-analytic on $(0,\infty)$). So $G-G(1)-\mathcal J$ has no jump on the open seams and
+is analytic in $\C\setminus\{0\}$ by Morera's theorem. It is bounded near $0$: $G$ is, by~(i), and so is $\mathcal J$,
+since its density vanishes to infinite order at the corner. Hence it is entire. On $|z|=\varrho\ge2$ the terms $-j(t)$,
+$\varpi\Log(1+z)$ and $\frac12\Log(1-z/(2\pi n))$ are $O_n(1+\log\varrho)$ up to the seams (by~\eqref{eq:binet-small}
+for $|t|<1$ and~\eqref{eq:binet-bound} for $|t|\ge1$), and $\chi$, $\mathcal J$ are Cauchy integrals over the two rays of
+densities bounded by $C_n(1+\log|\zeta|)$ (Lemma~\ref{lem:corner}(i)), whose modulus is at most
+$C_n(1+\log\varrho)^2(1+\log(\varrho/\mathrm{dist}(z,\Sseam_+\cup\Sseam_-)))$. This is integrable in $\arg z$, so the
+mean of $|G-G(1)-\mathcal J|$ over the circle is $O_n((1+\log\varrho)^2)$, and Cauchy's estimate for the Taylor
+coefficients shows that the entire function is constant. It vanishes at $z=1$, because $\mathfrak K(\zeta,1)=0$.
+
+(iii) On $\Sseam_\pm$ the bracket is $r^{-k-1}e^{\mp ik\thseam}$, so
+$\mathsf M_k=-\frac{\sin(k\thseam)}\pi\int_0^\infty\mathfrak j(r)r^{-k-1}\diff r$. The substitution $u=2\pi nr^{-1/p}$,
+the expansion $\mathfrak j=\sum_{m\ge1}e^{-mu}/m$ with positive terms, and (5.2.1), (25.2.1) of \S\ref{sec:tool-dlmf}
+(with $\re(kp)>0$ and $\re(1+kp)>1$) give
+\[
+  \int_0^\infty\mathfrak j(r)r^{-k-1}\diff r=p(2\pi n)^{-kp}\int_0^\infty\sum_{m\ge1}\frac{e^{-mu}}m\,u^{kp-1}\diff u
+  =p(2\pi n)^{-kp}\,\Gamma(kp)\,\zeta(1+kp).
+\]
+By the reflection formula (25.4.1) at $1+kp\notin\{0,1\}$,
+$\zeta(-kp)=2(2\pi)^{-1-kp}\cos(\frac\pi2(1+kp))\Gamma(1+kp)\zeta(1+kp)=-(2\pi)^{-kp}\sin(\frac{\pi kp}2)\,kp\,\Gamma(kp)\zeta(1+kp)/\pi$.
+Since $k\thseam=\pi kp/2$, the two expressions agree: $\mathsf M_k=\zeta(-kp)/(kn^{kp})$.
+
+(iv) and (v) are proved in Appendix~\ref{app:plt1-residues} by splitting~\eqref{eq:plt1-repr} at $r=2r_*$: the far
+part is the geometric expansion of $\mathfrak K$ and gives the moments of~(iii) up to the $(K+1)$-st, of size $n^{-(K+1)p}$,
+while the near part is $O(e^{-n/C})$ because $\mathfrak j$ is.
+\end{proof}
+
+The Szeg\H{o} function of an exponential is explicit.
+
+\begin{lemma}[Szeg\H{o} function of $e^{-\mathsf dx}$]\label{lem:plt1-szego}
+For $\mathsf d\in\R$ and $q(x):=e^{-\mathsf dx}$ on $(0,4c)$, $D_q(z)^2/q(z)=e^{\mathsf d\mathcal R(z)}$ for $z\notin[0,4c]$,
+where $q(z)=e^{-\mathsf dz}$.
+\end{lemma}
+
+\begin{proof}
+By~\eqref{eq:szego-repr} with $\mathfrak c=-\mathsf dz$, the integrand is
+$\mathsf d(z-x)/(\sqrt{x(4c-x)}(z-x))=\mathsf d/\sqrt{x(4c-x)}$, and $\int_0^{4c}\diff x/\sqrt{x(4c-x)}=\pi$.
+\end{proof}
+
+For real $\mathsf d$ put
+\begin{equation}\label{eq:plt1-omega-d}
+  \omega^{\mathrm{mod}}_{\mathsf d}:=\omega^{\mathrm{mod}}e^{\mathsf d\mathcal R},\qquad
+  \varrho^{\mathrm{mod}}(z):=\frac{(-z)^\alpha(4c-z)}{D_{x^\alpha}(z)^2D_{4c-x}(z)^2},\qquad
+  \varrho^{\mathrm{mod}}_{\mathsf d}:=\varrho^{\mathrm{mod}}e^{-\mathsf d\mathcal R},
+\end{equation}
+with principal powers, so that $\varrho^{\mathrm{mod}}=e^{\mp i\pi\alpha}/\omega^{\mathrm{mod}}$ in $\C_\pm$. By
+Lemma~\ref{lem:plt1-szego} and $D_{q_1q_2}=D_{q_1}D_{q_2}$, $\omega^{\mathrm{mod}}_{\mathsf d}$ is the ratio~\eqref{eq:omega}
+for the weight $\wn x^\alpha(4c-x)e^{-\mathsf dx}$. The function $\varrho^{\mathrm{mod}}$ is analytic off $[0,4c]$, and
+$|\varrho^{\mathrm{mod}}|^{\pm1}\le C$ on $\mathbb D(0,2\delta)\setminus[0,4c]$ by Lemma~\ref{lem:szego}(i). The next lemma
+replaces Lemma~\ref{lem:bandfactor}(iv).
+
+\begin{lemma}[The weight near the two edges]\label{lem:plt1-weight}
+Let $q_2:=e^{-2\mathsf E_n}$ on $(0,4c)$, and write $q_2(z):=e^{-2\mathsf E_n(z)}$ with the sector values of $\mathsf E_n$.
+\begin{enumerate}
+\item[(i)] For $z\in\bigl(\mathbb D(0,2\delta)\cup\mathbb D(4c,2\eps)\bigr)\setminus[0,4c]$ off the seams, boundary values
+  included,
+  \begin{equation}\label{eq:plt1-q2}
+    \Bigl|\log\frac{D_{q_2}(z)^2}{q_2(z)}\Bigr|\le Cn^{-2p}.
+  \end{equation}
+\item[(ii)] With $G(0):=\lim_{z\to0}G(z)$, we have $G(z)-G(0)=\frac12\mathsf d_nz+\mathsf E_n(z)-\mathsf E_n(0)$, hence
+  $\Hc=e^{2\mathsf E_n(0)}e^{-\mathsf d_nx}q_2$ on $(0,4c)$ and $D_{\Hc}^2=e^{2\mathsf E_n(0)}e^{-\mathsf d_nz}e^{\mathsf d_n\mathcal R}D_{q_2}^2$
+  off $[0,4c]$.
+\item[(iii)] $\omega=\omega^{\mathrm{mod}}_{\mathsf d_n}D_{q_2}^2/q_2$ on $\mathbb D(4c,2\eps)\setminus[0,4c]$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(ii) By Lemma~\ref{lem:plt1-band}(v), $G(z)-G(1)=\frac12\mathsf d_n(z-1)+\mathsf E_n(z)$, and letting $z\to0$ gives the first
+identity. On $(0,4c)\subset\Sin$, $\Hc=H_n/H_n(0^+)=e^{-2(G-G(0))}$ by Lemma~\ref{lem:seam}(iv), which gives the second;
+the third follows from Lemma~\ref{lem:plt1-szego}, the multiplicativity of $D$, and $D_q=q^{1/2}$ for constants.
+(iii) $\mathbb D(4c,2\eps)\subset\Sin$, where $\Hc$ continues as $e^{-2(G-G(0))}$; insert~(ii) into~\eqref{eq:omega}.
+(i) Let $x_0$ be the point of $[0,4c]$ nearest to $\re z$, and use~\eqref{eq:szego-repr} with
+$\mathfrak c=-2\mathsf E_n(x_0)$. Since $4c<\frac12r_*$, Lemma~\ref{lem:plt1-band}(v) gives
+$|\mathsf E_n(x)-\mathsf E_n(x_0)|\le Cn^{-2p}|x-x_0|\le Cn^{-2p}|x-z|$ for $x\in(0,4c)$, so the integrand
+of~\eqref{eq:szego-repr} is at most $Cn^{-2p}/\sqrt{x(4c-x)}$ and $|\log D_{q_2}(z)^2-\mathfrak c|\le Cn^{-2p}|\mathcal R(z)|\le
+Cn^{-2p}$. Finally $|\log q_2(z)-\mathfrak c|=2|\mathsf E_n(z)-\mathsf E_n(x_0)|\le Cn^{-2p}$ by the sup bound of
+Lemma~\ref{lem:plt1-band}(v).
+\end{proof}
+
+\subsection{The glued Bessel parametrix and the first-order estimate}\label{sec:plt1-param}
+
+Fix a square root $\wn^{1/2}$ and put, on $\mathbb D(0,2\delta)$ minus $[0,2\delta)$ and the seams,
+\begin{equation}\label{eq:plt1-Wtilde}
+  \tilde W(z):=\wn^{1/2}(-z)^{\alpha/2}(4c-z)^{1/2}e^{-G(z)},\qquad \rho_n:=\tilde W/D_W ,
+\end{equation}
+with principal powers and $G$ of~\eqref{eq:plt1-G}. In $\Sin$ this is the square root~\eqref{eq:Wtilde} of
+Section~\ref{sec:classical}, with the present $G$; in $\Sout$ it is its continuation by the elementary factor
+$B_{\mathrm{out}}e^\chi$, and the two are glued along the seams. In $\Sin\cap\C_\pm$, $\tilde W^2=e^{\mp i\pi\alpha}W_0$,
+so $\rho_n^2=e^{\mp i\pi\alpha}/\omega$ where $\omega$ is defined. Moreover
+\begin{equation}\label{eq:plt1-rho-props}
+  \rho_{n,+}\rho_{n,-}=1\ \text{on }(0,2\delta),\qquad
+  \rho_{n,\mathrm{out}}=\rho_{n,\mathrm{in}}\,e^{-\mathfrak j(|z|)}=\rho_{n,\mathrm{in}}\bigl(1-e^{-2\pi n|z|^{-1/p}}\bigr)\ \text{on the seams},
+\end{equation}
+and $\rho_n$ has no jump on $(-2\delta,0)\subset\Sout$, where every factor of~\eqref{eq:plt1-Wtilde} and $D_W$ is
+analytic. The first relation holds because $\tilde W_+\tilde W_-=W_0=D_{W,+}D_{W,-}$ on the band, the second is
+Lemma~\ref{lem:plt1-band}(i). Since $H_n(0^+)=e^{-2\chi(0)}=e^{-2G(0)}$, \eqref{eq:DW-factor} gives
+$\rho_n^2=\varrho^{\mathrm{mod}}e^{-2(G-G(0))}D_{\Hc}^{-2}$, and Lemma~\ref{lem:plt1-weight}(ii) turns this into
+\begin{equation}\label{eq:plt1-rho-mod}
+  \rho_n^2=\varrho^{\mathrm{mod}}_{\mathsf d_n}\,\frac{q_2}{D_{q_2}^2}\qquad\text{on }\mathbb D(0,2\delta)\setminus[0,2\delta),
+  \text{ off the seams},
+\end{equation}
+with the sector values of $q_2$; in particular $|\rho_n^{\pm1}|\le C$ there, with boundary values, and $\rho_n^{\pm2}$
+differ from $(\varrho^{\mathrm{mod}}_{\mathsf d_n})^{\pm1}$ by factors $1+O(n^{-2p})$.
+
+Let $\Psi_\alpha$ be the Bessel model on the rays $\arg\zeta=\pm(\pi-\thlip)$ and $\arg\zeta=\pi$, as in
+\S\ref{sec:he-model}, now for every $\alpha>-1$, and $\Phi_\alpha:=\sigma_3\Psi_\alpha\sigma_3e^{-2\zeta^{1/2}\sigma_3}$. Its
+jumps are~\eqref{eq:he-Phi-jumps} and its large-$\zeta$ behaviour is~\eqref{eq:he-Phi-large}; the derivations of both use
+no restriction on $\alpha$. Near $\zeta=0$ we need $|\Psi_\alpha(\zeta)^{\pm1}|\le C|\zeta|^{-|\alpha|/2}$ for
+$0<|\zeta|\le3$ ($C(1+|\log|\zeta||)$ if $\alpha=0$), and the column sizes used in the proof of
+Proposition~\ref{prop:classical}. In the two thin sectors $\Psi_\alpha$ is given by the Hankel formulas
+\cite[(6.24)--(6.25)]{KMVV} and coincides with the model of \cite[\S6]{KMVV}, so \cite[(6.19)--(6.21)]{KMVV} apply there.
+In the central sector the first column is $\zeta^{\alpha/2}$ times an entire function by (10.25.2); and the second column
+is continuous across the rays $\arg\zeta=\pm2\pi/3$ of \cite[\S6]{KMVV}, because the jumps
+\cite[(6.16), (6.18)]{KMVV} are lower triangular, so it coincides with the second column of the model of
+\cite[\S6]{KMVV} in every sector. Hence the bounds of \cite[(6.19)--(6.21)]{KMVV} hold for the present $\Psi_\alpha$,
+and $\det\Psi_\alpha=1$ gives those for $\Psi_\alpha^{-1}$. With these conventions define $\check A$ and $\check P_0$
+by~\eqref{eq:Pcheck}, with the present $\rho_n$.
+
+\begin{lemma}[Glued Bessel parametrix]\label{lem:plt1-param}
+Let $0<p<1$, $s>1$, $\ell\equiv1$. For $n\ge n_0$:
+\begin{enumerate}
+\item[(i)] $\det\check A=1$, and $\check A=\check A^{\mathrm a}+\check A^{\mathrm s}$ on $\mathbb D(0,\delta)$, where
+  $\check A^{\mathrm a}$ is analytic on $\mathbb D(0,\delta)$ and $|\check A^{\mathrm s}|\le Ce^{-n/C}$. In particular
+  $|\check A^{\pm1}|\le C$ on $\mathbb D(0,\delta)$.
+\item[(ii)] $\check P_0$ is analytic in $\mathbb D(0,\delta)$ off the band, the lips and the seams, $\det\check P_0=1$, it
+  has the jumps of Lemma~\ref{lem:classical-param}(ii) on the band and on the lips, no jump on $(-\delta,0)$, and
+  $\check P_{0,\mathrm{out}}=\check P_{0,\mathrm{in}}v_{\mathrm s}$ on the seams, with
+  $|v_{\mathrm s}-I|\le Cn^C|z|^{-C}\exp(-2\pi n|z|^{-1/p})$.
+\item[(iii)] $|\check P_0^{\pm1}(z)|\le Cn^C|z|^{-C}$ on $\mathbb D(0,\delta)$ off the contour, with boundary values.
+\item[(iv)] Uniformly for $\frac12\delta\le|z|\le\delta$ off the contour, $\check P_0(z)P^\infty_0(z)^{-1}=I+O(1/n)$ and
+  $|\check P_0^{\pm1}(z)|\le C$.
+\end{enumerate}
+Moreover $\mathsf R:=Q\check P_0^{-1}$ has no jump on $(0,\delta)$ or on $(-\delta,0)$, and $\mathsf R_+=\mathsf R_-J_{\mathsf R}$
+on the lips and the seams in $\mathbb D(0,\delta)$, where for every $K\ge1$
+\[
+  |J_{\mathsf R}(z)-I|\le C_Kn^{-K}\min(1,|z|^K).
+\]
+\end{lemma}
+
+\begin{proof}
+We follow the proofs of Lemmas~\ref{lem:classical-param} and~\ref{lem:mismatch-classical} and list the changes.
+
+(i) By~\eqref{eq:plt1-rho-mod}, $\rho_n^{\pm1}$ is bounded, which replaces the use of Lemma~\ref{lem:bandfactor}(iv). The
+jump of $\check A$ on the band cancels as before, by~\eqref{eq:plt1-rho-props}. The factors $P^\infty_0$ and $f^{1/4}$
+are analytic on the seams in $\mathbb D(0,2\delta)$ ($f$ is negative only on $(0,2\delta)$), so the only other jump of
+$\check A$ is on the seams, where, by~\eqref{eq:plt1-rho-props},
+\[
+  \check A_{\mathrm{in}}^{-1}\check A_{\mathrm{out}}=f^{-\sigma_3/4}M^{-1}e^{-\mathfrak j(|z|)\sigma_3}Mf^{\sigma_3/4},\qquad
+  |\check A_{\mathrm{in}}^{-1}\check A_{\mathrm{out}}-I|\le C|z|^{-1/2}\mathfrak j(|z|),
+\]
+in place of~\eqref{eq:A-jump}; there is no jump on $(-2\delta,0)$. Since $\mathfrak j(r)\le2e^{-2\pi nr^{-1/p}}$ and
+$|\mathfrak j'(r)|\le Cnr^{-1-1/p}e^{-2\pi nr^{-1/p}}$ on $(0,2\delta]$, and the boundary values of $G$ on the seams have
+derivatives bounded by $Cn^C$ (by~\eqref{eq:plt1-repr}, after an integration by parts), the Cauchy integral $\check A^{\mathrm s}$ over the
+two seam segments in $\mathbb D(0,2\delta)$ of $\check A_{\mathrm{in}}(\check A_{\mathrm{in}}^{-1}\check A_{\mathrm{out}}-I)$ (with the
+orientation of the seams) has a $C^1$ density of norm $O(e^{-n/C})$ that vanishes to infinite order at $0$. The rest of
+the argument is that of Lemma~\ref{lem:classical-param}(i).
+
+(ii) On the band and the lips the computation is that of Lemma~\ref{lem:classical-param}(ii): the lips lie in
+$\{\frac34\thlip\le|\arg z|\le\frac54\thlip\}\subset\Sin$, where $\rho_n^{-2}=e^{\pm i\pi\alpha}\omega$, and they are
+mapped by $\zeta=n^2f$ onto the rays $\arg\zeta=\mp(\pi-\thlip)$. The seams in $\mathbb D(0,\delta)$ are mapped into the
+central sector $|\arg\zeta|<\pi-\thlip$ for $\delta$ small, since $f(z)=f'(0)z(1+O(z))$ with $f'(0)<0$ and
+$\thseam>\thlip$; so $\Phi_\alpha$ is analytic there, and
+\[
+  v_{\mathrm s}=\rho_{n,\mathrm{in}}^{\sigma_3}\Phi_\alpha^{-1}(2\pi n)^{-\sigma_3/2}\bigl(\check A_{\mathrm{in}}^{-1}\check A_{\mathrm{out}}\bigr)
+  (2\pi n)^{\sigma_3/2}\Phi_\alpha\,\rho_{n,\mathrm{in}}^{-\sigma_3}e^{\mathfrak j\sigma_3}.
+\]
+The bound follows as in Lemma~\ref{lem:classical-param}(ii), with $\mathfrak j$ in place of $\mathfrak e$. On $(-\delta,0)$
+neither $\check A$ nor $\Phi_\alpha$ jumps.
+
+(iii) and (iv) are proved as in Lemma~\ref{lem:classical-param}, with the bounds on $\Psi_\alpha^{\pm1}$ stated before the
+lemma.
+
+For $\mathsf R$: on the band and on the lips the argument is that of Lemma~\ref{lem:mismatch-classical}, with
+Proposition~\ref{prop:frame}(iv), (vi) and Lemma~\ref{lem:szego}(vi)(a), all valid for every $p>0$. On the seams $Q$ has
+no jump (Proposition~\ref{prop:frame}(i)), so $J_{\mathsf R}=\check P_{0,\mathrm{in}}v_{\mathrm s}^{-1}\check P_{0,\mathrm{in}}^{-1}$
+(read with the orientation of the seam), and~(ii), (iii) give $|J_{\mathsf R}-I|\le Cn^C|z|^{-C}\exp(-2\pi n|z|^{-1/p})$.
+On $(-\delta,0)$ neither $Q$ nor $\check P_0$ jumps.
+\end{proof}
+
+Define the error matrix $\mathsf R$ by~\eqref{eq:error-matrix} with the present $\check P_0$, orient the circles as in
+\S\ref{sec:classical-small}, and let $\Sigma_{\mathsf R}$ consist of the two circles, of
+$\Sigma\setminus(\overline{U_0}\cup\overline{U_r}\cup[0,4c])$, and of the lips and the two seam segments inside $U_0$.
+
+\begin{proposition}[First-order small norm for $0<p<1$]\label{prop:plt1-small}
+Let $0<p<1$, $s>1$ and $\ell\equiv1$. Then the conclusions (i)--(iv) of Proposition~\ref{prop:classical} hold for this
+$\mathsf R$ and this $\Sigma_{\mathsf R}$, with $|J_{\mathsf R}-I|\le C_Kn^{-K}\min(1,|z|^K)$ on the lips and the seam
+segments in $U_0$.
+\end{proposition}
+
+\begin{proof}
+Steps~1, 3 and~4 of the proof of Proposition~\ref{prop:classical} apply verbatim, with Lemma~\ref{lem:plt1-param} in
+place of Lemmas~\ref{lem:classical-param} and~\ref{lem:mismatch-classical}; the seam segments are fixed arcs, so the
+uniform Cauchy bound of Proposition~\ref{prop:frame}(i) extends to the enlarged contour. Proposition~\ref{prop:frame}(v)
+holds for every $p>0$; on the arcs of $\Sigma$ outside the two discs, which lie in $\Zn\subset\Sin$, $|v-I|\le Ce^{-n/C}$,
+and on the seams outside $U_0$ neither $Q$ nor $P^\infty_0$ jumps.
+
+In Step~2 the bound~\eqref{eq:R-at-zero} is proved in the same way. Outside the lens, $F^{\pm1}$ is bounded near $0$ by
+Definition~\ref{def:outer-admissible}(e), which holds for the seam scalar (Lemma~\ref{lem:seam}(iv)); $|\tilde W|\asymp|z|^{\alpha/2}$
+for fixed $n$, since $G$ is bounded near $0$ (Lemma~\ref{lem:plt1-band}(i)); $\check A^{-1}$ is bounded by
+Lemma~\ref{lem:plt1-param}(i); Lemmas~\ref{lem:sumbound} and~\ref{lem:lenssector} hold for every $p>0$; and outside the
+lens $\zeta=n^2f$ lies in $|\arg\zeta|<\pi-\thlip$, where the column sizes of $\Psi_\alpha$ are those stated before
+Lemma~\ref{lem:plt1-param}. Inside the lens the continuation of $\Psi_\alpha$ from the central sector has first column
+$\zeta^{\alpha/2}$ times an entire function and second column equal to that of $\Psi_\alpha$ in the thin sectors, as
+before. The two cases of the identification then go through unchanged: for $\alpha>-\frac12$, $\mathsf R$ is continuous up
+to $\Sigma_{\mathsf R}$ off the vertices (the seams included, by Lemma~\ref{lem:plt1-param}(ii) and the continuity of $Q$
+across them) and Lemma~\ref{lem:cauchy-arcs}(c) applies to $\mathsf R-I$; for $-1<\alpha\le-\frac12$,
+Proposition~\ref{prop:frame}(vii) applies because $|\alpha|<1$, the parametrix satisfies
+$|\check P_0^{\pm1}(z)|\le C_n|z|^{-|\alpha|/2}$ near $0$ by the bounds on $\Psi_\alpha^{\pm1}$, and the comparison with
+\S\ref{sec:tool-cd}(b) on $\Sigma\cup\Sigma_{\mathsf R}$ is the same, the jumps of $\check P_0$ on the seams being bounded
+with bounded inverses.
+\end{proof}
+
+\subsection{\texorpdfstring{The $1/n$ term}{The 1/n term}}\label{sec:plt1-second}
+
+The second-order analysis of Section~\ref{sec:second} carries over once three points are checked: the two-term
+expansion of the Bessel model on the moved rays, the dependence of the circle jumps on $n$, which is now of order
+$n^{-p}$ and has an explicit linear part, and the Laurent coefficients of the corrections for the model weight
+$x^\alpha(4c-x)e^{-\mathsf dx}$.
+
+Lemma~\ref{lem:model-corrections}(a) holds for $\Psi_\alpha$ on the rays $\pm(\pi-\thlip)$, uniformly off the rays.
+In the central sector $|\arg\zeta|<\pi-\thlip$ the variable $w=2\zeta^{1/2}$ satisfies
+$|\mathrm{ph}\,w|\le\frac\pi2-\frac12\thlip$, inside the sectors of (10.40.1)--(10.40.4); in the thin sectors the phase of
+$2(-\zeta)^{1/2}$ lies in $(-\frac12\thlip,0)$, respectively $(0,\frac12\thlip)$, inside the sectors of (10.17.5),
+(10.17.6), (10.17.11) and (10.17.12). The two-term computation in the proof of Lemma~\ref{lem:model-corrections}(a) is
+the same in these sectors. Part~(b) does not involve $p$. Lemma~\ref{lem:local-data} uses only the equilibrium measure
+and Lemma~\ref{lem:szego}(i), and holds for every $p>0$.
+
+For real $\mathsf d$ let $\Delta^{\mathrm{mod}}_{0,\mathsf d}$ and $\Delta^{\mathrm{mod}}_{r,\mathsf d}$ be the expressions
+\eqref{eq:Delta} with $\rho_n^{\pm2}$ replaced by $(\varrho^{\mathrm{mod}}_{\mathsf d})^{\pm1}$ and $(-\omega)^{\pm1/2}$ replaced by
+$(-\omega^{\mathrm{mod}}_{\mathsf d})^{\pm1/2}:=(-\omega^{\mathrm{mod}})^{\pm1/2}e^{\pm\mathsf d\mathcal R/2}$, with the root of
+Lemma~\ref{lem:local-data}(iii). For $\mathsf d=0$ these are $\Delta^{\mathrm{mod}}_0$ and $\Delta^{\mathrm{mod}}_r$.
+
+\begin{lemma}[Circle jumps for $0<p<1$]\label{lem:plt1-jumps}
+Uniformly on the circles, with boundary values where they cross the contour,
+\[
+  \check P_0(P^\infty_0)^{-1}=I+\frac{\Delta_0}n+O(n^{-2})\ \text{on }\partial U_0,\qquad
+  \hat P_r(P^\infty_0)^{-1}=I+\frac{\Delta_r}n+O(n^{-2})\ \text{on }\partial U_r,
+\]
+with $\Delta_0$, $\Delta_r$ of~\eqref{eq:Delta} built from the present $\rho_n$ and $\omega$, and
+$\Delta_0-\Delta^{\mathrm{mod}}_{0,\mathsf d_n}=O(n^{-2p})$, $\Delta_r-\Delta^{\mathrm{mod}}_{r,\mathsf d_n}=O(n^{-2p})$ there.
+\end{lemma}
+
+\begin{proof}
+The expansions are proved as in Lemma~\ref{lem:circle-jumps}, since $P^\infty_0$, $(P^\infty_0)^{-1}$, $\rho_n^{\pm1}$ and
+$(-\omega)^{\pm1/2}$ are bounded on the circles uniformly in $n$ (by~\eqref{eq:plt1-rho-mod} and
+Lemma~\ref{lem:plt1-weight}); at the two points where $\partial U_0$ meets the seams the boundary values of $\rho_n$
+differ by the factor $e^{-\mathfrak j}=1+O(e^{-n/C})$, which is absorbed in $O(n^{-2})$. By~\eqref{eq:plt1-rho-mod},
+$\rho_n^{\pm2}=(\varrho^{\mathrm{mod}}_{\mathsf d_n})^{\pm1}(1+O(n^{-2p}))$ on $\partial U_0$; by Lemma~\ref{lem:plt1-weight}
+and~\eqref{eq:omega-root}, $(-\omega)^{\pm1/2}=(-\omega^{\mathrm{mod}}_{\mathsf d_n})^{\pm1/2}(1+O(n^{-2p}))$ on
+$\partial U_r$. Since $\Delta_0$ is linear in $\rho_n^{\pm2}$ and $\Delta_r$ is linear in $(-\omega)^{\pm1}$, with
+bounded coefficients, the last claim follows.
+\end{proof}
+
+\begin{lemma}[Laurent data with the factor $e^{-\mathsf dx}$]\label{lem:plt1-laurent}
+For every real $\mathsf d$, $\Delta^{\mathrm{mod}}_{0,\mathsf d}$ is meromorphic in $\mathbb D(0,2\delta)$ with at most a simple
+pole at $0$, and $\Delta^{\mathrm{mod}}_{r,\mathsf d}$ is meromorphic in $\mathbb D(4c,2\eps)$ with at most a double pole at
+$4c$. Writing $\Delta^{\mathrm{mod}}_{0,\mathsf d}=\mathfrak A_{0,\mathsf d}/z+O(1)$ and
+$\Delta^{\mathrm{mod}}_{r,\mathsf d}=\mathfrak B_{r,\mathsf d}/(z-4c)^2+\mathfrak A_{r,\mathsf d}/(z-4c)+O(1)$, we have
+$\mathfrak A_{0,\mathsf d}=\mathfrak A_0$, $\mathfrak B_{r,\mathsf d}=\mathfrak B_r$ (Lemma~\ref{lem:laurent}), and
+\begin{equation}\label{eq:plt1-combinations}
+\begin{gathered}
+  (\mathfrak A_{r,\mathsf d})_{21}-(\mathfrak A_{r,\mathsf d})_{12}=ipc\,(1+\alpha-2c\mathsf d),\\
+  (\mathfrak A_{r,\mathsf d})_{11}-(\mathfrak A_{r,\mathsf d})_{22}-2i(\mathfrak A_{r,\mathsf d})_{12}-\frac ic(\mathfrak B_{r,\mathsf d})_{12}
+  =-pc\,(\alpha+2-2c\mathsf d).
+\end{gathered}
+\end{equation}
+\end{lemma}
+
+So the factor $e^{-\mathsf dx}$ acts on the two combinations that enter $a_n$ and $b_n$ exactly as the shift
+$\alpha\mapsto\alpha-2c\mathsf d$ of the Bessel order would, while the hard-edge residue and the double pole at $4c$ do
+not see it. The full matrix $\mathfrak A_{r,\mathsf d}$ is not affine in $\mathsf d$; its derivative at $\mathsf d=0$ is
+given in Lemma~\ref{lem:plt1-full}.
+
+\begin{proof}
+\emph{Meromorphy.} The model data are seam-free: $\varrho^{\mathrm{mod}}$, $\omega^{\mathrm{mod}}$ and $\mathcal R$ are
+analytic off $[0,4c]$. Since $\mathcal R_+=-\mathcal R_-$ on the band, $(\varrho^{\mathrm{mod}}_{\mathsf d})_+(\varrho^{\mathrm{mod}}_{\mathsf d})_-=1$
+on $(0,2\delta)$ and $(-\omega^{\mathrm{mod}}_{\mathsf d})^{1/2}_+(-\omega^{\mathrm{mod}}_{\mathsf d})^{1/2}_-=1$ on $(4c-2\eps,4c)$,
+exactly as for $\mathsf d=0$; $e^{\pm\mathsf d\mathcal R}$ is analytic on $(-2\delta,0)$ and on $(4c,4c+2\eps)$ and bounded on
+both discs. So the proof of the meromorphy in Lemma~\ref{lem:laurent} applies without change, with the same pole orders.
+
+\emph{The coefficients.} In the computations of the proof of Lemma~\ref{lem:laurent} the factor $e^{\mp\mathsf d\mathcal R}$
+replaces $L_0$ by $L_0-\frac12\mathsf d\mathcal R$ and $L_r$ by $L_r-\frac12\mathsf d\mathcal R$. Near $0$,
+$\mathcal R(-\mathsf y^2)\to0$, so $\rho^2\to1$ along $(-2\delta,0)$ as before, the limit of $za^2Y_{12}/f^{1/2}$ is unchanged,
+and $\mathfrak A_{0,\mathsf d}=\mathfrak A_0$. Near $4c$, $\mathcal R=z^{1/2}\mathsf u$ with $z^{1/2}=2\sqrt c(1+\epsilon^2)^{1/2}$
+and $\epsilon=\mathsf u/(2\sqrt c)$, so
+\[
+  L_r-\tfrac12\mathsf d\mathcal R=(1+\alpha-2c\mathsf d)\,\epsilon+O(\epsilon^3)
+\]
+is still odd in $\mathsf u$. The coefficient $\mathfrak B_r$ uses only the limit $\cosh2L_r\to1$, so
+$\mathfrak B_{r,\mathsf d}=\mathfrak B_r$. The two combinations in the proof of Lemma~\ref{lem:laurent} use only the
+leading term $(1+\alpha)\epsilon$ of $L_r$, through $Y_{11}=\frac{1+\alpha}{12\sqrt c}\mathsf u+O(\mathsf u^3)$; replacing
+$1+\alpha$ by $1+\alpha-2c\mathsf d$ there gives~\eqref{eq:plt1-combinations}.
+\end{proof}
+
+\begin{proposition}[Second-order small norm for $0<p<1$]\label{prop:plt1-second}
+Let $0<p<1$, $s>1$, $\ell\equiv1$. For $n\ge n_0$,
+\[
+  \mathsf R(z)=I+\frac{\mathsf R^{(1)}_n(z)}n+O(n^{-2}+n^{-1-2p})
+\]
+uniformly for $\mathrm{dist}(z,\Sigma_{\mathsf R})\ge d>0$, and $\mathsf R_k=\mathsf R^{(1)}_{n,k}/n+O(n^{-2}+n^{-1-2p})$,
+$k=1,2$, where
+\begin{gather*}
+  \mathsf R^{(1)}_n(z)=\frac{\mathfrak A_0}z+\frac{\mathfrak A_{r,\mathsf d_n}}{z-4c}+\frac{\mathfrak B_r}{(z-4c)^2}
+  \quad(z\notin\overline{U_0}\cup\overline{U_r}),\\
+  \mathsf R^{(1)}_{n,1}=\mathfrak A_0+\mathfrak A_{r,\mathsf d_n},\qquad \mathsf R^{(1)}_{n,2}=4c\,\mathfrak A_{r,\mathsf d_n}+\mathfrak B_r .
+\end{gather*}
+\end{proposition}
+
+\begin{proof}
+This is the proof of Proposition~\ref{prop:second}, with Proposition~\ref{prop:plt1-small} in place of
+Proposition~\ref{prop:classical} and Lemmas~\ref{lem:plt1-jumps} and~\ref{lem:plt1-laurent} in place of
+Lemmas~\ref{lem:circle-jumps} and~\ref{lem:laurent}. The arcs inside $U_0$, now the lips and the seam segments, contribute
+$O(n^{-K})$. On the circles $J_{\mathsf R}-I=\Delta^{\mathrm{mod}}_{\mathsf d_n}/n+O(n^{-2}+n^{-1-2p})$, where
+$\Delta^{\mathrm{mod}}_{\mathsf d_n}$ is $\Delta^{\mathrm{mod}}_{0,\mathsf d_n}$ on $\partial U_0$ and $\Delta^{\mathrm{mod}}_{r,\mathsf d_n}$
+on $\partial U_r$. This function is meromorphic in the two discs by Lemma~\ref{lem:plt1-laurent}, so the clockwise
+circle integrals are minus the sums of residues, and these are given by the Laurent data of that lemma. The quadratic
+term is $O(n^{-2})$ as before.
+\end{proof}
+
+\subsection{\texorpdfstring{Proof of Theorem~\ref{thm:onen} for $0<p<1$}{Proof of Theorem 1.4 for 0<p<1}}\label{sec:plt1-proof}
+
+We repeat the extraction of \S\ref{sec:second-proof} with $\mathcal A:=\mathfrak A_0+\mathfrak A_{r,\mathsf d_n}$ and
+$\mathcal B:=4c\mathfrak A_{r,\mathsf d_n}+\mathfrak B_r$; these depend on $n$, but they are bounded, and the remainders
+are now $O(n^{-2}+n^{-1-2p})$. The off-diagonal entries of $\mathfrak A_0$ are equal, so by~\eqref{eq:plt1-combinations}
+\[
+  n^{2p}b_n^2=c^2\Bigl(1+\frac{i(\mathcal A_{21}-\mathcal A_{12})}{cn}\Bigr)+O(n^{-2}+n^{-1-2p})
+  =c^2\Bigl(1-\frac{p(1+\alpha)}n+\frac{2pc\,\mathsf d_n}n\Bigr)+O(n^{-2}+n^{-1-2p}),
+\]
+and since $p(1+\alpha)=s-1$ and $pc\,\mathsf d_n=2pc\,\zeta(-p)n^{-p}=\mathsf k_pn^{-p}$,
+\[
+  n^pb_n=c\Bigl(1-\frac{s-1}{2n}+\mathsf k_pn^{-1-p}+O(n^{-1-2p}+n^{-2})\Bigr).
+\]
+For $a_n$, the bracket of \S\ref{sec:second-proof} vanishes on $\mathfrak A_0$, and its Airy part is the second
+combination in~\eqref{eq:plt1-combinations}, which is $-pc(\alpha+2)+2pc^2\mathsf d_n$. Hence
+\[
+  n^pa_n=2c\Bigl(1-\frac{s-1+p}{2n}+\mathsf k_pn^{-1-p}+O(n^{-1-2p}+n^{-2})\Bigr).
+\]
+In the quotient the terms $\mathsf k_pn^{-1-p}$ cancel, and products of two correction terms are
+$O(n^{-2})$, so $a_n/(2b_n)=1-p/(2n)+O(n^{-1-2p}+n^{-2})$.
+
+Finally, $\mathsf k_p<0$ for every $p\in(0,1)$: by the reflection formula (25.4.1) at $1+p$,
+$\zeta(-p)=-2(2\pi)^{-1-p}\sin(\frac{\pi p}2)\Gamma(1+p)\zeta(1+p)$, and $\sin(\frac{\pi p}2)$, $\Gamma(1+p)$ and
+$\zeta(1+p)$ (by (25.2.1)) are positive. Since $1+p<\min(2,1+2p)$, the term $\mathsf k_pn^{-1-p}$ dominates the
+remainder, so for $n^pb_n$ and $n^pa_n$ the error after the $1/n$ term is exactly of order $n^{-1-p}$. For example,
+$c(\frac12)=1/\sqrt6$ and $\mathsf k_{1/2}=\zeta(-\frac12)/\sqrt6=-0.0848692\ldots$.
+\qed
+
+\begin{remark}[The two scales]\label{rem:plt1-scales}
+The term $\mathsf k_pn^{-1-p}$ is the product of the $1/n$ of the local model corrections and the $n^{-p}$ of the linear
+part of the band factor. The band factor enters $a_n$ and $b_n$ only through these corrections, because the global
+parametrix $P^\infty_0$ contributes exactly $c^2$ and $2c$ to the two functionals for every band weight
+(Lemma~\ref{lem:invariance} and~\eqref{eq:P1P2}); this is why a variation of the weight of size $n^{-p}$ produces no term
+of order $n^{-p}$. The term is the same in $n^pb_n/c$ and in $n^pa_n/(2c)$ and does not depend on $s$: to order
+$n^{-1-p}$ it acts as the rescaling $c\mapsto c(1+\mathsf k_pn^{-1-p})$. At $p=2$, $\zeta(-2)=0$, in accordance with the
+exact constancy of the band factor noted after Lemma~\ref{lem:bandfactor}.
+\end{remark}
