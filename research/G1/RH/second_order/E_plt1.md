@@ -3,7 +3,7 @@
 Status (2026-10-15): written by the Plan 67 agent. Rule R reviews A (analysis) and B (algebra) are in
 (research/G1/review/REVIEW_Plan67_A.md, REVIEW_Plan67_B.md; both ACCEPT WITH FIXES, no mathematical error); fixes A1–A4,
 I1, I3 and B1–B6 are applied (I2, optional near-seam sample points, not added; the reviewer's own probe covers them).
-The REVIEWED mark is left to the integrator. Labels per VERIFICATION_POLICY.md.
+**REVIEWED 2026-10-15** (REVIEW_Plan67_A.md, REVIEW_Plan67_B.md; fixes diff-checked). Labels per VERIFICATION_POLICY.md.
 "RH" means Riemann–Hilbert throughout. This file closes, for 0 < p < 1, the GAP "(E)" of SECOND.md §4 (and E_pgt1 §9,
 second bullet), settles g(p) = 0 for 0 < p < 1, and identifies the n^{−1−p} term seen in SECOND §1. It does not touch
 p = 1 (worked on separately). SECOND.md and THEOREMS.md are **not** edited; §12 lists the changes for integration.
