@@ -18,7 +18,7 @@
 | 5 | Christoffel transformation at the Cesàro level | 19–22 | Prop 5.1 converse/point mass (+ Lean sentence), Prop 5.2 product identity, proof of Thm 1.4(i), Prop 5.3 O(1/k), Lemma 5.4 quadratic transformation, Cor 5.5 lattice values, Prop 5.6 conditional transfer |
 | 6 | Pure powers as s varies | 22–25 | Prop 6.1, Lemma 6.2 sandwich, Prop 6.3, Lemma 6.4, Thm 6.5, Lemma 6.6 telescoping; proofs of Thm 1.4(ii)–(iii), Cor 1.5 |
 | 7 | Numerical illustrations | 25–27 | Tables 1–2, s-law sup deviations, slowly varying factors |
-| 8 | Open problems | 27–28 | Conjectures 8.1 (convexity), 8.3 (1/n for p ≤ 1 = [II, Conj 11.1]), 8.4 (tilt = [II, Conj 11.2]); Remark 8.2 (truncations) |
+| 8 | Open problems | 27–28 | Conjectures 8.1 (convexity), 8.3 (tilt = [II, Conj 13.2], amended 2026-10-15); Remark 8.2 (truncations); the 1/n term for p ≤ 1 is now [II, Thm 1.4] |
 
 The outline estimated 48–54 pp; the draft is 28 pp. Reasons: Prop 6.7 (o(log n) log moment) omitted (outline III-b),
 non-explicit Theorem R omitted (D5), tail-Cesàro a-law omitted (D6), Lemma RL omitted (III-d), and proofs written
@@ -123,3 +123,9 @@ compactly. Nothing in the outline's theorem list is missing.
 5. Novelty: Theorem 1.3 "not found" rests on research/program/novelty_lineB_C.md (one-session search). Lemma 2.16's
    second-order bounds likewise NOT FOUND there; the paper makes no novelty claim for them.
 6. Style: run-in paragraph heads use \emph (as in Papers I and II); see STYLE_CHECK.md.
+
+## 2026-10-15: tilt conjecture amended (Paper II referee MA1)
+Conjecture 8.3 (= [II, Conjecture 13.2]) now reads exactly as in Paper II: hypothesis n^{min(1,p)}Λ′(log n) → ∞ (was
+nΛ′(log n) → ∞, false for every 0 < p < 1; counterexample ℓ = 1 − εk^{−p}, see papers/paperII/REFEREE_MATH2.md MA1). A
+two-line note after the conjecture gives the counterexample and cites [II, §13]. Build: 29 pp., 0 warnings, 0
+overfull/underfull boxes.

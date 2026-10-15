@@ -57,11 +57,17 @@ factor acts at order $1/n$ like a change of $s$ by its local logarithmic derivat
 Theorem~\ref{thm:s}(ii) along the path $k^{-s}\ell(k)^t$.
 
 \begin{conjecture}[{\cite[Conjecture~13.2]{PaperII}}]\label{conj:tilt}
-Let $\ell$ be analytic of some angle, $\ell(k)=\exp\Lambda(\log k)$, and $s>1$. If $n\Lambda'(\log n)\to\infty$, then
+Let $p>0$, $s>1$, and let $\ell$ be analytic of angle $\vartheta$ for some $\vartheta>0$, with
+$\ell(k)=\exp\Lambda(\log k)$. Then
 \[
-  \frac{n^pb_n(\sigma_{p,s,\ell})}{c(p)}=1-\frac{s-1-\Lambda'(\log n)}{2n}+o\Bigl(\frac{\Lambda'(\log n)}n\Bigr).
+  \frac{n^pb_n(\sigma_{p,s,\ell})}{c(p)}=1-\frac{s-1-\Lambda'(\log n)}{2n}+o\Bigl(\frac{\Lambda'(\log n)}{n}\Bigr)
+  \qquad\text{whenever}\quad n^{\min(1,p)}\Lambda'(\log n)\to\infty.
 \]
 \end{conjecture}
+
+For $0<p<1$ the condition $n\Lambda'(\log n)\to\infty$ would not suffice: for $\ell(k)=1-\epsilon k^{-p}$, $0<\epsilon<1$, the measure
+$\sigma_{p,s,\ell}=(1-\epsilon x)\sigma_{p,s}$ is a polynomial Christoffel transform of $\sigma_{p,s}$, and its coefficient of
+$n^{-1-p}$ is $2p\,c(p)\zeta(-p)+p\,c(p)\epsilon$, not $\frac12p\epsilon$ \cite[\S13]{PaperII}.
 
 \emph{Other atoms.} All results here use the exact atoms $k^{-p}$: Lemma~\ref{lem:arcsine} needs a pointwise law for a
 reference measure, and Section~\ref{sec:christoffel} needs $x\sigma_{p,s}=\sigma_{p,s+p}$. For atoms $x_k=f(k)$ regularly

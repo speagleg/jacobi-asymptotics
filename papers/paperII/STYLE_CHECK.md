@@ -94,3 +94,28 @@ recorded in §2 (2.4: the parts of WLXZ applied at p = 1; 2.5(d): the Fisher–H
 5.2.1, 25.2.1, 25.4.1, 10.32.4, 10.32.9; KMVV (6.19)–(6.21) in 2.5(a)), and the dependence of Thm 1.4 at p = 1 on the
 analysis of WLXZ is stated after Thm 1.4 and after Prop 11.9. Deviation: the introduction is now about 5 pages (guide
 ≤ 4) because Theorem 1.4 has two parts and Remark 1.7 was added; trimming left to the author.
+
+## Update 2026-10-15 (referee report 2 fixes; editor pass)
+Build: pdflatex, bibtex, pdflatex ×2: 105 pp., 0 errors, 0 LaTeX/hyperref/bibtex warnings, 0 undefined references,
+0 overfull/underfull boxes. Paper III rebuilt with the amended Conjecture 8.3: 29 pp., same counts.
+- Introduction: 3.9 pages from the heading on p. 1 to "2. Preliminaries" on p. 5 (PDF bounding boxes), within the guide's
+  ≤ 4. Main statements (Def 1.1, Thm 1.2, Cor 1.3, Thm 1.4) unchanged and on pp. 2–3; context in prose with the two
+  difficulties first; method in two paragraphs; organisation in five sentences. The deviation recorded in the previous
+  update is removed.
+- Voice: section openers of §§10–13 and Apps. G–H re-read against §§3–9 (each opens with what it proves and why; no
+  "This section proves" run). The new text (§13 paragraph after Conj 13.2, Lemma 10.4 parenthesis, Prop 11.5 proof
+  sentence, §2.5(d) addition, intro rewrite) was grepped: 0 banned words, 0 "---", 0 \textbf, 0 repo vocabulary
+  (Plan, Rule, REVIEWED, PROVED-mod-cite, UF-lim, RH_p, x-frame, engine), "note that" 0, "indeed" 2 (App. C, D as
+  before). The only "crucial" is inside the verbatim quotation of Deift–Piorkowski.
+- Notation: App. H clashes removed (𝖫(z), δ_m, Ω_b, sector index S in X_S, Y_S).
+- Open deviation (author's decision): the word "seam(s)" (104 printed occurrences, §§4–5, 8, 10, Apps. A, G) is the
+  paper's defined name for the two rays across which the weight is glued (Appendix A). The guide lists "seam" among repo
+  vocabulary; it is kept because it is defined in the text and a global rename would touch every proof of §10 and
+  App. A. A replacement such as "gluing ray" can be done mechanically if wanted.
+- Log check corrected: main.log of Paper II is ISO-8859 (non-UTF-8 bytes), so a plain `grep` treats it as binary and
+  prints nothing; the earlier "0 overfull/underfull" counts were false negatives. With `grep -a` the 105-p. build had
+  12 overfull boxes (§11: Lemma 11.3, Lemma 11.8 display, Lemma 11.10(a), Prop 11.12 display, its proof, proof of Thm
+  11.13; App. H: §H.1 opening (2), proof of Lemma H.2, "Three smooth factors", "The circle at 2"), 1 underfull box
+  (caption of Table 12.3) and 1 hyperref warning (PDF string of §12.3 title). All fixed by moving long inline formulas
+  into displays or rewording, with no change of content; now `grep -a` finds 0 warnings and 0 overfull/underfull boxes.
+  Paper III's log is ASCII and was clean.

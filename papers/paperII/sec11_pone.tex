@@ -96,7 +96,11 @@ absorbed in $C_j$ since $x\le1$. The odd moment follows by the Cauchy--Schwarz i
 \end{proof}
 
 \begin{lemma}[Christoffel transformation by $1+\epsilon x$]\label{lem:pone-christoffel}
-Let $\epsilon>0$ and $\rho_n:=-P^\nu_{n+1}(-1/\epsilon)/P^\nu_n(-1/\epsilon)$. Then $\rho_n>0$,
+Let $\epsilon>0$ and
+\[
+  \rho_n:=-P^\nu_{n+1}(-1/\epsilon)/P^\nu_n(-1/\epsilon).
+\]
+Then $\rho_n>0$,
 $h_n((1+\epsilon x)\nu)=\epsilon\rho_n\,h_n(\nu)$, $\epsilon\rho_0=1+\epsilon a_0(\nu)$,
 $\epsilon\rho_n=1+\epsilon a_n(\nu)-\epsilon^2b_n(\nu)^2/(\epsilon\rho_{n-1})$ for $n\ge1$, and $1\le\epsilon\rho_n\le1+\epsilon$.
 \end{lemma}
@@ -127,7 +131,7 @@ We say that a measure $\nu$ on the nodes $1/k$ is \emph{regular with constants $
 $nb_n(\nu)=B+O(1/n)$, and the same holds for $x\nu$ with the same $A$, $B$.
 
 \begin{proposition}[Transfer]\label{prop:pone-transfer}
-Let $v$ be a measure on the nodes $1/k$ such that $a_n$ and $b_n$ of $v$ and of $xv$ are $O(1/n)$, and let
+Let $v$ be a measure on the nodes $1/k$ such that $a_n(v)$ and $b_n(v)$ are $O(1/n)$, and let
 $w_k=Kv_k(1+\epsilon/k)e^{f_0(k)}$ with $K>0$, $\epsilon\ge0$ and $|f_0(k)|\le C_0k^{-2}$. Then:
 \begin{enumerate}
 \item[(i)] $\log h_n(w)-\log h_n(v)=\log K+\epsilon a_n(v)+O(n^{-2})$.
@@ -145,8 +149,9 @@ $w_k=Kv_k(1+\epsilon/k)e^{f_0(k)}$ with $K>0$, $\epsilon\ge0$ and $|f_0(k)|\le C
 Take $K=1$. Put $v':=(1+\epsilon x)v$, so that $w=v'e^{f_0}$, and split
 $\log h_n(w)-\log h_n(v)=\log(\epsilon\rho_n)+\Delta'_n$ with $\Delta'_n:=\log h_n(w)-\log h_n(v')$ and $\rho_n$ of
 Lemma~\ref{lem:pone-christoffel} for $v$ (if $\epsilon=0$, put $\epsilon\rho_n:=1$). The measures $v'$, $w$ are comparable
-with $v$, and $xv'$, $xw$ with $xv$, so by Lemma~\ref{lem:pone-compare} all their coefficients are $O(1/n)$ and their
-moments satisfy $\mathbb E_n[x^j]\le C_jn^{-j}$.
+with $v$, so by Lemma~\ref{lem:pone-compare} all their coefficients are $O(1/n)$ and their moments satisfy
+$\mathbb E_n[x^j]\le C_jn^{-j}$. Under the regularity assumption of (ii) and (iii) the same holds for $xv'$ and $xw$,
+which are comparable with $xv$.
 
 (i) Since $|e^{\pm f_0}-1|\le C_1x^2$, Lemma~\ref{lem:pone-sandwich} gives $|\Delta'_n|\le2C_1\max(\mathbb E_n^{v'}[x^2],
 \mathbb E_n^w[x^2])=O(n^{-2})$. By Lemma~\ref{lem:pone-christoffel}, $\epsilon\rho_n-1=\epsilon a_n-\epsilon^2b_n^2/(\epsilon\rho_{n-1})=O(1/n)$,
@@ -255,10 +260,10 @@ $u_n(s)$ for the quantities of $\sigma_{p,s}$.
 
 \begin{lemma}[Differences in $s$]\label{lem:pone-sdiff}
 Let $p>0$ and $s,t>1$. Then
-\[
-  \log h_n(s)-\log h_n(t)=-(s-t)\log n+O(1),\qquad
+\begin{gather*}
+  \log h_n(s)-\log h_n(t)=-(s-t)\log n+O(1),\\
   \sum_{j=1}^n\log\frac{b_j(s)}{b_j(t)}=-\frac{s-t}2\log n+O(1)\qquad(n\to\infty).
-\]
+\end{gather*}
 \end{lemma}
 
 \begin{proof}
@@ -368,11 +373,14 @@ $\mathsf B:=\frac1{\sqrt2}\bigl(\begin{smallmatrix}1&-i\\-i&1\end{smallmatrix}\b
 
 \begin{lemma}[Two-term model expansions]\label{lem:pone-models}
 \begin{enumerate}
-\item[(a)] With $\xi:=\frac23\zeta^{3/2}$, for each of the four sectors $j$ of \cite[(6.8)]{WLXZ} there is a constant matrix
-  $X_j$ with $M_0\sqrt\pi\,\zeta^{-\sigma_3/4}\sigma_2\Psi^{\mathrm W}(\zeta)\sigma_2e^{-\xi\sigma_3}=I+X_j/\xi+O(|\xi|^{-2})$ as
-  $\zeta\to\infty$ in the closed sector.
-\item[(b)] For each of the eight sectors $j$ of \cite[\S4.2]{Van} there is a constant matrix $Y_j$ with
-  $\Psi^{\mathrm{FH}}(\zeta)=\mathsf B\bigl(I+Y_j/\zeta+O(|\zeta|^{-2})\bigr)e^{\pi i\sigma_3/4}e^{-i\zeta\sigma_3}C_q$ as
+\item[(a)] With $\xi:=\frac23\zeta^{3/2}$, for each of the four sectors $S$ of \cite[(6.8)]{WLXZ} there is a constant matrix
+  $X_S$ with
+  \[
+    M_0\sqrt\pi\,\zeta^{-\sigma_3/4}\sigma_2\Psi^{\mathrm W}(\zeta)\sigma_2e^{-\xi\sigma_3}=I+X_S/\xi+O(|\xi|^{-2})
+  \]
+  as $\zeta\to\infty$ in the closed sector.
+\item[(b)] For each of the eight sectors $S$ of \cite[\S4.2]{Van} there is a constant matrix $Y_S$ with
+  $\Psi^{\mathrm{FH}}(\zeta)=\mathsf B\bigl(I+Y_S/\zeta+O(|\zeta|^{-2})\bigr)e^{\pi i\sigma_3/4}e^{-i\zeta\sigma_3}C_q$ as
   $\zeta\to\infty$ in the closed sector, $q$ being the quadrant that contains it.
 \end{enumerate}
 \end{lemma}
@@ -402,11 +410,11 @@ $\mathcal D_{\mathrm q}$, to first order.
 
 \begin{proposition}[Second-order small norm]\label{prop:pone-S1}
 With the circles oriented as in Proposition~\textup{\ref{prop:pone-first}},
-\[
+\begin{gather*}
   \mathsf X_1=\frac{\Xi_{\mathrm e}+(-1)^N\Xi_{\mathrm o}}N+O(N^{-2}),\qquad
-  \Xi_{\mathrm e}:=-\frac1{2\pi i}\Bigl[\sum_\pm\oint_{\partial U(\pm2,\varepsilon)}\Delta^{(\pm2)}+\oint_{\partial U(0,\varepsilon)}\Delta^{(0)}_{\mathrm e}\Bigr],
-  \quad \Xi_{\mathrm o}:=-\frac1{2\pi i}\oint_{\partial U(0,\varepsilon)}\Delta^{(0)}_{\mathrm o}.
-\]
+  \Xi_{\mathrm o}:=-\frac1{2\pi i}\oint_{\partial U(0,\varepsilon)}\Delta^{(0)}_{\mathrm o},\\
+  \Xi_{\mathrm e}:=-\frac1{2\pi i}\Bigl[\sum_\pm\oint_{\partial U(\pm2,\varepsilon)}\Delta^{(\pm2)}+\oint_{\partial U(0,\varepsilon)}\Delta^{(0)}_{\mathrm e}\Bigr].
+\end{gather*}
 \end{proposition}
 
 \begin{proof}
@@ -414,8 +422,8 @@ By Proposition~\ref{prop:pone-first}(v),
 $\mathsf X_1=-\frac1{2\pi i}\int(J_{\mathsf X}-I)\diff s'-\frac1{2\pi i}\int(\mathsf X_--I)(J_{\mathsf X}-I)\diff s'$. By
 Proposition~\ref{prop:pone-first}(i)--(iii), $\|J_{\mathsf X}-I\|_{L^1\cap L^2(\Sigma_{\mathsf X})}=O(1/N)$, since the long arcs
 have length $O(N^{1/2})$ and carry exponentially small jumps; with (iv) and the Cauchy--Schwarz inequality the second
-integral is $O(N^{-2})$. In the first, the circles contribute $\frac1N\oint(\Delta\text{'s})+O(N^{-2})$ by
-Lemma~\ref{lem:pone-jumps}, the band pieces and the arcs inside $U(0,\varepsilon)$ contribute $O(N^{-3})$, and the
+integral is $O(N^{-2})$. In the first, by Lemma~\ref{lem:pone-jumps}, the circles contribute $1/N$ times the integrals of
+the $\Delta$'s, up to $O(N^{-2})$, the band pieces and the arcs inside $U(0,\varepsilon)$ contribute $O(N^{-3})$, and the
 remaining arcs $O(N^{1/2}e^{-N/C})$.
 \end{proof}
 
@@ -427,8 +435,11 @@ Let $s>1$. There are real numbers $\mathsf f_0=\mathsf f_0(s)$ and $\mathsf f_1=
 \end{theorem}
 
 \begin{proof}
-By Proposition~\ref{prop:pone-first}(v) and Proposition~\ref{prop:pone-S1}, with $\mathcal D_{\mathrm q,\infty}^{\pm2}=1+O(1/N)$
-and $(\mathcal N_{s,1})_{12}(\mathcal N_{s,1})_{21}=1$,
+We use Propositions~\ref{prop:pone-first}(v) and~\ref{prop:pone-S1} together with
+\[
+  \mathcal D_{\mathrm q,\infty}^{\pm2}=1+O(1/N),\qquad(\mathcal N_{s,1})_{12}(\mathcal N_{s,1})_{21}=1.
+\]
+They give
 \[
   N\mathsf e_N=\bigl((\mathcal N_{s,1})_{12}+(\mathsf X_1)_{12}\bigr)\bigl((\mathcal N_{s,1})_{21}+(\mathsf X_1)_{21}\bigr)
   =1-ie^L(\mathsf X_1)_{21}+ie^{-L}(\mathsf X_1)_{12}+O(N^{-2}),
@@ -469,7 +480,7 @@ $s=\frac32$, which is elementary.
 The constant $\mathsf f_1(s)$ of the alternating term of the symmetric chain is not determined by the argument above,
 since it cancels in $a_n$ and $b_n$. Corollary~\ref{cor:tc} gives $\mathsf f_1(\frac32)=0$ and $\mathsf f_1(\frac52)=-3$,
 and the numerical values in Section~\ref{sec:numerics} support $\mathsf f_1(s)=-3(s-\frac32)$ for all $s>1$
-(Section~\ref{sec:further}). It is the contribution of the off-diagonal part of the first correction $Y_j$ of the
+(Section~\ref{sec:further}). It is the contribution of the off-diagonal part of the first correction $Y_S$ of the
 Fisher--Hartwig model, through the contour integral $\Xi_{\mathrm o}$, which we have not evaluated. It enters the chain $u_n$ of $\sigma_s$: by Lemma~\ref{lem:pone-fold},
 $nu_{n-1}(\sigma_s)=n\mathsf e_{2n-1}=\frac12\bigl(1+(\frac32-s-\mathsf f_1)/(2n)\bigr)+O(n^{-2})$.
 \end{remark}

@@ -153,8 +153,8 @@ m8: a′ → a_* in Lemma 9.3. m7 (Teschl) not done: Teschl not read.
 **Dependency of p = 1 on Paper III removed.** E_p1 fixes d₁ by UL Cor UL-3.10 (Paper III). Paper II uses instead the new
 Lemma 11.8 (for every p > 0: log h_n(s) − log h_n(t) = −(s−t) log n + O(1)), proved from the minimum property, Jensen,
 the Christoffel identity h_n(xσ) = u_n h_n(σ), Cor 1.3 and Lemma 3.4 (no tail bound). Existence of the 1/N term (Thm 11.13)
-plus Lemma 11.8 at t = 3/2 plus d₁(3/2) = −1/4 (Cor 11.7, elementary) gives d₁ = −(s−1)/2. **Lemma 11.8 is new and has not
-had a Rule R review.**
+plus Lemma 11.8 at t = 3/2 plus d₁(3/2) = −1/4 (Cor 11.7, elementary) gives d₁ = −(s−1)/2. **Lemma 11.8 is new; reviewed by
+REFEREE_MATH2 §2 (ACCEPT, no tail bound needed).**
 
 **Other deviations from the reviewed sources (need a second reading).**
 - §10: residue combinations stated exactly in 𝖽 (source: first order in λ; re-checked exactly by the drafting agent,
@@ -177,5 +177,35 @@ removed (now Theorem 1.4), Conjecture 11.2 (tilt) → Conjecture 13.2; new Rem 1
 papers/paperIII/sec8.tex: [II, Conjecture 11.1] is now [II, Theorem 1.4]; [II, Conjecture 11.2] → [II, Conjecture 13.2];
 Paper III's remarks that the pointwise 1/n term for p ≤ 1 is unknown are out of date.
 
-**Open items.** Second reading of §§10–11 and Apps. G–H against the sources (and of Lemma 11.8); m7 (Teschl); the
-introduction is now about 5 pages (guide: ≤ 4); length 105 pp.; novelty search for Thm 1.4 (p ≤ 1) and Cor 11.7 not done.
+**Open items (superseded 2026-10-15, see the section below).** Second reading of §§10–11 and Apps. G–H against the
+sources (and of Lemma 11.8) — done (REFEREE_MATH2); m7 of REFEREE_MATH (Teschl) — still open; introduction length — done
+(≤ 4 pp.); novelty search for Thm 1.4 (p ≤ 1) and Cor 11.7 not done.
+
+## Referee report 2 (REFEREE_MATH2.md) — fixes applied, editor pass (2026-10-15)
+
+§§10–11, Apps. G–H, Theorem 1.4 and Remark 1.7 were reviewed by REFEREE_MATH2 (independent second reader; verdict ACCEPT
+with minor fixes, Lemma 11.8 ACCEPT, the flagged departures of §10/App. H all correct). All fixes below are applied; the
+reviewer's sign-off condition (m2, m5, m6, and MA1 for §13) is met.
+
+| Item | Status | Change |
+|---|---|---|
+| MA1 | done | Conj 13.2: hypothesis n^{min(1,p)}Λ′(log n) → ∞ (was nΛ′(log n) → ∞; false for every 0 < p < 1). New paragraph after the conjecture: ℓ = 1 − εk^{−p}, σ_ℓ = (1 − εx)σ_{p,s} is a polynomial Christoffel transform; Lemma 11.3 + Thm 1.4(ii) give the n^{−1−p} coefficient 𝗄_p + p c(p)ε, not pε/2; the two effects coincide at p = 1 (c(1) = ½, Prop 11.5(i)). Paper III Conj 8.3 (= [II, Conj 13.2]) now has the identical statement plus a two-line note; THEOREMS.md, G1/PROOF.md (GAP line of §3.17) and SECOND.md Remark (tilt law) carry the dated amendment note. |
+| m1 | done | Abstract: "both brackets carry the further term 𝗄_p n^{−1−p}, 𝗄_p := 2pc(p)ζ(−p)". |
+| m2 | done | §1 reliance sentence names both WLXZ steps (exponential bounds on lens and saturated contours up to the largest node; uniform boundedness of the Cauchy operator on the final contour). |
+| m3 | done | WLXZ v1 PDF re-fetched and read (pp. 2, 7, 11, 14 checked against the rendered pages); (1.7), (3.8), (3.13)–(3.14), (4.24), (5.11)–(5.12) quoted verbatim in research/G1/RH/CITATIONS.md, entry "(WLXZ-v1, Paper II referee 2 m3)", with the derivation of (𝒩₁)₁₂ = −ie^L, (𝒩₁)₂₁ = ie^{−L}. The §2.4 ranges are unchanged (every equation in them is now quoted). |
+| m4 | done | §2.5(d) states KV (5.18), (5.20) (lower-triangular lip jumps) and (5.4)–(5.5) (size of the parametrix at 0, inside/outside the lens). |
+| m5 | done | Lemma 10.4(i): the seam-derivative parenthesis replaced by the integration-by-parts argument (G′ = Cauchy integral of ±𝔧′; boundary values O(log n)). |
+| m6 | done | Prop 11.5: hypothesis is now a_n(v), b_n(v) = O(1/n); the comparability of xv′, xw with xv is invoked only under the regularity assumption of (ii)–(iii). |
+| m7 | done | App. H: ℓ(z) → 𝖫(z); δ := 4m + 2 − 2|a| → δ_m; domain G → Ω_b; sector index of X_j, Y_j → X_S, Y_S (Lemma 11.10 and App. H), so j is only Binet's function. "a := α + ½" kept (local, unambiguous). |
+| m8 | done | §13: "the expansion of G in Lemma 10.1(iv) continues with the term ζ(−2p)(z² − 1)/(2n^{2p})". |
+| I1, I8 | not done | optional; no mathematical change made. |
+
+Editor pass: the introduction was trimmed from about 4.9 to 3.9 pages (from "1. Introduction" on p. 1 to "2. Preliminaries"
+on p. 5, measured from the PDF bounding boxes): the external-results paragraph, §1.2 (context), §1.3 (method) and §1.4
+(organisation, reader paths shortened to one sentence) were compressed; Def 1.1, Thm 1.2, Cor 1.3, Thm 1.4 and Rems
+1.5–1.7 are unchanged except Rem 1.5 (shortened, same content) and the last sentence of Rem 1.6. The sentences "If
+ϑ′ < ϑ …" (Def 1.1) and "the atom constant of [I, Thm 1.1] does not appear" (end of §1) were dropped. All citations of
+§1 are kept. Build: Paper II 105 pp., Paper III 29 pp., both 0 warnings, 0 overfull/underfull boxes. Exported
+numbers unchanged (Thm 1.4, Conj 13.2, Prop 8.6, …).
+Layout: 12 overfull boxes, 1 underfull box and 1 hyperref warning in §11, Table 12.3 and App. H, missed by earlier
+checks (plain grep on the ISO-8859 log), were removed by displaying long inline formulas; see STYLE_CHECK.md.

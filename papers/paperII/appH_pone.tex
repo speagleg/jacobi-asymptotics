@@ -11,13 +11,17 @@ first-order analysis (\S\S\ref{app:pone-setup}--\ref{app:pone-ident}) follows \c
 Tricomi--Carlitz problem of parameter $1$; we state what changes when the weight is multiplied by
 $e^{j(N/z^2)}(z^2)^{\alpha+1/2}$ and prove the new steps. The last two subsections carry the expansions on the three
 circles one term further. Notation is that of \S\ref{sec:pone-first}; $a:=\alpha+\frac12=s-\frac32>-\frac12$ is used only
-in exponents, $\ell(z):=1+|\log|z||$, and constants may depend on $s$ and $m$ but not on $N$ unless indicated.
+in exponents, $\mathsf L(z):=1+|\log|z||$, and constants may depend on $s$ and $m$ but not on $N$ unless indicated.
 
 \subsection{The problem and the transformations}\label{app:pone-setup}
 
-By~\eqref{eq:pone-weight}, $\nu_s$ has mass $\frac12k^{-s}=\frac12\sqrt{2\pi}\,e^{j(k)}v_kk^{-a}$ at $\pm k^{-1/2}$. The
-weight function of \cite[(2.15)]{WLXZ} at parameter $1$, $w_d(y)=(1/y^2)^{1/y^2-2}e^{-1/y^2+1}/\Gamma(1/y^2)$, takes the value
-$e\,v_k$ at $y=\pm k^{-1/2}$. Hence the masses of $\nu_s$ are the values at the nodes of
+By~\eqref{eq:pone-weight}, the measure $\nu_s$ has the mass
+$\frac12k^{-s}=\frac12\sqrt{2\pi}\,e^{j(k)}v_kk^{-a}$ at $\pm k^{-1/2}$. The
+weight function of \cite[(2.15)]{WLXZ} at parameter $1$,
+\[
+  w_d(y)=(1/y^2)^{1/y^2-2}e^{-1/y^2+1}/\Gamma(1/y^2),
+\]
+takes the value $e\,v_k$ at $y=\pm k^{-1/2}$. Hence the masses of $\nu_s$ are the values at the nodes of
 \[
   \frac{\sqrt{2\pi}}{2e}\,w_d(y)\,e^{j(1/y^2)}\,(y^2)^{a},
 \]
@@ -68,7 +72,10 @@ $|\mathsf W_N(z)-1|\le C(|z|^2/N)^{2m+1}$, where $\mathsf W_N=e^{2j(N/z^2)}/\mat
 \begin{proof}
 By \cite[(5.11.1)]{DLMF}, $j(t)=\sum_{k=1}^m\frac{B_{2k}}{2k(2k-1)t^{2k-1}}+R_m(t)$, since $j$ is exactly the remainder of
 $\operatorname{Ln}\Gamma(t)$ after the leading terms, and by \cite[\S5.11(ii)]{DLMF},
-$|R_m(t)|\le\sec^{2m+2}(\frac12\mathrm{ph}\,t)\frac{|B_{2m+2}|}{(2m+2)(2m+1)|t|^{2m+1}}$. For $t=N/z^2$ with
+\[
+  |R_m(t)|\le\sec^{2m+2}(\tfrac12\mathrm{ph}\,t)\frac{|B_{2m+2}|}{(2m+2)(2m+1)|t|^{2m+1}}.
+\]
+For $t=N/z^2$ with
 $|\arg(\pm z)|\le\pi/3$ we have $|\mathrm{ph}\,t|\le2\pi/3$, and $\log\mathsf W_N=2R_m(N/z^2)$ is bounded by
 $C(|z|^2/N)^{2m+1}\le C$.
 \end{proof}
@@ -184,8 +191,8 @@ and the maximum principle bounds $\mathsf B_N^{\pm1}$ inside. (iii) is the case 
 \end{proof}
 
 \begin{lemma}[Mismatch at the origin]\label{lem:pone-mismatch}
-Let $H:=\sigma_3V\sigma_3P_0^{-1}$ in $U(0,\varepsilon)$ and $\delta:=4m+2-2|a|$, so that $\delta\ge2$. On
-$\Sigma_{\mathsf X}\cap U(0,\varepsilon)$, $H_+=H_-J_H$ with $|J_H-I|\le CN^{-2m-1}$, and $|J_H(z)-I|\le CN^{-6m-3}(N|z|)^\delta$
+Let $H:=\sigma_3V\sigma_3P_0^{-1}$ in $U(0,\varepsilon)$ and $\delta_m:=4m+2-2|a|$, so that $\delta_m\ge2$. On
+$\Sigma_{\mathsf X}\cap U(0,\varepsilon)$, $H_+=H_-J_H$ with $|J_H-I|\le CN^{-2m-1}$, and $|J_H(z)-I|\le CN^{-6m-3}(N|z|)^{\delta_m}$
 for $N|z|\le1$.
 \end{lemma}
 
@@ -208,7 +215,7 @@ conjugation by $\sigma_3$), which commutes with $\Lambda_-$, so $J_H-I=\mathsf B
 $O(|\mathsf W_N-1|)$. On the lips the lower-left entry of the true jump is $\mathsf W_N^{-1}$ times that of the model, so
 $J_VJ_{P_0}^{-1}-I=(\mathsf W_N^{-1}-1)(J_{P_0}-I)$ and $J_H-I=(\mathsf W_N^{-1}-1)\mathsf B_N(\Psi_+\Psi_-^{-1}-I)\mathsf B_N^{-1}$.
 By Lemmas~\ref{lem:pone-stirling} and~\ref{lem:pone-fh}(ii) and~\eqref{eq:pone-ampl}, $|J_H-I|\le C(|z|^2/N)^{2m+1}$ for
-$\rho\ge1$, and $|J_H-I|\le C(|z|^2/N)^{2m+1}\rho^{-2|a|}\le CN^{-6m-3}\rho^\delta$ for $\rho\le1$. The discarded lip terms
+$\rho\ge1$, and $|J_H-I|\le C(|z|^2/N)^{2m+1}\rho^{-2|a|}\le CN^{-6m-3}\rho^{\delta_m}$ for $\rho\le1$. The discarded lip terms
 are $O(e^{-cN/|z|^2})$: by \cite[(4.16)]{WLXZ}, $\tilde D=D(1-e^{\mp2i\theta})$, and on the lips
 $|e^{\mp2i\theta}|=e^{-2\pi N|\sin2\arg z|/|z|^2}$; conjugation by $P_0$ costs at most a polynomial in $N$ and $1/|z|$ times
 $e^{2N|\re\varphi|}$ with $|\re\varphi|\le C|z|$, which is harmless for $\varepsilon$ small. They are therefore $O(N^{-K})$
@@ -220,8 +227,8 @@ for every $K$ and vanish faster than every power of $|z|$ at $0$.
 In this subsection $N\ge N_0$ is fixed and constants may depend on $N$.
 
 \begin{lemma}[Behaviour of $Y$ at $0$]\label{lem:pone-y4}
-Fix $\delta_0\in(0,\pi/8)$. As $z\to0$, the second column of $Y$ is $O(1+|z|^{2a}\ell(z))$ in the sectors
-$\delta_0\le|\arg(\pm z)|\le\pi/2$, and the second column of $R$ is $O(1+|z|^{2a}\ell(z))$ in the sectors
+Fix $\delta_0\in(0,\pi/8)$. As $z\to0$, the second column of $Y$ is $O(1+|z|^{2a}\mathsf L(z))$ in the sectors
+$\delta_0\le|\arg(\pm z)|\le\pi/2$, and the second column of $R$ is $O(1+|z|^{2a}\mathsf L(z))$ in the sectors
 $|\arg(\pm z)|<\delta_0$, up to the boundary values on the band; the first columns are polynomial.
 \end{lemma}
 
@@ -229,26 +236,26 @@ $|\arg(\pm z)|<\delta_0$, up to the boundary values on the band; the first colum
 We write the proof in the variable $y$ of $Y$; the rescaling only changes constants. $Y_{12}(y)=\sum\mu_kP(y_k)/(y-y_k)$, summed
 over the nodes $y_k=\pm k^{-1/2}$ with masses $\mu_k\asymp k^{-s}$, and $P=R_N$ is bounded near $0$. For
 $\delta_0\le|\arg(\pm y)|\le\pi/2$ we have $|y-y_k|\ge c\max(|y_k|,|y|)$, so
-$|Y_{12}|\le C\sum_{k\le|y|^{-2}}k^{1/2-s}+C|y|^{-1}\sum_{k>|y|^{-2}}k^{-s}=O(1+|y|^{2s-3}\ell)$, and $2s-3=2a$. The second row
+$|Y_{12}|\le C\sum_{k\le|y|^{-2}}k^{1/2-s}+C|y|^{-1}\sum_{k>|y|^{-2}}k^{-s}=O(1+|y|^{2s-3}\mathsf L)$, and $2s-3=2a$. The second row
 is the same with $R_{N-1}$.
 
 In the lens sector $\Omega_{r,+}$ near $0$ (the other three are symmetric), $R_{12}=U_{12}-K_-$ by \cite[(3.11)--(3.12)]{WLXZ},
 with $K_\pm:=U_{11}(wF/\Pi)e^{\pm i\theta}$. The functions $K_\pm$ have simple poles at the nodes with the residues of the
 terms of $U_{12}$, and $K_--K_+=-2iU_{11}wF\theta'$ has no poles; since $|wF|\asymp|z|^{3+2a}$ and $|\theta'|\asymp N|z|^{-3}$,
 it is $O(|z|^{2a})$. Since $\theta=N\pi/z^2-\pi$ has $\im\theta<0$ in the upper right quadrant, $K_-$ is
-$O(|\theta'||wF|e^{-cN/|z|^2})$ there, and $K_+$ in the lower right quadrant. Let $G:=\{0<|z|<b,\ |\arg z|<\phi_0\}$ with
+$O(|\theta'||wF|e^{-cN/|z|^2})$ there, and $K_+$ in the lower right quadrant. Let $\Omega_b:=\{0<|z|<b,\ |\arg z|<\phi_0\}$ with
 $\phi_0$ larger than the lens angle and $b$ between two nodes, with boundary rays $\Gamma_\pm$ and arc $C_b$, and cut off
 the tip by arcs $|z|=\eta_i$ through midpoints between consecutive nodes, $\eta_i\to0$; on such arcs $|K_\pm|=O(|z|^{2a})$, so
 they contribute $O(\eta_i^{1+2a})\to0$. The residue theorem then expresses the sum of the terms of $U_{12}$ over the nodes in
-$(0,b)$ minus $K_-(z)$ as $-\frac1{2\pi i}\oint_{\partial G}K_-(z')\frac{\diff z'}{z'-z}$; on the lower ray we write
+$(0,b)$ minus $K_-(z)$ as $-\frac1{2\pi i}\oint_{\partial\Omega_b}K_-(z')\frac{\diff z'}{z'-z}$; on the lower ray we write
 $K_-=K_++(K_--K_+)$. The parts with $K_-$ on $\Gamma_+$ and $K_+$ on $\Gamma_-$ are exponentially small; the part with
-$K_--K_+$ on $\Gamma_-$ is at most $C\int|z'|^{2a}|\diff z'|/\max(|z'|,|z|)=O(1+|z|^{2a}\ell)$; $C_b$ gives a bounded
-contribution. The terms of $U_{12}$ at the negative nodes are $O(1+|z|^{2a}\ell)$ as in the first part, and the finitely
+$K_--K_+$ on $\Gamma_-$ is at most $C\int|z'|^{2a}|\diff z'|/\max(|z'|,|z|)=O(1+|z|^{2a}\mathsf L)$; $C_b$ gives a bounded
+contribution. The terms of $U_{12}$ at the negative nodes are $O(1+|z|^{2a}\mathsf L)$ as in the first part, and the finitely
 many nodes in $[b,N^{1/2}]$ give a bounded contribution. The same holds for $R_{22}$.
 \end{proof}
 
 \begin{lemma}[$H$ near $0$]\label{lem:pone-H0}
-As $z\to0$, uniformly in $\arg z$, $H=O(\ell(z)^2)$ if $a\ge0$ and $H=O(|z|^{2a})$ if $-\frac12<a<0$.
+As $z\to0$, uniformly in $\arg z$, $H=O(\mathsf L(z)^2)$ if $a\ge0$ and $H=O(|z|^{2a})$ if $-\frac12<a<0$.
 \end{lemma}
 
 \begin{proof}
@@ -257,16 +264,16 @@ for fixed $N$ ($e^{Ng\sigma_3}$, the normalising constants, $E$, which is analyt
 regions, which tend to $1$ as $t=N/z^2\to\infty$ by~\eqref{eq:binet-bound}), except the lens factors, which contain
 $e^{2N\varphi}/\mathsf j$ with $|e^{2N\varphi}|\le1$ and $1/\mathsf j\asymp|z|^{-2a}$.
 
-Let $a\ge0$. Outside the lens, $V=O(\ell)$ by Lemma~\ref{lem:pone-y4}, and $P_0^{\pm1}=O(1)$ by \cite[(5.5)]{KV} and
+Let $a\ge0$. Outside the lens, $V=O(\mathsf L)$ by Lemma~\ref{lem:pone-y4}, and $P_0^{\pm1}=O(1)$ by \cite[(5.5)]{KV} and
 $\det P_0=1$. Inside the lens write $V=V^{\mathrm u}L_V$ and $P_0=P^{\mathrm u}L_P$, where $L_V$, $L_P$ are the lens factors
 and $V^{\mathrm u}$, $P^{\mathrm u}$ the continuations from outside the lens; then $H=V^{\mathrm u}(L_VL_P^{-1})(P^{\mathrm u})^{-1}$
-with $L_VL_P^{-1}=I+O(|z|^{-2a}|\mathsf W_N^{-1}-1|)=I+O(|z|^\delta)$. By Lemma~\ref{lem:pone-y4}, $V^{\mathrm u}=O(\ell)$.
+with $L_VL_P^{-1}=I+O(|z|^{-2a}|\mathsf W_N^{-1}-1|)=I+O(|z|^{\delta_m})$. By Lemma~\ref{lem:pone-y4}, $V^{\mathrm u}=O(\mathsf L)$.
 $P^{\mathrm u}=\mathsf B_N\Psi^{\mathrm u}(\zeta)\Lambda$, where $\Psi^{\mathrm u}$ is the continuation of $\Psi^{\mathrm{FH}}$ from the
 sectors II, III, VI, VII across the lip rays: its first column is $\zeta^{1/2}$ times $I_{a\pm1/2}$ at $\zeta e^{\mp\pi i/2}$
 \cite[(4.27)--(4.28), (4.31)--(4.32), (4.34)]{Van}, hence $O(|\zeta|^a)$ by (10.25.2), and its second column is that of
 $\Psi^{\mathrm{FH}}$ in the lens sectors, because the lip jumps are lower triangular \cite[(5.18), (5.20)]{KV}, hence
 $O(|\zeta|^{-a})$ by \cite[(5.22)]{KV}. The factor $\Lambda$ contributes $|z|^{\mp a}$ to the two columns, so
-$P^{\mathrm u}=O(1)$ and, with determinant $1$, so is its inverse. Hence $H=O(\ell^2)$.
+$P^{\mathrm u}=O(1)$ and, with determinant $1$, so is its inverse. Hence $H=O(\mathsf L^2)$.
 
 Let $-\frac12<a<0$. By \cite[(5.4)]{KV}, $P_0=O\bigl(\begin{smallmatrix}1&|z|^{2a}\\1&|z|^{2a}\end{smallmatrix}\bigr)$, and by
 Lemma~\ref{lem:pone-y4} and the bounded factors (now $1/\mathsf j\asymp|z|^{2|a|}\to0$) $V$ has the same column sizes. So
@@ -284,18 +291,18 @@ Their total length is $O(N^{1/2})$, since they lie in $|z|\le CN^{1/2}$ \cite[(3
 \emph{Identification.} Fix $N$. Away from $0$, $V$ and the parametrices are continuous up to $\Sigma_{\mathsf X}$ off its
 vertices and bounded near them, as in \cite[\S6]{WLXZ}, and $\Sigma_{\mathsf X}$ is a bounded finite union of $C^2$ arcs with
 $|\Sigma_{\mathsf X}\cap\mathbb D(z,r)|\le C_Nr$. Near $0$, $\mathsf X$ is $H$ up to conjugation by $\sigma_3$, so by
-Lemma~\ref{lem:pone-H0}, $|\mathsf X(z)|\le C|z|^{\min(0,2a)}\ell(z)^2$. Put $\mathfrak F(z):=z(\mathsf X(z)-I)-\mathsf X_1$. Then
-$\mathfrak F=O(1/z)$ at infinity, $|\mathfrak F(z)|\le C|z|^{1+\min(0,2a)}\ell(z)^2\to0$ at $0$ (as $2a>-1$), and $\mathfrak F$ is
+Lemma~\ref{lem:pone-H0}, $|\mathsf X(z)|\le C|z|^{\min(0,2a)}\mathsf L(z)^2$. Put $\mathfrak F(z):=z(\mathsf X(z)-I)-\mathsf X_1$. Then
+$\mathfrak F=O(1/z)$ at infinity, $|\mathfrak F(z)|\le C|z|^{1+\min(0,2a)}\mathsf L(z)^2\to0$ at $0$ (as $2a>-1$), and $\mathfrak F$ is
 bounded near the other vertices. Lemma~\ref{lem:cauchy-arcs}(c) gives
 $\mathfrak F=\Cauchy(\mathfrak F_+-\mathfrak F_-)=\Cauchy(s'\mathfrak f)$ with $\mathfrak f:=\mathsf X_+-\mathsf X_-=\mathsf X_-(J_{\mathsf X}-I)$.
-The density $\mathfrak f$ is bounded on $\Sigma_{\mathsf X}$: near $0$, $|J_{\mathsf X}-I|\le C|z|^\delta$ with $\delta\ge2$ by
+The density $\mathfrak f$ is bounded on $\Sigma_{\mathsf X}$: near $0$, $|J_{\mathsf X}-I|\le C|z|^{\delta_m}$ with $\delta_m\ge2$ by
 Lemma~\ref{lem:pone-mismatch}. Since $\frac{s'}{s'-z}=1+\frac z{s'-z}$,
 \[
   \mathsf X(z)-I=\Cauchy\mathfrak f(z)+\frac{\mathfrak c}z,\qquad \mathfrak c:=\mathsf X_1+\frac1{2\pi i}\int_{\Sigma_{\mathsf X}}\mathfrak f\diff s'.
 \]
 Let $z\to0$ along the ray $\arg z=\pi/8$, which stays at distance $\asymp|z|$ from $\Sigma_{\mathsf X}$. Then
 $|\Cauchy\mathfrak f(z)|\le C(1+\log(1/|z|))$, because $\mathfrak f$ is bounded and the contour satisfies the Ahlfors bound, while
-$|\mathsf X(z)-I|\le C|z|^{\min(0,2a)}\ell^2$; so $|\mathfrak c|\le C|z|^{1+\min(0,2a)}\ell^2+C|z|\log(1/|z|)\to0$, and
+$|\mathsf X(z)-I|\le C|z|^{\min(0,2a)}\mathsf L^2$; so $|\mathfrak c|\le C|z|^{1+\min(0,2a)}\mathsf L^2+C|z|\log(1/|z|)\to0$, and
 $\mathfrak c=0$. Hence $\mathsf X=I+\Cauchy(\mathsf X_-(J_{\mathsf X}-I))$ and $\mathsf X_--I=\Cauchy_-(\mathsf X_-(J_{\mathsf X}-I))\in
 L^2(\Sigma_{\mathsf X})$.
 
@@ -322,7 +329,7 @@ $[\pi/2,\pi]$ they are $\omega\zeta$ and $\omega^2\zeta$, with phases in $[-5\pi
 sectors are the mirror images. So (9.7.5)--(9.7.6) of \S\ref{sec:tool-dlmf}(b), with two terms and $\delta=\pi/6$, give each
 entry as $e^{\mp\xi}\zeta^{\mp1/4}$ times a constant plus a constant over $\xi$ plus $O(\xi^{-2})$, with the same exponential
 in each column. Hence the left side is $L_0+L_1/\xi+O(\xi^{-2})$ with constant $L_0$, $L_1$; $L_0=I$ is \cite[(6.13)]{WLXZ}, and
-$X_j:=L_1$.
+$X_S:=L_1$.
 
 (b) By \cite[(4.26)--(4.33)]{Van}, in each sector each column of $\Psi^{\mathrm{FH}}$ is $\zeta^{1/2}$ or $(-\zeta)^{1/2}$ times a
 constant multiple of one Bessel function of order $a\pm\frac12$: $H^{(1,2)}_{a\pm1/2}(\zeta)$ in I and VIII,
@@ -331,13 +338,13 @@ closed sectors these arguments have phase in $[-\pi/4,\pi/4]$, which lies inside
 (10.40.1)--(10.40.2) of \S\ref{sec:tool-dlmf}(d) with $\delta=\pi/4$. Taking two terms of each expansion, every entry of
 $\Psi^{\mathrm{FH}}(\zeta)C_q^{-1}e^{i\zeta\sigma_3}e^{-\pi i\sigma_3/4}$ is a constant plus a constant over $\zeta$ plus
 $O(\zeta^{-2})$, uniformly in the closed sector. The constant term is $\mathsf B$ by \cite[(4.43)--(4.46)]{Van}, which is this
-computation to leading order, and $Y_j$ is $\mathsf B^{-1}$ times the coefficient of $1/\zeta$.
+computation to leading order, and $Y_S$ is $\mathsf B^{-1}$ times the coefficient of $1/\zeta$.
 \end{proof}
 
 \subsection{The jumps on the circles to second order}\label{app:pone-jumps}
 
 \begin{proof}[Proof of Lemma~\textup{\ref{lem:pone-jumps}}]
-\emph{Three smooth factors.} (a) By \cite[(5.11.1) and \S5.11(ii)]{DLMF}, $j(t)=1/(12t)+O(|t|^{-3})$ uniformly in
+\emph{Three smooth factors.} (a) By \cite[(5.11.1), \S5.11(ii)]{DLMF}, $j(t)=1/(12t)+O(|t|^{-3})$ uniformly in
 $|\mathrm{ph}\,t|\le2\pi/3$, so $e^{j(N/z^2)}=1+z^2/(12N)+O(N^{-2})$ uniformly on compact subsets of $|\arg(\pm z)|\le\pi/3$, in
 particular on $\partial U(\pm2,\varepsilon)$. (b) $\log\mathsf Q_m=z^2/(6N)+O(N^{-3})$ on compact sets, since $B_2=\frac16$ and
 $m\ge1$. (c) By Lemma~\ref{lem:pone-szego}(iii), $\mathcal D_{\mathrm q}$ and $\mathcal D_{\mathrm q,\infty}$ are $1+O(1/N)$ with
@@ -348,16 +355,18 @@ and $\mathcal D_{\mathrm q,\infty}$ below is its value at $N=\infty$ plus $O(1/N
 for the weight of $\nu_{3/2}$. At parameter $1$, \cite[(2.15), (3.4), (3.7), (4.15), (4.24)]{WLXZ} give $G=G_0e^{-2j(N/z^2)}$,
 and \cite[(5.11), (6.16)]{WLXZ} give $G_0^{\sigma_3/2}\mathcal NG_0^{-\sigma_3/2}M_0=m_r$, the matrix of \cite[(6.16)]{WLXZ}; that
 is, \cite[(6.14)]{WLXZ} holds exactly for $G_0$. By \cite[(6.10), (6.12), (6.15)]{WLXZ},
-$P^{(3/2)}=G^{-\sigma_3/2}m_r\tilde f_N^{-\sigma_3/4}\sqrt\pi\,\sigma_2\Psi^{\mathrm W}(\tilde f_N)\sigma_2e^{N\tilde\varphi\sigma_3}G^{\sigma_3/2}$
+\[
+  P^{(3/2)}=G^{-\sigma_3/2}m_r\tilde f_N^{-\sigma_3/4}\sqrt\pi\,\sigma_2\Psi^{\mathrm W}(\tilde f_N)\sigma_2e^{N\tilde\varphi\sigma_3}G^{\sigma_3/2}
+\]
 with $\tilde f_N=(-\frac32N\tilde\varphi)^{2/3}$, so that $\xi=\frac23\tilde f_N^{3/2}=-N\tilde\varphi$. Here $\tilde\varphi$ vanishes
 at $2$ \cite[(6.11)]{WLXZ}, so no constant phase enters. By Lemma~\ref{lem:pone-models}(a), on $\partial U(2,\varepsilon)$, where
 $|\xi|\asymp N$ and $|\tilde\varphi|$ is bounded below,
 \[
-  P^{(3/2)}\mathcal N^{-1}=e^{j\sigma_3}\,\mathcal NG_0^{-\sigma_3/2}\Bigl(I-\frac{X_j}{N\tilde\varphi}+O(N^{-2})\Bigr)G_0^{\sigma_3/2}\,
+  P^{(3/2)}\mathcal N^{-1}=e^{j\sigma_3}\,\mathcal NG_0^{-\sigma_3/2}\Bigl(I-\frac{X_S}{N\tilde\varphi}+O(N^{-2})\Bigr)G_0^{\sigma_3/2}\,
   e^{-j\sigma_3}\mathcal N^{-1}=I+\frac{\Delta^{(3/2)}}N+O(N^{-2}),
 \]
 with $j=j(N/z^2)$ and
-$\Delta^{(3/2)}:=-\mathcal NG_0^{-\sigma_3/2}X_jG_0^{\sigma_3/2}\mathcal N^{-1}/\tilde\varphi+\frac{z^2}{12}(\sigma_3-\mathcal N\sigma_3\mathcal N^{-1})$,
+$\Delta^{(3/2)}:=-\mathcal NG_0^{-\sigma_3/2}X_SG_0^{\sigma_3/2}\mathcal N^{-1}/\tilde\varphi+\frac{z^2}{12}(\sigma_3-\mathcal N\sigma_3\mathcal N^{-1})$,
 by (a). In~\eqref{eq:pone-airy-match}, $A=A_\infty+O(1/N)$ with $A_\infty:=\mathcal N(q^{1/2}/\mathcal D_{\mathrm h})^{\sigma_3}\mathcal N^{-1}$,
 $\mathcal N\mathsf Q_m^{\sigma_3/2}\mathcal N^{-1}=I+\frac{z^2}{12N}\mathcal N\sigma_3\mathcal N^{-1}+O(N^{-2})$ by (b), and conjugation by
 $\mathcal D_{\mathrm q,\infty}^{\sigma_3}$ changes $I+Z/N$ only by $O(N^{-2})$. Hence
@@ -372,7 +381,7 @@ $e^{-i\zeta\sigma_3}C_1W_h^{-\sigma_3}e^{-N\varphi^{\mathrm{KV}}\sigma_3}(P^\inf
 the same identity follows from \cite[(5.28)--(5.30)]{KV} and the anti-diagonal factors of \cite[(4.45)--(4.46)]{Van}.
 Since $\mathsf B^{-1}=\frac1{\sqrt2}\bigl(\begin{smallmatrix}1&i\\i&1\end{smallmatrix}\bigr)$, Lemma~\ref{lem:pone-models}(b) gives
 \[
-  P_0(P^\infty)^{-1}=E_0\,e^{N\varphi_0\sigma_3}e^{-\pi i\sigma_3/4}\Bigl(I+\frac{Y_j}{Nf}+O(N^{-2})\Bigr)
+  P_0(P^\infty)^{-1}=E_0\,e^{N\varphi_0\sigma_3}e^{-\pi i\sigma_3/4}\Bigl(I+\frac{Y_S}{Nf}+O(N^{-2})\Bigr)
   e^{\pi i\sigma_3/4}e^{-N\varphi_0\sigma_3}E_0^{-1}
 \]
 on $\partial U(0,\varepsilon)\cap f^{-1}(\text{sector }j)$; the leading term is $I$, which proves Lemma~\ref{lem:pone-fh}(iii).
@@ -380,6 +389,6 @@ By \S\ref{sec:pone-second}, $\varphi_0=-\varphi_+(0)=\frac{\pi i}2$, so $e^{N\va
 the diagonal entries and multiplies the off-diagonal ones by $(-1)^N$. By (b) and (c), $E_0=E_\infty+O(1/N)$ with $E_\infty$
 bounded with bounded inverse and independent of $N$, and $|f|$ is bounded below on the circle. Hence the claim, with
 $\Delta^{(0)}_{\mathrm e}:=E_\infty\hat Y^{\mathrm d}E_\infty^{-1}/f$ and $\Delta^{(0)}_{\mathrm o}:=E_\infty\hat Y^{\mathrm{od}}E_\infty^{-1}/f$,
-where $\hat Y^{\mathrm d}$ and $\hat Y^{\mathrm{od}}$ are the diagonal and off-diagonal parts of $e^{-\pi i\sigma_3/4}Y_je^{\pi i\sigma_3/4}$,
+where $\hat Y^{\mathrm d}$ and $\hat Y^{\mathrm{od}}$ are the diagonal and off-diagonal parts of $e^{-\pi i\sigma_3/4}Y_Se^{\pi i\sigma_3/4}$,
 conjugated back by $\sigma_3$.
 \end{proof}
