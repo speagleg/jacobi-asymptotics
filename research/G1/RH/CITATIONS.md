@@ -414,6 +414,68 @@ DLMF-4 and the DLMF §5 entries above; G2 μ*, B*(i)–(ii)); no new quotation i
 ROUTE2.md at s₀, which lies in RII's range by construction. (Rule R F2/F7: for s > 1 + p/2 the base can be taken with
 α_x ∈ (−½, ½], so only the |α_x| ≤ ½ part of RII (original UR′) plus Lemma W′ is needed; UR′(b′) only for 1 < s ≤ 1 + p/2.)
 
+## (WLXZ-v1, Plan 53) parity quotes — read in arXiv:1410.3948v1 (pdftotext -layout of the arXiv PDF, fetched 2026-10-14)
+
+Formulas transcribed from the PDF (linearized). Used only for Lemma P (route2/ROUTE2_bnd.md §2.2: every matrix of the chain
+Y → U → R → T → Q → V is σ₃-even for n even) and for the extraction step (ROUTE2_bnd.md §3.6). Hypothesis throughout: "α is a
+positive parameter"; we use α = 1 (α_W).
+
+> (2.1) "ψ(x) = (1/π)(4 arctan(|x|/√(4 − x²))/|x|³ − √(4 − x²)/x²), |x| ≤ 2; 2/|x|³, |x| > 2".
+>
+> (2.2) "g(z) := ∫_{−∞}^{∞} log(z − s)ψ(s)ds for z ∈ ℂ \ ℝ, with the branch chosen such that arg(z − s) ∈ (−π, π)";
+> (2.3) "φ(z) := l/2 − g(z) for z ∈ ℂ±, where l := 2∫_{−∞}^{∞} log|2 − s|ψ(s)ds is the Lagrange multiplier".
+>
+> (2.6) "D(z) := Γ(α − n/z²)/(e^{n/z²}√(2π))·(−n/z²)^{n/z²−α+1/2} for z ∈ ℂ \ ℝ, where the branch is chosen such that −1/z² =
+> e^{±πi}/z² for z ∈ ℂ±, with arg z ∈ (−π, π)." (= (4.14).)
+>
+> (3.2) "X := {±X_k}_{k=0}^∞, where X_k = n^{1/2}x_k. The ±X_k's are called nodes, and they all lie in the interval
+> (−√(n/α), √(n/α))." (3.6) "Π(z) := sin θ(z)/γ(z)"; (3.7) "θ(z) := nπ/z² − πα and γ(z) := −2nπ/z³"; (3.9) "U±(z) :=
+> [[1, −(w(z)/Π(z))e^{±iθ(z)}], [0, 1]]".
+>
+> Figure 3 caption: "The contour Σ and the region Ω" (Σ = (−k_n, k_n) ∪ Σ_{l,±} ∪ Σ_{r,±} ∪ Σ^△_{l,±} ∪ Σ^△_{r,±}; the figure is
+> symmetric under z ↦ −z); "Note that here we choose the contour like Σ_{l,±} and Σ_{r,±} so as to avoid the zeros of Π(z) and
+> w(z); see (3.9) and (3.10)."
+>
+> (4.4) "g₊(x) + g₋(x) = l, x ∈ (−2, 2); > l, x ∈ (−∞, −2) ∪ (2, +∞)"; (4.5) "g(z) = log z + O(1/z) as z → ∞".
+>
+> (4.12), as printed (corrects the transcription in the "(WLXZ-v1, additional quotes for RH_px)" entry above, where the △
+> superscripts of the first two cases were lost): "Q(z) := T(z) × {−V^△₋(z), z ∈ Ω^△_{l,+} ∪ Ω^△_{r,−}; V^△₊(z), z ∈ Ω^△_{l,−} ∪
+> Ω^△_{r,+}; V₊(z), z ∈ Ω_{l,+} ∪ Ω_{r,−}; V₋(z), z ∈ Ω_{l,−} ∪ Ω_{r,+}; I, z ∈ Ω∞}".
+>
+> (4.15) "D̃(z) := √(2π)(n/z²)^{n/z²−α+1/2}/(Γ(1 + n/z² − α)e^{n/z²}), where the branches are chosen as arg z ∈ (−π, π) in
+> (4.15), while in (4.14), −1/z² = e^{±πi}/z² for z ∈ ℂ±. It is readily seen that the function D̃(z) is a non-zero analytic
+> function on ℂ \ (−∞, 0]".
+>
+> (4.18) "D(z) = (Γ(α)/√(2π))n^{1/2−α}(−z²)^{α−1/2} + O(1/z)"; (4.19) "E(z) := (√(2π)/Γ(α))(4 − z²)^{1/2−α}, z ∈ ℂ \ (−∞, −2) ∪
+> (2, +∞), where we always take the principal branches of (2 − z)^{1/2−α} and (z + 2)^{1/2−α}"; (4.20) "D₊(z)E₊(z) = D₋(z)E₋(z) ×
+> {e^{2nπi/z²}, z ∈ (2, +∞); e^{−2nπi/z²}, z ∈ (−∞, −2)}, which is exactly the jumps of J_T(z) for z ∈ (−∞, −k_n) ∪ (k_n, +∞);
+> see also (4.10), and D(z)E(z) tends to n^{1/2−α} as z → ∞."
+>
+> (4.22) "D̂(z) := √(2π)(n/(−z)²)^{n/z²−α+1/2}/(Γ(1 + n/z² − α)e^{n/z²}), which is analytic in z ∈ ℂ \ [0, +∞), with the branch
+> taken as arg(−z) ∈ (−π, π)".
+
+**Hypotheses checked in the application (ROUTE2_bnd.md §2.2):** α = 1 > 0; n even (n = 2m); the contour is taken symmetric
+(Σ_{l,±} = −Σ_{r,∓}, Σ^△_{l,±} = −Σ^△_{r,∓}), which is admissible because the zeros of Π (odd) and w (even) and the sign of
+Re φ (e^{2nφ(−z)} = e^{2nφ(z)}) are symmetric, and so are (5.8)'s conditions Re φ̃ > 0, Re φ̂ > 0, since φ̂(−z) = φ̃(z) by (2.4),
+(4.28) and g′ odd (Rule R F3). (2.15), (3.10)–(3.12), (4.1), (4.13), (5.1) are used as quoted in the two WLXZ entries above; (3.1),
+(3.4), (2.14), (2.4), (4.28) are quoted here (Rule R F3; the earlier entries do not quote them):
+
+> (2.14) "Res_{z=±x_k} Y(z) = lim_{z→±x_k} Y(z)[[0, w_d(z)], [0, 0]]"; (3.1) "U(z) := n^{nσ3/2}Y(n^{−1/2}z)"; (3.4) "w(z) :=
+> n^{1/2}w_d(n^{−1/2}z)"; (2.4) "φ̃(z) := ∫_2^z (−g′(s) ∓ 2πi/s³)ds for z ∈ ℂ±, where the path of integration lies entirely in the
+> regions z ∈ ℂ \ (−∞, 2] except for the initial point"; (4.28) "φ̂(z) := ∫_{−2}^z (−g′(s) ± 2πi/s³)ds for z ∈ ℂ±, which is analytic
+> in ℂ \ [−2, +∞)".
+
+NUMERICAL cross-check: `route2/checks/check_bnd_fold.out` [2]: g(−z) − g(z) = −iπ (genuine, 4·10⁻¹⁰); the D(−z) = D(z) and
+D̂(−z) = D̃(z) lines are tautological (same expression on both sides), so those two parities rest on the analytic branch argument
+(Rule R F9). Convention (Rule R F4): WLXZ's Y uses the residue form (2.14), Y₁₂ = Σwπ/(z − x_k) = −2πi·C(πν) in the FIK convention
+of ROUTE2_bnd Lemma F0; the two differ by a constant diagonal conjugation.
+
+## (Fold-attrib, Plan 53) quadratic transformation of orthogonal polynomials — NOT READ, NOT USED AS INPUT (attribution only)
+
+Lemma F0 (route2/ROUTE2_bnd.md §2.1: π_{2m}(y) = P_m(y²), π_{2m−1}(y) = yP̃_{m−1}(y²) for an even measure, and the resulting
+identity for the Fokas–Its–Kitaev matrix) is classical in substance (symmetric measures and their quadratic transformations;
+e.g. Chihara 1978, Ch. I §8 — pointer only, not read). It is proved in full in ROUTE2_bnd.md §2.1 and not cited.
+
 ## (DLMF-5.5/5.11, Plan 54) NIST DLMF §§5.5(i), 5.11 — READ (web pages dlmf.nist.gov/5.5 and /5.11, re-fetched 2026-10-14), for Plan 54 (route2/ROUTE2_xframe1.md Lemma X1)
 
 (Distinct name: re-verifies the quotes of "(DLMF)", "(DLMF-2)" and "(DLMF-5.11, Plan 51)" for this use.)

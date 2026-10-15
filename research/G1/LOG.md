@@ -565,6 +565,58 @@
   KNOWN (chain sequences: Wall; Chihara 1978 Ch. I, III — not read, pointer only)"; F2 base-window remark (α_x ∈ (−½, ½] suffices
   for s > 1 + p/2); F3 numerics scope; F4 sharpness example for |G_n − c| = O(√r_n) in Rule A (e); F5 tilt transfer CONDITIONAL
   (implication PROVED); F6 "with infinite support" + SH propagates future p ≤ 1 / other-node base cases; F7 CITATIONS. Rule R ACCEPT WITH FIXES (review/REVIEW_Plan52.md), fixes applied — REVIEWED.
+
+## 2026-10-14 — Plan 53 (GAP-int, boundary frame: the boundary a = ½ at p = 1 by folding the symmetric problem; second proof of §3.23's p = 1 result) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan53.md), fixes applied — REVIEWED
+- Write-up: `RH/route2/ROUTE2_bnd.md`; summary PROOF.md §3.22 and §0 row "RII₁ᶠ / B_{p=1}^{all,ᶠ}". Plan:
+  docs/superpowers/plans/2026-10-14-plan-53-r2bnd.md.
+- **Range check (option iii).** RH₁(r) is fine at a = ½ for pure powers (quotient construction; Lemma M's mismatch decays like
+  |z|^{4m+2}, δ = 5). T3-all / T3-log cover bounded and log-type Ψ at r = 2. So GAP-int = D(γ) = ∞ at r = 2, and OBSTRUCTION-a is
+  an obstruction of the C–D comparison in the **symmetric** frame.
+- **Diagnosis.** In that frame the D₁ integrand for (Q₁)₂₁ (i.e. for the individual β_n) is ≍ δ_n(z)/(πζ) on the lips — the
+  rank-one factor times |ζ| is exactly 1/π (check_bnd_fold [4]) — non-integrable unless L₁′ is Dini (HEURISTIC). Option (i)
+  (L^p / E^p, scalar power weights): the two columns need p < 2 and p > 2 at a = ½; OBSTRUCTION (heuristic — the A_p "only if"
+  (Hunt–Muckenhoupt–Wheeden) was not read); not pursued.
+- **Idea (option (ii) in the folded variable).** For even degree n = 2m the symmetric problem is σ₃-even (Lemma P), so
+  fold X := z^{−σ₃/2}Xz^{σ₃/2} is a function of x = z²; fold Y_ν^{(2m)} = L·Y_μ^{(m)} (Lemma F0, the quadratic transformation in RH
+  form). The band centre of exponent a becomes the hard edge of μ of order α_x = a − ½ = r − 2, and L²(|dx|) on σ₃-even functions
+  is the matrix-weighted space in which the C–D comparison works for |α_x| < 1 — ROUTE2's (Plan 48) range, including α_x = 0
+  (Lemma W′). The law is read off a_m, b_m of μ (1/x, 1/x² coefficients), never off β_n.
+- **New lemmas:** F0 (PROVED); P (PROVED-mod-cite WLXZ: w, θ even, Π odd, g(−z) = g(z) ∓ iπ, D even, D̂(−z) = D̃(z); R, T carry −1
+  on Ω^△, cancelled by the odd V^△±); FS (D_ϱ(z) = D^x_{ϱ_x}(z²); Γ := D^x_{x^α}(z²)/D_a with Γ₊Γ₋ = 1/|y|); FJ (folded jumps:
+  band constant, hard-edge lips with w_x = x^αϱ_x, nothing on ℝ₋); FN (fold(N₀^{KV})Γ^{σ₃} = [[1, 0], [−i, 1]]N₀^x, uniqueness);
+  Fφ (f_K := −f(√x)²/4, e^{2nφ^x} = e^{−4(n²f_K)^{1/2}}, reversed ordering; KMVV angle π/2); FY (fold R = RH_px's one-sided
+  interpolation problem at p = 1; (Y4)_x).
+- **Theorem RII₁ᶠ** (PROVED-mod-cite): p = 1, 1 < r < 3, (H_an₁) ⇒ m b_m = ½(1 + O(1/m)), a_m/(2b_m) = 1 + O(1/m) (ROUTE2 §§3–4
+  in the folded variable: H1ᶠ, LW1ᶠ = x^α-factor × LW1₁, URᶠ, Q^x ∈ I + ∂C, Cᶠ, Dᶠ = O(ε′_n/n), RH_px invariance lemma).
+  **Corollary B_{p=1}^{all,ᶠ}** (PROVED-mod-cite; renamed after review): every r > 1 incl. integers, every sequence-form slowly
+  varying Ψ (RedA + SH-r) — a second proof of §3.23's B_{p=1}^{all}; GAP-int is closed by §3.23 (Plan 54). OBSTRUCTION-a stands, scoped to the symmetric frame.
+- **Hybrid route** (task item): interpolation in r via FV⁺ (Lemma IR, PROVED) needs a log-moment localization uniform as a → ½
+  (QL-type, open); a Theorem-L Grönwall from a log-type base meets Plan 49's commutator term. Recorded, not used (HEURISTIC).
+- **Rule A attempts** (ROUTE2_bnd §7): Ψ ≡ 1 (third proof of RH₁(r) on 1 < r < 3); odd degree (fold is the xμ problem; unused);
+  the Ω^△ sign (cancelled); poly(n) fold factors on long pieces (absorbed); item-by-item check that the folded problem has
+  ROUTE2's hard-edge structure; α = 0 exactly (ROUTE2's log case); no step needs |a| < ½; the folded C–D integrals never
+  represent (Q₁)₂₁ alone. No counterexample.
+- **Literature (Rule L) not done.** The quadratic transformation of OPs is classical (pointer: Chihara 1978, Ch. I — not read);
+  Lemma F0 is proved, not cited. Whether the law at p = 1 for D(γ) = ∞ weights is known: UNCHECKED.
+- **Numerics** (`RH/route2/checks/check_bnd_{coeff,fold}.out`): p = 1, Ψ = exp √log(k + e), five truncations (K-doubling 1, 2,
+  4·10⁵; t_end = 10¹⁴; finer tail quadrature), n = 50 … 1600: n(nb_n/c − 1) = −0.382 … −0.411 (r = 2; spread ≤ 4.7·10⁻⁸,
+  K-doubling ≤ 1.7·10⁻¹⁰), −0.628 … −0.661 (r = 2.5), −0.875 … −0.911 (r = 3): bounded; n(a_n/(2b_n) − 1) → ½; tilt ratio
+  0.47 → 0.485. Fold checks (40 digits): Lemma F0 to 10⁻³⁹; Lemma FN constant [[1, 0], [−i, 1]] to 10⁻³⁹ (a = 0.1, 0.5, 0.8); WLXZ
+  g-parity (D, D̂/D̃ lines tautological; those parities analytic); model factors: unfolded |·||ζ| → 1/π (5 digits), folded (KMVV α = 0) |·| ≤ 0.13(1 + log²|ζ|).
+- **Citations:** RH/CITATIONS.md "(WLXZ-v1, Plan 53)" (parity formulas; also corrects the transcription of WLXZ (4.12) in the
+  RH_px entry) and "(Fold-attrib, Plan 53)" (attribution only, not read).
+- **Open:** tilt law (GAP-rate₁, CONJECTURE).
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan53.md; no mathematical error; both checks re-run identical). After
+  `git merge master` (Plan 54, §3.23, which closes GAP-int in the x-frame), fixes applied: F1 reframed as an independent second
+  proof of §3.23's p = 1 result; corollaries renamed B_{p=1}^{bnd,ᶠ}, B_{p=1}^{all,ᶠ}; one "GAP-int closed" claim (§3.23); ROUTE2_p1
+  note points to §3.23 and §3.22. F2 "Relation to §3.23" (ROUTE2_bnd §3.8, PROOF §3.22): independent — global frame, outer model,
+  Airy disc, lip mismatch, equilibrium input; shared — ROUTE2's α_x = 0 comparison (Lemma W′, UR′(a)/(b′)/(d), D′), KMVV §6, C–D,
+  RH_px invariance lemma and (Y4)_x, RedA, SH-r, WLXZ v1; coefficient numerics identical to Plan 54's check_x1_coeff. F3 quotes
+  (2.14), (3.1), (3.4), (2.4), (4.28) and φ̂(−z) = φ̃(z) for (5.8). F4 residue vs FIK convention. F5 §1.4 wording. F6 "(a_n, b_n) part
+  of RII₁ / RH₁(r)". F7 β_n remark labelled, both index conventions. F8 K-doubling ≤ 1.1·10⁻⁹ for E. F9 numerics scope
+  (tautological D lines; 1/π to 5 digits; model factors only). F10 range sentence (Rule A (h)). F11 ray-angle precedents. PROOF.md
+  §4 updated (p = 1, D(γ) = ∞ no longer open). Rule R ACCEPT WITH FIXES (review/REVIEW_Plan53.md), fixes applied — REVIEWED.
+
 ## 2026-10-14 — Plan 54 (GAP-int: x-frame and other routes) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan54.md), fixes applied — REVIEWED
 - Write-up: `RH/route2/ROUTE2_xframe1.md`; summary PROOF.md §3.23 and §0 row "RII_x1 / GAP-int / B_{p=1}^{all}". Plan:
   docs/superpowers/plans/2026-10-14-plan-54-r2xframe.md.
