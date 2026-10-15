@@ -102,7 +102,7 @@ source content was read in Plan 63, and no read status below changed.
 | VAVB | Van Assche–Van Baelen, arXiv:1910.12518, Constr. Approx. 54 (2021) 117–144 | **READ** (Plan 68; arXiv v1, §§1–2, Thm 2.2) | literature paragraph §1.2 |
 | Lai | arXiv:2610.06838 | READ (HTML; one sentence quoted) | **no longer cited** (Plan 68, audit §2.2) |
 | Fauzan | Zenodo 22826419 (2026) | **RECORD PAGE ONLY** | **no longer cited** (Plan 68, audit §2.2, D10) |
-| PaperII, PaperIII | companion papers | — | forward pointer at the end of §1.2; "In preparation" placeholders |
+| (PaperII, PaperIII) | companion papers | — | removed in the Plan 68 referee pass: I is posted alone; §1.2 ends with a neutral sentence that cites nothing |
 
 Not cited although the repo mentions them: Saff–Totik, Cegrell–Kolodziej–Levenberg (behind BKMW; unread);
 Zudilin 2017 (SEEN only); Carlitz / Tricomi–Carlitz and the Lommel family (item 11's p ∈ {1,2}
@@ -208,10 +208,10 @@ notation of `SERIES.md` (decision D11). No mathematical statement changed in str
 | §2.5.4 Rem 3.4 | Cut to five lines (paraphrase, no quotation). |
 | §2.5.5 numerics in Rem 6.1 | The "consistent with O(n log n)" sentence moved to §9 (Rem 6.1 now labelled rem:rate). |
 | §2.5.6 lists | The b ≤ ½ / b > ½ case analysis in Thm 5.2(b) is two paragraphs. |
-| §2.5.7 forward pointer | End of §1.2 points to [II], [III] ("In preparation" bib placeholders). |
+| §2.5.7 forward pointer | End of §1.2: "Companion papers in preparation treat the pointwise asymptotics of b_n and a_n." No citation (I is posted alone; referee pass, REFEREE_PLAN68.md). |
 | §2.5.8 / §3.1 | New §8 "Formal verification" (old §1.4); intro keeps one sentence. Acknowledgements (one sentence: AI assistance, Claude/Anthropic; Lean verification; author responsibility) and Data and code availability (URL, tag placeholder, Lean theorem names) before the bibliography. |
 | §2.6 LaTeX | booktabs → \hline; geometry and \enlargethispage removed; class option 11pt → default 10pt; abstract without displays (1225 characters plain; ARXIV.md updated). Long displays split (gather/align/multline); 0 overfull boxes. |
-| §2.6 bibliography | Dropped CDLO, CCV, Lai, Fauzan; added Beckermann, PaperII, PaperIII; numbering notes for KVA-PLMS, KVA-JAT, Beckermann (authors' manuscripts) and VAVB (arXiv). |
+| §2.6 bibliography | Dropped CDLO, CCV, Lai, Fauzan; added Beckermann (PaperII, PaperIII added, then removed in the referee pass); numbering notes for KVA-PLMS, KVA-JAT, Beckermann (authors' manuscripts) and VAVB (arXiv). |
 | §3.3 organisation | Organisation paragraph covers §§8–9 and says §3 can be read on its own. |
 | D14 | Title unchanged; author placeholder unchanged. |
 

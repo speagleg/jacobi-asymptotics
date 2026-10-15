@@ -38,9 +38,9 @@ Let $\sigma=\sum_k w_k\delta_{x_k}$ be a discrete measure whose atoms $x_k=f(k)$
 2. **Repository tag.** The "Data and code availability" statement at the end of main.tex says "tag `v1.0-paper1`
    [placeholder: tag to be created at submission]". Before submitting: make the repository public, create the tag on
    the submission commit, and delete the bracketed placeholder text. Then rebuild.
-3. **Companion papers.** refs.bib entries `PaperII`, `PaperIII` are "In preparation" placeholders (author "[Surname],
-   G."). Replace them by arXiv identifiers once II and III are posted, or remove the forward pointer at the end of
-   §1.2 if I is posted alone.
+3. **Companion papers.** Paper I is posted alone first. The end of §1.2 says only "Companion papers in preparation
+   treat the pointwise asymptotics of $b_n$ and $a_n$", with no citation and no bib entry (removed in the Plan 68
+   referee pass). When II and III are on arXiv, a later version of I may cite them there.
 4. **Date.** `\date{15 October 2026}`: update it to the submission date.
 5. **Endorsement.** A first math.CA submission may need an endorser (see `research/program/paper1_outreach.md`,
    local only).
