@@ -1,0 +1,81 @@
+p=1.5 s=1.5 d1 : fit  -0.250000000  proved -0.250000000  |diff| = 0.0e+00  tol 3.4e-09  ok
+p=1.5 s=1.5 e1 : fit  +0.750000000  proved +0.750000000  |diff| = 0.0e+00  tol 5.0e-09  ok
+p=1.5 s=1.5 e1s: fit  -0.750000000  proved -0.750000000  |diff| = 0.0e+00  tol 1.9e-08  ok
+p=1.5 s=1.5 k0 : fit  -1.250000000  proved -1.250000000  |diff| = 0.0e+00  tol 1.1e-08  ok
+p=1.5 s=1.5 k1 : fit  +0.583333361  proved +0.583333333  |diff| = 2.8e-08  tol 3.0e-07  ok
+p=1.5 s=2.0 d1 : fit  -0.500000000  proved -0.500000000  |diff| = 0.0e+00  tol 4.8e-09  ok
+p=1.5 s=2.0 e1 : fit  +0.750000000  proved +0.750000000  |diff| = 0.0e+00  tol 2.3e-09  ok
+p=1.5 s=2.0 e1s: fit  -0.750000000  proved -0.750000000  |diff| = 0.0e+00  tol 6.9e-09  ok
+p=1.5 s=2.0 k0 : fit  -1.750000000  proved -1.750000000  |diff| = 0.0e+00  tol 2.0e-08  ok
+p=1.5 s=2.0 k1 : fit  -0.583333316  proved -0.583333333  |diff| = 1.7e-08  tol 3.4e-08  ok
+p=1.5 s=3.0 d1 : fit  -1.000000000  proved -1.000000000  |diff| = 0.0e+00  tol 1.6e-08  ok
+p=1.5 s=3.0 e1 : fit  +0.750000000  proved +0.750000000  |diff| = 0.0e+00  tol 3.2e-09  ok
+p=1.5 s=3.0 e1s: fit  -0.750000000  proved -0.750000000  |diff| = 0.0e+00  tol 1.4e-08  ok
+p=1.5 s=3.0 k0 : fit  -2.750000000  proved -2.750000000  |diff| = 0.0e+00  tol 1.7e-07  ok
+p=1.5 s=3.0 k1 : fit  -2.916666661  proved -2.916666667  |diff| = 5.7e-09  tol 2.2e-07  ok
+p=1.5 s=4.0 d1 : fit  -1.500000000  proved -1.500000000  |diff| = 0.0e+00  tol 1.4e-08  ok
+p=1.5 s=4.0 e1 : fit  +0.750000000  proved +0.750000000  |diff| = 0.0e+00  tol 5.9e-09  ok
+p=1.5 s=4.0 e1s: fit  -0.750000000  proved -0.750000000  |diff| = 0.0e+00  tol 1.6e-07  ok
+p=1.5 s=4.0 k0 : fit  -3.750000000  proved -3.750000000  |diff| = 0.0e+00  tol 8.3e-07  ok
+p=1.5 s=4.0 k1 : fit  -5.250000011  proved -5.250000000  |diff| = 1.1e-08  tol 9.1e-07  ok
+p=2.0 s=1.5 d1 : fit  -0.250000000  proved -0.250000000  |diff| = 0.0e+00  tol 6.0e-10  ok
+p=2.0 s=1.5 e1 : fit  +1.000000000  proved +1.000000000  |diff| = 0.0e+00  tol 1.6e-09  ok
+p=2.0 s=1.5 e1s: fit  -1.000000000  proved -1.000000000  |diff| = 0.0e+00  tol 1.6e-09  ok
+p=2.0 s=1.5 k0 : fit  -1.500000000  proved -1.500000000  |diff| = 0.0e+00  tol 4.7e-09  ok
+p=2.0 s=1.5 k1 : fit  +1.000000053  proved +1.000000000  |diff| = 5.3e-08  tol 2.5e-06  ok
+p=2.0 s=2.0 d1 : fit  -0.500000000  proved -0.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=2.0 s=2.0 e1 : fit  +1.000000000  proved +1.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=2.0 s=2.0 e1s: fit  -1.000000000  proved -1.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=2.0 s=2.0 k0 : fit  -2.000000000  proved -2.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=2.0 s=2.0 k1 : fit  +0.000000002  proved -0.000000000  |diff| = 2.0e-09  tol 1.4e-08  ok
+p=2.0 s=3.0 d1 : fit  -1.000000000  proved -1.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=2.0 s=3.0 e1 : fit  +1.000000000  proved +1.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=2.0 s=3.0 e1s: fit  -1.000000000  proved -1.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=2.0 s=3.0 k0 : fit  -3.000000000  proved -3.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=2.0 s=3.0 k1 : fit  -2.000000000  proved -2.000000000  |diff| = 0.0e+00  tol 5.5e-09  ok
+p=2.0 s=4.0 d1 : fit  -1.500000000  proved -1.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=2.0 s=4.0 e1 : fit  +1.000000000  proved +1.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=2.0 s=4.0 e1s: fit  -1.000000000  proved -1.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=2.0 s=4.0 k0 : fit  -4.000000000  proved -4.000000000  |diff| = 0.0e+00  tol 2.6e-09  ok
+p=2.0 s=4.0 k1 : fit  -4.000000000  proved -4.000000000  |diff| = 0.0e+00  tol 5.2e-09  ok
+p=3.0 s=1.5 d1 : fit  -0.250000000  proved -0.250000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=3.0 s=1.5 e1 : fit  +1.500000000  proved +1.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=3.0 s=1.5 e1s: fit  -1.500000000  proved -1.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=3.0 s=1.5 k0 : fit  -2.000000000  proved -2.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=3.0 s=1.5 k1 : fit  +1.666666664  proved +1.666666667  |diff| = 2.7e-09  tol 1.1e-08  ok
+p=3.0 s=2.0 d1 : fit  -0.500000000  proved -0.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=3.0 s=2.0 e1 : fit  +1.500000000  proved +1.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=3.0 s=2.0 e1s: fit  -1.500000000  proved -1.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=3.0 s=2.0 k0 : fit  -2.500000000  proved -2.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=3.0 s=2.0 k1 : fit  +0.833333334  proved +0.833333333  |diff| = 6.7e-10  tol 1.1e-09  ok
+p=3.0 s=3.0 d1 : fit  -1.000000000  proved -1.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=3.0 s=3.0 e1 : fit  +1.500000000  proved +1.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=3.0 s=3.0 e1s: fit  -1.500000000  proved -1.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=3.0 s=3.0 k0 : fit  -3.500000000  proved -3.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=3.0 s=3.0 k1 : fit  -0.833333333  proved -0.833333333  |diff| = 3.3e-10  tol 5.0e-10  ok
+p=3.0 s=4.0 d1 : fit  -1.500000000  proved -1.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=3.0 s=4.0 e1 : fit  +1.500000000  proved +1.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=3.0 s=4.0 e1s: fit  -1.500000000  proved -1.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=3.0 s=4.0 k0 : fit  -4.500000000  proved -4.500000000  |diff| = 0.0e+00  tol 1.0e-09  ok
+p=3.0 s=4.0 k1 : fit  -2.500000000  proved -2.500000000  |diff| = 0.0e+00  tol 1.1e-09  ok
+p=4.0 s=1.5 d1 : fit  -0.250000000  proved -0.250000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=4.0 s=1.5 e1 : fit  +2.000000000  proved +2.000000000  |diff| = 0.0e+00  tol 8.7e-10  ok
+p=4.0 s=1.5 e1s: fit  -2.000000000  proved -2.000000000  |diff| = 0.0e+00  tol 1.1e-09  ok
+p=4.0 s=1.5 k0 : fit  -2.500000000  proved -2.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=4.0 s=1.5 k1 : fit  +2.250000000  proved +2.250000000  |diff| = 0.0e+00  tol 1.2e-09  ok
+p=4.0 s=2.0 d1 : fit  -0.500000000  proved -0.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=4.0 s=2.0 e1 : fit  +2.000000000  proved +2.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=4.0 s=2.0 e1s: fit  -2.000000000  proved -2.000000000  |diff| = 0.0e+00  tol 8.8e-10  ok
+p=4.0 s=2.0 k0 : fit  -3.000000000  proved -3.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=4.0 s=2.0 k1 : fit  +1.500000000  proved +1.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=4.0 s=3.0 d1 : fit  -1.000000000  proved -1.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=4.0 s=3.0 e1 : fit  +2.000000000  proved +2.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=4.0 s=3.0 e1s: fit  -2.000000000  proved -2.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=4.0 s=3.0 k0 : fit  -4.000000000  proved -4.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=4.0 s=3.0 k1 : fit  +0.000000000  proved -0.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=4.0 s=4.0 d1 : fit  -1.500000000  proved -1.500000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=4.0 s=4.0 e1 : fit  +2.000000000  proved +2.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=4.0 s=4.0 e1s: fit  -2.000000000  proved -2.000000000  |diff| = 0.0e+00  tol 5.0e-10  ok
+p=4.0 s=4.0 k0 : fit  -5.000000000  proved -5.000000000  |diff| = 0.0e+00  tol 6.5e-10  ok
+p=4.0 s=4.0 k1 : fit  -1.500000000  proved -1.500000000  |diff| = 0.0e+00  tol 5.9e-10  ok
+largest |diff| = 5.30e-08 at (2.0, 1.5, 'k1'); failures: 0
