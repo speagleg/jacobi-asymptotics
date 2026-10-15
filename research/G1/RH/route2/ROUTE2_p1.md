@@ -512,6 +512,8 @@ unsymmetrized p = 1 hard-edge analysis, might reach a < 1; neither is attempted 
 
 **GAP-int.** p = 1, r ∈ {2, 3, 4, …}, Ψ with D(γ) = ∞. (For D(γ) < ∞, T3-log already covers every r > 1.) Numerically the law
 holds at r = 2 (§6).
+*(Plan 53 note, Rule R pending: closed by folding the symmetric problem — `ROUTE2_bnd.md`, Theorem RII₁ᶠ (1 < r < 3) and
+Corollary B_{p=1}^{all}; OBSTRUCTION-a above stays as scoped to this frame.)*
 - **Reduction (Rule R F6).** By CT₁(ii) "⟸" and "⟹" (or master's SH), for a fixed Ψ the law at one integer r₀ ≥ 2 is equivalent
   to the law at every integer r ≥ 2. So GAP-int is equivalent to **the law for k^{−2}Ψ** (a = ½, α_x = 0). This is the main use
   of the "⟸" direction.

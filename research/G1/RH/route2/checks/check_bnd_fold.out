@@ -1,0 +1,29 @@
+[1] Lemma F0: fold(Y_nu^(2m)) = [[1,0],[-2 pi i gamma_{2m-1}^2, 1]] Y_mu^(m)   (K = 30, r = 2, m = 4)
+    x =       (0.3 + 0.2j): relative error 2.66e-40 (z = +sqrt x), 2.66e-40 (z = -sqrt x)
+    x =      (-0.5 + 0.1j): relative error 1.12e-40 (z = +sqrt x), 1.12e-40 (z = -sqrt x)
+    x =       (2.0 - 1.0j): relative error 1.12e-39 (z = +sqrt x), 1.12e-39 (z = -sqrt x)
+    x =    (0.01 + 0.003j): relative error 2.35e-40 (z = +sqrt x), 2.35e-40 (z = -sqrt x)
+    sanity: max|a_j(mu) - (beta_2j + beta_2j+1)| = 2.3e-41, max|b_j(mu)^2 - beta_2j-1 beta_2j| = 3.59e-43
+[2] Lemma P: WLXZ parity data (alpha_W = 1, n = 10)
+    int psi = 0.999999999930959
+    z = (0.3 + 0.4j): g(-z) - g(z) = (0.0 - 3.14159265316j)   (expected -i pi = (0.0 - 3.14159265359j))
+    z = (1.5 + 0.2j): g(-z) - g(z) = (0.0 - 3.14159265316j)   (expected -i pi = (0.0 - 3.14159265359j))
+    z = (-0.7 + 1.1j): g(-z) - g(z) = (0.0 - 3.14159265316j)   (expected -i pi = (0.0 - 3.14159265359j))
+    z = (3.0 + 0.5j): g(-z) - g(z) = (0.0 - 3.14159265316j)   (expected -i pi = (0.0 - 3.14159265359j))
+    z = (0.6 + 0.5j): |D(-z)/D(z) - 1| = 0.0,  |Dhat(-z)/Dtilde(z) - 1| = 0.0
+    z = (2.5 + 0.3j): |D(-z)/D(z) - 1| = 0.0,  |Dhat(-z)/Dtilde(z) - 1| = 0.0
+    z = (0.4 - 1.3j): |D(-z)/D(z) - 1| = 0.0,  |Dhat(-z)/Dtilde(z) - 1| = 0.0
+[3] Lemma FN: M(x) N0x(x)^{-1} is constant (M := fold(N0) Gamma^{s3}, Gamma = D^x_alpha(z^2)/D_a(z))
+    a = 0.5 (alpha_x = 0.0): const = [[(1.0 + 8.34921e-41j), (-7.87852e-41 + 3.86733e-40j)], [(-4.39181e-40 - 1.0j), (1.0 - 4.38805e-40j)]], spread over 6 points = 5.29e-40
+    a = 0.8 (alpha_x = 0.3): const = [[(1.0 - 1.94966e-40j), (1.99673e-40 + 6.07095e-40j)], [(-4.3568e-40 - 1.0j), (1.0 - 4.35419e-40j)]], spread over 6 points = 6.9e-40
+    a = 0.1 (alpha_x = -0.4): const = [[(1.0 + 8.34921e-41j), (-7.87852e-41 + 3.86733e-40j)], [(-4.39181e-40 - 1.0j), (1.0 - 4.38805e-40j)]], spread over 6 points = 5.32e-40
+    N0x band jump at x = 1.7: [[(5.12e-26 - 1.91e-45j), (1.0 + 4.23799e-42j)], [(-1.0 - 4.23799e-42j), (5.12e-26 + 1.27e-45j)]]
+[4] local amplification on a lip ray (the D1/D^x main-term factor Psi e2 e1^T Psi^{-1})
+    |zeta|      unfolded KV a=1/2 (arg pi/4+):  |.|*|zeta|     det      folded KMVV alpha=0 (arg pi/2): |.|/(1+log^2|zeta|)   det
+    1e-1            0.315897                     (1.0 + 1.00409e-41j)            0.125555                      (1.0 - 3.43835e-42j)
+    1e-2            0.318285                     (1.0 + 1.52657e-41j)            0.043742                      (1.0 - 8.28624e-43j)
+    1e-4             0.31831                     (1.0 - 1.07152e-41j)           0.0198806                      (1.0 - 2.6216e-42j)
+    1e-6             0.31831                     (1.0 + 2.60613e-42j)           0.0214888                      (1.0 - 7.30383e-43j)
+    1e-8             0.31831                     (1.0 + 2.26009e-41j)           0.0223731                      (1.0 - 1.09728e-42j)
+    1e-10            0.31831                     (1.0 + 2.06264e-41j)           0.0229287                      (1.0 - 6.02937e-43j)
+    1e-12            0.31831                     (1.0 - 2.41853e-42j)           0.0233092                      (1.0 - 2.72016e-42j)
