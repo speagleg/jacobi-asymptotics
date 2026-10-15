@@ -70,11 +70,11 @@ Dependency order: S0 → S2a → S2b/S2c → S1a, S1b → S1; S4 → S4b (uses S
 | S0 | DONE (sorry-free) | `hallLam_pos`, `hallLam_lt_pi`, `hallC_pos`, `four_hallC_rpow` | — |
 | S2a | DONE | `arcsine_pot`, `arcsine_pot_ge` | — |
 | S2b | DONE | `muStar_Ioc_le`, `muStar_Ioc_eq`, `muStar_Iic_zero`, `muStar_energy_integrable`, `muStar_energy` | — |
-| S2c | planned | (potential `U*` constant on (0,4c], ≥ outside) | — |
+| S2c | DONE | `starPot_eq`, `starPot_ge`, `muStar_restrict_us`, `le_volume_of_lip` | — |
 | S1a | DONE | `quantile_sum_ge`, `quantile_lower` | — |
 | S1b | DONE | `Jp_scaleM`, `exists_good_theta` | — |
 | S1 | DONE | `hall_lower` | — |
-| S4, S4b | planned | | |
+| S4, S4b | DONE | `energy_pos` (Frullani + Gaussian kernel), `Jp_le_kappa` | — |
 | S3, S3b | planned | | |
 | S5 | planned | | upper half of `TheoremHPure` |
 | S6 | planned | | — |

@@ -159,9 +159,12 @@ in a later result.
 | **`quantile_lower`**, `quantile_sum_ge` | admissible θ on (0,U], F integrable: eventually n²(𝒥(θ) − η) ≤ 2Σ_{i<j}F(u_i,u_j) (Paper 1 Thm 5.2 Steps 2–3) | sorry-free (Plan 60) | QuantileLower.lean | — |
 | `Jp_scaleM`, `exists_good_theta` | scaling (Paper 1 Lemma 3.1); admissible θ with 𝒥 ≥ κ_p − η (Thm 5.2 Step 1) | sorry-free (Plan 60) | HallLower.lean | muStar_energy |
 | **`hall_lower`** | p > 0, s > 1: ∀η > 0 eventually hnorm p κ_p (heineD (powSeq p) (powSeq s)) 0 n ≥ −η (Paper 1 Thm 5.2 = G2 A-L, pure powers) | **sorry-free (Plan 60)** — the lower half of `TheoremHPure p κ_p s` | HallLower.lean | quantile_lower, exists_good_theta |
+| **`energy_pos`**, `gauss_pd`, `frK_integral` | 𝓛(A,A) + 𝓛(B,B) ≤ 2𝓛(A,B) for finite A, B of equal mass (Paper 1 Lemma 3.3 inequality; G2 Lemma EP), via Frullani + Gaussian kernel | sorry-free (Plan 60) | EnergyPos.lean | Mathlib `Frullani.integral_Ioi_eq` |
+| `starPot_eq`, `starPot_ge`, `le_volume_of_lip` | U\* = log c + p on [0,4c], ≥ on [0,∞) (Paper 1 Thm 1.3(ii)) | sorry-free (Plan 60) | Optimality.lean | arcsine_pot |
+| **`Jp_le_kappa`** | admissible μ on (0,U], F_p integrable ⇒ 𝒥_p(μ) ≤ κ_p (Paper 1 Thm 1.3(iii) optimality; G2 B\*(iii)) | sorry-free (Plan 60) | Optimality.lean | energy_pos, starPot_compare, muStar_energy |
 
-Not formalized: the forward Weyl law (item 11 "Theorem B"; not G3′ Theorem B, see §6), Theorem H / H_all itself (Plan 60 has formalized its lower half `hall_lower`; the upper half A-U and the Gamma form of
-κ_p are open, lean/HALL_PLAN.md), everything in
+Not formalized: the forward Weyl law (item 11 "Theorem B"; not G3′ Theorem B, see §6), Theorem H / H_all itself (Plan 60 has formalized its lower half `hall_lower` and the optimality `Jp_le_kappa`; the discretised upper half
+A-U and the Gamma form of κ_p are open, lean/HALL_PLAN.md), everything in
 research/ except the Christoffel shift of G1 §3.21 / Paper 2 §3 (Plan 56 rows above; for `DMeasure` σ with atoms x_k ≥ 0 —
 no atom at 0, general σ with finite moments not covered; zero location in `lem:zeros` and Remark `rem:sharp` not formalized).
 

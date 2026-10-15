@@ -64,9 +64,12 @@ Christoffel shift (Plan 56; ChainLimit.lean, Christoffel.lean, ChainRate.lean, C
 (positive summable weights, bounded strictly decreasing atoms) with atoms x_k ≥ 0, so Paper 2's general σ on [0, ∞) with
 finite moments, and an atom at 0, are not covered; the location/simplicity of the zeros in Lemma `lem:zeros` (only the sign
 of P_n(0) is used) and Remark `rem:sharp` are not formalized.
+| `frK`, `frK_integral`, `two_logEnergy_eq`, `gauss_conv`, `gauss_pd`, **`energy_pos`** | Paper 1 Lemma 3.3 (inequality part; G2 Lemma EP) | finite A, B of equal mass, log\|x−y\| integrable, null diagonals ⇒ 𝓛(A,A) + 𝓛(B,B) ≤ 2𝓛(A,B); proved with Frullani's integral (Mathlib) and the Gaussian kernel, not the Fourier transform; the equality case is not formalized |
+| `le_volume_of_lip`, `starPot`, `starPot_ge`, `starPot_eq`, `muStar_restrict_us` | Paper 1 Theorem 1.3(ii) (G2 B\*(ii)) | μ(a,b] ≤ b − a ⇒ μ ≤ Leb; U\*(x) = log c + p on [0, 4c], ≥ log c + p on [0, ∞); μ\*_u = Leb on (0, Λ/π] |
+| `starPot_compare`, **`Jp_le_kappa`** | Paper 1 Theorem 1.3(iii), optimality (G2 B\*(iii)) | every admissible μ on (0,U] with F_p integrable has 𝒥_p(μ) ≤ κ_p (uniqueness not formalized) |
 
 Plan 60 (lean/HALL_PLAN.md) formalizes Theorem H_all for pure powers in stages; the rows marked Paper 1 above are
-sorry-free. Still missing for `TheoremHPure p κ_p s` as a theorem: the upper bound A-U (Lemma EP, optimality, Lemma 4.1,
-Theorem 4.3) and the Gamma form of the constant.
+sorry-free. Still missing for `TheoremHPure p κ_p s` as a theorem: the discretisation (Lemma 4.1), head bound (Corollary 4.2) and
+upper bound (Theorem 4.3), and the Gamma form of the constant.
 
 Check: `./check.sh` (build + axioms audit + completeness list; prints AUDIT OK).

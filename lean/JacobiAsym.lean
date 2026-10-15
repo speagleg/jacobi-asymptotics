@@ -39,3 +39,5 @@ import JacobiAsym.Energy
 import JacobiAsym.StarEnergy
 import JacobiAsym.QuantileLower
 import JacobiAsym.HallLower
+import JacobiAsym.EnergyPos
+import JacobiAsym.Optimality
