@@ -36,7 +36,9 @@ $$\log D_n=-p\,n^2\log n+\Bigl(\tfrac{3p}{2}+\log\bigl(c(p)\,C\bigr)\Bigr)n^2+o(
 and $c(p)$ is identified through an explicitly solved constrained equilibrium problem. A corollary is the $n^2$
 asymptotics of the Hankel determinants of zeta values, $\det_{1\le i,j\le n}\zeta(a(i+j)+b)$, for every real $a>0$
 with $2a+b>1$.
-*Status: PROVED; reviewed.* &nbsp;[Paper 1](papers/paper1/main.pdf), `research/G2/`
+*Status: PROVED; reviewed. For pure powers ($x_k=k^{-p}$, $w_k=k^{-s}$) the theorem is also **machine-checked in
+Lean 4 / Mathlib**, sorry-free with only the standard axioms (`theoremHPure_all`, `lean/JacobiAsym/TheoremHall.lean`).*
+&nbsp;[Paper 1](papers/paper1/main.pdf), `research/G2/`
 
 **2. The pointwise law holds for pure powers, with rate $O(1/n)$.**
 For every $p>0$ and $s>1$, the measure $\sigma_{p,s,1}=\sum_k k^{-s}\delta_{k^{-p}}$ satisfies
@@ -137,7 +139,8 @@ research/G1/           pointwise law: Tauberian reductions, weight transport, Ri
 research/G3prime/      the measure built from zeta zeros
 research/*/review/     independent referee reports for each step
 research/*/checks/     numerical checks (scripts + outputs)
-lean/                  Lean 4 / Mathlib formalisation of the Heine/Hankel reduction (sorry-free; see lean/README.md)
+lean/                  Lean 4 / Mathlib formalisation (sorry-free; see lean/README.md): Heine/Hankel reduction, averaged law
+                       for pure powers (all p > 0, s > 1), Christoffel shift
 src/jacobi_asym/       Python toolkit: measures, recurrence coefficients, Hankel determinants, certified (Arb) mode
 tests/                 pytest suite
 ```
