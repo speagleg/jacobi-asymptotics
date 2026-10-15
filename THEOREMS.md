@@ -316,7 +316,7 @@ research/G3prime/PROOF.md (Pos). Novelty UNCHECKED unless stated.
 | Name | Short statement | Label | Location |
 |---|---|---|---|
 | **Thm RII / Cor B_{p>1}** | **pointwise Law P (b and a, rate O(1/n) + smoothing error) for x_k = k^{−p}, p > 1, w = k^{−s}Ψ, 1 < s < 1 + 2p, Ψ any slowly varying function (sequence form; incl. D(γ) = ∞, e.g. exp(√log k))**, via Lemma RedA (Gaussian smoothing to an entire L₁) and a Riemann–Hilbert analysis perturbing RH_px with a Conway–Deift comparison at the hard edge; bypasses QL | RedA PROVED; RII, B_{p>1} PROVED-mod-cite (WLXZ v1, KMVV §6, C–D Thm 4.4, DLMF, G2) | G1 §3.17; RH/route2/ROUTE2.md |
-| Thm QLP | pure powers, every fixed σ > 1, all M ≥ 1: μ_m((Mn,∞)) ≤ CM^{−p/2} up to the Bessel scale M ≍ n^{2/p}, faster below; QL at t = 0 (log-moment bounded); via a Stieltjes-transform bound in the non-oscillatory RH region | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b, KMVV, Vanlessen, DLMF); uniform in σ CONDITIONAL (RU) | G1 §3.16 |
+| Thm QLP | pure powers, every fixed σ > 1, all M ≥ 1: μ_m((Mn,∞)) ≤ CM^{−p/2} up to the Bessel scale M ≍ n^{2/p}, faster below; QL at t = 0 (log-moment bounded); via a Stieltjes-transform bound in the non-oscillatory RH region | PROVED-mod-cite (RH_px, RH₁(r), RH_plt1b, KMVV, Vanlessen, DLMF); uniform in σ CONDITIONAL (RU) (Law P itself is uniform on compacts in σ without (RU): UL.md Thm UP, Plan 64, REVIEWED) | G1 §3.16 |
 | QL-CB, BF, RF, FM, DB | commutator lemma CB ⇒ QL ⇒ law (all p); exact boundary-flux identities; free-model computation (log M sharp there); CB itself OPEN (obstruction: hard-edge density/phase along the path) | QL-CB CONDITIONAL (CB) + PROVED-mod-cite; identities PROVED; CB-ob HEURISTIC | G1 §3.18 |
 | QL numerics | tilt law at p = 1, ½; QL-b slopes, crossover M ≍ n^{2/p}; commutator ratio ≤ 0.93ε_n(1 + log M) (saturation beyond the hard edge is structural) | NUMERICAL | G1 §3.15 |
 | Lemma EP (Plan 47) | energy positivity for zero-mass signed measures (self-contained Fourier proof); removes citation (P): H_all, B*, HZ, Cor H-input, G1-T, G1-L, WC, CL, A4′, TC now PROVED | PROVED | G2 §1 |
@@ -361,7 +361,7 @@ Proof labels are unchanged; only novelty status changes.
 - **Headline pointwise law (all slowly varying Ψ), Theorems R/RW/Ra, QLP, B-cond/CB**: NOT FOUND (Knopfmacher–Lubinsky–
   Nevai 1988 still unread; its review indicates a sufficient-condition result).
 
-### 2.10 Plan 62: the 1/n coefficient for pure powers (research/G1/RH/second_order/SECOND.md; REVIEWED 2026-10-15, REVIEW_Plan62.md)
+### 2.10 Plan 62: the 1/n coefficient for pure powers (research/G1/RH/second_order/SECOND.md; REVIEWED 2026-10-15, REVIEW_Plan62.md) and Plan 64: uniformity in s (research/G1/RH/second_order/UL.md; REVIEWED 2026-10-15, REVIEW_Plan64.md)
 
 Pairings: repo a_n = α_{n−1}, so "a_n/(2b_n)" = α_{n−1}/(2b_n) (coefficient e₁ = +p/2); standard/Paper 2 α_n/(2b_n)
 (coefficient e₁ˢ = −p/2). (E) = existence of d₁ in n^pb_n/c(p) = 1 + d₁/n + O(n^{−1−ε}).
@@ -374,11 +374,15 @@ Pairings: repo a_n = α_{n−1}, so "a_n/(2b_n)" = α_{n−1}/(2b_n) (coefficien
 | Prop 3.1, Thm 3.2 | Π_{m≤n}(b_m(s+p)/b_m(s))² = g_n/g_0; Σ_{m≤n}log(b_m(s+p)/b_m(s)) + (p/2)log n → ½log(c(p)ζ(s)/ζ(s+p)) | 3.1 PROVED; 3.2 PROVED-mod-cite (Law P; G1 Lemma CS) | SECOND §3.1 |
 | Cor 3.3, Thm 3.4 | (E) at s, s+p ⇒ d₁(s+p) = d₁(s) − p/2 and n(G_n − G_{n−1}) → 0; (E_ε), ε > ½ ⇒ e₁ˢ = −p/2, e₁ = p/2 | CONDITIONAL on (E) at s, s+p (Cor 3.3); (E_ε), ε > ½ (Thm 3.4); + PROVED-mod-cite (Law P; Lemma CS) | SECOND §3.1 |
 | Prop 3.5, Cor 3.6 | weight factors 1 + O(1/k) change Σ_{j≤n}log b_j by a convergent amount; TC anchor: d₁(1, 3/2 + m) = −(1+2m)/4 under (E) | 3.5 PROVED (internal Sat_p⁺); 3.6(i) PROVED-mod-cite (RH_p1 §1, DLMF 5.11); (ii)–(iii) CONDITIONAL on (E) + PROVED-mod-cite | SECOND §3.2 |
-| Prop 3.7, Thm 3.8, Cor 3.9 | ∂_s log h_n = −Σ log k·μ_n(k); Cesàro s-slope −½; d₁(p,s) = −(s−1)/2 + g(p), g(1) = g(2) = 0 | 3.7 PROVED; 3.8 CONDITIONAL on (UΛ) (⇐ (RU), PROOF SKETCH level) or (CVX), + PROVED-mod-cite (QLP-Λ, Law P); 3.9 CONDITIONAL on (E) and (UΛ)/(CVX) + PROVED-mod-cite | SECOND §3.3 |
-| Thm 3.10 | log-average d₁ = −(s−1)/2 for p = 2, s ∈ 2+2ℕ₀ and p = 1, s ∈ 3/2+ℕ₀ (⇔ log h_n of the zeta-value Hankel ratios to O(1)) | (a)–(c) PROVED-mod-cite; (d) other s CONDITIONAL on (UΛ) (o(log n) only) or (CVX) | SECOND §3.4 |
+| Prop 3.7, Thm 3.8, Cor 3.9 | ∂_s log h_n = −Σ log k·μ_n(k); Cesàro s-slope −½; d₁(p,s) = −(s−1)/2 + g(p), g(1) = g(2) = 0 | 3.7 PROVED; 3.8 PROVED-mod-cite (UL.md Cor UL-3.8: (P), (LP), (QLP-c) at fixed points only (finitely many for each grid, countably many in all); no uniformity in σ, (RU) not used; Lemma CS; with the constant ½log(c^{(s₁−s₀)/p}ζ(s₀)/ζ(s₁)) + o(1)); 3.9 CONDITIONAL on (E) only + PROVED-mod-cite (Plan 64 labels, REVIEWED) | SECOND §3.3; UL.md §3 |
+| Thm 3.10 | log-average d₁ = −(s−1)/2 for p = 2, s ∈ 2+2ℕ₀ and p = 1, s ∈ 3/2+ℕ₀ (⇔ log h_n of the zeta-value Hankel ratios to O(1)) | (a)–(c) PROVED-mod-cite; (d) every s > 1 for p ∈ {1, 2} (convergent remainder) and (c) for all real shifts: PROVED-mod-cite (UL.md Cor UL-3.10: UF-lim; SECOND §2 Input (VA, DLMF-Lommel); Cor 3.6(i) (RH_p1 §1, DLMF 5.11); Plan 64, REVIEWED) | SECOND §3.4; UL.md §3 |
+| UF-lim (Plan 64) | h_n(s)/h_n(s₀) = c(p)^{(s−s₀)/p}n^{−(s−s₀)}(1 + o(1)), uniformly for s, s₀ in compacts of (1, ∞), every p > 0 (via a minimum/duality sandwich, Lemma V) | PROVED-mod-cite ((P), (LP), (QLP-c) at fixed points only (finitely many for each grid, countably many in all); no uniformity in σ, (RU) not used; Lemma CS); Lemma V PROVED | UL.md §§1–2 |
+| UP (Plan 64) | Law P uniform on compacts in s: sup_K\|n^pb_n − c\|, \|n^pg_n − c\|, \|n^pα_n − 2c\| → 0 (removes the (RU) dependence of SECOND's (UΛ)-status α-part, review F10) | PROVED-mod-cite (Thm UF-lim, hence (P), (LP), (QLP-c) at fixed points; Lemma CT) | UL.md §3 |
+| UΛ (Plan 64) | sup_{s∈K}\|Λ_n(s)\| = o(log n); Λ_n → −(log c)/p pointwise and in L¹(K) | PROVED-mod-cite (Thm UP, Lemma LP's method, Lemma TL; Lemma W, Scheffé); sup_K\|Λ_n\| = O(1) GAP (⇐ (RU) at PROOF SKETCH level, ⇐ (SCVX), ⇐ (CVX)) | UL.md §4 |
+| SV, CVX (Plan 64) | ∂_s²log h_n = Σ_{j>n}f_{nj}² − Σ_{i<n}f_{in}²; (CVX) fails at the top level of finite truncations | SV PROVED; CVX-fin PROVED; (CVX) for σ_{p,s} HYPOTHESIS, NUMERICAL | UL.md §5 |
 | (E), g(p) | existence of d₁; its s-independent part for p ∉ {1, 2} | GAP (PROOF SKETCH of (E) for p > 1 via RH_px at second order; heuristic n_eff = n + α_x/2 + j₀ − ½, NUMERICAL) | SECOND §4 |
 
-Novelty UNCHECKED (Prop 3.1 classical, not claimed).
+Novelty UNCHECKED (Prop 3.1 classical, not claimed; UL.md Lemma V and Prop SV elementary, not claimed).
 
 ## 3. Dependency summary
 
@@ -516,12 +520,14 @@ and asked for item 11 to be named as the primary route. That changes no label; i
     statement does NOT follow" (§3, A4 text). For slowly varying Ψ the a-law is proved (T3a, T3-all, T3-log; A1 note).
 13. Second-order constants for pure powers: RH₁ n²(b_n^σ/b_n^{TC} − 1) → −1/24 "conjecture, not proved"
     (RH_p1.md §0); d₁ = −(s−1)/2, e₁ = p/2 are NUMERICAL Phase-0 fits (RH.md §0, RH_px §0); RH_p proves only O(1/n).
-    *Update (Plan 62, 2026-10-15, NOT REVIEWED; research/G1/RH/second_order/SECOND.md, §2.10 above):* NUMERICAL on
+    *Update (Plan 62, 2026-10-15, REVIEWED; research/G1/RH/second_order/SECOND.md, §2.10 above):* NUMERICAL on
     p ∈ {½, 1, 3/2, 2, 3, 4}, s ∈ {3/2, 2, 3, 4} (n ≤ 1600): d₁ = −(s−1)/2, e₁ = p/2 (repo pairing α_{n−1}/(2b_n)) =
     e₁ˢ + p with e₁ˢ = −p/2 (standard pairing α_n/(2b_n)), chain k₀ = −(s−1) − p/2, k₁ = −(p+2)(2s−2−p)/(2p) (Conjecture P62).
     PROVED(-mod-cite): exact p = 2, s ∈ {2, 4, 6, 8, 10}; the log-average form of d₁ on the lattices s ∈ 2 + 2ℕ₀
     (p = 2) and s ∈ 3/2 + ℕ₀ (p = 1). CONDITIONAL on (E) at s and s + p (+ mod-cite): the Christoffel constraint
-    d₁(s+p) = d₁(s) − p/2 (Cor 3.3); CONDITIONAL on (E_ε), ε > ½, at s and s + p: e₁ˢ = −p/2 (Thm 3.4). Still open: **(E)**, the existence of the 1/n coefficient (GAP; PROOF SKETCH for p > 1), and the
+    d₁(s+p) = d₁(s) − p/2 (Cor 3.3); CONDITIONAL on (E_ε), ε > ½, at s and s + p: e₁ˢ = −p/2 (Thm 3.4). *Update (Plan 64, REVIEWED; UL.md):* the (UΛ)/(CVX) dependencies are removed — the Cesàro s-slope
+    (Thm 3.8, with constant) and the log-average form at every s > 1 for p ∈ {1, 2} (Thm 3.10(d)) are PROVED-mod-cite, Cor 3.9
+    needs (E) only; (UΛ) holds in its o(log n) form. Open: sup_K|Λ_n| = O(1) (uniform hard edge); (CVX) for σ_{p,s}. Still open: **(E)**, the existence of the 1/n coefficient (GAP; PROOF SKETCH for p > 1), and the
     s-independent part g(p) for p ∉ {1, 2} (GAP). The −1/24 (second-order) conjecture is not addressed.
 14. Lemma R1's η, J are non-explicit (proof by contradiction) (§3.6 R-b). *Update:* explicit (but tiny) constants in the
     window version R1W (§3.10) and for the a-law R1a (§3.12); sharp constants (phase model 4/π, 8/π²) open.
