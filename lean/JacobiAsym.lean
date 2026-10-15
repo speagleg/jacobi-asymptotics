@@ -49,3 +49,4 @@ import JacobiAsym.HallCorollaries
 import JacobiAsym.GenWeights
 import JacobiAsym.Spacing
 import JacobiAsym.GeneralAtoms
+import JacobiAsym.Paper1Corollaries
