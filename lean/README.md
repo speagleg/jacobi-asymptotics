@@ -75,12 +75,21 @@ of P_n(0) is used) and Remark `rem:sharp` are not formalized.
 | `betaF_integral`, `arccos_eq_integral`, **`hallLam_eq_gamma`**, `hallI`, `hallC_eq`, `hallKappa_eq`, `hallKappa_one`, `hallKappa_two` | Paper 1 (1.2) (Plan 60, S6) | Λ(p) = B(1/p+1/2, 1/2) = √π Γ(1/p+1/2)/Γ(1/p+1) = 2I(p), so `hallKappa p` = 3p/2 + log(¼(π/(2I(p)))^p) = κ_p; κ₁ = 3/2 − log 2, κ₂ = 3 + log(π²/16) |
 | **`theoremHPure_kappa`**, `theoremHPure_two` | **G2 Corollary H-input, in the paper's normalisation** | **`TheoremHPure p κ_p s` for all p > 0, s > 1 with κ_p = 3p/2 + log(¼(π/(2I(p)))^p) — sorry-free** |
 | **`smoothZeta_HL_uncond`, `smoothZeta_HL_det_uncond`, `smoothZeta_bLaw_uncond`** | **Corollary H_L-ζ (all three forms), no named input** | **the smooth-ζ corollaries with `TheoremHPure 2 (3 + log(π²/16)) 2` discharged — sorry-free** |
+| `heineK_le_hTermW`, `head_log_bound_w`, `hall_upper_w`, `heineD_weight_ge`, `hall_lower_w`, **`pure_law_w`** | Paper 1 Theorems 4.3, 5.2 as stated (Plan 61, G1) | atoms (k+1)^{−p}: upper bound for any positive summable w (proof of `hall_upper` re-run with W = Σ'w); lower bound for w ≥ c₁(k+1)^{−s}, **any real s** (from `hall_lower` with s' = max s 2 by weight monotonicity) |
+| `heineTerm_scale`, `heineD_scale`, `scaled_law` | Paper 1 Lemma 2.2(iii) (G2) | D_n(Σ w δ_{C y_k}) = C^{n(n−1)} D_n(Σ w δ_{y_k}); the constant becomes κ + log C |
+| `PairRatio`, `log_heineD_le_of_pair`, **`hnorm_transfer`** | Paper 1 Lemma 2.3 (G2) | pair-gap ratios → 1 (≤ fixed B on pairs with smaller index < a₀) ⇒ \|log D_n(x) − log D_n(y)\| ≤ 2a₀n log B + εn², same law; translation invariance is built in (only differences occur) |
+| `deriv_neg_of_hyp`, `gap_bounds`, `pairRatio_of_hyp`, `atoms_of_hyp` | Paper 1 §6, "general atoms" | f′ < 0 (IVT), Cauchy MVT against h(ξ) = Cξ^{−p}: `PairRatio (f(k+1)) (C(k+1)^{−p})`, atoms strictly decreasing and bounded |
+| **`paper1_thm11`**, `paper1_thm11_heine` | **Paper 1 Theorem 1.1 in full** | **p > 0, C > 0, f ∈ C¹[1,∞) (`HasDerivWithinAt f (f' ξ) (Ici 1) ξ` for ξ ≥ 1, `ContinuousOn f' (Ici 1)`), ξ^{p+1}f′(ξ) → −pC, ∃ 0 < m ≤ ξ^{p+1}\|f′\| ≤ M on [1,∞); w ≥ 0, Σw < ∞, w_k ≥ c₁k^{−s}, c₁ > 0, s ∈ ℝ: (log det(m_{i+j})_{i,j<n} − (−pn² log n + (κ_p + log C)n²))/n² → 0, κ_p = 3p/2 + log(¼(π/(2I(p)))^p) — sorry-free, no hypothesis strengthened (0-based: atom k is f(k+1))** |
+| **`paper1_cor12`** | **Paper 1 Corollary 1.2** | **(2/n²)Σ_{j=1}^{n−1}(n−j) log(j^p √(jb2 j)) → log(c(p)C) — sorry-free** |
+| `zetaHankel`, `zeta_re_eq_tsum`, `zetaHankel_eq`, **`paper1_cor14`**, `paper1_cor14_one`, `paper1_cor14_two` | **Paper 1 Corollary 1.4 (G2 HZ)** | **log det_{1≤i,j≤n} ζ(a(i+j)+b) = −an² log n + (3a/2 + log c(a))n² + o(n²) for real a > 0, 2a + b > 1 (Mathlib `riemannZeta`, real parts); special cases a = 1 (3/2 − log 2, b > −1), a = 2 (3 + log(π²/16), b > −3) — sorry-free** |
 
 Plan 60 (lean/HALL_PLAN.md) formalizes Theorem H_all for pure powers: `theoremHPure_all` / `theoremHPure_kappa` prove
 the named input `TheoremHPure p κ_p s` for every p > 0, s > 1, sorry-free, with κ_p in the paper's Gamma form (rows marked
 Paper 1 above). Consequently `theoremHL_all` (Theorem H_L) and `smoothZeta_HL_uncond`, `smoothZeta_HL_det_uncond`,
 `smoothZeta_bLaw_uncond` (Corollary H_L-ζ) are sorry-free with no named input. The older PROVED-mod-input statements are
-kept unchanged (they take `TheoremHPure` as a hypothesis). Not formalized: Theorem 1.1 for general atoms f(k) (Lemma 2.3
-transfer), the uniqueness of the maximiser, and the equality case of Lemma 3.3.
+kept unchanged (they take `TheoremHPure` as a hypothesis). Plan 61 (lean/GENF_PLAN.md) formalizes Paper 1 Theorem 1.1 in
+full (`paper1_thm11`: general atoms f(k), general weights, any real s), Corollary 1.2 (`paper1_cor12`) and Corollary 1.4
+(`paper1_cor14`), sorry-free with no named input and no strengthened hypothesis. Not formalized: the uniqueness of the
+maximiser and the equality case of Lemma 3.3 (neither is used by Theorem 1.1).
 
 Check: `./check.sh` (build + axioms audit + completeness list; prints AUDIT OK).

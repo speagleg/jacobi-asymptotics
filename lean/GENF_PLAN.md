@@ -35,14 +35,23 @@ Existing input (Plan 60): `hall_upper`, `hall_lower`, `theoremHPure_all` — pur
 
 | Stage | File | Statement | Status |
 |---|---|---|---|
-| G1 | GenWeights.lean | `hall_upper_w (hp : 0 < p) (hw : ∀ k, 0 < w k) (hws : Summable w) (hη : 0 < η) : ∀ᶠ n in atTop, hnorm p (hallKappa p) (heineD (powSeq p) w) (fun _ => 0) n ≤ η` | |
-| G1 | GenWeights.lean | `hall_lower_w (hp : 0 < p) (hc1 : 0 < c1) (hw0 : ∀ k, 0 ≤ w k) (hws : Summable w) (hwlo : ∀ k, c1 * powSeq s k ≤ w k) (hη : 0 < η) : ∀ᶠ n in atTop, -η ≤ hnorm …` (s : ℝ arbitrary) | |
-| G1 | GenWeights.lean | `pure_law_w` : `Tendsto (hnorm p (hallKappa p) (heineD (powSeq p) w) (fun _ => 0)) atTop (𝓝 0)` | |
-| G2 | Spacing.lean | `PairRatio x y` (Prop: for every ε > 0 there are a₀, B ≥ 1 with the two-sided pair bounds of §0.3) and `hnorm_transfer : PairRatio x y → … → Tendsto (hnorm p κ (heineD y w) ℓ) … → Tendsto (hnorm p κ (heineD x w) ℓ) …` (Lemma 2.3) | |
-| G2 | Spacing.lean | `scaled_law : … → Tendsto (hnorm p (κ + log C) (heineD (fun k => C * powSeq p k) w) …)` (Lemma 2.2(iii)) | |
-| G3 | GeneralAtoms.lean | `pairRatio_of_deriv` : the hypotheses of Theorem 1.1 on f give `PairRatio (fun k => f (k+1)) (fun k => C * powSeq p k)`; `f'_neg` | |
-| G3 | GeneralAtoms.lean | **`paper1_thm11`**, **`paper1_thm11_det`** (Theorem 1.1, Heine and determinant form, constant in Gamma form) | |
-| G4 | GeneralAtoms.lean | **`paper1_cor12`** (Corollary 1.2 via `hankel_det_eq_prod`) | |
-| G5 | ZetaHankel.lean | **`paper1_cor14`** (Corollary 1.4: det_{1≤i,j≤n} ζ(a(i+j)+b), real a > 0, 2a + b > 1) | |
+| G1 | GenWeights.lean | `hall_upper_w (hp : 0 < p) (hw : ∀ k, 0 < w k) (hws : Summable w) (hη : 0 < η) : ∀ᶠ n in atTop, hnorm p (hallKappa p) (heineD (powSeq p) w) (fun _ => 0) n ≤ η` | done (sorry-free) |
+| G1 | GenWeights.lean | `hall_lower_w (hp : 0 < p) (hc1 : 0 < c1) (hw0 : ∀ k, 0 ≤ w k) (hws : Summable w) (hwlo : ∀ k, c1 * powSeq s k ≤ w k) (hη : 0 < η) : ∀ᶠ n in atTop, -η ≤ hnorm …` (s : ℝ arbitrary) | done (sorry-free) |
+| G1 | GenWeights.lean | `pure_law_w` : `Tendsto (hnorm p (hallKappa p) (heineD (powSeq p) w) (fun _ => 0)) atTop (𝓝 0)` | done (sorry-free) |
+| G2 | Spacing.lean | `PairRatio x y` (Prop: for every ε > 0 there are a₀, B ≥ 1 with the two-sided pair bounds of §0.3) and `hnorm_transfer : PairRatio x y → … → Tendsto (hnorm p κ (heineD y w) ℓ) … → Tendsto (hnorm p κ (heineD x w) ℓ) …` (Lemma 2.3) | done (sorry-free) |
+| G2 | Spacing.lean | `scaled_law : … → Tendsto (hnorm p (κ + log C) (heineD (fun k => C * powSeq p k) w) …)` (Lemma 2.2(iii)) | done (sorry-free) |
+| G3 | GeneralAtoms.lean | `pairRatio_of_deriv` : the hypotheses of Theorem 1.1 on f give `PairRatio (fun k => f (k+1)) (fun k => C * powSeq p k)`; `f'_neg` | done (sorry-free) |
+| G3 | GeneralAtoms.lean | **`paper1_thm11`**, **`paper1_thm11_det`** (Theorem 1.1, Heine and determinant form, constant in Gamma form) | done (sorry-free) |
+| G4 | GeneralAtoms.lean | **`paper1_cor12`** (Corollary 1.2 via `hankel_det_eq_prod`) | done (sorry-free) |
+| G5 | ZetaHankel.lean | **`paper1_cor14`** (Corollary 1.4: det_{1≤i,j≤n} ζ(a(i+j)+b), real a > 0, 2a + b > 1) | done (sorry-free) |
 
 Every main theorem goes into Audit.lean and the `need` list of check.sh.
+
+## 2. Outcome (Plan 61)
+
+All stages done, sorry-free; `lean/check.sh` prints AUDIT OK (only propext, Classical.choice, Quot.sound). No named
+hypothesis remains and no hypothesis of Theorem 1.1 is strengthened (the derivative is given as an explicit `f'` with
+`HasDerivWithinAt … (Ici 1)` and `ContinuousOn f' (Ici 1)`, which is f ∈ C¹[1,∞)). Final names: `pure_law_w`,
+`hnorm_transfer`, `scaled_law`, `pairRatio_of_hyp`, `paper1_thm11_heine`, `paper1_thm11` (GeneralAtoms.lean),
+`paper1_cor12`, `paper1_cor14` (+ `_one`, `_two`) (Paper1Corollaries.lean). In Corollary 1.4 the determinant is of the real
+matrix `(Re ζ(a(i+j)+b))`; `zeta_re_eq_tsum` shows ζ is real (= Σ (k+1)^{−t}) there.

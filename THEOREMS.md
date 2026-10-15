@@ -173,10 +173,15 @@ in a later result.
 | **`hallLam_eq_gamma`**, `hallKappa_eq`, `hallKappa_one`, `hallKappa_two` | Λ(p) = √π Γ(1/p+1/2)/Γ(1/p+1) = 2I(p); Lean κ = Paper 1's κ_p; κ₁ = 3/2 − log 2, κ₂ = 3 + log(π²/16) | sorry-free (Plan 60) | HallGamma.lean | Mathlib beta distribution |
 | **`theoremHPure_kappa`**, `theoremHPure_two` | `TheoremHPure p κ_p s`, κ_p = 3p/2 + log(¼(π/(2I(p)))^p), all p > 0, s > 1 (G2 Cor H-input) | **sorry-free (Plan 60) — the named input is a theorem** | HallCorollaries.lean | theoremHPure_all, hallLam_eq_gamma |
 | **`smoothZeta_HL_uncond`, `smoothZeta_HL_det_uncond`, `smoothZeta_bLaw_uncond`** | Corollary H_L-ζ (Heine, Hankel-det, b_j forms) with no named input | **sorry-free (Plan 60)** | HallCorollaries.lean | smoothZeta_HL(_det), smoothZeta_bLaw, theoremHPure_two |
+| `hall_upper_w`, `hall_lower_w`, **`pure_law_w`** | atoms (k+1)^{−p}, general weights: upper bound for any positive summable w; lower bound for w ≥ c₁(k+1)^{−s}, **any real s** (by weight monotonicity from `hall_lower`) (Paper 1 Thms 4.3, 5.2 as stated) | **sorry-free (Plan 61)** | GenWeights.lean | hall_upper, hall_lower |
+| `heineD_scale`, `scaled_law`, `PairRatio`, **`hnorm_transfer`** | D_n(Cy) = C^{n(n−1)} D_n(y) (Lemma 2.2(iii)); regular-spacing comparison (Lemma 2.3): pair-gap ratio → 1 ⇒ same law | **sorry-free (Plan 61)** | Spacing.lean | heineTerm_le_of_pair_le_split |
+| **`paper1_thm11`**, `paper1_thm11_heine`, `pairRatio_of_hyp`, `deriv_neg_of_hyp` | **Paper 1 Theorem 1.1 in full**: f ∈ C¹[1,∞) (HasDerivWithinAt on Ici 1, f′ continuous), ξ^{p+1}f′ → −pC, 0 < inf ≤ sup ξ^{p+1}\|f′\| < ∞; w ≥ 0, Σw < ∞, w_k ≥ c₁k^{−s}, any real s ⇒ log det(m_{i+j}) = −pn² log n + (κ_p + log C)n² + o(n²), κ_p in Gamma form; no hypothesis strengthened | **sorry-free (Plan 61)** | GeneralAtoms.lean | pure_law_w, scaled_law, hnorm_transfer, ratio_bounds_of_deriv |
+| **`paper1_cor12`** | Paper 1 Corollary 1.2: (2/n²)Σ_{j<n}(n−j) log(j^p b_j) → log(c(p)C), b_j = √(jb2) | **sorry-free (Plan 61)** | Paper1Corollaries.lean | paper1_thm11, hankel_det_eq_prod, sum_log_weighted_asymp |
+| **`paper1_cor14`**, `paper1_cor14_one`, `paper1_cor14_two`, `zetaHankel_eq` | Paper 1 Corollary 1.4 (= G2 HZ): log det_{1≤i,j≤n} ζ(a(i+j)+b) = −an² log n + (3a/2 + log c(a))n² + o(n²), real a > 0, 2a + b > 1 (Mathlib `riemannZeta`, real parts); a = 1 (b > −1), a = 2 (b > −3) | **sorry-free (Plan 61)** | Paper1Corollaries.lean | theoremHPure_kappa, heineD_eq_det |
 
-Not formalized: the forward Weyl law (item 11 "Theorem B"; not G3′ Theorem B, see §6), Theorem H_all for general atoms f(k) (Plan 60 formalized the pure-power case `theoremHPure_all` / `theoremHPure_kappa`, κ_p in Gamma form;
-Lemma 2.3 transfer to general f, the uniqueness of the maximiser and the equality case of Lemma 3.3 are not formalized,
-lean/HALL_PLAN.md), everything in
+Not formalized: the forward Weyl law (item 11 "Theorem B"; not G3′ Theorem B, see §6), the uniqueness of the maximiser
+and the equality case of Lemma 3.3 (Plan 60, lean/HALL_PLAN.md; Theorem H_all for general atoms f(k) is formalized since
+Plan 61, `paper1_thm11`, lean/GENF_PLAN.md), everything in
 research/ except the Christoffel shift of G1 §3.21 / Paper 2 §3 (Plan 56 rows above; for `DMeasure` σ with atoms x_k ≥ 0 —
 no atom at 0, general σ with finite moments not covered; zero location in `lem:zeros` and Remark `rem:sharp` not formalized).
 
@@ -191,8 +196,8 @@ no atom at 0, general σ with finite moments not covered; zero location in `lem:
 | A2 (Cor.) | head bound log V(S) ≤ −pN²log N + E_pN² + C′_M n log n | PROVED (uses A1 and the Scaling identity of §0; E_p enters only as the sup, not its value) — label added by Plan 37 | §0, §2 | A1, scaling |
 | A-U | limsup (1/n²)[log D_n + pn²log n] ≤ E_p | PROVED (uses A1, B*-scaling; algebra of item 11 H7) | §2 | A1, item 11 H7 |
 | A-L | liminf ≥ κ_p (= I(μ*_u)) | PROVED (citation-free: uses B*(i) and the value in B*(iii)) | §2 | B*(i), value of I(μ*) |
-| **H_all** | see H1 | PROVED (Plan 47; was PROVED-mod-cite (P)); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED | §3 | A-U, A-L, B*, item 11 H3, H4 |
-| HZ | log det ζ(a(i+j)+b) = −an²log n + (3a/2 + log c(a))n² + o(n²), a > 0, 2a+b > 1 | PROVED (Plan 47; was PROVED-mod-cite (P)); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED | §3 | H_all |
+| **H_all** | see H1 | PROVED (Plan 47; was PROVED-mod-cite (P)); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED. Lean: sorry-free in full generality (Paper 1 Thm 1.1, `paper1_thm11`, Plan 61) | §3 | A-U, A-L, B*, item 11 H3, H4 |
+| HZ | log det ζ(a(i+j)+b) = −an²log n + (3a/2 + log c(a))n² + o(n²), a > 0, 2a+b > 1 | PROVED (Plan 47; was PROVED-mod-cite (P)); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED. Lean: sorry-free (`paper1_cor14`, Plan 61) | §3 | H_all |
 | **H-input** (Cor.) | `TheoremHPure p κ_p s` holds on paper for every p > 0, s > 1 (bdd: heineK ≤ (Σ(k+1)^{−s})^n; asymp: H_all with f = ξ^{−p}, C = 1, w = k^{−s}, via `heineD_eq_det`) | PROVED, as H_all (Plan 47; was PROVED-mod-cite (P)); Rule R ACCEPT WITH FIXES (research/G2/review/REVIEW_Plan47.md), fixes applied — REVIEWED | §3 (before Novelty) | H_all, Lean `heineD_eq_det` |
 
 Prior art recorded: Monien arXiv:0901.1883 (p = 1, heuristic, same optimizer) (M).

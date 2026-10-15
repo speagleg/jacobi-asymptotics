@@ -36,8 +36,11 @@ $$\log D_n=-p\,n^2\log n+\Bigl(\tfrac{3p}{2}+\log\bigl(c(p)\,C\bigr)\Bigr)n^2+o(
 and $c(p)$ is identified through an explicitly solved constrained equilibrium problem. A corollary is the $n^2$
 asymptotics of the Hankel determinants of zeta values, $\det_{1\le i,j\le n}\zeta(a(i+j)+b)$, for every real $a>0$
 with $2a+b>1$.
-*Status: PROVED; reviewed. For pure powers ($x_k=k^{-p}$, $w_k=k^{-s}$) the theorem is also **machine-checked in
-Lean 4 / Mathlib**, sorry-free with only the standard axioms (`theoremHPure_all`, `lean/JacobiAsym/TheoremHall.lean`).*
+*Status: PROVED; reviewed. The theorem in full (general atoms $f\in C^1[1,\infty)$ with the stated derivative
+conditions, weights with $\sum w_k<\infty$ and $w_k\ge c_1k^{-s}$ for any real $s$, constant in Gamma form), the Jacobi
+form (Corollary 1.2) and the zeta-value corollary are also **machine-checked in Lean 4 / Mathlib**, sorry-free with only
+the standard axioms (`paper1_thm11`, `paper1_cor12`, `paper1_cor14`; `lean/JacobiAsym/GeneralAtoms.lean`,
+`Paper1Corollaries.lean`). Not formalized: uniqueness of the equilibrium maximiser (not needed for the theorem).*
 &nbsp;[Paper 1](papers/paper1/main.pdf), `research/G2/`
 
 **2. The pointwise law holds for pure powers, with rate $O(1/n)$.**
