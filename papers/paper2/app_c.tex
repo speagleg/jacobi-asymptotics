@@ -1,7 +1,4 @@
-% ===================================================================================
-% Appendix C (chunk C): the a priori bound at the hard edge, and Q in I + dC(L^2).
-% Labels: app:apriori, prop:apriori, cor:L2, lem:sumbound, lem:lenssector.
-% ===================================================================================
+% Appendix: the a priori bound at the hard edge, and Q in I + dC(L^2).
 \providecommand{\eps}{\varepsilon}
 \providecommand{\re}{\operatorname{Re}}
 \providecommand{\im}{\operatorname{Im}}
@@ -14,8 +11,6 @@
 \providecommand{\dC}{\partial\mathcal{C}}
 
 \section{The a priori bound at the hard edge}\label{app:apriori}
-% src: RH_px §5 "(Y4)_x" (one-sided nodes; review REVIEW_RHpx F9); ROUTE2 §4.3 "(Q in L^2)" (Potter loss);
-% RH_plt1b §2 (lens sector needs only phi_0 < pi p); ROUTE2_xframe1 §2 row "§5 (Y4)_x"; RH_zeta_close §1.6 (vertex list).
 
 The comparison argument of \S\ref{sec:hardedge} applies Theorem~4.4 of Conway and Deift (\ref{tool:T3}) to $Q$. Its hypothesis is
 $Q_\pm\in I+\dC(L^2(\Sigma))$: the boundary values of $Q-I$ must be Cauchy integrals of $L^2$ functions. We never solve a
@@ -38,51 +33,52 @@ $0<|z|\le1$, $\varphi_1\le|\arg z|\le\pi$.
 
 \begin{proof}
 For such $z$ and $X>0$, $|z-X|\ge\sin\varphi_1\max(|z|,X)$. By Lemma~\ref{lem:potter} (or Lemma~\ref{lem:pottersector}(i)),
-$w_k\le C_\eta k^{-s+\eta}$, and $U_{j1}$ is bounded on $[0,n^p]$. Let $K:=n|z|^{-1/p}$, so that $X_k\ge|z|$ if and only if
-$k\le K$. Then
+$w_k\le C_\eta k^{-s+\eta}$, and $U_{j1}$ is bounded on $[0,n^p]$. Let $t_z:=|t(z)|=n|z|^{-1/p}$, so that $X_k\ge|z|$ if and only if
+$k\le t_z$. Then
 \[
-  |U_{j2}(z)|\le C\sum_{k\le K}\frac{k^{-s+\eta}}{(n/k)^p}+\frac C{|z|}\sum_{k>K}k^{-s+\eta}
-  \le C\bigl(1+K^{1+p-s+\eta}+\log K\bigr)+C|z|^{-1}K^{1-s+\eta}.
+  |U_{j2}(z)|\le C\sum_{k\le t_z}\frac{k^{-s+\eta}}{(n/k)^p}+\frac C{|z|}\sum_{k>t_z}k^{-s+\eta}
+  \le C\bigl(1+t_z^{1+p-s+\eta}+\log t_z\bigr)+C|z|^{-1}t_z^{1-s+\eta}.
 \]
-Since $K^{1+p-s}=n^{1+p-s}|z|^{\alpha}$ and $|z|^{-1}K^{1-s}=n^{1-s}|z|^{\alpha}$ (recall $(s-1)/p-1=\alpha$), and
-$K^\eta=n^\eta|z|^{-\eta/p}$, the claim follows after renaming $\eta$.
+Since $t_z^{1+p-s}=n^{1+p-s}|z|^{\alpha}$ and $|z|^{-1}t_z^{1-s}=n^{1-s}|z|^{\alpha}$ (recall $(s-1)/p-1=\alpha$), and
+$t_z^\eta=n^\eta|z|^{-\eta/p}$, the claim follows after renaming $\eta$.
 \end{proof}
 
 \begin{lemma}[Lens sectors]\label{lem:lenssector}
-For every $\eta>0$ there are $b\in(0,\delta)$ and $C$ such that $|R_{j2}(z)|\le C|z|^{-\eta}(1+|z|^\alpha)$ for $0<|z|\le b/2$,
-$0<|\arg z|<\varphi_1$, and also for $z\in\Ob\cap U(0,b/2)$.
+For every $\eta>0$ there are $\delta_{\mathrm s}\in(0,\delta)$ and $C$ such that $|R_{j2}(z)|\le C|z|^{-\eta}(1+|z|^\alpha)$ for
+$0<|z|\le\delta_{\mathrm s}/2$, $0<|\arg z|<\varphi_1$, and also for $z\in\Ob\cap U(0,\delta_{\mathrm s}/2)$.
 \end{lemma}
 
 \begin{proof}
-Take $z$ with $0<\arg z<\varphi_1$; the case $\arg z<0$ is the mirror image. In $\Ob^+$, $R_{j2}=U_{j2}-U_{j1}We^{-2i\theta}\kappa_+$
+Inside the lens the Cauchy sum~\eqref{eq:U-sum} has poles that $R$ removes; we move the sum onto the boundary of a
+sector by the residue theorem and bound the boundary integral. Take $z$ with $0<\arg z<\varphi_1$; the case $\arg z<0$ is the mirror image. In $\Ob^+$, $R_{j2}=U_{j2}-U_{j1}We^{-2i\theta}\kappa_+$
 by~\eqref{eq:R}. Put
 \[
-  \mathcal K_j(s):=\frac{U_{j1}(s)W(s)}{e^{2i\theta(s)}-1},\qquad s\in G:=\{s:\ r<|s|<b,\ |\arg s|<\thlip\},
+  \mathcal K_j(s):=\frac{U_{j1}(s)W(s)}{e^{2i\theta(s)}-1},\qquad s\in\mathcal G:=\{s:\ r<|s|<\delta_{\mathrm s},\ |\arg s|<\thlip\},
 \]
-where $b$ and $r$ are chosen with $t(b),t(r)\in\N+\frac12$, and $r<\frac12|z|$, $|z|<\frac12b$. Note $e^{-2i\theta}\kappa_+=1/(e^{2i\theta}-1)$,
-so $R_{j2}(z)=U_{j2}(z)-\mathcal K_j(z)$. The function $\mathcal K_j$ is meromorphic on a neighbourhood of $\overline G$: $W$ is
+where $\delta_{\mathrm s}$ and $r$ are chosen with $t(\delta_{\mathrm s}),t(r)\in\N+\frac12$, and $r<\frac12|z|$, $|z|<\frac12\delta_{\mathrm s}$. Note $e^{-2i\theta}\kappa_+=1/(e^{2i\theta}-1)$,
+so $R_{j2}(z)=U_{j2}(z)-\mathcal K_j(z)$. The function $\mathcal K_j$ is meromorphic on a neighbourhood of $\overline{\mathcal G}$: $W$ is
 analytic there (Lemma~\ref{lem:weightdomain}), and $e^{2i\theta}=1$ only where $t\in\mathbb Z$, i.e.\ at the nodes (the points with
 $t\in-\N$ have $|\arg s|=\pi p>\thlip$). At a node, $e^{2i\theta(s)}-1=2i\theta'(X_k)(s-X_k)(1+O(s-X_k))$, so
-$\Res_{X_k}\mathcal K_j=U_{j1}(X_k)W(X_k)/(2i\theta'(X_k))=w(X_k)U_{j1}(X_k)$. The residue theorem on $\partial G$ (positively
+$\Res_{X_k}\mathcal K_j=U_{j1}(X_k)W(X_k)/(2i\theta'(X_k))=w(X_k)U_{j1}(X_k)$. The residue theorem on $\partial\mathcal G$ (positively
 oriented) and~\eqref{eq:U-sum} give
 \begin{equation}\label{eq:R-contour}
-  R_{j2}(z)=\sum_{X_k\notin G}\frac{w(X_k)U_{j1}(X_k)}{z-X_k}-\frac1{2\pi i}\oint_{\partial G}\frac{\mathcal K_j(s)\diff s}{s-z}.
+  R_{j2}(z)=\sum_{X_k\notin\mathcal G}\frac{w(X_k)U_{j1}(X_k)}{z-X_k}-\frac1{2\pi i}\oint_{\partial\mathcal G}\frac{\mathcal K_j(s)\diff s}{s-z}.
 \end{equation}
-We bound the terms. (1) The nodes with $X_k\ge b$ are finitely many and at distance $\ge b/2$ from $z$; those with $X_k\le r$
+We bound the terms. (1) The nodes with $X_k\ge\delta_{\mathrm s}$ are finitely many and at distance $\ge\delta_{\mathrm s}/2$ from $z$; those with $X_k\le r$
 contribute at most $\frac2{|z|}\sum_{X_k\le r}w(X_k)|U_{j1}(X_k)|$, which tends to $0$ as $r\to0$. (2) On the ray
 $\arg s=\thlip$, $|e^{2i\theta}-1|^{-1}=|e^{-2i\theta}|/|1-e^{-2i\theta}|\le2\exp(-2\pi n|s|^{-1/p}\sin(\thlip/p))$ by~\eqref{eq:imtheta},
 which beats $|W(s)|\le C|s|^{\alpha-\eta}$ (Lemmas~\ref{lem:bandweight}, \ref{lem:pottersector}(ii)); and $|s-z|\ge|s|\sin(\thlip-\varphi_1)$.
 So this part is bounded. (3) On the ray $\arg s=-\thlip$ we write $1/(e^{2i\theta}-1)=-1-e^{2i\theta}/(1-e^{2i\theta})$, where now
-$|e^{2i\theta}|<1$ is super-small, so $\mathcal K_j=-U_{j1}W+(\text{bounded})$. Since $|s-z|\ge c'(|s|+|z|)$,
+$|e^{2i\theta}|<1$ is super-small, so $\mathcal K_j=-U_{j1}W+(\text{bounded})$. Since $|s-z|\ge(|s|+|z|)/C$,
 \[
-  \int_0^b\frac{|W(\rho e^{-i\thlip})|\diff\rho}{\rho+|z|}\le C\int_0^b\frac{\rho^{\alpha-\eta}\diff\rho}{\rho+|z|}\le C|z|^{-\eta}(1+|z|^{\alpha}),
+  \int_0^{\delta_{\mathrm s}}\frac{|W(\rho e^{-i\thlip})|\diff\rho}{\rho+|z|}\le C\int_0^{\delta_{\mathrm s}}\frac{\rho^{\alpha-\eta}\diff\rho}{\rho+|z|}\le C|z|^{-\eta}(1+|z|^{\alpha}),
 \]
-because $\alpha-\eta>-1$. (4) On the arcs $|s|=r$ and $|s|=b$, $|t|\in\N+\frac12$. For such $t=u+iv$ we have
-$|e^{2\pi it}-1|\ge c'>0$: if $|v|\ge\frac14$ this is clear, and if $|v|<\frac14$ then $u$ is at distance at least $\frac38$ from
+because $\alpha-\eta>-1$. (4) On the arcs $|s|=r$ and $|s|=\delta_{\mathrm s}$, $|t|\in\N+\frac12$. For such $t=u+iv$ we have
+$|e^{2\pi it}-1|\ge1/C>0$: if $|v|\ge\frac14$ this is clear, and if $|v|<\frac14$ then $u$ is at distance at least $\frac38$ from
 $\mathbb Z$, so $|e^{2\pi it}-1|=2e^{-\pi v}|\sin\pi t|\ge2e^{-\pi/4}\sin(3\pi/8)$. Hence $|\mathcal K_j|\le C|W|\le C|s|^{\alpha-\eta}$
 there. The arc $|s|=r$ has length $\le2\thlip r$ and $|s-z|\ge\frac12|z|$, so its contribution is $\le Cr^{1+\alpha-\eta}/|z|\to0$
-as $r\to0$; the arc $|s|=b$ contributes a bounded amount. Letting $r\to0$ in~\eqref{eq:R-contour} proves the bound for
-$0<\arg z<\varphi_1$. For $z\in\Ob\cap U(0,b/2)$ with $\varphi_1\le|\arg z|<\frac54\thlip$, $R_{j2}=U_{j2}-U_{j1}We^{\mp2i\theta}\kappa_\pm$
+as $r\to0$; the arc $|s|=\delta_{\mathrm s}$ contributes a bounded amount. Letting $r\to0$ in~\eqref{eq:R-contour} proves the bound for
+$0<\arg z<\varphi_1$. For $z\in\Ob\cap U(0,\delta_{\mathrm s}/2)$ with $\varphi_1\le|\arg z|<\frac54\thlip$, $R_{j2}=U_{j2}-U_{j1}We^{\mp2i\theta}\kappa_\pm$
 is bounded by Lemma~\ref{lem:sumbound} plus a super-small term.
 \end{proof}
 
@@ -100,9 +96,8 @@ The same holds for $Q^{-1}$.
 $\det U=\det Y=1$ (Lemma~\ref{lem:interp}), and every other factor in~\eqref{eq:VM} and in $Q=D_\infty^{-\sigma_3}VD_W^{\sigma_3}$ has
 determinant $1$; so $\det Q=1$ and $Q^{-1}$ has the same entries up to sign and order.
 
-(i) Let $\eta>0$ and $|z|<\min(\delta,b/2)$ (the annulus $b/2\le|z|<\delta$ is covered by~(ii)). Write
-$Q=E_\infty\,U\,M\,D_W^{\sigma_3}$ with the constant $E_\infty:=D_\infty^{-\sigma_3}C_\infty e^{-n\gamma_p\sigma_3}$ and $M$
-from~\eqref{eq:VM}. We use: $|e^{\pm n\varphi}|\le e^{Cn|z|^{1/2}}\le C$ (Lemma~\ref{lem:signs}(iii)); $|F|^{\pm1}\le C$ outside
+(i) Let $\eta>0$ and $|z|<\delta_{\mathrm s}/2$ (the annulus $\delta_{\mathrm s}/2\le|z|<\delta$ is covered by~(ii)). By~\eqref{eq:VM} and~\eqref{eq:Q},
+$Q$ is a constant diagonal matrix times $U\,M\,D_W^{\sigma_3}$. We use: $|e^{\pm n\varphi}|\le e^{Cn|z|^{1/2}}\le C$ (Lemma~\ref{lem:signs}(iii)); $|F|^{\pm1}\le C$ outside
 the lens and $|\tilde F|^{\pm1}\le C$ in the lens near $0$ (O5); $|D_W(z)|^{\pm1}\le C|z|^{\pm\alpha/2-\eta}$
 (Lemma~\ref{lem:szego}(vi)); $|1/W(z)|\le C|z|^{-\alpha-\eta}$ in the lens (Lemmas~\ref{lem:bandweight},
 \ref{lem:pottersector}(ii)); and $U_{j1}$ bounded.
@@ -115,44 +110,33 @@ $\le C|z|^{-|\alpha|/2-2\eta}$.
 \emph{In the lens} $\Ob^\pm$, $UM=R\,e^{n\varphi\sigma_3}A_\pm\tilde F^{\sigma_3}$, and
 $e^{n\varphi\sigma_3}A_\pm=\bigl(\begin{smallmatrix}e^{n\varphi}&0\\\mp e^{n\varphi}/W&e^{-n\varphi}\end{smallmatrix}\bigr)$. The first column of
 $R$ is that of $U$, and the second is bounded by Lemma~\ref{lem:lenssector}. Hence the first column of $Q$ is at most
-$C(1+|z|^{-\alpha-\eta}|z|^{-\eta}(1+|z|^\alpha))|z|^{\alpha/2-\eta}\le C|z|^{-|\alpha|/2-3\eta}$, and the second is at most
+$C(1+|z|^{-\alpha-2\eta}(1+|z|^\alpha))|z|^{\alpha/2-\eta}\le C|z|^{-|\alpha|/2-3\eta}$, and the second is at most
 $C|z|^{-\eta}(1+|z|^\alpha)|z|^{-\alpha/2-\eta}\le C|z|^{-|\alpha|/2-2\eta}$. Renaming $\eta$ gives~(i).
 
 (ii) Away from $0$ each of $U$ (meromorphic, with finitely many nodes in any compact set not containing $0$), the triangular
 and diagonal factors in~\eqref{eq:R}--\eqref{eq:V}, $F$, $\tilde F$ and $D_W$ is analytic in each region up to its boundary, except
 for the poles of $U$ and of $\kappa_\pm$ at the nodes, which cancel in $R$ (Step~1 of \S\ref{sec:frame-transf}). Near $4c$ the
 only singular factors are $\tilde F\sim(4c-z)^{-1/2}$ and $D_W\sim(4c-z)^{1/2}$, and they occur only in the product
-$\tilde FD_W$, whose square $(\tilde FD_W)^2=C_nz^\alpha r_n\omega$ is bounded above and below on $U(4c,\eps)$
+$\tilde FD_W$, whose square $(\tilde FD_W)^2=\mathsf w_nz^\alpha r_n\omega$ is bounded above and below on $U(4c,\eps)$
 (Lemma~\ref{lem:szego}(vi)(b)). At the remaining vertices ($4c\pm ih_0$, $n^p+\delta'\pm ih_0$, $n^p+\delta'$) all factors are
 analytic and bounded. At $\infty$, $Q\to I$ by Lemma~\ref{lem:normalisation}. (iii) follows from the same description and
 Lemma~\ref{lem:jumpsV}.
 \end{proof}
 
 \begin{corollary}[$Q$ is an admissible solution]\label{cor:L2}
-For each fixed $n\ge n_0$, $f:=Q_+-Q_-\in L^2(\Sigma)$, $Q_\pm=I+\Cauchy_\pm f$, and $Q=I+\Cauchy f$ off $\Sigma$. Thus
-$Q_\pm\in I+\dC(L^2(\Sigma))$ in the sense of \ref{tool:T3}, and the same holds for $Q^{-1}$.
+For each fixed $n\ge n_0$, $Q_\pm-I\in L^2(\Sigma)$ and $Q=I+\Cauchy(Q_+-Q_-)$ off $\Sigma$. Thus $Q_\pm\in I+\dC(L^2(\Sigma))$ in
+the sense of \ref{tool:T3}, and the same holds for $Q^{-1}$.
 \end{corollary}
 
 \begin{proof}
-For fixed $n$, $\Sigma$ is bounded, $|Q_\pm|$ is bounded away from $0$, and $|Q_\pm(z)|\le C|z|^{-(1+|\alpha|)/4}$ near $0$ by
-Proposition~\ref{prop:apriori} with $\eta=(1-|\alpha|)/4$. Since $(1+|\alpha|)/4<\frac12$, $f\in L^2(\Sigma)$. Put
-$H:=Q-I-\Cauchy f$ on $\C\setminus\Sigma$.
-
-\emph{$H$ has no jump.} On each open arc of $\Sigma$, $Q_\pm$ are real-analytic (each region's formula for $Q$ continues
-analytically across the arc, the poles at the nodes having been removed), so $f$ is locally H\"older and $\Cauchy f$ has
-continuous boundary values with $\Cauchy_+f-\Cauchy_-f=f$ (Sokhotski--Plemelj). Hence $H_+=H_-$ on open arcs, and $H$ is
-analytic across them by Morera's theorem. So $H$ is analytic in $\C$ minus the finitely many vertices.
-
-\emph{The vertices are removable.} Let $z_0$ be a vertex. By Cauchy--Schwarz and $|\Sigma\cap U(z,\rho)|\le C\rho$,
-$|\Cauchy f(z)|\le\|f\|_2(\int_\Sigma|s-z|^{-2}|\diff s|)^{1/2}\le C\|f\|_2\,\mathrm{dist}(z,\Sigma)^{-1/2}$. Near $z_0$, $\Sigma$
-consists of finitely many $C^2$ arcs, so $\iint_{\rho<|z-z_0|<2\rho}\mathrm{dist}(z,\Sigma)^{-1/2}\diff A=O(\rho^{3/2})$, while
-$\iint_{\rho<|z-z_0|<2\rho}|Q-I|\diff A=O(\rho^{2-(1+|\alpha|)/4})$. Hence $\iint_{\rho<|z-z_0|<2\rho}|H|\diff A=o(\rho)$. Choosing
-$r\in(\rho,2\rho)$ with $\oint_{|z-z_0|=r}|H||\diff z|\le\rho^{-1}\iint_{\rho<|z-z_0|<2\rho}|H|\diff A$, the Laurent coefficients
-satisfy $|c_{-k}|\le\frac1{2\pi}r^{k-1}\oint_{|z-z_0|=r}|H||\diff z|=o(\rho^{k-1})$, so $c_{-k}=0$ for $k\ge1$.
-
-\emph{Liouville.} $H$ is entire and tends to $0$ at $\infty$ (both $Q-I$ and $\Cauchy f$ are $O(1/z)$, $\Sigma$ being bounded),
-so $H\equiv0$. The boundary values give $Q_\pm=I+\Cauchy_\pm f$. The argument for $Q^{-1}$ is identical.
+We apply Lemma~\ref{lem:B-cauchy}(c) to $\mathfrak F:=Q-I$ on $\Gamma=\Sigma$, which for fixed $n$ is bounded and satisfies
+$|\Sigma\cap U(z,\rho)|\le C\rho$ \Fi1. By Proposition~\ref{prop:apriori}(iii), $\mathfrak F$ is continuous up to $\Sigma$. By
+Proposition~\ref{prop:apriori}(i) with $\eta=(1-|\alpha|)/4$, $|Q(z)|\le C|z|^{-(1+|\alpha|)/4}$ near $0$, and
+$(1+|\alpha|)/4<\frac12$; with~(ii) this gives $\mathfrak F_\pm\in L^2(\Sigma)$ and
+$\rho\sup_{|z|=\rho}|\mathfrak F(z)|=O(\rho^{1-(1+|\alpha|)/4})\to0$ at the vertex $0$, while at every other vertex the
+corresponding quantity is $O(\rho)$. Finally $\mathfrak F=O(1/z)$ at $\infty$ (Lemma~\ref{lem:normalisation}). The argument for
+$Q^{-1}$ is identical.
 \end{proof}
 
-\noindent This is the content of~\Fi7. For $\eta$ in~\Fi7 any value in $(0,\frac{1-|\alpha|}2)$ makes the boundary values of $Q$
-square integrable at $0$; this is the place where $|\alpha|<1$ enters the a priori bound.
+\noindent This is the content of~\Fi7. Any $\eta\in(0,\frac{1-|\alpha|}2)$ in~\Fi7 makes the boundary values of $Q$ square
+integrable at $0$; this is the use (a) of $|\alpha|<1$ in Remark~\ref{rem:alpha-ge-1}.

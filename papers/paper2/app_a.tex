@@ -1,11 +1,7 @@
-% ============================================================================================================
-% Appendix A (chunk D): two L^2 bounds on a star of arcs.
-% Labels: app:L2, lem:A-power, lem:A-log, eq:A-*.
-% ============================================================================================================
+% Appendix: two L^2 bounds on a star of arcs.
 \providecommand{\Cauchy}{\mathcal{C}}
 
 \section{Two \texorpdfstring{$L^2$}{L2} bounds on a star of arcs}\label{app:L2}
-% src: RH_zeta_close.md §1.4 Lemma W; ROUTE2.md §4.2 Lemma W' (incl. the flattening step, REVIEW_Plan48 F10).
 
 The uniform resolvent bound of Appendix~\ref{app:resolvent} reduces, at the two edges, to two operators on a star of
 arcs through a point: a Cauchy operator conjugated by a power weight, and a Cauchy operator with a logarithmic
@@ -14,10 +10,10 @@ commutator. Both are dilation invariant, which is what makes the bounds uniform 
 \emph{Setting.} A \emph{star} is a set $\Gamma=\bigcup_{j=1}^m\gamma_j([0,R_j])$ of finitely many $C^2$ arcs
 $\gamma_j$, parametrised by arc length, with $\gamma_j(0)=0$, pairwise disjoint except at $0$, and with distinct
 tangent directions $\gamma_j'(0)=e^{i\theta_j}$. Each arc carries an orientation, and $\Cauchy_\pm$ are the boundary
-values of $\Cauchy$ on $\Gamma$ as in \ref{tool:T3}. By compactness and transversality there are $K,c_1>0$ with
+values of $\Cauchy$ on $\Gamma$ as in \ref{tool:T3}. By compactness and transversality there is $C_\Gamma\ge1$ with
 \begin{equation}\label{eq:A-geom}
-  |\gamma_j'(\rho)-e^{i\theta_j}|\le K\rho,\qquad |\gamma_j(\rho)-\gamma_i(r)|\ge c_1(\rho+r)\ (i\ne j),\qquad
-  |\gamma_j(\rho)-\gamma_j(r)|\ge c_1|\rho-r| .
+  |\gamma_j'(\rho)-e^{i\theta_j}|\le C_\Gamma\rho,\qquad |\gamma_j(\rho)-\gamma_i(r)|\ge(\rho+r)/C_\Gamma\ (i\ne j),\qquad
+  |\gamma_j(\rho)-\gamma_j(r)|\ge|\rho-r|/C_\Gamma .
 \end{equation}
 A finite union of $C^2$ arcs is a Carleson curve, so $\Cauchy_\pm$ are bounded on $L^2(\Gamma)$ by \ref{tool:T3}(a). For
 $\lambda>0$ the dilation $(U_\lambda\mathfrak h)(z):=\lambda^{-1/2}\mathfrak h(z/\lambda)$ is unitary from $L^2(\Gamma)$ onto
@@ -28,19 +24,18 @@ are $\diff s/(s-z)$ times a function of $(s/|s|,\,z/|z|,\,|z|/|s|)$.
 We use one elementary bound repeatedly. Let $\mathfrak k$ be measurable on $(0,\infty)$ with
 \[
   \|\mathfrak k\|_*:=\int_0^\infty|\mathfrak k(u)|u^{-1/2}\diff u<\infty,\qquad
-  (K\mathfrak h)(r):=\int_0^\infty\mathfrak k(\rho/r)\mathfrak h(\rho)\frac{\diff\rho}r .
+  (\mathcal M_{\mathfrak k}\mathfrak h)(r):=\int_0^\infty\mathfrak k(\rho/r)\mathfrak h(\rho)\frac{\diff\rho}r .
 \]
 Then
 \begin{equation}\label{eq:A-minkowski}
-  \|K\mathfrak h\|_{L^2(0,\infty)}\le\|\mathfrak k\|_*\,\|\mathfrak h\|_{L^2(0,\infty)} .
+  \|\mathcal M_{\mathfrak k}\mathfrak h\|_{L^2(0,\infty)}\le\|\mathfrak k\|_*\,\|\mathfrak h\|_{L^2(0,\infty)} .
 \end{equation}
-Indeed $(K\mathfrak h)(r)=\int_0^\infty\mathfrak k(u)\mathfrak h(ru)\diff u$, and $\|\mathfrak h(\cdot\,u)\|_{L^2}=u^{-1/2}
+Indeed $(\mathcal M_{\mathfrak k}\mathfrak h)(r)=\int_0^\infty\mathfrak k(u)\mathfrak h(ru)\diff u$, and $\|\mathfrak h(\cdot\,u)\|_{L^2}=u^{-1/2}
 \|\mathfrak h\|_{L^2}$, so \eqref{eq:A-minkowski} is Minkowski's integral inequality. (Equivalently, the Mellin symbol of
-$K$ is bounded by $\|\mathfrak k\|_*$ on the line $\Re s=\frac12$, cf.\ \ref{tool:T4}, (1.14.38)--(1.14.40).) Operators
+$\mathcal M_{\mathfrak k}$ is bounded by $\|\mathfrak k\|_*$ on the line $\Re s=\frac12$, by the Parseval and convolution formulas for the Mellin transform, \cite[(1.14.38)--(1.14.40)]{DLMF}.) Operators
 with kernels that are bounded on a bounded set are Hilbert--Schmidt, and we use that without comment.
 
 \begin{lemma}[power-weighted Cauchy operator on a star]\label{lem:A-power}
-% src: RH_zeta_close.md §1.4 Lemma W (proof re-organised: Minkowski bound + Carleson boundedness of C_pm).
 Let $\Gamma$ be a star and $|\beta|<\frac12$. Then the operators
 \[
   \mathfrak h\ \longmapsto\ |z|^{\beta}\,\Cauchy_\pm\bigl(|s|^{-\beta}\mathfrak h\bigr)(z)
@@ -87,7 +82,7 @@ $C(r/\rho)^\beta$. The second term is $\frac1{2\pi i}((r/\rho)^\beta-1)\,\mathfr
 \[
   \mathfrak e_{ij}(\rho,r):=\frac{\gamma_j'(\rho)}{\gamma_j(\rho)-\gamma_i(r)}-\frac{e^{i\theta_j}}{\rho e^{i\theta_j}-re^{i\theta_i}} .
 \]
-We claim $|\mathfrak e_{ij}|\le C$. For $i\ne j$ both denominators are at least $c(\rho+r)$, and the numerator of the
+We claim $|\mathfrak e_{ij}|\le C$. For $i\ne j$ both denominators are at least $(\rho+r)/C$, and the numerator of the
 difference, $\gamma_j'(\rho)(\rho e^{i\theta_j}-re^{i\theta_i})-e^{i\theta_j}(\gamma_j(\rho)-\gamma_i(r))$, is
 $O(\rho(\rho+r))+O(\rho^2+r^2)$ by \eqref{eq:A-geom}. For $i=j$ the flat term is $1/(\rho-r)$, and
 $\gamma_j(\rho)-\gamma_j(r)=(\rho-r)(\gamma_j'(\rho)+O(\rho-r))$, so $\gamma_j'(\rho)/(\gamma_j(\rho)-\gamma_j(r))=
@@ -103,7 +98,6 @@ $e^{2\pi|\beta|}$ on either side.
 \end{proof}
 
 \begin{lemma}[logarithmic commutator on a star]\label{lem:A-log}
-% src: ROUTE2.md §4.2 Lemma W' (incl. flattening; REVIEW_Plan48 F10).
 Let $\Gamma$ be a star and fix on each arc a continuous branch $\mathrm{l}(z)=\log|z|+i\arg z$ of the logarithm. Then the
 operator
 \[
@@ -135,16 +129,16 @@ $\iint_{[0,R]^2}(1+\log^2(r/\rho))\diff\rho\diff r<\infty$.
 
 \emph{The argument part.} Its kernel is $\frac{i}{2\pi i}(\arg\gamma_i(r)-\arg\gamma_j(\rho))\gamma_j'(\rho)/(\gamma_j(\rho)-
 \gamma_i(r))$. For $i=j$, $\arg\gamma_j(\rho)=\theta_j+O(\rho)$ is $C^1$ on $[0,R_j]$, so by \eqref{eq:A-geom} the kernel is
-bounded. For $i\ne j$ the numerator is bounded and the denominator is at least $c_1(\rho+r)$, so the kernel is at most
+bounded. For $i\ne j$ the numerator is bounded and the denominator is at least $(\rho+r)/C_\Gamma$, so the kernel is at most
 $C/(\rho+r)=C\,\mathfrak k(\rho/r)/r$ with $\mathfrak k(u)=(1+u)^{-1}$, $\|\mathfrak k\|_*=\pi$.
 
 Both parts are bounded on $L^2(\Gamma)$. The kernel depends on $(s,z)$ only through $s/|s|$, $z/|z|$ and $|z|/|s|$,
 so the operator commutes with $U_\lambda$ and the bound holds on $\lambda\Gamma$.
 \end{proof}
 
-\begin{remark}
+\begin{remark}[The condition $|\beta|<\frac12$]\label{rem:mellin}
 For $\Gamma$ a union of rays the curvature terms vanish, and Lemma~\ref{lem:A-power} reduces to the boundedness of the
 Mellin multiplier $\int_0^\infty u^{s-1}\diff u/(u-e^{i\phi_{ij}})$ on $\Re s=\frac12-\beta$; on a single ray its
-principal value is $-\pi\cot(\pi s)$ (from \ref{tool:T4}, (5.12.3) and (5.5.3)), which is bounded on that line exactly
+principal value is $-\pi\cot(\pi s)$ (from \cite[(5.12.3), (5.5.3)]{DLMF}), which is bounded on that line exactly
 when $0<\frac12-\beta<1$. This explains the role of the condition $|\beta|<\frac12$.
 \end{remark}

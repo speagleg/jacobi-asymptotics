@@ -1,7 +1,4 @@
-% ============================================================================================================
-% Appendix B (chunk D): proof of Proposition 7.4 (prop:UR-comparison).
-% Labels: app:resolvent, lem:B-cauchy, lem:B-block, eq:B-airy-structure, eq:B-*.
-% ============================================================================================================
+% Appendix: uniform invertibility of the comparison problem.
 \providecommand{\Cauchy}{\mathcal{C}}
 \providecommand{\dC}{\partial\mathcal{C}}
 \providecommand{\Sighat}{\hat\Sigma}
@@ -10,9 +7,9 @@
 \providecommand{\Pinfz}{P^\infty_0}
 \providecommand{\Phat}{\hat P}
 
-\section{Proof of Proposition~\ref{prop:UR-comparison}}\label{app:resolvent}
-% src: ROUTE2.md §4.1 (UR' incl. (b'), as re-checked in REVIEW_Plan48 "Re-check"); ROUTE2_plt1.md §4.1;
-% RH_zeta_close.md §1.4 (a), (c), (d), (e).
+\section{Uniform invertibility of the comparison problem}\label{app:resolvent}
+
+This appendix proves Proposition~\ref{prop:UR-comparison}.
 
 We use the notation of Section~\ref{sec:hardedge}. In particular $\Sighat=\Sigma\cup\Sigcirc$, $\tilde Q$ is the explicit
 solution \eqref{eq:he-Qtilde} of the comparison problem with jump $\tilde v$, and $n\ge n_0$. Write $\mathfrak d(z):=
@@ -22,30 +19,30 @@ uniform bound for the singular integral operator near an edge where $\tilde Q$ h
 
 \subsection{Three facts about Cauchy integrals}\label{sec:B-prelim}
 
-In this subsection $\Gamma$ is a bounded, finite union of oriented $C^2$ arcs with $|\Gamma\cap U(z,\rho)|\le A\rho$ for all
+In this subsection $\Gamma$ is a bounded, finite union of oriented $C^2$ arcs with $|\Gamma\cap U(z,\rho)|\le C_\Sigma\rho$ for all
 $z\in\C$, $\rho>0$, and $\mathcal V$ is the finite set of endpoints and intersection points of the arcs. We say that a
-function $F$ analytic in $\C\setminus\Gamma$ is \emph{continuous up to $\Gamma$} if near every point of
-$\Gamma\setminus\mathcal V$ its restriction to each side of $\Gamma$ extends continuously to the arc; $F_\pm$ then
+function $\mathfrak F$ analytic in $\C\setminus\Gamma$ is \emph{continuous up to $\Gamma$} if near every point of
+$\Gamma\setminus\mathcal V$ its restriction to each side of $\Gamma$ extends continuously to the arc; $\mathfrak F_\pm$ then
 denote these extensions. We use only Cauchy's integral formula, Green's formula and the facts of \ref{tool:T3}(a).
 
 \begin{lemma}\label{lem:B-cauchy}
 \begin{enumerate}
-\item[(a)] For $\mathfrak h\in L^2(\Gamma)$ and $z\notin\Gamma$, $|\Cauchy\mathfrak h(z)|\le\pi^{-1}A^{1/2}\|\mathfrak h\|_{L^2}\,
+\item[(a)] For $\mathfrak h\in L^2(\Gamma)$ and $z\notin\Gamma$, $|\Cauchy\mathfrak h(z)|\le\pi^{-1}C_\Sigma^{1/2}\|\mathfrak h\|_{L^2}\,
   \mathrm{dist}(z,\Gamma)^{-1/2}$.
 \item[(b)] Let $\mathfrak k$ be $C^1$ (in arc length) on each arc and vanish near $\mathcal V$. Then $\Cauchy\mathfrak k$ is
   analytic near each point of $\mathcal V$ and continuous up to $\Gamma$, and $(\Cauchy\mathfrak k)_+-(\Cauchy\mathfrak
   k)_-=\mathfrak k$ on $\Gamma\setminus\mathcal V$. In particular $(\Cauchy\mathfrak k)_\pm=\Cauchy_\pm\mathfrak k$.
-\item[(c)] Let $F$ be analytic in $\C\setminus\Gamma$ and continuous up to $\Gamma$, with $F_\pm\in L^2(\Gamma)$,
-  $F(z)=O(1/z)$ as $z\to\infty$, and $\rho\sup\{|F(z)|:|z-z_0|=\rho,\ z\notin\Gamma\}\to0$ as $\rho\to0$ for every
-  $z_0\in\mathcal V$. Then $F=\Cauchy(F_+-F_-)$ in $\C\setminus\Gamma$; hence $F_\pm=\Cauchy_\pm(F_+-F_-)$, i.e.\
-  $F_\pm\in\dC(L^2(\Gamma))$.
+\item[(c)] Let $\mathfrak F$ be analytic in $\C\setminus\Gamma$ and continuous up to $\Gamma$, with $\mathfrak F_\pm\in L^2(\Gamma)$,
+  $\mathfrak F(z)=O(1/z)$ as $z\to\infty$, and $\rho\sup\{|\mathfrak F(z)|:|z-z_0|=\rho,\ z\notin\Gamma\}\to0$ as $\rho\to0$ for every
+  $z_0\in\mathcal V$. Then $\mathfrak F=\Cauchy(\mathfrak F_+-\mathfrak F_-)$ in $\C\setminus\Gamma$; hence $\mathfrak F_\pm=\Cauchy_\pm(\mathfrak F_+-\mathfrak F_-)$, i.e.\
+  $\mathfrak F_\pm\in\dC(L^2(\Gamma))$.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-(a) By Cauchy--Schwarz it suffices to show $\int_\Gamma|s-z|^{-2}|\diff s|\le4A/\mathfrak d$ with $\mathfrak d=
-\mathrm{dist}(z,\Gamma)$. Split $\Gamma$ into the shells $2^k\mathfrak d\le|s-z|<2^{k+1}\mathfrak d$, $k\ge0$; the $k$-th
-contributes at most $A2^{k+1}\mathfrak d\,(2^k\mathfrak d)^{-2}$, and the sum is $4A/\mathfrak d$.
+(a) By Cauchy--Schwarz it suffices to show $\int_\Gamma|s-z|^{-2}|\diff s|\le4C_\Sigma/\mathfrak d$ with $\mathfrak d=
+\mathrm{dist}(z,\Gamma)$. Split $\Gamma$ into the shells $\{2^k\mathfrak d\le|s-z|<2^{k+1}\mathfrak d\}$, $k\ge0$; the
+$k$-th contributes at most $C_\Sigma2^{k+1}\mathfrak d\,(2^k\mathfrak d)^{-2}$, and the sum is $4C_\Sigma/\mathfrak d$.
 
 (b) Analyticity near $\mathcal V$ is clear, since $\mathfrak k$ vanishes there. By a partition of unity we may assume
 that $\mathfrak k$ is supported in a compact sub-arc of the interior of one arc $\gamma$. Choose an open disc $D$ which
@@ -63,143 +60,136 @@ is continuous on $\C$. So $\Cauchy\mathfrak k$ is continuous up to $\gamma$ from
 $(\Cauchy\mathfrak k)_+-(\Cauchy\mathfrak k)_-=K=\mathfrak k$. As continuous extensions, these are the non-tangential
 limits $\Cauchy_\pm\mathfrak k$ of \ref{tool:T3}.
 
-(c) Fix $z\notin\Gamma$. For small $\rho$ and large $R$ apply Cauchy's integral formula to $F$ on the open set
+(c) Fix $z\notin\Gamma$. For small $\rho$ and large $R$ apply Cauchy's integral formula to $\mathfrak F$ on the open set
 $U(0,R)\setminus\bigl(\Gamma\cup\bigcup_{z_0\in\mathcal V}\overline{U(z_0,\rho)}\bigr)$, whose boundary consists of the two sides
-of the arcs of $\Gamma$ outside the small discs, the circles $|s-z_0|=\rho$ and the circle $|s|=R$; $F$ is continuous on
+of the arcs of $\Gamma$ outside the small discs, the circles $|s-z_0|=\rho$ and the circle $|s|=R$; $\mathfrak F$ is continuous on
 the closure (taken separately on the two sides of each arc). The two sides of an arc contribute
-$\frac1{2\pi i}\int(F_+-F_-)(s)\diff s/(s-z)$, the left side being traversed in the direction of the arc. As $\rho\to0$
-the small circles contribute at most $\sum_{z_0}2\rho\sup_{|s-z_0|=\rho}|F(s)|/|z-z_0|\to0$ (for $\rho\le|z-z_0|/2$), and the
-arc integrals converge to $\Cauchy(F_+-F_-)(z)$ because $F_+-F_-\in L^2(\Gamma)\subset L^1(\Gamma)$. As $R\to\infty$ the large
-circle contributes $O(1/R)$. Hence $F(z)=\Cauchy(F_+-F_-)(z)$. Taking boundary values from either side,
-$F_\pm=\Cauchy_\pm(F_+-F_-)$ wherever the non-tangential limits $\Cauchy_\pm$ exist, i.e.\ almost everywhere.
+$\frac1{2\pi i}\int(\mathfrak F_+-\mathfrak F_-)(s)\diff s/(s-z)$, the left side being traversed in the direction of the arc. As $\rho\to0$
+the small circles contribute at most $\sum_{z_0}2\rho\sup_{|s-z_0|=\rho}|\mathfrak F(s)|/|z-z_0|\to0$ (for $\rho\le|z-z_0|/2$), and the
+arc integrals converge to $\Cauchy(\mathfrak F_+-\mathfrak F_-)(z)$ because $\mathfrak F_+-\mathfrak F_-\in L^2(\Gamma)\subset L^1(\Gamma)$. As $R\to\infty$ the large
+circle contributes $O(1/R)$. Hence $\mathfrak F(z)=\Cauchy(\mathfrak F_+-\mathfrak F_-)(z)$. Taking boundary values from either side,
+$\mathfrak F_\pm=\Cauchy_\pm(\mathfrak F_+-\mathfrak F_-)$ wherever the non-tangential limits $\Cauchy_\pm$ exist, i.e.\ almost everywhere.
 \end{proof}
 
 \subsection{The model block}\label{sec:B-block}
-% src: RH_zeta_close.md §1.4 (d) (hard edge) and (e) (soft edge); ROUTE2.md §4.1 (d).
 
-The following lemma covers both edges. At the hard edge it is applied with $\varpi_n=n^2$, at the soft edge with
-$\varpi_n=n^{2/3}$.
+The following lemma covers both edges. At the hard edge it is applied with $\mathsf t_n=n^2$, at the soft edge with
+$\mathsf t_n=n^{2/3}$.
 
 \begin{lemma}[uniform bound near an edge]\label{lem:B-block}
-Let $z_0\in\C$, $0<r_1<r_0$, $\varpi_n\ge1$, and let $f_0$ be conformal on a neighbourhood of $\overline{U(z_0,r_0)}$,
+Let $z_0\in\C$, $0<r_1<r_0$, $\mathsf t_n\ge1$, and let $f_0$ be conformal on a neighbourhood of $\overline{U(z_0,r_0)}$,
 independent of $n$, with $f_0(z_0)=0$. Assume that $\Sighat\cap U(z_0,r_0)$ consists of finitely many $C^2$ arcs from
 $z_0$ with distinct tangents and is independent of $n$, and put $\Sigma_1:=\Sighat\cap U(z_0,r_1)$,
 $\Gamma_1:=f_0(\Sigma_1)$ (a star with vertex $0$, in the sense of Appendix~\ref{app:L2}). Assume that for $z\in
-U(z_0,r_0)\setminus\Sighat$, with $\zeta:=\varpi_nf_0(z)$,
+U(z_0,r_0)\setminus\Sighat$, with $\zeta:=\mathsf t_nf_0(z)$,
 \[
-  \tilde Q(z)=A(z)\,\varpi_n^{\sigma_3/4}M_n(z),
+  \tilde Q(z)=\mathcal A(z)\,\mathsf t_n^{\sigma_3/4}M_n(z),
 \]
 where, with a constant $C_1$ independent of $n$, and with the same statements for the boundary values on $\Sighat$:
 \begin{enumerate}
-\item[(B1)] $A^{\pm1}$ are analytic on $U(z_0,r_0)$ and $|A^{\pm1}|\le C_1$;
+\item[(B1)] $\mathcal A^{\pm1}$ are analytic on $U(z_0,r_0)$ and $|\mathcal A^{\pm1}|\le C_1$;
 \item[(B2)] if $|\zeta|\ge2$, then $M_n(z)=\zeta^{-\sigma_3/4}\Theta_\infty(z)$ with $|\Theta_\infty^{\pm1}(z)|\le C_1$;
-\item[(B3)] if $|\zeta|\le3$, then $M_n(z)=\hat A(\zeta)\mathcal P(\zeta)\Theta_0(z)$, where $\hat A$ does not depend on $n$,
+\item[(B3)] if $|\zeta|\le3$, then $M_n(z)=\hat A(\zeta)\mathsf P(\zeta)\Theta_0(z)$, where $\hat A$ does not depend on $n$,
   $\hat A^{\pm1}$ are analytic on $|\zeta|<4$ with $|\hat A^{\pm1}|\le C_1$, $|\Theta_0^{\pm1}(z)|\le C_1$, and either
-  $\mathcal P(\zeta)=\zeta^{\beta\sigma_3}$ with $|\beta|<\frac12$, or $\mathcal P(\zeta)=I+\hat\kappa(\log\zeta)e_1e_2^{\mathsf T}$ with
-  a constant $\hat\kappa$.
+  $\mathsf P(\zeta)=\zeta^{\beta\sigma_3}$ with $|\beta|<\frac12$, or $\mathsf P(\zeta)=I+\mathsf k(\log\zeta)e_1e_2^{\mathsf T}$ with
+  a constant $\mathsf k$.
 \end{enumerate}
 Then the operators $\mathfrak g\mapsto1_{\Sigma_1}\Cauchy_\pm(\mathfrak g1_{\Sigma_1}\tilde Q_+^{-1})\tilde Q_\pm$ are bounded on
 $L^2(\Sigma_1)$ uniformly in $n$, and $\int_{\Sigma_1}(|\tilde Q_\pm|^2+|\tilde Q_\pm^{-1}|^2)|\diff s|\le C$.
 \end{lemma}
 
 \begin{proof}
-We remove the analytic prefactor $A$ at the cost of a Hilbert--Schmidt error, pass to the variable $\zeta$, and split the
+We remove the analytic prefactor $\mathcal A$ at the cost of a Hilbert--Schmidt error, pass to the variable $\zeta$, and split the
 resulting operator according to $|\zeta|\le3$ and $|\zeta|\ge2$. Throughout, $C$ depends on $C_1$, $f_0$, $r_0$, $r_1$,
 $\beta$ and the geometry, but not on $n$.
 
-\emph{Weights.} Put $\Xi(z):=|f_0(z)|^{-1/4}$ if $|\zeta|\ge2$ and $\Xi(z):=\varpi_n^{1/4}\omega(\zeta)$ if $|\zeta|<2$, where
-$\omega(\zeta)=|\zeta|^{-|\beta|}$, respectively $\omega(\zeta)=1+|\log|\zeta||$ in the logarithmic case. Since
-$\varpi_n^{\sigma_3/4}\zeta^{-\sigma_3/4}=f_0^{-\sigma_3/4}$, (B2)--(B3) give
+\emph{Weights.} Put $\mathfrak W(z):=|f_0(z)|^{-1/4}$ if $|\zeta|\ge2$ and $\mathfrak W(z):=\mathsf t_n^{1/4}\mathfrak w(\zeta)$ if $|\zeta|<2$, where
+$\mathfrak w(\zeta)=|\zeta|^{-|\beta|}$, respectively $\mathfrak w(\zeta)=1+|\log|\zeta||$ in the logarithmic case. Since
+$\mathsf t_n^{\sigma_3/4}\zeta^{-\sigma_3/4}=f_0^{-\sigma_3/4}$, (B2)--(B3) give
 \begin{equation}\label{eq:B-weights}
-  |\varpi_n^{\sigma_3/4}M_n(z)|+|M_n(z)^{-1}\varpi_n^{-\sigma_3/4}|\le C\,\Xi(z),\qquad |M_n(z)^{\pm1}|\le C\omega(\zeta)\ (|\zeta|\le3).
+  |\mathsf t_n^{\sigma_3/4}M_n(z)|+|M_n(z)^{-1}\mathsf t_n^{-\sigma_3/4}|\le C\,\mathfrak W(z),\qquad |M_n(z)^{\pm1}|\le C\mathfrak w(\zeta)\ (|\zeta|\le3).
 \end{equation}
-On $\Sigma_1$ we have $|\diff z|\le C|\diff\zeta|/\varpi_n$, $|f_0(z)|\ge|z-z_0|/C$, and $\Gamma_1$ satisfies an Ahlfors bound
-$|\Gamma_1\cap U(\zeta,t)|\le Ct$, as does $\varpi_n\Gamma_1$ with the same constant. Hence
+On $\Sigma_1$ we have $|\diff z|\le C|\diff\zeta|/\mathsf t_n$, $|f_0(z)|\ge|z-z_0|/C$, and $\Gamma_1$ satisfies an Ahlfors bound
+$|\Gamma_1\cap U(\zeta,t)|\le Ct$, as does $\mathsf t_n\Gamma_1$ with the same constant. Hence
 \begin{equation}\label{eq:B-Xi}
-  \int_{\Sigma_1}\Xi^2|\diff z|\le C\int_{\Sigma_1}|z-z_0|^{-1/2}|\diff z|+C\varpi_n^{1/2}\varpi_n^{-1}\int_{\varpi_n\Gamma_1\cap\{|\zeta|\le2\}}
-  \omega(\zeta)^2|\diff\zeta|\le C,
+  \int_{\Sigma_1}\mathfrak W^2|\diff z|\le C\int_{\Sigma_1}|z-z_0|^{-1/2}|\diff z|+C\mathsf t_n^{1/2}\mathsf t_n^{-1}\int_{\mathsf t_n\Gamma_1\cap\{|\zeta|\le2\}}
+  \mathfrak w(\zeta)^2|\diff\zeta|\le C,
 \end{equation}
 since $2|\beta|<1$. With \eqref{eq:B-weights} and (B1) this gives the bound on $\int_{\Sigma_1}|\tilde Q_\pm^{\pm1}|^2$.
 
-\emph{Step 1: the prefactor.} For $s,z\in U(z_0,r_1)$ write $A(s)^{-1}A(z)=I+(s-z)\mathfrak k_A(s,z)$; by Cauchy's
+\emph{Step 1: the prefactor.} For $s,z\in U(z_0,r_1)$ write $\mathcal A(s)^{-1}\mathcal A(z)=I+(s-z)\mathfrak k_A(s,z)$; by Cauchy's
 estimates on the convex set $U(z_0,r_1)$, $|\mathfrak k_A|\le C$. Then
 \begin{multline*}
   \Cauchy(\mathfrak g\tilde Q_+^{-1})(z)\tilde Q(z)=\Cauchy(\mathfrak gM_{n,+}^{-1})(z)M_n(z)\\
-  +\frac1{2\pi i}\int_{\Sigma_1}\mathfrak g(s)\bigl[M_{n,+}(s)^{-1}\varpi_n^{-\sigma_3/4}\bigr]\mathfrak k_A(s,z)
-  \bigl[\varpi_n^{\sigma_3/4}M_n(z)\bigr]\diff s .
+  +\frac1{2\pi i}\int_{\Sigma_1}\mathfrak g(s)\bigl[M_{n,+}(s)^{-1}\mathsf t_n^{-\sigma_3/4}\bigr]\mathfrak k_A(s,z)
+  \bigl[\mathsf t_n^{\sigma_3/4}M_n(z)\bigr]\diff s .
 \end{multline*}
-By \eqref{eq:B-weights} the kernel of the second term is at most $C\,\Xi(s)\Xi(z)$, so by \eqref{eq:B-Xi} it is
+By \eqref{eq:B-weights} the kernel of the second term is at most $C\,\mathfrak W(s)\mathfrak W(z)$, so by \eqref{eq:B-Xi} it is
 Hilbert--Schmidt with norm at most $C$.
 
 \emph{Step 2: the variable $\zeta$.} Let $\mathfrak k_0(s,z):=f_0'(s)/(f_0(s)-f_0(z))-1/(s-z)$, which is analytic and
 bounded on $U(z_0,r_1)^2$. Then $\diff s/(s-z)=\diff\zeta_s/(\zeta_s-\zeta_z)-\mathfrak k_0(s,z)\diff s$. The term with
-$\mathfrak k_0$ is a scalar kernel times $M_{n,+}(s)^{-1}M_n(z)=[M_{n,+}(s)^{-1}\varpi_n^{-\sigma_3/4}][\varpi_n^{\sigma_3/4}M_n(z)]$,
+$\mathfrak k_0$ is a scalar kernel times $M_{n,+}(s)^{-1}M_n(z)=[M_{n,+}(s)^{-1}\mathsf t_n^{-\sigma_3/4}][\mathsf t_n^{\sigma_3/4}M_n(z)]$,
 hence Hilbert--Schmidt with norm at most $C$ as in Step~1. The main term is
-$\mathcal S\mathfrak h:=\Cauchy^{\varpi_n\Gamma_1}(\mathfrak h\Phi_+^{-1})\Phi$ with $\Phi(\zeta):=M_n(z)$ and
+$\mathcal S\mathfrak h:=\Cauchy^{\mathsf t_n\Gamma_1}(\mathfrak h\mathbb M_+^{-1})\mathbb M$ with $\mathbb M(\zeta):=M_n(z)$ and
 $\mathfrak h(\zeta)=\mathfrak g(z)$; as $|f_0'|^{\pm1}\le C$, the map $\mathfrak g\mapsto\mathfrak h$ changes $L^2$ norms by
-the factor $\varpi_n^{1/2}$ up to constants, the same on input and output, so it suffices to bound $\mathcal S$ on
-$L^2(\varpi_n\Gamma_1)$ uniformly. The conformal map preserves the sides of the contour, so $\pm$ boundary values
+the factor $\mathsf t_n^{1/2}$ up to constants, the same on input and output, so it suffices to bound $\mathcal S$ on
+$L^2(\mathsf t_n\Gamma_1)$ uniformly. The conformal map preserves the sides of the contour, so $\pm$ boundary values
 correspond.
 
-\emph{Step 3: splitting in $\zeta$.} Let $S:=\{|\zeta|\le3\}$, $B:=\{|\zeta|\ge2\}$, $N:=\{2\le|\zeta|\le3\}$. The pairs
-$(\zeta',\zeta)$ (source, target) are partitioned into $S\times S$; $(B\times B)\setminus(N\times N)$;
+\emph{Step 3: splitting in $\zeta$.} Let $\mathcal B_{\le3}:=\{|\zeta|\le3\}$, $\mathcal B_{\ge2}:=\{|\zeta|\ge2\}$, $\mathcal B_{2,3}:=\{2\le|\zeta|\le3\}$. The pairs
+$(\zeta',\zeta)$ (source, target) are partitioned into $\mathcal B_{\le3}\times\mathcal B_{\le3}$; $(\mathcal B_{\ge2}\times\mathcal B_{\ge2})\setminus(\mathcal B_{2,3}\times\mathcal B_{2,3})$;
 $\{|\zeta'|<2,|\zeta|>3\}$; and $\{|\zeta'|>3,|\zeta|<2\}$. Accordingly
-$\mathcal S=1_S\mathcal S1_S+\bigl(1_B\mathcal S1_B-1_N\mathcal S1_N\bigr)+1_{\{|\zeta|>3\}}\mathcal S1_{\{|\zeta|<2\}}
+$\mathcal S=1_{\mathcal B_{\le3}}\mathcal S1_{\mathcal B_{\le3}}+\bigl(1_{\mathcal B_{\ge2}}\mathcal S1_{\mathcal B_{\ge2}}-1_{\mathcal B_{2,3}}\mathcal S1_{\mathcal B_{2,3}}\bigr)+1_{\{|\zeta|>3\}}\mathcal S1_{\{|\zeta|<2\}}
 +1_{\{|\zeta|<2\}}\mathcal S1_{\{|\zeta|>3\}}$, and we bound each part.
 
-\emph{$S\times S$.} Here $\Phi=\hat A\mathcal P\Theta_0$. Write $\hat A(\zeta')^{-1}\hat A(\zeta)=I+(\zeta'-\zeta)\hat{\mathfrak k}(\zeta',\zeta)$
+\emph{$\mathcal B_{\le3}\times\mathcal B_{\le3}$.} Here $\mathbb M=\hat A\mathsf P\Theta_0$. Write $\hat A(\zeta')^{-1}\hat A(\zeta)=I+(\zeta'-\zeta)\hat{\mathfrak k}(\zeta',\zeta)$
 with $|\hat{\mathfrak k}|\le C$ on $\{|\zeta|,|\zeta'|\le3\}$. The resulting commutator kernel is
-$\Theta_{0,+}(\zeta')^{-1}\mathcal P_+(\zeta')^{-1}\hat{\mathfrak k}\,\mathcal P(\zeta)\Theta_0(\zeta)$, of size at most
-$C\omega(\zeta')\omega(\zeta)$, and $\int_{\varpi_n\Gamma_1\cap S}\omega^2|\diff\zeta|\le C$: Hilbert--Schmidt with norm
-$\le C$. The remaining part is $\mathfrak h\mapsto\bigl[\Cauchy(\mathfrak h'\mathcal P_+^{-1})\mathcal P\bigr]\Theta_0$ with
-$\mathfrak h':=\mathfrak h\Theta_{0,+}^{-1}$. If $\mathcal P=\zeta^{\beta\sigma_3}$, its first column is
+$\Theta_{0,+}(\zeta')^{-1}\mathsf P_+(\zeta')^{-1}\hat{\mathfrak k}\,\mathsf P(\zeta)\Theta_0(\zeta)$, of size at most
+$C\mathfrak w(\zeta')\mathfrak w(\zeta)$, and $\int_{\mathsf t_n\Gamma_1\cap\mathcal B_{\le3}}\mathfrak w^2|\diff\zeta|\le C$: Hilbert--Schmidt with norm
+$\le C$. The remaining part is $\mathfrak h\mapsto\bigl[\Cauchy(\mathfrak h'\mathsf P_+^{-1})\mathsf P\bigr]\Theta_0$ with
+$\mathfrak h':=\mathfrak h\Theta_{0,+}^{-1}$. If $\mathsf P=\zeta^{\beta\sigma_3}$, its first column is
 $\zeta^\beta\Cauchy(\zeta'^{-\beta}\mathfrak h'e_1)$ and its second column is $\zeta^{-\beta}\Cauchy(\zeta'^{\beta}
-\mathfrak h'e_2)$; both are bounded on $L^2(\varpi_n\Gamma_1\cap S)$ by Lemma~\ref{lem:A-power} with exponents $\pm\beta$,
-uniformly in $n$ by dilation invariance. If $\mathcal P$ is logarithmic,
-$\mathcal P_+(\zeta')^{-1}\mathcal P(\zeta)=I+\hat\kappa(\log\zeta-\log_+\zeta')e_1e_2^{\mathsf T}$, and the second term is the
+\mathfrak h'e_2)$; both are bounded on $L^2(\mathsf t_n\Gamma_1\cap\mathcal B_{\le3})$ by Lemma~\ref{lem:A-power} with exponents $\pm\beta$,
+uniformly in $n$ by dilation invariance. If $\mathsf P$ is logarithmic,
+$\mathsf P_+(\zeta')^{-1}\mathsf P(\zeta)=I+\mathsf k(\log\zeta-\log_+\zeta')e_1e_2^{\mathsf T}$, and the second term is the
 logarithmic commutator of Lemma~\ref{lem:A-log} applied to $\mathfrak h'e_1$ (the branches $\log_\pm$ on the arc
 $(-\infty,0)$ differ by the constant $2\pi i$, which adds a multiple of the Cauchy operator).
 
-\emph{$(B\times B)\setminus(N\times N)$.} On $B$, $\Phi=\zeta^{-\sigma_3/4}\Theta_\infty$, so $1_B\mathcal S1_B$ is
+\emph{$(\mathcal B_{\ge2}\times\mathcal B_{\ge2})\setminus(\mathcal B_{2,3}\times\mathcal B_{2,3})$.} On $\mathcal B_{\ge2}$, $\mathbb M=\zeta^{-\sigma_3/4}\Theta_\infty$, so $1_{\mathcal B_{\ge2}}\mathcal S1_{\mathcal B_{\ge2}}$ is
 $\Theta_\infty$ times the operator $\mathfrak h''\mapsto\Cauchy(\mathfrak h''\zeta'^{\sigma_3/4})\zeta^{-\sigma_3/4}$, with
-$\mathfrak h''=\mathfrak h\Theta_{\infty,+}^{-1}$; this is Lemma~\ref{lem:A-power} with $\beta=\mp\frac14$. On $N$ the matrices
-$\Phi^{\pm1}$ are bounded, so $1_N\mathcal S1_N$ is bounded by $\|\Cauchy_\pm\|$ on $\varpi_n\Gamma_1$
+$\mathfrak h''=\mathfrak h\Theta_{\infty,+}^{-1}$; this is Lemma~\ref{lem:A-power} with $\beta=\mp\frac14$. On $\mathcal B_{2,3}$ the matrices
+$\mathbb M^{\pm1}$ are bounded, so $1_{\mathcal B_{2,3}}\mathcal S1_{\mathcal B_{2,3}}$ is bounded by $\|\Cauchy_\pm\|$ on $\mathsf t_n\Gamma_1$
 (Lemma~\ref{lem:A-power} with $\beta=0$).
 
-\emph{The separated parts.} If $|\zeta'|<2$ and $|\zeta|>3$, then $|\zeta-\zeta'|\ge|\zeta|/3$, $|\Phi(\zeta')^{-1}|\le
-C\omega(\zeta')$ and $|\Phi(\zeta)|\le C|\zeta|^{1/4}$. The kernel is at most $C\omega(\zeta')|\zeta|^{-3/4}$, and
-$\int_{|\zeta'|<2}\omega^2\int_{|\zeta|>3}|\zeta|^{-3/2}|\diff\zeta||\diff\zeta'|\le C$ by the Ahlfors bound. The other part is
+\emph{The separated parts.} If $|\zeta'|<2$ and $|\zeta|>3$, then $|\zeta-\zeta'|\ge|\zeta|/3$, $|\mathbb M(\zeta')^{-1}|\le
+C\mathfrak w(\zeta')$ and $|\mathbb M(\zeta)|\le C|\zeta|^{1/4}$. The kernel is at most $C\mathfrak w(\zeta')|\zeta|^{-3/4}$, and
+$\int_{|\zeta'|<2}\mathfrak w^2\int_{|\zeta|>3}|\zeta|^{-3/2}|\diff\zeta||\diff\zeta'|\le C$ by the Ahlfors bound. The other part is
 symmetric.
 \end{proof}
 
-\emph{The two instances.} At the hard edge, $z_0=0$, $r_0=\delta$, $r_1=\frac34\delta$, $f_0=f$, $\varpi_n=n^2$,
-$A=A_0(2\pi)^{\sigma_3/2}$ (Lemma~\ref{lem:comparison-parametrix}(i)) and $M_n(z)=\Phi_\alpha(n^2f(z))$; (B2) and (B3) are
+\emph{The two instances.} At the hard edge, $z_0=0$, $r_0=\delta$, $r_1=\frac34\delta$, $f_0=f$, $\mathsf t_n=n^2$,
+$\mathcal A=A_0(2\pi)^{\sigma_3/2}$ (Lemma~\ref{lem:comparison-parametrix}(i)) and $M_n(z)=\Phi_\alpha(n^2f(z))$; (B2) and (B3) are
 \eqref{eq:he-Phi-large} and \eqref{eq:he-Phi-small}, with $\beta=\alpha/2$, or the logarithmic case if $\alpha=0$. Here
-$|\beta|<\frac12$ is exactly $|\alpha|<1$. At the soft edge we use the structure of the Airy parametrix provided by
-\Fi{5}: in $U(4c,\varepsilon)$,
-\begin{equation}\label{eq:B-airy-structure}
-  \Phat_r(z)=A_r(z)\,n^{\sigma_3/6}M_{r,n}(z),\qquad \zeta=n^{2/3}f_r(z),
-\end{equation}
-with $f_r$ conformal, independent of $n$, $f_r(4c)=0$, $A_r^{\pm1}$ analytic and bounded uniformly in $n$, and $M_{r,n}$
-satisfying (B2) and (B3) with $\mathcal P=I$; here $\hat A$ is the entire matrix of Airy functions of the model, and
-$\Theta_\infty$, $\Theta_0$ contain the exponential factors $e^{\pm\frac23\zeta^{3/2}\sigma_3}$, the sectorial constants and the
-bounded factor $(D_W/W_r)^{\sigma_3}$ of \ref{tool:T1}(c). So Lemma~\ref{lem:B-block} applies with $\varpi_n=n^{2/3}$,
-$r_0=\varepsilon$, $r_1=\frac34\varepsilon$; no $\alpha$ is involved.
+$|\beta|<\frac12$ is exactly $|\alpha|<1$. At the soft edge, $z_0=4c$, $r_0=\varepsilon$, $r_1=\frac34\varepsilon$,
+$f_0=f_r$, $\mathsf t_n=n^{2/3}$, $\mathcal A=A_r$ and $M_n=M_{r,n}$: by the two-scale structure in \Fi5
+(Lemma~\ref{lem:airy}(i), (iv)), (B1)--(B3) hold with $\mathsf P=I$ and $\hat A=\Psi^{\mathrm I}$, the entire Airy model matrix.
+No $\alpha$ is involved.
 
 \subsection{Proof of Proposition~\ref{prop:UR-comparison}}\label{sec:B-proof}
 
-\emph{Step 0: the contour.} $\Sighat$ is a finite union of $C^2$ arcs with $|\Sighat\cap U(z,\rho)|\le A\rho$, $A$ independent
+\emph{Step 0: the contour.} $\Sighat$ is a finite union of $C^2$ arcs with $|\Sighat\cap U(z,\rho)|\le C_\Sigma\rho$, $C_\Sigma$ independent
 of $n$: this holds for $\Sigma$ by \Fi{1} and for the two fixed circles. We show $\|\Cauchy_\pm\|_{L^2(\Sighat)}\le C$. The
 operator splits into blocks according to source and target in $\Sigma$ or $\Sigcirc$. The block $\Sigma\to\Sigma$ is
 bounded by \Fi{1}, and $\Sigcirc\to\Sigcirc$ is the Cauchy operator of two fixed circles. For the mixed blocks let
 $\Sigma_{\mathrm{loc}}:=\Sigma\cap(U(0,2\delta)\cup U(4c,2\varepsilon))$, which is independent of $n$; on the fixed curve
 $\Sigma_{\mathrm{loc}}\cup\Sigcirc$ the Cauchy operator is bounded by \ref{tool:T3}(a). The rest of $\Sigma$ has distance at
 least $\min(\delta,\varepsilon)$ from $\Sigcirc$, and there the kernel is Hilbert--Schmidt:
-$\int_{\Sigcirc}\int_{\Sigma\setminus\Sigma_{\mathrm{loc}}}|s-z|^{-2}|\diff s||\diff z|\le|\Sigcirc|\,4A/\min(\delta,\varepsilon)$ by the proof
+$\int_{\Sigcirc}\int_{\Sigma\setminus\Sigma_{\mathrm{loc}}}|s-z|^{-2}|\diff s||\diff z|\le|\Sigcirc|\,4C_\Sigma/\min(\delta,\varepsilon)$ by the proof
 of Lemma~\ref{lem:B-cauchy}(a).
 
 \emph{Step 1: part (i).} Fix $n$. By \eqref{eq:he-Phi-small}, $|\tilde Q^{\pm1}(z)|\le C_n|z|^{-|\alpha|/2}$ near $0$
-(with $C_n(1+|\log|z||)$ if $\alpha=0$). By \eqref{eq:B-airy-structure} and (B3) with $\mathcal P=I$, $\tilde Q^{\pm1}$ is
+(with $C_n(1+|\log|z||)$ if $\alpha=0$). By \Fi5 and (B3) with $\mathsf P=I$, $\tilde Q^{\pm1}$ is
 bounded near $4c$. Elsewhere $\tilde Q^{\pm1}$ is bounded, and it is continuous up to $\Sighat$ in the sense of
 \S\ref{sec:B-prelim}, being built from explicit functions that are continuous up to the arcs from each side. Since
 $|\alpha|<1$, the boundary values of $\tilde Q^{\pm1}-I$ lie in $L^2(\Sighat)$; and
@@ -217,7 +207,8 @@ because $\tilde v$ is smooth on the arcs away from the vertices. Suppose that
 \end{enumerate}
 Then $1-\Cauchy_{\tilde v}$ is invertible on $L^2(\Sighat)$ with $\|(1-\Cauchy_{\tilde v})^{-1}\|\le1+C_2\|\tilde v-I\|_\infty$.
 This is the easy half of \ref{tool:T3}(e). Indeed, for $\mathfrak f\in\mathcal D$ solve (R1) with $\mathfrak g:=\mathfrak f(\tilde
-v-I)$ and put $\mu:=m_-+\mathfrak f$. Then $\mu(\tilde v-I)=m_-\tilde v-m_-+\mathfrak f(\tilde v-I)=m_+-m_-$; as $m_\pm\in\dC(L^2)$,
+v-I)$ and put $\mu:=m_-+\mathfrak f$. By (R2) (proved in Step~3, which uses only Step~1) the
+solution $m$ of (R1) is unique, so $\mathfrak f\mapsto\mu$ is linear. Then $\mu(\tilde v-I)=m_-\tilde v-m_-+\mathfrak f(\tilde v-I)=m_+-m_-$; as $m_\pm\in\dC(L^2)$,
 $m_-=\Cauchy_-(m_+-m_-)=\Cauchy_-(\mu(\tilde v-I))$, so $\mu-\Cauchy_{\tilde v}\mu=\mathfrak f$ and $\|\mu\|\le
 (1+C_2\|\tilde v-I\|_\infty)\|\mathfrak f\|$. The map $\mathfrak f\mapsto\mu$ extends by continuity to a bounded operator $\mathcal R$
 on $L^2(\Sighat)$ with $(1-\Cauchy_{\tilde v})\mathcal R=1$, since $1-\Cauchy_{\tilde v}$ is bounded. Conversely, if
@@ -225,9 +216,10 @@ $\mu=\Cauchy_{\tilde v}\mu$, then $m:=\Cauchy(\mu(\tilde v-I))$ satisfies $m_\pm
 v$, so $m=0$ by (R2) and $\mu=0$. Hence $1-\Cauchy_{\tilde v}$ is injective with right inverse $\mathcal R$, and
 $(1-\Cauchy_{\tilde v})^{-1}=\mathcal R$.
 
-\emph{Step 3: uniqueness.} Let $m_\pm\in\dC(L^2)$ with $m_+=m_-\tilde v$. Put $A:=\tilde Q+m$ and $B:=\tilde Q$. Then
-$A_+=A_-\tilde v$, $A_\pm\in I+\dC(L^2)$, $B_\pm^{-1}\in I+\dC(L^2)$ by Step~1, and $\tilde v^{\pm1}\in L^\infty$. By
-\ref{tool:T3}(b) with $v_A=v_B=\tilde v$, $AB^{-1}=I$, i.e.\ $m=0$. This is (R2).
+\emph{Step 3: uniqueness.} Let $m_\pm\in\dC(L^2)$ with $m_+=m_-\tilde v$. Put $X:=\tilde Q+m$. Then $X_+=X_-\tilde v$,
+$X_\pm\in I+\dC(L^2)$, $\tilde Q_\pm^{-1}\in I+\dC(L^2)$ by Step~1, and $\tilde v^{\pm1}\in L^\infty$. By \ref{tool:T3}(b) with
+$A=X$, $B=\tilde Q$, $v_A=v_B=\tilde v$ and exponents $r=r'=2$, $X\tilde Q^{-1}=I$, i.e.\ $m=0$. This is (R2). Step~3 uses
+only Step~1.
 
 \emph{Step 4: the explicit solution and the uniform bound.} Let $\mathfrak g\in\mathcal D$. Then $\mathfrak k:=\mathfrak
 g\tilde Q_+^{-1}\in\mathcal D$, since $\tilde Q_+^{-1}$ is smooth on the arcs away from the vertices. Put $m:=\Cauchy\mathfrak
@@ -236,7 +228,7 @@ $m_+-m_-\tilde v=\bigl((\Cauchy\mathfrak k)_+-(\Cauchy\mathfrak k)_-\bigr)\tilde
 
 To bound $\|m_\pm\|_{L^2}$ uniformly, let $\Sigma_A:=\Sighat\cap U(0,\frac34\delta)$, $\Sigma_B:=\Sighat\cap U(4c,\frac34\varepsilon)$
 and $\Sigma_R:=\Sighat\setminus(U(0,\frac12\delta)\cup U(4c,\frac12\varepsilon))$. On $\Sigma_R$ the matrices $\tilde Q^{\pm1}$ are
-bounded uniformly in $n$: outside the discs $\tilde Q=\Pinfz$ by \eqref{eq:he-Pinf}; in $\frac12\delta\le|z|\le\delta$ by
+bounded uniformly in $n$: outside the discs $\tilde Q=\Pinfz$ by \eqref{eq:Pinf0}; in $\frac12\delta\le|z|\le\delta$ by
 Lemma~\ref{lem:comparison-parametrix}(iii); in $\frac12\varepsilon\le|z-4c|\le\varepsilon$ by (B2) for the Airy instance, since
 $|\zeta|\ge2$ there. Partition the source--target pairs into $\Sigma_A\times\Sigma_A$, $\Sigma_B\times\Sigma_B$,
 $(\Sigma_R\times\Sigma_R)\setminus(\Sigma_A\times\Sigma_A\cup\Sigma_B\times\Sigma_B)$ and the rest. The first two blocks are bounded by
@@ -246,10 +238,10 @@ term is bounded by Step~0 since $\tilde Q^{\pm1}$ is bounded on $\Sigma_R$. In t
 $U(0,\frac12\delta)$ (or $U(4c,\frac12\varepsilon)$) and the other outside $U(0,\frac34\delta)$ (resp.\ $U(4c,\frac34\varepsilon)$), so
 $|s-z|\ge\frac14\min(\delta,\varepsilon)$. The kernel is at most $C|\tilde Q_+^{-1}(s)||\tilde Q(z)||s-z|^{-1}$, and its
 Hilbert--Schmidt norm is bounded by the $L^2$ bounds of Lemma~\ref{lem:B-block} on the discs, the boundedness of
-$\tilde Q^{\pm1}$ on $\Sigma_R$, and $\int_{|s-z|\ge t}|s-z|^{-2}|\diff s|\le4A/t$. Hence $\|m_\pm\|\le C_2\|\mathfrak g\|$ with
+$\tilde Q^{\pm1}$ on $\Sigma_R$, and $\int_{|s-z|\ge t}|s-z|^{-2}|\diff s|\le4C_\Sigma/t$. Hence $\|m_\pm\|\le C_2\|\mathfrak g\|$ with
 $C_2$ independent of $n$ and of $\mathfrak g\in\mathcal D$.
 
-\emph{Step 5: $m_\pm\in\dC(L^2)$.} We apply Lemma~\ref{lem:B-cauchy}(c) to $F:=m$, for fixed $n$. Since $\mathfrak k$ vanishes
+\emph{Step 5: $m_\pm\in\dC(L^2)$.} We apply Lemma~\ref{lem:B-cauchy}(c) to $\mathfrak F:=m$, for fixed $n$. Since $\mathfrak k$ vanishes
 near the vertices, $\Cauchy\mathfrak k$ is analytic and bounded near each vertex, and $\Cauchy\mathfrak k=O(1/z)$ at infinity;
 hence $|m|\le C_n|\tilde Q|$ near each vertex, so that $\rho\sup_{|z-z_0|=\rho}|m|=O(\rho^{1-|\alpha|/2})\to0$ (by Step~1),
 $m=O(1/z)$ at infinity, and $m_\pm\in L^2(\Sighat)$ by Step~4. Lemma~\ref{lem:B-cauchy}(c) gives $m_\pm\in\dC(L^2)$. This
@@ -260,5 +252,5 @@ data the singular factor $\tilde Q$ only multiplies a function that is analytic 
 Step~4, which is where the structure at $0$ enters, extends the inverse to all of $L^2$.
 
 Steps 2--5 (with (R2) from Step~3) prove part (ii) of Proposition~\ref{prop:UR-comparison}, with $\|(1-\Cauchy_{\tilde v})^{-1}\|\le1+C_2\sup_n\|\tilde v-I\|_\infty$,
-which is finite because $\tilde v^{\pm1}$ is bounded uniformly in $n$ (on the lips $|c_\pm e^{2n\varphi}|\le1$, on the circles
+which is finite because $\tilde v^{\pm1}$ is bounded uniformly in $n$ (on the lips $|\varrho_\pm e^{2n\varphi}|\le1$, on the circles
 $\tilde v=I+O(1/n)$, elsewhere $\tilde v\in\{I,J\}$ or $\tilde v=v$). \qed

@@ -531,3 +531,105 @@ positive axis; D̃ only in |ph t| ≤ π/3 + π/24).
 π − ϑ_lip by the angle freedom. Hypotheses: ν = α fixed, real, |α| < 1. For |arg ζ| ≤ π − ϑ_lip the argument 2ζ^{1/2}
 has |ph| ≤ π/2 − ϑ_lip/2, so 10.40.1–10.40.4 apply with δ = ϑ_lip/2 (10.40.2/10.40.4 hold in the much larger sector
 |ph| ≤ 3π/2 − δ).
+
+## (DLMF-9, Paper 2) NIST DLMF §§9.2, 9.7 — READ (pages dlmf.nist.gov/9.2 and /9.7 fetched 2026-10-14; formulas from the rendered page)
+
+> §9.2(i): "All solutions are entire functions of z." (9.2.1) "d²w/dz² = zw"; (9.2.2) "w = Ai(z), Bi(z), Ai(ze^{∓2πi/3})".
+> (9.2.8) "𝒲{Ai(z), Ai(ze^{∓2πi/3})} = e^{±πi/6}/(2π)".
+> (9.2.12) "Ai(z) + e^{−2πi/3}Ai(ze^{−2πi/3}) + e^{2πi/3}Ai(ze^{2πi/3}) = 0".
+> §9.7(i): "Here δ denotes an arbitrary small positive constant and" (9.7.1) "ζ = (2/3)z^{3/2}"; (9.7.2) "u_0 = v_0 = 1".
+> §9.7(ii): "As z→∞ the following asymptotic expansions are valid uniformly in the stated sectors."
+> (9.7.5) "Ai(z) ∼ e^{−ζ}/(2√π z^{1/4}) Σ_{k=0}^∞ (−1)^k u_k/ζ^k, |ph z| ≤ π − δ";
+> (9.7.6) "Ai′(z) ∼ −(z^{1/4}e^{−ζ}/(2√π)) Σ_{k=0}^∞ (−1)^k v_k/ζ^k, |ph z| ≤ π − δ".
+
+(The fractional powers are principal, |ph z| < π, by the DLMF's general convention; §9.7 states no other branch.)
+
+**Used in:** papers/paper2 sec_6.tex, Lemma "Airy parametrix" (soft edge, construction of Ψ_r from y₀ = (Ai, Ai′),
+y_± = (Ai(e^{∓2πi/3}ζ), e^{∓2πi/3}Ai′(e^{∓2πi/3}ζ)); det Ψ_r = 1 from 9.2.8; the four sectorial formulas are related by 9.2.12;
+the large-ζ form ζ^{−σ₃/4}M(I + O(ζ^{−3/2}))e^{(2/3)ζ^{3/2}σ₃} from 9.7.5–9.7.6 applied to ζ, e^{∓2πi/3}ζ in closed subsectors of
+|ph| < π). Hypotheses: none beyond the sector conditions, which are checked in the lemma. Numerical check:
+papers/paper2/checks/airy_check.py (.out).
+
+## (DP, Paper 2) Deift–Piorkowski, arXiv:2307.09277v2 = SIGMA 20 (2024) 004 — §1 quotation re-read (HTML of v2 fetched 2026-10-14)
+
+> "In particular, the crucial Theorem 4.7 in [4] requires a different proof in this case: now one needs to control the
+> behaviour of the Cauchy operator acting on spaces with Muckenhoupt weights." ([4] = Conway–Deift; British spelling
+> "behaviour" as in the source.)
+
+**Used in:** papers/paper2 sec_7.tex Remark "the case α ≥ 1" (attribution only, not used as input).
+
+## (DPQ, Paper 2) Dai–Piao–Qiao, arXiv:2508.07653v1 [math.DS] (11 Aug 2025), "Construction and Characterization of Oscillatory Chain Sequences" — OPENED (statement verbatim; proof read only through a summarising fetch tool). Copied from research/program/novelty_lineB_A.md §2 (referee F5).
+
+> Definition: "a sequence {an}n=1∞ qualifies as a chain sequence if it admits the decomposition: [a_n = g_n(1 − g_{n−1})]
+> where the parameter sequence {gn}n=1∞ satisfies 0≤gn≤1."
+>
+> "Proposition 2.1: Suppose lim an = 1/4. If {an} is a chain sequence with a parameter sequence {gn}, then lim gn exists
+> and lim gn = 1/2."
+
+Introduced with "But we can prove following proposition", no attribution. **Used in:** papers/paper2 sec_front.tex
+Remarks rem:shift-credit, rem:shift-converse and sec_3.tex (after Lemma 3.3, Remark 3.6): attribution only. The paper
+proves Lemma 3.3 itself. Hypotheses match: the paper's chain sequence 𝖺_n = (1 − 𝗆_{n−1})𝗆_n, 𝗆_0 = 0, 0 < 𝗆_n < 1, is
+of the quoted form (referee report F5 checked 𝖺_n = κ_n b̂_n²/(â_{n−1}â_n)). Re-read the proof from the PDF before
+submission.
+
+## (DD, Paper 2) Derevyagin–Derkach, arXiv:1012.3712v2 = Linear Algebra Appl. (2011), doi:10.1016/j.laa.2011.05.035, "Darboux transformations of Jacobi matrices and Padé approximation" — OPENED (§1, PDF text). Copied from research/program/novelty_lineB_A.md §1 (referee F5).
+
+> "As is known [6], a monic Jacobi matrix J admits the unique LU -factorization J = LU with the bidiagonal matrices L and
+> U having the forms [(1.3): L unit lower bidiagonal with subdiagonal l_j, U upper bidiagonal with diagonal u_j and
+> superdiagonal 1] if and only if the condition (1.4) Pj (0) ≠ 0, j ∈ Z+ is satisfied. The Christoffel transformation of
+> J is defined as follows J = LU → JC := U L. The matrix JC is the tridiagonal matrix associated to the measure tdσ(t)
+> [6]."
+>
+> "Notice that the LU -factorization of a monic Jacobi matrix is unique while the U L-factorization depends on the free
+> parameter s−1 . Both the Christoffel and Geronimus transformation are also called the Darboux transformations [6]."
+
+([6] = Bueno–Marcellán, LAA 384 (2004), UNREAD.) **Used in:** papers/paper2 sec_front.tex Remark shift-credit and
+sec_3.tex after Lemma 3.2: attribution only (the paper proves Lemma 3.2). Journal data from the arXiv API (doi field).
+
+## (DP, Paper 2, §1 as recorded by the novelty search) Deift–Piorkowski, arXiv:2307.09277v2 — OPENED. Copied from research/program/novelty_lineB_B.md (referee F5); see also the entry "(DP, Paper 2)" above.
+
+> (§1) "While, an analogous comparison to the Jacobi problem with weight function wJac(x) = 1 + x (or something similar)
+> seems suggestive, significant challenges remain due to the presence of the simple zero. In particular, the crucial
+> Theorem 4.7 in [4] requires a different proof in this case: now one needs to control the behaviour of the Cauchy
+> operator acting on spaces with Muckenhoupt weights."
+>
+> (Abstract) "We prove an asymptotic formula for the recurrence coefficients of orthogonal polynomials with
+> orthogonality measure log 2/(1−x) dx on (−1, 1). The asymptotic formula confirms a special case of a conjecture by
+> Magnus and extends earlier results by Conway and one of the authors."
+
+**Used in:** papers/paper2 sec_front.tex §1.4 (quoted once, verbatim, with the gloss "[4] being [CD]"): attribution only.
+
+## (DY, Paper 2) Dai–Yao, arXiv:2104.03563v1 [math.CA] (8 Apr 2021), "Uniform asymptotics for the discrete Laguerre polynomials" — READ (§1; PDF fetched from arxiv.org/pdf/2104.03563v1 on 2026-10-14, text by pdftotext -layout)
+
+> (§1, p. 2) "Wu et al. [21] studied the case where the orthogonality lattice consists of infinite nodes with an
+> accumulation point. Except [21], the orthogonality lattices are always equally spaced. In the present paper, we will
+> consider another example where the lattice is not uniformly distributed."
+>
+> Reference list: "[21] X.-B. Wu, Y. Lin, S.-X. Xu and Y.-Q. Zhao, Uniform asymptotics for discrete orthogonal
+> polynomials on infinite nodes with an accumulation point, Anal. Appl., 14 (2016), no. 5, 705–737."
+
+**Used in:** papers/paper2 sec_front.tex §1.4 (literature remark; quoted verbatim). Resolves the Dai–Yao citation gate.
+
+## (VA, Paper 2) Van Assche, arXiv:math/9510214 §3 = Ann. Fac. Sci. Toulouse, numéro spécial Stieltjes (1996), 195–215 — OPENED. Copied from research/program/novelty_G1RH.md §1.3.
+
+> "Dickinson [7], Dickinson, Pollak, and Wannier [8], and Goldberg [13] also considered the polynomials h_{n,ν}
+> satisfying the recurrence relation h_{n+1,ν}(x) = 2x(n + ν)h_{n,ν}(x) − h_{n−1,ν}(x) … considering
+> p_n = √((n + ν)/ν) h_n, the three-term recurrence is of the form x p_n(x) = [2√((n+ν)(n+ν+1))]^{−1} p_{n+1}(x) +
+> [2√((n+ν)(n+ν−1))]^{−1} p_{n−1}(x), which corresponds to a J-fraction and Jacobi operator with coefficients a_n = 0 and
+> λ_n = [4(n + ν)(n + ν − 1)]^{−1} … the spectrum consists of the closure of the set {1/j_{k,ν−1} : k ∈ Z}, where
+> j_{k,ν−1} are the zeros of the Bessel function J_{ν−1}."
+
+**Used in:** papers/paper2 sec_front.tex Remark rem:pure-lommel (Lommel instance): only the recurrence coefficients are taken from
+VA; the orthogonality measure for ν = 3/2 is identified in the remark itself (entry DLMF-Lommel below).
+
+## (DLMF-Lommel, Paper 2) NIST DLMF (10.2.2), (10.6.1), (10.16.1), (4.22.3) — READ (pages dlmf.nist.gov/10.2, /10.6, /10.16, /4.22 fetched 2026-10-14 by curl; formulas from the TeX alttext / page text)
+
+> (10.2.2) "J_ν(z) = (½z)^ν Σ_{k=0}^∞ (−1)^k (¼z²)^k/(k! Γ(ν+k+1))."
+> (10.6.1) "𝒞_{ν−1}(z) + 𝒞_{ν+1}(z) = (2ν/z)𝒞_ν(z)" (𝒞_ν any cylinder function, in particular J_ν).
+> (10.16.1) "J_{1/2}(z) = Y_{−1/2}(z) = (2/(πz))^{1/2} sin z", "J_{−1/2}(z) = −Y_{1/2}(z) = (2/(πz))^{1/2} cos z".
+> (4.22.3) "When z ≠ nπ, n ∈ ℤ, cot z = 1/z + 2z Σ_{n=1}^∞ 1/(z² − n²π²)."
+
+**Used in:** papers/paper2 sec_front.tex Remark rem:pure-lommel. Derivation: u_n := √(n+ν) J_{ν+n}(1/x) solves VA's recurrence by
+(10.6.1); it is ℓ² by (10.2.2); hence the m-function is −2ν J_ν(1/x)/J_{ν−1}(1/x); for ν = 3/2, J_{3/2}/J_{1/2} = 1/z −
+cot z by (10.16.1) and (10.6.1) with ν = 1/2; (4.22.3) gives masses 3/(πk)² at ±1/(πk). Checked numerically
+(mpmath, 30 digits: truncated resolvent, Bessel ratio and partial-fraction sum agree at x = 0.05 + 0.3i).

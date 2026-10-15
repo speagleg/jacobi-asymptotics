@@ -1,7 +1,6 @@
-% sec_back.tex -- chunk A: Section 9 (numerical illustrations) and Section 10 (further remarks and open problems).
-% Source comments (% src: ...) point to the repository and are removed before submission.
-% Labels defined here: sec:numerics, tab:numerics, sec:further, sec:tilt, conj:tilt, sec:p1-routes, sec:rough,
-%   sec:nodes.
+% Sections 9 (numerical illustrations) and 10 (further remarks and open problems).
+% Labels defined here: sec:numerics, tab:numerics, sec:further, sec:tilt, conj:tilt, sec:rough, sec:nodes,
+%   sec:p1-routes (= sec:nodes).
 
 \makeatletter
 \@ifundefined{conjecture}{\theoremstyle{plain}\newtheorem{conjecture}[theorem]{Conjecture}}{}
@@ -9,9 +8,6 @@
 \providecommand{\Ath}[1]{\textup{(A$_{#1}$)}}
 
 \section{Numerical illustrations}\label{sec:numerics}
-% src: papers/paper2/checks/table2.py -> table2.out (re-computed for this paper, 2026-10-14, in the convention of
-% Section 2); cross-check against research/G1/RH/route2/checks/check_r2p_coeff.out, check_x1_coeff.out,
-% check_r2_coeff.out (same b-columns; their a-column uses the pairing a_n/(2 b_{n+1})).
 
 The computations in this section are floating-point computations; they illustrate the theorems and play no role in
 their proofs. They were carried out with scripts that will be made available as supplementary material (repository
@@ -19,8 +15,8 @@ URL and commit hash: to be supplied before submission).
 
 \emph{What is shown.} Table~\ref{tab:numerics} compares the slowly varying factor
 $\ell(k)=\exp\sqrt{\log(k+e)}$, which satisfies \Ath{\vartheta_p} for every $p>0$, with the pure power $\ell\equiv1$,
-in the three geometries $p=\frac12$, $p=1$ and $p=2$, all with $s=2$. By Theorems~\ref{thm:main}(iii)
-and~\ref{thm:pure}, the four quantities
+in the three geometries $p=\frac12$, $p=1$ and $p=2$, all with $s=2$. By Theorem~\ref{thm:main}(ii) and
+Corollary~\ref{thm:pure}, the four quantities
 \[
   n\Bigl(\frac{n^pb_n}{c(p)}-1\Bigr)\qquad\text{and}\qquad n\Bigl(\frac{a_n}{2b_n}-1\Bigr),
 \]
@@ -34,16 +30,17 @@ The spectral weight of $P_n$ near the hard edge sits at indices $k\asymp n^{1+2/
 $p=\frac12$ and $n=1600$, far beyond any truncation. Without a tail the truncated measure has a soft edge at its
 smallest atom, and its coefficients obey a different law; for example, for $p=\frac12$, $s=\frac32$, the same $\ell$ and
 the atoms $k\le2\cdot10^5$ alone, $n(n^pb_n/c(p)-1)$ equals $-1.81$, $-13.3$ and $-105.9$ at $n=100$, $400$ and
-$1600$. This is a property of the truncation, not a counterexample. We therefore used the atoms $k\le K$ exactly,
-together with a Gauss--Legendre quadrature of the continuous tail
+$1600$. This is a property of the truncation, not a counterexample.
+
+We therefore used the atoms $k\le K$ exactly, together with a Gauss--Legendre quadrature of the continuous tail
 $\int_{K+1/2}^{T}t^{-s}\ell(t)\,\delta_{t^{-p}}\diff t$ on logarithmic panels (ratio $1.02$, eight nodes per panel),
 with $T=10^{48}$ for $p=\frac12$ and $T=10^{16}$ for $p=1,2$. The Jacobi matrix of the resulting discrete measure was
-computed by an updating (RKPW-type) algorithm in extended (long double) precision.
-% TODO(citation gate): Gragg--Harrod (RKPW) not read; do not cite until read (OUTLINE §6.5).
-Each entry was computed for $K=10^5$ and $K=2\cdot10^5$, and for $K=2\cdot10^5$ with $T$ reduced by a factor $10^4$.
-The largest change of any tabulated entry under these variations is $10^{-7}$ for $p=\frac12$, $2\cdot10^{-8}$ for
-$p=1$ and $2\cdot10^{-11}$ for $p=2$, so all digits shown are stable. As a further check, the column $\ell\equiv1$ at
-$p=2$ agrees in every digit shown with the closed form of Remark~\ref{rem:pure-lommel}.
+computed in extended (long double) precision by the updating algorithm that adds one atom at a time and restores
+tridiagonal form by plane rotations. Each entry was computed for $K=10^5$ and $K=2\cdot10^5$, and for $K=2\cdot10^5$
+with $T$ reduced by a factor $10^4$. The largest change of any tabulated entry under these variations is $10^{-7}$ for
+$p=\frac12$, $2\cdot10^{-8}$ for $p=1$ and $2\cdot10^{-11}$ for $p=2$, so all digits shown are stable. As a further
+check, the column $\ell\equiv1$ at $p=2$ agrees in every digit shown with the closed form of
+Remark~\ref{rem:pure-lommel}.
 
 \begin{table}[ht]
 \centering
@@ -52,7 +49,7 @@ $p=2$ agrees in every digit shown with the closed form of Remark~\ref{rem:pure-l
 \toprule
  & \multicolumn{2}{c}{$n\bigl(n^pb_n/c(p)-1\bigr)$} & \multicolumn{2}{c}{$n\bigl(a_n/(2b_n)-1\bigr)$}\\
 \cmidrule(lr){2-3}\cmidrule(lr){4-5}
-$n$ & $\ell(k)=e^{\sqrt{\log(k+e)}}$ & $\ell\equiv1$ & $\ell(k)=e^{\sqrt{\log(k+e)}}$ & $\ell\equiv1$\\
+$n$ & $\ell$ & $\ell\equiv1$ & $\ell$ & $\ell\equiv1$\\
 \midrule
 \multicolumn{5}{l}{$p=\frac12$, $s=2$, $\alpha=1$ (reached through the shift)}\\
  100 & $-0.4039$ & $-0.5069$ & $-0.2442$ & $-0.2408$\\
@@ -76,7 +73,8 @@ $n$ & $\ell(k)=e^{\sqrt{\log(k+e)}}$ & $\ell\equiv1$ & $\ell(k)=e^{\sqrt{\log(k+
  800 & $-0.4046$ & $-0.4996$ & $-0.9985$ & $-0.9986$\\
 \bottomrule
 \end{tabular}
-\caption{Normalised deviations from the pointwise law for $\sigma_{p,2,\ell}$, computed in extended precision from the
+\caption{Normalised deviations from the pointwise law for $\sigma_{p,2,\ell}$, with $\ell(k)=e^{\sqrt{\log(k+e)}}$ and
+for $\ell\equiv1$, computed in extended precision from the
 atoms $k\le K$ and a quadrature of the continuous tail; all entries are stable under doubling of $K$ and under a change
 of the tail cut-off (see the text). The limits $-(s-1)/2$ and $-p/2$ in the columns $\ell\equiv1$ are observed, not
 proved. The slow drift of the first column is the effect of $\Lambda'(\log n)$
@@ -92,12 +90,12 @@ no effect on $a_n/(2b_n)$ at order $1/n$.
 
 \section{Further remarks and open problems}\label{sec:further}
 
-\subsection{The \texorpdfstring{$1/n$}{1/n} term}\label{sec:tilt}
-% src: ROUTE2.md §5 (conjecture + numerics); ROUTE2_xframe1.md §5; ROUTE2_plt1.md §6; RH_px §0 (pure-power
-% coefficients, numerical; pairing translated to the convention of Section 2: a_n/(2b_n) has 1/n coefficient -p/2).
-Theorems~\ref{thm:main}(iii) and~\ref{thm:pure} give the rate $O(1/n)$ but not the coefficient of $1/n$. The computations
-of Section~\ref{sec:numerics}, and similar ones for other $s$ (for $p=\frac12$, $s\in\{1.5,1.75,2,2.5\}$; for $p=1$,
-$s\in\{2,2.5,3\}$), suggest the following.
+\subsection{\texorpdfstring{The $1/n$ term}{The 1/n term}}\label{sec:tilt}
+Theorem~\ref{thm:main}(ii) and Corollary~\ref{thm:pure} give the rate $O(1/n)$ but not the coefficient of $1/n$. The
+computations of Section~\ref{sec:numerics}, and similar ones for other $s$ (for $p=\frac12$,
+$s\in\{1.5,1.75,2,2.5\}$; for $p=1$, $s\in\{2,2.5,3\}$), suggest the following. Throughout, $a_n/(2b_n)$ pairs the
+diagonal entry at $P_n$ with the off-diagonal entry $b_n$ between $P_{n-1}$ and $P_n$, as in \eqref{eq:jacobi}; in
+the other pairing $a_n/(2b_{n+1})$ the coefficient $-p/2$ below becomes $+p/2$, since $b_{n+1}/b_n=1-p/n+O(n^{-2})$.
 
 \begin{conjecture}\label{conj:tilt}
 \textup{(a)} For every $p>0$ and $s>1$, the pure powers satisfy
@@ -112,59 +110,34 @@ $s\in\{2,2.5,3\}$), suggest the following.
 \]
 \end{conjecture}
 
-Part (a) holds for $(p,s)=(2,2)$, by the closed form of Remark~\ref{rem:pure-lommel} (granted the identification made
-there). Part (b) says that, at order $1/n$, a slowly varying factor acts like a change of the exponent $s$ by the local
-logarithmic derivative $\Lambda'(\log n)$, i.e.\ like a hard-edge Bessel order that drifts with $n$. In
-Table~\ref{tab:numerics} the difference between the first two columns is $0.91$ to $0.99$ times
-$\frac12\Lambda'(\log n)$, and this ratio increases with $n$ in all three geometries. The $1/n$
-coefficient behaves well under the shift: by the identities of Section~\ref{sec:shift}, (a) at $s$ implies (a) at $s+p$
-provided the chain-sequence parameters of Section~\ref{sec:shift} have increments
-$n^pu_n-(n-1)^pu_{n-1}=o(1/n)$, a condition we can only check numerically.
-% src: Remark SH-1/n (ROUTE2_alpha); implication proved, hypothesis numerical (OUTLINE §5, Remark 3.7).
-Within our method, (b) amounts to computing the main term of the comparison estimate of Section~\ref{sec:hardedge}
-(as Conway and Deift do for their weight \cite[(5.5)]{CD}), which would need a Bessel parametrix with a drifting order.
-% TODO: (5.5) of C-D is quoted in research/G1/RH/CITATIONS.md (C-D); re-check the equation number against the paper.
-
-\subsection{Other routes at \texorpdfstring{$p=1$}{p = 1}}\label{sec:p1-routes}
-% src: ROUTE2_p1.md, ROUTE2_xframe1.md §0; PROOF.md §3.22 "Relation to §3.23" (REVIEW_Plan53 F1-F2);
-% RH_px §4.1, RH_plt1b §2; ROUTE2_xframe1 Lemma X2.
-At $p=1$ the nodes $1/k$ become $\pm k^{-1/2}$ in the variable $y=\pm x^{1/2}$, which is the variable of
-\cite{WLXZ}. We also carried out the analysis in that symmetric frame, where $0$ is an interior point of the band with
-a Fisher--Hartwig exponent $s-\frac32$. The comparison method then needs this exponent in $(-\frac12,\frac12)$, so it
-covers only $1<s<2$; the loss is an effect of the frame, since $L^2(|\diff y|)$ on a symmetric contour corresponds to
-$L^2(|x|^{-1/2}|\diff x|)$ in $x$. Folding the symmetric problem gives a second proof of Theorem~\ref{thm:engine} at
-$p=1$ for $1<s<3$. It shares the decisive comparison step at $\alpha=0$ with Section~\ref{sec:hardedge}, so it is not
-independent where it matters, and we do not include it. Finally, for pure powers and $p\ne1$ the classical route also
-works: one can glue a local Bessel parametrix built from a continuation of the band weight and conclude by a small-norm
-argument. At $p=1$ that construction fails (Remark~\ref{rem:quotient-p1}); the comparison argument is not affected,
-because it uses only boundary values of $D_W$ and never continues the weight across $(-\delta,0)$.
+Part (a) holds for $(p,s)=(2,2)$, by the closed form of Remark~\ref{rem:pure-lommel}. Part (b) says that, at order
+$1/n$, a slowly varying factor acts like a change of the exponent $s$ by the local logarithmic derivative
+$\Lambda'(\log n)$, i.e.\ like a hard-edge Bessel order that drifts with $n$. In Table~\ref{tab:numerics} the
+difference between the first two columns is $0.91$ to $0.99$ times $\frac12\Lambda'(\log n)$, and this ratio
+increases with $n$ in all three geometries. The $1/n$ coefficient behaves well under the shift: by the identities of
+Section~\ref{sec:shift}, (a) at $s$ implies (a) at $s+p$ provided the chain-sequence parameters of
+Section~\ref{sec:shift} have increments $n^pu_n-(n-1)^pu_{n-1}=o(1/n)$, a condition we can only check numerically.
+Within our method, (b) amounts to computing the main term of the comparison estimate of Section~\ref{sec:hardedge}, as
+Conway and Deift do for their weight \cite[(5.5)]{CD}; this would need a Bessel parametrix with a drifting order.
 
 \subsection{Rough weights}\label{sec:rough}
-The announcement in \S\ref{sec:context} shows that the pointwise law can fail for weights $k^{-s}e^{f(k)}$ with
-$|f|\le\varepsilon$, although the averaged law holds for them. Two questions remain. First, between slow variation and
-arbitrary bounded oscillation there is a range of regularity conditions on $f$ for which we do not know the answer. A
-simple test case is $f(k)=\varepsilon\sin\log k$: its increments $f(k+1)-f(k)$ tend to $0$, but $e^{f}$ is not
-slowly varying, so Theorem~\ref{thm:main} does not apply. Second, for bounded rough $f$ one may ask whether the law
-holds along a subsequence of density one; we do not know.
+The announcement in \S\ref{sec:context} shows that the pointwise law can fail for weights $k^{-s}e^{\epsilon_k}$ with
+$|\epsilon_k|\le\varepsilon$, although the averaged law holds for them. Two questions remain. First, between slow
+variation and arbitrary bounded oscillation there is a range of regularity conditions for which we do not know the
+answer. A simple test case is $\epsilon_k=\varepsilon\sin\log k$: its increments $\epsilon_{k+1}-\epsilon_k$ tend to
+$0$, but $e^{\epsilon_k}$ is not slowly varying, so Theorem~\ref{thm:main} does not apply. Second, for bounded rough
+$\epsilon_k$ one may ask whether the law holds along a subsequence of density one; we do not know.
 
-\subsection{Other nodes, larger Bessel orders, and zeta zeros}\label{sec:nodes}
-% src: PROOF.md §4 "Open now"; ROUTE2 §6 GAP-alpha; outline_A_nodes.md (barrier; not cited).
-Our nodes are exact powers $k^{-p}$. For nodes $x_k=f(k)$ with $f$ regularly varying of index $-p$ the averaged law
-is known \cite{Paper1}, but the pointwise law is open. Heuristically one expects $b_n/f(n)\to c(p)$ under smooth
-regular variation of $f$, and failure under rough displacements of the nodes, in analogy with the weights.
+\subsection{Other nodes, other frames, larger Bessel orders}\label{sec:nodes}\label{sec:p1-routes}
+Our nodes are exact powers $k^{-p}$. For nodes $x_k$ that are regularly varying in $k$ of index $-p$ the averaged
+law is known \cite{Paper1}, but the pointwise law is open. Heuristically one expects $b_n/x_n\to c(p)$ under smooth
+regular variation of the nodes, and failure under rough displacements of the nodes, in analogy with the weights.
 
 For Bessel orders $\alpha\ge1$ we pass through the shift (Theorem~\ref{thm:shift}). An RH analysis of the weight itself
 for $\alpha\ge1$ would require a different comparison frame (Remark~\ref{rem:alpha-ge-1}); it would be needed to compute
 the $1/n$ term directly in that range.
 
-A natural measure outside our scope is built from the ordinates $\gamma_k$ of the non-trivial zeros of the Riemann zeta
-function, taken as given real numbers with multiplicity, for instance with atoms $1/(\gamma_k^2+\frac14)$. Its atoms
-are not of the form $k^{-p}$ times a slowly varying factor with regular spacing: the fluctuations of the gaps
-$\gamma_{k+1}-\gamma_k$ act like a rough perturbation of the nodes, which is the kind of perturbation that the
-discussion above suggests can destroy pointwise laws. Moreover, the pointwise law for this measure would imply the
-averaged one, and we expect, from work in preparation, that the averaged law there carries information on the
-multiplicities of the ordinates that we do not know how to prove. We therefore regard this case as a barrier for the
-present methods rather than as a target.
-% Note: no claim about RH is made (AGENTS.md rule 3). The "work in preparation" is the zeta-zero note (Note 3);
-% the precise statement (averaged law => repeated ordinates have density zero) is repo-internal (G3prime N''),
-% REVIEWED but unpublished. Coordinator: keep or drop this sentence.
+At $p=1$ one can also work in the symmetric variable $y=\pm x^{1/2}$ of \cite{WLXZ}, where $0$ is an interior
+Fisher--Hartwig point of the band; the comparison method then covers only $1<s<2$ directly, and $1<s<3$ after folding.
+We do not pursue this. For pure powers and $p\ne1$ a classical quotient parametrix also works
+(Remark~\ref{rem:quotient-p1}).

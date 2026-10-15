@@ -8,17 +8,57 @@ the pre-submission checklist. Other chunks should append their own sections belo
 
 ---
 
-## 1. Chunk A: claim → source
+## 0. Revision log (2026-10-14, after EDIT_REPORT.md and REFEREE_REPORT.md)
+
+Numbering after the revision: **Theorem 1** (main; parts (i) law, (ii) analytic ℓ with rate O(1/n)); the old part (ii)
+is now the display **(eq:main-rate)** in a "Quantitative form" paragraph; **Corollary 1.6** (pure powers; label kept as
+`thm:pure`, environment `corollary`); **Theorem 2** (Christoffel shift, `thm:shift`); **Theorem 3** (RH engine,
+`thm:engine`). All labels thm:main, thm:shift, thm:engine unchanged. `rem:engine-scope` is now a second label on
+`rem:main-rate` (merged). New labels: `eq:main-rate`. Removed: `rem:main-unbounded` (merged into `rem:main-finite`),
+`sec:p1-routes` is now a second label on `sec:nodes` (§10.3). `def:regular` is a phantom label in §2.3 (the definition
+is in §1.2 only). Section order in §1: 1.1 Setting, 1.2 Results, 1.3 Strategy, 1.4 Context, 1.5 Organisation.
+Convention: "Section~\ref" for sections, "\S\ref" for subsections. App. D (empty) deleted and its \input removed.
+
+### Front half and back matter (sec_front, sec_2–sec_4, sec_back, main.tex, refs.bib, NOTES; this agent)
+
+| Finding | Action |
+|---|---|
+| EDIT S9 (Thm 1 on p. 2) | Thm 1 now on p. 2: Defs 1.1 (slow variation), 1.2 (A_ϑ), then Thm 1 (i), (ii). Rate + ρ_ℓ + M₀ moved to "Quantitative form" (Def. 1.3, eq:main-rate). One-sentence answer added to §1.1 ¶1. Averaged law / Tauberian discussion moved after Thm 1 ("Why the pointwise law is subtle"). |
+| EDIT S10 (Thm 2 → corollary) | Corollary 1.6 (pure powers), explicit c(1), c(2) values kept; Remarks Lommel, zeta, origin of c(p) attached. All references updated (sec_4 Step 3, §9, §10, Figure 1). |
+| EDIT §1 "how by p. 5" | Strategy (§1.3) moved before Context (§1.4); the hard edge paragraph is on p. 5. |
+| EDIT S6 (hard-edge story once) | §1.3 "The hard edge": one paragraph (editor's draft). "What is new relative to C–D" merged into the C–D paragraph of §1.4 Context. Sec_7's verbatim repeat is the RH agent's to delete. |
+| EDIT Fig. 1 | "Paper 1" box → "Equilibrium measure μ* [Paper1]"; Corollary placed directly under the analytic box; labels Thm 1(ii), Thm 1(i)+(eq:main-rate). |
+| EDIT §3.3 "Paper 1" in text | Removed everywhere in my files; footnote in §2.1 now "The companion paper [15] writes …". (sec_5.tex lines 29, 153 still say "Paper~1": RH agent.) |
+| EDIT S7 restatements | Removed: slow-variation display in §2.2; smoothing/(A_ϑ) recap in §4.1; Paper-1 indexing in §1.1 (footnote kept); "no uniqueness of Y" in T1(a); Thm 3 restatement in §3 (one sentence); Thm 4 restatement in §4.4; Rem 1.13 merged into Rem 1.5; regular-rate definition kept only in §1.2; Potter remark now cites §2.2; DP quoted once (§1.4). |
+| EDIT S12 / referee: Tools | Quotations replaced by precise statements with hypotheses and equation numbers (T1–T3); T3(b) stated exactly in L^r, r′ notation; T4 compressed; opening sentence says §2.5 can be skipped until Section 5. Saving ≈ 0.5 p only: moving the T1(a) proof into Lemma 5.1 and the Mellin items into App. A (editor's other proposals) need the RH agent's files. |
+| Referee F4 | One-line remark added to T3(b): C–D (4.14) is printed without v_B^{−1}; agrees when (v_A − v_B)v_B^{−1} = v_A − v_B; we use the consequence of Thm 4.4. |
+| Referee F5 | DPQ, DD, DP (§1 + abstract), DY (re-read from the arXiv PDF), VA §3 and DLMF (10.2.2, 10.6.1, 10.16.1, 4.22.3) entries appended to research/G1/RH/CITATIONS.md. |
+| EDIT L6 (Lommel hedge) | Mass identification **verified** (resolvent of the Lommel Jacobi matrix = −2ν J_ν(1/x)/J_{ν−1}(1/x) via the ℓ² minimal solution; ν = 3/2 gives masses 3/(πk)² at ±1/(πk) by Euler's partial fractions; image under t ↦ π²t² is (6/π²)σ_{2,2}). Proof sketch now in Remark rem:pure-lommel; checked numerically (mpmath). Hedge removed in §1 and §10.1. |
+| EDIT S8 / item 10 | §10.2 (other routes at p = 1) compressed to two sentences + pointer to Remark rem:quotient-p1, merged into §10.3 "Other nodes, other frames, larger Bessel orders". Zeta-zero paragraph of §10.4 dropped entirely (with the "work in preparation" sentence and the coordinator comment). −p/2 convention stated explicitly before Conjecture 10.1 (pairing a_n/(2b_n) vs a_n/(2b_{n+1})). §9 "How computed" split in two paragraphs (L16); Table 2 column heads use ℓ, defined in the caption. |
+| EDIT L7, L8 (Rem 3.5, 3.6) | Expansion of ℓ̂_n written out with the n^{−1/2} cancellation (re-derived); converse remark gets the "common image xσ" clause. |
+| EDIT L12, L15, L18 | Lemma 4.1(ii) stated in words; Lemma 2.1 "j dyadic steps and one final step"; (A_ϑ) "in words" now says {|t| ≥ e^{−c₀}, |arg t| ≤ ϑ_p}. |
+| EDIT §3.2 "Λ satisfies (A_ϑ)" | Def. 1.2 now says "we then also say that Λ satisfies (A_ϑ)". |
+| EDIT N-list (my files) | Π (Lemma 4.3 product) → 𝒫; c_p := min(1, p) → ς_p; ω(T), ω*(T) (§4) → Ω_L(T), Ω_L*(T); arcsine law ω_β → arc_β; first-variation direction f → h, coefficients ϖ_j → 𝖼_j, generic ⟨f, g⟩ → ⟨h₁, h₂⟩; g_p(θ) → g_p(y), θ₁ → y₁; Euler's γ → γ_E; T3 integrand H → 𝓔; T3 exponents p, q → r, r′; Christoffel coefficients c_j removed; rough perturbation f(k) → ε_k (§1.4, §10.2); nodes "f(k)" in §10.3 removed; T4 large-argument series named 𝗌_±. |
+| Hygiene | All `% src:` comments and repo codenames removed from my files and main.tex; TODO gates: Dai–Yao resolved (re-read), C–D (5.5) resolved (equation recorded in RH/CITATIONS.md (C–D)), Gragg–Harrod: the algorithm is now described ("adds one atom at a time and restores tridiagonal form by plane rotations") without a citation. Hyperref: \texorpdfstring on the §4.3/§4.4 titles; no "Token not allowed" warnings from my files. Overfull boxes in my files: none. refs.bib: titles of DY, DP, Tro, MM and journal data of KMVV, KV, VA, DD (doi) filled from the arXiv API. |
+| Prop. 2.5(iii) (EDIT S14) | **Kept**: RH agent should cite it in the proof of Lemma 5.4(iii), or tell the coordinator to delete it. |
+
+### RH half (other agent)
+
+(placeholder: sec_5–sec_8, app_a–app_c and any new appendices)
+
+---
+
+## 1. Front matter (chunk A): claim → source (numbering updated)
 
 | Paper | Statement | Repo source | Repo label |
 |---|---|---|---|
 | Thm 1 (`thm:main`) | main theorem, statement verbatim from OUTLINE §2 | PROOF.md §3.21 B_all, §3.20 B_{p<1}, §3.23 B_{p=1}^{all} (+§3.19), rate re-ordered (OUTLINE §0 item 5) | PROVED-mod-cite, REVIEWED |
-| Thm 2 (`thm:pure`) | pure powers, O(1/n) | THEOREMS.md H2; in the paper Thm 4 at Λ ≡ 0 + Thm 3 | PROVED-mod-cite, REVIEWED |
-| Thm 3 (`thm:shift`) | Christoffel shift with rate | PROOF.md §3.21 SH, SH-r; ROUTE2_alpha §§2–4 | PROVED, REVIEWED |
-| Thm 4 (`thm:engine`) | RH engine, base window | ROUTE2 §4.4 RII; ROUTE2_xframe1 §4 RII_x1; ROUTE2_plt1 §4.3 RII_{<1} | PROVED-mod-cite, REVIEWED |
+| Cor. 1.6 (`thm:pure`, formerly Thm 2) | pure powers, O(1/n) | THEOREMS.md H2; in the paper Thm 4 at Λ ≡ 0 + Thm 3 | PROVED-mod-cite, REVIEWED |
+| Thm 2 (`thm:shift`, formerly Thm 3) | Christoffel shift with rate | PROOF.md §3.21 SH, SH-r; ROUTE2_alpha §§2–4 | PROVED, REVIEWED |
+| Thm 3 (`thm:engine`, formerly Thm 4) | RH engine, base window | ROUTE2 §4.4 RII; ROUTE2_xframe1 §4 RII_x1; ROUTE2_plt1 §4.3 RII_{<1} | PROVED-mod-cite, REVIEWED |
 | Def. `def:sv`, `def:smoothing`, `def:A` | slow variation (sequence form), ρ_ℓ, (A_ϑ) with ϑ_p | PROOF.md §3.14; ROUTE2 §1; (H_an), (H_an^{x1}), (H_an^{<1}) | — |
 | §1.2 "(A_ϑ) ⇒ slowly varying" | one-line mean-value bound | written here | elementary |
-| Rem `rem:pure-lommel` | closed form for σ_{2,2}: b_n = π²/((4n+1)√((4n−1)(4n+3))), a_n = 2π²/((4n+1)(4n+5)), n ≥ 1 | derived here from the Lommel recurrence quoted in novelty_G1RH §1.3 (Van Assche math/9510214 §3) by the quadratic transformation; checked in `checks/lommel_check.py` (90+ digits, n ≤ 9) and against Table 2 (p = 2, ℓ ≡ 1: all 4 digits, n ≤ 800) | NUMERICAL check; derivation not reviewed; **mass identification not checked against a source** (hedged in the text) |
+| Rem `rem:pure-lommel` | closed form for σ_{2,2}: b_n = π²/((4n+1)√((4n−1)(4n+3))), a_n = 2π²/((4n+1)(4n+5)), n ≥ 1 | derived here from the Lommel recurrence quoted in novelty_G1RH §1.3 (Van Assche math/9510214 §3) by the quadratic transformation; checked in `checks/lommel_check.py` (90+ digits, n ≤ 9) and against Table 2 (p = 2, ℓ ≡ 1: all 4 digits, n ≤ 800) | mass identification now proved in the remark (resolvent/minimal solution + DLMF 4.22.3); numerical check kept; derivation not independently reviewed |
 | Rem `rem:shift-credit`, `rem:shift-converse` | credit DD §1, DPQ Prop. 2.1; rate part not found | novelty_lineB_A.md §§1–4 | — |
 | §1.3 Context | positioning | novelty_lineB_A/B, novelty_G1RH, RESEARCH_PROGRAM §§1, 6; wording of OUTLINE §6.6 | — |
 | §1.3 "log D_n changes by ≤ εn" | from Heine's formula (each term changes by a factor in [e^{−nε}, e^{nε}]) | Paper 1 Lemma 2.1 | elementary |
@@ -26,8 +66,8 @@ the pre-submission checklist. Other chunks should append their own sections belo
 | §1.4 strategy | prose | ROUTE2 §2 (last paragraph), §3; OUTLINE §5 §1.4 | — |
 | §9 Table (`tab:numerics`) | numerics | `checks/table2.py` → `checks/table2.out` (this chunk) | NUMERICAL |
 | §10.1 Conjecture (`conj:tilt`) | 1/n term | ROUTE2 §5; xframe §5; ROUTE2_plt1 §6; RH_px §0 (pure power, translated, see §2 item 1 below) | CONJECTURE + NUMERICAL |
-| §10.2 | other routes at p = 1 | ROUTE2_p1; xframe §0; PROOF.md §3.22 (REVIEW_Plan53 F1–F2); RH_px §4.1; RH_plt1b §2; xframe Lemma X2 | — |
-| §10.4 | other nodes, α ≥ 1, zeta zeros | PROOF.md §4; ROUTE2 §6; outline_A_nodes.md §1 item 5 (not cited) | — |
+| §10.3 (last ¶) | other routes at p = 1 (two sentences) | ROUTE2_p1; xframe §0; PROOF.md §3.22 (REVIEW_Plan53 F1–F2); RH_px §4.1; RH_plt1b §2; xframe Lemma X2 | — |
+| §10.3 | other nodes, α ≥ 1 (zeta-zero paragraph dropped) | PROOF.md §4; ROUTE2 §6; outline_A_nodes.md §1 item 5 (not cited) | — |
 
 ## 2. Departures from OUTLINE.md (chunk A) and why
 
@@ -120,12 +160,12 @@ did not re-open any external source; quotations in sec_front.tex are copied from
 | DLMF | dlmf.nist.gov | READ (sections listed in RH/CITATIONS.md) | RH/CITATIONS.md | not cited by chunk A |
 | KV, Van | arXiv:math-ph/0305044, math/0212014 | READ (parts) | RH/CITATIONS.md | not cited by chunk A |
 | BKMM | arXiv:math/0212149v1 | READ (abstract, §1) | research/G1/CITATIONS.md | context |
-| DY | arXiv:2104.03563v1 | OPENED (§1) by novelty agent | novelty_G1RH.md §2 | context (paraphrase; re-read before quoting) |
+| DY | arXiv:2104.03563v1 | READ (§1, PDF re-fetched 2026-10-14) | RH/CITATIONS.md (DY, Paper 2) | context (verbatim quote) |
 | DP | arXiv:2307.09277v2 | OPENED by novelty agent | novelty_lineB_B.md §§1–2 | context (quote "the crucial Theorem 4.7 in [4] requires a different proof") |
 | Pio | arXiv:1910.00564v2 | OPENED | novelty_lineB_B.md §1 | context |
 | Tro | arXiv:2412.18656v5 | OPENED | novelty_lineB_B.md §1 | context |
 | MM | arXiv:0805.1980v1 | OPENED | novelty_lineB_B.md §1 | context |
-| DIK | arXiv:0905.0443v3 §6.2 | OPENED | novelty_lineB_B.md §2(a) | context. **Title in refs.bib from memory: verify** |
+| DIK | arXiv:0905.0443v3 §6.2 | OPENED | novelty_lineB_B.md §2(a) | context. Title and journal data confirmed by the arXiv API |
 | LL | Levin–Lubinsky 1999 announcement | OPENED (PDF, Lubinsky homepage) | novelty_lineB_B.md §1 item 7 | context. Publication data to verify; book (CMS 2001) NOT read |
 | VA | arXiv:math/9510214 §3 | OPENED | novelty_G1RH.md §§1.1, 1.3; novelty_lineB_A.md §3 | Lommel and Tricomi–Carlitz remarks |
 | Monien | arXiv:0901.1883v1 | READ (Paper 1) | papers/paper1/NOTES.md §3 | Rem. pure-zeta |
@@ -160,16 +200,17 @@ Tro, MM titles; DIK title; LL publication data; VA publication data; DD volume/p
   (p = ½, s = 1.5, ℓ = exp√log(k+e), atoms k ≤ 2·10⁵, n = 100, 400, 1600).
 - The tilt ratios "0.91 to 0.99" in §10.1 are (B(ℓ) − B(1))/(θ_n/2) from table2.out (0.911 … 0.987).
 
-## 6. Open TODOs (chunk A)
+## 6. Open TODOs (front half and back matter, after the revision)
 
-1. Second pass of §1.4 against the final lemma names and labels of chunks C and D (OUTLINE §8).
-2. Re-read Dai–Yao §1 before quoting; re-verify all quotations character by character (CD abstract, DP §1).
-3. Confirm the Lommel mass identification from a source (e.g. Dickinson 1954, or Van Assche's survey in full), or keep
-   the hedge.
-4. Re-check the equation number (5.5) of Conway–Deift cited in §10.1.
-5. Fill the "to verify" bibliographic fields.
-6. Decide on the zeta-zero sentence in §10.4 (coordinator).
-7. Supplementary material: URL and commit hash (§9).
+1. Re-verify all quotations character by character against the sources (CD abstract, DP §1, DY §1, DPQ, DD, VA).
+   DPQ's proof: re-read from the PDF (only the statement is verbatim).
+2. Bibliographic fields still "to verify": Van (J. Approx. Theory 125 pages), DLMF release (pages fetched 2026-10-14
+   show "Release date 2026-09-15"), LL publication data, Monien status, Paper 3 title, DD volume/pages (doi given).
+3. Supplementary material: URL and commit hash (§9).
+4. Author line (placeholder) and MSC codes.
+5. Remaining length: §2.5 can lose ≈ 1 more page only if the T1(a) proof moves into Lemma 5.1 and the Mellin items into
+   App. A (RH agent's files); Prop. 2.5(iii) to be cited in Lemma 5.4(iii) or deleted.
+6. The hedge in the proof of Theorem 3 (sign remark, sec_8.tex, EDIT L5) is in the RH agent's file.
 
 ## 7. Pre-submission checklist
 

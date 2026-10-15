@@ -1,9 +1,4 @@
-% ===================================================================================
-% Section 5 (chunk C): the Riemann--Hilbert problem and the common frame.
-% Labels defined here: sec:frame, sec:frame-*, lem:interp, lem:bandweight, lem:gfunction,
-% lem:signs, lem:weightdomain, lem:pottersector, lem:jumpsV, tab:geometry, eq:*, fig:geometry.
-% External labels used: prop:equilibrium (Prop. 2.2), lem:potter (Lemma 2.1), tool:T1..T4 (Sect. 2.5).
-% ===================================================================================
+% Section 5: the Riemann--Hilbert problem and the common frame.
 \providecommand{\eps}{\varepsilon}
 \providecommand{\Log}{\operatorname{Log}}
 \providecommand{\re}{\operatorname{Re}}
@@ -18,52 +13,65 @@
 \providecommand{\Sin}{S_{\mathrm{in}}}
 \providecommand{\Sout}{S_{\mathrm{out}}}
 \providecommand{\Zn}{\mathcal{Z}_n}
-\providecommand{\Nn}{\mathcal{N}}
 \providecommand{\tvphi}{\tilde\varphi}
 \providecommand{\Fi}[1]{\textup{(F#1)}}
+\providecommand{\Ath}[1]{\textup{(A$_{#1}$)}}
+\providecommand{\wn}{\mathsf w_n}
 
 \section{The Riemann--Hilbert problem and the common frame}\label{sec:frame}
 
 This section and the next prove the part of Theorem~\ref{thm:engine} that does not concern the hard edge. We
 encode the discrete measure by a meromorphic interpolation problem of Fokas--Its--Kitaev type, rescale it by $n^p$,
-and normalise it with the $g$-function of the equilibrium measure $\mu^*$ of Paper~1. After rescaling, the nodes
-fill $(0,n^p]$. On the band $(0,4c)$ the orthogonal polynomials oscillate; on the saturated region $(4c,n^p)$ the
-nodes are as dense as the equilibrium measure allows, and the problem is close to a pure interpolation problem;
-near $0$ the band meets infinitely many nodes, and $0$ is a hard edge. The frame is that of Wu, Lin, Xu and Zhao
-for the Tricomi--Carlitz polynomials (\ref{tool:T1}), written in the one-sided variable $x$.
+and normalise it with the $g$-function of the equilibrium measure $\mu^*$ of the companion paper~\cite{Paper1}. After
+rescaling, the nodes fill $(0,n^p]$. On the band $(0,4c)$ the orthogonal polynomials oscillate; on the saturated region
+$(4c,n^p)$ the nodes are as dense as the equilibrium measure allows, and the problem is close to a pure interpolation
+problem; near $0$ the band meets infinitely many nodes, and $0$ is a hard edge. The frame is that of Wu, Lin, Xu and
+Zhao for the Tricomi--Carlitz polynomials (\ref{tool:T1}), written in the one-sided variable $x$.
 
-Almost every step is the same for all $p>0$. The only geometry-dependent ingredient is a scalar function $F$, the
-\emph{outer scalar}, which removes the Gamma-function growth of the node masses away from the hard edge. We list
-in~\S\ref{sec:frame-outer} the five properties of $F$ that the analysis uses, and we construct $F$ in
-\S\ref{sec:outer} separately for $p>1$, $p=1$ and $0<p<1$. Table~\ref{tab:geometry} at the end of this section
-collects everything that depends on the geometry.
+\emph{Roadmap of the proof of Theorem~\ref{thm:engine}.} The matrices are
+\[
+  Y\ \xrightarrow{\ z\mapsto n^pz\ }\ U\ \xrightarrow{\ \text{poles}\ }\ R\ \xrightarrow{\ g\ }\ T\
+  \xrightarrow{\ \text{lens}\ }\ S\ \xrightarrow{\ F\ }\ V\ \xrightarrow{\ D_W\ }\ Q .
+\]
+Sections~\ref{sec:frame-interp}--\ref{sec:frame-transf} carry out the first four steps for any outer scalar $F$ with
+the properties (O1)--(O5) of~\S\ref{sec:frame-outer}. Section~\ref{sec:outer} constructs $F$ (the only
+geometry-dependent step) and collects everything the hard edge needs in the Frame Proposition~\ref{prop:frame}, items
+\Fi1--\Fi8. Section~\ref{sec:hardedge} compares $Q$ with an explicit model $\tilde Q$ built from the global, Airy and
+Bessel parametrices and shows that their first two moments at infinity agree up to $O(1/n)$.
+Section~\ref{sec:extraction} reads off $a_n$ and $b_n$. A reader who trusts the frame can go from the Frame
+Proposition directly to Section~\ref{sec:hardedge}.
+
+Almost every step is the same for all $p>0$. The only geometry-dependent ingredient is the \emph{outer scalar} $F$,
+which removes the Gamma-function growth of the node masses away from the hard edge; Table~\ref{tab:geometry} at the
+start of Section~\ref{sec:outer} collects everything that depends on the geometry.
 
 \subsection{Standing assumptions}\label{sec:frame-standing}
-Throughout \S\S\ref{sec:frame}--\ref{sec:outer} and Appendix~\ref{app:apriori} we fix $p>0$ and $1<s<1+2p$, and we
-put
+Throughout Sections~\ref{sec:frame}--\ref{sec:extraction} and the appendices we fix $p>0$ and $1<s<1+2p$, and we put
 \begin{equation}\label{eq:alpha}
   \alpha:=\frac{s-1-p}{p}\in(-1,1).
 \end{equation}
-We fix $\ell_1(t)=e^{\Lambda(\log t)}$ satisfying $(\mathrm A_{\vartheta_p})$, with the strip half-width
+We fix $\ell_1(t)=e^{\Lambda(\log t)}$ satisfying \Ath{\vartheta_p}, with the strip half-width
 $\vartheta_p=\pi/p$ for $p>1$ and $\vartheta_p=\pi/2$ for $0<p\le1$, and with the constant $c_0>0$ of that
 hypothesis. We write $\sigma:=\sigma_{p,s,\ell_1}=\sum_{k\ge1}w_k\delta_{x_k}$, with $x_k=k^{-p}$ and
 $w_k=k^{-s}\ell_1(k)$, and $c=c(p)$, $\gamma_p=\log c+p$. The degree $n$ is large, $n\ge n_0$, where $n_0$ may
-increase from line to line. Constants $C,c',\dots$ (never the letter $c$, which is $c(p)$) depend only on $p$, $s$,
-$\ell_1$ and the contour parameters fixed in~\S\ref{sec:frame-contour}; they do not depend on $n$ unless they carry
-the subscript $n$. We put
+increase from line to line. Constants $C,C',\dots$ depend only on $p$, $s$, $\ell_1$ and the contour parameters fixed
+in~\S\ref{sec:frame-contour}; they do not depend on $n$ unless they carry the subscript $n$. The letter $c$ always
+denotes $c(p)$; the strip constant $c_0$ is the only other constant written with a $c$. We put
 \begin{equation}\label{eq:thetaw}
   \thw:=\begin{cases}7\pi/16,&p\ge1,\\ 3\pi p/8,&0<p<1,\end{cases}\qquad\qquad
   \thlip:=\begin{cases}\pi/3,&p\ge1,\\ \pi p/4,&0<p<1,\end{cases}
 \end{equation}
-so that $0<\thlip<\thw$ and $\thw/p<\vartheta_p$ in all three cases ($\thw/p=7\pi/(16p)<\pi/p$ for $p>1$, $\thw=7\pi/16<\pi/2$ for $p=1$, and
-$\thw/p=3\pi/8<\pi/2$ for $p<1$); moreover $\frac54\thlip<\thw$, and for $p<1$, $\thw<\pi p/2$. The angle $\thw$ bounds the arguments at which the weight is ever evaluated
-(Lemma~\ref{lem:weightdomain}); $\thlip$ is the angle at which the lens leaves the hard edge.
+so that $0<\thlip<\frac54\thlip<\thw<\frac\pi2$ and $\thw/p<\vartheta_p$ in all three cases ($\thw/p=7\pi/(16p)<\pi/p$
+for $p>1$, $\thw=7\pi/16<\pi/2$ for $p=1$, and $\thw/p=3\pi/8<\pi/2$ for $p<1$); for $p<1$ moreover $\thw<\pi p/2$. The
+angle $\thw$ bounds the arguments at which the weight is ever evaluated (Lemma~\ref{lem:weightdomain}); $\thlip$ is the
+angle at which the lens leaves the hard edge.
 
 \subsection{The interpolation problem}\label{sec:frame-interp}
 Let $P_n$ be the monic orthogonal polynomials of $\sigma$ and $h_n=\int P_n^2\diff\sigma$. For a $2\times2$ matrix
 function $X$ with an expansion $X(z)=I+X_1/z+X_2/z^2+O(z^{-3})$ at $\infty$ we write
 \begin{equation}\label{eq:functional-a}
-  \mathsf a(X):=\frac{(X_2)_{12}}{(X_1)_{12}}-(X_1)_{22}\qquad\text{(when $(X_1)_{12}\ne0$).}
+  \mathsf b(X):=(X_1)_{12}(X_1)_{21},\qquad
+  \mathsf a(X):=\frac{(X_2)_{12}}{(X_1)_{12}}-(X_1)_{22}\quad\text{(the latter when $(X_1)_{12}\ne0$).}
 \end{equation}
 
 \begin{lemma}[The interpolation problem]\label{lem:interp}
@@ -79,10 +87,9 @@ is analytic off $\{X_k\}_{k\ge1}\cup\{0\}$, where
 it has simple poles at the $X_k$ in its second column only, with $\Res_{z=X_k}U_{j2}=n^pw_k\,U_{j1}(X_k)$ ($j=1,2$);
 and $U(z)z^{-n\sigma_3}=I+U_1/z+U_2/z^2+\dots$ for $|z|>n^p$, with
 \begin{equation}\label{eq:extractU}
-  (U_1)_{12}(U_1)_{21}=n^{2p}b_n^2,\qquad \mathsf a(Uz^{-n\sigma_3})=n^pa_n .
+  \mathsf b(Uz^{-n\sigma_3})=n^{2p}b_n^2,\qquad \mathsf a(Uz^{-n\sigma_3})=n^pa_n .
 \end{equation}
 \end{lemma}
-% src: RH_px.md §1, §5 "Extraction"; WLXZ Thm 2.3 (T1); review REVIEW_RHpx "Extraction indices"
 
 \begin{proof}
 For the determinant, write $h_{n-1}\det Y$ as
@@ -94,9 +101,35 @@ For the determinant, write $h_{n-1}\det Y$ as
 The first difference quotient is a polynomial in $x$ of degree $n-1$ with leading coefficient $1$, so the first
 integral is $h_{n-1}$; the second has degree $n-2$ in $x$, so the second integral vanishes. Hence $\det Y\equiv1$.
 The statements for $U$ follow from those of \ref{tool:T1}(a) by the substitution $z=n^p\zeta$: the residue picks up
-the factor $n^p$ from $\diff z=n^p\diff\zeta$, and $U_j=n^{jp}\,n^{pn\sigma_3}Y_jn^{-pn\sigma_3}$ ($j=1,2$). The
-conjugation multiplies the $(1,2)$ entries by $n^{2pn}$ and the $(2,1)$ entries by $n^{-2pn}$; this cancels in the
-product and in the ratio in~\eqref{eq:functional-a}, and \eqref{eq:Y-extract} gives~\eqref{eq:extractU}.
+the factor $n^p$ from $\diff z=n^p\diff\zeta$, and $U_j=n^{jp}\,n^{pn\sigma_3}Y_jn^{-pn\sigma_3}$ ($j=1,2$). The constant
+conjugation by $n^{pn\sigma_3}$ does not change $\mathsf a$ and $\mathsf b$ (Lemma~\ref{lem:invariance} below with $k$
+constant), and the factors $n^{jp}$ give $\mathsf b(Uz^{-n\sigma_3})=n^{2p}\mathsf b(Yz^{-n\sigma_3})$ and
+$\mathsf a(Uz^{-n\sigma_3})=n^p\mathsf a(Yz^{-n\sigma_3})$. Now \eqref{eq:Y-extract} gives~\eqref{eq:extractU}.
+\end{proof}
+
+Every transformation below acts, near infinity, by a constant diagonal matrix on the left and a scalar diagonal
+factor on the right. The extraction functionals do not see such factors.
+
+\begin{lemma}[Invariance of the extraction functionals]\label{lem:invariance}
+Let $X=I+X_1/z+X_2/z^2+O(z^{-3})$, and let $k$ be a scalar function, analytic and non-zero near infinity, with
+$k(z)=k_\infty\bigl(1+k_1/z+k_2/z^2+O(z^{-3})\bigr)$, $k_\infty\ne0$. Then $\hat X:=k_\infty^{-\sigma_3}Xk^{\sigma_3}$
+satisfies $\hat X\to I$, $\mathsf b(\hat X)=\mathsf b(X)$ and $\mathsf a(\hat X)=\mathsf a(X)$. Conversely, if $C$ is a
+constant matrix and $CXk^{\sigma_3}\to I$, then $C=k_\infty^{-\sigma_3}$.
+\end{lemma}
+
+\begin{proof}
+Put $Z_j:=k_\infty^{-\sigma_3}X_jk_\infty^{\sigma_3}$; then $(Z_j)_{12}=k_\infty^{-2}(X_j)_{12}$,
+$(Z_j)_{21}=k_\infty^2(X_j)_{21}$, and the diagonal entries are unchanged. Since
+$k^{\sigma_3}=k_\infty^{\sigma_3}\,\mathrm{diag}\bigl(1+k_1z^{-1}+k_2z^{-2},\,1-k_1z^{-1}+(k_1^2-k_2)z^{-2}\bigr)+O(z^{-3})$,
+\[
+  \hat X_1=Z_1+k_1\sigma_3,\qquad \hat X_2=Z_2+Z_1\,\mathrm{diag}(k_1,-k_1)+\mathrm{diag}(k_2,k_1^2-k_2).
+\]
+Hence $(\hat X_1)_{12}(\hat X_1)_{21}=(Z_1)_{12}(Z_1)_{21}=\mathsf b(X)$, and with $(\hat X_2)_{12}=(Z_2)_{12}-k_1(Z_1)_{12}$
+and $(\hat X_1)_{22}=(X_1)_{22}-k_1$,
+\[
+  \mathsf a(\hat X)=\frac{(Z_2)_{12}}{(Z_1)_{12}}-k_1-(X_1)_{22}+k_1=\frac{(X_2)_{12}}{(X_1)_{12}}-(X_1)_{22}=\mathsf a(X).
+\]
+If $CXk^{\sigma_3}\to I$ then $Ck_\infty^{\sigma_3}=I$.
 \end{proof}
 
 We never use that $Y$ is the \emph{unique} solution of an interpolation problem: every object below is built from
@@ -135,13 +168,12 @@ in all jumps is
 \begin{lemma}[Band weight]\label{lem:bandweight}
 On $\Zn$,
 \begin{equation}\label{eq:Wformula}
-  W(z)=C_n'\,z^{\alpha}\,r_n(z),\qquad C_n':=-\frac{2\pi i}{p}\,n^{1+p-s}\ell_1(n),
+  W(z)=\wn\,z^{\alpha}\,r_n(z),\qquad \wn:=-\frac{2\pi i}{p}\,n^{1+p-s}\ell_1(n),
 \end{equation}
 with the principal power. In particular $|W(x)|=\frac{2\pi}{p}n^{1+p-s}\ell_1(n)\,x^\alpha r_n(x)$ and
 $\arg W(x)=-\pi/2$ for $x\in(0,e^{pc_0}n^p)$, where $r_n(x)>0$. The weight has a hard edge at $0$ with Bessel order
 $\alpha$, and $\alpha>-1$ if and only if $s>1$.
 \end{lemma}
-% src: RH_px Lemma 1.2; ROUTE2 §2 table row "Lemma 1.2"; xframe §2 row L1.2
 
 \begin{proof}
 By~\eqref{eq:theta}, $2i\theta'w=-\frac{2\pi i}{p}\frac{t}{z}n^pt^{-s}\ell_1(t)$, and $t^{1-s}=n^{1-s}z^{(s-1)/p}$.
@@ -149,18 +181,19 @@ The exponent of $z$ is $(s-1)/p-1=\alpha$. Finally $\ell_1(t)=\ell_1(n)r_n$, and
 $\Lambda$ is real on the real axis.
 \end{proof}
 
-\subsection{The $g$-function}\label{sec:frame-g}
-We use the equilibrium measure of Paper~1 exactly as quoted in Proposition~\ref{prop:equilibrium}: $\mu^*=\int_0^1
-\omega_{\beta_\tau}\diff\tau$ with $\beta_\tau:=4c\tau^{-p}$ and $\omega_\beta$ the arcsine law on $[0,\beta]$; its
-density $\psi^*$ satisfies $\psi^*=\lambda_p$ on $[4c,\infty)$ and $0<\psi^*<\lambda_p$ on $(0,4c)$, where
-$\lambda_p(x)=\frac1px^{-1-1/p}$ is the node density; and $U^*(x)=\int\log|x-y|\diff\mu^*(y)$ equals $\gamma_p$ on
+\subsection{\texorpdfstring{The $g$-function}{The g-function}}\label{sec:frame-g}
+We use the equilibrium measure of~\cite{Paper1} exactly as quoted in Proposition~\ref{prop:equilibrium}:
+$\mu^*=\int_0^1\mathrm{arc}_{\beta_\tau}\diff\tau$ with $\beta_\tau:=4c\tau^{-p}$ and $\mathrm{arc}_\beta$ the arcsine law
+on $[0,\beta]$; its density $\psi^*$ satisfies $\psi^*=\lambda_p$ on $[4c,\infty)$ and $0<\psi^*<\lambda_p$ on $(0,4c)$,
+where $\lambda_p(x)=\frac1px^{-1-1/p}$ is the node density; and $U^*(x)=\int\log|x-y|\diff\mu^*(y)$ equals $\gamma_p$ on
 $(0,4c]$. Note $\int_x^\infty\lambda_p=x^{-1/p}=t(x)/n$. Put
 \begin{equation}\label{eq:g}
   g(z):=\int\log(z-y)\diff\mu^*(y)\quad(z\in\C\setminus\R),\qquad
   \varphi:=\gamma_p-g,\qquad \tvphi:=\varphi\pm\frac{i\theta}{n}\ \text{ in }\C_\pm,
 \end{equation}
 with principal logarithms. Nothing here depends on $\ell_1$: the external field of the weight is
-$\frac1n\log w=O(\frac{\log n}{n})$ on the contour (Lemma~\ref{lem:pottersector}) and is not put into $g$.
+$\frac1n\log w=O(\frac{\log n}{n})$ on the contour (Lemma~\ref{lem:pottersector}) and is not put into $g$. Since
+$\theta/n=\pi z^{-1/p}$, the function $\tvphi$ does not depend on $n$ either.
 
 \begin{lemma}[$g$-function]\label{lem:gfunction}
 \begin{enumerate}
@@ -172,7 +205,6 @@ $\frac1n\log w=O(\frac{\log n}{n})$ on the contour (Lemma~\ref{lem:pottersector}
   $\re\tvphi(x)=\gamma_p-U^*(x)<0$ for $x>4c$, and $\re\tvphi(x)\le-\frac12\log x$ for $x\ge x_0$.
 \end{enumerate}
 \end{lemma}
-% src: RH_px Lemma 2.1 and §4.3; review REVIEW_RHpx (strictness); REVIEW_Plan54 F1 (rate at p = 1)
 
 \begin{proof}
 (i) For $y>0$, $\log(z-y)$ jumps by $2\pi i$ across $(-\infty,y)$. Integrating against $\mu^*$ gives the jumps;
@@ -187,17 +219,17 @@ $\{y>|z|/2\}$ we use $\psi^*\le\lambda_p\le C|z|^{-1-1/p}$ there and
 $|\Log(1-y/z)|\le\pi+\log(1+u)+|\log|1-u||$ with $u=y/|z|$, which follows from
 $|1-u|\le|1-y/z|\le1+u$. The resulting integral is $O(|z|^{-1/p})$. Both parts tend to $0$ uniformly.
 
-(iii) For $\beta>0$ put $G_\beta(z):=2\log\bigl((\sqrt z+\sqrt{z-\beta})/2\bigr)$. It is analytic off
-$(-\infty,\beta]$, equals $\log z+o(1)$ at $\infty$, and $G_\beta'(z)=1/\sqrt{z(z-\beta)}=\int\diff\omega_\beta(y)/(z-y)$,
-the Stieltjes transform of the arcsine law. Hence $G_\beta(z)=\int\log(z-y)\diff\omega_\beta(y)$. Taking real parts,
-$u_\beta(x):=\int\log|x-y|\diff\omega_\beta(y)$ equals $\log(\beta/4)$ on $[0,\beta]$ (there
-$|\sqrt x+i\sqrt{\beta-x}|^2=\beta$), and it is strictly increasing on $[\beta,\infty)$. So
-$U^*=\int_0^1u_{\beta_\tau}\diff\tau$ is non-decreasing on $(0,\infty)$. For $x>4c$ the set of $\tau$ with
-$\beta_\tau<x$ is the interval $((4c/x)^{1/p},1]$, of positive length, on which $u_{\beta_\tau}$ is strictly
-increasing at $x$. So $U^*$ is strictly increasing on $[4c,\infty)$. For the asymptotics, $U^*(x)-\log
-x=\int\log|1-y/x|\diff\mu^*(y)$, and the argument of~(ii) on the real axis shows that this tends to $0$. Finally,
-$\re\tvphi=\re\varphi=\gamma_p-U^*$ on $(4c,\infty)$, because $\theta$ is real there; $U^*(4c)=\gamma_p$, which gives
-the sign, and $U^*(x)\ge\frac12\log x+\gamma_p$ for large $x$.
+(iii) For $\beta>0$ put $\mathfrak g_\beta(z):=2\log\bigl((\sqrt z+\sqrt{z-\beta})/2\bigr)$. It is analytic off
+$(-\infty,\beta]$, equals $\log z+o(1)$ at $\infty$, and $\mathfrak g_\beta'(z)=1/\sqrt{z(z-\beta)}=\int\diff\,
+\mathrm{arc}_\beta(y)/(z-y)$, the Stieltjes transform of the arcsine law. Hence $\mathfrak g_\beta(z)=\int\log(z-y)\diff\,
+\mathrm{arc}_\beta(y)$. Taking real parts, $\mathfrak u_\beta(x):=\int\log|x-y|\diff\,\mathrm{arc}_\beta(y)$ equals
+$\log(\beta/4)$ on $[0,\beta]$ (there $|\sqrt x+i\sqrt{\beta-x}|^2=\beta$), and it is strictly increasing on
+$[\beta,\infty)$. So $U^*=\int_0^1\mathfrak u_{\beta_\tau}\diff\tau$ is non-decreasing on $(0,\infty)$. For $x>4c$ the
+set of $\tau$ with $\beta_\tau<x$ is the interval $((4c/x)^{1/p},1]$, of positive length, on which
+$\mathfrak u_{\beta_\tau}$ is strictly increasing at $x$. So $U^*$ is strictly increasing on $[4c,\infty)$. For the
+asymptotics, $U^*(x)-\log x=\int\log|1-y/x|\diff\mu^*(y)$, and the argument of~(ii) on the real axis shows that this
+tends to $0$. Finally, $\re\tvphi=\re\varphi=\gamma_p-U^*$ on $(4c,\infty)$, because $\theta$ is real there;
+$U^*(4c)=\gamma_p$, which gives the sign, and $U^*(x)\ge\frac12\log x+\gamma_p$ for large $x$.
 \end{proof}
 
 At $p=1$ the first moment of $\mu^*$ diverges and $g(z)-\Log z=O(|z|^{-1}\log|z|)$; for $p>1$ it is
@@ -217,22 +249,29 @@ models.
 \item[(iii)] (Hard edge.) There are $\delta_0>0$ and a function $f$, analytic and univalent on $U(0,2\delta_0)$,
   real on the real axis, with $f(0)=0$ and $f'(0)<0$, such that $(\varphi\pm i\pi)^2=4f$ on $U(0,2\delta_0)\cap\C_\pm$.
   More precisely $\varphi=\mp i\pi-2f^{1/2}$ in $\C_\pm$, with the principal root. In particular $f$ does not
-  depend on $n$, $|\re\varphi(z)|\le C|z|^{1/2}$ on $U(0,\delta_0)$, and $\re\tvphi(z)\ge\pi|z|^{-1/p}\sin(|\arg
-  z|/p)-C|z|^{1/2}$ for $z\in U(0,\delta_0)$, $0<|\arg z|\le\thw$.
+  depend on $n$, $|\re\varphi(z)|\le C|z|^{1/2}$ on $U(0,\delta_0)$, and
+  \begin{equation}\label{eq:retvphi-zero}
+    \re\tvphi(z)\ge|\arg z|\Bigl(\frac2p|z|^{-1/p}-C|z|^{1/2}\Bigr)\qquad(z\in U(0,\delta_0),\ 0<|\arg z|\le\thw).
+  \end{equation}
 \item[(iv)] (Soft edge.) There are $\eps_0>0$ and a function $f_r$, analytic and univalent on $U(4c,2\eps_0)$, real
   on the real axis, with $f_r(4c)=0$ and $f_r'(4c)>0$, such that $\tvphi^2=\frac49f_r^3$ on $U(4c,2\eps_0)$, and
-  $\tvphi=-\frac23f_r^{3/2}$ (principal branch, cut along $f_r^{-1}((-\infty,0])$). In particular
-  $\re\tvphi>0$ on $\{z\in U(4c,\eps_0):\ \pi/3<|\arg(z-4c)|<\pi\}$ and $\re\tvphi<0$ for $|\arg(z-4c)|<\pi/3$.
+  $\tvphi=-\frac23f_r^{3/2}$ (principal branch, cut along $f_r^{-1}((-\infty,0])$). Hence, for
+  $z\in U(4c,2\eps_0)\setminus\R$,
+  \[
+    \re\tvphi(z)>0\iff\tfrac\pi3<|\arg f_r(z)|<\pi,\qquad \re\tvphi(z)<0\iff|\arg f_r(z)|<\tfrac\pi3 ,
+  \]
+  and $\re\tvphi<0$ on $(4c,4c+2\eps_0)$. Shrinking $\eps_0$, we may assume $|\arg f_r(z)-\arg(z-4c)|\le\pi/12$ on
+  $U(4c,2\eps_0)\setminus\R$; in particular $\re\tvphi>0$ on the vertical segments $\{4c\pm iy:0<y<2\eps_0\}$.
 \end{enumerate}
 \end{lemma}
-% src: RH_px Lemma 2.2, Lemma 4.1, §4.2; review REVIEW_RHpx ("Near 0, Re phi < 0 everywhere off the band")
 
 \begin{proof}
 (i) We have $\re\varphi(z)=\gamma_p-\int\log|z-y|\diff\mu^*(y)$. If $\re z>0$ and $\im z\ne0$, then
 $|z-y|>|\re z-y|$ for all $y$, so $\re g(z)>U^*(\re z)\ge\gamma_p$ (Proposition~\ref{prop:equilibrium} and
 Lemma~\ref{lem:gfunction}(iii)). On $(4c,\infty)$, $\re g_\pm=U^*>\gamma_p$ by Lemma~\ref{lem:gfunction}(iii). If
-$\re z\le0$ and $z\ne0$, choose $0<\eps\le\min(|z|/2,4c)$; then $|z-y|\ge y>y-\eps$ for $y\ge\eps$, and $|z-y|\ge|z|>\eps\ge
-|\eps-y|$ for $0<y<\eps$, so $\re g(z)>U^*(\eps)=\gamma_p$. On $(0,4c)$, $\re g_\pm=U^*=\gamma_p$.
+$\re z\le0$ and $z\ne0$, choose $0<x_0\le\min(|z|/2,4c)$. Then $|z-y|\ge y>y-x_0$ for $y\ge x_0$, and
+$|z-y|\ge|z|>x_0\ge|x_0-y|$ for $0<y<x_0$; so $|z-y|>|x_0-y|$ for every $y>0$, and integrating against $\mu^*$ gives
+$\re g(z)>U^*(x_0)=\gamma_p$. On $(0,4c)$, $\re g_\pm=U^*=\gamma_p$.
 
 (ii) In $\C_+$, $\tvphi=\varphi+i\theta/n=\gamma_p-g+i\pi z^{-1/p}$. Since $\psi^*$ is real-analytic on $(0,4c)$ (it is
 $\lambda_p$ times a regularised incomplete beta function of $x/4c$), $g|_{\C_+}$ continues analytically across
@@ -241,110 +280,156 @@ and $\partial_y\re(i\pi z^{-1/p})|_{z=x}=-\pi\,\frac{\diff}{\diff x}x^{-1/p}=\pi
 $(0,4c)$, a Taylor expansion with a uniform remainder on $K$ gives the claim. $\C_-$ is the mirror image.
 
 (iii) On $(0,4c)$, $\varphi_+(x)=\gamma_p-U^*(x)-i\pi\mu^*((x,\infty))=-i\pi+i\pi\mu^*((0,x])$. By
-Proposition~\ref{prop:equilibrium}, $\psi^*(x)=\lambda_p(x)\,\mathcal B_{x/4c}(\frac1p+\frac12,\frac12)$ near $0$,
-and $\mathcal B_y(a,\frac12)=y^aA_0(y)$ with $A_0$ analytic near $0$ and $A_0(0)>0$. Since
-$\lambda_p(x)(x/4c)^{1/p+1/2}=Cx^{-1/2}$, we get $\mu^*((0,x])=x^{1/2}A(x)$ with $A$ analytic near $0$ and $A(0)>0$.
-Put $f(z):=-\frac{\pi^2}{4}zA(z)^2$. Then $f$ is analytic and real on the real axis, $f(0)=0$, $f'(0)=-\pi^2A(0)^2/4<0$,
-so $f$ is univalent on a disc $U(0,2\delta_0)$. The functions $(\varphi+i\pi)^2$ (on $\C_+$) and $4f$ are analytic in
-$U(0,2\delta_0)\cap\C_+$ and have the same continuous boundary values $-\pi^2xA(x)^2$ on $(0,2\delta_0)$; by the
-reflection principle they coincide. The same holds in $\C_-$ with $\varphi-i\pi$. On the band, $f(x+i0)$ lies on the
-negative axis approached from below, and the principal root gives $f^{1/2}=-\frac{i\pi}2x^{1/2}A(x)$, so
-$\varphi_++i\pi=-2f^{1/2}$; by continuity $\varphi=-i\pi-2f^{1/2}$ in $U(0,2\delta_0)\cap\C_+$. The remaining claims
-follow from $|f(z)|\le C|z|$, from $\tvphi=\varphi\pm i\pi z^{-1/p}$ and from
-$\re(\pm i\pi z^{-1/p})=\pi|z|^{-1/p}\sin(|\arg z|/p)$.
+Proposition~\ref{prop:equilibrium}, $\psi^*(x)=\lambda_p(x)\,\mathcal I_{x/4c}(\frac1p+\frac12,\frac12)$ near $0$,
+and $\mathcal I_y(a,\frac12)=y^a\mathfrak a_0(y)$ with $\mathfrak a_0$ analytic near $0$ and $\mathfrak a_0(0)>0$. Since
+$\lambda_p(x)(x/4c)^{1/p+1/2}=Cx^{-1/2}$, we get $\mu^*((0,x])=x^{1/2}\mathfrak a(x)$ with $\mathfrak a$ analytic near
+$0$ and $\mathfrak a(0)>0$ (indeed $\mathfrak a(0)=2C_*$ by Proposition~\ref{prop:equilibrium}(iii)). Put $f(z):=-\frac{\pi^2}{4}z\mathfrak a(z)^2$. Then $f$ is analytic and real on the real
+axis, $f(0)=0$, $f'(0)=-\pi^2\mathfrak a(0)^2/4<0$, so $f$ is univalent on a disc $U(0,2\delta_0)$. The functions
+$(\varphi+i\pi)^2$ (on $\C_+$) and $4f$ are analytic in $U(0,2\delta_0)\cap\C_+$ and have the same continuous boundary
+values $-\pi^2x\mathfrak a(x)^2$ on $(0,2\delta_0)$; by the reflection principle they coincide. The same holds in $\C_-$
+with $\varphi-i\pi$. In $U(0,2\delta_0)\cap\C_+$ the two analytic functions $f^{1/2}$ (principal) and
+$-\frac{i\pi}2z^{1/2}\mathfrak a(z)$ have the same square, so they differ by a constant sign; on the band both equal
+$-\frac{i\pi}2x^{1/2}\mathfrak a(x)$ (there $f(x+i0)$ lies on the negative axis approached from below), so they are
+equal, and $\varphi_++i\pi=-2f^{1/2}$ on the band gives $\varphi=-i\pi-2f^{1/2}$ in $U(0,2\delta_0)\cap\C_+$. The bound
+on $\re\varphi$ follows from $|f(z)|\le C|z|$. For~\eqref{eq:retvphi-zero} let $z=re^{i\vartheta}$ with
+$0<\vartheta\le\thw$ (the lower half-disc is the mirror image). Then
+\[
+  \re\tvphi(z)=\re\bigl(-2f^{1/2}+i\pi z^{-1/p}\bigr)=\pi r^{-1/p}\sin(\vartheta/p)-\pi\im\bigl(z^{1/2}\mathfrak a(z)\bigr).
+\]
+Since $z^{1/2}\mathfrak a(z)$ is real for $\vartheta=0$ and $|\partial_\vartheta(z^{1/2}\mathfrak a(z))|=|z(z^{1/2}\mathfrak
+a)'(z)|\le Cr^{1/2}$, its imaginary part is at most $Cr^{1/2}\vartheta$; and $\sin(\vartheta/p)\ge\frac2\pi\frac\vartheta p$
+because $\vartheta/p\le\thw/p<\pi/2$.
 
 (iv) On $(4c-2\eps_0,4c)$ we have $\tvphi_++\tvphi_-=\varphi_++\varphi_-=0$ and, using
 Lemma~\ref{lem:gfunction}(i), $\tvphi_+-\tvphi_-=2\pi i\int_x^\infty(\lambda_p-\psi^*)=2\pi i\int_x^{4c}(\lambda_p-\psi^*)$.
-Near $y=1$, $1-\mathcal B_y(a,\frac12)=(1-y)^{1/2}A_1(y)$ with $A_1$ analytic and $A_1(1)>0$, so
-$\tvphi_+(x)=i\pi(4c-x)^{3/2}A_2(x)$ with $A_2$ analytic near $4c$ and $A_2(4c)>0$. As in~(iii), $\tvphi^2$ and
-$h(z):=\pi^2(z-4c)^3A_2(z)^2$ are analytic in $U(4c,2\eps_0)\setminus[4c-2\eps_0,4c+2\eps_0]$ with equal boundary
-values on $(4c-2\eps_0,4c)$, and $\tvphi$ has no jump on $(4c,4c+2\eps_0)$ (Lemma~\ref{lem:gfunction}(i)). So
-$\tvphi^2=h$. Put $f_r:=(9h/4)^{1/3}=(\frac{3\pi}{2})^{2/3}(z-4c)A_2(z)^{2/3}$. On $(4c,\infty)$, $\tvphi$ is real and
-negative (Lemma~\ref{lem:gfunction}(iii)), which fixes the branch $\tvphi=-\frac23f_r^{3/2}$. The sign statements
-follow from $\arg f_r^{3/2}=\frac32\arg(z-4c)+o(1)$.
+Near $y=1$, $1-\mathcal I_y(a,\frac12)=(1-y)^{1/2}\mathfrak a_1(y)$ with $\mathfrak a_1$ analytic and
+$\mathfrak a_1(1)>0$, so $\tvphi_+(x)=i\pi(4c-x)^{3/2}\mathfrak a_2(x)$ with $\mathfrak a_2$ analytic near $4c$ and
+$\mathfrak a_2(4c)>0$. As in~(iii), $\tvphi^2$ and $\mathfrak h(z):=\pi^2(z-4c)^3\mathfrak a_2(z)^2$ are analytic in
+$U(4c,2\eps_0)\setminus[4c-2\eps_0,4c+2\eps_0]$ with equal boundary values on $(4c-2\eps_0,4c)$, and $\tvphi$ has no jump on
+$(4c,4c+2\eps_0)$ (Lemma~\ref{lem:gfunction}(i)). So $\tvphi^2=\mathfrak h$. Put
+$f_r:=(9\mathfrak h/4)^{1/3}=(\frac{3\pi}{2})^{2/3}(z-4c)\mathfrak a_2(z)^{2/3}$. On $(4c,\infty)$, $\tvphi$ is real and
+negative (Lemma~\ref{lem:gfunction}(iii)), which fixes the branch $\tvphi=-\frac23f_r^{3/2}$. Then
+$\re\tvphi=-\frac23|f_r|^{3/2}\cos(\frac32\arg f_r)$, which is positive exactly when $\frac32|\arg f_r|\in(\frac\pi2,\frac{3\pi}2)$.
+Finally $f_r(z)=f_r'(4c)(z-4c)(1+O(z-4c))$ with $f_r'(4c)>0$ gives the statement about $\arg f_r$, and on the vertical
+segments $|\arg f_r|\in[\frac{5\pi}{12},\frac{7\pi}{12}]$.
 \end{proof}
 
 \subsection{The contour}\label{sec:frame-contour}
-We fix, once and for all and independently of $n$, numbers $\delta,\eps,h_0,\delta'$ with
-\[
-  0<\eps<h_0<\eps_0,\qquad 0<\delta<\min(\delta_0,\tfrac14,\tfrac c2),\qquad h_0\le\tfrac12\delta\tan\thw,\qquad 0<\delta'<1,
-\]
+The lens is bounded by two arcs, the lips, on which the triangular factors of the lens are exponentially small. We first
+show that such arcs exist, with all the properties we need.
+
+\begin{lemma}[The lips]\label{lem:lips}
+There is $\delta_1>0$ such that for every $\delta\in(0,\delta_1]$ there is $h_1=h_1(\delta)>0$ with the following
+property. For every $h_0\in(0,h_1]$ there are $C^2$ arcs $\Sigma^\pm_{\mathrm{lip}}\subset\C_\pm$ from $0$ to $4c\pm ih_0$,
+mirror images of each other and independent of $n$, such that:
+\begin{enumerate}
+\item[(a)] $\Sigma^\pm_{\mathrm{lip}}\cap U(0,\delta)$ is the preimage under $f$ (equivalently, under $\zeta=n^2f(z)$) of
+  a segment of the ray $\arg\zeta=\mp(\pi-\thlip)$; on it $\frac34\thlip\le|\arg z|\le\frac54\thlip$;
+\item[(b)] on $\Sigma^\pm_{\mathrm{lip}}\setminus\{0,4c\pm ih_0\}$: $|\arg z|<\thw$, $\re\varphi<0$ and $\re\tvphi>0$;
+\item[(c)] $\Sigma^\pm_{\mathrm{lip}}\subset\{\re z\le4c\}\setminus U(4c,h_0)$, and $\Sigma^\pm_{\mathrm{lip}}$ meets the line $\re z=4c$
+  only at $4c\pm ih_0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+We construct the upper lip from four pieces and round the three corners inside the open set
+$G_+:=\{z\in\C_+:\ |\arg z|<\thw,\ \re\tvphi(z)>0\}$, which contains every piece except its two end points; the lower lip
+is the mirror image. By Lemma~\ref{lem:signs}(i), $\re\varphi<0$ on all of $\C_+$, so only $\re\tvphi>0$ and
+$|\arg z|<\thw$ have to be checked.
+
+Choose $r_*\in(0,\delta_0]$ with $\frac2pr^{-1/p}>Cr^{1/2}$ for $0<r\le r_*$; then~\eqref{eq:retvphi-zero} gives
+$S_0:=\{0<|z|\le r_*,\ 0<\arg z<\thw\}\subset G_+$. Since $f(z)=f'(0)z(1+O(z))$ with $f'(0)<0$ and $f$ is univalent, the preimage of the ray
+$\arg\zeta=-(\pi-\thlip)$ near $0$ is an analytic arc leaving $0$ at the angle $\thlip$, and for $\delta_1\le r_*/2$ small
+its part in $U(0,\delta)$ satisfies $\frac34\thlip\le\arg z\le\frac54\thlip$ (as $\frac54\thlip<\thw$, it lies in $S_0$). This is
+the first piece; let $z_1$ be its end point on $|z|=\delta$. The second piece runs in $S_0$: along the ray $\arg z=\arg z_1$
+to $|z|=\frac34r_*$, and then along the circle $|z|=\frac34r_*$ down to height $y_1:=h_0\sin\frac\pi{12}$.
+
+Let $K:=[\frac12r_*,4c-\frac12\eps_0]$ and let $y_K$ be as in Lemma~\ref{lem:signs}(ii); choose $h_1\le\min(y_K,\frac12\eps_0)$
+so small that the angle $\vartheta$ with $\frac34r_*\sin\vartheta=y_1$ satisfies $\vartheta<\arg z_1$ and
+$\frac34r_*\cos\vartheta\ge\frac12r_*$, that $\arctan(2y_1/r_*)<\thw$, and that $\arg(4c+ih_0)<\thw$. The third piece is the horizontal segment from the end of the second piece to the point
+$4c+h_0e^{i11\pi/12}$, at height $y_1$. For $\re z\in K$ it lies in $G_+$ by Lemma~\ref{lem:signs}(ii), as $y_1<y_K$. For
+$4c-\frac12\eps_0\le\re z\le4c-h_0\cos\frac\pi{12}$ it lies in $U(4c,\eps_0)$ with $\arg(z-4c)\ge\frac{11\pi}{12}$, hence
+$\frac{5\pi}6\le\arg f_r(z)<\pi$ and $\re\tvphi>0$ by Lemma~\ref{lem:signs}(iv). The fourth piece is the arc
+$\{4c+h_0e^{i\vartheta}:\ \frac\pi2\le\vartheta\le\frac{11\pi}{12}\}$, on which $\frac{5\pi}{12}\le\arg f_r<\pi$, so again
+$\re\tvphi>0$ (except at the end point $4c+ih_0$ itself, where $\arg f_r\in[\frac{5\pi}{12},\frac{7\pi}{12}]$ also gives
+$\re\tvphi>0$). All four pieces have arguments below $\thw$ by the choice of $h_1$, and none depends on $n$, since $f$, $f_r$
+and $\tvphi$ do not. Property~(c) holds by construction.
+\end{proof}
+
+We fix, once and for all and independently of $n$, numbers $\delta,h_0,\eps,\delta'$ with
+\begin{gather*}
+  0<\delta\le\min\bigl(\delta_1,\tfrac14,\tfrac c2\bigr),\qquad 0<h_0\le\min\bigl(h_1(\delta),\tfrac12\delta\tan\thw\bigr),\\
+  0<\eps<\min(h_0,\eps_0),\qquad 0<\delta'<1,
+\end{gather*}
 and the following arcs (Figure~\ref{fig:geometry}).
 \begin{itemize}
 \item The \emph{band} $[0,4c]$, the \emph{saturated segment} $(4c,n^p+\delta')$ and the \emph{top segment}
   $\Sigma_{\mathrm{top}}:=\{n^p+\delta'+iy:\ 0<|y|\le h_0\}$. The top node $X_1=n^p$ lies inside, and no node lies on
   $[n^p+\delta',\infty)$.
-\item The \emph{lips} $\Sigma_{\mathrm{lip}}^\pm$, $C^2$ arcs in $\C_\pm$ from $0$ to $4c\pm ih_0$. In $U(0,\delta)$
-  they are the preimages under $\zeta=n^2f(z)$ of the rays $\arg\zeta=\mp(\pi-\thlip)$; since $f'(0)<0$, they leave
-  $0$ at the angles $\pm\thlip$, and they do not depend on $n$. Outside $U(0,\delta)$
-  they run in $\C_\pm\cap\{|\arg z|<\thw\}$, inside the domain where $\re\tvphi>0$ (such arcs exist by
-  Lemma~\ref{lem:signs}(ii)--(iv): near $0$ the last inequality of~(iii) gives $\re\tvphi>0$ on
-  $\{\delta\le|z|\le\delta_0,\ \frac34\thlip\le|\arg z|\le\thw\}$ if $\delta_0$ is small, so the lips can descend
-  to a small height there, follow the band at a height where~(ii) applies, and rise to $4c\pm ih_0$ along
-  $|z-4c|=h_0$, where~(iv) applies). They stay outside $U(4c,h_0)$ except at their endpoint. We take $\delta$ so small that $\frac34\thlip\le|\arg z|\le\frac54\thlip$ on
-  $\Sigma^\pm_{\mathrm{lip}}\cap U(0,\delta)$.
+\item The \emph{lips} $\Sigma_{\mathrm{lip}}^\pm$ of Lemma~\ref{lem:lips}.
 \item The \emph{vertical segments} $\Sigma_v^\pm:=\{4c\pm iy:\ 0<y\le h_0\}$.
 \item The \emph{saturated lips} $\Sigma^{\triangle\pm}:=\{x\pm ih_0:\ 4c\le x\le n^p+\delta'\}$.
 \end{itemize}
 These arcs bound the \emph{lens} $\Ob^\pm$ (between the band and $\Sigma^\pm_{\mathrm{lip}}$, left of
 $\Sigma^\pm_v$) and the \emph{saturated regions} $\Osat_\pm:=\{4c<\re z<n^p+\delta',\ 0<\pm\im z<h_0\}$. The rest of
 $\C$ is $\Oinf$. We write $\Sigma$ for the union of all these arcs. Only finitely many arcs meet at each vertex, and
-for fixed $n$, $\Sigma$ is bounded. In $U(4c,\eps)$ the only arcs are the band, the saturated segment and
-$\Sigma^\pm_v$; at $0$ only the band and the two lips meet. Nothing lies on $(-\infty,0)$ or on
-$(n^p+\delta',\infty)$.
+for fixed $n$, $\Sigma$ is bounded. By Lemma~\ref{lem:lips}(c) the lips meet the saturated lips only at $4c\pm ih_0$. In
+$U(4c,\eps)$ the only arcs are the band, the saturated segment and $\Sigma^\pm_v$; at $0$ only the band and the two lips
+meet. Nothing lies on $(-\infty,0)$ or on $(n^p+\delta',\infty)$.
 
-The closures of $\Ob^\pm$ and $\Osat_\pm$, minus the point $0$, lie in $\Zn$. Indeed, near $0$ the lens lies in
-$|\arg z|<\thw$ by construction of the lips; every point of $\Osat$ has $\re z\ge4c$ and $|\im z|\le h_0<4c\tan\thw$,
-so $|\arg z|<\thw$; and $|z|\le n^p+\delta'+h_0
-<e^{pc_0}n^p$ for $n\ge n_0$.
+The closures of $\Ob^\pm$ and $\Osat_\pm$, minus the point $0$, lie in $\Zn$. Indeed, the lens lies in
+$|\arg z|<\thw$ by Lemma~\ref{lem:lips}(b); every point of $\Osat$ has $\re z\ge4c$ and $|\im z|\le h_0<4c\tan\thw$,
+so $|\arg z|<\thw$; and $|z|\le n^p+\delta'+h_0<e^{pc_0}n^p$ for $n\ge n_0$.
 
 \begin{figure}[ht]
 \centering
-\begin{tikzpicture}[scale=0.95,>=Stealth]
+\begin{tikzpicture}[scale=0.95,>=Stealth,font=\scriptsize]
   % panel 1: p >= 1
   \begin{scope}
     \draw[gray!60] (-1.6,0)--(0,0);
-    \draw[thick] (0,0)--(1.8,0) node[below left]{\small band};
-    \draw[thick] (0,0)--(60:1.5) node[above]{\small lip};
+    \draw[thick] (0,0)--(1.8,0) node[below left]{band};
+    \draw[thick] (0,0)--(60:1.5) node[above]{lip};
     \draw[thick] (0,0)--(-60:1.5);
-    \draw[dashed] (0,0)--(120:1.3);
-    \draw[dashed] (0,0)--(-120:1.3);
     \draw[gray] (0,0) circle (1.5);
     \node at (0,-2.0) {\small $p\ge1$: lips at $\pm\pi/3$};
-    \node[gray] at (-1.0,0.25) {\tiny no jump};
+    \node at (-1.0,0.25) {no jump};
   \end{scope}
   % panel 2: p < 1
-  \begin{scope}[xshift=5cm]
+  \begin{scope}[xshift=4.6cm]
     \draw[gray!60] (-1.6,0)--(0,0);
     \draw[thick] (0,0)--(1.8,0);
-    \draw[thick] (0,0)--(22.5:1.5) node[right]{\small lip};
+    \draw[thick] (0,0)--(22.5:1.5) node[right]{lip};
     \draw[thick] (0,0)--(-22.5:1.5);
-    \draw[densely dotted] (0,0)--(45:1.6) node[above right]{\small seam};
+    \draw[densely dotted] (0,0)--(45:1.6) node[above right]{seam};
     \draw[densely dotted] (0,0)--(-45:1.6);
     \draw[gray] (0,0) circle (1.5);
     \node at (0,-2.0) {\small $p<1$: lips at $\pm\pi p/4$, seams at $\pm\pi p/2$};
-    \node[gray] at (-0.9,0.9) {\small $\Sout$};
-    \node[gray] at (0.9,0.25) {\tiny $\Sin$};
+    \node at (-0.8,0.8) {$\Sout$};
+    \node at (1.15,0.2) {$\Sin$};
   \end{scope}
   % panel 3: global
-  \begin{scope}[xshift=9.4cm,yshift=0cm]
+  \begin{scope}[xshift=8.6cm,yshift=0cm]
     \draw[thick] (0,0)--(4.4,0);
     \draw[thick] (0,0) .. controls (0.5,0.6) and (1.2,0.6) .. (1.6,0.6);
     \draw[thick] (0,0) .. controls (0.5,-0.6) and (1.2,-0.6) .. (1.6,-0.6);
     \draw[thick] (1.6,-0.6)--(1.6,0.6);
     \draw[thick] (1.6,0.6)--(4.0,0.6)--(4.0,-0.6)--(1.6,-0.6);
-    \fill (0,0) circle (1pt) node[below left]{\small $0$};
-    \fill (1.6,0) circle (1pt) node[below right]{\small $4c$};
-    \fill (3.8,0) circle (1pt) node[below]{\small $n^p$};
-    \node at (0.85,0.18) {\tiny $\Ob^+$};
-    \node at (2.8,0.3) {\tiny $\Osat_+$};
-    \node at (2.4,1.0) {\small $\Oinf$};
+    \fill (0,0) circle (1pt) node[below left]{$0$};
+    \fill (1.6,0) circle (1pt) node[below right]{$4c$};
+    \fill (3.8,0) circle (1pt) node[below]{$n^p$};
+    \node at (0.85,0.2) {$\Ob^+$};
+    \node at (2.8,0.3) {$\Osat_+$};
+    \node at (0.75,0.75) {$\Sigma^+_{\mathrm{lip}}$};
+    \node at (1.32,-0.3) {$\Sigma^-_v$};
+    \node at (2.8,0.85) {$\Sigma^{\triangle+}$};
+    \node at (4.45,0.4) {$\Sigma_{\mathrm{top}}$};
+    \node at (2.4,1.35) {\small $\Oinf$};
     \node at (2.2,-2.0) {\small all $p$ (not to scale)};
   \end{scope}
 \end{tikzpicture}
-\caption{The contour near the hard edge for $p\ge1$ and $p<1$ (Bessel rays dashed), and the whole contour. The
-negative axis and, for $p<1$, the seams carry no jump of $V$ or $Q$. The seams are used only to construct the outer
-scalar (\S\ref{sec:outer-plt1}).}
+\caption{The contour near the hard edge for $p\ge1$ (the cases $p>1$ and $p=1$ have the same local picture) and for
+$p<1$, and the whole contour. The negative axis and, for $p<1$, the seams carry no jump of $V$ or $Q$. The seams are used
+only to construct the outer scalar (Appendix~\ref{app:outer}).}
 \label{fig:geometry}
 \end{figure}
 
@@ -395,22 +480,25 @@ Composing the four steps, and using $\kappa_\pm^{\sigma_3}\tilde F^{\sigma_3}=F^
 \end{equation}
 Since $U$ is analytic off the nodes, the jump of $V$ on any arc of $\Sigma$ away from the nodes is $M_-^{-1}M_+$.
 
-The factor in $\Osat_\pm$ is the product of the factors $\Pi^{-\sigma_3}(\cdot)$ and $V^\triangle_\pm$ of \ref{tool:T1}(b),
-moved into one step, except that in $\Osat_-$ we have changed it by the scalar $-1$. With the literal product a constant
-jump $-I$ would appear on the saturated segment.
+In \cite{WLXZ} the saturated region is treated in two steps, by the factors $\Pi^{-\sigma_3}(\cdot)$ of
+\cite[(3.10)--(3.11)]{WLXZ} and $V^\triangle_\pm$ of \cite[(4.12)--(4.13)]{WLXZ} (\ref{tool:T1}(b)). Our factor
+$A^\triangle_\pm\kappa_\pm^{\sigma_3}$ combines them into one step. In $\Osat_-$ it carries a minus sign relative to
+the literal product of the two factors; this is the sign of the factor $-V^\triangle_-$ that \cite[(4.12)]{WLXZ}
+uses in the regions $\Omega^\triangle_{l,+}\cup\Omega^\triangle_{r,-}$, which lie in the second and fourth quadrants and are
+therefore mapped into $\C_-$ by $z\mapsto z^2$. Without this sign, $V$ would have the constant jump $-I$ on the saturated
+segment.
 
 \subsection{Where the weight is evaluated}\label{sec:frame-where}
 The following bookkeeping explains why the three strips $\vartheta_p$ of Table~\ref{tab:geometry} differ.
 
 \begin{lemma}[Where the weight is evaluated]\label{lem:weightdomain}
-The functions $w$, $W$, $r_n$ and $W_0$ (defined in~\eqref{eq:W0}) are evaluated in this paper only at points of
-$\Zn$: in the closures of $\Ob$ and $\Osat$ (minus the point $0$), which contain the band, the saturated segment,
-the lips, the vertical segments, $\Sigma^{\triangle\pm}$ and the top segment, and at the points of the lips and of the sectors $\{|\arg z|\le\frac54\thlip\}\cap U(0,\delta)$ used in
-\S\ref{sec:hardedge} and Appendix~\ref{app:apriori}, and on the top segment. The region $\Oinf$ never uses the
-weight: there $M=e^{n\varphi\sigma_3}F^{\sigma_3}$ contains neither $w$ nor $W$. Consequently, for every such point
-$\xi(z)=\log t(z)$ lies in $\{\re\xi\ge-c_0,\ |\im\xi|\le\thw/p\}\subset S_{\vartheta_p}$.
+The functions $w$, $W$, $r_n$ and $W_0$ (defined in~\eqref{eq:W0}) are evaluated only at points of $\Zn$. Specifically,
+they are evaluated (a) in $\overline{\Ob\cup\Osat}\setminus\{0\}$, which contains every arc of $\Sigma$ except the top
+segment and the parts of the lips outside the lens; (b) on the lips and on the top segment; and (c) in the sectors
+$\{|\arg z|\le\frac54\thlip\}\cap U(0,\delta)$ used in Section~\ref{sec:hardedge} and Appendix~\ref{app:apriori}. The
+region $\Oinf$ never uses the weight: there $M=e^{n\varphi\sigma_3}F^{\sigma_3}$ contains neither $w$ nor $W$.
+Consequently $\xi(z)=\log t(z)$ always lies in $\{\re\xi\ge-c_0,\ |\im\xi|\le\thw/p\}\subset S_{\vartheta_p}$.
 \end{lemma}
-% src: ROUTE2 §2 (H_an) note (REVIEW_Plan48 F4); ROUTE2_plt1 §1 Lemma S_w; ROUTE2_xframe1 §2 "Strip needed"
 
 \begin{proof}
 By~\eqref{eq:VM}, $w$ and $W$ enter $V$ only in $\Ob\cup\Osat$, whose closure minus $\{0\}$ lies in $\Zn$
@@ -439,7 +527,6 @@ For every $\eta>0$ there is $C_\eta$ such that:
   with $T:=\log n-\frac1p\log R$. Here $\log r_n=\Lambda(\xi)-\Lambda(\log n)$.
 \end{enumerate}
 \end{lemma}
-% src: ROUTE2 §2 "Consequences ... Potter in the sector"; ROUTE2 §3.3 (path); ROUTE2_plt1 §1
 
 \begin{proof}
 (i) For $\re\xi\ge T_0$, integrate $\Lambda'$ along the horizontal segment from $T_0+i\im\xi$ to $\xi$:
@@ -453,9 +540,9 @@ followed by the vertical segment to $\xi(z)$. Along this path $\re\xi\ge T$ and 
 is $(|\log(x/|z|)|+|\arg z|)/p$. The second inequality is the case $x=1$, since $r_n(1)=1$.
 \end{proof}
 
-\subsection{The outer scalar and the jumps of $V$}\label{sec:frame-outer}
-\S\ref{sec:outer} constructs, for each geometry, a function $F$ with the following five properties. The constants in
-(O3) and (O4) do not depend on $n$; $\nu_p:=\min(1/p,\frac12)$, and $\eta_0\in(0,\delta]$ is fixed.
+\subsection{\texorpdfstring{The outer scalar and the jumps of $V$}{The outer scalar and the jumps of V}}\label{sec:frame-outer}
+Section~\ref{sec:outer} constructs, for each geometry, a function $F$ with the following five properties. The
+constants in (O3) and (O4) do not depend on $n$; $\nu_p:=\min(1/p,\frac12)$, and $\eta_0\in(0,\delta]$ is fixed.
 \begin{enumerate}
 \item[(O1)] $F$ is analytic and zero-free in $\C\setminus[0,\infty)$ (in particular, it has no jump on $(-\infty,0)$),
   it has continuous boundary values on $(0,\infty)\setminus\{X_k\}$, and $F_+=F_-e^{2i\theta}$ on
@@ -474,24 +561,24 @@ is $(|\log(x/|z|)|+|\arg z|)/p$. The second inequality is the case $x=1$, since 
   $|\log H_n(z)-\log H_n(0^+)|\le C|z|^{\nu_p}$ and $|(\log H_n)'(z)|\le C|z|^{\nu_p-1}$.
 \item[(O4)] For $z\in\Zn$ with $|z|\ge\eta_0$: $|\log H_n(z)-\log H_n(0^+)|\le C\bigl(1+\log(1+|z|)\bigr)^2$.
 \item[(O5)] (For each fixed $n$.) $|F|^{\pm1}$ is bounded on $U(0,\delta)\setminus(\overline{\Ob}\cup[0,\infty))$, and
-  $\tilde F^{\pm1}$ is bounded on $U(0,\delta)\cap\Ob$. There is $m_n$ with $|F(z)|^{\pm1}\le C_n|z|^{m_n}$ for
+  $\tilde F^{\pm1}$ is bounded on $U(0,\delta)\cap\Ob$. There is $N_n$ with $|F(z)|^{\pm1}\le C_n|z|^{N_n}$ for
   $|z|\ge n^p+\delta'$, $z\notin\R$, and $F(iy)$ is bounded and bounded away from $0$ as $y\to\pm\infty$.
 \end{enumerate}
 The \emph{band weight} is
 \begin{equation}\label{eq:W0}
-  W_0:=\frac W{\tilde F^2}=C_n\,z^\alpha(4c-z)H_n(z)r_n(z)\quad\text{on }\Zn,\qquad C_n:=C_n'
+  W_0:=\frac W{\tilde F^2}=\wn\,z^\alpha(4c-z)H_n(z)r_n(z)\quad\text{on }\Zn
 \end{equation}
-(Lemma~\ref{lem:bandweight}). On $(0,4c)$ it equals $C_n$ times a positive function.
+(Lemma~\ref{lem:bandweight}). On $(0,4c)$ it equals the constant $\wn$ times a positive function.
 
 \begin{lemma}[Jumps of $V$]\label{lem:jumpsV}
 Assume (O1) and (O2). Then $V$ is analytic in $\C\setminus\Sigma$, has continuous boundary values on $\Sigma$ minus its
 vertices (including at the nodes), and $V_+=V_-v_V$ with
 \begin{enumerate}
 \item[(a)] on the band $(0,4c)$: $v_V=\begin{pmatrix}0&W_0\\-1/W_0&0\end{pmatrix}$;
-\item[(b)] on $\Sigma^\pm_{\mathrm{lip}}$ (oriented away from $0$), with $\epsilon_+=1$ and $\epsilon_-=0$:
+\item[(b)] on $\Sigma^\pm_{\mathrm{lip}}$ (oriented away from $0$), with $\iota_+=1$ and $\iota_-=0$:
   \[
     v_V=\begin{pmatrix}1&0\\e^{2n\varphi}/W_0&1\end{pmatrix}
-    +\begin{pmatrix}\epsilon_\pm(\kappa_\pm-1)&W_0e^{-2n\tvphi}\\(\kappa_\pm-1)e^{2n\varphi}/W_0&\epsilon_\mp(\kappa_\pm-1)\end{pmatrix};
+    +\begin{pmatrix}\iota_\pm(\kappa_\pm-1)&W_0e^{-2n\tvphi}\\(\kappa_\pm-1)e^{2n\varphi}/W_0&\iota_\mp(\kappa_\pm-1)\end{pmatrix};
   \]
 \item[(c)] on $\Sigma_v^\pm$ (oriented away from the real axis): $v_V=\begin{pmatrix}1&-W_0e^{-2n\tvphi}\\0&1\end{pmatrix}$;
 \item[(d)] on the saturated segment $(4c,n^p+\delta')$: $v_V=\begin{pmatrix}1&0\\e^{2n\tvphi}/W_0&1\end{pmatrix}$;
@@ -500,7 +587,6 @@ vertices (including at the nodes), and $V_+=V_-v_V$ with
 \item[(g)] there is no jump on $(-\infty,0)$ or on $(n^p+\delta',\infty)$.
 \end{enumerate}
 \end{lemma}
-% src: RH_px §3 "Facts about the jumps", §4.2, §4.3; RH_zeta_close §1.0; WLXZ (6.4) (T1); all recomputed here.
 
 \begin{proof}
 We use $M_-^{-1}M_+$ from~\eqref{eq:VM} and the identities
@@ -511,8 +597,9 @@ For a diagonal matrix $D=\mathrm{diag}(d_1,d_2)$, conjugation $D^{-1}XD$ multipl
 $(2,1)$ entry by $d_1/d_2$.
 
 (a) $L_-^{-1}L_+=\bigl(\begin{smallmatrix}1&W\\0&1\end{smallmatrix}\bigr)$: its $(1,2)$ entry is
-$-W(e^{-2i\theta}\kappa_++e^{2i\theta}\kappa_-)=-W\bigl(\frac{e^{-2i\theta}}{1-e^{-2i\theta}}+\frac1{e^{-2i\theta}-1}\bigr)=W$. Conjugating by $e^{n\varphi_\pm\sigma_3}$ and using $\varphi_-=-\varphi_+$
-(Lemma~\ref{lem:gfunction}(i)) gives $\bigl(\begin{smallmatrix}e^{2n\varphi_+}&W\\0&e^{2n\varphi_-}\end{smallmatrix}\bigr)$, and
+$-W(e^{-2i\theta}\kappa_++e^{2i\theta}\kappa_-)=-W\bigl(\frac{e^{-2i\theta}}{1-e^{-2i\theta}}+\frac1{e^{-2i\theta}-1}\bigr)=W$.
+Conjugating by $e^{n\varphi_\pm\sigma_3}$ and using $\varphi_-=-\varphi_+$ (Lemma~\ref{lem:gfunction}(i)) gives
+$\bigl(\begin{smallmatrix}e^{2n\varphi_+}&W\\0&e^{2n\varphi_-}\end{smallmatrix}\bigr)$, and
 \[
   A_-^{-1}\begin{pmatrix}e^{2n\varphi_+}&W\\0&e^{2n\varphi_-}\end{pmatrix}A_+=\begin{pmatrix}0&W\\-1/W&0\end{pmatrix}.
 \]
@@ -525,24 +612,33 @@ L_+^{-1}e^{n\varphi\sigma_3}\bigr)F^{\sigma_3}$. The bracket is $\bigl(\begin{sm
   A_+^{-1}\begin{pmatrix}1&W\kappa_+e^{-2n\tvphi}\\0&1\end{pmatrix}=
   \begin{pmatrix}1&W\kappa_+e^{-2n\tvphi}\\e^{2n\varphi}/W&\kappa_+\end{pmatrix},
 \]
-because $1+\kappa_+e^{2n\varphi}e^{-2n\tvphi}=1+\kappa_+e^{-2i\theta}=\kappa_+$. Conjugating with $\tilde F^{-\sigma_3}(\cdot)F^{\sigma_3}$,
-$F=\kappa_+\tilde F$, gives $\bigl(\begin{smallmatrix}\kappa_+&W_0e^{-2n\tvphi}\\\kappa_+e^{2n\varphi}/W_0&1\end{smallmatrix}\bigr)$,
-which is~(b). The lower lip (where the $+$ side is the lens) is the mirror computation and gives
+because $1+\kappa_+e^{2n\varphi}e^{-2n\tvphi}=1+\kappa_+e^{-2i\theta}=\kappa_+$. Conjugating with
+$\tilde F^{-\sigma_3}(\cdot)F^{\sigma_3}$, $F=\kappa_+\tilde F$, gives
+$\bigl(\begin{smallmatrix}\kappa_+&W_0e^{-2n\tvphi}\\\kappa_+e^{2n\varphi}/W_0&1\end{smallmatrix}\bigr)$, which is~(b). The
+lower lip (where the $+$ side is the lens) is the mirror computation and gives
 $\bigl(\begin{smallmatrix}1&W_0e^{-2n\tvphi}\\\kappa_-e^{2n\varphi}/W_0&\kappa_-\end{smallmatrix}\bigr)$.
 
 (c) Upper segment, $+$ side $=\Ob^+$: $v_V=M_{\Osat}^{-1}M_{\Ob}=F^{-\sigma_3}e^{-n\varphi\sigma_3}(A^\triangle_+)^{-1}L_+
 e^{n\varphi\sigma_3}A_+\tilde F^{\sigma_3}$. One checks $(A^\triangle_+)^{-1}L_+=\bigl(\begin{smallmatrix}1&-We^{-2i\theta}
 \kappa_+\\1/(\kappa_+W)&1-e^{-2i\theta}\end{smallmatrix}\bigr)$, and after the conjugation by $e^{n\varphi\sigma_3}$ and right
 multiplication by $A_+$ the $(2,1)$ entry vanishes and the diagonal becomes $(\kappa_+,\kappa_+^{-1})$; the final
-conjugation with $F=\kappa_+\tilde F$ removes the diagonal and gives~(c). The lower segment is the mirror image.
+conjugation with $F=\kappa_+\tilde F$ removes the diagonal and gives~(c). The lower segment, whose $+$ side is $\Osat_-$,
+is the mirror image.
 
 (d) On $(4c,n^p+\delta')$ both sides lie in $\Osat$. Since $\kappa_\pm^{-1}=1-e^{\mp2i\theta}$,
-$(A^\triangle_-)^{-1}A^\triangle_+=\bigl(\begin{smallmatrix}1&0\\-(\kappa_+^{-1}+\kappa_-^{-1})/W&1\end{smallmatrix}\bigr)$, and
-$\kappa_+^{-1}+\kappa_-^{-1}=2-2\cos2\theta=\kappa_+^{-1}\kappa_-^{-1}$. Conjugating by $e^{n\varphi\sigma_3}F^{\sigma_3}$ with
-boundary values, the diagonal is $(e^{n(\varphi_+-\varphi_-)}F_+/F_-)^{\sigma_3}=(e^{-2i\theta}e^{2i\theta})^{\sigma_3}=I$
-by Lemma~\ref{lem:gfunction}(i) and (O1), and the $(2,1)$ entry is
-$-e^{n(\varphi_++\varphi_-)}F_+F_-/(\kappa_+\kappa_-W)=-e^{2n\tvphi}\tilde F_+\tilde F_-/W$. By (O2),
-$-\tilde F_+\tilde F_-=\tilde F^2$, which gives~(d).
+\[
+  (A^\triangle_-)^{-1}A^\triangle_+=\begin{pmatrix}1&0\\-(\kappa_+^{-1}+\kappa_-^{-1})/W&1\end{pmatrix},\qquad
+  \kappa_+^{-1}+\kappa_-^{-1}=2-2\cos2\theta=\kappa_+^{-1}\kappa_-^{-1}.
+\]
+Conjugating by $e^{n\varphi\sigma_3}F^{\sigma_3}$ with boundary values, the diagonal becomes
+\[
+  (e^{n(\varphi_+-\varphi_-)}F_+/F_-)^{\sigma_3}=(e^{-2i\theta}e^{2i\theta})^{\sigma_3}=I
+\]
+by Lemma~\ref{lem:gfunction}(i) and (O1), and the $(2,1)$ entry becomes
+\[
+  -e^{n(\varphi_++\varphi_-)}F_+F_-/(\kappa_+\kappa_-W)=-e^{2n\tvphi}\tilde F_+\tilde F_-/W .
+\]
+By (O2), $-\tilde F_+\tilde F_-=\tilde F^2$, which gives~(d).
 
 (e), (f) Here $v_V=(F^{-\sigma_3}e^{-n\varphi\sigma_3})(A^\triangle_\pm)^{\pm1}(e^{n\varphi\sigma_3}F^{\sigma_3})$ with the
 exponent fixed by the orientation, and the $(2,1)$ entry $\mp1/(\kappa_\pm W)$ of $A^\triangle_\pm$ becomes
@@ -555,29 +651,3 @@ in~(d).
 Continuity at the nodes: in~(a) and~(d) all entries are analytic across the real axis; together with Step~1 this shows
 that $V$ has continuous boundary values there.
 \end{proof}
-
-\begin{table}[ht]
-\centering\small
-\renewcommand{\arraystretch}{1.25}
-\begin{tabular}{@{}p{3.4cm}p{3.2cm}p{3.2cm}p{3.6cm}@{}}
-\toprule
-& $p>1$ & $p=1$ & $0<p<1$\tabularnewline
-\midrule
-\raggedright $\arg t$ on $\C\setminus(-\infty,0]$ & \raggedright $(-\pi/p,\pi/p)\subset(-\pi,\pi)$ & \raggedright $(-\pi,\pi)$, open & \raggedright wider than $(-\pi,\pi)$; poles of $\Gamma(t)$ on $\arg z=\pm\pi p$\tabularnewline
-\raggedright where $\tilde D=e^{-j(t)}$ is used & \raggedright slit plane & \raggedright $|\arg z|\le\thw=7\pi/16$ & \raggedright inner sector $\Sin=\{|\arg z|<\pi p/2\}$\tabularnewline
-\raggedright outer scalar $F$ & \raggedright $DBK$, Binet-cut scalar $B$ (Lemma~\ref{lem:binetcut}) & \raggedright $DK$, $D=e^{j(-n/z)}$, no cut (Lemma~\ref{lem:reflection}) & \raggedright $DB_{\mathrm{in}}Ke^{\chi}$ in $\Sin$, $B_{\mathrm{out}}Ke^{\chi}$ in $\Sout$ (Lemma~\ref{lem:seam})\tabularnewline
-\raggedright $|\log\frac{H_n(z)}{H_n(0^+)}|$ near $0$ & \raggedright $\le C|z|^{1/p}$ & \raggedright $\le C|z|$ & \raggedright $\le C|z|(1+\log\frac1{|z|})$\tabularnewline
-\raggedright $g(z)-\log z$ at $\infty$ & \raggedright $O(|z|^{-1/p})$ & \raggedright $O(|z|^{-1}\log|z|)$ & \raggedright $O(|z|^{-1})$\tabularnewline
-\raggedright lip angle $\thlip$; Bessel rays & \raggedright $\pi/3$; $\pm2\pi/3$ & \raggedright $\pi/3$; $\pm2\pi/3$ & \raggedright $\pi p/4$; $\pm(\pi-\pi p/4)$\tabularnewline
-\raggedright angle $\thw$ (weight evaluated) & \raggedright $7\pi/16$ & \raggedright $7\pi/16$ & \raggedright $3\pi p/8$\tabularnewline
-\raggedright super-small entries $|e^{\mp2i\theta}|$ on the lips & \raggedright $e^{-2\pi n\sin(\frac{\pi}{3p})|z|^{-1/p}}$ & \raggedright $e^{-\sqrt3\pi n/|z|}$ & \raggedright $e^{-\sqrt2\pi n|z|^{-1/p}}$\tabularnewline
-\raggedright strip $\vartheta_p$ for $\ell_1$ & \raggedright $\pi/p$ & \raggedright $\pi/2$ & \raggedright $\pi/2$\tabularnewline
-\raggedright $\nu_p$ (in $\eps'_n=n^{-2\nu_p}\log n+\eps_\Lambda(T_n)$) & \raggedright $\min(1/p,\frac12)$ & \raggedright $\frac12$ & \raggedright $\frac12$\tabularnewline
-\raggedright classical quotient parametrix at $0$ & \raggedright works for pure powers (not used) & \raggedright fails (Remark~\ref{rem:quotient-p1}) & \raggedright works with a seam glue (not used)\tabularnewline
-\bottomrule
-\end{tabular}
-\caption{The ingredients of the Riemann--Hilbert analysis that depend on the geometry. Everything else in
-\S\S\ref{sec:frame}--\ref{sec:extraction} is the same for all $p>0$. The super-small entries are evaluated on the rays
-$\arg z=\pm\thlip$; $\eps'_n$ is the lip-mismatch size of \S\ref{sec:hardedge}.}
-\label{tab:geometry}
-\end{table}

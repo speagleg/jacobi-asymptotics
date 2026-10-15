@@ -1,17 +1,10 @@
-% ===================================================================================================
-% Section 4: From analytic to arbitrary slowly varying factors; proofs of Theorems 1-3 given Theorem 4 (chunk B)
+% Section 4: From analytic to arbitrary slowly varying factors; proofs of Theorem 1 and Corollary 1.4 given Theorem 3.
 % Labels defined here: sec:smoothing, sec:smoothing-gauss, sec:smoothing-fv, sec:smoothing-stab, sec:assembly,
 %   lem:smoothing, lem:first-variation, lem:saturation, lem:apriori, prop:stability, rem:base-window,
-%   eq:Lambda-ell, eq:Lell-growth, eq:gauss-deriv, eq:fv-b, eq:fv-a, eq:gp, eq:head, eq:forms, eq:analytic-all-s.
-% Uses: thm:main (Thm 1), thm:pure (Thm 2), thm:shift (Thm 3), thm:engine (Thm 4); lem:potter,
-%   eq:christoffel, eq:Kn-le-1, eq:coef-int, eq:rec-orth, eq:shift-identity.
-% ===================================================================================================
+%   eq:gauss-abs, eq:chaining, eq:fv-b, eq:fv-a, eq:diff-int, eq:gp, eq:head, eq:forms, eq:analytic-all-s.
 \providecommand{\Ath}[1]{\textup{(A$_{#1}$)}}
-\providecommand{\restatedtheorem}[2]{\par\medskip\noindent\textbf{#1}\ \itshape #2\par\medskip\normalfont}
 
 \section{From analytic to arbitrary slowly varying factors}\label{sec:smoothing}
-% src: research/G1/RH/route2/ROUTE2.md §1 (Lemma RedA); research/G1/PROOF.md §§3.1-3.5 (Sat_p, Sat_p^+, FV, FVa,
-%      T3a step 1), §3.14 (L0, B-cond steps 2 and 7), §3.17; ROUTE2_plt1 §5.2; review/REVIEW_Plan48.md checks 1-2.
 
 A slowly varying sequence is ``almost analytic''. Gaussian smoothing in the logarithmic variable turns $\log\ell$ into
 an entire function $\Lambda_\ell$ whose derivatives tend to $0$ in every horizontal strip, and which differs from
@@ -26,8 +19,8 @@ One cannot instead compare directly with the pure power $k^{-s}$: $\ell$ may be 
 $1$ anywhere, and controlling $\log\ell(k)-\log\ell(n)$ against the spectral weights far beyond $k\asymp n$ would require
 information about the hard edge at the level of $1/n$ corrections. Comparing $\ell$ with its own smoothing avoids this.
 
-\S\ref{sec:assembly} then assembles the proofs of Theorems~\ref{thm:main} and~\ref{thm:pure}, given
-Theorem~\ref{thm:engine} and Theorem~\ref{thm:shift} (proved in \S\ref{sec:shift}).
+\S\ref{sec:assembly} then assembles the proofs of Theorem~\ref{thm:main} and Corollary~\ref{thm:pure}, given
+Theorem~\ref{thm:engine} and Theorem~\ref{thm:shift} (proved in Section~\ref{sec:shift}).
 
 Throughout this section $p>0$ and $s>1$ are fixed, $x_k:=k^{-p}$, and for a positive sequence $w=(w_k)$ with
 $\sum_kw_k<\infty$ we write $a_n(w)$, $b_n(w)$ for the Jacobi coefficients of $\sum_kw_k\delta_{x_k}$. With $p_n$ the
@@ -36,24 +29,13 @@ orthonormal polynomials (\S\ref{sec:prelim-op}), the spectral weights are
   q_n(k):=w_k^{1/2}p_n(x_k),\qquad m_n(k):=q_n(k)^2,\qquad K_n(k):=\sum_{j<n}m_j(k)=w_k\mathsf K_n(x_k).
 \]
 Each $m_n$ is a probability vector on $\N$ (orthonormality of $p_n$), $0\le K_n(k)\le1$ by \eqref{eq:Kn-le-1}, and
-$m_n=K_{n+1}-K_n$. For sequences $f,g$ on $\N$ we write $\langle f,g\rangle:=\sum_kf(k)g(k)$ whenever the sum converges
+$m_n=K_{n+1}-K_n$. For sequences $h_1,h_2$ on $\N$ we write $\langle h_1,h_2\rangle:=\sum_kh_1(k)h_2(k)$ whenever the sum converges
 absolutely, and $x$ also denotes the sequence $(x_k)$.
 
-% ---------------------------------------------------------------------------------------------------
 \subsection{Gaussian smoothing}\label{sec:smoothing-gauss}
-% src: ROUTE2.md §1 Lemma RedA (o)-(ii); REVIEW_Plan48 check 1 and F4
 
-Recall the construction of Definition~\ref{def:smoothing}. For a slowly varying $\ell$, $L_\ell:\R\to\R$ is the piecewise-linear interpolant of
-the points $(\log k,\log\ell(k))$, $k\ge1$, extended by the constant $\log\ell(1)$ on $(-\infty,0]$;
-$G(y):=e^{-y^2/2}/\sqrt{2\pi}$; and
-\begin{equation}\label{eq:Lambda-ell}
-  \Lambda_\ell(\xi):=\int_\R L_\ell(y)\,G(\xi-y)\diff y,\qquad
-  \rho_\ell(m):=\sup_{k\ge m}\bigl|\log\ell(k)-\Lambda_\ell(\log k)\bigr| .
-\end{equation}
-Here $G$ is extended to an entire function. Recall also hypothesis \Ath{\vartheta} from Definition~\ref{def:A}: $\ell(k)=\exp\Lambda(\log
-k)$, where $\Lambda$ is analytic on $S_\vartheta=\{\xi:\Re\xi\ge-c_0,\ |\Im\xi|\le\vartheta\}$ for some $c_0>0$, real on
-$S_\vartheta\cap\R$, bounded on $S_\vartheta\cap\{\Re\xi\le0\}$, and
-$\varepsilon_\Lambda(T)=\sup\{|\Lambda'(\xi)|:\xi\in S_\vartheta,\ \Re\xi\ge T\}\to0$.
+Let $L_\ell$, $G$, $\Lambda_\ell=L_\ell*G$ and $\rho_\ell$ be as in Definition~\ref{def:smoothing}; $G$ extends to an
+entire function, and \Ath{\vartheta} is the hypothesis of Definition~\ref{def:A}.
 
 Smoothing statements of this kind are familiar from the theory of regular variation; we include the short proof,
 which uses only the sequence form of slow variation.
@@ -64,12 +46,9 @@ Let $\ell$ be slowly varying and write $L=L_\ell$, $\Lambda=\Lambda_\ell$.
 \item[\textup{(o)}] For every $\eta>0$, $|L(y)|\le A_\eta+\eta(|y|+\log2)$ for all $y\in\R$, with $A_\eta$ from
   Lemma~\ref{lem:potter}(ii). The function $\Lambda$ is entire and real on $\R$.
 \item[\textup{(i)}] $\Lambda(\log k)-\log\ell(k)\to0$ as $k\to\infty$; that is, $\rho_\ell(m)\to0$ as $m\to\infty$.
-\item[\textup{(ii)}] For every $\vartheta\ge0$ and $j\ge0$,
-  \[
-    \sup_{|\Im\xi|\le\vartheta}\bigl|\Lambda^{(j)}(\xi)-\delta_{j0}\Lambda(\Re\xi)\bigr|\longrightarrow0
-    \qquad(\Re\xi\to+\infty),
-  \]
-  and $\Lambda$ is bounded on $\{\Re\xi\le0,\ |\Im\xi|\le\vartheta\}$.
+\item[\textup{(ii)}] For every $\vartheta\ge0$, as $\Re\xi\to+\infty$ we have $\Lambda(\xi)-\Lambda(\Re\xi)\to0$ and
+  $\Lambda^{(j)}(\xi)\to0$ for every $j\ge1$, uniformly in $|\Im\xi|\le\vartheta$; and $\Lambda$ is bounded on
+  $\{\Re\xi\le0,\ |\Im\xi|\le\vartheta\}$.
 \item[\textup{(iii)}] Consequently $\Lambda$ satisfies \Ath{\vartheta} for every $\vartheta>0$ (with any $c_0>0$). The sequence
   $\ell_1(k):=e^{\Lambda(\log k)}$ is positive, and $\psi:=\ell/\ell_1$ satisfies
   $\sup_{k\ge m}|\log\psi(k)|=\rho_\ell(m)\to0$.
@@ -91,21 +70,21 @@ taken under the integral sign. $\Lambda$ is real on $\R$ because $L$ and $G$ are
 
 \emph{Local oscillation of $L$.} For $T\ge T_0:=1+\log2$ put
 \[
-  \omega(T):=\sup\bigl\{|L(y)-L(y')|:\ y,y'\in[T-1,T+1]\bigr\},\qquad \omega^*(T):=\sup_{T'\ge T}\omega(T').
+  \Omega_L(T):=\sup\bigl\{|L(y)-L(y')|:\ y,y'\in[T-1,T+1]\bigr\},\qquad \Omega_L^*(T):=\sup_{T'\ge T}\Omega_L(T').
 \]
 Let $y\in[T-1,T+1]$ and $y\in[\log k,\log(k+1)]$. Then $k\ge e^{T-1}-1\ge e^{T-1}/2$ and $k+1\le e^{T+1}+1$. With
 $m:=\lceil e^T\rceil$ and $\lambda:=2e^2$ we have $m/\lambda\le e^{T-2}\le e^{T-1}/2$ and $\lambda m\ge2e^{T+2}\ge
 e^{T+1}+1$, so $k,k+1\in[m/\lambda,\lambda m]$. Hence $L(y)$ and $L(y')$ are convex combinations of values $\log\ell(k')$
-with $k'\in[m/\lambda,\lambda m]$, and $\omega(T)\le2\osc_m(2e^2)$. Slow variation gives $\omega(T)\to0$, so
-$\omega^*(T)$ is finite and $\omega^*(T)\to0$ as $T\to\infty$.
+with $k'\in[m/\lambda,\lambda m]$, and $\Omega_L(T)\le2\osc_m(2e^2)$. Slow variation gives $\Omega_L(T)\to0$, so
+$\Omega_L^*(T)$ is finite and $\Omega_L^*(T)\to0$ as $T\to\infty$.
 
 \emph{Chaining.} Let $T\ge2T_0$. If $y\ge T$, join $T$ to $y$ by $\lfloor y-T\rfloor$ steps of length $1$ and one shorter
-step; every step lies in an interval $[T'-1,T'+1]$ with $T'\ge T$, so $|L(y)-L(T)|\le\omega^*(T)(1+|y-T|)$. If
-$T/2\le y<T$, the same argument started at $y\ge T_0$ gives $|L(y)-L(T)|\le\omega^*(T/2)(1+|y-T|)$. If $y<T/2$, then
+step; every step lies in an interval $[T'-1,T'+1]$ with $T'\ge T$, so $|L(y)-L(T)|\le\Omega_L^*(T)(1+|y-T|)$. If
+$T/2\le y<T$, the same argument started at $y\ge T_0$ gives $|L(y)-L(T)|\le\Omega_L^*(T/2)(1+|y-T|)$. If $y<T/2$, then
 $|y|+T\le|y-T|+2T\le5|y-T|$, and (o) with $\eta=1$ gives $|L(y)-L(T)|\le2A_1+2\log2+|y|+T\le C_1(1+|y-T|)$ with
 $C_1:=\max(2A_1+2,5)$. In all cases
 \begin{equation}\label{eq:chaining}
-  |L(y)-L(T)|\le\bigl(\omega^*(T/2)\,\mathbf 1_{\{y\ge T/2\}}+C_1\mathbf 1_{\{y<T/2\}}\bigr)(1+|y-T|).
+  |L(y)-L(T)|\le\bigl(\Omega_L^*(T/2)\,\mathbf 1_{\{y\ge T/2\}}+C_1\mathbf 1_{\{y<T/2\}}\bigr)(1+|y-T|).
 \end{equation}
 
 \emph{(ii).} The derivatives of $G$ are $G^{(j)}(w)=\mathsf h_j(w)G(w)$ with polynomials $\mathsf h_j$ of degree $j$.
@@ -116,7 +95,7 @@ $\int_\R G^{(j)}(\xi-y)\diff y=\delta_{j0}$ for all $\xi\in\C$. For $\xi=T+i\ups
 $T\ge2T_0$, this, \eqref{eq:gauss-abs}, \eqref{eq:chaining} and the substitution $t=T-y$ give
 \begin{align*}
   \bigl|\Lambda^{(j)}(\xi)-\delta_{j0}L(T)\bigr|&=\Bigl|\int_\R\bigl(L(y)-L(T)\bigr)G^{(j)}(\xi-y)\diff y\Bigr|\\
-  &\le e^{\vartheta^2/2}\Bigl[\omega^*(T/2)\int_\R \mathsf g_j(t)\diff t+C_1\int_{|t|>T/2}\mathsf g_j(t)\diff t\Bigr],
+  &\le e^{\vartheta^2/2}\Bigl[\Omega_L^*(T/2)\int_\R \mathsf g_j(t)\diff t+C_1\int_{|t|>T/2}\mathsf g_j(t)\diff t\Bigr],
 \end{align*}
 where $\mathsf g_j(t):=\bar{\mathsf h}_j(|t|+\vartheta)(1+|t|)G(t)$ is integrable. The right side tends to $0$ as $T\to\infty$, uniformly in
 $|\upsilon|\le\vartheta$. For $j=0$, applying this at $\xi$ and at $T=\Re\xi$ and subtracting gives
@@ -135,80 +114,75 @@ $\varepsilon_\Lambda(T)\to0$ by (ii) with $j=1$. So \Ath{\vartheta} holds. Final
 $\log\psi(k)=\log\ell(k)-\Lambda(\log k)$, so $\sup_{k\ge m}|\log\psi(k)|=\rho_\ell(m)$, which tends to $0$ by (i).
 \end{proof}
 
-% ---------------------------------------------------------------------------------------------------
 \subsection{First variation}\label{sec:smoothing-fv}
-% src: PROOF.md §3.2 Lemma FV and §3.5 Lemma FVa (statements). The proof below is a direct one (derivatives of the
-%      orthonormal polynomials), replacing the repo's Heine/two-point-function proof; see NOTES (chunk B report).
 
 The comparison of $\ell$ and $\ell_1$ runs along the path $w^{(\tau)}:=w^{(0)}\psi^\tau$, $\tau\in[0,1]$. The next lemma
-computes the derivatives of the Jacobi coefficients along such a path. It is classical in substance (for $f=x$ it is
+computes the derivatives of the Jacobi coefficients along such a path. It is classical in substance (for $h=x$ it is
 the Toda flow); we give the short proof.
 
 \begin{lemma}[First variation]\label{lem:first-variation}
-Let $x_k\in(0,1]$ be distinct, $v_k>0$ with $\sum_kv_k<\infty$, and let $f:\N\to\R$ be bounded. For $\tau\in\R$ put
-$w^{(\tau)}_k:=v_ke^{\tau f(k)}$, and let $a_n,b_n,q_n,m_n$ denote the quantities of $w^{(\tau)}$. Then
+Let $x_k\in(0,1]$ be distinct, $v_k>0$ with $\sum_kv_k<\infty$, and let $h:\N\to\R$ be bounded. For $\tau\in\R$ put
+$w^{(\tau)}_k:=v_ke^{\tau h(k)}$, and let $a_n,b_n,q_n,m_n$ denote the quantities of $w^{(\tau)}$. Then
 $\tau\mapsto a_n$ ($n\ge0$) and $\tau\mapsto\log b_n^2$ ($n\ge1$) are $C^1$ on $\R$, and
 \begin{align}
-  \frac{\diff}{\diff\tau}\log b_n^2&=\langle f,m_n-m_{n-1}\rangle, \label{eq:fv-b}\\
-  \frac{\diff}{\diff\tau}a_n&=\langle(x-a_n)f,m_n\rangle-2b_n\langle f,q_{n-1}q_n\rangle. \label{eq:fv-a}
+  \frac{\diff}{\diff\tau}\log b_n^2&=\langle h,m_n-m_{n-1}\rangle, \label{eq:fv-b}\\
+  \frac{\diff}{\diff\tau}a_n&=\langle(x-a_n)h,m_n\rangle-2b_n\langle h,q_{n-1}q_n\rangle. \label{eq:fv-a}
 \end{align}
 \end{lemma}
 
 \begin{proof}
-Write $\sigma_\tau:=\sum_kw^{(\tau)}_k\delta_{x_k}$ and $\|f\|_\infty:=\sup_k|f(k)|$.
+Write $\sigma_\tau:=\sum_kw^{(\tau)}_k\delta_{x_k}$ and $\|h\|_\infty:=\sup_k|h(k)|$.
 
-\emph{Smoothness.} The moments $\int x^i\diff\sigma_\tau=\sum_kv_ke^{\tau f(k)}x_k^i$ are $C^\infty$ in $\tau$, with
-derivatives computed term by term: the $r$-th termwise derivative is bounded by $v_k\|f\|_\infty^re^{|\tau|\|f\|_\infty}$, which is summable
+\emph{Smoothness.} The moments $\int x^i\diff\sigma_\tau=\sum_kv_ke^{\tau h(k)}x_k^i$ are $C^\infty$ in $\tau$, with
+derivatives computed term by term: the $r$-th termwise derivative is bounded by $v_k\|h\|_\infty^re^{|\tau|\|h\|_\infty}$, which is summable
 uniformly for $\tau$ in compact sets. The coefficients of $P_n$ solve the linear system $\int P_nx^i\diff\sigma_\tau=0$
 ($i<n$), whose determinant is the Hankel determinant $D_n(\sigma_\tau)>0$; by Cramer's rule they are $C^\infty$ in
 $\tau$. So are $h_n=\int P_n^2\diff\sigma_\tau>0$, $p_n=P_n/\sqrt{h_n}$, $a_n$ and $b_n^2=h_n/h_{n-1}$. Moreover, if
 $g(x;\tau)$ is a polynomial in $x$ whose coefficients are $C^1$ in $\tau$, then
 \begin{equation}\label{eq:diff-int}
-  \frac{\diff}{\diff\tau}\int g\diff\sigma_\tau=\int\partial_\tau g\diff\sigma_\tau+\sum_kf(k)w^{(\tau)}_kg(x_k;\tau),
+  \frac{\diff}{\diff\tau}\int g\diff\sigma_\tau=\int\partial_\tau g\diff\sigma_\tau+\sum_kh(k)w^{(\tau)}_kg(x_k;\tau),
 \end{equation}
 since $\int g\diff\sigma_\tau$ is a finite linear combination of moments.
 
 \emph{The $b$-formula.} Apply \eqref{eq:diff-int} to $g=P_n^2$. Since $P_n$ is monic, $\partial_\tau P_n$ has degree
-less than $n$ and is orthogonal to $P_n$. Hence $\frac{\diff}{\diff\tau}h_n=\sum_kf(k)w^{(\tau)}_kP_n(x_k)^2=h_n\langle
-f,m_n\rangle$, i.e.\ $\frac{\diff}{\diff\tau}\log h_n=\langle f,m_n\rangle$. Since $\log b_n^2=\log h_n-\log h_{n-1}$, this
+less than $n$ and is orthogonal to $P_n$. Hence $\frac{\diff}{\diff\tau}h_n=\sum_kh(k)w^{(\tau)}_kP_n(x_k)^2=h_n\langle
+h,m_n\rangle$, i.e.\ $\frac{\diff}{\diff\tau}\log h_n=\langle h,m_n\rangle$. Since $\log b_n^2=\log h_n-\log h_{n-1}$, this
 is \eqref{eq:fv-b}.
 
 \emph{The $a$-formula.} Write $\dot p_n:=\partial_\tau p_n$, a polynomial of degree at most $n$, and expand
-$\dot p_n=\sum_{j\le n}\varpi_jp_j$ with $\varpi_j=\int\dot p_np_j\diff\sigma_\tau$. Differentiating
+$\dot p_n=\sum_{j\le n}\mathsf c_jp_j$ with $\mathsf c_j=\int\dot p_np_j\diff\sigma_\tau$. Differentiating
 $\int p_np_j\diff\sigma_\tau=\delta_{nj}$ with \eqref{eq:diff-int} gives
-$\int\dot p_np_j\diff\sigma_\tau+\int p_n\dot p_j\diff\sigma_\tau+\langle f,q_nq_j\rangle=0$. For $j<n$ the middle term
-vanishes ($\deg\dot p_j\le j<n$), so $\varpi_j=-\langle f,q_nq_j\rangle$; for $j=n$ we get $\varpi_n=-\frac12\langle
-f,m_n\rangle$. Now $a_n=\int xp_n^2\diff\sigma_\tau$ by \eqref{eq:coef-int}, and by \eqref{eq:diff-int} and
+$\int\dot p_np_j\diff\sigma_\tau+\int p_n\dot p_j\diff\sigma_\tau+\langle h,q_nq_j\rangle=0$. For $j<n$ the middle term
+vanishes ($\deg\dot p_j\le j<n$), so $\mathsf c_j=-\langle h,q_nq_j\rangle$; for $j=n$ we get $\mathsf c_n=-\frac12\langle
+h,m_n\rangle$. Now $a_n=\int xp_n^2\diff\sigma_\tau$ by \eqref{eq:coef-int}, and by \eqref{eq:diff-int} and
 \eqref{eq:coef-int},
 \begin{align*}
-  \frac{\diff a_n}{\diff\tau}&=2\int xp_n\dot p_n\diff\sigma_\tau+\langle xf,m_n\rangle
-  =2\varpi_na_n+2\varpi_{n-1}b_n+\langle xf,m_n\rangle\\
-  &=-a_n\langle f,m_n\rangle-2b_n\langle f,q_{n-1}q_n\rangle+\langle xf,m_n\rangle,
+  \frac{\diff a_n}{\diff\tau}&=2\int xp_n\dot p_n\diff\sigma_\tau+\langle xh,m_n\rangle
+  =2\mathsf c_na_n+2\mathsf c_{n-1}b_n+\langle xh,m_n\rangle\\
+  &=-a_n\langle h,m_n\rangle-2b_n\langle h,q_{n-1}q_n\rangle+\langle xh,m_n\rangle,
 \end{align*}
-which is \eqref{eq:fv-a}. (For $n=0$ the term with $\varpi_{n-1}$ is absent, consistent with $b_0=0$.) All the sums
-converge absolutely, since $f$ and $x$ are bounded, $m_n$ is a probability vector and $|q_{n-1}q_n|\le\frac12(m_{n-1}+m_n)$.
+which is \eqref{eq:fv-a}. (For $n=0$ the term with $\mathsf c_{n-1}$ is absent, consistent with $b_0=0$.) All the sums
+converge absolutely, since $h$ and $x$ are bounded, $m_n$ is a probability vector and $|q_{n-1}q_n|\le\frac12(m_{n-1}+m_n)$.
 \end{proof}
 
-% ---------------------------------------------------------------------------------------------------
-\subsection{The head is saturated; stability under $\ell/\ell_1\to1$}\label{sec:smoothing-stab}
-% src: PROOF.md §3.1 Lemma Sat_p, §3.3 Lemma Sat_p^+; G3prime PROOF.md §5.2 Lemma Sat (Christoffel + Lagrange)
+\subsection{\texorpdfstring{The head is saturated; stability under $\ell/\ell_1\to1$}{The head is saturated; stability}}\label{sec:smoothing-stab}
 
-For $p>0$ and $0<\theta<1$ let
+For $p>0$ and $0<y<1$ let
 \begin{equation}\label{eq:gp}
-  g_p(\theta):=(p-\theta)\log\frac1\theta+(1-\theta)\log(1-\theta)-p+(p-1)\theta,\qquad
+  g_p(y):=(p-y)\log\frac1y+(1-y)\log(1-y)-p+(p-1)y,\qquad
   g_p^+:=\begin{cases}g_p,&p\ge1,\\ g_p-\log\frac1p,&0<p<1.\end{cases}
 \end{equation}
-For $\theta<p/2$ the first term is at least $\frac p2\log\frac1\theta$, and the other terms are bounded; so
-$g_p^+(\theta)\to+\infty$ as $\theta\to0^+$. Hence there is $\theta_1>0$ with $g_p^+\ge1$ on $(0,\theta_1]$. We fix the \emph{head margin} $M_0=M_0(p)$ used in
-Theorem~\ref{thm:main}: it is the least integer $M_0\ge4$ such that $g_p^+\ge1$ on $(0,2/M_0]$.
+For $y<p/2$ the first term is at least $\frac p2\log\frac1y$, and the other terms are bounded; so
+$g_p^+(y)\to+\infty$ as $y\to0^+$. Hence there is $y_1>0$ with $g_p^+\ge1$ on $(0,y_1]$. We fix the \emph{head margin} $M_0=M_0(p)$ used in
+the rate \eqref{eq:main-rate}: it is the least integer $M_0\ge4$ such that $g_p^+\ge1$ on $(0,2/M_0]$.
 
 The next lemma says that the atoms $x_k$ with $k$ much smaller than $n$ are almost fully occupied by the first $n$
 orthonormal polynomials. Its proof combines Christoffel's extremal property with a Lagrange test polynomial.
 
 \begin{lemma}[Saturation of the head]\label{lem:saturation}
-Let $w_k>0$ with $W:=\sum_kw_k<\infty$, and consider $\sum_kw_k\delta_{k^{-p}}$. For integers $1\le k<n$ and $\theta:=k/n$,
+Let $w_k>0$ with $W:=\sum_kw_k<\infty$, and consider $\sum_kw_k\delta_{k^{-p}}$. For integers $1\le k<n$ and $y:=k/n$,
 \[
-  1-K_n(k)\le\frac W{w_k}\Bigl(\frac{n+1}k\Bigr)^{2(1-p)_+}e^{-2ng_p^+(\theta)} .
+  1-K_n(k)\le\frac W{w_k}\Bigl(\frac{n+1}k\Bigr)^{2(1-p)_+}e^{-2ng_p^+(y)} .
 \]
 Moreover $m_n(k)\le1-K_n(k)$ for all $k$ and $n$.
 \end{lemma}
@@ -220,20 +194,20 @@ polynomial
   P(x):=\prod_{j\le n,\,j\ne k}\frac{x-x_j}{x_k-x_j},
 \]
 which has degree $n-1$, satisfies $P(x_k)=1$, and vanishes at $x_j$ for $j\le n$, $j\ne k$. For $i>n$ and $j\le n$ we have
-$0<x_i<x_j$, so $|x_i-x_j|\le x_j$ and $|P(x_i)|\le\Pi:=\prod_{j\le n,\,j\ne k}x_j/|x_k-x_j|$. Therefore
-$\int P^2\diff\sigma\le w_k+W\Pi^2$, and \eqref{eq:christoffel} gives $1/\mathsf K_n(x_k)\le w_k+W\Pi^2$. Hence
-$K_n(k)=w_k\mathsf K_n(x_k)\ge w_k/(w_k+W\Pi^2)$ and
+$0<x_i<x_j$, so $|x_i-x_j|\le x_j$ and $|P(x_i)|\le\mathcal P:=\prod_{j\le n,\,j\ne k}x_j/|x_k-x_j|$. Therefore
+$\int P^2\diff\sigma\le w_k+W\mathcal P^2$, and \eqref{eq:christoffel} gives $1/\mathsf K_n(x_k)\le w_k+W\mathcal P^2$. Hence
+$K_n(k)=w_k\mathsf K_n(x_k)\ge w_k/(w_k+W\mathcal P^2)$ and
 \[
-  1-K_n(k)\le\frac{W\Pi^2}{w_k+W\Pi^2}\le\frac W{w_k}\Pi^2 .
+  1-K_n(k)\le\frac{W\mathcal P^2}{w_k+W\mathcal P^2}\le\frac W{w_k}\mathcal P^2 .
 \]
 
-It remains to bound $\Pi$. Here $x_j/|x_k-x_j|=k^p/|k^p-j^p|$. Put $c_p:=\min(1,p)$. We claim
-$|k^p-j^p|\ge c_p\max(j,k)^{p-1}|k-j|$. For $p\ge1$ and $j<k$: $k^p-j^p=k^{p-1}k-j^{p-1}j\ge k^{p-1}(k-j)$; for $p\ge1$
+It remains to bound $\mathcal P$. Here $x_j/|x_k-x_j|=k^p/|k^p-j^p|$. Put $\varsigma_p:=\min(1,p)$. We claim
+$|k^p-j^p|\ge \varsigma_p\max(j,k)^{p-1}|k-j|$. For $p\ge1$ and $j<k$: $k^p-j^p=k^{p-1}k-j^{p-1}j\ge k^{p-1}(k-j)$; for $p\ge1$
 and $j>k$ the same computation gives $j^p-k^p\ge j^{p-1}(j-k)$. For $p<1$ the mean value theorem gives
 $|k^p-j^p|=p\xi^{p-1}|k-j|$ with $\xi$ between $j$ and $k$, and $\xi^{p-1}\ge\max(j,k)^{p-1}$. Hence
 \[
-  \Pi\le c_p^{-(n-1)}\prod_{j<k}\frac k{k-j}\prod_{j=k+1}^n\frac{k^p}{j^{p-1}(j-k)}
-  =c_p^{-(n-1)}\,\frac{k^{k-1}}{(k-1)!}\cdot\frac{k^{p(n-k)}\,(n!/k!)^{1-p}}{(n-k)!} .
+  \mathcal P\le \varsigma_p^{-(n-1)}\prod_{j<k}\frac k{k-j}\prod_{j=k+1}^n\frac{k^p}{j^{p-1}(j-k)}
+  =\varsigma_p^{-(n-1)}\,\frac{k^{k-1}}{(k-1)!}\cdot\frac{k^{p(n-k)}\,(n!/k!)^{1-p}}{(n-k)!} .
 \]
 We bound the three factors. First, $k^{k-1}/(k-1)!=k^k/k!\le e^k$. Second, $\log(n-k)!\ge(n-k)\log(n-k)-(n-k)$.
 Third, $S:=\log(n!/k!)=\sum_{j=k+1}^n\log j$ satisfies
@@ -242,16 +216,16 @@ Third, $S:=\log(n!/k!)=\sum_{j=k+1}^n\log j$ satisfies
 \]
 because $\log$ is increasing ($\log j\ge\int_{j-1}^j\log$ and $\log j\le\int_j^{j+1}\log$). We use the lower bound if
 $p\ge1$ (then $1-p\le0$) and the upper bound if $p<1$; in both cases $(1-p)S\le(1-p)I_{k,n}+(1-p)_+\log\frac{n+1}k$.
-With $I_{k,n}=n\log n-n-k\log k+k$ and $k=\theta n$, the terms in $\log n$ cancel and
+With $I_{k,n}=n\log n-n-k\log k+k$ and $k=yn$, the terms in $\log n$ cancel and
 \[
-  k+p(n-k)\log k+(1-p)I_{k,n}-(n-k)\log(n-k)+(n-k)=-n\,g_p(\theta),
+  k+p(n-k)\log k+(1-p)I_{k,n}-(n-k)\log(n-k)+(n-k)=-n\,g_p(y),
 \]
-as a direct expansion shows. (The coefficient of $n\log n$ is $p(1-\theta)+(1-p)(1-\theta)-(1-\theta)=0$.) Hence
+as a direct expansion shows. (The coefficient of $n\log n$ is $p(1-y)+(1-p)(1-y)-(1-y)=0$.) Hence
 \[
-  \log\Pi\le-n\,g_p(\theta)+(n-1)\log\frac1{c_p}+(1-p)_+\log\frac{n+1}k .
+  \log\mathcal P\le-n\,g_p(y)+(n-1)\log\frac1{\varsigma_p}+(1-p)_+\log\frac{n+1}k .
 \]
-For $p\ge1$, $c_p=1$ and squaring gives the claim. For $p<1$, $c_p=p$ and $(n-1)\log\frac1p\le n\log\frac1p$, so
-$\Pi^2\le e^{-2n(g_p(\theta)-\log(1/p))}((n+1)/k)^{2(1-p)}$, which is the claim with $g_p^+$.
+For $p\ge1$, $\varsigma_p=1$ and squaring gives the claim. For $p<1$, $\varsigma_p=p$ and $(n-1)\log\frac1p\le n\log\frac1p$, so
+$\mathcal P^2\le e^{-2n(g_p(y)-\log(1/p))}((n+1)/k)^{2(1-p)}$, which is the claim with $g_p^+$.
 \end{proof}
 
 We now fix the setting of the comparison. Let $\ell$ be slowly varying, let $\Lambda_\ell$, $\ell_1$, $\psi=\ell/\ell_1$
@@ -280,7 +254,6 @@ and for all $n\ge n_0$ and $\tau\in[0,1]$,
 \end{lemma}
 
 \begin{proof}
-% src: ROUTE2 §1 RedA(iii) item (3); PROOF.md §3.14 B-cond steps 2 and 7; §3.5 T3a step 1
 \emph{Head.} Let $W^{(\tau)}:=\sum_kw^{(\tau)}_k$. By Lemma~\ref{lem:potter}(ii) with $\eta=1$,
 $W^{(\tau)}\le e^{\bar\rho}\sum_jj^{-s}\ell(j)=:e^{\bar\rho}W_\ell<\infty$ and
 $w^{(\tau)}_k\ge e^{-\bar\rho}k^{-s}\ell(k)\ge e^{-\bar\rho-A_1}k^{-s-1}$, so $W^{(\tau)}/w^{(\tau)}_k\le C'k^{s+1}$ with
@@ -310,21 +283,20 @@ $n_0$, depending on $p,s,\ell$, such that for $n\ge n_0$
 \end{proposition}
 
 \begin{proof}
-% src: ROUTE2 §1 Lemma RedA(iii) and its verification; REVIEW_Plan48 check 2
-Apply Lemma~\ref{lem:first-variation} with $v_k=k^{-s}\ell_1(k)$ and $f=\log\psi$, which is bounded by $\bar\rho$; then
+Apply Lemma~\ref{lem:first-variation} with $v_k=k^{-s}\ell_1(k)$ and $h=\log\psi$, which is bounded by $\bar\rho$; then
 $w^{(\tau)}$ is the path defined above. Write $\rho:=\rho_\ell(\lceil n/M_0\rceil)$. For $k\notin\mathcal H_n$ we have
-$k\ge\lceil n/M_0\rceil$, so $|f(k)|\le\rho$; for $k\in\mathcal H_n$, $|f(k)|\le\bar\rho$.
+$k\ge\lceil n/M_0\rceil$, so $|h(k)|\le\rho$; for $k\in\mathcal H_n$, $|h(k)|\le\bar\rho$.
 
 \emph{The $b$-part.} By \eqref{eq:fv-b} and the fundamental theorem of calculus,
 \[
-  \bigl|\log b_n^2(w^{(1)})-\log b_n^2(w^{(0)})\bigr|\le\sup_{\tau\in[0,1]}\sum_k|f(k)|\bigl(m^{(\tau)}_n(k)+m^{(\tau)}_{n-1}(k)\bigr)
+  \bigl|\log b_n^2(w^{(1)})-\log b_n^2(w^{(0)})\bigr|\le\sup_{\tau\in[0,1]}\sum_k|h(k)|\bigl(m^{(\tau)}_n(k)+m^{(\tau)}_{n-1}(k)\bigr)
   \le2\rho+2\bar\rho\mathfrak h_n,
 \]
 because $m^{(\tau)}_n$ and $m^{(\tau)}_{n-1}$ are probability vectors. Lemma~\ref{lem:apriori} bounds $\mathfrak h_n$.
 
 \emph{The $a$-part.} By \eqref{eq:fv-a} and $2|q_{n-1}q_n|\le m_{n-1}+m_n$,
 \[
-  \Bigl|\frac{\diff a_n}{\diff\tau}\Bigr|\le\sum_k|f(k)|\Bigl(|x_k-a_n|\,m_n(k)+b_n\bigl(m_{n-1}(k)+m_n(k)\bigr)\Bigr).
+  \Bigl|\frac{\diff a_n}{\diff\tau}\Bigr|\le\sum_k|h(k)|\Bigl(|x_k-a_n|\,m_n(k)+b_n\bigl(m_{n-1}(k)+m_n(k)\bigr)\Bigr).
 \]
 Let $n\ge n_0$, where $n_0$ is as in Lemma~\ref{lem:apriori}, enlarged so that $2M_0^pn_0^{-p}\le1$. For $k\notin\mathcal H_n$, $0\le x_k\le(M_0/n)^p$ and $0\le a_n\le2M_0^pn^{-p}$,
 so $|x_k-a_n|\le2M_0^pn^{-p}$; also $b_n\le2M_0^pn^{-p}$. These $k$ contribute at most
@@ -336,16 +308,7 @@ multiplying by $n^p$ gives the second bound, again with Lemma~\ref{lem:apriori}.
 The proof uses the slow variation of $\ell$ only through the Potter bounds and through $\rho_\ell\to0$; it uses
 nothing about the hard edge, and it holds for every $p>0$ and $s>1$.
 
-% ---------------------------------------------------------------------------------------------------
-\subsection{Proofs of Theorems~\ref{thm:main} and~\ref{thm:pure}, assuming Theorem~\ref{thm:engine}}\label{sec:assembly}
-% src: OUTLINE §0 item 5 and §5 (§4.4); ROUTE2_plt1 §5.2 (Corollary B_{p<1}, same order); ROUTE2_alpha §5
-%      (Corollary B_all, other order); REVIEW_Plan52 F2 (base window).
-
-We recall Theorem~\ref{thm:engine}, which is proved in Sections~\ref{sec:frame}--\ref{sec:extraction}.
-
-\restatedtheorem{Theorem~\ref{thm:engine} (restated).}{Let $p>0$ and $1<s<1+2p$, i.e.\ $\alpha:=(s-1-p)/p\in(-1,1)$.
-Let $\ell_1$ satisfy \Ath{\vartheta_p}. Then $\sigma_{p,s,\ell_1}$ satisfies
-$n^pb_n=c(p)(1+O(1/n))$ and $a_n/(2b_n)=1+O(1/n)$.}
+\subsection{\texorpdfstring{Proof of Theorem~\ref{thm:main}, assuming Theorem~\ref{thm:engine}}{Proof of Theorem 1, assuming Theorem 3}}\label{sec:assembly}
 
 For a sequence of measures with Jacobi coefficients $a_n,b_n$ and a constant $c>0$, the two forms of the rate
 statement are equivalent:
@@ -367,13 +330,13 @@ $\sigma_{p,s,\ell_1}=x^m\sigma_{p,s_0,\ell_1}$, and each $x^j\sigma_{p,s_0,\ell_
 measure on $(0,1]$ with infinite support and finite moments. Theorem~\ref{thm:shift}, applied $m$ times with the regular
 rate $\eta_n=1/n$, gives \eqref{eq:analytic-all-s} for $\sigma_{p,s,\ell_1}$.
 
-\emph{Step 2: Theorem~\ref{thm:main}(iii).} If $\ell$ itself satisfies \Ath{\vartheta_p}, Step 1 with $\ell_1=\ell$ and
+\emph{Step 2: Theorem~\ref{thm:main}(ii).} If $\ell$ itself satisfies \Ath{\vartheta_p}, Step 1 with $\ell_1=\ell$ and
 \eqref{eq:forms} give $n^pb_n=c(1+O(1/n))$ and $a_n/(2b_n)=1+O(1/n)$.
 
-\emph{Step 3: Theorem~\ref{thm:pure}.} The constant sequence $\ell\equiv1$ is $e^{\Lambda(\log k)}$ with $\Lambda\equiv0$,
+\emph{Step 3: Corollary~\ref{thm:pure}.} The constant sequence $\ell\equiv1$ is $e^{\Lambda(\log k)}$ with $\Lambda\equiv0$,
 which satisfies \Ath{\vartheta} for every $\vartheta$ (with $\varepsilon_\Lambda\equiv0$). Step 2 applies.
 
-\emph{Step 4: Theorem~\ref{thm:main}(ii).} Let $\ell$ be slowly varying and $\ell_1:=e^{\Lambda_\ell(\log\cdot)}$. By
+\emph{Step 4: the rate \eqref{eq:main-rate}.} Let $\ell$ be slowly varying and $\ell_1:=e^{\Lambda_\ell(\log\cdot)}$. By
 Lemma~\ref{lem:smoothing}(iii), $\Lambda_\ell$ satisfies \Ath{\vartheta_p}, so Step 1 gives
 \eqref{eq:analytic-all-s} for $\sigma_{p,s,\ell_1}$. Write $\rho:=\rho_\ell(\lceil n/M_0\rceil)$ and
 $\Delta_n:=\log b_n^2(\sigma_{p,s,\ell})-\log b_n^2(\sigma_{p,s,\ell_1})$. By Proposition~\ref{prop:stability},
@@ -390,7 +353,7 @@ terms are $O(1/n)$, and finitely many $n$ only affect the constant. This is
   |n^pb_n(\sigma_{p,s,\ell})-c|+|n^pa_n(\sigma_{p,s,\ell})-2c|=O\bigl(1/n+\rho_\ell(\lceil n/M_0\rceil)\bigr).
 \]
 
-\emph{Step 5: Theorem~\ref{thm:main}(i)} follows from (ii), because $\rho_\ell(m)\to0$ by Lemma~\ref{lem:smoothing}(i).
+\emph{Step 5: Theorem~\ref{thm:main}(i)} follows from \eqref{eq:main-rate}, because $\rho_\ell(m)\to0$ by Lemma~\ref{lem:smoothing}(i).
 \qed
 
 \medskip
@@ -402,11 +365,10 @@ Theorem~\ref{thm:engine} only for $s_0\in(1,1+2p)$; Theorem~\ref{thm:shift} for 
 infinite support; Lemma~\ref{lem:smoothing} for $\vartheta=\vartheta_p$; and Proposition~\ref{prop:stability} at $s$. Smoothing
 first and shifting afterwards would also work, but the shift would then have to carry the rate
 $1/n+\rho_\ell(\lceil n/M_0\rceil)$, which is in general not regular and must be replaced by a regular majorant
-(Remark~\ref{rem:majorant}); the order chosen here avoids this and gives the rate of Theorem~\ref{thm:main}(ii)
+(Remark~\ref{rem:majorant}); the order chosen here avoids this and gives the rate \eqref{eq:main-rate}
 directly.
 
 \begin{remark}[Which part of Theorem~\ref{thm:engine} is used]\label{rem:base-window}
-% src: ROUTE2_alpha §5 Remarks (Rule R F2 of Plan 52); REVIEW_Plan52 F2
 Any half-open $s$-window of length $p$ inside $(1,1+2p)$ can serve as the base in Step 1. For $s>1+p/2$ one may take
 $s_0$ to be the unique point of $s-p\N_0$ in $(1+p/2,1+3p/2]$, so that $\alpha=(s_0-1-p)/p\in(-\frac12,\frac12]$. Thus for
 every $s>1+p/2$ only the case $|\alpha|\le\frac12$ of Theorem~\ref{thm:engine} is used, and the range $\frac12<|\alpha|<1$
