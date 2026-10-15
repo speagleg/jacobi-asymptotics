@@ -28,7 +28,8 @@ $\xi=\log n-(\log z)/p$ the point $z=0$ corresponds to $\xi=+\infty$, where $\La
 analytic at $0$ nor of Fisher--Hartwig type. The Bessel parametrix of \ref{tool:T2} needs a square root $\tilde W$ of
 $W_0$ continued around $0$ across $(-\delta,0)$. Continuing $r_n^{1/2}$ from the two half-planes produces two values on
 $(-\delta,0)$ whose ratio is $\exp\bigl(\frac12(\Lambda(\xi-i\pi/p)-\Lambda(\xi+i\pi/p))\bigr)=1+O(\varepsilon_\Lambda)$
-(and for $p\le1$ the continuation leaves the strip of analyticity). This tends to $0$ with no rate in $n$, and after
+(this even presupposes that $\Lambda$ is analytic on the strip $|\Im\xi|\le\pi/p$, which \Ath{\vartheta} does not
+provide). This tends to $0$ with no rate in $n$, and after
 conjugation by the Bessel model at the scale $|z|\asymp n^{-2}$ it becomes $O(n\varepsilon_\Lambda)$, so a quotient
 argument does not close. A Bessel order that drifts with $n$ removes only the power-like part
 $z^{-\Lambda'(\log n)/p}$ of $r_n$. This is the situation of \cite[Remark~4.10]{CD}.
@@ -79,7 +80,7 @@ $T_n:=\log n-\frac1p\log\max(4c,1)$ and
 \subsection{The Bessel model and its local form}\label{sec:he-model}
 
 Let $\Psi_\alpha$ be the Bessel model of \ref{tool:T2}, built on the three rays $\arg\zeta=\pm(\pi-\varthetalip)$ and
-$\arg\zeta=\pi$ (angle freedom, \ref{tool:T2}(b); for $p\ge1$ these are the rays of \cite[\S6]{KMVV}). We orient them
+$\arg\zeta=\pi$ (angle freedom, \ref{tool:T2}(b); for $\varthetalip=\pi/3$ these are the rays of \cite[\S6]{KMVV}). We orient them
 as in \ref{tool:T2}(a): all three rays point towards the origin, with the $+$ side on the left. Thus $\Psi_\alpha$ is given by (6.23) of \ref{tool:T2} in the sector
 $|\arg\zeta|<\pi-\varthetalip$ and by the Hankel formulas in the two thin sectors, it has the jumps (6.16)--(6.18) on the
 three rays, and it satisfies the large-$\zeta$ expansion (6.28). We have $\det\Psi_\alpha\equiv1$: in the central
@@ -88,8 +89,11 @@ sector this is the Wronskian identity of \ref{tool:T4}, and the jump matrices ha
 In the central sector $|\arg2\zeta^{1/2}|<\pi/2$, so all Bessel functions there are principal branches
 (\ref{tool:T4}, \S10.25(ii)); and (6.28) remains valid for the rays at $\pm(\pi-\varthetalip)$, since the Bessel and
 Hankel functions in (6.23)--(6.25) are then evaluated in closed subsectors of the sectors of validity of the
-large-argument expansions \ref{tool:T4}, (10.40.1)--(10.40.5); for instance $|\arg2\zeta^{1/2}|\le\frac12(\pi-\varthetalip)
-<\frac12\pi$ in the central sector.
+large-argument expansions \ref{tool:T4}: (10.40.1)--(10.40.5) for $I_\alpha$, $K_\alpha$ in the central sector, where
+$|\arg2\zeta^{1/2}|\le\frac12(\pi-\varthetalip)<\frac12\pi$, and (10.17.5)--(10.17.6) for the Hankel functions
+$H^{(1,2)}_\alpha(2(-\zeta)^{1/2})$ in the thin sectors, where $\arg2(-\zeta)^{1/2}$ lies in $(-\frac12\varthetalip,0)$,
+respectively $(0,\frac12\varthetalip)$, deep inside both sectors $[-\pi+\delta,2\pi-\delta]$ and
+$[-2\pi+\delta,\pi-\delta]$.
 
 \begin{lemma}[local form of the Bessel model]\label{lem:bessel-local}
 Let $\alpha\in(-1,1)$ and let $\mathcal S_\pm$ denote the thin sectors $\pi-\varthetalip<\pm\arg\zeta<\pi$.
@@ -339,7 +343,7 @@ $x\in(0,4c)$,
   |\log r_n(x)-\log r_n(z')|\le\frac{\varepsilon_\Lambda(T_n)}p\bigl(\thw+|\log(x/|z'|)|\bigr),\qquad
   |(\log r_n)'(z')|=\frac{|\Lambda'(\xi(z'))|}{p|z'|}\le\frac{\varepsilon_\Lambda(T_n)}{p|z'|},
 \]
-since $\re\xi\ge T_n$ and $|\im\xi|\le\thw/p<\vartheta_p$ on $Z(\eta_*)$. So Lemma~\ref{lem:szego}(iii) applies to $q=r_n$
+since $\re\xi\ge T_n$ and $|\im\xi|\le\thw/p\le\vartheta$ on $Z(\eta_*)$. So Lemma~\ref{lem:szego}(iii) applies to $q=r_n$
 with $\mathfrak M=C\varepsilon_\Lambda(T_n)$ and gives $|\log(D_{r_n}^2/r_n)|\le C\varepsilon_\Lambda(T_n)$.
 
 \emph{Conclusion.} Hence $\omega=\varrho_\pm e^{w}$ with

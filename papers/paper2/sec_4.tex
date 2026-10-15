@@ -315,7 +315,7 @@ statement are equivalent:
 Indeed, from the left side, $n^pa_n=2n^pb_n\cdot a_n/(2b_n)=2c(1+O(1/n))^2$; from the right side,
 $n^pb_n=c+O(1/n)$ and $a_n/(2b_n)=(2c+O(1/n))/(2c+O(1/n))$. We write $c=c(p)$.
 
-\emph{Step 1: analytic factors, every $s>1$.} Let $\ell_1$ satisfy \Ath{\vartheta_p} and let $s>1$. We claim
+\emph{Step 1: analytic factors, every $s>1$.} Let $\ell_1$ satisfy \Ath{\vartheta} for some $\vartheta>0$ and let $s>1$. We claim
 \begin{equation}\label{eq:analytic-all-s}
   |n^pa_n(\sigma_{p,s,\ell_1})-2c|+|n^pb_n(\sigma_{p,s,\ell_1})-c|=O(1/n).
 \end{equation}
@@ -326,14 +326,14 @@ $\sigma_{p,s,\ell_1}=x^m\sigma_{p,s_0,\ell_1}$, and each $x^j\sigma_{p,s_0,\ell_
 measure on $(0,1]$ with infinite support and finite moments. Theorem~\ref{thm:shift}, applied $m$ times with the regular
 rate $\eta_n=1/n$, gives \eqref{eq:analytic-all-s} for $\sigma_{p,s,\ell_1}$.
 
-\emph{Step 2: Theorem~\ref{thm:main}(ii).} If $\ell$ itself satisfies \Ath{\vartheta_p}, Step 1 with $\ell_1=\ell$ and
+\emph{Step 2: Theorem~\ref{thm:main}(ii).} If $\ell$ itself satisfies \Ath{\vartheta} for some $\vartheta>0$, Step 1 with $\ell_1=\ell$ and
 \eqref{eq:forms} give $n^pb_n=c(1+O(1/n))$ and $a_n/(2b_n)=1+O(1/n)$.
 
 \emph{Step 3: Corollary~\ref{thm:pure}.} The constant sequence $\ell\equiv1$ is $e^{\Lambda(\log k)}$ with $\Lambda\equiv0$,
 which satisfies \Ath{\vartheta} for every $\vartheta$ (with $\varepsilon_\Lambda\equiv0$). Step 2 applies.
 
 \emph{Step 4: the rate \eqref{eq:main-rate}.} Let $\ell$ be slowly varying and $\ell_1:=e^{\Lambda_\ell(\log\cdot)}$. By
-Lemma~\ref{lem:smoothing}(iii), $\Lambda_\ell$ satisfies \Ath{\vartheta_p}, so Step 1 gives
+Lemma~\ref{lem:smoothing}(iii), $\Lambda_\ell$ satisfies \Ath{\vartheta} for every $\vartheta>0$, so Step 1 gives
 \eqref{eq:analytic-all-s} for $\sigma_{p,s,\ell_1}$. Write $\rho:=\rho_\ell(\lceil n/M_0\rceil)$ and
 $\Delta_n:=\log b_n^2(\sigma_{p,s,\ell})-\log b_n^2(\sigma_{p,s,\ell_1})$. By Proposition~\ref{prop:stability},
 $|\Delta_n|\le2\rho+Cn^{s+5}e^{-2n}$ for $n\ge n_0$; in particular $|\Delta_n|$ is bounded, since $\rho\le\rho_\ell(1)$.

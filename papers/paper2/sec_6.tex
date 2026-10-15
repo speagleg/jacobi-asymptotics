@@ -48,11 +48,11 @@ functions, the normalisation at infinity, the parametrices away from $0$, and th
 Sections~\ref{sec:hardedge}--\ref{sec:extraction} from this section.
 
 Two facts about $j$ are used in all three geometries. By \ref{tool:T4} (DLMF 5.11.1 with the remainder bound of
-\S5.11(ii), first term $1/(12t)$), for every $\vartheta<\pi$,
+\S5.11(ii), first term $1/(12t)$), for every $\phi<\pi$,
 \begin{equation}\label{eq:binet-bound}
-  |j(t)|\le\frac{\sec^2(\vartheta/2)}{12|t|},\qquad |j'(t)|\le\frac{C_\vartheta}{|t|^2}\qquad(|\arg t|\le\vartheta,\ |t|\ge1),
+  |j(t)|\le\frac{\sec^2(\phi/2)}{12|t|},\qquad |j'(t)|\le\frac{C_\phi}{|t|^2}\qquad(|\arg t|\le\phi,\ |t|\ge1),
 \end{equation}
-the second by Cauchy's estimate on a disc of radius $|t|/C_\vartheta$ in a slightly larger sector. And for $|t|\le1$,
+the second by Cauchy's estimate on a disc of radius $|t|/C_\phi$ in a slightly larger sector. And for $|t|\le1$,
 $\re t\ge0$, $t\ne0$, DLMF 5.5.1 gives $\operatorname{Ln}\Gamma(t)=\operatorname{Ln}\Gamma(1+t)-\ln t$, hence
 \begin{equation}\label{eq:binet-small}
   j(t)=-\tfrac12\ln t-\tfrac12\ln(2\pi)+O(|t|\log(2/|t|))\qquad(t\to0,\ \re t\ge0).
@@ -66,20 +66,22 @@ $\re t\ge0$, $t\ne0$, DLMF 5.5.1 gives $\operatorname{Ln}\Gamma(t)=\operatorname
 & $p>1$ & $p=1$ & $0<p<1$\tabularnewline
 \midrule
 \raggedright $\arg t$ on $\C\setminus(-\infty,0]$ & \raggedright $(-\pi/p,\pi/p)\subset(-\pi,\pi)$ & \raggedright $(-\pi,\pi)$, open & \raggedright wider than $(-\pi,\pi)$; poles of $\Gamma(t)$ on $\arg z=\pm\pi p$\tabularnewline
-\raggedright where $\tilde D=e^{-j(t)}$ is used & \raggedright slit plane & \raggedright $|\arg z|\le\thw=7\pi/16$ & \raggedright inner sector $\Sin=\{|\arg z|<\pi p/2\}$\tabularnewline
+\raggedright where $\tilde D=e^{-j(t)}$ is used & \raggedright slit plane & \raggedright $|\arg z|<\thw$ & \raggedright inner sector $\Sin=\{|\arg z|<\pi p/2\}$\tabularnewline
 \raggedright outer scalar $F$ (Lemma~\ref{lem:outer}) & \raggedright $DBK$, Binet-cut scalar $B$ & \raggedright $DK$, $D=e^{j(-n/z)}$, no cut & \raggedright $DB_{\mathrm{in}}Ke^{\chi}$ in $\Sin$, $B_{\mathrm{out}}Ke^{\chi}$ in $\Sout$\tabularnewline
 \raggedright $|\log\frac{H_n(z)}{H_n(0^+)}|$ near $0$ & \raggedright $\le C|z|^{1/p}$ & \raggedright $\le C|z|$ & \raggedright $\le C|z|(1+\log\frac1{|z|})$\tabularnewline
-\raggedright lip angle $\thlip$; Bessel rays & \raggedright $\pi/3$; $\pm2\pi/3$ & \raggedright $\pi/3$; $\pm2\pi/3$ & \raggedright $\pi p/4$; $\pm(\pi-\pi p/4)$\tabularnewline
-\raggedright angle $\thw$ (weight evaluated) & \raggedright $7\pi/16$ & \raggedright $7\pi/16$ & \raggedright $3\pi p/8$\tabularnewline
-\raggedright super-small entries $|e^{\mp2i\theta}|$ on the lips & \raggedright $e^{-2\pi n\sin(\frac{\pi}{3p})|z|^{-1/p}}$ & \raggedright $e^{-\sqrt3\pi n/|z|}$ & \raggedright $e^{-\sqrt2\pi n|z|^{-1/p}}$\tabularnewline
-\raggedright strip $\vartheta_p$ for $\ell_1$ & \raggedright $\pi/p$ & \raggedright $\pi/2$ & \raggedright $\pi/2$\tabularnewline
+\raggedright lip angle $\thlip$ (default); Bessel rays $\pm(\pi-\thlip)$ & \raggedright $\pi/3$ & \raggedright $\pi/3$ & \raggedright $\pi p/4$\tabularnewline
+\raggedright angle $\thw$ (default; weight evaluated) & \raggedright $7\pi/16$ & \raggedright $7\pi/16$ & \raggedright $3\pi p/8$\tabularnewline
+\raggedright super-small entries $|e^{\mp2i\theta}|$ on the rays $\arg z=\pm\thlip$ & \multicolumn{3}{p{10.3cm}}{\raggedright $e^{-2\pi n\sin(\thlip/p)|z|^{-1/p}}$; default angles: $e^{-2\pi n\sin(\frac{\pi}{3p})|z|^{-1/p}}$, $e^{-\sqrt3\pi n/|z|}$, $e^{-\sqrt2\pi n|z|^{-1/p}}$}\tabularnewline
+\raggedright strip $|\Im\xi|\le\vartheta$ for $\ell_1$ & \raggedright any $\vartheta>0$; default angles if $\vartheta\ge\frac{7\pi}{16p}$ & \raggedright any $\vartheta>0$; default angles if $\vartheta\ge\frac{7\pi}{16}$ & \raggedright any $\vartheta>0$; default angles if $\vartheta\ge\frac{3\pi}{8}$\tabularnewline
 \raggedright H\"older exponent $\nu_p$ (\S\ref{sec:frame-outer}) & \raggedright $\min(1/p,\frac12)$ & \raggedright $\frac12$ & \raggedright $\frac12$\tabularnewline
 \raggedright classical quotient parametrix at $0$ & \raggedright works for pure powers (not used) & \raggedright fails (Remark~\ref{rem:quotient-p1}) & \raggedright not used\tabularnewline
 \bottomrule
 \end{tabular}
 \caption{The ingredients of the Riemann--Hilbert analysis that depend on the geometry. Everything else in
-Sections~\ref{sec:frame}--\ref{sec:extraction} is the same for all $p>0$. The super-small entries are evaluated on the
-rays $\arg z=\pm\thlip$. In the row for $H_n$, only the weaker bound $C|z|^{\nu_p}$ of (O3) is used.}
+Sections~\ref{sec:frame}--\ref{sec:extraction} is the same for all $p>0$. The angles $\thlip$ and $\thw$ are the default
+values ($\mathsf m=1$ in~\eqref{eq:thetaw}); for a thinner strip in \Ath{\vartheta} both are multiplied by
+$\mathsf m=p\vartheta/\vartheta^0_{\mathrm w}<1$ (Remark~\ref{rem:angles}). In the row for $H_n$, only the weaker bound
+$C|z|^{\nu_p}$ of (O3) is used.}
 \label{tab:geometry}
 \end{table}
 
@@ -120,7 +122,7 @@ nodes.
 \emph{(O2).} $\tilde F=F/\kappa_\pm=\tilde DK$ with $\tilde D=e^{-j(t)}$ analytic and zero-free on $\C\setminus(-\infty,0]$.
 So $H_n=\tilde D^{-2}=e^{2j(n/z)}>0$ on $(0,\infty)$, and $H_n(0^+)=1$.
 
-\emph{(O3), (O4).} On $\Zn$, $|\arg t|=|\arg z|\le\thw=7\pi/16$. For $|z|\le1$, $|t|\ge n$ and~\eqref{eq:binet-bound}
+\emph{(O3), (O4).} On $\Zn$, $|\arg t|=|\arg z|<\thw<\pi/2$. For $|z|\le1$, $|t|\ge n$ and~\eqref{eq:binet-bound}
 gives $|\log H_n|=2|j(t)|\le C|z|/n$ and $|(\log H_n)'|\le C/n$; since $\nu_1=\frac12$, this is (O3). For $|z|\ge1$,
 $|t|\ge e^{-c_0}$ and $j(t)$ is bounded, which is (O4).
 
@@ -497,7 +499,8 @@ $(-\omega)^{\pm1/2}$ is bounded.
 We now collect what Sections~\ref{sec:hardedge}--\ref{sec:extraction} use.
 
 \begin{proposition}[Frame Proposition]\label{prop:frame}
-Let $p>0$, $1<s<1+2p$, $\alpha=(s-1-p)/p$, let $\ell_1$ satisfy \Ath{\vartheta_p}, and let $F$ be the outer scalar of
+Let $p>0$, $1<s<1+2p$, $\alpha=(s-1-p)/p$, let $\ell_1$ satisfy \Ath{\vartheta} for some $\vartheta>0$, let $\thw,\thlip$ be the angles
+\eqref{eq:thetaw}, and let $F$ be the outer scalar of
 Lemma~\ref{lem:outer}. The radii $\delta,\eps$ and the contour of \S\ref{sec:frame-contour} may be taken as small as we
 wish (but fixed, independent of $n$). Let $Q$ be the matrix~\eqref{eq:Q}. There is $n_0$ such that for $n\ge n_0$:
 \begin{enumerate}

@@ -2,6 +2,8 @@
 
 Status: **Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan50.md), fixes applied — REVIEWED** (F1–F10 applied after merging master, which contains Plan 52, PROOF.md §3.21). Novelty: UNCHECKED (no Rule L search).
 
+*(Plan 55 note, 2026-10-15: the conclusion of Theorem RII₁ and the rate clauses of Corollaries B_{p=1}, B_{p=1}⁺ also hold under (A_ϑ) for any ϑ > 0 instead of (H_an₁), because they are contained in RII_x1 (ROUTE2_xframe1.md, 1 < r < 3), whose hypothesis can be so weakened; the band-centre proof below was not re-examined for thin strips; verified on Paper 2's consolidated write-up (papers/paper2), see ../../PROOF.md §3.24 (Theorem AS, PROVED-mod-cite, proof of record papers/paper2 rev. 3 + §3.24 audit; Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan55.md), fixes applied — REVIEWED). This file is unchanged and proves its results as stated.)*
+
 Source: `research/program/outline_B_sv.md` §5 Route II, work package WP5 (p = 1 part). Templates: `ROUTE2.md` (Plan 48,
 REVIEWED; p > 1) and its review `../../review/REVIEW_Plan48.md` (UR′(b′), Conway–Deift comparison); base analysis
 `../RH_p1_general.md` (Theorem RH₁(r), REVIEWED) and `../RH_p1.md` (RH₁, REVIEWED); C–D precedent `../zeta/RH_zeta_close.md`

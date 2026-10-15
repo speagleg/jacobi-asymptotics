@@ -4,6 +4,10 @@ Status: OUTLINE, 2026-10-14, branch `paper-2-law`. No LaTeX prose yet. This file
 the drafters. It fixes the statements, the notation, the order of the argument and the style. A drafter who
 needs to depart from it records the reason in `papers/paper2/NOTES.md` (to be created when drafting starts).
 
+*(Plan 55 note, 2026-10-15: ϑ_p is superseded. The hypothesis of Theorem 1(ii), Theorem 3, the Frame Proposition and §4 is
+now (A_ϑ) for **some** ϑ > 0, and eq:thetap is removed; see NOTES.md "Revision 3" and research/G1/PROOF.md §3.24. The
+mentions of ϑ_p / (A_{ϑ_p}) below are the original contract, kept for the record.)*
+
 Companion: Paper 1 = `papers/paper1/main.tex` ("Hankel determinants of discrete measures with power-law atoms,
 and of zeta values"; averaged law and the constrained equilibrium problem). Paper 3 (announced here only) = rough
 weights break the pointwise law.
@@ -140,7 +144,7 @@ analytic on S_ϑ := {ξ ∈ ℂ : Re ξ ≥ −c₀, |Im ξ| ≤ ϑ}, real on S_
 
   ε_Λ(T) := sup{ |Λ′(ξ)| : ξ ∈ S_ϑ, Re ξ ≥ T } → 0  (T → ∞).
 
-The strip half-width used is **ϑ_p := π/p for p > 1 and ϑ_p := π/2 for 0 < p ≤ 1.** In words: ℓ extends to an
+*(Superseded by Plan 55: any ϑ > 0; see the note at the top.)* The strip half-width used is **ϑ_p := π/p for p > 1 and ϑ_p := π/2 for 0 < p ≤ 1.** In words: ℓ extends to an
 analytic function ℓ(t) = e^{Λ(log t)} on the sector |arg t| ≤ ϑ_p (near ∞, and bounded near t = 1) with
 t ℓ′(t)/ℓ(t) → 0 there. Sources: (H_an) in ROUTE2 §2 (p > 1, with the Rule R F4 domain), (H_an^{x1}) in
 ROUTE2_xframe1 §2 (p = 1) and (H_an^{<1}) in ROUTE2_plt1 §1 (p < 1). These are exactly the three REVIEWED

@@ -4,6 +4,8 @@ Status: **Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan51.md), fixes F1–F
 search). Lemma CT-Ch (Cholesky/Darboux form; renamed from "Lemma CT" per Rule R F1, since Plan 52's §3.21 has a different "Lemma CT")
 is a classical Christoffel (Darboux) transformation at the endpoint 0, equivalent to Plan 52's Lemmas CS/CS-r (§5.1); not claimed as new.
 
+*(Plan 55 note, 2026-10-15: Theorem RII_{<1} and the rate clauses of its corollaries hold with (H_an^{<1}) (strip π/2) weakened to (A_ϑ) for any ϑ > 0: the lips may leave 0 at any small ϑ_lip and the weight is then needed only in |arg z| < ϑ_w ≤ pϑ (< πp/2, inside S_in; the seams are unchanged); verified on Paper 2's consolidated write-up (papers/paper2), see ../../PROOF.md §3.24 (Theorem AS, PROVED-mod-cite, proof of record papers/paper2 rev. 3 + §3.24 audit; Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan55.md), fixes applied — REVIEWED). This file is unchanged and proves its results as stated.)*
+
 Source: `research/program/outline_B_sv.md` §5 Route II, work package WP5b (p < 1, seams). Base: `ROUTE2.md` (Plan 48, REVIEWED;
 review `../../review/REVIEW_Plan48.md`), `../plt1/RH_plt1b.md` (seam construction, REVIEWED), `../plt1/RH_plt1.md` (amendments
 table), `../zeta/RH_zeta_close.md` §1 (Conway–Deift comparison, REVIEWED). Numerics: `checks/check_r2p_{coeff,lw1}.py/.out`.

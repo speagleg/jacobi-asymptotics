@@ -6,6 +6,8 @@ Novelty: UNCHECKED (no Rule L search; the transfer formula of §2 is classical �
 theorem / the Darboux (LU ↔ UL) transformation of Jacobi matrices — and is re-proved here, not cited; Lemma CS is very likely
 KNOWN in chain-sequence form, §3.1).
 
+*(Plan 55 note, 2026-10-15: the rate clauses "rate O(1/n) if Ψ satisfies (H_an)" hold with (H_an) weakened to (A_ϑ) for any ϑ > 0 (the base window by Theorem AS, the shift SH-r unchanged); verified on Paper 2's consolidated write-up (papers/paper2), see ../../PROOF.md §3.24 (Theorem AS, PROVED-mod-cite, proof of record papers/paper2 rev. 3 + §3.24 audit; Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan55.md), fixes applied — REVIEWED). This file is unchanged and proves its results as stated.)*
+
 Source: ROUTE2.md §6 "GAP-α" (Plan 48, REVIEWED; review/REVIEW_Plan48.md). Numerics:
 `checks/check_r2alpha_christoffel.py/.out`, `checks/check_r2alpha_law.py/.out`.
 

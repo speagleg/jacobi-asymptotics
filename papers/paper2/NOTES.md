@@ -121,6 +121,30 @@ Note for readers of REFEREE_REPORT.md: its appendix letters are pre-revision.
    since Van is uncited). refs.bib keeps uncited entries KV, Van, BD, BueMar, BGT, Vuil, Fischer (not printed).
 4. Author line, MSC codes, supplementary-material URL (§9).
 
+### Revision 3 — Plan 55: any strip (2026-10-15; 69 pp after the Rule R fixes)
+
+Build: pdflatex, bibtex, pdflatex ×2 — 0 errors, 0 undefined references, 0 overfull boxes. Repo record:
+research/G1/PROOF.md §3.24 (location-by-location audit), plan docs/superpowers/plans/2026-10-15-plan-55-strip.md.
+
+- The hypothesis of Theorem 1(ii), Theorem 3, §4 Steps 1/2/4, §8, Frame Proposition and Conjecture 10.1(b) is now
+  "(A_ϑ) for some ϑ > 0"; ϑ_p (old eq:thetap) is removed (this answers item 2 of the revision-2 TODO list above).
+- §5.1: ϑ_w := m·ϑ_w⁰, ϑ_lip := m·ϑ_lip⁰, m := min(1, pϑ/ϑ_w⁰), defaults (7π/16, π/3) for p ≥ 1, (3πp/8, πp/4) for p < 1
+  (eq:thetaw); relations (eq:angles) 0 < ϑ_lip < (5/4)ϑ_lip < ϑ_w < π/2, ϑ_w < πp/2 (p < 1), ϑ_w ≤ pϑ. New Remark 5.8
+  (rem:angles) lists where the angles are used and why no minimum angle is needed; **Lemma 5.8 (Potter in the sector) is
+  now Lemma 5.9, and Lemma 5.9 (jumps of V) is now 5.10.**
+- Table 1 rows (lip angle, ϑ_w, super-small entries, strip) and caption; Figure 1 labels/caption; Lemma 5.7 lead-in;
+  §7 opening remark (quotient continuation would need |Im ξ| ≤ π/p); App. A seams: τ₀ = sin(ϑ_seam − ϑ_w), (O5) wording;
+  Lemma 6.1 (p = 1): |arg t| < ϑ_w < π/2. Local angle variables (proof of Lemma 5.5(iii), Lemma 5.6, (eq:binet-bound),
+  Lemma A.3) renamed φ, since ϑ now denotes the strip width.
+- §1: examples rewritten (exp √log(k+e) and exp((log(k+e))^β) satisfy (A_ϑ) for every ϑ < π) and a thin-strip example
+  Λ(ξ) = √(ξ+1) + (ξ+2)^{−1/2}log(1 − q cos 2ξ), q = 1/cosh 0.6 (singular at πm ± 0.3i); §9 paragraph "A factor analytic only
+  in a thin strip" with numbers from checks/check_p55_strip.out (p = 2, s = 2, 3, n ≤ 3200); copy of
+  research/G1/RH/route2/checks/check_p55_strip.py/.out (Rule R F4).
+- Rule R (research/G1/review/REVIEW_Plan55.md, ACCEPT WITH FIXES): §9 numbers on disjoint windows with the ≈ 1.3-period
+  caveat (F1); §7.2 and T4 now cite DLMF (10.17.5)–(10.17.6), (10.17.11)–(10.17.12) for the Hankel functions in the thin
+  sectors (F3; CITATIONS "(DLMF-10.17, Plan 55)"); Remark 5.8 states the order of choices (δ also small for Lemmas 6.5(b), 7.3,
+  7.2(i); F5); abstract and §1 say "half-angle" (F6).
+
 ---
 
 ## 1. Front matter (chunk A): claim → source (numbering updated)
@@ -131,7 +155,7 @@ Note for readers of REFEREE_REPORT.md: its appendix letters are pre-revision.
 | Cor. 1.6 (`thm:pure`, formerly Thm 2) | pure powers, O(1/n) | THEOREMS.md H2; in the paper Thm 4 at Λ ≡ 0 + Thm 3 | PROVED-mod-cite, REVIEWED |
 | Thm 2 (`thm:shift`, formerly Thm 3) | Christoffel shift with rate | PROOF.md §3.21 SH, SH-r; ROUTE2_alpha §§2–4 | PROVED, REVIEWED |
 | Thm 3 (`thm:engine`, formerly Thm 4) | RH engine, base window | ROUTE2 §4.4 RII; ROUTE2_xframe1 §4 RII_x1; ROUTE2_plt1 §4.3 RII_{<1} | PROVED-mod-cite, REVIEWED |
-| Def. `def:sv`, `def:smoothing`, `def:A` | slow variation (sequence form), ρ_ℓ, (A_ϑ) with ϑ_p | PROOF.md §3.14; ROUTE2 §1; (H_an), (H_an^{x1}), (H_an^{<1}) | — |
+| Def. `def:sv`, `def:smoothing`, `def:A` | slow variation (sequence form), ρ_ℓ, (A_ϑ) (ϑ_p until rev. 2; any ϑ > 0 since rev. 3, Plan 55) | PROOF.md §3.14; ROUTE2 §1; (H_an), (H_an^{x1}), (H_an^{<1}) | — |
 | §1.2 "(A_ϑ) ⇒ slowly varying" | one-line mean-value bound | written here | elementary |
 | Rem `rem:pure-lommel` | closed form for σ_{2,2}: b_n = π²/((4n+1)√((4n−1)(4n+3))), a_n = 2π²/((4n+1)(4n+5)), n ≥ 1 | derived here from the Lommel recurrence quoted in novelty_G1RH §1.3 (Van Assche math/9510214 §3) by the quadratic transformation; checked in `checks/lommel_check.py` (90+ digits, n ≤ 9) and against Table 2 (p = 2, ℓ ≡ 1: all 4 digits, n ≤ 800) | mass identification now proved in the remark (resolvent/minimal solution + DLMF 4.22.3); numerical check kept; derivation not independently reviewed |
 | Rem `rem:shift-credit`, `rem:shift-converse` | credit DD §1, DPQ Prop. 2.1; rate part not found | novelty_lineB_A.md §§1–4 | — |
@@ -213,7 +237,7 @@ Status 2026-10-14 21:57: all chunk B labels below exist in sec_2–sec_4.tex as 
 
 Labels defined by chunk A for others: thm:main, thm:pure, thm:shift, thm:engine; def:sv, def:smoothing, def:A,
 def:rate is **not** defined (regular rate is defined in running text just before Thm 3; chunk B defines it formally in
-§2.3); eq:sigma, eq:jacobi, eq:cp, eq:law, eq:paper1-averaged, eq:osc, eq:smoothing, eq:epsLambda, eq:thetap;
+§2.3); eq:sigma, eq:jacobi, eq:cp, eq:law, eq:paper1-averaged, eq:osc, eq:smoothing, eq:epsLambda, eq:thetap (removed in rev. 3, Plan 55);
 rem:main-finite, rem:main-unbounded, rem:main-rate, rem:main-averaged, rem:pure-lommel, rem:pure-zeta,
 rem:pure-constant, rem:shift-credit, rem:shift-converse, rem:engine-scope; sec:intro, sec:setting, sec:results,
 sec:context, sec:strategy, sec:organisation, fig:dependency; sec:numerics, tab:numerics, sec:further, sec:tilt,

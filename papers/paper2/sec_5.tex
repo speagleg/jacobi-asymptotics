@@ -46,19 +46,27 @@ Throughout Sections~\ref{sec:frame}--\ref{sec:extraction} and the appendices we 
 \begin{equation}\label{eq:alpha}
   \alpha:=\frac{s-1-p}{p}\in(-1,1).
 \end{equation}
-We fix $\ell_1(t)=e^{\Lambda(\log t)}$ satisfying \Ath{\vartheta_p} (Definition~\ref{def:A}), with the constant
-$c_0>0$ of that hypothesis. We write $\sigma:=\sigma_{p,s,\ell_1}=\sum_{k\ge1}w_k\delta_{x_k}$, with $x_k=k^{-p}$ and
+We fix $\vartheta>0$ and $\ell_1(t)=e^{\Lambda(\log t)}$ satisfying \Ath{\vartheta} (Definition~\ref{def:A}), with
+the constant $c_0>0$ of that hypothesis. We write $\sigma:=\sigma_{p,s,\ell_1}=\sum_{k\ge1}w_k\delta_{x_k}$, with $x_k=k^{-p}$ and
 $w_k=k^{-s}\ell_1(k)$, and $c=c(p)$, $\gamma_p=\log c+p$. The degree $n$ is large, $n\ge n_0$, where $n_0$ may
-increase from line to line. Constants $C,C',\dots$ depend only on $p$, $s$, $\ell_1$ and the contour parameters fixed
+increase from line to line. Constants $C,C',\dots$ depend only on $p$, $s$, $\ell_1$ (including $\vartheta$) and the contour parameters fixed
 in~\S\ref{sec:frame-contour}; they do not depend on $n$ unless they carry the subscript $n$. We put
 \begin{equation}\label{eq:thetaw}
-  \thw:=\begin{cases}7\pi/16,&p\ge1,\\ 3\pi p/8,&0<p<1,\end{cases}\qquad\qquad
-  \thlip:=\begin{cases}\pi/3,&p\ge1,\\ \pi p/4,&0<p<1,\end{cases}
+\begin{gathered}
+  \thw:=\mathsf m\,\vartheta_{\mathrm w}^{0},\qquad \thlip:=\mathsf m\,\vartheta_{\mathrm{lip}}^{0},\qquad
+  \mathsf m:=\min\Bigl(1,\frac{p\vartheta}{\vartheta_{\mathrm w}^{0}}\Bigr),\\
+  (\vartheta_{\mathrm w}^{0},\vartheta_{\mathrm{lip}}^{0}):=\begin{cases}(7\pi/16,\ \pi/3),&p\ge1,\\ (3\pi p/8,\ \pi p/4),&0<p<1,\end{cases}
+\end{gathered}
 \end{equation}
-so that $0<\thlip<\frac54\thlip<\thw<\frac\pi2$ and $\thw/p<\vartheta_p$ in all three cases ($\thw/p=7\pi/(16p)<\pi/p$
-for $p>1$, $\thw=7\pi/16<\pi/2$ for $p=1$, and $\thw/p=3\pi/8<\pi/2$ for $p<1$); for $p<1$ moreover $\thw<\pi p/2$. The
-angle $\thw$ bounds the arguments at which the weight is ever evaluated (Lemma~\ref{lem:weightdomain}); $\thlip$ is the
-angle at which the lens leaves the hard edge.
+Then $\mathsf m\in(0,1]$, and
+\begin{equation}\label{eq:angles}
+  0<\thlip<\tfrac54\thlip<\thw<\tfrac\pi2,\qquad \thw<\tfrac{\pi p}2\ \text{ if }p<1,\qquad \thw\le p\vartheta ,
+\end{equation}
+since the first two chains hold for the default angles $\vartheta_{\mathrm w}^{0},\vartheta_{\mathrm{lip}}^{0}$ and are
+preserved by the common factor $\mathsf m$, and $\mathsf m\vartheta_{\mathrm w}^{0}\le p\vartheta$ by the choice of
+$\mathsf m$. The angle $\thw$ bounds the arguments at which the weight is ever evaluated
+(Lemma~\ref{lem:weightdomain}); $\thlip$ is the angle at which the lens leaves the hard edge. Only the relations
+\eqref{eq:angles} are used below, never the particular values; see Remark~\ref{rem:angles}.
 
 \subsection{The interpolation problem}\label{sec:frame-interp}
 Let $P_n$ be the monic orthogonal polynomials of $\sigma$ and $h_n=\int P_n^2\diff\sigma$. For a $2\times2$ matrix
@@ -147,7 +155,7 @@ The weight enters through the log variable $\xi:=\log t=\log n-(\Log z)/p$. Let
 \begin{equation}\label{eq:Zn}
   \Zn:=\{z:\ 0<|z|<e^{pc_0}n^p,\ |\arg z|<\thw\}.
 \end{equation}
-For $z\in\Zn$ we have $|\im\xi|<\thw/p<\vartheta_p$ and $\re\xi>-c_0$, so $\xi\in S_{\vartheta_p}$ and the
+For $z\in\Zn$ we have $|\im\xi|<\thw/p\le\vartheta$ and $\re\xi>-c_0$, so $\xi\in S_\vartheta$ and the
 \emph{residue weight} and the \emph{slowly varying factor}
 \begin{equation}\label{eq:w-rn}
   w(z):=n^p\,t(z)^{-s}\,\ell_1(t(z)),\qquad r_n(z):=\frac{\ell_1(t(z))}{\ell_1(n)}=e^{\Lambda(\xi)-\Lambda(\log n)}
@@ -279,14 +287,14 @@ with $\varphi-i\pi$. In $U(0,2\delta_0)\cap\C_+$ the two analytic functions $f^{
 $-\frac{i\pi}2z^{1/2}\mathfrak a(z)$ have the same square, so they differ by a constant sign; on the band both equal
 $-\frac{i\pi}2x^{1/2}\mathfrak a(x)$ (there $f(x+i0)$ lies on the negative axis approached from below), so they are
 equal, and $\varphi_++i\pi=-2f^{1/2}$ on the band gives $\varphi=-i\pi-2f^{1/2}$ in $U(0,2\delta_0)\cap\C_+$. The bound
-on $\re\varphi$ follows from $|f(z)|\le C|z|$. For~\eqref{eq:retvphi-zero} let $z=re^{i\vartheta}$ with
-$0<\vartheta\le\thw$ (the lower half-disc is the mirror image). Then
+on $\re\varphi$ follows from $|f(z)|\le C|z|$. For~\eqref{eq:retvphi-zero} let $z=re^{i\phi}$ with
+$0<\phi\le\thw$ (the lower half-disc is the mirror image). Then
 \[
-  \re\tvphi(z)=\re\bigl(-2f^{1/2}+i\pi z^{-1/p}\bigr)=\pi r^{-1/p}\sin(\vartheta/p)-\pi\im\bigl(z^{1/2}\mathfrak a(z)\bigr).
+  \re\tvphi(z)=\re\bigl(-2f^{1/2}+i\pi z^{-1/p}\bigr)=\pi r^{-1/p}\sin(\phi/p)-\pi\im\bigl(z^{1/2}\mathfrak a(z)\bigr).
 \]
-Since $z^{1/2}\mathfrak a(z)$ is real for $\vartheta=0$ and $|\partial_\vartheta(z^{1/2}\mathfrak a(z))|=|z(z^{1/2}\mathfrak
-a)'(z)|\le Cr^{1/2}$, its imaginary part is at most $Cr^{1/2}\vartheta$; and $\sin(\vartheta/p)\ge\frac2\pi\frac\vartheta p$
-because $\vartheta/p\le\thw/p<\pi/2$.
+Since $z^{1/2}\mathfrak a(z)$ is real for $\phi=0$ and $|\partial_\phi(z^{1/2}\mathfrak a(z))|=|z(z^{1/2}\mathfrak
+a)'(z)|\le Cr^{1/2}$, its imaginary part is at most $Cr^{1/2}\phi$; and $\sin(\phi/p)\ge\frac2\pi\frac\phi p$
+because $\phi/p\le\thw/p<\pi/2$.
 
 (iv) On $(4c-2\eps_0,4c)$ we have $\tvphi_++\tvphi_-=\varphi_++\varphi_-=0$ and, using
 Lemma~\ref{lem:gfunction}(i), $\tvphi_+-\tvphi_-=2\pi i\int_x^\infty(\lambda_p-\psi^*)=2\pi i\int_x^{4c}(\lambda_p-\psi^*)$.
@@ -334,12 +342,12 @@ $\{\delta<|z|<2\delta\}$ and~(a) is not affected. The second piece runs in $S_0$
 to $|z|=\frac34r_*$, and then along the circle $|z|=\frac34r_*$ down to height $y_1:=h_0\sin\frac\pi{12}$.
 
 Let $K:=[\frac12r_*,4c-\frac12\eps_0]$ and let $y_K$ be as in Lemma~\ref{lem:signs}(ii); choose $h_1\le\min(y_K,\frac12\eps_0)$
-so small that the angle $\vartheta$ with $\frac34r_*\sin\vartheta=y_1$ satisfies $\vartheta<\arg z_1$ and
-$\frac34r_*\cos\vartheta\ge\frac12r_*$, that $\arctan(2y_1/r_*)<\thw$, and that $\arcsin(h_0/4c)<\thw$ (the largest argument on the fourth piece). The third piece is the horizontal segment from the end of the second piece to the point
+so small that the angle $\phi$ with $\frac34r_*\sin\phi=y_1$ satisfies $\phi<\arg z_1$ and
+$\frac34r_*\cos\phi\ge\frac12r_*$, that $\arctan(2y_1/r_*)<\thw$, and that $\arcsin(h_0/4c)<\thw$ (the largest argument on the fourth piece). The third piece is the horizontal segment from the end of the second piece to the point
 $4c+h_0e^{i11\pi/12}$, at height $y_1$. For $\re z\in K$ it lies in $G_+$ by Lemma~\ref{lem:signs}(ii), as $y_1<y_K$. For
 $4c-\frac12\eps_0\le\re z\le4c-h_0\cos\frac\pi{12}$ it lies in $U(4c,\eps_0)$ with $\arg(z-4c)\ge\frac{11\pi}{12}$, hence
 $\frac{5\pi}6\le\arg f_r(z)<\pi$ and $\re\tvphi>0$ by Lemma~\ref{lem:signs}(iv). The fourth piece is the arc
-$\{4c+h_0e^{i\vartheta}:\ \frac\pi2\le\vartheta\le\frac{11\pi}{12}\}$, on which $\frac{5\pi}{12}\le\arg f_r<\pi$, so again
+$\{4c+h_0e^{i\phi}:\ \frac\pi2\le\phi\le\frac{11\pi}{12}\}$, on which $\frac{5\pi}{12}\le\arg f_r<\pi$, so again
 $\re\tvphi>0$ (except at the end point $4c+ih_0$ itself, where $\arg f_r\in[\frac{5\pi}{12},\frac{7\pi}{12}]$ also gives
 $\re\tvphi>0$). All four pieces have arguments below $\thw$ by the choice of $h_1$, and none depends on $n$, since $f$, $f_r$
 and $\tvphi$ do not. Property~(c) holds by construction.
@@ -381,7 +389,7 @@ so $|\arg z|<\thw$; and $|z|\le n^p+\delta'+h_0<e^{pc_0}n^p$ for $n\ge n_0$.
     \draw[thick] (0,0)--(60:1.5) node[above]{lip};
     \draw[thick] (0,0)--(-60:1.5);
     \draw[gray] (0,0) circle (1.5);
-    \node at (0,-2.0) {\small $p\ge1$: lips at $\pm\pi/3$};
+    \node at (0,-2.0) {\small $p\ge1$: lips at $\pm\thlip$};
     \node at (-1.0,0.25) {no jump};
   \end{scope}
   % panel 2: p < 1
@@ -393,7 +401,7 @@ so $|\arg z|<\thw$; and $|z|\le n^p+\delta'+h_0<e^{pc_0}n^p$ for $n\ge n_0$.
     \draw[densely dotted] (0,0)--(45:1.6) node[above right]{seam};
     \draw[densely dotted] (0,0)--(-45:1.6);
     \draw[gray] (0,0) circle (1.5);
-    \node at (0,-2.0) {\small $p<1$: lips at $\pm\pi p/4$, seams at $\pm\pi p/2$};
+    \node at (0,-2.0) {\small $p<1$: lips at $\pm\thlip$, seams at $\pm\pi p/2$};
     \node at (-0.8,0.8) {$\Sout$};
     \node at (1.15,0.2) {$\Sin$};
   \end{scope}
@@ -418,7 +426,8 @@ so $|\arg z|<\thw$; and $|z|\le n^p+\delta'+h_0<e^{pc_0}n^p$ for $n\ge n_0$.
   \end{scope}
 \end{tikzpicture}
 \caption{The contour near the hard edge for $p\ge1$ (the cases $p>1$ and $p=1$ have the same local picture) and for
-$p<1$, and the whole contour. The negative axis and, for $p<1$, the seams carry no jump of $V$ or $Q$. The seams are used
+$p<1$, and the whole contour. The lips are drawn at the default angles $\thlip=\pi/3$ and $\pi p/4$ (with $p=\frac12$);
+for a thin strip in \Ath{\vartheta} they are rotated towards the band. The negative axis and, for $p<1$, the seams carry no jump of $V$ or $Q$. The seams are used
 only to construct the outer scalar (Appendix~\ref{app:outer}).}
 \label{fig:geometry}
 \end{figure}
@@ -479,7 +488,7 @@ therefore mapped into $\C_-$ by $z\mapsto z^2$. Without this sign, $V$ would hav
 segment.
 
 \subsection{Where the weight is evaluated}\label{sec:frame-where}
-The following bookkeeping explains why the three strips $\vartheta_p$ of Table~\ref{tab:geometry} differ.
+The following bookkeeping explains why a strip of any width $\vartheta>0$ suffices.
 
 \begin{lemma}[Where the weight is evaluated]\label{lem:weightdomain}
 The functions $w$, $W$, $r_n$ and $W_0$ (defined in~\eqref{eq:W0}) are evaluated only at points of $\Zn$. Specifically,
@@ -487,7 +496,7 @@ they are evaluated (a) in $\overline{\Ob\cup\Osat}\setminus\{0\}$, which contain
 segment and the parts of the lips outside the lens; (b) on the lips and on the top segment; and (c) in the sectors
 $\{|\arg z|\le\frac54\thlip\}\cap U(0,\delta)$ used in Section~\ref{sec:hardedge} and Appendix~\ref{app:apriori}. The
 region $\Oinf$ never uses the weight: there $M=e^{n\varphi\sigma_3}F^{\sigma_3}$ contains neither $w$ nor $W$.
-Consequently $\xi(z)=\log t(z)$ always lies in $\{\re\xi\ge-c_0,\ |\im\xi|\le\thw/p\}\subset S_{\vartheta_p}$.
+Consequently $\xi(z)=\log t(z)$ always lies in $\{\re\xi\ge-c_0,\ |\im\xi|\le\thw/p\}\subset S_\vartheta$.
 \end{lemma}
 
 \begin{proof}
@@ -497,15 +506,33 @@ used near $0$ lie in $\Zn$ because $\frac54\thlip<\thw$. For $z\in\Zn$, $\re\xi=
 $|\im\xi|=|\arg z|/p<\thw/p$.
 \end{proof}
 
-For $p\le1$ all evaluations stay in $|\arg z|<\pi p/2$, so the strip $\vartheta_p=\pi/2$ suffices; the strip $\pi/p$
-would be wider than needed, and wider than the strip on which, for example, $\Lambda(\xi)=\sqrt{\log(e^\xi+e)}$ is
-analytic.
+\begin{remark}[the angles]\label{rem:angles}
+The width $\vartheta$ of the strip in \Ath{\vartheta} enters the proof only through $\thw\le p\vartheta$, and $\thw$ and
+$\thlip$ enter only through~\eqref{eq:angles}. The angle $\thlip$ can be taken as small as we wish because the Bessel
+model admits rays at $\pm(\pi-\thlip)$ for every $\thlip\in(0,\pi)$ (\ref{tool:T2}(b)), and the lens near $0$ is then
+the preimage of these rays. Every step that uses the angles needs only a fixed positive lower bound, which
+\eqref{eq:angles} provides: the decay factors $\sin(\thlip/2)$ in~\eqref{eq:he-localisation} and
+$\sin(\frac34\thlip/p)$ in Lemma~\ref{lem:supersmall}; the bound $\sin(\phi/p)\ge\frac2\pi\frac\phi p$
+in~\eqref{eq:retvphi-zero}, which needs $\thw/p<\pi/2$; the separation $|x-z|\ge(x+|z|)/C$ for $|\arg z|\ge\frac12\thlip$
+in Lemma~\ref{lem:szego}(vi) and Appendix~\ref{app:apriori}; and the large-argument expansions of the Bessel functions,
+which are used in the closed sector $|\arg2\zeta^{1/2}|\le\frac12(\pi-\thlip)$ (\S\ref{sec:he-model}). The order of choices is: $\vartheta$, then $\thw,\thlip$ by~\eqref{eq:thetaw}, then $\delta_1$, then $\delta\le\delta_1$, which is
+also taken so small that the angle-dependent conditions in Lemmas~\ref{lem:supersmall}(b), \ref{lem:lip-mismatch}
+and~\ref{lem:comparison-parametrix}(i) hold (they depend only on $p$, $s$, $\ell_1$, $\thw$, $\thlip$, never on $n$), then
+$h_0$, $\eps$, $\delta'$, and $n_0$ last. Smaller angles make
+the radii $\delta$, $h_0$, $\eps$ smaller and the threshold $n_0$ and the constants larger, but they do not change the
+statements. The upper bounds in~\eqref{eq:angles} are what the construction needs: $\thw<\pi/2$ (convexity of the
+sector $Z(r)$ in Lemma~\ref{lem:szego}, and $|y-z|\ge(|y|+|z|)/\sqrt2$ for $y<0$ in Lemma~\ref{lem:binetcut}),
+$\thw<\pi p/2$ for $p<1$ (the lens must lie in the inner sector of the seam construction), and $\frac54\thlip<\thw$ (the
+sectors near $0$ in which the weight is used lie in $\Zn$). With the default angles ($\mathsf m=1$) the strip needed is
+$|\Im\xi|\le7\pi/(16p)$ for $p\ge1$ and $|\Im\xi|\le3\pi/8$ for $p<1$; it is never necessary to continue $\Lambda$ to the
+strip $|\Im\xi|\le\pi/p$ that corresponds to the whole slit plane in $z$.
+\end{remark}
 
 \begin{lemma}[Potter bounds in the sector]\label{lem:pottersector}
 For every $\eta>0$ there is $C_\eta$ such that:
 \begin{enumerate}
-\item[(i)] $|\Lambda(\xi)|\le C_\eta+\eta\re\xi$ for $\xi\in S_{\vartheta_p}$, $\re\xi\ge0$, and $|\Lambda|\le C$ on
-  $S_{\vartheta_p}\cap\{\re\xi\le0\}$. Hence $|\ell_1(t)|^{\pm1}\le C_\eta|t|^\eta$ for $|\arg t|\le\vartheta_p$,
+\item[(i)] $|\Lambda(\xi)|\le C_\eta+\eta\re\xi$ for $\xi\in S_\vartheta$, $\re\xi\ge0$, and $|\Lambda|\le C$ on
+  $S_\vartheta\cap\{\re\xi\le0\}$. Hence $|\ell_1(t)|^{\pm1}\le C_\eta|t|^\eta$ for $|\arg t|\le\vartheta$,
   $|t|\ge1$.
 \item[(ii)] $|r_n(z)|^{\pm1}\le C_\eta n^{2\eta}(1+|z|^{-\eta/p})$ for $z\in\Zn$.
 \item[(iii)] For $R\ge1$, $z\in\Zn$ with $|z|\le R$ and $x\in(0,R]$,
@@ -520,7 +547,7 @@ For every $\eta>0$ there is $C_\eta$ such that:
 \begin{proof}
 (i) For $\re\xi\ge T_0$, integrate $\Lambda'$ along the horizontal segment from $T_0+i\im\xi$ to $\xi$:
 $|\Lambda(\xi)-\Lambda(T_0+i\im\xi)|\le\eps_\Lambda(T_0)\re\xi$. Choose $T_0$ with $\eps_\Lambda(T_0)\le\eta$; $\Lambda$ is
-bounded on the compact set $S_{\vartheta_p}\cap\{0\le\re\xi\le T_0\}$ and, by hypothesis, on $\re\xi\le0$. Then
+bounded on the compact set $S_\vartheta\cap\{0\le\re\xi\le T_0\}$ and, by hypothesis, on $\re\xi\le0$. Then
 $|\ell_1(t)|^{\pm1}=e^{\pm\re\Lambda(\log t)}$.
 (ii) $|r_n|^{\pm1}=|\ell_1(t)|^{\pm1}\ell_1(n)^{\mp1}$ with $|t|=n|z|^{-1/p}$; apply~(i) to both factors (for $|t|\le1$ use
 the bound on $\re\xi\le0$).

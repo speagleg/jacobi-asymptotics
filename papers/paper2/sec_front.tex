@@ -1,7 +1,7 @@
 % sec_front.tex: title, abstract, Section 1 (Introduction).
 % Labels defined here: sec:intro, sec:setting, sec:results, sec:context, sec:strategy, sec:organisation,
 %   eq:sigma, eq:jacobi, eq:cp, eq:law, eq:paper1-averaged, eq:osc, eq:smoothing, eq:main-rate, eq:epsLambda,
-%   eq:thetap, def:sv, def:smoothing, def:A, thm:main, thm:pure (a corollary), thm:shift, thm:engine, rem:main-*,
+%   def:sv, def:smoothing, def:A, thm:main, thm:pure (a corollary), thm:shift, thm:engine, rem:main-*,
 %   rem:pure-*, rem:shift-*, rem:engine-scope (= rem:main-rate), fig:dependency.
 
 \providecommand{\Ath}[1]{\textup{(A$_{#1}$)}}
@@ -18,7 +18,7 @@ matrix is a compact operator with eigenvalues $k^{-p}$. We prove that the recurr
 $n^pb_n\to c(p)$ and $n^pa_n\to2c(p)$, where
 $c(p)=\frac14\bigl(\sqrt\pi\,\Gamma(1/p+1)/\Gamma(1/p+\frac12)\bigr)^p$ is the constant of the constrained
 equilibrium problem solved in a companion paper. This holds for every slowly varying $\ell$, including unbounded ones
-such as $\exp\sqrt{\log k}$. If $\ell$ extends to a slowly varying analytic function on a sector, the error is $O(1/n)$; for pure powers this
+such as $\exp\sqrt{\log k}$. If $\ell$ extends to a slowly varying analytic function on some sector $|\arg t|\le\vartheta$ with half-angle $\vartheta>0$, however small, the error is $O(1/n)$; for pure powers this
 gives $n^pb_n=c(p)(1+O(1/n))$ and $a_n/(2b_n)=1+O(1/n)$. The proof reduces, by a Christoffel transformation (which
 shifts $s$ by $p$ and preserves the law with its rate) and a smoothing step, to analytic factors and the window
 $1<s<1+2p$. There a Riemann--Hilbert analysis of discrete orthogonal polynomials whose nodes accumulate at a hard edge
@@ -85,27 +85,30 @@ $S_\vartheta\cap\{\Re\xi\le0\}$, and
   \varepsilon_\Lambda(T):=\sup\bigl\{|\Lambda'(\xi)|:\ \xi\in S_\vartheta,\ \Re\xi\ge T\bigr\}\longrightarrow0
   \qquad(T\to\infty).
 \end{equation}
-We then also say that $\Lambda$ satisfies \Ath{\vartheta}. We use the half-width
-\begin{equation}\label{eq:thetap}
-  \vartheta_p:=\pi/p\quad\text{for }p>1,\qquad\vartheta_p:=\pi/2\quad\text{for }0<p\le1.
-\end{equation}
+We then also say that $\Lambda$ satisfies \Ath{\vartheta}. If $\vartheta'<\vartheta$, then \Ath{\vartheta} implies
+\Ath{\vartheta'}.
 \end{definition}
 
 \begin{maintheorem}[main theorem]\label{thm:main}
 Let $p>0$, $s>1$, let $\ell\colon\N\to(0,\infty)$ be slowly varying, and let $\sigma=\sigma_{p,s,\ell}$. Then
 \begin{enumerate}
 \item[\textup{(i)}] $n^pb_n\to c(p)$ and $n^pa_n\to2c(p)$;
-\item[\textup{(ii)}] if $\ell$ satisfies \Ath{\vartheta_p}, then $n^pb_n=c(p)(1+O(1/n))$ and
+\item[\textup{(ii)}] if $\ell$ satisfies \Ath{\vartheta} for some $\vartheta>0$, then $n^pb_n=c(p)(1+O(1/n))$ and
   $a_n/(2b_n)=1+O(1/n)$.
 \end{enumerate}
 \end{maintheorem}
 
-In words, \Ath{\vartheta_p} asks that $\ell$ extend to an analytic function $\ell(t)=e^{\Lambda(\log t)}$
-on the set $\{|t|\ge e^{-c_0},\ |\arg t|\le\vartheta_p\}$, bounded near $|t|=e^{-c_0}$, with $t\ell'(t)/\ell(t)\to0$. Such an
+In words, \Ath{\vartheta} asks that $\ell$ extend to an analytic function $\ell(t)=e^{\Lambda(\log t)}$
+on the set $\{|t|\ge e^{-c_0},\ |\arg t|\le\vartheta\}$, bounded near $|t|=e^{-c_0}$, with $t\ell'(t)/\ell(t)\to0$. Such an
 $\ell$ is slowly varying, since $|\Lambda(\log k)-\Lambda(\log n)|\le\varepsilon_\Lambda(\log
-n-\log\lambda)\log\lambda$ for $n/\lambda\le k\le\lambda n$. The sequence $\ell(k)=\exp\sqrt{\log(k+e)}$ satisfies
-\Ath{\vartheta_p} for every $p>0$, because the branch points of $\Lambda(\xi)=\sqrt{\log(e^\xi+e)}$ lie on the lines
-$|\Im\xi|=\pi$. For $p>1$ a further example is $\Lambda(\xi)=(\log(e^\xi+e))^\beta$ with $\beta<1$.
+n-\log\lambda)\log\lambda$ for $n/\lambda\le k\le\lambda n$. The half-angle $\vartheta$ may be arbitrarily small, and
+it does not have to depend on $p$: the Riemann--Hilbert analysis evaluates the weight only in a sector of the $z$-plane
+whose opening we are free to shrink (Lemma~\ref{lem:weightdomain} and Remark~\ref{rem:angles}). The sequences
+$\ell(k)=\exp\sqrt{\log(k+e)}$ and $\ell(k)=\exp((\log(k+e))^\beta)$, $\beta<1$, satisfy \Ath{\vartheta} for every
+$\vartheta<\pi$, because the singularities of $\Lambda(\xi)=(\log(e^\xi+e))^\beta$ lie on the lines $|\Im\xi|=\pi$. An
+example that is analytic only in a thin strip is $\Lambda(\xi)=\sqrt{\xi+1}+(\xi+2)^{-1/2}\log(1-q\cos2\xi)$ with
+$q=1/\cosh(0.6)$: it has logarithmic branch points at $\xi=\pi m\pm0.3i$ for every integer $m$, and it satisfies
+\Ath{\vartheta} for every $\vartheta<0.3$ (\S\ref{sec:numerics}).
 
 \emph{Why the pointwise law is subtle.} Corollary~1.2 of \cite{Paper1}, specialised to the atoms $x_k=k^{-p}$,
 states: if the weights $w_k\ge0$ satisfy $\sum_kw_k<\infty$ and $w_k\ge c_1k^{-s'}$ for some constants $c_1>0$ and
@@ -240,7 +243,8 @@ elementary and self-contained; it reduces Theorem~\ref{thm:main} to the followin
 core of the paper.
 
 \begin{maintheorem}[the Riemann--Hilbert engine: analytic factor, base window]\label{thm:engine}
-Let $p>0$ and $1<s<1+2p$, i.e.\ $\alpha:=(s-1-p)/p\in(-1,1)$. Let $\ell_1$ satisfy \Ath{\vartheta_p}. Then
+Let $p>0$ and $1<s<1+2p$, i.e.\ $\alpha:=(s-1-p)/p\in(-1,1)$. Let $\ell_1$ satisfy \Ath{\vartheta} for some
+$\vartheta>0$. Then
 $\sigma_{p,s,\ell_1}$ satisfies
 \[
   n^pb_n=c(p)\bigl(1+O(1/n)\bigr),\qquad a_n/(2b_n)=1+O(1/n).
