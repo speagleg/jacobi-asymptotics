@@ -1,7 +1,7 @@
 # TAIL: the hard-edge tail bound that UL.md needs, proved in Paper 2's frame; the telescoping reduction (Plan 69)
 
 Status (2026-10-15): written by the Plan 69 agent; Rule R: research/G1/review/REVIEW_Plan69.md, ACCEPT WITH FIXES; fixes
-F1–F7 applied; **not REVIEWED** (diff check pending). Labels per VERIFICATION_POLICY.md.
+F1–F7 applied; **REVIEWED 2026-10-15** (REVIEW_Plan69.md; fixes diff-checked). Labels per VERIFICATION_POLICY.md.
 "RH" means Riemann–Hilbert throughout. This file serves decision D2 of the three-paper split (planning documents kept
 locally under research/program/papers_split/, not published): Paper III's uniform-in-s results (UL.md) use the hard-edge
 tail bound Theorem QLP(c) of G1 PROOF.md §3.16, which is proved there only through the older RH analyses (RH_px,
