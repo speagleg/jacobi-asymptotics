@@ -454,7 +454,11 @@ Theorem E′.1 gives (E_ε) with ε = p at every (p, s), 0 < p < 1, s > 1. Hence
 - *Converse / scope.* Lemma F.1 uses p < 1 only through the seam construction; its moment formula (iii) is valid for every
   p > 0 for the seam integral itself. The Bessel parametrix uses p < 1 only through θ_L < π.
 
-## 12. Integration (for the integrator; nothing below is applied here)
+## 12. Integration (applied after merging master dea41ef, i.e. after Plan 66; reconciled with the Plan 66 wording)
+
+*Applied 2026-10-15:* the SECOND.md and THEOREMS.md changes below are made, tagged "Plan 67, E_plt1.md; not REVIEWED"
+(SECOND: status line, rows P62/Cor 3.3/Thm 3.4/Cor 3.9/Thm 3.10/§4 (E)/§4 g(p), new row Thm E′.1, P62 heading, §1 note, §4 title
+and Plan 67 paragraphs, §5 Thm 3.4 bullet, §6 checks; THEOREMS §2.10 heading and rows, new row, §4 item 13 update).
 
 Labels to apply carry a "Plan 67" tag; until Rule R they read "not REVIEWED". Nothing here touches p = 1.
 
