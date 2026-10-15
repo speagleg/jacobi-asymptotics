@@ -327,3 +327,19 @@ principal branches, which match KMVV (6.23) in |arg ζ| < 2π/3. 1.13.4 + 10.28.
 det Ψ = 2ζ^{1/2}(K_αI′_α − K′_αI_α)(2ζ^{1/2}) = 2ζ^{1/2}·𝒲{K_α, I_α}(2ζ^{1/2}) = 1 (REVIEW_Plan48.md F5). KMVV (6.16)–(6.18), (6.23)–(6.25), (6.28), (6.45), Prop. 6.5
 and C–D Theorem 4.4 / the arguments of 4.7, 4.9 are used as quoted above (KMVV, C–D entries); no new statement of those
 sources is used.
+
+## (Christoffel-attrib, Plan 52) Christoffel's theorem / Darboux (LU ↔ UL) transformation of Jacobi matrices — NOT READ, NOT USED AS INPUT (attribution only)
+
+The transfer formulas of route2/ROUTE2_alpha.md §2 (Lemma CT: monic OPs of x·σ are (P_{n+1} + g_nP_n)/x with
+α̃_n = g_n + h_{n+1}, β̃_n = g_nh_n) are classical (Christoffel's theorem on polynomial modifications; kernel polynomials; the
+Darboux transformation J = LU ↦ UL). **No source was read for Plan 52**, and none is cited as an input: Lemma CT and Lemma CP
+(zeros of P_n in (0, ∞)) are proved in full in ROUTE2_alpha.md §2. Pointers for a later Rule L search (not checked): Szegő,
+*Orthogonal Polynomials*, Thm 2.5; M. I. Bueno, F. Marcellán, "Darboux transformation and perturbation of linear functionals",
+Linear Algebra Appl. 384 (2004); F. A. Grünbaum, L. Haine, "Bispectral Darboux transformations" (1996).
+
+## (RII-inherited, Plan 52) inputs of Corollary B_all
+
+Corollary B_all (ROUTE2_alpha.md §5) uses Theorem RII / Corollary B_{p>1} (ROUTE2.md, REVIEWED) at a base exponent
+s₀ ∈ (1, 1 + 2p) and nothing else external. Its citations are exactly those listed for RII (WLXZ-v1, KMVV, C–D, DLMF-2,
+DLMF-4 and the DLMF §5 entries above; G2 μ*, B*(i)–(ii)); no new quotation is used, and their hypotheses are checked in
+ROUTE2.md at s₀, which lies in RII's range by construction.

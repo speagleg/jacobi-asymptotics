@@ -20,7 +20,7 @@ Conway–Deift comparison; REVIEWED). Numerics: `checks/check_r2_*.py/.out`.
 | Stop condition (ii) | KMVV Bessel construction uniform in a drifting order α_N | **MOOT (not needed)**: the order is the fixed α_x; uniformity in α_N is not established here and is not used |
 | **Theorem RII** | p > 1, 1 < s < 1 + 2p, w₁ = k^{−s}exp(L₁(log k)) with (H_an): n^pb_n = c(p)(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n) | **PROVED-mod-cite** (WLXZ v1 §§3–5, §6.1; KMVV §6; C–D Thm 4.4 + the arguments of C–D Thm 4.7 / Prop. 4.9 as reproduced in RH_ζ_close §1; DLMF 1.13.4, 1.14, 5.5.3, 5.12, 10.25.2, 10.27.3–4, 10.28.2, 10.31.2; G2 μ*, B*(i)–(ii)); **Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED** (F1 closed for all \|α_x\| < 1 by UR′(b′)) |
 | **Corollary B_{p>1}** | p > 1, 1 < s < 1 + 2p, Ψ sequence-form slowly varying (e.g. exp(√log k), D(γ) = ∞): n^pb_n → c(p), n^pa_n → 2c(p) | PROVED-mod-cite (RII + RedA); Rule R ACCEPT WITH FIXES, fixes applied, re-check ACCEPT — REVIEWED |
-| GAP-α | s ≥ 1 + 2p (α_x ≥ 1) | GAP (the L² frame of the comparison fails; §6) |
+| GAP-α | s ≥ 1 + 2p (α_x ≥ 1) | GAP (the L² frame of the comparison fails; §6). *(Plan 52 note, Rule R pending: closed for the law, all s > 1, by Christoffel transfer x·σ_s = σ_{s+p} — `ROUTE2_alpha.md`, PROOF.md §3.21; the RH analysis itself for α_x ≥ 1 remains undone.)* |
 | GAP-rate | the 1/n coefficient (tilt law / Theorem B-rate) | GAP; CONJECTURE + NUMERICAL (§5) |
 
 Notation: as in RH_px (t(z) = Nz^{−1/p}, θ = πt, W = 2iθ′w, band [0, b] with b := 4c(p), φ, φ̃, D̃, D, B, K, F, F̃, V,
