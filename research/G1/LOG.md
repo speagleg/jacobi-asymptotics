@@ -490,6 +490,46 @@
     F9: chain-sequence pointer (novelty UNCHECKED). F10: remark that D_ϱ drops out of Q̃'s local form.
   - Rule R ACCEPT WITH FIXES (review/REVIEW_Plan50.md), fixes applied — REVIEWED.
 
+## 2026-10-14 — Plan 51 (Route II for 0 < p < 1, WP5b; Christoffel step for all s > 1) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan51.md), fixes applied — REVIEWED
+- Write-up: `RH/route2/ROUTE2_plt1.md`; summary PROOF.md §3.20 and §0 row "RII_{<1} / CT-Ch / B_{p<1}". Plan:
+  docs/superpowers/plans/2026-10-14-plan-51-r2plt1.md.
+- **Strip (Lemma S_w):** for p < 1 the weight is evaluated only in S_in = {|arg z| < πp/2} (band lens, Ω^△, lips at ±πp/4,
+  (Y4)_x sector, top segment), so |Im u| ≤ π/2 suffices — not π/p. RedA's L₁ satisfies any strip (RedA(ii) for every σ₀; the
+  constant e^{σ₀²/2} only). exp √log(t + e) (branch points at Im u = ±π) satisfies the π/2 strip but not π/p for p ≤ 1.
+- **Seams:** Ψ₁ does not enter the seam scalar F (L±, X are node data); V, Q have no seam jump; with W̃ := D_w the comparison
+  parametrix has none either (RH_plt1b's super-small glued-W̃ seam jump disappears). The seams enter only through e^{−2X} in h_N.
+- **Lemma X0** (PROVED-mod-cite DLMF 5.5.1, 5.11.1 + §5.11(ii); new quote entry "(DLMF-5.11, Plan 51)"): N-uniform
+  |L±(ζ)| ≤ C|ζ| (|ζ| ≤ 1), ≤ C(1 + log|ζ|) (|ζ| ≥ 1), hence |X(z) − X(0)| ≤ C|z|(1 + log(1/|z|)), |X′| ≤ C(1 + log(1/|z|)) off the seams.
+- **LW1′_{<1}** (PROVED): lip mismatch ≤ C(|z|^{1/2}log(2/|z|) + ε₁(T_N)) at the lips ±πp/4; ε′_N = N^{−1}log N + ε₁.
+- **UR′_{<1}** incl. (b′), C′_{<1}, D′_{<1}: ROUTE2 §4 with the star {0, ±πp/4} at the hard edge (KMVV angle π − θ_L).
+- **Theorem RII_{<1}** (PROVED-mod-cite): 0 < p < 1, 1 < s < 1 + 2p, (H_an^{<1}) ⇒ O(1/n) law.
+- **Lemma CT-Ch** (renamed from "CT", Rule R F1; PROVED, self-contained; Christoffel/Darboux identity J(xσ) = LᵀL for J(σ) = LLᵀ, novelty of the identity not
+  claimed): a_n/b_n → 2, b_{n−1}/b_n → 1 ⇒ the same for xσ (r_n = l_n/m_n → 1 by a parabolic-recursion argument using r_n > 0);
+  O(1/n) in ⇒ O(1/n) out (r_n − 1 = O(n^{−1/2})). Since xσ_{s,Ψ} = σ_{s+p,Ψ}: **Corollary RII⁺_{<1} and B_{p<1} for every s > 1**;
+  Remark CT-px: a second proof of Plan 52's Corollary B_all (p > 1, every s > 1; §3.21), not a new result. Corollary B_{p<1}: law for every sequence-form slowly varying Ψ (incl. D(γ) = ∞), all s > 1.
+- **GAP:** the 1/n coefficient (tilt law, CONJECTURE); p = 1 (WP5a, not treated).
+- **Rule A** (ROUTE2_plt1 §5.1, §7): Ψ₁ const; Ψ = k^ρ; strip edge cases (nothing evaluated at |arg z| ≥ πp/2); N-uniformity of
+  X0 (log N only in X(0), a constant); α_x → ±1; CT on Laguerre (exact) and on truncated measures (hypothesis fails, r_n ↛ 1 —
+  consistent); existence of s₀ ∈ (1, 1 + p]. No counterexample.
+- **Numerics** (`RH/route2/checks/check_r2p_{coeff,lw1}.py/.out`, p = ½, Ψ = exp √log(k + e), quadrature tail to 10⁴⁸ as in
+  Plan 45): n(n^pb_n/c − 1) bounded for s = 1.5, 1.75, 2, 2.5 (−0.40 … −0.42 at s = 2), n(a_n/(2b_n) − 1) → ¼ = p/2;
+  K-doubling ≤ 10⁻⁷, quad ≤ 5·10⁻¹⁴; CT identity to 8·10⁻¹⁷, r_n − 1 = O(1/n); LW1′ ratio 1.65 → 2.51 (N = 10² → 10¹², → π);
+  Lemma X0 ratio flat in N. Atoms-only (no tail) values are wrong (law fails for the truncated measure).
+- **Found while reading (RH_plt1b.md not edited; corrected per Rule R F2):** RH_plt1b §1's L± = −μ − … and its t → 0 expansion are
+  correct with Binet's μ (RH_px §1, D̃ = e^{−μ}); only its displayed definition μ(t) := ½log 2π + (t − ½)Log t − t − LogΓ(t) has the
+  wrong sign (it is −μ_Binet). ROUTE2_plt1 uses λ := log D̃ = −μ. Text-only; no statement affected. check_r2p_lw1.py [2a]
+  reproduces RH_plt1b's X(0) probe.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan51.md; no mathematical error; Lemma CT re-derived, identity checked to 10⁻⁶⁰,
+  numerics re-run digit for digit). Fixes applied (after merging master with Plan 52):
+  - F1: lemma renamed CT-Ch (Cholesky/Darboux form); equivalence with Plan 52's CS/CS-r (g_j = l_j², h_j = m_{j−1}²) stated; its
+    proof kept as an independent second proof (PROVED, classical); Remark CT-px turned into a cross-reference to B_all; §0 G1-R
+    and §4 cross-references merged with Plan 52's.
+  - F2: sign-slip note relocated to RH_plt1b's displayed definition of μ; local μ renamed λ := log D̃ (ROUTE2_plt1 §3.2, PROOF
+    §3.20, this entry, check_r2p_lw1.py docstring).
+  - F3: X0(ii) large-|z| clause (1 + log|z|)². F4: (h1) exponent −√2πN|z|^{−1/p}. F5: q_N constant ε₁(π/4 + |log(x/|z|)|/p).
+  - F6: Rule A (e) corrected (s₀ ∈ (1, 1 + p] gives α_x ∈ (−1, 0]); remark: s₀ ∈ (1 + p/2, 1 + 3p/2] keeps |α_x| ≤ ½.
+  - F7: "model measure" scope; check_r2p_lw1.py [2b] now prints the sup over |z| ≤ 10⁻² (0.085–0.089, flat in N). F8: b̃_n/b_n → 1
+    in the §0 row.
 ## 2026-10-14 — Plan 52 (Route II for s ≥ 1 + 2p: GAP-α closed for the law by Christoffel transfer) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan52.md), fixes applied — REVIEWED
 - Write-up: `RH/route2/ROUTE2_alpha.md`; summary PROOF.md §3.21 and §0 row "SH / B_all". Plan:
   docs/superpowers/plans/2026-10-14-plan-52-r2alpha.md.

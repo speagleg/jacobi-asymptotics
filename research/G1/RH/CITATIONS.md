@@ -377,6 +377,20 @@ principal-branch sentence) quotes above. **Used in:** route2/ROUTE2_p1.md §3.2 
 {0} is never an integer and 10.27.4 applies as written; ζ^{1/2}I_ν(ζe^{−πi/2}) = ζ^{ν+1/2}E_ν(ζ) with E_ν entire for arg ζ ∈
 (−π/2, π) (principal branch of (½w)^ν).
 
+## (DLMF-5.11, Plan 51) NIST DLMF §§5.5(i), 5.11 — READ (web pages dlmf.nist.gov/5.5 and /5.11, re-fetched 2026-10-14), for Plan 51 (route2/ROUTE2_plt1.md §3.2)
+
+(Distinct name: the "(DLMF)" entry above quotes 5.11 for Plans 10–15; this entry re-verifies it and adds 5.5.1.)
+
+> (5.5.1) "Γ(z+1) = zΓ(z)," (§5.5(i) "Recurrence"; no condition stated beyond z complex).
+>
+> (5.11.1) "As z→∞ in the sector |ph z| ≤ π−δ, Ln Γ(z) ∼ (z−½) ln z − z + ½ ln(2π) + Σ_{k=1}^∞ B_{2k}/(2k(2k−1)z^{2k−1})."
+> §5.11(ii): "If the sums in the expansions (5.11.1) and (5.11.2) are terminated at k=n−1 (k≥0) …"; "If z is complex, then the
+> remainder terms are bounded in magnitude by sec^{2n}(½ ph z) for (5.11.1), and sec^{2n+1}(½ ph z) for (5.11.2), times the first
+> neglected terms." (Matches the "(DLMF)" entry above.)
+
+**Used in:** route2/ROUTE2_plt1.md Lemma X0(i): |μ(t)| ≤ sec²(½ph t)·|B₂|/(2|t|) (first neglected term, n = 1) on |ph t| ≤ π/2,
+|t| ≥ 1 (hypothesis: |ph t| ≤ π − δ with δ = π/2 ✓); LogΓ(t) = LogΓ(1 + t) − Log t on Re t ≥ 0 (5.5.1, principal branches
+agreeing on (0, ∞)) for |t| < 1; Lemma LW1′_{<1} (|log D̃| = |μ(t)| ≤ C/|t| on |ph t| ≤ π/4). Same use as RH_plt1b Lemma S.
 ## (Christoffel-attrib, Plan 52) Christoffel's theorem / Darboux (LU ↔ UL) transformation of Jacobi matrices — NOT READ, NOT USED AS INPUT (attribution only)
 
 The transfer formulas of route2/ROUTE2_alpha.md §2 (Lemma CT: monic OPs of x·σ are (P_{n+1} + g_nP_n)/x with
