@@ -1,0 +1,167 @@
+nmax = 1600; K = 320000 and 2K.  value (fit half-range) [dK];  kappa_p = 2 p c(p) zeta(-p)
+
+p = 0.3:  c(p) = 0.359593851212,  zeta(-p) = -0.293813068130,  kappa_p = 2 p c zeta(-p) = -0.063392024
+  s = 1.5
+    b:  d1 (n^-1) : -0.2500017 (7.0e-05) [5e-07]   predicted -0.2500000   |diff| = 1.7e-06  ok
+    b:  n^-1-p    : -0.0633011 (1.9e-03) [2e-05]   predicted -0.0633920   |diff| = 9.1e-05  ok
+    a:  n^-1      : -0.4000055 (1.3e-04) [5e-06]   predicted -0.4000000   |diff| = 5.5e-06  ok
+    a:  n^-1-p    : -0.0631474 (3.8e-03) [2e-04]   predicted -0.0633920   |diff| = 2.4e-04  ok
+    a/2b: n^-1    : -0.1500090 (6.8e-05) [4e-06]   predicted -0.1500000   |diff| = 9.0e-06  ok
+    a/2b: n^-1-p  : +0.0003985 (2.1e-03) [3e-04]   predicted +0.0000000   |diff| = 4.0e-04  ok
+    g:  n^-1      : +1.1667015 (3.6e-04) [2e-05]   predicted +1.1666667   |diff| = 3.5e-05  ok
+    g:  n^-1-p    : -0.0648877 (1.8e-02) [9e-04]   predicted -0.0633920   |diff| = 1.5e-03  ok
+    b: n^-1-p coef. after subtracting the proved 1/n term: -0.0633783 (4.9e-04) [3e-06]   predicted -0.0633920   |diff| = 1.4e-05  ok
+    a: n^-1-p coef. after subtracting the proved 1/n term: -0.0633873 (1.1e-03) [6e-06]   predicted -0.0633920   |diff| = 4.8e-06  ok
+    g: n^-1-p coef. after subtracting the proved 1/n term: -0.0633638 (8.1e-04) [1e-05]   predicted -0.0633920   |diff| = 2.8e-05  ok
+    direct n^{1+p}(y_n + (s-1)/(2n)):  n=100: -0.07006  n=200: -0.06969  n=400: -0.06900  n=800: -0.06823  n=1599: -0.06748
+  s = 2.0
+    b:  d1 (n^-1) : -0.4999794 (3.3e-04) [3e-07]   predicted -0.5000000   |diff| = 2.1e-05  ok
+    b:  n^-1-p    : -0.0648696 (1.2e-02) [2e-05]   predicted -0.0633920   |diff| = 1.5e-03  ok
+    a:  n^-1      : -0.6502027 (6.8e-04) [1e-07]   predicted -0.6500000   |diff| = 2.0e-04  ok
+    a:  n^-1-p    : -0.0538421 (2.4e-02) [5e-06]   predicted -0.0633920   |diff| = 9.5e-03  ok
+    a/2b: n^-1    : -0.1502142 (8.7e-04) [1e-07]   predicted -0.1500000   |diff| = 2.1e-04  ok
+    a/2b: n^-1-p  : +0.0117802 (3.2e-02) [2e-06]   predicted +0.0000000   |diff| = 1.2e-02  ok
+    g:  n^-1      : +2.8334413 (4.9e-04) [3e-05]   predicted +2.8333333   |diff| = 1.1e-04  ok
+    g:  n^-1-p    : -0.0677273 (2.7e-02) [2e-03]   predicted -0.0633920   |diff| = 4.3e-03  ok
+    b: n^-1-p coef. after subtracting the proved 1/n term: -0.0640519 (2.1e-03) [2e-08]   predicted -0.0633920   |diff| = 6.6e-04  ok
+    a: n^-1-p coef. after subtracting the proved 1/n term: -0.0618104 (5.3e-03) [2e-08]   predicted -0.0633920   |diff| = 1.6e-03  ok
+    g: n^-1-p coef. after subtracting the proved 1/n term: -0.0638893 (2.6e-03) [5e-05]   predicted -0.0633920   |diff| = 5.0e-04  ok
+    direct n^{1+p}(y_n + (s-1)/(2n)):  n=100: -0.10828  n=200: -0.09390  n=400: -0.08414  n=800: -0.07763  n=1599: -0.07330
+  s = 3.0
+    b:  d1 (n^-1) : -0.9999169 (4.0e-03) [1e-05]   predicted -1.0000000   |diff| = 8.3e-05  ok
+    b:  n^-1-p    : -0.0758059 (1.3e-01) [6e-04]   predicted -0.0633920   |diff| = 1.2e-02  ok
+    a:  n^-1      : -1.1505738 (6.3e-03) [8e-06]   predicted -1.1500000   |diff| = 5.7e-04  ok
+    a:  n^-1-p    : -0.0279147 (2.3e-01) [4e-04]   predicted -0.0633920   |diff| = 3.5e-02  ok
+    a/2b: n^-1    : -0.1506874 (8.4e-03) [2e-05]   predicted -0.1500000   |diff| = 6.9e-04  ok
+    a/2b: n^-1-p  : +0.0480827 (3.0e-01) [1e-03]   predicted +0.0000000   |diff| = 4.8e-02  ok
+    g:  n^-1      : +6.1669943 (1.8e-03) [8e-05]   predicted +6.1666667   |diff| = 3.3e-04  ok
+    g:  n^-1-p    : -0.0781690 (5.4e-02) [3e-03]   predicted -0.0633920   |diff| = 1.5e-02  ok
+    b: n^-1-p coef. after subtracting the proved 1/n term: -0.0690318 (2.3e-02) [9e-07]   predicted -0.0633920   |diff| = 5.6e-03  ok
+    a: n^-1-p coef. after subtracting the proved 1/n term: -0.0503926 (4.0e-02) [4e-08]   predicted -0.0633920   |diff| = 1.3e-02  ok
+    g: n^-1-p coef. after subtracting the proved 1/n term: -0.0658451 (1.7e-02) [4e-06]   predicted -0.0633920   |diff| = 2.5e-03  ok
+    direct n^{1+p}(y_n + (s-1)/(2n)):  n=100: -0.32493  n=200: -0.23402  n=400: -0.17262  n=800: -0.13282  n=1599: -0.10753
+
+p = 0.5:  c(p) = 0.408248290464,  zeta(-p) = -0.207886224977,  kappa_p = 2 p c zeta(-p) = -0.084869196
+  s = 1.5
+    b:  d1 (n^-1) : -0.2500000 (3.8e-07) [6e-09]   predicted -0.2500000   |diff| = 3.9e-09  ok
+    b:  n^-1-p    : -0.0848698 (3.3e-05) [8e-07]   predicted -0.0848692   |diff| = 5.6e-07  ok
+    a:  n^-1      : -0.5000000 (3.4e-07) [2e-08]   predicted -0.5000000   |diff| = 1.1e-09  ok
+    a:  n^-1-p    : -0.0848691 (2.9e-05) [3e-06]   predicted -0.0848692   |diff| = 1.4e-07  ok
+    a/2b: n^-1    : -0.2500000 (2.7e-07) [2e-08]   predicted -0.2500000   |diff| = 2.1e-08  ok
+    a/2b: n^-1-p  : +0.0000029 (2.4e-05) [3e-06]   predicted +0.0000000   |diff| = 2.9e-06  ok
+    g:  n^-1      : +0.4999997 (1.1e-06) [3e-08]   predicted +0.5000000   |diff| = 2.9e-07  ok
+    g:  n^-1-p    : -0.0848375 (1.8e-04) [1e-06]   predicted -0.0848692   |diff| = 3.2e-05  ok
+    b: n^-1-p coef. after subtracting the proved 1/n term: -0.0848692 (9.6e-06) [1e-07]   predicted -0.0848692   |diff| = 4.9e-09  ok
+    a: n^-1-p coef. after subtracting the proved 1/n term: -0.0848692 (7.4e-06) [1e-07]   predicted -0.0848692   |diff| = 2.8e-08  ok
+    g: n^-1-p coef. after subtracting the proved 1/n term: -0.0848716 (2.2e-05) [2e-06]   predicted -0.0848692   |diff| = 2.4e-06  ok
+    direct n^{1+p}(y_n + (s-1)/(2n)):  n=100: -0.06661  n=200: -0.07205  n=400: -0.07586  n=800: -0.07853  n=1599: -0.08040
+  s = 2.0
+    b:  d1 (n^-1) : -0.5000000 (5.7e-07) [2e-08]   predicted -0.5000000   |diff| = 3.2e-08  ok
+    b:  n^-1-p    : -0.0848644 (5.1e-05) [4e-06]   predicted -0.0848692   |diff| = 4.8e-06  ok
+    a:  n^-1      : -0.7500000 (7.3e-06) [1e-08]   predicted -0.7500000   |diff| = 2.0e-08  ok
+    a:  n^-1-p    : -0.0848722 (6.3e-04) [2e-06]   predicted -0.0848692   |diff| = 3.0e-06  ok
+    a/2b: n^-1    : -0.2499999 (6.3e-06) [4e-08]   predicted -0.2500000   |diff| = 5.0e-08  ok
+    a/2b: n^-1-p  : -0.0000079 (5.4e-04) [6e-06]   predicted +0.0000000   |diff| = 7.9e-06  ok
+    g:  n^-1      : +1.4999999 (1.6e-06) [5e-08]   predicted +1.5000000   |diff| = 1.3e-07  ok
+    g:  n^-1-p    : -0.0848545 (2.2e-04) [6e-06]   predicted -0.0848692   |diff| = 1.5e-05  ok
+    b: n^-1-p coef. after subtracting the proved 1/n term: -0.0848689 (1.6e-05) [5e-07]   predicted -0.0848692   |diff| = 3.4e-07  ok
+    a: n^-1-p coef. after subtracting the proved 1/n term: -0.0848694 (1.8e-04) [4e-07]   predicted -0.0848692   |diff| = 2.5e-07  ok
+    g: n^-1-p coef. after subtracting the proved 1/n term: -0.0848694 (2.7e-05) [2e-07]   predicted -0.0848692   |diff| = 1.7e-07  ok
+    direct n^{1+p}(y_n + (s-1)/(2n)):  n=100: -0.06853  n=200: -0.07371  n=400: -0.07716  n=800: -0.07951  n=1599: -0.08112
+  s = 3.0
+    b:  d1 (n^-1) : -1.0000002 (2.9e-05) [1e-08]   predicted -1.0000000   |diff| = 2.5e-07  ok
+    b:  n^-1-p    : -0.0848338 (2.6e-03) [2e-06]   predicted -0.0848692   |diff| = 3.5e-05  ok
+    a:  n^-1      : -1.2499995 (8.4e-05) [5e-09]   predicted -1.2500000   |diff| = 5.4e-07  ok
+    a:  n^-1-p    : -0.0849450 (7.3e-03) [7e-07]   predicted -0.0848692   |diff| = 7.6e-05  ok
+    a/2b: n^-1    : -0.2499993 (9.3e-05) [2e-08]   predicted -0.2500000   |diff| = 7.1e-07  ok
+    a/2b: n^-1-p  : -0.0000995 (8.1e-03) [3e-06]   predicted +0.0000000   |diff| = 9.9e-05  ok
+    g:  n^-1      : +3.4999999 (7.7e-06) [3e-08]   predicted +3.5000000   |diff| = 5.4e-08  ok
+    g:  n^-1-p    : -0.0848610 (7.9e-04) [5e-06]   predicted -0.0848692   |diff| = 8.2e-06  ok
+    b: n^-1-p coef. after subtracting the proved 1/n term: -0.0848626 (7.7e-04) [2e-07]   predicted -0.0848692   |diff| = 6.6e-06  ok
+    a: n^-1-p coef. after subtracting the proved 1/n term: -0.0848828 (2.2e-03) [1e-07]   predicted -0.0848692   |diff| = 1.4e-05  ok
+    g: n^-1-p coef. after subtracting the proved 1/n term: -0.0848665 (1.6e-04) [9e-08]   predicted -0.0848692   |diff| = 2.7e-06  ok
+    direct n^{1+p}(y_n + (s-1)/(2n)):  n=100: -0.19406  n=200: -0.16636  n=400: -0.14416  n=800: -0.12744  n=1599: -0.11523
+
+p = 0.7:  c(p) = 0.449031208671,  zeta(-p) = -0.146237191726,  kappa_p = 2 p c zeta(-p) = -0.091931088
+  s = 1.5
+    b:  d1 (n^-1) : -0.2500000 (4.2e-08) [9e-09]   predicted -0.2500000   |diff| = 2.0e-08  ok
+    b:  n^-1-p    : -0.0918834 (5.5e-05) [1e-05]   predicted -0.0919311   |diff| = 4.8e-05  ok
+    a:  n^-1      : -0.6000000 (1.3e-07) [2e-09]   predicted -0.6000000   |diff| = 3.0e-08  ok
+    a:  n^-1-p    : -0.0918714 (1.9e-04) [3e-06]   predicted -0.0919311   |diff| = 6.0e-05  ok
+    a/2b: n^-1    : -0.3500000 (1.8e-07) [4e-09]   predicted -0.3500000   |diff| = 8.8e-09  ok
+    a/2b: n^-1-p  : +0.0000182 (2.0e-04) [5e-06]   predicted +0.0000000   |diff| = 1.8e-05  ok
+    g:  n^-1      : +0.2142862 (1.1e-06) [2e-07]   predicted +0.2142857   |diff| = 4.7e-07  ok
+    g:  n^-1-p    : -0.0923601 (2.1e-03) [2e-04]   predicted -0.0919311   |diff| = 4.3e-04  ok
+    b: n^-1-p coef. after subtracting the proved 1/n term: -0.0919216 (2.6e-05) [1e-07]   predicted -0.0919311   |diff| = 9.5e-06  ok
+    a: n^-1-p coef. after subtracting the proved 1/n term: -0.0919096 (7.2e-05) [1e-05]   predicted -0.0919311   |diff| = 2.2e-05  ok
+    g: n^-1-p coef. after subtracting the proved 1/n term: -0.0917356 (7.5e-04) [4e-05]   predicted -0.0919311   |diff| = 2.0e-04  ok
+    direct n^{1+p}(y_n + (s-1)/(2n)):  n=100: -0.04487  n=200: -0.05360  n=400: -0.06073  n=800: -0.06654  n=1599: -0.07128
+  s = 2.0
+    b:  d1 (n^-1) : -0.5000000 (3.4e-07) [1e-08]   predicted -0.5000000   |diff| = 2.4e-09  ok
+    b:  n^-1-p    : -0.0919323 (2.8e-04) [5e-06]   predicted -0.0919311   |diff| = 1.2e-06  ok
+    a:  n^-1      : -0.8500000 (2.0e-06) [2e-08]   predicted -0.8500000   |diff| = 4.9e-09  ok
+    a:  n^-1-p    : -0.0919210 (1.6e-03) [3e-05]   predicted -0.0919311   |diff| = 1.0e-05  ok
+    a/2b: n^-1    : -0.3500000 (8.8e-07) [3e-08]   predicted -0.3500000   |diff| = 5.6e-09  ok
+    a/2b: n^-1-p  : +0.0000096 (7.2e-04) [5e-05]   predicted +0.0000000   |diff| = 9.6e-06  ok
+    g:  n^-1      : +0.9285714 (1.3e-06) [4e-07]   predicted +0.9285714   |diff| = 3.2e-08  ok
+    g:  n^-1-p    : -0.0918513 (1.0e-03) [5e-04]   predicted -0.0919311   |diff| = 8.0e-05  ok
+    b: n^-1-p coef. after subtracting the proved 1/n term: -0.0919284 (8.1e-05) [1e-05]   predicted -0.0919311   |diff| = 2.7e-06  ok
+    a: n^-1-p coef. after subtracting the proved 1/n term: -0.0919318 (5.9e-04) [2e-06]   predicted -0.0919311   |diff| = 7.4e-07  ok
+    g: n^-1-p coef. after subtracting the proved 1/n term: -0.0919360 (4.8e-04) [2e-05]   predicted -0.0919311   |diff| = 4.9e-06  ok
+    direct n^{1+p}(y_n + (s-1)/(2n)):  n=100: +0.00392  n=200: -0.01400  n=400: -0.02860  n=800: -0.04047  n=1599: -0.05011
+  s = 3.0
+    b:  d1 (n^-1) : -1.0000000 (6.8e-06) [3e-08]   predicted -1.0000000   |diff| = 7.6e-09  ok
+    b:  n^-1-p    : -0.0919367 (5.5e-03) [7e-05]   predicted -0.0919311   |diff| = 5.6e-06  ok
+    a:  n^-1      : -1.3500000 (3.3e-05) [6e-08]   predicted -1.3500000   |diff| = 4.8e-08  ok
+    a:  n^-1-p    : -0.0918622 (2.7e-02) [1e-04]   predicted -0.0919311   |diff| = 6.9e-05  ok
+    a/2b: n^-1    : -0.3500000 (3.1e-05) [8e-08]   predicted -0.3500000   |diff| = 3.9e-08  ok
+    a/2b: n^-1-p  : +0.0000484 (2.5e-02) [2e-04]   predicted +0.0000000   |diff| = 4.8e-05  ok
+    g:  n^-1      : +2.3571429 (5.2e-06) [1e-08]   predicted +2.3571429   |diff| = 3.3e-08  ok
+    g:  n^-1-p    : -0.0919894 (4.2e-03) [2e-05]   predicted -0.0919311   |diff| = 5.8e-05  ok
+    b: n^-1-p coef. after subtracting the proved 1/n term: -0.0919402 (2.3e-03) [1e-05]   predicted -0.0919311   |diff| = 9.1e-06  ok
+    a: n^-1-p coef. after subtracting the proved 1/n term: -0.0919045 (1.1e-02) [1e-05]   predicted -0.0919311   |diff| = 2.7e-05  ok
+    g: n^-1-p coef. after subtracting the proved 1/n term: -0.0919248 (1.8e-03) [2e-05]   predicted -0.0919311   |diff| = 6.3e-06  ok
+    direct n^{1+p}(y_n + (s-1)/(2n)):  n=100: -0.03601  n=200: -0.04953  n=400: -0.05879  n=800: -0.06557  n=1599: -0.07075
+
+p = 0.9:  c(p) = 0.484150059715,  zeta(-p) = -0.101193503985,  kappa_p = 2 p c zeta(-p) = -0.088187114
+  s = 1.5
+    b:  d1 (n^-1) : -0.2500000 (1.5e-08) [4e-10]   predicted -0.2500000   |diff| = 3.2e-10  ok
+    b:  n^-1-p    : -0.0881774 (1.4e-04) [1e-05]   predicted -0.0881871   |diff| = 9.7e-06  ok
+    a:  n^-1      : -0.7000000 (1.6e-07) [1e-09]   predicted -0.7000000   |diff| = 1.6e-10  ok
+    a:  n^-1-p    : -0.0881916 (1.5e-03) [5e-05]   predicted -0.0881871   |diff| = 4.5e-06  ok
+    a/2b: n^-1    : -0.4500000 (9.8e-08) [2e-09]   predicted -0.4500000   |diff| = 3.1e-10  ok
+    a/2b: n^-1-p  : -0.0000096 (9.0e-04) [4e-05]   predicted +0.0000000   |diff| = 9.6e-06  ok
+    g:  n^-1      : +0.0555556 (5.4e-08) [4e-08]   predicted +0.0555556   |diff| = 5.9e-08  OUTSIDE
+    g:  n^-1-p    : -0.0887486 (2.5e-03) [5e-04]   predicted -0.0881871   |diff| = 5.6e-04  ok
+    b: n^-1-p coef. after subtracting the proved 1/n term: -0.0881866 (6.9e-05) [8e-07]   predicted -0.0881871   |diff| = 5.4e-07  ok
+    a: n^-1-p coef. after subtracting the proved 1/n term: -0.0881836 (7.5e-04) [5e-06]   predicted -0.0881871   |diff| = 3.5e-06  ok
+    g: n^-1-p coef. after subtracting the proved 1/n term: -0.0877722 (1.5e-03) [2e-04]   predicted -0.0881871   |diff| = 4.1e-04  ok
+    direct n^{1+p}(y_n + (s-1)/(2n)):  n=100: +0.00815  n=200: +0.00171  n=400: -0.00430  n=800: -0.00992  n=1599: -0.01516
+  s = 2.0
+    b:  d1 (n^-1) : -0.5000000 (1.2e-07) [4e-09]   predicted -0.5000000   |diff| = 4.1e-10  ok
+    b:  n^-1-p    : -0.0881969 (1.1e-03) [1e-04]   predicted -0.0881871   |diff| = 9.8e-06  ok
+    a:  n^-1      : -0.9500000 (2.6e-07) [4e-09]   predicted -0.9500000   |diff| = 2.5e-10  ok
+    a:  n^-1-p    : -0.0881823 (2.4e-03) [1e-04]   predicted -0.0881871   |diff| = 4.8e-06  ok
+    a/2b: n^-1    : -0.4500000 (2.5e-08) [6e-09]   predicted -0.4500000   |diff| = 7.0e-10  ok
+    a/2b: n^-1-p  : +0.0000148 (4.1e-04) [9e-05]   predicted +0.0000000   |diff| = 1.5e-05  ok
+    g:  n^-1      : +0.6111111 (6.9e-08) [2e-09]   predicted +0.6111111   |diff| = 8.6e-09  ok
+    g:  n^-1-p    : -0.0882769 (2.3e-03) [2e-05]   predicted -0.0881871   |diff| = 9.0e-05  ok
+    b: n^-1-p coef. after subtracting the proved 1/n term: -0.0881789 (5.5e-04) [1e-05]   predicted -0.0881871   |diff| = 8.2e-06  ok
+    a: n^-1-p coef. after subtracting the proved 1/n term: -0.0881919 (1.2e-03) [8e-06]   predicted -0.0881871   |diff| = 4.8e-06  ok
+    g: n^-1-p coef. after subtracting the proved 1/n term: -0.0880425 (3.0e-04) [5e-05]   predicted -0.0881871   |diff| = 1.4e-04  ok
+    direct n^{1+p}(y_n + (s-1)/(2n)):  n=100: +0.17417  n=200: +0.15720  n=400: +0.14104  n=800: +0.12581  n=1599: +0.11154
+  s = 3.0
+    b:  d1 (n^-1) : -1.0000000 (6.9e-08) [4e-09]   predicted -1.0000000   |diff| = 7.6e-09  ok
+    b:  n^-1-p    : -0.0879545 (9.9e-04) [1e-04]   predicted -0.0881871   |diff| = 2.3e-04  ok
+    a:  n^-1      : -1.4500000 (2.8e-06) [1e-08]   predicted -1.4500000   |diff| = 8.2e-09  ok
+    a:  n^-1-p    : -0.0885980 (2.7e-02) [8e-04]   predicted -0.0881871   |diff| = 4.1e-04  ok
+    a/2b: n^-1    : -0.4500000 (2.0e-06) [1e-08]   predicted -0.4500000   |diff| = 8.1e-09  ok
+    a/2b: n^-1-p  : -0.0003453 (2.0e-02) [7e-04]   predicted +0.0000000   |diff| = 3.5e-04  ok
+    g:  n^-1      : +1.7222222 (3.9e-07) [4e-09]   predicted +1.7222222   |diff| = 4.5e-09  ok
+    g:  n^-1-p    : -0.0883108 (5.4e-03) [7e-05]   predicted -0.0881871   |diff| = 1.2e-04  ok
+    b: n^-1-p coef. after subtracting the proved 1/n term: -0.0881520 (5.3e-04) [3e-05]   predicted -0.0881871   |diff| = 3.5e-05  ok
+    a: n^-1-p coef. after subtracting the proved 1/n term: -0.0880830 (1.4e-02) [3e-05]   predicted -0.0881871   |diff| = 1.0e-04  ok
+    g: n^-1-p coef. after subtracting the proved 1/n term: -0.0881849 (1.6e-03) [1e-04]   predicted -0.0881871   |diff| = 2.2e-06  ok
+    direct n^{1+p}(y_n + (s-1)/(2n)):  n=100: +0.33912  n=200: +0.30919  n=400: +0.28191  n=800: +0.25679  n=1599: +0.23354
+
+rows with |fit - prediction| <= max(fit half-range, dK, 1e-8): 131/132
