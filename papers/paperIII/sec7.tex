@@ -14,7 +14,7 @@ $W=(0.6,1.6)$, three scales $N_i=15,60,240$ (separation by the factor $4$, far b
 $\varepsilon$, both far above the proved range $\varepsilon\le\gamma_W/16\approx6\cdot10^{-9}$. At each scale the jump
 $F_m(w)-F_m(v)$ at the selected index $m$ agrees with the first-order prediction $\langle\varphi,\Delta^2m_m^v\rangle$
 to within $2\%$, the contribution of the other windows is at most $1.4\cdot10^{-3}$, and every jump exceeds the
-largest $|F_n(w)-F_n(v)|$ over all other $n\in[10,246]$ by a factor larger than $2$. The measure was truncated at
+largest $|F_n(w)-F_n(v)|$ over the indices $n\in[10,246]$ with $|n-m_i|>2$ for all $i$ by a factor larger than $2$. The measure was truncated at
 $K=9600$ atoms; with two scales $(30,240)$ and $\varepsilon=0.2$, doubling $K$ changes the jumps by less than
 $10^{-3}$.
 
@@ -34,14 +34,14 @@ $\varepsilon$ & $N_i$ & $m_i$ & $F_{m_i}(w)-F_{m_i}(v)$ & $\langle\varphi,\Delta
 \bottomrule
 \end{tabular}
 \caption{The construction of Theorem~\ref{thm:rough-b} for $p=s=2$, $W=(0.6,1.6)$, scales $15,60,240$. The largest
-$|F_n(w)-F_n(v)|$ at the other indices $n\in[10,246]$ is $0.026$ for $\varepsilon=0.05$ and $0.103$ for
+$|F_n(w)-F_n(v)|$ over $n\in[10,246]$ with $|n-m_i|>2$ is $0.026$ for $\varepsilon=0.05$ and $0.103$ for
 $\varepsilon=0.2$. Double precision, $K=9600$ atoms.}
 \label{tab:rough}
 \end{table}
 
 \emph{The Christoffel--Ces\`aro identity and the $s$-law.} Table~\ref{tab:shift} lists the error
 $S_n:=\sum_{m\le n}\log(b_m(s+p)/b_m(s))+\frac p2\log n-\frac12\log(c\zeta(s)/\zeta(s+p))$ in Theorem~\ref{thm:s}(i),
-computed with the tail correction ($K$ between $10^5$ and $3.2\cdot10^5$ atoms). It decays like $1/n$, much faster than the
+computed with the tail correction ($K=3.2\cdot10^5$ atoms, and $K=6.4\cdot10^5$ for $p=\frac12$). It decays like $1/n$, much faster than the
 a priori rate $n^{-1/2}$. For the uniform statements, on the grid $s\in\{1.5,1.75,\dots,4\}$ and with $K=4\cdot10^4$ plus the
 tail correction, the quantity $\sup_s|\Phi_n(s)-\Phi_n(\frac32)-(s-\frac32)\log c/p|$ of Theorem~\ref{thm:UFlim} equals
 $2.25\cdot10^{-2}$, $1.12\cdot10^{-2}$, $5.62\cdot10^{-3}$, $2.81\cdot10^{-3}$ for $p=1$ and $5.26\cdot10^{-2}$,

@@ -140,7 +140,8 @@ $\tau_1N_{i+1}>\tau_1R_WN_i\ge M_Wm'$, so $\limsup_im^v_{m'}(T_i)\le T_p(M_W)\le
 \emph{Conclusion.} Hence $\limsup_i|E_i|$ is $0$ in case (A) and at most $4\varepsilon\gamma_W/16$ in case (B). By
 Theorem~\ref{thm:imp-pure}, $b_m(v)/b_{m-1}(v)\to1$, so $F_m(v)\to0$. With $\varepsilon\le\gamma_W/16$ we have
 $2\varepsilon^2\le\varepsilon\gamma_W/8$, and therefore $\liminf_iF_{m_i}(w)$ is at least
-$\varepsilon\gamma_W(1-\frac18)$ in case (A) and $\varepsilon\gamma_W(1-\frac18-\frac14)$ in case (B).
+$\varepsilon\gamma_W(1-\frac18)$ in case (A) and $\varepsilon\gamma_W(1-\frac18-\frac14)$ in case (B); in particular it
+is at least $\varepsilon\gamma_W/2$ and $\varepsilon\gamma_W/4$, respectively.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:rough}\textup{(i)}]
@@ -266,7 +267,7 @@ $\liminf$ of $n^pa_n$ differ by at least $\varepsilon\gamma_{\mathrm a}$.
 The constants of Theorem~\ref{thm:rough} are far from the size of the effect. For $p=2$ and $W=(0.6,1.6)$ a quadrature
 gives $\iota_W\approx0.2345$, hence $J_W=273$, $\gamma_W\approx9.8\cdot10^{-8}$ and $R_W\approx1.1\cdot10^8$; for
 $p=1$, $\iota_W\approx0.127$ and $\gamma_W\approx1.6\cdot10^{-8}$. Numerically, for the pure power with $p=s=2$, the
-norm $\|\Delta^2m_m|_{W_N}\|_1$ is about $1.06$--$1.09$ for every $m\in[N-7,N]$ and $N\in\{100,200,300\}$, and
+minimum of $\|\Delta^2m_m|_{W_N}\|_1$ over $m\in[N-7,N]$ is $1.06$, $1.09$ and $1.09$ for $N=100,200,300$, and
 separation by a factor $4$ already suffices (Section~\ref{sec:numerics}). The loss comes from the contradiction in
 Lemma~\ref{lem:window}, which costs the factor $J_W^2$. For the diagonal, a grid quadrature gives $\ia\approx0.314$,
 and the observed first-order response $\varepsilon\|n^p\Delta\cE_n^v|_W\|_1$ is about $0.8\,\varepsilon c(p)$ for $p=s=2$,
@@ -294,8 +295,9 @@ $ve^\varphi$.
 The condition $\tau_2>\usat$ is necessary for this mechanism. If $\tau_2\le\usat$ and $m-N$ stays bounded, the image
 of $W_N$ under $k\mapsto m^px_k$ lies in $[(m/(\tau_2N))^p,\infty)$, whose left end tends to $\tau_2^{-p}\ge4c$; since
 $\arc_{4c}$ has no mass beyond $4c$ and no atom, Lemma~\ref{lem:arcsine} gives $m^v_m(W_N)\to0$, so
-$\|\Delta^2m^v_m|_{W_N}\|_1\to0$ and the first-order gain disappears. Windows of indices that are saturated in the
-sense of Proposition~\ref{prop:imp-eq} carry no spectral weight.
+$\|\Delta^2m^v_m|_{W_N}\|_1\to0$ and the first-order gain disappears. In the variable $u=k/N$ of Proposition~\ref{prop:imp-eq},
+such windows lie in $(0,\usat]$, where the equilibrium density $\rho^*$ equals $1$; the argument just given shows that
+they carry asymptotically no spectral weight.
 \end{remark}
 
 \begin{remark}\label{rem:rough-ab}

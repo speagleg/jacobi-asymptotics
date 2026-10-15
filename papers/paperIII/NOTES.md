@@ -47,13 +47,13 @@ compactly. Nothing in the outline's theorem list is missing.
 | Cor 5.5 | SECOND.md Cor 3.6(i), Thm 3.10(a)–(c); TC identification from WLXZ (1.4)–(1.9) (read this session, see §4) |
 | Prop 5.6 | SECOND.md Cor 3.3, Thm 3.4 (as one implication, D9) |
 | Prop 6.1, Lemma 6.2, Prop 6.3, Lemma 6.4, Thm 6.5 | UL.md Prop 3.7 (SECOND), Lemma V, Thm UF, Lemma W, Thm UF-lim, with the tail input replaced by Lemma 2.22 (as in TAIL.md Thm TS(a)) |
-| Lemma 6.6, Thm 1.4(ii) all s₀, s₁ | TAIL.md Lemma TS, Thm TS(b) (**Plan 69, not yet REVIEWED**) |
-| Thm 1.4(iii) | UL.md Thm UP (b-part) and TAIL.md Prop UP-w (a-part split at 1 + p) (**Plan 69, not yet REVIEWED**) |
+| Lemma 6.6, Thm 1.4(ii) all s₀, s₁ | TAIL.md Lemma TS, Thm TS(b) (Plan 69, REVIEWED on master) |
+| Thm 1.4(iii) | UL.md Thm UP (b-part) and TAIL.md Prop UP-w (a-part split at 1 + p) (Plan 69, REVIEWED on master) |
 | Cor 1.5 | UL.md Cor UL-3.10 + TAIL.md Thm TS(b) (all s > 1 at p = 1) |
 | Conj 8.1, Rem 8.2 | SECOND §3.3 (CVX), UL.md Prop SV, Remark CVX-fin |
 | Conj 8.3, 8.4 | PAPER_II_OUTLINE Conj 11.1, 11.2 (Paper 2 conj:tilt); SECOND §1.1 |
 
-## 3. New arguments (need Rule R before submission)
+## 3. New arguments (Rule R done: REFEREE_PLAN71.md, all six ACCEPT)
 
 1. **Theorem 4.4 (a-law), cross-scale step without Lemma TL.** The repo's Theorem Ra (G1 §3.12) takes windows
    [θn_i, n_i^γ] and controls the other windows along the path u(t) uniformly over the sandwich class, using Lemma TL.
@@ -98,7 +98,7 @@ compactly. Nothing in the outline's theorem list is missing.
 
 ## 5. Placeholders
 
-- `\tailbound` macro (main.tex) = [II, Proposition 8.6]; **Plan 69 (TAIL.md) is pending Rule R review**, and Paper II's
+- `\tailbound` macro (main.tex) = [II, Proposition 8.6]; Plan 69 (TAIL.md) is now REVIEWED (master), and Paper II's
   numbering is not frozen. Statement imported (Prop 2.10): arcsine-range bound m_{n'}((Mn,∞)) ≤ CM^{−p/2},
   1 ≤ M ≤ c₂n^{2/p}, for 1 < s < 1+2p (all p) or p > 1 (all s). If the review fails for p ≤ 1 (fallback D2(b)):
   set S_p := ∅ for p ≤ 1 in (1.6); then Thm 1.4(ii)–(iii) hold for p > 1 only, Lemma 6.6 needs S_p ⊇ (1, 1+p] and
@@ -112,9 +112,9 @@ compactly. Nothing in the outline's theorem list is missing.
 
 ## 6. Open items
 
-1. Rule R on §3 items 1–5 above, and on the whole of §§4–6 as paper text.
-2. Plan 69 review outcome (see §5).
-3. Re-verify the numerical values quoted in §7 and Remark 4.5 against the stored outputs
+1. Done (REFEREE_PLAN71.md): Rule R on §3 items 1–6 and on §§4–6 as paper text.
+2. Done: Plan 69 REVIEWED (ACCEPT WITH FIXES, merged to master); the D2(b) fallback of §5 is not needed.
+3. Done (REFEREE_PLAN71.md §C): re-verify the numerical values quoted in §7 and Remark 4.5 against the stored outputs
    (research/G1/checks/check_rw.out [1]–[3], check_ra.out [3]–[4] (via PROOF.md §3.12 Ra-c/Ra-e), check_t3_conv.out,
    check_sv_general.out [1]; research/G1/RH/second_order/checks/check_so_shift.out [A]–[D], check_ul.out [4],
    check_so_validate.out, check_so_convex.out). check_t3_conv was not K-doubled (stated as indicative in §7).

@@ -58,20 +58,20 @@ For every compact interval $K=[\underline s,\bar s]\subset\Sp$, $\sup_{n\ge1}\su
 \end{proposition}
 
 \begin{proof}
-Put $u_0:=\frac12\vartheta_*(p,\underline s)$, with $\vartheta_*$ as in Lemma~\ref{lem:allM}. Since $\vartheta_*$
-increases with $s$, $u_0<\vartheta_*(p,s')$ for every $s'\in K$, and $u_0\le p/4$. Choose a grid $\underline s=t_0<t_1<\dots<t_J=\bar s$ with
-$t_{i+1}-t_i\le u_0$. For each of the finitely many $t=t_i$, $A_t:=\sup_nn^pa_n(t)<\infty$ by
-Theorem~\ref{thm:imp-pure}, and $B_t:=\sup_nE_t[(k/n)^{u_0}]<\infty$. For $n\ge n_0(t)$,
+Put $\tau_0:=\frac12\vartheta_*(p,\underline s)$, with $\vartheta_*$ as in Lemma~\ref{lem:allM}. Since $\vartheta_*$
+increases with $s$, $\tau_0<\vartheta_*(p,s')$ for every $s'\in K$, and $\tau_0\le p/4$. Choose a grid $\underline s=t_0<t_1<\dots<t_J=\bar s$ with
+$t_{i+1}-t_i\le \tau_0$. For each of the finitely many $t=t_i$, $A_t:=\sup_nn^pa_n(t)<\infty$ by
+Theorem~\ref{thm:imp-pure}, and $B_t:=\sup_nE_t[(k/n)^{\tau_0}]<\infty$. For $n\ge n_0(t)$,
 Lemma~\ref{lem:allM}, with exponent $\vartheta_0:=\vartheta_*(p,t)$, and Tonelli's theorem give
 \[
-  E_t[(k/n)^{u_0}]\le1+\sum_{k>n}m^{(t)}_n(k)\Bigl(1+\int_1^{k/n}u_0M^{u_0-1}\diff M\Bigr)
-  \le2+\int_1^\infty u_0M^{u_0-1}CM^{-\vartheta_0}\diff M<\infty,
+  E_t[(k/n)^{\tau_0}]\le1+\sum_{k>n}m^{(t)}_n(k)\Bigl(1+\int_1^{k/n}\tau_0M^{\tau_0-1}\diff M\Bigr)
+  \le2+\int_1^\infty \tau_0M^{\tau_0-1}CM^{-\vartheta_0}\diff M<\infty,
 \]
-and for the finitely many $n<n_0(t)$ each expectation is finite because $m^{(t)}_n(k)\le Ck^{-t}$ and $u_0<t-1$.
+and for the finitely many $n<n_0(t)$ each expectation is finite because $m^{(t)}_n(k)\le Ck^{-t}$ and $\tau_0<t-1$.
 
 Let $s\in[t_i,t_{i+1}]$, $t:=t_i$ and $r:=(s-t)/p\in[0,\frac14]$. By Lemma~\ref{lem:sandwich} and Jensen's inequality
 for the concave function $y\mapsto y^r$, $\Phi_n(s)-\Phi_n(t)\le\log E_t[Y^r]\le r\log E_t[Y]\le\frac14\log^+A_t$. By the
-lower bound and $y^{pr}\le1+y^{u_0}$ for $y>0$ and $0\le pr\le u_0$, $\Phi_n(s)-\Phi_n(t)\ge-\log(1+B_t)$. So
+lower bound and $y^{pr}\le1+y^{\tau_0}$ for $y>0$ and $0\le pr\le \tau_0$, $\Phi_n(s)-\Phi_n(t)\ge-\log(1+B_t)$. So
 $|\Phi_n(s)-\Phi_n(t_i)|$ is bounded on each cell uniformly in $n$, and chaining over the $J$ cells bounds
 $|\Phi_n(s)-\Phi_n(\underline s)|$ on $K$.
 \end{proof}
@@ -118,22 +118,22 @@ For every compact $K\subset\Sp$,
 \end{theorem}
 
 \begin{proof}
-We may assume $K=[\underline s,\bar s]$. Let $u_0$ be as in the proof of Proposition~\ref{prop:UF}, let $0<u\le u_0$,
-$r_u:=u/p\le\frac14$, and take the grid $t_i:=\underline s+iu$ in $K$ (the last cell may be shorter). For a cell
+We may assume $K=[\underline s,\bar s]$. Let $\tau_0$ be as in the proof of Proposition~\ref{prop:UF}, let $0<\tau\le \tau_0$,
+$r_\tau:=\tau/p\le\frac14$, and take the grid $t_i:=\underline s+i\tau$ in $K$ (the last cell may be shorter). For a cell
 $[t_i,t_{i+1}]$ put $\phi_n(r):=\log E_{t_i}[Y^r]$; it is convex by H\"older's inequality, $\phi_n(0)=0$, and it is
-finite for $|r|\le r_u$. For $s$ in the cell and $r:=(s-t_i)/p\in[0,r_u]$, Lemma~\ref{lem:sandwich} and convexity give
+finite for $|r|\le r_\tau$. For $s$ in the cell and $r:=(s-t_i)/p\in[0,r_\tau]$, Lemma~\ref{lem:sandwich} and convexity give
 \[
-  -\frac r{r_u}\phi_n(-r_u)\le-\phi_n(-r)\le\Phi_n(s)-\Phi_n(t_i)\le\phi_n(r)\le\frac r{r_u}\phi_n(r_u).
+  -\frac r{r_\tau}\phi_n(-r_\tau)\le-\phi_n(-r)\le\Phi_n(s)-\Phi_n(t_i)\le\phi_n(r)\le\frac r{r_\tau}\phi_n(r_\tau).
 \]
-By Lemma~\ref{lem:W} with $g(y)=y^{\pm r_u}$ (here $pr_u=u<\vartheta_*(p,t_i)$ and $r_u<2$),
-$\phi_n(\pm r_u)\to\phi(\pm r_u)=\pm r_u\phi'(0)+e_\pm$ with $|e_\pm|\le A_0r_u^2$. Hence
-$|\Phi_n(s)-\Phi_n(t_i)-r\phi'(0)|\le(r/r_u)(A_0r_u^2+\eta_{n,i})$ with $\eta_{n,i}\to0$, uniformly for $s$ in the cell.
+By Lemma~\ref{lem:W} with $g(y)=y^{\pm r_\tau}$ (here $pr_\tau=\tau<\vartheta_*(p,t_i)$ and $r_\tau<2$),
+$\phi_n(\pm r_\tau)\to\phi(\pm r_\tau)=\pm r_\tau\phi'(0)+e_\pm$ with $|e_\pm|\le A_0r_\tau^2$. Hence
+$|\Phi_n(s)-\Phi_n(t_i)-r\phi'(0)|\le(r/r_\tau)(A_0r_\tau^2+\eta_{n,i})$ with $\eta_{n,i}\to0$, uniformly for $s$ in the cell.
 Summing over the finitely many cells between $\underline s$ and $s$,
 \[
   \limsup_{n\to\infty}\sup_{s\in K}\Bigl|\Phi_n(s)-\Phi_n(\underline s)-\frac{s-\underline s}p\phi'(0)\Bigr|
-  \le A_0r_u\frac{\bar s-\underline s}p .
+  \le A_0r_\tau\frac{\bar s-\underline s}p .
 \]
-As $u\in(0,u_0]$ is arbitrary, the left side is $0$, and $\phi'(0)=\log c$ by \eqref{eq:logmean}. Differences of two
+As $\tau\in(0,\tau_0]$ is arbitrary, the left side is $0$, and $\phi'(0)=\log c$ by \eqref{eq:logmean}. Differences of two
 points of $K$ follow.
 \end{proof}
 
