@@ -1,9 +1,10 @@
 # E_p1: the 1/n coefficient (E) for pure powers at p = 1 (Plan 66)
 
-Status (2026-10-15): written by the Plan 66 agent. **Not reviewed** (Rule R pending). Labels per VERIFICATION_POLICY.md.
+Status (2026-10-15): written by the Plan 66 agent. Rule R: research/G1/review/REVIEW_Plan66_A.md (Route C) and REVIEW_Plan66_B.md
+(Route A, constants), both ACCEPT WITH FIXES; fixes A1–A5, A7, B F1–F5 applied (A6 recorded in §8); **not yet REVIEWED** (pending
+the coordinator's diff-check). Labels per VERIFICATION_POLICY.md.
 "RH" means Riemann–Hilbert throughout. This file closes, for p = 1, the GAP "(E)" of SECOND.md §4 (the p > 1 case is
-E_pgt1.md), and proves the "−1/24" second-order conjecture of RH_p1.md §0 / THEOREMS.md §4 item 13. SECOND.md and
-THEOREMS.md are **not** edited here; §10 (Integration) lists the exact changes.
+E_pgt1.md), and proves the "−1/24" second-order conjecture of RH_p1.md §0 / THEOREMS.md §4 item 13. §10 (Integration) lists the changes made to SECOND.md and THEOREMS.md.
 
 **Which route worked.** Two routes, with different strengths:
 - **Route A (comparison with Tricomi–Carlitz), elementary, no RH at all.** At p = 1 the node function 1/k is the variable x
@@ -46,7 +47,8 @@ NUMERICAL cross-checks (not used in the proofs): `checks/check_e1_tc.out` (Theor
 `checks/check_e1_rate.out` (Theorem E1.10: second-order residuals bounded at s ∈ {1.25, 1.5, 2, 3, 4.5}; no N mod 4
 oscillation beyond (−1)^N), `checks/check_e1_models.out` (inputs of Lemma E1.7: G_TC = G₀H_N^{−1} and the model identity behind
 WLXZ (6.14); φ₊(0) = −iπ/2; two-term Airy and Bessel-model expansions in every sector); `checks/check_e1_exact.out` (exact
-computer algebra of Lemma E1.5 and of the constants in Theorem E1.6).
+computer algebra of Lemma E1.5, of the coefficient differences used in Theorem E1.6, and of its constants ε = 1/12, r₂ = 1/288,
+−1/24 (b, g, h̃, α, β_N), 5/96, 53/96; plus an exact-moment Stieltjes corroboration of Lemma E1.5 for n ≤ 12).
 
 Novelty: UNCHECKED (Rule L not done). Lemmas E1.1–E1.3 are classical in kind (comparison of Christoffel-type extremal
 quantities; Christoffel's formula; minimum principle); novelty not claimed for them.
@@ -101,7 +103,7 @@ E_n^{ν′}[x³] ≤ (E_n^{ν′}[x²]E_n^{ν′}[x⁴])^{1/2} ≤ C₃n⁻³.
 The same applies to xν, xν′ (same constants), and g_n = h_n(x·)/h_n(·) (§0), so g_n(ν′) ∈ [c₁/c₂, c₂/c₁]g_n(ν). Then
 α_n(ν′) = g_n(ν′) + b_n(ν′)²/g_{n−1}(ν′) ≤ (c₂/c₁)g_n(ν) + (c₂/c₁)²b_n(ν)²/g_{n−1}(ν) ≤ (c₂/c₁)²α_n(ν) (and α₀ = g₀). For the moments:
 in the orthonormal basis, E_n[x^{2j}] = Σ_i|(J^j)_{in}|² with J the Jacobi matrix of ν′; the entries of J^j in row n involve
-only coefficients with indices in [n − j, n + j], each ≤ C′/n by the bounds just proved, so E_n[x^{2j}] ≤ C_j n^{−2j}; E_n[x³] by
+only coefficients with indices in [n − j, n + j], each ≤ C′/n by the bounds just proved, so E_n[x^{2j}] ≤ C_j n^{−2j} (n ≥ 2j; smaller n are absorbed in C_j since x ≤ 1); E_n[x³] by
 Cauchy–Schwarz. ∎
 
 **Lemma E1.2 (Christoffel by 1 + εx; PROVED).** Let ε > 0, z₀ := −1/ε, ν as above. Then π_n(z₀) ≠ 0,
@@ -183,7 +185,8 @@ functions (sympy `cancel`, check_e1_exact [2]) and is positive, so by the unique
 the same statement. NUMERICAL corroboration: RH/checks/check_p1_tc.out [2] and check_e1_tc.out [2] reproduce b_n, α_n of TC and xTC
 from the masses v_k to 3·10⁻¹⁰ and 3·10⁻¹³.)
 
-**Proof of Theorem E1.6.** *Weights.* log H(t) = LnΓ(t+1) + t − (t + ½)ln t − ½ln(2π) is Binet's function j(t) (DLMF 5.5.1), and
+**Proof of Theorem E1.6.** *Weights.* log H(t) = LnΓ(t+1) + t − (t + ½)ln t − ½ln(2π) equals LnΓ(t) − (t − ½)ln t + t − ½ln(2π) by DLMF 5.5.1 (Γ(t+1) = tΓ(t)), i.e. the
+remainder in 5.11.1 after the leading terms, and
 DLMF 5.11.1 with the §5.11(ii) remainder bound (real t > 0, first neglected term) gives |log H(t) − 1/(12t)| ≤ 1/(360t³) (t > 0).
 So k^{−3/2} = √(2π)H(k)v_k = √(2π)v_k(1 + x_k/12)e^{f₀(k)} with f₀(k) := log H(k) − log(1 + x_k/12) = x_k²/288 + O(x_k³) uniformly in
 k ≥ 1 (x_k ≤ 1; |f₀| ≤ C₀x_k² for all k). Thus σ_{3/2} = K·TC·(1 + x/12)e^{f₀} and σ_{5/2} = xσ_{3/2} = K·(xTC)·(1 + x/12)e^{f₀}, with
@@ -239,8 +242,10 @@ degree N of the symmetric problem, RH₁(r) (RH_p1_general.md) — which runs WL
   - (S3) on the lips and saturated pieces outside the discs: |J_S − I| ≤ Ce^{−cN}, on pieces of total length O(√N) (Lemma W1(r);
     WLXZ (5.8), (6.34));
   - (SN) the first-order small-norm conclusion: S = I + O(1/N) uniformly, in the sense used by RH₁(r) §7 and RH_p1 W1 step 6,
-    i.e. WLXZ (6.36)–(6.37): S₋ = I + u_S with u_S = (I − C_{Δ})^{−1}C₋Δ, and ‖u_S‖_{L²(Σ_S)} = O(1/N) (equivalently for our
-    purpose, sup|S_± − I| = O(1/N), WLXZ (6.37)); and S₁ := lim z(S(z) − I) = −(1/2πi)∫_{Σ_S}S₋(J_S − I)ds;
+    i.e. WLXZ (6.36)–(6.37): S₋ = I + u_S with u_S = (I − C_{Δ})^{−1}C₋Δ, and ‖u_S‖_{L²(Σ_S)} = O(1/N) (this uses that C₋ is
+    bounded on L²(Σ_S) uniformly in N, which is WLXZ's "standard procedure" after (6.35) and the same reliance as RH₁ and
+    RH₁(r) §7; alternatively, a uniform bound sup_{Σ_S}|S₋ − I| = O(1/N) together with ‖J_S − I‖_{L¹(Σ_S)} = O(1/N) would give
+    the same O(N⁻²) bound in Prop E1.8); and S₁ := lim z(S(z) − I) = −(1/2πi)∫_{Σ_S}S₋(J_S − I)ds;
   - (Id) identification of S with the small-norm solution (RH₁(r) §6, Lemmas O1, X).
 - (Ex) extraction (RH_p1 §3, RH₁(r) §7): Nβ_N = (U₁)₁₂(U₁)₂₁ = (V₁)₁₂(V₁)₂₁ exactly (the transformations U → V in Ω_∞ are left
   multiplication by constant diagonal matrices and right multiplication by scalar diagonal functions tending to constants, which
@@ -297,12 +302,14 @@ with bounded inverse.
 *(i), at +2.* First the σ_{3/2}-parametrix. With w̃_σ the WLXZ (4.27) weight of σ_{3/2} (= TC's times H_N, constants dropped as in
 RH_p1 §1) put G_σ := D̃²/w̃_σ; then (6.12), (6.15) read P^{(3/2)} = G_σ^{−σ₃/2}m_r f̃_N^{−σ₃/4}·√πσ₂Ψ(f̃_N)σ₂e^{Nφ̃σ₃}·G_σ^{σ₃/2},
 f̃_N = N^{2/3}f̃₁, f̃₁ := (−(3/2)φ̃)^{2/3} N-independent ((2.4), (2.5), (6.10)), so that the Airy variable has ξ = (2/3)f̃_N^{3/2} =
-−Nφ̃. Two facts at α_W = 1, both elementary from the quoted formulas (and checked to 10⁻⁴⁰, check_e1_models.out [1]):
+−Nφ̃. Here φ̃ = φ ± πi/z² (WLXZ (4.29)) vanishes at 2 ((6.11)), although φ₊(2) = −πi/4; likewise φ̂ ((4.30)) vanishes at −2. So
+no constant phase e^{Nφ₊(±2)σ₃} (which would give an i^N dependence) enters the Airy matching. The only lattice phase,
+e^{2iθ} = e^{2πiN/z²} (α_W = 1), is an analytic function of z absorbed in φ̃, φ̂. Two facts at α_W = 1, both elementary from the quoted formulas (and checked to 10⁻⁴⁰, check_e1_models.out [1]):
 (F1) G_TC = G₀·H_N^{−1} with G₀ := e^{−L}(z² − 4)^{1−2α_W} (from (4.15) D̃ = 1/H_N, (2.15), (3.4), (3.7), (4.24), (4.27)), hence
 G_σ = G₀H_N^{−2}; (F2) G₀^{σ₃/2}NG₀^{−σ₃/2}M₀ = m_r exactly ((5.11), (6.16)), i.e. (6.14) is exact for the model G₀. By Lemma E1.7a,
 on ∂U(2, ε) (where |ξ| ≍ N and f̃₁ lies in a fixed sector pattern)
 
-  P^{(3/2)}N^{−1} = H_N^{σ₃}·N G₀^{−σ₃/2}(I − X_j/(Nφ̃) + O(N⁻²))G₀^{σ₃/2}N^{−1}·H_N^{−σ₃}
+  P^{(3/2)}N^{−1} = H_N^{σ₃}·N G₀^{−σ₃/2}(I − X_j/(Nφ̃) + O(N⁻²))G₀^{σ₃/2}·H_N^{−σ₃}·N^{−1}
                  = I + (1/N)[−NG₀^{−σ₃/2}X_jG₀^{σ₃/2}N^{−1}/φ̃ + (z²/12)(σ₃ − Nσ₃N^{−1})] + O(N⁻²) =: I + Δ^{(3/2)}/N + O(N⁻²),
 
 using (a), N, N^{−1}, G₀^{±1} bounded on ∂U(2, ε) and |φ̃| bounded below there. Then in the display (Ai): A = A_∞ + O(1/N) with
@@ -325,7 +332,8 @@ it multiplies the off-diagonal entries by i^{±2N} = (−1)^N and fixes the diag
 *(iii).* With m ≥ 1, Lemma S of RH₁(r) gives |κ_N − 1| ≤ C(|z|²/N)^{2m+1} uniformly in |arg(±z)| ≤ π/3, so on the band pieces
 |J_S − I| ≤ C·4^{2m+1}N^{−2m−1} (N_r, N_r^{−1} bounded there). On Σ ∩ U(0, ε), RH₁(r) Lemma M's proof gives, for ρ := N|f| ≥ 1,
 |J_H − I| ≤ C(|z|²/N)^{2m+1} ≤ Cε^{4m+2}N^{−2m−1} (the amplification is bounded for ρ ≥ 1), and for ρ ≤ 1 (|z| ≲ 1/N)
-|J_H − I| ≤ CN^{−2m−1−2|a|}|z|^{4m+2−2|a|}log²(2/(N|z|)) ≤ CN^{−6m−3}log²; the discarded lip terms (J2) are O(N^{−K}). ∎
+|J_H − I| ≤ CN^{−2m−1−2|a|}|z|^{4m+2−2|a|}(1 + |log(N|z|)|)² = CN^{−6m−3}ρ^{δ}(1 + |log ρ|)² ≤ C′N^{−6m−3} (ρ ≍ N|z| ≤ 1,
+δ = 4m + 2 − 2|a| > 0); the discarded lip terms (J2) are O(N^{−K}). ∎
 
 ### 3.4 Second-order small norm and extraction
 
@@ -391,8 +399,10 @@ with an N-independent coefficient, which is all that existence needs.
 
 ## 6. Numerics (NUMERICAL; not used in the proofs)
 
-- `checks/check_e1_exact.py` (.out) — exact computer algebra for Lemma E1.5 and the constants of Theorem E1.6: all assertions pass.
-- `checks/check_e1_tc.py` (.out) — Theorem E1.6. Each pair through the same pipeline (that of RH/checks/check_p1_tc.py), M = 1500,
+- `checks/check_e1_exact.py` (.out) — exact computer algebra for Lemma E1.5, the coefficient differences of Theorem E1.6 and its
+  constants (ε = 1/12, r₂ = 1/288 from the series of log H; −1/24 for b, g, h̃, α; −1/6 for β_N; d₂ = 5/96, 53/96), and an exact-moment
+  corroboration of Lemma E1.5(a),(b) (tree-function moments of TC, exact Stieltjes procedure, n < 12): all assertions pass.
+- `checks/check_e1_tc.py` (.out) — Theorem E1.6 (b, α, g; h̃ and β_N are covered by check_e1_exact and REVIEW_Plan66_B §1.6). Each pair through the same pipeline (that of RH/checks/check_p1_tc.py), M = 1500,
   K = 2·10⁵, tails to 10¹² and 10¹⁶ (identical to the printed digits): n²(r − 1) at n = 1499 is −0.04165 (b), −0.04162 (α), −0.04161 (g)
   for σ_{3/2}/TC and −0.04162, −0.04160, −0.04150 for σ_{5/2}/xTC, approaching −1/24 = −0.041667 with O(1/n) corrections. Reference
   pipeline vs exact formulas: 3·10⁻¹⁰ (TC), 3·10⁻¹³ (xTC) at tend = 10¹⁶.
@@ -407,7 +417,9 @@ with an N-independent coefficient, which is all that existence needs.
   i^N term at order 1/N would separate them by O(1).
 - `checks/check_e1_models.py` (.out) — inputs of Lemma E1.7: [1] G_TC/(G₀H_N^{−1}) − 1 ≤ 3·10⁻⁴⁰ and the (6.14) model identity to 9·10⁻⁴¹
   on |z − 2| = 0.3; [2] ∫_0^2ψ = ∫_2^∞ψ = ¼, φ₊(0) = −iπ/2; [3] Airy two-term expansion in all four sectors; [4] Bessel-model
-  two-term expansion in all eight sectors for λ ∈ {−0.25, 0.5, 1.5} (Hankel functions evaluated through K_ν, DLMF 10.27.8, to avoid
+  two-term expansion in all eight sectors for λ ∈ {−0.25, 0.5, 1.5}. Both test **one** constant for all rays and all sectors (Rule R A5):
+  the 1/ξ and 1/ζ coefficients are X = [[−1/72, i/12], [i/12, 1/72]] and Ψ₁ = (a/2)σ₁ − (ia²/2)σ₃ (NUMERICAL; |ξ|²- resp.
+  |ζ|²-scaled residuals ≤ 0.041 resp. ≤ 0.48 for |ζ| = 25…400) (Hankel functions evaluated through K_ν, DLMF 10.27.8, to avoid
   cancellation — an evaluation device only).
 
 ## 7. Rule A (adversarial pass) — log
@@ -425,11 +437,11 @@ with an N-independent coefficient, which is all that existence needs.
   O(1/N).
 - *The (−1)^N term is real and does not cancel in the chain.* κ₁ = −3 at s = 5/2 (exact, Lemma E1.5(d) + Thm E1.6); it cancels in
   b_m² = β_{2m−1}β_{2m} and α_m = β_{2m} + β_{2m+1} only because the fold pairs one odd and one even index.
-- *Choice m ≥ 1.* With m = 0 (allowed in RH₁(r) for |a| < 3/4) the band mismatch κ_N − 1 = H_N² − 1 = z²/(6N) + … is an
-  N-independent O(1/N) jump: still compatible with Theorem E1.9 (it would add (1/N)∫ of an N-independent density to S₁), but
-  Lemma M's interior bound then needs a separate argument for |a| ≥ 3/4; m ≥ 1 makes all non-circle jumps O(N⁻³) uniformly.
-- *Second-order small norm without a new operator bound.* Only the first-order output ‖S₋ − I‖_{L²} = O(1/N) (equivalently the
-  uniform bound of WLXZ (6.37)) is used, multiplied by ‖J_S − I‖_{L²} = O(1/N). No uniformity of the Cauchy operator beyond what
+- *Choice m ≥ 1.* With m = 0 (allowed in RH₁(r) for |a| < 3/4) the band mismatch κ_N − 1 = H_N² − 1 = z²/(6N) + … is only
+  O(1/N), and inside U(0, ε) it is amplified by Ψ_a(Nf); whether this still gives Theorem E1.9 was not checked. m ≥ 1 makes all
+  non-circle jumps O(N⁻³) uniformly, which is what §3.4 uses.
+- *Second-order small norm without a new operator bound.* Only the first-order output ‖S₋ − I‖_{L²} = O(1/N) (which already contains the
+  uniform L² boundedness of the Cauchy operator inherited from WLXZ/RH₁(r)) is used, multiplied by ‖J_S − I‖_{L²} = O(1/N). No uniformity of the Cauchy operator beyond what
   RH₁(r) §7 already uses.
 - *Uniformity of the model expansions on the circles.* The sectors in ζ = Nf(z) (Bessel) and f̃_N(z) (Airy) correspond to fixed arcs
   of the circles (f, f̃₁ N-independent and conformal); the DLMF expansions are uniform in closed sectors; at sector boundaries both
@@ -447,6 +459,12 @@ with an N-independent coefficient, which is all that existence needs.
 - **k₁(s) = κ₁(s) for s ∉ {3/2, 5/2}** (GAP; CONJECTURE −3(s − 3/2) = −(p+2)a, NUMERICAL: RH₁(r) §0 fits, SECOND §1.1, check_e1_rate
   rc column). It needs the actual residues: κ₁ = −ie^LΣᵒ₂₁ + ie^{−L}Σᵒ₁₂ with Σᵒ from the off-diagonal part of the first correction
   Ψ₁ of the Fisher–Hartwig model at the band centre (computable from DLMF 10.17.1 a₁(a ± ½), as in E_pgt1 Lemma E.5).
+  Numerically k₁ = −3(s − 3/2) to 10 digits at s ∈ {1.25, 1.5, 2, 2.5, 3} (500/1000-digit Jacobi coefficients from the exact moments
+  ζ(s + j), REVIEW_Plan66_B.md §1.7; NUMERICAL, still GAP).
+  *Route (Rule R A6, INFO).* check_e1_models [4] indicates that Ψ₁ = (a/2)σ₁ − (ia²/2)σ₃ is the same in all eight sectors (NUMERICAL).
+  If so, Δ^{0,o} = E_∞ŶᵒᶠᶠE_∞^{−1}/f is one meromorphic function in U(0, ε) with a simple pole at 0 (E_∞ analytic, f(0) = 0,
+  f′(0) = πψ(0)), so Σᵒ is a single residue, ±E_∞(0)ŶᵒᶠᶠE_∞(0)^{−1}/f′(0), and the k₁ GAP reduces to evaluating E_∞(0) (from P^∞, W_h,
+  D_a near 0). Note Ψ₁ᵒᶠᶠ ∝ a, consistent with κ₁ ∝ a and κ₁(3/2) = 0. Not done here.
 - **d₂(1, s) for s ∉ {3/2, 5/2}** (second order; the method of §3 would need Δ₂ and the O(1/N) parts of H_N, Q_m, D_Q in Δ₁).
 - **(E) for 0 < p < 1** (GAP, unchanged; E_pgt1 §9).
 - **Rule L** (novelty) not done; in particular for Theorem E1.6 (a closed second-order constant for a discrete measure with an
@@ -458,10 +476,11 @@ New quotes (read 2026-10-15; recorded in RH/CITATIONS.md, entry "(WLXZ-v1, Plan 
 recurrence, leading coefficient), (6.8), (6.12)–(6.16) (Airy parametrix and matching), (6.34)–(6.37) (small norm), (2.1)–(2.3),
 (4.3)–(4.4) (equilibrium density and φ); Vanlessen (4.26)–(4.33), (4.43)–(4.46), (4.47)–(4.52), Remark 4.4 (entry "(Van, Plan 66)").
 Reused entries (hypotheses re-checked above): (KV) (5.23), (5.26)–(5.30); (DLMF) §5.11; (DLMF-9, Paper 2) 9.7.5–9.7.6;
-(DLMF-10.17, Plan 55) 10.17.5–10.17.6; (DLMF-10.40, Paper 2) 10.40.1–10.40.2; DLMF 5.5.1 (Binet's function, via Paper 2 / RH_px).
+(DLMF-10.17, Plan 55) 10.17.5–10.17.6; (DLMF-10.40, Paper 2) 10.40.1–10.40.2; DLMF 5.5.1 (Γ(t+1) = tΓ(t), to rewrite log H as the remainder of 5.11.1).
 Internal (REVIEWED): RH₁(r) (RH_p1_general.md), RH₁ (RH_p1.md), SECOND Lemmas 2.1, 2.2, UL Lemma V and Cor UL-3.10.
 
-## 10. Integration (to be applied by the integrator; nothing here edits SECOND.md or THEOREMS.md)
+## 10. Integration (applied after the Rule R fixes, reconciled with master cb054bc (Plans 65, 69 wording); labels tagged
+"(Plan 66, E_p1.md; not yet REVIEWED)" for the coordinator's diff-check)
 
 Tag every changed label "(Plan 66, E_p1.md; not yet REVIEWED)".
 

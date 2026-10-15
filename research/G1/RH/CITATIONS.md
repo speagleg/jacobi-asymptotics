@@ -768,6 +768,6 @@ analytic factor h. Numerical check of the sector formulas and the two-term struc
 (KV) (5.23), (5.26)–(5.30); (WLXZ-v1) (6.34)–(6.37), (5.11), (2.15); (WLXZ-v1, Plan 53) (2.1)–(2.4), (3.4), (3.7), (4.15), (4.24);
 (DLMF) §5.11 (5.11.1 with the §5.11(ii) remainder bound: real t > 0 for Thm E1.6, |ph t| ≤ 2π/3 for Lemma E1.7(a), as in RH₁(r)
 Lemma S); (DLMF-9, Paper 2) 9.7.5–9.7.6 (|ph| ≤ 5π/6 on the closed sectors of WLXZ (6.8)); (DLMF-10.17, Plan 55) 10.17.5–10.17.6;
-(DLMF-10.40, Paper 2) 10.40.1–10.40.2 (phases in [−π/4, π/4], ν = a ± ½ fixed). DLMF 5.5.1 (Binet's function form of log H) as
-quoted in "(DLMF-5.11, Plan 51)". Internal: RH₁(r) (RH_p1_general.md, REVIEWED), RH₁ (RH_p1.md, REVIEWED), SECOND Lemmas 2.1, 2.2
+(DLMF-10.40, Paper 2) 10.40.1–10.40.2 (phases in [−π/4, π/4], ν = a ± ½ fixed). DLMF 5.5.1 (Γ(t+1) = tΓ(t), to rewrite log H as the
+remainder of 5.11.1) as quoted in "(DLMF-5.11, Plan 51)". Internal: RH₁(r) (RH_p1_general.md, REVIEWED), RH₁ (RH_p1.md, REVIEWED), SECOND Lemmas 2.1, 2.2
 (REVIEWED), UL Lemma V and Cor UL-3.10 (REVIEWED).

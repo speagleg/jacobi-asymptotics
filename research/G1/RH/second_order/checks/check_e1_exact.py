@@ -10,6 +10,9 @@
 [3] 1/n expansions (exact series): n b_n, n alpha_n, n g_n for TC (s = 3/2), x*TC (s = 5/2), x^2*TC (s = 7/2; b, alpha only),
     the symmetric chain N beta_N = 1 + (k0 + k1(-1)^N)/N + O(N^-2), and the differences used in Theorem E1.6 (via Proposition E1.4(iii)):
     alpha_n - alpha_{n-1} = -1/n^2 + O(n^-3), alpha_n(x v) - alpha_n(v) = -1/(2n^2) + O(n^-3).
+[4] the constants of Theorem E1.6: eps = 1/12, r2 = 1/288 from the series of log H; the -1/24 ratios for b, g, h~, alpha and
+    -1/6 for beta_N (via Proposition E1.4(iii)); d2 = 5/96, 53/96.
+[5] corroboration of Lemma E1.5 from exact rational moments of TC (tree function), exact Stieltjes procedure, n < 12.
 All pass/fail values are computed (assertions)."""
 import sympy as sp
 
@@ -119,7 +122,68 @@ for (name, s_val, al_, b2_, g_) in rows:
     d = coeff2(sp.cancel(b2_ - b2_.subs(n, n - 1)))
     assert d[0] == 0 and d[1] == 0 and d[2] == 0
 print("    b_n^2 - b_{n-1}^2 = O(n^-3) for TC, x*TC, x^2*TC")
-# the second-order constant of Theorem E1.6: (1/12) * (alpha_n - alpha_{n-1}) -> log(b^2 ratio) = -1/(12 n^2) -> b ratio 1 - 1/(24 n^2)
-print("[3] Theorem E1.6 constant: eps = 1/12 (H(t) = 1 + 1/(12t) + ...), eps * (-1) / 2 =", sp.Rational(1, 12) * -1 / 2,
-      "= -1/24")
+# [4] Theorem E1.6 constants (computed, not typed): eps, r2 from log H; the -1/24 ratios; d2 = 5/96, 53/96; beta_N ratio
+u = sp.Symbol('u', positive=True)
+logH = sp.loggamma(1 / u + 1) + 1 / u - (1 / u + sp.Rational(1, 2)) * sp.log(1 / u) - sp.log(2 * sp.pi) / 2   # t = 1/u = k, x = u
+serH = sp.series(logH, u, 0, 4).removeO()
+eps = sp.nsimplify(serH.coeff(u, 1)); assert serH.coeff(u, 2) == 0
+f0 = sp.series(serH - sp.log(1 + eps * u), u, 0, 3).removeO()
+r2 = sp.nsimplify(f0.coeff(u, 2)); assert f0.coeff(u, 1) == 0 and f0.coeff(u, 0) == 0
+assert eps == sp.Rational(1, 12) and r2 == sp.Rational(1, 288)
+print(f"[4] log H(k) = x/12 + ...: eps = {eps}, f0 = log H - log(1 + eps x) = r2 x^2 + O(x^3), r2 = {r2}")
+# Proposition E1.4(iii) with these eps: log b^2 ratio = eps*(alpha_n - alpha_{n-1}), log g ratio = eps*(alpha_n(xv) - alpha_n(v))
+for (v, xv) in [(rows[0], rows[1]), (rows[1], rows[2])]:
+    lb2 = coeff2(sp.cancel(eps * (v[2] - v[2].subs(n, n - 1))))[2]
+    lg = coeff2(sp.cancel(eps * (xv[2] - v[2])))[2]
+    rb = lb2 / 2; rg = lg; rh = lb2 - lg                    # h~ = b^2/g_{n-1}: log ratio = lb2/n^2 - lg/(n-1)^2
+    al_ = v[2]; g_ = v[4]; h_ = sp.cancel(v[3] / g_.subs(n, n - 1))
+    ra = coeff2(sp.cancel((g_ * (1 + rg / n ** 2) + h_ * (1 + rh / n ** 2)) / al_ - 1))[2]   # alpha = g + h~
+    assert rb == rg == rh == ra == sp.Rational(-1, 24), (rb, rg, rh, ra)
+    # beta_N: beta_{2m} = h~_m, beta_{2m+1} = g_m, both with ratio 1 - 1/(24 m^2), m ~ N/2
+    rbeta = sp.nsimplify(rh * 4)
+    assert rbeta == sp.Rational(-1, 6)
+    nb = 2 * n * sp.sqrt(v[3]) * (1 + rb / n ** 2)
+    c = coeff2(nb)
+    d2 = {"TC": sp.Rational(5, 96), "x*TC": sp.Rational(53, 96)}[v[0]]
+    assert c[0] == 1 and c[1] == -(v[1] - 1) / 2 and c[2] == d2, c
+    print(f"    sigma_{v[1]} vs {v[0]}: n^2(ratio - 1) -> {rb} (b), {rg} (g), {rh} (h~), {ra} (alpha); beta_N: {rbeta}/N^2;"
+          f" 2 n b_n = 1 + ({c[1]})/n + ({c[2]})/n^2")
+
+# [5] corroboration of Lemma E1.5 independent of WLXZ: exact rational moments of TC via the tree function
+#     T(z) = sum k^{k-1} z^k/k!, T(1/e) = 1, z T' = T/(1-T); F_0 = T, z dF_{j+1}/dz = F_j  =>  dF_{j+1}/dT = F_j (1-T)/T, F_j(0) = 0,
+#     m_j := sum_k v_k k^{-j} = F_j(T = 1) (Abel's theorem at the boundary point; the classical tree-function identity is not cited,
+#     so this is a corroboration, not a proof); then the exact Stieltjes procedure for TC and x*TC, n <= 12.
+T = sp.Symbol('T')
+F = [T]
+for jj in range(30):
+    F.append(sp.integrate(sp.expand(F[-1] * (1 - T) / T), (T, 0, T)))
+mom = [sp.Rational(Fj.subs(T, 1)) for Fj in F]
+assert all(isinstance(mm, sp.Rational) for mm in mom)
+import mpmath as mpm
+mpm.mp.dps = 30
+for jj in (1, 2, 3):
+    direct = mpm.nsum(lambda k: mpm.e ** ((k - 1 - jj) * mpm.log(k) - k - mpm.loggamma(k + 1)), [1, mpm.inf])
+    assert abs(direct - mom[jj]) < 1e-6, (jj, direct, mom[jj])   # nsum of a k^{-3/2-j} series: slow; loose tolerance
+print("[5] tree-function moments m_0..m_3 =", mom[:4], "(m_1..m_3 agree with mpmath nsum of the series to 1e-6)")
+def stieltjes(mo, M):
+    # exact recurrence coefficients from moments (inner product <p,q> = sum c_ij mo[i+j])
+    def ip(p, q):
+        P, Q = sp.Poly(p, y), sp.Poly(q, y)
+        return sum(a * b * mo[i + j] for (i,), a in P.terms() for (j,), b in Q.terms())
+    pm, pc = sp.Integer(0), sp.Integer(1); al, b2 = [], []
+    hprev = None
+    for k in range(M):
+        h = ip(pc, pc); a = ip(y * pc, pc) / h
+        al.append(a); b2.append(None if hprev is None else h / hprev)
+        pm, pc = pc, sp.expand((y - a) * pc - (0 if hprev is None else h / hprev) * pm)
+        hprev = h
+    return al, b2
+M = 12
+alT, b2T = stieltjes(mom, M)
+alX, b2X = stieltjes(mom[1:], M)
+for k in range(1, M):
+    assert alT[k] == al_TC.subs(n, k) and b2T[k] == b2_TC.subs(n, k)
+    assert alX[k] == al_xTC.subs(n, k) and b2X[k] == b2_xTC.subs(n, k)
+assert alT[0] == sp.Rational(1, 2) and alX[0] == al_xTC.subs(n, 0)
+print(f"    exact Stieltjes from the moments reproduces alpha_n, b_n^2 of TC and x*TC (Lemma E1.5(a),(b)) for n < {M}")
 print("ALL ASSERTIONS PASSED")
