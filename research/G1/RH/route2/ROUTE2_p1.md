@@ -1,6 +1,6 @@
 # ROUTE2_p1: Route II for p = 1 — the pointwise Law P for k^{−r}Ψ, Ψ slowly varying, x_k = 1/k (Plan 50, WP5a)
 
-Status: **Rule R pending.** Novelty: UNCHECKED (no Rule L search).
+Status: **Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan50.md), fixes applied — REVIEWED** (F1–F10 applied after merging master, which contains Plan 52, PROOF.md §3.21). Novelty: UNCHECKED (no Rule L search).
 
 Source: `research/program/outline_B_sv.md` §5 Route II, work package WP5 (p = 1 part). Templates: `ROUTE2.md` (Plan 48,
 REVIEWED; p > 1) and its review `../../review/REVIEW_Plan48.md` (UR′(b′), Conway–Deift comparison); base analysis
@@ -19,15 +19,15 @@ points, Lemma M amplification). Numerics: `checks/check_r2p1_{lw1,coeff,ct}.py/.
 | §3.3 Lemma LW1₁ | lip mismatch \|D_ϱ²/ϱ − 1\| ≤ C(\|z\| + ε₁,n) in U(0, δ), with no decay in \|z\| for the q_n part | PROVED-mod-cite (DLMF 5.11 for the H_n part only); NEW (the even pairing) |
 | §4.1 Lemma UR₁ (incl. (b′)) | uniform resolvent of the comparison problem, \|a\| < ½ | PROVED-mod-cite (as RH_ζ_close Lemma UR; Lemma W with exponents ±a) |
 | §4.2–4.3 C₁, D₁ | ‖(1 − C_v)^{−1}‖ ≤ 2C; Q₁ − Q̃₁ = O(ε′_n/n) | PROVED-mod-cite (C–D Thm 4.4, arguments of Thm 4.7 / Prop. 4.9) |
-| **Theorem RII₁** | p = 1, **1 < r < 2**, (H_an₁): nβ_n = 1 + O(1/n), nb_n = ½(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n) | **PROVED-mod-cite** (WLXZ v1 §§2–6 via RH₁/RH₁(r); KV §5; Vanlessen §4; C–D Thm 4.4 + 4.7/4.9 arguments via RH_ζ_close §1; DLMF 5.11, 10.25.2, 10.27.4, and those of Lemma W); Rule R pending |
-| **Corollary B_{p=1}** | p = 1, 1 < r < 2, Ψ sequence-form slowly varying (incl. D(γ) = ∞): nb_n → ½, na_n → 1, rate O(1/n + ρ(n/M₀)) | PROVED-mod-cite (RII₁ + RedA); Rule R pending |
-| **Lemma CT** | Christoffel transfer: J(xμ) = LᵀL if J(μ) = LLᵀ (Cholesky); Law P for μ ⟺ Law P for xμ (nodes in (0, ∞), any weights, any p > 0) | PROVED (self-contained; (i) is the classical Christoffel/Darboux step, attribution only, novelty not claimed; (ii) novelty UNCHECKED) |
-| Lemma D | parabolic dynamics: x_n > 0, x_{n+1} = A_{n+1} − B_n/x_n, A → 2, B → 1 ⇒ x_n → 1 (and the reverse form) | PROVED |
-| **Corollary B_{p=1}⁺** | p = 1, **every non-integer r > 1**, Ψ sequence-form slowly varying: the law (no rate claimed for r > 2) | PROVED-mod-cite (B_{p=1} + CT); Rule R pending |
-| **Corollary B_{p>1}⁺** | p > 1, **every s > 1**, Ψ sequence-form slowly varying: the law (closes Plan 48's GAP-α for the law; no rate claimed for s ≥ 1 + 2p) | PROVED-mod-cite (B_{p>1} + CT); Rule R pending |
-| GAP-int | p = 1, r ∈ {2, 3, 4, …} with D(γ) = ∞ | GAP (§7) |
+| **Theorem RII₁** | p = 1, **1 < r < 2**, (H_an₁): nβ_n = 1 + O(1/n), nb_n = ½(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n) | **PROVED-mod-cite** (WLXZ v1 §§2–6 via RH₁/RH₁(r); KV §5; Vanlessen §4; C–D Thm 4.4 + 4.7/4.9 arguments via RH_ζ_close §1; DLMF 5.11, 10.25.2, 10.27.4, and those of Lemma W); Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan50.md), fixes applied — REVIEWED |
+| **Corollary B_{p=1}** | p = 1, 1 < r < 2, Ψ sequence-form slowly varying (incl. D(γ) = ∞): nb_n → ½, na_n → 1, rate O(1/n + ρ(n/M₀)) | PROVED-mod-cite (RII₁ + RedA); Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan50.md), fixes applied — REVIEWED |
+| **Lemma CT₁ (Cholesky form)** | (i) J(xμ) = LᵀL if J(μ) = LLᵀ — master's Lemma CT (§3.21, Plan 52) in other coordinates (g_n = l_n², h_n = m_{n−1}²); (ii) "⟹" = master's Lemma CS + Theorem SH; **(ii) "⟸": Law P for xμ ⇒ Law P for μ, for every positive bidiagonal factorization (new relative to §3.21)**; supp μ ⊂ [0, ∞) | (i), "⟹": cited from §3.21 (REVIEWED; the proof here is an alternative); "⟸": PROVED (self-contained); very likely KNOWN in chain-sequence form (Wall; Chihara 1978 Ch. III — not read, pointer only), novelty UNCHECKED |
+| Lemma D | parabolic dynamics: (a) x_n > 0, x_{n+1} = A_{n+1} − B_n/x_n ⇒ x_n → 1 (alternative proof of master's CS); (b) 0 < z_n < A_n, z_{n+1} = B_n/(A_n − z_n) ⇒ z_n → 1 (used for "⟸") | PROVED |
+| **Corollary B_{p=1}⁺** | p = 1, **every non-integer r > 1**, Ψ sequence-form slowly varying: the law, with rate O(1/n) if Ψ satisfies (H_an₁), and with the regular majorant of 1/n + ρ(⌈n/M₀⌉) in general | PROVED-mod-cite (B_{p=1} + master's Theorem SH-r, §3.21); Rule R ACCEPT WITH FIXES (../../review/REVIEW_Plan50.md), fixes applied — REVIEWED |
+| (Corollary B_{p>1}⁺ — withdrawn as a separate result) | p > 1, every s > 1 | = master's **Corollary B_all** (Plan 52, §3.21, REVIEWED, with rate); not claimed here |
+| GAP-int | p = 1, r ∈ {2, 3, 4, …} with D(γ) = ∞; by CT₁ "⟺" equivalent to the law at the single exponent r = 2 (a = ½, α_x = 0) | GAP (§7) |
 | OBSTRUCTION-a | the C–D frame at the band centre needs \|a\| < ½: Q̃ ∉ L²_loc and Lemma W fails at \|a\| ≥ ½ | OBSTRUCTION (scoped to this frame; §7) |
-| GAP-rate₁ | O(1/n) for r > 2 (non-integer) and for s ≥ 1 + 2p; the 1/n coefficient (tilt law) | GAP; tilt law CONJECTURE + NUMERICAL (§6) |
+| GAP-rate₁ | the 1/n coefficient (tilt law) | GAP; tilt law CONJECTURE + NUMERICAL (§6) |
 
 Notation (RH_p1_general / RH_p1): WLXZ = Wu–Lin–Xu–Zhao arXiv:1410.3948v1 at α_W = 1; n = degree of the orthogonal polynomials
 of the **symmetrized** measure (nodes ±k^{−1/2}, masses halved); z = WLXZ's rescaled variable, t = n/z² the rescaled index
@@ -248,13 +248,14 @@ n|D_H²/H_n² − 1| ≈ |z|/3 (n = 10², 10⁴; consistent with the bound C|z|/
 
 ### 3.4 The comparison problem
 
-- P̃ := N_σ outside the discs; P̃₀ in U(0, δ); in U(±2, ε), P_± := 𝔇_∞^{σ₃}A_±P^{(3/2)}ϱ₁^{−σ₃/2} with ϱ₁ := |x|^{2a}q_n (continued;
+- P̃ := N_σ outside the discs; P̃₀ in U(0, δ); in U(±2, ε), P_± := (𝔇_∞/D_{h_W,∞})^{σ₃}A_±P^{(3/2)}ϱ₁^{−σ₃/2} with ϱ₁ := |x|^{2a}q_n (continued;
   analytic in U(±2, 2ε)), g := ϱ₁^{1/2}/(D_aD_q), A_± := Ng^{σ₃}N^{−1}, and P^{(3/2)} RH₁'s Airy parametrix (WLXZ §6.1 with weight
   wH_n). This is RH₁(r) §4 with q replaced by ϱ₁ and D by D_aD_q: g₊g₋ = 1 on the band, g is bounded with bounded inverse on
   U(±2, ε) (Lemma G(v) for D_a; |log D_q² − log q_n| ≤ Cε₁ near ±2 by the representation with log q_n analytic there), so A_±
-  is analytic and bounded uniformly. P_± has V's jumps in U(±2, ε) exactly, and P_±N_σ^{−1} = 𝔇_∞^{σ₃}A_±(I + O(1/n))·
-  (Nϱ₁^{−σ₃/2}(D_aD_qD_H)^{σ₃}N^{−1})·𝔇_∞^{−σ₃} = 𝔇_∞^{σ₃}A_±(I + O(1/n))A_±^{−1}(ND_H^{σ₃}N^{−1})𝔇_∞^{−σ₃} = I + O(1/n) in the
-  𝔇_∞-frame (D_H = 1 + O(1/n); RH₁ step 4 gives P^{(3/2)}N^{−1} = I + O(1/n)).
+  is analytic and bounded uniformly. P_± has V's jumps in U(±2, ε) exactly, and, since N_σ = (𝔇_∞/D_{h_W,∞})^{σ₃}N(D_aD_HD_q)^{−σ₃} (WLXZ's N = D_{h_W,∞}^{σ₃}N₀D_{h_W}^{−σ₃}, D_{h_W,∞} = e^{L/2};
+  Rule R F4: the prefactor plays the role of RH₁(r)'s D_{Q,∞}^{σ₃}), P_±N_σ^{−1} = C^{σ₃}A_±(I + O(1/n))·(Nϱ₁^{−σ₃/2}(D_aD_qD_H)^{σ₃}N^{−1})·C^{−σ₃}
+  = C^{σ₃}A_±(I + O(1/n))A_±^{−1}(ND_H^{σ₃}N^{−1})C^{−σ₃} = I + O(1/n) in the 𝔇_∞-frame (C := 𝔇_∞/D_{h_W,∞}; in the 𝔇_∞-frame
+  the remaining conjugation is by the fixed constant D_{h_W,∞} = e^{L/2}, which is harmless) (D_H = 1 + O(1/n); RH₁ step 4 gives P^{(3/2)}N^{−1} = I + O(1/n)).
 - 𝒵̃ solves the small-norm problem with jumps P̃₀N_σ^{−1} on ∂U(0, δ), P_±N_σ^{−1} on ∂U(±2, ε) (both I + O(1/n) in the
   𝔇_∞-frame), and N_σ·(V's jumps)·N_σ^{−1} outside the discs (band: **none**, since N_σ carries m_σ exactly; lips, saturated
   pieces, Σ^△, vertical segments: I + O(e^{−cn}·poly(n)), RH₁(r) Lemma W1(r) with the q_n^{±1} factors of §2). RH₁(r) §7's
@@ -271,7 +272,8 @@ n|D_H²/H_n² − 1| ≈ |z|/3 (n = 10², 10⁴; consistent with the bound C|z|/
   (|D_a²/ω| bounded; Re φ_WLXZ = −Im f < 0 in ℂ₊, RH₁(r) §5), sup_r (r + ε₁,n)e^{−cnr} ≤ C(1/n + ε₁,n), and
   (J2) = O(e^{−cn/|z|²}poly(n, 1/|z|)) entrywise in the Q-frame (𝔇^{±2} costs |z|^{∓2a}·|z|^{−2η}).
 - Near 0: Q̃ = A₀(z)·Φ(ζ)·Θ(z) with A₀ := 𝔇_∞^{−σ₃}𝒵̃Ẽ_n analytic in U(0, δ) with A₀^{±1} bounded uniformly in n (H1₁(i),
-  𝒵̃′ = I + O(1/n)).
+  𝒵̃′ = I + O(1/n)). (Rule R F10: D_ϱ has disappeared from this local form — Θ involves only D_a/W — so a possible |z|^{±O(ε₁)}
+  behaviour of D_q at 0 never enters UR₁; it enters only the true Q, through the 3η margin of §4.2.)
 
 ---
 
@@ -386,26 +388,34 @@ exp(√log k), exp((log k)^θ) for θ < 1, exp(√log k·sin log log k)). Then n
 
 ---
 
-## 5. Christoffel transfer: from 1 < r < 2 to all non-integer r, and GAP-α of Plan 48
+## 5. Christoffel transfer: from 1 < r < 2 to all non-integer r (with rate), and the converse direction
 
-Index convention (0-based, as `jacobi_coeffs`): for a measure μ on (0, ∞) with infinite compact support, J = J(μ) has diagonal
+*(Rule R F1, after merging master.)* Master's §3.21 (Plan 52, `ROUTE2_alpha.md`, REVIEWED) contains Lemma CT (the same identity
+as CT₁(i) below, in monic coordinates g_n = −P_{n+1}(0)/P_n(0) = l_n², h_n = m_{n−1}²), Lemma CS + Theorem SH (= CT₁(ii) "⟹" with
+Lemma D(a), G_n = c·x_n), Theorem SH-r (rates) and Corollary B_all (p > 1, every s > 1, with rate). Those are cited here; the
+forward-direction proofs below are kept only as an alternative derivation. The content of this section that is **new relative
+to §3.21** is the converse CT₁(ii) "⟸" with Lemma D(b), and its use for GAP-int (§7).
+
+Index convention (0-based, as `jacobi_coeffs`): for a measure μ on [0, ∞) with infinite compact support, J = J(μ) has diagonal
 a_n and off-diagonal J_{n,n+1} = b_{n+1} > 0 (n ≥ 0). The Law P with constant c > 0 at scale n^p means n^pa_n → 2c and
 n^pb_n → c (an index shift does not matter since (n + 1)^p/n^p → 1).
 
-**Lemma CT.** (i) The finite sections J_N are positive definite; J = LLᵀ with L lower bidiagonal, diagonal l_n > 0,
+**Lemma CT₁ (Cholesky form).** Let μ be a positive measure on [0, ∞) with infinite compact support. (i) The finite sections J_N are positive definite; J = LLᵀ with L lower bidiagonal, diagonal l_n > 0,
 subdiagonal L_{n+1,n} = m_n > 0, given by l_0² = a_0, m_n = b_{n+1}/l_n, l_{n+1}² = a_{n+1} − m_n²; and **J(xμ) = LᵀL**, i.e.
 a_n(xμ) = l_n² + m_n², b_{n+1}(xμ) = l_{n+1}m_n.
-(ii) For every p > 0 and c > 0: μ satisfies the Law P (c, p) ⟺ xμ does.
+(ii) For every p > 0 and c > 0: μ satisfies the Law P (c, p) ⟺ xμ does. J(xμ) does not determine μ (μ + mδ₀ has the same xμ),
+and the positive bidiagonal factorization J(xμ) = LᵀL is not unique (free parameter u_0 = l_0²); "⟸" covers every positive
+factorization, in particular the Cholesky factor of J(μ).
 
 *Proof.* (i) The eigenvalues of J_N are the zeros of the N-th orthogonal polynomial, which lie in the open convex hull of
-supp μ ⊂ (0, ∞); so J_N > 0 and its Cholesky factor is the leading N × N block of L (the recursion is causal). Let
+supp μ ⊂ [0, ∞), i.e. in (0, max supp μ); so J_N > 0 and its Cholesky factor is the leading N × N block of L (the recursion is causal). Let
 P = (p_0, p_1, …)ᵀ be the orthonormal polynomials of μ (positive leading coefficients), xP = JP = LLᵀP. Put q := L^{−1}P (L is
 lower triangular with nonzero diagonal, so L^{−1} acts row-finitely and q_n = (p_n − m_{n−1}q_{n−1})/l_n is a polynomial of degree
 n with leading coefficient lc(p_n)/l_n > 0). Then xq = L^{−1}xP = LᵀP, i.e. xq_n = l_np_n + m_np_{n+1}. For m ≥ n,
 ∫q_nq_m x dμ = ∫q_n(l_mp_m + m_mp_{m+1})dμ, which is 0 for m > n (deg q_n = n) and l_n·lc(q_n)/lc(p_n) = 1 for m = n. By symmetry
 (q_n) is orthonormal for xμ, and xq = LᵀP = LᵀLq is its three-term recurrence; Jacobi matrices are determined by the
 orthonormal polynomials, so J(xμ) = LᵀL.
-(ii) "⟹". Put x_n := n^pl_n²/c (n ≥ 1). From l_{n+1}² = a_{n+1} − b_{n+1}²/l_n²:
+(ii) "⟹" (= master's Lemma CS + Theorem SH, §3.21, with x_n = G_n/c; an alternative proof). Put x_n := n^pl_n²/c (n ≥ 1). From l_{n+1}² = a_{n+1} − b_{n+1}²/l_n²:
   x_{n+1} = A_{n+1} − B_n/x_n,  A_{n+1} := (n + 1)^pa_{n+1}/c → 2,  B_n := (n + 1)^pn^pb_{n+1}²/c² → 1,
 and x_n > 0. Lemma D(a) gives x_n → 1. Then, since m_n² = b_{n+1}²/l_n² = (c/n^p)(n/(n + 1))^pB_n/x_n,
 n^pa_n(xμ)/c = x_n + (n/(n + 1))^pB_n/x_n → 2 and n^{2p}b_{n+1}(xμ)²/c² = n^{2p}l_{n+1}²m_n²/c² = (n/(n + 1))^{2p}x_{n+1}B_n/x_n → 1.
@@ -426,31 +436,37 @@ eventually x < ⅓: contradiction. Hence x_n > 1 − δ for all n ≥ M. *No exc
 x_{n+1} ≤ g(x_n) + 3ε. If x_n ≥ 1 + δ, then (x_n − 1)²/x_n ≥ δ²/(1 + δ) ≥ δ²/2 (increasing for x ≥ 1), so x_{n+1} ≤ x_n − δ²/4: x falls
 below 1 + δ in finitely many steps. If x_n < 1 + δ, then x_{n+1} ≤ g(1 + δ) + 3ε = 1 + δ/(1 + δ) + 3ε < 1 + δ, because
 δ − δ/(1 + δ) = δ²/(1 + δ) > 3ε. So 1 − δ < x_n < 1 + δ for all large n.
-(b) Same δ, ε, M; h(z) := 1/(2 − z), h(z) − z = (1 − z)²/(2 − z) ≥ 0. For n ≥ M: z_{n+1} < A_{n+1} ≤ 2 + ε and
-z_{n+1} ≥ (1 − ε)/(2 + ε − z_n) force 2 + ε − z_n > (1 − ε)/(2 + ε) > ⅓, so z_n < 1.7 and 2 − z_n > 0.3; then
-|z_{n+1} − h(z_n)| ≤ 17ε. *No excess.* If z_m ≥ 1 + δ (m ≥ M): z_{m+1} ≥ z_m + (z_m − 1)²/(2 − z_m) − 17ε ≥ z_m + δ² − 17ε ≥
-z_m + δ²/4 (17ε ≤ δ²·17δ/16 ≤ ¾δ² for δ ≤ ⅕), so z increases by ≥ δ²/4 per step and exceeds 1.7: contradiction. So z_n < 1 + δ
+(b) Same δ, ε, M; h(z) := 1/(2 − z), h(z) − z = (1 − z)²/(2 − z) ≥ 0. For n ≥ M: z_{n+1} = B_n/(A_n − z_n) < A_{n+1} gives
+A_n − z_n > B_n/A_{n+1} ≥ (1 − ε)/(2 + ε) ≥ 0.49, hence z_n < 1.52 and 2 − z_n ≥ 0.48 (Rule R F3); then
+|z_{n+1} − h(z_n)| ≤ |B_n − 1|/(A_n − z_n) + |A_n − 2|/((A_n − z_n)(2 − z_n)) ≤ 2.1ε + 4.3ε ≤ 13ε ≤ 17ε. *No excess.* If z_m ≥ 1 + δ (m ≥ M): z_{m+1} ≥ z_m + (z_m − 1)²/(2 − z_m) − 17ε ≥ z_m + δ² − 17ε ≥
+z_m + δ²/4 (17ε ≤ δ²·17δ/16 ≤ ¾δ² for δ ≤ ⅕), so z increases by ≥ δ²/4 per step and exceeds 1.52: contradiction. So z_n < 1 + δ
 for n ≥ M. *No dip.* If z_n ≤ 1 − δ: (1 − z_n)²/(2 − z_n) ≥ δ²/2, so z_{n+1} ≥ z_n + δ²/2 − 17ε ≥ z_n + δ²/4 (δ ≤ 4/17), and z exceeds
 1 − δ in finitely many steps; if z_n > 1 − δ: z_{n+1} ≥ h(1 − δ) − 17ε = 1 − δ + δ²/(1 + δ) − 17ε > 1 − δ. So 1 − δ < z_n < 1 + δ for all large n. ∎
 
-*Remarks.* Lemma CT needs nothing about the weights (no slow variation, no regularity): Law P is invariant under w_k ↦ x_kw_k.
-It transfers the law only, **not the rate** (x_n − 1 is not controlled at O(1/n) by the argument; NUMERICAL: x_n − 1 ≈ −1.05/n
-for the tested measures, `checks/check_r2p1_ct.out` [2]). The parabolic fixed point is attracting on one side and repelling
-on the other; positivity of the Cholesky factor (l_n² > 0, resp. m_n² > 0) is what excludes the repelling side. Numerically the
-reverse recursion (b) is unstable (relative error 10⁻³ by n = 800 at p = 2, [3]); only (a) is used below. (i) is the classical
-Christoffel (Darboux, "LU ↦ UL") transformation; it is proved above, and the attribution is not a citation (no source read).
+*Remarks.*
+- CT₁ needs nothing about the weights: Law P is invariant under w_k ↦ x_kw_k. Lemma D itself gives no rate; rates are transferred
+  forward by master's Theorem SH-r (regular rates; O(1/n) ⇒ O(1/n)). NUMERICAL: x_n − 1 ≈ −1.05/n (`checks/check_r2p1_ct.out` [2]).
+- The parabolic fixed point attracts on one side and repels on the other; positivity of the factor (l_n² > 0, resp. m_n² > 0)
+  excludes the repelling side. If (A, B) admits no positive orbit the hypothesis is vacuous; such (A, B) never come from a measure.
+  Numerically the reverse recursion (b) is unstable (relative error 10⁻³ by n = 800 at p = 2, [3]), which does not affect the proof.
+- **Mass at 0 (Rule R F5).** By "⟸" (and "⟹"), Law P is unchanged by adding a mass mδ₀ (m ≥ 0) to a measure μ on [0, ∞) with
+  infinite compact support: x(μ + mδ₀) = xμ. (Reviewer probe: law intact at n = 800 for m = 1, 100.)
+- Novelty (Rule R F9): in master's chain-sequence form, "⟸" says that every parameter sequence of a chain sequence tending to ¼
+  tends to ½ (not only the minimal one). Very likely KNOWN (Wall 1948; Chihara 1978, Ch. III) — not read, pointer only;
+  novelty UNCHECKED. (i) is the classical Christoffel/Darboux ("LU ↦ UL") step; proved, not cited.
 
-**Corollary B_{p=1}⁺.** Let r > 1, **r ∉ ℤ**, and Ψ sequence-form slowly varying. Then nb_n(k^{−r}Ψ) → ½ and na_n(k^{−r}Ψ) → 1
-(x_k = 1/k). *Proof.* r₀ := r − ⌊r⌋ + 1 ∈ (1, 2); Corollary B_{p=1} gives the law for k^{−r₀}Ψ; ⌊r⌋ − 1 applications of Lemma
-CT(ii) "⟹" (x_k·k^{−r'}Ψ(k) = k^{−r'−1}Ψ(k)) give it for k^{−r}Ψ. ∎ No rate is claimed for r > 2.
+**Corollary B_{p=1}⁺ (Rule R F2).** Let r > 1, **r ∉ ℤ**, and Ψ sequence-form slowly varying (x_k = 1/k). Then
+nb_n(k^{−r}Ψ) → ½ and na_n(k^{−r}Ψ) → 1, with rate **O(1/n)** if Ψ satisfies (H_an₁), and in general with rate O(r_n), r_n the
+regular majorant (§3.21 / ROUTE2_alpha §4) of 1/n + ρ(⌈n/M₀⌉) (ρ is a tail supremum, hence non-increasing, and the sum is ≥ 1/n).
+*Proof.* r₀ := r − ⌊r⌋ + 1 ∈ (1, 2); Theorem RII₁ resp. Corollary B_{p=1} gives the law for k^{−r₀}Ψ with that rate; ⌊r⌋ − 1
+applications of master's Theorem SH-r (x_k·k^{−r′}Ψ(k) = k^{−r′−1}Ψ(k); each x^jσ is a positive measure on [0, 1] with infinite
+support) give it for k^{−r}Ψ with rate O(r_n). ∎
 
-**Corollary B_{p>1}⁺ (closes Plan 48's GAP-α for the law).** Let p > 1, **every s > 1**, Ψ sequence-form slowly varying. Then
-n^pb_n(k^{−s}Ψ) → c(p), n^pa_n(k^{−s}Ψ) → 2c(p) (x_k = k^{−p}). *Proof.* For 1 < s < 1 + 2p this is Corollary B_{p>1} (ROUTE2 §4.5,
-REVIEWED). For s ≥ 1 + 2p let j := ⌊(s − 1)/p⌋ − 1 ≥ 1 and s₀ := s − jp ∈ [1 + p, 1 + 2p); Corollary B_{p>1} at s₀ and j applications
-of Lemma CT(ii) (x_kk^{−s'}Ψ(k) = k^{−s'−p}Ψ(k)). ∎ The O(1/n) rate of Theorem RII is not transferred (GAP-rate).
+**p > 1.** The statement "p > 1, every s > 1, Ψ sequence-form slowly varying" (called B_{p>1}⁺ in the first version of this
+file) is master's **Corollary B_all** (Plan 52, §3.21, REVIEWED, with rate); it is not claimed as a result of Plan 50. The
+closing of Plan 48's GAP-α for the law is Plan 52's.
 
-(The same transfer would extend any future Route II result for 0 < p < 1 proved on an s-interval of length > p to all s > 1.
-For p = 1 the proved interval (1, 2) has length exactly p = 1 and is open, so the integers r ≥ 2 are missed: GAP-int.)
+(For p = 1 the base interval (1, 2) has length exactly p = 1 and is open, so integer shifts miss r ∈ {2, 3, …}: GAP-int, §7.)
 
 ---
 
@@ -460,7 +476,7 @@ For p = 1 the proved interval (1, 2) has length exactly p = 1 and is open, so th
 Euler–Maclaurin Gauss–Legendre tail to t_end; long double RKPW; five truncations: K = 1, 2, 4·10⁵ with t_end = 10¹⁶, and
 K = 2·10⁵ with t_end = 10¹⁴ or with a finer tail quadrature — the last two are independent of K-doubling, cf. REVIEW_RH1r F10):
 - **s = 1.5 (a = 0; inside RII₁).** n(nb_n/c − 1) = −0.137, −0.142, −0.147, −0.152, −0.157 (n = 50 … 800), bounded, with
-  spread over the five truncations ≤ 6.3·10⁻⁷ (≤ 1.9·10⁻⁶ for the a-column); the pure power gives −0.249 … −0.250 = −(s − 1)/2. n(a_n/(2b_n) − 1) = 0.498 …
+  spread over the five truncations ≤ 6.3·10⁻⁷ (≤ 1.9·10⁻⁶ for the a-column, ≤ 2·10⁻⁵ for the R column; Rule R F7); the pure power gives −0.249 … −0.250 = −(s − 1)/2. n(a_n/(2b_n) − 1) = 0.498 …
   0.500 (pure-power baseline p/2 = ½). Tilt ratio T = n(b_n(w)/b_n(k^{−s}) − 1)/ϑ_n = 0.471, 0.477, 0.480, 0.482, 0.484 (→ ½,
   slowly); drifting-order residual R = n(b_n(w)/b_n(k^{−(s−ϑ_n)}) − 1)/ϑ_n = −0.018 … −0.016: the drifting-exponent model accounts
   for ≈ 97% of the 1/n effect of Ψ.
@@ -470,8 +486,9 @@ K = 2·10⁵ with t_end = 10¹⁴ or with a finer tail quadrature — the last t
   the (unproved) tilt law n b_n/c = 1 − (s − 1 − ϑ_n)/(2n) + o(ϑ_n/n), as at p = 2 (ROUTE2 §5). Within Route II this is the
   statement that D₁'s main term equals ϑ_n/(2n)·(…) + o(ϑ_n/n); not attempted (GAP-rate₁).
 - `checks/check_r2p1_ct.out`: [1] J(xμ) = LᵀL to 3·10⁻¹⁶ (p = 1, s = 1.5 → 2.5) and 7·10⁻¹⁶ (p = 2, s = 4 → 6); [2] x_n = n^pl_n²/c =
-  0.979, 0.989, 0.995, 0.997, 0.999 (n = 50 … 800, both cases); [4] p = 2, s = 6 (α_x = 3/2, outside RII, inside B_{p>1}⁺):
-  n(n²b_n/c − 1) = −2.31 … −2.40, bounded.
+  0.979, 0.989, 0.995, 0.997, 0.999 (n = 50 … 800, both cases); [4] p = 2, s = 6 (α_x = 3/2, outside RII, inside master's B_all):
+  n(n²b_n/c − 1) = −2.31 … −2.40, bounded. (Rule R F8: [4] uses the same weights as the shifted measure of [1]/[2] and coincides
+  with [2]'s Cholesky image to every printed digit; it checks boundedness, it is not independent evidence.)
 - `checks/check_r2p1_lw1.out`: §3.2–3.3 above.
 
 ---
@@ -493,11 +510,19 @@ a − ½ ranges over (−1, 0) only, half of ROUTE2's (−1, 1), because L²(|dy
 L²(|x|^{−1/2}|dx|) in x = y², not L²(|dx|). A weighted-L² version of C–D's comparison (power weight |z|^β, β ∈ (−1, 1)), or an
 unsymmetrized p = 1 hard-edge analysis, might reach a < 1; neither is attempted (HEURISTIC).
 
-**GAP-int.** p = 1, r ∈ {2, 3, 4, …}, Ψ with D(γ) = ∞: Lemma CT shifts r by integers only, and the base interval (1, 2) is open.
-(For D(γ) < ∞, T3-log already covers every r > 1.) Numerically the law holds at r = 2 (§6).
+**GAP-int.** p = 1, r ∈ {2, 3, 4, …}, Ψ with D(γ) = ∞. (For D(γ) < ∞, T3-log already covers every r > 1.) Numerically the law
+holds at r = 2 (§6).
+- **Reduction (Rule R F6).** By CT₁(ii) "⟸" and "⟹" (or master's SH), for a fixed Ψ the law at one integer r₀ ≥ 2 is equivalent
+  to the law at every integer r ≥ 2. So GAP-int is equivalent to **the law for k^{−2}Ψ** (a = ½, α_x = 0). This is the main use
+  of the "⟸" direction.
+- **Alternatives checked, all fail with the present tools:** the forward shift (CT₁/SH, step 1) preserves r mod 1 and starts
+  from the open interval (1, 2); a base at a = ½ is obstructed (OBSTRUCTION-a: logarithmic divergence in UR₁(a), Lemma W, D₁);
+  a Geronimus step (÷x) moves r down; a base at r = 1 exists as a finite measure only when ΣΨ(k)/k < ∞ and is a = −½, equally
+  obstructed; Christoffel factors x + c do not change r; an unsymmetrized p = 1 hard-edge analysis at α_x = 0 (which ROUTE2
+  handles for p > 1 with Lemma W′) is not available in this repo (HEURISTIC).
 
-**GAP-rate₁.** The O(1/n) rate for 2 < r ∉ ℤ (p = 1) and for s ≥ 1 + 2p (p > 1), which Lemma CT does not transfer; and the 1/n
-coefficient (tilt law; CONJECTURE, NUMERICAL).
+**GAP-rate₁.** Only the 1/n coefficient (tilt law; CONJECTURE, NUMERICAL). The O(1/n) rate for non-integer r > 2 follows from
+master's Theorem SH-r (Corollary B_{p=1}⁺; Rule R F2), and for s ≥ 1 + 2p (p > 1) it is master's Corollary B_all.
 
 **Rule A (adversarial pass; logged in ../../LOG.md).**
 - (a) Ψ₁ ≡ const: ε₁ = 0; LW1₁ reduces to the h_W and H_n parts (O(|z|)); RII₁ is then a second proof of RH₁(r) for 1 < r < 2
@@ -509,8 +534,9 @@ coefficient (tilt law; CONJECTURE, NUMERICAL).
   The only non-even candidate would be a weight asymmetric under x ↦ −x; the symmetrized measure is even by construction.
 - (e) Strip: the example exp √log(t + e) is singular on Im u = ±π; every evaluation of q_n is at |Im u| ≤ π − 2θ_W
   (WLXZ regions) or ≤ π/2 + π/12 (lips, LW1₁ paths). D_ϱ is built from band values only.
-- (f) Lemma CT: (i) checked to machine precision ([1]); finite-support μ (J finite) — the statement is about infinite J,
-  excluded; μ with an atom at 0 — excluded (supp ⊂ (0, ∞) is needed for J_N > 0; xμ kills such an atom); (ii) the dynamics
+- (f) Lemma CT₁: (i) checked to machine precision ([1]); finite-support μ (J finite) — the statement is about infinite J,
+  excluded; μ with an atom at 0 — allowed (Rule R F5: the zeros of p_N lie in (0, max supp μ), so J_N > 0 on [0, ∞)); then
+  x(μ + mδ₀) = xμ and the law is insensitive to mδ₀ (reviewer probe, m = 1, 100); (ii) the dynamics
   without positivity can converge to the repelling side (e.g. x_n ↦ 2 − 1/x_n from x₀ < 1 reaches negative values): positivity
   is used and is available. A Law P measure whose Christoffel transform fails the law would contradict (ii); none found.
 - (g) Does UR₁ need ε₁? No: UR₁ is for the comparison problem; ε₁ enters only through ‖v − ṽ‖_∞ (C₁) and D₁.

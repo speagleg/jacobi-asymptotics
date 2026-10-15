@@ -226,7 +226,11 @@
   FV b-bound are uniform. No counterexample found. Self-review only — does not count for Rule R.
 - **Not claimed:** whether the b-law (or a_n/(2b_n) → 1) also fails for the same w. For p > 1 the tail-Cesàro a-law A4′
   still holds for w (Theorem CL), so pointwise and tail-Cesàro a-laws separate.
-- **Rule R:** pending. Novelty UNCHECKED.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan52.md; no mathematical error). Fixes applied: F1 chain-sequence form of
+  Lemma CS (a_n = β_n/(α_{n−1}α_n) = (1 − m_{n−1})m_n, minimal parameter sequence, CS ⟺ m_n → ½); CS labelled "PROVED; very likely
+  KNOWN (chain sequences: Wall; Chihara 1978 Ch. I, III — not read, pointer only)"; F2 base-window remark (α_x ∈ (−½, ½] suffices
+  for s > 1 + p/2); F3 numerics scope; F4 sharpness example for |G_n − c| = O(√r_n) in Rule A (e); F5 tilt transfer CONDITIONAL
+  (implication PROVED); F6 "with infinite support" + SH propagates future p ≤ 1 / other-node base cases; F7 CITATIONS. Rule R ACCEPT WITH FIXES (review/REVIEW_Plan52.md), fixes applied — REVIEWED. Novelty UNCHECKED.
 - **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan41.md; no mathematical error, crux "joint law of (q_N, q_{N+1})
   not needed" confirmed). F1 (cross-reference to §3.11 Lemma LRa: same Toda form, constant 1 in R2a, ε₀ = I/8 possible;
   R2a and ε₀ = I/16 kept), F2 (Lemma LP′ weak form stated and cited), F3 (H 1-Lipschitz), F4 (wording; joint-law remark),
@@ -442,7 +446,7 @@
   p ≤ 1, s ≥ 1 + 2p and QL itself), F9 (NO: attribution only; any a ≥ 0; no monotonicity), F10 (BF(iii) not to be split;
   m = 0 conventions) applied — REVIEWED.
 
-## 2026-10-14 — Plan 50 (Route II for p = 1, WP5a; Christoffel transfer)
+## 2026-10-14 — Plan 50 (Route II for p = 1, WP5a; Christoffel transfer) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan50.md), fixes applied — REVIEWED
 - Write-up: `RH/route2/ROUTE2_p1.md`; summary PROOF.md §3.19 and §0 row "RII₁ / B_{p=1} / CT". Plan:
   docs/superpowers/plans/2026-10-14-plan-50-r2p1.md.
 - **Range check.** RH₁(r) covers every r > 1 (pure powers). Its hard point is the band centre of the symmetrized problem, with
@@ -459,11 +463,12 @@
   C₁; D₁ (Q₁ − Q̃₁ = O(ε′_n/n)).
 - **Theorem RII₁** (PROVED-mod-cite): p = 1, 1 < r < 2, (H_an₁) ⇒ nβ_n = 1 + O(1/n), nb_n = ½(1 + O(1/n)), a_n/(2b_n) = 1 + O(1/n).
   **Corollary B_{p=1}** (PROVED-mod-cite): the law for every sequence-form slowly varying Ψ (incl. D(γ) = ∞), 1 < r < 2.
-- **Lemma CT** (PROVED, self-contained): J(xμ) = LᵀL for the Cholesky factor of J(μ) (classical Christoffel/Darboux step; proved,
+- **Lemma CT₁** (renamed after review) (PROVED, self-contained): J(xμ) = LᵀL for the Cholesky factor of J(μ) (classical Christoffel/Darboux step; proved,
   attribution only), and Law P for μ ⟺ Law P for xμ, any weights, any p > 0 (**Lemma D**: parabolic map x ↦ 2 − 1/x, positivity
-  excludes the repelling side). **Corollary B_{p=1}⁺**: every non-integer r > 1 at p = 1. **Corollary B_{p>1}⁺**: every s > 1 at
-  p > 1 — closes Plan 48's GAP-α for the law (no rate).
-- **GAP:** p = 1, r ∈ {2, 3, …} (GAP-int); O(1/n) for r > 2 and for s ≥ 1 + 2p; tilt law (CONJECTURE). **OBSTRUCTION** (scoped to
+  excludes the repelling side). (After merging master: (i) and "⟹" are Plan 52's Lemma CT / CS + SH,
+  §3.21; renamed Lemma CT₁; the new content is "⟸".) **Corollary B_{p=1}⁺**: every non-integer r > 1 at p = 1, with rate O(1/n)
+  under (H_an₁) via §3.21's SH-r. (The first version's "B_{p>1}⁺" is Plan 52's Corollary B_all and is withdrawn here.)
+- **GAP:** p = 1, r ∈ {2, 3, …} (GAP-int; ⟺ the law at r = 2 by CT₁ "⟺"); tilt law (CONJECTURE). **OBSTRUCTION** (scoped to
   the band-centre C–D frame): |a| ≥ ½ (Q̃ ∉ L²_loc, Lemma W fails; the symmetrization halves ROUTE2's α-range).
 - **Rule A attempts** (ROUTE2_p1 §7): Ψ₁ const (second proof of RH₁(r) on 1 < r < 2); Ψ = k^ρ (ε₁ ↛ 0, method inapplicable,
   correctly); a → ±½ (constants blow up); necessity of the even pairing; strip edge never used; Lemma CT on degenerate μ (finite
@@ -473,6 +478,50 @@
   is proved in full and not cited. Whether CT(ii) (transfer of Law P) is in the literature: UNCHECKED.
 - **Numerics** (`RH/route2/checks/check_r2p1_{lw1,coeff,ct}`): LW1₁ mismatch/ε₁-sample 2.04 → 2.76 (n = 10² → 10¹²), no decay to
   |z| = 10⁻¹⁴; Ψ̂ entire with det 1 (a ∈ {−0.4, 0, 0.3, 0.45}); s = 1.5: n(nb_n/c − 1) = −0.137 … −0.157 (n = 50 … 800, five
-  truncations incl. tail cut-off 10¹⁴, spread ≤ 2·10⁻⁶); s = 2 (GAP-int): −0.382 … −0.407; tilt ratio → ½ slowly; drifting
+  truncations incl. tail cut-off 10¹⁴, spread ≤ 2·10⁻⁶ for nB, E, T, ≤ 2·10⁻⁵ for R); s = 2 (GAP-int): −0.382 … −0.407; tilt ratio → ½ slowly; drifting
   model residual ≈ −0.02; CT identity to 3·10⁻¹⁶; x_n = n^pl_n²/c → 1 like 1 − 1.05/n; p = 2, s = 6 law bounded.
-- **Rule R:** pending.
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan50.md; no counterexample; numerics re-run byte-identical). Fixes applied
+  after `git merge master` (Plan 52):
+  - F1: Lemma CT renamed CT₁ (Cholesky form); (i) and "⟹" cited from §3.21 (CT, CS, SH); "⟸" with Lemma D(b) kept as the new
+    content; B_{p>1}⁺ replaced by a cross-reference to B_all; "closes GAP-α" claims removed. F2: B_{p=1}⁺ with rate via SH-r;
+    GAP-rate₁ reduced to the tilt law. F3: Lemma D(b) constants (A_n − z_n ≥ 0.49, 2 − z_n ≥ 0.48, error ≤ 13ε). F4: Airy-disc
+    prefactor (𝔇_∞/D_{h_W,∞})^{σ₃}. F5: CT₁ on [0, ∞); mass at 0 does not affect the law; Rule A (f) corrected. F6: GAP-int ⟺ law
+    at r = 2, and the failed alternatives listed. F7: spread wording (R column 2·10⁻⁵). F8: check_r2p1_ct [4] not independent.
+    F9: chain-sequence pointer (novelty UNCHECKED). F10: remark that D_ϱ drops out of Q̃'s local form.
+  - Rule R ACCEPT WITH FIXES (review/REVIEW_Plan50.md), fixes applied — REVIEWED.
+
+## 2026-10-14 — Plan 52 (Route II for s ≥ 1 + 2p: GAP-α closed for the law by Christoffel transfer) — Rule R ACCEPT WITH FIXES (review/REVIEW_Plan52.md), fixes applied — REVIEWED
+- Write-up: `RH/route2/ROUTE2_alpha.md`; summary PROOF.md §3.21 and §0 row "SH / B_all". Plan:
+  docs/superpowers/plans/2026-10-14-plan-52-r2alpha.md.
+- **Route chosen: (b) Christoffel transfer.** x·σ_s = σ_{s+p} exactly. Lemma CP (zeros of P_n in (0, ∞), self-contained),
+  Lemma CT (Christoffel / Darboux formulas α_n = g_n + h_n, β_n = g_{n−1}h_n, α̃_n = g_n + h_{n+1}, β̃_n = g_nh_n,
+  g_n = −P_{n+1}(0)/P_n(0); re-proved, not cited), Lemma CS (Law P ⇒ n^pg_n → c: parabolic fixed point of
+  F(G) = 2c − c²/G plus positivity), Theorem SH (Law P passes to x·σ, any σ ≥ 0 on [0, ∞)), Lemma CS-r / Theorem SH-r
+  (regular rate r_n preserved; |G_n − c| = O(√r_n) but increments O(r_n)). **Finding:** contrary to the plan's expectation, no
+  p_n(0) asymptotics from the hard-edge RH analysis are needed — the law at σ and positivity determine n^pg_n → c.
+- **Corollary B_all** (PROVED-mod-cite, inherits RII): p > 1, every s > 1, every sequence-form slowly varying Ψ: full
+  pointwise Law P; O(1/n) under (H_an). Base s₀ ∈ (1, 1 + 2p) (proof as written: s₀ ∈ [1 + p, 1 + 2p) for s ≥ 1 + p). Rule R F2:
+  any base window of length p works; for s > 1 + p/2 take s₀ ∈ (1 + p/2, 1 + 3p/2] (α_x ∈ (−½, ½]), so UR′(b′) (Plan 48 F1) is
+  needed only for 1 < s ≤ 1 + p/2; Lemma W′ (α_x = 0) is genuinely needed.
+- **Route (a)** (frame change with a pole): not pursued; superseded for the law; recorded as HEURISTIC (Schlesinger ↔
+  Christoffel) and a scoped OBSTRUCTION (needs pointwise Y_σ(0) control, not given by the L²-comparison).
+- **Remark SH-1/n:** exact identity n^p√β̃_n = n^p√β_n·κ_n^{1/2}(G_n/G_{n−1})^{1/2}; 1/n coefficient shifts by −p/2 iff
+  n(G_n − G_{n−1}) → 0 (hypothesis NUMERICAL); tilt-law transfer CONDITIONAL (implication PROVED; Rule R F5).
+- **Numerics** (`RH/route2/checks/check_r2alpha_{christoffel,law}.out`): transfer exact to 2·10⁻⁵⁹ (60-digit RKPW, K = 1200,
+  n ≤ 300, incl. p = ½) and to 8·10⁻¹⁶ (binary128 RKPW, K = 4·10⁴, n ≤ 600; double-input floor). A first attempt with the
+  discretized Stieltjes procedure in mpmath gave O(1) discrepancies even at 250 digits for p = 2 — an instability of that
+  coefficient algorithm for clustered atoms, not of Lemma CT; replaced by RKPW. Law at p = 2, s = 5, 6, Ψ = 1 and
+  exp √log(k + e): n(n^pb_n/c − 1) bounded (−1.99, −2.49 for Ψ = 1 at n = 400 → −(s − 1)/2), n(a_n/(2b_n) − 1) → 1;
+  1/n shift per step → −0.995 (−p/2 = −1; K-stable to 2·10⁻³); n·½log(g_n/h_n) ≈ s − 5/2 (p = 2; K-converged at n = 100, and
+  at n = 200 for s ≥ 4 only). K-doubling: s = 5, 6 rows stable to ≤ 10⁻³ for n ≤ 400 (bases s = 3, 4: 2–3·10⁻³ at n = 400);
+  n = 800 not converged, not used (Rule R F3).
+- **Rule A** (ROUTE2_alpha §8): truncated measures, mass at 0, c > 0, fixed-point uniqueness, rate loss, converse,
+  exactness of the shift with the same Ψ, p = ½. No counterexample.
+- **Rule L:** not done (Christoffel's theorem / Darboux transformations are classical — e.g. Szegő's book, Bueno–Marcellán,
+  Grünbaum–Haine — none read here; Lemma CT is re-proved in full and not cited). Novelty UNCHECKED.
+- **Open:** p ≤ 1 with D(γ) = ∞ (no base case); tilt law (GAP-rate); RH analysis of the weight for α_x ≥ 1 (not needed).
+- **Rule R:** ACCEPT WITH FIXES (review/REVIEW_Plan52.md; no mathematical error). Fixes applied: F1 chain-sequence form of
+  Lemma CS (a_n = β_n/(α_{n−1}α_n) = (1 − m_{n−1})m_n, minimal parameter sequence, CS ⟺ m_n → ½); CS labelled "PROVED; very likely
+  KNOWN (chain sequences: Wall; Chihara 1978 Ch. I, III — not read, pointer only)"; F2 base-window remark (α_x ∈ (−½, ½] suffices
+  for s > 1 + p/2); F3 numerics scope; F4 sharpness example for |G_n − c| = O(√r_n) in Rule A (e); F5 tilt transfer CONDITIONAL
+  (implication PROVED); F6 "with infinite support" + SH propagates future p ≤ 1 / other-node base cases; F7 CITATIONS. Rule R ACCEPT WITH FIXES (review/REVIEW_Plan52.md), fixes applied — REVIEWED.
