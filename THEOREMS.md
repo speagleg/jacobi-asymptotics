@@ -306,6 +306,22 @@ rates carried by SH-r) PROVED; CT₁ converse (law for x·σ ⇒ for σ) PROVED;
 sequences). **With Plan 54 the pointwise Law P holds for every p > 0, every s > 1 and every sequence-form slowly varying Ψ.**
 Open: the 1/n coefficient (tilt law, CONJECTURE) and the true ζ-zero measure (barrier).
 
+### 2.9 Novelty relabels from the second Rule L pass (2026-10-14; research/program/RESEARCH_PROGRAM.md §6)
+
+Proof labels are unchanged; only novelty status changes.
+- **Lemma CS** (§3.21): KNOWN — Dai–Piao–Qiao arXiv:2508.07653 Prop. 2.1 (chain sequences; earlier classical origin
+  unconfirmed). **Theorem SH and CT₁'s converse without rates**: a short corollary of that proposition + the classical
+  Christoffel formulas; present as such. **SH-r / CS-r (rate transfer)**: NOT FOUND.
+- **Lemma GS** (§3.16): KNOWN (Teschl, Jacobi Operators (1.99)–(1.100), (2.122)).
+- **Lemma RedA** (§3.17): very likely KNOWN in substance (smooth variation theorem, BGT; Vuilleumier 1976) — novelty not
+  claimed; full texts still to be read.
+- **Route II technique**: credit Conway–Deift Thm 4.7 explicitly as the mechanism; new: arbitrary slowly varying factor,
+  |α| < 1, discrete accumulating nodes.
+- **Lemma LR**: first-order part KNOWN (Fischer 1998); sharp ε² bounds NOT FOUND. **Lemma RL**: Simon 2004 Thm 3.2 in
+  rescaled form; RL-loc, RL-n/RL-n2 and the a-priori-bound clause NOT FOUND.
+- **Headline pointwise law (all slowly varying Ψ), Theorems R/RW/Ra, QLP, B-cond/CB**: NOT FOUND (Knopfmacher–Lubinsky–
+  Nevai 1988 still unread; its review indicates a sufficient-condition result).
+
 ## 3. Dependency summary
 
 ### 3.1 External citations → results
