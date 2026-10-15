@@ -696,6 +696,29 @@ not a DLMF hypothesis. E_pgt1 uses them with ν = α ∈ (−1, ∞) fixed (α �
 |ph w| < π/3 (w = 2ζ^{1/2}) for 10.40.1–4, and ph 2(−ζ)^{1/2} ∈ (−π/6, π/6) for 10.17.5–6, 10.17.11–12. DLMF 10.25.2 is used
 in E_pgt1 Cor E.6 for xI′_α(x)/I_α(x) → α as x → 0⁺ and I_α(x) > 0 for small x > 0 (α > −1, so Γ(α+1) > 0).
 
+## (DLMF-zeta, Plan 67) NIST DLMF (5.2.1), (25.2.1), (25.4.1) — READ (pages dlmf.nist.gov/5.2, /25.2, /25.4 fetched 2026-10-15 by curl; formulas from the TeX alttext)
+
+> §5.2(i): (5.2.1) `\Gamma\left(z\right)=\int_{0}^{\infty}e^{-t}t^{z-1}\,\mathrm{d}t,` with the condition `\Re z>0`.
+> §25.2(i) Definition: "When ℜs > 1," (25.2.1) `\zeta\left(s\right)=\sum_{n=1}^{\infty}\frac{1}{n^{s}}.`
+> §25.4 Reflection Formulas: "For s ≠ 0, 1," (25.4.1) `\zeta\left(1-s\right)=2(2\pi)^{-s}\cos\left(\tfrac{1}{2}\pi s\right)\Gamma\left(s\right)\zeta\left(s\right),`
+
+**Used in:** second_order/E_plt1.md Lemma F.1(iii) (moments of the seam jump): ∫_0^∞ −log(1 − e^{−u})u^{kp−1}du =
+Γ(kp)ζ(1 + kp) by expanding −log(1 − e^{−u}) = Σ_m e^{−mu}/m (non-negative terms, Tonelli) and 5.2.1 after u ↦ mu
+(hypothesis Re(kp) > 0: kp > 0 ✓), then 25.2.1 at s = 1 + kp (Re s > 1 ✓); and 25.4.1 at s = 1 + kp (s ≠ 0, 1 ✓) to write
+the result as ζ(−kp)/k. Also Theorem E′.1 (sign of κ_p): ζ(−p) = −2(2π)^{−1−p}sin(πp/2)Γ(1+p)ζ(1+p) < 0 for 0 < p < 1
+(25.4.1 at s = 1 + p; ζ(1+p) > 0 by 25.2.1; Γ(1+p) > 0 by 5.2.1).
+
+## (Plan 67 reuse) entries above used by second_order/E_plt1.md
+
+As "(Plan 65 reuse)" (KMVV, (KMVV-orient, Paper 2), (DLMF-10.40, Paper 2), (DLMF-10.17, Plan 55), (DLMF-9, Paper 2),
+(DLMF-9.7.2, Plan 65), (DLMF-5) 10.25.2, (DLMF) §5.11 and 5.5.1 via Paper 2 (eq. binet-bound), (eq. binet-small)), plus
+**(KMVV, angle freedom; Plan 15b)** for the Bessel rays at π − θ_L, θ_L = πp/4 (RH_plt1b §2). *Hypotheses checked (E_plt1
+Lemma E′.3):* for |arg ζ| < π − θ_L, w = 2ζ^{1/2} has |ph w| ≤ π/2 − θ_L/2, inside 10.40.1/10.40.3's |ph z| ≤ π/2 − δ with
+δ = θ_L/2 (10.40.2/10.40.4 hold in |ph z| ≤ 3π/2 − δ); for π − θ_L < ±arg ζ < π, ph 2(−ζ)^{1/2} ∈ (−θ_L/2, 0), resp.
+(0, θ_L/2), inside the sectors of 10.17.5/10.17.11 (−π + δ ≤ ph ≤ 2π − δ) and 10.17.6/10.17.12 (−2π + δ ≤ ph ≤ π − δ); ν = α > −1
+fixed. Internal: RH_plt1b, RH_plt1 (amendments), RH_px §5 (all REVIEWED); E_pgt1 Lemmas E.3–E.5 (REVIEWED); Paper 2 Lemmas
+seam, corner, szego, airy, invariance, Prop. frame.
+
 ## (WLXZ-v1, Plan 66) further quotes — read in arXiv:1410.3948v1 (PDF re-fetched from arxiv.org/pdf/1410.3948v1 on 2026-10-15, text by pdftotext -layout)
 
 Formulas linearized from the PDF. Hypothesis throughout: "α is a positive parameter" (α_W); Plan 66 uses α_W = 1.
