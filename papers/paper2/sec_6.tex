@@ -1,0 +1,701 @@
+% ===================================================================================
+% Section 6 (chunk C): the outer scalar in the three geometries; the Frame Proposition.
+% Labels defined here: sec:outer, sec:outer-pgt1, sec:outer-p1, sec:outer-plt1, sec:outer-common,
+%   lem:binetcut, lem:reflection, rem:quotient-p1, lem:seam, lem:corner, lem:szego, lem:normalisation,
+%   lem:supersmall, prop:frame, eq:*.
+% Uses: sec_5.tex (lem:interp, lem:bandweight, lem:gfunction, lem:signs, lem:weightdomain, lem:pottersector,
+%   lem:jumpsV, (O1)-(O5)), tool:T1, tool:T2, tool:T3, tool:T4, lem:invariance (Sect. 8), lem:B-block (App. B).
+% ===================================================================================
+\providecommand{\eps}{\varepsilon}
+\providecommand{\Log}{\operatorname{Log}}
+\providecommand{\re}{\operatorname{Re}}
+\providecommand{\im}{\operatorname{Im}}
+\providecommand{\thlip}{\vartheta_{\mathrm{lip}}}
+\providecommand{\thseam}{\vartheta_{\mathrm{seam}}}
+\providecommand{\thw}{\vartheta_{\mathrm{w}}}
+\providecommand{\Ob}{\Omega_{\mathrm{b}}}
+\providecommand{\Osat}{\Omega^{\triangle}}
+\providecommand{\Oinf}{\Omega_{\infty}}
+\providecommand{\Sin}{S_{\mathrm{in}}}
+\providecommand{\Sout}{S_{\mathrm{out}}}
+\providecommand{\Zn}{\mathcal{Z}_n}
+\providecommand{\tvphi}{\tilde\varphi}
+\providecommand{\Fi}[1]{\textup{(F#1)}}
+\providecommand{\Cauchy}{\mathcal{C}}
+\providecommand{\dC}{\partial\mathcal{C}}
+
+\section{The outer scalar in three geometries}\label{sec:outer}
+
+The transformations of \S\ref{sec:frame} reduce everything away from the hard edge to one scalar problem: find an
+outer scalar $F$ with the properties (O1)--(O5) of \S\ref{sec:frame-outer}. The natural candidate comes from
+Stirling's formula. The node masses carry the factor $1/\Gamma(t)$ through $\Pi=\sin\theta/\theta'$, and
+\[
+  \tilde D(z):=e^{-j(t(z))},\qquad j(t):=\operatorname{Ln}\Gamma(t)-\bigl(t-\tfrac12\bigr)\ln t+t-\tfrac12\ln(2\pi),
+\]
+removes this growth. Here $j$ is Binet's function, $\operatorname{Ln}\Gamma$ is the branch analytic on
+$\C\setminus(-\infty,0]$ and real on $(0,\infty)$, and $\ln t$ is principal; so
+$\tilde D=\sqrt{2\pi}\,t^{t-1/2}e^{-t}/\Gamma(t)$, and this sign convention is used throughout. Then
+\begin{equation}\label{eq:D}
+  D:=\kappa_\pm\tilde D=\frac{\tilde D}{1-e^{\mp2i\theta}}\quad\text{in }\C_\pm
+\end{equation}
+satisfies $D_+/D_-=(1-e^{2i\theta})/(1-e^{-2i\theta})=-e^{2i\theta}$ on $(0,\infty)$ off the nodes, and
+$K(z):=(4c-z)^{-1/2}$ (principal branch, cut $[4c,\infty)$) supplies the missing factor $-1$, so that $DK$ has the
+jump required in (O1).
+
+The difficulty is the cut of $t(z)$ on $(-\infty,0)$. How it is handled depends on how far the sector of $t$ reaches.
+For $p>1$, $|\arg t|<\pi/p<\pi$ on the slit plane: $\Gamma(t)$ has no poles there, and $DK$ has a jump on
+$(-\infty,0)$ which is removed exactly by a Cauchy integral, the Binet-cut scalar $B$ (\S\ref{sec:outer-pgt1}). At
+$p=1$ the sector is exactly $|\arg t|<\pi$, and the reflection formula shows that $D$ has no jump at all on
+$(-\infty,0)$ (\S\ref{sec:outer-p1}). For $p<1$ the sector of $t$ is wider than $(-\pi,\pi)$ and the poles of $\Gamma$
+enter; we then use $D$ only in the inner sector $|\arg z|<\pi p/2$ and glue it to an elementary function outside
+along two seams, with an exact scalar $\chi$ (\S\ref{sec:outer-plt1}). \S\ref{sec:outer-common} is common to all
+geometries: Szeg\H{o} functions, the normalisation at infinity, the super-small entries, the two parametrices away from
+$0$, and the Frame Proposition, which is the only input of \S\S\ref{sec:hardedge}--\ref{sec:extraction} from this
+section.
+
+Two facts about $j$ are used in all three geometries. By \ref{tool:T4} (DLMF 5.11.1 with the remainder bound of
+\S5.11(ii), first term $1/(12t)$), for every $\vartheta<\pi$,
+\begin{equation}\label{eq:binet-bound}
+  |j(t)|\le\frac{\sec^2(\vartheta/2)}{12|t|},\qquad |j'(t)|\le\frac{C_\vartheta}{|t|^2}\qquad(|\arg t|\le\vartheta,\ |t|\ge1),
+\end{equation}
+the second by Cauchy's estimate on a disc of radius $c_\vartheta|t|$ in a slightly larger sector. And for $|t|\le1$,
+$\re t\ge0$, $t\ne0$, DLMF 5.5.1 gives $\operatorname{Ln}\Gamma(t)=\operatorname{Ln}\Gamma(1+t)-\ln t$, hence
+\begin{equation}\label{eq:binet-small}
+  j(t)=-\tfrac12\ln t-\tfrac12\ln(2\pi)+O(|t|\log(2/|t|))\qquad(t\to0,\ \re t\ge0).
+\end{equation}
+
+\subsection{The case $p>1$: the Binet-cut scalar}\label{sec:outer-pgt1}
+
+\begin{lemma}[Binet-cut scalar]\label{lem:binetcut}
+Let $p>1$.
+\begin{enumerate}
+\item[(i)] $\tilde D$ is analytic and zero-free on $\C\setminus(-\infty,0]$, and $D$ is analytic and zero-free in
+  $\C_\pm$, with continuous boundary values on $\R\setminus(\{X_k\}\cup\{0\})$. On $(-\infty,0)$, $D_-=\overline{D_+}$.
+\item[(ii)] Let $\hat\ell(y):=2\im\bigl(-j(t_+(y))-\Log(1-e^{-2i\theta_+(y)})\bigr)$ for $y<0$, where $t_+,\theta_+$
+  are boundary values from $\C_+$. Then $D_+/D_-=e^{i\hat\ell}$ on $(-\infty,0)$; $\hat\ell$ is real-analytic,
+  $|\hat\ell(y)|\le C\min(1,|y|^{1/p})$ with $C$ independent of $n$, $|\hat\ell'(y)|\le C_n|y|^{1/p-1}$ for $-1\le y<0$,
+  $\hat\ell'$ is bounded on $(-\infty,-\frac12]$, and $\hat\ell(y)\to\pi/p-\pi$ as $y\to-\infty$, with
+  $\int_{-\infty}^{-1}|\hat\ell(y)-\pi/p+\pi|\,|y|^{-1}\diff y<\infty$.
+\item[(iii)] The function
+  \begin{equation}\label{eq:B}
+    B(z):=\exp\Bigl(-\frac1{2\pi}\int_{-\infty}^0\hat\ell(y)\Bigl[\frac1{y-z}-\frac1{y-1}\Bigr]\diff y\Bigr)
+  \end{equation}
+  is analytic and zero-free on $\C\setminus(-\infty,0]$, positive on $(0,\infty)$, has continuous boundary values on
+  $(-\infty,0)$ with $B_+=B_-e^{-i\hat\ell}$, and $DB$ extends analytically across $(-\infty,0)$. For $z\in\Zn$, with
+  $C$ independent of $n$,
+  \begin{equation}\label{eq:B-bounds}
+  \begin{gathered}
+    |\log B(z)-\log B(0)|\le C|z|^{1/p},\quad |(\log B)'(z)|\le C|z|^{1/p-1}\quad(|z|\le1),\\
+    |\log B(z)|\le C(1+\log(1+|z|)).
+  \end{gathered}
+  \end{equation}
+\item[(iv)] $F:=DBK$ satisfies (O1)--(O5), with $\tilde F=\tilde DBK$ and $H_n=(\tilde DB)^{-2}$.
+\end{enumerate}
+\end{lemma}
+% src: RH_px Lemmas 1.1, 3.1, 3.2(i)-(iv), 3.3, 3.4 ("Consequence"); review REVIEW_RHpx (F4(b), exponent 1/2-1/(2p)).
+% Lemma 3.2(v) of RH_px is not needed (OUTLINE §5, §6.1).
+
+\begin{proof}
+(i) On the slit plane $|\arg t|<\pi/p<\pi$, so $\Gamma(t)$ has neither zeros nor poles and $\tilde D$ is analytic and
+zero-free. By~\eqref{eq:imtheta}, $|e^{\mp2i\theta}|<1$ in $\C_\pm$ (here $\pi p>\pi$), so $D$ is analytic and
+zero-free in $\C_\pm$. On $(-\infty,0)$, $t_-=\overline{t_+}$ and $\Gamma$, $j$ are real on the real axis, so
+$D_-=\overline{D_+}$.
+
+(ii) Since $|e^{-2i\theta_+}|<1$ on $(-\infty,0)$, $\log D_+:=-j(t_+)-\Log(1-e^{-2i\theta_+})$ is a continuous
+logarithm, real-analytic in $y$, and $D_+/D_-=e^{2i\im\log D_+}=e^{i\hat\ell}$. With $|t_+|=n|y|^{-1/p}$ and
+$\arg t_+=-\pi/p$: for $|t_+|\ge1$, \eqref{eq:binet-bound} and
+$|\Log(1-e^{-2i\theta_+})|\le2\exp(-2\pi\sin(\pi/p)|t_+|)$ give $|\hat\ell|\le C/|t_+|=C|y|^{1/p}/n$. For $|t_+|\le1$ the
+expansion~\eqref{eq:binet-small} and $\Log(1-e^{-2\pi it})=\log(2\pi|t|)+i(\frac\pi2+\arg t)+O(t)$ (note
+$\frac\pi2+\arg t_+\in(-\frac\pi2,\frac\pi2)$) show that $\hat\ell$ is bounded and
+\[
+  \hat\ell(y)=2\bigl(\tfrac12\arg t_+-\tfrac\pi2-\arg t_+\bigr)+O(|t_+|\log(2/|t_+|))=\frac\pi p-\pi+O\bigl(n|y|^{-1/p}\log|y|\bigr).
+\]
+This gives the bounds on $\hat\ell$ and the integrability. For the derivative, $\diff t_+/\diff y=-t_+/(py)$, and
+$\frac{\diff}{\diff t}\bigl(j(t)+\Log(1-e^{-2\pi it})\bigr)$ is $O(|t|^{-2})$ for $|t|\ge1$ and $O(|t|^{-1})$ for
+$|t|\le1$; multiplied by $|t|/|y|$ this gives $|\hat\ell'(y)|\le C|y|^{1/p-1}/n$ for $|y|\le n^p$ and
+$|\hat\ell'(y)|\le C/|y|$ otherwise.
+
+(iii) The integral converges absolutely, since $\hat\ell$ is bounded and the bracket is $(z-1)/((y-z)(y-1))$. By the
+Sokhotski--Plemelj formula (the density is real-analytic on $(-\infty,0)$), $\log B$ has continuous boundary values
+and $(\log B)_+-(\log B)_-=-i\hat\ell$. So $(DB)_+=(DB)_-$ on $(-\infty,0)$, and $DB$, being continuous across, is
+analytic there by Morera's theorem. $B$ is positive on $(0,\infty)$ because the integrand is real there.
+
+For~\eqref{eq:B-bounds}, let $z\in\Zn$. Then $|y-z|^2=y^2+|z|^2+2|y||z|\cos(\arg z)\ge\frac12(|y|+|z|)^2$ for $y<0$, since $|\arg z|<\thw<\pi/2$.
+We have $\log B(z)-\log B(0)=-\frac z{2\pi}\int_{-\infty}^0\frac{\hat\ell(y)\diff y}{y(y-z)}$, so by~(ii), for $|z|\le1$,
+\[
+  |\log B(z)-\log B(0)|\le C|z|\int_0^\infty\frac{\min(1,u^{1/p})}{u(u+|z|)}\diff u\le
+  C|z|\Bigl(\int_0^1\frac{u^{1/p-1}\diff u}{u+|z|}+1\Bigr)\le C|z|^{1/p},
+\]
+because $1/p-1\in(-1,0)$. The same splitting applied to $(\log B)'(z)=-\frac1{2\pi}\int\hat\ell(y)(y-z)^{-2}\diff y$
+gives $C|z|^{1/p-1}$, and applied to the original integral gives $C(1+\log(1+|z|))$.
+
+(iv) \emph{(O1).} $F$ is analytic and zero-free off $[0,\infty)$ by~(i), (iii) and the choice of $K$. On
+$(4c,\infty)$ off the nodes, $F_+/F_-=(D_+/D_-)(K_+/K_-)=(-e^{2i\theta})(-1)$, since $B$ is analytic there.
+
+\emph{(O2).} $\tilde F=F/\kappa_\pm=\tilde DBK$ is analytic and zero-free on $\C\setminus\bigl((-\infty,0]\cup[4c,\infty)\bigr)$,
+and $\tilde F_+=-\tilde F_-$ on $(4c,\infty)$ because of $K$. Thus $H_n=1/((4c-z)\tilde F^2)=(\tilde DB)^{-2}$, which is
+positive on $(0,\infty)$, and $H_n(0^+)=B(0)^{-2}$ because $\tilde D(z)\to1$ as $z\to0$ in $\Zn$ by~\eqref{eq:binet-bound}.
+
+\emph{(O3), (O4).} $\log H_n-\log H_n(0^+)=2j(t)-2(\log B-\log B(0))$. For $z\in\Zn$, $|z|\le1$, we have $|t|\ge n$ and
+$|\arg t|\le\thw/p$, so $|j(t)|\le C|z|^{1/p}/n$ and $|\frac{\diff}{\diff z}j(t)|=|j'(t)||t|/(p|z|)\le C|z|^{1/p-1}/n$.
+Together with~\eqref{eq:B-bounds} and $\nu_p\le1/p$, this is (O3). For $|z|\ge1$ in $\Zn$ we have $|t|\ge e^{-c_0}$, so
+$j(t)$ is bounded (by~\eqref{eq:binet-bound} for $|t|\ge1$ and by continuity on the compact set
+$\{e^{-c_0}\le|t|\le1,\ |\arg t|\le\thw/p\}$), and~\eqref{eq:B-bounds} gives (O4).
+
+\emph{(O5).} Fix $n$. Near $0$ and outside the lens, $|\arg z|\ge\frac34\thlip$, so $\kappa_\pm\to1$ by~\eqref{eq:imtheta}
+and $\tilde D\to1$; $K$ is bounded; and $\log B$ is bounded on $U(0,\delta)\setminus(-\delta,0]$ uniformly up to the cut.
+For the last point split $\int\hat\ell(y)/(y-z)\diff y$ into the window $|y-\re z|\le|\re z|/2$ and the rest. On the
+window write $\hat\ell(y)=\hat\ell(\re z)+O(|y-\re z|\,|\re z|^{1/p-1})$ by~(ii); the constant part integrates to
+$\hat\ell(\re z)\Log(\cdot)$ with a bounded logarithm (the endpoints of the window are at comparable distances from $z$),
+and the rest is bounded; outside the window $|y-z|\ge c(|y|+|z|)$ and $|\hat\ell(y)|\le C|y|^{1/p}$ give a bounded
+contribution. In the lens, $\tilde F=\tilde DBK$ is bounded above and below by the same facts.
+
+Near $\infty$, the same window argument on $(-\infty,-\frac12]$, where $\hat\ell'$ is bounded, gives
+$|\log B(z)|\le C_n(1+\log|z|)$ for $|z|\ge2$ off the cut. For $|z|\ge n^p+\delta'$ we have $|t|<1$, and $t$ stays away from
+$1$, so $D$ is bounded above and below by a power of $|z|$; hence $|F|^{\pm1}\le C_n|z|^{m_n}$. Finally, along $z=iy$,
+$y\to\pm\infty$: by~\eqref{eq:binet-small}, $|D(iy)|=|t|^{-1/2}(2\pi)^{-1/2}(1+o(1))\asymp|y|^{1/(2p)}$; $|K(iy)|\asymp|y|^{-1/2}$;
+and splitting $\hat\ell=(\pi/p-\pi)\mathbf 1_{(-\infty,-1)}+e$, the first part contributes
+$-\frac{\pi/p-\pi}{2\pi}\Log\frac{z+1}{2}$ to $\log B$ (an explicit integral), while the second contributes a quantity with a
+finite limit, by dominated convergence and the integrability in~(ii). So $|B(iy)|\asymp|y|^{\frac12-\frac1{2p}}$, and
+$|F(iy)|\asymp1$.
+\end{proof}
+
+\subsection{The case $p=1$: reflection}\label{sec:outer-p1}
+At $p=1$ the cut of $D$ disappears. This makes $p=1$ a simplification of the case $p>1$, not a special case.
+
+\begin{lemma}[Reflection]\label{lem:reflection}
+Let $p=1$, so $t=n/z$. For $z\in\C_\pm$,
+\begin{equation}\label{eq:reflection}
+  D(z)=\frac{e^{-j(t)}}{1-e^{\mp2\pi it}}=e^{j(-n/z)} .
+\end{equation}
+Hence $D$ extends analytically to $\C\setminus[0,\infty)$, and it is real and positive on $(-\infty,0)$. The function
+$F:=DK$ satisfies (O1)--(O5), with $\tilde F=\tilde DK$ and $H_n=e^{2j(n/z)}$.
+\end{lemma}
+% src: ROUTE2_xframe1 §1 Lemma X1 (REVIEWED; DLMF 5.5.1, 5.5.3, 5.11.1); REVIEW_Plan54 §2, F1, F8.
+
+\begin{proof}
+Let $z\in\C_+$, so $\arg t\in(-\pi,0)$ and $t\notin\R$. By DLMF 5.5.3 (\ref{tool:T4}), $1/\Gamma(t)=\Gamma(1-t)\sin(\pi
+t)/\pi$, and $\sin(\pi t)/(1-e^{-2\pi it})=e^{i\pi t}/(2i)$. Hence
+$D=\sqrt{2\pi}\,t^{t-1/2}e^{-t}\Gamma(1-t)e^{i\pi t}/(2\pi i)$. Put $u:=-t=-n/z$; then $\arg u=\arg t+\pi\in(0,\pi)$, so
+$\ln u=\ln t+i\pi$ for the principal branches, and
+$t^{t-1/2}e^{i\pi t}=\exp((t-\frac12)(\ln u-i\pi)+i\pi t)=e^{i\pi/2}u^{-u-1/2}$. So $D=u^{-u-1/2}e^u\Gamma(1+u)/\sqrt{2\pi}$,
+and DLMF 5.5.1 ($\Gamma(1+u)=u\Gamma(u)$) together with the definition of $j$ gives $D=e^{j(u)}$. For $z\in\C_-$ the same
+computation with $\sin(\pi t)/(1-e^{2\pi it})=-e^{-i\pi t}/(2i)$ and $\ln u=\ln t-i\pi$ gives the same result. Since $j$ is
+analytic on $\C\setminus(-\infty,0]$ and $u\in(-\infty,0]$ exactly when $z\in(0,\infty)$, $e^{j(-n/z)}$ is analytic on
+$\C\setminus[0,\infty)$; on $(-\infty,0)$, $u>0$ and $j(u)$ is real.
+
+\emph{(O1).} $F=DK$ is analytic and zero-free off $[0,\infty)$, and $F_+/F_-=(-e^{2i\theta})(-1)$ on $(4c,\infty)$ off the
+nodes, as for $p>1$.
+
+\emph{(O2).} $\tilde F=F/\kappa_\pm=\tilde DK$ with $\tilde D=e^{-j(t)}$ analytic and zero-free on $\C\setminus(-\infty,0]$.
+So $H_n=\tilde D^{-2}=e^{2j(n/z)}>0$ on $(0,\infty)$, and $H_n(0^+)=1$.
+
+\emph{(O3), (O4).} On $\Zn$, $|\arg t|=|\arg z|\le\thw=7\pi/16$. For $|z|\le1$, $|t|\ge n$ and~\eqref{eq:binet-bound}
+gives $|\log H_n|=2|j(t)|\le C|z|/n$ and $|(\log H_n)'|\le C/n$; since $\nu_1=\frac12$, this is (O3). For $|z|\ge1$,
+$|t|\ge e^{-c_0}$ and $j(t)$ is bounded, which is (O4).
+
+\emph{(O5).} Fix $n$. Near $0$ outside the lens, $u=-n/z$ has $|u|\to\infty$ and $|\arg u|=\pi-|\arg z|\le\pi-\frac34\thlip$,
+so $j(u)\to0$ by~\eqref{eq:binet-bound} and $D\to1$; $K$ is bounded. In the lens $\tilde F=\tilde DK$ with $\tilde D\to1$.
+For $|z|\ge n+\delta'$ we have $|u|\le n/(n+\delta')<1$ and $|1+u|\ge\delta'/(2n)$, and
+$D=u^{-u-1/2}e^u\Gamma(1+u)/\sqrt{2\pi}$ is bounded above and below by $C_n|z|^{\pm1}$. Along $z=iy$, $D(iy)=(-iy/n)^{1/2}
+(2\pi)^{-1/2}(1+o(1))$ by~\eqref{eq:binet-small}, and $K(iy)=(-iy)^{-1/2}(1+o(1))$, so $F(iy)\to(2\pi n)^{-1/2}$.
+\end{proof}
+
+\begin{remark}[The classical hard-edge parametrix at $p=1$]\label{rem:quotient-p1}
+For pure powers and $p\ne1$, one can also build the hard-edge parametrix in the classical way, as in \ref{tool:T2}, from
+a square root $\tilde W$ of the band weight continued to a full neighbourhood of $0$; for $p>1$ its jump on
+$(-\delta,0)$ is super-exponentially close to $I$, because $|e^{\mp2i\theta}|=\exp(-2\pi n\sin(\pi/p)|x|^{-1/p})$ there. At
+$p=1$ this particular construction fails, already for $\ell_1\equiv1$. On $(-\delta,0)$, $\theta=\pi n/x$ is real, and
+the continuations of the lens scalar from the two half-planes differ by
+$\tilde F_+/\tilde F_-=(1-e^{-2i\theta})/(1-e^{2i\theta})=-e^{-2i\theta}$ (because $F$ has no jump there): a unimodular factor
+that is not close to $1$. Moreover the continuation of $H_n=e^{2j(n/z)}$ across $(-\delta,0)$ has double poles at the
+points $z=-n/m$, $m\in\N$, which accumulate at $0$. Our route never uses this construction: the comparison parametrix
+of \S\ref{sec:hardedge} uses only the Szeg\H{o} function $D_W$ of the band values, which has no jump on
+$(-\delta,0)$, and nothing is continued across $(-\delta,0)$. The obstruction concerns this classical construction
+as written, not every quotient construction.
+\end{remark}
+% src: ROUTE2_xframe1 §1 Lemma X2 + Scope; REVIEW_Plan54 F2 (scope wording).
+
+\subsection{The case $0<p<1$: seams}\label{sec:outer-plt1}
+For $p<1$ the poles $t=-1,-2,\dots$ of $\Gamma$ lie on the rays $\arg z=\pm\pi p$, inside the slit plane, and $D$ has
+no useful continuation to the negative axis. We use $D$ only in the inner sector, where $|\arg t|<\pi/2$, and an
+elementary function outside; a Cauchy integral $\chi$ over the two separating rays glues them together exactly. Put
+\begin{gather*}
+  \thseam:=\tfrac{\pi p}2,\qquad \Sin:=\{z\ne0:\ |\arg z|<\thseam\},\qquad \Sout:=\C\setminus(\overline{\Sin}\cup\{0\}),\\
+  \Gamma_\pm:=\{re^{\pm i\thseam}:\ r>0\},
+\end{gather*}
+both seams oriented away from $0$, and
+\[
+  \varpi:=\tfrac12-\tfrac1{2p}<0,\qquad B_{\mathrm{in}}(z):=(1+z)^{\varpi},\qquad B_{\mathrm{out}}(z):=\Bigl(1-\frac z{2\pi n}\Bigr)^{1/2},
+\]
+with principal powers; the cut $(-\infty,-1]$ of $B_{\mathrm{in}}$ lies in $\Sout$, and the cut $[2\pi n,\infty)$ of
+$B_{\mathrm{out}}$ lies in $\Sin$. The lens, the saturated regions and the top segment lie in $\Zn\subset\Sin$, since
+$\thw=3\pi p/8<\thseam$.
+
+\begin{lemma}[Seam scalar]\label{lem:seam}
+Let $0<p<1$.
+\begin{enumerate}
+\item[(i)] On $\Sin$, $|\arg t|<\pi/2$; $\tilde D=e^{-j(t)}$ is analytic and zero-free there, and $D=\kappa_\pm\tilde D$ is
+  analytic and zero-free in $\Sin\cap\C_\pm$.
+\item[(ii)] On $\Gamma_\pm$ put, with principal logarithms,
+  \begin{equation}\label{eq:Lpm}
+    L_\pm(\zeta):=-j(t(\zeta))-\Log\bigl(1-e^{\mp2\pi it(\zeta)}\bigr)+\varpi\Log(1+\zeta)-\tfrac12\Log\Bigl(1-\frac\zeta{2\pi n}\Bigr).
+  \end{equation}
+  Then $L_\pm$ is real-analytic on the open ray, $e^{L_\pm}=DB_{\mathrm{in}}/B_{\mathrm{out}}$ there, $L_\pm(\zeta)\to0$ as
+  $\zeta\to0$, and $L_\pm(\zeta)=O\bigl(n|\zeta|^{-1/p}\log|\zeta|+n|\zeta|^{-1}\bigr)$ as $\zeta\to\infty$. In particular
+  $L_\pm$ has no winding: it is the continuous logarithm of $DB_{\mathrm{in}}/B_{\mathrm{out}}$ that vanishes at both ends.
+  Moreover $L_-(\bar\zeta)=\overline{L_+(\zeta)}$.
+\item[(iii)] The \emph{seam scalar}
+  \begin{equation}\label{eq:chi}
+    \chi(z):=\frac1{2\pi i}\Bigl[\int_{\Gamma_+}\frac{L_+(\zeta)\diff\zeta}{\zeta-z}-\int_{\Gamma_-}\frac{L_-(\zeta)\diff\zeta}{\zeta-z}\Bigr]
+  \end{equation}
+  is analytic off $\Gamma_+\cup\Gamma_-$, real on $\R\setminus\{0\}$, tends to $0$ at $\infty$, has continuous boundary
+  values on the open seams, and $\chi_{\mathrm{out}}-\chi_{\mathrm{in}}=L_\pm$ on $\Gamma_\pm$, where ``out'' and ``in''
+  refer to the boundary values from $\Sout$ and $\Sin$.
+\item[(iv)] The function
+  \begin{equation}\label{eq:F-seam}
+    F:=DB_{\mathrm{in}}Ke^{\chi}\ \text{in }\Sin,\qquad F:=B_{\mathrm{out}}Ke^{\chi}\ \text{in }\Sout,
+  \end{equation}
+  extends analytically across $\Gamma_\pm$ and satisfies (O1)--(O5), with $\tilde F=\tilde DB_{\mathrm{in}}Ke^\chi$ and
+  $H_n=(\tilde DB_{\mathrm{in}}e^\chi)^{-2}$, $H_n(0^+)=e^{-2\chi(0)}$.
+\end{enumerate}
+\end{lemma}
+% src: RH_plt1b §1 (Lemma S, X, F), §2 (containment); ROUTE2_plt1 §2 ("Do the seams ... see Psi_1? No");
+% REVIEW_Plan51 F2 (Binet sign: we use Binet's j throughout; RH_plt1b's displayed definition of mu had the opposite sign).
+
+\begin{proof}
+(i) $|\arg t|=|\arg z|/p<\pi/2$ on $\Sin$, so $\Gamma(t)$ has no poles or zeros there; and $\pm\im\theta<0$ in
+$\Sin\cap\C_\pm$ by~\eqref{eq:imtheta}.
+
+(ii) Each term of~\eqref{eq:Lpm} is continuous on the open ray $\Gamma_+$: $j$ is analytic off $(-\infty,0]$;
+$\arg t=-\pi/2$, so $e^{-2\pi it}=e^{-2\pi|t|}\in(0,1)$; $1+\zeta\notin(-\infty,0]$ since $\arg\zeta\in(0,\pi)$; and
+$1-\zeta/(2\pi n)$ has non-zero imaginary part. The exponential of the sum is $\tilde D\kappa_+B_{\mathrm{in}}/B_{\mathrm{out}}$.
+As $\zeta\to0$, $|t|\to\infty$ and each term tends to $0$ (by~\eqref{eq:binet-bound} for $j$). As $\zeta\to\infty$, $t\to0$ and,
+by~\eqref{eq:binet-small}, using $\arg t=-\pi/2$, $\arg\zeta=\thseam$ and $\Log t=\log n-\frac1p\Log\zeta$:
+\begin{align*}
+  -j(t)&=\tfrac12\Log t+\tfrac12\log(2\pi)+O(|t|\log(2/|t|)),\\
+  -\Log(1-e^{-2\pi it})&=-\log(2\pi)-\Log t-\tfrac{i\pi}2+O(|t|),\\
+  \varpi\Log(1+\zeta)&=\varpi\Log\zeta+O(|\zeta|^{-1}),\\
+  -\tfrac12\Log\bigl(1-\tfrac\zeta{2\pi n}\bigr)&=-\tfrac12\Log\zeta+\tfrac12\log(2\pi n)+\tfrac{i\pi}2+O(n|\zeta|^{-1});
+\end{align*}
+the second line uses $1-e^{-2\pi it}=2\pi it(1+O(t))$ and $\arg(it)=0$, the last uses
+$\arg(-\zeta/(2\pi n))=\thseam-\pi\in(-\pi,0)$. The sum of the main terms is
+$-\frac12\Log t+\frac12\log n+(\varpi-\frac12)\Log\zeta=\bigl(\frac1{2p}+\varpi-\frac12\bigr)\Log\zeta=0$. The symmetry
+follows from $\overline{t(\bar\zeta)}=t(\zeta)$ and the reality of $j$.
+
+(iii) By~(ii), $L_\pm(\zeta)/\zeta$ is integrable on $\Gamma_\pm$ near $0$ and $L_\pm(\zeta)/\zeta$ is integrable at
+$\infty$ (since $1/p>1$), so the integrals converge and $\chi\to0$ at $\infty$. The Sokhotski--Plemelj formula gives the
+jumps: $\Gamma_+$ is oriented outwards with $\Sout$ on its left, so $\chi_{\mathrm{out}}-\chi_{\mathrm{in}}=L_+$; on
+$\Gamma_-$ the left side is $\Sin$ and the density carries a minus sign, so again $\chi_{\mathrm{out}}-\chi_{\mathrm{in}}=L_-$.
+Reality on $\R$ follows from the symmetry in~(ii).
+
+(iv) On $\Gamma_\pm$, $F_{\mathrm{in}}/F_{\mathrm{out}}=DB_{\mathrm{in}}e^{\chi_{\mathrm{in}}}/(B_{\mathrm{out}}e^{\chi_{\mathrm{out}}})
+=e^{L_\pm}e^{-L_\pm}=1$, so $F$ is continuous, hence analytic, across the seams.
+
+\emph{(O1).} In $\Sout$ every factor is analytic and zero-free, and $(-\infty,0)\subset\Sout$. In $\Sin\setminus[0,\infty)$
+the same holds by~(i). On $(4c,\infty)$, $B_{\mathrm{in}}$ and $\chi$ are analytic, so $F_+/F_-=(-e^{2i\theta})(-1)$.
+
+\emph{(O2).} $\tilde F=\tilde DB_{\mathrm{in}}Ke^\chi$ on $\Sin\supset\Zn$, analytic and zero-free off $[4c,\infty)$, with
+$\tilde F_+=-\tilde F_-$ there. $H_n=(\tilde DB_{\mathrm{in}}e^{\chi})^{-2}>0$ on $(0,\infty)$ by~(iii), and
+$H_n(0^+)=e^{-2\chi(0)}$, where $\chi(0):=\lim_{z\to0}\chi(z)$ exists by Lemma~\ref{lem:corner}.
+
+\emph{(O3), (O4).} Points of $\Zn$ satisfy $|\arg z|\le3\pi p/8$, hence $\mathrm{dist}(z,\Gamma_+\cup\Gamma_-)\ge\sin(\pi p/8)|z|$.
+So Lemma~\ref{lem:corner}(ii) applies with $\kappa=\sin(\pi p/8)$. For $|z|\le1$:
+$|\log H_n-\log H_n(0^+)|\le2(|j(t)|+|\varpi||\Log(1+z)|+|\chi-\chi(0)|)\le C(|z|^{1/p}/n+|z|+|z|(1+\log\frac1{|z|}))
+\le C|z|^{1/2}$, and similarly $|(\log H_n)'|\le C(|z|^{1/p-1}/n+1+\log\frac1{|z|})\le C|z|^{-1/2}$. Since $\nu_p=\frac12$,
+this is (O3). For $|z|\ge1$ in $\Zn$, $j(t)$ is bounded, $|\Log(1+z)|\le C(1+\log|z|)$, and
+$|\chi-\chi(0)|\le C(1+\log|z|)^2$ by Lemma~\ref{lem:corner}(ii); this is (O4).
+
+\emph{(O5).} Fix $n$. Near $0$: in $\Sin$ outside the lens, $\kappa_\pm\to1$ (as $\frac34\thlip/p=3\pi/16$ bounds
+$|\arg t|$ from below) and $\tilde D,B_{\mathrm{in}}\to1$; in $\Sout$, $B_{\mathrm{out}}\to1$; $K$ is bounded; and $\chi$ is
+bounded near $0$ uniformly up to the seams by Lemma~\ref{lem:corner}(iii). In the lens, $\tilde F$ is bounded above and
+below by the same facts. Near $\infty$: in $\Sout$ (which contains the imaginary axis, as $\thseam<\pi/2$),
+$F=B_{\mathrm{out}}Ke^\chi\to(2\pi n)^{-1/2}$, because $B_{\mathrm{out}}(z)K(z)=\bigl(\frac{-z}{2\pi n}\bigr)^{1/2}(-z)^{-1/2}(1+o(1))$
+with consistent principal branches in $\Sout$. In $\Sin\cap\{|z|\ge n^p+\delta'\}$, $|t|<1$ and $t$ stays away from $1$, so
+$D$, $B_{\mathrm{in}}$, $K$ and $e^\chi$ are bounded above and below by powers of $|z|$.
+\end{proof}
+
+The seams carry no weight: $L_\pm$ and $\chi$ are built from $j$, $e^{\mp2\pi it}$, $B_{\mathrm{in}}$ and
+$B_{\mathrm{out}}$ only, and $F$ has no jump across them. Neither $V$ nor $Q$ has a jump on the seams, and the
+comparison parametrix of \S\ref{sec:hardedge} has none either, since it is built from $D_W$. The only trace of the
+seams in the hard-edge analysis is the factor $e^{-2\chi}$ in $H_n$, which is controlled by the following lemma.
+
+\begin{lemma}[Corner modulus of the seam scalar]\label{lem:corner}
+Let $0<p<1$ and $\kappa\in(0,1)$. There are $C=C(p,\kappa)$ and $n_0$ such that for $n\ge n_0$:
+\begin{enumerate}
+\item[(i)] $|L_\pm(\zeta)|\le C|\zeta|$ for $\zeta\in\Gamma_\pm$, $|\zeta|\le1$; $|L_\pm(\zeta)|\le C(1+\log|\zeta|)$ for
+  $|\zeta|\ge1$; and $|L_\pm'(\zeta)|\le C$ for $|\zeta|\le2$.
+\item[(ii)] For $z$ with $\mathrm{dist}(z,\Gamma_+\cup\Gamma_-)\ge\kappa|z|$:
+  $|\chi(z)-\chi(0)|\le C|z|(1+\log\frac1{|z|})$ and $|\chi'(z)|\le C(1+\log\frac1{|z|})$ if $|z|\le1$, and
+  $|\chi(z)-\chi(0)|\le C(1+\log|z|)^2$ if $|z|\ge1$. Here
+  $\chi(0):=\frac1{2\pi i}\bigl[\int_{\Gamma_+}L_+(\zeta)\frac{\diff\zeta}\zeta-\int_{\Gamma_-}L_-(\zeta)\frac{\diff\zeta}\zeta\bigr]$.
+\item[(iii)] For each fixed $n$, $\chi$ is bounded on $U(0,1)\setminus(\Gamma_+\cup\Gamma_-)$, uniformly up to the seams.
+\end{enumerate}
+\end{lemma}
+% src: ROUTE2_plt1 §3.2 Lemma X0 (REVIEWED; DLMF 5.5.1, 5.11.1 + §5.11(ii)); REVIEW_Plan51 F3 (squared log for |z| >= 1).
+% Part (iii) and the bound on L' are added here (needed for the a priori bound of App. C, fixed n).
+
+\begin{proof}
+(i) On $\Gamma_+$, $t=-i|t|$ with $|t|=n|\zeta|^{-1/p}$. If $|\zeta|\le1$, then $|t|\ge n$; by~\eqref{eq:binet-bound} with
+$\vartheta=\pi/2$, $|j(t)|\le\frac1{6|t|}\le|\zeta|^{1/p}/n\le|\zeta|$; $|\Log(1-e^{-2\pi|t|})|\le2e^{-2\pi n|\zeta|^{-1/p}}\le C|\zeta|$;
+$|\varpi\Log(1+\zeta)|\le C|\zeta|$; $|\Log(1-\zeta/(2\pi n))|\le C|\zeta|/n$. If $|\zeta|\ge1$ and $|t|\ge1$, then
+$|j(t)|\le\frac16$; if $|t|<1$, then~\eqref{eq:binet-small} (with a bounded remainder on $\{|t|\le1,\re t\ge0\}$) and
+$|\log|t||\le\frac1p\log|\zeta|$ give $|j(t)|\le C(1+\log|\zeta|)$. Next $|\Log(1-e^{-2\pi|t|})|\le C(1+|\log|t||)\le C(1+\log|\zeta|)$,
+since $1-e^{-y}\ge(1-e^{-2\pi})y/(2\pi)$ for $0<y\le2\pi$. Finally $|1-\zeta/(2\pi n)|$ lies between $\sin\thseam$ and
+$1+|\zeta|$, because $\zeta/(2\pi n)$ lies on the ray of angle $\thseam\in(0,\pi/2)$. For the derivative on $|\zeta|\le2$
+(where $|t|\ge n2^{-1/p}\ge1$): $\frac{\diff}{\diff\zeta}j(t)=-j'(t)t/(p\zeta)=O(|t|^{-1}|\zeta|^{-1})=O(|\zeta|^{1/p-1}/n)$, which is
+bounded since $1/p>1$; the derivative of $\Log(1-e^{-2\pi it})$ is $O(|t||\zeta|^{-1}e^{-2\pi|t|})$, also bounded; the other two
+terms have bounded derivatives. $\Gamma_-$ follows by conjugation.
+
+(ii) For $z\notin\Gamma_\pm$,
+$\chi(z)-\chi(0)=\frac z{2\pi i}\sum_\pm(\pm1)\int_{\Gamma_\pm}\frac{L_\pm(\zeta)\diff\zeta}{\zeta(\zeta-z)}$ and
+$\chi'(z)=\frac1{2\pi i}\sum_\pm(\pm1)\int_{\Gamma_\pm}\frac{L_\pm(\zeta)\diff\zeta}{(\zeta-z)^2}$. Under the hypothesis,
+$|\zeta-z|\ge\kappa|z|$, and $|\zeta-z|\ge|\zeta|/2$ if $|\zeta|\ge2|z|$; hence $|\zeta-z|\ge\frac\kappa3(|\zeta|+|z|)$.
+With~(i), for $|z|\le1$,
+\[
+  |\chi(z)-\chi(0)|\le C|z|\Bigl[\int_0^1\frac{\diff\rho}{\rho+|z|}+\int_1^\infty\frac{1+\log\rho}{\rho^2}\diff\rho\Bigr]\le C|z|\bigl(1+\log\tfrac1{|z|}\bigr),
+\]
+and $|\chi'(z)|\le C[\int_0^1\rho(\rho+|z|)^{-2}\diff\rho+\int_1^\infty(1+\log\rho)\rho^{-2}\diff\rho]\le C(1+\log\frac1{|z|})$. For
+$|z|\ge1$ the same splitting gives $|z|\int_0^1\frac{\diff\rho}{|z|}+|z|\int_1^\infty\frac{(1+\log\rho)\diff\rho}{\rho(\rho+|z|)}\le C(1+\log|z|)^2$.
+
+(iii) Let $z\in U(0,1)$ be close to $\Gamma_+$, with nearest point $z^*\in\Gamma_+$, $r:=|z^*|$ (other $z$ are covered
+by~(ii)). Split $\int_{\Gamma_+}L_+(\zeta)\frac{\diff\zeta}{\zeta-z}$ into the part $|\zeta-z^*|\le r/2$ and the rest. On the
+first part write $L_+(\zeta)=L_+(z^*)+O(|\zeta-z^*|)$ by~(i): the constant contributes $L_+(z^*)$ times a logarithm whose
+modulus is at most $\pi+\log C$, because the two endpoints $z^*\pm\frac r2e^{i\thseam}$ are at comparable distances from $z$;
+since $|L_+(z^*)|\le Cr$, this is bounded, and so is the Lipschitz part. On the rest, $|\zeta-z|\ge c(|\zeta|+r)$, and the contribution is at most
+$C\int_{\Gamma_+}|L_+(\zeta)|(|\zeta|+r)^{-1}|\diff\zeta|$, which is finite for fixed $n$ because $L_+(\zeta)=O(|\zeta|)$ at $0$ and
+$L_+(\zeta)/\zeta$ is integrable at $\infty$ (Lemma~\ref{lem:seam}(ii)). The integral over $\Gamma_-$ is bounded in the
+same way, since $|\zeta-z|\ge c(|\zeta|+|z|)$ for $\zeta\in\Gamma_-$.
+\end{proof}
+
+\subsection{Common steps: Szeg\H{o} functions, normalisation, parametrices}\label{sec:outer-common}
+From now on $F$ is the outer scalar of Lemma~\ref{lem:binetcut}, \ref{lem:reflection} or~\ref{lem:seam}, according to
+$p$. Everything in this subsection uses only (O1)--(O5).
+
+\emph{Szeg\H{o} functions.} Let $\mathcal R(z):=(z(z-4c))^{1/2}$, analytic off $[0,4c]$ with $\mathcal R(z)\sim z$ at
+$\infty$, so that $\mathcal R_\pm(x)=\pm i\sqrt{x(4c-x)}$ on $(0,4c)$. For a function $q=c_qq_0$ on $(0,4c)$ with
+$c_q\in\C\setminus\{0\}$, $q_0>0$ and $\log q_0\in L^1(\diff x/\sqrt{x(4c-x)})$, put (with a fixed value of $\log c_q$)
+\begin{equation}\label{eq:szego}
+  D_q(z):=\exp\Bigl(\frac{\mathcal R(z)}{2\pi}\int_0^{4c}\frac{\log q(x)}{\sqrt{x(4c-x)}}\frac{\diff x}{z-x}\Bigr),\qquad
+  D_q(\infty)=\exp\Bigl(\frac1{2\pi}\int_0^{4c}\frac{\log q(x)\diff x}{\sqrt{x(4c-x)}}\Bigr).
+\end{equation}
+$D_q$ is analytic and zero-free off $[0,4c]$, $D_{q_1q_2}=D_{q_1}D_{q_2}$, and $D_{c_q}=c_q^{1/2}$. Where $\log q_0$ is
+H\"older continuous, the Sokhotski--Plemelj formula and $\mathcal R_+=-\mathcal R_-$ give $D_{q,+}D_{q,-}=q$. Since
+$\frac1\pi\int_0^{4c}\frac{\diff x}{\sqrt{x(4c-x)}(z-x)}=\frac1{\mathcal R(z)}$ (the Stieltjes transform of the arcsine law,
+as in the proof of Lemma~\ref{lem:gfunction}), we have for every $z\notin[0,4c]$ and every number $\Theta$
+\begin{equation}\label{eq:szego-repr}
+  \log D_q(z)^2-\Theta=\frac{\mathcal R(z)}\pi\int_0^{4c}\frac{(\log q(x)-\Theta)\diff x}{\sqrt{x(4c-x)}\,(z-x)} .
+\end{equation}
+We use it with $\Theta=\log q(z)$, the value of an analytic continuation of $\log q$. Put $\eta_*:=\min(1,2c)$ and
+$Z(r):=\{z:\ 0<|z|<r,\ |\arg z|<\thw\}$.
+
+\emph{The band weight and its Szeg\H{o} function.} Let $W_0$ be the band weight~\eqref{eq:W0}, $D_W:=D_{W_0}$ and
+$D_\infty:=D_W(\infty)$. Writing $\mathcal H_n:=H_n/H_n(0^+)$,
+\begin{equation}\label{eq:DW-factor}
+  D_W=\bigl(C_nH_n(0^+)\bigr)^{1/2}\,D_{x^\alpha}\,D_{4c-x}\,D_{\mathcal H_n}\,D_{r_n}.
+\end{equation}
+All factors are defined: $\log\mathcal H_n$ is bounded on $(0,4c)$ by (O3)--(O4), and $|\log r_n(x)|\le
+C\eps_\Lambda(T)(1+|\log x|)$ by Lemma~\ref{lem:pottersector}(iii). The constant $C_nH_n(0^+)$ cancels in the ratio
+\begin{equation}\label{eq:omega}
+  \omega(z):=\frac{D_W(z)^2}{W_0(z)}
+  =\frac{D_{x^\alpha}^2}{z^\alpha}\cdot\frac{D_{4c-x}^2}{4c-z}\cdot\frac{D_{\mathcal H_n}^2}{\mathcal H_n}\cdot\frac{D_{r_n}^2}{r_n},
+\end{equation}
+defined wherever $W_0$ is, i.e.\ on $\Zn\setminus[0,4c]$.
+
+\begin{lemma}[Szeg\H{o} function estimates]\label{lem:szego}
+The constants below depend only on $c$, the stated $M$, and $\eps_1$ in~(iv).
+\begin{enumerate}
+\item[(i)] With $\Phi(z):=2z-4c+2\mathcal R(z)$ and principal powers, $D_{x^\alpha}(z)^2=(4cz/\Phi(z))^\alpha$ and
+  $D_{4c-x}(z)^2=4c(z-4c)/\Phi(z)$. $\Phi$ is analytic and zero-free off $[0,4c]$, with continuous non-zero boundary
+  values, $\Phi(0)=-4c$, $\Phi(4c)=4c$. In particular $|D_{x^\alpha}(z)^2|\asymp|z|^\alpha$ and
+  $|D_{4c-x}(z)^2|\asymp|z-4c|$ for $|z|\le8c$, $z\notin[0,4c]$.
+\item[(ii)] (H\"older type at $0$.) Let $\nu\in(0,1]$, $M\ge0$, $\Theta_0\in\C$. Suppose $\log q$ continues analytically to
+  $Z(\eta_*)$ and continuously to $(0,\eta_*)$, with $|\log q(z)-\Theta_0|\le M|z|^\nu$ and $|(\log q)'(z)|\le M|z|^{\nu-1}$
+  there, and $|\log q(x)-\Theta_0|\le M(1+|\log(4c-x)|)$ for $\frac12\eta_*\le x<4c$. Then for
+  $z\in Z(\frac14\eta_*)\setminus(0,\infty)$,
+  \[
+    |\log D_q(z)^2-\log q(z)|\le CM|z|^{\min(\nu,1/2)}\log(2/|z|).
+  \]
+\item[(iii)] (Logarithmic type at $0$.) Suppose $\log q$ continues analytically to $Z(\eta_*)$ and continuously to
+  $(0,\eta_*)$, with $|(\log q)'(z)|\le M/|z|$ there and $|\log q(x)-\log q(z)|\le M(1+|\log(x/|z|)|)$ for $z\in Z(\eta_*)$,
+  $x\in(0,4c)$. Then $|\log D_q(z)^2-\log q(z)|\le CM$ for $z\in Z(\frac14\eta_*)\setminus(0,\infty)$.
+\item[(iv)] (Near $4c$.) Suppose $\log q$ continues analytically to $U(4c,2\eps_1)$, with $|\log q-\Theta_1|\le M$ there and
+  $|\log q(x)-\Theta_1|\le M(1+|\log x|)$ on $(0,4c)$. Then $|\log D_q(z)^2-\log q(z)|\le CM$ for
+  $z\in U(4c,\eps_1)\setminus[0,4c]$.
+\item[(v)] (Away from the band.) If $|\log q(x)-\Theta_1|\le M(1+|\log x|+|\log(4c-x)|)$ on $(0,4c)$, then
+  $|\log D_q(z)^2-\Theta_1|\le C_dM$ for $\mathrm{dist}(z,[0,4c])\ge d$.
+\item[(vi)] (The band weight.) For $n\ge n_0$, with $C$ independent of $n$:
+(a) $|\omega(z)|^{\pm1}\le C$ for $z\in Z(\frac14\eta_*)\setminus(0,\infty)$, in particular on the lips in $U(0,\delta)$;
+(b) $|\omega(z)|^{\pm1}\le C$ for $z\in U(4c,\eps)\setminus[0,4c]$;
+(c) $|\log\omega(z)|\le C_d\bigl(1+\log(1+|z|)\bigr)^2$ for $z\in\Zn$ with $\mathrm{dist}(z,[0,4c])\ge d$.
+Moreover, for each fixed $n$, $|D_W(z)|^{\pm1}\le C_{n,\eta}|z|^{\pm\alpha/2-\eta}$ for every $\eta>0$ and
+$0<|z|<\frac14\eta_*$, $z\notin[0,\infty)$.
+\end{enumerate}
+\end{lemma}
+% src: RH_px Lemma 3.4 (Hölder endpoint bound) and "Consequence"; ROUTE2 §3.3 (explicit D_{x^alpha}, representation);
+% ROUTE2_plt1 §3.3. Parts (iii)-(v) are the same splitting, recorded here for use in Sect. 7 and App. C.
+
+\begin{proof}
+(i) Write $\Phi=z(1+w)^2$ with $w:=\mathcal R(z)/z=\sqrt{1-4c/z}$, which has $\re w>0$ off $[0,4c]$. Then
+$4cz/\Phi=4c/(1+w)^2$ and $4c(z-4c)/\Phi=4c\,(w/(1+w))^2$; both $1/(1+w)$ and $w/(1+w)$ lie in the disc
+$|\cdot-\frac12|<\frac12$, so their squares avoid $(-\infty,0]$ and the principal powers are analytic off $[0,4c]$. On the
+band, $\Phi_\pm=(\sqrt x\pm i\sqrt{4c-x})^2$, so $\Phi_+\Phi_-=16c^2$, the two boundary values of each expression are
+complex conjugates, and the product of their principal powers is $x^{2\alpha}$, respectively $(4c-x)^2$. The expressions
+tend to $c$ at $\infty$. Hence they are the Szeg\H{o} functions squared (the quotient of two functions with the same
+jump, bounded at $\infty$ and of at most logarithmic growth at $0$ and $4c$, is constant). The values of $\Phi$ at $0$ and
+$4c$ are read off.
+
+(ii) Fix $z\in Z(\frac14\eta_*)\setminus(0,\infty)$ and use~\eqref{eq:szego-repr} with $\Theta=\log q(z)$. Note
+$|\mathcal R(z)|\le C|z|^{1/2}$. Split $(0,4c)$ into $N_z:=\{x:|x-z|<\frac12|z|\}$ and the rest. For $x\in N_z$ the segment
+$[x,z]$ lies in $Z(\eta_*)$ (the sector is convex since $\thw<\pi/2$) and at distance $\ge\frac12|z|$ from $0$, so
+$|\log q(x)-\log q(z)|\le M(|z|/2)^{\nu-1}|x-z|$, and the contribution is at most
+$C|z|^{1/2}M|z|^{\nu-1}\int_{N_z}x^{-1/2}\diff x\le CM|z|^\nu$. Off $N_z$, $|x-z|\ge\frac18(x+|z|)$ (if $x\le3|z|$ then
+$|x-z|\ge\frac12|z|$; otherwise $|x-z|\ge x-|z|\ge\frac12x$). On $(0,\frac12\eta_*)$ we have
+$|\log q(x)-\log q(z)|\le M(x^\nu+|z|^\nu)$, and
+\[
+  |z|^{1/2}\int_0^{\eta_*/2}\frac{M(x^\nu+|z|^\nu)\diff x}{x^{1/2}(x+|z|)}\le CM|z|^{\min(\nu,1/2)}\log(2/|z|),
+\]
+by the substitution $x=|z|u$: the term $|z|^\nu$ gives $CM|z|^\nu$; the term $x^\nu$ gives $CM|z|^\nu$ if $\nu<\frac12$,
+$CM|z|^{1/2}\log(2/|z|)$ if $\nu=\frac12$, and $CM|z|^{1/2}$ if $\nu>\frac12$. On $[\frac12\eta_*,4c)$, $|x-z|\ge\frac14\eta_*$ and
+$\int(1+|\log(4c-x)|)(4c-x)^{-1/2}\diff x<\infty$ give $CM|z|^{1/2}$.
+
+(iii) The same splitting. On $N_z$ the derivative bound gives $|\log q(x)-\log q(z)|\le2M|x-z|/|z|$ and a contribution
+$CM$. Off $N_z$ the contribution is at most $CM|z|^{1/2}\int_0^{4c}\frac{(1+|\log(x/|z|)|)\diff x}{\sqrt{x(4c-x)}\,(x+|z|)}$, and
+the substitution $x=|z|u$ bounds the part $x\le2c$ by $CM\int_0^\infty(1+|\log u|)u^{-1/2}(1+u)^{-1}\diff u$; the part
+$x\ge2c$ is $O(M|z|^{1/2}\log(2/|z|))$.
+
+(iv) By Cauchy's estimate $|(\log q)'|\le 2M/\eps_1$ on $U(4c,\frac32\eps_1)$. For $x\in(4c-\frac32\eps_1,4c)$ and
+$z\in U(4c,\eps_1)$, $|\log q(x)-\log q(z)|\le CM|x-z|$, which cancels the kernel's singularity, and
+$\int(4c-x)^{-1/2}\diff x<\infty$. For $x\le4c-\frac32\eps_1$, $|z-x|\ge\frac12\eps_1$ and the integrand is
+$\le CM(1+|\log x|)x^{-1/2}$.
+
+(v) In~\eqref{eq:szego-repr} with $\Theta=\Theta_1$, $|\mathcal R(z)/(z-x)|\le C_d$ for all $x\in[0,4c]$ when
+$\mathrm{dist}(z,[0,4c])\ge d$, and the remaining integral is finite.
+
+
+(vi)(a) Use the four factors of~\eqref{eq:omega}. The first two are bounded above and below by Lemma~\ref{lem:szego}(i), since
+$z^\alpha$ and $(4cz/\Phi)^\alpha$ differ by a bounded factor $(4c/\Phi)^\alpha e^{2\pi ik\alpha}$. The third is bounded by
+Lemma~\ref{lem:szego}(ii) with $q=\mathcal H_n$, $\Theta_0=0$, $\nu=\nu_p$ and $M=C$ from (O3)--(O4). The fourth is bounded by
+Lemma~\ref{lem:szego}(iii) with $q=r_n$: by Lemma~\ref{lem:pottersector}(iii) with $R=4c$, the hypotheses hold with
+$M=C\eps_\Lambda(\log n-\frac1p\log(4c))\le C$, and $|(\log r_n)'(z)|=|\Lambda'(\xi)|/(p|z|)$.
+(b) $D_{4c-x}^2/(4c-z)=-4c/\Phi$ is bounded above and below near $4c$ by Lemma~\ref{lem:szego}(i). For $q_1:=x^\alpha
+\mathcal H_nr_n$, Lemma~\ref{lem:szego}(iv) applies with $M=C$: near $4c$, $\mathcal H_n$ and $r_n$ are analytic with $|\log
+\mathcal H_n|\le C$ and $|\log r_n|\le C$ (O4, Lemma~\ref{lem:pottersector}(iii)).
+(c) Lemma~\ref{lem:szego}(v) with $q=W_0/(C_nH_n(0^+))$ bounds $\log D_W^2-\log(C_nH_n(0^+))$, and
+$|\log(W_0(z)/(C_nH_n(0^+)))|\le C(1+\log(1+|z|))^2$ on $\Zn$ by (O3), (O4) and Lemma~\ref{lem:pottersector}(iii) with
+$R=e^{pc_0}n^p$ (here $|\log r_n(z)|\le\frac1p\eps_\Lambda(-c_0)(\thw+|\log|z||)$).
+For the last claim, fix $n$ and $\eta>0$. By Lemma~\ref{lem:pottersector}(i),
+$|\log r_n(x)|\le C_{n,\eta}+\eta|\log x|$ for $x\in(0,4c)$, and $|r_n(z)|^{\pm1}\le C_{n,\eta}|z|^{-\eta}$ for $z\in\Zn$. For
+$|\arg z|<\thw$ the claim follows from~(a) and $|W_0|\asymp|z|^\alpha|r_n|$. For $|\arg z|\ge\frac12\thlip$ we have
+$|x-z|\ge c'(x+|z|)$ for $x>0$, and~\eqref{eq:szego-repr} with $\Theta=0$ gives $|\log D_{\mathcal H_n}(z)|\le C$ and
+$|\log D_{r_n}(z)^2|\le C|z|^{1/2}\int_0^{4c}\frac{C_{n,\eta}+\eta|\log x|}{\sqrt{x(4c-x)}(x+|z|)}\diff x\le C_{n,\eta}+C\eta\log\frac1{|z|}$;
+together with~(i) for $D_{x^\alpha}$ and $D_{4c-x}$ this gives the claim (after renaming $\eta$).
+\end{proof}
+
+
+
+\emph{The global parametrix.} Let $a(z):=((z-4c)/z)^{1/4}$, analytic off $[0,4c]$ with $a(\infty)=1$, and
+\begin{equation}\label{eq:Pinf0}
+  P^\infty_0(z):=\begin{pmatrix}\frac{a+a^{-1}}2&\frac{a-a^{-1}}{2i}\\[1mm]-\frac{a-a^{-1}}{2i}&\frac{a+a^{-1}}2\end{pmatrix},\qquad
+  P^\infty:=D_\infty^{\sigma_3}P^\infty_0D_W^{-\sigma_3}.
+\end{equation}
+Then $\det P^\infty_0=1$, $P^\infty_{0,+}=P^\infty_{0,-}J$ on $(0,4c)$ with $J=\bigl(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\bigr)$
+(because $a_+=ia_-$ there), and $P^\infty_0(z)=I+O(1/z)$. Since $|a(z)|^{\pm1}=|z-4c|^{\pm1/4}|z|^{\mp1/4}$,
+\begin{equation}\label{eq:Pinf0-bound}
+  |P^\infty_0(z)|\le C|z|^{-1/4}|z-4c|^{-1/4}(1+|z|)^{1/2}.
+\end{equation}
+As $D_{W,+}D_{W,-}=W_0$, $P^\infty$ has the band jump of $V$ (Lemma~\ref{lem:jumpsV}(a)). In the frame of
+$Q:=D_\infty^{-\sigma_3}VD_W^{\sigma_3}$ the global parametrix is $P^\infty_0$, which does not involve the weight.
+
+\begin{lemma}[Normalisation at infinity]\label{lem:normalisation}
+Let $\kappa_\infty(z):=F(z)^{-1}e^{n(g(z)-\Log z)}$ for $|z|>n^p+\delta'$, $z\notin\R$. Then $\kappa_\infty$ extends to an
+analytic function on $\{|z|>n^p+\delta'\}\cup\{\infty\}$ with $\kappa_\infty(\infty)\ne0$. With
+$C_\infty:=\kappa_\infty(\infty)^{\sigma_3}$ in~\eqref{eq:V}, $V(z)=I+O(1/z)$ and $Q(z)=I+O(1/z)$ as $z\to\infty$, and for
+$|z|>n^p+\delta'+h_0$
+\begin{equation}\label{eq:Q-at-infinity}
+  Q(z)=k_\infty^{-\sigma_3}\bigl(U(z)z^{-n\sigma_3}\bigr)k(z)^{\sigma_3},\qquad k:=\frac{e^{n\gamma_p}D_W}{\kappa_\infty},
+\end{equation}
+where $k$ is analytic at $\infty$ with $k_\infty:=k(\infty)=e^{n\gamma_p}D_\infty/\kappa_\infty(\infty)\ne0$.
+\end{lemma}
+% src: RH_px Lemma 3.5; REVIEW_Plan54 F1 (at p = 1, g - log z = O(|z|^{-1} log|z|)); RH_plt1 amendments (p < 1).
+
+\begin{proof}
+On $(-\infty,-n^p-\delta')$, $g$ and $\Log z$ both jump by $2\pi i$ and $F$ has no jump (O1). On $(n^p+\delta',\infty)$,
+$e^{n(g-\Log z)}$ jumps by $e^{2\pi in\mu^*((x,\infty))}=e^{2i\theta}$ (Lemma~\ref{lem:gfunction}(i)) and so does $F$ (O1). So
+$\kappa_\infty$ has continuous boundary values that agree, and is analytic in $\{|z|>n^p+\delta'\}$ by Morera's theorem. By
+Lemma~\ref{lem:gfunction}(ii) and (O5), $|\kappa_\infty(z)|\le C_n|z|^{m_n}$, so $\infty$ is at most a pole; since
+$\kappa_\infty(iy)$ is bounded and bounded away from $0$ as $y\to\pm\infty$, it is a removable singularity and
+$\kappa_\infty(\infty)\ne0$.
+
+In $\Oinf$, by~\eqref{eq:VM}, $V=C_\infty e^{-n\gamma_p\sigma_3}(Uz^{-n\sigma_3})(z^ne^{n\varphi}F)^{\sigma_3}$, and
+$z^ne^{n\varphi}F=e^{n\gamma_p}e^{-n(g-\Log z)}F=e^{n\gamma_p}/\kappa_\infty$. Hence
+$V=\kappa_\infty(\infty)^{\sigma_3}e^{-n\gamma_p\sigma_3}(Uz^{-n\sigma_3})e^{n\gamma_p\sigma_3}\kappa_\infty^{-\sigma_3}=I+O(1/z)$,
+by Lemma~\ref{lem:interp}. Multiplying by $D_\infty^{-\sigma_3}$ on the left and $D_W^{\sigma_3}$ on the right gives
+\eqref{eq:Q-at-infinity}, and $D_W(z)/D_\infty=1+O(1/z)$ gives $Q=I+O(1/z)$.
+\end{proof}
+
+\begin{lemma}[Lip exponentials and super-small entries]\label{lem:supersmall}
+Let $s_p:=\sin(\frac34\thlip/p)>0$. For $n\ge n_0$ and $z\in\Sigma^\pm_{\mathrm{lip}}\cap U(0,\delta)$:
+\begin{enumerate}
+\item[(a)] $|\kappa_\pm(z)-1|\le2\exp(-2\pi s_pn|z|^{-1/p})$;
+\item[(b)] $|e^{-2n\tvphi(z)}|\le\exp(-\pi s_pn|z|^{-1/p})$;
+\item[(c)] $|e^{2n\varphi(z)}|\le\exp(-c_fn|z|^{1/2})$, with $c_f:=2\sin(\thlip/2)\inf_{U(0,\delta)}|f(z)/z|^{1/2}>0$.
+\end{enumerate}
+\end{lemma}
+% src: RH_px Lemma 4.3 (first bullet); ROUTE2_xframe1 §2 row L4.3; ROUTE2_plt1 §3.1 (REVIEW_Plan51 F4: exponent -1/p).
+
+\begin{proof}
+On these lips $\frac34\thlip\le|\arg z|\le\frac54\thlip$ (\S\ref{sec:frame-contour}), and $\frac54\thlip/p<\pi/2$ in all
+cases, so $\sin(|\arg z|/p)\ge s_p$. (a) follows from~\eqref{eq:imtheta} and $|\kappa_\pm-1|=|e^{\mp2i\theta}|/|1-e^{\mp2i\theta}|$.
+(b) $e^{-2n\tvphi}=e^{-2n\varphi}e^{\mp2i\theta}$ and $|\re\varphi|\le C|z|^{1/2}$ (Lemma~\ref{lem:signs}(iii)), so
+$|e^{-2n\tvphi}|\le\exp(2Cn|z|^{1/2}-2\pi s_pn|z|^{-1/p})$, and $2C|z|^{1/2}\le\pi s_p|z|^{-1/p}$ for $|z|\le\delta$ small.
+(c) By Lemma~\ref{lem:signs}(iii), $\re\varphi=-2\re f^{1/2}$, and on the lip $\arg f=\mp(\pi-\thlip)$, so
+$\re f^{1/2}=|f|^{1/2}\sin(\thlip/2)$.
+\end{proof}
+
+\emph{The soft edge.} In $U(4c,\eps)$ the jumps of $Q$ are, by Lemma~\ref{lem:jumpsV}(a), (c), (d) and the conjugation
+by $D_W^{\sigma_3}$: $J$ on $(4c-\eps,4c)$, $\bigl(\begin{smallmatrix}1&0\\\omega e^{2n\tvphi}&1\end{smallmatrix}\bigr)$ on
+$(4c,4c+\eps)$ and $\bigl(\begin{smallmatrix}1&-\omega^{-1}e^{-2n\tvphi}\\0&1\end{smallmatrix}\bigr)$ on $\Sigma^\pm_v$, with
+$\omega=D_W^2/W_0$ as in~\eqref{eq:omega}. This is the jump structure of \ref{tool:T1}(c) (\cite[(6.4)]{WLXZ}), in which
+their $w_0/\tilde D^2=\tilde w/\tilde D^2$ plays the role of our $W_0$ (in the frame of $V$), and $\tilde\varphi$ is the same
+soft-edge phase, $\tvphi=-\frac23f_r^{3/2}$ with $f_r$ conformal and independent of $n$ (Lemma~\ref{lem:signs}(iv)). The
+only hypotheses of that construction are that the scalar data are analytic and zero-free in the disc; here $\omega$ is
+analytic in $U(4c,2\eps)\setminus[4c-2\eps,4c]$, satisfies $\omega_+\omega_-=1$ on the band and is bounded above and below
+uniformly in $n$ (Lemma~\ref{lem:szego}(vi)(b)), and $W$, $\tilde F$ are analytic and zero-free in $U(4c,2\eps)$ with
+$n$-uniform bounds after division by constants ((O2)--(O4), Lemma~\ref{lem:pottersector}(iii)). Written in the frame of $Q$,
+the construction of \ref{tool:T1}(c) reads
+\begin{equation}\label{eq:airy}
+\begin{gathered}
+  \hat P_r(z)=A_r(z)\,n^{\sigma_3/6}M_{r,n}(z),\qquad A_r:=P^\infty_0\,\omega^{-\sigma_3/2}N_r^{-1}f_r^{\sigma_3/4},\\
+  M_{r,n}(z):=\Psi_r\bigl(n^{2/3}f_r(z)\bigr)\bigl(\omega(z)^{1/2}e^{n\tvphi(z)}\bigr)^{\sigma_3},
+\end{gathered}
+\end{equation}
+where $\Psi_r$ is the Airy model matrix of \ref{tool:T1}(c) (\cite[(6.12)]{WLXZ}, there written $\sigma_2\Psi\sigma_2$), with the
+sectorial constants and the branch of $\omega^{1/2}$ chosen as there, and $N_r$ is the constant matrix in its expansion
+$\Psi_r(\zeta)=\zeta^{-\sigma_3/4}N_r(I+O(\zeta^{-3/2}))e^{\frac23\zeta^{3/2}\sigma_3}$. Since $\frac23(n^{2/3}f_r)^{3/2}=-n\tvphi$, the
+exponentials cancel in $M_{r,n}$ for $|n^{2/3}f_r|\ge2$, which leaves $M_{r,n}=\zeta^{-\sigma_3/4}N_r(I+O(\zeta^{-3/2}))\omega^{\sigma_3/2}$;
+and for $|\zeta|\le3$, $M_{r,n}$ is an entire matrix of Airy functions times bounded factors. $A_r$ is analytic in
+$U(4c,\eps)$ (its jumps on the band cancel, and its singularity at $4c$ is at most $|z-4c|^{-1/2}$, hence removable, as in
+\ref{tool:T2}), with $\det A_r=1$ and $|A_r^{\pm1}|\le C$ uniformly in $n$. In the frame of $Q$ the global parametrix is the
+weight-free $P^\infty_0$, so no constant diagonal prefactor appears in $A_r$: the matching holds directly in this frame: on $\partial U(4c,\eps)$, $|n^{2/3}f_r|\asymp n^{2/3}$ and
+\[
+  \hat P_r(P^\infty_0)^{-1}=P^\infty_0\,\omega^{-\sigma_3/2}N_r^{-1}\bigl(I+O(n^{-1})\bigr)N_r\,\omega^{\sigma_3/2}(P^\infty_0)^{-1}=I+O(1/n),
+\]
+since $P^\infty_0$ and $\omega^{\pm1/2}$ are bounded there uniformly in $n$.
+
+\medskip
+We now collect what \S\S\ref{sec:hardedge}--\ref{sec:extraction} use.
+
+\begin{proposition}[Frame Proposition]\label{prop:frame}
+Let $p>0$, $1<s<1+2p$, $\alpha=(s-1-p)/p$, let $\ell_1$ satisfy $(\mathrm A_{\vartheta_p})$, and let $F$ be the outer scalar of
+Lemma~\ref{lem:binetcut} ($p>1$), Lemma~\ref{lem:reflection} ($p=1$) or Lemma~\ref{lem:seam} ($p<1$). The radii $\delta,\eps$
+and the contour of \S\ref{sec:frame-contour} may be taken as small as we wish (but fixed, independent of $n$). Put
+$Q:=D_\infty^{-\sigma_3}VD_W^{\sigma_3}$. There is $n_0$ such that for $n\ge n_0$:
+\begin{enumerate}
+\item[\Fi1] (Contour and jumps.) $Q$ is analytic in $\C\setminus\Sigma$, $Q(z)=I+O(1/z)$ at $\infty$, $Q$ has continuous boundary
+  values on $\Sigma$ minus its vertices, and $Q_+=Q_-v$ with $\det v=1$ and
+  \begin{itemize}
+  \item band $(0,4c)$, oriented from left to right: $v=J=\bigl(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\bigr)$;
+  \item lips $\Sigma^\pm_{\mathrm{lip}}$, oriented away from $0$: $v=\bigl(\begin{smallmatrix}1&0\\\omega e^{2n\varphi}&1\end{smallmatrix}\bigr)+E$,
+    $\omega=D_W^2/W_0$, where $W_0$ on a lip is the analytic continuation of $W_0$ from the band and
+    $E=\bigl(\begin{smallmatrix}\epsilon_\pm(\kappa_\pm-1)&\omega^{-1}e^{-2n\tvphi}\\(\kappa_\pm-1)\omega e^{2n\varphi}&\epsilon_\mp(\kappa_\pm-1)\end{smallmatrix}\bigr)$
+    ($\epsilon_+=1$, $\epsilon_-=0$);
+  \item $\Sigma_v^\pm$ (oriented away from the axis): $v=\bigl(\begin{smallmatrix}1&-\omega^{-1}e^{-2n\tvphi}\\0&1\end{smallmatrix}\bigr)$;
+    saturated segment $(4c,n^p+\delta')$: $v=\bigl(\begin{smallmatrix}1&0\\\omega e^{2n\tvphi}&1\end{smallmatrix}\bigr)$;
+  \item $\Sigma^{\triangle\pm}$ (left to right): $v=\bigl(\begin{smallmatrix}1&0\\\kappa_\pm\omega e^{2n\varphi}&1\end{smallmatrix}\bigr)$;
+    the top segment in $\C_\pm$ (oriented upwards): $v=\bigl(\begin{smallmatrix}1&0\\\mp\kappa_\pm\omega e^{2n\varphi}&1\end{smallmatrix}\bigr)$;
+  \item no jump on $(-\infty,0)$, on $(n^p+\delta',\infty)$, or (for $p<1$) on the seams.
+  \end{itemize}
+  $|v^{\pm1}|\le C$ on $\Sigma$. $\Sigma$ is a finite union of $C^2$ arcs; $\Sigma\cap(U(0,2\delta)\cup U(4c,2\eps))$ does not
+  depend on $n$; the length of $\Sigma$ is $O(n^p)$; $|\Sigma\cap U(z,\rho)|\le C\rho$ for all $z,\rho$; and
+  $\|\Cauchy_\pm\|_{L^2(\Sigma)\to L^2(\Sigma)}\le C$.
+\item[\Fi2] (Band weight.) $W_0=C_nx^\alpha(4c-x)H_n(x)r_n(x)$ with $C_n\ne0$ constant,
+  $r_n(z)=\exp(\Lambda(\log n-\frac1p\log z)-\Lambda(\log n))$, and $H_n>0$ on $(0,4c+\eps]$. $H_n$ and $r_n$ are analytic on
+  $\Zn$, which contains the closed sectors $\{0<|z|\le\delta,\ |\arg z|\le\frac54\thlip\}$ and a neighbourhood of
+  $(0,4c+\eps]$, and, uniformly in $n$,
+  \begin{gather*}
+    |\log H_n(z)-\log H_n(0^+)|\le C|z|^{\nu_p},\quad |(\log H_n)'(z)|\le C|z|^{\nu_p-1}\qquad(z\in\Zn,\ |z|\le1),\\
+    |\log H_n(x)-\log H_n(0^+)|\le C\qquad(0<x\le4c+\eps).
+  \end{gather*}
+  The constant $C_nH_n(0^+)$ cancels in $\omega=D_W^2/W_0$; $D_W$ is given by~\eqref{eq:szego} with $q=W_0$.
+\item[\Fi3] (Lips.) In $U(0,\delta)$ the lips are the preimages under $\zeta=n^2f(z)$ of the rays $\arg\zeta=\mp(\pi-\thlip)$
+  (the upper lip is mapped to the lower ray); they leave $0$ at the angles $\pm\thlip$ and satisfy
+  $\frac34\thlip\le|\arg z|\le\frac54\thlip$; the Bessel rays are $\arg\zeta=\pm(\pi-\thlip)$.
+\item[\Fi4] (Super-small entries.) $|E(z)|\le C\exp(-n|z|^{-1/p}/C)$ on the lips in $U(0,\delta)$.
+\item[\Fi5] (Parametrices away from $0$.) $P^\infty_0$ is given by~\eqref{eq:Pinf0}: $\det P^\infty_0=1$, $P^\infty_{0,+}=
+  P^\infty_{0,-}J$ on $(0,4c)$, and~\eqref{eq:Pinf0-bound} holds. On $\Sigma\setminus(U(0,\delta)\cup U(4c,\eps)\cup[0,4c])$,
+  $|v-I|\le Ce^{-n/C}$. In $U(4c,\eps)$, $\hat P_r=D_\infty^{-\sigma_3}P_rD_W^{\sigma_3}$ of~\eqref{eq:airy} has exactly the jumps $v$,
+  $\det\hat P_r=1$, $\hat P_r(P^\infty_0)^{-1}=I+O(1/n)$ uniformly on $\partial U(4c,\eps)$, and $\hat P_r=A_rn^{\sigma_3/6}M_{r,n}$
+  with $A_r^{\pm1}$ analytic and bounded uniformly in $n$, $f_r$ conformal and independent of $n$, and $M_{r,n}$ satisfying
+  (B2), (B3) of Lemma~\ref{lem:B-block} with $\mathcal P=I$ and $\zeta=n^{2/3}f_r(z)$.
+\item[\Fi6] (Hard-edge map.) $f$ is conformal on a neighbourhood of $\overline{U(0,\delta)}$, independent of $n$ and of the
+  weight, real on $(-\delta,\delta)$, $f(0)=0$, $f'(0)<0$, $f=(\varphi\pm i\pi)^2/4$ in $U(0,\delta)\cap\C_\pm$; $\re\varphi<0$ on
+  the lips and $|e^{2n\varphi}|\le e^{-n|z|^{1/2}/C}$ on the lips in $U(0,\delta)$.
+\item[\Fi7] (A priori bound.) $Q_\pm$ and $(Q^{-1})_\pm$ belong to $I+\dC(L^2(\Sigma))$. For each fixed $n$ and every
+  $\eta>0$, $|Q(z)|\le C_{n,\eta}(1+|z|^{-|\alpha|/2-\eta})$ for $z\notin\Sigma$.
+\item[\Fi8] (Extraction.) For $|z|>n^p+\delta'+h_0$, $Q=k_\infty^{-\sigma_3}(Uz^{-n\sigma_3})k^{\sigma_3}$ with a scalar $k$ analytic
+  at $\infty$, $k(\infty)=k_\infty\ne0$ \eqref{eq:Q-at-infinity}. Consequently, with $Q=I+Q_1/z+Q_2/z^2+\dots$,
+  $(Q_1)_{12}(Q_1)_{21}=n^{2p}b_n^2$ and $\mathsf a(Q)=(Q_2)_{12}/(Q_1)_{12}-(Q_1)_{22}=n^pa_n$ (by Lemma~\ref{lem:interp} and the
+  invariance Lemma~\ref{lem:invariance}).
+\end{enumerate}
+\end{proposition}
+% src: union of Lemmas 5.1-5.7, 6.1-6.8; ROUTE2 §2 table; ROUTE2_plt1 §2 table; ROUTE2_xframe1 §2 table; ROUTE2 §4.3 "(Q in L^2)";
+% RH_zeta_close §1.0 (frame); RH_px §§4.2-4.3, §5 (small norm, top end, extraction).
+
+\begin{proof}
+\Fi1. The jumps are those of Lemma~\ref{lem:jumpsV} conjugated by $D_W^{\sigma_3}$, which has no jump off $[0,4c]$; on the band
+$D_{W,-}^{-\sigma_3}\bigl(\begin{smallmatrix}0&W_0\\-1/W_0&0\end{smallmatrix}\bigr)D_{W,+}^{\sigma_3}=J$ because $D_{W,+}D_{W,-}=W_0$;
+on the seams there is no jump by Lemma~\ref{lem:seam}(iv). The behaviour at $\infty$ is Lemma~\ref{lem:normalisation}.
+Boundedness of $v^{\pm1}$ (note $\det v=1$): on the band $v=J$; on the lips in $U(0,\delta)$ by Lemma~\ref{lem:szego}(vi)(a)
+and Lemma~\ref{lem:supersmall}; on the remaining arcs it follows from the bounds in~\Fi5 below, from
+Lemma~\ref{lem:szego}(vi)(b) in $U(4c,\eps)$, and from $\re\tvphi\le0$ on $(4c,4c+\eps)$, $\re\tvphi\ge0$ on $\Sigma_v$ near
+$4c$ (Lemma~\ref{lem:signs}(iv)). The arcs inside $\{\re z\le4c+1\}$ do not depend on $n$; the rest of $\Sigma$ consists of
+pieces of the three lines $\im z\in\{0,\pm h_0\}$ and the top segment. Hence $|\Sigma\cap U(z,\rho)|\le C\rho$. For the Cauchy
+operator, split $\Sigma=\Sigma_1\cup\Sigma_2\cup\Sigma_3$ according to $\re z\le4c+1$, $4c+1<\re z<4c+3$, $\re z\ge4c+3$
+($n\ge n_0$). The blocks between $\Sigma_1\cup\Sigma_2$ and itself are bounded because this curve is fixed and Carleson
+(\ref{tool:T3}). $\Sigma_2\cup\Sigma_3$ is contained in a translate of the fixed curve consisting of three horizontal half-lines
+ending on a vertical segment of length $2h_0$, and the Cauchy operator is translation invariant, so these blocks are bounded
+uniformly in $n$. The blocks between $\Sigma_1$ and $\Sigma_3$ have kernels bounded by $|s-z|^{-1}$ with $|s-z|\ge2$, and
+$\int_{\Sigma_1}\int_{\Sigma_3}|s-z|^{-2}|\diff s||\diff z|\le C$, so they are Hilbert--Schmidt with a uniform bound.
+
+\Fi2. This is~\eqref{eq:W0} and (O2)--(O4); the sectors lie in $\Zn$ because $\frac54\thlip<\thw$, and
+$|\log H_n-\log H_n(0^+)|\le C$ on $[1,4c+\eps]$ by (O4). The cancellation is~\eqref{eq:omega}.
+
+\Fi3. This is the construction of \S\ref{sec:frame-contour}.
+
+\Fi4. By Lemma~\ref{lem:supersmall}(a), (b), Lemma~\ref{lem:szego}(vi)(a) and $|e^{2n\varphi}|\le1$, every entry of $E$ is at most
+$C\exp(-\pi s_pn|z|^{-1/p})$.
+
+\Fi5. The properties of $P^\infty_0$ were shown above. We bound $|v-I|$ arc by arc, using Lemma~\ref{lem:szego}(vi)(c) for
+$\omega$ (all these arcs have distance $\ge d>0$ from $[0,4c]$, except the parts near $4c$, where (vi)(b) applies).
+\emph{Lips outside $U(0,\delta)$:} this part of the lips is compact and does not meet $[0,4c]$, so $\re\varphi\le-c'$ there
+(Lemma~\ref{lem:signs}(i)), $|\im\theta|\ge c'n$ (by~\eqref{eq:imtheta}, since $|\arg z|$ is bounded below and $|z|\le4c+h_0$),
+and $\re\tvphi\ge c'$ by the choice of the lips; so all entries of $v-I$ are $O(e^{-c'n})$. \emph{$\Sigma_v$ outside
+$U(4c,\eps)$:} $\re\tvphi\ge c'$. \emph{Saturated segment beyond $4c+\eps$:} $|e^{2n\tvphi}|=e^{2n(\gamma_p-U^*(x))}$ is at most
+$e^{-c'n}$ for $x\le x_0$ and at most $x^{-n}$ for $x\ge x_0$ (Lemma~\ref{lem:gfunction}(iii)), while
+$|\omega|\le\exp(C(1+\log(1+x))^2)$ and $\log x\le C\log n$; so $|v-I|\le Ce^{-c'n}$. \emph{$\Sigma^{\triangle\pm}$ and the top
+segment:} for $z=x\pm iy$ with $x>4c$, $\re g(z)\ge U^*(x)$, so $\re\varphi(z)\le\gamma_p-U^*(x)$, which is $\le-c'$ for
+$x\ge4c+\eps$ and $\le-\frac12\log x$ for $x\ge x_0$; near $x=4c$ the bound $\re\varphi\le-c'$ on $\Sigma^{\triangle\pm}$
+follows from Lemma~\ref{lem:signs}(i) by compactness. Moreover $|\im\theta(x\pm ih_0)|\ge c'h_0n\,x^{-1-1/p}$, so
+$|\kappa_\pm|\le Cn^p$ on these arcs (and on the top segment, where $t$ is close to $1$, $|1-e^{\mp2i\theta}|\ge c'n^{-p}$). With
+$|\omega|\le\exp(C\log^2n)$ this gives $|v-I|\le Cn^pe^{C\log^2n}e^{-c'n}\le Ce^{-c'n/2}$, and $\le Cn^{-pn/4}$ on the top segment.
+The statements about $\hat P_r$ are the construction~\eqref{eq:airy} above, with \ref{tool:T1}(c); (B2) and (B3) with
+$\mathcal P=I$ are the two descriptions of $M_{r,n}$ given there.
+
+\Fi6. Lemma~\ref{lem:signs}(i), (iii) and Lemma~\ref{lem:supersmall}(c); $f$ is built from $\mu^*$ alone.
+
+\Fi7. This is Proposition~\ref{prop:apriori} and Corollary~\ref{cor:L2} of Appendix~\ref{app:apriori}.
+
+\Fi8. The first statement is Lemma~\ref{lem:normalisation}. By Lemma~\ref{lem:interp}, $Uz^{-n\sigma_3}=I+U_1/z+\dots$ satisfies
+\eqref{eq:extractU}, and both functionals are invariant under $X\mapsto k_\infty^{-\sigma_3}Xk^{\sigma_3}$ for a scalar $k$
+analytic at $\infty$: the constant conjugation multiplies the $(1,2)$ and $(2,1)$ entries by reciprocal factors, and if
+$k/k_\infty=1+k_1/z+O(z^{-2})$, then right multiplication by $(k/k_\infty)^{\sigma_3}$ changes $(X_2)_{12}$ by
+$-k_1(X_1)_{12}$ and $(X_1)_{22}$ by $-k_1$, and leaves $(X_1)_{12}$, $(X_1)_{21}$ unchanged (Lemma~\ref{lem:invariance}).
+\end{proof}
+
+\noindent\emph{Remarks on the Frame Proposition.} (1) Everything in~\Fi1--\Fi8 that depends on the geometry is the
+outer scalar (through $H_n$ in~\Fi2), the lip angle $\thlip$ in~\Fi3, and the exponent in~\Fi4; the rest is literally the
+same for all $p>0$. (2) Neither $V$ nor $Q$ has a jump on $(-\infty,0)$, and the comparison parametrix of
+\S\ref{sec:hardedge} is built from $D_W$, which uses band values only. So nothing is ever continued across $(-\delta,0)$;
+this is why Remark~\ref{rem:quotient-p1} does not affect $p=1$. (3) For $\ell_1\equiv1$ we have $\Lambda\equiv0$, $r_n\equiv1$
+and $\eps_\Lambda\equiv0$; the proposition then describes the pure power $\sigma_{p,s}$.

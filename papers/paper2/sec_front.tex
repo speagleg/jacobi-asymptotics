@@ -1,0 +1,462 @@
+% sec_front.tex -- chunk A: title, abstract, \maketitle, Section 1 (Introduction).
+% Source comments (% src: ...) point to the repository and are removed before submission.
+% Labels defined here: sec:intro, sec:setting, sec:results, sec:context, sec:strategy, sec:organisation,
+%   eq:sigma, eq:jacobi, eq:cp, eq:law, eq:paper1-averaged, eq:osc, eq:smoothing, eq:rho, eq:strip, eq:epsLambda,
+%   eq:thetap, def:sv, def:smoothing, def:A, def:rate, thm:main, thm:pure, thm:shift, thm:engine, rem:main-*, rem:pure-*,
+%   rem:shift-*, rem:engine-scope, fig:dependency.
+% Labels used here but defined in other chunks (see NOTES.md, "Cross-chunk labels"): sec:prelim, sec:tools,
+%   sec:shift, sec:smoothing, sec:frame, sec:outer, sec:hardedge, sec:extraction, lem:potter, lem:smoothing,
+%   lem:saturation, prop:stability, prop:equilibrium, prop:frame, rem:quotient-p1, prop:UR-comparison,
+%   rem:alpha-ge-1, rem:base-window, app:L2, app:resolvent, app:apriori; sec:numerics, sec:further (chunk A, sec_back).
+
+\providecommand{\Ath}[1]{\textup{(A$_{#1}$)}}
+\providecommand{\ceil}[1]{\lceil #1\rceil}
+
+\title[Recurrence coefficients with slowly varying weights]{Recurrence coefficients of discrete measures with
+power-law atoms and slowly varying weights}
+\author{Gordon [surname] (draft)}
+\date{Draft of 14 October 2026}
+
+\begin{abstract}
+Let $\sigma=\sum_{k\ge1}k^{-s}\ell(k)\,\delta_{k^{-p}}$ with $p>0$, $s>1$ and $\ell$ slowly varying; its Jacobi
+matrix is a compact operator with eigenvalues $k^{-p}$. We prove that the recurrence coefficients satisfy
+$n^pb_n\to c(p)$ and $n^pa_n\to2c(p)$, where
+$c(p)=\frac14\bigl(\sqrt\pi\,\Gamma(1/p+1)/\Gamma(1/p+\frac12)\bigr)^p$ is the constant of the constrained
+equilibrium problem solved in a companion paper. This holds for every slowly varying $\ell$, including unbounded ones such as
+$\exp\sqrt{\log k}$. If $\ell$ extends analytically to a sector, the error is
+$O(1/n)$; for pure powers this gives $n^pb_n=c(p)(1+O(1/n))$ and $a_n/(2b_n)=1+O(1/n)$. The proof has three parts. A
+Riemann--Hilbert analysis of discrete orthogonal polynomials with nodes accumulating at a hard edge controls the
+non-analytic factor by a Conway--Deift comparison with a Bessel model instead of a local parametrix. A smoothing step
+reduces arbitrary to analytic slowly varying factors. The Christoffel transformation $\sigma\mapsto x\sigma$ shifts
+$s$ by $p$ and preserves the law together with its rate. In a further paper we show that bounded but rough weights
+can destroy the pointwise law.
+\end{abstract}
+% Word count of the abstract (pdftotext of the compiled page): about 200.
+
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+\subsection{Setting}\label{sec:setting}
+% src: OUTLINE.md §1.3 (story); papers/paper1/main.tex §1.
+A compact Jacobi operator is determined by its spectral measure. If its eigenvalues are $k^{-p}$ and its spectral
+weights decay like $k^{-s}$, how do its matrix entries behave? This paper answers the question pointwise, for every
+$p>0$ and $s>1$, and shows that the answer is stable when the weights are multiplied by an arbitrary slowly varying
+factor.
+
+Concretely, for $p>0$, $s>1$ and a sequence $\ell\colon\N\to(0,\infty)$ we study the discrete measure
+\begin{equation}\label{eq:sigma}
+  \sigma_{p,s,\ell}:=\sum_{k\ge1}k^{-s}\ell(k)\,\delta_{k^{-p}},\qquad \sigma_{p,s}:=\sigma_{p,s,1}.
+\end{equation}
+It lives on $(0,1]$ and has infinitely many atoms, which accumulate only at $0$. Let $P_n$ be its monic orthogonal
+polynomials and $h_n:=\int P_n^2\diff\sigma$. They satisfy the three-term recurrence
+\begin{equation}\label{eq:jacobi}
+  xP_n=P_{n+1}+a_nP_n+b_n^2P_{n-1}\qquad(n\ge0,\ b_0:=0,\ b_n>0),
+\end{equation}
+so that $b_n^2=h_n/h_{n-1}$. The numbers $a_n$ and $b_n$ are the diagonal and off-diagonal entries of the Jacobi
+matrix of $\sigma$. (The companion paper \cite{Paper1} writes $a_{n+1}$ for our $a_n$; the $b_n$ agree. See
+Section~\ref{sec:prelim}.)
+
+The constants that govern the answer come from \cite{Paper1}:
+\begin{equation}\label{eq:cp}
+  I(p):=\frac{\sqrt\pi}{2}\,\frac{\Gamma(\frac1p+\frac12)}{\Gamma(\frac1p+1)},\qquad
+  c(p):=\frac14\Bigl(\frac{\pi}{2I(p)}\Bigr)^{p}
+  =\frac14\Bigl(\frac{\sqrt\pi\,\Gamma(\frac1p+1)}{\Gamma(\frac1p+\frac12)}\Bigr)^{p}.
+\end{equation}
+For example $c(1)=\frac12$ and $c(2)=\pi^2/16$. The question is whether
+\begin{equation}\label{eq:law}
+  n^pb_n\longrightarrow c(p)\qquad\text{and}\qquad n^pa_n\longrightarrow2c(p)\qquad(n\to\infty).
+\end{equation}
+We call \eqref{eq:law} the \emph{pointwise law}.
+
+\emph{The averaged law.} The companion paper \cite{Paper1} proves \eqref{eq:law} on average. Its
+Corollary~1.2, specialised to the atoms $x_k=k^{-p}$, states: if the weights $w_k\ge0$ satisfy $\sum_kw_k<\infty$ and
+$w_k\ge c_1k^{-s'}$ for some constants $c_1>0$ and $s'\in\R$, then the recurrence coefficients of
+$\sum_kw_k\delta_{k^{-p}}$ satisfy
+\begin{equation}\label{eq:paper1-averaged}
+  \frac{2}{n^2}\sum_{j=1}^{n-1}(n-j)\log\bigl(j^pb_j\bigr)\longrightarrow\log c(p).
+\end{equation}
+The constant arises from an explicitly solvable constrained equilibrium problem \cite[Theorem~1.3]{Paper1}. Its
+solution $\mu^*$ is an average of arcsine laws, and it is exactly the zero distribution that a Jacobi matrix with
+entries $a_n\approx2b_n\approx2c\,n^{-p}$ would produce; the saturation condition of the equilibrium problem fixes
+$c=c(p)$ \cite[\S1.2]{Paper1}. So $c(p)$ is the value predicted for the pointwise law.
+
+\emph{Why the pointwise law is subtle.} The statement \eqref{eq:paper1-averaged} is a double Ces\`aro mean of
+$\log(j^pb_j)$. Passing from it to \eqref{eq:law} is a Tauberian step, and it needs a regularity of the sequence
+$j^pb_j$ that the averaged argument does not provide. That regularity must come from the weights. Indeed, the averaged
+law holds under the one-sided bound $w_k\ge c_1k^{-s'}$ alone, while the pointwise law can fail for weights that
+oscillate within a fixed factor of $k^{-s}$ (see the announcement in \S\ref{sec:context}). This paper shows that slow
+variation of the weights is enough.
+
+\subsection{Results}\label{sec:results}
+We use the following form of slow variation, which needs no measurability or representation theorem.
+
+\begin{definition}[slow variation]\label{def:sv}
+% src: research/G1/PROOF.md §3.14 (sequence form; §3.8/§3.9(i)).
+A sequence $\ell\colon\N\to(0,\infty)$ is \emph{slowly varying} if, for every $\lambda\ge1$,
+\begin{equation}\label{eq:osc}
+  \osc_n(\lambda):=\max\bigl\{\,|\log\ell(k)-\log\ell(n)|:\ k\in\N,\ n/\lambda\le k\le\lambda n\,\bigr\}
+  \longrightarrow0\qquad(n\to\infty).
+\end{equation}
+\end{definition}
+
+Equivalently, $\ell(k)/\ell(n)\to1$ uniformly for $k\in[n/\lambda,\lambda n]$, for every fixed $\lambda$; the case
+$\lambda=2$ already implies the others (Section~\ref{sec:prelim}). Examples are $(\log(k+1))^\beta$ with
+$\beta\in\R$, $\exp((\log k)^\theta)$ with $0<\theta<1$, and $\exp(\sqrt{\log k}\,\sin\log\log k)$ (for $k\ge3$, say).
+Neither boundedness nor monotonicity is required.
+
+The rate in our main theorem is measured by how well $\ell$ can be smoothed.
+
+\begin{definition}[smoothing error]\label{def:smoothing}
+% src: research/G1/RH/route2/ROUTE2.md §1 (RedA).
+Let $L_\ell\colon\R\to\R$ be the piecewise-linear interpolant of the points $(\log k,\log\ell(k))$, $k\ge1$, extended
+by the constant $\log\ell(1)$ on $(-\infty,0]$. Let $G(y):=e^{-y^2/2}/\sqrt{2\pi}$ and
+\begin{equation}\label{eq:smoothing}
+  \Lambda_\ell:=L_\ell*G,\qquad
+  \rho_\ell(m):=\sup_{k\ge m}\bigl|\log\ell(k)-\Lambda_\ell(\log k)\bigr|\qquad(m\ge1).
+\end{equation}
+\end{definition}
+
+The function $\Lambda_\ell$ is entire, and $\rho_\ell(m)\to0$ as $m\to\infty$ whenever $\ell$ is slowly varying
+(Lemma~\ref{lem:smoothing}).
+
+For the sharp rate we need an analytic extension of $\ell$ to a sector, written in the logarithmic variable
+$\xi=\log t$. For $\vartheta>0$ and $c_0>0$ put $S_\vartheta:=\{\xi\in\C:\ \Re\xi\ge-c_0,\ |\Im\xi|\le\vartheta\}$.
+
+\begin{definition}[analytic slowly varying factors]\label{def:A}
+% src: (H_an) ROUTE2.md §2 (p > 1, Rule R F4 domain); (H_an^{x1}) ROUTE2_xframe1.md §2 (p = 1);
+% (H_an^{<1}) ROUTE2_plt1.md §1 (p < 1). Not unified (OUTLINE §7 R9).
+Let $\vartheta>0$. A sequence $\ell$ satisfies \Ath{\vartheta} if $\ell(k)=\exp\Lambda(\log k)$ for all $k\ge1$,
+where, for some $c_0>0$, the function $\Lambda$ is analytic on $S_\vartheta$, real on $S_\vartheta\cap\R$, bounded on
+$S_\vartheta\cap\{\Re\xi\le0\}$, and
+\begin{equation}\label{eq:epsLambda}
+  \varepsilon_\Lambda(T):=\sup\bigl\{|\Lambda'(\xi)|:\ \xi\in S_\vartheta,\ \Re\xi\ge T\bigr\}\longrightarrow0
+  \qquad(T\to\infty).
+\end{equation}
+We use the half-width
+\begin{equation}\label{eq:thetap}
+  \vartheta_p:=\pi/p\quad\text{for }p>1,\qquad\vartheta_p:=\pi/2\quad\text{for }0<p\le1.
+\end{equation}
+\end{definition}
+
+In words, \Ath{\vartheta_p} asks that $\ell$ extend to an analytic function $\ell(t)=e^{\Lambda(\log t)}$ on the sector
+$|\arg t|\le\vartheta_p$ (for large $|t|$, and bounded near $t=1$), with $t\ell'(t)/\ell(t)\to0$ there. A sequence
+satisfying \Ath{\vartheta} is slowly varying, since $|\Lambda(\log k)-\Lambda(\log n)|\le\varepsilon_\Lambda(\log
+n-\log\lambda)\log\lambda$ for $n/\lambda\le k\le\lambda n$. The sequence $\ell(k)=\exp\sqrt{\log(k+e)}$ satisfies
+\Ath{\vartheta_p} for every $p>0$, because the branch points of $\Lambda(\xi)=\sqrt{\log(e^\xi+e)}$ lie on the lines
+$|\Im\xi|=\pi$. The smoothed function $\Lambda_\ell$ of any slowly varying $\ell$ satisfies \Ath{\vartheta} for every
+$\vartheta>0$ (Lemma~\ref{lem:smoothing}). For $p>1$ a further example is
+$\Lambda(\xi)=(\log(e^\xi+e))^\theta$ with $\theta<1$.
+% (The theta-example is stated for p > 1 only: the repository checks it there (ROUTE2 §2); OUTLINE §2.)
+
+Finally, $M_0=M_0(p)\ge4$ denotes an integer that depends only on $p$; it is fixed in
+Section~\ref{sec:smoothing} (Lemma~\ref{lem:saturation}) and marks the indices $k<n/M_0$ at which the spectral weights
+of $P_n$ are exponentially saturated.
+% src: PROOF.md §3.14 notation line, §3.3: M_0 is the least integer >= 4 with g_p^+ >= 1 on (0, 2/M_0].
+
+\begin{maintheorem}[main theorem]\label{thm:main}
+% src: THEOREMS.md §2.8; PROOF.md §3.21 Cor. B_all (p > 1), §3.20 Cor. B_{p<1}, §3.23 Cor. B_{p=1}^{all}
+% (with §3.19 B_{p=1}^+); rate (ii) in the re-ordered form (OUTLINE §0 item 5).
+Let $p>0$, $s>1$, and let $\ell\colon\N\to(0,\infty)$ be slowly varying. Let
+\[
+  \sigma=\sigma_{p,s,\ell}:=\sum_{k\ge1}k^{-s}\ell(k)\,\delta_{k^{-p}}.
+\]
+Then
+\begin{enumerate}
+\item[\textup{(i)}] $n^pb_n\to c(p)$ and $n^pa_n\to2c(p)$;
+\item[\textup{(ii)}] more precisely, $|n^pb_n-c(p)|+|n^pa_n-2c(p)|=O\bigl(1/n+\rho_\ell(\ceil{n/M_0})\bigr)$;
+\item[\textup{(iii)}] if $\ell$ satisfies \Ath{\vartheta_p}, then $n^pb_n=c(p)(1+O(1/n))$ and
+  $a_n/(2b_n)=1+O(1/n)$.
+\end{enumerate}
+Here $c(p)=\frac14(\pi/(2I(p)))^p=\frac14(\sqrt\pi\,\Gamma(1/p+1)/\Gamma(1/p+\frac12))^p$, with
+$I(p)=(\sqrt\pi/2)\Gamma(1/p+\frac12)/\Gamma(1/p+1)$. For example, $c(1)=\frac12$ and $c(2)=\pi^2/16$.
+\end{maintheorem}
+
+\begin{remark}\label{rem:main-finite}
+The measure is finite: by the Potter bounds (Lemma~\ref{lem:potter}), $\ell(k)\le C_\eta k^\eta$ for every $\eta>0$,
+so $\sum_kk^{-s}\ell(k)<\infty$. Thus $\sigma$ is a finite measure on $(0,1]$ with infinitely many atoms, and its
+Jacobi matrix is a compact operator with eigenvalues $k^{-p}$.
+\end{remark}
+
+\begin{remark}\label{rem:main-unbounded}
+No boundedness of $\ell$ is assumed. For example, the weights
+\[
+  k^{-s}\exp\sqrt{\log k}\qquad\text{and}\qquad k^{-s}\exp\bigl(\sqrt{\log k}\,\sin\log\log k\bigr)\quad(k\ge3)
+\]
+are covered. The second one is not even eventually comparable with any fixed power of $\log k$.
+\end{remark}
+
+\begin{remark}\label{rem:main-rate}
+Part (iii) bounds the deviation from $c(p)$ at order $1/n$, but it does not identify the $1/n$ term. In particular we
+do not claim that the slowly varying factor changes $b_n$ only by a relative $o(1/n)$, and we do not determine its
+effect at order $1/n$. A conjecture, supported by numerics, is formulated in \S\ref{sec:further}.
+\end{remark}
+
+\begin{remark}\label{rem:main-averaged}
+The averaged law \eqref{eq:paper1-averaged} holds for much rougher weights. Theorem~\ref{thm:main} is the pointwise
+statement, and \S\ref{sec:context} explains why some regularity of the weights is necessary for it.
+\end{remark}
+
+For pure powers the rate is the sharp one.
+
+\begin{maintheorem}[pure powers, with rate]\label{thm:pure}
+% src: THEOREMS.md H2 (RH_1(r), RH_p, RH_p seam). In the paper: Theorem 4 at Lambda = 0, plus Theorem 3.
+For every $p>0$ and $s>1$ the measure $\sigma_{p,s}:=\sum_{k\ge1}k^{-s}\delta_{k^{-p}}$ satisfies
+\[
+  n^pb_n=c(p)\bigl(1+O(1/n)\bigr),\qquad a_n/(2b_n)=1+O(1/n).
+\]
+Equivalently, $|n^pb_n-c(p)|+|n^pa_n-2c(p)|=O(1/n)$.
+\end{maintheorem}
+
+\begin{remark}[a classical instance]\label{rem:pure-lommel}
+% src: novelty_G1RH.md §1.3 (Van Assche math/9510214 §3, quoted there); checks/lommel_check.py, .out.
+For $(p,s)=(2,2)$ the coefficients are explicit, and Theorem~\ref{thm:pure} can be checked directly. Van Assche
+\cite[\S3]{VA} records that the Lommel polynomials $h_{n,\nu}$ satisfy $h_{n+1,\nu}(x)=2x(n+\nu)h_{n,\nu}(x)-h_{n-1,\nu}(x)$,
+that their orthonormal versions have the coefficients $a_n=0$ and $\lambda_n=[4(n+\nu)(n+\nu-1)]^{-1}$, and that the
+spectrum is the closure of $\{1/j_{k,\nu-1}\}$, the $j_{k,\nu-1}$ being the zeros of $J_{\nu-1}$. For $\nu=\frac32$
+these zeros are $\pm\pi k$. Passing from this symmetric measure to its image under $y\mapsto\pi^2y^2$ (the usual
+quadratic transformation) leads to
+\[
+  b_n=\frac{\pi^2}{(4n+1)\sqrt{(4n-1)(4n+3)}},\qquad a_n=\frac{2\pi^2}{(4n+1)(4n+5)}\qquad(n\ge1)
+\]
+for $\sigma_{2,2}$. We have confirmed numerically that these values agree with the coefficients of $\sigma_{2,2}$
+computed from the Hankel determinants of its moments $\zeta(2j+2)$ (to $90$ digits for $n\le9$); we have not checked
+the identification of the masses against a source. They give $n^2b_n/c(2)=1-\frac1{2n}+O(n^{-2})$ and
+$a_n/(2b_n)=1-\frac1n+O(n^{-2})$, in agreement with Theorem~\ref{thm:pure}.
+\end{remark}
+
+\begin{remark}[Hankel determinants of zeta values]\label{rem:pure-zeta}
+% src: Paper 1 Corollary 1.4; novelty_G1RH.md §1.2.
+For $a>0$ and $2a+b>1$ the measure $\sigma_{a,2a+b}$ has moments $\int x^j\diff\sigma_{a,2a+b}=\zeta(aj+2a+b)$, so
+its Hankel determinants are $\det_{1\le i,j\le n}\zeta(a(i+j)+b)$ \cite[Corollary~1.4]{Paper1}. Theorem~\ref{thm:pure}
+therefore gives $n^ab_n=c(a)(1+O(1/n))$ for the recurrence coefficients behind these determinants. For $a=1$ Monien
+\cite{Monien} reports a full asymptotic expansion of the determinants, obtained numerically by D.~Zagier; it goes
+beyond Theorem~\ref{thm:pure} but is not proved.
+\end{remark}
+
+\begin{remark}[where $c(p)$ comes from]\label{rem:pure-constant}
+The equilibrium measure $\mu^*$ of \cite{Paper1} is supported on $(0,\infty)$ and coincides with the node density on
+$[4c(p),\infty)$ (it is \emph{saturated} there); its unconstrained part is the band $(0,4c(p))$
+(Proposition~\ref{prop:equilibrium}). After rescaling by $n^p$, the Riemann--Hilbert analysis sees a band of length
+$4c(p)$, and a band of length $\beta$ produces off-diagonal entries close to $\beta/4$.
+\end{remark}
+
+The third result is elementary, and it is the reason why the analytic part of the proof only has to cover a window of
+exponents $s$. A sequence $\eta_n>0$ is a \emph{regular rate} if $\eta_n$ is non-increasing, $n\eta_n$ is non-decreasing,
+and $\eta_n\to0$; for example $\eta_n=1/n$.
+% src: ROUTE2_alpha.md §4.
+
+\begin{maintheorem}[Christoffel shift: law and rate]\label{thm:shift}
+% src: PROOF.md §3.21 (Theorems SH and SH-r; Lemmas CP, CT, CS, CS-r); ROUTE2_alpha.md §§2-4.
+Let $\sigma$ be a positive Borel measure on $[0,\infty)$ with infinite support and finite moments, let $p>0$ and
+$c>0$, and let $\eta_n$ be a regular rate. If
+\[
+  |n^pa_n(\sigma)-2c|+|n^pb_n(\sigma)-c|=O(\eta_n),
+\]
+then the measure $x\sigma$ \textup{(}$\diff(x\sigma):=x\diff\sigma(x)$\textup{)} satisfies the same estimate, with
+the same $c$ and rate $O(\eta_n)$. Without a rate: if $n^pa_n(\sigma)\to2c$ and $n^pb_n(\sigma)\to c$, then the same
+holds for $x\sigma$. For $x_k=k^{-p}$ one has exactly $x\cdot\sigma_{p,s,\ell}=\sigma_{p,s+p,\ell}$.
+\end{maintheorem}
+
+\begin{remark}\label{rem:shift-credit}
+The Jacobi matrix of $x\sigma$ is obtained from that of $\sigma$ by factorising $J=LU$ and reversing the factors; these
+transfer formulas are classical \cite[\S1]{DD}. The factors are governed by a chain sequence, and the statement
+without rate follows from a proposition of Dai, Piao and Qiao \cite[Proposition~2.1]{DPQ} together with those formulas.
+The part with a rate is the one that matters here: it lets the rate $O(1/n)$ survive the shift. The parameter
+sequence of the chain converges only at the rate $O(\sqrt{\eta_n})$ in general, and this is sharp; the coefficients of
+$x\sigma$ involve only its increments, which are $O(\eta_n)$ (Section~\ref{sec:shift}). We have not found the rate
+statement in the literature.
+\end{remark}
+
+\begin{remark}\label{rem:shift-converse}
+% src: PROOF.md §3.19 Lemma CT_1 "<=" with Lemma D(b); novelty_lineB_A.md §2.
+Conversely, without rate: if $x\sigma$ satisfies \eqref{eq:law} (with any $c>0$ in place of $c(p)$), so does
+$\sigma$. In particular the pointwise law is insensitive to a point mass at $0$. This direction is also a consequence
+of \cite[Proposition~2.1]{DPQ}, which applies to every parameter sequence of a chain sequence
+(Section~\ref{sec:shift}).
+\end{remark}
+
+\subsection{Context}\label{sec:context}
+% src: research/program/novelty_lineB_A.md, novelty_lineB_B.md, novelty_G1RH.md; RESEARCH_PROGRAM.md §§1, 6.
+\emph{Averaged versus pointwise.} The averaged law \eqref{eq:paper1-averaged} is a statement about $\log D_n$, the
+logarithm of the Hankel determinant, at order $n^2$, and it is proved in \cite{Paper1} by a discretised equilibrium
+problem. Such arguments are insensitive to bounded perturbations of the weights: multiplying $w_k$ by factors in
+$[e^{-\varepsilon},e^{\varepsilon}]$ changes $\log D_n$ by at most $\varepsilon n$. They therefore cannot yield
+\eqref{eq:law}, which is sensitive to such perturbations (see the announcement below).
+
+\emph{Riemann--Hilbert analysis of discrete orthogonal polynomials.} The Riemann--Hilbert (RH) approach to discrete
+orthogonal polynomials was developed by Baik, Kriecherbauer, McLaughlin and Miller \cite{BKMM} for measures on finite
+node sets in a bounded interval, with real-analytic node density and potential; their analysis includes saturated
+regions, which also appear here. Within the literature we have read, the only Riemann--Hilbert analysis of discrete orthogonal
+polynomials on infinitely many nodes accumulating at a finite point is that of Wu, Lin, Xu and Zhao \cite{WLXZ}, for
+the Tricomi--Carlitz polynomials; our frame follows theirs. Dai and Yao make the same observation about the
+literature \cite[\S1]{DY}.
+% TODO(citation gate): Dai--Yao quoted only via novelty_G1RH.md §2; re-read before submission (OUTLINE §5, §1.3(b)).
+
+\emph{Non-analytic weights.} Our weights are not analytic at the hard edge, and the standard local parametrix does not
+exist there. The same difficulty was met by Conway and Deift \cite{CD} for the weight $\log\frac{2k}{1-x}$ on
+$(-1,1)$, which carries a slowly varying factor at the endpoint $x=1$. They write that ``there is no known parametrix
+for the Riemann--Hilbert problem in a neighborhood of the logarithmic singularity at $x=1$'', and they compare the
+problem with the Legendre problem through the operator theory behind RH problems instead of through a quotient.
+The comparison argument in Section~\ref{sec:hardedge} is that of Conway and Deift \cite[Theorem~4.7 and
+Proposition~4.9]{CD}. What we add is a comparison model built from the Szeg\H{o} function of the full weight, a uniform
+resolvent bound for a Bessel edge of any order $|\alpha|<1$, and the treatment of an arbitrary slowly varying factor.
+Deift and Piorkowski \cite{DP} extended the analysis of \cite{CD} to the weight $\log\frac{2}{1-x}$ and note that, for a
+comparison with a weight that has a simple zero at the endpoint, ``the crucial Theorem~4.7 in [4] requires a different
+proof'' ([4] being \cite{CD}); this is consistent with our restriction to Bessel orders $|\alpha|<1$
+(Remark~\ref{rem:alpha-ge-1}). Other approaches to non-analytic weights are Piorkowski's parametrix-free method, which
+needs an a priori estimate for the exact solution \cite{Pio}, the $\bar\partial$ methods of McLaughlin and Miller
+\cite{MM} and of Trogdon \cite{Tro}, which assume a finite number of Lipschitz derivatives of the weight (for
+\cite{Tro}, $C^{k,1}$ regularity up to the endpoints of the support), and the
+approximation of a smooth symbol by analytic ones in Deift, Its and Krasovsky \cite[\S6.2]{DIK}. Our reduction from
+arbitrary to analytic slowly varying factors (Section~\ref{sec:smoothing}) is of the last kind, but the approximation
+error is controlled outside the RH analysis.
+
+\emph{Recurrence asymptotics without analyticity.} For exponential weights $W=e^{-Q}$, Levin and Lubinsky
+\cite{LL} prove $o(1)$ asymptotics of the recurrence coefficients, with constants given by equilibrium quantities, under
+regularity conditions that do not involve analyticity, and without RH methods. Theorem~\ref{thm:main} is an analogue
+for compact Jacobi operators. We have not found Theorem~\ref{thm:main} in the literature, even for bounded $\ell$. The
+closest results we know concern continuous weights on an interval \cite{CD,DP,Pio,Tro,MM} or exponential weights
+\cite{LL}.
+
+\emph{Special cases.} For $(p,s)=(2,2)$ the coefficients are explicit (Lommel polynomials,
+Remark~\ref{rem:pure-lommel}). The measures $\sigma_{a,2a+b}$ produce the Hankel determinants of zeta values studied by
+Monien \cite{Monien} and by Haynes and Zudilin \cite{HaynesZudilin} (Remark~\ref{rem:pure-zeta}). The orthogonality
+measure of the Tricomi--Carlitz polynomials is supported on $\{\pm1/\sqrt{k+\alpha}\}$ \cite[\S3]{VA}; in the squared
+variable its atoms are $1/(k+\alpha)$, so it is an instance of $p=1$ with weights that are not pure powers. For it the
+recurrence coefficients are explicit \cite[\S3]{VA}, and \cite{WLXZ} obtain uniform asymptotics of the polynomials.
+
+\emph{Rough weights.} Slow variation cannot be replaced by boundedness. In a further paper \cite{Paper3} we show the
+following. For every $p>0$ and $s>1$ there is $\varepsilon_0>0$ such that, for every $\varepsilon\in(0,\varepsilon_0]$,
+there are weights $w_k=k^{-s}e^{f(k)}$ with $|f(k)|\le\varepsilon$ for which $n^pb_n$ does not converge, and weights of
+the same kind for which $n^pa_n$ does not converge. The averaged law \eqref{eq:paper1-averaged} holds for all of them.
+Together with Theorem~\ref{thm:main} this gives a dichotomy: the pointwise law is stable under slowly varying
+perturbations of the weights, of any size, and unstable under rough ones, however small.
+% src: THEOREMS.md H4 Theorem R (b-law), §2.6 Theorem Ra (a-law). No constants; not "the same weights break both".
+
+\subsection{Strategy of the proof}\label{sec:strategy}
+The proof has a soft part and a hard part. The soft part (Sections~\ref{sec:shift} and~\ref{sec:smoothing}) is
+elementary and self-contained; it reduces Theorem~\ref{thm:main} to the following statement, which is the technical
+core of the paper.
+
+\begin{maintheorem}[the Riemann--Hilbert engine: analytic factor, base window]\label{thm:engine}
+% src: ROUTE2.md §4.4 Theorem RII (p > 1); ROUTE2_xframe1.md §4 Theorem RII_x1 (p = 1, 1 < r < 3, incl. alpha = 0);
+% ROUTE2_plt1.md §4.3 Theorem RII_{<1} (0 < p < 1).
+Let $p>0$ and $1<s<1+2p$, i.e.\ $\alpha:=(s-1-p)/p\in(-1,1)$. Let $\ell_1$ satisfy \Ath{\vartheta_p}. Then
+$\sigma_{p,s,\ell_1}$ satisfies
+\[
+  n^pb_n=c(p)\bigl(1+O(1/n)\bigr),\qquad a_n/(2b_n)=1+O(1/n).
+\]
+\end{maintheorem}
+
+\begin{remark}[what is, and is not, proved about the slowly varying part]\label{rem:engine-scope}
+% src: ROUTE2 Theorem RII, "What is proved ..." (REVIEW_Plan48 F3); OUTLINE §7 R2.
+The proof compares the true problem with an exactly solvable comparison problem. Relative to the comparison problem,
+the non-analytic part of $\ell_1$ moves the first two coefficients at infinity by $O(\varepsilon'_n/n)$, where
+$\varepsilon'_n\to0$ (Section~\ref{sec:hardedge}). The comparison problem itself depends on $\ell_1$ at order $1/n$.
+So no claim is made that $b_n(\sigma_{p,s,\ell_1})/b_n(\sigma_{p,s})-1=O(\varepsilon_\Lambda/n)$; the $O(1/n)$ of
+Theorem~\ref{thm:engine} is absolute, not relative.
+\end{remark}
+
+\emph{From Theorem~\ref{thm:engine} to Theorems~\ref{thm:main} and~\ref{thm:pure}.} Write $s=s_0+mp$ with
+$s_0\in(1,1+2p)$ and an integer $m\ge0$; this is possible because the window $(1,1+2p)$ has length $2p>p$.
+Theorem~\ref{thm:engine} at $s_0$ and $m$ applications of Theorem~\ref{thm:shift} with $\eta_n=1/n$ give the law with
+rate $O(1/n)$ for every analytic factor and every $s>1$. This is Theorem~\ref{thm:main}(iii), and with $\ell\equiv1$ it
+is Theorem~\ref{thm:pure}. For a general slowly varying $\ell$ we apply this to the analytic factor
+$\ell_1:=\exp\Lambda_\ell(\log\cdot)$ and compare: a multiplicative perturbation $\ell/\ell_1\to1$ of the weights
+changes $\log b_n^2$ and $n^pa_n$ by at most a constant times the supremum of $|\log(\ell/\ell_1)|$ over the indices
+$k\ge n/M_0$, where the spectral weight of $P_n$ lives, up to an exponentially small contribution from the head
+$k<n/M_0$ (Proposition~\ref{prop:stability}). This gives Theorem~\ref{thm:main}(ii), and (i) follows.
+
+\emph{Why the window $|\alpha|<1$.} Near the accumulation point $0$ the measure looks like a continuous weight: the
+nodes $x_k=k^{-p}$ have density $\frac1px^{-1-1/p}$, and the mass per unit length near $x$ is
+$k^{-s}\cdot\frac1px^{-1-1/p}=\frac1px^{\alpha}$ with $x=k^{-p}$. In the RH analysis $0$ becomes a hard edge with Bessel
+order $\alpha=(s-1-p)/p$. Our comparison argument works for $|\alpha|<1$ and fails for $\alpha\ge1$
+(Remark~\ref{rem:alpha-ge-1}). Multiplication by $x$ raises $\alpha$ by $1$, and Theorem~\ref{thm:shift} carries the
+law and its rate across. For $s>1+p/2$ one can even choose $s_0$ with $|\alpha|\le\frac12$; the case $\alpha=0$ cannot be
+avoided in general (Remark~\ref{rem:base-window}).
+
+\emph{The frame.} After rescaling $z\mapsto n^pz$ the nodes $(n/k)^p$ fill $(0,n^p]$. The equilibrium measure $\mu^*$
+of \cite{Paper1} governs the $n$-th root behaviour: on the band $(0,4c(p))$ the polynomials oscillate, on the saturated
+region $(4c(p),n^p)$ the zero distribution coincides with the node density, and $4c(p)$ is a soft edge with an
+Airy parametrix. Near $0$ the band meets infinitely many nodes. We set up the discrete interpolation problem and its
+first transformations as Wu, Lin, Xu and Zhao do \cite{WLXZ}, in the one-sided variable $x$ (Section~\ref{sec:frame}).
+What depends on $p$ is the outer scalar function that removes the Gamma-function growth of the node masses: the index
+function $t(z)=nz^{-1/p}$ maps the slit plane onto the sector $|\arg t|<\pi/p$, which lies inside, exactly fills, or
+exceeds the sector $|\arg t|<\pi$ where Stirling's formula holds, according as $p>1$, $p=1$ or $p<1$.
+Section~\ref{sec:outer} treats the three cases in turn and ends with a Frame Proposition (Proposition~\ref{prop:frame}),
+which is the only interface between the frame and the hard edge.
+
+\emph{The hard edge, and why a local parametrix fails.} The slowly varying factor enters the band weight through
+$r_n(z):=\ell_1(nz^{-1/p})/\ell_1(n)$. This function is analytic off $(-\infty,0]$, but it is not analytic at $0$, and it
+is not of Fisher--Hartwig type. The standard Bessel parametrix needs a square root of the band weight continued across
+$(-\delta,0)$. Any such continuation jumps across $(-\delta,0)$ by a factor $1+O(\varepsilon_\Lambda)$, with no rate in
+$n$. Conjugated by the Bessel model at the scale $|z|\asymp n^{-2}$, this jump becomes of size
+$O(n\varepsilon_\Lambda)$, which is not small. A Bessel order that drifts with $n$ removes only the leading,
+power-like part of the factor. So a quotient (small-norm) argument fails.
+% src: ROUTE2 §2, last paragraph.
+
+\emph{The remedy.} Following Conway and Deift, we build the Bessel parametrix from the Szeg\H{o} function $D_W$ of the
+whole band weight, the slowly varying factor included. This function has no jump on $(-\delta,0)$, so the comparison
+problem is exactly solvable. The error moves to the lips of the lens, where the jump of the true problem differs from
+that of the comparison problem by an amount that is small in the supremum norm but has no rate. Such smallness is
+exactly what a Neumann series around the comparison resolvent needs, once that resolvent is bounded uniformly in $n$
+(Proposition~\ref{prop:UR-comparison}; this is where $|\alpha|<1$ is used, Appendix~\ref{app:resolvent}). Finally
+$e^{2n\phi}$ confines the mismatch to $|z|\lesssim n^{-2}$, up to a tail, and this Bessel localisation supplies the
+factor $1/n$.
+
+\emph{What is new relative to Conway--Deift.} The weight factor is an arbitrary analytic slowly varying function rather
+than one explicit logarithm; the Bessel order is any $\alpha\in(-1,1)$ rather than the Legendre value $\alpha=0$; the
+comparison model is an explicit parametrix rather than a second orthogonality problem; and the problem is discrete,
+with nodes accumulating at the hard edge. The key estimate for the slowly varying factor is a scale-invariant path
+integral of $\Lambda'$ (Section~\ref{sec:hardedge}).
+
+Figure~\ref{fig:dependency} shows how the parts fit together.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw,rounded corners=2pt,align=center,font=\footnotesize,inner sep=3pt,text width=3.5cm,
+    minimum height=1.05cm},
+  res/.style={box,fill=black!6,thick},
+  arr/.style={-{Stealth[length=2mm]}},
+  lab/.style={font=\scriptsize,align=center}]
+  \node[box] (P1) at (0,0) {Paper 1: equilibrium measure $\mu^*$, band $[0,4c(p)]$};
+  \node[box] (FR) at (0,-1.6) {\S\S5--6: frame, outer scalar in three geometries, Frame Proposition};
+  \node[box] (HE) at (0,-3.2) {\S7: hard edge; comparison with a Bessel model, $|\alpha|<1$};
+  \node[res] (T4) at (0,-4.8) {\S8: Theorem~\ref{thm:engine}\\ (analytic $\ell_1$, $1<s<1+2p$)};
+  \node[box] (TL) at (5.9,-1.6) {Tools: discrete RH frame \cite{WLXZ}, Bessel model \cite{KMVV}, comparison \cite{CD}};
+  \node[box] (AN) at (5.9,-4.8) {analytic $\ell_1$, every $s>1$,\\ rate $O(1/n)$};
+  \node[res] (T2) at (11.8,-3.2) {Theorem~\ref{thm:pure}\\ ($\ell\equiv1$)};
+  \node[res] (T1) at (11.8,-4.8) {Theorem~\ref{thm:main}\\ (any slowly varying $\ell$)};
+  \draw[arr] (P1) -- (FR);
+  \draw[arr] (FR) -- (HE);
+  \draw[arr] (HE) -- (T4);
+  \draw[arr] (TL) -- (FR);
+  \draw[arr] (TL.south) |- (HE.east);
+  \draw[arr] (T4) -- node[lab,above]{\S3: shift} node[lab,below]{Thm.~\ref{thm:shift}} (AN);
+  \draw[arr] (AN) -- node[lab,above]{\S4: smoothing} node[lab,below]{and stability} (T1);
+  \draw[arr] (AN.north east) -- node[lab,above left]{$\ell\equiv1$} (T2.west);
+\end{tikzpicture}
+\caption{Structure of the proof. Sections~\ref{sec:shift} and~\ref{sec:smoothing} are elementary and reduce
+Theorems~\ref{thm:main} and~\ref{thm:pure} to Theorem~\ref{thm:engine}, which is proved in
+Sections~\ref{sec:frame}--\ref{sec:extraction}.}
+\label{fig:dependency}
+\end{figure}
+
+\subsection{Organisation}\label{sec:organisation}
+Section~\ref{sec:prelim} fixes conventions, proves two facts about slowly varying sequences, quotes the input from
+\cite{Paper1} (only parts (i) and (ii) of its Theorem~1.3 are used), and states the external tools with their
+hypotheses. Section~\ref{sec:shift} proves Theorem~\ref{thm:shift}. Section~\ref{sec:smoothing} reduces arbitrary
+slowly varying factors to analytic ones and proves Theorems~\ref{thm:main} and~\ref{thm:pure}, assuming
+Theorem~\ref{thm:engine}. Sections~\ref{sec:frame}--\ref{sec:extraction} prove Theorem~\ref{thm:engine}: the common
+frame (Section~\ref{sec:frame}), the outer scalar function in the three geometries $p>1$, $p=1$ and $p<1$
+(Section~\ref{sec:outer}), the comparison at the hard edge (Section~\ref{sec:hardedge}), and the extraction of $a_n$ and
+$b_n$ (Section~\ref{sec:extraction}). Section~\ref{sec:numerics} illustrates the results numerically, and
+Section~\ref{sec:further} collects remarks and open problems. The appendices contain two $L^2$ bounds on a star of arcs
+(Appendix~\ref{app:L2}), the proof of the uniform resolvent bound (Appendix~\ref{app:resolvent}) and the a priori bound
+at the hard edge (Appendix~\ref{app:apriori}). A reader who is mainly interested in the Riemann--Hilbert analysis can
+start at Section~\ref{sec:frame}, with the statement of Theorem~\ref{thm:engine} in hand.
+
+Throughout, $p>0$ is fixed, $C,C'$ denote positive constants that may change from line to line (never $c$, which is
+reserved for $c(p)$), and $n$ is the degree.

@@ -1,0 +1,106 @@
+% ============================================================================================================
+% Section 8 (chunk D): extraction; proof of Theorem 4 (thm:engine).
+% Labels defined: sec:extraction, lem:invariance, eq:ex-functionals, rem:why-c.
+% Uses: eq:Y-solution, eq:Y-extract (chunk B, sec_2), prop:frame (F8) (chunk C), prop:moments (sec_7).
+% ============================================================================================================
+\providecommand{\Pinfz}{P^\infty_0}
+\providecommand{\Fi}[1]{\textup{(F#1)}}
+
+\section{Extraction: proof of Theorem~\ref{thm:engine}}\label{sec:extraction}
+% src: RH_px.md §5 "Extraction" (invariance lemma); ROUTE2.md §4.4; ROUTE2_xframe1.md §4; ROUTE2_plt1.md §4.3;
+% REVIEW_Plan48 F6 (only finiteness of D_W's 1/z coefficient is needed).
+
+The recurrence coefficients are read off from the first two coefficients at infinity. For a matrix function $X$ that is
+analytic near infinity with
+\[
+  X(z)=I+\frac{X_1}z+\frac{X_2}{z^2}+O(z^{-3})\qquad(z\to\infty)
+\]
+we put
+\begin{equation}\label{eq:ex-functionals}
+  \Pi(X):=(X_1)_{12}(X_1)_{21},\qquad \mathsf a(X):=\frac{(X_2)_{12}}{(X_1)_{12}}-(X_1)_{22}
+\end{equation}
+(the second whenever $(X_1)_{12}\ne0$; this is the functional of \eqref{eq:functional-a}). By \eqref{eq:Y-extract}
+(see also Lemma~\ref{lem:interp}), the matrix $Y$ of degree $n$ in \eqref{eq:Y-solution} satisfies $\Pi(Yz^{-n\sigma_3})=b_n^2$ and $\mathsf a(Yz^{-n\sigma_3})=a_n$. We stress the indexing, since it matters for any
+statement about the $1/n$ terms: both functionals come from the \emph{same} matrix of degree $n$, $a_n$ is the
+coefficient of $P_n$ in $xP_n$, and $b_n^2=h_n/h_{n-1}$ couples $P_{n-1}$ and $P_n$, as in \eqref{eq:rec-monic}. So the
+ratio $a_n/(2b_n)$ in Theorem~\ref{thm:engine} pairs the diagonal entry at $P_n$ with the off-diagonal entry between
+$P_{n-1}$ and $P_n$.
+
+\begin{lemma}[invariance of the extraction functionals]\label{lem:invariance}
+% src: RH_px.md §5 "Extraction", invariance lemma.
+\begin{enumerate}
+\item[(i)] Let $X=I+X_1/z+X_2/z^2+O(z^{-3})$, and let $k$ be a scalar function, analytic and non-zero near infinity,
+  with $k(z)=k_\infty\bigl(1+k_1/z+k_2/z^2+O(z^{-3})\bigr)$, $k_\infty\ne0$. Then $\hat X:=k_\infty^{-\sigma_3}Xk^{\sigma_3}$
+  satisfies $\hat X\to I$, $\Pi(\hat X)=\Pi(X)$ and $\mathsf a(\hat X)=\mathsf a(X)$. Conversely, if $C$ is a constant matrix and
+  $CXk^{\sigma_3}\to I$, then $C=k_\infty^{-\sigma_3}$.
+\item[(ii)] \textup{(}\eqref{eq:extractU}\textup{)} Let $U(z)=n^{pn\sigma_3}Y(z/n^p)$. Then $\Pi(Uz^{-n\sigma_3})=n^{2p}b_n^2$ and $\mathsf a(Uz^{-n\sigma_3})=n^pa_n$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Put $Z_j:=k_\infty^{-\sigma_3}X_jk_\infty^{\sigma_3}$; then $(Z_j)_{12}=k_\infty^{-2}(X_j)_{12}$,
+$(Z_j)_{21}=k_\infty^2(X_j)_{21}$, and the diagonal entries are unchanged. Since
+$k^{\sigma_3}=k_\infty^{\sigma_3}\,\mathrm{diag}\bigl(1+k_1z^{-1}+k_2z^{-2},\,1-k_1z^{-1}+(k_1^2-k_2)z^{-2}\bigr)+O(z^{-3})$,
+\[
+  \hat X_1=Z_1+k_1\sigma_3,\qquad \hat X_2=Z_2+Z_1\,\mathrm{diag}(k_1,-k_1)+\mathrm{diag}(k_2,k_1^2-k_2).
+\]
+Hence $(\hat X_1)_{12}(\hat X_1)_{21}=(Z_1)_{12}(Z_1)_{21}=\Pi(X)$, and with $(\hat X_2)_{12}=(Z_2)_{12}-k_1(Z_1)_{12}$ and
+$(\hat X_1)_{22}=(X_1)_{22}-k_1$,
+\[
+  \mathsf a(\hat X)=\frac{(Z_2)_{12}}{(Z_1)_{12}}-k_1-(X_1)_{22}+k_1=\frac{(X_2)_{12}}{(X_1)_{12}}-(X_1)_{22}=\mathsf a(X).
+\]
+If $CXk^{\sigma_3}\to I$ then $Ck_\infty^{\sigma_3}=I$.
+
+(ii) With $x=z/n^p$ we have $z^{-n\sigma_3}=x^{-n\sigma_3}n^{-pn\sigma_3}$, so
+$Uz^{-n\sigma_3}=n^{pn\sigma_3}\bigl(Y(x)x^{-n\sigma_3}\bigr)n^{-pn\sigma_3}=I+n^p\,n^{pn\sigma_3}Y_1n^{-pn\sigma_3}z^{-1}
++n^{2p}\,n^{pn\sigma_3}Y_2n^{-pn\sigma_3}z^{-2}+O(z^{-3})$, where $Y_1,Y_2$ are the coefficients of $Yx^{-n\sigma_3}$. The
+conjugation by $n^{pn\sigma_3}$ cancels in $\Pi$ and in the quotient defining $a$, so
+$\Pi(Uz^{-n\sigma_3})=n^{2p}\Pi(Yx^{-n\sigma_3})=n^{2p}b_n^2$ and $\mathsf a(Uz^{-n\sigma_3})=n^p\mathsf a(Yx^{-n\sigma_3})=n^pa_n$ by
+\eqref{eq:Y-extract}.
+\end{proof}
+
+All transformations of Sections~\ref{sec:frame} and~\ref{sec:outer} act, in a neighbourhood of infinity, by a constant
+diagonal matrix on the left and by $k^{\sigma_3}$ on the right, where $k$ is a scalar analytic and non-zero at infinity:
+the product of $z^{n}$, the outer scalar, the factor $e^{-n(g-\log z)}$ (whose combination is analytic at infinity,
+Section~\ref{sec:outer}), and $D_W/D_\infty$. Lemma~\ref{lem:invariance} therefore gives the extraction identities \Fi{8},
+\[
+  (Q_1)_{12}(Q_1)_{21}=n^{2p}b_n^2,\qquad \mathsf a(Q)=n^pa_n .
+\]
+Only the existence of the expansion of $k$ at infinity is used, for each fixed $n$; no uniformity in $n$ is needed. For
+the factor $D_W/D_\infty$ this is the finiteness of the $1/z$ coefficient of $\log D_W$, which by \eqref{eq:he-szego} is
+an integral of $\log W_0$ against a bounded multiple of $\diff x/\sqrt{x(4c-x)}$; it is finite because
+$|\log r_n(x)|\le C_n(1+|\log x|)$ and $\log H_n$ is bounded on $(0,4c]$.
+
+\begin{proof}[Proof of Theorem~\ref{thm:engine}]
+% src: ROUTE2.md §4.4; ROUTE2_xframe1.md §4; ROUTE2_plt1.md §4.3.
+Let $p>0$, $1<s<1+2p$ and let $\ell_1$ satisfy \textup{(A$_{\vartheta_p}$)}. For $n\ge n_1$, Proposition~\ref{prop:moments}
+gives $Q_1=P_1+O(1/n)$ and $Q_2=P_2+O(1/n)$, where $P_1,P_2$ are the coefficients of the global parametrix
+\eqref{eq:he-Pinf}. We compute them. With $a(z)=(1-4c/z)^{1/4}$,
+\[
+  a=1-\frac cz-\frac{3c^2}{2z^2}+O(z^{-3}),\qquad a^{-1}=1+\frac cz+\frac{5c^2}{2z^2}+O(z^{-3}),
+\]
+so $\frac12(a+a^{-1})=1+\frac{c^2}{2z^2}+O(z^{-3})$ and $\frac1{2i}(a-a^{-1})=\frac{ic}z+\frac{2ic^2}{z^2}+O(z^{-3})$. Hence
+\[
+  (P_1)_{12}=ic,\quad (P_1)_{21}=-ic,\quad (P_1)_{22}=0,\quad (P_2)_{12}=2ic^2,
+\]
+and $\Pi(\Pinfz)=c^2$, $\mathsf a(\Pinfz)=2c$. (If the off-diagonal entries of $\Pinfz$ carry the opposite signs, or if $a$ is
+replaced by $a^{-1}$, these two values are unchanged.) By \Fi{8},
+\[
+  n^{2p}b_n^2=(Q_1)_{12}(Q_1)_{21}=\bigl(ic+O(\tfrac1n)\bigr)\bigl(-ic+O(\tfrac1n)\bigr)=c^2\bigl(1+O(\tfrac1n)\bigr),
+\]
+so $n^pb_n=c(1+O(1/n))$ since $b_n>0$. Since $(Q_1)_{12}=ic+O(1/n)\ne0$ for large $n$,
+\[
+  n^pa_n=\mathsf a(Q)=\frac{2ic^2+O(1/n)}{ic+O(1/n)}-O(\tfrac1n)=2c\bigl(1+O(\tfrac1n)\bigr),
+\]
+and therefore $a_n/(2b_n)=1+O(1/n)$. The constants depend on $p$, $s$ and $\ell_1$. Here $c=c(p)$ is the constant of
+\eqref{eq:cp}, because the band of the equilibrium measure is $[0,4c(p)]$ (Proposition~\ref{prop:equilibrium}).
+\end{proof}
+
+\begin{remark}[why $c(p)$]\label{rem:why-c}
+% src: OUTLINE §5 Remark 8.2.
+The limits come entirely from the global parametrix: $\Pi(\Pinfz)=c^2$ and $\mathsf a(\Pinfz)=2c$ are the recurrence data of the
+arcsine (Chebyshev) problem on $[0,4c]$, whose Jacobi matrix has diagonal $2c$ and off-diagonal $c$. The length $4c$ of
+the band is fixed by the saturation of the constrained equilibrium problem (Proposition~\ref{prop:equilibrium}). The
+weight, including the slowly varying factor, affects only the $O(1/n)$ terms, through the circle terms and the lip
+mismatch of Proposition~\ref{prop:moments}.
+\end{remark}

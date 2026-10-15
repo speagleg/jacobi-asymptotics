@@ -490,3 +490,44 @@ e.g. Chihara 1978, Ch. I §8 — pointer only, not read). It is proved in full i
 **Used in:** ROUTE2_xframe1.md Lemma X1 (p = 1: D = D̃/(1 − e^{∓2iθ}) = exp μ(−N/z)). Hypotheses checked: 5.5.3 at z = t ∉ ℤ
 (t = N/z with z ∈ ℂ±, so Im t ≠ 0); 5.5.1 at z = u = −t (any complex u); 5.11.1 for μ(u) in |ph u| ≤ π − δ (Ω_∞ away from the
 positive axis; D̃ only in |ph t| ≤ π/3 + π/24).
+
+## (KMVV-orient, Paper 2) Kuijlaars–McLaughlin–Van Assche–Vanlessen, arXiv:math/0111252v2 §6 — READ (PDF fetched from arxiv.org/pdf/math/0111252v2 on 2026-10-14; text by pdftotext, Figure 3 read from the rendered page 25)
+
+> (p. 24) "Consider the following RHP in the complex ζ-plane, on a contour ΣΨ consisting of three infinite rays,
+> γ1 : arg ζ = 2π/3, γ2 : arg ζ = π, γ3 : arg ζ = −2π/3, oriented as in Figure 3."
+>
+> Figure 3 ("The contour ΣΨ", p. 25): the arrows on γ1, γ2 and γ3 all point towards the origin; on γ2 the "+" label
+> is above the ray and "−" below (so the + side is on the left of the orientation), and likewise on γ1, γ3.
+>
+> (6.20) "For α = 0, Ψ(ζ) has the following behavior as ζ → 0: Ψ(ζ) = O([[log|ζ|, log|ζ|], [log|ζ|, log|ζ|]]), as
+> ζ → 0." (6.21) "For α > 0, Ψ(ζ) has the following behavior as ζ → 0: Ψ(ζ) = O([[|ζ|^{α/2}, |ζ|^{−α/2}],
+> [|ζ|^{α/2}, |ζ|^{−α/2}]]), as ζ → 0 in |arg ζ| < 2π/3, O([[|ζ|^{−α/2}, |ζ|^{−α/2}], [|ζ|^{−α/2}, |ζ|^{−α/2}]]), as
+> ζ → 0 in 2π/3 < |arg ζ| < π."
+>
+> (p. 27–28, derivation of (6.28)) "Inserting the asymptotics of the modified Bessel functions Iα and Kα as given in
+> formulas 9.7.1–9.7.4 of [2] into (6.23), we find that uniformly as ζ → ∞ in the sector |arg ζ| < 2π/3, [(6.28)]."
+> "Inserting the asymptotics of the Hankel functions given in formulas 9.2.3, 9.2.4, 9.2.13, and 9.2.14 of [2] into
+> (6.24) and (6.25), we find that the asymptotics of Ψ(ζ) in the other two sectors are given by exactly the same
+> formula (6.28). Thus (6.28) holds uniformly as ζ → ∞, ζ ∈ C \ ΣΨ."
+
+**Used in:** papers/paper2 sec_2.tex T2 (orientation of the Bessel rays towards 0; sector of (6.28)); sec_7 (hard edge).
+
+## (DLMF-10.40, Paper 2) NIST DLMF §§10.40(i), 10.17(i) — READ (pages dlmf.nist.gov/10.40 and /10.17 fetched 2026-10-14; formulas from the TeX alttext)
+
+> §10.40(i): "With the notation of §§10.17(i) and 10.17(ii), as z→∞ with ν fixed,"
+> (10.40.1) "I_ν(z) ∼ e^z/(2πz)^{1/2} Σ_{k=0}^∞ (−1)^k a_k(ν)/z^k, |ph z| ≤ ½π − δ,"
+> (10.40.2) "K_ν(z) ∼ (π/(2z))^{1/2} e^{−z} Σ_{k=0}^∞ a_k(ν)/z^k, |ph z| ≤ (3/2)π − δ,"
+> (10.40.3) "I′_ν(z) ∼ e^z/(2πz)^{1/2} Σ_{k=0}^∞ (−1)^k b_k(ν)/z^k, |ph z| ≤ ½π − δ,"
+> (10.40.4) "K′_ν(z) ∼ −(π/(2z))^{1/2} e^{−z} Σ_{k=0}^∞ b_k(ν)/z^k, |ph z| ≤ (3/2)π − δ."
+> "Corresponding expansions for I_ν(z), K_ν(z), I′_ν(z), and K′_ν(z) for other ranges of ph z are obtainable by combining
+> (10.34.3), (10.34.4), (10.34.6), and their differentiated forms, with (10.40.2) and (10.40.4). In particular, use of
+> (10.34.3) with m=0 yields the following more general (and more accurate) version of (10.40.1):"
+> (10.40.5) "I_ν(z) ∼ e^z/(2πz)^{1/2} Σ_{k=0}^∞ (−1)^k a_k(ν)/z^k ± i e^{±νπi} e^{−z}/(2πz)^{1/2} Σ_{k=0}^∞ a_k(ν)/z^k,
+> −½π + δ ≤ ±ph z ≤ (3/2)π − δ."
+> Symbols list: "δ : small positive constant", "ν : complex parameter".
+> (10.17.1) "a_k(ν) = (4ν² − 1²)(4ν² − 3²)⋯(4ν² − (2k−1)²)/(k! 8^k) = (½−ν)_k(½+ν)_k/((−2)^k k!)" (so a_0(ν) = 1).
+
+**Used in:** papers/paper2 sec_2.tex T4 ("Large argument"); chunk D's justification of KMVV (6.28) on rays moved to
+π − ϑ_lip by the angle freedom. Hypotheses: ν = α fixed, real, |α| < 1. For |arg ζ| ≤ π − ϑ_lip the argument 2ζ^{1/2}
+has |ph| ≤ π/2 − ϑ_lip/2, so 10.40.1–10.40.4 apply with δ = ϑ_lip/2 (10.40.2/10.40.4 hold in the much larger sector
+|ph| ≤ 3π/2 − δ).
