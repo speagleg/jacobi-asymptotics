@@ -65,13 +65,16 @@ Dependency order: S0 → S2a → S2b/S2c → S1a, S1b → S1; S4 → S4b (uses S
 
 ## 2. Progress
 
-| Stage | Status | Named hypotheses remaining |
-|---|---|---|
-| S0 | planned | — |
-| S2a | planned | — |
-| S2b, S2c | planned | — |
-| S1a, S1b, S1 | planned | — |
-| S4, S4b | planned | — |
-| S3, S3b | planned | — |
-| S5 | planned | — |
-| S6 | planned | — |
+| Stage | Status | Lean (main statements) | Named hypotheses remaining |
+|---|---|---|---|
+| S0 | DONE (sorry-free) | `hallLam_pos`, `hallLam_lt_pi`, `hallC_pos`, `four_hallC_rpow` | — |
+| S2a | DONE | `arcsine_pot`, `arcsine_pot_ge` | — |
+| S2b | DONE | `muStar_Ioc_le`, `muStar_Ioc_eq`, `muStar_Iic_zero`, `muStar_energy_integrable`, `muStar_energy` | — |
+| S2c | planned | (potential `U*` constant on (0,4c], ≥ outside) | — |
+| S1a | DONE | `quantile_sum_ge`, `quantile_lower` | — |
+| S1b | DONE | `Jp_scaleM`, `exists_good_theta` | — |
+| S1 | DONE | `hall_lower` | — |
+| S4, S4b | planned | | |
+| S3, S3b | planned | | |
+| S5 | planned | | upper half of `TheoremHPure` |
+| S6 | planned | | — |

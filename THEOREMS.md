@@ -152,8 +152,16 @@ in a later result.
 | **`christoffel_shift_law(_converse, _pow)`** | s_na_n → 2c, s_nb_n → c for σ ⇔ for xσ (s_n/s_{n+1} → 1; `_pow`: s_n = n^p) (Paper 2 Thm `thm:shift` no rate, Remark `rem:converse`; G1 §3.21 SH, §3.19 CT₁ "⟸") | sorry-free (Plan 56) | Christoffel.lean | chain_limit_core |
 | **`chain_rate_core`** | regular η: O(η) inputs ⇒ U_n − c = O(√η_n), U_{n+1} − U_n = O(η_n) (Paper 2 Lemma `lem:chain-rate`; G1 §3.21 CS-r) | sorry-free (Plan 56) | ChainRate.lean | chain_limit_core |
 | **`christoffel_shift_rate(_pow)`** | s_na_n − 2c, s_nb_n − c = O(η_n) for σ ⇒ the same for xσ (`_pow`: s_n = n^p) (Paper 2 Thm `thm:shift`, rate; G1 §3.21 SH-r) | sorry-free (Plan 56) | ChristoffelRate.lean | chain_rate_core, christoffel_transfer |
+| `hallLam`, `hallC`, `hallKappa`, `four_hallC_rpow` | Λ(p) = ∫₀¹ arccos(2s^p − 1), c(p) = (π/Λ)^p/4, κ_p = 3p/2 + log c(p) (Paper 1 (1.2); Λ = 2I(p) not yet formalized) | (definitions) sorry-free (Plan 60) | HallConst.lean | — |
+| `arcsine_pot`, `arcsine_pot_ge` | ∫₀^π log\|β(1−cos φ)/2 − y\| dφ = π log(β/4) (0 ≤ y ≤ β), ≥ for y ≥ β (Paper 1 Lemma 3.2; G2 B0) | sorry-free (Plan 60) | Arcsine.lean | Mathlib `integral_log_sin_zero_pi` |
+| `muStar`, `muStar_Ioc_le`, `muStar_Ioc_eq` | μ\*_u admissible: μ\*_u(a,b] ≤ b − a, = on (0, Λ/π] (Paper 1 Thm 1.3(i); G2 B\*(i)) | sorry-free (Plan 60) | Equilibrium.lean | — |
+| **`muStar_energy`** | 𝒥_p(μ\*_u) = κ_p, absolutely convergent (Paper 1 Thm 1.3(iii), value) | sorry-free (Plan 60) | StarEnergy.lean | arcsine_pot |
+| **`quantile_lower`**, `quantile_sum_ge` | admissible θ on (0,U], F integrable: eventually n²(𝒥(θ) − η) ≤ 2Σ_{i<j}F(u_i,u_j) (Paper 1 Thm 5.2 Steps 2–3) | sorry-free (Plan 60) | QuantileLower.lean | — |
+| `Jp_scaleM`, `exists_good_theta` | scaling (Paper 1 Lemma 3.1); admissible θ with 𝒥 ≥ κ_p − η (Thm 5.2 Step 1) | sorry-free (Plan 60) | HallLower.lean | muStar_energy |
+| **`hall_lower`** | p > 0, s > 1: ∀η > 0 eventually hnorm p κ_p (heineD (powSeq p) (powSeq s)) 0 n ≥ −η (Paper 1 Thm 5.2 = G2 A-L, pure powers) | **sorry-free (Plan 60)** — the lower half of `TheoremHPure p κ_p s` | HallLower.lean | quantile_lower, exists_good_theta |
 
-Not formalized: the forward Weyl law (item 11 "Theorem B"; not G3′ Theorem B, see §6), Theorem H / H_all itself, everything in
+Not formalized: the forward Weyl law (item 11 "Theorem B"; not G3′ Theorem B, see §6), Theorem H / H_all itself (Plan 60 has formalized its lower half `hall_lower`; the upper half A-U and the Gamma form of
+κ_p are open, lean/HALL_PLAN.md), everything in
 research/ except the Christoffel shift of G1 §3.21 / Paper 2 §3 (Plan 56 rows above; for `DMeasure` σ with atoms x_k ≥ 0 —
 no atom at 0, general σ with finite moments not covered; zero location in `lem:zeros` and Remark `rem:sharp` not formalized).
 

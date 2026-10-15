@@ -51,11 +51,22 @@ stay PROVED-mod-input.
 | **`christoffel_shift_law`**, **`christoffel_shift_law_converse`**, **`christoffel_shift_law_pow`** | Paper 2 Theorem `thm:shift` (no rate) + Remark `rem:converse`; G1 §3.21 Theorem SH, §3.19 CT₁ "⟸" | s_n a_n → 2c and s_n b_n → c for σ ⇔ the same for xσ; `_pow`: the iff at scale n^p exactly as in Paper 2 |
 | `RegularRate`, `RegularRate.not_summable`, `RegularRate.sqrt_sub_le`, **`chain_rate_core`** | Paper 2 Lemma `lem:chain-rate` (G1 §3.21 Lemma CS-r) | η regular (positive, non-increasing, nη_n non-decreasing, → 0); U_n + V_n − 2c = O(η), U_n V_{n+1} − c² = O(η) ⇒ U_n − c = O(√η_n) and U_{n+1} − U_n = O(η_n) |
 | **`christoffel_shift_rate`**, `bigO_rpow_succ_iff`, **`christoffel_shift_rate_pow`** | Paper 2 Theorem `thm:shift` (rate part; G1 §3.21 Theorem SH-r) | s_n a_n − 2c = O(η_n), s_n b_n − c = O(η_n) (and s_n/s_{n+1} − 1 = O(η_n)) ⇒ the same for xσ; `_pow`: at scale n^p exactly as in Paper 2 |
+| `hallLam`, `hallC`, `hallKappa`, `four_hallC_rpow` | Paper 1 (1.2) (Plan 60, S0) | Λ(p) = ∫₀¹ arccos(2s^p − 1) ds, c(p) = (π/Λ(p))^p/4, κ_p = 3p/2 + log c(p), so (4c)^{1/p} = π/Λ; the identification Λ(p) = 2I(p) (Gamma form) is stage S6, not yet formalized |
+| `arcX`, `arcsine_pot`, `arcsine_pot_ge` | Paper 1 Lemma 3.2 (G2 Lemma B0) | ∫₀^π log\|β(1 − cos φ)/2 − y\| dφ = π log(β/4) for 0 ≤ y ≤ β, and ≥ for y ≥ β (via log-sin integrals, no Fourier series) |
+| `muStar`, `starTail_add`, `muStar_Ioc_le`, `muStar_Ioc_eq`, `muStar_Iic_zero` | Paper 1 Theorem 1.3(i) (G2 B\*(i)) | μ\*_u = image of Leb(0,1] ⊗ dφ/π under (t,φ) ↦ (β_t(1 − cos φ)/2)^{−1/p}; μ\*_u(a,b] ≤ b − a, with equality on (0, Λ/π] |
+| `Fp`, `Jp`, `muStar_energy_integrable`, **`muStar_energy`** | Paper 1 Theorem 1.3(iii), the value | 𝒥_p(μ\*_u) = ∬ log\|u^{−p} − v^{−p}\| dμ\*_u dμ\*_u = κ_p, absolutely convergent |
+| `AdmissibleOn`, `qpt`, `kq`, `uq`, `quantile_sum_ge`, **`quantile_lower`** | Paper 1 Theorem 5.2, Steps 2–3 | quantile configuration of an admissible θ on (0,U]: eventually n²(𝒥_p(θ) − η) ≤ 2Σ_{i<j} F(u_i,u_j); proved by an exact monotone block comparison (far pairs), O(log n) per near pair, and absolute continuity on a set of θ⊗θ-measure ≤ 7/n |
+| `scaleM`, `Jp_scaleM`, `thetaV`, `exists_good_theta` | Paper 1 Lemma 3.1, Theorem 5.2 Step 1 | scaling 𝒥(μ_τ) = τ²(𝒥(μ) − pm² log τ); truncated, rescaled μ\*_u is admissible with 𝒥 ≥ κ_p − η |
+| `cfg`, `log_heineTerm_cfg`, **`hall_lower`** | **Paper 1 Theorem 5.2 (G2 Theorem A-L), pure powers** | **p > 0, s > 1: ∀ η > 0, eventually hnorm p κ_p (heineD (powSeq p) (powSeq s)) 0 n ≥ −η, i.e. liminf (log D_n + pn² log n)/n² ≥ κ_p — sorry-free, no named input** |
 
 Not here: the true-zero measure (G3′) is research; the forward Weyl law (Theorem B) itself is not formalized.
 Christoffel shift (Plan 56; ChainLimit.lean, Christoffel.lean, ChainRate.lean, ChristoffelRate.lean): stated for `DMeasure`
 (positive summable weights, bounded strictly decreasing atoms) with atoms x_k ≥ 0, so Paper 2's general σ on [0, ∞) with
 finite moments, and an atom at 0, are not covered; the location/simplicity of the zeros in Lemma `lem:zeros` (only the sign
 of P_n(0) is used) and Remark `rem:sharp` are not formalized.
+
+Plan 60 (lean/HALL_PLAN.md) formalizes Theorem H_all for pure powers in stages; the rows marked Paper 1 above are
+sorry-free. Still missing for `TheoremHPure p κ_p s` as a theorem: the upper bound A-U (Lemma EP, optimality, Lemma 4.1,
+Theorem 4.3) and the Gamma form of the constant.
 
 Check: `./check.sh` (build + axioms audit + completeness list; prints AUDIT OK).
