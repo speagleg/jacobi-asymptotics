@@ -1,0 +1,462 @@
+% Section 2: First variation and localisation.
+\section{First variation and localisation}\label{sec:prelim}
+
+This section collects the tools used in every later section. After fixing conventions (\S\ref{sec:conv}) we restate
+the results imported from \cite{PaperI} and \cite{PaperII} (\S\ref{sec:imports}); a reader who accepts these
+statements can read the rest of the paper without the earlier ones. We then prove two facts about slowly varying
+sequences (\S\ref{sec:prelim-sv}), the first-variation formulas (\S\ref{sec:fv}) with bounds on their second-order
+remainders (\S\ref{sec:lr}), and the two localisation properties of the spectral weights (\S\ref{sec:loc}). The proofs
+are short and, apart from the second-order bounds, of a standard kind.
+
+\subsection{Conventions}\label{sec:conv}
+Throughout, $\sigma=\sum_{k\ge1}w_k\delta_{x_k}$ with distinct atoms $x_k\in(0,1]$, weights $w_k>0$ and
+$\|w\|_1:=\sum_kw_k<\infty$, except where a more general positive measure on $[0,\infty)$ is allowed explicitly. Such
+a $\sigma$ has infinite support and finite moments, so its monic orthogonal polynomials $P_n$ exist for all $n\ge0$
+and satisfy \eqref{eq:rec}. The orthonormal polynomials $p_n:=P_n/\sqrt{h_n}$ satisfy
+\begin{equation}\label{eq:rec-orth}
+  xp_n=b_{n+1}p_{n+1}+a_np_n+b_np_{n-1}\qquad(n\ge0,\ p_{-1}:=0),
+\end{equation}
+and therefore $a_n=\int xp_n^2\diff\sigma$ and $b_n=\int xp_{n-1}p_n\diff\sigma$. The Hankel determinants are
+$D_n=\prod_{j<n}h_j$. Multiplying all weights by one positive constant changes none of $P_n$, $p_n$, $a_n$, $b_n$.
+
+We regard functions on $\N$ as vectors and write $\langle f,g\rangle:=\sum_kf(k)g(k)$ whenever the sum converges
+absolutely, $f(A):=\sum_{k\in A}f(k)$ for $A\subset\N$, and $f|_A:=f\mathbf 1_A$. The \emph{spectral weights} of
+$\sigma$ are
+\begin{equation}\label{eq:spectral}
+  q_n(k):=w_k^{1/2}p_n(x_k),\qquad m_n(k):=q_n(k)^2,\qquad K_n(k):=\sum_{j<n}m_j(k).
+\end{equation}
+The vectors $q_0,q_1,\dots$ are orthonormal in $\ell^2(\N)$, so each $m_n$ is a probability vector and
+$m_n=K_{n+1}-K_n$. By \eqref{eq:rec-orth}, at every atom,
+\begin{equation}\label{eq:rec-vec}
+  x_kq_n(k)=b_{n+1}q_{n+1}(k)+a_nq_n(k)+b_nq_{n-1}(k),
+\end{equation}
+so that $a_n=\langle x,m_n\rangle$ and $b_n=\langle xq_{n-1},q_n\rangle\le\frac12\langle x,m_{n-1}+m_n\rangle$. We write
+$\Proj_m$ for the orthogonal projection of $\ell^2(\N)$ onto the span of $q_0,\dots,q_{m-1}$; then $K_m(k)$ is the
+$k$-th diagonal entry of $\Proj_m$.
+
+\emph{Christoffel's extremal property.} For $y\in\R$ let $\mathsf K_m(y):=\sum_{j<m}p_j(y)^2$. If $\deg P<m$, then
+$P=\sum_{j<m}\langle P,p_j\rangle_\sigma p_j$ with $\langle P,p_j\rangle_\sigma:=\int Pp_j\diff\sigma$, and the
+Cauchy--Schwarz inequality gives $P(y)^2\le\mathsf K_m(y)\int P^2\diff\sigma$, with equality for
+$\langle P,p_j\rangle_\sigma=p_j(y)$. Hence
+\begin{equation}\label{eq:christoffel}
+  \frac1{\mathsf K_m(y)}=\min\Bigl\{\int P^2\diff\sigma:\ \deg P<m,\ P(y)=1\Bigr\}.
+\end{equation}
+Every competitor in \eqref{eq:christoffel} with $y=x_k$ has $\int P^2\diff\sigma\ge w_k$, so
+$K_m(k)=w_k\mathsf K_m(x_k)\le1$, and in particular $m_n(k)\le1-K_n(k)$.
+
+\subsection{Results imported from the first two papers}\label{sec:imports}
+We restate exactly what is used, with the numbering of \cite{PaperI} and \cite{PaperII}. The atoms
+$x_k=k^{-p}$ are the case $f(\xi)=\xi^{-p}$, $C=1$ of the atoms $f(k)$ in \cite{PaperI}, since then
+$\xi^{p+1}f'(\xi)=-p$.
+
+\begin{theorem}[{\cite[Theorem~1.1 and Corollary~1.2]{PaperI}}]\label{thm:imp-avg}
+Let $w_k\ge0$ satisfy $\sum_kw_k<\infty$ and $w_k\ge c_1k^{-s'}$ for all $k\ge1$, with constants $c_1>0$ and
+$s'\in\R$. Then the Hankel determinants and the coefficients $b_n$ of $\sum_kw_k\delta_{k^{-p}}$ satisfy
+\eqref{eq:paperI-logD} and \eqref{eq:paperI-cesaro}.
+\end{theorem}
+
+For $\beta>0$ let $\arc_\beta$ be the arcsine law on $[0,\beta]$, with density $1/(\pi\sqrt{y(\beta-y)})$; it is the
+image of $\diff\theta/\pi$ on $(0,\pi)$ under $\theta\mapsto\frac\beta2(1+\cos\theta)$, and
+$\arc_\beta([0,y])=\frac2\pi\arcsin\sqrt{y/\beta}$ for $0\le y\le\beta$.
+
+\begin{proposition}[{\cite[Theorem~1.3(i)]{PaperI}}]\label{prop:imp-eq}
+Let $\mu^*:=\int_0^1\arc_{4c\tau^{-p}}\diff\tau$, a probability measure on $(0,\infty)$, and let $\mu^*_u$ be its image
+under $x\mapsto x^{-1/p}$. Then $\mu^*_u$ has a density $\rho^*$ with $\rho^*=1$ on $(0,\usat]$ and $0<\rho^*<1$ on
+$(\usat,\infty)$, where $\usat=\usat(p)=(4c)^{-1/p}$.
+\end{proposition}
+
+\begin{definition}[{\cite[Definition~1.1]{PaperII}}]\label{def:analytic}
+Let $\vartheta>0$. A sequence $\ell\colon\N\to(0,\infty)$ is \emph{analytic of angle $\vartheta$} if
+$\ell(k)=\exp\Lambda(\log k)$ for all $k\ge1$, where, for some $c_0>0$, the function $\Lambda$ is analytic on
+$S_\vartheta:=\{\xi\in\mathbb C:\ \Re\xi\ge-c_0,\ |\Im\xi|\le\vartheta\}$, real on $S_\vartheta\cap\R$, bounded on
+$S_\vartheta\cap\{\Re\xi\le0\}$, and $\sup\{|\Lambda'(\xi)|:\ \xi\in S_\vartheta,\ \Re\xi\ge T\}\to0$ as $T\to\infty$.
+\end{definition}
+
+\begin{theorem}[{\cite[Theorem~1.2]{PaperII}}]\label{thm:imp-analytic}
+Let $s>1$, and let $\ell$ be analytic of angle $\vartheta$ for some $\vartheta>0$. Then the coefficients of
+$\sigma_{p,s,\ell}$ satisfy $n^pb_n=c(1+O(1/n))$ and $a_n/(2b_n)=1+O(1/n)$; equivalently
+$|n^pa_n-2c|+|n^pb_n-c|=O(1/n)$.
+\end{theorem}
+
+(The two forms are equivalent: from the first, $n^pa_n=2n^pb_n\cdot a_n/(2b_n)=2c(1+O(1/n))$; from the second,
+$a_n/(2b_n)=(2c+O(1/n))/(2c+O(1/n))$.) The case $\ell\equiv1$ is the following.
+
+\begin{theorem}[{\cite[Corollary~1.3]{PaperII}}]\label{thm:imp-pure}
+For every $s>1$ the coefficients of $\sigma_{p,s}$ satisfy $n^pb_n=c(1+O(1/n))$ and $a_n/(2b_n)=1+O(1/n)$. In
+particular $n^pb_n\to c$ and $n^pa_n\to2c$.
+\end{theorem}
+
+Only the last sentence of Theorem~\ref{thm:imp-pure} is used in Sections~\ref{sec:rough}--\ref{sec:s}. The next
+statement is quoted only in remarks.
+
+\begin{theorem}[{\cite[Theorem~1.4]{PaperII}}]\label{thm:imp-second}
+Let $p>1$ and $s>1$. Then $n^pb_n(s)=c(1-\frac{s-1}{2n}+O(n^{-2}))$ and $n^pa_n(s)=2c(1-\frac{s-1+p}{2n}+O(n^{-2}))$.
+\end{theorem}
+
+The Christoffel transformation is the subject of \cite[Section~3]{PaperII}. Let $\sigma$ be a positive Borel measure
+on $[0,\infty)$ with infinite support and finite moments. By \cite[Lemma~3.2]{PaperII}, $P_n$ has $n$ simple zeros in
+$(0,\infty)$, so $(-1)^nP_n(0)>0$, and one may define
+\begin{equation}\label{eq:chain}
+  u_n:=-\frac{P_{n+1}(0)}{P_n(0)}>0\quad(n\ge0),\qquad l_0:=0,\qquad l_n:=\frac{b_n^2}{u_{n-1}}>0\quad(n\ge1).
+\end{equation}
+
+\begin{lemma}[{\cite[Lemmas~3.3 and~3.4]{PaperII}}]\label{lem:imp-chain}
+Let $\sigma$ be as above, with coefficients $a_n,b_n$, and let $\tilde a_n,\tilde b_n$ be the coefficients of
+$x\sigma$, $\diff(x\sigma):=x\diff\sigma(x)$.
+\begin{enumerate}
+\item[\textup{(i)}] $a_n=u_n+l_n$ for $n\ge0$, $b_n^2=u_{n-1}l_n$ for $n\ge1$; $x\sigma$ has infinite support, its
+  monic orthogonal polynomials are $(P_{n+1}+u_nP_n)/x$, and
+  \[
+    \tilde a_n=u_n+l_{n+1}\quad(n\ge0),\qquad\tilde b_n^2=u_nl_n\quad(n\ge1).
+  \]
+\item[\textup{(ii)}] If $c'>0$, $n^pa_n\to2c'$ and $n^pb_n\to c'$, then $n^pu_n\to c'$ and $n^pl_n\to c'$.
+\end{enumerate}
+\end{lemma}
+
+\begin{theorem}[{\cite[Theorem~3.1]{PaperII}}, without rate]\label{thm:imp-shift}
+Let $\sigma$ be as above and $c'>0$. If $n^pa_n(\sigma)\to2c'$ and $n^pb_n(\sigma)\to c'$, then the same holds for
+$x\sigma$. For the atoms $k^{-p}$ one has $x\,\sigma_{p,s,\ell}=\sigma_{p,s+p,\ell}$.
+\end{theorem}
+
+\begin{proposition}[{\cite[Remark~1.6]{PaperII}}]\label{prop:imp-lommel}
+For $n\ge1$ the coefficients of $\sigma_{2,2}$ are $b_n=\pi^2(4n+1)^{-1}((4n-1)(4n+3))^{-1/2}$ and
+$a_n=2\pi^2(4n+1)^{-1}(4n+5)^{-1}$.
+\end{proposition}
+
+The last import is a bound for the spectral weights of the pure powers at indices beyond $Mn$, that is, near the
+accumulation point $x=0$ of the atoms. It is used only in Section~\ref{sec:s}. Recall the set $\Sp$ of
+\eqref{eq:Sp}.
+
+\begin{proposition}[\tailbound]\label{prop:imp-tail}
+Let $s\in\Sp$ \textup{(}that is, $1<s<1+2p$, or $p>1$ and $s>1$\textup{)}, and let $m_n$ be the spectral weights of
+$\sigma_{p,s}$. There are $C,c_2>0$ and $n_0$ such that $m_{n'}((Mn,\infty))\le CM^{-p/2}$ for all $n\ge n_0$,
+$n'\in\{n-1,n\}$ and $1\le M\le c_2n^{2/p}$.
+\end{proposition}
+
+For $p>1$, \tailbound{} also gives a bound for all $M\ge1$ with any exponent below $\min(p/2,s-1)$. We do not need it:
+Lemma~\ref{lem:allM} below derives a bound for all $M\ge1$ from Proposition~\ref{prop:imp-tail} alone, with a smaller
+exponent, and this suffices for Section~\ref{sec:s}.
+
+\subsection{Slow variation}\label{sec:prelim-sv}
+Let $\ell$ be slowly varying and put $\osc^*_n:=\sup_{m\ge n}\osc_m(2)$. Each $\osc_m(2)$ is a maximum of finitely
+many numbers and $\osc_m(2)\to0$, so $\osc^*_n$ is finite, non-increasing, and tends to $0$.
+
+\begin{lemma}[dyadic chaining and Potter bounds]\label{lem:potter}
+Let $\ell$ be slowly varying.
+\begin{enumerate}
+\item[\textup{(i)}] For all $n\ge1$ and all integers $k\ge n$,
+  $|\log\ell(k)-\log\ell(n)|\le\osc^*_n\bigl(1+\log_2(k/n)\bigr)$.
+\item[\textup{(ii)}] For every $\eta>0$ there is $A_\eta<\infty$ with $e^{-A_\eta}k^{-\eta}\le\ell(k)\le
+  e^{A_\eta}k^{\eta}$ for all $k\ge1$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Let $j:=\lfloor\log_2(k/n)\rfloor$, so that $2^jn\le k<2^{j+1}n$. For $0\le i<j$ the integer $2^{i+1}n$ lies in
+$[2^in/2,2\cdot2^in]$, so $|\log\ell(2^{i+1}n)-\log\ell(2^in)|\le\osc_{2^in}(2)\le\osc^*_n$; also
+$|\log\ell(k)-\log\ell(2^jn)|\le\osc^*_n$. Summing these $j+1$ steps gives the claim, since $j\le\log_2(k/n)$.
+
+(ii) Choose $m$ with $\osc^*_m\le\eta\log2$. For $k\ge m$, part (i) gives $|\log\ell(k)|\le|\log\ell(m)|+\osc^*_m+
+\eta\log k$. Take $A_\eta:=\max(|\log\ell(m)|+\osc^*_m,\max_{k<m}|\log\ell(k)|)$.
+\end{proof}
+
+\begin{remark}\label{rem:lambda2}
+If $\osc_n(2)\to0$, then $\osc_n(\lambda)\to0$ for every $\lambda\ge1$: Lemma~\ref{lem:potter}(i) uses only
+$\osc(2)$, and for $n\le k\le\lambda n$ it gives $|\log\ell(k)-\log\ell(n)|\le\osc^*_n(1+\log_2\lambda)$, while for
+$n/\lambda\le k<n$, applied with base point $k$, it gives $|\log\ell(n)-\log\ell(k)|\le\osc^*_{\lceil
+n/\lambda\rceil}(1+\log_2\lambda)$.
+\end{remark}
+
+By Lemma~\ref{lem:potter}(ii) with $\eta<s-1$, $\sum_kk^{-s}\ell(k)<\infty$ for every $s>1$, so $\sigma_{p,s,\ell}$
+is a measure of the kind fixed in \S\ref{sec:conv}.
+
+\subsection{First variation}\label{sec:fv}
+Fix atoms and weights $v=(v_k)$ as in \S\ref{sec:conv}, a bounded real sequence $\varphi$ on $\N$, and put
+\[
+  w(t):=v\,e^{t\varphi}\qquad(t\in\R).
+\]
+All quantities of \S\ref{sec:conv} computed for $w(t)$ carry the argument $t$ when needed, and a dot denotes
+$\diff/\diff t$. Formulas of this kind appear in Fischer \cite[Lemma~4]{Fischer}; we include short proofs in the form
+needed here. For $\varphi=x$ they reduce to the Toda equations.
+
+\emph{Regularity.} The moments $\sum_kv_ke^{t\varphi(k)}x_k^i$ are $C^\infty$ in $t$, with derivatives computed term
+by term, since the $r$-th termwise derivative is bounded by $v_k\|\varphi\|_\infty^re^{|t|\|\varphi\|_\infty}$. The
+coefficients of $P_n$ solve a linear system whose determinant is $D_n>0$, so they are $C^\infty$, and so are $h_n$,
+$a_n$, $b_n^2$. The vectors $w(t)^{1/2}x^j$ are $C^\infty$ maps into $\ell^2(\N)$ (the $r$-th derivative is
+$(\varphi/2)^rw(t)^{1/2}x^j$), and $q_0,\dots,q_n$ arise from finitely many of them by the Gram--Schmidt process, so
+they are $C^\infty$ maps into $\ell^2(\N)$ as well.
+
+\begin{lemma}[first variation]\label{lem:fv}
+For $n\ge0$,
+\begin{align}
+  \frac{\diff}{\diff t}\log h_n&=\langle\varphi,m_n\rangle, \label{eq:fv-h}\\
+  \frac{\diff}{\diff t}\log b_n^2&=\langle\varphi,m_n-m_{n-1}\rangle\qquad(n\ge1), \label{eq:fv-b}\\
+  \frac{\diff}{\diff t}a_n&=\langle(x-a_n)\varphi,m_n\rangle-2b_n\langle\varphi,q_{n-1}q_n\rangle. \label{eq:fv-a}
+\end{align}
+The right-hand sides do not change if a constant is added to $\varphi$.
+\end{lemma}
+
+\begin{proof}
+For a polynomial $g(x;t)$ whose coefficients are $C^1$ in $t$,
+$\frac{\diff}{\diff t}\sum_kw_k(t)g(x_k;t)=\sum_kw_k(t)\partial_tg(x_k;t)+\sum_k\varphi(k)w_k(t)g(x_k;t)$, because the
+left side is a finite combination of moments. Apply this to $g=P_n^2$: since $P_n$ is monic, $\partial_tP_n$ has
+degree less than $n$ and is orthogonal to $P_n$, so $\dot h_n=\sum_k\varphi(k)w_kP_n(x_k)^2=h_n\langle\varphi,m_n\rangle$,
+which is \eqref{eq:fv-h}; \eqref{eq:fv-b} follows from $b_n^2=h_n/h_{n-1}$. For \eqref{eq:fv-a}, expand
+$\dot p_n=\sum_{j\le n}\mathsf c_jp_j$. Differentiating $\int p_np_j\diff\sigma=\delta_{nj}$ gives
+$\mathsf c_j=-\langle\varphi,q_nq_j\rangle$ for $j<n$ (the term $\int p_n\dot p_j\diff\sigma$ vanishes because
+$\deg\dot p_j\le j<n$) and $\mathsf c_n=-\frac12\langle\varphi,m_n\rangle$. Then
+\[
+  \dot a_n=2\int xp_n\dot p_n\diff\sigma+\langle x\varphi,m_n\rangle=2\mathsf c_na_n+2\mathsf c_{n-1}b_n
+  +\langle x\varphi,m_n\rangle,
+\]
+by \eqref{eq:rec-orth}, which is \eqref{eq:fv-a}. Finally $\langle1,m_n-m_{n-1}\rangle=0$,
+$\langle x-a_n,m_n\rangle=0$ and $\langle q_{n-1},q_n\rangle=0$.
+\end{proof}
+
+\begin{lemma}[Toda form]\label{lem:toda}
+Put $\cE_n:=b_{n+1}q_nq_{n+1}$ \textup{(}a vector on $\N$; $\cE_{-1}:=0$\textup{)} and $\Delta\cE_n:=\cE_n-\cE_{n-1}$. Then
+at every atom
+\begin{equation}\label{eq:toda-id}
+  \Delta\cE_n=(x-a_n)m_n-2b_nq_{n-1}q_n=2\cE_n-(x-a_n)m_n,
+\end{equation}
+and $\dot a_n=\langle\varphi,\Delta\cE_n\rangle$. Moreover $|\Delta\cE_n|\le\frac12\max(b_n,b_{n+1})
+(m_{n-1}+2m_n+m_{n+1})$ at every atom.
+\end{lemma}
+
+\begin{proof}
+Multiplying \eqref{eq:rec-vec} by $q_n(k)$ gives $(x_k-a_n)m_n(k)=\cE_n(k)+\cE_{n-1}(k)$, which yields both forms of
+\eqref{eq:toda-id}; pairing the first with $\varphi$ and comparing with \eqref{eq:fv-a} gives
+$\dot a_n=\langle\varphi,\Delta\cE_n\rangle$. The bound follows from $|q_jq_{j+1}|\le\frac12(m_j+m_{j+1})$.
+\end{proof}
+
+\begin{lemma}[derivative of the spectral vectors]\label{lem:qdot}
+For $m\ge0$, with $\alpha_m:=\langle\varphi,m_m\rangle$,
+\[
+  \dot q_m=\tfrac12\varphi q_m-\Proj_m(\varphi q_m)-\tfrac12\alpha_mq_m .
+\]
+\end{lemma}
+
+\begin{proof}
+Since $q_m=w(t)^{1/2}p_m(x)$ and $\deg\dot p_m\le m$, we have $\dot q_m=\frac12\varphi q_m+r$ with $r$ in the span of
+$q_0,\dots,q_m$. For $j<m$ the same reasoning gives $\dot q_j-\frac12\varphi q_j\perp q_m$, so differentiating
+$\langle q_m,q_j\rangle=0$ gives $\langle r,q_j\rangle=-\langle\varphi q_m,q_j\rangle$. Differentiating
+$\langle q_m,q_m\rangle=1$ gives $\langle r,q_m\rangle=-\frac12\alpha_m$. Hence $r=-\Proj_m(\varphi q_m)-\frac12\alpha_mq_m$.
+\end{proof}
+
+\subsection{Second-order bounds}\label{sec:lr}
+The first-variation formulas are exact derivatives; to use them for a perturbation $e^\varphi$ of fixed size one
+needs the second derivative. The next lemma bounds it with absolute constants, for every base measure. It is the
+reason why the constructions of Section~\ref{sec:rough} need no information about the perturbed measures.
+
+For a bounded real $\varphi$ put $\varepsilon:=\frac12(\sup\varphi-\inf\varphi)$. Write
+$\Delta^2m_N:=m_N-2m_{N-1}+m_{N-2}$ and $F_N:=\log(b_N^2/b_{N-1}^2)$ for $N\ge2$. A superscript $v$ denotes quantities
+of the base weights $v$, and $w:=w(1)=ve^\varphi$.
+
+\begin{lemma}[linear response with quadratic remainder]\label{lem:lr}
+In the setting of \S\ref{sec:fv}, with $\varepsilon=\frac12\osc\varphi$:
+\begin{enumerate}
+\item[\textup{(i)}] $|\log b_n^2(w)-\log b_n^2(v)-\langle\varphi,m_n^v-m_{n-1}^v\rangle|\le\varepsilon^2$ for $n\ge1$;
+\item[\textup{(ii)}] $|F_N(w)-F_N(v)-\langle\varphi,\Delta^2m_N^v\rangle|\le2\varepsilon^2$ for $N\ge2$;
+\item[\textup{(iii)}] $|a_n(w)-a_n(v)-\langle\varphi,\Delta\cE_n^v\rangle|\le(e^\varepsilon-1-\varepsilon)
+  \bigl(b_n(v)+b_{n+1}(v)\bigr)$ for $n\ge0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\emph{Reduction.} With $\bar c:=\frac12(\sup\varphi+\inf\varphi)$ we have $ve^{t\varphi}=e^{t\bar c}ve^{t(\varphi-\bar
+c)}$, and constant factors change none of the quantities involved; the linear terms do not change either
+(Lemma~\ref{lem:fv}). So we may assume $|\varphi|\le\varepsilon$. Since $w(t+h)=w(t)e^{h\varphi}$ and $w(t)$ is again
+admissible, every bound below proved at $t=0$ for an arbitrary base holds at every $t$. We use Taylor's formula
+$g(1)-g(0)-\dot g(0)=\int_0^1(1-t)\ddot g(t)\diff t$.
+
+\emph{Second derivative of $\log h_m$.} By Lemma~\ref{lem:fv} and Lemma~\ref{lem:qdot},
+\[
+  \dot\alpha_m=2\langle\varphi q_m,\dot q_m\rangle=\|\varphi q_m\|^2-\alpha_m^2-2\|\Proj_m(\varphi q_m)\|^2,
+\]
+since $\Proj_m$ is an orthogonal projection. Because $q_m$ is orthogonal to the range of $\Proj_m$, the vectors
+$\Proj_m(\varphi q_m)$, $\alpha_mq_m$ and the rest of $\varphi q_m$ are pairwise orthogonal, and Bessel's inequality
+gives $\|\Proj_m(\varphi q_m)\|^2\le\|\varphi q_m\|^2-\alpha_m^2=\Var_{m_m}(\varphi)$. Hence
+\[
+  |\dot\alpha_m|\le\Var_{m_m}(\varphi)\le\sum_k\varphi(k)^2m_m(k)\le\varepsilon^2 .
+\]
+
+\emph{(i) and (ii).} By \eqref{eq:fv-b}, $\frac{\diff^2}{\diff t^2}\log b_n^2=\dot\alpha_n-\dot\alpha_{n-1}$, of absolute
+value at most $2\varepsilon^2$, and $\ddot F_N=\dot\alpha_N-2\dot\alpha_{N-1}+\dot\alpha_{N-2}$, of absolute value at most
+$4\varepsilon^2$. Taylor's formula gives (i) and (ii), since $\int_0^1(1-t)\diff t=\frac12$.
+
+\emph{(iii).} Put $\gamma_m:=\langle\varphi q_m,q_{m+1}\rangle$. By \eqref{eq:rec-vec},
+$\langle(x-a_n)\varphi,m_n\rangle=b_{n+1}\gamma_n+b_n\gamma_{n-1}$, so \eqref{eq:fv-a} reads
+$\dot a_n=b_{n+1}\gamma_n-b_n\gamma_{n-1}$. By \eqref{eq:fv-b}, $\dot b_m=\frac12(\alpha_m-\alpha_{m-1})b_m$; in particular
+$|\dot b_m|\le\varepsilon b_m$, so $b_m(t)\le e^{\varepsilon t}b_m(0)$. Put $u:=\varphi q_m$, $u':=\varphi q_{m+1}$,
+$\Proj:=I-\Proj_{m+2}$, $S_m:=\langle\Proj_mu,\Proj_mu'\rangle$ and $R_m:=\langle\Proj u,\Proj u'\rangle$. Decomposing
+along the range of $\Proj_m$, $q_m$, $q_{m+1}$ and the range of $\Proj$ (pairwise orthogonal), and using
+Lemma~\ref{lem:qdot} twice, one finds
+\[
+  \langle\dot q_m,u'\rangle=\tfrac12\langle u,u'\rangle-S_m-\tfrac12\alpha_m\gamma_m,\qquad
+  \langle u,\dot q_{m+1}\rangle=\tfrac12\langle u,u'\rangle-S_m-\alpha_m\gamma_m-\tfrac12\alpha_{m+1}\gamma_m,
+\]
+and $\langle u,u'\rangle=S_m+\alpha_m\gamma_m+\gamma_m\alpha_{m+1}+R_m$. Adding,
+$\dot\gamma_m=R_m-S_m+\frac12(\alpha_{m+1}-\alpha_m)\gamma_m$, and therefore
+\[
+  \ddot a_n=b_{n+1}\Gamma_n-b_n\Gamma_{n-1},\qquad \Gamma_m:=R_m-S_m+(\alpha_{m+1}-\alpha_m)\gamma_m .
+\]
+We claim $|\Gamma_m|\le\varepsilon^2$. By the Cauchy--Schwarz inequality, first in $\ell^2$ and then in $\R^2$,
+$|R_m-S_m|\le(\|\Proj u\|^2+\|\Proj_mu\|^2)^{1/2}(\|\Proj u'\|^2+\|\Proj_mu'\|^2)^{1/2}$. By the orthogonal decomposition,
+$\|\Proj u\|^2+\|\Proj_mu\|^2=\|u\|^2-\alpha_m^2-\gamma_m^2\le\varepsilon^2-\alpha_m^2-\gamma_m^2$, and likewise for $u'$
+with $\alpha_{m+1}$. By the inequality between the geometric and arithmetic means,
+$|R_m-S_m|\le\varepsilon^2-\gamma_m^2-\frac12(\alpha_m^2+\alpha_{m+1}^2)$, while
+$|(\alpha_{m+1}-\alpha_m)\gamma_m|\le\gamma_m^2+\frac14(|\alpha_m|+|\alpha_{m+1}|)^2\le\gamma_m^2+\frac12(\alpha_m^2+\alpha_{m+1}^2)$.
+Adding proves the claim. Hence $|\ddot a_n(t)|\le\varepsilon^2(b_n(t)+b_{n+1}(t))\le\varepsilon^2e^{\varepsilon t}(b_n+b_{n+1})(v)$,
+and Taylor's formula with $\dot a_n(0)=\langle\varphi,\Delta\cE_n^v\rangle$ (Lemma~\ref{lem:toda}) gives (iii), because
+$\int_0^1(1-t)\varepsilon^2e^{\varepsilon t}\diff t=e^\varepsilon-1-\varepsilon$.
+\end{proof}
+
+\begin{remark}\label{rem:lr-sharp}
+The constants in Lemma~\ref{lem:lr} do not depend on $n$, on the atoms, or on $v$. The pointwise bound
+$|\ddot a_n|\le\varepsilon^2(b_n+b_{n+1})$ is attained: for two atoms $\pm1$, $n=0$, weights proportional to
+$(e^\theta,e^{-\theta})$ and $\varphi=\pm\varepsilon$ on the two atoms, $a_0=\tanh\theta$ and $b_1=1/\cosh\theta$, and
+$|\ddot a_0|=2\varepsilon^2|\tanh\theta|/\cosh^2\theta$ equals $\varepsilon^2(b_0+b_1)$ when $\sinh\theta=\pm1$. (This
+example has atoms $\pm1$; the proof of Lemma~\ref{lem:lr} uses only that the atoms are bounded.)
+\end{remark}
+
+\subsection{Localisation}\label{sec:loc}
+Two facts locate the spectral weights. The first holds for all weights and says that the atoms $x_k$ with $k$ much
+smaller than $n$ are almost fully occupied by $p_0,\dots,p_{n-1}$. For $p>0$ and $0<y<1$ let
+\begin{equation}\label{eq:gp}
+  g_p(y):=(p-y)\log\frac1y+(1-y)\log(1-y)-p+(p-1)y,\qquad
+  g_p^+:=\begin{cases}g_p,&p\ge1,\\ g_p-\log\frac1p,&0<p<1.\end{cases}
+\end{equation}
+For $y<p/2$ the first term is at least $\frac p2\log\frac1y$ and the others are bounded, so $g_p^+(y)\to\infty$ as
+$y\to0^+$. The \emph{head margin} $M_0=M_0(p)$ is the least integer $M_0\ge4$ such that $g_p^+\ge1$ on $(0,2/M_0]$.
+
+\begin{lemma}[saturation of the head]\label{lem:saturation}
+Let $\sigma=\sum_kw_k\delta_{k^{-p}}$ with $w_k>0$ and $\|w\|_1<\infty$. For integers $1\le k<n$ and $y:=k/n$,
+\[
+  m_n(k)\le1-K_n(k)\le\frac{\|w\|_1}{w_k}\Bigl(\frac{n+1}k\Bigr)^{2(1-p)_+}e^{-2ng_p^+(y)} .
+\]
+\end{lemma}
+
+\begin{proof}
+The first inequality was noted after \eqref{eq:christoffel}. Use the test polynomial
+$P(x):=\prod_{j\le n,\,j\ne k}(x-x_j)/(x_k-x_j)$ in \eqref{eq:christoffel}: it has degree $n-1$, $P(x_k)=1$, and it
+vanishes at $x_j$ for $j\le n$, $j\ne k$. For $i>n$ and $j\le n$ we have $0<x_i<x_j$, so $|P(x_i)|\le\mathcal
+P:=\prod_{j\le n,\,j\ne k}x_j/|x_k-x_j|$. Hence $1/\mathsf K_n(x_k)\le w_k+\|w\|_1\mathcal P^2$, and
+therefore $1-K_n(k)\le\|w\|_1\mathcal P^2/w_k$. To bound $\mathcal P$, note $x_j/|x_k-x_j|=k^p/|k^p-j^p|$ and
+$|k^p-j^p|\ge\varsigma_p\max(j,k)^{p-1}|k-j|$ with $\varsigma_p:=\min(1,p)$ (directly for $p\ge1$, by the mean value
+theorem for $p<1$). Thus
+\[
+  \mathcal P\le\varsigma_p^{-(n-1)}\frac{k^{k-1}}{(k-1)!}\cdot\frac{k^{p(n-k)}(n!/k!)^{1-p}}{(n-k)!}.
+\]
+Use $k^{k-1}/(k-1)!\le e^k$, $\log(n-k)!\ge(n-k)\log(n-k)-(n-k)$, and $I_{k,n}\le\log(n!/k!)\le
+I_{k,n}+\log\frac{n+1}k$ with $I_{k,n}:=\int_k^n\log t\diff t$, taking the lower bound when $p\ge1$ and the upper bound
+when $p<1$. With $k=yn$ the terms in $n\log n$ cancel, and
+$k+p(n-k)\log k+(1-p)I_{k,n}-(n-k)\log(n-k)+(n-k)=-ng_p(y)$. Hence $\log\mathcal P\le-ng_p(y)+(n-1)\log(1/\varsigma_p)
++(1-p)_+\log\frac{n+1}k$, and squaring gives the claim.
+\end{proof}
+
+\begin{corollary}[head mass]\label{cor:head}
+Let $w$ be as in Lemma~\ref{lem:saturation} with $w_k\ge c_1k^{-A}$ for all $k$, where $c_1>0$ and $A\ge0$. For every integer $m\ge2$,
+\[
+  m_m\bigl([1,2m/M_0]\bigr)\le\frac{\|w\|_1}{c_1}\,m^{A+1}(m+1)^2e^{-2m}.
+\]
+\end{corollary}
+
+\begin{proof}
+For $1\le k\le2m/M_0$ we have $k\le m/2<m$ and $g_p^+(k/m)\ge1$, and $((m+1)/k)^{2(1-p)_+}\le(m+1)^2$. Apply
+Lemma~\ref{lem:saturation} and sum over fewer than $m$ indices.
+\end{proof}
+
+The second fact concerns the pure powers $\sigma_{p,s}$ and is where Theorem~\ref{thm:imp-pure} enters. Put
+\begin{equation}\label{eq:Tp}
+  T_p(M):=\arc_{4c}\bigl([0,M^{-p})\bigr)=\frac2\pi\arcsin\sqrt{\min\bigl(1,M^{-p}/(4c)\bigr)}\qquad(M\ge1),
+\end{equation}
+which decreases to $0$ as $M\to\infty$.
+
+\begin{lemma}[arcsine localisation]\label{lem:arcsine}
+Let $s>1$, let $m_n$ be the spectral weights of $\sigma_{p,s}$, and fix $i\in\mathbb Z$. Let $\nu_{n,i}$ be the image
+of $m_{n+i}$ under $k\mapsto n^px_k$, a probability measure on $(0,\infty)$. Then $\nu_{n,i}\to\arc_{4c}$ weakly as
+$n\to\infty$. In particular $m_{n+i}((Mn,\infty))\to T_p(M)$ for every $M\ge1$.
+\end{lemma}
+
+\begin{proof}
+Let $\cJ$ be the Jacobi matrix of $\sigma_{p,s}$, with diagonal $(a_0,a_1,\dots)$ and off-diagonal
+$(b_1,b_2,\dots)$. By \eqref{eq:rec-vec}, $\int y^j\diff\nu_{n,i}(y)=n^{pj}\langle x^jq_{n+i},q_{n+i}\rangle
+=n^{pj}(\cJ^j)_{n+i,n+i}$, which is a sum over lattice paths of length $j$ from $n+i$ to itself, with steps $0,\pm1$,
+of products of entries $a_m,b_m$ with $|m-n|\le j+|i|+1$; compare \cite[Proposition~3.3]{Simon}. For
+$n>j+|i|+1$ the set of paths does not depend on $n$, and by Theorem~\ref{thm:imp-pure} $n^pa_m\to2c$ and $n^pb_m\to
+c$ for each such $m$, since $(m/n)^p\to1$. So the moment converges to the corresponding sum for the doubly infinite
+matrix $J_0$ with diagonal $2c$ and off-diagonal $c$, that is, to the constant Fourier coefficient of
+$(c(2+e^{i\theta}+e^{-i\theta}))^j$, which equals $\frac1\pi\int_0^\pi(2c(1+\cos\theta))^j\diff\theta=\int
+y^j\diff\arc_{4c}$.
+
+Moment convergence implies weak convergence here, because the limit has compact support. The second moments
+are bounded, so $(\nu_{n,i})_n$ is tight; let $\nu'$ be a subsequential weak limit. Since all moments of $\nu_{n,i}$ are
+bounded, each $y^j$ is uniformly integrable, so $\int y^j\diff\nu'=\int y^j\diff\arc_{4c}\le(4c)^j$. Then
+$\nu'((4c+\delta,\infty))\le(4c/(4c+\delta))^{2j}\to0$ for every $\delta>0$, so $\nu'$ lives on $[0,4c]$, where
+polynomials are dense in the continuous functions; hence $\nu'=\arc_{4c}$. Finally,
+$m_{n+i}((Mn,\infty))=\nu_{n,i}([0,M^{-p}))$, and $\arc_{4c}$ has no atoms.
+\end{proof}
+
+Beyond the range of Proposition~\ref{prop:imp-tail}, a soft bound suffices. It uses two elementary facts about a
+real polynomial $P$ of degree at most $n$, with $\|P\|:=\max_{[-1,1]}|P|$ and $T_j$ the Chebyshev polynomials,
+$T_j(\cos\theta)=\cos j\theta$:
+\begin{equation}\label{eq:cheb}
+  \max_{[-1,1]}|P'|\le2n^3\|P\|,\qquad |P(y)|\le2(n+1)\,|T_n(y)|\,\|P\|\quad(|y|\ge1).
+\end{equation}
+Indeed, $P=\sum_{j\le n}c_jT_j$ with $c_j=\frac{2-\delta_{j0}}\pi\int_0^\pi P(\cos\theta)\cos j\theta\diff\theta$, so
+$|c_j|\le2\|P\|$. On $[-1,1]$, $|T_j'(\cos\theta)|=|j\sin j\theta/\sin\theta|\le j^2$, since $|\sin j\theta|\le j|\sin\theta|$; this
+gives the first bound. For $|y|\ge1$, $|T_j(y)|=\cosh(j\operatorname{arccosh}|y|)$ is non-decreasing in $j$, which gives
+the second.
+
+\begin{lemma}[polynomial tail localisation]\label{lem:TL}
+Let $\sigma=\sum_kw_k\delta_{k^{-p}}$ with $c'k^{-s}\le w_k\le C'k^{-s}$ for all $k$, where $s>1$ and $0<c'\le C'$. For
+$n\ge2$ put $T':=\lceil16pn^3\rceil$ and $T'':=\lceil T'n^{2/p}\rceil$. Then $K_{n+1}(k)\le68^2(n+1)^2(C'/c')(T''/k)^s$ for
+every $k\ge T''$, and for every integer $T\ge T''$ and $n'\in\{n-1,n\}$,
+\[
+  m_{n'}\bigl((T,\infty)\bigr)\le\frac{68^2(n+1)^2(C'/c')}{s-1}\,T''^{\,s}\,T^{1-s}.
+\]
+\end{lemma}
+
+\begin{proof}
+Put $\bar x:=x_{T'}$ and $\underline x:=x_{T''}$, so that $\underline x/\bar x\le(T'/T'')^p\le n^{-2}\le\frac14$. Let $\deg P\le n$ and write $\|P\|_{[\underline x,\bar x]}$
+for the maximum of $|P|$ on $[\underline x,\bar x]$. Mapping $[\underline x,\bar x]$ affinely onto $[-1,1]$, \eqref{eq:cheb} gives $|P'|\le
+4n^3\|P\|_{[\underline x,\bar x]}/(\bar x-\underline x)\le8n^3\|P\|_{[\underline x,\bar x]}/\bar x$ on $[\underline x,\bar x]$. Consecutive atoms in $[\underline x,\bar x]$ are at distance $x_j-x_{j+1}\le
+pj^{-p-1}\le p\bar x/T'$, so every point of $[\underline x,\bar x]$ is within $p\bar x/T'$ of an atom, and
+$\|P\|_{[\underline x,\bar x]}\le\max|P(x_j)|+(8pn^3/T')\|P\|_{[\underline x,\bar x]}$, the maximum over $T'\le j\le T''$. Since $T'\ge16pn^3$,
+$\|P\|_{[\underline x,\bar x]}\le2\max_{T'\le j\le T''}|P(x_j)|$. For $0\le x\le\underline x$ the affine image $y=(\underline x+\bar x-2x)/(\bar x-\underline x)$ satisfies
+$1\le y\le1+4\underline x/\bar x\le1+4n^{-2}$, and $T_n(1+\eta)=\cosh(n\operatorname{arccosh}(1+\eta))\le e^{n\sqrt{2\eta}}\le e^{\sqrt8}<17$ for
+$\eta\le4n^{-2}$. By \eqref{eq:cheb}, $|P(x)|\le34(n+1)\|P\|_{[\underline x,\bar x]}$. Hence, if $k\ge T''$ and $P(x_k)=1$, then
+$1\le68(n+1)\max_{T'\le j\le T''}|P(x_j)|$, so $\int P^2\diff\sigma\ge\min_{j\le T''}w_j/(68(n+1))^2\ge c'T''^{-s}/(68(n+1))^2$.
+By \eqref{eq:christoffel}, $K_{n+1}(k)=w_k\mathsf K_{n+1}(x_k)\le68^2(n+1)^2(C'/c')(T''/k)^s$. Finally
+$m_{n'}\le K_{n'+1}\le K_{n+1}$ for $n'\le n$, and $\sum_{k>T}k^{-s}\le T^{1-s}/(s-1)$.
+\end{proof}
+
+\begin{lemma}[one power for all $M$]\label{lem:allM}
+Let $s\in\Sp$, let $m_n$ be the spectral weights of $\sigma_{p,s}$, and put
+\[
+  \vartheta_*=\vartheta_*(p,s):=\frac{s-1}{4+(2+2/p)s}.
+\]
+Then $0<\vartheta_*<\min(p/2,s-1)$, $\vartheta_*$ increases with $s$, and there are $C$ and $n_0$ such that
+$m_{n'}((Mn,\infty))\le CM^{-\vartheta_*}$ for all $n\ge n_0$, $n'\in\{n-1,n\}$ and $M\ge1$.
+\end{lemma}
+
+\begin{proof}
+Put $B:=3+(2+2/p)s$, so that $\vartheta_*=(s-1)/(B+1)$, and $\gamma_1:=1/\vartheta_*=(B+1)/(s-1)$; then
+$\gamma_1>2+2/p$, and $\vartheta_*<(s-1)p/(2s)<p/2$. The map $M\mapsto m_{n'}((Mn,\infty))$ is non-increasing. For $1\le
+M\le c_2n^{2/p}$ use Proposition~\ref{prop:imp-tail} and $M^{-p/2}\le M^{-\vartheta_*}$. For $c_2n^{2/p}\le M\le
+n^{\gamma_1}$, monotonicity and Proposition~\ref{prop:imp-tail} give the bound $Cc_2^{-p/2}n^{-1}\le Cc_2^{-p/2}M^{-\vartheta_*}$,
+since $M^{\vartheta_*}\le n$. For $M\ge n^{\gamma_1}$ apply Lemma~\ref{lem:TL} with $c'=C'=1$ and $T:=\lfloor Mn\rfloor\ge
+Mn/2$; since $T''\le(16p+2)n^{3+2/p}$ and $\gamma_1+1>3+2/p$, we have $T\ge T''$ for large $n$, and
+$\{k>Mn\}\subset\{k>T\}$. This gives $m_{n'}((Mn,\infty))\le Cn^2n^{(3+2/p)s}(Mn)^{1-s}=Cn^BM^{-(s-1)}$, and
+$n^BM^{-(s-1)}=n^BM^{-B\vartheta_*}M^{-\vartheta_*}\le M^{-\vartheta_*}$ because $M^{\vartheta_*}\ge n$.
+\end{proof}
+
+\begin{lemma}\label{lem:usat}
+$\usat(p)<1$ for every $p>0$.
+\end{lemma}
+
+\begin{proof}
+By Proposition~\ref{prop:imp-eq}, $\mu^*_u((0,\usat])=\usat$. In the variable $x=u^{-p}$ the set $u\le\usat$ is
+$x\ge4c$, so $\usat=1-\mu^*((0,4c))$. For $\tau\in[\frac12,1]$ the law $\arc_{4c\tau^{-p}}$ gives the mass
+$\frac2\pi\arcsin(\tau^{p/2})\ge\frac2\pi\arcsin(2^{-p/2})$ to $[0,4c)$, so $\mu^*((0,4c))>0$.
+\end{proof}

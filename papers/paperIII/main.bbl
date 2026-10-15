@@ -1,0 +1,62 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{10}
+
+\bibitem{DPQ}
+Z.~Dai, D.~Piao, and J.~Qiao, \emph{Construction and characterization of
+  oscillatory chain sequences}, 2025, Preprint, arXiv:2508.07653.
+
+\bibitem{DD}
+M.~Derevyagin and V.~Derkach, \emph{Darboux transformations of {J}acobi
+  matrices and {P}ad{\'e} approximation}, Linear Algebra Appl. \textbf{435}
+  (2011), no.~12, 3056--3084, arXiv:1012.3712.
+
+\bibitem{DLMF}
+\emph{{NIST} digital library of mathematical functions},
+  \url{https://dlmf.nist.gov}, release 2026-09-15.
+
+\bibitem{Fischer}
+H.-J. Fischer, \emph{On generating orthogonal polynomials for discrete
+  measures}, Z. Anal. Anwend. \textbf{17} (1998), no.~1, 183--205.
+
+\bibitem{HaynesZudilin}
+A.~Haynes and W.~Zudilin, \emph{Hankel determinants of zeta values}, SIGMA
+  Symmetry Integrability Geom. Methods Appl. \textbf{11} (2015), Paper 101, 5
+  pp., arXiv:1510.01901.
+
+\bibitem{Monien}
+H.~Monien, \emph{Hankel determinants of {D}irichlet series}, 2009, Preprint,
+  arXiv:0901.1883.
+
+\bibitem{Simon}
+B.~Simon, \emph{Ratio asymptotics and weak asymptotic measures for orthogonal
+  polynomials on the real line}, J. Approx. Theory \textbf{126} (2004), no.~2,
+  198--217.
+
+\bibitem{PaperI}
+Gordon [Surname], \emph{Hankel determinants of discrete measures with power-law
+  atoms, and of zeta values}, 2026, Preprint, 2026 (first paper of this
+  series).
+
+\bibitem{PaperII}
+\bysame, \emph{Recurrence coefficients of discrete measures with power-law
+  atoms: pointwise asymptotics and the $1/n$ term}, 2026, Preprint, 2026
+  (second paper of this series); title and numbering provisional.
+
+\bibitem{VA}
+W.~Van~Assche, \emph{Compact {J}acobi matrices: from {S}tieltjes to {K}rein and
+  {$M(a,b)$}}, Ann. Fac. Sci. Toulouse Math. (6) \textbf{num{\'e}ro sp{\'e}cial
+  Stieltjes} (1996), 195--215, arXiv:math/9510214.
+
+\bibitem{WLXZ}
+X.-B. Wu, Y.~Lin, S.-X. Xu, and Y.-Q. Zhao, \emph{Uniform asymptotics for
+  discrete orthogonal polynomials on infinite nodes with an accumulation
+  point}, Anal. Appl. (Singap.) \textbf{14} (2016), no.~5, 705--737, Equation
+  numbers as in arXiv:1410.3948v1.
+
+\end{thebibliography}
