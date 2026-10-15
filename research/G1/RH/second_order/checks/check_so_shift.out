@@ -1,0 +1,51 @@
+[A]-[C] Christoffel shift s -> s + p
+ p=0.5 s=1.5 -> s+p=2.0:  limit (1/2)log(c zeta(s)/zeta(s+p)) = -0.216660067177
+   n=    1: [A] log(prod) - log(g_(2n+1)/g_1) =   6.42e-18   [B] n^p g_(2n+1)/c - 1 =    -0.134379   S_n - limit =   -0.0721539
+   n=   10: [A] log(prod) - log(g_(2n+1)/g_1) =   9.01e-18   [B] n^p g_(2n+1)/c - 1 =  -0.00587951   S_n - limit =  -0.00294843
+   n=  100: [A] log(prod) - log(g_(2n+1)/g_1) =  -1.27e-15   [B] n^p g_(2n+1)/c - 1 = -0.000128899   S_n - limit =  -6.44536e-5
+   n=  400: [A] log(prod) - log(g_(2n+1)/g_1) =   6.77e-14   [B] n^p g_(2n+1)/c - 1 =   -1.3495e-5   S_n - limit =  -6.74754e-6
+   n=  800: [A] log(prod) - log(g_(2n+1)/g_1) =    1.1e-13   [B] n^p g_(2n+1)/c - 1 =  -4.48097e-6   S_n - limit =  -2.24049e-6
+   n= 1599: [A] log(prod) - log(g_(2n+1)/g_1) =   1.62e-12   [B] n^p g_(2n+1)/c - 1 =  -1.51156e-6   S_n - limit =  -7.55782e-7
+   [C] d1(s) = -0.249999998 (4e-07), d1(s+p) = -0.500000014 (6e-07), difference = -0.250000015  vs -p/2 = -0.2500
+ p=1.0 s=2.0 -> s+p=3.0:  limit (1/2)log(c zeta(s)/zeta(s+p)) = -0.18974052674
+   n=    1: [A] log(prod) - log(g_(2n+1)/g_1) =   1.14e-17   [B] n^p g_(2n+1)/c - 1 =    -0.387833   S_n - limit =    -0.245375
+   n=   10: [A] log(prod) - log(g_(2n+1)/g_1) =   2.21e-17   [B] n^p g_(2n+1)/c - 1 =   -0.0507409   S_n - limit =   -0.0260367
+   n=  100: [A] log(prod) - log(g_(2n+1)/g_1) =  -7.21e-18   [B] n^p g_(2n+1)/c - 1 =  -0.00501554   S_n - limit =  -0.00251408
+   n=  400: [A] log(prod) - log(g_(2n+1)/g_1) =  -3.57e-16   [B] n^p g_(2n+1)/c - 1 =  -0.00125102   S_n - limit = -0.000625903
+   n=  800: [A] log(prod) - log(g_(2n+1)/g_1) =   2.34e-15   [B] n^p g_(2n+1)/c - 1 = -0.000625258   S_n - limit = -0.000312727
+   n= 1599: [A] log(prod) - log(g_(2n+1)/g_1) =   2.21e-14   [B] n^p g_(2n+1)/c - 1 =  -0.00031276   S_n - limit = -0.000156405
+   [C] d1(s) = -0.500000000 (6e-10), d1(s+p) = -1.000000000 (6e-10), difference = -0.500000000  vs -p/2 = -0.5000
+ p=1.0 s=3.0 -> s+p=4.0:  limit (1/2)log(c zeta(s)/zeta(s+p)) = -0.294111439118
+   n=    1: [A] log(prod) - log(g_(2n+1)/g_1) =   1.23e-17   [B] n^p g_(2n+1)/c - 1 =    -0.233902   S_n - limit =    -0.133223
+   n=   10: [A] log(prod) - log(g_(2n+1)/g_1) =   3.62e-17   [B] n^p g_(2n+1)/c - 1 =    0.0247858   S_n - limit =    0.0122418
+   n=  100: [A] log(prod) - log(g_(2n+1)/g_1) =  -7.74e-18   [B] n^p g_(2n+1)/c - 1 =   0.00469093   S_n - limit =   0.00233998
+   n=  400: [A] log(prod) - log(g_(2n+1)/g_1) =  -2.49e-15   [B] n^p g_(2n+1)/c - 1 =   0.00123033   S_n - limit =  0.000614786
+   n=  800: [A] log(prod) - log(g_(2n+1)/g_1) =  -7.66e-15   [B] n^p g_(2n+1)/c - 1 =  0.000620067   S_n - limit =  0.000309938
+   n= 1599: [A] log(prod) - log(g_(2n+1)/g_1) =  -5.64e-14   [B] n^p g_(2n+1)/c - 1 =  0.000311459   S_n - limit =  0.000155705
+   [C] d1(s) = -1.000000000 (6e-10), d1(s+p) = -1.500000000 (2e-09), difference = -0.500000000  vs -p/2 = -0.5000
+ p=1.5 s=1.5 -> s+p=3.0:  limit (1/2)log(c zeta(s)/zeta(s+p)) = 0.103772791195
+   n=    1: [A] log(prod) - log(g_(2n+1)/g_1) =  -5.97e-17   [B] n^p g_(2n+1)/c - 1 =    -0.676373   S_n - limit =    -0.564081
+   n=   10: [A] log(prod) - log(g_(2n+1)/g_1) =   2.53e-17   [B] n^p g_(2n+1)/c - 1 =    -0.146199   S_n - limit =   -0.0790287
+   n=  100: [A] log(prod) - log(g_(2n+1)/g_1) =   3.95e-14   [B] n^p g_(2n+1)/c - 1 =   -0.0164374   S_n - limit =  -0.00828702
+   n=  400: [A] log(prod) - log(g_(2n+1)/g_1) =   2.57e-12   [B] n^p g_(2n+1)/c - 1 =  -0.00415219   S_n - limit =  -0.00208042
+   n=  800: [A] log(prod) - log(g_(2n+1)/g_1) =    3.2e-12   [B] n^p g_(2n+1)/c - 1 =  -0.00207971   S_n - limit =  -0.00104094
+   n= 1599: [A] log(prod) - log(g_(2n+1)/g_1) =    5.7e-12   [B] n^p g_(2n+1)/c - 1 =  -0.00104141   S_n - limit = -0.000520976
+   [C] d1(s) = -0.250000000 (3e-09), d1(s+p) = -1.000000000 (2e-08), difference = -0.750000000  vs -p/2 = -0.7500
+ p=2.0 s=2.0 -> s+p=4.0:  limit (1/2)log(c zeta(s)/zeta(s+p)) = -0.0322692605688
+   n=    1: [A] log(prod) - log(g_(2n+1)/g_1) =   1.18e-17   [B] n^p g_(2n+1)/c - 1 =    -0.746032   S_n - limit =    -0.685273
+   n=   10: [A] log(prod) - log(g_(2n+1)/g_1) =   8.71e-18   [B] n^p g_(2n+1)/c - 1 =    -0.173127   S_n - limit =   -0.0950518
+   n=  100: [A] log(prod) - log(g_(2n+1)/g_1) =  -7.06e-18   [B] n^p g_(2n+1)/c - 1 =   -0.0196979   S_n - limit =  -0.00994727
+   n=  400: [A] log(prod) - log(g_(2n+1)/g_1) =   1.89e-15   [B] n^p g_(2n+1)/c - 1 =  -0.00498093   S_n - limit =  -0.00249669
+   n=  800: [A] log(prod) - log(g_(2n+1)/g_1) =   4.42e-14   [B] n^p g_(2n+1)/c - 1 =  -0.00249522   S_n - limit =  -0.00124917
+   n= 1599: [A] log(prod) - log(g_(2n+1)/g_1) =    1.2e-13   [B] n^p g_(2n+1)/c - 1 =  -0.00124958   S_n - limit = -0.000625183
+   [C] d1(s) = -0.500000000 (3e-11), d1(s+p) = -1.500000000 (9e-11), difference = -1.000000000  vs -p/2 = -1.0000
+
+[D] Tricomi-Carlitz comparison, p = 1, s = 3/2
+   predicted limit -(1/2)log(zeta(3/2)/sqrt(2pi)) = -0.0206606847631
+   n=   10: T_n - limit =   0.00387457,  n (T_n - limit) = 0.0387457,  n^2 (b_n/b_n^TC - 1) = -0.039698
+   n=   50: T_n - limit =  0.000821005,  n (T_n - limit) = 0.0410502,  n^2 (b_n/b_n^TC - 1) = -0.0412548
+   n=  100: T_n - limit =  0.000413563,  n (T_n - limit) = 0.0413563,  n^2 (b_n/b_n^TC - 1) = -0.0414595
+   n=  200: T_n - limit =  0.000207555,  n (T_n - limit) = 0.041511,  n^2 (b_n/b_n^TC - 1) = -0.0415628
+   n=  400: T_n - limit =  0.000103972,  n (T_n - limit) = 0.0415887,  n^2 (b_n/b_n^TC - 1) = -0.0416147
+   n=  800: T_n - limit =   5.20345e-5,  n (T_n - limit) = 0.0416276,  n^2 (b_n/b_n^TC - 1) = -0.0416407
+   n= 1600: T_n - limit =   2.60295e-5,  n (T_n - limit) = 0.0416471,  n^2 (b_n/b_n^TC - 1) = -0.0416538

@@ -1,0 +1,23 @@
+(0) base chain vs the Lommel input (Paper 2 Remark rem:pure-lommel, scaled by 1/pi^2):
+   alpha_0 = 1/15; b_n^2 = gamma_(2n-1)^2 gamma_(2n)^2 and alpha_n = gamma_(2n)^2 + gamma_(2n+1)^2 (n >= 1) agree: OK
+
+(1) closed forms of the chains satisfy the chain relations of x * sigma_{2,s-2} (identities in m; finite at all integers m >= 0):
+   s = 4: gamma_1^2 - alpha_0 = 0;  gamma_(2m-1)^2 gamma_(2m)^2 - b_m^2 = 0;  gamma_(2m)^2 + gamma_(2m+1)^2 - alpha_m = 0
+   s = 6: gamma_1^2 - alpha_0 = 0;  gamma_(2m-1)^2 gamma_(2m)^2 - b_m^2 = 0;  gamma_(2m)^2 + gamma_(2m+1)^2 - alpha_m = 0
+   s = 8: gamma_1^2 - alpha_0 = 0;  gamma_(2m-1)^2 gamma_(2m)^2 - b_m^2 = 0;  gamma_(2m)^2 + gamma_(2m+1)^2 - alpha_m = 0
+
+(2) expansions in u = 1/n  (c = 1/16 after x -> x/pi^2):
+    s | n^2 b_n/c - 1 | alpha_{n-1}/(2b_n) - 1 (repo) | alpha_n/(2b_n) - 1 (standard) | conj d1 = -(s-1)/2
+    2 | -3*u**3/16 + 5*u**2/16 - u/2 | u**3/2 + 5*u**2/8 + u | -11*u**3/8 + 9*u**2/8 - u | -1/2
+    4 | -33*u**3/16 + 29*u**2/16 - 3*u/2 | u**3/8 + u**2/8 + u | -11*u**3/4 + 13*u**2/8 - u | -3/2
+    6 | -55*u**3/16 + 61*u**2/16 - 5*u/2 | -11*u**3/4 + 29*u**2/8 + u | -173*u**3/8 + 49*u**2/8 - u | -5/2
+    8 | -21*u**3/16 + 101*u**2/16 - 7*u/2 | -161*u**3/8 + 89*u**2/8 + u | -70*u**3 + 117*u**2/8 - u | -7/2
+   10 | 117*u**3/16 + 149*u**2/16 - 9*u/2 | -64*u**3 + 181*u**2/8 + u | -1279*u**3/8 + 217*u**2/8 - u | -9/2
+
+(3) chain: gamma_N^2 * 4 N^2 - 1 = (k0 + k1 (-1)^N)/N + ...  (conj k0 = -(s-1) - p/2 = -s, k1 = -(p+2)(2s-2-p)/(2p) = -2(s-2))
+   s = 2: k0 = -2, k1 = 0
+   s = 4: k0 = -4, k1 = -4
+   s = 6: k0 = -6, k1 = -8
+   s = 8: k0 = -8, k1 = -12
+
+all assertions passed
