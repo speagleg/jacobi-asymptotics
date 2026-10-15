@@ -18,14 +18,14 @@ and the truncation spread (max - min over the runs listed in RUNS[p]) of each co
 
 Also printed: theta_n/2 with theta_n := L'(log n), L(xi) = sqrt(log(e^xi + e)) (the quantity in the conjecture of
 Section 10.1), to compare with B(l) - B(1).
-Run: /mnt/c/Users/gspea/source/repos/jacobi-asymptotics/.venv/bin/python papers/paper2/checks/table2.py > checks/table2.out
+Run (from the repo root): .venv/bin/python papers/paper2/checks/table2.py > papers/paper2/checks/table2.out
 (the script puts the main repository's src/ on sys.path; it needs the toolkit's built C kernels; runtime about 1 min).
 """
 import sys
 import time
 import numpy as np
 
-sys.path.insert(0, "/mnt/c/Users/gspea/source/repos/jacobi-asymptotics/src")
+sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parents[3] / "src"))
 from jacobi_asym.measures.base import DiscreteMeasure  # noqa: E402
 from jacobi_asym.jacobi.dispatch import jacobi_coeffs  # noqa: E402
 from jacobi_asym.laws.weyl import c_p  # noqa: E402
