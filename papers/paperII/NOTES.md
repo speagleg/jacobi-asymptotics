@@ -1,8 +1,8 @@
 # Paper II — notes (draft of 2026-10-15)
 
 Local working notes; not part of the paper. Build: `pdflatex main; bibtex main; pdflatex main; pdflatex main`
-(no latexmk). Current build: 81 pp., 0 errors, 0 warnings, 0 overfull boxes (one underfull vbox in §5 and one underfull
-hbox in the data statement, both harmless).
+(no latexmk). Current build (after the editor pass of 2026-10-15): 80 pp., 0 errors, 0 LaTeX/bibtex warnings, 0
+overfull/underfull boxes.
 
 Sources: `papers/paper2/` (old combined draft, unchanged), `research/G1/RH/second_order/E_pgt1.md` (Theorem 1.4),
 `research/G1/RH/px/RH_px.md` (§8), `research/G1/RH/second_order/TAIL.md` (Proposition 8.6; reviewed and merged on
@@ -18,21 +18,23 @@ master), planning documents `research/program/papers_split/{SERIES.md, PAPER_II_
 | 2 | Preliminaries (Def 2.1, Rem 2.2, Prop 2.3, tools §§2.4–2.7) | 5–10 | Paper 2 sec_2 (slow variation and Christoffel extremal property removed) |
 | 3 | The Christoffel shift (Thm 3.1, Lemmas 3.2–3.5, Rem 3.6) | 10–14 | Paper 2 sec_3 without the converse |
 | 4 | Riemann–Hilbert problem and common frame | 14–25 | Paper 2 sec_5 (now for every α > −1) |
-| 5 | Outer scalar and properties of the frame (Lemma 5.1, Table 5.1, Prop 5.6) | 25–35 | Paper 2 sec_6 |
-| 6 | Hard edge: comparison with a Bessel model (Prop 6.6 now states the L² bound) | 35–44 | Paper 2 sec_7 |
-| 7 | Proof of Theorems 7.1, 1.2, Corollary 1.3 | 44–46 | Paper 2 sec_8 + sec_4 assembly Steps 1–3 |
-| 8 | Pure powers, p > 1: classical hard-edge parametrix (Lemmas 8.1–8.3, Prop 8.4, Rem 8.5, Prop 8.6, Lemmas 8.7–8.8) | 46–55 | NEW: RH_px §§4–5, E_pgt1 Lemma E.2, TAIL.md §§3, 6 |
-| 9 | The 1/n term for p > 1 (Lemmas 9.1–9.4, Prop 9.5, Rem 9.6) | 55–61 | NEW: E_pgt1 §§2–7.1 |
-| 10 | Numerical illustrations (Tables 10.1, 10.2) | 61–64 | Paper 2 §9 + SECOND §1.1 grid (check_so_grid.out) |
-| 11 | Further remarks (Conjectures 11.1, 11.2) | 64–65 | Paper 2 §10 rewritten |
-| A | Outer scalar for p ≠ 1 | 65–70 | Paper 2 app_outer |
-| B | A priori bound at the hard edge | 70–73 | Paper 2 app_c |
-| C | Two L² bounds on a star | 73–75 | Paper 2 app_a |
-| D | Uniform invertibility of the comparison problem | 75–79 | Paper 2 app_b |
-| E | First corrections and Laurent coefficients | 79–80 | NEW: E_pgt1 §5 |
+| 5 | Outer scalar and properties of the frame (Lemma 5.1, Table 5.1, Prop 5.6) | 25–34 | Paper 2 sec_6 |
+| 6 | Hard edge: comparison with a Bessel model (Props 6.4, 6.5, 6.6; Prop 6.5 was "Theorem 6.5") | 35–44 | Paper 2 sec_7 |
+| 7 | Proof of Theorems 7.1, 1.2, Corollary 1.3 | 44–45 | Paper 2 sec_8 + sec_4 assembly Steps 1–3 |
+| 8 | Pure powers, p > 1: classical hard-edge parametrix (Lemmas 8.1–8.3, Prop 8.4, Rem 8.5; §8.4 states Prop 8.6) | 45–52 | NEW: RH_px §§4–5, E_pgt1 Lemma E.2, TAIL.md §§3, 6 |
+| 9 | The 1/n term for p > 1 (Lemmas 9.1–9.4, Prop 9.5, Rem 9.6 incl. derivation of the Lommel closed form) | 52–58 | NEW: E_pgt1 §§2–7.1 |
+| 10 | Numerical illustrations (Tables 10.1, 10.2) | 58–60 | Paper 2 §9 + SECOND §1.1 grid (check_so_grid.out) |
+| 11 | Further remarks (Conjectures 11.1, 11.2) | 60–62 | Paper 2 §10 rewritten |
+| A | Outer scalar for p ≠ 1 | 62–67 | Paper 2 app_outer |
+| B | A priori bound at the hard edge | 67–70 | Paper 2 app_c |
+| C | Two L² bounds on a star | 70–73 | Paper 2 app_a |
+| D | Uniform invertibility of the comparison problem | 73–76 | Paper 2 app_b |
+| E | First corrections and Laurent coefficients | 76–77 | NEW: E_pgt1 §5 |
+| F | Proof of the localisation bound (Lemmas F.1 Stieltjes bound, F.2 row product; proof of Prop 8.6) | 77–79 | moved verbatim from §8.4 in the editor pass |
 
 Numbering versus PAPER_II_OUTLINE.md: everything matches except **Proposition 5.6** (outline: 5.7; the quotient
-remark moved to §8 removed one item before it) and Definition 4.10 (the outer-scalar properties, formerly (O1)–(O5)).
+remark moved to §8 removed one item before it), Definition 4.10 (the outer-scalar properties, formerly (O1)–(O5)), Proposition 6.5 (was Theorem 6.5) and the two
+lemmas of the tail bound (F.1, F.2; outline: in §8).
 Paper III must cite the numbers of the frozen version; exported labels: thm:analytic (1.2), cor:pure (1.3), thm:onen
 (1.4), rem:lommel (1.6), thm:shift (3.1), lem:transfer (3.3), lem:chain-limit (3.4), prop:tail (8.6).
 
@@ -40,12 +42,11 @@ Paper III must cite the numbers of the frozen version; exported labels: thm:anal
 
 - Author line "Gordon [Surname]"; date line; repository tag "[to be fixed at submission]" in the data statement.
 - MSC codes, affiliation, e-mail: not yet present.
-- §2.1 footnote on Paper I's indexing (a_{k+1}): delete once the Paper I revision (a_k, arc_β, 𝓑_y) is merged.
 - Paper III bibliography entry: title provisional ("Stability and instability of recurrence asymptotics …").
 
 ## 3. Open items and items pending review
 
-1. **Prop 8.6 and its lemmas (8.7, 8.8)**: written from TAIL.md, which is now reviewed (REVIEW_Plan69, fixes applied);
+1. **Prop 8.6 and its lemmas (now F.1, F.2; the proof is in App. F)**: written from TAIL.md, which is now reviewed (REVIEW_Plan69, fixes applied);
    the Paper II text itself is new writing and still needs an independent reading against TAIL.md. Part (a) is stated only
    for 1 ≤ M ≤ γ_* n^{2/p} (the deep-tail polynomial-inequality step is left to Paper III, as agreed). The L² bound
    ‖Q₋ − Q̃₋‖ ≤ C(ε′_n n^{−1/2} + n^{−1}) is now in the statement of Prop 6.6 (review fix F7), label eq:he-L2-diff.
@@ -70,8 +71,9 @@ Paper III must cite the numbers of the frozen version; exported labels: thm:anal
    The sentence attributing the p = 1 averaged statement to Paper III relies on TAIL.md's telescoping (every s > 1).
 5. Human expert reading of §§4–6 and Apps. B, D (REFEREE2 "what a human expert should still check") is still needed.
 6. Intro length: §2 starts about 45% down p. 5; the introduction is just under 4 pages after the abstract.
-7. Disc notation U(z₀, r) still shares the letter U with the matrix U (EDIT_REPORT N12); not renamed.
-8. Length 81 pp (outline estimate 70–76 + 3–4 for Prop 8.6). §8 is about 9 pp (outline 5 + 3–4).
+7. Disc notation renamed U(z₀, r) → 𝔻(z₀, r) in the editor pass (EDIT_REPORT N12 resolved); C_± now defined in §2.
+8. Length 80 pp (outline estimate 70–76 + 3–4 for Prop 8.6). §8 is now about 7 pp; the proof of Prop 8.6 (≈2.5 pp) is
+   in App. F. Further cuts would need deleting mathematics or the numerical tables; see §7 below.
 
 ## 4. Sources to verify (citations)
 
@@ -79,7 +81,7 @@ Paper III must cite the numbers of the frozen version; exported labels: thm:anal
   research/G1/RH/CITATIONS.md). No UNREAD key is cited (BGT, Vuil, Fischer, BueMar are uncited and do not print).
 - DPQ: only the statement of Prop. 2.1 is recorded verbatim; used for attribution only.
 - LL: printed as "Research announcement, 1999"; journal/book data not verified. Monien: arXiv only; publication status
-  not verified. DD: volume and pages missing (bibtex warning). DLMF release date from pages fetched 2026-10-14.
+  not verified. DD: volume 435(12), pp. 3056–3084 added from Crossref (doi 10.1016/j.laa.2011.05.035). DLMF release date from pages fetched 2026-10-14.
 - Quotations (CD abstract, DP §1) to be re-verified character by character before submission.
 - DLMF 10.32.4, 10.32.9 (used in Prop 8.6(b)) are recorded in research/G1/CITATIONS.md "(DLMF-3)", cited directly in §8,
   not listed in §2.7. KMVV (6.19)–(6.21) cited directly in §8, not in §2.5. Teschl (row product) not cited: Lemma 8.8
@@ -97,3 +99,31 @@ B_r, C₀); 𝖱 error matrix of §§8–9; γ_* the range constant of Prop 8.6(
 
 Drafted in parallel chunks (front + §§1–3; §§4–5 + App. A; §§6–7 + Apps. B–D; §§8–9 + App. E; §§10–11) against a
 shared brief, then integrated, rebuilt and style-checked (see STYLE_CHECK.md). Commits: one per chunk, prefix `docs:`.
+
+## 7. Editor pass (2026-10-15, branch plan-70-paperII)
+
+Human-readability pass; no mathematical statement, hypothesis, constant or proof step changed (a separate referee is
+checking §§8–9 and App. E). Exported numbers unchanged (1.2, 1.3, 1.4, 1.6, 3.1, 3.3, 3.4, 8.6).
+- Introduction: "Context" now opens with the relation to Papers I and III, then a paragraph "Two difficulties" (nodes
+  accumulating at the hard edge; non-analytic r_n) that the literature paragraphs answer; r_n and the rescaling z = n^p x
+  defined there and used in the method paragraph; organisation rewritten with corrected reading paths (Thm 1.4 needs
+  App. B and the Bessel model of §6.2 / (6.7), which the old text omitted). Lommel derivation moved from Rem 1.6 to the
+  end of Rem 9.6 (Rem 1.6 keeps the formulas); the (2,2) check is no longer repeated three times.
+- Footnote on Paper I's a_{k+1} deleted. "Jacobi coefficients" → "recurrence coefficients" everywhere (title term).
+- Proof of Prop 8.6 with Lemmas 8.7–8.8 moved verbatim to App. F (now Lemmas F.1, F.2); statement stays as Prop 8.6.
+- Theorem 6.5 → Proposition 6.5 (label prop:UR-true). Labels renamed: rem:not-proved → rem:circle-terms; App. B/C/D
+  legacy prefixes (lem:B-cauchy, lem:A-power, lem:B-block, …) → lem:cauchy-arcs, lem:star-power, lem:star-log,
+  lem:edge-block, sec:apriori-*, sec:resolvent-*, eq:star-*, eq:resolvent-*.
+- Theorem-environment titles in one style (initial capital, no leading article for lemmas).
+- Section openers of §§5, 7, 8, 9 and Apps. B, D, F rewritten (what and why, not "This section proves").
+- Bibliography: DD volume 435(12), pp. 3056–3084 (Crossref); arXiv years moved to year fields; VA special issue as
+  note; DLMF title protected. bibtex 0 warnings.
+- \raggedbottom added (removes the underfull vboxes).
+
+Items for the author or the referee:
+- Page count 80 (target 70–76). The remaining length is mathematics (§§4–6 frame and comparison, Apps. A–D) and the two
+  tables; reaching 76 would need cutting Table 10.2 to one row per p, dropping Lemma E.1's 𝔠₀ (unused in the paper),
+  or condensing §2.7.
+- 𝔠₀ in Lemma E.1 is stated "for completeness" and used nowhere in II (nor, per PAPER_III_OUTLINE, in III).
+- LL is still cited as "Research announcement, 1999" without journal data.
+
