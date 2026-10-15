@@ -3,166 +3,213 @@
 [![python](https://github.com/speagleg/jacobi-asymptotics/actions/workflows/python.yml/badge.svg)](https://github.com/speagleg/jacobi-asymptotics/actions/workflows/python.yml)
 [![lean](https://github.com/speagleg/jacobi-asymptotics/actions/workflows/lean.yml/badge.svg)](https://github.com/speagleg/jacobi-asymptotics/actions/workflows/lean.yml)
 
-**Asymptotics of orthogonal-polynomial recurrence coefficients for discrete measures whose atoms accumulate at 0.**
+**How do the entries of a Jacobi matrix behave when its eigenvalues are $1, 2^{-p}, 3^{-p}, \dots$?**
 
-Take a positive measure with atoms at the points $x_k = k^{-p}$ and weights $w_k$,
+A Jacobi matrix is a symmetric tridiagonal matrix with diagonal entries $a_0, a_1, \dots$ and off-diagonal entries
+$b_1, b_2, \dots > 0$. Equivalently, $a_n$ and $b_n$ are the recurrence coefficients of the orthogonal polynomials of
+a measure, $xP_n = P_{n+1} + a_nP_n + b_n^2P_{n-1}$. This repository studies the inverse question for discrete measures
+whose atoms pile up at 0 like a power,
 
-$$\sigma = \sum_{k\ge 1} w_k\,\delta_{x_k}, \qquad x_k = k^{-p}\ (p>0),$$
+$$\sigma = \sum_{k\ge1} w_k\,\delta_{x_k}, \qquad x_k = k^{-p}\quad(p>0),$$
 
-and let $a_n, b_n$ be the coefficients of its orthogonal polynomials,
-$x P_n = P_{n+1} + a_n P_n + b_n^2 P_{n-1}$. Equivalently, $\sigma$ is the spectral measure of a compact Jacobi matrix
-whose eigenvalues are $k^{-p}$. This repository studies **"Law P"**:
+that is, compact Jacobi matrices with eigenvalues $k^{-p}$ and spectral weights $w_k$. The answer, proved here in
+increasing strength, is that the entries decay like the eigenvalues, with an explicit constant:
 
-$$n^p\, b_n \;\longrightarrow\; c(p) = \tfrac14\Bigl(\frac{\pi}{2I(p)}\Bigr)^{p},\qquad n^p a_n \longrightarrow 2c(p),
-\qquad I(p)=\frac{\sqrt\pi}{2}\,\frac{\Gamma(1/p+\tfrac12)}{\Gamma(1/p+1)},$$
+$$n^p\, b_n \to c(p),\qquad n^p a_n \to 2c(p),\qquad
+c(p) = \frac14\Bigl(\frac{\pi}{2I(p)}\Bigr)^{p},\quad I(p) = \frac{\sqrt\pi}{2}\,\frac{\Gamma(1/p+\frac12)}{\Gamma(1/p+1)},$$
 
-so $c(1) = \tfrac12$ and $c(2) = \pi^2/16$. The constant comes from an explicitly solvable constrained equilibrium
-problem.
+so $c(1)=\tfrac12$ and $c(2)=\pi^2/16$. The constant comes from an explicitly solvable equilibrium problem for a
+logarithmic energy with an upper constraint. In the repository this limit statement is called **"Law P"**.
+
+One application: the Hankel determinants $\det_{1\le i,j\le n}\zeta(a(i+j)+b)$ of zeta values are Hankel determinants
+of such a measure. Haynes and Zudilin expected $\log\det\zeta(a(i+j)+b) = -an^2\log n + O(n^2)$ and proved the upper
+bound $-\tfrac a2 n^2\log n+O(n^2)$; Monien described a heuristic and numerical evidence (due to Zagier) for $a=1$. Result 1
+below proves the asymptotics, with the $n^2$ term, for every real $a>0$ with $2a+b>1$.
+
+> **Status in one paragraph.** Nothing here has been refereed by a journal yet. The work was developed with an AI
+> assistant (Claude, Anthropic), and every proof went through an independent AI referee pass whose reports are in the
+> repository. The averaged result (1) is additionally **machine-checked in Lean 4**. The pointwise results (2–4) and the counterexamples in 5
+> rely on published Riemann–Hilbert asymptotics, which are cited, not re-proved. Details are under
+> [How much to trust these results](#how-much-to-trust-these-results).
 
 ---
 
-## Headline results
+## Results at a glance
 
-Throughout, $\sigma_{p,s,\ell}=\sum_k k^{-s}\ell(k)\,\delta_{k^{-p}}$, with $p>0$, $s>1$, and $\ell$ a positive weight
-factor (pure powers: $\ell\equiv1$). The status label after each result is explained under
-[How much to trust these results](#how-much-to-trust-these-results).
+Throughout, $\sigma_{p,s} = \sum_k k^{-s}\,\delta_{k^{-p}}$ (pure powers), with $p>0$ and $s>1$.
 
-**1. The averaged law holds for every $p>0$.**
-Let the atoms satisfy $x_k=f(k)$ with $\xi^{p+1}f'(\xi)\to-pC$ (and $\xi^{p+1}|f'(\xi)|$ bounded above and below), and let the weights satisfy $\sum w_k<\infty$ and
-$w_k\ge c_1k^{-s}$. Then the Hankel determinants $D_n=\det(m_{i+j})_{i,j<n}$ satisfy
+| # | Result | Status | Where |
+|---|---|---|---|
+| 1 | **Averaged law.** $\log D_n$ (Hankel determinants) is known to $o(n^2)$ for general power-like atoms and weights; zeta-value Hankel determinants as a corollary | proved; **Lean-verified** | [Paper 1](papers/paper1/main.pdf) |
+| 2 | **Pointwise law with rate.** $n^pb_n = c(p)(1+O(1/n))$ for every $p>0$, $s>1$ | proved, using cited Riemann–Hilbert results | [Paper 2](papers/paper2/main.pdf) |
+| 3 | **The $1/n$ term.** $n^pb_n = c(p)\bigl(1-\frac{s-1}{2n}+O(n^{-2})\bigr)$ for $p>1$ | proved, using cited Riemann–Hilbert results | [`research/G1/RH/second_order/`](research/G1/RH/second_order/) |
+| 4 | **Slowly varying weights.** The pointwise law holds for weights $k^{-s}\ell(k)$ with any slowly varying $\ell$ | proved, using cited Riemann–Hilbert results | [Paper 2](papers/paper2/main.pdf) |
+| 5 | **Christoffel shift and sharpness.** The law passes from $s$ to $s+p$; bounded but irregular weights can break it | proved (shift); proved using cited results (counterexamples) | [Paper 2](papers/paper2/main.pdf) §3, [`research/G1/PROOF.md`](research/G1/PROOF.md) |
+| 6 | **Zeta zeros.** For the measure built from the zeros of $\zeta$, the averaged law is equivalent to a statement about close pairs of zeros | proved, using cited results on zeta zeros; the law itself is open | [`research/G3prime/`](research/G3prime/PROOF.md) |
 
-$$\log D_n=-p\,n^2\log n+\Bigl(\tfrac{3p}{2}+\log\bigl(c(p)\,C\bigr)\Bigr)n^2+o(n^2),$$
+---
 
-and $c(p)$ is identified through an explicitly solved constrained equilibrium problem. A corollary is the $n^2$
-asymptotics of the Hankel determinants of zeta values, $\det_{1\le i,j\le n}\zeta(a(i+j)+b)$, for every real $a>0$
-with $2a+b>1$.
-*Status: PROVED; reviewed. The theorem in full (general atoms $f\in C^1[1,\infty)$ with the stated derivative
-conditions, weights with $\sum w_k<\infty$ and $w_k\ge c_1k^{-s}$ for any real $s$, constant in Gamma form), the Jacobi
-form (Corollary 1.2) and the zeta-value corollary are also **machine-checked in Lean 4 / Mathlib**, sorry-free with only
-the standard axioms (`paper1_thm11`, `paper1_cor12`, `paper1_cor14`; `lean/JacobiAsym/GeneralAtoms.lean`,
-`Paper1Corollaries.lean`). Not formalized: uniqueness of the equilibrium maximiser (not needed for the theorem).*
-&nbsp;[Paper 1](papers/paper1/main.pdf), `research/G2/`
+## The results in more detail
 
-**2. The pointwise law holds for pure powers, with rate $O(1/n)$.**
-For every $p>0$ and $s>1$, the measure $\sigma_{p,s,1}=\sum_k k^{-s}\delta_{k^{-p}}$ satisfies
+### 1. The averaged law (the $n^2$ term of the Hankel determinants)
 
-$$n^p b_n=c(p)\bigl(1+O(1/n)\bigr),\qquad \frac{a_n}{2b_n}=1+O(1/n).$$
+The Hankel determinants $D_n = \det(m_{i+j})_{0\le i,j<n}$ of the moments $m_j=\sum_k w_kx_k^j$ satisfy
+$D_n = m_0^{\,n}\prod_{j=1}^{n-1} b_j^{2(n-j)}$, so their size is a weighted average of the $b_j$. Hence the name "averaged law".
 
-The same method gives the pointwise law for the smooth zeta model ($x_j=1/(\gamma_j^2+\tfrac14)$ with $\gamma_j$ from the
-smooth zero-counting function): $b_n/x_n=\tfrac{\pi^2}{16}\bigl(1+\kappa/\log n+O(\log\log n/\log^2n)\bigr)$, with
+**Theorem.** Let $x_k=f(k)$ with $\xi^{p+1}f'(\xi)\to -pC$ and $\xi^{p+1}|f'(\xi)|$ bounded above and away from 0
+for $\xi \ge 1$, and let the weights satisfy $\sum_k w_k<\infty$ and $w_k\ge c_1k^{-s}$ for some real $s$. Then
+
+$$\log D_n = -p\,n^2\log n + \Bigl(\tfrac{3p}{2}+\log\bigl(c(p)\,C\bigr)\Bigr)n^2 + o(n^2).$$
+
+As a corollary, $\log\det_{1\le i,j\le n}\zeta(a(i+j)+b) = -an^2\log n + \bigl(\tfrac{3a}{2}+\log c(a)\bigr)n^2 + o(n^2)$
+for every real $a>0$ with $2a+b>1$. For example, the constant is $\tfrac32-\log2$ for $a=1$.
+
+*Status:* proved, with a self-contained proof. The theorem as stated, its Jacobi-matrix form and the zeta-value
+corollary are also formalised in Lean 4 / Mathlib, with no unproved steps and only the standard axioms. See
+[`lean/README.md`](lean/README.md) for the theorem names.
+
+### 2. The pointwise law, with rate $O(1/n)$
+
+For every $p>0$ and $s>1$, the pure-power measure $\sigma_{p,s}$ satisfies
+
+$$n^pb_n = c(p)\bigl(1+O(1/n)\bigr),\qquad \frac{a_n}{2b_n} = 1+O(1/n).$$
+
+The same method treats a smooth model of the zeta zeros, $x_j = 1/(\gamma_j^2+\tfrac14)$ with $\gamma_j$ given by the
+smooth zero-counting function: $b_n/x_n = \tfrac{\pi^2}{16}\bigl(1+\kappa/\log n+O(\log\log n/\log^2 n)\bigr)$ with
 $\kappa=-0.28946\ldots$
-*Status: PROVED modulo cited Riemann–Hilbert constructions (Wu–Lin–Xu–Zhao, Kuijlaars–McLaughlin–Van Assche–Vanlessen,
-Conway–Deift, DLMF); reviewed.* &nbsp;[Paper 2](papers/paper2/main.pdf), `research/G1/RH/`
 
-**3. The pointwise law survives every slowly varying weight factor.**
-For every $p>0$, every $s>1$ and **every** slowly varying $\ell$ (for example $\ell(k)=e^{\sqrt{\log k}}$, or any
-bounded, logarithmic or iterated-logarithmic factor),
+*Status:* proved, assuming the published Riemann–Hilbert constructions it cites (Wu–Lin–Xu–Zhao;
+Kuijlaars–McLaughlin–Van Assche–Vanlessen; Conway–Deift; DLMF). Each citation is recorded with its exact hypotheses.
 
-$$n^p b_n\longrightarrow c(p),\qquad n^p a_n\longrightarrow 2c(p).$$
+### 3. The $1/n$ correction
 
-If $\log\ell(e^u)$ extends analytically (bounded, with derivative tending to 0) to **some** horizontal strip
-$|\operatorname{Im}u|\le\vartheta$, of any width $\vartheta>0$, the rate is $O(1/n)$.
-*Status: PROVED modulo the same citations as result 2; reviewed.* &nbsp;[Paper 2](papers/paper2/main.pdf),
-`research/G1/PROOF.md` §§3.17–3.23
+For $p>1$ and $s>1$,
 
-**4. A Christoffel shift moves the law from $s$ to $s+p$.**
-For any positive measure $\sigma$ on $[0,\infty)$ with infinite support: if $\sigma$ satisfies Law P, so does
-$x\,\sigma$, with the same rate when that rate is regular. Conversely, Law P for $x\,\sigma$ implies Law P for $\sigma$.
-Since $x\cdot\sigma_{p,s,\ell}=\sigma_{p,s+p,\ell}$, this extends any base case to every larger $s$.
-*Status: PROVED; reviewed. The key limit lemma is known (chain sequences, Dai–Piao–Qiao 2025); the rate transfer was
-not found in the literature.* &nbsp;[Paper 2](papers/paper2/main.pdf) §3
+$$n^pb_n = c(p)\Bigl(1-\frac{s-1}{2n}+O(n^{-2})\Bigr),\qquad
+n^pa_n = 2c(p)\Bigl(1-\frac{s-1+p}{2n}+O(n^{-2})\Bigr),\qquad \frac{a_n}{2b_n} = 1-\frac{p}{2n}+O(n^{-2}).$$
 
-**5. Bounded rough weights can break the law.**
-For every $p>0$, $s>1$ and every sufficiently small $\varepsilon>0$ there is a sequence $f$ with $|f(k)|\le\varepsilon$
-such that, for the weights $k^{-s}e^{f(k)}$, the sequence $n^pb_n$ does not converge; a separate construction does the
-same for $n^pa_n$. So result 3 is sharp in the sense that slow variation cannot be replaced by mere boundedness.
-*Status: PROVED modulo the citations of result 2; reviewed.* &nbsp;`research/G1/PROOF.md` §§3.6, 3.10, 3.12
+Equivalently, $b_n \approx c(p)\,\bigl(n+\tfrac{s-1}{2p}\bigr)^{-p}$, a shift of the index. For $p=1$ and $p=2$, the
+averaged form $\sum_{j\le n}\log\bigl(j^pb_j/c(p)\bigr) = -\tfrac{s-1}{2}\log n + C + o(1)$ is proved for every $s>1$.
+The pointwise law also holds uniformly for $s$ in compact intervals. For $p\le1$ the pointwise $1/n$ term is supported
+numerically but not yet proved.
 
-**6. For the true zeta zeros, the averaged law is equivalent to a statement about close pairs of zeros.**
-Let $\sigma=\sum_k 2x_k\delta_{x_k}$ with $x_k=1/(\gamma_k^2+\tfrac14)$, where $\gamma_k$ are the ordinates of the
-nontrivial zeros of $\zeta$, taken as given real numbers. Then:
-* **unconditionally**, $\log D_n\le\Phi_n+o(n^2)$ and $\log D_n\ge\Phi_n-O(n^2)$, where $\Phi_n$ is the value
-  predicted by the averaged law;
-* the averaged law holds **if and only if** a capped "near-pair energy" of the ordinates is $o(K^2)$;
-* it holds under Montgomery's pair-correlation conjecture (no RH needed), and also under several other stated
-  hypotheses;
-* proving it unconditionally would imply that asymptotically 100% of the zeros are simple and on the critical line,
-  so it is at least as hard as that open problem.
+*Status:* proved, using the same Riemann–Hilbert citations as result 2. This is the newest result; it has been
+reviewed (two independent referee passes), and it is not yet in a paper draft.
 
-*Status: PROVED modulo cited bounds on the zero-counting function and pair-correlation results; reviewed. Nothing here
-is evidence about RH.* &nbsp;`research/G3prime/PROOF.md`
+### 4. Slowly varying weights
 
-The full index of every statement, with exact hypotheses, labels and dependencies, is
-**[THEOREMS.md](THEOREMS.md)**.
+For every $p>0$, $s>1$ and **every** slowly varying factor $\ell$ (for example $\ell(k)=e^{\sqrt{\log k}}$, or any
+bounded, logarithmic or iterated-logarithmic factor), the measure $\sum_k k^{-s}\ell(k)\,\delta_{k^{-p}}$ satisfies
+$n^pb_n\to c(p)$ and $n^pa_n\to 2c(p)$. If $\log\ell(e^u)$ extends analytically to some horizontal strip
+$|\operatorname{Im}u|\le\vartheta$ (bounded, with derivative tending to 0), the rate is $O(1/n)$.
 
-### How much to trust these results
+*Status:* proved, using the same citations as result 2.
+
+### 5. Christoffel shift and sharpness
+
+*Shift.* For any positive measure $\sigma$ on $[0,\infty)$ with infinite support, $\sigma$ satisfies the law if and
+only if $x\,\sigma$ does, and the rate carries over when it is regular. Since
+$x\cdot\sigma_{p,s}=\sigma_{p,s+p}$, one base case gives every larger $s$. *Status:* proved (self-contained). The
+underlying limit lemma is known (chain sequences; Dai–Piao–Qiao 2025); the rate transfer was not found in the
+literature.
+
+*Sharpness.* Slow variation of the weights cannot be weakened to boundedness: for every $p>0$, $s>1$ and every small
+enough $\varepsilon>0$ there are weights $k^{-s}e^{f(k)}$ with $|f(k)|\le\varepsilon$ for which $n^pb_n$ does not
+converge. A separate construction does the same for $n^pa_n$. *Status:* proved, using the citations of result 2.
+
+### 6. The measure built from the zeros of $\zeta$
+
+Let $\gamma_k$ be the ordinates of the nontrivial zeros of $\zeta$, taken as given real numbers, and
+$\sigma=\sum_k 2x_k\delta_{x_k}$ with $x_k=1/(\gamma_k^2+\tfrac14)$. Without any hypothesis, $\log D_n$ lies within
+$o(n^2)$ above and $O(n^2)$ below the value predicted by the averaged law. The averaged law holds if and only if an
+energy that counts close pairs of zeros is $o(K^2)$. It follows from Montgomery's pair-correlation conjecture, without
+assuming the Riemann Hypothesis. Proving it unconditionally would imply that asymptotically all zeros are simple and on
+the critical line, so it is at least as hard as that open problem.
+
+*Status:* proved, using cited bounds on the zero-counting function and cited pair-correlation results. This says nothing
+for or against the Riemann Hypothesis.
+
+---
+
+## How much to trust these results
 
 * **Not peer reviewed.** Nothing here has been refereed by a journal or read by a human specialist yet.
 * **AI-assisted.** The research, proofs and write-ups were developed with an AI assistant (Claude Code, Anthropic).
-  Every lemma went through an adversarial self-check and an independent AI referee pass before being marked
-  `REVIEWED`. The referee reports are kept in `research/*/review/`. This verification trail is visible, but it is not a
-  substitute for expert review.
-* **Labels mean exactly what they say** (see [VERIFICATION_POLICY.md](VERIFICATION_POLICY.md)):
-  * `PROVED`: self-contained proof in the repo.
-  * `PROVED-mod-cite (X)`: proved, assuming the external results X. Each one is quoted with its exact hypotheses from
-    a source that was read, and recorded in a `CITATIONS.md`.
+  Every lemma went through an adversarial self-check and at least one independent AI referee pass before being marked
+  `REVIEWED`. The referee reports are in `research/*/review/`. This trail is visible, but it is not a substitute for
+  expert review.
+* **Machine-checked where possible.** Result 1 (Paper 1's main theorem and its two corollaries) and the Christoffel
+  shift are formalised in Lean 4 / Mathlib ([`lean/`](lean/README.md)). The Riemann–Hilbert results are not; they rely
+  on large published theorems that are not in Mathlib.
+* **Status labels** (defined in [VERIFICATION_POLICY.md](VERIFICATION_POLICY.md)), as used in
+  [THEOREMS.md](THEOREMS.md):
+  * `PROVED`: self-contained proof in the repository.
+  * `PROVED-mod-cite (X)`: proved, assuming the external results X, each quoted with its exact hypotheses from a source
+    that was read, and recorded in a `CITATIONS.md` file.
   * `CONDITIONAL`: proved under a stated hypothesis.
-  * `NUMERICAL`: computed, not proved.
+  * `NUMERICAL`: computed, not proved. `CONJECTURE`: supported by evidence, not proved.
   * `GAP`: a precise statement that is not proved.
-  * "Certified" is used only for interval arithmetic (Arb). The constants and closed forms the README and papers quote
-    (c(p), κ_p, κ, the Lommel and Baricz–Štampach closed forms) are certified in [`certified/`](certified/README.md).
-* **Reproducible outputs.** `scripts/reproduce.sh` re-runs the certified suite and 47 numerical checks and diffs each
-  output byte-for-byte against the committed `.out`; `MANIFEST.sha256` pins the SHA-256 of every check, output, paper
-  PDF and Lean file. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for what is re-run and what is excluded.
-* **Novelty.** A first-pass literature search is summarised in THEOREMS.md. Many statements are marked
-  "novelty UNCHECKED", and some ingredients are known (for example, the chain-sequence lemma behind the Christoffel
+* **Certified numerics.** "Certified" means interval (ball) arithmetic with Arb. The constants and closed forms quoted
+  in the README and papers are certified in [`certified/`](certified/README.md).
+* **Reproducible outputs.** `scripts/reproduce.sh` re-runs the certified suite and 47 numerical checks and compares each
+  output byte for byte with the committed one. `MANIFEST.sha256` records the SHA-256 of every check, output, paper PDF
+  and Lean file. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md).
+* **Novelty.** A first literature search is summarised in THEOREMS.md. Many statements are still marked
+  "novelty UNCHECKED", and some ingredients are known (for example the chain-sequence lemma behind the Christoffel
   shift).
-* **No claim about the Riemann Hypothesis.** Measures built from zeta zeros take the ordinates as given real numbers,
-  and nothing here is evidence for or against RH.
 
 ---
 
-## Papers (drafts)
+## Papers
 
 | | Title | Status |
 |---|---|---|
-| [`papers/paper1`](papers/paper1/main.pdf) | Hankel determinants of discrete measures with power-law atoms, and of zeta values | release candidate, 17 pp (arXiv bundle: [`ARXIV.md`](papers/paper1/ARXIV.md)) |
-| [`papers/paper2`](papers/paper2/main.pdf) | Recurrence coefficients of discrete measures with power-law atoms and slowly varying weights | draft, 67 pp |
+| [`papers/paper1`](papers/paper1/main.pdf) | Hankel determinants of discrete measures with power-law atoms, and of zeta values | release candidate, 17 pp ([`ARXIV.md`](papers/paper1/ARXIV.md)) |
+| [`papers/paper2`](papers/paper2/main.pdf) | Recurrence coefficients of discrete measures with power-law atoms and slowly varying weights | draft, 67 pp; being reorganised |
 
-Each paper folder has a `NOTES.md` that lists open items and sources still to be verified.
+Each paper folder has a `NOTES.md` listing open items.
 
-## Repository layout
+---
 
-```
-THEOREMS.md            index of all results: statements, labels, dependencies, open problems
-VERIFICATION_POLICY.md meaning of the status labels
-papers/                paper drafts (LaTeX + PDF + numerical checks)
-research/G2/           averaged law: constrained equilibrium, Hankel asymptotics
-research/G1/           pointwise law: Tauberian reductions, weight transport, Riemann–Hilbert analyses (RH/)
-research/G3prime/      the measure built from zeta zeros
-research/*/review/     independent referee reports for each step
-research/*/checks/     numerical checks (scripts + outputs)
-lean/                  Lean 4 / Mathlib formalisation (sorry-free; see lean/README.md): Heine/Hankel reduction, averaged law
-                       for pure powers (all p > 0, s > 1), Christoffel shift
-src/jacobi_asym/       Python toolkit: measures, recurrence coefficients, Hankel determinants, certified (Arb) mode
-tests/                 pytest suite
-```
+## Finding your way around
 
-Reading order: this README, then THEOREMS.md §1, then the paper drafts. `research/*/PROOF.md` holds the full working
-proofs, which are long and written as lab notebooks.
+Start with this README, then the summary in [THEOREMS.md](THEOREMS.md) §1, then the papers. The `research/` folders
+hold the full working proofs; they are long and written as lab notebooks.
+
+| Path | Contents |
+|---|---|
+| [`THEOREMS.md`](THEOREMS.md) | index of every statement, with exact hypotheses, status labels, dependencies and open problems |
+| `papers/` | paper drafts (LaTeX, PDF, numerical checks) |
+| `research/G2/` | the averaged law (result 1): equilibrium problem, Hankel asymptotics |
+| `research/G1/` | the pointwise law (results 2–5); `research/G1/RH/` holds the Riemann–Hilbert analyses |
+| `research/G3prime/` | the measure built from zeta zeros (result 6) |
+| `research/*/review/`, `research/*/checks/` | referee reports; numerical checks (scripts and outputs) |
+| `lean/` | Lean 4 / Mathlib formalisation (result 1 in full, the Christoffel shift, supporting lemmas) |
+| `certified/` | interval-arithmetic (Arb) verification of quoted constants and closed forms |
+| `src/jacobi_asym/`, `tests/` | Python toolkit (measures, recurrence coefficients, Hankel determinants) and its tests |
+
+**Glossary of internal names.** *Law P*: the limits $n^pb_n\to c(p)$, $n^pa_n\to2c(p)$. *G1, G2, G3′*: the three
+original goals (pointwise law, averaged law, zeta-zero measure). *RH* in folder and file names means
+**Riemann–Hilbert**, never the Riemann Hypothesis. *Plan N*: a unit of work. Plans are referenced in the logs and
+review reports.
+
+---
 
 ## Running the code
 
-CI (GitHub Actions) runs both on every push to `master`: the fast pytest suite with the C kernel built plus the manifest check and the certified-output comparison (`python.yml`; slow regressions weekly) and the Lean build + axiom audit `lean/check.sh` (`lean.yml`, when `lean/` changes).
+CI (GitHub Actions) runs on every push to `master`. It runs the fast test suite with the C kernel, the manifest check
+and the certified-output comparison (`python.yml`; slow regressions weekly), and the Lean build with axiom audit
+(`lean.yml`, when `lean/` changes).
 
 ```bash
-scripts/setup_env.sh                     # .venv on top of the system numpy/scipy/mpmath/sympy (Python ≥ 3.12),
+scripts/setup_env.sh                     # .venv on top of the system numpy/scipy/mpmath/sympy (Python >= 3.12),
                                          # adds python-flint, builds the C kernel in csrc/ (needs gcc + libquadmath)
 .venv/bin/python -m pytest               # fast suite
 .venv/bin/python -m pytest -m slow       # slow regression tests (minutes)
-scripts/reproduce.sh                     # build + tests + re-run certified suite and numerical checks, diff vs the
-                                         # committed outputs, Lean audit, manifest check (~5 min; --quick ~20 s)
-python scripts/manifest.py --check       # verify MANIFEST.sha256 (rerun without --check after changing a covered file)
+scripts/reproduce.sh                     # build, tests, certified suite, numerical checks diffed against committed
+                                         # outputs, Lean audit, manifest check (~5 min; --quick ~20 s)
+python scripts/manifest.py --check       # verify MANIFEST.sha256
+cd lean && ./check.sh                    # Lean build + axiom audit; prints AUDIT OK
 ```
 
 ```python
@@ -175,18 +222,14 @@ r = jacobi_coeffs(mu, 2000)                 # recurrence coefficients (float64; 
 print(r.b[1999] / mu.atoms[1999], c_p(2))   # b_n / x_n  vs  pi^2/16
 ```
 
-Certified coefficients for small exact measures: `jacobi_asym.certify.certified_jacobi`. Certified (Arb) checks of the
-quoted constants and closed forms: `certified/` (see [certified/README.md](certified/README.md)).
-
-Lean: `cd lean && ./check.sh` builds the library and audits axioms. It should print `AUDIT OK`, meaning no `sorry`
-and only the standard axioms.
+Certified coefficients for small exact measures: `jacobi_asym.certify.certified_jacobi`.
 
 ## Provenance
 
 This project continues item 11 of an earlier private notebook. Copied material and its sources are listed in
 [PROVENANCE.md](PROVENANCE.md). Zeta-zero data come from A. Odlyzko's tables (`data/fetch.py`, with checksums).
-Planning documents and working logs are kept outside the public tree, so a few internal cross-references to `LOG.md`
-files or plan documents point to unpublished notes.
+Planning documents and working logs are not published, so a few cross-references to `LOG.md` files or plan documents
+point to unpublished notes.
 
 ## License
 
