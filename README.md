@@ -40,11 +40,11 @@ Throughout, $\sigma_{p,s} = \sum_k k^{-s}\,\delta_{k^{-p}}$ (pure powers), with 
 
 | # | Result | Status | Where |
 |---|---|---|---|
-| 1 | **Averaged law.** $\log D_n$ (Hankel determinants) is known to $o(n^2)$ for general power-like atoms and weights; zeta-value Hankel determinants as a corollary | proved; **Lean-verified** | [Paper 1](papers/paper1/main.pdf) |
-| 2 | **Pointwise law with rate.** $n^pb_n = c(p)(1+O(1/n))$ for every $p>0$, $s>1$ | proved, using cited Riemann–Hilbert results | [Paper 2](papers/paper2/main.pdf) |
-| 3 | **The $1/n$ term.** $n^pb_n = c(p)\bigl(1-\frac{s-1}{2n}+\dots\bigr)$ for every $p>0$, with an explicit $\zeta(-p)\,n^{-1-p}$ term when $p<1$ | proved, using cited Riemann–Hilbert results | [`research/G1/RH/second_order/`](research/G1/RH/second_order/) |
-| 4 | **Slowly varying weights.** The pointwise law holds for weights $k^{-s}\ell(k)$ with any slowly varying $\ell$ | proved, using cited Riemann–Hilbert results | [Paper 2](papers/paper2/main.pdf) |
-| 5 | **Christoffel shift and sharpness.** The law passes from $s$ to $s+p$; bounded but irregular weights can break it | proved (shift); proved using cited results (counterexamples) | [Paper 2](papers/paper2/main.pdf) §3, [`research/G1/PROOF.md`](research/G1/PROOF.md) |
+| 1 | **Averaged law.** $\log D_n$ (Hankel determinants) is known to $o(n^2)$ for general power-like atoms and weights; zeta-value Hankel determinants as a corollary | proved; **Lean-verified** | [Paper I](papers/paper1/main.pdf) |
+| 2 | **Pointwise law with rate.** $n^pb_n = c(p)(1+O(1/n))$ for every $p>0$, $s>1$ | proved, using cited Riemann–Hilbert results | [Paper II](papers/paperII/main.pdf) |
+| 3 | **The $1/n$ term.** $n^pb_n = c(p)\bigl(1-\frac{s-1}{2n}+\dots\bigr)$ for every $p>0$, with an explicit $\zeta(-p)\,n^{-1-p}$ term when $p<1$ | proved, using cited Riemann–Hilbert results | [Paper II](papers/paperII/main.pdf) |
+| 4 | **Slowly varying weights.** The pointwise law holds for weights $k^{-s}\ell(k)$ with any slowly varying $\ell$ | proved, using cited Riemann–Hilbert results | [Paper III](papers/paperIII/main.pdf) |
+| 5 | **Christoffel shift and sharpness.** The law passes from $s$ to $s+p$; bounded but irregular weights can break it | proved (shift); proved using cited results (counterexamples) | [Paper II](papers/paperII/main.pdf) §3, [Paper III](papers/paperIII/main.pdf) |
 | 6 | **Zeta zeros.** For the measure built from the zeros of $\zeta$, the averaged law is equivalent to a statement about close pairs of zeros | proved, using cited results on zeta zeros; the law itself is open | [`research/G3prime/`](research/G3prime/PROOF.md) |
 
 ---
@@ -100,8 +100,8 @@ In averaged form, $\sum_{j\le n}\log\bigl(j^pb_j/c(p)\bigr) = -\tfrac{s-1}{2}\lo
 holds uniformly for $s$ in compact intervals.
 
 *Status:* proved, using the same Riemann–Hilbert citations as result 2. Each of the three ranges $p>1$, $p=1$ and
-$0<p<1$ has passed two independent referee passes. These are the newest results, and they are being written into the
-Paper II draft.
+$0<p<1$ has passed two independent referee passes. These are the newest results; they are proved in full in Paper II, whose sections on $p\le1$ are under
+review.
 
 ### 4. Slowly varying weights
 
@@ -169,8 +169,18 @@ for or against the Riemann Hypothesis.
 
 ## Papers
 
-| | Title | Status |
-|---|---|---|
+The work is written up as a series of three papers, each built around one question.
+
+| | Title | Question | Status |
+|---|---|---|---|
+| I | [Hankel determinants of discrete measures with power-law atoms, and of zeta values](papers/paper1/main.pdf) | What is the $n^2$ term of $\log D_n$? (result 1) | release candidate, 19 pp ([`ARXIV.md`](papers/paper1/ARXIV.md)) |
+| II | [Recurrence coefficients of discrete measures with power-law atoms: pointwise asymptotics and the $1/n$ term](papers/paperII/main.pdf) | Does each $n^pb_n$ converge, how fast, and what is the next term? (results 2, 3) | draft, 105 pp; Sections 10–11 ($p\le1$) are under independent mathematical review |
+| III | [Stability and instability of recurrence asymptotics for discrete measures with power-law atoms](papers/paperIII/main.pdf) | Which weights keep the law, and which break it? (results 4, 5) | draft, 28 pp |
+
+[`papers/paper2/`](papers/paper2/main.pdf) is the earlier combined draft that Papers II and III replace. Each paper folder
+has a `NOTES.md` listing open items.
+
+---|---|---|
 | [`papers/paper1`](papers/paper1/main.pdf) | Hankel determinants of discrete measures with power-law atoms, and of zeta values | release candidate, 17 pp ([`ARXIV.md`](papers/paper1/ARXIV.md)) |
 | [`papers/paper2`](papers/paper2/main.pdf) | Recurrence coefficients of discrete measures with power-law atoms and slowly varying weights | draft, 67 pp; being reorganised |
 
