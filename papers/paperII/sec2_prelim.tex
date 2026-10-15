@@ -188,7 +188,10 @@ solves the Bessel model problem \cite[Theorem~6.3]{KMVV}, with jumps
   \begin{pmatrix}1+O(\zeta^{-1/2})&i+O(\zeta^{-1/2})\\ i+O(\zeta^{-1/2})&1+O(\zeta^{-1/2})\end{pmatrix}e^{2\zeta^{1/2}\sigma_3}
 \]
 \cite[(6.28)]{KMVV}, which follows from the large-argument expansions (\S\ref{sec:tool-dlmf}) of the Bessel and Hankel
-functions in (6.23)--(6.25); this also covers the rays moved by (b) (\S\ref{sec:he-model}).
+functions in (6.23)--(6.25); this also covers the rays moved by (b) (\S\ref{sec:he-model}). As $\zeta\to0$
+\cite[(6.19)--(6.21)]{KMVV}: for $\alpha>0$ the two columns of $\Psi_\alpha(\zeta)$ are $O(|\zeta|^{\alpha/2})$ and
+$O(|\zeta|^{-\alpha/2})$ in $|\arg\zeta|<2\pi/3$, and all entries are $O(|\zeta|^{-\alpha/2})$ in $2\pi/3<|\arg\zeta|<\pi$;
+for $\alpha=0$ all entries are $O(\log|\zeta|)$; for $\alpha<0$ all entries are $O(|\zeta|^{\alpha/2})$.
 
 \emph{(b) Angle freedom.} By the remark after \cite[(6.21)]{KMVV}, the angle $2\pi/3$ may be replaced by any angle in
 $(0,\pi)$; the lens contours in the disc are then the preimages of the rays under $\zeta=n^2f(z)$, and they do not
@@ -287,7 +290,9 @@ $I_\nu(z)=(\frac12z)^\nu\sum_{k\ge0}(\frac14z^2)^k/(k!\,\Gamma(\nu+k+1))$, analy
 (\S10.25(ii)); (10.27.4) $K_\nu=\frac12\pi(I_{-\nu}-I_\nu)/\sin(\nu\pi)$ for $\nu\notin\mathbb Z$; (10.31.2)
 $K_0(z)=-(\ln(\frac12z)+\gamma_{\mathrm E})I_0(z)+\frac14z^2+\dotsb$, $\gamma_{\mathrm E}$ being Euler's constant and the
 dots an entire function of $z^2$; (10.28.2) $\mathcal W\{K_\nu,I_\nu\}(z)=1/z$, which with (6.23) of
-\S\ref{sec:tool-bessel} gives $\det\Psi_\alpha=1$.
+\S\ref{sec:tool-bessel} gives $\det\Psi_\alpha=1$. For $|\mathrm{ph}\,z|<\frac12\pi$, (10.32.4)
+$I_\nu(z)=\frac1\pi\int_0^\pi e^{z\cos\theta}\cos(\nu\theta)\diff\theta-\frac{\sin(\nu\pi)}\pi\int_0^\infty e^{-z\cosh t-\nu t}\diff t$
+and (10.32.9) $K_\nu(z)=\int_0^\infty e^{-z\cosh t}\cosh(\nu t)\diff t$.
 
 \emph{(d) Large argument} (\S\S10.17, 10.40, $\nu$ fixed). The coefficients are, by (10.17.1) and (10.17.8),
 \begin{gather*}

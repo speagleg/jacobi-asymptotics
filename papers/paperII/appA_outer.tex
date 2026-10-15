@@ -38,6 +38,8 @@ Let $p>1$.
     |\log B(z)|\le C(1+\log(1+|z|)).
   \end{gathered}
   \end{equation}
+  Moreover, for each fixed $n$, $\log B$ is bounded on $\mathbb D(0,\delta)\setminus(-\delta,0]$, uniformly up to the cut
+  from both sides, and $|\log B(z)|\le C_n(1+\log|z|)$ for $|z|\ge2$, $z\notin(-\infty,0]$.
 \item[(iv)] $F:=DBK$ is an admissible outer scalar, with $\tilde F=\tilde DBK$ and $H_n=(\tilde DB)^{-2}$, $H_n(0^+)=B(0)^{-2}$.
 \end{enumerate}
 \end{lemma}
@@ -80,7 +82,8 @@ by~(ii), for $|z|\le1$,
   C|z|\Bigl(\int_0^1\frac{u^{1/p-1}\diff u}{u+|z|}+1\Bigr)\le C|z|^{1/p},
 \]
 because $1/p-1\in(-1,0)$. The same splitting applied to $(\log B)'(z)=-\frac1{2\pi}\int\mathfrak b(y)(y-z)^{-2}\diff y$
-gives $C|z|^{1/p-1}$, and applied to the original integral gives $C(1+\log(1+|z|))$.
+gives $C|z|^{1/p-1}$, and applied to the original integral gives $C(1+\log(1+|z|))$. The two bounds for fixed $n$
+stated at the end of~(iii) are proved in the verification of property~(e) below.
 
 (iv) \emph{Property (a).} $F$ is analytic and zero-free off $[0,\infty)$ by~(i), (iii) and the choice of $K$. On
 $(4c,\infty)$ off the nodes, $F_+/F_-=(D_+/D_-)(K_+/K_-)=(-e^{2i\theta})(-1)$, since $B$ is analytic there.

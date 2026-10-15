@@ -91,7 +91,8 @@ instance, in $\mathcal S_{\mathrm{II}}$, $-\mathsf q^{-1}y_-$ has the same two-t
 $(\mathsf q\zeta)^{1/4}=e^{-i\pi/3}\zeta^{1/4}$ and $(\mathsf q\zeta)^{3/2}=\zeta^{3/2}$ there), so the correction is the same.
 \end{proof}
 
-Let $f^{1/2}$ be the principal root; it is analytic and non-zero on $\partial U_0$. Put, on $\partial U_0$ and $\partial U_r$
+Let $f^{1/2}$ be the principal root; it is analytic and non-zero on $\partial U_0\setminus\{\delta\}$, with the two
+boundary values $f^{1/2}_\pm=\mp i|f|^{1/2}$ at $\delta$. Put, on $\partial U_0$ and $\partial U_r$
 respectively,
 \begin{equation}\label{eq:Delta}
   \Delta_0:=\frac1{16f^{1/2}}\,P^\infty_0\rho_n^{\sigma_3}\mathsf Z_{\mathrm B}\rho_n^{-\sigma_3}(P^\infty_0)^{-1},\qquad
@@ -167,17 +168,17 @@ The lemma uses only the equilibrium measure (Proposition~\ref{prop:equilibrium},
 through the formulas for $f$ and $\tvphi$ in the proof of Lemma~\ref{lem:signs}, and Lemma~\ref{lem:szego}(i).
 
 \begin{proof}
-Put $a':=\frac1p+\frac12$; recall $(4c)^{-1/p}=2I(p)/\pi$ and $B(a',\frac12)=2I(p)$ by~\eqref{eq:cp} and (5.12.1).
+Recall $a_*=\frac1p+\frac12$ from Proposition~\ref{prop:equilibrium}(iii), and $(4c)^{-1/p}=2I(p)/\pi$ and $B(a_*,\frac12)=2I(p)$ by~\eqref{eq:cp} and (5.12.1).
 
-(i) By Proposition~\ref{prop:equilibrium}, on $(0,4c)$, $\psi^*(x)=\lambda_p(x)\mathcal B_{x/4c}(a',\frac12)$, and
-$\mathcal B_y(a',\frac12)=\frac{y^{a'}}{a'B(a',\frac12)}\bigl(1+\frac{a'y}{2(a'+1)}+O(y^2)\bigr)$. Hence
+(i) By Proposition~\ref{prop:equilibrium}, on $(0,4c)$, $\psi^*(x)=\lambda_p(x)\mathcal B_{x/4c}(a_*,\frac12)$, and
+$\mathcal B_y(a_*,\frac12)=\frac{y^{a_*}}{a_*B(a_*,\frac12)}\bigl(1+\frac{a_*y}{2(a_*+1)}+O(y^2)\bigr)$. Hence
 $\psi^*(x)=C_*x^{-1/2}(1+\tau_*x+O(x^2))$ with $C_*=(4c)^{-1/2}/(\pi(1+p/2))$ (Proposition~\ref{prop:equilibrium}(iii)) and
-$\tau_*=a'/(8c(a'+1))=(p+2)/(8c(3p+2))$. So $\mu^*((0,x])=x^{1/2}\mathfrak a(x)$ with $\mathfrak a(z)=2C_*(1+\tau_*z/3+O(z^2))$,
+$\tau_*=a_*/(8c(a_*+1))=(p+2)/(8c(3p+2))$. So $\mu^*((0,x])=x^{1/2}\mathfrak a(x)$ with $\mathfrak a(z)=2C_*(1+\tau_*z/3+O(z^2))$,
 and $f=-\frac{\pi^2}4z\mathfrak a^2$ (proof of Lemma~\ref{lem:signs}(iii)) gives $f'(0)=-\pi^2C_*^2=-1/(c(p+2)^2)$ and
 $f_2=2\tau_*/3$.
 
 (ii) By the proof of Lemma~\ref{lem:signs}(iv), $\tvphi_+(x)=i\pi\int_x^{4c}(\lambda_p-\psi^*)$ on the band. With
-$y=4c(1-e)$, $1-\mathcal B_{1-e}(a',\frac12)=\frac1{B(a',1/2)}\bigl(2e^{1/2}-\frac23(a'-1)e^{3/2}+O(e^{5/2})\bigr)$ and
+$y=4c(1-e)$, $1-\mathcal B_{1-e}(a_*,\frac12)=\frac1{B(a_*,1/2)}\bigl(2e^{1/2}-\frac23(a_*-1)e^{3/2}+O(e^{5/2})\bigr)$ and
 $\lambda_p(y)=\frac1p(4c)^{-1-1/p}(1+(1+\frac1p)e+O(e^2))$; integrating, with $v:=4c-x$,
 \[
   \int_x^{4c}(\lambda_p-\psi^*)=\frac1{\pi p}\Bigl[\frac43\Bigl(\frac v{4c}\Bigr)^{3/2}+\frac25\Bigl(\frac73+\frac4{3p}\Bigr)\Bigl(\frac v{4c}\Bigr)^{5/2}

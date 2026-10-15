@@ -18,7 +18,8 @@ $\ell\equiv1$, so that $\sigma=\sigma_{p,s}$, $r_n\equiv1$ and $\alpha=(s-1-p)/p
 $\Lambda\equiv0$ is analytic of every angle, so we may take $\vartheta\ge7\pi/(16p)$ in~\eqref{eq:thetaw}; then
 $\mathsf m=1$, $\thlip=\pi/3$, $\thw=7\pi/16$, and the Bessel rays $\arg\zeta=\pm(\pi-\thlip)=\pm2\pi/3$ are those of
 \cite[\S6]{KMVV}. Sections~\ref{sec:frame} and~\ref{sec:outer} apply without change; we use the items (i)--(vi) and
-(viii) of Proposition~\ref{prop:frame}, never item (vii), which needs $|\alpha|<1$. The outer scalar is $F=DBK$ with the
+(viii) of Proposition~\ref{prop:frame}, and item (vii), which needs $|\alpha|<1$, only for $-1<\alpha\le-\frac12$ in the
+proof of Proposition~\ref{prop:classical}. The outer scalar is $F=DBK$ with the
 Binet-cut scalar $B$ of Lemma~\ref{lem:binetcut}, the band factor is $H_n=(\tilde DB)^{-2}$, and
 $W_0=\wn z^\alpha(4c-z)H_n(z)$ is analytic on $\C\setminus(-\infty,0]$. We write $\Hc=H_n/H_n(0^+)$ as in
 \eqref{eq:DW-factor}, $\omega=D_W^2/W_0$ as in~\eqref{eq:omega}, and
@@ -65,7 +66,7 @@ Let $p>1$. There are $C$ and $n_0$ such that for $n\ge n_0$:
 
 Part~(iii) says that the band factor is constant up to $O(n^{-p})$ on a fixed neighbourhood of the band, although each
 of its two factors varies at order $1/n$. Here $-j(t(z))=-z^{1/p}/(12n)+O(n^{-3})$ on compact sets by
-\S\ref{sec:tool-dlmf}(a), while~(iii) and $\log B(1)=0$, $-j(n)=-1/(12n)+O(n^{-3})$ give $\log B(z)=(z^{1/p}-1)/(12n)+O(n^{-p})$:
+\S\ref{sec:tool-dlmf}(a), while~(iii) and $\log B(1)=0$, $-j(n)=-1/(12n)+O(n^{-3})$ give $\log B(z)=(z^{1/p}-1)/(12n)+O(n^{-p}+n^{-3})$:
 the Binet-cut scalar removes exactly the cut of the Binet term, and the two $1/(12n)$ terms cancel up to a constant. The
 non-constant part of $G$ comes from $|y|\asymp n^p$ in~\eqref{eq:G-repr}. At $p=2$, $\theta_+(y)=-i\pi n|y|^{-1/2}$ is
 purely imaginary, so $e^{-2i\theta_+}\in(0,1)$, $\mathfrak e\equiv0$, and $H_n$ is exactly constant.
@@ -85,12 +86,12 @@ claims follow.
 $\mathfrak e$ is bounded and the kernel is $O(|y|^{-2})$; by the Sokhotski--Plemelj formula its jump across
 $(-\infty,0)$ is $i\mathfrak e$, with continuous boundary values. So $K$ has no jump, and it is analytic on
 $\C\setminus\{0\}$ by Morera's theorem. Near $0$, $|\arg t|\le\pi/p<\pi$ and $|t|\to\infty$, so $j(t)\to0$
-by~\eqref{eq:binet-bound}; $\log B$ is bounded near $0$, together with its boundary values on $(-\infty,0)$, by the proof
-of Lemma~\ref{lem:binetcut}(iv) (the verification of Definition~\ref{def:outer-admissible}(e)); and the integral is bounded near $0$
+by~\eqref{eq:binet-bound}; $\log B$ is bounded near $0$, together with its boundary values on $(-\infty,0)$, by
+Lemma~\ref{lem:binetcut}(iii); and the integral is bounded near $0$
 because $\mathfrak e$ vanishes to infinite order there. So $0$ is a removable singularity. At infinity, for $|t|\le1$
 and $|\arg t|\le\pi/p$, \S\ref{sec:tool-dlmf}(a) gives $\mathrm{Ln}\,\Gamma(t)=\mathrm{Ln}\,\Gamma(1+t)-\ln t$ with
 $|1+t|\ge\sin(\pi-\pi/p)>0$, so $|j(t)|\le C(1+|\log|z||)$; $|\log B(z)|\le C_n(1+\log|z|)$ for $|z|\ge2$ off the cut,
-again by the proof of Lemma~\ref{lem:binetcut}(iv); and the integral is $O(\log|z|)$. So $K$ is entire with
+again by Lemma~\ref{lem:binetcut}(iii); and the integral is $O(\log|z|)$. So $K$ is entire with
 $K(z)=O(\log|z|)$, hence constant, and $K(1)=0$.
 
 (iii) Split~\eqref{eq:G-repr} at $y=-2r_*$. For $|y|\ge2r_*$ and $|z|\le r_*$ the kernel is at most $C|y|^{-2}$, and the
@@ -284,13 +285,16 @@ Proposition~\ref{prop:frame}(i)--(vi), (viii), the Airy parametrix (Lemma~\ref{l
 \S\ref{sec:tool-dlmf}(b)), the sum bounds of Lemmas~\ref{lem:sumbound} and~\ref{lem:lenssector} (whose proofs use the
 Bessel order only through $\alpha-\eta>-1$), the behaviour of the Bessel model at $0$ \cite[(6.19)--(6.21)]{KMVV}, the
 series (10.25.2) of \S\ref{sec:tool-dlmf}(c), and the boundedness of the Cauchy operator on Carleson curves
-(\S\ref{sec:tool-cd}(a)). It does not use Proposition~\ref{prop:frame}(vii) or Corollary~\ref{cor:L2}.
+(\S\ref{sec:tool-cd}(a)). For $-1<\alpha\le-\frac12$ it also uses Proposition~\ref{prop:frame}(vii), which applies
+because $|\alpha|<1$ there, and Theorem~4.4 of \cite{CD} (\S\ref{sec:tool-cd}(b)); it does not use
+Corollary~\ref{cor:L2}.
 
 \begin{proof}
 \emph{Outline.} Step~1 collects the jumps. Step~2 is the identification: for fixed $n$ it shows that $\mathsf R$ is not
-too singular at $0$ and is the Cauchy integral of its jump; this replaces the a priori bound of
-Appendix~\ref{app:apriori}, which needs $|\alpha|<1$, by an argument at the level of $\mathsf R$, whose columns are
-balanced by the parametrix. Step~3 is the small-norm estimate and Step~4 the extraction.
+too singular at $0$ and is the Cauchy integral of its jump. For $\alpha>-\frac12$ this follows from a bound at the level
+of $\mathsf R$, whose columns are balanced by the parametrix, so the a priori bound of Appendix~\ref{app:apriori} is not
+needed; for $-1<\alpha\le-\frac12$, where $|\alpha|<1$, that a priori bound is available and is combined with the
+comparison theorem of Conway and Deift. Step~3 is the small-norm estimate and Step~4 the extraction.
 
 \emph{Step 1: jumps.} Inside $U_r$, $\hat P_r$ has exactly the jumps of $Q$ (Proposition~\ref{prop:frame}(v)). On the band
 outside $U_0$ both $Q$ and $P^\infty_0$ jump by $J$. Inside $U_0$ the jumps are those of Lemma~\ref{lem:mismatch-classical}.
@@ -330,30 +334,31 @@ that of $\Psi_\alpha$ in the thin sectors, because the jumps \cite[(6.16), (6.18
 of $UL_\pm$ and Definition~\ref{def:outer-admissible}(e) for $\tilde F$, the same computation gives~\eqref{eq:R-at-zero}
 in the lens.
 
-Next, let $\delta_2<\delta_{\mathrm s}/2$ and $\Gamma:=\Sigma_{\mathsf R}\cap \mathbb D(0,\delta_2)$, the two lips and $(-\delta_2,0)$,
-which meet only at $0$ and leave it at fixed angles. Since $\|J_{\mathsf R}^{-1}-I\|_{L^2\cap L^\infty(\Gamma)}\le C_Kn^{-K}$
-by Lemma~\ref{lem:mismatch-classical} and the Cauchy operators are bounded on $L^2(\Gamma)$
-(\S\ref{sec:tool-cd}(a)), for $n\ge n_0$ there is, by a Neumann series for the transposed problem, a matrix $\tilde X$,
-analytic in $\C\setminus\Gamma$, with $\tilde X-I=\Cauchy_\Gamma(\mathfrak h)$ for some $\mathfrak h\in L^2(\Gamma)$ and
-$\tilde X_+=J_{\mathsf R}^{-1}\tilde X_-$ on $\Gamma$. By Cauchy--Schwarz and $|J_{\mathsf R}-I|\le C_K|s|^K$,
-$|\tilde X(z)|\le C(1+|z|^K\mathrm{dist}(z,\Gamma)^{-1/2})$ near $0$. The determinant of $\tilde X$ has no jump, and
-the sub-mean-value property of $|\det\tilde X-1|^{1/2}$ on discs of radius comparable to $|z|$ shows that its singularity
-at $0$ is removable and that $\det\tilde X=1+O(n^{-K})$ near $0$. Hence $\mathsf G:=\mathsf R\tilde X$ has no jump on
-$\Gamma\setminus\{0\}$, and its Laurent coefficients at $0$ satisfy
-\[
-  |c_{-k}|\le\frac{r^{k-1}}{2\pi}\int_{|z|=r}|\mathsf R||\tilde X||\diff z|\le C_{n,\eta}\,r^{k-1}r^{\min(0,\alpha)-\eta}\bigl(r+r^{K+1/2}\bigr)
-\]
-by~\eqref{eq:R-at-zero}, since $\int_{|z|=r}\mathrm{dist}(z,\Gamma)^{-1/2}|\diff z|\le Cr^{1/2}$. As $\alpha>-1$, choosing
-$\eta<1+\min(0,\alpha)$ and letting $r\to0$ gives $c_{-k}=0$ for all $k\ge1$; so $\mathsf G$ is analytic near $0$. Then
-$\mathsf R=\mathsf G\,\mathrm{adj}(\tilde X)/\det\tilde X$, where $\mathrm{adj}(\tilde X)-I$ is a Cauchy integral over $\Gamma$
-of an $L^2$ density (the adjugate of a $2\times2$ matrix is affine in its entries) and $\mathsf G/\det\tilde X$ is analytic
-near $0$. Since $\mathfrak g\,\Cauchy_\Gamma(\mathfrak h)-\Cauchy_\Gamma(\mathfrak g\mathfrak h)$ is analytic near $0$ for
-analytic $\mathfrak g$, $\mathsf R$ is, near $0$, the sum of an analytic function and a Cauchy integral over $\Gamma$ of an
-$L^2$ density. Away from $0$ the matrix $\mathsf R$ is continuous up to $\Sigma_{\mathsf R}$ off the vertices and bounded near
-them (Proposition~\ref{prop:apriori}(ii)--(iii), whose proof does not involve $\alpha$, and the boundedness of the
-parametrices there), and $\mathsf R=I+O(1/z)$ at infinity. Subtracting the local Cauchy integral near $0$ and applying
-Lemma~\ref{lem:cauchy-arcs}(c) to the rest, we obtain $\mathsf R_\pm-I\in L^2(\Sigma_{\mathsf R})$ and
-$\mathsf R=I+\Cauchy(\mathsf R_+-\mathsf R_-)$, which is~(iii) because $\mathsf R_+-\mathsf R_-=\mathsf R_-(J_{\mathsf R}-I)$.
+Next we prove~(iii). Away from $0$ the matrix $\mathsf R$ is continuous up to $\Sigma_{\mathsf R}$ off the vertices and
+bounded near them (Proposition~\ref{prop:apriori}(ii)--(iii), whose proof does not involve $\alpha$, and the boundedness
+of the parametrices there), $\mathsf R=I+O(1/z)$ at infinity, and for fixed $n$ the contour $\Sigma_{\mathsf R}$ is
+bounded with $|\Sigma_{\mathsf R}\cap\mathbb D(z,\mathfrak r)|\le C_n\mathfrak r$.
+
+\emph{Case $\alpha>-\frac12$.} Take $0<\eta<\min(\frac12,\alpha+\frac12)$ in~\eqref{eq:R-at-zero}. Then
+$\mathsf R_\pm-I\in L^2(\Sigma_{\mathsf R})$, and $\mathfrak r\sup_{|z|=\mathfrak r}|\mathsf R(z)-I|\le
+C_n\mathfrak r^{1+\min(0,\alpha)-\eta}\to0$ at the vertex $0$. Lemma~\ref{lem:cauchy-arcs}(c), applied to $\mathsf R-I$ on
+$\Sigma_{\mathsf R}$, gives $\mathsf R=I+\Cauchy(\mathsf R_+-\mathsf R_-)$, which is~(iii) because
+$\mathsf R_+-\mathsf R_-=\mathsf R_-(J_{\mathsf R}-I)$.
+
+\emph{Case $-1<\alpha\le-\frac12$.} Then $|\alpha|<1$, so $Q_\pm\in I+\dC(L^2(\Sigma))$ and
+$|Q(z)|\le C_{n,\eta}|z|^{-|\alpha|/2-\eta}$ near $0$ (Proposition~\ref{prop:frame}(vii)). Let $\mathsf P$ be the
+parametrix ($\check P_0$ in $U_0$, $\hat P_r$ in $U_r$, $P^\infty_0$ elsewhere), so that $\mathsf R=Q\mathsf P^{-1}$, and
+let $\Sigma':=\Sigma\cup\Sigma_{\mathsf R}$. By the proof of Lemma~\ref{lem:classical-param}(iii),
+$|\mathsf P^{\pm1}(z)|\le C_n|z|^{-|\alpha|/2}$ near $0$, which is square integrable on $\Sigma'$ because $|\alpha|<1$.
+Moreover $\mathsf P$ is continuous up to $\Sigma'$ off its vertices and bounded near the other vertices, and
+$\mathsf P=I+O(1/z)$. So Lemma~\ref{lem:cauchy-arcs}(c) gives $\mathsf P_\pm^{\pm1}\in I+\dC(L^2(\Sigma'))$. The jumps of
+$Q$ and $\mathsf P$ on $\Sigma'$ are bounded with bounded inverses. By \S\ref{sec:tool-cd}(b) with $A=Q$, $B=\mathsf P$
+and $r=r'=2$, $\mathsf R=I+\Cauchy\bigl(Q_-(vv_{\mathsf P}^{-1}-I)\mathsf P_-^{-1}\bigr)=I+\Cauchy(\mathsf R_+-\mathsf R_-)$,
+where $v$ and $v_{\mathsf P}$ are the jumps of $Q$ and $\mathsf P$ on $\Sigma'$. Finally,
+$\mathsf R_+-\mathsf R_-=\mathsf R_-(J_{\mathsf R}-I)$ lies in $L^2(\Sigma_{\mathsf R})$, because
+$|\mathsf R_-|\le C_{n,\eta}|z|^{-|\alpha|-\eta}$ and $|J_{\mathsf R}-I|\le C_Kn^{-K}|z|^K$ near $0$
+(Lemma~\ref{lem:mismatch-classical}). Hence $\mathsf R_\pm-I=\Cauchy_\pm(\mathsf R_+-\mathsf R_-)\in L^2(\Sigma_{\mathsf R})$,
+which is~(iii).
 
 \emph{Step 3: small norm.} The proof of Proposition~\ref{prop:frame}(i) applies without change to
 $\Sigma\cup\partial U_0\cup\partial U_r\cup[-\delta,0]$, since the added arcs are fixed and lie in $\{\re z\le4c+1\}$; and
