@@ -1,8 +1,10 @@
 # E_pgt1: the 1/n coefficient (E) for pure powers, p > 1, by second-order Riemann–Hilbert analysis (Plan 65)
 
-Status (2026-10-15): written by the Plan 65 agent; **not REVIEWED** (Rule R pending). Labels per VERIFICATION_POLICY.md.
+Status (2026-10-15): written by the Plan 65 agent; **not REVIEWED** — Rule R reviews A (analysis) and B (algebra) are in
+(research/G1/review/REVIEW_Plan65_A.md, REVIEW_Plan65_B.md; both ACCEPT WITH FIXES); fixes A1–A6 and B F1–F6 are applied
+(A5, F2, F5 INFO items included), pending the coordinator's diff check. Labels per VERIFICATION_POLICY.md.
 "RH" means Riemann–Hilbert throughout. This file closes, for p > 1, the GAP "(E)" of SECOND.md §4 and settles g(p) = 0
-for p > 1. It does not edit SECOND.md or THEOREMS.md; the proposed changes are listed in §11 (Integration).
+for p > 1. The resulting changes to SECOND.md and THEOREMS.md are applied and listed in §11 (Integration).
 
 **Summary of labels.**
 
@@ -15,12 +17,12 @@ for p > 1. It does not edit SECOND.md or THEOREMS.md; the proposed changes are l
 | Lemma E.4 | local data: f′(0) = −1/(c(p+2)²), f″(0)/f′(0) = 4τ₁/3 = (p+2)/(6c(3p+2)); φ̃ = −κu³(1 + κ₂u² + O(u⁴)), u = (z−4c)^{1/2}, κ = 1/(6pc^{3/2}), κ₂ = −(7p+4)/(40pc); ω and ρ of the model weight in closed form | PROVED (from G2's μ*, as quoted in RH_px §2 / Paper 2 Lemma signs; Paper 2 Lemma szego(i)) |
 | Lemma E.5 | Laurent coefficients A₀, C₀ (at 0), A_r, B_r (at 4c) of Δ₁ | PROVED (exact sympy series, check_e_sym.py, all assertions pass) |
 | Prop E.5′ | R = I + R⁽¹⁾/n + O(n⁻²) uniformly off the contour and for the first two moments at ∞, R⁽¹⁾ = A₀/z + A_r/(z−4c) + B_r/(z−4c)² outside the discs | PROVED-mod-cite (RH_px §5 small-norm bounds; Paper 2 Frame Prop. F1) |
-| §8 | consequences for SECOND §3: Cor 3.3, Thm 3.4, Cor 3.9, Thm 3.8/3.10(d) become unconditional for p > 1; g(p) = 0 for p > 1 | PROVED-mod-cite (as Thm E.1) |
+| §8 | consequences for SECOND §3 (as updated by Plan 64): Cor 3.3, Cor 3.9 unconditional for p > 1, Thm 3.4 superseded for p > 1, Thm 3.10(d)'s log-average form extended to all p > 1; g(p) = 0 for p > 1 | PROVED-mod-cite (as Thm E.1) |
 | §9 GAP | (E) for p = 1 and 0 < p < 1; the second-order coefficient d₂; Rule L | GAP |
 
 Numerical cross-checks (NUMERICAL, not used in the proofs): `checks/check_e_num.out` (Airy and Bessel correction
 matrices in all sectors; R⁽¹⁾ moments by contour integration of Δ₁ built from quadrature of g and of the Szegő integral —
-reproduces d₁, e₁ˢ, k₁ at six (p, s) to ≤ 1.3·10⁻⁷), `checks/check_e_flat.out` (Lemma E.2), `checks/check_e_rate.out`
+reproduces d₁, e₁ˢ, γ′ = a and k₀ = 2d₁ − p/2, k₁ at six (p, s) to ≤ 1.4·10⁻⁷), `checks/check_e_flat.out` (Lemma E.2), `checks/check_e_rate.out`
 (second-order residuals of the actual coefficients bounded), `checks/check_e_grid.out` (80/80 grid constants), and the Plan 62 grid table (SECOND §1.1, `check_so_grid.out`):
 the proved closed forms are exactly the conjectured ones there, and agree with every p > 1 row to the fit accuracy.
 
@@ -38,11 +40,11 @@ Novelty: UNCHECKED (Rule L not done; see §9).
   specialised to ℓ₁ ≡ 1, p > 1): U(z) = n^{pnσ₃}Y(z/n^p), then R, T, S, V as in Paper 2 (eq. VM) with the outer scalar
   F = DBK (Paper 2 Lemma outer, = RH_px §3), band weight W₀ = 𝗐_n z^α(4c−z)H_n(z), H_n = (D̃B)^{−2} (Paper 2 (eq. W0),
   Lemma binetcut(iv)), D_W the Szegő function of W₀, ω := D_W²/W₀, and Q := D_∞^{−σ₃}VD_W^{σ₃} (Paper 2 (eq. Q)). In this
-  frame the global parametrix is P₀^∞ = T a^{σ₃}T^{−1}, a = ((z−4c)/z)^{1/4}, T := [[1, 1], [i, −i]]/√2 (one checks
-  P₀^∞(1, i)ᵀ = a(1, i)ᵀ and P₀^∞(1, −i)ᵀ = a^{−1}(1, −i)ᵀ, which is Paper 2 (eq. Pinf0)). RH_px's 𝒵 "in the D_{w,∞}-
+  frame the global parametrix is P₀^∞ = T 𝔞_∞^{σ₃}T^{−1}, 𝔞_∞ := ((z−4c)/z)^{1/4} (Paper 2's a(z); renamed here because a
+  denotes α + ½), T := [[1, 1], [i, −i]]/√2 (one checks P₀^∞(1, i)ᵀ = 𝔞_∞(1, i)ᵀ and P₀^∞(1, −i)ᵀ = 𝔞_∞^{−1}(1, −i)ᵀ, which is Paper 2 (eq. Pinf0)). RH_px's 𝒵 "in the D_{w,∞}-
   conjugated frame" is the error matrix R := Q·(parametrix)^{−1} below. Extraction (Paper 2 F8 / RH_px §5):
   (Q₁)₁₂(Q₁)₂₁ = n^{2p}b_n², (Q₂)₁₂/(Q₁)₁₂ − (Q₁)₂₂ = n^pα_n, for Q = I + Q₁/z + Q₂/z² + ….
-- At ∞: P₀^∞ = I + P₁/z + P₂/z² + O(z⁻³), P₁ = [[0, ic], [−ic, 0]], P₂ = [[c²/2, 2ic²], [−2ic², c²/2]] (expand a =
+- At ∞: P₀^∞ = I + P₁/z + P₂/z² + O(z⁻³), P₁ = [[0, ic], [−ic, 0]], P₂ = [[c²/2, 2ic²], [−2ic², c²/2]] (expand 𝔞_∞ =
   (1 − 4c/z)^{1/4}); so (P₁)₁₂(P₁)₂₁ = c², and the a-functional of P₀^∞ is 2c (the first-order statement of RH_px §5).
 - M := [[1, i], [i, 1]]/√2. Note T^{−1}M = diag(1, i) and σ₃Mσ₃ = M^{−1}.
 
@@ -70,8 +72,9 @@ corrections depend on the degree n only through the band factor H_n, and the ide
 (step 3) is resolved by Lemma E.2: H_n is **constant to O(n^{−p})**, because the 1/n Binet term of D̃ and the 1/n part of
 the Binet-cut scalar B cancel exactly (−z^{1/p}/(12n) + (z^{1/p} − 1)/(12n) = −1/(12n)). So the first corrections are
 those of the fixed model weight x^α(4c − x), and their residues are explicit. The hard-edge residue is
-c(p+2)(4α²−1)/16·[[1, i], [i, −1]], which is symmetric off the diagonal and so does not contribute to b_n at order 1/n;
-d₁ comes entirely from the simple-pole residue of the Airy correction, where the p-dependence cancels.
+c(p+2)(4α²−1)/16·[[1, i], [i, −1]], which is annihilated by both extraction functionals, so it contributes to neither b_n
+nor α_n at order 1/n; d₁ and the 1/n term of α_n come entirely from the Airy correction (d₁ from its simple-pole residue,
+where the p-dependence cancels).
 
 ## 2. Lemma E.2: the band factor is flat to O(n^{−p})
 
@@ -83,7 +86,9 @@ H_n = e^{−2G} (Paper 2 Lemma binetcut(iv)). Let R₁ := 4c + 2.
 **Lemma E.2 (PROVED-mod-cite: Paper 2 Lemma binetcut (i)–(iii); the Binet bounds (eq. binet-bound), (eq. binet-small)
 and DLMF 5.5.1 as quoted in Paper 2 §6).** For p > 1 there is C = C(p) such that for all n ≥ 1:
 (i) |G(z) − G(1)| ≤ Cn^{−p} for |z| ≤ R₁, z ∉ (−∞, 0], and for the boundary values G_± on (−R₁, 0);
-(ii) |G′(z)| ≤ Cn^{−p} for |z| ≤ R₁/2, z ∉ (−∞, 0], and for the boundary values on (−R₁/2, 0).
+(ii) |G′(z)| ≤ Cn^{−p} for |z| ≤ R₁/2, z ∉ (−∞, 0], and for the boundary values on (−R₁/2, 0); and, for every η ∈ (0, 1],
+  |G′(z)| ≤ Cn^{−p}/η for |z| ≤ R₁ − η with dist(z, (−∞, 0]) ≥ η (this second part covers the band up to 4c + 1 and both
+  points δ, 4c − ε where the circles meet [0, 4c]; note R₁/2 = 2c + 1 < 4c since c(p) > ½ for p > 1).
 Hence log H_n(z) − log H_n(1) = −2(G(z) − G(1)) = O(n^{−p}) with the same uniformity, and so is its derivative.
 
 *Proof.* (a) *Jump.* On (−∞, 0), t₋ = conj(t₊) and j is real on (0, ∞), so j(t₋) = conj j(t₊). By Paper 2 Lemma
@@ -115,7 +120,8 @@ entire with K(z) = O(log|z|), hence constant, and K(1) = 0. Therefore
 the Cauchy integral of such a C¹ density, and its boundary values on (−R₁, 0), are bounded by C·e^{−c₂n}(1 + |log
 dist(z, −2R₁)|) ≤ C′e^{−c₂n} for |z| ≤ R₁ (subtract 𝔢(Re z) on a window, as in Paper 2 binetcut (O5)). This is (i). For
 (ii) differentiate (E.2.1): the far part gives ∫|𝔢|/|y|² = O(n^{−p}), the near part O(e^{−c₂n}) (Cauchy integral of the
-C¹ density 𝔢′ after an integration by parts; 𝔢(−2R₁)/(−2R₁ − z) is bounded for |z| ≤ R₁/2). ∎
+C¹ density 𝔢′ after an integration by parts; 𝔢(−2R₁)/(−2R₁ − z) is bounded for |z| ≤ R₁/2). The second part of (ii) is
+Cauchy's estimate applied to (i) on the disc U(z, η) ⊂ {|w| ≤ R₁} ∖ (−∞, 0]. ∎
 
 *Remarks.* (1) The two O(1/n) pieces do exist separately: −j(t) = −z^{1/p}/(12n) + O(n⁻³) and log B(z) =
 (z^{1/p} − 1)/(12n) + O(n^{−p}) on compacts — the Binet term's cut on (−∞, 0) is exactly what B is built to remove, and the
@@ -132,7 +138,10 @@ super-small jump 𝔢 on (−∞, 0) near the origin; all its non-constant behav
 Let U_0 := U(0, δ), U_r := U(4c, ε) be the discs of RH_px / Paper 2 (radii fixed, small). In U_r use Paper 2's Airy
 parametrix P̂_r (eq. airy); in U_0 use RH_px's Bessel parametrix P₀ (RH_px §4.1, KMVV (6.42)–(6.53) at the endpoint −1;
 Paper 2 Remark rem:quotient-p1 records that this classical construction works for pure powers, p ≠ 1), written in the
-Q-frame as P̂₀ := D_∞^{−σ₃}P₀D_W^{σ₃}. With ρ := W̃/D_W (RH_px §4.1 W̃² = W₀·e^{∓iπα} in ℂ_±, KMVV (6.45) pattern),
+Q-frame as P̂₀ := D_∞^{−σ₃}P₀D_W^{σ₃}. *Contour inside U_0:* we take RH_px's lips (KMVV's: leaving 0 at ±π/3, Bessel
+rays ±2π/3); these coincide with Paper 2's default for p ≥ 1 (θ_lip = π/3, rays ±(π − θ_lip), Paper 2 (eq. thetaw)), and
+F1 allows any fixed n-independent choice inside U(0, 2δ). In any case Δ₁⁰ is unchanged, since (E.3.1) has the same form
+in all sectors. With ρ := W̃/D_W (RH_px §4.1 W̃² = W₀·e^{∓iπα} in ℂ_±, KMVV (6.45) pattern),
 ρ² = e^{∓iπα}/ω.
 
 **Lemma E.3 (PROVED-mod-cite).** Uniformly on the circles (boundary values where they cross the contour),
@@ -186,7 +195,7 @@ gives the bounds on P₀^∞, (−ω)^{±1/2}).
 H° := H_n/H_n(1); and (Paper 2 (eq. szego-repr) with 𝔠 = log H°(z)) log D²_{H°}(z) − log H°(z) =
 (𝓡(z)/π)∫_0^{4c}(log H°(x) − log H°(z))dx/(√(x(4c−x))(z − x)). By Lemma E.2, |log H°| ≤ Cn^{−p} on (0, 4c] and on a fixed
 complex neighbourhood of every point where a circle meets [0, 4c] (these points, δ and 4c − ε, are away from (−∞, 0]),
-and |(log H°)′| ≤ Cn^{−p} there; splitting the integral into a window around Re z (derivative bound) and the rest (sup
+and |(log H°)′| ≤ Cn^{−p} there (Lemma E.2(ii), second part, with η fixed); splitting the integral into a window around Re z (derivative bound) and the rest (sup
 bound, with ∫x^{−1/2}(4c−x)^{−1/2} < ∞), the right side is O(n^{−p}) uniformly on both circles. So ω/ω^{mod} = 1 + O(n^{−p}),
 and Δ₁ depends smoothly on ρ² = e^{∓iπα}/ω and (−ω)^{±1/2}, which are bounded above and below uniformly
 (Paper 2 Lemma szego(vi)). ∎
@@ -234,17 +243,25 @@ Lemma E.4, Δ₁^{r,mod} and Δ₁^{0,mod} are meromorphic in U_r, U_0 (all half
   C₀ = ((p+2)/(96(3p+2)))[[−(10α²p + 8α² − 36αp − 24α − 7p − 5), i(26α²p + 16α² + 72αp + 48α + 70p + 47)],
         [i(26α²p + 16α² − 2p − 1), 10α²p + 8α² − 36αp − 24α − 7p − 5]].
 
-*Method.* Δ₁^r: write P₀^∞ Z (P₀^∞)^{−1} = T[[Y₁₁, a²Y₁₂], [a^{−2}Y₂₁, Y₂₂]]T^{−1}, Y = T^{−1}ZT, with a² = u/z^{1/2},
+*Method.* Δ₁^r: write P₀^∞ Z (P₀^∞)^{−1} = T[[Y₁₁, 𝔞_∞²Y₁₂], [𝔞_∞^{−2}Y₂₁, Y₂₂]]T^{−1}, Y = T^{−1}ZT, with 𝔞_∞² = u/z^{1/2},
 z^{1/2} = (4c + u²)^{1/2}, (−ω)^{±1} from Lemma E.4(iii), φ̃ from E.4(ii), expanded as power series in u to the needed
 order (the truncation orders are exact: B_r, A_r need the coefficients of u^{−4}, u^{−2}, i.e. u-series of the
 numerator to u²). Δ₁⁰: the same on the negative axis z = −v², v > 0 (outside the lens, where f > 0 and f^{1/2} > 0), with
 f from E.4(i) and ρ from E.4(iii); A₀ and C₀ are the coefficients of the even powers; the odd ones are verified to vanish.
-The hand computation of A₀ (K := lim z a²/f^{1/2} = −2√(c/|f′(0)|) = −2c(p+2), T^{−1}Q₀T|_{ρ=1} = [[0, 1−4α²], [−(3+4α²), 0]],
+The hand computation of A₀ (K := lim z 𝔞_∞²/f^{1/2} = −2√(c/|f′(0)|) = −2c(p+2), T^{−1}Q₀T|_{ρ=1} = [[0, 1−4α²], [−(3+4α²), 0]],
 Te₁₂T^{−1} = ½[[1, i], [i, −1]], A₀ = (K(1−4α²)/16)·½[[1, i], [i, −1]]) agrees. Independent NUMERICAL confirmation:
 check_e_num.out [3] integrates the Δ₁ built from quadrature (no closed form of Lemma E.4 used) over the circles.
+check_e_sym.py takes Q₀, X (Lemma E.3) and the closed forms of Lemma E.4 as **inputs**; those are checked by
+check_e_num [1]–[2] (Q₀, X) and by the hand proof of E.4, and [3] uses no E.4 closed form.
 
-*Remark (why A₀ does not affect b_n).* A₀ has equal off-diagonal entries; the b-functional at order 1/n is
-i((R₁)₂₁ − (R₁)₁₂)/c (§7), which annihilates such matrices. This is the same mechanism by which the hard-edge residues
+*Remark (what the constants depend on).* κ₂ (Lemma E.4(ii)) and the second Taylor coefficient of f (the τ₁ part of
+E.4(i)) enter A_r, resp. C₀, but none of the five constants: check_e_sym.py keeps them as free symbols in the extraction
+and asserts that d₁, the 1/n coefficient of n^pα_n, and γ′ do not depend on them. So Theorem E.1 and Corollary E.6
+use from Lemma E.4 only f′(0), κ and E.4(iii).
+
+*Remark (why A₀ affects neither b_n nor α_n at order 1/n).* A₀ ∝ [[1, i], [i, −1]] has A₂₁ = A₁₂ and A₁₁ + 2iA₁₂ − A₂₂ = 0.
+The b-functional at order 1/n is i((R₁)₂₁ − (R₁)₁₂)/c (§7), which annihilates the first; A₀ enters R_1 only (not R_2, as
+its pole is at 0), and the first-order part of the a-functional on R_1 is the combination annihilated by the second (check_e_sym.py). This is the same mechanism by which the hard-edge residues
 give no 1/n term for fixed Jacobi weights in KMVV (Theorem 1.10 there; not used here).
 
 ## 6. Proposition E.5′: second-order small norm
@@ -270,7 +287,10 @@ hard-edge mismatch, O(n^{−K}min(1, |z|^K)) for every K (RH_px Lemma 4.3); on t
 (P₀^∞ has the band jump of Q); on the lips, Σ_v, the saturated segment, Σ^△ and the top segment J − I = O(e^{−n/C}),
 resp. O(n^{−pn/4}) (RH_px Gate 3, §4.3; Paper 2 F5), on pieces of total length O(n^p). So ‖J − I‖_{L¹∩L²∩L^∞} = O(1/n),
 and with ‖𝒞₋‖_{L²→L²} ≤ C (Paper 2 F1) the singular integral equation R₋ = I + 𝒞₋(R₋(J − I)) gives ‖R₋ − I‖_{L²} = O(1/n)
-(this is RH_px §5's first-order statement; identification of Q with this solution: RH_px §5). Then
+(this is RH_px §5's first-order statement, valid for all s > 1; identification of Q with this solution: RH_px §5).
+α-independence of the Paper 2 inputs (Paper 2 states them for 1 < s < 1 + 2p): F1's contour and uniform Cauchy bound
+depend only on the n-independent geometry inside U(0, 2δ) ∪ U(4c, 2ε) and on translates of a fixed Carleson curve, and
+F5's arc-by-arc bounds use only Lemma szego (vi)(b), (vi)(c), Lemma signs and Lemma gfunction; none of these uses α < 1. Then
 
   R(z) − I = (1/2πi)∫_{Σ_R}(J − I)(s)ds/(s − z) + (1/2πi)∫_{Σ_R}(R₋ − I)(J − I)(s)ds/(s − z),
 
@@ -281,8 +301,13 @@ summed over e ∈ {0, 4c}, which equals the principal parts A₀/z + A_r/(z−4c
 (at z = 0) −C₀ − A_r/(4c) + B_r/(16c²) (residue of Δ₁⁰(s)/s at 0 is C₀; residue of Δ₁^r(s)/s at 4c is A_r/(4c) − B_r/(16c²)).
 The moments: R_k = −(1/2πi)∫R₋(J − I)s^{k−1}ds (k = 1, 2), with the same splitting; on the far pieces |s|^{k−1} ≤ Cn^p is
 absorbed by e^{−n/C} or n^{−pn/4}; and −(1/2πi)∮_{cw}Δ₁ s^{k−1}ds = Σ_e Res Δ₁ s^{k−1} gives A₀ + A_r and 4cA_r + B_r. For the
-value at 0 (inside U_0, near the contour pieces in U_0): those pieces carry jumps O(n^{−K}|s|^K) and super-small entries,
-so their contribution to R(0) is O(n^{−K}); the circle ∂U_0 is at distance δ from 0. ∎
+value at 0: the point 0 lies on Σ_R (the lips and (−δ, 0) meet there), so R(0) is defined as a limit. Let z → 0 either
+non-tangentially in a sector avoiding the contour pieces near 0, or along (−δ, 0) with either boundary value. On the
+pieces of Σ_R ∩ U_0 near 0, |s − z| ≥ c·max(|s|, |z|) and |J − I| ≤ Ce^{−n|s|^{−1/p}/C} (RH_px Lemma 4.3, Paper 2 F4), so
+|𝒞(J − I)(z)| and |𝒞((R₋ − I)(J − I))(z)| ≤ ‖R₋ − I‖₂·‖(J − I)/(s − z)‖₂ are dominated uniformly in z, and dominated
+convergence gives the limit R(0) := I + (1/2πi)∫R₋(J − I)ds/s. The local pieces contribute O(e^{−n/C}) to it, the circles
+give −C₀ − A_r/(4c) + B_r/(16c²) at order 1/n, and the second-order term is O(n⁻²) as above. Since Q = RP̂₀ is continuous
+across (−δ, 0) and R₊, R₋ have the same limit at 0, this R(0) is the one used in (E.6.1). ∎
 
 ## 7. Proof of Theorem E.1 and Corollary E.6
 
@@ -298,8 +323,8 @@ ic·p(α + 1), so i(A₂₁ − A₁₂)/c = −p(α+1) and
 
   n^pb_n/c = 1 − p(α+1)/(2n) + O(n⁻²) = 1 − (s−1)/(2n) + O(n⁻²).
 
-For α_n, a(Q) = (Q₂)₁₂/(Q₁)₁₂ − (Q₁)₂₂ expanded to first order in 1/n (check_e_sym.py does this symbolically; the α²-terms
-coming from A₀ and A_r cancel) gives n^pα_n = 2c − cp(α+2)/n + O(n⁻²), i.e. n^pα_n/(2c) = 1 − (s−1+p)/(2n) + O(n⁻²), since
+For α_n, a(Q) = (Q₂)₁₂/(Q₁)₁₂ − (Q₁)₂₂ expanded to first order in 1/n (check_e_sym.py does this symbolically): A₀ is annihilated by both functionals (A₀ ∝ [[1, i], [i, −1]]: A₂₁ = A₁₂ and
+A₁₁ + 2iA₁₂ − A₂₂ = 0), and the α²-part of A_r cancels between its R_1 and R_2 (4cA_r) contributions; gives n^pα_n = 2c − cp(α+2)/n + O(n⁻²), i.e. n^pα_n/(2c) = 1 − (s−1+p)/(2n) + O(n⁻²), since
 p(α+2) = s − 1 + p. Dividing: α_n/(2b_n) = 1 − p/(2n) + O(n⁻²). For the repo pairing, (n/(n−1))^p = 1 + p/n + O(n⁻²) gives
 α_{n−1}/(2b_n) = (1 − (s−1+p)/(2n))(1 + p/n)/(1 − (s−1)/(2n)) + O(n⁻²) = 1 + p/(2n) + O(n⁻²). ∎
 
@@ -321,7 +346,7 @@ of the first column of Q(0) is that of R(0)·(w⁽⁰⁾ + w⁽¹⁾/n), with
   w⁽⁰⁾ = lim_{z→0⁻}P₀^∞ρ^{σ₃}M(f^{1/4}, 0)ᵀ = (1, i)ᵀ/√(p+2),  w⁽¹⁾ = lim_{z→0⁻}P₀^∞ρ^{σ₃}M(0, −iαf^{−1/4}/2)ᵀ,
 
 both finite (P₀^∞ ~ |z|^{−1/4}, f^{±1/4} ~ |z|^{±1/4}; check_e_sym.py computes them: w⁽¹⁾ = (α(α+2), iα²)ᵀ√(p+2)/4). Note that
-w⁽⁰⁾ depends on ρ only through ρ(0) = 1 (T^{−1}ρ^{σ₃}T = [[ch, sh], [sh, ch]] with sh = O(|z|^{1/2}), killed by f^{1/4}/a).
+w⁽⁰⁾ depends on ρ only through ρ(0) = 1 (T^{−1}ρ^{σ₃}T = [[ch, sh], [sh, ch]] with sh = O(|z|^{1/2}), killed by f^{1/4}/𝔞_∞).
 With R(0) = I + R⁽¹⁾(0)/n + O(n⁻²) (Prop. E.5′) and (Q₁)₂₁ = −ic + A₂₁/n + O(n⁻²), (E.6.1) gives (exact sympy, check_e_sym.py)
 
   n^pg_{n−1} = c(1 + (α + ½)/n) + O(n⁻²) = c(1 + a/n + O(n⁻²)).
@@ -349,12 +374,14 @@ k₀ + k₁ = −2(s−1+a) and k₀ − k₁ = 2a − p, i.e. k₀ = −(s−1)
 - SECOND §1.1 grid (check_so_grid.out), rows p ∈ {3/2, 2, 3, 4}, s ∈ {3/2, 2, 3, 4}: every fitted d₁, e₁, e₁ˢ, k₀, k₁ equals
   the proved value to within max(fit half-range, 5·10⁻¹⁰ table rounding); largest deviation 5.3·10⁻⁸ (k₁ at (2, 3/2), fit
   half-range 2.5·10⁻⁶); 80/80 pass (`checks/check_e_grid.out`). The p = 1, ½ rows are not covered by Theorem E.1.
-- check_e_num.out [3]: d₁, e₁ˢ, n^pg_{n−1}/c, a, k₁ from contour integration of the quadrature-built Δ₁ at (p, s) = (2, 3),
-  (3/2, 2), (3, 5/2), (5/2, 9/2), (2, 2), (5/4, 4) (α from −½ to 1.4): all agree with the closed forms to ≤ 1.3·10⁻⁷.
+- check_e_num.out [3]: d₁, e₁ˢ, n^pg_{n−1}/c, γ′ (= a), and k₀ = 2d₁ − p/2, k₁ = k₀ + p − 2γ′ (all from the numerical
+  values, not the closed forms) from contour integration of the quadrature-built Δ₁ at (p, s) = (2, 3),
+  (3/2, 2), (3, 5/2), (5/2, 9/2), (2, 2), (5/4, 4) (α from −½ to 1.4): all agree with the closed forms to ≤ 1.4·10⁻⁷.
 - check_e_rate.out: the second-order residuals n²(n^pb_n/c − 1 + (s−1)/(2n)), n²(n^pα_n/(2c) − 1 + (s−1+p)/(2n)) and
   n²(n^pg_{n−1}/c − 1 − a/n) of the actual coefficients (n = 50…799; (p, s) = (3/2, 2), (2, 3), (3, 5/2), (5/4, 4)) stay bounded
-  (≤ 5.73 in absolute value, still drifting slowly at p = 3/2, 5/4 as an n^{1−p} term would): an illustration of the
-  O(n⁻²), NUMERICAL.
+  (≤ 5.73 in absolute value). The slow drift at p = 3/2, 5/4 is the bounded n^{1−p} term in n²·error, i.e. the n^{−1−p} =
+  o(n⁻²) contribution of H_n's O(n^{−p}) variation (its increments shrink like 2^{−(p−1)} per doubling): an illustration
+  of the O(n⁻²), NUMERICAL.
 
 ### 8.2 What becomes unconditional (for p > 1)
 
@@ -363,13 +390,12 @@ Theorem E.1 gives (E_1), i.e. (E_ε) with ε = 1, at every (p, s) with p > 1, s 
   (the latter also directly from Cor E.6: n(G_n − G_{n−1}) = O(1/n)). The hypothesis of G1 Remark SH-1/n holds.
 - **SECOND Thm 3.4** (needs (E_ε), ε > ½): unconditional, and superseded by Theorem E.1 (which gives O(n⁻²) instead of
   O(n^{−2ε′})).
-- **SECOND Cor 3.9**: its conclusion d₁(s₁) − d₁(s₀) = −(s₁ − s₀)/2 holds for p > 1 without (E) and without (UΛ)/(CVX) (it
-  is read off Theorem E.1). In particular **g(p) = 0 for every p > 1** (PROVED-mod-cite). For p = 1 Cor 3.9 remains
-  CONDITIONAL.
-- **SECOND Thm 3.8** for p > 1: Σ_{j≤n}log(b_j(s₁)/b_j(s₀)) = −((s₁−s₀)/2)log n + O(1), unconditionally (sum Theorem E.1);
-  (UΛ), (CVX) are not proved by this (they remain HYPOTHESIS), only no longer needed for p > 1.
-- **SECOND Thm 3.10(d)** for p = 2: the log-average form 𝒟_n = −((s−1)/2)log n + O(1) holds for every s > 1 (from E.1);
-  for p = 1 off the lattice 3/2 + ℕ₀ it stays CONDITIONAL.
+- **SECOND Cor 3.9** (after Plan 64: CONDITIONAL on (E) only): unconditional for p > 1, and its conclusion is also read
+  off Theorem E.1 directly. In particular **g(p) = 0 for every p > 1** (PROVED-mod-cite). For p = 1 Cor 3.9 remains
+  CONDITIONAL on (E).
+- **SECOND Thm 3.8** (PROVED-mod-cite by Plan 64, UL.md, with constant): nothing to add; Theorem E.1 is consistent with it.
+- **SECOND Thm 3.10(d)** (PROVED-mod-cite by Plan 64 for p ∈ {1, 2}, all s): Theorem E.1 extends the log-average form
+  𝒟_n = −((s−1)/2)log n + O(1) to every p > 1, s > 1.
 - **Conjecture P62**: PROVED-mod-cite for p > 1 (all five constants d₁, e₁, e₁ˢ, k₀, k₁, with the conjectured remainder
   O(n⁻²) for b_n, α_n and the chain). Open for 0 < p ≤ 1.
 - **THEOREMS item 13**: (E) is proved for p > 1; the −1/24 second-order conjecture at p = 1 is untouched.
@@ -402,7 +428,7 @@ Theorem E.1 gives (E_1), i.e. (E_ε) with ε = 1, at every (p, s) with p > 1, s 
 - *Pairing.* The RH problem of degree n yields α_n (diagonal of π_n) and b_n² = h_n/h_{n−1} (Paper 2 Lemma interp,
   (eq. extractU)); the standard pairing α_n/(2b_n) gives −p/2, and the repo pairing +p/2, as in SECOND §0.
 - *Meromorphy.* Odd powers of (z−4c)^{1/2}, resp. z^{1/2}, cancel identically (asserted in check_e_sym.py) — a nontrivial test
-  of the branch choices of a², (−ω)^{1/2}, ρ, f^{1/2}.
+  of the branch choices of 𝔞_∞², (−ω)^{1/2}, ρ, f^{1/2}.
 - *A₀ normalisation.* Tested three ways: hand computation (§5), sympy series, contour integral ([3]: (1,1) entry agrees to
   10⁻⁹); and α = ±½ (4α² = 1) gives A₀ = 0 (the Bessel model is then elementary): numerically 4·10⁻⁹, 10⁻⁹.
 - *H_n flatness.* Could the n^{−p} bound of Lemma E.2 fail near 0 or on (−δ, 0)? Near 0 the jump density 𝔢 is
@@ -411,42 +437,24 @@ Theorem E.1 gives (E_1), i.e. (E_ε) with ε = 1, at every (p, s) with p > 1, s 
 - *Converse / scope.* The argument uses p > 1 in: Lemma 1.1 of RH_px (slit plane free of Γ-poles), Lemma E.2 (|e^{−2iθ₊}| < 1
   on (−∞, 0) needs sin(π/p) > 0, and the far-part integral converges), n^{−1−p} ≤ n⁻². At p = 1 Lemma E.2 is false (§9).
 - *Large α.* α ≥ 1 (s ≥ 1 + 2p) is outside Paper 2's standing assumption but inside RH_px's (all s > 1); the lemmas of
-  Paper 2 used here (szego (i), (iv), (vi)(b); airy) do not use α < 1. Numerics at α = 1.4 ([3], (p, s) = (5/4, 4)) agree.
+  Paper 2 used here (szego (i), (iv), (vi)(b), (vi)(c); signs; gfunction; airy; and the F1 contour/Cauchy bound and F5
+  arc-by-arc bounds of the Frame Proposition, which rest only on these and on the n-independent geometry) do not use α < 1;
+  the small-norm step and identification are RH_px §5, valid for all s > 1. Numerics at α = 1.4 ([3], (p, s) = (5/4, 4)) agree.
 
-## 11. Integration (for the integrator; nothing below has been applied to SECOND.md / THEOREMS.md)
+## 11. Integration (applied)
 
-**SECOND.md summary table** (rows as in the REVIEWED version on master 928a2b3):
-- Row "Conj. P62": label → "CONJECTURE for 0 < p ≤ 1; **PROVED-mod-cite for p > 1** (E_pgt1.md Thm E.1, Cor E.6; not
-  REVIEWED)".
-- Row "Cor 3.3": append "; unconditional for p > 1 (E_pgt1 Thm E.1 gives (E₁))".
-- Row "Thm 3.4": append "; unconditional for p > 1 and superseded there by E_pgt1 Thm E.1 (remainder O(n⁻²))".
-- Row "Cor 3.9": append "; for p > 1 the conclusion holds unconditionally, and g(p) = 0 (E_pgt1 §8.2)".
-- Row "Thm 3.8": append "; for p > 1 the conclusion holds with O(1), unconditionally (E_pgt1 §8.2); (UΛ), (CVX) remain
-  HYPOTHESIS".
-- Row "Thm 3.10": part (d) for p = 2 → "PROVED-mod-cite for all s > 1 (E_pgt1 §8.2)".
-- Row "§4 (E)": label → "**PROVED-mod-cite for p > 1** with ε = 1 (E_pgt1.md Thm E.1; not REVIEWED); GAP for 0 < p ≤ 1".
-- Row "§4 g(p)": label → "g(p) = 0 for p > 1: PROVED-mod-cite (E_pgt1 §8.2); GAP for 0 < p < 1 (p = 1: g(1) = 0 CONDITIONAL
-  on (E) via Cor 3.9)".
-- New row "Thm E.1 / Cor E.6 (E_pgt1.md)": statements of §1 here; label as in the table at the top of this file.
-- §4 text: after "(E) for pure powers (GAP)", add a pointer: "For p > 1 closed by E_pgt1.md: step 1 as stated; step 3 is
-  resolved by E_pgt1 Lemma E.2 (H_n is constant to O(n^{−p}), so Δ₁^{(N)} = Δ₁^{(∞)} + O(N^{−p})); steps 2, 4, 5 are E_pgt1
-  Lemmas E.3–E.5 and Prop. E.5′; the computed values are d₁ = −(s−1)/2, e₁ˢ = −p/2, k₀, k₁ as in Conj. P62."
-- §4 "Computing d₁ itself": add "Done for p > 1 (E_pgt1 §§4–7): the hard-edge residue is c(p+2)(4α²−1)/16·[[1, i], [i, −1]]
-  and does not enter d₁; d₁ comes from the Airy simple-pole residue A_r."
+Applied in the Rule R fix commit (after merging master 3ad2565, i.e. after Plan 64), reconciled with the Plan 64 wording.
+Every changed label carries the tag "Plan 65 … not REVIEWED" so that it can be flipped after the diff check.
 
-**THEOREMS.md §2.10** (Plan 62 table):
-- Row "Conjecture P62": label → "CONJECTURE (0 < p ≤ 1); PROVED-mod-cite for p > 1 (E_pgt1.md Thm E.1, Cor E.6)".
-- Row "(E), g(p)": label → "(E): PROVED-mod-cite for p > 1 (E_pgt1.md; second-order RH, Lemma E.2 flatness of H_n), GAP for
-  p ≤ 1; g(p) = 0 for p > 1 PROVED-mod-cite, GAP for p < 1".
-- Row "Cor 3.3, Thm 3.4": append "unconditional for p > 1 (E_pgt1)".
-- Row "Prop 3.7, Thm 3.8, Cor 3.9": append "for p > 1: conclusions unconditional (E_pgt1)".
-- New row "Plan 65: Thm E.1, Cor E.6 | p > 1, s > 1: n^pb_n = c(1 − (s−1)/(2n) + O(n⁻²)), n^pα_n = 2c(1 − (s−1+p)/(2n) +
-  O(n⁻²)), α_n/(2b_n) = 1 − p/(2n) + O(n⁻²); n^pg_{n−1} = c(1 + a/n + O(n⁻²)), k₀ = −(s−1) − p/2, k₁ = −(p+2)a |
-  PROVED-mod-cite (RH_px, Paper 2 Lemmas binetcut/szego/airy/frame, KMVV §6, DLMF 9.7, 10.17, 10.25.2, 10.40) + exact
-  computer algebra; not REVIEWED | research/G1/RH/second_order/E_pgt1.md, checks/check_e_*.out".
+**SECOND.md:** status line (Plan 65 update note); summary rows Conj. P62 (PROVED-mod-cite for p > 1), Cor 3.3
+(unconditional for p > 1), Thm 3.4 (superseded for p > 1), Cor 3.9 (unconditional for p > 1), Thm 3.10 (log-average form for
+every p > 1), §4 (E) (PROVED-mod-cite for p > 1; GAP only for p ≤ 1), §4 g(p) (g(p) = 0 for p > 1; GAP for p < 1; p = 1
+CONDITIONAL on (E)), a new row "Thm E.1, Cor E.6"; the Conjecture P62 heading; a Plan 65 bullet in Cor 3.9; the §4 title and a
+Plan 65 paragraph at the start of §4 (the Plan 62 text kept as the GAP statement for p ≤ 1); a note after "Computing d₁
+itself"; the §6 checks list. Thm 3.8 is unchanged (already PROVED-mod-cite by Plan 64).
 
-**THEOREMS.md §4 item 13**: replace "Still open: **(E)** … (GAP; PROOF SKETCH for p > 1)" by "(E) is PROVED-mod-cite for
-p > 1 (Plan 65, E_pgt1.md: n^pb_n = c(1 − (s−1)/(2n) + O(n⁻²)) and all five constants of Conjecture P62; not REVIEWED);
-still open: (E) for 0 < p ≤ 1 and g(p) for p < 1 (GAP)".
+**THEOREMS.md §2.10:** heading (Plan 65 added); rows Conjecture P62, "Cor 3.3, Thm 3.4", "Prop 3.7, Thm 3.8, Cor 3.9",
+"(E), g(p)"; new row "Thm E.1, Cor E.6 (Plan 65)". **§4 item 13:** the "Still open: (E) …" sentence replaced by a Plan 65
+update (E proved for p > 1; still open for 0 < p ≤ 1, g(p) for p < 1).
 
-**RH/CITATIONS.md**: entry "(DLMF-9.7.2, Plan 65)" added in this branch (DLMF 9.7.2 quoted in full).
+**RH/CITATIONS.md:** entries "(DLMF-9.7.2, Plan 65)" and "(Plan 65 reuse)" (with the hypothesis check of Rule R A6/F6).

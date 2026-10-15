@@ -7,7 +7,7 @@
 [3] Contour integrals of Delta_1 built from quadrature: g (hence phi, phit, f) by quadrature of the arcsine mixture,
     omega = D_W^2/W_0 by quadrature of the Szego integral of x^alpha (4c - x) -- no closed form from Lemma E.4 is used.
     R1 = (1/2 pi i) oint Delta_1, R2 = (1/2 pi i) oint s Delta_1, R^(1)(0) = -(1/2 pi i) oint Delta_1(s) ds/s (both circles ccw),
-    then d1, e1 (std), gamma' (n^p g_{n-1} = c(1 + gamma'/n)) and k1 = k0 + p - 2 gamma'."""
+    then d1, e1 (std), gamma' (n^p g_{n-1} = c(1 + gamma'/n)) and k1 = k0 + p - 2 gamma' with k0 = 2 d1 - p/2 (numerical d1)."""
 import mpmath as mp
 
 print("[1] Airy correction matrix X (expected [[-0.013888889, -0.083333333 i], [-0.083333333 i, 0.013888889]])")
@@ -119,11 +119,11 @@ def run(p, s, delta=0.3, eps=0.3, K=48):
     r1 = r0 * (num[0] / w0[0] - num[1] / w0[1])
     lead = 1j * c * r0
     gp = (-A[1, 0] * r0 + 1j * c * r1) / lead
-    k0 = -(s - 1) - p / 2
+    k0 = 2 * d1 - p / 2          # from the numerical d1 (RH.md Lemma 5.1 unfolding), not the closed form
     k1 = k0 + p - 2 * gp
     re = lambda x: mp.nstr(mp.re(x), 10)
     print(f"   p={mp.nstr(p,3)} s={mp.nstr(s,3)} (alpha={mp.nstr(al,4)}): d1={re(d1)} [-(s-1)/2={mp.nstr(-(s-1)/2,10)}]  "
-          f"e1s={re(e1s)} [-p/2]  lead/c={re(lead/c)}  gamma'={re(gp)} [a={mp.nstr(al+0.5,10)}]  k1={re(k1)} [-(p+2)a={mp.nstr(-(p+2)*(al+0.5),10)}]")
+          f"e1s={re(e1s)} [-p/2]  lead/c={re(lead/c)}  gamma'={re(gp)} [a={mp.nstr(al+0.5,10)}]  k0={re(k0)} [{mp.nstr(-(s-1)-p/2,10)}]  k1={re(k1)} [-(p+2)a={mp.nstr(-(p+2)*(al+0.5),10)}]")
     print(f"      Bessel residue (1,1) entry {re(mom(D1bes,0,delta,one)[0,0])} vs c(p+2)(4al^2-1)/16 = {mp.nstr(c*(p+2)*(4*al**2-1)/16,10)}")
 for p, s in [(2, 3), (1.5, 2), (3, 2.5), (2.5, 4.5), (2, 2), (1.25, 4)]:
     run(p, s)

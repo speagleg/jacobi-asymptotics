@@ -10,6 +10,9 @@ shows the error is O(n^{-p}) in Delta_1).
  Bessel (hard edge 0): Delta_1^0 = (1/(16 f^{1/2})) P0 rho^{s3} Q0 rho^{-s3} P0^{-1}, Q0 = [[-(1+4al^2), 2i],[2i, 1+4al^2]],
      rho = ((-z)^{1/2}/(2 sqrt c) + (1-z/(4c))^{1/2})^{1+alpha},  f = f1 z (1 + (2 tau1/3) z + O(z^2)),
      f1 = -pi^2 C0^2, C0 = (4c)^{-1/2}/(pi(1+p/2)), tau1 = a'/(8c(a'+1)), a' = 1/p + 1/2   (Lemma E.4).
+Q0, X and the Lemma E.4 closed forms are INPUTS here (checked by check_e_num.py [1]-[2] and the proof of E.4).
+kappa2 and the second Taylor coefficient F2 of f are kept as free symbols in the extraction, and the constants are
+asserted not to depend on them.
 Outputs: Laurent coefficients (A_r, B_r at 4c; A_0, C_0 at 0), and d1, the 1/n coefficient of n^p alpha_n/(2c), e1 (std),
 gamma' (n^p g_{n-1} = c(1 + gamma'/n)), k0, k1.  Asserts the closed forms of Theorem E.1."""
 import sympy as sp
@@ -59,6 +62,8 @@ for k in (1, 3):
 sub = {kap: 1 / (6 * p * c ** sp.Rational(3, 2)), k2: -(7 + 4 / p) / (40 * c)}
 Br = D1u4.applyfunc(lambda e: sp.factor(sp.simplify(e.coeff(u, 0).subs(sub))))
 Ar = D1u4.applyfunc(lambda e: sp.factor(sp.simplify(e.coeff(u, 2).subs(sub))))
+# free-kappa2 version (reviewer B F2): the constants must not depend on kappa2
+ArK = D1u4.applyfunc(lambda e: sp.factor(sp.simplify(e.coeff(u, 2).subs({kap: sub[kap]}))))
 print("soft edge: Delta_1^r = B_r/(z-4c)^2 + A_r/(z-4c) + O(1); odd powers of (z-4c)^{1/2} vanish")
 print("  B_r =", Br)
 print("  A_r =", Ar)
@@ -68,7 +73,9 @@ ap = 1 / p + sp.Rational(1, 2)
 C0 = 1 / (sp.sqrt(4 * c) * sp.pi * (1 + p / 2))
 tau1 = ap / (8 * c * (ap + 1))
 f1 = -sp.pi ** 2 * C0 ** 2
-f2 = f1 * 2 * tau1 / 3
+f2v = f1 * 2 * tau1 / 3
+F2 = sp.Symbol('F2')                    # free second Taylor coefficient of f (f = f1 z + F2 z^2); F2 = f2v in Lemma E.4(i)
+f2 = F2
 fh = v * sp.sqrt(-f1 + f2 * v ** 2)            # f^{1/2} (f > 0 on the negative axis)
 a2h = sp.sqrt(4 * c + v ** 2) / v              # a^2
 rho = (v / (2 * sc) + sp.sqrt(1 + v ** 2 / (4 * c))) ** (al + 1)
@@ -79,8 +86,9 @@ Dh = T * sp.Matrix([[Yh[0, 0], a2h * Yh[0, 1]], [Yh[1, 0] / a2h, Yh[1, 1]]]) * T
 v2D = Dh.applyfunc(lambda e: sp.expand(sp.series(e * v ** 2, v, 0, 4).removeO()))
 for k in (1, 3):
     assert all(sp.simplify(v2D[i, j].coeff(v, k)) == 0 for i in range(2) for j in range(2)), "odd powers must vanish"
-A0 = v2D.applyfunc(lambda e: sp.factor(sp.simplify(-e.coeff(v, 0))))   # v^2 D = -z D = -A0 - C0 z ... with z = -v^2
-Cz = v2D.applyfunc(lambda e: sp.factor(sp.simplify(e.coeff(v, 2))))    # constant Laurent term C_0
+A0 = v2D.applyfunc(lambda e: sp.factor(sp.simplify(-e.coeff(v, 0).subs(F2, f2v))))   # v^2 D = -z D = -A0 - C0 z ... with z = -v^2
+CzF = v2D.applyfunc(lambda e: sp.factor(sp.simplify(e.coeff(v, 2))))   # constant Laurent term, F2 free
+Cz = CzF.applyfunc(lambda e: sp.factor(sp.simplify(e.subs(F2, f2v))))      # C_0 with Lemma E.4(i)
 print("hard edge: Delta_1^0 = A_0/z + C_0 + O(z)")
 print("  A_0 =", A0)
 assert sp.simplify(A0 - c * (p + 2) * (4 * al ** 2 - 1) / 16 * sp.Matrix([[1, I], [I, -1]])) == sp.zeros(2, 2)
@@ -111,20 +119,33 @@ print("d1 =", d1, ";  n^p alpha_n/(2c) = 1 + (", aco, ")/n;  e1 (std, alpha_n/(2
 assert sp.simplify(d1 + p * (al + 1) / 2) == 0
 assert sp.simplify(aco + p * (al + 2) / 2) == 0
 assert sp.simplify(e1s + p / 2) == 0
+AK = A0 + ArK
+Q1K = P1 + eps * AK
+Q2K = P2 + eps * AK * P1 + eps * (4 * c * ArK + Br)
+bK = sp.series(sp.expand(Q1K[0, 1] * Q1K[1, 0]) / c ** 2, eps, 0, 2).removeO().coeff(eps, 1)
+aK = sp.series(Q2K[0, 1] / Q1K[0, 1] - Q1K[1, 1], eps, 0, 2).removeO().coeff(eps, 1)
+assert sp.simplify(sp.diff(bK, k2)) == 0 and sp.simplify(sp.diff(aK, k2)) == 0
+assert sp.simplify(bK / 2 - d1) == 0 and sp.simplify(aK / (2 * c) - aco) == 0
+print("d1 and the alpha_n coefficient do not depend on kappa2 (asserted)")
+# A0 is annihilated by both first-order functionals (reviewer B F1)
+assert sp.simplify(A0[1, 0] - A0[0, 1]) == 0 and sp.simplify(A0[0, 0] + 2 * I * A0[0, 1] - A0[1, 1]) == 0
+print("A0 is annihilated by both functionals: A21 = A12 and A11 + 2i A12 - A22 = 0 (asserted)")
 
 # ---------------- chain: n^p g_{n-1} = -(Q_1)_21 * Q_11(0)/Q_21(0)
-R0 = -Cz - Ar / (4 * c) + Br / (16 * c ** 2)         # R^(1)(0)
+R0 = -CzF - ArK / (4 * c) + Br / (16 * c ** 2)        # R^(1)(0), kappa2 and F2 kept free
 aroot = sp.sqrt(a2h)
 f4 = sp.sqrt(fh)
 Bm = T * sp.diag(aroot, 1 / aroot) * Ti * sp.diag(rho, 1 / rho) * Mm
-w0 = (Bm * sp.Matrix([f4, 0])).applyfunc(lambda e: sp.simplify(sp.limit(e, v, 0)))
-w1 = (Bm * sp.Matrix([0, -I * al / (2 * f4)])).applyfunc(lambda e: sp.simplify(sp.limit(e, v, 0)))
+w0 = (Bm * sp.Matrix([f4, 0])).applyfunc(lambda e: sp.simplify(sp.limit(e.subs(F2, f2v), v, 0)))
+w1 = (Bm * sp.Matrix([0, -I * al / (2 * f4)])).applyfunc(lambda e: sp.simplify(sp.limit(e.subs(F2, f2v), v, 0)))
 print("Bessel column at zeta = 0: w0 =", list(w0), " w1 =", list(w1))
 r0 = sp.simplify(w0[0] / w0[1])
 num = R0 * w0 + w1
 r1 = sp.simplify(r0 * (num[0] / w0[0] - num[1] / w0[1]))
 lead = sp.simplify(I * c * r0)
-gp = sp.factor(sp.simplify((-A[1, 0] * r0 + I * c * r1) / lead))
+gp = sp.factor(sp.simplify((-AK[1, 0] * r0 + I * c * r1) / lead))
+assert sp.simplify(sp.diff(gp, k2)) == 0 and sp.simplify(sp.diff(gp, F2)) == 0
+print("gamma' does not depend on kappa2 or on the second Taylor coefficient F2 of f (asserted)")
 print("n^p g_{n-1} = (", lead, ") (1 + (", gp, ")/n)")
 assert sp.simplify(lead - c) == 0 and sp.simplify(gp - (al + sp.Rational(1, 2))) == 0
 k0 = sp.simplify(2 * d1 - p / 2)
