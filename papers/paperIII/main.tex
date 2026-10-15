@@ -31,9 +31,9 @@
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\dist}{dist}
 \DeclareMathOperator{\Var}{Var}
-% PLACEHOLDER (decision D2 of the series plan): the hard-edge tail bound is to be proved in Paper II; its number is
-% not yet fixed. Every use in this paper goes through this macro. See NOTES.md, "Placeholders".
-\newcommand{\tailbound}{\cite[Proposition~(tail bound)]{PaperII}}
+% PLACEHOLDER (decision D2 of the series plan): the hard-edge tail bound is planned as Proposition 8.6 of Paper II
+% (its proof is under review; numbering not frozen). Every use in this paper goes through this macro. See NOTES.md.
+\newcommand{\tailbound}{\cite[Proposition~8.6]{PaperII}}
 
 \title[Stability and instability of recurrence asymptotics]{Stability and instability of recurrence asymptotics for
 discrete measures with power-law atoms}
@@ -60,7 +60,7 @@ $\sum_{m\le n}\log(b_m(s+p)/b_m(s))+\frac p2\log n\to\frac12\log(c(p)\zeta(s)/\z
 extends it to
 $\sum_{m\le n}\log(b_m(s_1)/b_m(s_0))=-\frac{s_1-s_0}{2}\log n+\frac12\log(c(p)^{(s_1-s_0)/p}\zeta(s_0)/\zeta(s_1))
 +o(1)$ for all $s_0,s_1>1$, and gives the law uniformly on compact sets of exponents (for $p\le1$, inside an
-explicit window). At $p=1$ this determines the
+explicit window, and for the diagonal coefficients away from one exponent). At $p=1$ this determines the
 averaged $1/n$ coefficient $-(s-1)/2$ for every $s>1$. All proofs rest on the first-variation formula for $\log h_n$
 under multiplicative changes of the weights, combined with localisation of the spectral weights.
 \end{abstract}

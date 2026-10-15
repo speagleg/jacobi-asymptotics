@@ -1,1 +1,179 @@
-% stub
+% Section 3: every slowly varying factor (Theorem 1.2).
+\section{Every slowly varying factor}\label{sec:sv}
+
+This section proves Theorem~\ref{thm:sv}. A slowly varying sequence is close to an analytic one: Gaussian smoothing
+of $\log\ell$ in the logarithmic variable produces an entire function $\Lambda_\ell$ whose derivatives tend to $0$ in
+every horizontal strip and which differs from $\log\ell$ by $o(1)$ at the integers (\S\ref{sec:smoothing}). The factor
+$\ell_1:=e^{\Lambda_\ell(\log\cdot)}$ is therefore analytic of every angle, and Theorem~\ref{thm:imp-analytic} applies to
+it. It remains to compare the weights $k^{-s}\ell(k)$ and $k^{-s}\ell_1(k)$, whose ratio tends to $1$, along the path
+of \S\ref{sec:fv} with $\varphi=\log(\ell/\ell_1)$ (\S\ref{sec:stability}). The first variation is an average of
+$\varphi$ against spectral weights that live at indices $k\ge n/M_0$, up to an exponentially small head, and there
+$|\varphi|$ is at most the smoothing error.
+
+One cannot compare $\ell$ directly with the constant $1$: $\ell$ may be unbounded and need not be close to $1$
+anywhere, and controlling $\log\ell(k)-\log\ell(n)$ against the spectral weights far beyond $k\asymp n$ would require
+information about the accumulation point of the atoms. Comparing $\ell$ with its own smoothing avoids this.
+
+\subsection{Gaussian smoothing}\label{sec:smoothing}
+
+\begin{definition}[smoothing]\label{def:smoothing}
+Let $L_\ell\colon\R\to\R$ be the piecewise-linear interpolant of the points $(\log k,\log\ell(k))$, $k\ge1$,
+extended by the constant $\log\ell(1)$ on $(-\infty,0]$. Let $G(y):=e^{-y^2/2}/\sqrt{2\pi}$ and
+\[
+  \Lambda_\ell:=L_\ell*G,\qquad \rho_\ell(m):=\sup_{k\ge m}\bigl|\log\ell(k)-\Lambda_\ell(\log k)\bigr|\qquad(m\ge1).
+\]
+\end{definition}
+
+The function $G$ extends to an entire function, and for $\xi=T+i\upsilon$ with $T,\upsilon,y\in\R$,
+\begin{equation}\label{eq:gauss-abs}
+  |G(\xi-y)|=G(T-y)\,e^{\upsilon^2/2}.
+\end{equation}
+
+\begin{lemma}[Gaussian smoothing]\label{lem:smoothing}
+Let $\ell$ be slowly varying and write $L=L_\ell$, $\Lambda=\Lambda_\ell$.
+\begin{enumerate}
+\item[\textup{(o)}] For every $\eta>0$, $|L(y)|\le A_\eta+\eta(|y|+\log2)$ for all $y\in\R$, with $A_\eta$ as in
+  Lemma~\ref{lem:potter}(ii). The function $\Lambda$ is entire and real on $\R$.
+\item[\textup{(i)}] $\rho_\ell(m)\to0$ as $m\to\infty$.
+\item[\textup{(ii)}] For every $\vartheta\ge0$, as $\Re\xi\to+\infty$, $\Lambda(\xi)-\Lambda(\Re\xi)\to0$ and
+  $\Lambda^{(j)}(\xi)\to0$ for every $j\ge1$, uniformly in $|\Im\xi|\le\vartheta$; and $\Lambda$ is bounded on
+  $\{\Re\xi\le0,\ |\Im\xi|\le\vartheta\}$.
+\item[\textup{(iii)}] Consequently $\ell_1(k):=e^{\Lambda(\log k)}$ is analytic of angle $\vartheta$ for every
+  $\vartheta>0$ \textup{(}Definition~\ref{def:analytic}, with any $c_0>0$\textup{)}, and $\psi:=\ell/\ell_1$ satisfies
+  $\sup_{k\ge m}|\log\psi(k)|=\rho_\ell(m)$.
+\end{enumerate}
+\end{lemma}
+
+The proof shows that $L$ has small oscillation on unit intervals far to the right, chains this into a bound for
+$|L(y)-L(T)|$ that grows linearly in $|y-T|$, and integrates the bound against the derivatives of $G$, which decay
+like a Gaussian even at complex arguments by \eqref{eq:gauss-abs}. We include the short proof, which uses only the
+sequence form of slow variation.
+
+\begin{proof}
+\emph{(o).} For $y\ge0$ choose $k\ge1$ with $y\in[\log k,\log(k+1)]$. Then $L(y)$ is a convex combination of
+$\log\ell(k)$ and $\log\ell(k+1)$, each of absolute value at most $A_\eta+\eta\log(k+1)\le A_\eta+\eta(y+\log2)$ by
+Lemma~\ref{lem:potter}(ii). For $y<0$, $|L(y)|=|\log\ell(1)|\le A_\eta$. Since $L$ grows at most linearly, the integrand
+$L(y)G(\xi-y)$ is dominated, for $\xi$ in a bounded set, by an integrable function of $y$, and it is entire in
+$\xi$; so $\Lambda$ is entire and may be differentiated under the integral sign. It is real on $\R$ because $L$ and $G$
+are.
+
+\emph{Local oscillation of $L$.} For $T\ge T_0:=1+\log2$ put
+$\osc_L(T):=\sup\{|L(y)-L(y')|:\ y,y'\in[T-1,T+1]\}$ and $\osc_L^*(T):=\sup_{T'\ge T}\osc_L(T')$. If
+$y\in[T-1,T+1]\cap[\log k,\log(k+1)]$, then $k\ge e^{T-1}/2$ and $k+1\le e^{T+1}+1$. With $m:=\lceil e^T\rceil$ and
+$\lambda:=2e^2$ we get $k,k+1\in[m/\lambda,\lambda m]$, so $\osc_L(T)\le2\osc_m(2e^2)$. Hence $\osc_L(T)\to0$, and
+$\osc_L^*(T)$ is finite and tends to $0$.
+
+\emph{Chaining.} Let $T\ge2T_0$. If $y\ge T$, join $T$ to $y$ by $\lfloor y-T\rfloor$ steps of length $1$ and one
+shorter step; every step lies in an interval $[T'-1,T'+1]$ with $T'\ge T$, so $|L(y)-L(T)|\le\osc_L^*(T)(1+|y-T|)$.
+If $T/2\le y<T$, the same argument started at $y\ge T_0$ gives $|L(y)-L(T)|\le\osc_L^*(T/2)(1+|y-T|)$. If $y<T/2$,
+then $|y|+T\le5|y-T|$, and (o) with $\eta=1$ gives $|L(y)-L(T)|\le C_1(1+|y-T|)$ with $C_1:=\max(2A_1+2,5)$. In all
+cases
+\begin{equation}\label{eq:chaining}
+  |L(y)-L(T)|\le\bigl(\osc_L^*(T/2)\,\mathbf 1_{\{y\ge T/2\}}+C_1\mathbf 1_{\{y<T/2\}}\bigr)(1+|y-T|).
+\end{equation}
+
+\emph{(ii).} The derivatives of $G$ are $G^{(j)}=\mathsf h_jG$ with polynomials $\mathsf h_j$ of degree $j$; let
+$\bar{\mathsf h}_j$ have the absolute values of the coefficients of $\mathsf h_j$ as coefficients, so that
+$|\mathsf h_j(t+i\upsilon)|\le\bar{\mathsf h}_j(|t|+\vartheta)$ for $|\upsilon|\le\vartheta$. The entire function
+$\xi\mapsto\int_\R G(\xi-y)\diff y$ equals $1$ on $\R$, hence everywhere, and therefore
+$\int_\R G^{(j)}(\xi-y)\diff y=\delta_{j0}$ for all $\xi$. For $\xi=T+i\upsilon$ with $|\upsilon|\le\vartheta$ and
+$T\ge2T_0$, this, \eqref{eq:gauss-abs}, \eqref{eq:chaining} and the substitution $t=T-y$ give
+\[
+  \bigl|\Lambda^{(j)}(\xi)-\delta_{j0}L(T)\bigr|=\Bigl|\int_\R\bigl(L(y)-L(T)\bigr)G^{(j)}(\xi-y)\diff y\Bigr|
+  \le e^{\vartheta^2/2}\Bigl[\osc_L^*(T/2)\int_\R\mathsf g_j+C_1\int_{|t|>T/2}\mathsf g_j\Bigr],
+\]
+where $\mathsf g_j(t):=\bar{\mathsf h}_j(|t|+\vartheta)(1+|t|)G(t)$ is integrable. The right side tends to $0$ as
+$T\to\infty$, uniformly in $|\upsilon|\le\vartheta$. For $j=0$, applying this at $\xi$ and at $\Re\xi$ and subtracting
+gives $\Lambda(\xi)-\Lambda(\Re\xi)\to0$; for $j\ge1$ it gives $\Lambda^{(j)}(\xi)\to0$. For $\Re\xi=T\le0$: $L(y)=L(0)$
+for $y\le0$ and $|L(y)-L(0)|\le2A_1+2\log2+y$ for $y>0$, while $G(T-y)\le G(y)$ for $y>0$; hence
+$|\Lambda(\xi)-L(0)|\le e^{\vartheta^2/2}\int_0^\infty(2A_1+2+y)G(y)\diff y$.
+
+\emph{(i).} Since $L(\log k)=\log\ell(k)$, the case $j=0$, $\upsilon=0$ of the estimate in (ii) gives
+$\Lambda(\log k)-\log\ell(k)\to0$.
+
+\emph{(iii).} $\Lambda$ is entire, real on $\R$, bounded on $\{-c_0\le\Re\xi\le0,|\Im\xi|\le\vartheta\}$, and
+$\sup\{|\Lambda'(\xi)|:\Re\xi\ge T,|\Im\xi|\le\vartheta\}\to0$, by (ii). Finally $\log\psi(k)=\log\ell(k)-\Lambda(\log k)$.
+\end{proof}
+
+\subsection{Stability under a factor tending to one}\label{sec:stability}
+Fix $p>0$, $s>1$ and a slowly varying $\ell$, and let $\Lambda_\ell$, $\ell_1$, $\psi=\ell/\ell_1$ be as in
+Lemma~\ref{lem:smoothing}. Put
+\[
+  \bar\rho:=\sup_k|\log\psi(k)|=\rho_\ell(1)<\infty,\qquad w^{(t)}_k:=k^{-s}\ell_1(k)\psi(k)^t\quad(t\in[0,1]),
+\]
+so that $w^{(0)}$ and $w^{(1)}$ are the weights of $\sigma_{p,s,\ell_1}$ and $\sigma_{p,s,\ell}$. Since
+$\ell_1\psi^t=\ell\psi^{t-1}$, we have $e^{-\bar\rho}\ell(k)\le\ell_1(k)\psi(k)^t\le e^{\bar\rho}\ell(k)$. Write
+$m^{(t)}_n$ for the spectral weights of $w^{(t)}$, call the indices $k<n/M_0$ the \emph{head}, and let
+\[
+  \mathfrak h_n:=\sup_{t\in[0,1]}\ \max_{n'\in\{n-1,n\}}\ m^{(t)}_{n'}\bigl([1,n/M_0)\bigr).
+\]
+
+\begin{lemma}[a priori size]\label{lem:apriori}
+There are $C$ and $n_0$, depending on $p,s,\ell$, such that $\mathfrak h_n\le Cn^{s+5}e^{-2n}$ for all $n\ge2$, and
+$a_n(w^{(t)})\le2M_0^pn^{-p}$ and $b_n(w^{(t)})\le2M_0^pn^{-p}$ for all $n\ge n_0$ and $t\in[0,1]$.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:potter}(ii) with $\eta=1$, $\|w^{(t)}\|_1\le e^{\bar\rho}\sigma_{p,s,\ell}(\R)$ and $w^{(t)}_k\ge
+e^{-\bar\rho-A_1}k^{-s-1}$. For $n\ge2$ and $n'\in\{n-1,n\}$, the head $[1,n/M_0)$ is contained in $[1,2n'/M_0]$, so
+Corollary~\ref{cor:head} with $A=s+1$ bounds $m^{(t)}_{n'}$ of the head by $Cn^{s+2}(n+1)^2e^{-2(n-1)}$, which gives the
+first claim. For the second, $a_{n'}=\langle x,m_{n'}\rangle$ and $b_n\le\frac12\langle x,m_{n-1}+m_n\rangle$ by
+\S\ref{sec:conv}. Off the head $x_k\le(M_0/n)^p$, and $x_k\le1$ always, so $a_n$ and $b_n$ are at most
+$(M_0/n)^p+\mathfrak h_n$, which is at most $2M_0^pn^{-p}$ for large $n$.
+\end{proof}
+
+\begin{proposition}[stability]\label{prop:stability}
+There are $C$ and $n_0$, depending on $p,s,\ell$, such that for $n\ge n_0$
+\begin{align*}
+  \bigl|\log b_n^2(\sigma_{p,s,\ell})-\log b_n^2(\sigma_{p,s,\ell_1})\bigr|
+    &\le2\rho_\ell(\lceil n/M_0\rceil)+Cn^{s+5}e^{-2n},\\
+  n^p\bigl|a_n(\sigma_{p,s,\ell})-a_n(\sigma_{p,s,\ell_1})\bigr|
+    &\le6M_0^p\,\rho_\ell(\lceil n/M_0\rceil)+Cn^{p+s+5}e^{-2n}.
+\end{align*}
+\end{proposition}
+
+\begin{proof}
+Apply \S\ref{sec:fv} with $v_k=k^{-s}\ell_1(k)$ and $\varphi=\log\psi$, which is bounded by $\bar\rho$; then
+$w(t)=w^{(t)}$. Write $\rho:=\rho_\ell(\lceil n/M_0\rceil)$. For $k\ge n/M_0$ we have $k\ge\lceil n/M_0\rceil$, so
+$|\varphi(k)|\le\rho$; on the head $|\varphi(k)|\le\bar\rho$. By \eqref{eq:fv-b},
+\[
+  \bigl|\log b_n^2(w^{(1)})-\log b_n^2(w^{(0)})\bigr|\le\sup_{t\in[0,1]}\sum_k|\varphi(k)|\bigl(m^{(t)}_n(k)
+  +m^{(t)}_{n-1}(k)\bigr)\le2\rho+2\bar\rho\,\mathfrak h_n .
+\]
+By \eqref{eq:fv-a} and $2|q_{n-1}q_n|\le m_{n-1}+m_n$,
+$|\dot a_n|\le\sum_k|\varphi(k)|\bigl(|x_k-a_n|m_n(k)+b_n(m_{n-1}(k)+m_n(k))\bigr)$. Let $n\ge n_0$, with $n_0$ as in
+Lemma~\ref{lem:apriori} and $2M_0^pn_0^{-p}\le1$. Off the head, $|x_k-a_n|\le2M_0^pn^{-p}$ and $b_n\le2M_0^pn^{-p}$, so
+these indices contribute at most $6M_0^p\rho\,n^{-p}$; on the head use $|x_k-a_n|\le1$ and $b_n\le1$, a contribution of
+at most $3\bar\rho\,\mathfrak h_n$. Integrate over $t\in[0,1]$ and apply Lemma~\ref{lem:apriori}.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:sv}}\label{sec:proof-sv}
+Let $\ell$ be slowly varying and $\ell_1:=e^{\Lambda_\ell(\log\cdot)}$. By Lemma~\ref{lem:smoothing}(iii), $\ell_1$ is
+analytic of every angle, so Theorem~\ref{thm:imp-analytic} gives
+$|n^pa_n(\sigma_{p,s,\ell_1})-2c|+|n^pb_n(\sigma_{p,s,\ell_1})-c|=O(1/n)$. Write $\rho:=\rho_\ell(\lceil n/M_0\rceil)$ and
+$\Delta_n:=\log b_n^2(\sigma_{p,s,\ell})-\log b_n^2(\sigma_{p,s,\ell_1})$. By Proposition~\ref{prop:stability},
+$|\Delta_n|\le2\rho+Cn^{s+5}e^{-2n}$ for $n\ge n_0$; in particular $\Delta_n$ is bounded, since $\rho\le\rho_\ell(1)$,
+so $|e^{\Delta_n/2}-1|\le C'|\Delta_n|$ and
+\[
+  |n^pb_n(\sigma_{p,s,\ell})-c|\le|n^pb_n(\sigma_{p,s,\ell_1})-c|+n^pb_n(\sigma_{p,s,\ell_1})\,|e^{\Delta_n/2}-1|
+  =O(1/n+\rho+n^{s+5}e^{-2n}).
+\]
+Similarly, the second bound of Proposition~\ref{prop:stability} gives
+$|n^pa_n(\sigma_{p,s,\ell})-2c|\le|n^pa_n(\sigma_{p,s,\ell_1})-2c|+6M_0^p\rho+Cn^{p+s+5}e^{-2n}$. The exponentially
+small terms are $O(1/n)$, and finitely many $n$ affect only the constant. This is \eqref{eq:sv-rate}, and the limits
+follow because $\rho_\ell(m)\to0$ (Lemma~\ref{lem:smoothing}(i)). \qed
+
+\begin{remark}[the order of the steps]\label{rem:order}
+Theorem~\ref{thm:imp-analytic} is proved in \cite{PaperII} for every $s>1$, by an analysis in a window of exponents
+followed by the Christoffel shift with rate \cite[Theorem~3.1]{PaperII}. The smoothing is applied here at the final
+exponent $s$, after the shift. Smoothing first and shifting afterwards would also work, but the shift would then
+have to carry the rate $1/n+\rho_\ell(\lceil n/M_0\rceil)$, which is in general not of the regular form required
+there.
+\end{remark}
+
+\begin{remark}[what the rate measures]\label{rem:rate}
+For $\ell$ that is itself analytic of some angle, \eqref{eq:sv-rate} is weaker than Theorem~\ref{thm:imp-analytic},
+since $\rho_\ell$ need not be $O(1/n)$. Its point is the case of factors that are slowly varying but irregular at
+every scale, such as $\ell(k)=1+\frac12(-1)^k/\log(k+1)$, for which $\rho_\ell(m)=O(1/\log m)$
+(Section~\ref{sec:numerics}).
+\end{remark}

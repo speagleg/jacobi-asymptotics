@@ -128,10 +128,13 @@ accumulation point $x=0$ of the atoms. It is used only in Section~\ref{sec:s}. R
 \eqref{eq:Sp}.
 
 \begin{proposition}[\tailbound]\label{prop:imp-tail}
-Let $s\in\Sp$ and let $m_n$ be the spectral weights of $\sigma_{p,s}$. For every $0<\vartheta<\min(p/2,s-1)$ there are
-$C_\vartheta$ and $n_0$ such that $m_{n'}((Mn,\infty))\le C_\vartheta M^{-\vartheta}$ for all $n\ge n_0$, $M\ge1$ and
-$n'\in\{n-1,n\}$.
+Let $s\in\Sp$ \textup{(}that is, $1<s<1+2p$, or $p>1$ and $s>1$\textup{)}, and let $m_n$ be the spectral weights of
+$\sigma_{p,s}$. There are $C,c_2>0$ and $n_0$ such that $m_{n'}((Mn,\infty))\le CM^{-p/2}$ for all $n\ge n_0$,
+$n'\in\{n-1,n\}$ and $1\le M\le c_2n^{2/p}$.
 \end{proposition}
+
+For $p>1$, \tailbound{} also gives a bound for all $M\ge1$ with any exponent below $\min(p/2,s-1)$; we do not need it,
+because Lemma~\ref{lem:allM} below extends the bound to all $M$ with a smaller exponent, uniformly in the form we use.
 
 \subsection{Slow variation}\label{sec:prelim-sv}
 Let $\ell$ be slowly varying and put $\osc^*_n:=\sup_{m\ge n}\osc_m(2)$. Each $\osc_m(2)$ is a maximum of finitely
@@ -391,6 +394,60 @@ bounded, each $y^j$ is uniformly integrable, so $\int y^j\diff\nu'=\int y^j\diff
 $\nu'((4c+\delta,\infty))\le(4c/(4c+\delta))^{2j}\to0$ for every $\delta>0$, so $\nu'$ lives on $[0,4c]$, where
 polynomials are dense in the continuous functions; hence $\nu'=\arc_{4c}$. Finally,
 $m_{n+i}((Mn,\infty))=\nu_{n,i}([0,M^{-p}))$, and $\arc_{4c}$ has no atoms.
+\end{proof}
+
+Beyond the range of Proposition~\ref{prop:imp-tail}, a soft bound suffices. It uses two elementary facts about a
+real polynomial $P$ of degree at most $n$, with $\|P\|:=\max_{[-1,1]}|P|$ and $T_j$ the Chebyshev polynomials,
+$T_j(\cos\theta)=\cos j\theta$:
+\begin{equation}\label{eq:cheb}
+  \max_{[-1,1]}|P'|\le2n^3\|P\|,\qquad |P(y)|\le2(n+1)\,|T_n(y)|\,\|P\|\quad(|y|\ge1).
+\end{equation}
+Indeed, $P=\sum_{j\le n}c_jT_j$ with $c_j=\frac{2-\delta_{j0}}\pi\int_0^\pi P(\cos\theta)\cos j\theta\diff\theta$, so
+$|c_j|\le2\|P\|$. On $[-1,1]$, $|T_j'(\cos\theta)|=|j\sin j\theta/\sin\theta|\le j^2$, since $|\sin j\theta|\le j|\sin\theta|$; this
+gives the first bound. For $|y|\ge1$, $|T_j(y)|=\cosh(j\operatorname{arccosh}|y|)$ is non-decreasing in $j$, which gives
+the second.
+
+\begin{lemma}[polynomial tail localisation]\label{lem:TL}
+Let $\sigma=\sum_kw_k\delta_{k^{-p}}$ with $c'k^{-s}\le w_k\le C'k^{-s}$ for all $k$, where $s>1$ and $0<c'\le C'$. For
+$n\ge2$ put $T':=\lceil16pn^3\rceil$ and $T'':=\lceil T'n^{2/p}\rceil$. Then $K_{n+1}(k)\le68^2(n+1)^2(C'/c')(T''/k)^s$ for
+every $k\ge T''$, and for every integer $T\ge T''$ and $n'\in\{n-1,n\}$,
+\[
+  m_{n'}\bigl((T,\infty)\bigr)\le\frac{68^2(n+1)^2(C'/c')}{s-1}\,T''^{\,s}\,T^{1-s}.
+\]
+\end{lemma}
+
+\begin{proof}
+Put $b:=x_{T'}$ and $a:=x_{T''}$, so that $a/b\le(T'/T'')^p\le n^{-2}\le\frac14$. Let $\deg P\le n$ and write $\|P\|_{[a,b]}$
+for the maximum of $|P|$ on $[a,b]$. Mapping $[a,b]$ affinely onto $[-1,1]$, \eqref{eq:cheb} gives $|P'|\le
+4n^3\|P\|_{[a,b]}/(b-a)\le8n^3\|P\|_{[a,b]}/b$ on $[a,b]$. Consecutive atoms in $[a,b]$ are at distance $x_j-x_{j+1}\le
+pj^{-p-1}\le pb/T'$, so every point of $[a,b]$ is within $pb/T'$ of an atom, and
+$\|P\|_{[a,b]}\le\max|P(x_j)|+(8pn^3/T')\|P\|_{[a,b]}$, the maximum over $T'\le j\le T''$. Since $T'\ge16pn^3$,
+$\|P\|_{[a,b]}\le2\max_{T'\le j\le T''}|P(x_j)|$. For $0\le x\le a$ the affine image $y=(a+b-2x)/(b-a)$ satisfies
+$1\le y\le1+4a/b\le1+4n^{-2}$, and $T_n(1+\eta)=\cosh(n\operatorname{arccosh}(1+\eta))\le e^{n\sqrt{2\eta}}\le e^{\sqrt8}<17$ for
+$\eta\le4n^{-2}$. By \eqref{eq:cheb}, $|P(x)|\le34(n+1)\|P\|_{[a,b]}$. Hence, if $k\ge T''$ and $P(x_k)=1$, then
+$1\le68(n+1)\max_{T'\le j\le T''}|P(x_j)|$, so $\int P^2\diff\sigma\ge\min_{j\le T''}w_j/(68(n+1))^2\ge c'T''^{-s}/(68(n+1))^2$.
+By \eqref{eq:christoffel}, $K_{n+1}(k)=w_k\mathsf K_{n+1}(x_k)\le68^2(n+1)^2(C'/c')(T''/k)^s$. Finally
+$m_{n'}\le K_{n'+1}\le K_{n+1}$ for $n'\le n$, and $\sum_{k>T}k^{-s}\le T^{1-s}/(s-1)$.
+\end{proof}
+
+\begin{lemma}[one power for all $M$]\label{lem:allM}
+Let $s\in\Sp$, let $m_n$ be the spectral weights of $\sigma_{p,s}$, and put
+\[
+  \vartheta_*=\vartheta_*(p,s):=\frac{s-1}{4+(2+2/p)s}.
+\]
+Then $0<\vartheta_*<\min(p/2,s-1)$, $\vartheta_*$ increases with $s$, and there are $C$ and $n_0$ such that
+$m_{n'}((Mn,\infty))\le CM^{-\vartheta_*}$ for all $n\ge n_0$, $n'\in\{n-1,n\}$ and $M\ge1$.
+\end{lemma}
+
+\begin{proof}
+Put $B:=3+(2+2/p)s$, so that $\vartheta_*=(s-1)/(B+1)$, and $\gamma_1:=1/\vartheta_*=(B+1)/(s-1)$; then
+$\gamma_1>2+2/p$, and $\vartheta_*<(s-1)p/(2s)<p/2$. The map $M\mapsto m_{n'}((Mn,\infty))$ is non-increasing. For $1\le
+M\le c_2n^{2/p}$ use Proposition~\ref{prop:imp-tail} and $M^{-p/2}\le M^{-\vartheta_*}$. For $c_2n^{2/p}\le M\le
+n^{\gamma_1}$, monotonicity and Proposition~\ref{prop:imp-tail} give the bound $Cc_2^{-p/2}n^{-1}\le Cc_2^{-p/2}M^{-\vartheta_*}$,
+since $M^{\vartheta_*}\le n$. For $M\ge n^{\gamma_1}$ apply Lemma~\ref{lem:TL} with $c'=C'=1$ and $T:=\lfloor Mn\rfloor\ge
+Mn/2$; since $T''\le(16p+2)n^{3+2/p}$ and $\gamma_1+1>3+2/p$, we have $T\ge T''$ for large $n$, and
+$\{k>Mn\}\subset\{k>T\}$. This gives $m_{n'}((Mn,\infty))\le Cn^2n^{(3+2/p)s}(Mn)^{1-s}=Cn^BM^{-(s-1)}$, and
+$n^BM^{-(s-1)}=n^BM^{-B\vartheta_*}M^{-\vartheta_*}\le M^{-\vartheta_*}$ because $M^{\vartheta_*}\ge n$.
 \end{proof}
 
 \begin{lemma}\label{lem:usat}

@@ -1,1 +1,201 @@
-% stub
+% Section 5: the Christoffel transformation at the Cesaro level (Theorem 1.4(i)).
+\section{The Christoffel transformation at the Ces\`aro level}\label{sec:christoffel}
+
+The direction $\varphi=-p\log k$ is special: $k^{-p}=x_k$, so $e^{-p\log k}v_k=x_kv_k$, and the end point of the path
+$ve^{t\varphi}$ at $t=1$ is the measure $x\sigma$. For the pure powers this is the shift $s\mapsto s+p$. Here no
+first-variation estimate is needed, because the Jacobi matrices of $\sigma$ and $x\sigma$ are related exactly by the
+factorisation of Lemma~\ref{lem:imp-chain}. This section uses that factorisation beyond the pointwise transfer of
+\cite{PaperII}: for the converse direction and a point mass at $0$ (Proposition~\ref{prop:converse}), and for the
+product identity (Proposition~\ref{prop:product}), which with the chain-limit statement of
+Lemma~\ref{lem:imp-chain}(ii) gives Theorem~\ref{thm:s}(i). Together with a comparison lemma for perturbations of
+relative size $O(1/k)$ and two explicit measures, it determines the averaged $1/n$ coefficient on lattices of
+exponents (Corollary~\ref{cor:lattice}). Finally it relates the pointwise $1/n$ coefficients at $s$ and $s+p$
+(Proposition~\ref{prop:transfer}). In this section $\sigma$ is a positive Borel measure on $[0,\infty)$ with infinite
+support and finite moments, $u_n,l_n$ are as in \eqref{eq:chain}, and $\tilde a_n,\tilde b_n$ are the coefficients of
+$x\sigma$.
+
+\subsection{The converse, and a point mass at zero}
+
+\begin{proposition}\label{prop:converse}
+Let $c'>0$. If $n^p\tilde a_n\to2c'$ and $n^p\tilde b_n\to c'$, then $n^pa_n\to2c'$ and $n^pb_n\to c'$. Consequently,
+for every $m_0\ge0$, the measure $\sigma+m_0\delta_0$ satisfies $n^pa_n\to2c'$, $n^pb_n\to c'$ if and only if $\sigma$
+does.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:imp-chain}(i), $l_{n+1}=\tilde a_n-u_n>0$ and $u_{n+1}=\tilde b_{n+1}^2/l_{n+1}$, so
+$z_n:=n^pu_n/c'$ satisfies
+\[
+  z_{n+1}=\frac{B_n}{A_n-z_n},\qquad 0<z_n<A_n,\qquad A_n:=\frac{n^p\tilde a_n}{c'}\to2,\qquad
+  B_n:=\frac{(n+1)^pn^p\tilde b_{n+1}^2}{c'^2}\to1 .
+\]
+The limiting map $z\mapsto1/(2-z)$ has the double fixed point $1$, and $1/(2-z)\ge z$ for $z<2$. Fix
+$\delta\in(0,\frac15]$, put $\epsilon:=\delta^3/16$, and choose $n_5$ with $|A_n-2|,|B_n-1|\le\epsilon$ for $n\ge n_5$.
+For $n\ge n_5$, $z_{n+1}<A_{n+1}$ gives $A_n-z_n>B_n/A_{n+1}\ge(1-\epsilon)/(2+\epsilon)>0.49$; hence $z_n<1.52$,
+$2-z_n>0.48$, and
+\[
+  \Bigl|z_{n+1}-\frac1{2-z_n}\Bigr|\le\frac{|B_n-1|}{A_n-z_n}+\frac{|A_n-2|}{(A_n-z_n)(2-z_n)}\le7\epsilon .
+\]
+If $z_m\ge1+\delta$ for some $m\ge n_5$, then $z_{m+1}\ge z_m+(z_m-1)^2/(2-z_m)-7\epsilon\ge z_m+\delta^2/2$, and by
+induction $z$ would exceed $1.52$; so $z_n<1+\delta$ for $n\ge n_5$. If $z_n\le1-\delta$, then
+$z_{n+1}\ge z_n+\delta^2/4$, so $z$ enters $(1-\delta,1+\delta)$ after finitely many steps; and if $z_n>1-\delta$, then
+$z_{n+1}\ge1/(1+\delta)-7\epsilon>1-\delta$. Hence $z_n\to1$. Finally $a_n=u_n+l_n=u_n+\tilde a_{n-1}-u_{n-1}$ and
+$b_n^2=u_{n-1}l_n$ give $n^pa_n\to2c'$ and $n^{2p}b_n^2\to c'^2$.
+
+For the second statement, $\sigma+m_0\delta_0$ has infinite support and finite moments, and
+$x(\sigma+m_0\delta_0)=x\sigma$. By Theorem~\ref{thm:imp-shift} and the first part, the law for either measure is
+equivalent to the law for $x\sigma$.
+\end{proof}
+
+The first statement also follows from the proposition of Dai, Piao and Qiao quoted in the introduction: with
+$\mathsf g_n:=u_n/\tilde a_n\in(0,1)$ one has $\tilde b_n^2/(\tilde a_{n-1}\tilde a_n)=(1-\mathsf g_{n-1})\mathsf g_n$, so
+these numbers form a chain sequence with parameter sequence $(\mathsf g_n)$, and the hypothesis makes them tend to
+$\frac14$; by \cite[Proposition~2.1]{DPQ}, $\mathsf g_n\to\frac12$, which gives $n^pu_n\to c'$ and $n^pl_{n+1}\to c'$. For
+discrete measures with bounded, strictly decreasing, non-negative atoms, the first statement of
+Proposition~\ref{prop:converse} has been formalised in the Lean~4 proof assistant, with a general scale sequence in
+place of $n^p$.
+
+\subsection{The product identity and Theorem~\ref{thm:s}(i)}
+
+\begin{proposition}\label{prop:product}
+For every $n\ge1$,
+\[
+  \prod_{m=1}^n\Bigl(\frac{\tilde b_m}{b_m}\Bigr)^2=\frac{u_n}{u_0},\qquad u_0=a_0=\frac{\int x\diff\sigma}{\int\diff\sigma}.
+\]
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:imp-chain}(i), $b_m^2=u_{m-1}l_m$ and $\tilde b_m^2=u_ml_m$, so $(\tilde b_m/b_m)^2=u_m/u_{m-1}$;
+the product telescopes. Also $u_0=-P_1(0)/P_0(0)=a_0$, since $P_1(x)=x-a_0$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:s}\textup{(i)}]
+Take $\sigma=\sigma_{p,s}$, so that $x\sigma=\sigma_{p,s+p}$ and $u_0=\zeta(s+p)/\zeta(s)$. Proposition~\ref{prop:product}
+gives
+\[
+  2\sum_{m=1}^n\log\frac{b_m(s+p)}{b_m(s)}=\log\bigl(n^pu_n\bigr)-p\log n-\log\frac{\zeta(s+p)}{\zeta(s)} .
+\]
+By Theorem~\ref{thm:imp-pure}, $n^pa_n(s)\to2c$ and $n^pb_n(s)\to c$, so $n^pu_n\to c$ by
+Lemma~\ref{lem:imp-chain}(ii).
+\end{proof}
+
+Only the law without rate is used. With the rate $O(1/n)$, the parameters converge only like
+$n^pu_n-c=O(n^{-1/2})$ in general \cite[Section~3]{PaperII}, so the convergence in Theorem~\ref{thm:s}(i) has no
+better rate a priori; numerically the error is of order $1/n$ (Section~\ref{sec:numerics}).
+
+\subsection{Perturbations of relative size \texorpdfstring{$O(1/k)$}{O(1/k)}}
+
+\begin{proposition}\label{prop:oneoverk}
+Let $v,w$ be positive weights on the atoms $k^{-p}$ with $\sum_kv_k<\infty$, $v_k\ge c_1k^{-A}$ for some $c_1>0$,
+$A\ge0$ and all $k$, and $|\log(w_k/v_k)|\le C/k$ for all $k\ge1$. Then $\log h_n(w)-\log h_n(v)=O(1/n)$, and
+consequently
+\[
+  \sum_{j=1}^n\log\frac{b_j(w)}{b_j(v)}=-\frac12\log\frac{\sum_kw_k}{\sum_kv_k}+O(1/n).
+\]
+\end{proposition}
+
+\begin{proof}
+Let $\varphi:=\log(w/v)$ and $w(t):=ve^{t\varphi}$, $t\in[0,1]$; then $e^{-C}v\le w(t)\le e^Cv$. By \eqref{eq:fv-h},
+$\frac{\diff}{\diff t}\log h_n=\langle\varphi,m^{(t)}_n\rangle$. For $k\ge n/M_0$, $|\varphi(k)|\le CM_0/n$. The head
+$[1,n/M_0)$ lies in $[1,2n/M_0]$, so Corollary~\ref{cor:head}, with $\|w(t)\|_1\le e^C\|v\|_1$ and $w_k(t)\ge
+e^{-C}c_1k^{-A}$, bounds its $m^{(t)}_n$-mass by $Cn^{A+3}e^{-2n}$, and there $|\varphi|\le C$. Hence
+$|\frac{\diff}{\diff t}\log h_n|\le CM_0/n+O(n^{A+3}e^{-2n})$ uniformly in $t$; integrate over $[0,1]$. The second
+statement follows from $h_n=h_0\prod_{j\le n}b_j^2$, where $h_0$ is the total mass.
+\end{proof}
+
+\subsection{Two anchors and the lattice values}
+The averaged $1/n$ coefficient is fixed by an explicit measure at one exponent; Theorem~\ref{thm:s}(i) then moves it
+along the lattice $s+p\N_0$. At $p=1$ the explicit measure is a Tricomi--Carlitz measure, which lives on a symmetric set
+of atoms; the following standard lemma passes to the squared variable.
+
+\begin{lemma}\label{lem:quadratic}
+Let $\nu$ be a positive measure on $\R$, symmetric under $t\mapsto-t$, with infinite support and finite moments, and
+let its monic orthogonal polynomials $R_N$ satisfy $tR_N=R_{N+1}+\mathsf e_NR_{N-1}$ \textup{(}$\mathsf e_0:=0$,
+$\mathsf e_N>0$\textup{)}. Let $\sigma$ be the image of $\nu$ under $t\mapsto t^2$. Then $\sigma$ is a positive measure on
+$[0,\infty)$ with infinite support and finite moments, its monic orthogonal polynomials $P_m$ satisfy
+$R_{2m}(t)=P_m(t^2)$, and its coefficients are
+\[
+  a_m=\mathsf e_{2m}+\mathsf e_{2m+1}\quad(m\ge0),\qquad b_m^2=\mathsf e_{2m-1}\mathsf e_{2m}\quad(m\ge1).
+\]
+\end{lemma}
+
+\begin{proof}
+By symmetry $R_N(-t)=(-1)^NR_N(t)$, so $R_{2m}(t)=P_m(t^2)$ for a monic polynomial $P_m$ of degree $m$, and
+$\int P_mx^j\diff\sigma=\int R_{2m}t^{2j}\diff\nu=0$ for $j<m$. So the $P_m$ are the monic orthogonal polynomials of
+$\sigma$. Two steps of the recurrence give $t^2R_{2m}=R_{2m+2}+(\mathsf e_{2m}+\mathsf e_{2m+1})R_{2m}+\mathsf
+e_{2m-1}\mathsf e_{2m}R_{2m-2}$, which is the recurrence of $P_m$ with the stated coefficients.
+\end{proof}
+
+\begin{corollary}[lattice values of the averaged $1/n$ coefficient]\label{cor:lattice}
+\textup{(a)} For $p=1$ and every $s\in\frac32+\N_0$ there is $C(s)$ with
+$\sum_{j=1}^n\log(2jb_j(s))=-\frac{s-1}2\log n+C(s)+o(1)$.
+
+\textup{(b)} For $p=2$ and every $s\in2+2\N_0$ there is $C(s)$ with
+$\sum_{j=1}^n\log(j^2b_j(s)/c(2))=-\frac{s-1}2\log n+C(s)+o(1)$.
+\end{corollary}
+
+\begin{proof}
+(a) Let $\psi^{(1)}$ be the Tricomi--Carlitz measure with parameter $\alpha=1$: by \cite[(1.4)--(1.5)]{WLXZ} it is the
+symmetric measure with mass $(k+1)^{k-1}e^{-k}/k!$ at each of the points $\pm(k+1)^{-1/2}$, $k\ge0$, and the
+Tricomi--Carlitz polynomials $f_n=f^{(1)}_n$ are orthogonal with respect to it. By \cite[(1.9)]{WLXZ} their leading
+coefficient is $\prod_{k<n}(k+1)/(k+1)=1$, so they are monic, and \cite[(1.6)]{WLXZ} reads
+$(n+1)f_{n+1}(x)=(n+1)xf_n(x)-f_{n-1}(x)$, that is, $\mathsf e_N=1/(N+1)$ for $N\ge1$. The image of $\psi^{(1)}$ under
+$t\mapsto t^2$ has mass $2(k+1)^{k-1}e^{-k}/k!=2e\,v_{k+1}$ at $1/(k+1)$, where $v_j:=j^{j-1}e^{-j}/j!$. By
+Lemma~\ref{lem:quadratic}, the measure $\sigma_{\mathrm{TC}}:=\sum_{j\ge1}v_j\delta_{1/j}$ has the coefficients
+$b^{\mathrm{TC}}_m=(2m(2m+1))^{-1/2}$.
+
+Next compare $\sigma_{1,3/2}$ with $\sigma_{\mathrm{TC}}$. Put $\varpi(t):=\Gamma(t+1)e^t/(\sqrt{2\pi}\,t^{t+1/2})$, so that
+$k^{-3/2}=\sqrt{2\pi}\,\varpi(k)v_k$. By Stirling's formula with the remainder bound for real argument \cite[(5.11.1) and
+\S5.11(ii)]{DLMF}, $\log\Gamma(k)=(k-\frac12)\log k-k+\frac12\log(2\pi)+R(k)$ with $|R(k)|\le1/(12k)$; since
+$\log\varpi(k)=\log\Gamma(k)+\log k+k-\frac12\log(2\pi)-(k+\frac12)\log k=R(k)$, we get $|\log\varpi(k)|\le1/(12k)$ for
+all $k\ge1$. Apply Proposition~\ref{prop:oneoverk} with $w_k=k^{-3/2}$ and the weights $\sqrt{2\pi}\,v_k\ge
+e^{-1/12}k^{-3/2}$, which have the same coefficients as $\sigma_{\mathrm{TC}}$:
+\[
+  \sum_{j=1}^n\log\frac{b_j(3/2)}{b^{\mathrm{TC}}_j}=-\frac12\log\frac{\zeta(3/2)}{\sqrt{2\pi}\,W_{\mathrm{TC}}}+O(1/n),
+  \qquad W_{\mathrm{TC}}:=\sum_jv_j .
+\]
+Since $\log(2jb^{\mathrm{TC}}_j)=-\frac12\log(1+\frac1{2j})=-\frac1{4j}+O(j^{-2})$, this gives (a) for $s=\frac32$. By
+Theorem~\ref{thm:s}(i) with $p=1$, $\sum_{j\le n}\log(b_j(s+1)/b_j(s))=-\frac12\log n+\mathrm{const}+o(1)$, so the
+coefficient decreases by $\frac12$ at each step.
+
+(b) By Proposition~\ref{prop:imp-lommel}, $j^2b_j(2)/c(2)=16j^2(4j+1)^{-1}((4j-1)(4j+3))^{-1/2}=1-\frac1{2j}+O(j^{-2})$, so
+(b) holds for $s=2$; Theorem~\ref{thm:s}(i) with $p=2$ moves it by $-1$ at each step.
+\end{proof}
+
+\subsection{Transfer of the pointwise \texorpdfstring{$1/n$}{1/n} coefficient}
+For $0<p\le1$ the pointwise $1/n$ term of $n^pb_n(s)$ is not known (Section~\ref{sec:open}). The product identity
+shows how the coefficients at $s$ and $s+p$ must be related if they exist, and that their existence alone determines
+the $1/n$ term of $a_n/(2b_n)$.
+
+\begin{proposition}\label{prop:transfer}
+Let $p>0$, $s>1$ and $\varepsilon>0$, and suppose that there are $d(s),d(s+p)\in\R$ with
+\[
+  \frac{n^pb_n(s)}{c}=1+\frac{d(s)}n+O(n^{-1-\varepsilon}),\qquad
+  \frac{n^pb_n(s+p)}{c}=1+\frac{d(s+p)}n+O(n^{-1-\varepsilon}).
+\]
+Then $d(s+p)=d(s)-\frac p2$, and $n^pu_n(s)=c(1+O(n^{-\varepsilon'}))$ with $\varepsilon':=\min(\varepsilon,1)$. If moreover
+$\varepsilon>\frac12$, then
+\[
+  \frac{a_n(s)}{2b_n(s)}=1-\frac p{2n}+O\bigl(n^{-2\varepsilon'}\bigr).
+\]
+\end{proposition}
+
+\begin{proof}
+By the hypothesis, $\log(b_m(s+p)/b_m(s))=(d(s+p)-d(s))/m+O(m^{-1-\varepsilon'})$, so the left side of
+Theorem~\ref{thm:s}(i) is $(d(s+p)-d(s)+\frac p2)\log n+O(1)$. Its convergence forces $d(s+p)=d(s)-\frac p2$. Then,
+by Proposition~\ref{prop:product}, $\log(u_m/u_{m-1})=2\log(b_m(s+p)/b_m(s))=-p/m+O(m^{-1-\varepsilon'})$, so
+$\log(n^pu_n)$ converges with error $O(n^{-\varepsilon'})$, and its limit is $\log c$ by Lemma~\ref{lem:imp-chain}(ii).
+For the last claim write $X:=b_n/u_{n-1}$ (at the exponent $s$). By Lemma~\ref{lem:imp-chain}(i),
+$a_n=u_n+b_n^2/u_{n-1}$, so
+\[
+  \frac{a_n}{2b_n}=\frac12\Bigl(X+\frac{u_n/u_{n-1}}X\Bigr).
+\]
+Here $u_n/u_{n-1}=1-p/n+O(n^{-1-\varepsilon'})$, and $X=1+O(n^{-\varepsilon'})$, because
+$u_{n-1}=c(n-1)^{-p}(1+O(n^{-\varepsilon'}))$ and $b_n=cn^{-p}(1+O(1/n))$. Hence
+$a_n/(2b_n)=\frac12(X+X^{-1})-p/(2n)+O(n^{-1-\varepsilon'})=1+(X-1)^2/(2X)-p/(2n)+O(n^{-1-\varepsilon'})$, which is the
+claim since $2\varepsilon'\le1+\varepsilon'$.
+\end{proof}
+
+For $p>1$ the hypothesis holds with $\varepsilon=1$ and $d(s)=-(s-1)/2$ by Theorem~\ref{thm:imp-second}, and the
+conclusion agrees with that theorem. For $0<p\le1$ the proposition reduces the $1/n$ term of $a_n/(2b_n)$ to the
+existence of the $1/n$ term of $n^pb_n$ at $s$ and at $s+p$, with a remainder $O(n^{-1-\varepsilon})$, $\varepsilon>\frac12$.

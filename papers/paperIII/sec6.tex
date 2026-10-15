@@ -1,1 +1,204 @@
-% stub
+% Section 6: pure powers as s varies (Theorem 1.4(ii)-(iii), Corollary 1.5).
+\section{Pure powers as \texorpdfstring{$s$}{s} varies}\label{sec:s}
+
+This section proves Theorem~\ref{thm:s}(ii)--(iii) and Corollary~\ref{cor:p1}. Moving $s$ is the direction
+$\varphi=-\log k$, which is unbounded, so we work with the exact derivative in $s$ (Proposition~\ref{prop:ds}) and with
+a two-sided variational bound for $h_n(s)/h_n(s')$ (Lemma~\ref{lem:sandwich}). The bound involves a positive power of
+$n^px$ under $m_n$, which the pointwise law controls, and a negative power, which is controlled near $x=0$ by the tail
+bound of Lemma~\ref{lem:allM} (which rests on Proposition~\ref{prop:imp-tail}), at finitely many fixed exponents. Chaining over a grid of exponents gives
+boundedness (Proposition~\ref{prop:UF}); the arcsine limit identifies the limit (Theorem~\ref{thm:UFlim}). This works
+on compact subsets of the range $\Sp$ of the tail bound. The Christoffel identity of Theorem~\ref{thm:s}(i) then
+removes the restriction to $\Sp$ for the averaged law (Lemma~\ref{lem:telescope}).
+
+Throughout, $p>0$ is fixed, $m^{(s)}_n$ are the spectral weights of $\sigma_{p,s}$, $E_s$ denotes expectation with
+respect to $m^{(s)}_n$ (with $n$ understood), $Y:=n^px_k=(n/k)^p$, and
+\[
+  \Phi_n(s):=\log h_n(s)+s\log n,\qquad \Theta_n(s):=\sum_k\log(k/n)\,m^{(s)}_n(k)\qquad(n\ge1).
+\]
+By \S\ref{sec:conv}, $E_s[Y]=n^pa_n(s)$.
+
+\subsection{The derivative in \texorpdfstring{$s$}{s} and a variational bound}
+
+\begin{proposition}\label{prop:ds}
+For $n\ge0$ the function $s\mapsto h_n(s)$ is real-analytic on $(1,\infty)$, and
+$\partial_s\log h_n(s)=-\sum_k(\log k)\,m^{(s)}_n(k)$. Hence $\Phi_n'(s)=-\Theta_n(s)$ for $n\ge1$.
+\end{proposition}
+
+\begin{proof}
+The moments of $\sigma_{p,s}$ are $\zeta(s+pj)$, so $h_n=D_{n+1}/D_n$ is real-analytic, and so are the coefficients
+of $P_n=P_n^{(s)}$. Differentiating $\sum_kk^{-s}P_n(x_k)^2$ term by term is justified because $|P_n(x_k)|\le
+\max_{[0,1]}|P_n|$ and $\sum_kk^{-s}\log k$ converges locally uniformly; the term containing $\partial_sP_n$ vanishes,
+since $\partial_sP_n$ has degree less than $n$. Hence $\partial_sh_n=-\sum_k(\log k)k^{-s}P_n(x_k)^2$.
+\end{proof}
+
+\begin{lemma}[variational bound]\label{lem:sandwich}
+For $n\ge1$ and $s,s'>1$, with $E_{s'}$ taking values in $(0,\infty]$,
+\[
+  -\log E_{s'}\bigl[(k/n)^{s-s'}\bigr]\le\Phi_n(s)-\Phi_n(s')\le\log E_{s'}\bigl[(k/n)^{s'-s}\bigr].
+\]
+\end{lemma}
+
+\begin{proof}
+Write $P:=P_n^{(s')}$ and $\langle\cdot,\cdot\rangle_s$ for the inner product of $L^2(\sigma_{p,s})$. Upper bound: $h_n(s)$ is
+the minimum of $\int Q^2\diff\sigma_{p,s}$ over monic $Q$ of degree $n$, so $h_n(s)\le\sum_kk^{-s}P(x_k)^2=
+h_n(s')E_{s'}[k^{s'-s}]$; add $(s-s')\log n$ to the logarithms. Lower bound: assume $E_{s'}[k^{s-s'}]<\infty$ and put
+$\phi(x_k):=k^{s-s'}P(x_k)$. Then $\|\phi\|_s^2=h_n(s')E_{s'}[k^{s-s'}]$ and $\langle Q,\phi\rangle_s=\langle
+Q,P\rangle_{s'}$ for every polynomial $Q$, so $\phi$ is orthogonal in $L^2(\sigma_{p,s})$ to all polynomials of degree
+less than $n$, and $\langle x^n,\phi\rangle_s=h_n(s')$. Writing $x^n=P_n^{(s)}+r$ with $\deg r<n$ and using the
+Cauchy--Schwarz inequality, $h_n(s')\le h_n(s)^{1/2}\|\phi\|_s$, that is, $h_n(s)\ge h_n(s')/E_{s'}[k^{s-s'}]$.
+\end{proof}
+
+In terms of $Y$, $(k/n)^{s'-s}=Y^{(s-s')/p}$. For $s\ge s'$, the upper bound involves a positive power of $Y$, the
+lower bound a negative one.
+
+\subsection{Boundedness and the limit on compact subsets of \texorpdfstring{$\Sp$}{the window}}
+
+\begin{proposition}\label{prop:UF}
+For every compact interval $K=[\underline s,\bar s]\subset\Sp$, $\sup_{n\ge1}\sup_{s,s'\in K}|\Phi_n(s)-\Phi_n(s')|<\infty$.
+\end{proposition}
+
+\begin{proof}
+Put $u_0:=\frac12\vartheta_*(p,\underline s)$, with $\vartheta_*$ as in Lemma~\ref{lem:allM}. Since $\vartheta_*$
+increases with $s$, $u_0<\vartheta_*(p,s')$ for every $s'\in K$, and $u_0\le p/4$. Choose a grid $\underline s=t_0<t_1<\dots<t_J=\bar s$ with
+$t_{i+1}-t_i\le u_0$. For each of the finitely many $t=t_i$, $A_t:=\sup_nn^pa_n(t)<\infty$ by
+Theorem~\ref{thm:imp-pure}, and $B_t:=\sup_nE_t[(k/n)^{u_0}]<\infty$. Indeed, for $n\ge n_0(t)$,
+Lemma~\ref{lem:allM}, with exponent $\vartheta_0:=\vartheta_*(p,t)$, and Tonelli's theorem give
+\[
+  E_t[(k/n)^{u_0}]\le1+\sum_{k>n}m^{(t)}_n(k)\Bigl(1+\int_1^{k/n}u_0M^{u_0-1}\diff M\Bigr)
+  \le2+\int_1^\infty u_0M^{u_0-1}CM^{-\vartheta_0}\diff M<\infty,
+\]
+and for the finitely many $n<n_0(t)$ each expectation is finite because $m^{(t)}_n(k)\le Ck^{-t}$ and $u_0<t-1$.
+
+Let $s\in[t_i,t_{i+1}]$, $t:=t_i$ and $r:=(s-t)/p\in[0,\frac14]$. By Lemma~\ref{lem:sandwich} and Jensen's inequality
+for the concave function $y\mapsto y^r$, $\Phi_n(s)-\Phi_n(t)\le\log E_t[Y^r]\le r\log E_t[Y]\le\frac14\log^+A_t$. By the
+lower bound and $y^{pr}\le1+y^{u_0}$ for $y>0$ and $0\le pr\le u_0$, $\Phi_n(s)-\Phi_n(t)\ge-\log(1+B_t)$. So
+$|\Phi_n(s)-\Phi_n(t_i)|$ is bounded on each cell uniformly in $n$, and chaining over the $J$ cells bounds
+$|\Phi_n(s)-\Phi_n(\underline s)|$ on $K$.
+\end{proof}
+
+\begin{lemma}\label{lem:W}
+Let $t\in\Sp$ and let $g$ be continuous on $(0,\infty)$ with $|g(y)|\le C(y^{-a}+y^{b})$, where $a\ge0$,
+$pa<\vartheta_*(p,t)$ and $0\le b<2$. Then $E_t[g(Y)]\to\int g\diff\arc_{4c}$.
+\end{lemma}
+
+\begin{proof}
+Choose $a'>a$ with $pa'<\vartheta_*(p,t)$. As in the proof of Proposition~\ref{prop:UF},
+$V_-:=\sup_{n\ge n_0}E_t[Y^{-a'}]<\infty$, and $V_+:=\sup_nE_t[Y^2]=\sup_nn^{2p}(a_n^2+b_n^2+b_{n+1}^2)(t)<\infty$ by
+Theorem~\ref{thm:imp-pure}, since $E_t[x^2]=\langle x^2q_n,q_n\rangle$. The arcsine law satisfies the same two bounds:
+its density is of order $y^{-1/2}$ at $0$, $a'<\frac12$ because $\vartheta_*<p/2$, and its support is compact. For $0<\epsilon<1<R$ let
+$g_{\epsilon,R}(y):=g(\min(\max(y,\epsilon),R))$, a bounded continuous function on $[0,\infty)$; since $\arc_{4c}$ has no
+atom at $0$, Lemma~\ref{lem:arcsine} gives $E_t[g_{\epsilon,R}(Y)]\to\int g_{\epsilon,R}\diff\arc_{4c}$. For each of these
+measures, $E|g-g_{\epsilon,R}|$ is at most $E[(|g(Y)|+|g(\epsilon)|)\mathbf 1_{Y<\epsilon}]+
+E[(|g(Y)|+|g(R)|)\mathbf 1_{Y>R}]\le6CV_-\epsilon^{a'-a}+6CV_+R^{b-2}$, using $Y^{-a},\epsilon^{-a},1\le Y^{-a'}\epsilon^{a'-a}$
+on $\{Y<\epsilon\}$ and the analogous bounds on $\{Y>R\}$. This tends to $0$ uniformly in $n$ as $\epsilon\to0$ and
+$R\to\infty$.
+\end{proof}
+
+Let $\phi(r):=\log\int y^r\diff\arc_{4c}(y)$ for $r>-\frac12$. It is finite, convex and $C^2$ on $[-\frac14,\frac14]$, with
+$\phi(0)=0$, and there is $A_0$ with $|\phi(r)-r\phi'(0)|\le A_0r^2$ on $[-\frac14,\frac14]$. Moreover
+\begin{equation}\label{eq:logmean}
+  \phi'(0)=\int\log y\diff\arc_{4c}(y)=\log(2c)+\frac1\pi\int_0^\pi\log(1+\cos\theta)\diff\theta=\log c ,
+\end{equation}
+because $|1+e^{i\theta}|^2=2(1+\cos\theta)$ and $\frac1{2\pi}\int_0^{2\pi}\log|1+e^{i\theta}|\diff\theta=0$. The last
+identity holds with $re^{i\theta}$, $r<1$, in place of $e^{i\theta}$ by the mean value property of the harmonic function
+$\log|1+z|$, and passes to $r=1$ by dominated convergence, since $\log2\ge\log|1+re^{i\theta}|\ge\log|1+e^{i\theta}|-\frac12\log2$
+for $\frac12\le r<1$ (use $|1+re^{i\theta}|^2\ge r|1+e^{i\theta}|^2$).
+
+\begin{theorem}\label{thm:UFlim}
+For every compact $K\subset\Sp$,
+\[
+  \sup_{s,s_0\in K}\Bigl|\Phi_n(s)-\Phi_n(s_0)-\frac{s-s_0}p\log c\Bigr|\longrightarrow0\qquad(n\to\infty).
+\]
+\end{theorem}
+
+\begin{proof}
+We may assume $K=[\underline s,\bar s]$. Let $u_0$ be as in the proof of Proposition~\ref{prop:UF}, let $0<u\le u_0$,
+$r_u:=u/p\le\frac14$, and take the grid $t_i:=\underline s+iu$ in $K$ (the last cell may be shorter). For a cell
+$[t_i,t_{i+1}]$ put $\phi_n(r):=\log E_{t_i}[Y^r]$; it is convex by H\"older's inequality, $\phi_n(0)=0$, and it is
+finite for $|r|\le r_u$. For $s$ in the cell and $r:=(s-t_i)/p\in[0,r_u]$, Lemma~\ref{lem:sandwich} and convexity give
+\[
+  -\frac r{r_u}\phi_n(-r_u)\le-\phi_n(-r)\le\Phi_n(s)-\Phi_n(t_i)\le\phi_n(r)\le\frac r{r_u}\phi_n(r_u).
+\]
+By Lemma~\ref{lem:W} with $g(y)=y^{\pm r_u}$ (here $pr_u=u<\vartheta_*(p,t_i)$ and $r_u<2$),
+$\phi_n(\pm r_u)\to\phi(\pm r_u)=\pm r_u\phi'(0)+e_\pm$ with $|e_\pm|\le A_0r_u^2$. Hence
+$|\Phi_n(s)-\Phi_n(t_i)-r\phi'(0)|\le(r/r_u)(A_0r_u^2+\eta_{n,i})$ with $\eta_{n,i}\to0$, uniformly for $s$ in the cell.
+Summing over the finitely many cells between $\underline s$ and $s$,
+\[
+  \limsup_{n\to\infty}\sup_{s\in K}\Bigl|\Phi_n(s)-\Phi_n(\underline s)-\frac{s-\underline s}p\phi'(0)\Bigr|
+  \le A_0r_u\frac{\bar s-\underline s}p .
+\]
+As $u\in(0,u_0]$ is arbitrary, the left side is $0$, and $\phi'(0)=\log c$ by \eqref{eq:logmean}. Differences of two
+points of $K$ follow.
+\end{proof}
+
+The grid has to be refined after $n\to\infty$; a fixed grid gives only the boundedness of Proposition~\ref{prop:UF}.
+At $s-s_0=p$ the limit is that of Theorem~\ref{thm:s}(i), since $\Phi_n(s+p)-\Phi_n(s)=\log(n^pu_n(s))$ by
+Proposition~\ref{prop:product}.
+
+\subsection{Removing the restriction to \texorpdfstring{$\Sp$}{the window}}
+
+\begin{lemma}\label{lem:telescope}
+For all $s_0,s_1>1$, $\Phi_n(s_1)-\Phi_n(s_0)\to\frac{s_1-s_0}p\log c$.
+\end{lemma}
+
+\begin{proof}
+For $s>1$ and $j\ge0$, Proposition~\ref{prop:product} and $h_n(s)=\zeta(s)\prod_{m\le n}b_m(s)^2$ give
+$\Phi_n(s+(j+1)p)-\Phi_n(s+jp)=\log(n^pu_n(s+jp))$, which tends to $\log c$ by the proof of Theorem~\ref{thm:s}(i).
+Write $s_i=t_i+j_ip$ with $t_i\in(1,1+p]$ and integers $j_i\ge0$ ($i=0,1$). Then
+$\Phi_n(s_i)-\Phi_n(t_i)\to j_i\log c$. Since $(1,1+p]\subset\Sp$, Theorem~\ref{thm:UFlim} on the compact set
+$\{t_0,t_1\}$ gives $\Phi_n(t_1)-\Phi_n(t_0)\to\frac{t_1-t_0}p\log c$. Adding,
+$\Phi_n(s_1)-\Phi_n(s_0)\to(\frac{t_1-t_0}p+j_1-j_0)\log c=\frac{s_1-s_0}p\log c$.
+\end{proof}
+
+The lemma gives no uniformity outside $\Sp$: a uniform version would need the chain-limit statement of
+Lemma~\ref{lem:imp-chain}(ii) uniformly in $s$, which we have not proved.
+
+\subsection{Proofs of Theorem~\ref{thm:s}(ii)--(iii) and Corollary~\ref{cor:p1}}
+
+\begin{proof}[Proof of Theorem~\ref{thm:s}\textup{(ii)}]
+Since $h_n(s)=\zeta(s)\prod_{j\le n}b_j(s)^2$,
+\[
+  2\sum_{j=1}^n\log\frac{b_j(s_1)}{b_j(s_0)}=\Phi_n(s_1)-\Phi_n(s_0)-(s_1-s_0)\log n-\log\frac{\zeta(s_1)}{\zeta(s_0)} .
+\]
+Lemma~\ref{lem:telescope} gives the limit for all $s_0,s_1>1$, and Theorem~\ref{thm:UFlim} gives uniformity on compact
+subsets of $\Sp$. The form with $h_n(s_1)/h_n(s_0)$ is the same statement.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:p1}]
+Let $p=1$, so $c=\frac12$ and $\log(2jb_j(s))=\log(j^pb_j(s)/c)$. By Corollary~\ref{cor:lattice}(a) at $s_0=\frac32$,
+$\sum_{j\le n}\log(2jb_j(\frac32))=-\frac14\log n+C(\frac32)+o(1)$, and by Theorem~\ref{thm:s}(ii),
+$\sum_{j\le n}\log(b_j(s)/b_j(\frac32))=-\frac{s-3/2}2\log n+\mathrm{const}+o(1)$. Adding gives the first formula. The
+moments of $\sigma_{1,s}$ are $\zeta(s+j)$, so $D_n(s)$ is its $n$-th Hankel determinant and
+$D_{n+1}(s)/D_n(s)=h_n(s)=\zeta(s)\prod_{j\le n}b_j(s)^2$. Since
+$2\sum_{j\le n}\log b_j=2\sum_{j\le n}\log(2jb_j)-2\log n!-2n\log2$, the second formula follows.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:s}\textup{(iii)}]
+Let $K\subset\Sp$ be compact, fix $s_0\in K$ and put $\Delta_n(s):=\Phi_n(s)-\Phi_n(s_0)$. For $n\ge2$,
+$\log b_n(s)^2=\log h_n(s)-\log h_{n-1}(s)$, so
+\[
+  \log\frac{b_n(s)^2}{b_n(s_0)^2}=\Delta_n(s)-\Delta_{n-1}(s)-(s-s_0)\log\frac n{n-1}.
+\]
+By Theorem~\ref{thm:UFlim}, $\Delta_n$ and $\Delta_{n-1}$ have the same uniform limit on $K$, so $b_n(s)/b_n(s_0)\to1$
+uniformly on $K$; with $n^pb_n(s_0)\to c$ this is the first claim.
+
+For the diagonal, Proposition~\ref{prop:product} gives $n^pu_n(s)=\exp(\Phi_n(s+p)-\Phi_n(s))$ whenever $s,s+p>1$, and
+$a_n=u_n+b_n^2/u_{n-1}$ (Lemma~\ref{lem:imp-chain}(i)). If $p>1$, then $K\cup(K+p)$ lies in a compact subinterval of
+$\Sp=(1,\infty)$, so $n^pu_n(s)\to c$ uniformly on $K$ by Theorem~\ref{thm:UFlim}, and each of $u_n$ and
+$b_n^2/u_{n-1}$ is uniformly $cn^{-p}(1+o(1))$ on $K$. If $0<p\le1$ and $1+p\notin K$, write $K=K_1\cup K_2$ with the
+compact sets $K_1:=K\cap(1,1+p)$ and $K_2:=K\cap(1+p,1+2p)$. On $K_1$ the previous argument applies, since
+$K_1\cup(K_1+p)$ lies in a compact subinterval of $(1,1+2p)$. On $K_2$ use $\sigma_{p,s}=x\,\sigma_{p,s-p}$ and
+Lemma~\ref{lem:imp-chain}(i) for $\sigma_{p,s-p}$:
+\[
+  a_n(s)=u_n(s-p)+l_{n+1}(s-p)=u_n(s-p)+\frac{b_{n+1}(s-p)^2}{u_n(s-p)} .
+\]
+Here $(K_2-p)\cup K_2$ lies in a compact subinterval of $(1,1+2p)$, so $n^pu_n(s-p)=\exp(\Phi_n(s)-\Phi_n(s-p))\to c$
+uniformly on $K_2$ by Theorem~\ref{thm:UFlim}, and $(n+1)^pb_{n+1}(s-p)\to c$ uniformly on $K_2$ by the first claim
+applied to $K_2-p$. Hence $n^pa_n(s)\to2c$ uniformly on $K_2$.
+\end{proof}
+
+At $s=1+p$ with $p\le1$ both arguments need $\Phi_n$ at an end point of the window ($s+p=1+2p$ or $s-p=1$). The
+pointwise law holds there (Theorem~\ref{thm:imp-pure}), but we do not know whether the diagonal law is uniform near
+$s=1+p$.
+
+Theorem~\ref{thm:s}(iii) gives no rate. Numerically the deviations are of order $1/n$ (Section~\ref{sec:numerics}).

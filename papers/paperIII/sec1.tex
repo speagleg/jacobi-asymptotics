@@ -90,7 +90,8 @@ Section~\ref{sec:numerics}). The only analytic input of Theorem~\ref{thm:rough} 
 
 For pure powers we write $a_n(s),b_n(s),h_n(s)$ for the quantities of $\sigma_{p,s}$, and $\zeta$ for the Riemann zeta
 function, so that $\sigma_{p,s}$ has total mass $\zeta(s)$. Some of the statements below use a bound for the spectral
-weights of $\sigma_{p,s}$ near the accumulation point of the atoms, proved in \tailbound{} for $s$ in the set
+weights of $\sigma_{p,s}$ near the accumulation point of the atoms, which follows from \tailbound{} and an elementary
+lemma (Lemma~\ref{lem:allM}) for $s$ in the set
 \begin{equation}\label{eq:Sp}
   \Sp:=(1,1+2p)\quad\text{if }0<p\le1,\qquad \Sp:=(1,\infty)\quad\text{if }p>1.
 \end{equation}
@@ -109,9 +110,8 @@ Let $p>0$.
   \]
   Equivalently $h_n(s_1)/h_n(s_0)=c(p)^{(s_1-s_0)/p}n^{-(s_1-s_0)}(1+o(1))$, and this holds uniformly for $s_0,s_1$
   in compact subsets of $\Sp$.
-\item[\textup{(iii)}] For every compact $K\subset\Sp$, $\sup_{s\in K}|n^pb_n(s)-c(p)|\to0$. If moreover $K+p\subset\Sp$
-  \textup{(}automatic for $p>1$; for $0<p\le1$ it means $K\subset(1,1+p)$\textup{)}, then also
-  $\sup_{s\in K}|n^pa_n(s)-2c(p)|\to0$.
+\item[\textup{(iii)}] For every compact $K\subset\Sp$, $\sup_{s\in K}|n^pb_n(s)-c(p)|\to0$. If moreover $p>1$, or
+  $0<p\le1$ and $1+p\notin K$, then also $\sup_{s\in K}|n^pa_n(s)-2c(p)|\to0$.
 \end{enumerate}
 \end{theorem}
 
@@ -202,5 +202,5 @@ Throughout, $p>0$ is fixed and $c=c(p)$. The atoms are $x_k=k^{-p}$, and $x$ als
 Constants $C,C'$ are positive and may change from line to line; the letter $c$ is reserved for $c(p)$, and $c_1$
 for the lower-bound constant of the weights in \S\ref{sec:context}. Symbols local to this paper are the smoothing error
 $\rho_\ell$ and head margin $M_0$ (Section~\ref{sec:sv} and Lemma~\ref{lem:saturation}), the window constants
-$\iota_W,\gamma_W$ and the number $\ia$ (Section~\ref{sec:rough}), the arcsine tail $T_p$ (Lemma~\ref{lem:arcsine}),
+$\iota_W,\gamma_W$ and the number $\ia$ (Section~\ref{sec:rough}), the arcsine tail $T_p$ (Lemma~\ref{lem:arcsine}), the exponent $\vartheta_*$ (Lemma~\ref{lem:allM}),
 and $\Phi_n,\Theta_n$ (Section~\ref{sec:s}).
