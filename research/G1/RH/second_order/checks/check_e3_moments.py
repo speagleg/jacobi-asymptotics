@@ -1,4 +1,4 @@
-"""Plan E3 (E3_pgt1.md Lemma F.1', NUMERICAL check of the closed form): for p > 1 the jump density of E_pgt1 Lemma E.2,
+"""Plan E3 (E3.md Lemma F.1', NUMERICAL check of the closed form): for p > 1 the jump density of E_pgt1 Lemma E.2,
   e(y) = 2 Im Log(1 - exp(-2 i pi t_+(y))),  t_+(y) = n (y + i0)^{-1/p} = n r^{-1/p} e^{-i pi/p}  (y = -r < 0),
 has moments m_k := (1/2pi) int_{-inf}^0 e(y) y^{-k-1} dy = zeta(-k p)/(k n^{k p})  (k >= 1),
 the same law as E_plt1 Lemma F.1(iii) for 0 < p < 1. Quadrature at 40 digits."""

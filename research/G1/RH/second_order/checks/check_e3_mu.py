@@ -1,4 +1,4 @@
-"""Plan E3 (E3.md Lemma E3.5, Theorem E3.3): first-order (1/n) Laurent data of Delta_1 for the band weight
+"""Plan E3 (E3.md Lemma E3.7, Theorem E3.2, Corollary E3.4): first-order (1/n) Laurent data of Delta_1 for the band weight
     x^alpha (4c - x) exp(-mu1 x - mu2 x^2 - mu3 x^3),
 to weighted order 3 (mu1 ~ n^{-p}, mu2 ~ n^{-2p}, mu3 ~ n^{-3p}: all monomials mu1, mu2, mu3, mu1^2, mu1 mu2, mu1^3), and the resulting 1/n coefficient of n^p b_n / c.
 
@@ -35,12 +35,12 @@ def ser(e, var, o=O):
 
 
 def mtrunc(e):
-    """keep 1, mu1, mu1^2, mu2 (drop mu1^3, mu1 mu2, mu2^2): substitute mu1 -> t mu1, mu2 -> t^2 mu2, keep t^<=2"""
+    """weighted order 3: substitute mu_k -> t^k mu_k and keep t^<=3 (keeps mu1, mu2, mu3, mu1^2, mu1 mu2, mu1^3)"""
     e = sp.expand(e.subs({mu1: t * mu1, mu2: t ** 2 * mu2, mu3: t ** 3 * mu3}))
     return sp.expand(sum(e.coeff(t, k) for k in range(4)))
 
 
-def expM(x):            # exp(x) to second order, x = O(mu)
+def expM(x):            # exp(x) to third order, x = O(mu) (the cubic term is redundant here; REVIEW_PlanE3_B §1.3)
     return 1 + x + x ** 2 / 2 + x ** 3 / 6
 
 
@@ -108,7 +108,9 @@ E12 = sp.factor(sp.simplify(sp.diff(e1s, mu1, mu2).subs(Z0)))
 print("mu3 coefficient E3 =", E3, "; mu1^3 coefficient =", E111, "; mu1 mu2 coefficient =", E12)
 print("d1 =", d1, "; d/dmu1 =", lin1, "; mu1^2 coefficient E11 =", E11, "; mu2 coefficient E2 =", E2)
 assert sp.simplify(d1 + (s - 1) / 2) == 0 and sp.simplify(lin1 - c * p) == 0
-# A_0 (hard edge) mu-dependence, for the record
+# A_0 (hard edge) mu-dependence, for the record. NOTE (REVIEW_PlanE3_B F2): A_0 is mu-independent STRUCTURALLY, since
+# G_mu(0) commutes with A_0 for every M(0) (check_e3_gauge.py); this is not a test of the hard-edge branch or sign of Rr,
+# which are verified by hand (E3.md Lemma E3.4 proof).
 print("A_0 mu-dependence:", sp.simplify(A0 - A0.subs({mu1: 0, mu2: 0, mu3: 0})))
 
 
@@ -147,4 +149,12 @@ for j in (2, 3):
     epsj = comb(2 * j, j) * pv * cj ** j * sp.zeta(-1)
     assert sp.simplify(epsj + pv / 12) == 0
     print(f"p = 1/{j}: c^{j} = 1/{comb(2 * j, j)}, eps_{j} = {sp.nsimplify(epsj)} = -p/12 (asserted)")
+# F3 of REVIEW_PlanE3_B: assert the FULL soft-edge residue shift, not only the b-functional, against the exact gauge
+# formula of check_e3_gauge.py: A_r(mu) - A_r = M4 c^2 p [[M4 c - a - 1, -i(M4 c - a - 2)], [-i(M4 c - a), -(M4 c - a - 1)]],
+# M4 = M(4c) = mu1 + 6c mu2 + 30c^2 mu3, truncated at weighted order 3.
+M4 = mu1 + 6 * c * mu2 + 30 * c ** 2 * mu3
+shift = M4 * c ** 2 * p * sp.Matrix([[M4 * c - al - 1, -I * (M4 * c - al - 2)], [-I * (M4 * c - al), -(M4 * c - al - 1)]])
+dA = (Ar - Ar.subs(Z0) - shift.applyfunc(mtrunc)).applyfunc(lambda e: sp.simplify(sp.expand(e)))
+assert all(x == 0 for x in dA), "full A_r(mu) shift = gauge formula"
+print("A_r(mu) - A_r = gauge residue shift to weighted order 3 (asserted)")
 print("ALL ASSERTIONS PASSED")
