@@ -60,7 +60,7 @@ determinant det_ζ(1 − tA)², where A has spectrum Λ:
 At p = 1 this is consistent with the Gamma/Binet band factor of E_pgt1/E_p1 (the regularised product over ℕ is 1/Γ). Not
 made precise.
 
-**Observation S4 (limit of regularity; NUMERICAL).** If the node positions deviate from a smooth node function by a fixed
+**Observation S4 (limit of regularity; NUMERICAL; mechanism refined in §3.6).** If the node positions deviate from a smooth node function by a fixed
 fraction of the spacing (iid jitter), y_n acquires an irregular component.
 - Its RMS decays only like ≈ n^{−1/2}, so the 1/n expansion itself is destroyed.
 - The noise is generated locally, while the soft-edge threshold λ ≈ n^p/(4c) sweeps through jittered nodes.
@@ -395,6 +395,36 @@ not of the form m + a + O(1/m). S1 does not apply, and indeed the effect is of a
 Lesson: S1's hypothesis is necessary. A smooth spectral deformation whose index drift grows (k^{1−p}) moves the leading
 asymptotics, while one with bounded index offset (Hurwitz, WKB) only shifts the 1/n-order series.
 
+### 3.6 Direction 4: the noise mechanism and spectral statistics (NUMERICAL; single realisations)
+
+**Single-node kernel** (`checks/spec_turning.out`; p = 0.6, s = 2). Node 300 is moved by h = ±0.3, and D(n) := n(y_n(moved) − y_n(pure))
+is followed as the edge threshold k* = 0.406n passes it (u = 1 at n* = 739):
+- **Outside the band (u < 1, n ≥ 760).** D matches the differentiated S2′ formula p[(1 − u_a)^{−1/2} − (1 − u_l)^{−1/2}] to
+  0.2–2% (ratio 0.998 at n = 1600, 0.976 at u = 0.968). It is linear: max|D(+h) + D(−h)| = 3·10⁻⁵ against |D| ~ 4·10⁻³ on [900, 1600].
+- **Inside the band near the edge (1 < u ≲ 2, n ∈ [300, 740]).** |D| = O(0.1–1). D alternates in sign from one n to the next
+  and is strongly nonlinear: D(+h) + D(−h) is as large as D. Deeper in the band (u ≳ 3, n ≤ 200), |D| ~ 10⁻⁴–10⁻².
+So a node a fraction of a spacing off the lattice changes b_n by an oscillating O(1/n), wherever it sits in the outer band,
+not only at the turning point. With ~n such nodes displaced independently this gives the n^{−1/2} relative noise of S4.
+Because the kernel oscillates on the scale of one spacing, displacements with a rigid counting function (difference jitter)
+do not cancel it, which is what S4 found.
+
+**GUE-like against Poisson nodes** (`checks/spec_stats.out`). The first M = 3000 nodes are replaced by unfolded CUE eigenphases
+(max |x_k − k| = 3.3) or by a Poisson bridge (max |x_k − k| = 36); the lattice is kept beyond M.
+
+| n-window | RMS n(y − y_lat), GUE-like | RMS n(y − y_lat), Poisson |
+|---|---|---|
+| [50, 100) | 2.9 | 11.3 |
+| [200, 400) | 5.4 | 20.8 |
+| [800, 1600) | 11.6 | 41.8 |
+
+- Both grow like n^{0.4} (relative noise in y ~ n^{−0.6}). Poisson is larger by a roughly constant factor 3.6–4.
+- Neither the count predictor p·Δ(n) (node-count deviation below the threshold) nor the per-node S2′ sum explains the noise:
+  correlations 0.1–0.5, residual RMS reduced by ≤ 12%. This is consistent with the kernel above, where the in-band
+  oscillatory responses dominate.
+So b_n's fluctuations distinguish the two statistics by amplitude, but with one realisation each and no theory for the
+amplitude this is an observation, not a law. Next would be ensembles (several seeds), the amplitude as a function of the
+local spacing statistics, and the autocorrelation in n.
+
 ### 3.7 Direction 2: the spectral determinant as the organising object (CONJECTURE / HEURISTIC; NOT REVIEWED)
 
 **What is true already.** Let Δ_Λ(w) := Π_m(1 − w/λ_m) be the (zeta-regularised) spectral determinant.
@@ -454,8 +484,13 @@ fluctuates at the scale of the spacing, so (P3) fails in the way S4 and §3.6 se
    - several nodes, or added nodes (needs coefficient expansions for modified measures).
 3. **Bouncer.** Closed forms derived (Proposition B, §3.3). Remaining: quote Hadamard's factorisation and the Mellin
    correspondence (Rule C), and a Rule R review. Observing ε₃ at n⁻³ would need third-order fits.
-4. **Quartic oscillator** (p = 4/3, the κ-regime of E3 Thm E3.1): compare 2pcZ(−1) with Voros's spectral zeta.
-5. **Quantify S4**: the amplitude and law of the soft-edge noise.
+4. **Directions 2–4 (§§3.4–3.7).**
+   - Maslov readout: done for the bouncer. Next: an operator where μ is not fixed by a single wall.
+   - λ + κ: derive −2(2−p)cκ from the varying-weight (Möbius) picture.
+   - Noise: ensembles over seeds, the amplitude as a function of local statistics, and the autocorrelation.
+   - Determinant construction: carry out "Paper 2 for Airy nodes" (P1)–(P4).
+5. **Quartic oscillator** (p = 4/3, the κ-regime of E3 Thm E3.1): compare 2pcZ(−1) with Voros's spectral zeta.
+6. **Quantify S4**: the amplitude and law of the soft-edge noise.
 
 ## 6. Rule A / Rule X log
 

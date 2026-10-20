@@ -1,0 +1,33 @@
+kappa = 1.0, p = 0.6: c = 0.429453
+  n=   50: Delta y = -1.034448e-01   n^p Delta y = -1.081660   n^(1+p) Delta y = -54.08299
+  n=  100: Delta y = -7.090804e-02   n^p Delta y = -1.123817   n^(1+p) Delta y = -112.38167
+  n=  200: Delta y = -4.792765e-02   n^p Delta y = -1.151342   n^(1+p) Delta y = -230.26830
+  n=  400: Delta y = -3.211439e-02   n^p Delta y = -1.169326   n^(1+p) Delta y = -467.73053
+  n=  800: Delta y = -2.139850e-02   n^p Delta y = -1.180966   n^(1+p) Delta y = -944.77244
+  n= 1600: Delta y = -1.420886e-02   n^p Delta y = -1.188587   n^(1+p) Delta y = -1901.73989
+  slope d log|Dy|/d log n on [100,200]: -0.5651
+  slope d log|Dy|/d log n on [400,800]: -0.5857
+  slope d log|Dy|/d log n on [800,1600]: -0.5907
+  extrapolated lim n^p Delta y = -1.20305 (geometric, ratio 0.655);  -2(2-p)c kappa = -1.20247
+kappa = 0.5, p = 0.6: c = 0.429453
+  n=   50: Delta y = -5.399836e-02   n^p Delta y = -0.564628   n^(1+p) Delta y = -28.23141
+  n=  100: Delta y = -3.649368e-02   n^p Delta y = -0.578386   n^(1+p) Delta y = -57.83859
+  n=  200: Delta y = -2.442946e-02   n^p Delta y = -0.586856   n^(1+p) Delta y = -117.37129
+  n=  400: Delta y = -1.626180e-02   n^p Delta y = -0.592113   n^(1+p) Delta y = -236.84514
+  n=  800: Delta y = -1.078734e-02   n^p Delta y = -0.595344   n^(1+p) Delta y = -476.27557
+  n= 1600: Delta y = -7.140231e-03   n^p Delta y = -0.597289   n^(1+p) Delta y = -955.66178
+  slope d log|Dy|/d log n on [100,200]: -0.5790
+  slope d log|Dy|/d log n on [400,800]: -0.5921
+  slope d log|Dy|/d log n on [800,1600]: -0.5953
+  extrapolated lim n^p Delta y = -0.60022 (geometric, ratio 0.602);  -2(2-p)c kappa = -0.60123
+kappa = 1.0, p = 0.3: c = 0.359594
+  n=   50: Delta y = -2.739934e-01   n^p Delta y = -0.885995   n^(1+p) Delta y = -44.29973
+  n=  100: Delta y = -2.369863e-01   n^p Delta y = -0.943460   n^(1+p) Delta y = -94.34596
+  n=  200: Delta y = -2.013594e-01   n^p Delta y = -0.986918   n^(1+p) Delta y = -197.38357
+  n=  400: Delta y = -1.702382e-01   n^p Delta y = -1.027247   n^(1+p) Delta y = -410.89893
+  n=  800: Delta y = -1.426722e-01   n^p Delta y = -1.059903   n^(1+p) Delta y = -847.92263
+  n= 1600: Delta y = -1.190635e-01   n^p Delta y = -1.088966   n^(1+p) Delta y = -1742.34615
+  slope d log|Dy|/d log n on [100,200]: -0.2350
+  slope d log|Dy|/d log n on [400,800]: -0.2549
+  slope d log|Dy|/d log n on [800,1600]: -0.2610
+  extrapolated lim n^p Delta y = -1.32406 (geometric, ratio 0.890);  -2(2-p)c kappa = -1.22262
