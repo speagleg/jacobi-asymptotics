@@ -388,6 +388,7 @@ Pairings: repo a_n = α_{n−1}, so "a_n/(2b_n)" = α_{n−1}/(2b_n) (coefficien
 | Prop UP-w (Plan 69) | uniform b-law on window compacts; uniform a-law on window compacts avoiding s = 1 + p; sup n^pα_n bounded on every window compact | PROVED-mod-cite; GAP UP-1+p: uniform a-*limit* near 1 + p for p ≤ 1 (limit only); Plan 69, REVIEWED | TAIL.md §2 |
 | Prop TB-Q, TB-A, Cor TB-C (Plan 69) | Paper 2's comparison frame, p > 0, 1 < s < 1 + 2p: μ_m((Mn, ∞)) ≤ CM^{−p/2} for M ≤ c₁n^{2/p}; ≤ CM^{−ϑ_*} for all M, ϑ_* = (s−1)/(s(1+2/p)+2) | PROVED-mod-cite (Paper 2 §§5–7, App. A–D; C–D Thm 4.4 via T3(b); TC: + Lemma TL); GAP TB-opt (optimal exponent below the Bessel scale in II's frame, p ≤ 1); Plan 69, REVIEWED | TAIL.md §3 |
 | Prop TB-P (Plan 69) | p > 1, every s > 1: QLP (a)–(c) | PROVED-mod-cite (= G1 §3.16 Thm QLP for p > 1, REVIEWED); Q-frame dictionary = presentation note; Plan 69, REVIEWED | TAIL.md §3.5 |
+| Thm E2.1, Cor E2.7 (Plan E2) | p > 1, s > 1: n^pb_n/c = 1 − (s−1)/(2n) + d₂/n² + O(n^{−min(3,1+p)}), d₂ = (p+1)(s−1)²/(8p) − (p+2)(s−1−p)²/(8p²) + (p+1)/12 (p = 2: (s²+6s−11)/16 for every s); Christoffel function at the hard edge λ_n(0; σ_{p,s}) = C n^{−(p+2)(s−1)/p}(1 + o(1)) | PROVED-mod-cite (E_pgt1 inputs; DLMF k = 2 coefficients, RH/CITATIONS "(Plan E2 reuse)"; Cor E2.7 also UL Thm UF-lim) + exact computer algebra (check_e2_sym); Rule R ACCEPT WITH FIXES (REVIEW_PlanE2_A.md, REVIEW_PlanE2_B.md), fixes applied — REVIEWED 2026-10-20. p = 1: d₂(1, s) − 1/12 PROVED-mod-cite at s ∈ {3/2, 5/2} (E_p1 Thm E1.6), NUMERICAL otherwise; n^{−1−p} term for 1 < p < 2: CONJECTURE κ_p | research/G1/RH/second_order/E2_pgt1.md, checks/check_e2_*.out |
 
 Novelty UNCHECKED (Prop 3.1 classical, not claimed; UL.md Lemma V and Prop SV elementary, not claimed).
 
@@ -544,6 +545,10 @@ and asked for item 11 to be named as the primary route. That changes no label; i
     n^pb_n = c(1 − (s−1)/(2n) + κ_pn^{−1−p} + O(n^{−1−2p} + n^{−2})), κ_p = 2pc(p)ζ(−p), the same κ_p for α_n and the chain
     (none in α_n/(2b_n)); all constants of Conjecture P62 for 0 < p < 1; g(p) = 0 for p < 1. With Plans 65–66, (E) now holds
     for every p > 0. Still open: k₁ at p = 1 for s ∉ {3/2, 5/2}; the n^{−1−2p} coefficient and d₂ (p ≠ 1, 2).
+    *Update (Plan E2, 2026-10-20, REVIEWED; E2_pgt1.md):* d₂ is PROVED-mod-cite for every p > 1, s > 1 (closed form above, Thm E2.1),
+    hence also the hard-edge Christoffel exponent −(p+2)(s−1)/p (Cor E2.7). Still open: d₂ for 0 < p < 1 and at p = 1 for s ∉ {3/2, 5/2}
+    (conjectured value d₂(1, s) − 1/12, E2 Remark E2.10); the n^{−1−2p} coefficient (0 < p < 1); the n^{−1−p} coefficient for 1 < p < 2
+    (conjectured κ_p, E2 Remark E2.14).
 14. Lemma R1's η, J are non-explicit (proof by contradiction) (§3.6 R-b). *Update:* explicit (but tiny) constants in the
     window version R1W (§3.10) and for the a-law R1a (§3.12); sharp constants (phase model 4/π, 8/π²) open.
 15. Novelty searches (Rule L): first pass done 2026-10-14 (research/program/novelty_*.md; summary in

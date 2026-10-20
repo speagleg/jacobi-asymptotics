@@ -696,6 +696,17 @@ not a DLMF hypothesis. E_pgt1 uses them with ν = α ∈ (−1, ∞) fixed (α �
 |ph w| < π/3 (w = 2ζ^{1/2}) for 10.40.1–4, and ph 2(−ζ)^{1/2} ∈ (−π/6, π/6) for 10.17.5–6, 10.17.11–12. DLMF 10.25.2 is used
 in E_pgt1 Cor E.6 for xI′_α(x)/I_α(x) → α as x → 0⁺ and I_α(x) > 0 for small x > 0 (α > −1, so Γ(α+1) > 0).
 
+## (Plan E2 reuse) entries above used by second_order/E2_pgt1.md — no new external source read
+
+The k = 2 instances of formulas already quoted verbatim above: (DLMF-10.40, Paper 2) 10.40.1–10.40.4 and 10.17.1
+(a_2(ν) = (4ν² − 1)(4ν² − 9)/128); (DLMF-10.17, Plan 55) 10.17.5, .6, .8, .11, .12 (b_2(ν) = (4ν² − 1)(4ν² + 15)/128 from 10.17.8);
+(DLMF-9, Paper 2) 9.7.5–9.7.6 with (DLMF-9.7.2, Plan 65) (u_2 = 385/10368, v_2 = −455/10368). The three-term truncations are the
+same asymptotic series with remainder O(z^{−3}), resp. O(ζ^{−3}), in the same sectors. *Hypotheses checked:* as in "(Plan 65 reuse)"
+(ν = α > −1 fixed, α ≥ 1 allowed; |ph w| < π/3 for 10.40.1–4; ph 2(−ζ)^{1/2} ∈ (−π/6, π/6) for 10.17.5–6, .11–.12; the Airy
+sectors of Paper 2 Lemma airy). The values a_2, b_2, u_2, v_2 are checked numerically against mpmath in second_order/checks/
+check_e2_num.out and in REVIEW_PlanE2_B.md. Internal: E_pgt1 (REVIEWED), RH_px §5, Paper 2 Prop. frame F1, F5, Lemmas airy, signs,
+szego; UL Thm UF-lim (REVIEWED, for Cor E2.7).
+
 ## (DLMF-zeta, Plan 67) NIST DLMF (5.2.1), (25.2.1), (25.4.1) — READ (pages dlmf.nist.gov/5.2, /25.2, /25.4 fetched 2026-10-15 by curl; formulas from the TeX alttext)
 
 > §5.2(i): (5.2.1) `\Gamma\left(z\right)=\int_{0}^{\infty}e^{-t}t^{z-1}\,\mathrm{d}t,` with the condition `\Re z>0`.

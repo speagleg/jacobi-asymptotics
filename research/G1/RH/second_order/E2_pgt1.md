@@ -1,26 +1,27 @@
 # E2_pgt1: the second-order coefficient d₂ for pure powers, p > 1, by third-order Riemann–Hilbert analysis (Plan E2)
 
-Status (2026-10-20): written by the Plan E2 agent; Rule R review B (algebra): ACCEPT WITH FIXES (research/G1/review/
-REVIEW_PlanE2_B.md), fixes F1–F3, F6–F8 applied; review A (analysis): pending. **NOT REVIEWED** until A is in and applied.
+Status (2026-10-20): written by the Plan E2 agent. **REVIEWED 2026-10-20**: Rule R review A (analysis, REVIEW_PlanE2_A.md) and
+review B (algebra, REVIEW_PlanE2_B.md), both ACCEPT WITH FIXES; fixes A B1–B3, I1–I9 and B F1–F3, F6–F8 applied (§12).
 Labels per VERIFICATION_POLICY.md. *Provenance (Rule X, review B F1):* the closed form of d₂ was first guessed from the Plan 62
 grid fits and then derived here; the grid (check_e2_grid) is a consistency check of the formula, not independent evidence
 for it. The independent evidence is the derivation (§§3–7) and review B's quadrature route (all ingredients by quadrature,
 R_in by Cauchy integrals, residues by contour integrals: d₂ reproduced at 8 values of (p, s), α ∈ [−0.875, 1.4], to ≤ 6·10⁻⁷).
-"RH" means Riemann–Hilbert throughout. This file extends E_pgt1.md (Plan 65, REVIEWED) by one order. It closes, for p > 1,
-the GAP "d₂ (second order)" of E_pgt1 §9 and THEOREMS §4 item 13 ("the n^{−1−2p} coefficient and d₂ (p ≠ 1, 2)"), and the
-"coefficient of n⁻² … known only in the cases (1, 3/2), (1, 5/2), (2, 2)" of Paper II §13.1, for every p > 1, s > 1.
+"RH" means Riemann–Hilbert throughout. This file extends E_pgt1.md (Plan 65, REVIEWED) by one order. It closes, for p > 1
+only, the d₂ part of the GAP "d₂ (second order)" of E_pgt1 §9 and of THEOREMS §4 item 13 (the n^{−1−2p} coefficient for
+0 < p < 1 and d₂ for p ≤ 1 stay open; review A I3), and extends the "coefficient of n⁻² … known only in the cases (1, 3/2),
+(1, 5/2), (2, 2)" of Paper II §13.1 to every p > 1, s > 1.
 
 **Summary of labels.**
 
 | # | Statement | Label |
 |---|---|---|
-| Thm E2.1 | p > 1, s > 1: n^pb_n/c(p) = 1 − (s−1)/(2n) + d₂/n² + O(n^{−ν}), ν := min(3, 1+p), with d₂ = (p+1)(s−1)²/(8p) − (p+2)(s−1−p)²/(8p²) + (p+1)/12 | PROVED-mod-cite (E_pgt1 inputs [REVIEWED]; DLMF 10.17.1, 10.17.8, 9.7.2 at k = 2, as quoted in RH/CITATIONS.md) + exact computer algebra (check_e2_sym) |
+| Thm E2.1 | p > 1, s > 1: n^pb_n/c(p) = 1 − (s−1)/(2n) + d₂/n² + O(n^{−ν}), ν := min(3, 1+p), with d₂ = (p+1)(s−1)²/(8p) − (p+2)(s−1−p)²/(8p²) + (p+1)/12 | PROVED-mod-cite (E_pgt1 inputs [REVIEWED]; DLMF 10.40.1–4, 10.17.1, 10.17.5–6, 10.17.8, 10.17.11–12, 9.7.2, 9.7.5–6 at k = 2, as quoted in RH/CITATIONS.md, entry "(Plan E2 reuse)") + exact computer algebra (check_e2_sym) + REVIEWED |
 | Lemma E2.3 | jumps on the two circles to third order: I + Δ₁/n + Δ₂/n² + O(n⁻³), Δ₂ explicit (second corrections of the Bessel and Airy models); Δ_k = Δ_k^{mod} + O(n^{−p}) | PROVED-mod-cite (as E_pgt1 Lemma E.3, with the k = 2 terms of DLMF 10.40.1–4, 10.17.5–6, .11–.12, 9.7.5–6) |
 | Lemma E2.4 | full convergent series of the local maps f (at 0) and φ̃ (at 4c) | PROVED (from G2's μ*, as E_pgt1 Lemma E.4) |
 | Prop E2.5 | R = I + R⁽¹⁾/n + R⁽²⁾/n² + O(n^{−ν}); R_1⁽²⁾ = Σ_{e∈{0,4c}} Res_e(R⁽¹⁾_in Δ₁^{mod} + Δ₂^{mod}) | PROVED-mod-cite (RH_px §5, Paper 2 Prop. frame F1, F5, as E_pgt1 Prop. E.5′) |
-| Lemma E2.6 | Δ₂^{mod} is meromorphic in both discs; the Laurent data and R_1⁽²⁾ | PROVED (exact sympy, check_e2_sym.py, all assertions pass) |
-| Cor E2.7 | Christoffel function at the hard edge: λ_n(0; σ_{p,s}) = C n^{−(p+2)(s−1)/p}(1 + o(1)), C = C(p, s) > 0 (p > 1, s > 1) | PROVED-mod-cite (Thm E2.1 at s and s + 2p, Thm E.1, UL Thm UF-lim [REVIEWED]) |
-| Rem E2.8–E2.11 | index-shift form; p = 2 for all s; p = 1 with κ₁ = −1/12; the s² coefficient and Conjecture III-8.1; CG reading of Cor E2.7 | NUMERICAL / HEURISTIC as marked |
+| Lemma E2.6 | Δ₂^{mod} is meromorphic in both discs; the Laurent data and R_1⁽²⁾ | PROVED (meromorphy: argument of Lemma E2.6(a); Laurent data: exact sympy, check_e2_sym.py, all assertions pass) |
+| Cor E2.7 | Christoffel function at the hard edge: λ_n(0; σ_{p,s}) = C n^{−(p+2)(s−1)/p}(1 + o(1)), C = C(p, s) > 0 (p > 1, s > 1) | PROVED-mod-cite (Thm E2.1 at s and s + 2p, Thm E.1, UL Thm UF-lim [REVIEWED]) + REVIEWED; see Remark E2.13 for a shorter first-order route (review A I1) |
+| Rem E2.8–E2.13 | index-shift form; p = 2 for all s (PROVED-mod-cite, part of Thm E2.1); p = 1 with κ₁ = −1/12 (PROVED-mod-cite at s ∈ {3/2, 5/2} via E_p1 Thm E1.6, CONJECTURE otherwise); the s² coefficient and Conjecture III-8.1 (HEURISTIC); CG reading of Cor E2.7; the n^{−1−p} term for 1 < p < 2 (CONJECTURE); first-order route to Cor E2.7 | as marked |
 
 Numerical cross-checks (NUMERICAL, not used in the proofs): `checks/check_e2_grid.out` (d₂ fitted from the Plan 62
 quad-precision coefficients, p ∈ {1, 3/2, 2, 3, 4} × s ∈ {3/2, 2, 3, 4, 5}: 25/25 agree with the closed form within 3× the
@@ -78,8 +79,8 @@ v₂ = −455/10368 (DLMF 9.7.2 at k = 2). Moreover Δ_k^⋄ = Δ_k^{⋄,mod} + 
 *Proof.* *Bessel, |arg ζ| < 2π/3.* With w = 2ζ^{1/2} and KMVV (6.23), DLMF 10.40.1–10.40.4 to three terms (relative errors
 O(w⁻³), |ph w| < π/3) give, entrywise, Ψe^{−wσ₃} = 𝓛∘(𝟙 + C₁/w + C₂/w² + O(w⁻³)) with 𝓛 the leading matrix,
 C₁ = [[−a₁, a₁], [−b₁, b₁]], C₂ = [[a₂, a₂], [b₂, b₂]] (∘ = entrywise product; the signs are (−1)^k for I_α, I_α′ and +1 for
-K_α, −K_α′). Since 𝓛 = diag((2πw)^{−1/2}, (2πw)^{1/2}/2)·√2M = (2πζ^{1/2})^{−σ₃/2}M·(diagonal scalar factors absorbed as in
-E_pgt1 (E.3.1)), 𝓛∘C = diag(…)√2(M∘C), and
+K_α, −K_α′). Exactly, 𝓛 = [[(2πw)^{−1/2}, i(2πw)^{−1/2}], [i(2πw)^{1/2}/2, (2πw)^{1/2}/2]] = D·√2M with D := diag((2πw)^{−1/2},
+(2πw)^{1/2}/2), and D√2 = (2πζ^{1/2})^{−σ₃/2} since w = 2ζ^{1/2} (review A I8). Hence 𝓛∘C = D√2(M∘C) (D diagonal), and
 
   Ψe^{−wσ₃} = (2πζ^{1/2})^{−σ₃/2} M [I + Ξ₁/w + Ξ₂/w² + O(w⁻³)],  Ξ_k := M^{−1}(M∘C_k).
 
@@ -87,8 +88,11 @@ For k = 1 this is E_pgt1 (E.3.1) (Ξ₁/w = [[−(1+4α²), −2i], [−2i, 1+4�
 Consistency: det(I + Ξ₁/w + Ξ₂/w²) = 1 + O(w⁻³) (det Ψ is constant) requires tr Ξ₂ = −det Ξ₁, i.e. a₂ + b₂ = a₁b₁, which holds
 identically (both equal (4α² − 1)(4α² + 3)/64); asserted in check_e2_sym.py.
 *Bessel, 2π/3 < ±arg ζ < π.* The same computation with DLMF 10.17.5, 10.17.6, 10.17.11, 10.17.12 to three terms (ph 2(−ζ)^{1/2} ∈
-(−π/6, π/6), the sectors checked in E_pgt1 Lemma E.3 and RH/CITATIONS "(Plan 65 reuse)") gives the same Ξ₂: the factors i^k,
-(−i)^k of 10.17.5–6/11–12 combine with the phases of KMVV (6.24)–(6.25) exactly as at k = 1. This is confirmed numerically in
+(−π/6, π/6), the sectors checked in E_pgt1 Lemma E.3 and RH/CITATIONS "(Plan 65 reuse)") gives the same Ξ₂ for every k: there the columns
+are H^{(1)}_α, H^{(2)}_α (and derivatives) at x = 2(−ζ)^{1/2}, and x = ∓iw on the two sides, so the factor i^k/x^k of 10.17.5,
+10.17.11 becomes i^k/(∓iw)^k and the factor (−i)^k/x^k of 10.17.6, 10.17.12 becomes (−i)^k/(∓iw)^k; in each sector one column
+gets (−1)^ka_k/w^k, (−1)^kb_k/w^k (the I_α pattern) and the other a_k/w^k, b_k/w^k (the K_α pattern), with the same k-independent
+phases as at k = 1, so C_k and hence Ξ_k are sector-independent (review A B2). This is confirmed numerically in
 all sectors (check_e2_num.out [2]: the error of w²(M^{−1}(2πζ^{1/2})^{σ₃/2}Ψe^{−wσ₃} − I − Ξ₁/w) − Ξ₂ halves when |ζ| is
 multiplied by 4, at α = 0.3, −0.6 and six arguments). (Structural reason, not used: the formal solution of the Bessel
 model's ODE of the form L(I + Σ_kΞ_kw^{−k})e^{wσ₃} with this L is unique, so its coefficients cannot depend on the sector.)
@@ -97,8 +101,10 @@ first claim; the O(n⁻³) is uniform on ∂U_0 because |w| ≍ n there and P₀
 *Airy.* DLMF 9.7.5–9.7.6 to three terms give, in sector I, y₊ ∝ ζ^{−σ₃/4}(1 + u₁/ξ + u₂/ξ², 1 + v₁/ξ + v₂/ξ²)ᵀ and
 y₀ ∝ ζ^{−σ₃/4}(1 − u₁/ξ + u₂/ξ², −(1 − v₁/ξ + v₂/ξ²))ᵀ (relative errors O(ξ⁻³)), so Ψ^I = ζ^{−σ₃/4}M(I + X₁/ξ + X₂/ξ² +
 O(ξ⁻³))e^{ξσ₃} with X₁ = X of E_pgt1 and X₂ as stated (the same conjugation diag(1, i) and normalisation as at k = 1);
-tr X₂ = u₂ + v₂ = −35/5184 = −det X₁ (asserted). The other sectors follow from the connection relations as in Paper 2, and
-check_e2_num.out [1] confirms X₂ in all four sectors (error × 1/8 when |ζ| × 4, i.e. O(1/ξ)). With ξ = −nφ̃,
+tr X₂ = u₂ + v₂ = −35/5184 = −det X₁ (asserted). The other sectors follow from the connection relations as in Paper 2: each column of Ψ^j is Ai(q^mζ)
+or its derivative with q = e^{2πi/3}, and ξ(q^{±1}ζ) = −ξ(ζ), so the rotated columns carry (−1)^ku_k/ξ^k, (−1)^kv_k/ξ^k exactly
+where y₀ does in sector I; the pattern of C_k, hence X_k, is the same in all sectors for every k (review A B2); check_e2_num.out [1]
+confirms X₂ in all four sectors (error × 1/8 when |ζ| × 4, i.e. O(1/ξ)). With ξ = −nφ̃,
 X₂/ξ² = X₂/(n²φ̃²), and the conjugation of E_pgt1 Lemma E.3 gives the second claim.
 *n-dependence.* As in E_pgt1 Lemma E.3: f, φ̃, P₀^∞ are n-independent, and ω/ω^{mod} = 1 + O(n^{−p}) uniformly on both circles,
 so Δ_k = Δ_k^{mod} + O(n^{−p}). ∎
@@ -162,10 +168,16 @@ Res_0F + Res_{4c}F. ∎
 ## 6. Lemma E2.6: the Laurent data (exact computer algebra)
 
 **Lemma E2.6 (PROVED; checks/check_e2_sym.py, sympy, all assertions pass, output check_e2_sym.out).** With the model data
-of E_pgt1 Lemma E.4(iii) and Lemma E2.4 (series truncated at K = 6 terms; review B showed K = 4 suffices and K = 3 fails, and that
-d₂ depends on κ₂, κ₃ but not on κ₄, f″(0), f‴(0)):
-(a) u⁷Δ₂^{r,mod} contains only odd powers of u = (z − 4c)^{1/2}, and v⁴Δ₂^{0,mod} (z = −v²) only even powers of v: Δ₂^{mod} is
-  meromorphic in both discs (a test of the branch choices and sign pattern, as in E_pgt1; it does not detect swaps u₂ ↔ v₂
+of E_pgt1 Lemma E.4(iii) and Lemma E2.4 (series truncated at K = 6 terms; review B showed K = 4 suffices and K = 3 fails; d₂ depends on f′(0), κ, κ₂ and
+κ₃ = (149p² + 136p + 32)/(4480c²p²) (from Lemma E2.4(ii)), and not on κ₄ or the z², z³ Taylor coefficients of f (reviews A I5,
+B F3)):
+(a) Δ₁^{mod}, Δ₂^{mod} are meromorphic in both discs. *Proof (review A B1).* For the model weight, P̂^{mod} and P₀^∞ have the
+  same jumps in U_e ∖ {e} (Paper 2 Lemma airy(ii); KMVV §6 construction at the hard edge), so G_n := P̂^{mod}(P₀^∞)^{−1} is analytic
+  in U_e ∖ {e}. On every compact K ⊂ U_e ∖ {e}, |ζ| ≍ n² (hard edge) or |ξ| ≍ n (soft edge), so the expansion of Lemma E2.3
+  G_n = I + Δ₁/n + Δ₂/n² + O(n⁻³) holds uniformly on K; the coefficients of a uniform asymptotic expansion of analytic functions
+  are analytic (Δ₁ = lim n(G_n − I), Δ₂ = lim n²(G_n − I − Δ₁/n), uniform limits), so Δ_k is analytic and single-valued in
+  U_e ∖ {e}. Its explicit formula grows at most like a power of |z − e| as z → e, so e is a pole. Confirmation by computer
+  algebra: u⁷Δ₂^{r,mod} contains only odd powers of u = (z − 4c)^{1/2}, and v⁴Δ₂^{0,mod} (z = −v²) only even powers of v (a test of the branch choices and sign pattern, as in E_pgt1; it does not detect swaps u₂ ↔ v₂
   or a₂ ↔ b₂, which check_e2_num and the final d₂ do — review B F5). Δ₂^{0,mod} has only a simple pole at 0 (its z⁻²
   coefficient vanishes; asserted, review B F6).
 (b) The first-order data are reproduced: B_r, A_r, A₀ equal E_pgt1 Lemma E.5 (asserted), and κ, κ₂ equal E_pgt1 Lemma E.4(ii).
@@ -232,8 +244,11 @@ s ∈ {3/2, 3, 5} as well (check_e2_grid.out).
 
 **Remark E2.10 (p = 1; NUMERICAL, outside Theorem E2.1).** At p = 1 the fitted n⁻² coefficient equals d₂(1, s) − 1/12 at
 all five s on the grid (check_e2_grid.out, deviations ≤ 1.3·10⁻⁶). Here −1/12 = 2p c(p)ζ(−p) at p = 1 = κ₁, i.e. the n^{−1−p}
-term of E_plt1 Theorem E′.1 (0 < p < 1) merges with the n⁻² term at p = 1. CONJECTURE (p = 1): n b_n/c(1) = 1 − (s−1)/(2n) +
-(d₂(1, s) − 1/12)/n² + o(n⁻²). Not proved: at p = 1, Lemma E.2 fails (E_pgt1 §9) and the hard edge uses the RH₁(r) analysis.
+term of E_plt1 Theorem E′.1 (0 < p < 1) merges with the n⁻² term at p = 1. At s ∈ {3/2, 5/2} this is PROVED-mod-cite: E_p1 Theorem E1.6
+(REVIEWED; b_n = TC resp. x·TC value × (1 − 1/(24n²) + O(n⁻³))) together with the Tricomi–Carlitz closed form gives the n⁻²
+coefficients 5/96 and 53/96, which equal d₂(1, 3/2) − 1/12 and d₂(1, 5/2) − 1/12 (review A B3). CONJECTURE (p = 1, other s):
+n b_n/c(1) = 1 − (s−1)/(2n) + (d₂(1, s) − 1/12)/n² + o(n⁻²). Not proved in general: at p = 1, Lemma E.2 fails (E_pgt1 §9) and the
+hard edge uses the RH₁(r) analysis.
 
 **Remark E2.11 (the s² coefficient and Paper III Conjecture 8.1; HEURISTIC).** The s² coefficient of d₂ is (p² − 2)/(8p²) =
 1/8 − 1/(4p²). If the expansion of Theorem E2.1 could be differentiated twice in s with the same remainder (not proved:
@@ -245,11 +260,23 @@ the conjecture for p > 1 needs: the present analysis with error bounds uniform f
 K ⊂ (1, ∞).
 
 **Remark E2.12 (CG reading of Cor E2.7).** For a positive compact operator A with eigenvalues k^{−p} and an initial error e₀
-whose spectral weights λ_k|⟨e₀, φ_k⟩|² equal k^{−s}, the A-norm error of the conjugate gradient method after n − 1 steps is
-λ_n(0; σ_{p,s}), so it decays like n^{−(1+2/p)(s−1)} (p > 1, s > 1). For comparison, a fixed-step gradient iteration gives
+whose spectral weights λ_k|⟨e₀, φ_k⟩|² equal k^{−s}, the *squared* A-norm error of the conjugate gradient method after n − 1 steps is
+λ_n(0; σ_{p,s}) (review A I6), so it decays like n^{−(1+2/p)(s−1)} (p > 1, s > 1). For comparison, a fixed-step gradient iteration gives
 n^{−(s−1)/p} up to constants (elementary). Not used elsewhere.
 
+**Remark E2.13 (a first-order route to Cor E2.7; review A I1).** With the reproducing kernel, 1/λ_n(0) = K_n(0, 0) =
+Σ_{j<n} p_j(0)², and p_j(0) is governed by the chain g_j of E_pgt1 Cor E.6; review A shows that first-order results alone
+(E_pgt1 Thm E.1 / Cor E.6) give λ_n(0) = C n^{−(p+2)(s−1)/p}(1 + O(n^{−θ})) for some θ > 0, without Theorem E2.1 or UF-lim. The
+proof in §8 is kept (it is the one checked by both reviews); the shorter route is recorded here and in REVIEW_PlanE2_A.md and
+is not given a separate label.
+
+**Remark E2.14 (the n^{−1−p} term for 1 < p < 2; CONJECTURE).** Review A (T4) fits the n^{−1−p} coefficient of n^pb_n/c at
+p = 3/2 and finds κ_p = 2p c(p)ζ(−p) at every s tested, the same constant as for 0 < p < 1 (E_plt1 Thm E′.1). CONJECTURE: for
+1 < p < 2, n^pb_n/c = 1 − (s−1)/(2n) + d₂/n² + κ_p n^{−1−p} + O(n^{−3} + n^{−1−2p}). It would come from the O(n^{−p}) part of H_n
+in Δ₁ (Lemma E.2), which this file only bounds.
+
 **Open (GAP).**
+- The n^{−1−p} coefficient for 1 < p < 2 (Remark E2.14).
 - d₂ for 0 < p ≤ 1: at p = 1 see Remark E2.10; for p < 1 the seam terms (E_plt1) add n^{−1−p}, n^{−1−2p}, … whose
   coefficients beyond κ_p are not computed (THEOREMS §4 item 13).
 - The second-order coefficient of n^pα_n (needs R_2⁽²⁾ as well); not computed here.
@@ -279,9 +306,20 @@ n^{−(s−1)/p} up to constants (elementary). Not used elsewhere.
 - *Converse / scope.* p > 1 is used exactly where E_pgt1 uses it (Lemma E.2; n^{−1−p} = o(n⁻²)). At p = 1 the formula needs the
   extra −1/12 (Remark E2.10), which is consistent with, and explained by, the merging of the κ_p n^{−1−p} term.
 
-## 11. Integration
+## 11. Integration (applied)
 
-To be applied after Rule R (independent second reader). Proposed changes: THEOREMS.md §2.10 (new row "Thm E2.1, Cor E2.7
+Applied after Rule R. Changes: THEOREMS.md §2.10 (new row "Thm E2.1, Cor E2.7
 (Plan E2)"), §4 item 13 (d₂ for p > 1 closed; p ≤ 1 open; Remark E2.10 conjecture at p = 1), E_pgt1 §9 bullet "d₂" (pointer
 to this file), SECOND Thm 2.3 row (d₂ at p = 2 for all s via Theorem E2.1), Paper II §13.1 and NOTES (the n⁻² coefficient for
 p > 1), RH/CITATIONS.md "(Plan E2 reuse)" (the k = 2 instances of 10.17.1, 10.17.8, 9.7.2 already quoted there).
+
+## 12. Rule R (applied)
+
+Review A (analysis; research/G1/review/REVIEW_PlanE2_A.md): ACCEPT WITH FIXES. B1 meromorphy argument (Lemma E2.6(a));
+B2 Hankel/Airy sectors for every k (Lemma E2.3); B3 p = 1 at s ∈ {3/2, 5/2} proved via E_p1 Thm E1.6 (Remark E2.10); I1
+Remark E2.13; I2 Remark E2.14; I3 opening sentence; I4 c-independence wording (with B F2); I5 κ₃ and dependence note; I6
+"squared"; I7 label table, p = 2 label, script docstring (with B F1); I8 exact Bessel leading matrix; I9 citation list and
+RH/CITATIONS.md "(Plan E2 reuse)". Independent tests reported there: contour integration of Δ₁, Δ₂ built from closed-form
+integrals (no series) at five (p, s) off the grid, α ∈ [−0.93, 1.46], d₂ to ≈ 10⁻²⁰; remainder n^ν·(error) bounded; Lemma E2.4
+series vs quadrature to ≤ 10⁻¹⁸; the p-shift identity of SECOND Prop 3.1 / E_pgt1 Cor E.6 satisfied by the closed form.
+Review B (algebra; REVIEW_PlanE2_B.md): ACCEPT WITH FIXES; F1–F3, F6–F8 applied (see the status note); F4, F5 INFO recorded in §10.
