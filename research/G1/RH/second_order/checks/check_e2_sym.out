@@ -1,9 +1,9 @@
 soft edge done: B_r, A_r reproduce Lemma E.5; Delta2^r meromorphic (odd powers of u in u^7 Delta2 only)
 A0 diff: Matrix([[0, 0], [0, 0]])
-hard edge done: A_0 reproduces Lemma E.5; Delta2^0 meromorphic (even)
+hard edge done: A_0 reproduces Lemma E.5; Delta2^0 meromorphic (even), simple pole at 0 (z^-2 coefficient = 0, asserted)
 d1 = -(s - 1)/2
 d2 (from RH, second order) = -(p**3 - 3*p**2*s**2 + 7*p**2 - 12*p*s + 12*p + 6*s**2 - 12*s + 6)/(24*p**2)
-d2 - conjectured closed form = 0
-depends on c? False
+d2 - closed form of Thm E2.1 = 0
+depends on c? False (automatic: inputs depend on z/c only)
 Cor E2.7: delta' = -(p**2 - 2*s + 2)/(2*p) ; exponent gamma = -(p + 2)*(s - 1)/p
 ALL ASSERTIONS PASSED

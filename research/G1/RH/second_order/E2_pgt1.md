@@ -1,6 +1,11 @@
 # E2_pgt1: the second-order coefficient d₂ for pure powers, p > 1, by third-order Riemann–Hilbert analysis (Plan E2)
 
-Status (2026-10-20): written by the Plan E2 agent; **NOT REVIEWED (Rule R pending)**. Labels per VERIFICATION_POLICY.md.
+Status (2026-10-20): written by the Plan E2 agent; Rule R review B (algebra): ACCEPT WITH FIXES (research/G1/review/
+REVIEW_PlanE2_B.md), fixes F1–F3, F6–F8 applied; review A (analysis): pending. **NOT REVIEWED** until A is in and applied.
+Labels per VERIFICATION_POLICY.md. *Provenance (Rule X, review B F1):* the closed form of d₂ was first guessed from the Plan 62
+grid fits and then derived here; the grid (check_e2_grid) is a consistency check of the formula, not independent evidence
+for it. The independent evidence is the derivation (§§3–7) and review B's quadrature route (all ingredients by quadrature,
+R_in by Cauchy integrals, residues by contour integrals: d₂ reproduced at 8 values of (p, s), α ∈ [−0.875, 1.4], to ≤ 6·10⁻⁷).
 "RH" means Riemann–Hilbert throughout. This file extends E_pgt1.md (Plan 65, REVIEWED) by one order. It closes, for p > 1,
 the GAP "d₂ (second order)" of E_pgt1 §9 and THEOREMS §4 item 13 ("the n^{−1−2p} coefficient and d₂ (p ≠ 1, 2)"), and the
 "coefficient of n⁻² … known only in the cases (1, 3/2), (1, 5/2), (2, 2)" of Paper II §13.1, for every p > 1, s > 1.
@@ -47,8 +52,9 @@ The proof occupies §§2–7. Mechanism: exactly as at first order (E_pgt1 §1),
 0 and 4c. There, the jump is I + Δ₁/n + Δ₂/n² + O(n⁻³) with Δ₂ built from the second asymptotic coefficients of the Bessel
 and Airy functions, and the band factor H_n enters only through Δ₁, at order n^{−1}·n^{−p} = n^{−1−p} = o(n⁻²) (E_pgt1 Lemma
 E.2). The second-order small-norm term is the sum of the principal parts of R⁽¹⁾_inΔ₁ + Δ₂ at 0 and 4c. Everything is then
-an exact Laurent computation in closed form, carried out symbolically in p and α with c kept as a free symbol: the
-result is independent of c, which is a non-trivial internal check since c(p) is transcendental.
+an exact Laurent computation in closed form, carried out symbolically in p and α with c kept as a free symbol. (The
+result is independent of c, but this is automatic — every model input depends on z/c only — and is not a test of the
+computation; review B F2.)
 
 ## 2. Lemma E2.2: the band factor (no change)
 
@@ -156,17 +162,18 @@ Res_0F + Res_{4c}F. ∎
 ## 6. Lemma E2.6: the Laurent data (exact computer algebra)
 
 **Lemma E2.6 (PROVED; checks/check_e2_sym.py, sympy, all assertions pass, output check_e2_sym.out).** With the model data
-of E_pgt1 Lemma E.4(iii) and Lemma E2.4 (series truncated at orders shown in the script to be sufficient for the
-coefficients used):
+of E_pgt1 Lemma E.4(iii) and Lemma E2.4 (series truncated at K = 6 terms; review B showed K = 4 suffices and K = 3 fails, and that
+d₂ depends on κ₂, κ₃ but not on κ₄, f″(0), f‴(0)):
 (a) u⁷Δ₂^{r,mod} contains only odd powers of u = (z − 4c)^{1/2}, and v⁴Δ₂^{0,mod} (z = −v²) only even powers of v: Δ₂^{mod} is
-  meromorphic in both discs (a non-trivial test of the branch choices, as in E_pgt1).
+  meromorphic in both discs (a test of the branch choices and sign pattern, as in E_pgt1; it does not detect swaps u₂ ↔ v₂
+  or a₂ ↔ b₂, which check_e2_num and the final d₂ do — review B F5). Δ₂^{0,mod} has only a simple pole at 0 (its z⁻²
+  coefficient vanishes; asserted, review B F6).
 (b) The first-order data are reproduced: B_r, A_r, A₀ equal E_pgt1 Lemma E.5 (asserted), and κ, κ₂ equal E_pgt1 Lemma E.4(ii).
 (c) Res_{4c}F = r₀A_r + r₁B_r + Res_{4c}Δ₂^{r,mod}, where R⁽¹⁾_in = r₀ + r₁(z − 4c) + O((z − 4c)²) near 4c, r₀ = A₀/(4c) − Δ^{reg}_0,
   r₁ = −A₀/(16c²) − Δ^{reg}_1 (Δ^{reg}_j the (z − 4c)^j coefficients of Δ₁^{r,mod}); Res₀F = R⁽¹⁾_in(0)A₀ + Res₀Δ₂^{0,mod}, with
   R⁽¹⁾_in(0) = −A_r/(4c) + B_r/(16c²) − C₀ (Δ₁^{0,mod} has a simple pole at 0, E_pgt1 Lemma E.5).
 (d) With Q₁ = P₁ + (A₀ + A_r)/n + R_1⁽²⁾/n², the b-functional gives √((Q₁)₁₂(Q₁)₂₁)/c = 1 + d₁/n + d₂/n² + O(n⁻³) with
-  d₁ = −p(α + 1)/2 = −(s−1)/2 and d₂ equal to the closed form of Theorem E2.1 (asserted symbolically in p and s; c-independent,
-  asserted).
+  d₁ = −p(α + 1)/2 = −(s−1)/2 and d₂ equal to the closed form of Theorem E2.1 (asserted symbolically in p and s).
 
 The intermediate matrices are long and are printed by the script rather than reproduced here; only d₂ enters Theorem E2.1.
 
@@ -232,7 +239,8 @@ term of E_plt1 Theorem E′.1 (0 < p < 1) merges with the n⁻² term at p = 1. 
 1/8 − 1/(4p²). If the expansion of Theorem E2.1 could be differentiated twice in s with the same remainder (not proved:
 uniformity of the RH error in complex s is not established here), Euler–Maclaurin would give ∂_s²log h_n =
 (2/n)(1/4 − ∂_s²d₂) + o(1/n) = 1/(p²n) + o(1/n) > 0, which is the convexity of Paper III Conjecture 8.1 and matches the
-measured second differences ≈ 1/(2p²n) of check_so_convex.out (step-1 divided differences). This identifies what a proof of
+measured standard second divided differences ≈ ½∂_s²log h_n ≈ 1/(2p²n) of check_so_convex.out (agreement to 4 digits at
+n = 1600; review B F7). This identifies what a proof of
 the conjecture for p > 1 needs: the present analysis with error bounds uniform for s in a complex neighbourhood of a compact
 K ⊂ (1, ∞).
 
@@ -258,10 +266,14 @@ n^{−(s−1)/p} up to constants (elementary). Not used elsewhere.
   assertion; f^{1/2} is now written as v·(positive series)/(√c(p+2)).
 - *Sign and normalisation of X₂, Ξ₂.* Checked three ways: the determinant identities tr X₂ = −det X₁, tr Ξ₂ = −det Ξ₁; the
   sector numerics (check_e2_num); and the final d₂ against the independent grid fits (25/25).
-- *c-independence.* c is a free symbol; d₂ is asserted independent of it. An error in the relation between κ, f′(0) and c (e.g.
-  a wrong power of 4c in Lemma E2.4) leaves a log-free but c-dependent remainder; none appears.
-- *Truncation orders.* The Laurent coefficients used need u-series to u⁶ for Δ₁^r (κ up to κ₄) and u⁵ for u⁷Δ₂^r (κ up to κ₃),
-  and v-series to v² for v⁴Δ₂⁰ (f up to its z³ coefficient); the script keeps u¹⁰, six terms of S and of 𝔞.
+- *c-independence.* Automatic (inputs depend on z/c only) and therefore not a test: a deliberately wrong κ₃ still gives a
+  c-free, wrong d₂ (review B F2). The tests with teeth are the symbolic assertions, the grid, and review B's 11 broken
+  variants (flipped X₂ or Ξ₂, dropped R_inΔ₁ at either edge, Δ₁R_in order, dropped r₁B_r or C₀, wrong v² sign, K = 3), all of
+  which fail.
+- *Truncation orders.* The script keeps u¹⁰ and six terms of S and of 𝔞; review B showed four terms suffice (three fail) and
+  that d₂ involves κ₂, κ₃ only.
+- *R_in versus R_out.* Δ₁^{mod} squares to a multiple of I on both circles, so replacing R_in by R_out in F would leave d₂
+  unchanged; the distinction is not tested by d₂ (it would be by the second-order α_n coefficient). Review B F4, INFO.
 - *Where n^{−1−p} enters.* For 1 < p < 2 the remainder O(n^{−1−p}) dominates O(n⁻³); the grid fit basis {n^{−1−i−jp}}
   contains it, and the fitted d₂ is stable across fit orders and windows (half-ranges ≤ 3·10⁻⁴ at p = 3/2).
 - *Converse / scope.* p > 1 is used exactly where E_pgt1 uses it (Lemma E.2; n^{−1−p} = o(n⁻²)). At p = 1 the formula needs the

@@ -6,11 +6,17 @@ Jumps on the circles: J = I + Delta1/n + Delta2/n^2 + O(n^-3 + n^{-1-p}) with
       X_1 = [[(u1+v1)/2, i(v1-u1)/2], [i(v1-u1)/2, -(u1+v1)/2]],  X_2 = [[(u2+v2)/2, i(u2-v2)/2], [-i(u2-v2)/2, (u2+v2)/2]]
   hard edge 0:  Delta_k^0 = (2 f^{1/2})^{-k} P0 rho^{s3} s3 Xi_k s3 rho^{-s3} P0^{-1}         (w = 2 n f^{1/2})
       Xi_1 = (1/2)[[-(a1+b1), i(a1-b1)], [i(a1-b1), a1+b1]],  Xi_2 = (1/2)[[a2+b2, i(a2-b2)], [-i(a2-b2), a2+b2]]
-(DLMF 10.40.1-4 / 10.17.1, 10.17.8 and 9.7.2, 9.7.5-6; second coefficients verified numerically in check_e2_coef).
+(DLMF 10.40.1-4 / 10.17.1, 10.17.8 and 9.7.2, 9.7.5-6; second coefficients verified numerically in check_e2_num.py).
 Second-order small norm: R2_out = principal parts of (R1_in Delta1 + Delta2) at 0 and 4c, R1_in = R1_out - Delta1,
 so the first moment R_1^(2) = sum of residues of (R1_in Delta1 + Delta2).
 Model data (exact series, symbolic p): phit from the soft-edge expansion of the equilibrium density, f from the hard-edge one.
-Output: d2 with n^p b_n / c = 1 + d1/n + d2/n^2 + ..., compared with the conjectured closed form."""
+Output: d2 with n^p b_n / c = 1 + d1/n + d2/n^2 + ..., compared with the closed form of Theorem E2.1.
+Provenance (Rule X): that closed form was first guessed from the Plan 62 grid fits (check_e2_grid) and then derived here;
+the grid is therefore a consistency check of the formula, not independent evidence for it. The independent evidence is
+this derivation and the quadrature route of Rule R review B (REVIEW_PlanE2_B.md).
+c-independence of d2 is automatic (all model inputs depend on z/c only) and is NOT a test of the computation (review B F2).
+Truncation: sufficiency was shown by review B (K = 4 terms of S and of the f-series suffice, K = 3 fails; d2 depends on
+kappa2, kappa3 only, not on kappa4, f''(0), f'''(0)); this script keeps K = 6."""
 import sympy as sp
 
 I = sp.I
@@ -136,7 +142,9 @@ C0 = v2D1.applyfunc(lambda e: sp.simplify(e.coeff(v, 2)))
 _dA = (A0 - c * (p + 2) * (4 * al ** 2 - 1) / 16 * sp.Matrix([[1, I], [I, -1]])).applyfunc(lambda e: sp.simplify(sp.expand(e))); print("A0 diff:", _dA); assert _dA == sp.zeros(2, 2)
 # Delta2^0 = E2/z^2 + E1/z + ...; with z = -v^2: v^4 D2 = E2 - E1 v^2 + ...
 E1h = v4D2.applyfunc(lambda e: sp.simplify(-e.coeff(v, 2)))
-print("hard edge done: A_0 reproduces Lemma E.5; Delta2^0 meromorphic (even)")
+E2h = v4D2.applyfunc(lambda e: sp.simplify(e.coeff(v, 0)))
+assert E2h == sp.zeros(2, 2), 'Delta2^0 has only a simple pole at 0 (review B F6)'
+print("hard edge done: A_0 reproduces Lemma E.5; Delta2^0 meromorphic (even), simple pole at 0 (z^-2 coefficient = 0, asserted)")
 
 # ---------- second-order moment R_1^(2) ----------
 # R1_in near 4c = A0/z - (reg0 + reg1 (z-4c) + ...);  Delta1^r = Br/(z-4c)^2 + Ar/(z-4c) + ...
@@ -165,8 +173,8 @@ d2_s = sp.factor(sp.simplify(d2.subs(al, (s - 1 - p) / p)))
 conj = (p + 1) * (s - 1) ** 2 / (8 * p) - (p + 2) * (s - 1 - p) ** 2 / (8 * p ** 2) + (p + 1) / 12
 print("d1 =", sp.factor(d1.subs(al, (s - 1 - p) / p)))
 print("d2 (from RH, second order) =", d2_s)
-print("d2 - conjectured closed form =", sp.simplify(d2_s - conj))
-print("depends on c?", sp.simplify(sp.diff(d2_s, c)) != 0)
+print("d2 - closed form of Thm E2.1 =", sp.simplify(d2_s - conj))
+print("depends on c?", sp.simplify(sp.diff(d2_s, c)) != 0, "(automatic: inputs depend on z/c only)")
 assert sp.simplify(d2_s - conj) == 0 and sp.simplify(sp.diff(d2_s, c)) == 0
 # Corollary E2.7: exponent of the Christoffel function at 0
 d1f = lambda S: -(S - 1) / 2

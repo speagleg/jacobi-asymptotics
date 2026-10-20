@@ -28,7 +28,7 @@ for j, ang in [(1, 0.3), (2, 2.0), (3, -2.0), (4, -0.3)]:
         u2, v2 = mp.mpf(385) / 10368, -mp.mpf(455) / 10368
         X2 = mp.matrix([[(u2 + v2) / 2, 1j * (u2 - v2) / 2], [-1j * (u2 - v2) / 2, (u2 + v2) / 2]])
         errs.append(mp.mnorm(xi ** 2 * (M ** -1 * L - mp.eye(2) - Xex / xi) - X2, 1))
-    print(f"   sector {j} (arg {ang}): |X(zeta) - X| = {mp.nstr(errs[0], 3)} (|zeta| = 400), {mp.nstr(errs[1], 3)} (1600)")
+    print(f"   sector {j} (arg {ang}): |X2(zeta) - X2| = {mp.nstr(errs[0], 3)} (|zeta| = 400), {mp.nstr(errs[1], 3)} (1600)")
 
 print("[2] Bessel second-order matrix Xi2: error at |zeta| = 1e4, 4e4 (should decrease like 1/w)")
 mp.mp.dps = 300
