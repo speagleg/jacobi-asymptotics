@@ -707,6 +707,16 @@ sectors of Paper 2 Lemma airy). The values a_2, b_2, u_2, v_2 are checked numeri
 check_e2_num.out and in REVIEW_PlanE2_B.md. Internal: E_pgt1 (REVIEWED), RH_px §5, Paper 2 Prop. frame F1, F5, Lemmas airy, signs,
 szego; UL Thm UF-lim (REVIEWED, for Cor E2.7).
 
+## (Plan E3) NIST DLMF §5.9(i), (5.9.1) — READ (page dlmf.nist.gov/5.9 fetched 2026-10-20; formula from the TeX alttext)
+
+> (5.9.1) `\frac{1}{\mu}\Gamma\left(\frac{\nu}{\mu}\right)\frac{1}{z^{\nu/\mu}}=\int_{0}^{\infty}\exp\left(-zt^{\mu}\right)t^{\nu-1}\,\mathrm{d}t,`
+> with the conditions "ℜ ν>0, μ>0, and ℜ z>0." and "(The fractional powers have their principal values.)"
+
+**Used in:** second_order/E3.md Lemma F.1′(i), with μ = 1, ν = kp (k ≥ 1, p > 1: Re ν = kp > 0 ✓) and z = m·aₙ, aₙ = 2πin e^{−iπ/p}
+(Re z = 2πmn sin(π/p) > 0 for p > 1 ✓; principal power, arg z = π/2 − π/p ∈ (−π/2, π/2)). Also used there: DLMF 25.2.1 and 25.4.1,
+as quoted in "(DLMF-zeta, Plan 67)" (at s = 1 + kp: Re s > 1 ✓, s ≠ 0, 1 ✓). Reuse otherwise as "(Plan E2 reuse)" and
+"(Plan 67 reuse)" (E3 Lemma E3.5 for 0 < p < 1 uses the sector checks of E_plt1 Lemma E′.3 at k = 2).
+
 ## (DLMF-zeta, Plan 67) NIST DLMF (5.2.1), (25.2.1), (25.4.1) — READ (pages dlmf.nist.gov/5.2, /25.2, /25.4 fetched 2026-10-15 by curl; formulas from the TeX alttext)
 
 > §5.2(i): (5.2.1) `\Gamma\left(z\right)=\int_{0}^{\infty}e^{-t}t^{z-1}\,\mathrm{d}t,` with the condition `\Re z>0`.
