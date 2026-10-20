@@ -1,8 +1,11 @@
 # SPEC: Jacobi coefficients of measures on reciprocal spectra — the node-zeta law (exploration)
 
-Status (2026-10-20): exploratory note from the Plan E3 session; **NOT REVIEWED**. Labels per VERIFICATION_POLICY.md. Nothing
-here is PROVED. The numerics are NUMERICAL (Rule N: fit half-ranges are spreads over fit choices, not error bounds). The
-statements are CONJECTURE or HEURISTIC. This note builds on E3.md (REVIEWED), in particular its Lemma E3.7. Novelty: UNCHECKED
+Status (2026-10-20): exploratory note from the Plan E3 session. Labels per VERIFICATION_POLICY.md.
+- §§1–2 and §4: CONJECTURE / HEURISTIC / NUMERICAL (Rule N: fit half-ranges are spreads over fit choices, not error bounds).
+- §3.2: Lemma U (PROVED) and Theorem S2′ (PROVED-mod-cite), **REVIEWED** (Rule R: REVIEW_SPEC_A.md, ACCEPT WITH FIXES; fixes
+  applied, §6). A single second reader; the other parts were reviewed for labels only.
+- §3.1: Lemma H is CONDITIONAL on Hurwitz's formula (unread under Rule C), with NUMERICAL confirmation.
+- §3.3: HEURISTIC with NUMERICAL confirmation. This note builds on E3.md (REVIEWED), in particular its Lemma E3.7. Novelty: UNCHECKED
 (Rule L not done).
 
 ## 0. Setting
@@ -29,7 +32,7 @@ with the analogous statement for p > 1 (only j ≤ 1 above n⁻³ when 1 < p < 2
 - The j = 0 term is the "lattice offset" heuristic of SECOND.md §4.1: j₀ − ½ = −ζ(0, j₀).
 
 **Conjecture S2 (exact per-node contribution; for one deleted atom of σ_{p,s} away from the turning point this is Theorem S2′,
-§3.2, PROVED-mod-cite, NOT REVIEWED).** Let a single node λ (n-independent) be deleted from Λ. While the node is
+§3.2, PROVED-mod-cite, REVIEWED).** Let a single node λ (n-independent) be deleted from Λ. While the node is
 outside the band (u < 1),
 
   n·(y_n(Λ∖{λ}) − y_n(Λ)) = −p(1 − u)^{−1/2} + O(n^{−1}),   u = 4cλn^{−p}
@@ -100,7 +103,7 @@ shifts by 2pc[(new)^p − (old)^p].
 | 300 | 1000 | 0.834 | −1.4613 | −1.4733 | 0.992 | −0.850 |
 | 300 | 1600 | 0.629 | −0.98290 | −0.98531 | 0.998 | −0.789 |
 
-The ratio tends to 1 like 1 − O(1/(n(1 − u))), which is consistent with an O(n⁻¹) correction that grows near the edge. For
+The ratio tends to 1 like 1 − O(1/(n(1 − u))). Equivalently, R ≈ C(p)/(n(1 − u)^{3/2}) (REVIEW_SPEC_A F9), an O(n⁻¹) correction that grows near the edge. For
 u > 1 (node inside the band) the difference is small and irregular. This is the regime of S4.
 
 **A real operator: the quantum bouncer** −ψ″ + xψ = Eψ on (0, ∞), ψ(0) = 0 (`checks/spec_bouncer.out`, `checks/spec_zeta_airy.out`).
@@ -138,12 +141,14 @@ The RMS slopes ≈ n^{−0.5}, and the fitted d₁ is meaningless. Localisation:
 
 ## 3. Proof-side progress
 
-### 3.1 Lemma H: the shifted band-factor moments (p > 1)
+### 3.1 Lemma H: the shifted band-factor moments (p > 1; p < 1 analogue checked)
 
-**Lemma H (exact; PROVED-mod-cite, but DLMF 25.11.9 is NOT READ under Rule C: the fetch of dlmf.nist.gov/25.11 was truncated
-before (iv); numerically verified to 30 digits).** Let p > 1, δ ∈ ℝ, and
+**Lemma H (CONDITIONAL on Hurwitz's formula, DLMF 25.11.9 / Apostol, *Introduction to Analytic Number Theory*, Thm 12.6: not
+read under Rule C, since the DLMF fetch truncates before §25.11(iv) and the domain is blocked from the shell; the formula and the
+lemma are confirmed NUMERICALLY to 10⁻²⁷–10⁻³⁰; REVIEW_SPEC_A F5).** Let p > 1, δ ∈ ℝ, and
 𝔢_δ(y) := 2Im Log(1 − e^{−2πi(t₊(y) − δ)}), with t₊ = n(y + i0)^{−1/p} on y < 0. This is E3 Lemma F.1′'s density with the
-interpolating phase of the lattice {(k + δ)^{−p}}. Then
+interpolating phase of the lattice {(k + δ)^{−p}}_{k≥1} (the lattice reading needs δ > −1; the identity holds for every
+δ ∈ ℝ). Then
 
   m_k(δ) := (1/2π)∫_{−∞}^0𝔢_δ(y)y^{−k−1}dy = ζ(−kp, a)/(kn^{kp}),   a := δ − ⌈δ⌉ + 1 ∈ (0, 1].
 
@@ -170,7 +175,7 @@ Lemma E3.7 is unchanged.
 equals ζ(−kp, a)/(kn^{kp}); `checks/spec_hurwitz_moments_plt1.out`, p ∈ {0.3, 0.6, 0.75}, δ ∈ {0, −½, 0.3, 1.4}, k ≤ 3, relative
 error ≤ 2·10⁻¹⁶, 10⁻³⁰ in most cases.
 
-### 3.2 S2 from the Uvarov identity: Lemma U (PROVED) and Theorem S2′ (PROVED-mod-cite, NOT REVIEWED)
+### 3.2 S2 from the Uvarov identity: Lemma U (PROVED) and Theorem S2′ (PROVED-mod-cite); REVIEWED
 
 **Lemma U (PROVED, elementary).** Let σ = σ′ + w₀δ_{x₀} and F(m) := log D_m(σ) − log D_m(σ′), where D_m is the m×m Hankel
 determinant. Then F(m) = log(1 + w₀K′_{m−1}(x₀, x₀)), with K′_{m−1}(x, x) = Σ_{j<m}p′_j(x)² the Christoffel–Darboux kernel of σ′
@@ -181,30 +186,40 @@ determinant. Then F(m) = log(1 + w₀K′_{m−1}(x₀, x₀)), with K′_{m−1
 *Proof.* The moment matrix is a rank-one update, H_m(σ) = H_m(σ′) + w₀vvᵀ with v = (x₀^i)_{i<m}. So
 det H_m(σ) = det H_m(σ′)(1 + w₀vᵀH_m(σ′)^{−1}v), and vᵀH_m(σ′)^{−1}v = K′_{m−1}(x₀, x₀). Finally b_n² = D_{n+1}D_{n−1}/D_n². ∎
 
-**Theorem S2′ (deleting one atom of σ_{p,s}).** *Label: PROVED-mod-cite, NOT REVIEWED. The only inputs are the REVIEWED
-coefficient expansions below; the rest is elementary and self-contained here.*
+**Theorem S2′ (deleting one atom of σ_{p,s}).** *Label: PROVED-mod-cite (inputs: the REVIEWED coefficient expansions below;
+everything else is elementary and proved here), REVIEWED (REVIEW_SPEC_A.md).*
 
-Let p > 0, s > 1, σ = σ_{p,s}, and ε := min(p, 1) (ε := 1 at p = 1). Let x₀ = k₀^{−p} be an atom with mass w₀ = k₀^{−s}, and
+Let p > 0, s > 1, σ = σ_{p,s}, and ε := min(2p, 1) for 0 < p < 1, ε := 1 for p ≥ 1. Let x₀ = k₀^{−p} be an atom with mass w₀ = k₀^{−s}, and
 σ′ := σ − w₀δ_{x₀}. Put u_n := 4c(k₀/n)^p and y_n := n^pb_n/c − 1. For every η ∈ (0, 1) there are C, n₀ (depending on p, s, η,
 not on k₀) such that for all k₀ ≥ 1 and n ≥ n₀ with u_n ≤ 1 − η,
 
   n·(y_n(σ′) − y_n(σ)) = −p(1 − u_n)^{−1/2} + R,   |R| ≤ Cn^{−ε}.
 
 So S2 holds outside a neighbourhood of the turning point. For fixed k₀ and n → ∞ only its u → 0 limit −p (the index shift) is
-resolved, because the error swamps the u-terms of size n^{−p}. In the regime k₀ ∝ n the full function of u is.
+resolved by the statement; the first u-term, of size n^{−p}, is resolved only when ε > p, i.e. for p < 1 (ε = min(2p, 1) > p).
+In the regime k₀ ∝ n the full function of u is resolved. Empirically R ≈ C(p)/(n(1 − u)^{3/2}), i.e. O(1/n) at every p tested
+(REVIEW_SPEC_A F9: C ≈ 0.6–1.2 at p ∈ {0.3, 0.5, 0.6}, ≈ 2.95 at p = 1.5).
 
 *Inputs (REVIEWED).* For σ_{p,s} and every p > 0:
-- b_j = cj^{−p}(1 + d₁/j + O(j^{−1−ε}));
+- b_j = cj^{−p}(1 + d₁/j + κ_pj^{−1−p}·[p < 1] + O(j^{−1−ε}));
 - α_j/(2b_j) = 1 − p/(2j) + O(j^{−1−ε}).
-Sources: E_pgt1 Theorem E.1 (p > 1, remainder O(j⁻²)), E_plt1 Theorem E′.1 (0 < p < 1, remainder O(j^{−1−p})), and E_p1 (p = 1).
-Hence, with β_j := α_j/(2b_j) − 1 and γ_j := b_{j+1}/b_j − 1: β_j, γ_j = O(1/j); γ_j = −p/j + O(j^{−1−ε}); and
-Δβ_j, Δγ_j = O(j^{−1−ε}).
+Sources (all in the α_n/(2b_n) pairing used here): E_pgt1 Theorem E.1 (p > 1, remainder O(j⁻²)); E_plt1 Theorem E′.1
+(0 < p < 1, remainder O(j^{−1−2p} + j⁻²), the κ_p term explicit); E_p1 Theorem E1.10 (p = 1, remainder O(j⁻²)).
+Hence, with β_j := α_j/(2b_j) − 1 and γ_j := b_{j+1}/b_j − 1:
+- β_j, γ_j = O(1/j) and γ_j = −p/j + O(j^{−1−ε}) (the κ_p term contributes O(j^{−2−p}));
+- Δβ_j, Δγ_j = O(j^{−1−ε}) (a first difference of an O(j^{−1−ε}) remainder is O(j^{−1−ε})).
 
 *Proof.* Orthonormal polynomials P_j of σ satisfy b_{j+1}P_{j+1} = (x − α_j)P_j − b_jP_{j−1}.
 
 (a) **Uvarov, reversed.** As in Lemma U with the roles exchanged, D_m(σ′) = D_m(σ)(1 − w₀K_{m−1}(x₀, x₀)), K_{m−1} = Σ_{j<m}P_j(x₀)².
-Since σ has compact support, polynomials are dense in L²(σ) (Weierstrass, plus density of C(supp σ) in L²(σ)). Expanding
-1_{x₀} ∈ L²(σ) in the basis P_j and using Parseval gives w₀ = Σ_j w₀²P_j(x₀)², i.e. Σ_jP_j(x₀)² = 1/w₀. So 1 − w₀K_{m−1} = w₀T_m
+Next, Σ_jP_j(x₀)² = 1/w₀ (no citation needed):
+- *Extremal property.* For deg π < m with π(x₀) = 1, write π = Σ_{j<m}c_jP_j. Cauchy–Schwarz on 1 = Σc_jP_j(x₀) gives
+  ∫π²dσ = Σc_j² ≥ 1/K_{m−1}(x₀, x₀), with equality for π = K_{m−1}(·, x₀)/K_{m−1}(x₀, x₀).
+- *Lower bound.* Every such π has ∫π²dσ ≥ w₀π(x₀)² = w₀, so K_{m−1}(x₀, x₀) ≤ 1/w₀.
+- *Upper bound.* x₀ is an isolated point of supp σ ⊂ [0, 1], since the atoms accumulate only at 0. Let d > 0 be its distance to
+  the rest of the support, and T(x) := 1 − (x − x₀)²/2. Then T(x₀) = 1, and 0 < T ≤ θ := 1 − d²/2 < 1 on supp σ′. With π = T^N
+  (deg 2N < m): ∫π²dσ ≤ w₀ + θ^{2N}σ′(ℝ) → w₀.
+Hence K_{m−1}(x₀, x₀) ↑ 1/w₀, i.e. Σ_jP_j(x₀)² = 1/w₀. So 1 − w₀K_{m−1} = w₀T_m
 with T_m := Σ_{j≥m}P_j(x₀)², and F(m) := log D_m(σ) − log D_m(σ′) = −log(w₀T_m). By b_n² = D_{n+1}D_{n−1}/D_n²,
 
   log b_n²(σ) − log b_n²(σ′) = F(n+1) − 2F(n) + F(n−1).
@@ -229,20 +244,37 @@ estimates are therefore relative: write ρ̂_j = σ_j(1 + e_j). Since σ_j = Φ_
 
 i.e. e_{j−1} = θ_j e_j + D_j, with θ_j := Φ_j′(ξ_j)σ_j/σ_{j−1} and D_j := σ_j/σ_{j−1} − 1. Here:
 - |θ_j| ≤ q′ < 1, since Φ_j′ ≤ (u_j/(4 − 3u_j))² and σ_j/σ_{j−1} = 1 + O(1/j);
-- D_j = Δlog σ_j + O(j⁻²). Since log σ_j = log u_j + h(u_j) + O(|β_j| + |γ_j|) with h smooth on [0, 1 − η/2], and
-  Δlog u_j = log(b_j/b_{j−1}) = −p/j + O(j^{−1−ε}), we get D_j = O(1/j) and ΔD_j = O(j^{−1−ε}), uniformly in u_j ∈ (0, 1 − η/2].
+- D_j = e^{Δlog σ_j} − 1 = Δlog σ_j + O(j⁻²). Solving the frozen quadratic (divided by x₀) exactly:
+  σ_j = (u_j/2)/(A_j + √(A_j² − u_j²(1 + γ_j)/4)), with A_j := 1 − u_j(1 + β_j)/2.
+  So log σ_j = log u_j + h(u_j, β_j, γ_j), with h(u, β, γ) := −log(2A + 2√(A² − u²(1 + γ)/4)). This h is real-analytic and bounded
+  with all derivatives on u ∈ [0, 1 − η/2], |β|, |γ| ≤ δ₀; the discriminant at β = γ = 0 is 1 − u ≥ η/2.
+- *No division by u.* Δu_j = u_{j−1}γ_{j−1} exactly, so Δlog u_j = log(1 + γ_{j−1}) = −p/j + O(j^{−1−ε}), and
+  Δ²log u_j = O(|Δγ| + j⁻²) = O(j^{−1−ε}). Likewise Δ²u_j = Δu_{j−1}γ_{j−1} + u_{j−2}Δγ_{j−1} = O(j^{−1−ε}), and
+  Δ²h_j = O(|Δ²u| + |Δ(u, β, γ)|² + |Δβ| + |Δγ|) = O(j^{−1−ε}).
+- Hence D_j = O(1/j) and ΔD_j = O(j^{−1−ε}), uniformly in u_j ∈ (0, 1 − η/2].
 
-Contraction gives e_j = O(1/j). Put E_j := D_j/(1 − θ̄_j), with θ̄_j := Φ_j′(σ_j)σ_j/σ_{j−1}; θ_j − θ̄_j = O(e_j). Then
+Contraction gives e_j = O(1/j). The series e_{j−1} = Σ_{i≥j}D_iΠ_{l=j}^{i−1}θ_l converges: the a priori bound |e_J| ≤ 1/σ_J
+grows only polynomially, while Πθ_l decays geometrically (θ_l ≤ Cu_l²), so the tail term vanishes. The same holds for ẽ. Put E_j := D_j/(1 − θ̄_j), with θ̄_j := Φ_j′(σ_j)σ_j/σ_{j−1}; θ_j − θ̄_j = O(e_j). Then
 ẽ_j := e_j − E_j satisfies ẽ_{j−1} = θ_jẽ_j + O(|ΔE_j| + |e_j|²) = θ_jẽ_j + O(j^{−1−ε}), so ẽ_j = O(j^{−1−ε}). Also
 ΔE_j = O(j^{−1−ε}), because E is built from slowly varying data. Hence Δlog(1 + e_j) = O(j^{−1−ε}).
-Therefore Δlog ρ̂_j = Δlog σ_j + O(j^{−1−ε}) = ∂_u log S·Δu_j + O(j^{−1−ε}). Since ∂_u log S(u, 0, 0) = 1/(u√(1−u)) and
-Δu_j = u_jγ_j + O(j^{−2}) = −pu_j/j + O(j^{−1−ε}),
+Therefore Δlog ρ̂_j = Δlog σ_j + O(j^{−1−ε}) = (1 + u_jh_u(u_j, 0, 0))Δlog u_j + O(j^{−1−ε}). The β, γ dependence of h_u
+contributes O(1/j)·Δu_j. Since 1 + uh_u(u, 0, 0) = u∂_u log S(u, 0, 0) = 1/√(1 − u),
 
-  log ρ̂_j − log ρ̂_{j−1} = −p/(j√(1 − u_j)) + O(j^{−1−ε}).
+  log ρ̂_j − log ρ̂_{j−1} = −p/(j√(1 − u_j)) + O(j^{−1−ε}),   and   Δ²log ρ̂_j = O(j^{−1−ε})
 
-(d) **Tail sums.** T_m = P_m(x₀)²G_m with G_m = 1 + ρ̂_m²G_{m+1} = Σ_{i≥0}Π_{l<i}ρ̂_{m+l}². By (c), log G_m = g(u_m) + O(m^{−ε}) with g
-smooth, and its first differences are O(1/m) with second differences O(m^{−1−ε}). (The same contraction argument applies to
-G ↦ 1 + ρ̂²G, a contraction with factor ≤ q.) Then
+(the main term has differences O(j⁻²), since Δu_j = O(u_j/j)).
+
+(d) **Tail sums.** T_m = P_m(x₀)²G_m with G_m = 1 + ρ̂_m²G_{m+1} = Σ_{i≥0}Π_{l<i}ρ̂_{m+l}². Claim: Δ²log G_m = O(m^{−1−ε}),
+uniformly in u. (Argument from REVIEW_SPEC_A §2.4.)
+- Put Ḡ_m := 1/(1 − ρ̂_m²) and f_m := G_m − Ḡ_m. Then f_m = ρ̂_m²f_{m+1} + ρ̂_m²(Ḡ_{m+1} − Ḡ_m), so
+  f_m = Σ_{i≥0}π_{m,i}ΔḠ_{m+i+1}, with π_{m,i} := Π_{l=0}^{i}ρ̂²_{m+l} ≤ q^{i+1}.
+- log Ḡ is a smooth function of log ρ̂ on ρ̂² ≤ q. So by (c), ΔḠ = O(1/m) and Δ²Ḡ = O(|Δ²log ρ̂| + |Δlog ρ̂|²) = O(m^{−1−ε}).
+- Write f_m − f_{m−1} = Σ_i(π_{m,i} − π_{m−1,i})ΔḠ_{m+i+1} + Σ_iπ_{m−1,i}Δ²Ḡ_{m+i+1}. Since
+  π_{m,i}/π_{m−1,i} = exp(2Σ_{l=m}^{m+i}Δlog ρ̂_l) = 1 + O((i + 1)/m)e^{C(i+1)/m}, the first sum is O(m⁻²) (for m ≥ n₀ with
+  qe^{C/n₀} < 1) and the second is O(m^{−1−ε}). So Δf = O(m^{−1−ε}) and f = O(1/m).
+- log G = log Ḡ + log(1 + f/Ḡ), with Ḡ ≥ 1. Then Δ²log Ḡ = O(m^{−1−ε}), and Δlog(1 + f/Ḡ) = O(|Δf| + |f||ΔḠ|) = O(m^{−1−ε}),
+  so its second difference is O(m^{−1−ε}) as well.
+Numerically this term is O(n⁻²)·(a function of u) (REVIEW_SPEC_A T2). Then
 
   F(m+1) − F(m) = −log(T_{m+1}/T_m) = −2 log ρ̂_m − log(G_{m+1}/G_m),
 
@@ -266,8 +298,11 @@ Check (`checks/spec_uvarov.out`; p = 0.6, s = 2, k₀ = 30). This uses the cache
 polynomials of σ′ at x₀.
 - Lemma U holds to relative 6·10⁻¹² for n ∈ [100, 1500], limited by the cache precision.
 - p′_n(x₀)/p′_{n−1}(x₀) = 22.3217 against r(u_n) = 22.3034 at n = 1500, and 2.468 against 2.374 at n = 100: a relative gap
-  of O(1/n), as (c) predicts. This checks the dominant solution of σ′; the proof uses the minimal solution of σ, which is
-  the same r(u) by symmetry of the frozen roots (product b_j/b_{j+1} → 1).
+  of O(1/n). This tests the dominant solution of σ′, not the proof's minimal solution of σ, whose ratio tends to the reciprocal
+  1/r(u) = S(u, 0, 0) (the product of the frozen roots is b_j/b_{j+1} → 1).
+- The proof's own chain (b)–(d) was tested by the reviewer (REVIEW_SPEC_A T2, script chain.py in the review scratch). It uses
+  σ's coefficients alone (backward contraction, minimal ratios, tail sums) and reproduces the measured
+  log b_n²(σ)/b_n²(σ′) to 10⁻¹²–10⁻¹⁶ at p ∈ {0.3, 0.5, 0.6, 1.5}. j·e_j stays bounded, and Δ²log G = O(n⁻²).
 
 ### 3.3 The bouncer zeta values from the heat trace (HEURISTIC argument; NUMERICAL confirmation)
 
@@ -302,8 +337,8 @@ nonzero n^{−1−jp} term is j = 3. The value Z_E(−3) = 15/64 is a NUMERICAL 
 1. **S1 for Hurwitz lattices.** The moment identity is done (§3.1, Lemma H). Remaining: the shifted band-factor construction,
    the index offset, the p < 1 seams, and a Rule C quote of DLMF 25.11.9.
 2. **S2.** Theorem S2′ (§3.2) proves it for one deleted atom of σ_{p,s}, away from the turning point, with error O(n^{−ε}).
-   Remaining: Rule R review; the turning-point region u → 1 (Airy, the S4 mechanism); a sharper error to resolve the u-terms
-   at fixed k₀; and several nodes or added nodes (needs coefficient expansions for modified measures).
+   Remaining: the turning-point region u → 1 (Airy, the S4 mechanism); for p ≥ 1, an error sharper than O(n⁻¹) to resolve
+   the u-terms at fixed k₀ (numerically R = O(1/n) everywhere); and several nodes or added nodes (needs coefficient expansions for modified measures).
 3. **Bouncer.** Heat-trace explanation in §3.3. Remaining: cite the boundary-invariant expansion (or Voros) and derive
    Z_E(−3) = 15/64, β₁ = 1/(6√π).
 4. **Quartic oscillator** (p = 4/3, the κ-regime of E3 Thm E3.1): compare 2pcZ(−1) with Voros's spectral zeta.
@@ -319,6 +354,11 @@ nonzero n^{−1−jp} term is j = 3. The value Z_E(−3) = 15/64 is a NUMERICAL 
   independent of the other check.
 - *Fit artefacts in S4?* Deep-band jitter, fitted by the same code, gives RMS 10⁻⁹. So the n^{−1/2} noise is in the data, not
   the fit.
+- *Lemma U / S2′ (after review).* Exact finite test: the reviewer's chain (b)–(d), run from σ's coefficients alone, reproduces
+  the measured Δ²F to 10⁻¹²–10⁻¹⁶ (REVIEW_SPEC_A T2/T3). Far-node regime u → 0: all estimates in (c)–(d) are relative and
+  avoid division by u (F2). k₀ = 1 (x₀ = 1, the largest atom, u_n = 4cn^{−p}): S2′ predicts −p + O(n^{−ε}), the index shift.
+- *Lemma H.* An integer δ (a = 1) reduces to E3 Lemma F.1′(i). The check grids use δ ∈ {−½, 0.3, ¾, 1.4} (p > 1) and
+  δ ∈ {0, −½, 0.3, 1.4} (p < 1).
 - *Cache provenance.* The coefficient files are in `tmp/spectral_cache/` (gitignored). The Hurwitz runs use the Plan 62 cache
   (`so_coeffs.coeffs(..., delta)`). The scripts regenerate everything from scratch; at 2 cores this takes about 3 min per
   (measure, n_max = 1600).
