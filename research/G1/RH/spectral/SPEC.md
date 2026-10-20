@@ -6,8 +6,7 @@ Status (2026-10-20): exploratory note from the Plan E3 session. Labels per VERIF
   applied, §6). A single second reader; the other parts were reviewed for labels only.
 - §3.1: Lemma H is CONDITIONAL on Hurwitz's formula (unread under Rule C), with NUMERICAL confirmation.
 - §3.3: Proposition B, PROVED-mod-cite pending Rule C (Hadamard factorisation of Ai; the Mellin correspondence), NOT REVIEWED;
-  NUMERICAL confirmation. This note builds on E3.md (REVIEWED), in particular its Lemma E3.7. Novelty: UNCHECKED
-(Rule L not done).
+  NUMERICAL confirmation. This note builds on E3.md (REVIEWED), in particular its Lemma E3.7. Novelty: first pass done, §3.9.
 
 ## 0. Setting
 
@@ -512,6 +511,41 @@ there it produces the WKB part of Z(−j): the cancellation that makes the bounc
    variable t, where the integrand is the same and only the Jacobian dy/dt changes.
 3. The (P1)–(P4) of §3.7 are this construction written invariantly. For spectra without an exact phase function, the
    determinant route of §3.7 is the general version.
+
+### 3.9 Novelty (Rule L, first pass, 2026-10-20) — summary of research/program/novelty_SPEC.md (local, gitignored)
+
+The search was web-only: arXiv was read through WebFetch, and MathSciNet/zbMATH were unavailable. Quotes there are second-hand
+and must be re-read before citing (Rule C). "Not found" describes the search, not a proof of novelty.
+
+| Item | Verdict | Closest prior work |
+|---|---|---|
+| S1: ε_j = C(2j, j)pc^jZ(−j), j ≥ 1 | NOT FOUND | Monien 2006/2010; Haynes–Zudilin 2015 (leading order or experimental) |
+| S1, j = 0: d₁ = −pα/2 + pZ(0) | exact special cases implicit in classical work | Lommel polynomials (Van Assche 1996 §3; Dickinson 1954), see below |
+| Theorem S2′ (closed law −p(1−u)^{−1/2}) | PARTIALLY KNOWN: ingredients classical, closed scaled law not found | Uvarov 1969; Simon 2008 Thm 9.7 (Σ_jP_j(x₀)² = 1/w₀); Wong 2009; van der Sluis–van der Vorst 1986 |
+| Prop. B values (Airy-zero zeta) | KNOWN | Naber 2022 (arXiv:2211.05808); Voros 1999 (Z^±(0) = ±¼) |
+| Heat coefficients β₁, β₃ | follow from the known zeta values; not found written | — |
+| Möbius identity (Prop. M) | elementary / PARTIALLY KNOWN | Vieira–Botta 2019 Thm 3 (degree-dependent weight) |
+| κ-shift law −2(2−p)cκn^{−p} | NOT FOUND | — |
+| GUE vs Poisson fluctuation law | qualitatively KNOWN in another setting | Krylov complexity: Rabinovici–Sánchez-Garrido–Shir–Sonner 2022 (Lanczos coefficients more disordered for integrable spectra) |
+| Band factor = regular part of a spectral determinant | NOT FOUND | — |
+| Airy index map | KNOWN | DLMF 9.9.1 (θ(a_k) = kπ); Fucci–Piorkowski–Stanfill 2025 Thm 3.7 |
+
+Consequences for this note:
+- **Sign conflict on the Dirichlet bouncer values.** Naber's eqs. (74)–(75) give Z(−3) = −15/64 and Z(−6) = +1695/1024, the
+  opposite signs to Proposition B. Proposition B's signs are supported by three things: the independent Hurwitz-regularised
+  zero sums of §2 (+0.234375 to 3·10⁻²⁴), the heat-trace fit (β₂ = −0.0390622 = −Z_E(−3)/6), and the reviewer's re-derivation
+  from the Riccati equation of Ai′/Ai. Naber's own eq. (151) reportedly disagrees with his eq. (74). The Neumann values agree
+  with Naber. To be settled by reading Naber §3 directly. Proposition B's novelty is downgraded to "known values; independent
+  derivation and numerical confirmation".
+- **Lommel / Bessel-zero family (exact check of the j = 0 term).** The measure on 1/j²_{μ,k} (p = 2, s = 2) has Lommel-polynomial
+  recurrence coefficients (Van Assche 1996 §3; recurrence quoted in RH/CITATIONS.md as VA). The search report's computation
+  from that recurrence gives n²b_n/c = 1 − μ/n + (3μ²/4 + 1/8)/n² + O(n⁻³). S1's j = 0 term predicts d₁ = ½ + 2ζ(0, μ/2 + ¾) = −μ,
+  which matches for all μ. At μ = ½ the n⁻² coefficient 5/16 equals E3's d₂(2, 2). It does not test ε_j (p = 2). NOT yet
+  re-derived in this repo.
+- **Citations to add.** Simon 2008 Thm 9.7 for step (a) of S2′ (the self-contained proof stays); Uvarov 1969 for Lemma U;
+  DLMF 9.9.1 for the Airy index map (§3.8, after aligning phase conventions); Rabinovici et al. 2022 in §3.6.
+- **Still to search:** MathSciNet/zbMATH (Lommel asymptotics, varying point masses), Voros 1987 (Z(0) as a Maslov term),
+  Branson–Gilkey (β₁), and FPS §5.2 (the sign of Z(−3)).
 
 ## 4. What this opens (HEURISTIC)
 
