@@ -247,7 +247,8 @@ all five s on the grid (check_e2_grid.out, deviations ≤ 1.3·10⁻⁶). Here �
 term of E_plt1 Theorem E′.1 (0 < p < 1) merges with the n⁻² term at p = 1. At s ∈ {3/2, 5/2} this is PROVED-mod-cite: E_p1 Theorem E1.6
 (REVIEWED; b_n = TC resp. x·TC value × (1 − 1/(24n²) + O(n⁻³))) together with the Tricomi–Carlitz closed form gives the n⁻²
 coefficients 5/96 and 53/96, which equal d₂(1, 3/2) − 1/12 and d₂(1, 5/2) − 1/12 (review A B3). CONJECTURE (p = 1, other s):
-n b_n/c(1) = 1 − (s−1)/(2n) + (d₂(1, s) − 1/12)/n² + o(n⁻²). Not proved in general: at p = 1, Lemma E.2 fails (E_pgt1 §9) and the
+n b_n/c(1) = 1 − (s−1)/(2n) + (d₂(1, s) − 1/12)/n² + o(n⁻²). (*Plan E3:* for 0 < p < 1 the analogous merging is proved at every p = 1/j, j ≥ 2, with value d₂ − p/12, E3.md
+Cor E3.3(ii); p = 1 is the j = 1 case, outside that framework, E3 §8.) Not proved in general: at p = 1, Lemma E.2 fails (E_pgt1 §9) and the
 hard edge uses the RH₁(r) analysis.
 
 **Remark E2.11 (the s² coefficient and Paper III Conjecture 8.1; HEURISTIC).** The s² coefficient of d₂ is (p² − 2)/(8p²) =
@@ -270,15 +271,17 @@ n^{−(s−1)/p} up to constants (elementary). Not used elsewhere.
 proof in §8 is kept (it is the one checked by both reviews); the shorter route is recorded here and in REVIEW_PlanE2_A.md and
 is not given a separate label.
 
-**Remark E2.14 (the n^{−1−p} term for 1 < p < 2; CONJECTURE).** Review A (T4) fits the n^{−1−p} coefficient of n^pb_n/c at
+**Remark E2.14 (the n^{−1−p} term for 1 < p < 2; now PROVED-mod-cite, E3.md Theorem E3.1).** Review A (T4) fits the n^{−1−p} coefficient of n^pb_n/c at
 p = 3/2 and finds κ_p = 2p c(p)ζ(−p) at every s tested, the same constant as for 0 < p < 1 (E_plt1 Thm E′.1). CONJECTURE: for
 1 < p < 2, n^pb_n/c = 1 − (s−1)/(2n) + d₂/n² + κ_p n^{−1−p} + O(n^{−3} + n^{−1−2p}). It would come from the O(n^{−p}) part of H_n
-in Δ₁ (Lemma E.2), which this file only bounds.
+in Δ₁ (Lemma E.2), which this file only bounds. *Update (Plan E3, REVIEWED):* proved in E3.md Theorem E3.1, with remainder
+O(n⁻³) for every p > 1.
 
 **Open (GAP).**
-- The n^{−1−p} coefficient for 1 < p < 2 (Remark E2.14).
+- The n^{−1−p} coefficient for 1 < p < 2 (Remark E2.14). *Closed: E3.md Theorem E3.1.*
 - d₂ for 0 < p ≤ 1: at p = 1 see Remark E2.10; for p < 1 the seam terms (E_plt1) add n^{−1−p}, n^{−1−2p}, … whose
-  coefficients beyond κ_p are not computed (THEOREMS §4 item 13).
+  coefficients beyond κ_p are not computed (THEOREMS §4 item 13). *Closed for p < 1: E3.md Thm E3.2, Cor E3.3, E3.4
+  (ε_j = C(2j, j)pc^jζ(−jp); d₂, resp. d₂ − p/12 at p = 1/j). p = 1, s ∉ {3/2, 5/2} stays open (E3 §8).*
 - The second-order coefficient of n^pα_n (needs R_2⁽²⁾ as well); not computed here.
 - Uniformity in s (Remark E2.11).
 - Rule L (novelty) not done: higher-order RH expansions for fixed Jacobi weights are in KMVV §8; what is specific here is the
