@@ -5,7 +5,8 @@ Status (2026-10-20): exploratory note from the Plan E3 session. Labels per VERIF
 - §3.2: Lemma U (PROVED) and Theorem S2′ (PROVED-mod-cite), **REVIEWED** (Rule R: REVIEW_SPEC_A.md, ACCEPT WITH FIXES; fixes
   applied, §6). A single second reader; the other parts were reviewed for labels only.
 - §3.1: Lemma H is CONDITIONAL on Hurwitz's formula (unread under Rule C), with NUMERICAL confirmation.
-- §3.3: HEURISTIC with NUMERICAL confirmation. This note builds on E3.md (REVIEWED), in particular its Lemma E3.7. Novelty: UNCHECKED
+- §3.3: Proposition B, PROVED-mod-cite pending Rule C (Hadamard factorisation of Ai; the Mellin correspondence), NOT REVIEWED;
+  NUMERICAL confirmation. This note builds on E3.md (REVIEWED), in particular its Lemma E3.7. Novelty: UNCHECKED
 (Rule L not done).
 
 ## 0. Setting
@@ -170,6 +171,24 @@ per-node: ζ(−kp, a + 1) = ζ(−kp, a) − a^{kp}, which is S2 expanded. To t
 
 Lemma E3.7 is unchanged.
 
+*Reduction for −1 < δ ≤ 0 (HEURISTIC; the steps that change, after Paper 2 §§5–6 and E_pgt1 Lemma E.2).*
+- **Interpolation.** The nodes sit at t ∈ 1 + δ + ℕ₀ (t = nz^{−1/p}), so in Paper 2 Lemma interp and §6 sin πt becomes
+  sin π(t − δ), and the factor 1/Γ(t) carried by the node masses becomes 1/Γ(t − δ).
+- **Outer scalar.** It becomes D̃_δ = e^{−j_δ(t)}, with j_δ(t) := LnΓ(t − δ) − (t − δ − ½)ln t + t − ½ln 2π. By DLMF 5.11.8
+  (Stirling for Γ(t + a)), j_δ(t) → 0 as t → ∞, with Bernoulli-polynomial (Hurwitz) coefficients B_{k+1}(−δ).
+- **Band factor (p > 1).** G_δ := −j_δ + log B_δ. Here B_δ is the Binet-cut scalar of the density
+  𝔟_δ = 2Im(−j_δ(t₊) − Log(1 − e^{−2πi(t₊ − δ)})). Its jump on (−∞, 0) is i𝔢_δ: the j_δ parts cancel identically, as in E_pgt1
+  Lemma E.2(a). K_δ := G_δ − G_δ(1) − (Cauchy integral of 𝔢_δ) is analytic on ℂ ∖ {0}, bounded near 0 (t → ∞), and O(log|z|) at ∞,
+  so it is constant. Hence log H_n^δ(z) − log H_n^δ(1) = −2Σ_km_k(δ)(z^k − 1) + …, with Lemma H's m_k(δ) = ζ(−kp, 1 + δ)/(kn^{kp}).
+  With Lemma E3.7 this gives ε_k = C(2k, k)pc^kζ(−kp, 1 + δ), which is S1.
+- **What is not done: the index offset.** At t → 0 (z → ∞), j_δ behaves as (δ + ½)ln t + LnΓ(−δ) for δ ∈ (−1, 0), against −½ln t
+  for δ = 0, where Γ(t) has its pole at t = 0. This changes the outer scalar's power of z at ∞, i.e. the normalisation
+  U z^{−nσ₃} of Paper 2 Lemma interp. That is where d₁ = −(s−1)/2 − pδ must come from. The limit δ → 0⁻ is a crossover
+  (the pole of Γ(t − δ) at t = δ approaches 0), so the bookkeeping has to be done with Paper 2's normalisation (O1)–(O5)
+  redone, not read off from the exponent.
+- For δ > 0 the fractional part enters through Lemma H, and the ⌈δ⌉ missing nodes enter through the zeros of 1/Γ(t − δ) at
+  t = δ, δ − 1, … on the positive axis: phantom nodes beyond the top node, removed by rational factors (the S2 mechanism).
+
 *p < 1.* The analogue is now checked too. In E_plt1 Lemma F.1(iii), with seams at θ = pπ/2 carrying the jumps
 −Log(1 − e^{±2πiδ}e^{−2πnr^{−1/p}}), the two seam terms combine into Σ_m sin(2πmδ − πkp/2)/m^{1+kp}, the same Fourier sum. It
 equals ζ(−kp, a)/(kn^{kp}); `checks/spec_hurwitz_moments_plt1.out`, p ∈ {0.3, 0.6, 0.75}, δ ∈ {0, −½, 0.3, 1.4}, k ≤ 3, relative
@@ -304,23 +323,44 @@ polynomials of σ′ at x₀.
   σ's coefficients alone (backward contraction, minimal ratios, tail sums) and reproduces the measured
   log b_n²(σ)/b_n²(σ′) to 10⁻¹²–10⁻¹⁶ at p ∈ {0.3, 0.5, 0.6, 1.5}. j·e_j stays bounded, and Δ²log G = O(n⁻²).
 
-### 3.3 The bouncer zeta values from the heat trace (HEURISTIC argument; NUMERICAL confirmation)
+### 3.3 The bouncer zeta values in closed form (PROVED-mod-cite pending Rule C for two classical inputs; NOT REVIEWED)
 
-H = −d²/dx² + x on (0, ∞) with Dirichlet at 0, eigenvalues E_k = −a_k, and Θ(t) := Σ_ke^{−tE_k}. Two inputs:
-- **Bulk.** The diagonal of the full-line heat kernel of −d² + x is (4πt)^{−1/2}e^{−tx + t³/12} (standard; not cited here).
-  Integrated over x > 0 it gives W(t) = (4π)^{−1/2}t^{−3/2}e^{t³/12}, whose expansion has only powers t^{3m − 3/2}.
-- **Boundary.** The boundary heat invariants at 0 are polynomials in V^{(i)}(0), and V^{(i)}(0) has weight t^{1+i/2}. For V = x only
-  V′(0) = 1 (weight t^{3/2}) is nonzero, so the boundary series is Σ_mβ_mt^{3m/2} with β₀ = −¼.
+H = −d²/dx² + x on (0, ∞), with Dirichlet condition at 0; its eigenvalues are E_k = −a_k (the Airy zeros). Let Z_E(w) := Σ_kE_k^{−w}.
 
-Since Z_E(s)Γ(s) = ∫_0^∞t^{s−1}Θ(t)dt, Z_E(−j) = (−1)^jj!·[t^j]Θ. This vanishes unless t^j occurs, i.e. unless 3 | j. Also
-Z_E(0) = −¼, which is the ζ(0, ¾) of §2.
+**Proposition B.** For j = 0, 1, 2, …, Z_E(−j) = (−1)^j·[z^{−j−1}](Ai′/Ai)(z), the coefficient in the large-z asymptotic
+expansion. In particular Z_E(−j) = 0 unless 3 | j, and
 
-Numerically (`checks/spec_bouncer_heat.out`): a fit of Θ − W + ¼ on t ∈ [0.1, 0.8] by t^{3/2}, t³, t^{9/2}, … gives
-- β₁ = 0.09403159 = 1/(6√π) to 10⁻⁸;
-- β₂ = −0.0390622 against −Z_E(−3)/6 = −0.0390625. Here Z_E(−3) = (3π/2)²Z_{λ′}(−3) = 0.234374999999 = 15/64 to 12 digits;
-- a t¹ term fitted freely comes out 10⁻⁵.
-So the vanishing Z(−1) = Z(−2) = 0 behind the bouncer row of §2 is the heat-trace structure of a linear potential, and the first
-nonzero n^{−1−jp} term is j = 3. The value Z_E(−3) = 15/64 is a NUMERICAL identification, not derived.
+  Z_E(0) = −1/4,  Z_E(−3) = 15/64,  Z_E(−6) = −1695/1024,  Z_E(−9) = 59025/2048.
+
+The heat trace is Θ(t) = Σe^{−tE_k} = (4π)^{−1/2}t^{−3/2}e^{t³/12} − 1/4 + β₁t^{3/2} + β₂t³ + β₃t^{9/2} + …, with boundary coefficients
+β₁ = 1/(6√π), β₂ = −5/128 and β₃ = 25/(1512√π).
+
+*Proof.*
+- **Resolvent trace.** Ai is entire of order 3/2, with zeros exactly the a_k < 0. By Hadamard's factorisation (genus 1;
+  NOT QUOTED, Rule C), Σ_k[1/(z + E_k) − 1/E_k] = Ai′(z)/Ai(z) − Ai′(0)/Ai(0).
+- **Large-z expansion.** By DLMF 9.7.5–9.7.6 with u_k, v_k from 9.7.2 (quoted in RH/CITATIONS.md "(DLMF-9, Paper 2)",
+  "(DLMF-9.7.2, Plan 65)"), Ai′/Ai = −z^{1/2}·[Σ(−1)^kv_kζ^{−k}]/[Σ(−1)^ku_kζ^{−k}], with ζ = (2/3)z^{3/2}, in |ph z| ≤ π − δ. The
+  k-th term is ∝ z^{(1−3k)/2}, which is an integer power only for odd k, namely z^{−1}, z^{−4}, z^{−7}, ….
+- **Mellin correspondence** (standard, NOT QUOTED). For 0 < Re w < 2, ∫_0^∞z^{1−w}(z + E)^{−2}dz = E^{−w}Γ(w)Γ(2 − w). So
+  Z_E(w) = (sin πw/(π(1 − w)))∫_0^∞z^{1−w}R₂(z)dz, with R₂ = −(Ai′/Ai)′ = Σ(z + E_k)^{−2} (valid for 3/2 < Re w < 2).
+  Continue analytically by subtracting the asymptotic terms of R₂ at ∞. At w = −j the zero of sin πw cancels the pole produced
+  by the z^{−j−2} term of R₂, which gives Z_E(−j) = (−1)^j[z^{−j−1}](Ai′/Ai). Equivalently, a heat-trace term c_at^a corresponds
+  to c_aΓ(a + 1)z^{−a−1}.
+- **Coefficients.** These are exact sympy rational arithmetic (`checks/spec_bouncer_closed.py`). The half-integer coefficients
+  minus those of the bulk term (4π)^{−1/2}t^{−3/2}e^{t³/12} give β₁, β₃. ∎
+
+*Checks* (`checks/spec_bouncer_closed.out`, `checks/spec_bouncer_heat.out`; NUMERICAL, independent of the proof):
+- The Hurwitz-regularised Airy-zero sums of §2 (WKB series plus exact low zeros, 40 digits) give Z_E(0), Z_E(−3) and Z_E(−6)
+  to 0, 3·10⁻²⁴ and 7·10⁻¹⁸.
+- The heat-trace fit gives β₁ = 0.094031587 (closed form 0.0940315973) and β₂ = −0.0390622 (closed form −0.0390625), and a fitted
+  β₃ ≈ 0.00933 (closed form 0.0093285).
+Z_E(−9) is not independently checked: the zero sums would need more WKB terms.
+
+*Consequences for S1* (normalised eigenvalues λ′ = E/(3π/2)^{2/3}, Z_{λ′}(−j) = (3π/2)^{−2j/3}Z_E(−j)):
+- d₁ = −pα/2 − p/4.
+- ε₁ = ε₂ = 0, and ε₃ = 20pc³(3π/2)^{−2}·15/64.
+The ε₃ term sits at n^{−1−3p} = n^{−3}, where it merges with the n⁻³ term, below the resolution of the §2 fits. So the bouncer's first nonzero spectral correction
+beyond d₁ is predicted exactly but not yet observed.
 
 ## 4. What this opens (HEURISTIC)
 
@@ -334,13 +374,19 @@ nonzero n^{−1−jp} term is j = 3. The value Z_E(−3) = 15/64 is a NUMERICAL 
 
 ## 5. Next steps
 
-1. **S1 for Hurwitz lattices.** The moment identity is done (§3.1, Lemma H). Remaining: the shifted band-factor construction,
-   the index offset, the p < 1 seams, and a Rule C quote of DLMF 25.11.9.
+1. **S1 for Hurwitz lattices.** Done: the moment identity for both p > 1 and p < 1 (Lemma H), and the band-factor reduction
+   for −1 < δ ≤ 0 (§3.1). Remaining:
+   - the index offset (d₁ = −(s−1)/2 − pδ) from Paper 2's normalisation at ∞ with Γ(t − δ), including the δ → 0⁻ crossover;
+   - the p < 1 outer construction (seams, glue) with the shift;
+   - a Rule C quote of Hurwitz's formula.
+   This is a plan-sized task (a shifted copy of Paper 2 §§5–6 and E_pgt1/E_plt1), not a lemma.
 2. **S2.** Theorem S2′ (§3.2) proves it for one deleted atom of σ_{p,s}, away from the turning point, with error O(n^{−ε}).
-   Remaining: the turning-point region u → 1 (Airy, the S4 mechanism); for p ≥ 1, an error sharper than O(n⁻¹) to resolve
-   the u-terms at fixed k₀ (numerically R = O(1/n) everywhere); and several nodes or added nodes (needs coefficient expansions for modified measures).
-3. **Bouncer.** Heat-trace explanation in §3.3. Remaining: cite the boundary-invariant expansion (or Voros) and derive
-   Z_E(−3) = 15/64, β₁ = 1/(6√π).
+   Remaining:
+   - the turning-point region u → 1 (Airy, the S4 mechanism);
+   - for p ≥ 1, an error sharper than O(n⁻¹) to resolve the u-terms at fixed k₀ (numerically R = O(1/n) everywhere);
+   - several nodes, or added nodes (needs coefficient expansions for modified measures).
+3. **Bouncer.** Closed forms derived (Proposition B, §3.3). Remaining: quote Hadamard's factorisation and the Mellin
+   correspondence (Rule C), and a Rule R review. Observing ε₃ at n⁻³ would need third-order fits.
 4. **Quartic oscillator** (p = 4/3, the κ-regime of E3 Thm E3.1): compare 2pcZ(−1) with Voros's spectral zeta.
 5. **Quantify S4**: the amplitude and law of the soft-edge noise.
 

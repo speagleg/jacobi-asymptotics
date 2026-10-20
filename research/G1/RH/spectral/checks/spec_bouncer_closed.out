@@ -1,0 +1,8 @@
+Z_E(-j) (others vanish): {0: '-1/4', 3: '15/64', 6: '-1695/1024', 9: '59025/2048'}
+total heat coefficients of half-integer powers t^a: {'3/2': '5/(24*sqrt(pi))', '9/2': '221/(12096*sqrt(pi))', '15/2': '16565/(20756736*sqrt(pi))', '21/2': '51281261/(2252687044608*sqrt(pi))'}
+boundary beta1 = 1/(6*sqrt(pi))  beta3 = 25/(1512*sqrt(pi))  beta2 = -Z_E(-3)/6 = -5/128
+Z_E(-0): Hurwitz-regularised zero sum -0.25  closed form -0.25  diff 0.0
+Z_E(-3): Hurwitz-regularised zero sum 0.234375  closed form 0.234375  diff 2.9e-24
+Z_E(-6): Hurwitz-regularised zero sum -1.6552734375  closed form -1.6552734375  diff 6.6e-18
+fit values (spec_bouncer_heat.out): beta1 0.094031587 vs 0.09403159726 ; beta3 ~0.00933 vs 0.00932853
+ALL ASSERTIONS PASSED
