@@ -14,21 +14,21 @@ import numpy as np
 from spec_common import run, c_p_mp, NMAX
 from so_coeffs import coeffs
 from so_fit import sequences
-mode = sys.argv[1]; p, s, M = 0.6, 2.0, 3000; K = 200*NMAX
+mode = sys.argv[1]; seed = int(sys.argv[2]) if len(sys.argv) > 2 else 7; p, s, M = 0.6, 2.0, 3000; K = 200*NMAX
 x = np.arange(1, K + 1, dtype=np.float64)
 if mode == "gue":
-    rng = np.random.default_rng(7)
+    rng = np.random.default_rng(seed)
     Z = (rng.standard_normal((M, M)) + 1j*rng.standard_normal((M, M)))/np.sqrt(2)
     Q, R = np.linalg.qr(Z); Q = Q*(np.diag(R)/np.abs(np.diag(R)))
     th = np.sort(np.mod(np.angle(np.linalg.eigvals(Q)), 2*np.pi))
     xs = M*th/(2*np.pi); xs = xs - xs[0] + 1.0
 elif mode == "poisson":
-    rng = np.random.default_rng(7)
+    rng = np.random.default_rng(seed)
     e = rng.exponential(1.0, M - 1); xs = np.concatenate([[1.0], 1 + np.cumsum(e)]); xs = 1 + (xs - 1)*(M - 1)/(xs[-1] - 1)
 x[:M] = xs
 assert np.all(np.diff(x) > 0)
-print(f"{mode}: max |x_k - k| (k <= M) = {np.max(np.abs(xs - np.arange(1, M + 1))):.2f}")
-n, y = run(f"stats_{mode}_p{p}_s{s}", x**p, p, s, 0.0, K)
+print(f"{mode} seed {seed}: max |x_k - k| (k <= M) = {np.max(np.abs(xs - np.arange(1, M + 1))):.2f}")
+n, y = run(f"stats_{mode}_p{p}_s{s}" + ("" if seed == 7 else f"_seed{seed}"), x**p, p, s, 0.0, K)
 al, b = coeffs(p, s, K, NMAX); _, y0, *_ = sequences(p, al, b)
 c = float(c_p_mp(p)); N = n*(y - y0); kk = np.arange(1, K + 1, dtype=np.float64)
 C = np.empty_like(N); S = np.empty_like(N)

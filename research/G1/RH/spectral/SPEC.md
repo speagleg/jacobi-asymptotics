@@ -388,9 +388,23 @@ not of the form m + a + O(1/m). S1 does not apply, and indeed the effect is of a
 - **Leading coefficient.** Least-squares fits of n^pΔy_n = L + Σ_iA_in^{−e_i} give L = −1.2034, −0.6015 and −1.2231 at
   (p, κ) = (0.6, 1), (0.6, ½) and (0.3, 1). The candidate −2(2−p)cκ gives −1.2025, −0.6012 and −1.2226; all agree within 0.1%.
   The fit half-ranges are large (0.04–0.7), so this is a NUMERICAL candidate, not an identification.
-- **Heuristic.** The shift is the Möbius map y ↦ y/(1 + κy) on the nodes y = 1/λ. Since φ(a) − φ(b) = (a − b)/((1 + κa)(1 + κb)), the
-  orthogonal polynomials of the pushed-forward measure are those of σ with the varying weight (1 + κy)^{−2n}. That is an
-  external field of strength ~ 2κn^{1−p} in the rescaled variable, i.e. relative order n^{−p}.
+- **Exact identity (Proposition M; PROVED, elementary).** The shift is the Möbius map φ(y) = y/(1 + κy) on the nodes y = 1/λ.
+  Since φ(a) − φ(b) = (a − b)/((1 + κa)(1 + κb)), Heine's formula gives
+
+    D_m(σ_κ) = D_m((1 + κy)^{−2(m−1)}σ′),  σ′ := (1 + κy)^{−s/p}σ,
+
+  so the shifted measure is the old nodes with a weight that varies with m. Checked at 50 digits on a random 9-atom measure,
+  m ≤ 7 (`checks/spec_mobius.out`).
+- **First-order derivation (HEURISTIC; checked).** For μ_N := (1 + κy)^{−2N}σ′, ∂_N log D_m(μ_N) = −2∫log(1 + κy)K_{m−1}(y, y)dμ_N
+  (expectation of a linear statistic). To first order in κy this is −2κTr J_m = −2κT(m), with T(m) = Σ_{j<m}α_j. So
+  log D_m(σ_κ) ≈ log D_m(σ′) − 2κ(m−1)T(m). Then:
+  - log b_n² = Δ²log D at m = n gives log b_n²(σ_κ) − log b_n²(σ) ≈ Δ²_m[−2κ(m−1)T(m)];
+  - with α_j ≈ 2cj^{−p}, this is −4(2−p)cκn^{−p}, i.e. Δy_n ≈ −2(2−p)cκn^{−p}, which is the numerical candidate;
+  - neglected: the tilt (1 + κy)^{−s/p} (order n^{−1−p}), the O(κ²y²) term and the N-dependence of μ_N (order κ²n^{−2p}).
+  Check (`checks/spec_mobius_pred.out`): Δ²G built from the actual α_j of σ, against the measured log-ratio. The ratio
+  measured/predicted is 0.955 → 0.995 (p = 0.6, κ = 1, n = 50 → 1500), 0.970 → 0.997 (κ = ½), and 0.859 → 0.947 (p = 0.3). The gap
+  decays like κn^{−p} (0.0069 → 0.0047 from n = 800 to 1500, against (1500/800)^{0.6} = 1.46), i.e. it is the second-order term.
+  A proof would need leading-order Law P for σ′ and a bound on ∂²_N log D_m (a variance of a linear statistic).
 
 Lesson: S1's hypothesis is necessary. A smooth spectral deformation whose index drift grows (k^{1−p}) moves the leading
 asymptotics, while one with bounded index offset (Hurwitz, WKB) only shifts the 1/n-order series.
@@ -458,6 +472,34 @@ So a "Paper 2 for Airy nodes" is a concrete plan, with Airy sector lemmas replac
 **Why it matters.** (P1)–(P4) do not require λ_m = G(m) with G analytic. They hold for any spectrum whose determinant has
 WKB-type sectorial asymptotics, which includes Robin and inhomogeneous potentials. For chaotic spectra, log Δ on the node ray
 fluctuates at the scale of the spacing, so (P3) fails in the way S4 and §3.6 see.
+
+### 3.8 The bouncer inside Paper 2's framework: an exact analytic index map (NUMERICAL check; plan)
+
+Paper 2 builds the interpolation from an analytic index map t(z) with t = k at the nodes (t = nz^{−1/p} for the lattice). For the
+bouncer such a map exists exactly, through the Airy modulus-phase form (DLMF §9.8; NOT QUOTED).
+- **The map.** Let φ(x) := arg(Ai(−x) + iBi(−x)), continuous on x ≥ 0, with φ(0) = π/3 and φ′ = 1/(πM²) by the Wronskian
+  W(Ai, Bi) = 1/π. Then t(x) := φ(x)/π − 1/6 satisfies t(−a_k) = k exactly: checked for k ≤ 60 to 20 digits
+  (`checks/spec_airy_index.out`).
+- **Asymptotics.** t(x) = (2/(3π))x^{3/2} + 1/4 + O(x^{−3/2}): the difference is 1.0·10⁻³, 3.3·10⁻⁵ and 1.0·10⁻⁶ at x = 10, 100
+  and 1000.
+- **In the rescaled variable.** With x = Cn^p/z (C = (3π/2)^{2/3}, p = 2/3): t(z) = nz^{−3/2}·(1 + corrections) + 1/4.
+
+So the bouncer is Paper 2's lattice construction with three changes:
+- **(i) Hurwitz offset.** The index is shifted by a = 3/4, which is §3.1's case δ = −1/4 (the index-offset step there is still
+  open).
+- **(ii) A deformed index map.** t(z) − (nz^{−1/p} + 1/4) = O(z^{3/2}/n), analytic, and small on compact z-sets.
+- **(iii) Weights.** λ′^{−s/p} as a function of t, i.e. a smooth deformation of t^{−s}.
+In the band (z bounded, t ~ n) the deformation (ii) has relative size O(n^{−2}). But for the far nodes (small t) it is O(1), and
+there it produces the WKB part of Z(−j): the cancellation that makes the bouncer's ε₁ = ε₂ = 0.
+
+**Plan (not done).**
+1. Redo Paper 2 Lemma interp and the outer scalar with t(z) := φ(Cn^p/z)/π − 1/6. Node masses become smooth functions of t, and
+   sin πt and 1/Γ(t) are unchanged as functions of t. The Binet scalar j(t) is then composed with a different t(z).
+2. The band factor's jump on the cut is again Log(1 − e^{−2πit₊}), now with t₊ the boundary value of the deformed map. Its
+   moments ∫ (…)y^{−k−1}dy should give Z_{λ′}(−k). This is the analogue of Lemma F.1′/H, provable from the moment integral in the
+   variable t, where the integrand is the same and only the Jacobian dy/dt changes.
+3. The (P1)–(P4) of §3.7 are this construction written invariantly. For spectra without an exact phase function, the
+   determinant route of §3.7 is the general version.
 
 ## 4. What this opens (HEURISTIC)
 
