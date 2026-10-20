@@ -1,0 +1,9 @@
+seeds: gue 5, poisson 5
+     window  GUE mean     sd  Poi mean     sd  ratio
+   [50,100)      2.67   0.36      8.72   2.49   3.27
+  [100,200)      3.76   0.34     15.04   4.75   4.00
+  [200,400)      5.38   0.18     19.27   3.41   3.58
+  [400,800)      7.40   0.33     26.26   2.10   3.55
+ [800,1600)     10.68   0.50     39.80   5.05   3.73
+growth exponent of mean RMS n(y - y_lat), gue: 0.497
+growth exponent of mean RMS n(y - y_lat), poisson: 0.518

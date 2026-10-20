@@ -425,19 +425,31 @@ do not cancel it, which is what S4 found.
 **GUE-like against Poisson nodes** (`checks/spec_stats.out`). The first M = 3000 nodes are replaced by unfolded CUE eigenphases
 (max |x_k − k| = 3.3) or by a Poisson bridge (max |x_k − k| = 36); the lattice is kept beyond M.
 
-| n-window | RMS n(y − y_lat), GUE-like | RMS n(y − y_lat), Poisson |
-|---|---|---|
-| [50, 100) | 2.9 | 11.3 |
-| [200, 400) | 5.4 | 20.8 |
-| [800, 1600) | 11.6 | 41.8 |
+Five seeds per ensemble (7, 11, 13, 17, 19; `checks/spec_stats_seeds.out`, summary `checks/spec_stats_summary.out`). Mean and
+seed-to-seed standard deviation of RMS n(y − y_lat) per window:
 
-- Both grow like n^{0.4} (relative noise in y ~ n^{−0.6}). Poisson is larger by a roughly constant factor 3.6–4.
-- Neither the count predictor p·Δ(n) (node-count deviation below the threshold) nor the per-node S2′ sum explains the noise:
-  correlations 0.1–0.5, residual RMS reduced by ≤ 12%. This is consistent with the kernel above, where the in-band
-  oscillatory responses dominate.
-So b_n's fluctuations distinguish the two statistics by amplitude, but with one realisation each and no theory for the
-amplitude this is an observation, not a law. Next would be ensembles (several seeds), the amplitude as a function of the
-local spacing statistics, and the autocorrelation in n.
+| n-window | GUE-like | Poisson | ratio |
+|---|---|---|---|
+| [50, 100) | 2.67 ± 0.36 | 8.7 ± 2.5 | 3.3 |
+| [100, 200) | 3.76 ± 0.34 | 15.0 ± 4.8 | 4.0 |
+| [200, 400) | 5.38 ± 0.18 | 19.3 ± 3.4 | 3.6 |
+| [400, 800) | 7.40 ± 0.33 | 26.3 ± 2.1 | 3.6 |
+| [800, 1600) | 10.68 ± 0.50 | 39.8 ± 5.1 | 3.7 |
+
+- **Growth.** The mean RMS grows like n^{0.50} (GUE-like) and n^{0.52} (Poisson), so the relative noise in y is ~ n^{−1/2} for both.
+  This is the same exponent as iid jitter; the single-seed estimate n^{0.4} was a fluctuation.
+- **Amplitude.** Poisson is larger by a stable factor of 3.3–4.0 (mean 3.6).
+- **Self-averaging.** The GUE-like amplitude is nearly deterministic (seed-to-seed spread ≈ 5%, against 15–30% for Poisson):
+  RMS ≈ 0.32·n^{1/2} for GUE-like, ≈ 1.2·n^{1/2} for Poisson, at p = 0.6, s = 2.
+- **Predictors.** Neither the count predictor p·Δ(n) (node-count deviation below the threshold) nor the per-node S2′ sum
+  explains the noise: correlations −0.3 to 0.66, typically 0.1–0.4, and residual RMS reduced by ≤ 25%. This is consistent with the
+  kernel above, where the in-band oscillatory responses dominate.
+
+So the fluctuations of b_n distinguish GUE-like from Poisson spectra by amplitude, reproducibly across seeds (NUMERICAL). Open:
+- a theory for the amplitude constant, e.g. as an integral of the single-node kernel against the pair correlation of the
+  spectrum. If such a formula holds, the GUE/Poisson ratio follows from the two pair correlations;
+- the dependence on p and s;
+- the autocorrelation in n.
 
 ### 3.7 Direction 2: the spectral determinant as the organising object (CONJECTURE / HEURISTIC; NOT REVIEWED)
 
