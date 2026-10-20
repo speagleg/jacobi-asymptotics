@@ -1,0 +1,20 @@
+mu=0.0: McMahon (4 terms) vs mpmath at k=130: rel 1.4e-16
+   n=  1: from zeros 1.1547005383793   closed form 1.1547005383793
+   n=  2: from zeros 1.0327955589886   closed form 1.0327955589886
+   n=  5: from zeros 1.0050378152592   closed form 1.0050378152592
+   n= 10: from zeros 1.0012523486435   closed form 1.0012523486435
+   n= 20: from zeros 1.0003126465607   closed form 1.0003126465607
+   n= 40: from zeros 1.0000781341565   closed form 1.0000781341565
+   worst relative difference 1.6e-15
+mu=1.5: McMahon (4 terms) vs mpmath at k=130: rel 1.4e-16
+   n=  1: from zeros 0.34073416799997   closed form 0.34073416799997
+   n=  2: from zeros 0.53789109936992   closed form 0.53789109936992
+   n=  5: from zeros 0.75901874864693   closed form 0.75901874864693
+   n= 10: from zeros 0.86627013428785   closed form 0.86627013428785
+   n= 20: from zeros 0.92928710176667   closed form 0.92928710176667
+   n= 40: from zeros 0.96360146318897   closed form 0.96360146318896
+   worst relative difference 5.8e-16
+expansion n^2 b_n/c = 1 + d1/n + d2/n^2 + d3/n^3: [1, -mu, (6*mu**2 + 1)/8, -mu*(2*mu**2 + 1)/4]
+S1 j = 0: d1 = -p alpha/2 + p zeta(0, mu/2 + 3/4) = -mu (asserted, all mu)
+d2 = index-shift rule d2_0 + p(p+1) delta^2/2 - (p+1) delta d1_0 with delta = mu/2 - 1/4 (asserted, all mu)
+ALL ASSERTIONS PASSED
