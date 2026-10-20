@@ -158,14 +158,17 @@ Check: `checks/spec_hurwitz_moments.out`; p ∈ {5/4, 3/2, 3}, δ ∈ {−½, 0.
 
 *What it gives.* The seam integral produces the Hurwitz values for the fractional part of the offset. The integer part of δ
 (the lattice {(k + δ)^{−p}}_{k≥1} lacks the ⌈δ⌉ nodes a, a + 1, …, a + ⌈δ⌉ − 1 of {(j + a)^{−p}}_{j≥0}, none when −1 < δ ≤ 0) is
-per-node: ζ(−kp, a + 1) = ζ(−kp, a) − a^{kp}, which is
-S2 expanded. To turn this into Conjecture S1 for Hurwitz lattices one still needs:
+per-node: ζ(−kp, a + 1) = ζ(−kp, a) − a^{kp}, which is S2 expanded. To turn this into Conjecture S1 for Hurwitz lattices one still needs:
 - that the shifted lattice's band factor has exactly this jump (the construction of E_pgt1 §1 / Paper 2 with Γ(t) ↦ Γ(t − δ +
   ⌈δ⌉) and sin πt ↦ sin π(t − δ));
-- the index offset (d₁), SECOND §4.1;
-- the p < 1 analogue (E_plt1 Lemma F.1(iii), two seams carrying phases e^{±2πiδ}). This is the same computation; not checked
-  here.
+- the index offset (d₁), SECOND §4.1.
+
 Lemma E3.7 is unchanged.
+
+*p < 1.* The analogue is now checked too. In E_plt1 Lemma F.1(iii), with seams at θ = pπ/2 carrying the jumps
+−Log(1 − e^{±2πiδ}e^{−2πnr^{−1/p}}), the two seam terms combine into Σ_m sin(2πmδ − πkp/2)/m^{1+kp}, the same Fourier sum. It
+equals ζ(−kp, a)/(kn^{kp}); `checks/spec_hurwitz_moments_plt1.out`, p ∈ {0.3, 0.6, 0.75}, δ ∈ {0, −½, 0.3, 1.4}, k ≤ 3, relative
+error ≤ 2·10⁻¹⁶, 10⁻³⁰ in most cases.
 
 ### 3.2 S2 from the Uvarov identity: Lemma U (PROVED) and Theorem S2′ (PROVED-mod-cite, NOT REVIEWED)
 
