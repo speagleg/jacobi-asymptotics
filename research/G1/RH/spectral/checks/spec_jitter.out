@@ -1,0 +1,17 @@
+jitter p=0.3 s=2.0 A=0.3: d1 fit -421.04811873 (1.2e+05) pred -0.50000000
+  n^-1-p fit -4617.1340241 (1.7e+06) pred eps1 -0.0567089 diff -4.6e+03 [unjittered -0.0633920; partial sums dZ to K/10, K: +0.03506, +0.03098]
+  residual RMS n in [100,200): 7.60e-03   (n^-3/2 at 100: 1.00e-03)
+  residual RMS n in [200,400): 5.56e-03   (n^-3/2 at 200: 3.54e-04)
+  residual RMS n in [400,800): 3.91e-03   (n^-3/2 at 400: 1.25e-04)
+  residual RMS n in [800,1600): 2.81e-03   (n^-3/2 at 800: 4.42e-05)
+jitter p=0.6 s=2.0 A=0.3: d1 fit -1.35158358 (8.0e+03) pred -0.50000000
+  n^-1-p fit +36.3929000 (3.1e+06) pred eps1 -0.2848421 diff +3.7e+01 [unjittered -0.0899767; partial sums dZ to K/10, K: -0.00366, -0.37813]
+  residual RMS n in [100,200): 1.31e-02   (n^-3/2 at 100: 1.00e-03)
+  residual RMS n in [200,400): 8.03e-03   (n^-3/2 at 200: 3.54e-04)
+  residual RMS n in [400,800): 6.42e-03   (n^-3/2 at 400: 1.25e-04)
+  residual RMS n in [800,1600): 4.21e-03   (n^-3/2 at 800: 4.42e-05)
+rigid p=0.6 s=2.0 A=0.3: d1 fit -0.31271928 (6.6e+03) pred -0.50000000; n^-1-p fit +57.374065 (2.5e+06) pred -0.074408 [dZ +0.03021]
+  residual RMS [100,200): 9.89e-03
+  residual RMS [200,400): 7.35e-03
+  residual RMS [400,800): 4.95e-03
+  residual RMS [800,1600): 3.64e-03
