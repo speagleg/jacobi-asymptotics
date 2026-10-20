@@ -28,7 +28,8 @@ with the analogous statement for p > 1 (only j ≤ 1 above n⁻³ when 1 < p < 2
 - For Λ = {m^p} this is E3 Theorem E3.2 plus d₁ = −(s−1)/2: the j = 0 term is pζ(0) = −p/2 (PROVED there).
 - The j = 0 term is the "lattice offset" heuristic of SECOND.md §4.1: j₀ − ½ = −ζ(0, j₀).
 
-**Conjecture S2 (exact per-node contribution).** Let a single node λ (n-independent) be deleted from Λ. While the node is
+**Conjecture S2 (exact per-node contribution; for one deleted atom of σ_{p,s} away from the turning point this is Theorem S2′,
+§3.2, PROVED-mod-cite, NOT REVIEWED).** Let a single node λ (n-independent) be deleted from Λ. While the node is
 outside the band (u < 1),
 
   n·(y_n(Λ∖{λ}) − y_n(Λ)) = −p(1 − u)^{−1/2} + O(n^{−1}),   u = 4cλn^{−p}
@@ -166,7 +167,7 @@ S2 expanded. To turn this into Conjecture S1 for Hurwitz lattices one still need
   here.
 Lemma E3.7 is unchanged.
 
-### 3.2 S2 from the Uvarov identity (reduction PROVED; asymptotics HEURISTIC, leading-order Law P only)
+### 3.2 S2 from the Uvarov identity: Lemma U (PROVED) and Theorem S2′ (PROVED-mod-cite, NOT REVIEWED)
 
 **Lemma U (PROVED, elementary).** Let σ = σ′ + w₀δ_{x₀} and F(m) := log D_m(σ) − log D_m(σ′), where D_m is the m×m Hankel
 determinant. Then F(m) = log(1 + w₀K′_{m−1}(x₀, x₀)), with K′_{m−1}(x, x) = Σ_{j<m}p′_j(x)² the Christoffel–Darboux kernel of σ′
@@ -177,33 +178,93 @@ determinant. Then F(m) = log(1 + w₀K′_{m−1}(x₀, x₀)), with K′_{m−1
 *Proof.* The moment matrix is a rank-one update, H_m(σ) = H_m(σ′) + w₀vvᵀ with v = (x₀^i)_{i<m}. So
 det H_m(σ) = det H_m(σ′)(1 + w₀vᵀH_m(σ′)^{−1}v), and vᵀH_m(σ′)^{−1}v = K′_{m−1}(x₀, x₀). Finally b_n² = D_{n+1}D_{n−1}/D_n². ∎
 
-**Derivation of S2 (HEURISTIC).** Take σ′ = σ_{p,s} with the atom at x₀ = k₀^{−p} removed, and u_n := 4c(k₀/n)^p < 1, so the
-node is outside the band of degree n.
-- **Ratio asymptotics.** Assume leading-order Law P for σ′: b_m ≈ cm^{−p} and α_m ≈ 2b_m, slowly varying. Then x₀ lies outside
-  the spectrum band [0, 4b_m] of the local transfer matrix. Hence p′_m(x₀)/p′_{m−1}(x₀) ≈ r_m with
-  r = (x₀ − 2b + ((x₀ − 2b)² − 4b²)^{1/2})/(2b) = (1 + √(1−u))²/u > 1, u = 4b/x₀ = u_m.
-- **Kernel.** K′ is then dominated by its last terms (geometric growth), so F(m+1) − F(m) = 2 log r_m + o(1/m).
-- **Derivative.** With du/dn = −pu/n and d log r/du = −1/(u√(1−u)) (from 1 − u/2 + √(1−u) = (1 + √(1−u))²/2), we get
-  F(n+1) − 2F(n) + F(n−1) ≈ 2 d log r/dn = 2p/(n√(1−u_n)).
-- **Result.** By Lemma U, log b_n(σ′) − log b_n(σ) = −p(1 − u_n)^{−1/2}/n + …, which is S2. The u → 0 limit, −p/n, is the index
-  shift b_n(σ′) ≈ b_{n+1}(σ).
+**Theorem S2′ (deleting one atom of σ_{p,s}).** *Label: PROVED-mod-cite, NOT REVIEWED. The only inputs are the REVIEWED
+coefficient expansions below; the rest is elementary and self-contained here.*
 
-What a proof needs:
-- ratio asymptotics for σ′ at x₀ with an error whose first difference is o(1/n): Liouville–Green/Birkhoff theory for
-  three-term recurrences with coefficients expanding in 1/n (not read; Rule C);
-- the 1/n expansion of α_m, b_m for σ′, which is itself a finite modification of σ_{p,s}. That expansion is NUMERICAL, but
-  only its leading order and smoothness enter.
-The approximation fails at the turning point u = 1 (Airy scaling 1 − u ~ n^{−2/3}). That is where the measured ratio drops
-(0.956 at u = 0.954, §2), and where jittered nodes generate noise (S4). So S4 is a turning-point phenomenon: each node crossing
-u = 1 contributes an Airy-smoothed step, whose timing jitter scatters.
+Let p > 0, s > 1, σ = σ_{p,s}, and ε := min(p, 1) (ε := 1 at p = 1). Let x₀ = k₀^{−p} be an atom with mass w₀ = k₀^{−s}, and
+σ′ := σ − w₀δ_{x₀}. Put u_n := 4c(k₀/n)^p and y_n := n^pb_n/c − 1. For every η ∈ (0, 1) there are C, n₀ (depending on p, s, η,
+not on k₀) such that for all k₀ ≥ 1 and n ≥ n₀ with u_n ≤ 1 − η,
 
-This route is independent of the RH tilt sketch under S2: it uses only Law P at leading order. The two agree.
+  n·(y_n(σ′) − y_n(σ)) = −p(1 − u_n)^{−1/2} + R,   |R| ≤ Cn^{−ε}.
+
+So S2 holds outside a neighbourhood of the turning point. For fixed k₀ and n → ∞ only its u → 0 limit −p (the index shift) is
+resolved, because the error swamps the u-terms of size n^{−p}. In the regime k₀ ∝ n the full function of u is.
+
+*Inputs (REVIEWED).* For σ_{p,s} and every p > 0:
+- b_j = cj^{−p}(1 + d₁/j + O(j^{−1−ε}));
+- α_j/(2b_j) = 1 − p/(2j) + O(j^{−1−ε}).
+Sources: E_pgt1 Theorem E.1 (p > 1, remainder O(j⁻²)), E_plt1 Theorem E′.1 (0 < p < 1, remainder O(j^{−1−p})), and E_p1 (p = 1).
+Hence, with β_j := α_j/(2b_j) − 1 and γ_j := b_{j+1}/b_j − 1: β_j, γ_j = O(1/j); γ_j = −p/j + O(j^{−1−ε}); and
+Δβ_j, Δγ_j = O(j^{−1−ε}).
+
+*Proof.* Orthonormal polynomials P_j of σ satisfy b_{j+1}P_{j+1} = (x − α_j)P_j − b_jP_{j−1}.
+
+(a) **Uvarov, reversed.** As in Lemma U with the roles exchanged, D_m(σ′) = D_m(σ)(1 − w₀K_{m−1}(x₀, x₀)), K_{m−1} = Σ_{j<m}P_j(x₀)².
+Since σ has compact support, polynomials are dense in L²(σ) (Weierstrass, plus density of C(supp σ) in L²(σ)). Expanding
+1_{x₀} ∈ L²(σ) in the basis P_j and using Parseval gives w₀ = Σ_j w₀²P_j(x₀)², i.e. Σ_jP_j(x₀)² = 1/w₀. So 1 − w₀K_{m−1} = w₀T_m
+with T_m := Σ_{j≥m}P_j(x₀)², and F(m) := log D_m(σ) − log D_m(σ′) = −log(w₀T_m). By b_n² = D_{n+1}D_{n−1}/D_n²,
+
+  log b_n²(σ) − log b_n²(σ′) = F(n+1) − 2F(n) + F(n−1).
+
+(b) **Contraction for the minimal ratio.** Write the recurrence at x₀ backwards in ratios: if Y_{j+1} = ρ_jY_j then
+ρ_{j−1} = Φ_j(ρ_j), with Φ_j(ρ) := b_j/((x₀ − α_j) − b_{j+1}ρ).
+- Put u_j := 4b_j/x₀; then u_j = u_n(n/j)^p(1 + O(1/n)) ≤ 1 − η/2 for j ≥ n − 1 ≥ n₀.
+- On [0, 1], (x₀ − α_j) − b_{j+1}ρ ≥ x₀(1 − 3u_j/4)(1 + O(1/j)) > 0, so Φ_j maps [0, 1] into [0, 1] with Lipschitz constant
+  ≤ (u_j/(4 − 3u_j))²(1 + O(1/j)) ≤ q < 1 (q = q(η)).
+- Hence, for j ≥ n − 1, the backward iteration from any tail (equivalently, the contraction-mapping fixed point in ℓ^∞) defines
+  ratios ρ̂_j ∈ [0, q^{1/2}], up to the O(1/j) factor. This gives a solution Ŷ with Ŷ_{j+1} = ρ̂_jŶ_j, decaying geometrically, so
+  Ŷ ∈ ℓ².
+- P(x₀) is also an ℓ² solution, by (a). The Casoratian b_j(P_jŶ_{j−1} − P_{j−1}Ŷ_j) is constant in j and tends to 0, so it is 0.
+  Thus P_j(x₀) = κŶ_j for j ≥ n − 2, with κ ≠ 0 (P(x₀) ≢ 0 there, since T_m > 0). So P_{j+1}(x₀)/P_j(x₀) = ρ̂_j.
+
+(c) **Frozen root.** Let σ_j be the small root of b_{j+1}σ² − (x₀ − α_j)σ + b_j = 0, i.e. the fixed point of the frozen map. In
+terms of (u_j, β_j, γ_j), σ_j = S(u_j, β_j, γ_j) with S real-analytic near (u, 0, 0), u ≤ 1 − η/2, and
+S(u, 0, 0) = (1 − u/2 − √(1−u))/(u/2) = 1/r(u) = u/4 + O(u²). So σ_j ≍ u_j, which may be small (a far node). All
+estimates are therefore relative: write ρ̂_j = σ_j(1 + e_j). Since σ_j = Φ_j(σ_j),
+
+  σ_{j−1}(1 + e_{j−1}) = Φ_j(σ_j(1 + e_j)) = σ_j + Φ_j′(ξ_j)σ_je_j,
+
+i.e. e_{j−1} = θ_j e_j + D_j, with θ_j := Φ_j′(ξ_j)σ_j/σ_{j−1} and D_j := σ_j/σ_{j−1} − 1. Here:
+- |θ_j| ≤ q′ < 1, since Φ_j′ ≤ (u_j/(4 − 3u_j))² and σ_j/σ_{j−1} = 1 + O(1/j);
+- D_j = Δlog σ_j + O(j⁻²). Since log σ_j = log u_j + h(u_j) + O(|β_j| + |γ_j|) with h smooth on [0, 1 − η/2], and
+  Δlog u_j = log(b_j/b_{j−1}) = −p/j + O(j^{−1−ε}), we get D_j = O(1/j) and ΔD_j = O(j^{−1−ε}), uniformly in u_j ∈ (0, 1 − η/2].
+
+Contraction gives e_j = O(1/j). Put E_j := D_j/(1 − θ̄_j), with θ̄_j := Φ_j′(σ_j)σ_j/σ_{j−1}; θ_j − θ̄_j = O(e_j). Then
+ẽ_j := e_j − E_j satisfies ẽ_{j−1} = θ_jẽ_j + O(|ΔE_j| + |e_j|²) = θ_jẽ_j + O(j^{−1−ε}), so ẽ_j = O(j^{−1−ε}). Also
+ΔE_j = O(j^{−1−ε}), because E is built from slowly varying data. Hence Δlog(1 + e_j) = O(j^{−1−ε}).
+Therefore Δlog ρ̂_j = Δlog σ_j + O(j^{−1−ε}) = ∂_u log S·Δu_j + O(j^{−1−ε}). Since ∂_u log S(u, 0, 0) = 1/(u√(1−u)) and
+Δu_j = u_jγ_j + O(j^{−2}) = −pu_j/j + O(j^{−1−ε}),
+
+  log ρ̂_j − log ρ̂_{j−1} = −p/(j√(1 − u_j)) + O(j^{−1−ε}).
+
+(d) **Tail sums.** T_m = P_m(x₀)²G_m with G_m = 1 + ρ̂_m²G_{m+1} = Σ_{i≥0}Π_{l<i}ρ̂_{m+l}². By (c), log G_m = g(u_m) + O(m^{−ε}) with g
+smooth, and its first differences are O(1/m) with second differences O(m^{−1−ε}). (The same contraction argument applies to
+G ↦ 1 + ρ̂²G, a contraction with factor ≤ q.) Then
+
+  F(m+1) − F(m) = −log(T_{m+1}/T_m) = −2 log ρ̂_m − log(G_{m+1}/G_m),
+
+so F(n+1) − 2F(n) + F(n−1) = −2(log ρ̂_n − log ρ̂_{n−1}) + O(n^{−1−ε}) = 2p/(n√(1 − u_n)) + O(n^{−1−ε}).
+
+(e) **Conclusion.** By (a), log b_n(σ′) − log b_n(σ) = −p/(n√(1 − u_n)) + O(n^{−1−ε}). Since 1 + y_n(σ) = 1 + O(1/n), we get
+n(y_n(σ′) − y_n(σ)) = n(1 + y_n(σ))(b_n(σ′)/b_n(σ) − 1) = −p(1 − u_n)^{−1/2} + O(n^{−ε}). All constants depend only on (p, s, η)
+through the input remainders and q(η). ∎
+
+*Remarks.*
+- Only leading-order smoothness of the coefficients enters, never the band factor or the gauge. So S2′ is independent of the RH
+  tilt sketch under S2, and agrees with it.
+- The proof breaks exactly at u → 1, where q(η) → 1 (the turning point; Airy scaling 1 − u ~ n^{−2/3}). That is where the measured
+  ratio drops (0.956 at u = 0.954, §2), and where jittered nodes generate noise (S4). So S4 is a turning-point phenomenon:
+  each node crossing u = 1 contributes an Airy-smoothed step, whose timing jitter scatters.
+- *Adding* a node outside the band, or deleting finitely many nodes, is the same argument iterated: Lemma U applied repeatedly,
+  each step an atom of the current measure. That needs the input expansions for the modified measure, which are not proved.
+  S2′ itself is the only case proved here.
 
 Check (`checks/spec_uvarov.out`; p = 0.6, s = 2, k₀ = 30). This uses the cached coefficients of σ and σ′ and the orthonormal
 polynomials of σ′ at x₀.
 - Lemma U holds to relative 6·10⁻¹² for n ∈ [100, 1500], limited by the cache precision.
 - p′_n(x₀)/p′_{n−1}(x₀) = 22.3217 against r(u_n) = 22.3034 at n = 1500, and 2.468 against 2.374 at n = 100: a relative gap
-  of O(1/n), as the Liouville–Green picture predicts.
+  of O(1/n), as (c) predicts. This checks the dominant solution of σ′; the proof uses the minimal solution of σ, which is
+  the same r(u) by symmetry of the frozen roots (product b_j/b_{j+1} → 1).
 
 ### 3.3 The bouncer zeta values from the heat trace (HEURISTIC argument; NUMERICAL confirmation)
 
@@ -237,8 +298,9 @@ nonzero n^{−1−jp} term is j = 3. The value Z_E(−3) = 15/64 is a NUMERICAL 
 
 1. **S1 for Hurwitz lattices.** The moment identity is done (§3.1, Lemma H). Remaining: the shifted band-factor construction,
    the index offset, the p < 1 seams, and a Rule C quote of DLMF 25.11.9.
-2. **S2.** Reduced to ratio asymptotics at a point outside the band (§3.2: Lemma U plus Liouville–Green). Remaining: a citable
-   ratio-asymptotics theorem with o(1/n) difference control, and the turning point u → 1.
+2. **S2.** Theorem S2′ (§3.2) proves it for one deleted atom of σ_{p,s}, away from the turning point, with error O(n^{−ε}).
+   Remaining: Rule R review; the turning-point region u → 1 (Airy, the S4 mechanism); a sharper error to resolve the u-terms
+   at fixed k₀; and several nodes or added nodes (needs coefficient expansions for modified measures).
 3. **Bouncer.** Heat-trace explanation in §3.3. Remaining: cite the boundary-invariant expansion (or Voros) and derive
    Z_E(−3) = 15/64, β₁ = 1/(6√π).
 4. **Quartic oscillator** (p = 4/3, the κ-regime of E3 Thm E3.1): compare 2pcZ(−1) with Voros's spectral zeta.
