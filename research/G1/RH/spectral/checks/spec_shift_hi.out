@@ -1,0 +1,13 @@
+d=+0.0: d2 used +0.368056 | d3 fit -0.26736 (1.1e-03) | n^-3.5 fit +0.05775 (1.4e-01) | eps1(a) -0.04329
+d=-0.5: d2 used +0.211806 | d3 fit +0.10330 (1.0e-03) | n^-3.5 fit +0.01869 (1.3e-01) | eps1(a) +0.02799
+d=+0.5: d2 used +1.461806 | d3 fit -1.73179 (1.1e-03) | n^-3.5 fit +1.91014 (1.4e-01) | eps1(a) -0.57263
+d=+1.0: d2 used +3.493056 | d3 fit -5.93062 (1.2e-03) | n^-3.5 fit +9.29755 (1.5e-01) | eps1(a) -1.74211
+
+probe 3 (integer layer, third order): d3(d) vs index-shift prediction from d3(0)
+  d=-0.5: fit +0.10330 (1.0e-03)  index-shift +0.10330  diff -8.7e-07
+  d=+0.5: fit -1.73179 (1.1e-03)  index-shift -1.73177  diff -1.8e-05
+  d=+1.0: fit -5.93062 (1.2e-03)  index-shift -5.93056  diff -6.7e-05
+probe 1 (zeta layer under the shift): n^-3.5 coefficient
+  d=-0.5: fit +0.01869 (1.3e-01)  H +0.01864 (diff +4.5e-05)  A -0.03733 (diff +5.6e-02)
+  d=+0.5: fit +1.91014 (1.4e-01)  H +1.90906 (diff +1.1e-03)  A +0.76380 (diff +1.1e+00)
+  d=+1.0: fit +9.29755 (1.5e-01)  H +9.29212 (diff +5.4e-03)  A +2.32367 (diff +7.0e+00)

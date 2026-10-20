@@ -551,6 +551,36 @@ response of Lemma E3.7.
 - A proof of (I) for Hurwitz lattices. This is §3.1's open index-offset step, now with a sharper target: an exact index shift
   of the integer layer.
 
+### 3.11 Probes of S1′: higher orders, and the first non-Z(0) integer datum (NUMERICAL)
+
+**(a) Hurwitz lattices obey one exact rule to the orders tested** (`checks/spec_shift_hi.out`; p = 1.5, s = 2,
+δ ∈ {−½, ½, 1}). The rule is hypothesis H:
+
+  n^pb_n(a)/c = (n/(n+δ))^p·Φ(n + δ),
+
+where Φ is the lattice expansion as a function of N, with every ζ(−jp) replaced by ζ(−jp, a). Two checks:
+- **d₃ (integer layer, third order).** The rule built from d₁⁰, d₂⁰ and the fitted d₃⁰ predicts d₃(δ) to 9·10⁻⁷, 2·10⁻⁵ and
+  7·10⁻⁵. The d₃ shifts are 0.37, 1.5 and 5.7.
+- **The n^{−3.5} coefficient (zeta layer under the shift).** H predicts f(δ) = ε₁(a)[f(0)/ε₁(1) − (1 + 2p)δ]; the fits agree to
+  4.5·10⁻⁵, 1.1·10⁻³ and 5.4·10⁻³ (spreads ≈ 0.14). The alternative "zeta layer unshifted" is off by 0.056, 1.1 and 7.0.
+So for Hurwitz lattices the whole expansion, both layers, is the lattice expansion at n + δ with Hurwitz zeta values.
+
+**(b) Decaying index corrections** (`checks/spec_gamma.out`, `checks/spec_gamma2.out`). Synthetic lattices λ_k = (k + γ/k^m)^p keep
+the count, so Z(0) is unchanged.
+- **Zeta layer.** ε₁ = 2pc·Z(−1) with the exact regularised Z(−1): agreement 3·10⁻⁶ (p = 0.6) and 9·10⁻⁴ (p = 1.5).
+- **m = 2.** After the exact zeta-layer change is subtracted, Δd₂ = 0 to print precision.
+- **m = 1.** Δd₂ = γ·1.81380, exactly linear in γ (γ = −½, ½, 1). It is the same at p = 0.6 and 1.5 and at s = 2 and 3, and the
+  same when the correction acts only on k > 50 (1.8136, converging). Numerically 1.81380 ± 2·10⁻⁶, consistent with π/√3 =
+  1.8137994 (NOT derived).
+- **Interpretation (HEURISTIC).** A γ/k index correction gives Z(s) = Σ(k + γ/k)^{−ps} a pole at s = −1/p, with residue γ/p.
+  The generalised identity C(2q, q)c(p)^q = 1 at q = 1/p (a consequence of c(p)'s definition and the duplication formula;
+  C(2j, j)c(1/j)^j = 1 is its integer case) makes the "j = 1/p" member of the zeta layer land at n^{−1−p·(1/p)} = n⁻². With the
+  prefactor p cancelling the residue's 1/p, this would give Δd₂ = γ·(a universal constant). So the integer layer is the zeta
+  layer's pole part. If this is right, S1′ becomes a single statement: all poles and zeta values of Z, each entering through
+  C(2q, q)c^q with q the location.
+- **Consequence for the bouncer.** Its WKB correction is O(k⁻²) in the index (λ′^{3/2} = (k − ¼)(1 + O(k⁻²))), the m = 2 case, so
+  d₂ is unaffected. This matches §3.10.
+
 ### 3.9 Novelty (Rule L, first pass, 2026-10-20) — summary of research/program/novelty_SPEC.md (local, gitignored)
 
 The search was web-only: arXiv was read through WebFetch, and MathSciNet/zbMATH were unavailable. Quotes there are second-hand
