@@ -362,6 +362,73 @@ Z_E(−9) is not independently checked: the zero sums would need more WKB terms.
 The ε₃ term sits at n^{−1−3p} = n^{−3}, where it merges with the n⁻³ term, below the resolution of the §2 fits. So the bouncer's first nonzero spectral correction
 beyond d₁ is predicted exactly but not yet observed.
 
+### 3.4 Direction 3: reading off the Maslov index (NUMERICAL; S1 test with an exact prediction)
+
+For WKB-regular spectra λ_m ≈ (m + μ/4)^p (m ≥ 0), with μ the Maslov index, Z(0) = ζ(0, μ/4) = ½ − μ/4. So S1 gives
+
+  d₁ = −pα/2 + p(½ − μ/4),
+
+and the 1/n coefficient of b_n reads off μ. The test changes only the boundary condition of the bouncer: Dirichlet ψ(0) = 0,
+E = −a_k, μ = 3; against Neumann ψ′(0) = 0, E = −a′_k, μ = 1 (`checks/spec_neumann.out`).
+- **Zeros.** a′_k from the asymptotic series (DLMF 9.9-type, five terms), checked against mpmath.airyaizero(k, 1) for
+  k ∈ [41, 200] to 4·10⁻¹⁶ relative.
+- **Zeta values, exact.** As in Proposition B, with z·Ai/Ai′ in place of Ai′/Ai: Z_E(0) = +1/4, Z_E(−3) = −21/64,
+  Z_E(−6) = 2121/1024, Z_E(−9) = −136479/4096, and all others vanish.
+- **S1 at p = 2/3, s = 2.** Predicted d₁ = 0 (Neumann) against −1/3 (Dirichlet); fitted d₁ = 0.00000000 ± 1.2·10⁻⁷. Predicted
+  ε₁ = 0; fitted n^{−5/3} coefficient 5·10⁻⁷ ± 8·10⁻⁵.
+
+So b_n distinguishes the two boundary conditions exactly, through ζ(0, μ/4).
+
+### 3.5 Where the regularity hypothesis matters: λ_k = k^p + κ (NUMERICAL)
+
+A constant shift of every eigenvalue (adding the constant κ to the potential) gives λ^{1/p} = k + (κ/p)k^{1−p} + …, which is
+not of the form m + a + O(1/m). S1 does not apply, and indeed the effect is of a different order (`checks/spec_kappa.out`,
+`checks/spec_kappa_fit.out`; p = 0.6 and 0.3, s = 2): Δy_n = y_n(κ) − y_n(0) is of relative order n^{−p}, not n^{−1−p}.
+- **Linear in κ.** The κ = ½ run gives half the κ = 1 value.
+- **Leading coefficient.** Least-squares fits of n^pΔy_n = L + Σ_iA_in^{−e_i} give L = −1.2034, −0.6015 and −1.2231 at
+  (p, κ) = (0.6, 1), (0.6, ½) and (0.3, 1). The candidate −2(2−p)cκ gives −1.2025, −0.6012 and −1.2226; all agree within 0.1%.
+  The fit half-ranges are large (0.04–0.7), so this is a NUMERICAL candidate, not an identification.
+- **Heuristic.** The shift is the Möbius map y ↦ y/(1 + κy) on the nodes y = 1/λ. Since φ(a) − φ(b) = (a − b)/((1 + κa)(1 + κb)), the
+  orthogonal polynomials of the pushed-forward measure are those of σ with the varying weight (1 + κy)^{−2n}. That is an
+  external field of strength ~ 2κn^{1−p} in the rescaled variable, i.e. relative order n^{−p}.
+
+Lesson: S1's hypothesis is necessary. A smooth spectral deformation whose index drift grows (k^{1−p}) moves the leading
+asymptotics, while one with bounded index offset (Hurwitz, WKB) only shifts the 1/n-order series.
+
+### 3.7 Direction 2: the spectral determinant as the organising object (CONJECTURE / HEURISTIC; NOT REVIEWED)
+
+**What is true already.** Let Δ_Λ(w) := Π_m(1 − w/λ_m) be the (zeta-regularised) spectral determinant.
+- **Lattice.** For λ_m = m^p, the Mellin transform of log(1 + x/m^p) summed over m is ζ(−ps)·π/(s sin πs). The poles at
+  s = 1, 2, … give the integer-power part of the large-x expansion of log Δ(−x): Σ_{k≥1}(−1)^{k+1}ζ(−kp)x^{−k}/k. Continuing to
+  w = −x, the integer-power part of log Δ_Λ(w) is R_Λ(w) = −Σ_kZ_Λ(−k)w^{−k}/k.
+- **Bouncer.** Δ ∝ Ai, and Proposition B is exactly this statement.
+- **Consequence.** With w = n^p/z, 2R_Λ(n^p/z) = −2Σ_kZ_Λ(−k)z^k/(kn^{kp}) is precisely the band-factor law of E3 (Lemmas F.1/F.1′)
+  and of S1. So the band factor is the regular part of the squared spectral determinant evaluated at the rescaled spectral
+  variable: H_n(z) ∝ exp(2R_Λ(n^p/z)).
+
+**What is not literally true.** For p ≠ 1, Paper 2's Γ(t) is not Δ_Λ. It is the mirror product Π(1 + t/k) in the index variable
+t = nz^{−1/p} (w = t^p), and the construction uses the analytic index map t(z) (BKMM-style), with its cut on (−∞, 0).
+
+**Conjecture S5 (determinant construction).** For a node set Λ whose determinant Δ_Λ satisfies
+- (P1) Δ_Λ is entire, with simple zeros exactly at the λ_m > 0;
+- (P2) uniform sectorial asymptotics of log Δ_Λ off the positive axis, with explicit error bounds (Stirling's role);
+- (P3) a two-exponential decomposition on the node ray (the role of sin πt = (e^{iπt} − e^{−iπt})/2i);
+- (P4) a Weyl term (the singular part of log Δ_Λ) of power type λ^{1/p}, matching the equilibrium constant c(p);
+an interpolation/outer construction can be built in the w-plane directly from Δ_Λ, with no analytic index function. Its band
+factor is exp(2R_Λ), and S1 follows with Lemma E3.7.
+
+**The bouncer instance.** Here Δ ∝ Ai(−Cw), and the four properties are available from quoted sources:
+- (P1) the zeros of Ai are real, negative and simple;
+- (P2) DLMF 9.7.5–9.7.6 in |ph z| ≤ π − δ, with the error bounds of §9.7(iv) (not yet quoted);
+- (P3) the connection formula 9.2.12, Ai(z) + e^{−2πi/3}Ai(ze^{−2πi/3}) + e^{2πi/3}Ai(ze^{2πi/3}) = 0, quoted in RH/CITATIONS.md.
+  On the node ray it splits Ai(−x) into two terms ~ e^{±i(2/3)x^{3/2}};
+- (P4) Proposition B's leading terms.
+So a "Paper 2 for Airy nodes" is a concrete plan, with Airy sector lemmas replacing the Γ-sector lemmas (binetcut, seam).
+
+**Why it matters.** (P1)–(P4) do not require λ_m = G(m) with G analytic. They hold for any spectrum whose determinant has
+WKB-type sectorial asymptotics, which includes Robin and inhomogeneous potentials. For chaotic spectra, log Δ on the node ray
+fluctuates at the scale of the spacing, so (P3) fails in the way S4 and §3.6 see.
+
 ## 4. What this opens (HEURISTIC)
 
 - **Jacobi matrices as spectral invariants.** For regular spectra, the asymptotic expansion of b_n for the measure on
