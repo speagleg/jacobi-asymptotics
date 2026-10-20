@@ -512,6 +512,45 @@ there it produces the WKB part of Z(−j): the cancellation that makes the bounc
 3. The (P1)–(P4) of §3.7 are this construction written invariantly. For spectra without an exact phase function, the
    determinant route of §3.7 is the general version.
 
+### 3.10 The two-layer structure: Conjecture S1′ (NUMERICAL; refines S1)
+
+**Conjecture S1′.** For a regular node set Λ (§1), write Z = Z_Λ, d_i⁰ = d_i(p, s) for the lattice coefficients (d₁⁰ = −(s−1)/2,
+d₂⁰ = E2's closed form), and δ := −Z(0) − ½ (the constant term of the smoothed counting function, read as an index offset).
+Then the expansion of n^pb_n/c separates into two layers:
+- **(I) Integer layer.** The integer-order coefficients are those of the lattice with n ↦ n + δ:
+  1 + Σ_id_i⁰(n + δ)^{−i}, multiplied by (n/(n + δ))^p, then re-expanded in 1/n. In particular d₁ = d₁⁰ − pδ, and
+  d₂ = d₂⁰ + p(p+1)δ²/2 − (p+1)δd₁⁰.
+- **(II) Zeta layer.** The n^{−1−jp} coefficients are ε_j = C(2j, j)pc^jZ(−j). These are new spectral data, not produced by an
+  index shift.
+- **Merging.** At p = 1/j the two layers merge at n⁻², and the coefficient is the sum d₂ + ε_j = d₂ + pZ(−1), using
+  C(2j, j)c(1/j)^j = 1.
+For Λ = {m^p}, δ = 0 and (I), (II) reduce to E2/E3 (PROVED, REVIEWED). S1 is (II) together with d₁ from (I).
+
+**Evidence** (all predictions computed from the formula, nothing fitted to them):
+
+| Test | Layer | Result |
+|---|---|---|
+| Hurwitz lattices, d₂ (`checks/spec_hur_d2.out`) | I | p = 0.6 (δ = −½, ½, 1), 0.75, 1.5: agreement to 2·10⁻⁶ … 3·10⁻⁵ (fit spreads 3·10⁻⁵ … 9·10⁻⁴); the d₂ shifts are 0.3 to 3 |
+| Bouncer (Dirichlet δ = −¼, Neumann δ = −¾), d₂ (`checks/spec_bouncer_d2.out`) | I | 9·10⁻⁵, 2·10⁻⁵ (s = 2), 1.2·10⁻³ (s = 3, spread 1.5·10⁻²); the WKB corrections enter only at n⁻³ |
+| Bessel zeros, p = s = 2 (`checks/spec_lommel.out`) | I, exact | closed form from the Lommel recurrence, n²b_n/c = 4n²/((2n+μ)√((2n+μ)² − 1)) = [n/(n+δ)]²G(n + δ), δ = μ/2 − ¼: an exact index shift of the p = 2 lattice to all orders; checked against Bessel-zero measures to 10⁻¹⁵ (μ = 0, 1.5) |
+| Hurwitz p = 1/3, δ = −½ (`checks/spec_hur_small.out`) | II and merged | ε₁, ε₂ = Hurwitz to 5·10⁻⁷, 3·10⁻⁵; merged n⁻² = d₂^shift + ⅓ζ(−1, ½) to 3.5·10⁻⁵ (spread 1.9·10⁻³; without the ζ term off by 1.4·10⁻², i.e. 7 spreads) |
+| Hurwitz p = 1/4, δ = −½ | II and merged | ε₁, ε₂, ε₃ = Hurwitz to 4·10⁻⁷, 9·10⁻⁶, 3·10⁻⁴ (spreads 5·10⁻⁵, 5·10⁻⁴, 10⁻²); merged consistent (2·10⁻³, spread 9·10⁻³; weak) |
+| Earlier: §2 (ε₁ for Hurwitz, moved nodes, bouncer), §3.4 (Maslov) | I, II | as reported |
+
+**Reading.** The node set enters b_n through two independent channels:
+- its counting function, in the integer layer. Only Z(0) is needed at the orders tested, because higher Weyl corrections
+  appear later (bouncer: n⁻³);
+- its regularised power sums Z(−j), in the zeta layer.
+The structural reason is visible in the proofs. The integer layer comes from the model weight and the index normalisation
+(Paper 2's interpolation in t), while the zeta layer is the band factor (Lemmas F.1/F.1′/H) fed through the exact linear
+response of Lemma E3.7.
+
+**Open.**
+- Whether the zeta-layer terms are ε_j n^{−1−jp} or ε_j (n + δ)^{−1−jp}. These differ at n^{−2−jp}, beyond present resolution.
+- The integer layer beyond Z(0): which spectral data (the Weyl-term coefficients of N̄) enter d₃ (bouncer).
+- A proof of (I) for Hurwitz lattices. This is §3.1's open index-offset step, now with a sharper target: an exact index shift
+  of the integer layer.
+
 ### 3.9 Novelty (Rule L, first pass, 2026-10-20) — summary of research/program/novelty_SPEC.md (local, gitignored)
 
 The search was web-only: arXiv was read through WebFetch, and MathSciNet/zbMATH were unavailable. Quotes there are second-hand
