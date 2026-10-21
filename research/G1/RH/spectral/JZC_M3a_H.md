@@ -104,10 +104,21 @@ checked numerically to 10⁻²⁷ for p ∈ {1.25, 1.5, 3}, δ ∈ {0, −½, 0.
 - *Algebra of the model.* H-f to order 4 in 1/N and first order in the zeta layer (j ≤ 3), identically in (p, ν, β) (§3.3).
 
 **What is still open for (i)**, in order of difficulty:
-1. **The n-uniform hard-edge comparison with Szegő exponent β′** (Paper 2 §7 with D_{x^{β′}}). This is the step that turns the
-   fixed-n bounds into the small-norm estimates of H-e uniformly in n. It is not yet touched. |β′| = |α + 2δ| can exceed 1, so
-   the comparison must be run in the α-frame of the column factorisation (G12 L2.3), as Prop 2.4 was. This is the main
-   remaining gap; we expect it to go through the same way, but it is not done.
+1. ~~**The n-uniform hard-edge comparison with Szegő exponent β′**~~: **done for p > 1** in JZC_M3a_H_G1u.md (PROVED-mod-cite,
+   NOT REVIEWED).
+   - The comparison runs in the α-frame. β′ enters only through ρ♮ = ρ^{(α)}/G, which is bounded above and below on the fixed
+     disc uniformly in n, for every real β′. The lip limit is e^{∓iπβ′}e^{±2πiδ} = e^{∓iπα}, which matches Bessel order α.
+   - The a-priori bound is G12 P2.4.
+   - Prop G1u (A): Paper 2 §7 holds verbatim.
+   - Prop G1u (B): the order-K small-norm expansion (N.6c) holds, with remainder O(n^{−K−1} + n^{−1−(J+1)p}). It is
+     conditional on H-a (now done) and on item 5.
+   - Checks: m3a_g1u_hardedge.out (110 checks incl. 34 controls; the circle jump is I + Δ₁♮/n + O(n⁻²) at β′ down to −2.2)
+     and m3a_g1u_endtoend.out (29 checks incl. 8 controls: fitted Hurwitz Jacobi coefficients at β′ = −2.1, −1.5 match
+     M(β′, α); the alternatives are excluded by 10⁴–10⁵ tolerances).
+   - The local analysis at 0 holds for p < 1, but the p < 1 case is conditional on items 2–3 and on E_plt1's glued parametrix
+     with W̃♮.
+   - Still OPEN: α ≥ 1, in-lens identification. That is outside the Setting (|α| < 1).
+   - A naive β′ treatment fails: the bound |z|^{−|β′|/2} is not L² when |β′| ≥ 1.
 2. **H-b′ for p < 1** (Paper 2 App C in the seam geometry). The Hurwitz sum bound G12 L2.1 is p-free, so the expected route is
    L2.1 + L2.3 with the seam lens. This is H-d (iv) for p < 1, which G3 Cor 5 no longer claims (fixed per Rule R review A of
    G3, F1); in progress in JZC_M3a_H_G23plt1.md.
@@ -116,9 +127,12 @@ checked numerically to 10⁻²⁷ for p ∈ {1.25, 1.5, 3}, δ ∈ {0, −½, 0.
    33 controls that fail as required). It needs Paper 2's T1(a) re-proved at the top node, since x₁ = a^{−p} > 1; the
    expansion holds for |z| > X₁ = (n/a)^p. It also shows why δ > 0 is excluded: the point t = δ is a phantom node, with no
    mass on it, and pole removal fails there.
+5. **H-c, the band-factor gauge with Hurwitz moments** (E_pgt1 L E.2–E.3 / E_plt1 L F.1 for H_n^δ: the expansion of the
+   band factor in μ^δ_{n,j} = 2m_j(δ)n^{jp} with uniform remainder). The moments themselves are §3.2. The gauge lemma is
+   restated for δ but not yet re-proved line by line.
 
 **Status by part.**
-- **(i)** is CONDITIONAL on items 1–4 above. Every other ingredient is PROVED-mod-cite (Paper 2, E-series lemmas) and NOT
+- **(i)** is CONDITIONAL on the open items 2, 3 and 5 above (item 1 is done for p > 1; for p < 1 it also needs items 2–3). Every other ingredient is PROVED-mod-cite (Paper 2, E-series lemmas) and NOT
   REVIEWED. Numerically, (i) is confirmed against all stored Hurwitz fits (m3a_hd_model.out, 42 checks; m3a_g3_model.out, 25
   checks, p < 1).
 - **(ii)** follows from (i) and Prop S at the exact orders: the integer layer to N⁻⁴ and the first-order zeta layer with its
