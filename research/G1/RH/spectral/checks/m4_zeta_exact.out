@@ -1,28 +1,30 @@
+sha256 m4_zeta_exact.py: 3df62305bba0a4801a767c252eeee00031e499f7c80a36946542fea6cd834041
+sha256 m4_rh_exact.py: 1e2904089fa3053cd6a7249dd4cd61492be3bb9c90b46c0932ff2507c9d9ffcc
 j=1: lead = C(2j,j) p j/2 identically: True
 j=1: N^-(2+jp) = 0 identically: True
 j=1: N^-(3+jp)/N^-(1+jp) = A_j + B_j al^2 identically: True
 j=1: N^-(4+jp) = 0 identically: True
 j=1: N^-(5+p)/N^-(1+p) = g1_4 identically: True
-   (141s)
+   (137s)
 j=2: lead = C(2j,j) p j/2 identically: True
 j=2: N^-(2+jp) = 0 identically: True
 j=2: N^-(3+jp)/N^-(1+jp) = A_j + B_j al^2 identically: True
 j=2: N^-(4+jp) = 0 identically: True
-   (135s)
+   (132s)
 j=3: lead = C(2j,j) p j/2 identically: True
 j=3: N^-(2+jp) = 0 identically: True
 j=3: N^-(3+jp)/N^-(1+jp) = A_j + B_j al^2 identically: True
 j=3: N^-(4+jp) = 0 identically: True
-   (152s)
+   (144s)
 j=4: lead = C(2j,j) p j/2 identically: True
 j=4: N^-(2+jp) = 0 identically: True
 j=4: N^-(3+jp)/N^-(1+jp) = A_j + B_j al^2 identically: True
 j=4: N^-(4+jp) = 0 identically: True
-   (152s)
+   (146s)
 j=5: lead = C(2j,j) p j/2 identically: True
 j=5: N^-(2+jp) = 0 identically: True
 j=5: N^-(3+jp)/N^-(1+jp) = A_j + B_j al^2 identically: True
 j=5: N^-(4+jp) = 0 identically: True
-   (159s)
+   (152s)
 ALL IDENTITIES HOLD
 EXIT 0

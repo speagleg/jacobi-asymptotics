@@ -24,6 +24,12 @@ r m4_f4_lattice.out "m4_f4_lattice.py"
 r m4_f8_denominator.out "m4_f8_denominator.py"
 r m4_zeta_dressing.out "m4_zeta_dressing.py"
 r m4_zeta_lattice.out "m4_zeta_lattice.py"
+# exact computer algebra for JZC_M4_proof.md (env-configured; ~35 min total)
+( KORD=4 SHI=14 $PY -B m4_rh_exact.py > m4_rh_exact_k4.out 2>&1; echo EXIT $? >> m4_rh_exact_k4.out )
+( KORD=6 SHI=22 $PY -B m4_rh_exact.py > m4_rh_exact_k6.out 2>&1; echo EXIT $? >> m4_rh_exact_k6.out )
+( KORD=5 SHI=18 JMAX=5 $PY -B m4_zeta_exact.py > m4_zeta_exact.out 2>&1; echo EXIT $? >> m4_zeta_exact.out )
+( EO=1 KORD=4 SHI=14 $PY -B m4_zeta_exact2.py A > m4_zeta_exact2_A.out 2>&1; echo EXIT $? >> m4_zeta_exact2_A.out )
+( EO=2 KORD=5 SHI=18 $PY -B m4_zeta_exact2.py B > m4_zeta_exact2_B.out 2>&1; echo EXIT $? >> m4_zeta_exact2_B.out )
 r spec_hurwitz_moments.out "spec_hurwitz_moments.py" & A=$!; r spec_hurwitz_moments_plt1.out "spec_hurwitz_moments_plt1.py" & B=$!; wait $A $B
 r spec_hur.out "spec_hur.py 0.6 2.0 -0.5" "spec_hur.py 0.6 2.0 0.5" "spec_hur.py 0.6 2.0 1.0" "spec_hur.py 0.75 3.0 1.0" "spec_hur.py 1.5 2.0 0.5" "spec_hur.py 1.5 2.0 1.0" & A=$!
 r spec_pert.out "spec_pert.py 0.6 2.0 2 0.5" "spec_pert.py 0.6 2.0 3 -0.4" & B=$!; wait $A $B

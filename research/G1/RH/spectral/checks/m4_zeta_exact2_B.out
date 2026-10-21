@@ -1,0 +1,10 @@
+sha256 m4_zeta_exact2.py: badda6a534fbf621c2bbef3eca6c7822b26d13493a655a1655860449a8bab9f4
+sha256 m4_rh_exact2.py: 143a308b8744bfccf3110c3a3f4a60a8f192268b0f65f78b64bf8bd76c116521
+   (233s)
+mu1^2: N^-(1+2p) = 0 identically: True
+mu1^2: N^-(2+2p) = p(3p+1)/2 identically: True
+mu1^2: N^-(3+2p) = 0 identically: True
+mu1^2: N^-(4+2p) = p^2 h2 (h2 = eps1^2-bracket N^-2 coefficient) identically: True
+mu1^2: N^-(5+2p) = 0 identically: True
+ALL IDENTITIES HOLD
+EXIT 0
