@@ -7,7 +7,11 @@ Same formulas as m4_rh4.py (see its docstring); every input is a rational functi
     f^{1/2} ~ v/(p+2), sqrt(4 + v^2) ~ 2);
   - T, M carry 1/sqrt 2; they occur in pairs (T..T^{-1}, M^{-1}(M o C)), so we use T0 = sqrt2 T etc. and a factor 1/2 per pair.
 Output: the exact rational functions d_1..d_K and f_1..f_K. Assertions (identities in p, alpha):
-  d1 = -p(alpha+1)/2, d2 = E2 Thm E2.1, f1 = f3 = 0, f2 = -(p+2)alpha^2/8 + (p+1)/12, f4 = closed form (m4_rh4.f4_closed)."""
+  d1 = -p(alpha+1)/2, d2 = E2 Thm E2.1, f1 = f3 = 0, f2 = -(p+2)alpha^2/8 + (p+1)/12, f4 = closed form (m4_rh4.f4_closed);
+  for KORD >= 6 also f5 = 0 and f6 = closed form (m4_rh4.f6_closed). Also asserted: the DLMF coefficient identities b_k =
+  a_k + (k - 1/2) a_{k-1} (10.17.8 vs term-wise differentiation of 10.40.2) and the 9.7.2 recurrence, k <= 8.
+c-normalisation: the integer layer is c-free (all model inputs depend on z/c only); the zeta response is not -- mu_j enters
+only through the combination c^j mu_j (Q_j(z) = sum_i C(2i,i) c^i z^{j-1-i} is homogeneous of degree j-1 in (z, c))."""
 import os, sys, time
 from sympy import QQ, symbols, factor, Rational, binomial, factorial
 from sympy.polys.fields import field
@@ -281,7 +285,16 @@ def run(verbose=True, jmu=None):
     return (d, f, gz) if jmu else (d, f)
 
 
+
+def _provenance(*mods):
+    import hashlib, os as _os
+    for m in mods:
+        fn = m if isinstance(m, str) else m.__file__
+        print(f"sha256 {_os.path.basename(fn)}: {hashlib.sha256(open(fn, 'rb').read()).hexdigest()}", flush=True)
+
+
 if __name__ == "__main__":
+    _provenance(__file__)
     # DLMF inputs (general k): b_k from 10.40.2 by termwise differentiation: b_k = a_k + (k - 1/2) a_{k-1};
     # u_k recurrence and v_k as quoted from DLMF 9.7.2
     for k in range(1, 9):

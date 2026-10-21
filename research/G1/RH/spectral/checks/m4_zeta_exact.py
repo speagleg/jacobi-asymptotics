@@ -13,6 +13,7 @@ B = lambda j: (p + 2)*(j**2*p**2 + (j + 1)*p + 2)/(8*(2*j - 1)*p)
 g14 = ((p + 1)*(9*p**6 + 117*p**5 + 161*p**4 - 569*p**3 - 1550*p**2 - 976*p + 48)/(5760*p**2*(3*p + 2))
        + (p + 1)*(p + 2)*(3*p**4 + 33*p**3 + 124*p**2 + 182*p + 108)*al**2/(192*p*(3*p + 2))
        + (p + 2)**3*(p**3 - 4*p - 4)*al**4/(128*p*(3*p + 2)))
+X._provenance(__file__, X)
 ok = True
 for j in range(1, int(os.environ.get("JMAX", "5")) + 1):
     t0 = time.time(); d, f, g = X.run(verbose=False, jmu=j)

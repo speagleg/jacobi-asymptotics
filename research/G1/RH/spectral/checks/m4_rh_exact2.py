@@ -325,7 +325,16 @@ def run(verbose=True, jmu=None):
     return (d, f, gz) if jmu else (d, f)
 
 
+
+def _provenance(*mods):
+    import hashlib, os as _os
+    for m in mods:
+        fn = m if isinstance(m, str) else m.__file__
+        print(f"sha256 {_os.path.basename(fn)}: {hashlib.sha256(open(fn, 'rb').read()).hexdigest()}", flush=True)
+
+
 if __name__ == "__main__":
+    _provenance(__file__)
     mode = os.environ.get("JMU", "1"); jm = 'sym' if mode == 'sym' else int(mode)
     d, f, g = run(jmu=jm)
     for m, v in g.items():
