@@ -1142,9 +1142,20 @@ The pole term is confirmed on a real operator, with cot ≠ 0, to 3·10⁻⁵ ag
 by about 8000 spreads. The d₂ test is a prediction. The γ bug in the first run (−A²B instead of −AB) changed the prediction, not
 the measure. The corrected value follows from λ^{3/4} = A·E^{3/4} alone and was not tuned.
 
-**A closed form.** Since B = −1/(12πA), the quartic's pole contribution to d₂ is exactly 1/12, independent of the WKB constant A.
-This suggests a general rule for homogeneous potentials |q|^N: the second-order Bohr–Sommerfeld term gives γ = 1/(12π)·(…),
-and π cot(πq) turns it into a rational. Open: derive B for |q|^N and check N = 6.
+**A closed form for all homogeneous potentials** (`checks/spec_homog.py`, `checks/spec_homog.out`; NUMERICAL). For V = q^N
+(N even), the same construction gives a Hurwitz lattice (δ = −½) plus γ/k′ with γ = −AB, and pole q = 1/p with p = 2N/(N + 2),
+W = 1. The pole contribution to d₂ is A·B·π cot(π/p), with cot(π/p) = −tan(π/N). Fitting B from exact eigenvalues gives:
+
+  pole term = **(N − 1)/(6(N + 2))**:  1/12, 5/48, 7/60, 1/8, 11/84 for N = 4, 6, 8, 10, 12,  to 10⁻⁹–5·10⁻⁸.
+
+- The second-order WKB constant carries tan(π/N) times Gamma ratios, and the π cot kernel cancels it exactly, leaving a
+  rational.
+- N = 1 (V = |q|) gives 0, consistent with the cot = 0 behaviour of linear potentials (the bouncer, §3.12).
+- The N = 2 limit is 1/24, where the harmonic oscillator's exact Bohr–Sommerfeld rule meets the resonance p = 1. The N → ∞
+  limit is 1/6.
+- Only N = 4 is tested against b_n itself (above). For the others the number is the pole law's prediction, evaluated with an
+  exact-eigenvalue B.
+- Open: derive (N − 1)/(6(N + 2)) from the second-order WKB integral, and test N = 6 against b_n.
 
 ### 3.9 Novelty (Rule L, first pass, 2026-10-20) — summary of research/program/novelty_SPEC.md (local, gitignored)
 
