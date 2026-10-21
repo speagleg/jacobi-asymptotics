@@ -1,6 +1,6 @@
 """M1.2 check (JZC_M1.md, Proposition M1.2): the continuum soft-edge root a_n carries the pole terms of Z with the pi cot kernel.
-Continuum count N(lambda) of lam_k = (k + g/k^m)^p to first order in g: dN = [(1/p) lam^{1/p-1} + (m g/p) lam^{-(m+1)/p... ] -- written via
-the index function kappa(lam) = lam^{1/p} - g lam^{-m/p} + O(g^2), dN = kappa'(lam) d lam on lam >= 1.
+Continuum count N(lambda) of lam_k = (k + g/k^m)^p to first order in g, via the index function kappa(lam) = lam^{1/p} - g lam^{-m/p}:
+dN = kappa'(lam) d lam = [(1/p) lam^{1/p-1} + g (m/p) lam^{-m/p-1}] d lam on lam >= 1.
 Soft-edge condition: int_1^{1/A} (1 - A lam)^{-1/2} dN(lam) = n,  A = 4c(1 + eta)/n^p.
 Prediction (Prop. E / M1.2, first order in g): the g-part of n*eta contains p R W(q) pi cot(pi q) n^{-pq}, q = m/p, R = -m g/p;
 extracted by antisymmetrising in g and fitting n*eta_odd(n) = C n^{-pq} + sum_j c_j n^{-jp} (integer terms depend on the cutoff)."""
@@ -29,5 +29,5 @@ for p, m in ((mp.mpf('1.5'), mp.mpf('0.5')), (mp.mpf('0.75'), mp.mpf('0.25')), (
     # n^0: the count change (j = 0 term); n^-1, n^-1-pq: cross terms with the lattice part's own 1/n correction
     Am = np.vstack([nn**-e for e in E]).T; co = np.linalg.lstsq(Am, odd, rcond=None)[0]
     print(f"p={p} m={m}: q={mp.nstr(q, 4)}; fitted coefficient of n^-pq in n*eta_odd: {co[0]:+.8f}   predicted p R W(q) pi cot(pi q) = {pred:+.8f}")
-    C_.check(f"continuum pole term p={p} m={m}", co[0], pred, 2e-3*abs(pred))
+    C_.check(f"continuum pole term p={p} m={m}", co[0], pred, 1e-5*abs(pred))   # REVIEW_JZC_M1_A F9
 C_.finish()

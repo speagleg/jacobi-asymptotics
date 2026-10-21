@@ -5,9 +5,13 @@ Claims checked numerically for several densities with y sigma(y) strictly decrea
        agrees with the balayage form [1 - int sigma(y) sqrt(y(y-a))/(y-x) dy]/(pi sqrt(x(a-x)));
   (M)  int_0^a nu + int_a^Y sigma = 1;
   (U)  0 <= nu <= sigma on (0, a);
-  (E)  U^mu = const on [0, a]   and   U^mu <= const on (a, Y]  (via Phi(z) = (z-a) PV int s(y)/(z-y) dy >= 0, and directly).
+  (E)  U^mu = const on [0, a]   and   U^mu < const on (a, Y]: via Phi(z) = (z-a) PV int s(y)/(z-y) dy > 0, AND by direct
+       evaluation of the logarithmic potential (REVIEW_JZC_M1_A F5: (N) and (M) are identities in F(a), i.e. checks of the root only).
+(H2) is verified analytically (comments below) and on a fine grid of d(y sigma)/dy.
 Densities: power laws (p = 0.6, 1.5); drum (p = 1, perimeter beta, cut at the first node); log law (Riemann-von Mangoldt-type,
-lambda = T^2, cut at T = 2 pi e)."""
+lambda = T^2, cut at T = 2 pi e^{3/2}).
+Analytic (H2): power: y sigma = y^{-1/p}/p; drum: y sigma = (1 - (beta/2) sqrt(y/n))/y, decreasing where positive;
+log: y sigma = log(T/2pi)/(4 pi sqrt(y))... in T: decreasing in y iff T > 2 pi/e, which the cut satisfies."""
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import mpmath as mp
 from spec_common import Checks
@@ -34,8 +38,8 @@ for kind in ("power:0.6", "power:1.5", "drum", "log"):
         vp = [0, mp.sqrt(a)/10, mp.sqrt(a)] + [top]
         return mp.quad(lambda v: 2*sig(a + v*v)*mp.sqrt(a + v*v), [x for x in vp if x <= top] if top != mp.inf else vp) - 1
     # monotonicity of y sigma(y) on a grid (hypothesis of Theorem Q)
-    ys = [mp.mpf(10)**(mp.mpf(k)/4) for k in range(-12, 13)]; ys = [y for y in ys if y < Y]
-    mono = all(ys[i]*sig(ys[i]) > ys[i + 1]*sig(ys[i + 1]) for i in range(len(ys) - 1))
+    ys = [mp.mpf(10)**(mp.mpf(k)/40) for k in range(-120, 121)]; ys = [y for y in ys if y < Y]
+    mono = all(mp.diff(lambda y: y*sig(y), y) < 0 for y in ys)          # fine grid of the derivative (F5(d))
     hi = mp.mpf(4) if Y == mp.inf else min(mp.mpf(4), Y*mp.mpf('0.999')); a = mp.findroot(F, (mp.mpf('0.05'), hi), solver='anderson')
     s = lambda y: sig(y)*mp.sqrt(y/(y - a))
     V = mp.sqrt(Y - a) if Y != mp.inf else mp.inf
@@ -58,6 +62,20 @@ for kind in ("power:0.6", "power:1.5", "drum", "log"):
         return (z - a)*(main + logpart)
     zs = [a*t for t in (mp.mpf('1.05'), mp.mpf('1.5'), mp.mpf(3))]; zs = [z for z in zs if z < Y]
     phis = [Phi(z) for z in zs]
+    # direct potential (F5(b)): U(z) = -int log|z - x| dmu, band part with x = a - w^2 (smooth), saturated part with y = a + v^2
+    def U(z):
+        wb = sorted(set([mp.mpf(0), mp.sqrt(a)/10, mp.sqrt(a)/2, mp.sqrt(a)] + ([mp.sqrt(a - z)] if z < a else [])))
+        ub = -mp.quad(lambda w: 2*w*nu_exp(a - w*w)*mp.log(abs(z - a + w*w)), wb)
+        vb = sorted(set([v for v in vpts if v != mp.inf] + ([mp.sqrt(z - a)] if z > a else [])))
+        us = -mp.quad(lambda v: 2*v*sig(a + v*v)*mp.log(abs(z - a - v*v)), vb + ([mp.inf] if mp.inf in vpts else []))
+        return ub + us
+    mp.mp.dps = 12
+    l0 = U(a/2); band = [U(a*t) - l0 for t in (mp.mpf('0.1'), mp.mpf('0.9'))]
+    outer = [U(z) - l0 for z in zs]
+    mp.mp.dps = 20
+    print(f"   direct potential: U - l on band {[mp.nstr(b, 2) for b in band]};  on (a,Y) {[mp.nstr(o, 4) for o in outer]}")
+    C_.check(f"{kind}: U const on band (direct)", float(max(abs(b) for b in band)), 0.0, 1e-6)
+    C_.check(f"{kind}: U < l on (a,Y) (direct)", float(max(outer) < 0), 1.0, 0)
     print(f"{kind}: y sigma decreasing on grid: {mono};  a = {mp.nstr(a, 12)};  nu explicit vs balayage: max rel diff {mp.nstr(agree, 3)};"
           f"  nu/sigma {[mp.nstr(r, 4) for r in rat]};  total mass {mp.nstr(mp.re(mass), 12)};  Phi(z) on (a,Y): {[mp.nstr(v, 4) for v in phis]}")
     C_.check(f"{kind}: hypothesis", float(mono), 1.0, 0)
