@@ -10,9 +10,8 @@ import mpmath as mp
 from so_coeffs import coeffs, c_p_mp
 mp.mp.dps = 40
 p, s, k0, K, NMAX = 0.6, 2.0, 30, 320000, 1600
-CACHE = Path(__file__).resolve().parents[5] / 'tmp' / 'spectral_cache'
-rows = [l.split() for l in open(CACHE / f"rm_p{p}_s{s}_k{k0}.txt")]
-al1 = [mp.mpf(r[0]) for r in rows]; b1 = [mp.mpf(r[1]) for r in rows]      # sigma': alpha_0.., b_1..
+from spec_common import load_raw
+al1, b1 = load_raw(f"rm_p{p}_s{s}_k{k0}")                                   # sigma': alpha_0.., b_1..
 al0, b0 = coeffs(p, s, K, NMAX)                                            # sigma
 x0 = mp.mpf(k0) ** (-p); w0 = mp.mpf(k0) ** (-s)
 beta = (s - 1) / p - 1; X = (K + 0.5) ** (-p)

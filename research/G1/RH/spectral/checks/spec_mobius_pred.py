@@ -5,13 +5,13 @@ Compared with the measured log-ratio from the cached runs of spec_kappa.py."""
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'second_order', 'checks'))
 import numpy as np, mpmath as mp
-from spec_common import CACHE, NMAX
+from spec_common import CACHE, NMAX, load_raw, Checks
+C_ = Checks()
 from so_coeffs import coeffs
 for p, kap in ((0.6, 1.0), (0.6, 0.5), (0.3, 1.0)):
     s = 2.0; K = 200*NMAX
     al0, b0 = coeffs(p, s, K, NMAX)
-    rows = [l.split() for l in open(CACHE / f"kappa_p{p}_s{s}_k{kap}.txt")]
-    b1 = [mp.mpf(r[1]) for r in rows]
+    _, b1 = load_raw(f"kappa_p{p}_s{s}_k{kap}")
     T = np.concatenate([[0.0], np.cumsum([float(a) for a in al0])])      # T[m] = sum_{j<m} alpha_j
     G = lambda m: -2*kap*(m - 1)*T[m]
     print(f"p={p} kappa={kap}:  n, measured log(b_n^2 ratio), predicted Delta^2 G, ratio, leading -4(2-p)c kappa n^-p")
@@ -20,3 +20,5 @@ for p, kap in ((0.6, 1.0), (0.6, 0.5), (0.3, 1.0)):
         meas = float(2*mp.log(b1[n - 1]/b0[n - 1]))
         pred = G(n + 1) - 2*G(n) + G(n - 1)
         print(f"   n={n:5d}  {meas:+.6e}  {pred:+.6e}  {meas/pred:.5f}   {-4*(2 - p)*c*kap*n**-p:+.6e}")
+        if n == 1500: C_.check(f"ratio p={p} kappa={kap} n=1500", meas/pred, 1.0, 3*kap*n**-p)     # second-order gap ~ kappa n^-p
+C_.finish()

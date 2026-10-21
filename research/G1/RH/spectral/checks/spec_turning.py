@@ -25,8 +25,7 @@ for nv in [50, 100, 200, 300, 400, 500, 600, 650, 700, 720, 740, 760, 780, 800, 
     ul = 4*c*(k0/nv)**p; ua = 4*c*((k0 + h)/nv)**p
     pr = p*((1 - ua)**-0.5 - (1 - ul)**-0.5) if max(ul, ua) < 1 else float('nan')
     print(f"{nv:6d} {ul:7.3f} {D[nv-1]:+13.6e} {pr:+13.6e} {D[nv-1]/pr if pr == pr else float('nan'):8.4f}")
-cache = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', '..', '..', 'tmp', 'spectral_cache', f"turn_p{p}_s{s}_k{k0}_h{-h}.txt")
-if os.path.exists(cache):
+if True:   # the -h run is always computed (linearity test)
     _, ym = moved(-h); Dm = n*(ym - y0)
     S, A = D + Dm, D - Dm
     for lo, hi in ((50, 500), (500, 900), (900, 1600)):

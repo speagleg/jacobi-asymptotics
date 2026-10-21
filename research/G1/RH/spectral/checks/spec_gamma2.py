@@ -28,4 +28,8 @@ for lo in (200, 400, 800):
     m = n >= lo
     E = [1.0, 2.0, 1 + p, 2 + p, 3.0] if p > 1 else [1.0, 2.0, 2*p, 1 + p, 3*p]
     A = np.vstack([n[m]**-e for e in E]).T; co = np.linalg.lstsq(A, D[m], rcond=None)[0]
+    if lo == 800: d2_800 = co[0]
     print(f"p={p} s={s} g={g} {mode}={val}: n >= {lo}: Delta d2 = {co[0]:+.6f}  (Delta d2 / g = {co[0]/g:+.6f};  pi/sqrt3 = {np.pi/np.sqrt(3):.6f})")
+# pass/fail: g/k^2 (pole at q = 3/p, beyond n^-2): Delta d2 = 0; g/k for k > kmin: pole law -g pi cot(pi/p) (n >= 800, converging)
+from spec_common import Checks
+C_ = Checks(); C_.check(f"{mode}={val}", d2_800, 0.0 if mode == 'pow' else float(-g*mp.pi*mp.cot(mp.pi/p)), 1e-3 if mode == 'pow' else 2e-3*abs(g)); C_.finish()

@@ -5,3 +5,4 @@ p=0.5 m=0.5 g=0.5: resonance at j = 1 (n^-1.5 log n in b_n)
   n >= 400: log coefficient +0.102816 (pred +0.102062),  n^-0.5 coefficient -0.189531 (pred -0.180893)
   n >= 800: log coefficient +0.108036 (pred +0.102062),  n^-0.5 coefficient -0.248634 (pred -0.180893)
   control (n >= 400): RMS residual without log term 3.37e-08, with log term 2.48e-08
+ALL 2 CHECKS PASSED

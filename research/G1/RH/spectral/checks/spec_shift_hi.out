@@ -11,3 +11,4 @@ probe 1 (zeta layer under the shift): n^-3.5 coefficient
   d=-0.5: fit +0.01869 (1.3e-01)  H +0.01864 (diff +4.5e-05)  A -0.03733 (diff +5.6e-02)
   d=+0.5: fit +1.91014 (1.4e-01)  H +1.90906 (diff +1.1e-03)  A +0.76380 (diff +1.1e+00)
   d=+1.0: fit +9.29755 (1.5e-01)  H +9.29212 (diff +5.4e-03)  A +2.32367 (diff +7.0e+00)
+ALL 8 CHECKS PASSED

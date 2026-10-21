@@ -1,7 +1,8 @@
 """SPEC §3.8: an exact analytic index map for the bouncer nodes. With the Airy modulus-phase form Ai(-x) = M cos(phi),
 Bi(-x) = M sin(phi) (DLMF 9.8; NOT QUOTED), take phi(x) := continuous arg(Ai(-x) + i Bi(-x)) for x > 0, phi(0) = pi/3 (since
-Bi(0)/Ai(0) = sqrt 3). Then Ai(-x) = 0 iff cos(phi) = 0, and t(x) := phi(x)/pi - 1/4 + ... is chosen so that t(-a_k) = k.
-Checked: t(-a_k) = k for k <= 60 (30 digits), and t(x) - [(2/(3 pi)) x^{3/2} + 1/4] -> 0 (the Hurwitz offset a = 3/4: k - 1/4 = t - 1/4...)."""
+Bi(0)/Ai(0) = sqrt 3). Then Ai(-x) = 0 iff cos(phi) = 0, and t(x) := phi(x)/pi - 1/6 satisfies t(-a_k) = k
+(phi(-a_k) = (k + 1/6) pi, since phi(0) = pi/3 and cos phi = 0 at the zeros). Checked: the offset is exactly 1/6 for k <= 60
+(30 digits), and t(x) - [(2/(3 pi)) x^{3/2} + 1/4] -> 0 (the Hurwitz offset a = 3/4)."""
 import mpmath as mp
 mp.mp.dps = 30
 def phi(x):
@@ -15,6 +16,7 @@ for k in (1, 2, 3, 5, 10, 20, 40, 60):
     print(f"k={k:3d}: x = -a_k = {mp.nstr(x, 12)}   phi/pi = {mp.nstr(ph/mp.pi, 20)}   phi/pi - k = {mp.nstr(ph/mp.pi - k, 12)}")
 c0 = offs[0]
 assert all(abs(o - c0) < mp.mpf(10)**-20 for o in offs)
+assert abs(c0 - mp.mpf(1)/6) < mp.mpf(10)**-20      # REVIEW_SPEC2_B F9: the offset is exactly 1/6
 print(f"=> phi(-a_k)/pi = k + {mp.nstr(c0, 15)} for all k checked, so t(x) := phi(x)/pi - ({mp.nstr(c0, 6)}) is an exact index map (t = k at the k-th node).")
 for x in (mp.mpf(10), mp.mpf(100), mp.mpf(1000)):
     t = phi(x)/mp.pi - c0

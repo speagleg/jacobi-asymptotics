@@ -5,6 +5,7 @@ p=0.6 s=2.0 g=0.5
   fit of n(y - y_lat) - Delta eps1 n^-p on n >= 200: Delta d2 = +0.909330, Delta d3 = +5.963411  (other: -1.77, +0.133, -5.22)
   fit of n(y - y_lat) - Delta eps1 n^-p on n >= 400: Delta d2 = +0.908396, Delta d3 = +5.027622  (other: -1.76, -0.101, -4.37)
   fit of n(y - y_lat) - Delta eps1 n^-p on n >= 800: Delta d2 = +0.907826, Delta d3 = +4.199046  (other: -1.76, -0.278, -3.67)
+ALL 2 CHECKS PASSED
 p=1.5 s=2.0 g=0.5
   d1: fit -0.50000000 (1.8e-07)  lattice -0.50000000
   eps1 (n^-1-p): fit -1.7013951 (5.7e-03)  S1 -1.7022659 diff +8.7e-04  [lattice -0.0432947; first order 2pc*p*g*zeta(2-p) = -1.860656]
@@ -12,6 +13,7 @@ p=1.5 s=2.0 g=0.5
   fit of n(y - y_lat) - Delta eps1 n^-p on n >= 200: Delta d2 = +0.906900, Delta d3 = -1.724175  (other: +2.48, -34.1, +11.6)
   fit of n(y - y_lat) - Delta eps1 n^-p on n >= 400: Delta d2 = +0.906900, Delta d3 = -1.723122  (other: +2.43, -40, +12.5)
   fit of n(y - y_lat) - Delta eps1 n^-p on n >= 800: Delta d2 = +0.906901, Delta d3 = -1.736335  (other: +3.32, +156, -9.62)
+ALL 2 CHECKS PASSED
 p=1.5 s=2.0 g=1.0
   d1: fit -0.50000000 (4.9e-07)  lattice -0.50000000
   eps1 (n^-1-p): fit -2.9927835 (6.0e-03)  S1 -2.9945036 diff +1.7e-03  [lattice -0.0432947; first order 2pc*p*g*zeta(2-p) = -3.721313]
@@ -19,6 +21,7 @@ p=1.5 s=2.0 g=1.0
   fit of n(y - y_lat) - Delta eps1 n^-p on n >= 200: Delta d2 = +1.813801, Delta d3 = -3.454756  (other: +5.03, -127, +45.3)
   fit of n(y - y_lat) - Delta eps1 n^-p on n >= 400: Delta d2 = +1.813800, Delta d3 = -3.450207  (other: +4.8, -153, +49.3)
   fit of n(y - y_lat) - Delta eps1 n^-p on n >= 800: Delta d2 = +1.813802, Delta d3 = -3.474775  (other: +6.45, +215, +7.94)
+ALL 2 CHECKS PASSED
 p=1.5 s=2.0 g=-0.5
   d1: fit -0.50000000 (7.0e-08)  lattice -0.50000000
   eps1 (n^-1-p): fit +2.0492938 (5.0e-03)  S1 +2.0484244 diff +8.7e-04  [lattice -0.0432947; first order 2pc*p*g*zeta(2-p) = +1.860656]
@@ -26,6 +29,7 @@ p=1.5 s=2.0 g=-0.5
   fit of n(y - y_lat) - Delta eps1 n^-p on n >= 200: Delta d2 = -0.906899, Delta d3 = +1.717901  (other: -2.52, -28.5, +8.03)
   fit of n(y - y_lat) - Delta eps1 n^-p on n >= 400: Delta d2 = -0.906900, Delta d3 = +1.719233  (other: -2.58, -36.3, +9.25)
   fit of n(y - y_lat) - Delta eps1 n^-p on n >= 800: Delta d2 = -0.906901, Delta d3 = +1.734875  (other: -3.62, -263, +35)
+ALL 2 CHECKS PASSED
 p=1.5 s=3.0 g=0.5
   d1: fit -1.00000000 (3.1e-07)  lattice -1.00000000
   eps1 (n^-1-p): fit -1.7020097 (8.1e-03)  S1 -1.7022659 diff +2.6e-04  [lattice -0.0432947; first order 2pc*p*g*zeta(2-p) = -1.860656]
@@ -33,3 +37,12 @@ p=1.5 s=3.0 g=0.5
   fit of n(y - y_lat) - Delta eps1 n^-p on n >= 200: Delta d2 = +0.906900, Delta d3 = -2.782122  (other: +4.69, -43.2, +15.2)
   fit of n(y - y_lat) - Delta eps1 n^-p on n >= 400: Delta d2 = +0.906900, Delta d3 = -2.781167  (other: +4.64, -48.4, +16)
   fit of n(y - y_lat) - Delta eps1 n^-p on n >= 800: Delta d2 = +0.906900, Delta d3 = -2.783466  (other: +4.78, -23.3, +12.8)
+ALL 2 CHECKS PASSED
+p=1.5 s=2.0 g=1.0 kmin=50.0: n >= 200: Delta d2 = +1.803173  (Delta d2 / g = +1.803173;  pi/sqrt3 = 1.813799)
+p=1.5 s=2.0 g=1.0 kmin=50.0: n >= 400: Delta d2 = +1.812768  (Delta d2 / g = +1.812768;  pi/sqrt3 = 1.813799)
+p=1.5 s=2.0 g=1.0 kmin=50.0: n >= 800: Delta d2 = +1.813622  (Delta d2 / g = +1.813622;  pi/sqrt3 = 1.813799)
+ALL 1 CHECKS PASSED
+p=1.5 s=2.0 g=1.0 pow=2.0: n >= 200: Delta d2 = +0.000000  (Delta d2 / g = +0.000000;  pi/sqrt3 = 1.813799)
+p=1.5 s=2.0 g=1.0 pow=2.0: n >= 400: Delta d2 = +0.000000  (Delta d2 / g = +0.000000;  pi/sqrt3 = 1.813799)
+p=1.5 s=2.0 g=1.0 pow=2.0: n >= 800: Delta d2 = -0.000000  (Delta d2 / g = -0.000000;  pi/sqrt3 = 1.813799)
+ALL 1 CHECKS PASSED

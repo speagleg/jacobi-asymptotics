@@ -1,2 +1,4 @@
-p=0.6 s=2.0 node 2->2.5: d1 fit -0.49999999 (2.1e-05) pred -0.50000000 | n^-1-p fit +0.0219411 (7.5e-04) pred eps1 +0.0219278 diff +1.3e-05 | unperturbed -0.0899767
-p=0.6 s=2.0 node 3->2.6: d1 fit -0.49999961 (2.2e-05) pred -0.50000000 | n^-1-p fit -0.1718669 (9.4e-04) pred eps1 -0.1719461 diff +7.9e-05 | unperturbed -0.0899767
+p=0.6 s=2.0 node 2->2.5: d1 fit -0.49999999 (2.1e-05) pred -0.50000000 | n^-1-p fit +0.0219412 (7.5e-04) pred eps1 +0.0219278 diff +1.3e-05 | unperturbed -0.0899767
+ALL 2 CHECKS PASSED
+p=0.6 s=2.0 node 3->2.6: d1 fit -0.49999961 (2.2e-05) pred -0.50000000 | n^-1-p fit -0.1718668 (9.4e-04) pred eps1 -0.1719461 diff +7.9e-05 | unperturbed -0.0899767
+ALL 2 CHECKS PASSED

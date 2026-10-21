@@ -19,6 +19,8 @@ N, dd, D3 = sp.symbols('N d D3'); e = sp.Symbol('e')
 expr = (1 + dd*e)**(-sp.Rational(3, 2))*(1 + d10*e/(1 + dd*e) + sp.Rational(d20).limit_denominator(10**9)*e**2/(1 + dd*e)**2 + D3*e**3/(1 + dd*e)**3)
 ser = sp.expand(sp.series(expr, e, 0, 4).removeO())
 c2, c3 = sp.lambdify((dd,), ser.coeff(e, 2)), sp.lambdify((dd, D3), ser.coeff(e, 3))
+from spec_common import Checks
+C_ = Checks()
 res = {}
 for d in (0.0, -0.5, 0.5, 1.0):
     f = C62 / (f"p{p}_s{s}_K{K}_n{NMAX}" + ("" if d == 0 else f"_d{d}") + ".txt")
@@ -42,8 +44,12 @@ print("\nprobe 3 (integer layer, third order): d3(d) vs index-shift prediction f
 for d, (v3, h3, v35, h35, ea) in res.items():
     if d == 0: continue
     pr = c3(d, d30); print(f"  d={d:+.1f}: fit {v3:+.5f} ({h3:.1e})  index-shift {pr:+.5f}  diff {v3 - pr:+.1e}")
+    C_.check(f"d3 d={d}", v3, pr, max(3*h3, 1e-3))
 print("probe 1 (zeta layer under the shift): n^-3.5 coefficient")
 for d, (v3, h3, v35, h35, ea) in res.items():
     if d == 0: continue
     H = ea*(f0/e10 - (1 + 2*p)*d); A_ = ea*f0/e10
     print(f"  d={d:+.1f}: fit {v35:+.5f} ({h35:.1e})  H {H:+.5f} (diff {v35 - H:+.1e})  A {A_:+.5f} (diff {v35 - A_:+.1e})")
+    C_.check(f"n^-3.5 H d={d}", v35, H, max(3*h35, 1e-3))
+    if abs(d) >= 0.5 and d > 0: C_.n += 1; (abs(v35 - A_) > 3*h35) or C_.fails.append(f"alternative A not excluded at d={d}")
+C_.finish()

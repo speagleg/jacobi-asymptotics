@@ -6,7 +6,7 @@ import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'second_order', 'checks'))
 import numpy as np, mpmath as mp
 from math import comb
-from spec_common import run, fit, NMAX, c_p_mp
+from spec_common import Checks, run, fit, NMAX, c_p_mp
 from so_coeffs import coeffs
 from so_fit import sequences
 p, s, g = float(sys.argv[1]), float(sys.argv[2]), float(sys.argv[3])
@@ -27,7 +27,7 @@ print(f"p={p} s={s} g={g}")
 v1, h1 = fit(n, y, p, [], 1.0); print(f"  d1: fit {v1:+.8f} ({h1:.1e})  lattice {-(s-1)/2:+.8f}")
 e1 = float(2*p*c*Zm(1)); e10 = float(2*p*c*mp.zeta(-p))
 r = y + (s - 1)/(2*n); skip = [1.0]
-v, h = fit(n, r, p, skip, 1 + p)
+v, h = fit(n, r, p, skip, 1 + p); v_e1, h_e1 = v, h
 print(f"  eps1 (n^-1-p): fit {v:+.7f} ({h:.1e})  S1 {e1:+.7f} diff {v - e1:+.1e}  [lattice {e10:+.7f}; first order 2pc*p*g*zeta(2-p) = {float(2*p*c*p*g*mp.zeta(2-p)):+.6f}]")
 r2 = r - e1*n**(-1 - p); skip = [1.0, round(1 + p, 9)]
 if p < 1 and 1 + 2*p < 2.5:
@@ -41,4 +41,7 @@ for lo in (200, 400, 800):
     E = [1.0, 2.0, 1 + p, 2 + p, 3.0] if p > 1 else [1.0, 2.0, 2*p, 1 + p, 3*p]
     A = np.vstack([n[m]**-e for e in E]).T
     co = np.linalg.lstsq(A, DD[m], rcond=None)[0]
+    if lo == 400: d2_400 = co[0]
     print(f"  fit of n(y - y_lat) - Delta eps1 n^-p on n >= {lo}: Delta d2 = {co[0]:+.6f}, Delta d3 = {co[1]:+.6f}  (other: {', '.join(f'{c_:+.3g}' for c_ in co[2:])})")
+# pass/fail: the zeta-layer eps1 (first fit above) and the pole-law d2 shift -g pi cot(pi/p) (n >= 400 fit)
+C_ = Checks(); C_.check("eps1", v_e1, e1, max(3*h_e1, 1e-4)); C_.check("Delta d2 (pole law)", d2_400, float(-g*mp.pi*mp.cot(mp.pi/p)), 2e-3*max(1, abs(g))); C_.finish()

@@ -4,7 +4,8 @@ Compared with the candidate L = -2(2-p) c kappa (identified from p = 0.6, kappa 
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'second_order', 'checks'))
 import numpy as np
-from spec_common import run, c_p_mp, NMAX
+from spec_common import run, c_p_mp, NMAX, Checks
+C_ = Checks()
 from so_coeffs import coeffs
 from so_fit import sequences
 for p, kap in ((0.6, 1.0), (0.6, 0.5), (0.3, 1.0)):
@@ -23,3 +24,5 @@ for p, kap in ((0.6, 1.0), (0.6, 0.5), (0.3, 1.0)):
     est = np.array(est)
     print(f"p={p} kappa={kap}: L = {np.median(est):+.5f} (half-range {(est.max()-est.min())/2:.1e})   -2(2-p)c kappa = {-2*(2-p)*c*kap:+.5f}"
           f"   ratio {np.median(est)/(-2*(2-p)*c*kap):.4f}")
+    C_.check(f"L p={p} kappa={kap}", float(np.median(est)), -2*(2-p)*c*kap, max(float((est.max()-est.min())/2), 1e-3))
+C_.finish()

@@ -8,7 +8,7 @@ S1 predictions: d1 = -p alpha/2 + p Z(0); eps1 = 2pc Z_lam'(-1) (h-dependent); p
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np, mpmath as mp, sympy as sp
 from scipy.special import airy
-from spec_common import run, fit, NMAX, c_p_mp
+from spec_common import run, fit, NMAX, c_p_mp, Checks
 from spec_airy import zeros as zeros_D
 h = float(sys.argv[1]); s = float(sys.argv[2]) if len(sys.argv) > 2 else 2.0
 p = 2/3; K = 200*NMAX
@@ -23,7 +23,7 @@ expr = (u**-2 + hh*R/u)/(-R/u - hh)
 ser = sp.expand(sp.series(expr, u, 0, 9).removeO())
 Z = {j: sp.simplify((-1)**j*ser.coeff(u, 2*j + 2)) for j in range(0, 4)}   # z^{-j-1} = u^{2j+2}
 print("Robin Z_E(-j) as functions of h:", {j: str(sp.factor(v)) for j, v in Z.items()})
-assert sp.simplify(Z[0] - sp.Rational(1, 4)) == 0 or True
+assert sp.simplify(Z[0] - sp.Rational(1, 4)) == 0
 # --- eigenvalues ---
 UC = [1.0, -7/48, 35/288, -181223/207360, 18683371/12192768]
 k = np.arange(1, K + 1, dtype=np.float64)
@@ -38,7 +38,10 @@ for _ in range(80):
     mid = (lo + hi)/2; fm = Fv(mid); same = np.sign(fm) == np.sign(flo)
     lo = np.where(same, mid, lo); flo = np.where(same, fm, flo); hi = np.where(same, hi, mid)
 E = (lo + hi)/2
-print(f"bisection bracket width max {np.max(hi - lo):.1e}; E_1 = {E[0]:.12f}, residual max |F| {np.max(np.abs(Fv(E[:1000]))):.1e}")
+resid = float(np.max(np.abs(Fv(E[:1000]))))
+print(f"bisection bracket width max {np.max(hi - lo):.1e}; E_1 = {E[0]:.12f}, residual max |F| {resid:.1e}")
+assert resid < 1e-9 and np.all(E > EN) and np.all(E < ED), "Robin roots bracketed strictly between Neumann and Dirichlet"
+
 C = (3*np.pi/2)**(2/3); lam = E/C
 n, y = run(f"robin_h{h}_s{s}", lam, p, s, -0.75, K)
 c = float(c_p_mp(p)); alpha = (s - 1 - p)/p
@@ -54,3 +57,4 @@ print(f"h={h} s={s}: Z(0) = {Z0:.6f}, Z_lam'(-1) = {Z1:+.6f}, Z_lam'(-2) = {Z2:+
 print(f"  d1: fit {v1:+.8f} ({h1:.1e})  pred {d1:+.8f}")
 print(f"  eps1 (n^-5/3): fit {v:+.7f} ({hv:.1e})  pred {e1:+.7f}  diff {v - e1:+.1e}   [Neumann h=0: 0]")
 print(f"  n^-2: fit {w:+.6f} ({hw:.1e})  pred (index shift, delta = {delta:+.3f}) {d2:+.6f}  diff {w - d2:+.1e}")
+C_ = Checks(); C_.check(f"d1 h={h}", v1, d1, max(3*h1, 1e-5)); C_.check(f"eps1 h={h}", v, e1, max(3*hv, 1e-4)); C_.check(f"d2 h={h}", w, d2, max(3*hw, 1e-4)); C_.finish()

@@ -8,7 +8,7 @@ Method: subtract the exact first-order zeta-layer change sum_j W(j) p DeltaZ(-j)
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'second_order', 'checks'))
 import numpy as np, mpmath as mp
-from spec_common import run, NMAX, c_p_mp
+from spec_common import Checks, run, NMAX, c_p_mp
 from so_coeffs import coeffs
 from so_fit import sequences
 p, s, g, m = float(sys.argv[1]), float(sys.argv[2]), float(sys.argv[3]), float(sys.argv[4])
@@ -38,3 +38,6 @@ for lo in (200, 400, 800):
         A = np.vstack([n[sel]**-e for e in E]).T; co = np.linalg.lstsq(A, D[sel], rcond=None)[0]
         if J == 6:
             print(f"  n >= {lo}, exponents {E}: coefficient of n^-{m} = {co[E.index(m)]:+.6f}   (pred {pred:+.6f})")
+            if lo == 200: v200 = co[E.index(m)]
+# pass/fail (REVIEW_SPEC2_B F4): |fit - prediction| <= 5e-3 |pred| + 1e-4 (n >= 200); sign flips or dropping W(q) at m != 1 fail
+C_ = Checks(); C_.check(f"pole term p={p} m={m}", v200, pred, 5e-3*abs(pred) + 1e-4); C_.finish()

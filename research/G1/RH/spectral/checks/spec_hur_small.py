@@ -9,7 +9,8 @@ import numpy as np, mpmath as mp
 from math import comb
 from so_coeffs import coeffs, c_p_mp
 from so_fit import sequences
-from spec_common import fit, NMAX
+from spec_common import fit, NMAX, Checks
+C_ = Checks()
 d2f = lambda p, s: (p + 1)*(s - 1)**2/(8*p) - (p + 2)*(s - 1 - p)**2/(8*p*p) + (p + 1)/12
 jj, s, d = int(sys.argv[1]), float(sys.argv[2]), float(sys.argv[3])
 p = 1/jj; a = 1 + d; K = 200*NMAX
@@ -23,9 +24,11 @@ for i in range(1, jj):
     for i2 in range(1, jj):
         if i2 != i: r = r - eps(i2)*n**(-1 - i2*p); skip.append(round(1 + i2*p, 9))
     v, h = fit(n, r, p, skip, 1 + i*p)
+    C_.check(f"eps_{i}", v, eps(i), max(3*h, 1e-5))
     print(f"  eps_{i}: fit {v:+.7f} ({h:.1e})   Hurwitz {eps(i):+.7f}   diff {v - eps(i):+.1e}   [unshifted {float(comb(2*i,i)*p*c**i*mp.zeta(-i*mp.mpf(p))):+.7f}]")
 r = base - sum(eps(i)*n**(-1 - i*p) for i in range(1, jj)); skip = [1.0] + [round(1 + i*p, 9) for i in range(1, jj)]
 v, h = fit(n, r, p, skip, 2.0)
 d2s = d2f(p, s) + p*(p + 1)*d*d/2 - (p + 1)*d*d10; ej = float(p*mp.zeta(-1, a))
 print(f"  n^-2 (merged): fit {v:+.6f} ({h:.1e})   d2_shift + eps_{jj}(a) = {d2s:+.6f} + {ej:+.6f} = {d2s + ej:+.6f}   diff {v - d2s - ej:+.1e}"
       f"   [without eps_{jj}: diff {v - d2s:+.1e}]")
+C_.check("merged n^-2", v, d2s + ej, max(3*h, 1e-4)); C_.finish()

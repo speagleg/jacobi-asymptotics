@@ -5,7 +5,7 @@ with Zfin = regularised Delta Z(-j) where the divergent zeta(1) (i = 1 term) is 
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'second_order', 'checks'))
 import numpy as np, mpmath as mp
-from spec_common import run, NMAX, c_p_mp
+from spec_common import run, NMAX, c_p_mp, Checks
 from so_coeffs import coeffs
 from so_fit import sequences
 p, s, g, m = float(sys.argv[1]), float(sys.argv[2]), float(sys.argv[3]), float(sys.argv[4])
@@ -45,9 +45,12 @@ for lo in (200, 400, 800):
         A = np.vstack([n[sel]**(-jres*p)*np.log(n[sel]), n[sel]**(-jres*p)] + [n[sel]**(-j*p)*np.log(n[sel]) for j in skipped] + [n[sel]**-e for e in Ex]).T
         co = np.linalg.lstsq(A, D[sel], rcond=None)[0]
         if J == 5: print(f"  n >= {lo}: log coefficient {co[0]:+.6f} (pred {logc:+.6f}),  n^-{jres*p} coefficient {co[1]:+.6f} (pred {fin:+.6f})")
+        if J == 5 and lo == 200: res200 = (co[0], co[1])
 # control: a fit without the log term
 sel = n >= 400; A = np.vstack([n[sel]**(-jres*p)] + [n[sel]**(-j*p)*np.log(n[sel]) for j in skipped] + [n[sel]**-e for e in E[:5]]).T
 res = D[sel] - A @ np.linalg.lstsq(A, D[sel], rcond=None)[0]
 A2 = np.vstack([n[sel]**(-jres*p)*np.log(n[sel]), n[sel]**(-jres*p)] + [n[sel]**(-j*p)*np.log(n[sel]) for j in skipped] + [n[sel]**-e for e in E[:5]]).T
 res2 = D[sel] - A2 @ np.linalg.lstsq(A2, D[sel], rcond=None)[0]
 print(f"  control (n >= 400): RMS residual without log term {np.sqrt(np.mean(res**2)):.2e}, with log term {np.sqrt(np.mean(res2**2)):.2e}")
+# pass/fail at the n >= 200 window only (later windows are degenerate; REVIEW_SPEC2_A F6, REVIEW_SPEC2_B F5: honest spreads 1.4e-4, 1.6e-3)
+C_ = Checks(); C_.check("log coefficient", res200[0], logc, 5e-4); C_.check("n^-jp coefficient", res200[1], fin, 5e-3); C_.finish()

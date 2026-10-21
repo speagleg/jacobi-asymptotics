@@ -2,6 +2,7 @@
 d1 = -p alpha/2 + p Z(0), Z(0) = zeta(0, 3/4) = -1/4;  eps_j = C(2j,j) p c^j Z(-j), Z(-j) Hurwitz-regularised via the DLMF series."""
 import sys; import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from spec_common import *
+from spec_common import Checks
 from spec_airy import zeros, TC
 s = float(sys.argv[1]); p = 2/3; pm = mp.mpf(2)/3; K = 200*NMAX
 mp.mp.dps = 40
@@ -30,3 +31,5 @@ print(f"bouncer s={s}: Z(-1) = {mp.nstr(Z1, 15)}, Z(-2) = {mp.nstr(Z2, 15)}")
 print(f"  d1 fit {v1:+.8f} ({h1:.1e}) pred {d1:+.8f} [pure-lattice value {-(s-1)/2:+.4f}]")
 print(f"  n^-1-p fit {v:+.7f} ({h:.1e}) pred eps1 {e1:+.7f} diff {v-e1:+.1e} [Hurwitz-only {float(2*p*c*mp.zeta(-pm, 0.75)):+.7f}]")
 print(f"  n^-1-2p fit {w:+.6f} ({hw:.1e}) pred eps2 {e2:+.6f} diff {w-e2:+.1e}", flush=True)
+# pass/fail (REVIEW_SPEC2_B F4): |fit - prediction| <= max(3 * fit half-range, floor)
+C_ = Checks(); C_.check(f"d1 s={s}", v1, d1, max(3*h1, 1e-5)); C_.check(f"eps1 s={s}", v, e1, max(3*h, 1e-4)); C_.finish()

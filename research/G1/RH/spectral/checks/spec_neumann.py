@@ -7,7 +7,7 @@
     S1 predicts d1 = -p alpha/2 + p Z(0) = -(s-1)/2 + p/2 + p/4 and eps1 = 0 (Dirichlet: -(s-1)/2 + p/2 - p/4; shift p/2)."""
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np, mpmath as mp, sympy as sp
-from spec_common import run, fit, c_p_mp, NMAX
+from spec_common import Checks, run, fit, c_p_mp, NMAX
 UC = [1.0, -7/48, 35/288, -181223/207360, 18683371/12192768]
 def zeros_ap(K, kex=40):
     mp.mp.dps = 30; out = np.empty(K)
@@ -38,3 +38,5 @@ d1 = -p*alpha/2 + p*0.25
 v1, h1 = fit(n, y, p, [], 1.0)
 v, h = fit(n, y - d1/n, p, [1.0], 1 + p)
 print(f"(3) s={s}: d1 fit {v1:+.8f} ({h1:.1e}) pred {d1:+.8f} [Dirichlet bouncer {-p*alpha/2 - p*0.25:+.8f}] | n^-5/3 fit {v:+.7f} ({h:.1e}) pred 0")
+# pass/fail (REVIEW_SPEC2_B F4): |fit - prediction| <= max(3 * fit half-range, floor)
+C_ = Checks(); C_.check(f"d1 s={s}", v1, d1, max(3*h1, 1e-5)); C_.check(f"eps1 s={s}", v, 0.0, max(3*h, 1e-4)); C_.finish()

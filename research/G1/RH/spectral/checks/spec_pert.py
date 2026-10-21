@@ -11,18 +11,10 @@ from jacobi_asym.measures.base import DiscreteMeasure
 from jacobi_asym.jacobi.rkpw import jacobi_rkpw
 p, s, m0, h = float(sys.argv[1]), float(sys.argv[2]), int(sys.argv[3]), float(sys.argv[4])
 NMAX = 1600; K = 200 * NMAX
-f = Path(__file__).resolve().parents[5] / "tmp" / "spectral_cache" / f"pert_p{p}_s{s}_m{m0}_h{h}.txt"; f.parent.mkdir(parents=True, exist_ok=True); mp.mp.dps = 40
-if not f.exists():
-    k = np.arange(1, K + 1, dtype=np.float64); k[m0 - 1] = m0 + h
-    x, w = k ** (-p), k ** (-s)
-    beta = (s - 1) / p - 1; u, wu = roots_jacobi(NMAX + 8, 0.0, beta); X = (K + 0.5) ** (-p)
-    mu = DiscreteMeasure.from_atoms(x, w, tail=(X * (1 + u) / 2, wu * (X / 2) ** (beta + 1) / p))
-    jc = jacobi_rkpw(mu, NMAX + 1, prec="q")
-    with open(f, "w") as fh:
-        for a_, b2 in zip(jc.a[:NMAX], jc.b2[:NMAX]): fh.write(f"{mp.nstr(a_, 36)} {mp.nstr(mp.sqrt(b2), 36)}\n")
-rows = [l.split() for l in open(f)]
-al = np.array([mp.mpf(r[0]) for r in rows], dtype=object); b = np.array([mp.mpf(r[1]) for r in rows], dtype=object)
-n, y, *_ = sequences(p, al, b); n = n.astype(float); c = c_p_mp(p)
+from spec_common import run
+k = np.arange(1, K + 1, dtype=np.float64); k[m0 - 1] = m0 + h
+n, y = run(f"pert_p{p}_s{s}_m{m0}_h{h}", k**p, p, s, 0.0, K); c = c_p_mp(p)
+
 dZ = lambda j: (m0 + h) ** (j * p) - m0 ** (j * p)
 eps = lambda j: float(comb(2*j, j) * p * c**j * (mp.zeta(-j*mp.mpf(p)) + dZ(j)))
 E_all = sorted({round(1+i+j*p, 9) for i in range(8) for j in range(8)})
@@ -39,3 +31,5 @@ v1, h1 = fit(y, [], 1.0)
 v, hh = fit(y + (s-1)/(2*n), [1.0], round(1+p, 9))
 print(f"p={p} s={s} node {m0}->{m0+h}: d1 fit {v1:+.8f} ({h1:.1e}) pred {-(s-1)/2:+.8f} | n^-1-p fit {v:+.7f} ({hh:.1e}) "
       f"pred eps1 {eps(1):+.7f} diff {v-eps(1):+.1e} | unperturbed {float(2*p*c*mp.zeta(-p)):+.7f}", flush=True)
+from spec_common import Checks
+C_ = Checks(); C_.check("d1", v1, -(s-1)/2, max(3*h1, 1e-5)); C_.check("eps1", v, eps(1), max(3*hh, 1e-4)); C_.finish()

@@ -7,6 +7,10 @@ Status (2026-10-20): exploratory note from the Plan E3 session. Labels per VERIF
 - §3.1: Lemma H is CONDITIONAL on Hurwitz's formula (unread under Rule C), with NUMERICAL confirmation.
 - §3.3: Proposition B, PROVED-mod-cite pending Rule C (Hadamard factorisation of Ai; the Mellin correspondence), NOT REVIEWED;
   NUMERICAL confirmation. This note builds on E3.md (REVIEWED), in particular its Lemma E3.7. Novelty: first pass done, §3.9.
+- §§3.3–3.13 (second round): **REVIEWED** for correctness of the stated evidence, derivations and labels (Rule R:
+  REVIEW_SPEC2_A.md and REVIEW_SPEC2_B.md, two independent readers, both ACCEPT WITH FIXES; fixes applied 2026-10-21, §6).
+  Review does not upgrade labels: S1′, S1″, S1‴, the pole law and the κ law remain CONJECTURE / NUMERICAL / HEURISTIC.
+  The main correction is the sign of the pole law (§3.12) and its limitation to the leading power of each pole (F2).
 
 ## 0. Setting
 
@@ -358,8 +362,16 @@ Z_E(−9) is not independently checked: the zero sums would need more WKB terms.
 *Consequences for S1* (normalised eigenvalues λ′ = E/(3π/2)^{2/3}, Z_{λ′}(−j) = (3π/2)^{−2j/3}Z_E(−j)):
 - d₁ = −pα/2 − p/4.
 - ε₁ = ε₂ = 0, and ε₃ = 20pc³(3π/2)^{−2}·15/64.
-The ε₃ term sits at n^{−1−3p} = n^{−3}, where it merges with the n⁻³ term, below the resolution of the §2 fits. So the bouncer's first nonzero spectral correction
-beyond d₁ is predicted exactly but not yet observed.
+The ε₃ term sits at n^{−1−3p} = n^{−3}, where it merges with the n⁻³ term, below the resolution of the §2 fits. *Correction
+(REVIEW_SPEC2_A F2):* the n⁻³ coefficient is **not** predicted by ε₃ alone. The q = 3/2 pole of Z_E (from the z^{1/2} term of
+Ai′/Ai) has its leading term killed by cot(3π/2) = 0, but its subleading term, also at n^{−2−pq} = n⁻³, is not (§3.12,
+Limitation). The bouncer's n⁻³ coefficient is therefore an open prediction, not an exact one.
+
+*Remaining proof gaps* (REVIEW_SPEC2_A F9): the continuation step needs the remainder bound of the large-z expansion (DLMF
+§9.7(iv), or a sector-analyticity argument) and term-by-term differentiation of it (R₂ = −(Ai′/Ai)′); Hadamard needs order
+3/2 < 2, genus 1. Both are classical and stay under "pending Rule C". The same expansions give the poles of Z_E exactly: a term
+z^{−a−1} of F′/F with non-integer a is a pole at s = −a. Dirichlet: q ∈ {3/2, 9/2, …}; Robin (all orders in h) and Bessel:
+q ∈ {½, 3/2, 5/2, …}. So "every pole sits at a half-integer" (§3.12) follows from these expansions, not only from WKB parity.
 
 ### 3.4 Direction 3: reading off the Maslov index (NUMERICAL; S1 test with an exact prediction)
 
@@ -385,8 +397,14 @@ not of the form m + a + O(1/m). S1 does not apply, and indeed the effect is of a
 `checks/spec_kappa_fit.out`; p = 0.6 and 0.3, s = 2): Δy_n = y_n(κ) − y_n(0) is of relative order n^{−p}, not n^{−1−p}.
 - **Linear in κ.** The κ = ½ run gives half the κ = 1 value.
 - **Leading coefficient.** Least-squares fits of n^pΔy_n = L + Σ_iA_in^{−e_i} give L = −1.2034, −0.6015 and −1.2231 at
-  (p, κ) = (0.6, 1), (0.6, ½) and (0.3, 1). The candidate −2(2−p)cκ gives −1.2025, −0.6012 and −1.2226; all agree within 0.1%.
-  The fit half-ranges are large (0.04–0.7), so this is a NUMERICAL candidate, not an identification.
+  (p, κ) = (0.6, 1), (0.6, ½) and (0.3, 1). The candidate −2(2−p)cκ gives −1.2025, −0.6012 and −1.2226. The fit half-ranges are
+  large: at p = 0.3 the half-range is 0.74 (60%), so the 0.1% agreement there is luck and not evidence (REVIEW_SPEC2_B F5);
+  the real evidence at p = 0.3 is the convergent spec_mobius_pred ratio below. *Rule X:* the p = 0.6, κ = 1 row was the
+  identification target for the candidate; only the other rows, the Möbius derivation and the out-of-sample p = 1.5 run
+  (§3.12) test it.
+- **It is a pole-law term** (REVIEW_SPEC2_A F3; §3.12). κ moves the Weyl pole of Z to q = 1 − 1/p, and the pole law reproduces
+  −2(2−p)cκ exactly for all p. An out-of-sample run at p = 1.5, κ = 1 (reviewer A) gives L = −0.5662723 ± 1.3·10⁻⁶ against
+  −0.5662723.
 - **Exact identity (Proposition M; PROVED, elementary).** The shift is the Möbius map φ(y) = y/(1 + κy) on the nodes y = 1/λ.
   Since φ(a) − φ(b) = (a − b)/((1 + κa)(1 + κb)), Heine's formula gives
 
@@ -400,6 +418,8 @@ not of the form m + a + O(1/m). S1 does not apply, and indeed the effect is of a
   - log b_n² = Δ²log D at m = n gives log b_n²(σ_κ) − log b_n²(σ) ≈ Δ²_m[−2κ(m−1)T(m)];
   - with α_j ≈ 2cj^{−p}, this is −4(2−p)cκn^{−p}, i.e. Δy_n ≈ −2(2−p)cκn^{−p}, which is the numerical candidate;
   - neglected: the tilt (1 + κy)^{−s/p} (order n^{−1−p}), the O(κ²y²) term and the N-dependence of μ_N (order κ²n^{−2p}).
+    For p < 1 the tilt (1 + κy)^{−2N} is not small in absolute terms (2Nκy ~ κn^{1−p} on the band); it is small per particle
+    (relative n^{−p}), which is the sense the estimate uses (REVIEW_SPEC2_A F13).
   Check (`checks/spec_mobius_pred.out`): Δ²G built from the actual α_j of σ, against the measured log-ratio. The ratio
   measured/predicted is 0.955 → 0.995 (p = 0.6, κ = 1, n = 50 → 1500), 0.970 → 0.997 (κ = ½), and 0.859 → 0.947 (p = 0.3). The gap
   decays like κn^{−p} (0.0069 → 0.0047 from n = 800 to 1500, against (1500/800)^{0.6} = 1.46), i.e. it is the second-order term.
@@ -421,7 +441,7 @@ not only at the turning point. With ~n such nodes displaced independently this g
 Because the kernel oscillates on the scale of one spacing, displacements with a rigid counting function (difference jitter)
 do not cancel it, which is what S4 found.
 
-**GUE-like against Poisson nodes** (`checks/spec_stats.out`). The first M = 3000 nodes are replaced by unfolded CUE eigenphases
+**GUE-like against Poisson nodes** (`checks/spec_stats_seeds.out`, seed 7). The first M = 3000 nodes are replaced by unfolded CUE eigenphases
 (max |x_k − k| = 3.3) or by a Poisson bridge (max |x_k − k| = 36); the lattice is kept beyond M.
 
 Five seeds per ensemble (7, 11, 13, 17, 19; `checks/spec_stats_seeds.out`, summary `checks/spec_stats_summary.out`). Mean and
@@ -522,7 +542,7 @@ Then the expansion of n^pb_n/c separates into two layers:
   d₂ = d₂⁰ + p(p+1)δ²/2 − (p+1)δd₁⁰.
 - **(II) Zeta layer.** The n^{−1−jp} coefficients are ε_j = C(2j, j)pc^jZ(−j). These are new spectral data, not produced by an
   index shift.
-- **Merging.** At p = 1/j the two layers merge at n⁻², and the coefficient is the sum d₂ + ε_j = d₂ + pZ(−1), using
+- **Merging.** At p = 1/j the two layers merge at n⁻², and the coefficient is the sum d₂ + ε_j = d₂ + pZ(−j), using
   C(2j, j)c(1/j)^j = 1.
 For Λ = {m^p}, δ = 0 and (I), (II) reduce to E2/E3 (PROVED, REVIEWED). S1 is (II) together with d₁ from (I).
 
@@ -532,21 +552,23 @@ For Λ = {m^p}, δ = 0 and (I), (II) reduce to E2/E3 (PROVED, REVIEWED). S1 is (
 |---|---|---|
 | Hurwitz lattices, d₂ (`checks/spec_hur_d2.out`) | I | p = 0.6 (δ = −½, ½, 1), 0.75, 1.5: agreement to 2·10⁻⁶ … 3·10⁻⁵ (fit spreads 3·10⁻⁵ … 9·10⁻⁴); the d₂ shifts are 0.3 to 3 |
 | Bouncer (Dirichlet δ = −¼, Neumann δ = −¾), d₂ (`checks/spec_bouncer_d2.out`) | I | 9·10⁻⁵, 2·10⁻⁵ (s = 2), 1.2·10⁻³ (s = 3, spread 1.5·10⁻²); the WKB corrections enter only at n⁻³ |
-| Bessel zeros, p = s = 2 (`checks/spec_lommel.out`) | I, exact | closed form from the Lommel recurrence, n²b_n/c = 4n²/((2n+μ)√((2n+μ)² − 1)) = [n/(n+δ)]²G(n + δ), δ = μ/2 − ¼: an exact index shift of the p = 2 lattice to all orders; checked against Bessel-zero measures to 10⁻¹⁵ (μ = 0, 1.5) |
+| Bessel zeros, p = s = 2 (`checks/spec_lommel.out`) | I, exact | closed form from the Lommel recurrence, n²b_n/c = 4n²/((2n+μ)√((2n+μ)² − 1)) = [n/(n+δ)]²G(n + δ), δ = μ/2 − ¼: an exact index shift of the p = 2 lattice to all orders; checked against Bessel-zero measures to 10⁻¹⁵ (μ = 0, 1.5). The exactness at n⁻³ arises by cancellation of a subleading pole term against ε₁ (§3.12, Limitation), not by absence |
 | Hurwitz p = 1/3, δ = −½ (`checks/spec_hur_small.out`) | II and merged | ε₁, ε₂ = Hurwitz to 5·10⁻⁷, 3·10⁻⁵; merged n⁻² = d₂^shift + ⅓ζ(−1, ½) to 3.5·10⁻⁵ (spread 1.9·10⁻³; without the ζ term off by 1.4·10⁻², i.e. 7 spreads) |
 | Hurwitz p = 1/4, δ = −½ | II and merged | ε₁, ε₂, ε₃ = Hurwitz to 4·10⁻⁷, 9·10⁻⁶, 3·10⁻⁴ (spreads 5·10⁻⁵, 5·10⁻⁴, 10⁻²); merged consistent (2·10⁻³, spread 9·10⁻³; weak) |
 | Earlier: §2 (ε₁ for Hurwitz, moved nodes, bouncer), §3.4 (Maslov) | I, II | as reported |
 
 **Reading.** The node set enters b_n through two independent channels:
-- its counting function, in the integer layer. Only Z(0) is needed at the orders tested, because higher Weyl corrections
-  appear later (bouncer: n⁻³);
+- its counting function, in the integer layer. *Superseded* (REVIEW_SPEC2_A F7): "only Z(0) is needed" is false in general.
+  Decaying index corrections γk^{−m} enter at n^{−1−m} through the pole law (§3.11(b), §3.12); they are invisible for the
+  bouncer only because cot = 0 at its half-integer poles;
 - its regularised power sums Z(−j), in the zeta layer.
 The structural reason is visible in the proofs. The integer layer comes from the model weight and the index normalisation
 (Paper 2's interpolation in t), while the zeta layer is the band factor (Lemmas F.1/F.1′/H) fed through the exact linear
 response of Lemma E3.7.
 
 **Open.**
-- Whether the zeta-layer terms are ε_j n^{−1−jp} or ε_j (n + δ)^{−1−jp}. These differ at n^{−2−jp}, beyond present resolution.
+- ~~Whether the zeta-layer terms are ε_j n^{−1−jp} or ε_j (n + δ)^{−1−jp}.~~ Answered by §3.11(a) for Hurwitz lattices: shifted,
+  ε_j(n + δ)^{−1−jp} times (n/(n + δ))^p.
 - The integer layer beyond Z(0): which spectral data (the Weyl-term coefficients of N̄) enter d₃ (bouncer).
 - A proof of (I) for Hurwitz lattices. This is §3.1's open index-offset step, now with a sharper target: an exact index shift
   of the integer layer.
@@ -560,12 +582,16 @@ response of Lemma E3.7.
 
 where Φ is the lattice expansion as a function of N, with every ζ(−jp) replaced by ζ(−jp, a). Two checks:
 - **d₃ (integer layer, third order).** The rule built from d₁⁰, d₂⁰ and the fitted d₃⁰ predicts d₃(δ) to 9·10⁻⁷, 2·10⁻⁵ and
-  7·10⁻⁵. The d₃ shifts are 0.37, 1.5 and 5.7.
+  7·10⁻⁵ in the reported fit configuration. The d₃ shifts are 0.37, 1.5 and 5.7. These are best-case medians: within
+  same-configuration ranges the agreement is 1·10⁻⁴, 2·10⁻³ and 1.3·10⁻² (REVIEW_SPEC2_B F5), i.e. relative 3·10⁻⁴ to 2·10⁻³ of
+  the shifts. The prediction uses the fitted d₃⁰, so it tests the δ-dependence only.
 - **The n^{−3.5} coefficient (zeta layer under the shift).** H predicts f(δ) = ε₁(a)[f(0)/ε₁(1) − (1 + 2p)δ]; the fits agree to
-  4.5·10⁻⁵, 1.1·10⁻³ and 5.4·10⁻³ (spreads ≈ 0.14). The alternative "zeta layer unshifted" is off by 0.056, 1.1 and 7.0.
+  4.5·10⁻⁵, 1.1·10⁻³ and 5.4·10⁻³ (spreads ≈ 0.14). The alternative "zeta layer unshifted" is off by 0.056, 1.1 and 7.0, so
+  δ = ½ and 1 discriminate; δ = −½ (0.056 against a spread of 0.14) does not. The prediction assumes that the lattice
+  n^{−2−p} coefficient f(0) is ζ(−p) times a function of (p, s) (REVIEW_SPEC2_A F12).
 So for Hurwitz lattices the whole expansion, both layers, is the lattice expansion at n + δ with Hurwitz zeta values.
 
-**(b) Decaying index corrections** (`checks/spec_gamma.out`, `checks/spec_gamma2.out`). Synthetic lattices λ_k = (k + γ/k^m)^p keep
+**(b) Decaying index corrections** (`checks/spec_gamma.out`). Synthetic lattices λ_k = (k + γ/k^m)^p keep
 the count, so Z(0) is unchanged.
 - **Zeta layer.** ε₁ = 2pc·Z(−1) with the exact regularised Z(−1): agreement 3·10⁻⁶ (p = 0.6) and 9·10⁻⁴ (p = 1.5).
 - **m = 2.** After the exact zeta-layer change is subtracted, Δd₂ = 0 to print precision.
@@ -576,74 +602,124 @@ the count, so Z(0) is unchanged.
 - **Interpretation (HEURISTIC).** A γ/k index correction gives Z(s) = Σ(k + γ/k)^{−ps} a pole at s = −1/p, with residue γ/p.
   The generalised identity C(2q, q)c(p)^q = 1 at q = 1/p (a consequence of c(p)'s definition and the duplication formula;
   C(2j, j)c(1/j)^j = 1 is its integer case) makes the "j = 1/p" member of the zeta layer land at n^{−1−p·(1/p)} = n⁻². With the
-  prefactor p cancelling the residue's 1/p, Δd₂ = γ·(an s-independent constant); §3.12 derives it as −γπcot(π/p). So the integer layer is the zeta
+  prefactor p cancelling the residue's 1/p, Δd₂ = γ·(an s-independent constant); §3.12 gives it as −γπcot(π/p). So the integer layer is the zeta
   layer's pole part. If this is right, S1′ becomes a single statement: all poles and zeta values of Z, each entering through
   C(2q, q)c^q with q the location.
 - **Consequence for the bouncer** (corrected in §3.12). λ′ = (k − ¼)^{2/3}(1 + O(k⁻²)) gives λ′^{3/2} = (k − ¼) + γ₁/(k − ¼) + …, an
-  m = 1 index correction. It is invisible in d₂ because cot(π/p) = cot(3π/2) = 0, not because it is O(k⁻²).
+  m = 1 index correction. It is invisible in d₂ because cot(π/p) = cot(3π/2) = 0, not because it is O(k⁻²). Its subleading
+  term at n⁻³ is not killed (§3.12, Limitation).
 
-### 3.12 The pole law (NUMERICAL, to 10⁻⁶; HEURISTIC derivation)
+### 3.12 The pole law (NUMERICAL; HEURISTIC derivation; REVIEWED with fixes: REVIEW_SPEC2_A F1–F3, F8; REVIEW_SPEC2_B F1, F3, F5, F8)
 
 **Statement.** Write the zeta layer as a Mellin–Barnes integral,
 
-  (p/n)·Σ_jW(j)Z(−j)n^{−jp} = −(p/n)·(1/2πi)∫W(w)Z(−w)·π cot(πw)·n^{−wp}dw,
+  (p/n)·Σ_jW(j)Z(−j)n^{−jp} = −(p/n)·(1/2πi)∫_↑W(w)Z(−w)·π cot(πw)·n^{−wp}dw,
   W(q) := C(2q, q)c^q = (4c)^qΓ(q + ½)/(√πΓ(q + 1)).
 
-Here π cot(πw) has residue 1 at every integer, so it generates the integer terms. A pole of w ↦ Z(−w) at a non-integer w = q,
-with residue R, then contributes
+Here π cot(πw) has residue 1 at every integer, and closing the contour to the right gives +ΣRes, so the integer residues are the
+terms on the left. A pole of w ↦ Z(−w) at a non-integer w = q, with w-residue R, then contributes, with the same orientation,
 
-  −p·R·W(q)·π cot(πq)·n^{−1−pq}
+  **+p·R·W(q)·π cot(πq)·n^{−1−pq}**  (equivalently −p·Res_{s=−q}Z(s)·W(q)·π cot(πq)·n^{−1−pq})
 
-to n^pb_n/c. The sign is calibrated once, by the m = 1 data at p = 0.6. Note W(1/p) = 1 for every p: by the duplication
-formula and the definition of c(p), (4c)^{1/p} = π/(2I(p)); C(2j, j)c(1/j)^j = 1 is the case p = 1/j.
+to n^pb_n/c.
+- **Correction.** The first version of this section stated the law with a minus sign, "calibrated once", while its table used
+  the correct sign. Both reviewers found this (REVIEW_SPEC2_A F1, REVIEW_SPEC2_B F1). The sign is fixed by the integral itself,
+  with three independent checks:
+  - the cancellation of divergences at a resonance (§3.13);
+  - the κ law (below);
+  - the averaged-kernel representation of §3.13.
+- **What was fitted.** What was identified from data is the kernel π cot(πw), from the m = 1 runs at p = 0.6 and 1.5 (§3.11(b))
+  (Rule X). Those two rows are the identification point, not evidence.
+- **Two identities.** W(1/p) = 1 for every p, directly from the definition of c(p): (4c)^{1/p} = π/(2I(p)), and C(2j, j)c(1/j)^j = 1
+  is the case p = 1/j. And W(−1/p) = p·tan(π/p)/π, by the reflection formulas (REVIEW_SPEC2_A §4; checked to 10⁻³⁰).
 
-**Test.** For λ_k = (k + γk^{−m})^p, Z(s) = ζ(ps) − psγζ(ps + m + 1) + O(γ²) has a pole at q = m/p with residue R = −mγ/p. The
-prediction is a term −mγW(m/p)π cot(πm/p)·n^{−1−m} (m = 1: a shift of d₂). Measured (`checks/spec_pole.out`; s = 2, γ = ½;
-n(y − y_lat) after subtracting the exact first-order zeta layer):
+**Test.** For λ_k = (k + γk^{−m})^p, Z(−w) = ζ(−pw) + pwγζ(m + 1 − pw) + O(γ²) has a pole at q = m/p with w-residue R = −mγ/p. The
+prediction is a term −mγW(m/p)π cot(πm/p)·n^{−1−m} (m = 1: a shift of d₂). Measured (`checks/spec_pole.out`, regenerated with
+hashed caches; s = 2, γ = ½; n(y − y_lat) after subtracting the exact first-order zeta layer). The predictions were committed
+before the measures were generated (git: c554aa3 at 04:20, measures 04:21–04:27; REVIEW_SPEC2_B F10).
 
-| p | m | cot(πm/p) | predicted | fitted (n ≥ 200 / 400 / 800) |
-|---|---|---|---|---|
-| 1.25 | 1 | −1.3764 | +2.162016 | +2.162016 / +2.162017 / +2.162022 |
-| 1.8 | 1 | −0.1763 | +0.276974 | +0.276974 / +0.276974 / +0.276973 |
-| 0.8 | 1 | +1 | −1.570796 | −1.570792 / −1.570795 / −1.570815 |
-| 0.75 | 1 | +0.5774 | −0.906900 | −0.906866 / −0.906885 / −0.906954 |
-| 1.5 | ½ | +0.5774 | −0.424704 (new n^{−3/2} term) | −0.424703 / −0.424697 / −0.424630 |
-| 1.25 | ½ | +0.3249 | −0.235183 (new n^{−3/2} term) | −0.235178 / −0.235112 / −0.232695 |
-| 0.6, 1.5 (§3.11) | 1 | −0.5774 | +0.906900 per γ = ½ | +0.906900 |
+| p | m | W(m/p) | cot(πm/p) | predicted | fitted, n ≥ 200 / 400 / 800 | role |
+|---|---|---|---|---|---|---|
+| 0.6, 1.5 (§3.11(b)) | 1 | 1 | −0.5774 | +0.906900 per γ = ½ | +0.906900 | identification (Rule X), not evidence |
+| 1.25 | 1 | 1 | −1.3764 | +2.162016 | +2.162016 / +2.162017 / +2.162022 | prediction |
+| 1.8 | 1 | 1 | −0.1763 | +0.276974 | +0.276974 / +0.276974 / +0.276973 | prediction |
+| 0.8 | 1 | 1 | +1 | −1.570796 | −1.570783 / −1.570792 / −1.570813 | prediction |
+| 0.75 | 1 | 1 | +0.5774 | −0.906900 | −0.906866 / −0.906885 / −0.906954 | prediction |
+| 1.5 | ½ | 0.9366 | +0.5774 | −0.424704 (new n^{−3/2} term) | −0.424703 / −0.424697 / −0.424630 | prediction, tests W |
+| 1.25 | ½ | 0.9216 | +0.3249 | −0.235183 (new n^{−3/2} term) | −0.235177 / −0.235112 / −0.232695 | prediction, tests W |
 
-A pole moved to a non-integer exponent (m = ½) produces a new power n^{−3/2} in b_n, with the predicted coefficient, including
-W(q) ≠ 1.
+The p = 0.8 row moved by ~10⁻⁵ against the first run: the regenerated script limits the subtracted zeta terms to jp < 2.5
+(the fix that removed a spurious ζ(1) term at p = 0.75), and the regenerated output replaces a stale one (REVIEW_SPEC2_B F3). The latest windows (n ≥ 800) drift, most at m = ½, p = 1.25, where only 800 points remain.
 
-**Consistency checks (not inputs).**
-- *Bouncer (p = 2/3).* The WKB index corrections are odd powers 1/k^m (m = 1, 3, …), so q = 3m/2 is a half-integer and cot = 0.
-  Every pole term vanishes, and the integer layer is a pure index shift (§3.10), consistent with Z_E(−j) = 0 for 3 ∤ j.
-- *Bessel zeros (p = 2).* McMahon gives j_{μ,k}/π = (k + a − 1) − κ′/(2k) + … with odd powers only, so q = m/2 is a half-integer and
-  cot = 0. This is consistent with the Lommel formula being an exact index shift to all orders.
-- *Resonance.* When a pole meets an integer (p = 3/4, m = 1: the second pole of Z at w = 3/p = 4), cot has a pole too, and a
-  term n^{−1−jp}log n is predicted. Not tested; it lies beyond the fit range here.
+Out-of-sample by reviewer B (fresh measures, own fits):
+- p = 1.1, m = 1: +5.34969 ± 1.3·10⁻⁴ against +5.349641;
+- p = 0.6, m = ½ (W = 0.841): +1.1453 ± 4·10⁻³ against +1.14367. The value without W (1.360) and the opposite sign are both excluded.
+W ≠ 1 is tested only in the m = ½ rows and this case; at m = 1, W(1/p) = 1 identically. Honest precision (REVIEW_SPEC2_B F5):
+±4·10⁻⁶ for p > 1, m = 1; 4–5·10⁻⁵ for p < 1; 4·10⁻⁵ to 3·10⁻⁴ for m = ½.
 
-**Reading.** Conjecture S1′ becomes one statement (Conjecture S1″, NUMERICAL): the 1/n-order series of n^pb_n/c is the
-Mellin–Barnes integral above. Its residues at integers are the zeta layer W(j)Z(−j). Its residues at the poles of Z are the
-contributions of the Weyl and index-correction data, weighted by π cot(πq), with W(1/p) = 1 making the Weyl-scale data enter
-cleanly. Hurwitz shifts (§3.11(a)), whose Z has no poles beyond the Weyl pole, act through the exact index-shift rule, which
-is second order in δ and outside this first-order formula.
+**The κ-shift law is a pole-law term, exactly** (REVIEW_SPEC2_A F3). For λ_k = k^p + κ, Z(−w) = ζ(−pw) + κwζ(p(1 − w)) + O(κ²) has a
+pole at q = 1 − 1/p with w-residue R = −κq/p. The pole law gives
+
+  p·R·W(q)·π cot(πq) = −2(2−p)cκ,  at n^{−1−pq} = n^{−p},
+
+exactly for every p, using W(1 − 1/p) = 4c·W(−1/p)(p − 2)/(2(p − 1)) and W(−1/p) = p·tan(π/p)/π. This is §3.5's law. Reviewer A's
+out-of-sample run at p = 1.5, κ = 1 gives L = −0.5662723 ± 1.3·10⁻⁶ against −0.5662723. The opposite sign would give +0.566.
+So the κ deformation, which is outside S1, is inside S1″.
+
+**Limitation: subleading pole terms** (REVIEW_SPEC2_A F2, MAJOR). The law gives the leading power n^{−1−pq} of each pole. The
+same pole also contributes one order lower, at n^{−2−pq}, and cot(πq) = 0 does not remove that term. The datum:
+- **Bessel zeros (p = s = 2).** Z_E(−1) = −(4μ² − 1)/16 for E = j²_{μ,k}, which is nonzero; reviewer A derived it from
+  F = z^{−μ/2}I_μ(√z) and checked it numerically. S1′(II) would add 2pcZ_λ(−1) = −(4μ² − 1)/64 at n⁻³. Yet the exact Lommel
+  formula is a pure index shift (§3.10); at μ = 0 its n⁻³ coefficient is 0, not 1/64.
+- **Control.** A pure Hurwitz lattice with the same δ (p = s = 2, λ = (k − ¼)²) does carry the additive ε₁ = π²/256 to 10⁻⁷
+  (reviewer A).
+- **Reading.** The McMahon correction (m = 1, q = ½) has its leading term n^{−1−pq} = n⁻² killed by cot(π/2) = 0. Its subleading
+  term at n⁻³ is not killed, and it cancels ε₁ exactly.
+- **Consequences.**
+  - S1′/S1″ hold only through orders below n^{−2−pq} for every pole q of Z − Z_lattice, half-integer q included.
+  - The bouncer's ε₃ (at n⁻³, where its q = 3/2 pole has its subleading term) is NOT predicted exactly (§3.3 corrected).
+  - Any future Robin ε₂ test at n^{−7/3} must include the subleading term of the q = ½ pole.
+  - The "pure index shift" readings below hold at the leading power of each pole only.
+
+**Consistency checks (not inputs; leading power of each pole only).**
+- *Bouncer (p = 2/3).* The index corrections are odd powers 1/k^m (m = 1, 3, …); this can be made exact from the F′/F expansion
+  (REVIEW_SPEC2_A F9). So q = 3m/2 is a half-integer, cot = 0, and the leading pole terms vanish. This is consistent with d₂ being
+  the pure index-shift value (§3.10).
+- *Bessel zeros (p = 2).* McMahon has odd powers only, so q = m/2 is a half-integer. Leading pole terms vanish. The exact all-orders
+  index shift of the Lommel formula arises by cancellation of the subleading terms against the zeta layer (above), not by
+  absence.
+- *Robin.* hk^{−1/3} (q = ½) and h³k^{−1} (q = 3/2): reviewer B measured the n^{−4/3} coefficient as ≤ 3·10⁻⁶, where a
+  non-vanishing kernel would give about 0.17h. This confirms cot(π/2) = 0 at leading power.
+- *Resonance.* A pole meeting an integer gives n^{−1−jp}log n. Tested in §3.13 (weak test).
+
+**Reading.** Conjecture S1″ (NUMERICAL; validity limited as above): the 1/n-order series of n^pb_n/c is the Mellin–Barnes integral
+above, taken over the poles of Z − Z_lattice (the common Weyl pole excluded; §3.13), at the leading power of each pole.
+- Its residues at integers are the zeta layer W(j)Z(−j).
+- Its residues at the poles of Z are the index-correction and moved-Weyl data (κ), weighted by π cot(πq).
+The Hurwitz shifts of §3.11(a), whose Z has no poles beyond the common Weyl pole, act through the exact index-shift rule. Its
+terms linear in δ but one order lower (−(p+1)δd₁⁰ and −(1+2p)δε₁) are of the same subleading kind as the F2 terms, and are not
+produced by this formula.
 
 **Open.**
-- A derivation of the π cot(πw) kernel from the RH analysis. Heuristically it is the analytic continuation of the band-factor
-  moments: Lemma F.1/H's moment integral, Mellin-transformed in k.
-- Second-order (γ²) terms.
-- The log-resonance prediction.
-- Poles from genuine operators: Robin boundary conditions give index corrections in powers k^{−1/3}, hence new exponents
-  n^{−1−m} with m = 1/3, 2/3.
+- A derivation of the π cot(πw) kernel from the RH analysis (§3.13 gives a heuristic one).
+- The subleading pole terms: a formula for the n^{−2−pq} coefficient. The Bessel family (exact) and the Hurwitz p = 2 control are
+  the test data.
+- Second-order (γ²) terms. For γ/k these are absent at d₂ (exactly linear; §3.11(b)).
 
 ### 3.13 Why π cot: one formula behind S2′, the zeta layer, the pole law and the in-band noise (HEURISTIC), plus two tests
 
-**The formula (Conjecture S1‴, HEURISTIC).** To first order, the 1/n-order part of n^pb_n/c is the per-node law of S2′ summed over
-all nodes, with zeta regularisation:
+**The formula (Conjecture S1‴, HEURISTIC; scope corrected per REVIEW_SPEC2_A F4, F5).** At leading order per node, the
+1/n-order part of n^pb_n/c is the per-node law of S2′ summed over all nodes, taken as a Mellin pole part:
 
   (p/n)·Σ_m [(1 − u_m)^{−1/2}]_{av},   u_m := 4cλ_m/n^p,
 
 where [·]_{av} is the average of the two boundary values for in-band nodes (u_m > 1, where (1 − u)^{−1/2} = ∓i|1 − u|^{−1/2}).
+- **Definition of the sum** (F4). Literally, [(1 − u)^{−1/2}]_{av} = (1 − u)^{−1/2}1_{u<1}, and the truncated sum
+  (p/n)Σ_{u_m<1}(1 − u_m)^{−1/2} equals the pole part below plus an O(n^{−1/2}) edge oscillation set by frac((n^p/4c)^{1/p})
+  (reviewer A: (lit − pole)·√n ranges over −0.72 … +0.44 for the p = 0.6 lattice, n ∈ [100, 1602]). That oscillation is not in
+  y_n for lattices. So S1‴ means **the sum of residues of the Mellin–Barnes integrand**, not a regularised value of the sum.
+- **The Weyl pole is excluded** (F4). The common pole of Z at w = −1/p would contribute p·(−1/p)·W(−1/p)·π cot(−π/p) = +p, a
+  constant that is not in y_n. Residues are taken of Z − Z_lattice. A *moved* Weyl pole (the κ deformation, §3.12) is included.
 - **Mellin–Barnes form.** (1 − u)^{−1/2} = (1/2πi)∫Γ(−w)Γ(w + ½)/√π·(−u)^wdw, and Γ(w + ½)/(√πΓ(w + 1))·(4c)^w = W(w). So
   Σ_m(1 − u_m)^{−1/2} = (1/2πi)∫W(w)·Γ(−w)Γ(1 + w)(−1)^w·Z(−w)n^{−wp}dw.
 - **Where π cot comes from.** The two continuations (−1)^w = e^{±iπw} correspond to the two boundary values. Their average turns
@@ -654,27 +730,42 @@ where [·]_{av} is the average of the two boundary values for in-band nodes (u_m
 - **In-band nodes.** For a node inside the band the averaged first-order contribution vanishes (the real part of ±i|·|^{−1/2}).
   This is why deep-band jitter was invisible (S4), and why in-band displacements act only nonlinearly, through the
   oscillating kernel of §3.6.
-- **What is not covered.** Second-order effects of a change of count Z(0) (the quadratic index-shift terms, §3.10–3.11) lie
-  outside this first-order formula.
+- **What is not covered** (F5). S1‴ is leading order *per node*, not first order in the perturbation. Terms one order in 1/n
+  below each per-node contribution are not produced: the Hurwitz d₂ term −(p+1)δd₁⁰ and the f(δ) term −(1+2p)δε₁ (both linear in
+  δ), the quadratic index-shift terms, and the subleading pole terms of §3.12 (F2). This parallels the O(1/n) remainder R of S2′.
 None of this is proved. It organises every numerical result of §§2–3.12, and S2′ and E3 are its proved special cases.
 
-**Test 1: the log resonance** (`checks/spec_resonance.out`). When a pole of Z meets an integer j (q = m/p = j), the integer term
+**Test 1: the log resonance** (`checks/spec_resonance.out`; a **weak** test, REVIEW_SPEC2_A F6). When a pole of Z meets an integer j (q = m/p = j), the integer term
 and the pole term each diverge, and their divergences cancel; the signs of §3.12 make them cancel. What remains in n(y − y_lat),
 after the other zeta terms are removed, is
 
   p²jγW(j)·n^{−jp}log n + n^{−jp}·p[W(j)Z_fin − γW(j) − jγW′(j)],
 
-where Z_fin is the regularised ΔZ(−j) with the divergent ζ(1) replaced by Euler's γ_E, and the −γW(j) term comes from the
-prefactor m = p(j + ε) of the pole term. At p = m = ½, γ = ½ (resonance at j = 1, a term n^{−3/2}log n in b_n), n ≥ 200:
-- log coefficient: fit +0.102071, predicted +0.102062;
-- n^{−1/2} coefficient: fit −0.180969, predicted −0.180893.
-Larger windows are less stable (n^{−1/2}log n and n^{−1/2} are nearly degenerate on short ranges).
+where Z_fin is the full regularised ΔZ(−j), all orders in γ, with the divergent ζ(1) replaced by Euler's γ_E (its first-order
+part is −0.166466; the γ^{≥2} part brings the bracket to the value below).
+- **Derivation.** Both reviewers re-derived the formula, A as the double-pole residue of π cot(πw)W(w)ΔZ(−w)n^{−pw} at w = j
+  (contour quadrature agrees to 10⁻²⁷), B as the ε → 0 limit of the two merging residues. The total finite part is independent
+  of the regularisation family (the integrand is jointly analytic in (p, m)). Only the split between "Z_fin" and "−γW(j)" is
+  a convention: the −γW(j) term can be read as coming from the prefactor m = p(j + ε) of the pole term, or as part of the
+  w-Laurent finite part of ΔZ(−w).
+- **Rule X.** The −γW(j) term was added *after* a mismatch with the fit; it is a derivation, not a fitted constant, and both
+  reviewers confirm it. The pre-correction value +0.0232 is excluded by about 130 spreads. The log coefficient was predicted
+  before the fit and is the a priori test.
+At p = m = ½, γ = ½ (resonance at j = 1, a term n^{−3/2}log n in b_n), n ≥ 200:
+- log coefficient: fit +0.10207 ± 1.4·10⁻⁴, predicted +0.102062;
+- n^{−1/2} coefficient: fit −0.1809 ± 1.6·10⁻³, predicted −0.180893.
+Agreement is at the 10⁻⁴ level, not 10⁻⁵. Later (higher-n) windows are less stable: at n ≥ 400 and n ≥ 800 the log coefficient
+drifts to 0.1028 and 0.1080 and the constant to −0.190 and −0.249 (n^{−1/2}log n and n^{−1/2} are nearly degenerate on short
+ranges). Hence "weak".
 
 **Test 2: a real operator with a parameter, the Robin bouncer** ψ′(0) = hψ(0) on (0, ∞) with V = x (`checks/spec_robin.out`). The
 eigenvalues are zeros of Ai′(−E) − hAi(−E), between the Neumann and Dirichlet ones; a vectorised bisection pins them to 10⁻¹⁶
 relative. The exact zeta values, from F′/F with F = Ai′ − hAi, are
 
   Z_E(0) = 1/4,  Z_E(−1) = −h²/2,  Z_E(−2) = h(h + 1)(h² − h + 1)/2 = h(h³ + 1)/2,  Z_E(−3) = −(32h⁶ + 48h³ + 21)/64.
+
+These are finite values, not finite parts: the coefficient of the would-be ζ(1) term vanishes (reviewer B, j = 0, 1, 2; B also
+confirmed Z_E(−1) and Z_E(−2) from the eigenvalues, independently of the Hadamard and Mellin steps, which remain NOT QUOTED).
 
 At h = 0 these reduce to the Neumann values (Z_E(−3) = −21/64). S1′ then predicts:
 - d₁ = −pα/2 + p/4, independent of h;
@@ -689,7 +780,12 @@ At h = 0 these reduce to the Neumann values (Z_E(−3) = −21/64). S1′ then p
 | 2 | −0.4199737 | −0.4198287 (3.3·10⁻³) | 1·10⁻⁶ | 5·10⁻⁵ (3.2·10⁻²) |
 
 ε₁ scales as h² (ratios 1 : 4 : 16) with the predicted constant. So b_n reads off the Robin parameter through Z(−1) = −h²/2, and
-the boundary condition's type (μ) through Z(0). (`checks/spec_robin_summary.out`; s = 2, n ≤ 1600.)
+the boundary condition's type (μ) through Z(0). (`checks/spec_robin.out`; s = 2, n ≤ 1600.) The Robin closed forms were
+committed (3f13e62, 04:48) before the h = ½ and h = 2 runs (04:50).
+- **Direct test of cot(π/2) = 0** (reviewer B, F7). With n^{−4/3} added to the fit pool (the exponent of the leading q = ½ pole
+  term), its coefficient is ≤ 3·10⁻⁶, against about 0.17h if the kernel did not vanish there.
+- **Caution for ε₂.** A future test of the Robin ε₂ at n^{−1−2p} = n^{−7/3} must include the subleading term of the q = ½ pole,
+  which sits at n^{−2−pq} = n^{−7/3} as well (§3.12, Limitation).
 
 ### 3.9 Novelty (Rule L, first pass, 2026-10-20) — summary of research/program/novelty_SPEC.md (local, gitignored)
 
@@ -710,11 +806,12 @@ and must be re-read before citing (Rule C). "Not found" describes the search, no
 | Airy index map | KNOWN | DLMF 9.9.1 (θ(a_k) = kπ); Fucci–Piorkowski–Stanfill 2025 Thm 3.7 |
 
 Consequences for this note:
-- **Sign conflict on the Dirichlet bouncer values.** Naber's eqs. (74)–(75) give Z(−3) = −15/64 and Z(−6) = +1695/1024, the
-  opposite signs to Proposition B. Proposition B's signs are supported by three things: the independent Hurwitz-regularised
-  zero sums of §2 (+0.234375 to 3·10⁻²⁴), the heat-trace fit (β₂ = −0.0390622 = −Z_E(−3)/6), and the reviewer's re-derivation
-  from the Riccati equation of Ai′/Ai. Naber's own eq. (151) reportedly disagrees with his eq. (74). The Neumann values agree
-  with Naber. To be settled by reading Naber §3 directly. Proposition B's novelty is downgraded to "known values; independent
+- **Sign conflict on the Dirichlet bouncer values: settled mathematically.** Naber's eqs. (74)–(75) give Z(−3) = −15/64 and
+  Z(−6) = +1695/1024, the opposite signs to Proposition B. Proposition B is right (REVIEW_SPEC2_A §1): in Naber's own
+  convention (eq. (52), as relayed) the series coefficients are b₁ = ¼, b₂ = 5/32, b₃ = 15/64, matching his eq. (53), and the
+  correspondence rule gives Z(−3) = +b₃; so eq. (74) has a sign slip. An independent direct heat-trace computation from the
+  zeros (no Riccati series, no regularised sums) tends to −5/128 = −Z_E(−3)/6. This settles the mathematics, not what the paper
+  says: Naber has not been read under Rule C. Proposition B's novelty is downgraded to "known values; independent
   derivation and numerical confirmation".
 - **Lommel / Bessel-zero family (exact check of the j = 0 term).** The measure on 1/j²_{μ,k} (p = 2, s = 2) has Lommel-polynomial
   recurrence coefficients (Van Assche 1996 §3; recurrence quoted in RH/CITATIONS.md as VA). The search report's computation
@@ -731,7 +828,8 @@ Consequences for this note:
 - **Jacobi matrices as spectral invariants.** For regular spectra, the asymptotic expansion of b_n for the measure on
   reciprocal eigenvalues reads off Z_Λ(0), Z_Λ(−1), …, i.e. heat-trace coefficients (for the bouncer: −¼, 0, 0, 0.01055…).
 - **A closed form beyond series.** S2 is a resummed, per-node statement. If S2 holds, the full first-order correction from the
-  nodes outside the band is p·Σ_{u_m<1}(1 − u_m)^{−1/2}, regularised by Z_Λ. This is route 3 of the session (resummation)
+  nodes outside the band is p·Σ_{u_m<1}(1 − u_m)^{−1/2}, regularised by Z_Λ (made precise in §3.13 as a Mellin pole part; the
+  literal sum carries an extra O(n^{−1/2}) edge oscillation). This is route 3 of the session (resummation)
   joined to route 1.
 - **Irregular spectra.** By S4 the relevant object is not the zeta function but the local node statistics at the soft edge
   threshold. That is a different, probably harder question, and it is the one relevant to surfaces.
@@ -750,14 +848,18 @@ Consequences for this note:
    - for p ≥ 1, an error sharper than O(n⁻¹) to resolve the u-terms at fixed k₀ (numerically R = O(1/n) everywhere);
    - several nodes, or added nodes (needs coefficient expansions for modified measures).
 3. **Bouncer.** Closed forms derived (Proposition B, §3.3). Remaining: quote Hadamard's factorisation and the Mellin
-   correspondence (Rule C), and a Rule R review. Observing ε₃ at n⁻³ would need third-order fits.
+   correspondence (Rule C), the remainder bound and differentiation of the expansion (REVIEW_SPEC2_A F9). Reviewed (Rule R,
+   REVIEW_SPEC2_A). The n⁻³ coefficient needs the subleading pole term (§3.12) as well as ε₃, and third-order fits.
 4. **Directions 2–4 (§§3.4–3.7).**
    - Maslov readout: done for the bouncer. Next: an operator where μ is not fixed by a single wall.
-   - λ + κ: derive −2(2−p)cκ from the varying-weight (Möbius) picture.
+   - λ + κ: first-order derivation done (§3.5), and the law is a pole-law term (§3.12). Remaining: the second-order bound.
    - Noise: ensembles over seeds, the amplitude as a function of local statistics, and the autocorrelation.
    - Determinant construction: carry out "Paper 2 for Airy nodes" (P1)–(P4).
 5. **Quartic oscillator** (p = 4/3, the κ-regime of E3 Thm E3.1): compare 2pcZ(−1) with Voros's spectral zeta.
 6. **Quantify S4**: the amplitude and law of the soft-edge noise.
+7. **The pole law (next proof target).** Derive the π cot(πw) kernel from the band-factor moment integral (Lemmas F.1/F.1′/H
+   with a perturbed node set), i.e. prove S1″ at the leading power of each pole. Then the subleading pole terms (§3.12,
+   Limitation), with the exact Bessel family and the Hurwitz p = 2 control (ε₁ = π²/256) as test data.
 
 ## 6. Rule A / Rule X log
 
@@ -774,6 +876,20 @@ Consequences for this note:
   avoid division by u (F2). k₀ = 1 (x₀ = 1, the largest atom, u_n = 4cn^{−p}): S2′ predicts −p + O(n^{−ε}), the index shift.
 - *Lemma H.* An integer δ (a = 1) reduces to E3 Lemma F.1′(i). The check grids use δ ∈ {−½, 0.3, ¾, 1.4} (p > 1) and
   δ ∈ {0, −½, 0.3, 1.4} (p < 1).
-- *Cache provenance.* The coefficient files are in `tmp/spectral_cache/` (gitignored). The Hurwitz runs use the Plan 62 cache
-  (`so_coeffs.coeffs(..., delta)`). The scripts regenerate everything from scratch; at 2 cores this takes about 3 min per
-  (measure, n_max = 1600).
+- *Cache provenance.* The coefficient files are in `tmp/spectral_cache/` (gitignored), named `<tag>__<hash>.txt` with the
+  hash taken over the node array and (p, s, tail δ, K), so a changed measure can never reuse a stale cache (REVIEW_SPEC2_B F2).
+  The Hurwitz runs use the Plan 62 cache (`so_coeffs.coeffs(..., delta)`). `checks/run_all.sh` regenerates every .out from
+  scratch in dependency order (readers of other scripts' caches run last); about 1–2.5 min per (measure, n_max = 1600) on 2
+  cores. Every script now ends with assertions on its predictions (`ALL n CHECKS PASSED`). The output of spec_rigid.py is in
+  spec_jitter.out (REVIEW_SPEC2_A provenance note).
+- *Second review round (2026-10-21; REVIEW_SPEC2_A, REVIEW_SPEC2_B).* Both readers re-derived the formulas and re-ran the
+  measures independently, with sabotage tests on the scripts. Fixes applied:
+  - pole-law sign (A F1, B F1): text corrected to +p·R·W·π cot; the table always used the right sign;
+  - subleading pole terms (A F2, MAJOR): limitation added to §3.12; §3.3's "ε₃ predicted exactly" withdrawn;
+  - κ law as a pole-law term (A F3), with an out-of-sample p = 1.5 run;
+  - S1‴ scope (A F4, F5): Weyl pole excluded, Mellin pole part, leading order per node;
+  - resonance (A F6, B F6): weak test, all-orders Z_fin, post-mismatch correction recorded;
+  - precision downgrades (B F5): pole table, Hurwitz d₃, κ at p = 0.3;
+  - text (A F7, F12, F13), Proposition B gaps (A F9), Robin additions (B F7), hygiene (B F2, F9).
+  - *Rule X, pole law.* The π cot kernel was identified from the m = 1 data at p = 0.6 and 1.5; those rows are not evidence. The
+    predictions for the other rows were committed before the measures were generated (git timestamps, B F10).
