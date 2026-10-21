@@ -14,6 +14,9 @@ r spec_airy_index.out "spec_airy_index.py"
 r spec_mobius.out "spec_mobius.py"
 r spec_lommel.out "spec_lommel.py"
 r spec_kernel.out "spec_kernel.py"
+r m1_theoremQ.out "m1_theoremQ.py"
+r m1_edge.out "m1_edge.py"
+r spec_homog.out "spec_homog.py"
 r spec_hurwitz_moments.out "spec_hurwitz_moments.py" & A=$!; r spec_hurwitz_moments_plt1.out "spec_hurwitz_moments_plt1.py" & B=$!; wait $A $B
 r spec_hur.out "spec_hur.py 0.6 2.0 -0.5" "spec_hur.py 0.6 2.0 0.5" "spec_hur.py 0.6 2.0 1.0" "spec_hur.py 0.75 3.0 1.0" "spec_hur.py 1.5 2.0 0.5" "spec_hur.py 1.5 2.0 1.0" & A=$!
 r spec_pert.out "spec_pert.py 0.6 2.0 2 0.5" "spec_pert.py 0.6 2.0 3 -0.4" & B=$!; wait $A $B
@@ -32,7 +35,7 @@ r spec_resonance.out "spec_resonance.py 0.5 2.0 0.5 0.5" & A=$!
 r spec_hur_small.out "spec_hur_small.py 3 2.0 -0.5" "spec_hur_small.py 4 2.0 -0.5" & B=$!; wait $A $B
 r spec_stats_seeds_a.out "spec_stats.py gue 7" "spec_stats.py gue 11" "spec_stats.py gue 13" "spec_stats.py gue 17" "spec_stats.py gue 19" & A=$!
 r spec_stats_seeds_b.out "spec_stats.py poisson 7" "spec_stats.py poisson 11" "spec_stats.py poisson 13" "spec_stats.py poisson 17" "spec_stats.py poisson 19" & B=$!; wait $A $B
-r spec_subpole.out "spec_subpole.py 2.0 2.2 2.5 3.0 4.0 3.0:2:2 1.8 1.8:3 1.5 1.25 2.5:2:2"
+r spec_subpole.out "spec_subpole.py 2.0 2.2 2.5 3.0 4.0 3.0:2:2 1.8 1.8:3 1.5 1.25 2.5:2:2 3.0:3.0 2.5:3.0"
 # stage 2: readers of stage-1 caches
 cat spec_stats_seeds_a.out spec_stats_seeds_b.out > spec_stats_seeds.out; rm -f spec_stats_seeds_a.out spec_stats_seeds_b.out
 cat spec_gamma_b.out >> spec_gamma.out; rm -f spec_gamma_b.out

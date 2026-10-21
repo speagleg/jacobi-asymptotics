@@ -11,6 +11,8 @@ Status (2026-10-20): exploratory note from the Plan E3 session. Labels per VERIF
   REVIEW_SPEC2_A.md and REVIEW_SPEC2_B.md, two independent readers, both ACCEPT WITH FIXES; fixes applied 2026-10-21, §6).
   Review does not upgrade labels: S1′, S1″, S1‴, the pole law and the κ law remain CONJECTURE / NUMERICAL / HEURISTIC.
   The main correction is the sign of the pole law (§3.12) and its limitation to the leading power of each pole (F2).
+- JZC_M1.md (2026-10-21, NOT REVIEWED): Theorem Q (general constrained equilibrium, explicit; PROVED-mod-cite) and Prop M1.2
+  (the continuum soft-edge root carries the π cot pole terms). Milestone M1 of the Jacobi–zeta correspondence.
 - §3.18 (2026-10-21, NOT REVIEWED): noise mechanism — universal edge kernel; noise = linear statistic in variance, not in realisation.
 - §3.17 (2026-10-21, NOT REVIEWED): quartic oscillator — pole law with cot ≠ 0 on a real operator, d₂ to 3·10⁻⁵ (NUMERICAL).
 - §3.16 (2026-10-21, NOT REVIEWED): drums at p = 1 (NUMERICAL): perimeter via the W·cot = 0·∞ limit, corners via Z(0).
@@ -1010,6 +1012,8 @@ The two terms have separate origins:
 | 3 | 2 | 1 | 0.667 | +0.371552 (1·10⁻⁶) | +0.371551 | +2·10⁻⁶ |
 | 4 | 2 | 1 | 0.5 | +1.261975 (4·10⁻⁷) | +1.261975 | +3·10⁻⁹ |
 | 3 | 2 | 2 | 1 | −8.270517 (3·10⁻⁵) | −8.270552 | +4·10⁻⁵ |
+| 3 | 3 | 1 | 0.667 | +1.883052 (1·10⁻⁶) | +1.883050 | +2·10⁻⁶ |
+| 2.5 | 3 | 1 | 0.8 | +0.659993 (2·10⁻⁵) | +0.659993 | +7·10⁻⁷ |
 | 1.8 | 2 | 1 | 1.111 | −1.847995 (3·10⁻⁴) | −1.849477 | +1.5·10⁻³ |
 | 1.8 | 3 | 1 | 1.111 | −2.432630 (3·10⁻⁴) | −2.434200 | +1.6·10⁻³ |
 | 1.5 | 2 | 1 | 1.333 | −3.39874 (1.4·10⁻²) | −3.44204 | +4.3·10⁻² |
@@ -1018,8 +1022,8 @@ The two terms have separate origins:
 
 **Reading.**
 - For q₁ ≤ 1 the formula holds to the fit precision in six cases (p = 2, 2.2, 2.5, 3, 4; m = 1, 2; all at s = 2). The
-  s-dependence has so far been tested only at p = 1.8 (q₁ > 1), where the s = 3 − s = 2 difference matches the shift term to
-  10⁻⁴.
+  s-dependence is tested at s = 3 for p = 3 and 2.5 (q₁ ≤ 1), to 2·10⁻⁶ and 7·10⁻⁷. These are predictions; δ_eff was
+  identified at s = 2. At p = 1.8 (q₁ > 1) the s = 3 − s = 2 difference matches the shift term to 10⁻⁴.
 - For q₁ > 1 the small-pool fits left a residual of 0.3% (p = 1.8) to 7% (p = 1.25) of S. *Resolved (same day): fit
   systematics.* Refitting the cached data with broad pools (20 fits: windows n ≥ 150–600 and 3–7 nuisance exponents i + jp + lm)
   gives the following medians minus prediction:
