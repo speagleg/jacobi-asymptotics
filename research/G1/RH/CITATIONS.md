@@ -851,13 +851,22 @@ z^{−1}(1 + O(z^{−2})) and (z² − 4)^{1/4−α}ϕ(z/2)^{2α−3/2} = z^{−
 
 ## (JZC M4 reuse) entries above used by spectral/JZC_M4_proof.md — no new external source read
 
-Lemma N.6a (jump data at every order k) uses, at general k:
+Lemma N.6a (jump data at every order k, p ≠ 1) uses the following entries:
+- (KMVV-orient, Paper 2) and (KMVV): the KMVV Bessel model (6.23)–(6.25) and its large-ζ form (6.28), with the angle freedom
+  (KMVV, angle freedom; Plan 15b) for p < 1;
+- (DLMF-9, Paper 2): the Paper 2 Airy model, from 9.2.1–9.2.12 and 9.7.5–9.7.6;
 - (DLMF-10.40, Paper 2): 10.40.1–10.40.4 and a_k (10.17.1);
 - (DLMF-10.17, Plan 55): 10.17.5–6, 10.17.11–12 and b_k (10.17.8);
-- (DLMF-9, Paper 2): 9.7.5–9.7.6;
-- (DLMF-9.7.2, Plan 65): u_k, v_k.
+- (DLMF-9.7.2, Plan 65): u_k and v_k, at general k.
 
 The pages were re-read on 2026-10-21 (dlmf.nist.gov/10.17, /10.40, /9.7); the quoted formulas are unchanged.
-`checks/m4_rh_exact.py` asserts, for k ≤ 8:
-- b_k = a_k + (k − ½)a_{k−1} (the term-wise derivative of 10.40.2);
-- the 9.7.2 recurrence for u_k, and v_k.
+
+**Hypotheses checked** (review A F8):
+- ν = α > −1 is fixed and real; the DLMF expansions place no restriction on ν.
+- The expansions are applied to K + 1 terms (Poincaré remainders O(z^{−K−1})) in closed subsectors:
+  - |ph w| ≤ π/2 − δ for 10.40.1, 10.40.3, and |ph w| ≤ 3π/2 − δ for 10.40.2, 10.40.4, where w = 2ζ^{1/2}; for p < 1,
+    δ = θ_L/2 (E_plt1 Lemma E′.3);
+  - ph 2(−ζ)^{1/2} in the sectors of 10.17.5–6 and 10.17.11–12;
+  - |ph Z| ≤ π − δ for 9.7.5–9.7.6, with Z = e^{2πim/3}ζ.
+- `checks/m4_rh_exact.py` asserts, for k ≤ 8, b_k = a_k + (k − ½)a_{k−1} (the term-wise derivative of 10.40.2) and the 9.7.2
+  recurrence for u_k, v_k.
