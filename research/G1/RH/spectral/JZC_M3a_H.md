@@ -12,7 +12,8 @@ Labels per VERIFICATION_POLICY.md.
 ## 1. Statement
 
 Setting:
-- −1 < δ ≤ 0, a := 1 + δ, p > 0, p ≠ 1, s > 1;
+- −1 < δ ≤ 0, a := 1 + δ, p > 0, p ≠ 1, s ∈ (1, 1 + 2p) (Paper 2's standing assumption; |α| < 1 is used in Cor L2) (fixed per
+  Rule R review A of G12, F6, and of G3, F8);
 - σ^δ := Σ_{k≥1}(k + δ)^{−s}δ_{(k+δ)^{−p}}, the measure on the reciprocals of the Hurwitz lattice;
 - α := (s − 1 − p)/p, c = c(p) (the lattice constant; the continuum density is unchanged);
 - the shifted Szegő exponent **β′ := α + 2δ** (= α − 2Z(0) − 1, where Z(0) = ζ(0, a) = −½ − δ);
@@ -41,9 +42,9 @@ Setting:
 |---|---|---|---|
 | H-a | interpolation with sin π(t − δ) and 1/Γ(t − δ); node masses; top node X₁ = (n/a)^p | Paper 2 L5.1–5.2, with t ↦ t − δ | JZC_M3a_H_Ha.md (PROVED-mod-cite, NOT REVIEWED) |
 | H-b | outer scalar j_δ: sectors and bounds, via the shift identity j_δ(t) = j(t−δ) + (t−δ−½)Log(1−δ/t) + δ and Paper 2's Binet bound (no DLMF 5.11.8 needed) | Paper 2 L6.1, L6.4; H-d §2 | p > 1: G12 L1.1–C1.5; p < 1: G3 Lemmas 1–3, Prop 4 (PROVED-mod-cite, NOT REVIEWED) |
-| H-b′ | a-priori bound and L² boundary values for the normalised Q♮, lattice exponent \|α\|/2 (column factorisation) | Paper 2 App C | p > 1: G12 L2.1–P2.4 (PROVED-mod-cite, NOT REVIEWED); p < 1: OPEN |
+| H-b′ | a-priori bound and L² boundary values for the normalised Q♮, lattice exponent \|α\|/2 (column factorisation) | Paper 2 App C | p > 1: G12 L2.1–P2.4 (PROVED-mod-cite, NOT REVIEWED); p < 1: OPEN (= H-d (iv) for p < 1; G3 Cor 5 covers H-d (i)–(iii) only, fixed per Rule R review A of G3, F1) |
 | H-c | band factor: Binet-cut B_δ (p > 1) or seam χ_δ (p < 1); moments m_j(δ) as Fourier sums | E_pgt1 L E.2, E3 L F.1′, E_plt1 L F.1, SPEC §3.1 | §3.2 |
-| H-d | index transfer: F_δ ∼ C_δ(−z)^δ at ∞, absorbed by the gauge (−z)^{−δσ₃}; result M(β′, α) | JZC_M3a_Hd.md | jump algebra PROVED (NOT REVIEWED); analytic inputs G1–G3 |
+| H-d | index transfer: F_δ ∼ C_δ(−z)^δ at ∞, absorbed by the gauge (−z)^{−δσ₃}; result M(β′, α) | JZC_M3a_Hd.md | jump algebra PROVED (NOT REVIEWED); analytic inputs G1–G3; for p < 1, G3 Cor 5 gives H-d (i)–(iii), not (iv) (fixed per Rule R review A of G3, F1) |
 | H-e | circle jumps, small norm, residue recursion for M(β, ν) | JZC_M4_proof Lemmas N.6a–c (β enters only through ρ² = φ^{2(β+1)}, bounded and analytic on the circles) | §3.3 |
 | H-f | exact algebra for M(β, ν); natural form | m4_shift_exact, m3a_g5_exact | §3.3 |
 
@@ -95,7 +96,8 @@ checked numerically to 10⁻²⁷ for p ∈ {1.25, 1.5, 3}, δ ∈ {0, −½, 0.
 **What is done.**
 - *Fixed-n analytic inputs.*
   - p > 1: H-b (outer scalar, G12 §1) and H-b′ (a-priori bound, G12 §2).
-  - p < 1: H-b (seam outer scalar, G3).
+  - p < 1: H-b (seam outer scalar, G3), and Lemma H-d (i)–(iii) (G3 Cor 5); H-d (iv), the a-priori bound, is item 2 below
+    (fixed per Rule R review A of G3, F1).
   - −1 < δ ≤ 0 throughout (δ < 0 for p < 1).
   - Each of these is a statement for fixed n.
 - *Jump algebra.* H-d (JZC_M3a_Hd.md). The Hurwitz problem is exactly M(α + 2δ, α) with Hurwitz band factor, in the n^p frame.
@@ -107,7 +109,8 @@ checked numerically to 10⁻²⁷ for p ∈ {1.25, 1.5, 3}, δ ∈ {0, −½, 0.
    the comparison must be run in the α-frame of the column factorisation (G12 L2.3), as Prop 2.4 was. This is the main
    remaining gap; we expect it to go through the same way, but it is not done.
 2. **H-b′ for p < 1** (Paper 2 App C in the seam geometry). The Hurwitz sum bound G12 L2.1 is p-free, so the expected route is
-   L2.1 + L2.3 with the seam lens.
+   L2.1 + L2.3 with the seam lens. This is H-d (iv) for p < 1, which G3 Cor 5 no longer claims (fixed per Rule R review A of
+   G3, F1); in progress in JZC_M3a_H_G23plt1.md.
 3. E_plt1 Lemma F.1(iv) with the complex seam densities of G3 (expected verbatim; not checked line by line).
 4. ~~H-a written out~~: done in JZC_M3a_H_Ha.md (PROVED / PROVED-mod-cite, NOT REVIEWED; m3a_ha_interp.out, 298 checks and
    33 controls that fail as required). It needs Paper 2's T1(a) re-proved at the top node, since x₁ = a^{−p} > 1; the
@@ -127,8 +130,18 @@ checked numerically to 10⁻²⁷ for p ∈ {1.25, 1.5, 3}, δ ∈ {0, −½, 0.
 
 **Not covered:** δ > 0 (phantom nodes); p = 1 with δ ≠ 0.
 
-**For FIXES (via a human; Rule 1):** a wording gap in Paper 2, binetcut (iv), (O5) at ∞. The text says "where 𝔟′ is bounded";
-the argument needs |𝔟′(y)| ≤ C/|y|, which Paper 2's own proof of (ii) supplies (G12 §4 item 6). The result is unaffected.
+**Rule R reviews (2026-10-21):** JZC_M3a_H_G12.md, reviewer A (research/G1/review/REVIEW_JZC_M3a_H_G12_A.md): ACCEPT WITH
+FIXES (no mathematical error; F1–F6 MINOR/INFO, applied). JZC_M3a_H_G3.md, reviewer A (research/G1/review/REVIEW_JZC_M3a_H_G3_A.md):
+ACCEPT WITH FIXES (one MAJOR scope fix, F1: Cor 5 restricted to H-d (i)–(iii); F2–F9 MINOR, applied). Neither memo is REVIEWED
+yet: a second reader who re-runs the checks is pending.
+
+**For FIXES (via a human; Rule 1):** two wording gaps in Paper 2. (1) Binetcut (iv), (O5) at ∞. The text says "where 𝔟′ is bounded";
+the argument needs |𝔟′(y)| ≤ C/|y|, which Paper 2's own proof of (ii) supplies (G12 §4 item 6). (2) Lemma seam (iv), (O5) at ∞
+(app_outer.tex, last lines of (O5)): "In S_in ∩ {|z| ≥ n^p+δ′} … D, B_in, K and e^χ are bounded above and below by powers of |z|"
+is not justified for e^χ there (Lemma corner (ii) gives only a log² bound, away from the seams); the claim is true by a window
+argument (G3 Lemma 3 (ii′), (iii′); G3 §6 item 9) (added per Rule R review A of G3, F2). The results are unaffected.
 
 **Corrections to JZC_M3a_Hd.md** (G12 §5): (2.1) needs no DLMF 5.11.8; the monodromy step in (2.4) is replaced by Lemma
-normalisation; the vertex is X₁ + δ′ = (n/a)^p + δ′; §3(iv) should read |G| = |4c/Υ|^δ. No claim of the memo was found false.
+normalisation; the vertex is X₁ + δ′ = (n/a)^p + δ′; §3(iv)'s identity [·] = (4c/Υ)^δe^{±iπδ} holds in ℂ_± with principal
+branches (arg Υ ∈ (0, π) in ℂ₊), and only its modulus |G| = |4c/Υ|^δ is used (fixed per Rule R review A of G12, F3). No claim of
+the memo was found false.

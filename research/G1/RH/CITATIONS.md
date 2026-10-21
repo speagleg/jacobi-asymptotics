@@ -94,6 +94,12 @@ The arXiv v1 PDF was read via pdftotext. The Anal. Appl. 14 (2016) version was n
 **Also used in:** RH_plt1.md Lemma 1.1′(ii): 5.11.1 + §5.11(ii) with n = 1, applied to Γ(1 − t) with the principal Ln, and to
 Γ(t) on S_lens. RH_plt1b.md §1 (D̃ on S_in; Lemma S(i)–(iii)).
 
+**Also used in: JZC_M3a_H_G12** (added per Rule R review A of G12, F4): 5.11.1 + §5.11(ii) with n = 1 (via Paper 2
+eq:binet-bound) at u = t − δ: |ph u| ≤ |ph t| ≤ φ < π (L1.1) and |u| ≥ |t|/2 ≥ 1 for |t| ≥ 2 (L1.2(b)).
+
+**Also used in: JZC_M3a_H_G3** (added per Rule R review A of G3, F9): 5.11.1 + §5.11(ii), n = 1, at u = t − δ = |δ| − i|t| on
+Σ^s_+, |ph u| < π/2, |u| ≥ |t| ≥ 1.
+
 ## (Van) M. Vanlessen, arXiv:math/0212014 — READ (§1, §4.1–4.3), for RH₁(r)
 "Strong asymptotics of the recurrence coefficients of orthogonal polynomials associated to the generalized Jacobi weight"
 (J. Approx. Theory 125 (2003)). KV's reference [38].
@@ -496,6 +502,11 @@ e.g. Chihara 1978, Ch. I §8 — pointer only, not read). It is proved in full i
 **Used in:** ROUTE2_xframe1.md Lemma X1 (p = 1: D = D̃/(1 − e^{∓2iθ}) = exp μ(−N/z)). Hypotheses checked: 5.5.3 at z = t ∉ ℤ
 (t = N/z with z ∈ ℂ±, so Im t ≠ 0); 5.5.1 at z = u = −t (any complex u); 5.11.1 for μ(u) in |ph u| ≤ π − δ (Ω_∞ away from the
 positive axis; D̃ only in |ph t| ≤ π/3 + π/24).
+
+**Also used in: JZC_M3a_H_G12** (added per Rule R review A of G12, F4): 5.5.3 at z = −δ ∈ (0, 1), z ∉ ℤ (C1.5, form of L_δ
+only).
+
+**Also used in: JZC_M3a_H_G3** (added per Rule R review A of G3, F9): 5.5.3 at z = −δ ∈ (0, 1).
 
 ## (KMVV-orient, Paper 2) Kuijlaars–McLaughlin–Van Assche–Vanlessen, arXiv:math/0111252v2 §6 — READ (PDF fetched from arxiv.org/pdf/math/0111252v2 on 2026-10-14; text by pdftotext, Figure 3 read from the rendered page 25)
 

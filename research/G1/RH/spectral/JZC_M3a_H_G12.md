@@ -1,6 +1,10 @@
 # JZC M3a, gaps G1–G2 (p > 1): the Hurwitz outer scalar at ∞, and the a-priori bound at the hard edge
 
-Status (2026-10-21): NOT REVIEWED (Rule R pending). Labels per VERIFICATION_POLICY.md. Closes JZC_M3a_Hd.md §7 G1 and G2 for
+Rule R review A: ACCEPT WITH FIXES (research/G1/review/REVIEW_JZC_M3a_H_G12_A.md); fixes applied 2026-10-21.
+
+Status (2026-10-21): NOT REVIEWED. Rule R needs the second reader to re-run the checks (VERIFICATION_POLICY.md Rule R); review A
+did spot checks of its own but did not re-run the repo scripts, and the repo's practice (JZC_M4_proof.md, JZC_M1.md) is a second
+reader before REVIEWED. Labels per VERIFICATION_POLICY.md. Closes JZC_M3a_Hd.md §7 G1 and G2 for
 p > 1, −1 < δ ≤ 0. Checks: `checks/m3a_g12_outer.py/.out`, `checks/m3a_g12_apriori.py/.out` (spec_common.Checks: 58 and 67 assertions, all pass).
 Everything attributed to Paper 2 is quoted from papers/paper2/{sec_5,sec_6,app_outer,app_c}.tex as read for this note.
 
@@ -29,8 +33,10 @@ n^pw_kU_{j1}(X_k), Uz^{−nσ₃} = I + O(1/z) for |z| > X₁); Lemma invariance
 (lattice g, φ, φ̃: JZC_M3_scope §3.1, G1 trivial); Lemma szego (i)–(v) (stated for any exponent / any q); Lemma normalisation (uses only
 (O1), (O5) at ∞ and Lemma gfunction); Lemma B-cauchy; Cor L2. *Modified* (proved below): Lemma binetcut (ii), (iv); the proofs of
 Lemma sumbound, Lemma lenssector, Prop apriori. External inputs: Paper 2 (eq:binet-bound) ("By T4 (DLMF 5.11.1 with the remainder
-bound of §5.11(ii) …), for every φ < π, |j(t)| ≤ sec²(φ/2)/(12|t|), |j′(t)| ≤ C_φ/|t|² (|arg t| ≤ φ, |t| ≥ 1)"), the branch LnΓ analytic
-on ℂ∖(−∞,0] and real on (0,∞) (Paper 2 §6), and DLMF 5.5.3 as quoted in Paper 2's proof of Lemma outer (1/Γ(t) = Γ(1−t)sin(πt)/π).
+bound of §5.11(ii) …), for every φ < π, |j(t)| ≤ sec²(φ/2)/(12|t|), |j′(t)| ≤ C_φ/|t|² (|arg t| ≤ φ, |t| ≥ 1)"; primary quote:
+RH/CITATIONS.md (DLMF) §5.11), the branch LnΓ analytic on ℂ∖(−∞,0] and real on (0,∞) (Paper 2 §6), and DLMF 5.5.3 as quoted in
+Paper 2's proof of Lemma outer (1/Γ(t) = Γ(1−t)sin(πt)/π; primary quote: RH/CITATIONS.md (DLMF-5.5/5.11, Plan 54)) (fixed per
+Rule R review A, F4).
 **Not used:** DLMF 5.11.8 and Hurwitz's formula (Rule C: see JZC_M3a_H.md G4) — L1.1 removes the need for 5.11.8 here.
 
 ## 1. G1: the outer scalar (H-d Prop 2.1 as a proof)
@@ -72,7 +78,8 @@ LnΓ(−δ) real) with the stated rate, and d/dt = O(1/|t|), so |𝔟_δ′| ≤
 **Proposition 1.4 (binetcut (iv) for δ, and the normalised scalar).** Let p > 1, n ≥ 2, F♮ := F_δ·(−z)^{−δ} (principal power, cut [0,∞)).
 (a) (O1_δ): F_δ is analytic and zero-free in ℂ∖[0,∞), has no jump on (−∞,0), continuous boundary values on (0,∞)∖{X_k}, and
 F_δ₊ = F_δ₋e^{2iθ_δ} on (4c,∞)∖{X_k}. (O2)–(O4) hold with F̃_δ := F_δ/κ_δ = D̃_δB_δK, H_n^δ := (D̃_δB_δ)^{−2} > 0 on (0,∞),
-H_n^δ(0⁺) = B_δ(0)^{−2}, ν_p = 1/p, constants n-free. (O5) near 0 holds verbatim.
+H_n^δ(0⁺) = B_δ(0)^{−2}, ν_p = min(1/p, ½) ≤ 1/p, so the bound C|z|^{1/p} on |z| ≤ 1 gives (O3) (fixed per Rule R review A, F1),
+constants n-free. (O5) near 0 holds verbatim.
 (b) (O1) for F♮: analytic and zero-free in ℂ∖[0,∞), no jump on (−∞,0), F♮₊ = F♮₋e^{2iθ} on (4c,∞)∖{X_k} (lattice θ).
 (c) (O5) at ∞ for F♮: |F♮(z)|^{±1} ≤ C_n|z|^{N_n} for |z| ≥ X₁ + δ′, z ∉ ℝ; and F♮(iy) → e^{L_δ}, L_δ given in C1.5, as y → ±∞.
 *Proof.* (a) Paper 2's proof of binetcut (iv), with L1.2–L1.3 in place of binet-bound/binetcut (ii)–(iii): D_δB_δ extends across (−∞,0)
@@ -85,7 +92,8 @@ argument for log B near 0 uses only L1.3(ii).
 and e^{2iθ_δ}e^{2πiδ} = e^{2iθ}.
 (c) *Polynomial bound.* For |z| ≥ X₁ + δ′: |t| ≤ a − ε_n. The zeros of 1 − e^{∓2πi(t−δ)} are t ∈ δ + ℤ; in {|t| ≤ a − ε_n} ∩ Σ_{π/p} there are
 none (t = δ + k, k ≥ 1, has |t| ≥ a; t = δ − k ≤ 0 is outside Σ_{π/p} for δ < 0), and κ_δ± → 1/(1 − e^{±2πiδ}) ≠ 0, ∞ as t → 0; so
-|κ_δ|^{±1} ≤ C_n. By L1.2(c) and continuity, |D̃_δ|^{±1} ≤ C_n|z|^{1/p}. |K|^{±1}, |(−z)^{−δ}|^{±1} are powers. *Window argument for B_δ at ∞*
+|κ_δ|^{±1} ≤ C_n (δ < 0; at δ = 0, κ_± = (±2πit)^{−1}(1 + O(t)) is a power of |z|, as in Paper 2) (fixed per Rule R review A, F2).
+By L1.2(c) and continuity, |D̃_δ|^{±1} ≤ C_n|z|^{1/p}. |K|^{±1}, |(−z)^{−δ}|^{±1} are powers. *Window argument for B_δ at ∞*
 (Paper 2's (O5) paragraph, made explicit): let |z| ≥ 2, z ∉ ℝ, and write log B_δ(z) = −(1/2π)∫𝔟_δ(y)(z−1)dy/((y−z)(y−1)).
 If Re z ≥ −|z|/2, |y − z|² ≥ (y² + |z|²)/2 for y < 0 and the bound C∫_0^∞|z|du/((u+|z|)(u+1)) ≤ C(1 + log|z|) follows from |𝔟_δ| ≤ C.
 If x := Re z < −|z|/2, put 𝒲 := [3x/2, x/2] ⊂ (−∞, −½]. Off 𝒲, |y − z| ≥ |y − x| ≥ (|y| + |z|)/16 (|x| ≥ |z|/2): same bound. On 𝒲, the 1/(y−1) term
@@ -96,7 +104,7 @@ is O(1); write 𝔟_δ(y) = 𝔟_δ(x) + (𝔟_δ(y) − 𝔟_δ(x)): the consta
 −(𝔟_∞/2π)Log((1+z)/2) to log B_δ; the second tends to I_r := (1/2π)∫_{−∞}^0𝔯_δ(y)dy/(y−1) as z = iY → ∞ (dominated convergence:
 |𝔯_δ(y)/(y−iY)| ≤ |𝔯_δ(y)|min(1, 1/|y|), integrable by L1.3(ii)). With L1.2(c), Log t = ln n − (1/p)Log z, Log(1 − e^{2πiδ}) =
 ln(2|sin πδ|) + i(π/2 + πδ), and −½Log(4c − z) = −½Log(−z) + o(1), the coefficient of Log z in log F_δ is (δ+½)/p − 𝔟_∞/(2π) = ½ + δ and
-that of Log(−z) is −½; so log F♮(iY) → L_δ, the imaginary parts cancelling (Log(−z) = Log z − iπ in ℂ₊). y → −∞: F♮(z̄) = conj F♮(z). ∎
+that of Log(−z) is −½ (δ < 0 by L1.2(c); δ = 0 by (eq:binet-small) and κ_+ ∼ 1/(2πit), see C1.5) (fixed per Rule R review A, F2); so log F♮(iY) → L_δ, the imaginary parts cancelling (Log(−z) = Log z − iπ in ℂ₊). y → −∞: F♮(z̄) = conj F♮(z). ∎
 (PROVED-mod-cite: binet-bound; DLMF 5.5.3 as quoted in Paper 2 for the form of L_δ.)
 
 **Corollary 1.5 (H-d Prop 2.1, (2.4)).** Under P1.4, ϰ_∞♮ := F♮^{−1}e^{n(g − Log z)} is analytic on {|z| > X₁ + δ′} ∪ {∞}, ϰ_∞♮(∞) ≠ 0, and
@@ -136,7 +144,8 @@ The final sentence uses Lemma 2.1. ∎ (PROVED.)
 **Lemma 2.3 (column factorisation).** Let G(z) := (−z)^{−δ}D_{x^{2δ}}(z), z ∉ [0, ∞). Then
 (i) D_W = D_W^{(α)}D_{x^{2δ}}, D_{x^{2δ}} = (4cz/Υ)^δ (principal), and |G(z)| = |4c/Υ(z)|^δ; there is r_G = r_G(c) with |G|^{±1} ≤ 2 on |z| < r_G;
 (ii) near 0, Q♮ = (const. diagonal)·U·M₀·(F♮D_W)^{σ₃} off the lens and ·(F̃♮D_W)^{σ₃} in the lens, with M₀ ∈ {e^{nφσ₃}, L_±e^{nφσ₃}A_±}
-free of F; and |F♮D_W| = |F_δD_W^{(α)}|·|G| ·const, |F̃♮D_W| = |F̃_δD_W^{(α)}|·|G|·const.
+free of F; and |F♮D_W| = |F_δD_W^{(α)}|·|G|, |F̃♮D_W| = |F̃_δD_W^{(α)}|·|G| (exact: F♮D_W = F_δD_W^{(α)}G; fixed per Rule R
+review A, F5(a)).
 *Proof.* (i) Multiplicativity of D_q and W₀^{(β′)}(x) = W₀^{(α)}(x)x^{2δ} on (0, 4c); Lemma szego (i) with exponent 2δ and the value
 c^δ > 0 at ∞ fix the root of D_{x^{2δ}}² = (4cz/Υ)^{2δ}; |w^δ| = |w|^δ for real δ; Υ(z) = −4c(1 + O(|z|^{1/2})) (Lemma szego (i)).
 (ii) (eq:VM), (eq:Q): Q♮ = D_∞^{−σ₃}C♮_∞e^{−nγ_pσ₃}·U·M♮·D_W^{σ₃} and M♮ = M₀F♮^{σ₃} (resp. M₀F̃♮^{σ₃}); diagonal factors commute. ∎
@@ -148,12 +157,13 @@ c^δ > 0 at ∞ fix the root of D_{x^{2δ}}² = (4cz/Υ)^{2δ}; |w^δ| = |w|^δ 
 (iii) Q♮ has continuous boundary values on Σ minus its vertices (now incl. X₁ + δ′ ± ih₀, X₁ + δ′).
 The same holds for (Q♮)^{−1}; and Q♮_± ∈ I + ∂𝒞(L²(Σ)) (Cor L2, verbatim: (1 + |α|)/4 < ½).
 *Proof.* det: as in Paper 2. (i) By L2.3(ii), |Q♮| is bounded by C|G|^{±1} times the entries of U·M₀·diag(F_δD_W^{(α)}, (F_δD_W^{(α)})^{−1})
-(F̃_δ in the lens), and |G|^{±1} ≤ 2 on |z| < r_G. For this pair, Paper 2's proof of (i) runs verbatim with: |e^{±nφ}| ≤ C (lattice φ);
+(F̃_δ in the lens), and |G|^{±1} ≤ 2 on |z| < r_G; so (i) is proved here for |z| < min(δ_s/2, r_G), and the annulus up to δ_r is
+covered by (ii) (fixed per Rule R review A, F5(c)). For this pair, Paper 2's proof of (i) runs verbatim with: |e^{±nφ}| ≤ C (lattice φ);
 |F_δ|^{±1} ≤ C off the lens and |F̃_δ|^{±1} ≤ C in it (P1.4(a), (O5) at 0); |D_W^{(α)}|^{±1} ≤ C_{n,η}|z|^{±α/2−η} (Lemma szego (vi), last claim:
 its proof uses (O3)–(O4) for H_n^δ (P1.4(a)) and r_n ≡ 1); |1/W| = C|z|^{−α}; U_{j1} bounded; Lemma 2.1; Lemma 2.2. Off the lens: first
 column ≤ C|z|^{α/2}, second ≤ C|z|^{−η}(1+|z|^α)|z|^{−α/2}; in the lens: first ≤ C(1 + |z|^{−α}|R_{·2}|)|z|^{α/2}, second as before; all
 ≤ C|z|^{−|α|/2−2η}. (ii) As in Paper 2: near 4c, (F̃♮D_W)² = W·ω♮·e^{±2πiδ} with ω♮ := D_W²/W₀^{(β′)} (W/F̃♮² = W₀^{(β′)}e^{∓2πiδ} in ℂ_±,
-H-d §3 (ii)), bounded above and below by Lemma szego (vi)(b) applied to q₁ = x^{α+2δ}Ĥ (analytic and positive near 4c; (iv) holds for
+H-d §3 (ii)), bounded above and below by Lemma szego (vi)(b) applied to q₁ = x^{α+2δ}H°_n (H°_n := H_n^δ/H_n^δ(0⁺); r_n ≡ 1) (fixed per Rule R review A, F5(b)) (analytic and positive near 4c; (iv) holds for
 any exponent); at ∞, Lemma normalisation holds for F♮ (C1.5), so Q♮ = k_∞^{−σ₃}(Uz^{−nσ₃})k^{σ₃} → I. (iii) H-d Lemma (ii) (jumps). ∎
 (PROVED-mod-cite, NOT REVIEWED.)
 
@@ -200,11 +210,12 @@ cancellation of L2.3 between (−z)^{−δ} in F♮ and D_{x^{2δ}} in D_W is es
 (C1.5), F_δ unchanged at 0 ((O2)–(O5) at 0, P1.4(a)), and (O1)/(O5) at ∞ for F♮, so Lemma normalisation and the extraction hold for the
 degree-n Hurwitz U (H-d Lemma (i)). G2 — Prop apriori and Cor L2 for Q♮ with the lattice exponent |α|/2 (P2.4), via the Hurwitz sum
 bound (L2.1), lens sectors (L2.2) and the column factorisation (L2.3). DLMF 5.11.8 is no longer needed for p > 1.
-*Remains:* Rule R; G3 (p < 1, seams); G4 (Hurwitz's formula, for Lemma H only); G5 (N.6 for M(β′, ν)); the n-uniform hard-edge comparison
+*Remains:* Rule R second reader (review A applied, see header); G3 (p < 1, seams); G4 (Hurwitz's formula, for Lemma H only); G5 (N.6 for M(β′, ν)); the n-uniform hard-edge comparison
 with Szegő exponent β′ (Paper 2 §7 with D_{x^{β′}}; not touched here — note |β′| may exceed 1 there too, so the comparison must also be
 run in the α-frame of L2.3).
 *Corrections to JZC_M3a_Hd.md:* (1) (2.1) need not cite DLMF 5.11.8 (L1.1 + Paper 2's binet-bound suffice; only O(1/t) is used).
 (2) (2.4)'s "monodromy" step is replaced by Lemma normalisation, which gives the limit uniformly in direction. (3) (O5) at ∞ and the
 contour vertices must use X₁ + δ′ = (n/a)^p + δ′, not n^p + δ′ (its §1 quote of (O5); §6 item 6 noted the node). (4) §3 (iv)'s
-"[·] = (4c/Υ)^δe^{±iπδ}" is branch-ambiguous; the correct and sufficient statement is |G| = |4c/Υ|^δ (L2.3). (5) Its claims "(F7) with the same
+identity [·] = (4c/Υ)^δe^{±iπδ} holds in ℂ_± with principal branches (arg Υ ∈ (0, π) in ℂ₊); only its modulus |G| = |4c/Υ|^δ is
+used (L2.3) (fixed per Rule R review A, F3). (5) Its claims "(F7) with the same
 exponent |α|/2" and 𝔟_∞(δ) are confirmed; no claim of the H-d memo was found false.

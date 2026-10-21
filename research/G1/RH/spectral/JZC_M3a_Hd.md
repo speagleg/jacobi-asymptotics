@@ -98,9 +98,10 @@ Q♮ = k_∞^{−σ₃}(Uz^{−nσ₃})k^{σ₃} near ∞ with U the **degree-n*
 near 0, ω♮ = ω^{(β′)}e^{±2πiδ}, whose band limits are e^{∓iπβ′}e^{±2πiδ} = e^{∓iπα} = c_±: the hard-edge model is Paper 2's
 order-α Bessel model, glued with the Szegő function of x^{β′}. This is JZC_M4 §7's decoupled problem **M(β′ = α + 2δ, ν = α)**,
 with band factor H_n^δ = e^{−P_n^δ}(1 + O(n^{−(K+1)p})), μ_{n,k} = 2ζ(−kp, a)/(kn^{kp}) (Lemma H, CONDITIONAL on Hurwitz's formula).
-(iv) A priori bound: F♮D_W = F_δD_W^{(α)}·[(−z)^{−δ}D_{x^{2δ}}] and G := [·] satisfies |G| = |4c/Υ|^δ (G12 L2.3; the earlier
-"[·] = (4c/Υ)^δe^{±iπδ}" was branch-ambiguous and is not needed), so G is bounded above and below near 0
-(Υ(0) = −4c) (corrected 2026-10-21, see G12 §5); the δ-powers cancel in each column of Prop apriori's proof, so (F7) holds with the same exponent |α|/2.
+(iv) A priori bound: F♮D_W = F_δD_W^{(α)}·[(−z)^{−δ}D_{x^{2δ}}] and G := [·] = (4c/Υ)^δe^{±iπδ} in ℂ_± with principal branches
+(arg Υ ∈ (0, π) in ℂ₊); only its modulus |G| = |4c/Υ|^δ is used (G12 L2.3), so G is bounded above and below near 0
+(Υ(0) = −4c) (re-corrected per Rule R review A of G12, F3: the identity holds with principal branches; only |G| = |4c/Υ|^δ is
+used); the δ-powers cancel in each column of Prop apriori's proof, so (F7) holds with the same exponent |α|/2.
 
 *Proof of (i)–(iii).* Algebra of jumpsV's proof with θ_δ/θ kept apart: (a) uses only L₋^{−1}L₊ = U(W), true for any phase
 (−W(e^{−2iθ_δ}κ_δ+ + e^{2iθ_δ}κ_δ−) = W); (c): (A^△₊)^{−1}L₊ conjugated by e^{nφσ₃} times A₊ has (1,1) = κ_δ+, (2,1) = 0 and
