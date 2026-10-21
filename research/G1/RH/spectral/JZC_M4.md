@@ -371,6 +371,40 @@ Therefore **all-order S1-N′ is equivalent to the evenness of the two integer l
 isospectral-type deformation, a Toda flow, of the model problem, with times given by the zeta values. The integer layer is
 the initial condition; the spectrum chooses the times.
 
+## 9. Large-order behaviour of the integer layer (NUMERICAL; resurgence)
+
+Data: checks/large_order/ (large_order.py, the numeric engine m4_rh4 at KORD = 24 or 40 with working precision 120–170
+digits; borel.py, Borel–Padé in s = t² for c_k = f_{2k}/(2k−1)!).
+
+- **Factorial growth.** At p = 3, ν = 0.3 the coefficients f_{2k} of the integer layer F(N) = 1 + Σf_{2k}N^{−2k} (decoupled
+  model, β-free) are small up to k ≈ 8 (f₁₆ ≈ −0.031) and then grow factorially with oscillating sign:
+  f₂₀ ≈ 1.29, f₃₀ ≈ −9.0·10⁴, f₄₀ ≈ −1.9·10¹². The odd coefficients vanish to 2·10⁻⁷ relative. The order-24 and order-40 runs
+  agree to all printed digits on the common orders. **F is a divergent (Gevrey-1) series.** It is not the expansion of a
+  convergent closed form: hypergeometric guesses of the kind in §4 ("Open") can hold at most for special (p, ν) (e.g. p = 2,
+  ν = ±½).
+- **Borel singularities.** The Borel–Padé transform has a dominant complex-conjugate pair of singularities t = ±A, ±Ā:
+
+  | p | ν | A (order 24) |
+  |---|---|---|
+  | 0.6 | 0.3 | 4.55 ± 6.10i |
+  | 1.5 | 0.3 | 5.11 ± 7.63i |
+  | 2 | 0.3 | 5.40 ± 6.51i |
+  | 3 | 0 | 5.42 ± 4.87i |
+  | 3 | 0.3 | 5.40 ± 4.87i (order 40: 5.362 ± 4.790i, a second pair near 5.65 ± 5.4i) |
+  | 5 | 0.3 | 4.81 ± 2.90i |
+
+  At p = 3, ν = 1.2 the [6/6] Padé gives 5.87 ± 5.86i and a real root 8.77. The singularity is not stable there at order 24,
+  so this row is excluded.
+- **Reading (HEURISTIC).** A complex pair means oscillating large-order terms and, by resurgence, exponentially small
+  corrections e^{−AN} with a complex action: a "complex instanton". The action depends only weakly on ν, which is consistent
+  with an action fixed by the equilibrium measure (p, c) and a ν-dependent prefactor. One natural candidate is the action
+  Φ(z*) = ∫(phase) at a complex critical point of the g-function phase. We did not find such a point. Φ(4c) = iπ·(band mass)
+  = 0.90109i is reproduced, but a search for Φ′ = 0 in the convergence region of the ₃F₂ representation returns only spurious
+  roots with |z| ~ 10¹³. **A(p) is not identified.**
+- **Consequence for the program.** Theorem N.6 and Theorem H are statements about finite-order truncations with explicit
+  remainders, so the divergence does not affect them. It does mean that an "all-order closed form" for F must be understood
+  as a Borel-resummed or transseries object. Optimal truncation at k ≈ |A|N/2 leaves an error of size e^{−|A|N}·(oscillating).
+
 ## 4. Open
 
 - Derive N from the Riemann–Hilbert data. Candidates: the hard-edge parametrix gives α/2; the outer scalar j_δ (Bernoulli
