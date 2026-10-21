@@ -1,12 +1,13 @@
 # JZC M4: the second-order layer — the natural index N = n + α/2 − Z(0) (Plan JZC, milestone M4; first results)
 
-Status (2026-10-21): NOT REVIEWED. Labels per VERIFICATION_POLICY.md.
+Status (2026-10-21): NOT REVIEWED. §5 added 2026-10-21 (integer layer to order 8). Labels per VERIFICATION_POLICY.md.
 
 | # | Statement | Label |
 |---|---|---|
 | Identity N.1 | E2's d₂(p, s) = p(p+1)δ_N²/2 + f₂(p, α), δ_N := α/2 + ½, f₂ := −(p+2)α²/8 + (p+1)/12, α := (s−1)/p − 1 | PROVED (algebra) |
 | Prop N.2 | Bessel-zero (Lommel) measures, p = s = 2 (α = −½): n²b_n/c = (n/N)²·(1 − 1/(4N²))^{−1/2} exactly, N = n + μ/2 = n + α/2 − Z(0) | PROVED (from the Lommel closed form, SPEC §3.10) |
-| Conj S1-N | n^pb_n/c = (n/N)^p·F_{p,α}(N; Z), N := n + α/2 − Z(0). F has no 1/N term; its integer layer is even in 1/N; its N⁻² coefficient is f₂; the spectral terms (zeta layer, poles) appear as functions of N | CONJECTURE (NUMERICAL: m4_natural_index.out, 7 lattices; S1′, rule H, S1⁗ as instances) |
+| Conj S1-N | n^pb_n/c = (n/N)^p·F_{p,α}(N; Z), N := n + α/2 − Z(0). F has no 1/N term; its integer layer is even in 1/N; its N⁻² coefficient is f₂; the spectral terms (zeta layer, poles) appear as functions of N | CONJECTURE (NUMERICAL: m4_natural_index.out, 7 lattices; S1′, rule H, S1⁗ as instances). The integer-layer part is now established through order 8 for the Riemann–Hilbert model: Prop N.3 |
+| Prop N.3 | Integer layer from the order-k Riemann–Hilbert model computation (E2's frame, extended from k = 2 to k = 8): f₁ = f₃ = f₅ = f₇ = 0; f₄, f₆ in closed form (§5); f_{2k} is even in α | CONDITIONAL (on the order-k analogue of E2 Lemma E2.3 / Prop E2.5) + NUMERICAL (exact to 10⁻²⁷ … 10⁻⁴⁰ at sampled (p, α); closed forms by rational reconstruction, verified out of sample: m4_rh4.out; lattice cross-check m4_f4_lattice.out) |
 
 ## 1. The identity
 
@@ -66,19 +67,84 @@ nuisance exponents (4, 5, 2 + jp, 3 + jp). Results:
 - The N⁻¹ and N⁻² rows re-confirm E2's d₁ and d₂ (PROVED) in natural form.
 - The N⁻³ row is the new content. It is zero to ≤ 5·10⁻⁴, against lattice d₃ values of order 0.1–1 (for example −0.267 at
   p = 1.5, s = 2). At α = 0 it is ≤ 10⁻⁵.
-- *Open.* The residual at p = 1.5 flips sign with α (−3.0·10⁻⁴ at α = −⅓, +3.2·10⁻⁴ at α = +⅓, both about 1.5 spreads), and p = 3
-  shows 2·10⁻⁶ at about 4 spreads. This could be a small odd-in-α N⁻³ coefficient, or an unmodelled nuisance term. Higher-
-  precision runs would settle it.
+- *Resolved (§5).* The residual at p = 1.5 flips sign with α (−3.0·10⁻⁴ at α = −⅓, +3.2·10⁻⁴ at α = +⅓, both about 1.5
+  spreads), and p = 3 shows 2·10⁻⁶ at about 4 spreads. This is fit noise, not an odd-in-α N⁻³ term. The large-n end of the
+  coefficients is noise-dominated at the N⁻³/N⁻⁴ scale (residual·N⁴ wanders by 10⁻³ beyond n ≈ 600), and these fits used the
+  tail windows n ≥ 200, 400. Mid-range windows (n ∈ [10, 400]) give N⁻³ coefficients ≤ 4·10⁻⁸ (m4_f4_lattice.out), and the
+  Riemann–Hilbert model gives f₃ = 0 to 10⁻³⁸.
 
 **What S1-N buys.** It halves the unknowns of the integer layer, since only the even f_{2k}(p, α) remain. It unifies d₁, rule H and
 the S1⁗ shift. And it gives M3/M4 a precise target: the Riemann–Hilbert analysis should produce exactly the shift α/2 (hard-edge
 Bessel parametrix of order α) and −Z(0) (the Γ normalisation of the interpolation), with the soft edge contributing only even
 terms.
 
+## 5. The integer layer to eighth order (Proposition N.3)
+
+**Method** (`checks/m4_rh4.py`). E2 (E2_pgt1, check_e2_sym) obtained d₂ from the second-order small-norm expansion of the
+Riemann–Hilbert problem with the *model* weight z^α(4c − z), i.e. with the band factor H_n replaced by a constant. H_n is the
+source of the zeta layer and the pole terms (E3, SPEC §3.12), so the model computation is the **integer layer**. The script
+extends E2's computation to arbitrary order k:
+- jumps J = I + Σ_k Δ_k/n^k on the circles around 4c (Airy) and 0 (Bessel), with
+  - X_k = M⁻¹(M∘C_k), C_k = [[u_k, (−1)^k u_k], [v_k, (−1)^k v_k]] (u_k, v_k: DLMF 9.7.2);
+  - Ξ_k = M⁻¹(M∘C_k), C_k = [[(−1)^k a_k, a_k], [(−1)^k b_k, b_k]] (a_k: DLMF 10.17.1; b_k: DLMF 10.17.8);
+  - for k = 1, 2 these reproduce check_e2_sym's matrices (asserted);
+- the same conjugations and local maps as E2 (Lemma E2.4 series);
+- the small-norm recursion R_out⁽ᵏ⁾ = principal parts at {0, 4c} of Σ_{j=1}^k R_in⁽ᵏ⁻ʲ⁾Δ_j, R_in⁽ᵏ⁾ = R_out⁽ᵏ⁾ − Σ_j R_in⁽ᵏ⁻ʲ⁾Δ_j
+  (analyticity of R_in⁽ᵏ⁾ at both points is asserted at each step);
+- E2's extraction, n^pb_n/c = √(Q₁₂Q₂₁)/c with Q₁ = P₁ + Σ_k n⁻ᵏR₁⁽ᵏ⁾.
+The arithmetic is numerical (mpmath, 40 digits) on truncated Laurent series with tracked precision, at given (p, α). The
+results do not change when the truncation depth is raised (40 → 56 → 64).
+
+**Results.**
+- d₁ and d₂ reproduce E2 Theorem E2.1 to 10⁻²⁸ at every point, including p < 1 and α up to 2.6.
+- **f₁ = f₃ = f₅ = f₇ = 0** (≤ 10⁻³⁵) at every sampled (p, α), p ∈ [⅓, 12]: the integer layer of F is even in 1/N.
+- **f_{2k} is even in α.** Each f_{2k} is a polynomial of degree 2k in α with only even powers.
+- **Closed forms.** Exact rationals at 12 (f₄) and 16 (f₆) values of p, each at 5–6 values of α, were interpolated by
+  rational functions of p. f₄'s constant term needed 5 points and was checked on 7 more; f₆'s coefficients needed 8–10 points
+  and were checked on 6–8 more:
+
+  **f₄** = (p+1)(6p³ + 46p² + 55p + 3)/(1440 p(3p+2)) − 5(p+1)(p+2)α²/(96(3p+2)) − p(p+2)²α⁴/(128(3p+2)),
+
+  **f₆** = [c₀ + c₂α² + c₄α⁴ + c₆α⁶]/((3p+2)²(5p+2)), with
+  - c₀ = −(p+1)(450p⁸ + 1590p⁷ − 316p⁶ − 23761p⁵ − 66864p⁴ − 65507p³ − 18220p² − 1632p − 40)/(362880p²),
+  - c₂ = (p+1)(p+2)(90p⁶ + 270p⁵ + 664p⁴ − 165p³ − 1649p² − 288p + 28)/(11520p),
+  - c₄ = −(p+1)(p+2)²(20p⁴ + 45p³ + 162p² + 72p + 16)/1536,
+  - c₆ = p(p+2)³(16p³ + 7p² − 4p − 4)/3072.
+
+  Both are asserted at six points not used in the interpolation (`m4_rh4.out`, 58 checks):
+  (9/4, 0.3), (0.4, −0.7), (7/5, 1.1), (11/2, −0.45), (0.8, 2.6), and the Bessel anchor (2, −½), where f₄ = 3/128 and
+  f₆ = 5/1024, the coefficients of (1 − 1/(4N²))^{−1/2} (Prop N.2).
+- **The denominators come from the hard-edge local map.** The series of 𝔞 (E2 Lemma E2.4(i)) has the factors
+  1/(a′ + k), a′ = 1/p + ½, and a′ + k = ((2k+1)p + 2)/(2p). f₄ carries 3p+2, f₆ carries (3p+2)²(5p+2), and the prediction
+  for f₈ is (3p+2)³(5p+2)(7p+2). It is confirmed at p = 3: the exact f₈(3, 0) = 1311857/632311515, with denominator
+  3⁵·5·11³·17·23 = 3⁵·5·(3p+2)³(5p+2)(7p+2) (`m4_f8_denominator.out`; f₅ = f₇ = 0 there too, and f₈(2, 0) = 3899/2²¹).
+- **Lattice cross-check** (`m4_f4_lattice.out`, 10 checks). Mid-window fits of the Plan 62 coefficients agree with f₄ to
+  3·10⁻¹⁰ (p = 4, α = 0), 8·10⁻⁸ (p = 2, α = 0; p = 4, α = 1), 4·10⁻⁷ (p = 2, α = 1), and 5·10⁻⁵ at p = 2.5 (fit spread
+  10⁻⁴). The fitted N⁻³ coefficient is ≤ 4·10⁻⁸ in all five cases. The model's integer layer is therefore the lattice's at
+  N⁻⁴, as it should be when no zeta exponent 1 + jp lands on 4.
+
+**Status and labels.**
+- The computation is the formal order-k expansion. Making it a theorem needs E2's estimates at order k: jumps to order k + 1
+  with uniform remainders (the DLMF expansions to k + 1 terms, as in Lemma E2.3), and the small-norm series to order k
+  (Prop E2.5). Both are routine extensions, but they are not written: **CONDITIONAL**.
+- The closed forms rest on rational reconstruction from finitely many exact evaluations, with out-of-sample verification:
+  **NUMERICAL**.
+- Rule X: the f₄(2, α) polynomial (23 − 40α² − 16α⁴)/512 was first read off lattice fits. The Riemann–Hilbert computation
+  was then built independently and reproduced it exactly, then gave all p.
+
+**Why even in α (HEURISTIC).** The Bessel data a_k(α), b_k(α) depend on α only through α² (DLMF 10.17.1, 10.17.8). Elsewhere,
+α enters only through the power ρ^{2(α+1)} at the hard edge and the matching power at the soft edge (the Szegő-type
+factor of z^α). For Laguerre polynomials, the same structure produces exactly the index shift n → n + α/2. So, to all
+orders, the α-odd part should be absorbed by the shift in N = n + α/2 + ½. This is a candidate route to deriving the α/2 part
+of the natural index. The evenness in 1/N suggests a reflection symmetry N → −N of the model problem, also not yet
+identified.
+
 ## 4. Open
 
 - Derive N from the Riemann–Hilbert data. Candidates: the hard-edge parametrix gives α/2; the outer scalar j_δ (Bernoulli
   polynomials B_{k+1}(−δ), SPEC §3.1) gives −Z(0).
-- f₄(p, α), and a closed form for F_{p,α} (p = 2, α = −½: (1 − 1/(4N²))^{−1/2}).
-- The possible small odd-in-α N⁻³ term.
+- A closed form for F_{p,α} (p = 2, α = −½: (1 − 1/(4N²))^{−1/2}). f₂, f₄, f₆ are known (§5); the hard-edge denominators
+  ∏((2k+1)p + 2) suggest a hypergeometric structure in the parameter a′ = 1/p + ½.
+- Proofs of evenness: N → −N (all orders), and α → −α after the shift (heuristic in §5).
+- Write the order-k remainder estimates (removes CONDITIONAL from Prop N.3).
 - How the Jacobian-tilt term of S1⁗ fits the natural form.
