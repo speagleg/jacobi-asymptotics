@@ -26,3 +26,6 @@ for Lam in [float(a) for a in sys.argv[1:]]:
     P = R[0]**2 + R[1]**2; np.save(os.path.join(out, f"P_L{Lam}.npy"), np.vstack([n, P, R[0], R[1]]))
     w = lambda lo: np.mean(P[(n >= lo) & (n < 2*lo)])
     print(f"Lam = {Lam:6.2f} (omega = {2*np.pi/Lam:.4f}): mean |F|^2 over n-octaves [100,200) {w(100):.4e}  [200,400) {w(200):.4e}  [400,800) {w(400):.4e}  [800,1600) {w(800):.4e}")
+# Post-processing (run separately; reads tmp/kernelfft/*.npy): kappa(omega) := mean |F_n|^2 / n over an n-octave, interpolated in
+# log-log (linear in omega below the smallest measured omega, flat above), then
+#   Var L(n)/n = 2 int_0^pi kappa(w) S_h(w) dw/(2 pi),  S_h = K(w)/(4 sin^2(w/2)),  K_Poisson = 1, K_GUE = min(w/(2 pi), 1).

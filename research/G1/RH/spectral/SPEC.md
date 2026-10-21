@@ -1227,10 +1227,30 @@ wavelength:
 - the GUE/Poisson ratio is √(K_GUE(ω₀)/K_Poisson(ω₀)) at ω₀ ≈ 2π/10, where K is the spectral form factor. That gives ≈ 3.5,
   against the 3.3–4.0 observed.
 This is a concrete version of the Krylov-complexity hypothesis that Lanczos fluctuations are driven by spectral rigidity.
-Untested parts:
-- the form-factor formula itself, which needs the kernel row F(n; ·) at fixed n, not only the four columns measured here;
-- more seeds;
-- the √n growth of the amplitude, which in this picture comes from the slow in-band decay of F.
+
+**The form-factor formula, tested (same day; `checks/spec_kernelfft.py`, `checks/spec_kernelfft.out`).**
+- **Kernel spectrum.** Perturb the spectrum by a single sinusoid, h_k = ε sin(2πk/Λ + φ) (k ≤ 3000, ε = 0.02, φ = 0 and π/2). The
+  linear response gives the kernel's power spectrum at fixed n directly: |F̂_n(ω)|² = R₀² + R_{π/2}², for nine wavelengths Λ = 2.5–160.
+  The result is a clean scaling:
+  - |F̂_n(ω)|² ≈ n·κ(ω) (it doubles per n-octave at every ω);
+  - κ(ω) ∝ ω for ω ≲ 0.3 (zero response at long wavelength: the exact form of "in-band nodes average to zero") and sublinear
+    above (κ ≈ 0.75ω at small ω, ≈ 1.0 at ω = 2.5).
+  This also explains the √n growth of the noise.
+- **Prediction, with no free parameters.** Var L(n) = 2∫_0^π κ(ω)S_h(ω)dω/2π, with the displacement spectrum
+  S_h = K(ω)/(4 sin²(ω/2)): K = 1 for Poisson, and the GUE form factor K = min(ω/2π, 1). Against spec_noiselin.out (seed 7):
+
+  | window | GUE predicted | GUE measured L / N₁ | Poisson predicted | Poisson measured L / N₁ |
+  |---|---|---|---|---|
+  | [200, 400) | 5.67 | 5.48 / 5.38 | 22.5 | 23.1 / 20.8 |
+  | [400, 800) | 8.02 | 7.02 / 7.46 | 31.7 | 24.4 / 28.3 |
+  | [800, 1600) | 11.36 | 10.56 / 11.56 | 44.9 | 39.3 / 41.8 |
+
+  The agreement is within single-seed scatter. The predicted Poisson/GUE ratio, 3.95, matches the observed 3.3–4.0. The
+  Poisson bridge's pinned ends remove some low-ω power, which fits the slight overprediction there.
+- **Statement (NUMERICAL).** The Lanczos noise of a spectrum with displacement spectrum S_h has variance
+  n·∫κ(ω)S_h(ω)dω/π, with a universal kernel spectrum κ (for given p, s). Rigidity at the wavelengths where κ lives (about 2–40
+  spacings) sets the noise.
+- **Open.** A closed form for κ (it presumably comes from the Airy edge kernel); more seeds; other p.
 
 ### 3.9 Novelty (Rule L, first pass, 2026-10-20) — summary of research/program/novelty_SPEC.md (local, gitignored)
 
