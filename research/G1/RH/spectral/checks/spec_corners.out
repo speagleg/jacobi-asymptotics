@@ -1,0 +1,23 @@
+smooth_square: beta = 1.128379, c0 = Z(0) = 0.250000; predicted n^0 coefficient of D: c0 + 1/2 = +0.750000; n^(+1/2): 0
+      n^(+1/2) [pred 0]: median -1.253317  half-range 1.1e-05
+      n^0 [pred c0+1/2]: median +1.535554  half-range 9.0e+01
+               n^(-1/2): median -0.596237  half-range 5.1e+03
+smooth_triangle: beta = 1.286074, c0 = Z(0) = 0.333333; predicted n^0 coefficient of D: c0 + 1/2 = +0.833333; n^(+1/2): 0
+      n^(+1/2) [pred 0]: median -1.428473  half-range 1.4e-05
+      n^0 [pred c0+1/2]: median +1.853799  half-range 1.0e+02
+               n^(-1/2): median -0.943220  half-range 5.8e+03
+smooth_disk: beta = 1.000000, c0 = Z(0) = 0.166667; predicted n^0 coefficient of D: c0 + 1/2 = +0.666667; n^(+1/2): 0
+      n^(+1/2) [pred 0]: median -1.110722  half-range 6.5e-06
+      n^0 [pred c0+1/2]: median +1.283612  half-range 8.0e+01
+               n^(-1/2): median -0.340771  half-range 4.5e+03
+square: beta = 1.128379, c0 = Z(0) = 0.250000; predicted n^0 coefficient of D: c0 + 1/2 = +0.750000; n^(+1/2): 0
+   n in [100,200): mean D -85.9273   RMS D 87.7050   std D 17.5690
+   n in [200,400): mean D -179.2466   RMS D 182.9565   std D 36.6570
+   n in [400,800): mean D -368.8054   RMS D 376.1479   std D 73.9583
+   n in [800,1600): mean D -759.3529   RMS D 774.3185   std D 151.5007
+triangle: beta = 1.286074, c0 = Z(0) = 0.333333; predicted n^0 coefficient of D: c0 + 1/2 = +0.833333; n^(+1/2): 0
+   n in [100,200): mean D -83.4285   RMS D 85.1323   std D 16.9471
+   n in [200,400): mean D -173.1410   RMS D 176.6229   std D 34.8979
+   n in [400,800): mean D -356.3710   RMS D 363.4848   std D 71.5607
+   n in [800,1600): mean D -732.4572   RMS D 747.1299   std D 147.3412
+ALL 3 CHECKS PASSED
