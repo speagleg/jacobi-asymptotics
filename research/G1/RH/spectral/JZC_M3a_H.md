@@ -39,7 +39,7 @@ Setting:
 
 | step | content | source | status |
 |---|---|---|---|
-| H-a | interpolation with sin π(t − δ) and 1/Γ(t − δ); node masses | Paper 2 L5.1–5.2, with t ↦ t − δ | routine (G2 note) |
+| H-a | interpolation with sin π(t − δ) and 1/Γ(t − δ); node masses; top node X₁ = (n/a)^p | Paper 2 L5.1–5.2, with t ↦ t − δ | JZC_M3a_H_Ha.md (PROVED-mod-cite, NOT REVIEWED) |
 | H-b | outer scalar j_δ: sectors and bounds, via the shift identity j_δ(t) = j(t−δ) + (t−δ−½)Log(1−δ/t) + δ and Paper 2's Binet bound (no DLMF 5.11.8 needed) | Paper 2 L6.1, L6.4; H-d §2 | p > 1: G12 L1.1–C1.5; p < 1: G3 Lemmas 1–3, Prop 4 (PROVED-mod-cite, NOT REVIEWED) |
 | H-b′ | a-priori bound and L² boundary values for the normalised Q♮, lattice exponent \|α\|/2 (column factorisation) | Paper 2 App C | p > 1: G12 L2.1–P2.4 (PROVED-mod-cite, NOT REVIEWED); p < 1: OPEN |
 | H-c | band factor: Binet-cut B_δ (p > 1) or seam χ_δ (p < 1); moments m_j(δ) as Fourier sums | E_pgt1 L E.2, E3 L F.1′, E_plt1 L F.1, SPEC §3.1 | §3.2 |
@@ -109,7 +109,10 @@ checked numerically to 10⁻²⁷ for p ∈ {1.25, 1.5, 3}, δ ∈ {0, −½, 0.
 2. **H-b′ for p < 1** (Paper 2 App C in the seam geometry). The Hurwitz sum bound G12 L2.1 is p-free, so the expected route is
    L2.1 + L2.3 with the seam lens.
 3. E_plt1 Lemma F.1(iv) with the complex seam densities of G3 (expected verbatim; not checked line by line).
-4. H-a written out (interpolation with sin π(t − δ); routine).
+4. ~~H-a written out~~: done in JZC_M3a_H_Ha.md (PROVED / PROVED-mod-cite, NOT REVIEWED; m3a_ha_interp.out, 298 checks and
+   33 controls that fail as required). It needs Paper 2's T1(a) re-proved at the top node, since x₁ = a^{−p} > 1; the
+   expansion holds for |z| > X₁ = (n/a)^p. It also shows why δ > 0 is excluded: the point t = δ is a phantom node, with no
+   mass on it, and pole removal fails there.
 
 **Status by part.**
 - **(i)** is CONDITIONAL on items 1–4 above. Every other ingredient is PROVED-mod-cite (Paper 2, E-series lemmas) and NOT

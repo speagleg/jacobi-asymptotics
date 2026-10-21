@@ -23,19 +23,21 @@ N = n + (β′+1)/2 = n + α/2 + ½ + δ, as rule H requires. Identifying the re
 
 ## 1. Inputs quoted from Paper 2
 
-- Lemma interp, (eq:U): U(z) := n^{pnσ₃}Y(zn^{−p}); "U(z)z^{−nσ₃} = I + U₁/z + U₂/z² + … for |z| > n^p", (eq:extractU):
+- Lemma interp, (eq:U): U(z) := n^{pnσ₃}Y(zn^{−p}); "U(z)z^{−nσ₃} = I + U₁/z + U₂/z² + … for |z| > n^p" (Hurwitz: for |z| > X₁ = (n/a)^p; corrected 2026-10-21, see JZC_M3a_H_Ha.md L Ha.2), (eq:extractU):
   𝖻(Uz^{−nσ₃}) = n^{2p}b_n², 𝖺(Uz^{−nσ₃}) = n^pa_n. Lemma invariance: k_∞^{−σ₃}Xk^{σ₃} has the same 𝖺, 𝖻.
 - (eq:t)/(eq:theta): t = nz^{−1/p}, θ = πt; (eq:W), (eq:Wformula): W = 2iθ′w = 𝗐_n z^α r_n; (eq:kappa): κ_± = 1/(1 − e^{∓2iθ}).
 - Step 2: T := e^{−nγ_pσ₃}Re^{nφσ₃}; φ̃ := φ ± iθ/n; Lemma gfunction (i): g₊ − g₋ = 2iθ/n on (4c, ∞), φ₊ + φ₋ = 0 on (0, 4c).
 - (O1): "F is analytic and zero-free in ℂ∖[0,∞) (in particular, it has no jump on (−∞,0)), … and F₊ = F₋e^{2iθ} on (4c,∞)∖{X_k}."
   (O2): F̃ := (1 − e^{∓2iθ})F = F/κ_±, "F̃₊ = −F̃₋ on (4c, e^{pc₀}n^p)"; (eq:Hn) H_n := 1/((4c − z)F̃²); (eq:W0) W₀ := W/F̃².
   (O5) "(For each fixed n.) |F|^{±1} is bounded on U(0,δ)∖(Ω̄_b ∪ [0,∞)) … |F(z)|^{±1} ≤ C_n|z|^{N_n} for |z| ≥ n^p+δ′, and F(iy) is
-  bounded and bounded away from 0 as y → ±∞."
+  bounded and bounded away from 0 as y → ±∞." For the Hurwitz problem (O5) at ∞ is used for |z| ≥ X₁ + δ′ = (n/a)^p + δ′, not
+  n^p + δ′, since the top node is X₁ = (n/a)^p > n^p (corrected 2026-10-21, see G12 §5).
 - Lemma jumpsV (a) band [[0, W₀], [−1/W₀, 0]]; (b) lips [[1,0],[e^{2nφ}/W₀,1]] + super-small entries ∝ W₀e^{−2nφ̃}, κ_± − 1;
   (c) Σ_v: [[1, −W₀e^{−2nφ̃}],[0,1]]; (d) saturated [[1,0],[e^{2nφ̃}/W₀,1]]; (g) "On (−∞,0): … e^{nφ} jumps by e^{−2πin} = 1".
 - (eq:D) D := κ_±D̃, D̃ = e^{−j(t)}; (eq:binet-small) j(t) = −½ln t − ½ln(2π) + O(|t|log(2/|t|)); Lemma binetcut (ii) 𝔟(y) → π/p − π,
   (eq:B) B := exp(−(1/2π)∫_{−∞}^0 𝔟(y)[1/(y−z) − 1/(y−1)]dy); proof of (iv): "|B(iy)| ≍ |y|^{½−1/(2p)}, and |F(iy)| ≍ 1".
-- Lemma normalisation: ϰ_∞ := F^{−1}e^{n(g − Log z)} "extends to an analytic function on {|z| > n^p+δ′} ∪ {∞} with ϰ_∞(∞) ≠ 0";
+- Lemma normalisation: ϰ_∞ := F^{−1}e^{n(g − Log z)} "extends to an analytic function on {|z| > n^p+δ′} ∪ {∞} with ϰ_∞(∞) ≠ 0" (Hurwitz: on {|z| > X₁+δ′} ∪ {∞},
+  X₁ + δ′ = (n/a)^p + δ′, which is also the top vertex of the contour; corrected 2026-10-21, see G12 §5);
   (eq:Q-at-infinity) Q = k_∞^{−σ₃}(Uz^{−nσ₃})k^{σ₃}. (eq:Q) Q := D_∞^{−σ₃}VD_W^{σ₃}; (eq:Pinf0) P₀^∞; (eq:omega) ω := D_W²/W₀.
 - Lemma szego (i): D_{x^α}(z)² = (4cz/Υ(z))^α, Υ = (z^{1/2} + (z−4c)^{1/2})², Υ(0) = −4c. Notation table: c_± = e^{∓iπα}.
 - Prop apriori (App C) (i): |Q(z)| ≤ C_{n,η}|z|^{−|α|/2−η}, proved from "|F|^{±1} ≤ C outside the lens … (O5); |D_W(z)|^{±1} ≤ C|z|^{±α/2−η}".
@@ -50,15 +52,20 @@ B_δ by (eq:B), F_δ := D_δB_δK. As in Lemma binetcut, F_δ is analytic and ze
 F_δ₊ = F_δ₋e^{2iθ_δ} on (4c, ∞) off the nodes: (O1) with θ_δ in place of θ. Note e^{2iθ_δ} = e^{2iθ}e^{−2πiδ}.
 
 **Prop 2.1.** Fix n, p > 1, −1 < δ < 0.
-- (2.1) *Hard edge, t → ∞:* j_δ(t) = B₂(−δ)/(2t) + O(t⁻²), B₂(−δ) = δ² + δ + ⅙ (DLMF 5.11.8, NOT QUOTED; checked to 10⁻⁷ at |t| = 10⁸).
+- (2.1) *Hard edge, t → ∞:* j_δ(t) = B₂(−δ)/(2t) + O(t⁻²), B₂(−δ) = δ² + δ + ⅙ (checked to 10⁻⁷ at |t| = 10⁸).
+  No citation of DLMF 5.11.8 is needed: only j_δ = O(1/t) is used, and it follows from the shift identity
+  j_δ(t) = j(t−δ) + (t−δ−½)Log(1−δ/t) + δ and Paper 2's (eq:binet-bound) (G12 L1.1, L1.2(b)) (corrected 2026-10-21, see G12 §5).
   So D̃_δ → 1, κ_δ → 1 off the axis, H_n^δ := (D̃_δB_δ)^{−2} keeps the Hölder bound |z|^{1/p} of (O3): nothing changes at z = 0.
 - (2.2) *t → 0:* LnΓ(t − δ) → LnΓ(−δ) (Γ is analytic and positive at −δ ∈ (0, 1); elementary), so j_δ(t) = (δ+½)ln t + LnΓ(−δ) − ½ln 2π
   + O(|t|log(1/|t|)), and κ_δ± → 1/(1 − e^{±2πiδ}) (finite: e^{2πiδ} ≠ 1). Hence |D_δ| = Γ(1+δ)(2π)^{−1/2}|t|^{−δ−½}(1 + o(1)),
   against the lattice |D| = (2π)^{−1/2}|t|^{−1/2}, where κ ~ 1/(±2πit) contributes t^{−1}: the lattice's "pole of Γ at t = 0".
 - (2.3) 𝔟_δ(y) → 𝔟_∞(δ) := 2[(δ+½)π/p − π/2 − πδ] = (π/p − π) + 2πδ(1/p − 1) as y → −∞ (arg t₊ = −π/p; arg(1 − e^{2πiδ}) = π/2 + πδ),
   with 𝔟_δ − 𝔟_∞ = O(|t₊|log) integrable against |y|^{−1}dy; so, as in the proof of binetcut (iv), |B_δ(iy)| ≍ |y|^{−𝔟_∞/(2π)}.
-- (2.4) Exponents add up: (δ+½)/p + [½ − 1/(2p) + δ − δ/p] − ½ = δ. With the monodromy of F_δ at ∞ (jump e^{2iθ_δ} → e^{−2πiδ} on
-  (R, ∞), none on (−∞, 0)) this gives **F_δ(z) = C_δ(−z)^δ(1 + o(1)) as z → ∞, C_δ ≠ 0**; δ = 0 is Paper 2's |F(iy)| ≍ 1.
+- (2.4) Exponents add up: (δ+½)/p + [½ − 1/(2p) + δ − δ/p] − ½ = δ. The limit is obtained from Paper 2's Lemma normalisation
+  applied to F♮ := F_δ(−z)^{−δ}, not from a monodromy argument: F♮ satisfies (O1) with the lattice θ and (O5) at ∞ on |z| ≥ X₁ + δ′
+  (G12 P1.4(b), (c)), so ϰ_∞♮ = F♮^{−1}e^{n(g − Log z)} is analytic at ∞ with ϰ_∞♮(∞) ≠ 0, and this gives
+  **F_δ(z) = C_δ(−z)^δ(1 + o(1)) as z → ∞, uniformly in direction, C_δ = e^{L_δ} > 0** (G12 C1.5) (corrected 2026-10-21, see G12 §5);
+  δ = 0 is Paper 2's |F(iy)| ≍ 1.
 
 *Status.* (2.1)–(2.3) are limits of explicit functions; (2.4)'s B_δ step is binetcut (iv)'s argument verbatim with 𝔟_∞(δ): PROOF
 SKETCH. NUMERICAL (m3a_hd_outer.out, n = 4, p ∈ {3/2, 3}, δ ∈ {0, −0.3, −0.7}, dps 30): 𝔟_δ(−10⁴⁰) = 𝔟_∞ to 10⁻⁹;
@@ -91,8 +98,9 @@ Q♮ = k_∞^{−σ₃}(Uz^{−nσ₃})k^{σ₃} near ∞ with U the **degree-n*
 near 0, ω♮ = ω^{(β′)}e^{±2πiδ}, whose band limits are e^{∓iπβ′}e^{±2πiδ} = e^{∓iπα} = c_±: the hard-edge model is Paper 2's
 order-α Bessel model, glued with the Szegő function of x^{β′}. This is JZC_M4 §7's decoupled problem **M(β′ = α + 2δ, ν = α)**,
 with band factor H_n^δ = e^{−P_n^δ}(1 + O(n^{−(K+1)p})), μ_{n,k} = 2ζ(−kp, a)/(kn^{kp}) (Lemma H, CONDITIONAL on Hurwitz's formula).
-(iv) A priori bound: F♮D_W = F_δD_W^{(α)}·[(−z)^{−δ}D_{x^{2δ}}] and [·] = (4c/Υ)^δe^{±iπδ} is bounded above and below near 0
-(Υ(0) = −4c); the δ-powers cancel in each column of Prop apriori's proof, so (F7) holds with the same exponent |α|/2.
+(iv) A priori bound: F♮D_W = F_δD_W^{(α)}·[(−z)^{−δ}D_{x^{2δ}}] and G := [·] satisfies |G| = |4c/Υ|^δ (G12 L2.3; the earlier
+"[·] = (4c/Υ)^δe^{±iπδ}" was branch-ambiguous and is not needed), so G is bounded above and below near 0
+(Υ(0) = −4c) (corrected 2026-10-21, see G12 §5); the δ-powers cancel in each column of Prop apriori's proof, so (F7) holds with the same exponent |α|/2.
 
 *Proof of (i)–(iii).* Algebra of jumpsV's proof with θ_δ/θ kept apart: (a) uses only L₋^{−1}L₊ = U(W), true for any phase
 (−W(e^{−2iθ_δ}κ_δ+ + e^{2iθ_δ}κ_δ−) = W); (c): (A^△₊)^{−1}L₊ conjugated by e^{nφσ₃} times A₊ has (1,1) = κ_δ+, (2,1) = 0 and
@@ -171,7 +179,8 @@ For H-d (frame 1), p > 1:
 - G3. p < 1: the seam construction (Lemma seam) with j_δ; Γ(t − δ) has its poles at t = δ − m on arg z = ±πp, inside S_out where D is
   not used. Expected: the seam densities grow like (δ/p)log ζ, so χ produces the same (−z)^δ at ∞ (the monodromy argument of §2 is
   geometry-free and fixes the exponent mod 1; continuity in δ fixes it). Not computed.
-- G4. Hurwitz's formula (Lemma H, DLMF 25.11.9 / Apostol Thm 12.6) and DLMF 5.11.8: NOT QUOTED (Rule C).
+- G4. Hurwitz's formula (Lemma H, DLMF 25.11.9 / Apostol Thm 12.6) and DLMF 5.11.8: NOT QUOTED (Rule C). DLMF 5.11.8 is no
+  longer needed, see (2.1) (corrected 2026-10-21, see G12 §5).
 - G5. Theorem N.6 for the decoupled model M(β, ν): its proof enters β only through ρ² = φ^{2(β+1)} (bounded, analytic on the circles);
   expected routine, not written.
 For rule H as stated (n/(n+δ))^pΦ(n+δ): G1–G5 plus Prop S at the orders of N.6(iii) (exact for the integer layer to order 4; orders

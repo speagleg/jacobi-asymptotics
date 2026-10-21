@@ -1,0 +1,59 @@
+[2] p=1.5 alpha=-0.5 delta=-0.8 (beta'=-2.10): |rho| in [0.68302, 1.0] on 1e-12 <= |z| <= c/2
+    control rho_w: |rho_w| |z|^delta in [0.9496, 1.0] (|rho_w| ~ |z|^(-delta): unbounded ratio)
+[3] p=1.5 alpha=-0.5 delta=-0.8 (beta'=-2.10): max |A^(+-1)| over 1e-12 <= |z| <= 1e-2 = 1.96752
+    control A_w: |z|^(1/2)|A_w| from 30.94 (|z|=1e-2) to 2.802e+9 (|z|=1e-12)
+[4] p=1.5 alpha=-0.5 delta=-0.8 (beta'=-2.10): lip match rel.err 4.68e-41; |omega - rho_pm|/|z|^(1/2) in [1.462, 1.516]; control min |omega - e^(-+i pi beta')| = 1.095
+[5] p=1.5 alpha=-0.5 delta=-0.8 (beta'=-2.10), |z| = c/2, 6 pts: n|J-I| = 1.051, 1.051, 1.051, 1.051, 1.051; e(2n)/e(n) = 1.641e-6, 2.734e-12, 3.198e-18, 0.6423; control (nu = beta') ratios 0.5, 0.5, 0.5, 0.5
+    nu = +-1/2: remainders 3.24e-6, 5.31e-12, 1.45e-23, 4.64e-41, 2.98e-41
+[6] p=1.5 alpha=-0.5 delta=-0.8 (beta'=-2.10): max |P0hat^(+-1)| |zeta|^(|alpha|/2) n^(-1/2) = 0.82527; control (rho_w, |zeta| = 1e-8) up to 1.071e+24
+[2] p=1.5 alpha=-0.6 delta=-0.8 (beta'=-2.20): |rho| in [0.659754, 1.0] on 1e-12 <= |z| <= c/2
+    control rho_w: |rho_w| |z|^delta in [0.9451, 1.0] (|rho_w| ~ |z|^(-delta): unbounded ratio)
+[3] p=1.5 alpha=-0.6 delta=-0.8 (beta'=-2.20): max |A^(+-1)| over 1e-12 <= |z| <= 1e-2 = 2.06186
+    control A_w: |z|^(1/2)|A_w| from 31.09 (|z|=1e-2) to 2.802e+9 (|z|=1e-12)
+[4] p=1.5 alpha=-0.6 delta=-0.8 (beta'=-2.20): lip match rel.err 6.16e-41; |omega - rho_pm|/|z|^(1/2) in [1.595, 1.659]; control min |omega - e^(-+i pi beta')| = 1.088
+[5] p=1.5 alpha=-0.6 delta=-0.8 (beta'=-2.20), |z| = c/2, 6 pts: n|J-I| = 1.127, 1.1249, 1.1242, 1.1239, 1.1237; e(2n)/e(n) = 0.2385, 0.2447, 0.2475, 0.2487; control (nu = beta') ratios 0.5003, 0.5001, 0.5001, 0.5
+[6] p=1.5 alpha=-0.6 delta=-0.8 (beta'=-2.20): max |P0hat^(+-1)| |zeta|^(|alpha|/2) n^(-1/2) = 0.67371; control (rho_w, |zeta| = 1e-8) up to 1.026e+24
+[2] p=3 alpha=-0.5 delta=-0.8 (beta'=-2.10): |rho| in [0.68302, 1.0] on 1e-12 <= |z| <= c/2
+    control rho_w: |rho_w| |z|^delta in [0.9542, 1.0] (|rho_w| ~ |z|^(-delta): unbounded ratio)
+[3] p=3 alpha=-0.5 delta=-0.8 (beta'=-2.10): max |A^(+-1)| over 1e-12 <= |z| <= 1e-2 = 2.3509
+    control A_w: |z|^(1/2)|A_w| from 40.43 (|z|=1e-2) to 3.695e+9 (|z|=1e-12)
+[4] p=3 alpha=-0.5 delta=-0.8 (beta'=-2.10): lip match rel.err 6.13e-41; |omega - rho_pm|/|z|^(1/2) in [1.325, 1.37]; control min |omega - e^(-+i pi beta')| = 1.103
+[5] p=3 alpha=-0.5 delta=-0.8 (beta'=-2.10), |z| = c/2, 6 pts: n|J-I| = 1.4989, 1.4988, 1.4988, 1.4988, 1.4988; e(2n)/e(n) = 9.047e-5, 8.356e-9, 7.056e-17, 3.338e-9; control (nu = beta') ratios 0.5, 0.5, 0.5, 0.5
+    nu = +-1/2: remainders 0.000181, 1.63e-8, 1.36e-16, 9.63e-33, 3.22e-41
+[6] p=3 alpha=-0.5 delta=-0.8 (beta'=-2.10): max |P0hat^(+-1)| |zeta|^(|alpha|/2) n^(-1/2) = 0.71537; control (rho_w, |zeta| = 1e-8) up to 2.089e+23
+[2] p=3 alpha=-0.3 delta=-0.9 (beta'=-2.10): |rho| in [0.68302, 1.0] on 1e-12 <= |z| <= c/2
+    control rho_w: |rho_w| |z|^delta in [0.9542, 1.0] (|rho_w| ~ |z|^(-delta): unbounded ratio)
+[3] p=3 alpha=-0.3 delta=-0.9 (beta'=-2.10): max |A^(+-1)| over 1e-12 <= |z| <= 1e-2 = 2.3509
+    control A_w: |z|^(1/2)|A_w| from 64.06 (|z|=1e-2) to 5.856e+10 (|z|=1e-12)
+[4] p=3 alpha=-0.3 delta=-0.9 (beta'=-2.10): lip match rel.err 5.16e-41; |omega - rho_pm|/|z|^(1/2) in [1.325, 1.37]; control min |omega - e^(-+i pi beta')| = 0.516
+[5] p=3 alpha=-0.3 delta=-0.9 (beta'=-2.10), |z| = c/2, 6 pts: n|J-I| = 1.9762, 1.9238, 1.9008, 1.8899, 1.8846; e(2n)/e(n) = 0.2291, 0.2409, 0.2457, 0.2479; control (nu = beta') ratios 0.499, 0.4995, 0.4998, 0.4999
+[6] p=3 alpha=-0.3 delta=-0.9 (beta'=-2.10): max |P0hat^(+-1)| |zeta|^(|alpha|/2) n^(-1/2) = 0.93148; control (rho_w, |zeta| = 1e-8) up to 6.113e+25
+[2] p=1.5 alpha=0.3 delta=-0.3 (beta'=-0.30): |rho| in [1.0, 1.27456] on 1e-12 <= |z| <= c/2
+    control rho_w: |rho_w| |z|^delta in [1.0, 1.033] (|rho_w| ~ |z|^(-delta): unbounded ratio)
+[3] p=1.5 alpha=0.3 delta=-0.3 (beta'=-0.30): max |A^(+-1)| over 1e-12 <= |z| <= 1e-2 = 1.59097
+    control A_w: |z|^(1/2)|A_w| from 2.739 (|z|=1e-2) to 2802.0 (|z|=1e-12)
+[4] p=1.5 alpha=0.3 delta=-0.3 (beta'=-0.30): lip match rel.err 4.73e-41; |omega - rho_pm|/|z|^(1/2) in [0.909, 0.9302]; control min |omega - e^(-+i pi beta')| = 1.534
+[5] p=1.5 alpha=0.3 delta=-0.3 (beta'=-0.30), |z| = c/2, 6 pts: n|J-I| = 0.88915, 0.90198, 0.90884, 0.91239, 0.9142; e(2n)/e(n) = 0.2613, 0.2559, 0.253, 0.2515; control (nu = beta') ratios 0.2613, 0.2559, 0.253, 0.2515
+[6] p=1.5 alpha=0.3 delta=-0.3 (beta'=-0.30): max |P0hat^(+-1)| |zeta|^(|alpha|/2) n^(-1/2) = 0.63974; control (rho_w, |zeta| = 1e-8) up to 3.5e+8
+[2] p=3 alpha=0.6 delta=-0.95 (beta'=-1.30): |rho| in [0.90125, 1.0] on 1e-12 <= |z| <= c/2
+    control rho_w: |rho_w| |z|^delta in [0.9873, 1.0] (|rho_w| ~ |z|^(-delta): unbounded ratio)
+[3] p=3 alpha=0.6 delta=-0.95 (beta'=-1.30): max |A^(+-1)| over 1e-12 <= |z| <= 1e-2 = 1.45381
+    control A_w: |z|^(1/2)|A_w| from 77.94 (|z|=1e-2) to 2.331e+11 (|z|=1e-12)
+[4] p=3 alpha=0.6 delta=-0.95 (beta'=-1.30): lip match rel.err 4.59e-41; |omega - rho_pm|/|z|^(1/2) in [0.3614, 0.3647]; control min |omega - e^(-+i pi beta')| = 0.2821
+[5] p=3 alpha=0.6 delta=-0.95 (beta'=-1.30), |z| = c/2, 6 pts: n|J-I| = 0.65626, 0.64763, 0.64387, 0.64214, 0.64131; e(2n)/e(n) = 0.2296, 0.241, 0.2457, 0.2479; control (nu = beta') ratios 0.5001, 0.5, 0.5, 0.5
+[6] p=3 alpha=0.6 delta=-0.95 (beta'=-1.30): max |P0hat^(+-1)| |zeta|^(|alpha|/2) n^(-1/2) = 0.47845; control (rho_w, |zeta| = 1e-8) up to 5.314e+22
+[2] p=0.6 alpha=-0.5 delta=-0.8 (beta'=-2.10): |rho| in [0.68302, 1.0] on 1e-12 <= |z| <= c/2
+    control rho_w: |rho_w| |z|^delta in [0.9423, 1.0] (|rho_w| ~ |z|^(-delta): unbounded ratio)
+[3] p=0.6 alpha=-0.5 delta=-0.8 (beta'=-2.10): max |A^(+-1)| over 1e-12 <= |z| <= 1e-2 = 1.69677
+    control A_w: |z|^(1/2)|A_w| from 23.57 (|z|=1e-2) to 2.103e+9 (|z|=1e-12)
+[4] p=0.6 alpha=-0.5 delta=-0.8 (beta'=-2.10): lip match rel.err 5.61e-41; |omega - rho_pm|/|z|^(1/2) in [1.679, 1.75]; control min |omega - e^(-+i pi beta')| = 1.083
+[5] p=0.6 alpha=-0.5 delta=-0.8 (beta'=-2.10), |z| = c/2, 6 pts: n|J-I| = 0.78298, 0.78298, 0.78298, 0.78298, 0.78298; e(2n)/e(n) = 1.533e-8, 2.377e-16, 2.769e-10, 1.116; control (nu = beta') ratios 0.5, 0.5, 0.5, 0.5
+    nu = +-1/2: remainders 3.0e-8, 4.6e-16, 1.09e-31, 3.03e-41, 3.38e-41
+[6] p=0.6 alpha=-0.5 delta=-0.8 (beta'=-2.10): max |P0hat^(+-1)| |zeta|^(|alpha|/2) n^(-1/2) = 0.93678; control (rho_w, |zeta| = 1e-8) up to 5.005e+24
+[2] p=1.5 alpha=-0.5 delta=0 (beta'=-0.50): |rho| in [1.0, 1.18921] on 1e-12 <= |z| <= c/2
+[3] p=1.5 alpha=-0.5 delta=0 (beta'=-0.50): max |A^(+-1)| over 1e-12 <= |z| <= 1e-2 = 1.40314
+[4] p=1.5 alpha=-0.5 delta=0 (beta'=-0.50): lip match rel.err 4.65e-41; |omega - rho_pm|/|z|^(1/2) in [0.6537, 0.6644]; control min |omega - e^(-+i pi beta')| = 6.644e-7
+[5] p=1.5 alpha=-0.5 delta=0 (beta'=-0.50), |z| = c/2, 6 pts: n|J-I| = 0.49287, 0.49287, 0.49287, 0.49287, 0.49287; e(2n)/e(n) = 1.651e-6, 2.742e-12, 4.721e-18, 1.216; control (nu = beta') ratios 1.651e-6, 2.742e-12, 4.721e-18, 1.216
+    nu = +-1/2: remainders 1.5e-6, 2.48e-12, 6.81e-24, 3.21e-41, 3.91e-41
+[6] p=1.5 alpha=-0.5 delta=0 (beta'=-0.50): max |P0hat^(+-1)| |zeta|^(|alpha|/2) n^(-1/2) = 0.77234
+ALL 110 CHECKS PASSED
