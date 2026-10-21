@@ -357,6 +357,16 @@ even in M = N + ½ (to all orders). Then:
 Therefore **all-order S1-N′ is equivalent to the evenness of the two integer layers**. By §7 that reduces to the shift lemma Σ
 (for b, and its analogue for α).
 
+**Where the 1/(2j−1) of §6 comes from (HEURISTIC, explanatory).** By (T) the μ_j-response is driven by
+(J^j)_{nn} − (J^j)_{n−1,n−1}. For a slowly varying Jacobi matrix,
+(J^j)_{nn} ≈ (1/2π)∫_0^{2π}(α + 2b cos θ)^jdθ = Σ_k C(j, 2k)α^{j−2k}b^{2k}C(2k, k) (plus derivative corrections).
+- At the "free" point α = 2b this is C(2j, j)b^j.
+- Its first variation in α/(2b) − 1 involves C(2j−2, j−1), and C(2j−2, j−1)/C(2j, j) = j/(2(2j−1)).
+- So the pole of g_j at j = ½ is a ratio of central binomial coefficients. It comes from the second-order mismatch between the
+  diagonal and off-diagonal layers (a₂ in M versus f₂ in N).
+- This replaces §6's "(1−u)^{1/2} kernel" reading: the arcsine generating function Σ_jC(2j, j)u^j = (1−4u)^{−1/2} and its
+  derivative are what the Mellin picture saw.
+
 **Reading.** The spectral corrections are not new data to be computed layer by layer. They are a fixed, n-independent
 isospectral-type deformation, a Toda flow, of the model problem, with times given by the zeta values. The integer layer is
 the initial condition; the spectrum chooses the times.
