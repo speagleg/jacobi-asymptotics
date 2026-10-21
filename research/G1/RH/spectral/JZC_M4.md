@@ -1,6 +1,6 @@
 # JZC M4: the second-order layer — the natural index N = n + α/2 − Z(0) (Plan JZC, milestone M4; first results)
 
-Status (2026-10-21): NOT REVIEWED. **Proof of Props N.3–N.4 (all p ≠ 1): JZC_M4_proof.md (Theorem N.6; Rule R review A applied).** §5 added 2026-10-21 (integer layer to order 8); §6 added 2026-10-21 (zeta layer in natural form); §7 added 2026-10-21 (reflection and shift). Labels per VERIFICATION_POLICY.md.
+Status (2026-10-21): NOT REVIEWED. **Proof of Props N.3–N.4 (all p ≠ 1): JZC_M4_proof.md (Theorem N.6; Rule R review A applied).** §5 added 2026-10-21 (integer layer to order 8); §6 added 2026-10-21 (zeta layer in natural form); §7 added 2026-10-21 (reflection and shift); §8 added 2026-10-21 (Toda structure). Labels per VERIFICATION_POLICY.md.
 
 | # | Statement | Label |
 |---|---|---|
@@ -275,6 +275,68 @@ Caveat for (c): at finite δ, Lemma BR integrates to ∫_n^{n+δ}log φ(xt^p)dt,
 of Σ (it holds to all computed orders, with no δ² defect) must also use the structure of the Bessel and Airy corrections, not
 the phase alone. The analogue for varying weights is Bleher–Its 2005, Thm 5.2: evenness via the string equations
 (NOVELTY_JZC, item N). Finding the model's string equation is the natural route to (c).
+
+## 8. The zeta layer is a Toda flow (Theorem T)
+
+**Unscaled form of the band factor.** In the scaled variable z = n^px, the band factor is exp(−Σ_kμ_{n,k}z^k) with
+μ_{n,k} = 2ζ(−kp)/(kn^{kp}) (E3 Lemma F.1′; E_plt1 Lemma F.1). In the unscaled variable this is
+
+  exp(Σ_k t_k x^k),  **t_k = −2ζ(−kp)/k**,
+
+a weight factor independent of n. (This is the zeta-regularised form of Π_m(1 − xm^p)², E_plt1 Remark F.1(1), now with exact
+meaning.) Factors exp(Σt_kx^k) are the times of the Toda hierarchy. So, to every order, **the lattice Jacobi matrix is the
+model (integer-layer) Jacobi matrix flowed along the Toda hierarchy for the fixed times t_k = −2ζ(−kp)/k**.
+
+**The Toda hierarchy (PROVED; elementary, no citation).** Let w_t = e^{Σt_jx^j}w, with monic orthogonal polynomials π_n,
+h_n = ∫π_n²w_t, and recurrence xπ_n = π_{n+1} + α_nπ_n + b_n²π_{n−1}, so that b_n² = h_n/h_{n−1}.
+- ∂_{t_j}π_n has degree < n, so ∂_{t_j}h_n = ∫x^jπ_n²w_t = (J^j)_{nn}h_n, where J is the Jacobi matrix in the orthonormal basis.
+- Hence ∂_{t_j}log b_n² = (J^j)_{nn} − (J^j)_{n−1,n−1}. In particular ∂_{t_1}log b_n² = α_n − α_{n−1} and
+  ∂_{t_1}α_n = b_{n+1}² − b_n² (the Toda lattice).
+
+**Theorem T (Toda structure of the zeta layer; PROVED-mod-cite).** Let p ≠ 1. The μ-Taylor coefficients 𝔇_β of Theorem N.6(i),
+and their counterparts for α_n, are the Toda-hierarchy derivatives of the integer layers b_n^{(0)} = cn^{−p}B(n) and
+α_n^{(0)} = 2cn^{−p}A(n), with ∂_{μ_j} = −n^{jp}∂_{t_j} (z^j = n^{jp}x^j). For example:
+- (T1) ∂_{μ₁}(n^pb_n) = −½n^p(α_n − α_{n−1})·n^pb_n;
+- (T2) ½∂_{μ₁}²(n^pb_n) = ½n^{2p}∂_t²(n^pb_n), with ∂_t²log b_n² = b_{n+1}² − 2b_n² + b_{n−1}²;
+- (T3) ∂_{μ₂}(n^pb_n) = −½n^{2p}[(J²)_{nn} − (J²)_{n−1,n−1}]·n^pb_n, with (J²)_{nn} = α_n² + b_n² + b_{n+1}².
+
+All of these are identities between formal series in 1/n, with every quantity evaluated at μ = 0.
+
+*Proof (sketch; the inputs are those of Theorem N.6).*
+- Consider the tilted lattice measures σ_τ := e^{Σ_jτ_jx^j}σ_{p,s}, with τ real and small. In the scaled variable the tilt is
+  exp(Σ_jτ_jn^{−jp}z^j), an entire factor, bounded on the contours of the Riemann–Hilbert frame. Combined with the band
+  factor, it is again of E3's gauge form, with μ_{n,j} replaced by μ_{n,j} − τ_jn^{−jp} (E3 Lemma E3.4 holds for any
+  polynomial tilt).
+- So Theorem N.6(i) applies to b_n(σ_τ), and through the a-functional (n^pα_n = (Q₂)₁₂/(Q₁)₁₂ − (Q₁)₂₂, with R₂ from the same
+  residue recursion) to α_n(σ_τ). This holds uniformly for τ in a compact set, with the layers polynomial in τ.
+- The Toda hierarchy holds exactly for σ_τ, at every n. Integrating it in τ and inserting the expansions gives identities of
+  polynomials in τ up to the uniform remainder. Finite differences in τ isolate each Taylor coefficient.
+- The remaining inputs are Theorem N.6's frame for the tilted measures (the tilt is a harmless entire factor) and the
+  α-extraction (Paper 2 F8; E_pgt1 §7.1). ∎
+
+The formal identities are confirmed numerically to every computed order: `checks/m4_toda.py`, m4_toda.out (12 checks: T1, T2,
+T3 at three (p, α), exact up to central-difference error, 10⁻²⁰–10⁻²⁷).
+
+**The diagonal layer** (NUMERICAL to order 8, m4_toda.out (A)). In natural form, with M := n + α/2 + 1 = N + ½, the
+diagonal integer layer (M/n)^pA(n) has no odd powers of 1/M. At the Bessel point (p, α) = (2, −½) it is
+1 + 1/(4M²) + 1/(16M⁴) + … = (1 − 1/(4M²))⁻¹ (the Lommel diagonal). So b_n is centred at N and α_n at N + ½, which is exactly
+the arrangement of Bleher–Its 2005, Thm 5.2 (NOVELTY_JZC item N).
+
+**Corollary T′ (the parity part of S1-N′ reduces to the integer layers; given Theorem T).** Suppose B is even in N and A is
+even in M = N + ½ (to all orders). Then:
+- α_n − α_{n−1} = A(N + ½) − A(N − ½) (natural form) is odd in N. So each first-order zeta term is ε_jN^{−1−jp} times an even
+  series. This is the structure found in §6, now explained.
+- Second differences b_{n+1}² − 2b_n² + b_{n−1}² are even in N, so the ζ(−p)² layer is N^{−2−2p} times an even series, as
+  found.
+- All higher Toda derivatives are generated by such differences and products, so the full monomial structure of S1-N′
+  follows.
+
+Therefore **all-order S1-N′ is equivalent to the evenness of the two integer layers**. By §7 that reduces to the shift lemma Σ
+(for b, and its analogue for α).
+
+**Reading.** The spectral corrections are not new data to be computed layer by layer. They are a fixed, n-independent
+isospectral-type deformation, a Toda flow, of the model problem, with times given by the zeta values. The integer layer is
+the initial condition; the spectrum chooses the times.
 
 ## 4. Open
 

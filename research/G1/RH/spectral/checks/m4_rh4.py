@@ -107,7 +107,7 @@ def Xik(k, al):
     return mmul(Mi, had(Mm, [[s*a, a], [s*b, b]]))
 
 
-def run(p, al, c=mp.mpf(1), verbose=False, mu=None, nu=None):
+def run(p, al, c=mp.mpf(1), verbose=False, mu=None, nu=None, want_a=False):
     """al: the exponent alpha (Szego factor and natural index); nu: the Bessel order (default al; decoupled for JZC_M4 §7)"""
     nu = al if nu is None else mp.mpf(nu)
     p, al = mp.mpf(p), mp.mpf(al); ap = 1/p + mp.mpf(1)/2; sc = mp.sqrt(c)
@@ -232,7 +232,7 @@ def run(p, al, c=mp.mpf(1), verbose=False, mu=None, nu=None):
             out = out + S(0, [Cm*mp.binomial(-m, k)*d**(-m - k) for k in range(NT)], NT - 1)
         return out
     Rin = {e: {0: [[S.const(1), S.const(0)], [S.const(0), S.const(1)]]} for e in pts}
-    R1 = {}
+    R1 = {}; R2 = {}
     for k in range(1, KORD + 1):
         prod = {}
         for e in pts:
@@ -242,6 +242,8 @@ def run(p, al, c=mp.mpf(1), verbose=False, mu=None, nu=None):
             prod[e] = acc
         PP = {e: [[pp(prod[e][i][j]) for j in range(2)] for i in range(2)] for e in pts}
         R1[k] = [[PP['r'][i][j].get(-1) + PP['0'][i][j].get(-1) for j in range(2)] for i in range(2)]
+        # second moment at infinity: (z - e)^{-1} = 1/z + e/z^2 + ..., (z - e)^{-2} = 1/z^2 + ...
+        R2[k] = [[4*c*PP['r'][i][j].get(-1) + PP['r'][i][j].get(-2) + PP['0'][i][j].get(-2) for j in range(2)] for i in range(2)]
         for e in pts:
             o = other[e]
             Rout_e = [[PP[e][i][j] + reexpand(PP[o][i][j], o, e) for j in range(2)] for i in range(2)]
@@ -262,7 +264,21 @@ def run(p, al, c=mp.mpf(1), verbose=False, mu=None, nu=None):
     S.HI = hi0
     d = [mp.re(b.get(k)) for k in range(KORD + 1)]
     im = max(abs(mp.im(b.get(k))) for k in range(KORD + 1))
-    return d, im
+    if not want_a:
+        return d, im
+    # diagonal coefficient: n^p alpha_n = (Q2)_12/(Q1)_12 - (Q1)_22, Q2 = P2 + R1 P1 + R2 (E_pgt1 §0, Paper 2 F8),
+    # P1 = [[0, ic], [-ic, 0]], P2 = [[c^2/2, 2ic^2], [-2ic^2, c^2/2]]
+    S.HI, hi0 = KORD, S.HI
+    ser = lambda lst: S(0, lst)
+    R1s = [[ser([0] + [R1[k][i][j] for k in range(1, KORD + 1)]) for j in range(2)] for i in range(2)]
+    R2s = [[ser([0] + [R2[k][i][j] for k in range(1, KORD + 1)]) for j in range(2)] for i in range(2)]
+    P1m = [[S.const(0), S.const(I_*c)], [S.const(-I_*c), S.const(0)]]
+    P2m = [[S.const(c**2/2), S.const(2*I_*c**2)], [S.const(-2*I_*c**2), S.const(c**2/2)]]
+    Q1m = madd(P1m, R1s); Q2m = madd(madd(P2m, mmul(R1s, P1m)), R2s)
+    A = Q2m[0][1]*Q1m[0][1].inv() - Q1m[1][1]
+    S.HI = hi0
+    aa = [mp.re(A.get(k))/(2*c) for k in range(KORD + 1)]          # n^p alpha_n/(2c) = sum aa_k n^{-k}
+    return d, im, aa
 
 
 def natural(d, p, al):
