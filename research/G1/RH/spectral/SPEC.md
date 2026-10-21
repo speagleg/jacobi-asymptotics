@@ -11,6 +11,7 @@ Status (2026-10-20): exploratory note from the Plan E3 session. Labels per VERIF
   REVIEW_SPEC2_A.md and REVIEW_SPEC2_B.md, two independent readers, both ACCEPT WITH FIXES; fixes applied 2026-10-21, §6).
   Review does not upgrade labels: S1′, S1″, S1‴, the pole law and the κ law remain CONJECTURE / NUMERICAL / HEURISTIC.
   The main correction is the sign of the pole law (§3.12) and its limitation to the leading power of each pole (F2).
+- §3.15 (2026-10-21, NOT REVIEWED): the subleading pole term, Conjecture S1⁗ (NUMERICAL; exact to fit precision for q₁ ≤ 1).
 - §3.14 (2026-10-21, NOT REVIEWED): the π cot kernel derived. Theorem K (lattice, PROVED-mod-cite on E3), Lemma K0 (PROVED),
   Lemma Q (soft-edge condition, PROVED-mod-cite + NUMERICAL inequalities), Proposition E (PROVED as Mellin algebra). Principle
   E and Hypothesis G are CONJECTURE / HEURISTIC; S1″ itself stays CONJECTURE (NUMERICAL).
@@ -874,9 +875,10 @@ taken on a line Re w > (m + 1)/p.
   any admissible interpolant (bounded for t < 1) its contribution to e_n is O(n^{−p}). A term n^{−pq} = n^{−m} with m < p (all
   the m = 1, p > 1 rows of §3.12) cannot come from the band factor.
 - **The Jacobian tilt.** The band weight changes by log|t′| → γmn^{−1−m}z^{(m+1)/p}, a branched tilt at the hard edge. By the
-  Beta integral (1/π)∫_0^1(1 − v^q)(1 − v)^{−3/2}v^{−1/2}dv = 2Γ(q + ½)/(√πΓ(q)) (`spec_kernel.out` (B)), E3.7's functional on
-  z^q is (2q/4c)W(q) (if E3.7 extends to branched tilts, which is not shown). Both this and the tan pole at w = (m + 1)/p sit
-  at n^{−2−m}, the order of the subleading pole terms of §3.12 (F2). They are candidates for those terms.
+  Beta integral (1/π)∫_0^1(1 − v^q)(1 − v)^{−3/2}v^{−1/2}dv = 2Γ(q + ½)/(√πΓ(q)) (`spec_kernel.out` (B)), E3.7's functional maps
+  a tilt +Az^q to −A·pqW(q)/2 (if E3.7 extends to branched tilts, which is not shown; the sign follows E3.4, where the tilt
+  enters as −P). Both this and the tan pole at w = (m + 1)/p sit at n^{−2−m}, the order of the subleading pole terms of §3.12
+  (F2). The Jacobian term is confirmed numerically in §3.15; the tan pole is not needed for q₁ ≤ 1.
 
 **Lemma Q (the soft-edge condition; PROVED-mod-cite: balayage onto an interval, standard; the constrained-equilibrium
 characterisation (Rakhmanov 1996, Dragnev–Saff 1997), NOT READ under Rule C; the variational inequalities NUMERICAL).**
@@ -969,6 +971,84 @@ remains CONJECTURE (NUMERICAL), now with a derivation from Hypothesis G (HEURIST
 - The integer layer from the outer scalar j_δ (§3.1) for Hurwitz lattices.
 - The subleading pole terms from the Jacobian tilt and the tan pole. This needs E3.7 for branched tilts, i.e. a hard-edge
   computation.
+
+### 3.15 The subleading pole term (NUMERICAL; Conjecture S1⁗; NOT REVIEWED)
+
+**Question** (REVIEW_SPEC2_A F2, §3.12 Limitation). The pole law gives the leading power n^{−1−pq} of each pole q of Z. The same
+pole also contributes at n^{−2−pq}, where cot(πq) = 0 does not kill it. What is that coefficient?
+
+**Method** (`checks/spec_subpole.py`, `checks/spec_subpole.out`).
+- Lattices λ_k = (k + γ/k^m)^p with γ ∈ {±¼, ±½}.
+- With D(γ) := n(y_γ − y_lat), antisymmetrise in γ and Richardson-extrapolate over γ = ¼, ½. This isolates the part linear in
+  γ; the γ² and γ³ terms are removed exactly.
+- Subtract the leading pole term and the first-order zeta layer pW(j)·pjγζ(1 + m − pj)n^{−jp}.
+- Fit the n^{−1−m} coefficient S of what is left (n^{−2−m} in n^pb_n/c), over windows n ≥ 200, 400 and 4–6 nuisance exponents.
+
+**Conjecture S1⁗ (NUMERICAL, for q₁ := (m + 1)/p ≤ 1).** Per unit γ,
+
+  S = −(mpq₁/2)·W(q₁) + L·(1 + m + p)·d₁⁰/p,   L := −mW(q)π cot(πq) (the leading pole coefficient), d₁⁰ = −(s − 1)/2.
+
+The two terms have separate origins:
+- **The Jacobian tilt.** The perturbed index function changes the node density on the band by log|t′| → γmn^{−1−m}z^{q₁}, a
+  tilt branched at the hard edge z = 0. Lemma E3.7's functional, with the Beta integral of Proposition 3.14.4, maps a tilt
+  +Az^{q₁} to −A·pq₁W(q₁)/2. (The tilt enters E3.4 as −P, which fixes the sign; Proposition 3.14.4's "(2q/4c)W(q)" is the
+  modulus.) This term is confirmed exactly at p = 2, m = 1, where L = 0: S = −W(1) = −π²/8 to 10⁻⁶. So E3.7 extends to this
+  branched tilt, numerically.
+- **The shifted pole.** The leading pole term behaves as if evaluated at the shifted index n + δ_eff, multiplied by
+  (n/(n + δ_eff))^p, with δ_eff := −d₁⁰/p = (s − 1)/(2p). That is the index shift which turns the lattice's own 1/n coefficient d₁⁰
+  into a pure shift: rule H of §3.11(a), applied to the pole term. Its coefficient is −(1 + m + p)δ_eff·L. The s-dependence
+  confirms this: at p = 1.8, S(s = 3) − S(s = 2) = −0.58464 against −(1 + m + p)L/(2p) = −0.58472.
+
+| p | s | m | q₁ | S (fit, half-range) | prediction | S − pred |
+|---|---|---|---|---|---|---|
+| 2 | 2 | 1 | 1 | −1.233702 (1·10⁻⁶) | −1.233701 | −1·10⁻⁶ |
+| 2.2 | 2 | 1 | 0.909 | −0.777016 (7·10⁻⁵) | −0.776976 | −4·10⁻⁵ |
+| 2.5 | 2 | 1 | 0.8 | −0.258693 (2·10⁻⁵) | −0.258696 | +3·10⁻⁶ |
+| 3 | 2 | 1 | 0.667 | +0.371552 (1·10⁻⁶) | +0.371551 | +2·10⁻⁶ |
+| 4 | 2 | 1 | 0.5 | +1.261975 (4·10⁻⁷) | +1.261975 | +3·10⁻⁹ |
+| 3 | 2 | 2 | 1 | −8.270517 (3·10⁻⁵) | −8.270552 | +4·10⁻⁵ |
+| 1.8 | 2 | 1 | 1.111 | −1.847995 (3·10⁻⁴) | −1.849477 | +1.5·10⁻³ |
+| 1.8 | 3 | 1 | 1.111 | −2.432630 (3·10⁻⁴) | −2.434200 | +1.6·10⁻³ |
+| 1.5 | 2 | 1 | 1.333 | −3.39874 (1.4·10⁻²) | −3.44204 | +4.3·10⁻² |
+| 1.25 | 2 | 1 | 1.6 | −6.54 (0.26) | −7.02 | +0.48 |
+| 2.5 | 2 | 2 | 1.2 | −15.706 (1.8·10⁻²) | −15.649 | −5.7·10⁻² |
+
+**Reading.**
+- For q₁ ≤ 1 the formula holds to the fit precision in six cases (p = 2, 2.2, 2.5, 3, 4; m = 1, 2; all at s = 2). The
+  s-dependence has so far been tested only at p = 1.8 (q₁ > 1), where the s = 3 − s = 2 difference matches the shift term to
+  10⁻⁴.
+- For q₁ > 1 a residual remains, 0.3% (p = 1.8) to 7% (p = 1.25) of S. It is s-independent: +1.5·10⁻³ and +1.6·10⁻³ at
+  p = 1.8, s = 2, 3. It is not explained.
+  - It could be a fit artefact: the q₁ > 1 cases are those with crowded exponents near p = 1, and their spreads are 10–100×
+    larger.
+  - It could be a third mechanism that switches on when the tilt z^{q₁} is steeper than linear at the hard edge. One candidate
+    is the tan pole of Proposition 3.14.4 at w = q₁. Its value p·q₁W(q₁) is far too large to be the residual itself, but
+    whether it lies inside the relevant strip changes at q₁ = 1.
+- **p = 2.** The synthetic family's first-order n⁻³ coefficient (zeta layer plus subleading) is −3.70γ ≠ 0. A decaying index
+  correction is therefore visible at n⁻³ at p = 2 in general. The exact index shift of the Bessel-zero family (§3.10) is a
+  special cancellation: there the correction γ ∝ (4μ² − 1) is tied to the index offset δ = μ/2 − ¼.
+- **The integer layer, in hindsight.** Both mechanisms are integer-layer-type: a smooth density tilt, and an index shift
+  by δ_eff. §3.13 called these "one order in 1/n below each per-node contribution" (F5), and Principle E does not produce
+  them. Rule H and S1⁗ are the same statement for two different spectral terms. This suggests a single rule for the
+  second-order structure: every first-order term of the 1/n layer is evaluated at n + δ_eff, plus the density tilt.
+
+**Rule X / Rule A.**
+- The two terms were identified from the data in this order:
+  1. the Jacobian candidate, written in advance with the wrong sign;
+  2. its sign fixed by redoing E3.4's convention, after the p = 2 value came in;
+  3. the shift term guessed from the X ratios at p = 2.5 and 3 (5/6, 9/10);
+  4. then tested on the s = 3 run, p = 4, p = 2.2 and m = 2, which were run or predicted after the guess.
+  So p = 2, 2.5, 3 (m = 1, s = 2) are the identification set. The s = 3, p = 4, p = 2.2 and m = 2 rows are the tests: four
+  rows, two of them inside q₁ ≤ 1 at precision.
+- Nothing is fitted: both terms are closed forms in p, s, m.
+
+**Open.**
+- The q₁ > 1 residual.
+- A derivation of δ_eff from the outer scalar (the same open step as for rule H).
+- E3.7 for branched tilts, proved rather than observed.
+- The analogous subleading term for the κ pole and for half-integer poles (bouncer ε₃, Robin ε₂). The bouncer's n⁻³
+  coefficient can now be predicted. It needs the bouncer's actual index correction and its Jacobian; a script to do this
+  is open.
 
 ### 3.9 Novelty (Rule L, first pass, 2026-10-20) — summary of research/program/novelty_SPEC.md (local, gitignored)
 

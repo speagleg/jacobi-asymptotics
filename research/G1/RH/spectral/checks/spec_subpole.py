@@ -5,10 +5,11 @@ From a1(n) the known first-order terms are subtracted:
   - leading pole term (§3.12): -m W(q) pi cot(pi q) n^{-m},  q = m/p  (per unit g);
   - first-order zeta layer: sum_j p W(j) dZ1(-j) n^{-jp},  dZ1(-j) = p j zeta(1 + m - p j)  (per unit g; skipped if 1 + m - pj = 1).
 The remainder's coefficient of n^{-1-m} (i.e. n^{-2-m} in n^p b_n/c) is the subleading pole coefficient S (per unit g); it is printed
-with candidate mechanisms of §3.14 (Prop. 3.14.4), with q1 = (m+1)/p:
-  (a) Jacobian tilt through E3.7 (if E3.7 extends to branched tilts): m p q1 W(q1)/2;
-  (b) the tan pole of the phase perturbation at w = q1:                 p q1 W(q1);
-No assertion on the candidates (exploration); assertions only on the stability of the extraction.
+with the conjectured form (§3.15), q1 = (m+1)/p, d1_0 = -(s-1)/2:
+  S_pred = -(m p q1/2) W(q1)                      [Jacobian tilt z^{q1} through E3.7's functional; sign per E3.4: the tilt is -P]
+           + lead * (1 + m + p) d1_0 / p          [the leading pole term at the shifted index n + delta_eff, delta_eff = -d1_0/p]
+Assertions: extraction stable; S = S_pred within max(3 half-ranges, 2e-4|S|) when q1 <= 1 (where it holds); for q1 > 1 the
+residual is printed only (unexplained, §3.15).
 Usage: spec_subpole.py p[:s[:m]] ...   (s defaults to 2, m to 1)."""
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'second_order', 'checks'))
@@ -48,11 +49,10 @@ for arg in sys.argv[1:]:
             sel = n >= lo; Am = np.vstack([n[sel]**-e for e in E]).T
             co = np.linalg.lstsq(Am, R[sel], rcond=None)[0]; res.append(co[E.index(tgt)])
     res = np.array(res); S, hr = float(np.median(res)), float((res.max() - res.min())/2)
-    ca, cb = float(mm*pm*q1*W(q1)/2), float(pm*q1*W(q1))
+    jac = -float(mm*pm*q1*W(q1)/2); d10 = -(s - 1)/2; shift = lead*(1 + m + p)*d10/p; pred = jac + shift
     print(f"   subleading coefficient of n^-{tgt} (per unit g): S = {S:+.6f} (half-range {hr:.1e})")
-    print(f"   candidates: (a) Jacobian {ca:+.6f}   (b) tan pole {cb:+.6f}   (a)+(b) {ca + cb:+.6f}   (b)-(a) {cb - ca:+.6f}")
-    print(f"   closed-form guess (p >= 2, m = 1): -W(q1) - (1/2 + 1/p) lead = {-float(W(q1)) - (0.5 + 1/p)*lead:+.6f};  X := (S + W(q1))/lead = {(S + float(W(q1)))/lead if lead else float('nan'):+.6f}")
-    print(f"   ratios: S/(p q1 W(q1)) = {S/cb:+.6f}   S/lead = {S/lead if lead else float('nan'):+.6f}   S/W(q1) = {S/float(W(q1)):+.6f}")
+    print(f"   prediction: Jacobian {jac:+.6f} + shifted pole {shift:+.6f} = {pred:+.6f};  S - pred = {S - pred:+.2e}   (q1 {'<=' if q1 <= 1 else '>'} 1)")
+    if q1 <= 1 + 1e-12: C_.check(f"subleading p={p} s={s} m={m}", S, pred, max(3*hr, 2e-4*abs(S)))
     # g^3 contamination check: compare a1 with the plain antisymmetric A(1/4)/(1/4) at the target
     for e, v in zeta_terms:
         if abs(e - tgt) < 1e-9: print(f"   collision with the zeta layer at n^-{tgt}: total first-order coefficient (zeta + subleading) = {S + v:+.6f}")
