@@ -11,6 +11,7 @@ Status (2026-10-20): exploratory note from the Plan E3 session. Labels per VERIF
   REVIEW_SPEC2_A.md and REVIEW_SPEC2_B.md, two independent readers, both ACCEPT WITH FIXES; fixes applied 2026-10-21, §6).
   Review does not upgrade labels: S1′, S1″, S1‴, the pole law and the κ law remain CONJECTURE / NUMERICAL / HEURISTIC.
   The main correction is the sign of the pole law (§3.12) and its limitation to the leading power of each pole (F2).
+- §3.18 (2026-10-21, NOT REVIEWED): noise mechanism — universal edge kernel; noise = linear statistic in variance, not in realisation.
 - §3.17 (2026-10-21, NOT REVIEWED): quartic oscillator — pole law with cot ≠ 0 on a real operator, d₂ to 3·10⁻⁵ (NUMERICAL).
 - §3.16 (2026-10-21, NOT REVIEWED): drums at p = 1 (NUMERICAL): perimeter via the W·cot = 0·∞ limit, corners via Z(0).
 - §3.15 (2026-10-21, NOT REVIEWED): the subleading pole term, Conjecture S1⁗ (NUMERICAL; exact to fit precision for q₁ ≤ 1).
@@ -1156,6 +1157,49 @@ W = 1. The pole contribution to d₂ is A·B·π cot(π/p), with cot(π/p) = −
 - Only N = 4 is tested against b_n itself (above). For the others the number is the pole law's prediction, evaluated with an
   exact-eigenvalue B.
 - Open: derive (N − 1)/(6(N + 2)) from the second-order WKB integral, and test N = 6 against b_n.
+
+### 3.18 The noise mechanism: an edge kernel and a variance-level linear statistic (NUMERICAL; single seeds; NOT REVIEWED)
+
+**Single-node kernel** (`checks/spec_edgekernel.py`, `checks/spec_edgekernel.out`; p = 0.6, s = 2). Node k₀ ∈ {100, 200, 400, 600}
+is moved by ±0.05. The linear response F(n; k₀) = [D(+h) − D(−h)]/2h, with D = n(y − y_lattice), is followed in τ = (n − n*)/n*^{1/3},
+where n* = k₀(4c)^{1/p} is where the node crosses the edge. The quadratic part is about 0.1 of the linear one per unit h.
+- **Outside the band (τ > 0): one universal curve, with no amplitude scaling.** At τ = 1, 2, 3 the four nodes give 0.79–0.88,
+  0.32–0.36 and 0.18–0.19. For τ ≥ 2 this agrees with the derivative of S2′'s law, (p²/2k₀)u(1 − u)^{−3/2}, to 1–3%. Near τ = 0 it
+  is finite (0.1–1.2) where S2′ diverges: the Airy smoothing of the edge.
+- **Just inside (τ ∈ [−1, −½]): also universal.** F(−1) = −4.7 … −5.2 and F(−½) = −2.8 … −3.1.
+- **Deeper in the band: O(3) per unit h, oscillating.** The sign flips with a period of about 2–3 in τ, i.e. about 10 nodes,
+  and the response decays only as u grows to about 2 (§3.6). Its sums over n cancel almost completely (2–5, against a
+  random-walk scale of 50–100). This is the precise sense in which "in-band nodes average to zero" (§3.13).
+
+**Is the noise a linear statistic?** (`checks/spec_noiselin.py`, `checks/spec_noiselin.out`). Take the GUE and Poisson
+realisations of §3.6 (seed 7), with displacements h_k = x_k − k, and compare the full noise N₁ with the linearised response
+L = [N_ε − N_{−ε}]/2ε (ε = 0.05).
+- **Point by point: no.** corr(N₁, L) = 0.23–0.43 (GUE, RMS h = 0.9) and −0.04–0.47 (Poisson). The curvature part is comparable.
+  A displacement of about one node spacing is already nonlinear near the edge, consistent with the kernel's oscillation scale
+  of about 10 nodes.
+- **In amplitude: yes.** RMS(L) ≈ RMS(N₁) in every octave:
+
+  | window | GUE: N₁ / L | Poisson: N₁ / L |
+  |---|---|---|
+  | [100, 200) | 3.79 / 3.67 | 10.3 / 9.3 |
+  | [200, 400) | 5.38 / 5.48 | 20.8 / 23.1 |
+  | [400, 800) | 7.46 / 7.02 | 28.3 / 24.4 |
+  | [800, 1600) | 11.6 / 10.6 | 41.8 / 39.3 |
+
+  The Poisson/GUE ratio of L (2.5–4.2) matches that of N₁ (the 3.3–4.0 of §3.6).
+
+**Reading (HEURISTIC).** The noise has the variance of the linear statistic Σ_kF(n; k)h_k but not its realisation. A
+displacement field of O(1) mostly re-phases the oscillating in-band kernel instead of adding to it. So its covariance, not
+its pattern, survives. On that reading the noise amplitude is set by the displacement spectrum at the kernel's
+wavelength:
+- Var N ≈ Σ_{k,l}F(n; k)F(n; l)Cov(h_k, h_l);
+- the GUE/Poisson ratio is √(K_GUE(ω₀)/K_Poisson(ω₀)) at ω₀ ≈ 2π/10, where K is the spectral form factor. That gives ≈ 3.5,
+  against the 3.3–4.0 observed.
+This is a concrete version of the Krylov-complexity hypothesis that Lanczos fluctuations are driven by spectral rigidity.
+Untested parts:
+- the form-factor formula itself, which needs the kernel row F(n; ·) at fixed n, not only the four columns measured here;
+- more seeds;
+- the √n growth of the amplitude, which in this picture comes from the slow in-band decay of F.
 
 ### 3.9 Novelty (Rule L, first pass, 2026-10-20) — summary of research/program/novelty_SPEC.md (local, gitignored)
 
