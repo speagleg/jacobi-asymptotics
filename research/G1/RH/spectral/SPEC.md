@@ -636,6 +636,54 @@ is second order in δ and outside this first-order formula.
 - Poles from genuine operators: Robin boundary conditions give index corrections in powers k^{−1/3}, hence new exponents
   n^{−1−m} with m = 1/3, 2/3.
 
+### 3.13 Why π cot: one formula behind S2′, the zeta layer, the pole law and the in-band noise (HEURISTIC), plus two tests
+
+**The formula (Conjecture S1‴, HEURISTIC).** To first order, the 1/n-order part of n^pb_n/c is the per-node law of S2′ summed over
+all nodes, with zeta regularisation:
+
+  (p/n)·Σ_m [(1 − u_m)^{−1/2}]_{av},   u_m := 4cλ_m/n^p,
+
+where [·]_{av} is the average of the two boundary values for in-band nodes (u_m > 1, where (1 − u)^{−1/2} = ∓i|1 − u|^{−1/2}).
+- **Mellin–Barnes form.** (1 − u)^{−1/2} = (1/2πi)∫Γ(−w)Γ(w + ½)/√π·(−u)^wdw, and Γ(w + ½)/(√πΓ(w + 1))·(4c)^w = W(w). So
+  Σ_m(1 − u_m)^{−1/2} = (1/2πi)∫W(w)·Γ(−w)Γ(1 + w)(−1)^w·Z(−w)n^{−wp}dw.
+- **Where π cot comes from.** The two continuations (−1)^w = e^{±iπw} correspond to the two boundary values. Their average turns
+  Γ(−w)Γ(1 + w)(−1)^w = −π(−1)^w/sin πw into −π cot(πw). This is the kernel of §3.12.
+- **Residues.** Integer residues give W(j)Z(−j) (the zeta layer, with W(0)Z(0) the Z(0) part of d₁). Residues at the poles of Z
+  give the pole law, in particular the Weyl-scale index data with W(1/p) = 1.
+- **Single nodes.** For one node outside the band this is S2′ (PROVED for one deleted atom).
+- **In-band nodes.** For a node inside the band the averaged first-order contribution vanishes (the real part of ±i|·|^{−1/2}).
+  This is why deep-band jitter was invisible (S4), and why in-band displacements act only nonlinearly, through the
+  oscillating kernel of §3.6.
+- **What is not covered.** Second-order effects of a change of count Z(0) (the quadratic index-shift terms, §3.10–3.11) lie
+  outside this first-order formula.
+None of this is proved. It organises every numerical result of §§2–3.12, and S2′ and E3 are its proved special cases.
+
+**Test 1: the log resonance** (`checks/spec_resonance.out`). When a pole of Z meets an integer j (q = m/p = j), the integer term
+and the pole term each diverge, and their divergences cancel; the signs of §3.12 make them cancel. What remains in n(y − y_lat),
+after the other zeta terms are removed, is
+
+  p²jγW(j)·n^{−jp}log n + n^{−jp}·p[W(j)Z_fin − γW(j) − jγW′(j)],
+
+where Z_fin is the regularised ΔZ(−j) with the divergent ζ(1) replaced by Euler's γ_E, and the −γW(j) term comes from the
+prefactor m = p(j + ε) of the pole term. At p = m = ½, γ = ½ (resonance at j = 1, a term n^{−3/2}log n in b_n), n ≥ 200:
+- log coefficient: fit +0.102071, predicted +0.102062;
+- n^{−1/2} coefficient: fit −0.180969, predicted −0.180893.
+Larger windows are less stable (n^{−1/2}log n and n^{−1/2} are nearly degenerate on short ranges).
+
+**Test 2: a real operator with a parameter, the Robin bouncer** ψ′(0) = hψ(0) on (0, ∞) with V = x (`checks/spec_robin.out`). The
+eigenvalues are zeros of Ai′(−E) − hAi(−E), between the Neumann and Dirichlet ones; a vectorised bisection pins them to 10⁻¹⁶
+relative. The exact zeta values, from F′/F with F = Ai′ − hAi, are
+
+  Z_E(0) = 1/4,  Z_E(−1) = −h²/2,  Z_E(−2) = h(h + 1)(h² − h + 1)/2 = h(h³ + 1)/2,  Z_E(−3) = −(32h⁶ + 48h³ + 21)/64.
+
+At h = 0 these reduce to the Neumann values (Z_E(−3) = −21/64). S1′ then predicts:
+- d₁ = −pα/2 + p/4, independent of h;
+- ε₁ = 2pcZ_{λ′}(−1) ∝ −h²;
+- d₂ = the index-shift value with δ = −¾. Every Robin index correction (hk^{−1/3}: q = ½; h³k^{−1}: q = 3/2) and the Neumann WKB
+  term (q = 3/2) sit at half-integers, where cot = 0.
+
+ROBIN_TABLE
+
 ### 3.9 Novelty (Rule L, first pass, 2026-10-20) — summary of research/program/novelty_SPEC.md (local, gitignored)
 
 The search was web-only: arXiv was read through WebFetch, and MathSciNet/zbMATH were unavailable. Quotes there are second-hand
