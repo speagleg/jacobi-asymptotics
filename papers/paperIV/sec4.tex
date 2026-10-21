@@ -1,0 +1,157 @@
+% Section 4: The kernel (Lemma K0, Theorem B).
+\section{The kernel}\label{sec:kernel}
+
+By Lemma~\ref{lem:E37} and Lemma~\ref{lem:Fprime}, the zeta terms of Theorem~\ref{thm:E2E3} are the values at
+$\mu=\mu_n$ of the linear functional $cpM_\mu(4c)$, truncated to $K$ terms. This section evaluates the same functional on
+the band factor itself, without truncation, and writes it as one Mellin--Barnes integral (Theorem~\ref{thm:K}). Its
+kernel contains $-\pi\cot(\pi w)$, which is also the Mellin transform of the truncated per-node law of
+Section~\ref{sec:equilibrium} (Lemma~\ref{lem:K0}). The proofs are for the lattice; Section~\ref{sec:conj} discusses
+other node sets.
+
+\subsection{The truncated per-node law}\label{sec:K0}
+\begin{lemma}\label{lem:K0}
+Let $L(u):=(1-u)^{-1/2}\mathbf 1_{u<1}$. For $\Re w<0$,
+\[
+  \Lt(w):=\int_0^\infty u^{-w-1}L(u)\diff u=B\bigl(-w,\tfrac12\bigr)
+  =-\pi\cot(\pi w)\,\frac{\Gamma(w+\frac12)}{\sqrt\pi\,\Gamma(w+1)} .
+\]
+$\Lt$ continues meromorphically to $\C$; its poles in $\Re w\ge0$ are simple, at $w=j\in\N_0$, with
+$-\Res_{w=j}\Lt=\binom{2j}j4^{-j}$, the Taylor coefficients of $L$ at $0$. For $a=4c$,
+$(a/n^p)^w\Gamma(w+\frac12)/(\sqrt\pi\Gamma(w+1))=W(w)n^{-pw}$.
+\end{lemma}
+
+\begin{proof}
+The integral is $B(-w,\frac12)=\Gamma(-w)\sqrt\pi/\Gamma(\frac12-w)$ by \cite[(5.12.1)]{DLMF}. By the reflection formula
+\cite[(5.5.3)]{DLMF}, $\Gamma(\frac12-w)\Gamma(\frac12+w)=\pi/\cos(\pi w)$ and $\Gamma(-w)\Gamma(1+w)=-\pi/\sin(\pi w)$, so
+$\sqrt\pi\,\Gamma(-w)/\Gamma(\frac12-w)=\Gamma(-w)\Gamma(w+\frac12)\cos(\pi w)/\sqrt\pi=-\pi\cot(\pi w)\Gamma(w+\frac12)/(\sqrt\pi\,\Gamma(w+1))$.
+The residue of $-\pi\cot(\pi w)$ at $j$ is $-1$, and $\Gamma(j+\frac12)/(\sqrt\pi\,j!)=\binom{2j}j4^{-j}$.
+\end{proof}
+
+The two analytic continuations of $(1-u)^{-1/2}$ to $u>1$ are $\mp i|1-u|^{-1/2}$, and their Mellin transforms carry
+$\Gamma(-w)\Gamma(1+w)e^{\pm i\pi w}=-\pi e^{\pm i\pi w}/\sin(\pi w)$. Their average is $L$, and the average of the two
+transforms is $-\pi\cot(\pi w)$: the cotangent is the signature of truncating the per-node law at the edge $u=1$.
+
+\subsection{The band-factor functional}\label{sec:en}
+For a function $f$ analytic near the jump contour of $G$ put, with the notation of~\eqref{eq:G-pgt1}--\eqref{eq:G-plt1},
+\begin{gather*}
+  \mathcal M_n[f]:=\frac1{2\pi}\int_{-\infty}^0\fe(y)f(y)\diff y\qquad(p>1),\\
+  \mathcal M_n[f]:=\frac1\pi\int_0^\infty\fj(r)\,\Im\bigl[e^{i\vartheta}f(re^{i\vartheta})\bigr]\diff r\qquad(0<p<1),
+\end{gather*}
+so that $\mathcal M_n[y^{-k-1}]=m_k=\zeta(-kp)/(kn^{kp})$ by Lemma~\ref{lem:Fprime} (for $0<p<1$ the integrand is
+real and $\mathcal M_n$ is the seam integral of \cite[Lemma~10.1(iii)]{PaperII}). Since
+$\sum_{j\ge0}\binom{2j}jc^jt^j=(1-4ct)^{-1/2}$ and $\sum_l(4c)^lt^l=(1-4ct)^{-1}$,
+\begin{equation}\label{eq:genQ}
+  \sum_{k\ge1}Q_k(4c)\,y^{-k-1}=k_c(y):=y^{-2}\Bigl(1-\frac{4c}y\Bigr)^{-3/2}\qquad(|y|>4c).
+\end{equation}
+The \emph{band-factor functional} is
+\begin{equation}\label{eq:en}
+  e_n:=2cp\,\mathcal M_n[k_c],
+\end{equation}
+that is, $e_n=\frac{cp}\pi\int_0^\infty\fe(-r)\,r^{-1/2}(r+4c)^{-3/2}\diff r$ for $p>1$ and
+$e_n=\frac{2cp}\pi\int_0^\infty\fj(r)\Im[e^{i\vartheta}k_c(re^{i\vartheta})]\diff r$ for $0<p<1$. On the seams
+$\Im(1-4c/\zeta)=(4c/r)\sin\vartheta>0$, so the principal branch in $k_c$ is never crossed. By Lemma~\ref{lem:E37} and
+Lemma~\ref{lem:Fprime}, $e(\mu_n)=cp\sum_{k\le K}\mu_{n,k}Q_k(4c)=2cp\sum_{k\le K}m_kQ_k(4c)$ is the truncation of $e_n$ obtained
+by expanding $k_c$ in~\eqref{eq:genQ}.
+
+\begin{theorem}\label{thm:K}
+Let $p>0$, $p\ne1$, $s>1$, and $0<c_0<1$.
+\begin{enumerate}
+\item[(i)] $e_n=2cp\sum_{k\le K}m_kQ_k(4c)+O(n^{-(K+1)p})$ for every $K$.
+\item[(ii)] $\displaystyle e_n=\frac1{2\pi i}\int_{c_0-i\infty}^{c_0+i\infty}p\,W(w)\,\zeta(-wp)\,n^{-wp}\,
+  \pi\Bigl[\cot\frac{\pi wp}2-\cot(\pi w)\Bigr]\diff w$.
+\item[(iii)] For every $J\ge1$, $e_n=\sum_{j\le J}\varepsilon_jn^{-jp}+O(n^{-(J+1)p})$.
+\end{enumerate}
+\end{theorem}
+
+Part~(iii) follows from~(i) and $2cpm_jQ_j(4c)=\varepsilon_jn^{-jp}$; the content of the theorem is the exact
+representation~(ii) and its kernel.
+
+\begin{proof}
+(i) Split the integral at $|y|=2(4c+2)$. On the far part, expand $k_c$ by~\eqref{eq:genQ} to $K$ terms with remainder
+$O(|y|^{-K-2})$; the near part, and the near parts of the moments, are $O(e^{-n/C})$ because the jump densities are
+\cite[Lemmas~8.1(i) and~10.1]{PaperII}. The remainder is bounded as in Lemma~\ref{lem:Fprime}.
+
+(ii), $p>1$. For complex $w$ with $\Re w>0$, the computation of Lemma~\ref{lem:Fprime} with $k$ replaced by $w$ (the
+Fubini bound depends only on $\Re w$) gives
+\[
+  I(w):=\int_0^\infty\fe(-r)r^{-w-1}\diff r=-2p\,\Gamma(wp)\zeta(1+wp)(2\pi n)^{-wp}\sin\Bigl(\pi w-\frac{\pi wp}2\Bigr).
+\]
+The strip is set by $\fe(-r)\to\pi(1-2/p)$ as $r\to\infty$ and by the exponential decay of $\fe(-r)$ as $r\to0$. By
+\cite[(25.4.1)]{DLMF} at $1+wp$, $p\Gamma(wp)\zeta(1+wp)(2\pi)^{-wp}=-\pi\zeta(-wp)/(w\sin(\pi wp/2))$, so
+\[
+  I(w)=\frac{2\pi}w\,\zeta(-wp)\,n^{-wp}\Bigl[\sin(\pi w)\cot\frac{\pi wp}2-\cos(\pi w)\Bigr].
+\]
+Next, $r^{-1/2}(r+4c)^{-3/2}=r^{-2}(1+4c/r)^{-3/2}$, and the Mellin--Barnes representation
+\begin{equation}\label{eq:MB32}
+  (1+x)^{-3/2}=\frac1{2\pi i}\int_{(c_1)}\frac{\Gamma(-s)\Gamma(\frac32+s)}{\Gamma(\frac32)}\,x^s\diff s\qquad
+  (x>0,\ -\tfrac32<c_1<0)
+\end{equation}
+is the Mellin inversion of the Beta integral \cite[(5.12.3)]{DLMF}, whose transform is absolutely integrable on the line.
+Put $w=s+1$, so that $\Re w=c_0\in(0,1)$, and exchange the integrals (absolute convergence). Using
+$\Gamma(1-w)/w=\pi/(\sin(\pi w)\Gamma(1+w))$ and $\Gamma(\frac32)=\sqrt\pi/2$, the factors collect into
+$pW(w)\zeta(-wp)n^{-wp}\pi[\sin(\pi w)\cot(\pi wp/2)-\cos(\pi w)]/\sin(\pi w)$, which is the stated integrand.
+
+(ii), $0<p<1$. The Mellin transform of the seam density is $\int_0^\infty\fj(r)r^{-w-1}\diff r=p(2\pi n)^{-wp}\Gamma(wp)\zeta(1+wp)$
+for $\Re w>0$, by the computation of \cite[Lemma~10.1(iii)]{PaperII} with complex $w$; the strip comes from
+$\fj(r)\sim\frac1p\log r$ at infinity and the super-exponential decay at $0$. Expand $(1+v)^{-3/2}$ with
+$v=-4ce^{-i\vartheta}/r$ by~\eqref{eq:MB32} (now $\arg v=\pi-\vartheta\in(0,\pi)$, where the representation continues). With
+$w=s+1$ the angular factor is $\Im[e^{i\vartheta}e^{-2i\vartheta}e^{-i\vartheta s}e^{i\pi s}]=-\sin((\pi-\vartheta)w)$, and with
+$\vartheta=\pi p/2$ and the same two identities the integrand becomes
+$pW(w)\zeta(-wp)n^{-wp}\pi\sin(\pi w-\frac{\pi wp}2)/(\sin(\pi w)\sin\frac{\pi wp}2)$. Finally
+$\sin(\pi w-\frac{\pi wp}2)/(\sin(\pi w)\sin\frac{\pi wp}2)=\cot\frac{\pi wp}2-\cot(\pi w)$.
+
+(iii) On vertical lines $|\cot(\pi wp/2)-\cot(\pi w)|\le Ce^{-\min(p,2)\pi|\Im w|}$, while $\zeta(-wp)$ and $W(w)$ grow at
+most polynomially, so the contour can be moved to the right. The poles of $-\pi\cot(\pi w)$ at $w=j\ge1$ give
+$-\Res=pW(j)\zeta(-jp)n^{-jp}=\varepsilon_jn^{-jp}$. The poles of $\cot(\pi wp/2)$ at $w=2l/p$ lie on the zeros
+$\zeta(-2l)=0$ and are removable; where $2l/p=j$ is an integer the product is regular and $\varepsilon_j=0$.
+\end{proof}
+
+\begin{remark}[reading of Theorem~\ref{thm:K}]\label{rem:K}
+(a) The second kernel $\pi\cot(\pi wp/2)$ comes only from writing $I(w)$ with $\zeta(-wp)$: in the form
+$-2p\Gamma(wp)\zeta(1+wp)(2\pi n)^{-wp}\sin(\pi w-\pi wp/2)$ there are no poles at $w=2l/p$. So the band factor contributes
+exactly the integer residues of $-\pi\cot(\pi w)$.
+(b) The pole of $\zeta(-wp)$ at $w=-1/p$ (the Weyl pole) and the point $w=0$ lie to the left of the strip. The $j=0$ term
+$pW(0)Z(0)=p\zeta(0)$, which is part of $d_1$, does not come from $e_n$ but from the index normalisation of the
+frame.
+(c) $e_n$ is a smooth function of $n$ with an expansion in powers of $n^{-p}$. The literal sum
+$\frac pn\sum_{u_m<1}(1-u_m)^{-1/2}$, $u_m=4cm^p/n^p$, differs from its Mellin pole part by an oscillation of order
+$n^{-1/2}$ set by the fractional part of $(n^p/4c)^{1/p}$, which is not present in $b_n$. Theorem~\ref{thm:K} says that
+the band factor produces the pole part only.
+(d) The negative-axis geometry ($p>1$) and the seam geometry ($p<1$) give the same kernel. At $p=1$ the two cotangents
+coincide and their poles merge, which is where the expansions of \cite{PaperII} change form.
+(e) The residue sum in~(iii) is asymptotic only: $\zeta(-jp)$ grows factorially in $j$.
+\end{remark}
+
+Numerically, the quadrature of $e_n$ and the Mellin--Barnes integral agree to all $16$ printed digits at
+$(p,n)=(1.5,10),(1.25,20),(3,10),(0.6,10),(0.3,8),(0.75,20)$, and the partial residue sums approach them (scripts
+\texttt{spec\_kernel}, \texttt{m2\_thmK\_plt1}).
+
+\subsection{Perturbed index functions}\label{sec:perturbed}
+For a node set other than the lattice, the analysis of \cite{PaperII} has not been carried out. The following
+computation shows what the band factor would contribute if the construction carried over with the lattice's index
+function $t(z)=nz^{-1/p}$ replaced by $t(z)=\kappa(n^p/z)$, $\kappa$ the inverse of $k\mapsto\lambda_k$.
+
+\begin{proposition}\label{prop:pert}
+Let $p>1$, $m>0$, and for $\lambda_k=(k+\gamma k^{-m})^p$ let $\delta t_+(r):=-\gamma n^{-m}(re^{i\pi})^{m/p}$ be the
+first-order change of $t_+=nr^{-1/p}e^{-i\pi/p}$ on the negative axis, and
+$\delta\fe:=2\Im[\mathcal F'(t_+)\delta t_+]$ with $\mathcal F'(t)=2\pi i/(e^{2\pi it}-1)$. Then, for $\Re w>(m+1)/p$,
+\[
+  \int_0^\infty\delta\fe(-r)r^{-w-1}\diff r=-2\pi\gamma p\,n^{-pw}\zeta(1+m-pw)
+  \Bigl[\cos(\pi w)+\sin(\pi w)\tan\frac{\pi(pw-m)}2\Bigr].
+\]
+\end{proposition}
+
+The proof is the computation of Lemma~\ref{lem:Fprime}: expand $\mathcal F'$ in powers of $e^{-2\pi it_+}$, integrate termwise
+by \cite[(5.9.1)]{DLMF}, sum $\sum_{m'}m'^{\,m-pw}=\zeta(pw-m)$ by \cite[(25.2.1)]{DLMF} and apply \cite[(25.4.1)]{DLMF}; a
+quadrature check agrees to $10^{-13}$ at $w=2.3$ and $3.1$ ($p=1.5$, $m=1$). With $\delta Z(-w)=pw\gamma\zeta(1+m-pw)$, the
+first-order change of $Z_\Lambda(-w)$, the change of $e_n$ is
+$\frac1{2\pi i}\int pW(w)\delta Z(-w)n^{-pw}\pi[-\cot(\pi w)-\tan(\pi(pw-m)/2)]\diff w$ on a line $\Re w>(m+1)/p$.
+
+\begin{remark}\label{rem:pert}
+Under that hypothetical construction, the integer residues give $pW(j)\delta Z(-j)n^{-jp}$, the zeta terms of the
+perturbed node set, exactly as for the lattice. The pole of $\delta Z(-w)$ at $q=m/p$ lies to the left of the line, so
+the band factor does not carry the pole term $pR_qW(q)\pi\cot(\pi q)n^{-1-pq}$ of Section~\ref{sec:conj}; in the
+dictionary that term comes from the equilibrium, Proposition~\ref{prop:M12}. The $\tan$-pole at $w=(m+1)/p$ and the
+change $\log|t'|$ of the node density sit at order $n^{-2-m}$, the order of the subleading pole terms of
+Remark~\ref{rem:sublead}. None of this is a statement about $b_n$.
+\end{remark}

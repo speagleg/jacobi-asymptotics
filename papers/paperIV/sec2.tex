@@ -1,0 +1,124 @@
+% Section 2: Setting and prior results.
+\section{Setting and prior results}\label{sec:prior}
+
+This section fixes the Riemann--Hilbert frame of \cite{PaperII} for the lattice $\sigma_{p,s}$ and restates the
+expansions that the later sections refine. Theorem~\ref{thm:imp-onen} is proved in \cite{PaperII}.
+Theorem~\ref{thm:E2E3} and Lemmas~\ref{lem:Fprime}--\ref{lem:E37} extend it by one order and to all band-factor
+parameters; their proofs are third-order versions of \cite[Sections~8--10]{PaperII} and are not reproduced here.
+% TODO (before submission): Theorem 2.3 and Lemmas 2.2, 2.4, 2.5 are proved in the repository notes
+% research/G1/RH/second_order/E2_pgt1.md (Theorem E2.1) and E3.md (Theorems E3.1, E3.2, Corollaries E3.3, E3.4,
+% Lemmas F.1', E3.4, E3.7), both reviewed, but they are not in any paper. Either write them into an appendix of this
+% paper or into a separate paper, and replace this paragraph by a citation.
+
+\subsection{The first two orders}\label{sec:imp}
+\begin{theorem}[{\cite[Theorem~1.4]{PaperII}}]\label{thm:imp-onen}
+Let $s>1$. If $p\ge1$, then $n^pb_n/c=1-\frac{s-1}{2n}+O(n^{-2})$ and $n^pa_n/(2c)=1-\frac{s-1+p}{2n}+O(n^{-2})$. If
+$0<p<1$, both brackets carry the further term $\kp n^{-1-p}$ and the remainder is $O(n^{-1-2p}+n^{-2})$.
+\end{theorem}
+
+The $1/n$ coefficient of $n^pb_n/c$ is $d_1:=-(s-1)/2=-p(\alpha+1)/2$. Since $(1+\delta/n)^{-p}=1-p\delta/n+O(n^{-2})$,
+it is the first term of the index shift $(n/N)^p$ with $N=n+\frac{\alpha+1}2$; this is the origin of~\eqref{eq:N}.
+
+\subsection{The frame}\label{sec:frame}
+We use the notation of \cite[Sections~4, 8 and~10]{PaperII}. After the rescaling $z=n^px$ the polynomials oscillate on the
+band $[0,4c]$, with a hard edge at $0$ and a soft edge at $4c$. The weight on the band is
+$W_0=\mathsf w_nz^\alpha(4c-z)H_n(z)$, where $\mathsf w_n>0$ is a constant and $H_n$ is the \emph{band factor}, which
+collects the discreteness of the nodes. With $\mathcal R(z):=(z(z-4c))^{1/2}$ (branch $\sim z$ at $\infty$),
+$\mathsf T:=\frac1{\sqrt2}\bigl(\begin{smallmatrix}1&1\\i&-i\end{smallmatrix}\bigr)$ and
+$P_0^\infty=\mathsf T((z-4c)/z)^{\sigma_3/4}\mathsf T^{-1}$, the error matrix $\mathsf R$ of the steepest-descent
+analysis has jumps $I+O(1/n)$ on two small circles around $0$ and $4c$ and exponentially small jumps elsewhere, and
+\begin{equation}\label{eq:extract}
+  n^{2p}b_n^2=(Q_1)_{12}(Q_1)_{21},\qquad Q_1=P_1+\mathsf R_1,
+\end{equation}
+where $P_1$ and $\mathsf R_1$ are the $1/z$ coefficients at infinity of the global parametrix and of $\mathsf R$
+\cite[Lemmas~4.1, 4.2 and Proposition~5.6]{PaperII}. The subscript ``mod'' denotes quantities computed for the
+\emph{model weight} $z^\alpha(4c-z)$, i.e.\ with $H_n$ replaced by a constant.
+
+The band factor is $H_n=e^{-2G}$ with an explicit function $G$ \cite[Lemmas~8.1 and~10.1]{PaperII}. For $p>1$,
+$G$ has a jump $i\fe$ on $(-\infty,0)$, with $|\fe(y)|\le\pi\exp(-2\pi\sin(\pi/p)n|y|^{-1/p})$, and
+\begin{equation}\label{eq:G-pgt1}
+  G(z)-G(1)=\frac1{2\pi}\int_{-\infty}^0\fe(y)\,\frac{z-1}{(y-z)(y-1)}\diff y\qquad(p>1)
+\end{equation}
+\cite[Lemma~8.1]{PaperII}. For $0<p<1$, $G$ jumps across the two seams $\arg z=\pm\vartheta$, $\vartheta=\pi p/2$, by
+$\fj(|z|)$, where $\fj(r):=-\log(1-e^{-2\pi nr^{-1/p}})$, and
+\begin{equation}\label{eq:G-plt1}
+  G(z)-G(1)=\frac1{2\pi i}\int_0^\infty\fj(r)\bigl[e^{i\vartheta}\mathfrak K(re^{i\vartheta},z)
+  -e^{-i\vartheta}\mathfrak K(re^{-i\vartheta},z)\bigr]\diff r,\qquad
+  \mathfrak K(\zeta,z):=\frac{z-1}{(\zeta-z)(\zeta-1)}
+\end{equation}
+\cite[Lemma~10.1(ii)]{PaperII}. Expanding $\mathfrak K$ in powers of $z/\zeta$ gives the moments of the jump densities:
+
+\begin{lemma}\label{lem:Fprime}
+Let $p\ne1$ and $k\ge1$. The $k$-th moment of the jump density, $m_k:=\frac1{2\pi}\int_{-\infty}^0\fe(y)y^{-k-1}\diff y$
+for $p>1$ and the corresponding seam integral for $p<1$, equals $\zeta(-kp)/(kn^{kp})$. For every $K\ge1$,
+\[
+  \log H_n(z)-\log H_n(1)=-\sum_{k\le K}\mu_{n,k}(z^k-1)+O(n^{-(K+1)p}),\qquad\mu_{n,k}:=\frac{2\zeta(-kp)}{kn^{kp}},
+\]
+uniformly for $|z|\le4c+2$, boundary values included, with one derivative.
+\end{lemma}
+
+For $p<1$ this is \cite[Lemma~10.1(iii)--(iv)]{PaperII}. For $p>1$ the proof is the same computation on the negative
+axis: with $q(r)=\exp(-a_nr^{-1/p})$, $a_n=2\pi ine^{-i\pi/p}$, $\Re a_n=2\pi n\sin(\pi/p)>0$, one expands
+$\fe=-2\Im\sum_mq^m/m$, integrates termwise by \cite[(5.9.1)]{DLMF}, sums by \cite[(25.2.1)]{DLMF} and applies the
+reflection formula \cite[(25.4.1)]{DLMF}. At $p=2$ all $m_k$ vanish and $H_n$ is constant, in agreement with
+\cite[Lemma~8.1]{PaperII}.
+
+\subsection{Tilts and the gauge}\label{sec:gauge}
+For $\mu=(\mu_1,\dots,\mu_K)\in\C^K$ put $q_\mu(x):=\exp(-\sum_k\mu_kx^k)$ and
+\begin{equation}\label{eq:Qk}
+  Q_k(z):=\sum_{j=0}^{k-1}\binom{2j}{j}c^jz^{k-1-j},\qquad M_\mu(z):=\sum_k\mu_kQ_k(z),
+\end{equation}
+so that $Q_k(4c)=c^{k-1}k\binom{2k}{k}/2$. The arcsine moments $\frac1\pi\int_0^{4c}x^j(x(4c-x))^{-1/2}\diff x=\binom{2j}{j}c^j$
+give the Szeg\H{o} function of the tilt explicitly.
+
+\begin{lemma}[gauge]\label{lem:gauge}
+For the weight $z^\alpha(4c-z)q_\mu(z)$, the jump data on the two circles are $\Delta_k^\mu=G_\mu\Delta_k^{\mathrm{mod}}G_\mu^{-1}$,
+where, with $h:=\mathcal RM_\mu/2$ and $S:=\sinh(h)/\mathcal R$,
+\[
+  G_\mu(z)=P_0^\infty e^{-\mathcal R M_\mu\sigma_3/2}(P_0^\infty)^{-1}
+  =\mathsf T\begin{pmatrix}\cosh h&-(z-4c)S\\-zS&\cosh h\end{pmatrix}\mathsf T^{-1}
+\]
+is entire in $(z,\mu)$ with $\det G_\mu=1$. In particular $\Delta_k^\mu$ is meromorphic in each disc, with Laurent
+coefficients entire in $\mu$.
+\end{lemma}
+
+By Lemma~\ref{lem:Fprime}, the band factor is the tilt $q_{\mu_n}$ with $\mu_n=(\mu_{n,1},\dots,\mu_{n,K})$, up to
+$O(n^{-(K+1)p})$. The first-order effect of a tilt on $b_n$ is exactly linear:
+
+\begin{lemma}[linear response]\label{lem:E37}
+Let $e(\mu)$ be the $1/n$ coefficient of $\bigl((P_1+\mathsf R_1^{(1)}(\mu)/n)_{12}(P_1+\mathsf R_1^{(1)}(\mu)/n)_{21}\bigr)^{1/2}/c$
+minus $d_1$, where $\mathsf R_1^{(1)}(\mu)=\Res_0\Delta_1^\mu+\Res_{4c}\Delta_1^\mu$. Then, for every $\mu\in\C^K$,
+\[
+  e(\mu)=cp\,M_\mu(4c)=cp\sum_k\mu_kQ_k(4c).
+\]
+\end{lemma}
+
+The proof expands $G_\mu$ at $4c$ and at $0$. With $M_4:=M_\mu(4c)$, $G_\mu(0)$ commutes with the residue of
+$\Delta_1^{\mathrm{mod}}$ at $0$, $M_\mu'(4c)$ drops out, and the residue at $4c$ moves by
+\[
+  M_4c^2p\begin{pmatrix}M_4c-\alpha-1&-i(M_4c-\alpha-2)\\-i(M_4c-\alpha)&-(M_4c-\alpha-1)\end{pmatrix},
+\]
+which is quadratic in $M_4$ but changes $i(A_{21}-A_{12})/(2c)$, the combination that enters the $1/n$ coefficient, by
+exactly $cpM_4$. The identity $Q_k(4c)=c^{k-1}k\binom{2k}k/2$ follows from the recursion
+$a_{k+1}=4a_k+\binom{2k}k$, $a_1=1$, satisfied by both $\sum_{j<k}4^{k-1-j}\binom{2j}j$ and $k\binom{2k}k/2$.
+
+\subsection{The second order}\label{sec:E2E3}
+\begin{theorem}\label{thm:E2E3}
+Let $p>0$, $p\ne1$, $s>1$ and $K\ge1$. Then
+\[
+  \frac{n^pb_n}c=1+\frac{d_1}n+\frac{d_2}{n^2}+\sum_{j=1}^K\frac{\varepsilon_j}{n^{1+jp}}
+  +O\bigl(n^{-3}+n^{-2-p}+n^{-1-(K+1)p}\bigr),
+\]
+\[
+  d_2=d_2(p,s)=\frac{(p+1)(s-1)^2}{8p}-\frac{(p+2)(s-1-p)^2}{8p^2}+\frac{p+1}{12}.
+\]
+In particular, for $0<p<1$ with $1/p\notin\N$ the $n^{-2}$ coefficient is $d_2$; for $p=1/j_0$, $j_0\ge2$, it is
+$d_2+\varepsilon_{j_0}=d_2-p/12$, because $W(j_0)=\binom{2j_0}{j_0}c(1/j_0)^{j_0}=1$.
+\end{theorem}
+
+For $p>1$ the terms with $j\ge2$ are $O(n^{-3})$, and the statement is $n^pb_n/c=1+d_1/n+d_2/n^2+\kp n^{-1-p}+O(n^{-3})$. For
+$p=2$, $d_2=(s^2+6s-11)/16$ and $\kp=0$. The proof of Theorem~\ref{thm:E2E3} is the second Neumann iterate of the small-norm
+problem, with the second asymptotic coefficients of the Bessel and Airy functions on the two circles and the band
+factor entering through $G_{\mu_n}$; the $1/n^2$ term at $\mu=0$ is an exact Laurent computation, and the zeta terms are
+Lemma~\ref{lem:E37} with $\mu_{n,j}\cdot cpQ_j(4c)=\varepsilon_jn^{-jp}$. Section~\ref{sec:natural} carries this out at
+every order.

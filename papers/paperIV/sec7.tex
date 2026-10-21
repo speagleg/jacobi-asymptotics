@@ -1,0 +1,160 @@
+% Section 7: Conjectures and open problems.
+\section{Conjectures and open problems}\label{sec:conj}
+
+The theorems of Sections~\ref{sec:equilibrium}--\ref{sec:natural} concern the lattice, apart from the potential theory of
+Section~\ref{sec:equilibrium}, which holds for general densities. This section states what they and the evidence of
+Section~\ref{sec:examples} suggest for other node sets, and what is missing for proofs.
+
+\subsection{The natural-index law}\label{sec:conj-law}
+Call $\Lambda$ \emph{regular} if $\lambda_m^{1/p}$ has an asymptotic expansion $m+a-1+\sum_{i\ge1}\gamma_im^{-r_i}$ with
+exponents $0<r_1<r_2<\dotsb\to\infty$, or if $\Lambda$ differs from such a set in finitely many elements. Then $Z_\Lambda$ is
+meromorphic, $Z_\Lambda(0)$ and $Z_\Lambda(-j)$ are defined by continuation, and $w\mapsto Z_\Lambda(-w)-\zeta(-pw,a)$ has
+poles only at points $q$ produced by the corrections $\gamma_im^{-r_i}$ (at $q=r_i/p$ to first order).
+
+\begin{conjecture}[natural-index law]\label{conj:natural}
+Let $\Lambda$ be regular and $N_\Lambda:=n+\frac\alpha2-Z_\Lambda(0)$. Then $n^pb_n/c=(n/N_\Lambda)^pF$, where $F$ has an
+asymptotic expansion in powers of $1/N_\Lambda$ and of the spectral monomials below, with
+\begin{enumerate}
+\item[(a)] no term $N_\Lambda^{-1}$, and the term $f_2N_\Lambda^{-2}$, with $f_2$ as in~\eqref{eq:f2};
+\item[(b)] for $j\ge1$ the term $pW(j)Z_\Lambda(-j)N_\Lambda^{-1-jp}$;
+\item[(c)] for every pole $q\ne-1/p$ of $Z_\Lambda(-w)-\zeta(-pw)$, with residue $R_q$, the term
+$pR_qW(q)\pi\cot(\pi q)N_\Lambda^{-1-pq}$, with the value $-(4c)^q\Lt(q)$ at $q\in-\frac12-\N_0$.
+\end{enumerate}
+Coefficients of coincident exponents add. The statement concerns the leading power of each datum in~(b) and~(c); it
+says nothing about the terms of order $N_\Lambda^{-2-pq}$ (Remark~\ref{rem:sublead}).
+\end{conjecture}
+
+For the lattice, (a) and (b) are Theorem~\ref{thm:N6} (with $Z_\Lambda(0)=-\frac12$, $W(j)p\zeta(-jp)=\varepsilon_j$), and (c)
+is empty. For Bessel zeros the whole expansion is Proposition~\ref{prop:bessel}. For Hurwitz lattices, synthetic
+corrections, smoothed drums and the oscillators $q^N$ the evidence is in Section~\ref{sec:examples}. In the form~(b)--(c) the
+two kinds of spectral data are the residues of one integrand,
+\[
+  \frac pn\cdot\frac1{2\pi i}\int_{\uparrow}-W(w)\,\pi\cot(\pi w)\,Z_\Lambda(-w)\,n^{-wp}\diff w ,
+\]
+at the integers (Theorem~\ref{thm:K}) and at the poles of $Z_\Lambda$ (Proposition~\ref{prop:M12}). The Weyl pole of
+$Z_\Lambda$ is excluded: it is the leading term $n$ of the soft-edge condition, not a correction. A moved Weyl pole, as for
+$\lambda_k=k^p+\kappa$, is included (\S\ref{sec:num-pole}). If a pole meets an integer, the two residues diverge separately
+and their sum produces a term $n^{-1-jp}\log n$; one weak test at $p=m=\frac12$ is consistent with the predicted coefficient.
+
+Two consequences make the law a spectral dictionary. Through $Z_\Lambda(0)$, the $1/n$ coefficient $d_1=-p\alpha/2+pZ_\Lambda(0)$
+reads off the index offset of the spectrum, such as the constant $a$ of a Hurwitz lattice (\S\ref{sec:hurwitz}) or the
+corner and curvature constant of a drum (\S\ref{sec:drums}). Through $Z_\Lambda(-j)$ and the poles, it reads off the
+coefficients of the heat trace of the operator whose spectrum is $\Lambda$, weighted by $W(q)\pi\cot(\pi q)$.
+
+\begin{remark}[subleading pole terms]\label{rem:sublead}
+Each pole also contributes at order $n^{-2-pq}$, one order below its leading term, and this contribution is not removed
+by $\cot(\pi q)=0$. For Bessel zeros at $p=2$ the McMahon correction has $q=\frac12$; its leading term vanishes, and its
+subleading term at $n^{-3}$ cancels the zeta term $2pcZ_\Lambda(-1)$ exactly, which is why Proposition~\ref{prop:bessel} is a
+pure index shift; a pure Hurwitz lattice with the same offset does carry the zeta term at $n^{-3}$. For the synthetic
+family the subleading term is~\eqref{eq:S4} when $q_1\le1$:
+\end{remark}
+
+\begin{conjecture}\label{conj:S4}
+For $\lambda_k=(k+\gamma k^{-m})^p$, $m>0$, $p\ne1$, $q_1=(m+1)/p\le1$, the part linear in $\gamma$ of the $n^{-2-m}$ coefficient
+of $n^pb_n/c$ is $\gamma S$ with $S$ as in~\eqref{eq:S4}.
+\end{conjecture}
+
+Both terms of~\eqref{eq:S4} are of the type that Conjecture~\ref{conj:natural} does not describe: a change of node density
+on the band, and an index shift of a first-order term. In Theorem~\ref{thm:N6} the same shift is visible as the factor
+$(n/N)^p$ in front of every layer. This suggests that every first-order term is to be evaluated at the natural index,
+plus a density term.
+
+\subsection{The natural form to all orders}\label{sec:conj-even}
+\begin{conjecture}\label{conj:S1Nprime}
+For the lattice and $p\ne1$, $F:=(N/n)^pn^pb_n/c$ depends on $n$ only through $N^{-2}$ and the monomials
+$X_j:=\varepsilon_jN^{-1-jp}$: $F=\sum_\beta c_\beta(N^{-2})\prod_jX_j^{\beta_j}$, with each $c_\beta$ a power series.
+\end{conjecture}
+
+Theorem~\ref{thm:N6} proves the instances $\beta=0$ to $N^{-6}$, $\beta=e_j$ to relative order $N^{-3}$ for every $j$ (and
+$N^{-4}$ for $j=1$), and $\beta=2e_1$ to relative order $N^{-3}$, with $c_{2e_1}(0)=(3p+1)/(2p)$. The numbers
+$(3p+1)/(2p)=1+(p+1)/(2p)$, like $\varepsilon_j$, do not depend on $\alpha$. A closed form for $c_0$ is known only at
+$(p,\alpha)=(2,-\frac12)$, where it is $(1-x/4)^{-1/2}$ in $x=N^{-2}$; the hard-edge denominators $\prod_k((2k+1)p+2)$ of
+Remark~\ref{rem:N6}(b) suggest a hypergeometric structure in $a'=\frac1p+\frac12$.
+
+\subsection{Reflection and shift}\label{sec:conj-reflect}
+The exponent $\alpha$ enters the jump data of Lemma~\ref{lem:N6a} in two ways: as the Bessel order $\nu$ in the coefficients
+$a_k(\nu),b_k(\nu)$, which are polynomials in $\nu^2$, and as the Szeg\H{o} exponent $\beta$ in
+$\rho^2=\phi^{2(\beta+1)}$ at the hard edge and in the factor $\phi^{-2(\beta+1)}$ at the soft edge, where
+$\phi(z)=(z^{1/2}+(z-4c)^{1/2})/(2c^{1/2})$ is the exterior conformal map of $[0,4c]$. For the lattice $\nu=\beta=\alpha$.
+Keeping $\nu$ and $\beta$ independent defines formal problems whose residue recursion (Section~\ref{sec:natural}) gives formal
+series $b(n;\beta,\nu)$ in $1/n$.
+
+\begin{theorem}[reflection]\label{thm:reflect}
+As formal series, $b(n;\beta,\nu)=b(-n;-\beta-2,\nu)$; that is, $d_k(-\beta-2,\nu)=(-1)^kd_k(\beta,\nu)$ for all $k$.
+\end{theorem}
+
+\begin{proof}
+With $T=\frac1{\sqrt2}\left(\begin{smallmatrix}1&1\\ i&-i\end{smallmatrix}\right)$ we have $\sigma_2T=T\sigma_3$, so
+$P_0^\infty=T\mathfrak a_\infty^{\sigma_3}T^{-1}$ and $P_1=-c\sigma_2$ commute with $\sigma_2$. The core matrices $X_k$ and
+$\sigma_3\Xi_k\sigma_3$ lie in the span of $I,\sigma_2$ for even $k$ and of $\sigma_3,i\sigma_1$ for odd $k$, so conjugation by
+$\sigma_2$ multiplies them by $(-1)^k$, while $\sigma_2d^{\sigma_3}\sigma_2=d^{-\sigma_3}$ for scalars $d$. Hence
+$\sigma_2\Delta_k(\beta)n^{-k}\sigma_2=\Delta_k(-\beta-2)(-n)^{-k}$, the recursion is covariant under conjugation by a constant
+matrix, and $(Q_1)_{12}(Q_1)_{21}$ is invariant under conjugation by $\sigma_2$.
+\end{proof}
+
+\begin{lemma}[self-similar Buyarov--Rakhmanov identity]\label{lem:BR}
+Let $\Phi$ denote the phase of the lattice equilibrium in the scaled frame, with hard-edge branch $2f^{1/2}$ and soft-edge
+branch $\tilde\varphi$. Then $(1+pz\partial_z)\Phi=-2\log\phi$ up to the additive constants of the branches; in particular
+$(1+pz\partial_z)(2f^{1/2})=2\operatorname{arsinh}(v/2)$ at $z=-v^2$ ($c=1$).
+\end{lemma}
+
+\begin{proof}
+At the hard edge $2f^{1/2}=\pi\sqrt{-z}\,\mathfrak a(z)$, and the series of $\mathfrak a$ has the factors $1/(a'+k)$ with
+$a'=\frac1p+\frac12$. Since $(1+pz\partial_z)[\sqrt{-z}\,z^k]=p(a'+k)\sqrt{-z}\,z^k$, these factors cancel term by term and
+leave the arcsine series. The soft-edge branch is the analytic continuation of the same phase.
+\end{proof}
+
+Under the self-similar scaling of the lattice problem, $1+pz\partial_z$ is the derivative in $n$ of $n\Phi(xn^p)$; so
+Lemma~\ref{lem:BR} says that the $n$-flow of the phase is generated by $\log\phi$, which also generates the $\beta$-flow. Exact
+computer algebra (to order $n^{-4}$ symbolically in $(p,\nu,\beta)$) and $40$-digit computation (to order $n^{-8}$, and for
+the zeta layer) support the following.
+
+\begin{conjecture}[shift]\label{conj:shift}
+$b(n;\beta,\nu)\,n^p/c=(n/N)^pF_p(N;\nu^2)$ with $N=n+\frac{\beta+1}2$ and $F_p$ independent of $\beta$; the same holds with
+the band-factor parameters included.
+\end{conjecture}
+
+Theorem~\ref{thm:reflect} and Conjecture~\ref{conj:shift} together give, to all orders, the evenness of the integer layer in
+$N$ (apply the reflection at $N'=n-\frac{\beta+1}2$) and in $\alpha$ (through $\nu^2$), and they identify the lattice's natural
+index $n+\frac\alpha2+\frac12$ as the Szeg\H{o} shift. For varying weights $e^{-nV}$, evenness after a half-index shift is
+proved through the string equations \cite{BleherIts}; an analogue of the string equation for the present formal problems
+would be a natural route to Conjecture~\ref{conj:shift}.
+
+\begin{problem}\label{prob:kernel2}
+Find a second-order edge kernel: a function $g(w)$, analytic in $w$, with $g(j)=g_j$ for integers $j\ge1$, such that the
+$N^{-2}$ dressing of a pole term at $q$ is $g(q)$. By Remark~\ref{rem:N6}(d) it should combine a polynomial in
+$\theta=u\frac{\diff}{\diff u}$ acting on $(1-u)^{-1/2}$ with a multiple of $(1-u)^{1/2}$. The data of
+Table~\ref{tab:subpole} and of drums are test cases.
+\end{problem}
+
+\subsection{What a proof needs}\label{sec:conj-proof}
+The derivation of Conjecture~\ref{conj:natural}(c) from the analysis of \cite{PaperII} needs that analysis for a node set
+other than the lattice, with three ingredients: the $g$-function of the constrained equilibrium of the $n$-dependent
+continuum node density (Theorem~\ref{thm:Q}); the band factor given by the Cauchy integral of the jump of
+$\log(1-e^{-2\pi it_\kappa})$ for the index function $t_\kappa(z)=\kappa(n^p/z)$ (Proposition~\ref{prop:pert}); and parametrix
+corrections whose first-order dependence on the perturbation is $O(n^{-2-m})$. Under these, the first-order change of
+$n^pb_n/c$ at order $n^{-1-m}$ is the edge shift of~\eqref{eq:Q} for the perturbed density, and
+Proposition~\ref{prop:M12} gives its value. For Hurwitz lattices the band factor is unchanged in form (its moments are
+Hurwitz zeta values), and what is missing is the index normalisation of the outer function, where the shift
+$-p\delta$ of $d_1$ must arise.
+
+\begin{remark}[a proved instance of the per-node law]\label{rem:S2}
+Conjecture~\ref{conj:natural}, read at leading order per node, says that one node with $u=4c\lambda n^{-p}<1$ outside the band
+contributes $-p(1-u)^{-1/2}/n$ to $y_n$ when it is removed: this is the derivative of the soft-edge condition of
+Remark~\ref{rem:Q}(c). For one atom $k_0^{-p}$ of $\sigma_{p,s}$ this is proved, uniformly for $u_n=4c(k_0/n)^p\le1-\eta$, with
+error $O(n^{-1-\epsilon})$, $\epsilon=\min(2p,1)$ for $p<1$ and $\epsilon=1$ for $p\ge1$, from the rank-one update of the Hankel
+matrices and a contraction argument for the minimal solution of the recurrence at the deleted node; the proof uses only the
+first-order expansions of $a_n$ and $b_n$.
+% TODO: this is Theorem S2' of research/G1/RH/spectral/SPEC.md Sec. 3.2 (reviewed), not in any paper; outside the
+% sources requested for this paper. Either include it with proof or cite it once it is written up.
+\end{remark}
+
+\subsection{Further problems}\label{sec:conj-further}
+(a) \emph{The case $p=1$.} Drums and the measures $\sum_kk^{-s}\delta_{1/k}$ have $p=1$, where the two cotangents of
+Theorem~\ref{thm:K} merge and \cite{PaperII} uses a different hard-edge analysis; Section~\ref{sec:drums} indicates that the
+dictionary persists. (b) \emph{Higher layers.} The layers $\mu_1\mu_2$, $\mu_2^2$, $\mu_1^3$ control the coefficients below
+$n^{-2-3p}$ and are not computed. (c) \emph{Irregular spectra.} For spectra with displacements of the order of the spacing
+there is no deterministic expansion; Section~\ref{sec:noise} suggests that the variance of the irregular part is
+$n\int\kappa(\omega)S_h(\omega)\diff\omega/\pi$ with a universal kernel spectrum $\kappa$. A closed form for $\kappa$, presumably from
+the Airy kernel of the soft edge, is open, as is a proof that rigidity at wavelengths of two to forty spacings sets the
+noise.

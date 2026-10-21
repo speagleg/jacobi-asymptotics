@@ -1,0 +1,73 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{10}
+
+\bibitem{BeckermannKuijlaars2001}
+Bernhard Beckermann and Arno B.~J. Kuijlaars, \emph{Superlinear convergence of
+  conjugate gradients}, SIAM J. Numer. Anal. \textbf{39} (2001).
+
+\bibitem{BeckermannKuijlaars2002}
+\bysame, \emph{Superlinear {CG} convergence for special right-hand sides},
+  Electron. Trans. Numer. Anal. \textbf{14} (2002), 1--19.
+
+\bibitem{BleherIts}
+Pavel Bleher and Alexander Its, \emph{Asymptotics of the partition function of
+  a random matrix model}, Ann. Inst. Fourier (Grenoble) \textbf{55} (2005),
+  1943--2000.
+
+\bibitem{DLMF}
+\emph{{NIST Digital Library of Mathematical Functions}},
+  \url{https://dlmf.nist.gov}, release of 15 September 2026.
+
+\bibitem{DragnevSaff}
+P.~D. Dragnev and E.~B. Saff, \emph{Constrained energy problems with
+  applications to orthogonal polynomials of a discrete variable}, J. Anal.
+  Math. \textbf{72} (1997), 223--259.
+
+\bibitem{EMP}
+Nicholas~M. Ercolani, Kenneth D. T.-R. McLaughlin, and Virgil~U. Pierce,
+  \emph{Random matrices, graphical enumeration and the continuum limit of
+  {T}oda lattices}, 2006, arXiv:math-ph/0606010.
+
+\bibitem{KMVV}
+A.~B.~J. Kuijlaars, K.~T.-R. McLaughlin, W.~Van~Assche, and M.~Vanlessen,
+  \emph{The {R}iemann--{H}ilbert approach to strong asymptotics for orthogonal
+  polynomials on $[-1,1]$}, Adv. Math. \textbf{188} (2004), 337--398,
+  arXiv:math/0111252v2.
+
+\bibitem{Rakhmanov}
+E.~A. Rakhmanov, \emph{Equilibrium measure and the distribution of zeros of the
+  extremal polynomials of a discrete variable}, Sb. Math. \textbf{187} (1996),
+  no.~8, 1213--1228.
+
+\bibitem{PaperI}
+G.~Speagle, \emph{Hankel determinants of discrete measures with power-law
+  atoms, and of zeta values}, 2026, Preprint.
+
+\bibitem{PaperII}
+\bysame, \emph{Recurrence coefficients of discrete measures with power-law
+  atoms: pointwise asymptotics and the $1/n$ term}, 2026, Preprint.
+
+\bibitem{Paper3}
+\bysame, \emph{Stability and instability of recurrence asymptotics for discrete
+  measures with power-law atoms}, 2026, Preprint.
+
+\bibitem{StovicekSwiderski}
+Pavel {\v{S}}{\v{t}}ov{\'\i}{\v{c}}ek and Grzegorz {\'S}widerski, \emph{On
+  positive {J}acobi matrices with compact inverses}, 2024, arXiv:2409.19644.
+
+\bibitem{VA}
+W.~Van~Assche, \emph{Compact {J}acobi matrices: from {S}tieltjes to {K}rein and
+  {$M(a,b)$}}, Ann. Fac. Sci. Toulouse Math. (6) (1996), 195--215, Num\'ero
+  sp\'ecial Stieltjes; arXiv:math/9510214.
+
+\bibitem{VanAsscheVanBaelen}
+Walter Van~Assche and Thomas Van~Baelen, \emph{Zero distribution of orthogonal
+  polynomials on a $q$-lattice}, 2019, arXiv:1910.12518.
+
+\end{thebibliography}

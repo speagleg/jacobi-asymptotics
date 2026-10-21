@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: amsplain.bst
+Database file #1: refs.bib
+Warning--missing pages in BeckermannKuijlaars2001
+You've used 14 entries,
+            2213 wiz_defined-function locations,
+            588 strings with 6078 characters,
+and the built_in function-call counts, 3713 in all, are:
+= -- 328
+> -- 142
+< -- 0
++ -- 59
+- -- 44
+* -- 284
+:= -- 574
+add.period$ -- 14
+call.type$ -- 14
+change.case$ -- 67
+chr.to.int$ -- 0
+cite$ -- 15
+duplicate$ -- 154
+empty$ -- 360
+format.name$ -- 44
+if$ -- 779
+int.to.chr$ -- 0
+int.to.str$ -- 14
+missing$ -- 21
+newline$ -- 52
+num.names$ -- 23
+pop$ -- 122
+preamble$ -- 1
+purify$ -- 53
+quote$ -- 0
+skip$ -- 81
+stack$ -- 0
+substring$ -- 224
+swap$ -- 15
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 56
+warning$ -- 1
+while$ -- 35
+width$ -- 16
+write$ -- 121
+(There was 1 warning)

@@ -1,0 +1,131 @@
+# Paper IV — notes (first full draft, 2026-10-21)
+
+"Jacobi coefficients of measures on reciprocal spectra: a spectral dictionary and the natural index."
+`main.tex` (amsart 11pt, house style of Paper III) with `sec1.tex` … `sec8.tex`, `secA.tex`, `refs.bib`.
+Build (pdflatex, no latexmk needed): `pdflatex main; bibtex main; pdflatex main; pdflatex main`.
+Last build: **26 pages**, 0 errors, 0 overfull boxes, 0 undefined references, 0 BibTeX warnings; 9 underfull boxes
+(badness ≤ 10000, cosmetic, mostly the `p{}` columns of the appendix tables). `main.pdf` and `main.bbl` in this
+directory are from that build.
+
+**Status: DRAFT, not reviewed as a paper.** The sources are only partly reviewed: JZC_M1 (one reader), JZC_M4_proof
+(review A only), JZC_M2, JZC_M4 and SPEC §§3.14–3.18 (NOT REVIEWED). Theorems A–C therefore need Rule R before any
+"REVIEWED" claim. No mathematical statement of the sources was strengthened.
+
+## 1. Sections
+
+| § | Title | pp | Content |
+|---|---|---|---|
+| 1 | Introduction | 1–4 | setting σ_Λ, Z_Λ, W(q), ε_j, N; Theorems A (= 5.7(iii)), B (= 4.2), C (= 3.2 + 3.5); the dictionary in one display; organisation/notation |
+| 2 | Setting and prior results | 4–6 | Thm 2.1 = [II, Thm 1.4]; frame of [II §§4, 8, 10]; Lemma 2.2 (band-factor moments), 2.3 (gauge), 2.4 (linear response), Thm 2.5 (d₂, ε_j) |
+| 3 | The constrained equilibrium | 6–9 | Lemma 3.1 (energy positivity, input, unproved), Thm 3.2, Rem 3.3, Cor 3.4 (a = 4c), Prop 3.5 (soft edge carries poles), Rem 3.6 (drum root), Rem 3.7 (checks) |
+| 4 | The kernel | 9–12 | Lemma 4.1 (K0), §4.2 functional e_n, Thm 4.2 (K for p > 1 and K′ for p < 1), Rem 4.3, Prop 4.4 (perturbed phase), Rem 4.5 |
+| 5 | Natural index, expansion of the lattice | 12–17 | Prop 5.1 (N.1), Prop 5.2 (Bessel), Lemmas 5.3, 5.4, Prop 5.5, Lemma 5.6 (N.6a–d), closed forms (5.2)–(5.6), Thm 5.7 (N.6), Table 5.1 (visibility), Rem 5.8 |
+| 6 | Examples and numerical evidence | 17–23 | method; Tables 6.1–6.8: natural index, f₄ lattice, Hurwitz, pole law (+ κ shift, Möbius), subleading pole (6.1), drums, q^N oscillators, noise |
+| 7 | Conjectures and open problems | 23–25 | Conj 7.1 (natural-index law), Rem 7.2, Conj 7.3 (S1⁗), Conj 7.4 (S1-N′), Problem 7.5 (second-order kernel), §7.3 what a proof needs, Rem 7.6 (S2′), §7.4 further problems |
+| 8 | Relation to the literature | 25 | **PLACEHOLDER** (TODO comment: to be filled from research/G1/RH/spectral/NOVELTY_JZC.md) |
+| A | Reproducibility | 25–26 | sha256 of the four exact scripts, the five exact runs, script ↔ section table, run_all.sh |
+
+Source lines: sec1 151, sec2 124, sec3 199, sec4 157, sec5 301, sec6 324, sec7 111, sec8 17, secA 78.
+
+## 2. Label mapping (repo statement → paper)
+
+| Repo statement (label) | Paper | Form in the paper |
+|---|---|---|
+| Paper II Thm 1.4 | Thm 2.1 | imported theorem |
+| E3 Lemma F.1′ (PROVED-mod-cite, REVIEWED) + Paper II Lemma 10.1(iii)–(iv) | Lemma 2.2 | lemma, proof sketch (p > 1), cited (p < 1) |
+| E3 Lemma E3.4 (PROVED) | Lemma 2.3 | lemma, no proof (TODO) |
+| E3 Lemma E3.7 (PROVED, exact algebra) | Lemma 2.4 | lemma, proof sketch |
+| E2 Thm E2.1, E3 Thm E3.1, E3.2, Cor E3.3, E3.4 (PROVED-mod-cite, REVIEWED) | Thm 2.5 | theorem, proof outline only (TODO) |
+| JZC_M1 Thm Q (PROVED-mod-cite: Saff–Totik I.1.8 NOT QUOTED) | Thm 3.2 + Lemma 3.1 | theorem with full proof; the unquoted input is Lemma 3.1, stated as used without proof |
+| JZC_M1 weaker hypothesis (F7), edge remark (F3), node-language reading | Rem 3.3 | remark |
+| JZC_M1 Cor Q.1 (PROVED) | Cor 3.4 | corollary with proof |
+| JZC_M1 Prop M1.2 (PROVED) | Prop 3.5 | proposition with proof |
+| SPEC §3.16 β² derivation (exact algebra of the continuum condition) | Rem 3.6 | remark (computation) |
+| m1_theoremQ.out, m1_edge.out (NUMERICAL) | Rem 3.7 | remark |
+| SPEC §3.14 Lemma K0 (PROVED) | Lemma 4.1 | lemma with proof |
+| SPEC §3.14 Thm K (p > 1) + JZC_M2 Thm K′ (p < 1) (PROVED-mod-cite; MB for (1+x)^{−3/2} NOT QUOTED) | Thm 4.2 | theorem with proof; MB step written as Mellin inversion of DLMF 5.12.3 (inversion itself not quoted) |
+| SPEC §3.14 "What Theorem K adds", "Structural reading" (HEURISTIC parts) | Rem 4.3 | remark |
+| spec_kernel.out (K), m2_thmK_plt1.out | text after Rem 4.3 | numerical sentence |
+| SPEC Prop 3.14.4 (computation PROVED, conclusion HEURISTIC) | Prop 4.4 + Rem 4.5 | proposition (computation, proof sketch) + remark marked as hypothetical |
+| JZC_M2 Prop M2.2 (CONDITIONAL on G2) | Rem 4.5 | remark, "none of this is a statement about b_n" |
+| JZC_M4 Identity N.1 (PROVED) | Prop 5.1 | proposition with proof |
+| JZC_M4 Prop N.2 (PROVED from the Lommel closed form) | Prop 5.2 | proposition; proof via [VA §3] + quadratic transformation; **masses ∝ j^{−2} for general ν not quoted (TODO)**; Z(0) uses McMahon (not quoted, TODO) |
+| JZC_M4_proof Lemma N.6a (PROVED-mod-cite) | Lemma 5.3 | lemma, proof sketch |
+| JZC_M4_proof Lemma N.6b (PROVED) | Lemma 5.4 | lemma, proof sketch |
+| JZC_M4_proof Prop N.6c (PROVED-mod-cite) | Prop 5.5 | proposition, proof sketch |
+| JZC_M4_proof Lemma N.6d (PROVED, exact computer algebra) | Lemma 5.6 | lemma with proof (description of the computation) |
+| JZC_M4 §5 closed forms f₄, f₆; §6 A_j, B_j, g₁,₄; JZC_M4_proof §5 h₂ | (5.2)–(5.6), Thm A | formulas (identities asserted in the exact outputs) |
+| JZC_M4_proof Thm N.6 (i)–(iii) + visibility table (PROVED-mod-cite) | Thm 5.7 + Table 5.1; Thm A = 5.7(iii) | theorem with proof |
+| JZC_M4 Prop N.3 beyond N⁻⁶ (f₈, f₇ = 0: NUMERICAL), denominators, evenness heuristic, 1/(2j−1) remark (HEURISTIC) | Rem 5.8(b)–(d) | remark, labelled numerical / heuristic |
+| m4_natural_index.out, m4_f4_lattice.out, m4_zeta_lattice.out (NUMERICAL) | Tables 6.1, 6.2, §6.1 text | tables |
+| SPEC §2 Hurwitz table; §3.10 S1′ d₂ rows; §3.11(a) rule H; hur_small (NUMERICAL) | Table 6.3, §6.2 text | table + text |
+| SPEC §3.12 pole law + table (NUMERICAL; HEURISTIC derivation) | Conj 7.1(c), Table 6.4 | conjecture + table (identification row marked) |
+| SPEC §3.5 κ law, Prop M (PROVED, elementary), Möbius check | §6.3 "A constant shift" | text (Prop M stated in one sentence; identification row and the 60% spread at p = 0.3 marked) |
+| SPEC §3.12 Limitation (subleading pole terms) | Rem 7.2 | remark |
+| SPEC §3.15 Conjecture S1⁗ (NUMERICAL) | (6.1), Table 6.5, Conj 7.3 | formula, table (identification rows marked), conjecture |
+| SPEC §3.16 drums (NUMERICAL) | §6.5, Table 6.6 | text + table (Rule X note on the n^{1/2} prediction in the caption) |
+| SPEC §3.17 quartic, q^N, rational (N−1)/(6(N+2)) (NUMERICAL; derivation PROVED-mod-cite given the Dunham term, conditional on the pole law) | §6.6, Table 6.7 | text with the AB identity stated as conditional on the second-order quantisation condition (TODO citation) |
+| SPEC §3.18 noise (NUMERICAL; single seeds) + §3.6 ensembles + S4 | §6.7, Table 6.8 | text + table |
+| JZC_M4 Conj S1-N (CONJECTURE) + S1 / S1′(II) / S1″ / Principle E | Conj 7.1 | conjecture; instances listed below it |
+| JZC_M4 Conj S1-N′ (CONJECTURE; instances PROVED-mod-cite) | Conj 7.4 | conjecture; proved instances listed |
+| JZC_M4 §6 remark "second-order edge kernel" (HEURISTIC) | Problem 7.5 | problem |
+| SPEC §3.14 Hypothesis G (G1–G3) | §7.3 prose | open problem, not a named hypothesis |
+| SPEC §3.2 Thm S2′ (PROVED-mod-cite, REVIEWED) | Rem 7.6 | remark only (not among the requested sources; TODO: include with proof or cite) |
+| SPEC §3.13 log resonance (weak test) | one sentence after Conj 7.1 | sentence |
+
+Paper vocabulary: none of PROVED/REVIEWED/Rule/Law P/Plan/RH appears in the text; labels live only in this file. The
+only "RH" string in the PDF is the repository path `research/G1/RH/spectral/checks` in Appendix A.
+
+## 3. Placeholders and TODOs in the sources
+
+- `sec8.tex`: whole section (literature) — placeholder with the list of topics; no citations invented.
+- `sec2.tex` top: Thm 2.5 and Lemmas 2.2–2.4 rest on E2_pgt1.md / E3.md (REVIEWED, but in no paper).
+- `sec3.tex` Lemma 3.1: Saff–Totik Lemma I.1.8 not read/quoted; no bib entry exists in the project.
+- `sec5.tex` Prop 5.2: general-ν Lommel masses and McMahon's expansion (DLMF 10.21.19) not quoted.
+- `sec6.tex` §6.6: the second-order Bohr–Sommerfeld (Dunham) term not quoted; §6.7: the predicted noise variances come from
+  a post-processing step whose output is not stored.
+- `sec7.tex` Rem 7.6: Theorem S2′ not in any paper.
+- `secA.tex`: six scripts missing from run_all.sh; spec_kernelfft post-processing output to be stored.
+- `main.tex`: tag for the data availability statement (v1.0-paper4?) to be fixed.
+
+## 4. Inconsistencies and points noticed in the sources (not fixed there)
+
+1. **Prior results not in a paper.** E2 (d₂ for all p > 1) and E3 (κ_p for 1 < p < 2, d₂ and ε_j for p < 1, Lemma E3.7) are
+   REVIEWED repo notes but appear in none of Papers I–III (Paper II §13.1 still lists d₂ as open). Paper IV needs them as an
+   appendix or a separate paper.
+2. **JZC_M1 Thm Q proof (i)** says "As a → 0: F(a) ≥ ∫_a^Y σ → ∞ (H3)"; the divergence follows from (H2) (σ ≥ y₀σ(y₀)/y), not
+   (H3). The paper attributes it to (H2).
+3. **Check counts.** JZC_M1 says m1_theoremQ has "20 assertions"; the stored output prints "ALL 28 CHECKS PASSED".
+4. **SPEC §3.17 q^N precision** "to 10⁻⁹–5·10⁻⁸": spec_homog.out gives ~10⁻¹⁰ for N = 4, 6, 8, 2.4·10⁻⁹ for N = 10 and
+   7.1·10⁻⁸ for N = 12. The paper says "between 10⁻¹⁰ and 7·10⁻⁸".
+5. **SPEC §3.18** form-factor predictions (5.67, 8.02, 11.36; 22.5, 31.7, 44.9) are not in spec_kernelfft.out (the script
+   only prints the kernel spectrum; the variance integral is a separate, unstored post-processing).
+6. **run_all.sh** does not regenerate spec_quartic, spec_qN, spec_corners, spec_edgekernel, spec_noiselin, spec_kernelfft.
+7. **Prop N.2 label.** JZC_M4 labels it PROVED "from the Lommel closed form"; SPEC §3.9 says the Lommel computation is
+   "NOT yet re-derived in this repo", and CITATIONS quotes VA §3 only for the recurrence and the spectrum (the measure is
+   identified there only for ν = 3/2, via Paper II Remark 9.6). The closed form is checked numerically (spec_lommel, 1.6·10⁻¹⁵).
+8. **Lemma N.6d / Thm N.6(ii) wording** "for j ≤ 5 at K = 5, the bracket error is O(N⁻⁵)": the N⁻⁴ bracket coefficient has a
+   closed form only for j = 1 (g₁,₄); for j = 2…5 it is computed but not displayed. The paper states only the j = 1 case.
+9. **SPEC §3.12 κ law**: the out-of-sample p = 1.5 run (L = −0.5662723) is a reviewer's scratch run, not a stored output; the
+   paper omits it and uses spec_kappa_fit.out only.
+10. **m1_theoremQ log-law density**: one of the four test densities is a logarithmic counting law; it is not described in
+    the paper (Remark 3.7 says "a fourth density") to respect AGENTS rule 3.
+11. **Bouncer, Robin, Maslov readout** (SPEC §§3.3, 3.4, 3.13; Prop B values known from the literature with a sign conflict
+    noted in §3.9) were not placed: outside the requested sources. Remark 7.6 and the dictionary text do not rely on them.
+
+## 5. Bibliography
+
+`refs.bib` has 8 entries, each copied verbatim (checked by script) from an existing bibliography:
+PaperI, PaperII, DLMF, VA (paperIII); Paper3, KMVV (paperII); Rakhmanov, DragnevSaff (paper1). All are cited.
+No entry from CITATIONS.md beyond these was needed; DLMF formulas used: 5.5.3, 5.9.1, 5.12.1, 5.12.3, 9.7.2, 9.7.5–6,
+10.17.1, .5, .6, .8, .11, .12, 10.40.1–4, 25.2.1, 25.4.1 (all quoted in research/G1/RH/CITATIONS.md).
+
+
+## Session additions (2026-10-21)
+- §7 now has Theorem 7.x (reflection, proved), Lemma (self-similar Buyarov–Rakhmanov identity, proved) and Conjecture
+  (shift), from research/G1/RH/spectral/JZC_M4.md §7.
+- §8 written from research/G1/RH/spectral/NOVELTY_JZC.md. The bib entries BleherIts, BeckermannKuijlaars2002,
+  BeckermannKuijlaars2001, StovicekSwiderski, EMP, VanAsscheVanBaelen were relayed second-hand (WebFetch); verify against the
+  sources before submission (Rule C). BeckermannKuijlaars2001 Thm 2.1 is decisive for the novelty of Theorem Q.
+- Inconsistencies flagged by the drafting agent and fixed in the notes: JZC_M1 step (i) now cites (H2); m1_theoremQ count 28;
+  JZC_M4 Prop N.2 relabelled PROVED-mod-cite; run_all.sh lists the scripts it does not run.

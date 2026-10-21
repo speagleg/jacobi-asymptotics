@@ -1,0 +1,199 @@
+% Section 3: The constrained equilibrium (Theorem C).
+\section{The constrained equilibrium}\label{sec:equilibrium}
+
+At leading order the zeros of $P_n$, rescaled by $n^p$, follow the equilibrium measure of unit mass constrained by
+the continuum density of the nodes. For the lattice this problem was solved in \cite[Theorem~1.3]{PaperI} in the index
+variable. Here we solve it for a general constraint density in the edge variable, by a Cauchy-transform argument that
+gives the density explicitly, and we show that the soft edge of the discrete analogue carries the poles of the node
+zeta function with the weight $\pi\cot(\pi q)$. Nothing in this section concerns $b_n$ directly; the link is discussed
+in Section~\ref{sec:conj}.
+
+\subsection{Theorem C}\label{sec:thmQ}
+Let $0<Y\le\infty$ and let $\sigma$ be a density on $(0,Y]$ such that
+\begin{enumerate}
+\item[(H1)] $\sigma$ is positive and locally H\"older continuous on $(0,Y)$;
+\item[(H2)] $y\mapsto y\sigma(y)$ is strictly decreasing on $(0,Y)$;
+\item[(H3)] if $Y=\infty$, then $\int_1^\infty\sigma(y)\log y\diff y<\infty$.
+\end{enumerate}
+By (H2), $g(y):=\sqrt y\,\sigma(y)=y\sigma(y)/\sqrt y$ is strictly decreasing, and $\sigma(y)\ge y_0\sigma(y_0)/y$ for
+$y<y_0$, so $\int_0\sigma=\infty$; if $Y=\infty$, (H3) gives $\int^\infty\sigma<\infty$ and hence $y\sigma(y)\to0$.
+For a positive measure $\mu$ on $[0,Y]$ let $U^\mu(z):=\int\log\frac1{|z-x|}\diff\mu(x)$ and
+$I(\mu):=\int U^\mu\diff\mu$. The \emph{constrained equilibrium problem} is to minimise $I(\mu)$ over positive $\mu$ on
+$[0,Y]$ with $\mu([0,Y])=1$ and $\mu\le\sigma$. The \emph{soft-edge condition} is
+\begin{equation}\label{eq:Q}
+  F(a):=\int_a^Y\sigma(y)\Bigl(1-\frac ay\Bigr)^{-1/2}\diff y=1 .
+\end{equation}
+
+The proof of optimality uses one fact that we do not prove.
+
+\begin{lemma}[energy positivity]\label{lem:energy}
+Let $\tau$ be a signed measure with compact support in $\R$, $\tau(\R)=0$ and $\int\!\!\int\bigl|\log|x-y|\bigr|\diff|\tau|(x)\diff|\tau|(y)<\infty$.
+Then $I(\tau)\ge0$, with equality only for $\tau=0$.
+\end{lemma}
+% TODO (citation): this is the positivity lemma usually cited as Saff--Totik, Logarithmic Potentials with External
+% Fields, Lemma I.1.8. It has not been read and quoted with its hypotheses (repo rule C), and no bibliography of the
+% project contains the book. Add the entry only after reading it.
+
+\begin{theorem}\label{thm:Q}
+Assume \textup{(H1)--(H3)}.
+\begin{enumerate}
+\item[(i)] Equation~\eqref{eq:Q} has exactly one root $a\in(0,Y)$.
+\item[(ii)] Put $s(y):=\sigma(y)\sqrt{y/(y-a)}$ on $(a,Y)$ and
+\begin{equation}\label{eq:nu}
+  \nu(x):=\frac1\pi\sqrt{\frac{a-x}x}\int_a^Y\frac{s(y)}{y-x}\diff y\qquad(0<x<a).
+\end{equation}
+Then $\mu:=\nu\diff x|_{[0,a]}+\sigma\diff y|_{[a,Y]}$ has unit mass, $0<\nu<\sigma$ on $(0,a)$, and
+$\pi\sqrt{x(a-x)}\,\nu(x)=1-\int_a^Y\sigma(y)\sqrt{y(y-a)}\,(y-x)^{-1}\diff y$.
+\item[(iii)] There is a constant $\ell$ with $U^\mu=\ell$ on $[0,a]$ and $U^\mu<\ell$ on $(a,Y]$.
+\item[(iv)] $\mu$ is the unique solution of the constrained equilibrium problem among measures of finite energy.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Substituting $y=au$, $F(a)=\int_1^{Y/a}a\sigma(au)(1-1/u)^{-1/2}\diff u$. For fixed $u$, $a\sigma(au)=(au\,\sigma(au))/u$
+is strictly decreasing in $a$ by (H2), and the upper limit decreases, so $F$ is strictly decreasing. As $a\to0$,
+$F(a)\ge\int_a^Y\sigma\to\infty$. If $Y<\infty$, $F(a)\to0$ as $a\to Y$. If $Y=\infty$, split at $2a$: $\int_{2a}^\infty\le
+\sqrt2\int_{2a}^\infty\sigma\to0$, and, since $\sigma(y)\le a\sigma(a)/y$ on $[a,2a]$, $\int_a^{2a}\le
+a\sigma(a)\int_1^2(1-1/u)^{-1/2}\diff u\to0$.
+
+(ii) Let $S(z):=\int_a^Ys(y)(z-y)^{-1}\diff y$ and $\tilde G(z):=((z-a)/z)^{1/2}S(z)$ (principal branch), analytic off
+$[0,Y]$, and let $G(z):=\int(z-x)^{-1}\diff\mu(x)$. On $(a,Y)$, $S(z\pm i0)=\PV\!\int s(y)(z-y)^{-1}\diff y\mp i\pi s(z)$ and
+$s=\sigma\sqrt{z/(z-a)}$, so $\tilde G$ jumps by $-2\pi i\sigma$; on $(0,a)$, $((z-a)/z)^{1/2}$ takes the values
+$\pm i\sqrt{(a-x)/x}$ and $S$ is real, so $\tilde G$ jumps by $-2\pi i\nu$. These are the jumps of $G$. Both functions
+are $o(|z-z_0|^{-1})$ at $z_0\in\{0,a,Y\}$ and tend to $0$ at infinity, so $G-\tilde G$ is entire and vanishes at
+infinity, and $G=\tilde G$. Hence $\tilde G(z)\sim F(a)/z=1/z$ at infinity, so $\mu$ has unit mass; $\Re G(x\pm i0)=0$ on
+$(0,a)$; and $\nu>0$ because $s>0$. With $R(y):=\sqrt{y(y-a)}$ one has $R\sigma=s\,(y-a)$, which gives
+$\tilde G=R(z)^{-1}\bigl[F(a)+\int\sigma R\,(z-y)^{-1}\diff y\bigr]$; the difference of the two expressions for $\nu$ is
+$(F(a)-1)/(\pi\sqrt{x(a-x)})$, which vanishes by~\eqref{eq:Q}. For the upper bound write $s(y)=g(y)(y-a)^{-1/2}$ and use
+$\int_a^\infty(y-a)^{-1/2}(y-x)^{-1}\diff y=\pi(a-x)^{-1/2}$:
+\[
+  \nu(x)<\frac1\pi\sqrt{\frac{a-x}x}\,g(a)\,\frac\pi{\sqrt{a-x}}=\frac{g(a)}{\sqrt x}\le\frac{g(x)}{\sqrt x}=\sigma(x)
+  \qquad(0<x<a).
+\]
+
+(iii) On $(0,a)$, $U^\mu$ is constant because $\Re G=0$ there. For $z\in(a,Y)$, $\varphi:=U^\mu-\ell$ satisfies
+$\varphi(a)=0$ and $\varphi'(z)=-\Re G(z\pm i0)=-((z-a)/z)^{1/2}H(z)$ with $H(z):=\PV\!\int_a^Ys(y)(z-y)^{-1}\diff y$, which
+exists since $\sigma$ is locally H\"older. Writing $s=g\cdot(y-a)^{-1/2}$,
+\[
+  H(z)=\int_a^Y\frac{(g(y)-g(z))(y-a)^{-1/2}}{z-y}\diff y+g(z)\,\PV\!\!\int_a^Y\frac{(y-a)^{-1/2}}{z-y}\diff y .
+\]
+The first integrand is positive since $g$ is decreasing. The principal value is $0$ if $Y=\infty$, and
+$(z-a)^{-1/2}\log\frac{\sqrt{Y-a}+\sqrt{z-a}}{\sqrt{Y-a}-\sqrt{z-a}}>0$ if $Y<\infty$. Hence $H>0$, $\varphi'<0$ and
+$\varphi<0$ on $(a,Y]$.
+
+(iv) Let $\mu'\le\sigma$ have unit mass and finite energy, and $\tau:=\mu'-\mu$. Then
+$I(\mu')-I(\mu)=I(\tau)+2\int(U^\mu-\ell)\diff\tau$. The integrand vanishes on $[0,a]$; on $(a,Y]$, $\tau\le0$ and
+$U^\mu-\ell<0$, so the integral is $\ge0$. For $I(\tau)$, map $x\mapsto x^*:=1/(1+x)$, which sends $[0,Y]$ into $(0,1]$;
+since $\log\frac1{|x^*-y^*|}=\log\frac1{|x-y|}+\log(1+x)+\log(1+y)$ and $\tau(\R)=0$, the extra terms integrate to
+$2\tau(\R)\int\log(1+x)\diff\tau=0$ (finite by (H3), since $\mu,\mu'\le\sigma$). So $I(\tau)=I(\tau^*)\ge0$ by
+Lemma~\ref{lem:energy}, with equality only if $\tau=0$.
+\end{proof}
+
+\begin{remark}\label{rem:Q}
+(a) The proof of (ii)--(iii) uses only that $g$ is decreasing; (H2) enters through the monotonicity of $F$ in (i). So
+(H2) may be replaced by ``$\sqrt y\,\sigma(y)$ strictly decreasing and $\int_0^Y\sigma>1$''; uniqueness of the root then
+follows from (iv), since $a$ is the left end of the saturated set of the unique minimiser.
+(b) Without~\eqref{eq:Q}, $\nu$ acquires a multiple of $(a-x)^{-1/2}$, which violates $\nu\ge0$ or $\nu\le\sigma$. Under
+\eqref{eq:Q}, $\nu(a^-)=g(a)/\sqrt a=\sigma(a)$, so $\mu$ is continuous at $a$, and $\sigma-\nu$ vanishes like a constant
+times $\sqrt{a-x}$.
+(c) In node language~\eqref{eq:Q} is the statement that $\frac1n\sum_{u_k<1}(1-u_k)^{-1/2}\approx1$, with
+$u_k=a\lambda_k/n^p$: the edge is fixed by a sum of the per-node quantity $(1-u)^{-1/2}$ over the saturated nodes.
+\end{remark}
+
+\begin{corollary}[the lattice]\label{cor:Q1}
+For $\sigma(y)=\frac1py^{-1/p-1}$ on $(0,\infty)$ the root of~\eqref{eq:Q} is $a=4c(p)$.
+\end{corollary}
+
+\begin{proof}
+$y\sigma(y)=\frac1py^{-1/p}$ is strictly decreasing and (H3) holds. Equation~\eqref{eq:Q} reads
+$a^{-1/p}\frac1pB(\frac1p,\frac12)=1$, i.e.\ $a^{1/p}=\sqrt\pi\,\Gamma(\frac1p+1)/\Gamma(\frac1p+\frac12)=\pi/(2I(p))$, and
+$a=4c(p)$ by~\eqref{eq:cp}.
+\end{proof}
+
+The density $\sigma(y)=\frac1py^{-1/p-1}$ is the image of Lebesgue measure on the index variable $u$ under
+$y=u^{-p}$, so Corollary~\ref{cor:Q1} concerns the problem of \cite[Theorem~1.3]{PaperI}; its edge $a=4c$ is the
+right end of the interval on which the potential of the measure $\mu^*$ there is constant
+\cite[Theorem~1.3(ii)]{PaperI}. The derivation above does not use the Riemann--Hilbert analysis of \cite{PaperII}.
+
+\subsection{The soft edge carries the poles}\label{sec:M12}
+Let $L(u):=(1-u)^{-1/2}\mathbf 1_{u<1}$; its Mellin transform $\Lt(w):=\int_0^\infty u^{-w-1}L(u)\diff u$ is computed in
+Lemma~\ref{lem:K0}: $\Lt(w)=B(-w,\frac12)=-\pi\cot(\pi w)\,\Gamma(w+\frac12)/(\sqrt\pi\,\Gamma(w+1))$, so that
+\begin{equation}\label{eq:Lt-W}
+  -(4c)^q\,\Lt(q)=W(q)\,\pi\cot(\pi q).
+\end{equation}
+At $q\in-\frac12-\N_0$ the right side is a limit of the form $0\cdot\infty$ and is defined by the left side; for
+instance $\Lt(-\frac12)=\pi$.
+
+Let $\mathcal N$ be a $C^1$ counting function on $[\lambda_0,\infty)$, $\lambda_0>0$, with $\mathcal N'>0$, and suppose
+that for exponents $\rho_0=1/p>\rho_1>\rho_2>\dotsb$ and constants $c_\rho$ with $c_{1/p}=1$,
+\begin{equation}\label{eq:Nexp}
+  \mathcal N'(\lambda)=\sum_{k<K}\rho_kc_{\rho_k}\lambda^{\rho_k-1}+O(\lambda^{\rho_K-1})\qquad(\lambda\to\infty)
+\end{equation}
+for every $K$ (if the list is finite, the remainder is $O(\lambda^{-M})$ for every $M$). Then
+$Z_{\mathcal N}(s):=\int_{\lambda_0}^\infty\lambda^{-s}\diff\mathcal N(\lambda)$ continues meromorphically to $\C$, with
+simple poles at $s=\rho$ of residue $\rho c_\rho$. In the variable $w=-s$, $w\mapsto Z_{\mathcal N}(-w)$ has poles at
+$q=-\rho$ with residues $R_q=-\rho c_\rho$; the \emph{Weyl pole} is $q=-1/p$, $R_{-1/p}=-1/p$. We assume that
+$\rho c_\rho=0$ whenever $\rho\in\{-1,-2,\dots\}$, i.e.\ no pole of $Z_{\mathcal N}(-w)$ sits at a positive integer.
+
+\begin{proposition}\label{prop:M12}
+Under these assumptions, as $A\to0^+$,
+\begin{equation}\label{eq:M12a}
+  \int_{\lambda_0}^\infty L(A\lambda)\diff\mathcal N(\lambda)\sim-\sum_qR_q\Lt(q)A^q
+  +\sum_{j\ge0}\binom{2j}j4^{-j}Z_{\mathcal N}(-j)A^j,
+\end{equation}
+with remainder $O(A^{-\rho_K})$ after the terms with $q<-\rho_K$ and $j<-\rho_K$. Consequently the root of
+$\int L(A\lambda)\diff\mathcal N(\lambda)=n$, written $A=4c(1+\eta)n^{-p}$, satisfies
+\begin{equation}\label{eq:M12b}
+  \eta=\frac pn\Bigl[\sum_{j\ge0}W(j)Z_{\mathcal N}(-j)n^{-jp}+\sum_{q\ne-1/p}R_qW(q)\,\pi\cot(\pi q)\,n^{-pq}\Bigr]
+  +O(n\eta^2),
+\end{equation}
+and the higher orders follow by reversion of the series.
+\end{proposition}
+
+\begin{proof}
+For one power, $\diff\mathcal N=\rho c_\rho\lambda^{\rho-1}\diff\lambda$, the substitution $u=A\lambda$ and the Taylor
+expansion of $(1-u)^{-1/2}$ on $[0,A\lambda_0]$ give
+\[
+  \int_{\lambda_0}^{1/A}(1-A\lambda)^{-1/2}\rho c_\rho\lambda^{\rho-1}\diff\lambda
+  =\rho c_\rho\Bigl[A^{-\rho}B(\rho,\tfrac12)-\sum_{j\ge0}\binom{2j}j4^{-j}A^j\frac{\lambda_0^{\rho+j}}{\rho+j}\Bigr],
+\]
+first for $\rho>0$ and then for all $\rho\notin-\N$ by analytic continuation in $\rho$. The first term is
+$-R_q\Lt(q)A^q$ with $q=-\rho$. For the remainder $r_K$ of~\eqref{eq:Nexp}, split at $\lambda=1/(2A)$: on
+$[\lambda_0,1/(2A)]$ expand $(1-A\lambda)^{-1/2}$ in powers of $A\lambda$, and on $[1/(2A),1/A]$ use
+$|r_K|\le C\lambda^{\rho_K-1}$; both give the integer terms up to $O(A^{-\rho_K})$. The coefficient of $A^j$ collects
+$-\rho c_\rho\lambda_0^{\rho+j}/(\rho+j)$ over the powers and $\int\lambda^jr_K\diff\lambda$, i.e.\ the continued value
+$Z_{\mathcal N}(-j)$. This proves~\eqref{eq:M12a}. The Weyl pole contributes $\frac1pB(\frac1p,\frac12)A^{-1/p}=n(1+\eta)^{-1/p}$
+by Corollary~\ref{cor:Q1}, so the equation is $n(1+\eta)^{-1/p}+(\text{rest})=n$; by~\eqref{eq:Lt-W} and
+$\binom{2j}j4^{-j}(4c)^j=W(j)$, the rest at $\eta=0$ is the bracket of~\eqref{eq:M12b}, and the implicit function
+theorem gives~\eqref{eq:M12b}.
+\end{proof}
+
+The termwise proof avoids shifting the contour of the Mellin--Barnes form
+\[
+  \frac1{2\pi i}\int\Lt(w)Z_{\mathcal N}(-w)A^w\diff w
+\]
+of~\eqref{eq:M12a}, which would need bounds on $Z_{\mathcal N}$ on vertical lines. The numbers $Z_{\mathcal N}(-j)$ depend on the cutoff $\lambda_0$; they are not the values $Z_\Lambda(-j)$
+of a node set, which enter through the band factor (Section~\ref{sec:kernel}). What~\eqref{eq:M12b} contributes for a
+node set is the pole part: the weight $W(q)\pi\cot(\pi q)$ of each pole of $Z(-w)$ other than the Weyl pole.
+
+\begin{remark}[exact root for a drum-type count]\label{rem:drum-root}
+For $p=1$ ($c=\frac12$) and $\diff\mathcal N=(1-\frac\beta2\lambda^{-1/2})\diff\lambda$ on $(0,\infty)$, the condition is
+$2/A-\frac{\pi\beta}2A^{-1/2}=n$. With $A=2(1+\eta)/n$ and $v:=(1+\eta)^{-1/2}$ it reads $v^2-\epsilon v-1=0$,
+$\epsilon:=\pi\beta/(2\sqrt{2n})$, so $1+\eta=v^{-2}=1-\epsilon+\epsilon^2/2+O(\epsilon^3)$ and
+\[
+  n\eta=-\frac{\pi\beta}{2\sqrt2}\,n^{1/2}+\frac{\pi^2}{16}\beta^2+O(n^{-1/2}).
+\]
+The first term is the pole term of~\eqref{eq:M12b} at $q=-\frac12$, $R_q=\beta/2$, with $W(q)\pi\cot(\pi q)=-\pi(4c)^{-1/2}$;
+the second is quadratic in the pole residue and is produced by the reversion. Both are compared with $b_n$ in
+Section~\ref{sec:drums}.
+\end{remark}
+
+\begin{remark}[numerical checks]\label{rem:Q-checks}
+For the lattice at $p=0.6$ and $p=1.5$, for the drum density of Remark~\ref{rem:drum-root} cut at the first node, and for a
+fourth density, the root, the two forms of $\nu$, the mass, $0<\nu/\sigma<1$ and the outer inequality of
+Theorem~\ref{thm:Q} were evaluated by quadrature; the root agrees with $4c$ to $10^{-12}$ in the lattice cases, and the
+two forms of $\nu$ to $10^{-21}$, which tests the root and the quadrature rather than~(ii). The first-order pole term
+of~\eqref{eq:M12b} was fitted from the root over $n=100$--$6400$ for $\lambda_k=(k+\gamma k^{-m})^p$ at
+$(p,m)=(1.5,\frac12),(0.75,\frac14),(1.25,\frac12),(1.8,\frac34)$; it agrees with $pR_qW(q)\pi\cot(\pi q)$ to between
+$10^{-9}$ and $10^{-6}$ (scripts \texttt{m1\_theoremQ}, \texttt{m1\_edge}).
+\end{remark}

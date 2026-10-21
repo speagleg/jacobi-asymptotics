@@ -10,7 +10,7 @@ for general constraint densities. It also proves that the continuum soft-edge ro
 | Thm Q | For a locally Hölder constraint σ on (0, Y] with yσ(y) strictly decreasing (and H3), the constrained equilibrium of unit mass with no external field is ν\|_{[0,a]} + σ\|_{[a,Y]}, where a is the unique root of the soft-edge condition (Q). Explicit ν; 0 < ν < σ; strict outer inequality | PROVED-mod-cite (one input: positivity of the log energy of compactly supported zero-mass signed measures of finite energy, Saff–Totik Lemma I.1.8, NOT QUOTED; non-compactness reduced to it by inversion; balayage replaced by a Liouville argument) |
 | Cor Q.1 | lattice: a = 4c(p) | PROVED (the computation); its identification as the equilibrium edge inherits Thm Q's label |
 | Prop M1.2 | soft-edge root a_n for a counting function with a power expansion: first-order terms −R·L̃(q)(a/n^p)^q at the poles of Z_N with π cot kernel (Lemma K0), plus integer terms; higher orders by reversion (resonant q ∈ ℕ and log laws excluded) | PROVED (termwise integration, explicit remainder; REVIEW_JZC_M1_A F1(c)) |
-| Checks | m1_theoremQ.out (4 densities, 20 assertions), m1_edge.out (continuum pole term to 10⁻⁹–10⁻⁶, 4 assertions) | NUMERICAL |
+| Checks | m1_theoremQ.out (4 densities, 28 assertions), m1_edge.out (continuum pole term to 10⁻⁹–10⁻⁶, 4 assertions) | NUMERICAL |
 
 ## 1. Setting
 
@@ -55,7 +55,8 @@ Soft-edge condition:
 *Proof.*
 - **(i).** F(a) = ∫_1^{Y/a}aσ(au)(1 − 1/u)^{−1/2}du. For fixed u, aσ(au) = (au·σ(au))/u is strictly decreasing in a (H2), and the
   upper limit Y/a decreases. So F is strictly decreasing.
-  - As a → 0: F(a) ≥ ∫_a^Yσ → ∞ (H3).
+  - As a → 0: F(a) ≥ ∫_a^Yσ → ∞ by (H2): yσ decreasing gives σ(y) ≥ σ(1)/y on (0, 1], so ∫_0σ = ∞ (Paper IV draft note;
+    previously attributed to (H3)).
   - As a → Y (Y < ∞), F → 0. If Y = ∞, split at 2a: ∫_{2a}^∞ ≤ √2∫_{2a}^∞σ → 0, and ∫_a^{2a} ≤ σ(a)·a·∫_1^2(1 − 1/u)^{−1/2}du → 0,
     since yσ(y) → 0 and σ(y) ≤ aσ(a)/y on [a, 2a].
 - **(ii), Cauchy transform, without balayage** (REVIEW_JZC_M1_A F1(b)). Put S(z) := ∫_a^Y s(y)/(z − y)dy and
@@ -162,7 +163,7 @@ equation itself. At q ∈ −½ − ℕ₀ (for example the drum perimeter, q = 
 
 ## 4. Checks (NUMERICAL)
 
-`checks/m1_theoremQ.py`, `checks/m1_theoremQ.out`: 20 assertions on four densities, two of them not power laws.
+`checks/m1_theoremQ.py`, `checks/m1_theoremQ.out`: 28 assertions on four densities, two of them not power laws.
 - Power laws: p = 0.6 and 1.5 (a = 4c to 10⁻¹²).
 - A drum: p = 1, N = λ − β√λ, cut at the first node.
 - A log law: N(T) = (T/2π)log(T/2πe), λ = T², cut at T = 2πe^{1.5}.

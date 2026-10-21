@@ -1,0 +1,97 @@
+\documentclass[11pt]{amsart}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage[margin=1.15in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{mainthm}{Theorem}
+\renewcommand{\themainthm}{\Alph{mainthm}}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+\numberwithin{table}{section}
+\setlength{\emergencystretch}{3em}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\diff}{\,\mathrm{d}}
+\newcommand{\kp}{\mathsf k_p}
+\newcommand{\Lt}{\widetilde L}
+\newcommand{\cD}{\mathfrak D}
+\newcommand{\fe}{\mathfrak e}
+\newcommand{\fj}{\mathfrak j}
+\newcommand{\Nat}{N}
+\newcommand{\binomc}[2]{\tbinom{#1}{#2}}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\PV}{PV}
+\DeclareMathOperator{\Var}{Var}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+\title[Jacobi coefficients of measures on reciprocal spectra]{Jacobi coefficients of measures on reciprocal spectra: a
+spectral dictionary and the natural index}
+\author{Gordon Speagle}
+\date{October 2026}
+
+\subjclass[2020]{Primary 42C05; Secondary 47B36, 31A15, 30E15, 11M35}
+\keywords{Orthogonal polynomials, Jacobi matrices, recurrence coefficients, discrete measures, constrained equilibrium,
+Riemann--Hilbert problems, spectral zeta functions, Mellin transforms}
+
+\begin{document}
+
+\begin{abstract}
+For an increasing sequence $\Lambda=\{\lambda_m\}$ with $\lambda_m\sim m^p$ we study the recurrence coefficients
+$a_n,b_n$ of the discrete measure $\sum_m\lambda_m^{-s/p}\delta_{1/\lambda_m}$; the lattice $\lambda_m=m^p$ gives the
+measures $\sum_kk^{-s}\delta_{k^{-p}}$ of the earlier papers of this series, for which $n^pb_n\to c(p)$. For the lattice
+and every $p\ne1$ we prove an expansion of $n^pb_n/c(p)$ to order $n^{-7}+n^{-2-3p}$. It is a double series in $1/n$
+and in the parameters $\zeta(-jp)n^{-jp}$ of the band factor, computed to every order by a finite residue recursion
+and evaluated by exact computer algebra. In the natural index $N=n+\frac\alpha2+\frac12$, $\alpha=(s-1-p)/p$, every
+computed layer is even in $1/N$, and the first-order zeta terms are $\varepsilon_jN^{-1-jp}(1+g_jN^{-2})$ with
+$\varepsilon_j=\binom{2j}{j}p\,c^j\zeta(-jp)$ and $g_j$ quadratic in $\alpha$, for all $j$. We write the full zeta
+layer as one Mellin--Barnes integral with kernel $\pi[\cot(\pi wp/2)-\cot(\pi w)]$, for all $p\ne1$. On the potential
+theory side we solve the constrained equilibrium problem for a general decreasing node density explicitly and show that
+its soft edge carries every pole of the node zeta function with the weight $\pi\cot(\pi q)$. For non-lattice spectra
+these statements become a conjectural dictionary between the expansion of $b_n$ and the spectral zeta function of
+$\Lambda$. We test it on Hurwitz lattices, Bessel zeros (where it is exact), planar drums and anharmonic oscillators;
+for the oscillators $-\frac{\mathrm d^2}{\mathrm dq^2}+q^N$ the predicted $n^{-2}$ shift is the rational number
+$(N-1)/(6(N+2))$.
+\end{abstract}
+
+\maketitle
+
+\input{sec1}
+\input{sec2}
+\input{sec3}
+\input{sec4}
+\input{sec5}
+\input{sec6}
+\input{sec7}
+\input{sec8}
+\appendix
+\input{secA}
+
+\section*{Acknowledgements}
+The research and the exposition were developed with the assistance of an AI system (Claude, Anthropic); the author
+takes responsibility for the content.
+
+\section*{Data and code availability}
+{\raggedright The scripts that produced the exact identities of Section~\ref{sec:natural} and the numbers of
+Section~\ref{sec:examples}, with their outputs, are available in the repository
+\url{https://github.com/speagleg/jacobi-asymptotics}; Appendix~\ref{app:repro} lists them.
+% TODO: tag (v1.0-paper4) to be fixed when the paper is frozen; the branch at drafting time is plan-e2-d2.
+\par}
+
+\bibliographystyle{amsplain}
+\bibliography{refs}
+
+\end{document}

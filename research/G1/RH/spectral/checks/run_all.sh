@@ -63,3 +63,7 @@ r spec_shift_hi.out "spec_shift_hi.py"
 grep -L "PASSED" spec_*.out | sed 's/^/no PASSED line: /'
 grep -l "FAIL\|Traceback" spec_*.out | sed 's/^/FAILURE in: /'
 echo run_all done
+
+# Not run by default (long or interactive post-processing; outputs committed individually):
+#   spec_quartic.py, spec_qN.py <N>, spec_corners.py <shape>, spec_edgekernel.py, spec_noiselin.py, spec_kernelfft.py
+#   (the kernel-FFT form-factor numbers of SPEC §3.18 come from post-processing described in spec_kernelfft.py; TODO store it)
