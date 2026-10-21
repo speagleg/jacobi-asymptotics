@@ -107,7 +107,7 @@ def Xik(k, al):
     return mmul(Mi, had(Mm, [[s*a, a], [s*b, b]]))
 
 
-def run(p, al, c=mp.mpf(1), verbose=False):
+def run(p, al, c=mp.mpf(1), verbose=False, mu=None):
     p, al = mp.mpf(p), mp.mpf(al); ap = 1/p + mp.mpf(1)/2; sc = mp.sqrt(c)
     # ---------------- soft edge, u^2 = z - 4c ----------------
     Kt = L
@@ -190,6 +190,30 @@ def run(p, al, c=mp.mpf(1), verbose=False):
                 row.append(S(lo2, [e.get(2*t)*(-1)**t for t in range(lo2, e.hi//2 + 1)], e.hi//2))   # v^{2t} = (-z)^t
             Dz.append(row)
         D0[k] = Dz
+    # ---------------- band-factor gauge (E3 Lemma E3.4): Delta_k^mu = G_mu Delta_k^mod G_mu^{-1} ----------------
+    if mu:
+        def Mpoly(zser):       # M_mu(z) = sum_k mu_k Q_k(z), Q_k(z) = sum_{j<k} z^{k-1-j} C(2j, j) c^j
+            out = S.const(0)
+            for k, m in mu.items():
+                Qk = S.const(0); zp = S.const(1)
+                for j in range(k - 1, -1, -1):
+                    Qk = Qk + zp*(mp.binomial(2*j, j)*c**j)
+                    zp = zp*zser
+                out = out + Qk*m
+            return out
+        def gauge(zser):
+            R2 = zser*(zser - 4*c); Mz = Mpoly(zser); h2 = R2*Mz*Mz*mp.mpf(0.25)
+            ch = S.const(0); sh = S.const(0); hp = S.const(1)
+            for m in range(0, 25):
+                ch = ch + hp*(1/mp.factorial(2*m)); sh = sh + hp*(1/mp.factorial(2*m + 1)); hp = hp*h2
+            Sg = sh*Mz*mp.mpf(0.5)                      # sinh(h)/R
+            G = mmul(mmul(T, [[ch, -(zser - 4*c)*Sg], [-zser*Sg, ch]]), Ti)
+            Gi = mmul(mmul(T, [[ch, (zser - 4*c)*Sg], [zser*Sg, ch]]), Ti)
+            return G, Gi
+        Gr, Gri = gauge(S(0, [4*c, 1]))                 # z = 4c + w
+        G0, G0i = gauge(S(1, [1]))                      # z
+        for k in Dr: Dr[k] = mmul(mmul(Gr, Dr[k]), Gri)
+        for k in D0: D0[k] = mmul(mmul(G0, D0[k]), G0i)
     # ---------------- small norm ----------------
     pts = {'r': (4*c, Dr), '0': (mp.mpf(0), D0)}
     other = {'r': '0', '0': 'r'}

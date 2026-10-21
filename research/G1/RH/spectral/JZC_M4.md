@@ -1,12 +1,14 @@
 # JZC M4: the second-order layer — the natural index N = n + α/2 − Z(0) (Plan JZC, milestone M4; first results)
 
-Status (2026-10-21): NOT REVIEWED. §5 added 2026-10-21 (integer layer to order 8). Labels per VERIFICATION_POLICY.md.
+Status (2026-10-21): NOT REVIEWED. §5 added 2026-10-21 (integer layer to order 8); §6 added 2026-10-21 (zeta layer in natural form). Labels per VERIFICATION_POLICY.md.
 
 | # | Statement | Label |
 |---|---|---|
 | Identity N.1 | E2's d₂(p, s) = p(p+1)δ_N²/2 + f₂(p, α), δ_N := α/2 + ½, f₂ := −(p+2)α²/8 + (p+1)/12, α := (s−1)/p − 1 | PROVED (algebra) |
 | Prop N.2 | Bessel-zero (Lommel) measures, p = s = 2 (α = −½): n²b_n/c = (n/N)²·(1 − 1/(4N²))^{−1/2} exactly, N = n + μ/2 = n + α/2 − Z(0) | PROVED (from the Lommel closed form, SPEC §3.10) |
 | Conj S1-N | n^pb_n/c = (n/N)^p·F_{p,α}(N; Z), N := n + α/2 − Z(0). F has no 1/N term; its integer layer is even in 1/N; its N⁻² coefficient is f₂; the spectral terms (zeta layer, poles) appear as functions of N | CONJECTURE (NUMERICAL: m4_natural_index.out, 7 lattices; S1′, rule H, S1⁗ as instances). The integer-layer part is now established through order 8 for the Riemann–Hilbert model: Prop N.3 |
+| Prop N.4 | Zeta layer with the band factor (E3 gauge added to the order-k computation): each ε_j term is ε_jN^{−1−jp}·(1 + g_jN⁻² + O(N⁻⁴)), even in 1/N, with g_j = A_j + B_jα² in closed form for all j (§6); the ζ(−p)² layer starts at (ε₁N^{−1−p})²·(3p+1)/(2p) | CONDITIONAL (as Prop N.3) + NUMERICAL (j = 1..5 reconstructed in p; formulas in j from j ≤ 5 (B_j guessed from j ≤ 3, then confirmed at j = 4, 5); 100 out-of-sample checks, m4_zeta_dressing.out; lattice m4_zeta_lattice.out) |
+| Conj S1-N′ | refined S1-N: F_{p,α} is a function of N⁻² and the monomials X_j := ε_jN^{−1−jp} only, i.e. F = Σ_β c_β(N⁻²)ΠX_j^{β_j} with each c_β an even series | CONJECTURE (evidence: Prop N.3, N.4; tested for β ∈ {0, e_j (j ≤ 5), 2e₁}) |
 | Prop N.3 | Integer layer from the order-k Riemann–Hilbert model computation (E2's frame, extended from k = 2 to k = 8): f₁ = f₃ = f₅ = f₇ = 0; f₄, f₆ in closed form (§5); f_{2k} is even in α | CONDITIONAL (on the order-k analogue of E2 Lemma E2.3 / Prop E2.5) + NUMERICAL (exact to 10⁻²⁷ … 10⁻⁴⁰ at sampled (p, α); closed forms by rational reconstruction, verified out of sample: m4_rh4.out; lattice cross-check m4_f4_lattice.out) |
 
 ## 1. The identity
@@ -139,6 +141,56 @@ orders, the α-odd part should be absorbed by the shift in N = n + α/2 + ½. Th
 of the natural index. The evenness in 1/N suggests a reflection symmetry N → −N of the model problem, also not yet
 identified.
 
+## 6. The zeta layer in natural form (Proposition N.4, Conjecture S1-N′)
+
+**Method** (`checks/m4_zeta_dressing.py`). E3 (Lemmas E3.4–E3.5, REVIEWED) gives the band factor exactly: up to O(n^{−(K+1)p}),
+H_n ∝ exp(−Σ_kμ_{n,k}x^k) with μ_{n,k} = 2ζ(−kp)/(kn^{kp}). Every jump transforms by the entire gauge,
+Δ_k^μ = G_μΔ_k^{mod}G_μ^{−1}, with G_μ = T[[cosh h, −(z−4c)S], [−zS, cosh h]]T⁻¹, h = 𝓡M_μ/2, S = sinh(h)/𝓡,
+M_μ = Σμ_kQ_k. Adding this gauge to the order-k computation (`m4_rh4.run(..., mu=...)`) gives the zeta layer to every order in
+1/n. Derivatives in μ are taken by central differences at 50 digits. A response Σ_ke_kn^{−k} multiplying n^{−jp} becomes, in
+natural form, (N/n)^{(j+1)p}Σ_ke_kn^{−k} expanded in 1/N.
+
+**Results.**
+- **First order in μ_j (j = 1, …, 5).** The leading coefficient is ε_j = C(2j, j)pc^jζ(−jp), E3's Lemma E3.7, reproduced at
+  10⁻¹⁸. The N^{−2−jp} and N^{−4−jp} coefficients vanish (≤ 10⁻¹⁷). So each zeta term is **ε_jN^{−1−jp}·(1 + g_jN⁻² + …)**,
+  even in 1/N, with
+
+  **g_j = A_j + B_jα²**,
+  - B_j = (p+2)(j²p² + (j+1)p + 2)/(8(2j−1)p),
+  - A_j = [j²(j²+2j−2)p³ + 2(j+1)(2j²−1)p² + (5j²+2j−6)p + 2(j−2)]/(24(2j−1)p).
+
+  For j = 1 these are (p+1)(p²+3p−2)/(24p) and (p+2)(p²+2p+2)/(8p).
+  - Each j was reconstructed in p from exact values at 12–14 values of p, with 8–10 spare points as checks.
+  - The j-dependence was read off from j = 1, …, 5. B_j was guessed from j ≤ 3 and then confirmed at j = 4, 5; the p³ and p¹
+    coefficients of A_j were guessed from j ≤ 3 and confirmed at j = 4, 5; the p² coefficient (cubic in j) is determined by
+    j ≤ 4 and checked at j = 5.
+  - g_j is even in α (verified at α = ±1, ±2) and exactly quadratic: there is no α⁴ term.
+- **Next order, j = 1.** The N^{−5−p}/N^{−1−p} ratio is
+  (p+1)(9p⁶+117p⁵+161p⁴−569p³−1550p²−976p+48)/(5760p²(3p+2)) + (p+1)(p+2)(3p⁴+33p³+124p²+182p+108)α²/(192p(3p+2)) +
+  (p+2)³(p³−4p−4)α⁴/(128p(3p+2)). The hard-edge denominator 3p+2 appears again.
+- **Second order in μ₁.** There is no N^{−1−2p} term (E3.7), and no N^{−3−2p} or N^{−5−2p} term. The ζ(−p)² layer starts at
+  **N^{−2−2p} = (N^{−1−p})²**, with coefficient **(3p+1)/(2p)·ε₁²**, independent of α (18 grid points and 4 fresh points).
+- **Out-of-sample checks** (100, all pass): (7/3, 0.6), (0.45, −0.3), (2.2, 2), (9/2, 1.3), for all j ≤ 5.
+- **Lattice cross-check** (`m4_zeta_lattice.out`, 8 checks). After subtracting the exact integer layer and the bare ε_j terms,
+  mid-window fits give an N^{−2−p} coefficient ≤ 4·10⁻⁷ and an N^{−3−p} coefficient equal to ε₁g₁ within 4·10⁻⁶ – 6·10⁻⁵ (fit
+  spreads 8·10⁻⁴ – 10⁻²), at p ∈ {1.5, 2.5}. Rule X: the p = 1.5 values g₁ ≈ 0.330 (α = 0) and 2.443 (α = 1) were first seen in
+  the fits; the gauge computation then gave 95/288 and 22/9.
+
+**Conjecture S1-N′.** F_{p,α} depends on n only through N⁻² and the monomials X_j := ε_jN^{−1−jp}:
+F = Σ_β c_β(N⁻²)Π_jX_j^{β_j}, each c_β an even power series. Established instances: β = 0 (Prop N.3, to N⁻⁸), β = e_j for j ≤ 5
+(to N⁻⁴ relative), and β = 2e₁ (to N⁻⁴ relative), with c_{2e₁}(0) = (3p+1)/(2p).
+
+**Remarks.**
+- *The 1/(2j−1) factor.* Read as a function of a continuous Mellin variable w (w = j at the zeta poles), g has a simple pole at
+  w = ½. That is the Mellin signature of a (1−u)^{+1/2} kernel: Γ(w−½)/Γ(w+½) = 1/(w−½), against the leading kernel's
+  (1−u)^{−1/2} (Lemma K0). Partial fractions give B_j = (p+2)/(8p)·[p²j/2 + p(p+2)/4 + (p+2)(p+4)/(4(2j−1))]. So the N⁻²
+  dressing looks like a **second-order edge kernel**: a polynomial in θ = u d/du acting on (1−u)^{−1/2}, plus a (1−u)^{1/2}
+  term. This points to an order-N⁻² version of Theorem K. If it holds for continuous w, it predicts the N^{−3−pq} dressing of
+  every pole term, which can be tested against the S1⁗ data. (At w = ½, cot(πw) vanishes, so the product W·cot·g stays finite.)
+  HEURISTIC.
+- *The X₁² coefficient.* (3p+1)/(2p) = 1 + (p+1)/(2p) is α-free, like the leading ε_j. A resummation in the spirit of Conjecture
+  E3.C should produce it, but this is not attempted here.
+
 ## 4. Open
 
 - Derive N from the Riemann–Hilbert data. Candidates: the hard-edge parametrix gives α/2; the outer scalar j_δ (Bernoulli
@@ -146,5 +198,7 @@ identified.
 - A closed form for F_{p,α} (p = 2, α = −½: (1 − 1/(4N²))^{−1/2}). f₂, f₄, f₆ are known (§5); the hard-edge denominators
   ∏((2k+1)p + 2) suggest a hypergeometric structure in the parameter a′ = 1/p + ½.
 - Proofs of evenness: N → −N (all orders), and α → −α after the shift (heuristic in §5).
-- Write the order-k remainder estimates (removes CONDITIONAL from Prop N.3).
+- Write the order-k remainder estimates (removes CONDITIONAL from Props N.3, N.4).
+- The second-order edge kernel (§6 remark): derive g(w) for continuous w; test it on pole terms (S1⁗ data) and on drums.
+- Prove A_j, B_j for all j (the gauge computation is uniform in j; the j-dependence is reconstructed from j ≤ 5).
 - How the Jacobian-tilt term of S1⁗ fits the natural form.

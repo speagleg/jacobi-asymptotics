@@ -22,6 +22,8 @@ r m4_rh4.out "m4_rh4.py"
 r m4_natural_index.out "m4_natural_index.py"
 r m4_f4_lattice.out "m4_f4_lattice.py"
 r m4_f8_denominator.out "m4_f8_denominator.py"
+r m4_zeta_dressing.out "m4_zeta_dressing.py"
+r m4_zeta_lattice.out "m4_zeta_lattice.py"
 r spec_hurwitz_moments.out "spec_hurwitz_moments.py" & A=$!; r spec_hurwitz_moments_plt1.out "spec_hurwitz_moments_plt1.py" & B=$!; wait $A $B
 r spec_hur.out "spec_hur.py 0.6 2.0 -0.5" "spec_hur.py 0.6 2.0 0.5" "spec_hur.py 0.6 2.0 1.0" "spec_hur.py 0.75 3.0 1.0" "spec_hur.py 1.5 2.0 0.5" "spec_hur.py 1.5 2.0 1.0" & A=$!
 r spec_pert.out "spec_pert.py 0.6 2.0 2 0.5" "spec_pert.py 0.6 2.0 3 -0.4" & B=$!; wait $A $B
