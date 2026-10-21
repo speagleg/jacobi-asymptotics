@@ -11,6 +11,8 @@ Status (2026-10-20): exploratory note from the Plan E3 session. Labels per VERIF
   REVIEW_SPEC2_A.md and REVIEW_SPEC2_B.md, two independent readers, both ACCEPT WITH FIXES; fixes applied 2026-10-21, §6).
   Review does not upgrade labels: S1′, S1″, S1‴, the pole law and the κ law remain CONJECTURE / NUMERICAL / HEURISTIC.
   The main correction is the sign of the pole law (§3.12) and its limitation to the leading power of each pole (F2).
+- JZC_M2.md (2026-10-21, NOT REVIEWED): Theorem K′ — the band-factor Mellin–Barnes kernel π[cot(πwp/2) − cot(πw)] for all p ≠ 1
+  (p < 1 via the seam geometry, same formula; PROVED-mod-cite).
 - JZC_M1.md (2026-10-21, NOT REVIEWED): Theorem Q (general constrained equilibrium, explicit; PROVED-mod-cite) and Prop M1.2
   (the continuum soft-edge root carries the π cot pole terms). Milestone M1 of the Jacobi–zeta correspondence.
 - §3.18 (2026-10-21, NOT REVIEWED): noise mechanism — universal edge kernel; noise = linear statistic in variance, not in realisation.
