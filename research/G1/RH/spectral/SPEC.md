@@ -1080,8 +1080,16 @@ was never adjusted: the value above is its 0·∞ limit, computed after seeing t
   stable to 2·10⁻⁵ over six fits, against Δc₀ = 1/12 = 0.08333. So b_n hears the corner term exactly, as S1's pZ(0) says,
   at p = 1.
 - **Absolute n⁰ coefficient.** It is c₀ + ½ + (π²/16)β² in all five smoothed drums (0.617β² against π²/16 = 0.6169; the
-  medians agree to 4 digits, although single fits are unstable). The β² part is second order in the perimeter, outside
-  Principle E. It is a closed-form datum for the second-order theory.
+  medians agree to 2·10⁻⁴, although single fits are unstable). The β² part is second order in the perimeter, outside
+  Principle E as stated.
+- **The β² term is derived (same day) from Lemma Q's continuum soft-edge condition, to all orders in β.** With
+  dN = (1 − β/(2√λ))dλ and c = ½:
+  - the condition ∫_0^{1/a}(1 − aλ)^{−1/2}dN = n reads 2/a − (πβ/2)a^{−1/2} = n;
+  - with a = 2(1 + η)/n and v := (1 + η)^{−1/2}, this is v² − εv − 1 = 0, where ε := πβ/(2√(2n));
+  - so 1 + η = 1/v² = 1 − ε + ε²/2 + O(ε³), and D = nη ⊃ −(πβ/(2√2))√n + (π²/16)β².
+  The leading term is the pole-law value above, and the second is the fitted β² coefficient. So the continuum equilibrium,
+  solved exactly rather than linearised, carries every smooth-density term (all orders in the perimeter). Principle E's first
+  order is its linearisation. The discreteness terms (Z(0) and the Z(−j)) are what remains for the band factor.
 
 **Actual drums.**
 - **Generic (golden rectangle, simple spectrum).** D − D_smoothed has mean ≈ 0 (+0.3, +0.5, −0.2, +1.0 over the four
