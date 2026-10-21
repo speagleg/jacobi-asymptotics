@@ -322,6 +322,29 @@ diagonal integer layer (M/n)^pA(n) has no odd powers of 1/M. At the Bessel point
 1 + 1/(4M²) + 1/(16M⁴) + … = (1 − 1/(4M²))⁻¹ (the Lommel diagonal). So b_n is centred at N and α_n at N + ½, which is exactly
 the arrangement of Bleher–Its 2005, Thm 5.2 (NOVELTY_JZC item N).
 
+**The diagonal layer obeys the same shift and has a closed form** (NUMERICAL, `m4_diag.out`, 19 checks).
+- With ν and β decoupled, the natural form of A in M = n + β/2 + 1 is independent of β and even in 1/M.
+- Its M⁻² coefficient is **a₂ = −(p+1)/24 + (p+1)(p+2)ν²/8**, to be set beside f₂ = (p+1)/12 − (p+2)ν²/8. This was
+  reconstructed from p ∈ {½, …, 6} and asserted at three fresh points.
+- At the Bessel point the layer is (1 − 1/(4M²))⁻¹.
+
+So both Toda variables follow one pattern: b at N = n + (β+1)/2 and α at N + ½, each β-free and ν-even. The reflection of
+Theorem R becomes the reversal symmetry of the Toda lattice, b_n ↔ b_{−n}, α_n ↔ α_{−n−1}, at the level of N.
+
+**Toward Σ: what the exact transformation Y ↦ Yz^{δσ₃} gives (HEURISTIC; the open point).**
+- In the full Riemann–Hilbert problem, Ỹ := Yz^{δσ₃} has:
+  - normalisation z^{(n+δ)σ₃} at ∞ (a degree shift);
+  - weight multiplied by z^{−2δ} (Szegő exponent β ↦ β − 2δ);
+  - a diagonal jump e^{2πiδσ₃} along the cut of z^δ.
+- The error matrix is unchanged: R̃ = (Qz^{δσ₃})(P̂z^{δσ₃})⁻¹ = R.
+- Locally at the hard edge, P̂z^{δσ₃} is the same order-ν Bessel model (KMVV (6.27)) with W replaced by Wz^{−δ}. The Bessel
+  order stays ν while the Szegő exponent moves, which is exactly the decoupled model of §7.
+- What is not yet controlled is the change of scale. The (n+δ)-problem's natural frame is z ↦ ((n+δ)/n)^pz. Lemma BR
+  identifies the infinitesimal generator, but the finite-δ identity (Σ holds with no δ² defect) must also absorb the
+  Bessel/Airy corrections and the cut's diagonal jump through the outer scalar.
+- This is the same computation as M3a's index-transfer lemma H-d (JZC_M3_scope §3.1), where a Hurwitz offset enters the
+  outer scalar's power of z at ∞. **Plan: do H-d and Σ together.**
+
 **Corollary T′ (the parity part of S1-N′ reduces to the integer layers; given Theorem T).** Suppose B is even in N and A is
 even in M = N + ½ (to all orders). Then:
 - α_n − α_{n−1} = A(N + ½) − A(N − ½) (natural form) is odd in N. So each first-order zeta term is ε_jN^{−1−jp} times an even
