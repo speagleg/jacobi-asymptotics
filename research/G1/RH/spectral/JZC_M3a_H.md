@@ -119,10 +119,19 @@ checked numerically to 10⁻²⁷ for p ∈ {1.25, 1.5, 3}, δ ∈ {0, −½, 0.
      with W̃♮.
    - Still OPEN: α ≥ 1, in-lens identification. That is outside the Setting (|α| < 1).
    - A naive β′ treatment fails: the bound |z|^{−|β′|/2} is not L² when |β′| ≥ 1.
-2. **H-b′ for p < 1** (Paper 2 App C in the seam geometry). The Hurwitz sum bound G12 L2.1 is p-free, so the expected route is
-   L2.1 + L2.3 with the seam lens. This is H-d (iv) for p < 1, which G3 Cor 5 no longer claims (fixed per Rule R review A of
-   G3, F1); in progress in JZC_M3a_H_G23plt1.md.
-3. E_plt1 Lemma F.1(iv) with the complex seam densities of G3 (expected verbatim; not checked line by line).
+2. ~~**H-b′ for p < 1**~~: **done** in JZC_M3a_H_G23plt1.md §1 (PROVED-mod-cite, NOT REVIEWED).
+   - G12's sum bound is p-free (L2.1′).
+   - Lens sectors (L2.2′) carry a corrected arc constant, 0.792.
+   - The column factorisation holds verbatim (L2.3′).
+   - New L2.5: e^{χ_δ} is bounded up to the seams at ∞. This fills the unproved polynomial-bound sentence of Paper 2 Lemma seam
+     (iv) for δ < 0.
+   - P2.6 gives Prop apriori and Cor L2 for p < 1, with exponent |α|/2.
+   - Check: m3a_g23_apriori.out (132 checks, with controls).
+3. ~~E_plt1 Lemma F.1(iv) with complex seam densities~~: **done** in JZC_M3a_H_G23plt1.md §2 (PROVED-mod-cite, NOT
+   REVIEWED).
+   - The estimates go through with the pointwise bounds |ℓ_±| ≤ ℓ and |ℓ_±′| ≤ ℓ′ (Lemma M), and the constants are δ-free.
+   - (iii) changes: the moments come out as the Fourier sums of §3.2, and the step to ζ(−kp)/(kn^{kp}) is dropped.
+   - Check: m3a_g23_F1.out (398 checks, with controls).
 4. ~~H-a written out~~: done in JZC_M3a_H_Ha.md (PROVED / PROVED-mod-cite, NOT REVIEWED; m3a_ha_interp.out, 298 checks and
    33 controls that fail as required). It needs Paper 2's T1(a) re-proved at the top node, since x₁ = a^{−p} > 1; the
    expansion holds for |z| > X₁ = (n/a)^p. It also shows why δ > 0 is excluded: the point t = δ is a phantom node, with no
@@ -132,7 +141,7 @@ checked numerically to 10⁻²⁷ for p ∈ {1.25, 1.5, 3}, δ ∈ {0, −½, 0.
    restated for δ but not yet re-proved line by line.
 
 **Status by part.**
-- **(i)** is CONDITIONAL on the open items 2, 3 and 5 above (item 1 is done for p > 1; for p < 1 it also needs items 2–3). Every other ingredient is PROVED-mod-cite (Paper 2, E-series lemmas) and NOT
+- **(i)** is CONDITIONAL on item 5 (H-c) for p > 1. For p < 1 it is also conditional on rebuilding E_plt1's glued parametrix with W̃♮ (item 1, p < 1 part); items 2–3 are done. Every other ingredient is PROVED-mod-cite (Paper 2, E-series lemmas) and NOT
   REVIEWED. Numerically, (i) is confirmed against all stored Hurwitz fits (m3a_hd_model.out, 42 checks; m3a_g3_model.out, 25
   checks, p < 1).
 - **(ii)** follows from (i) and Prop S at the exact orders: the integer layer to N⁻⁴ and the first-order zeta layer with its

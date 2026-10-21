@@ -1,0 +1,51 @@
+[M] p=0.3 d=-0.02: max|l_pm|/l = 1.0, max|l_pm'|/|l'| = 1.0, max(|l_pm| - pi - log(1/s_d)) = 0
+[M] p=0.3 d=-0.25: max|l_pm|/l = 1.0, max|l_pm'|/|l'| = 1.0, max(|l_pm| - pi - log(1/s_d)) = 0
+[M] p=0.3 d=-0.5: max|l_pm|/l = 1.0, max|l_pm'|/|l'| = 1.0, max(|l_pm| - pi - log(1/s_d)) = 0
+[M] p=0.3 d=-0.8: max|l_pm|/l = 1.0, max|l_pm'|/|l'| = 1.0, max(|l_pm| - pi - log(1/s_d)) = 0
+[M] p=0.3 d=-0.98: max|l_pm|/l = 1.0, max|l_pm'|/|l'| = 1.0, max(|l_pm| - pi - log(1/s_d)) = 0
+[M] p=0.6 d=-0.02: max|l_pm|/l = 1.0, max|l_pm'|/|l'| = 1.0, max(|l_pm| - pi - log(1/s_d)) = 0
+[M] p=0.6 d=-0.25: max|l_pm|/l = 1.0, max|l_pm'|/|l'| = 1.0, max(|l_pm| - pi - log(1/s_d)) = 0
+[M] p=0.6 d=-0.5: max|l_pm|/l = 1.0, max|l_pm'|/|l'| = 1.0, max(|l_pm| - pi - log(1/s_d)) = 0
+[M] p=0.6 d=-0.8: max|l_pm|/l = 1.0, max|l_pm'|/|l'| = 1.0, max(|l_pm| - pi - log(1/s_d)) = 0
+[M] p=0.6 d=-0.98: max|l_pm|/l = 1.0, max|l_pm'|/|l'| = 1.0, max(|l_pm| - pi - log(1/s_d)) = 0
+[M] p=0.75 d=-0.02: max|l_pm|/l = 1.0, max|l_pm'|/|l'| = 1.0, max(|l_pm| - pi - log(1/s_d)) = 0
+[M] p=0.75 d=-0.25: max|l_pm|/l = 1.0, max|l_pm'|/|l'| = 1.0, max(|l_pm| - pi - log(1/s_d)) = 0
+[M] p=0.75 d=-0.5: max|l_pm|/l = 1.0, max|l_pm'|/|l'| = 1.0, max(|l_pm| - pi - log(1/s_d)) = 0
+[M] p=0.75 d=-0.8: max|l_pm|/l = 1.0, max|l_pm'|/|l'| = 1.0, max(|l_pm| - pi - log(1/s_d)) = 0
+[M] p=0.75 d=-0.98: max|l_pm|/l = 1.0, max|l_pm'|/|l'| = 1.0, max(|l_pm| - pi - log(1/s_d)) = 0
+[E] p=0.3 d=-0.02: k=1 m_k=-0.154635867636 rel.dev Fourier 4.1e-26, Hurwitz 4.1e-26, control (d dropped) 0.0598; k=2 m_k=-0.0250658098378 rel.dev Fourier 1.2e-31, Hurwitz 0.0, control (d dropped) 0.0836; k=3 m_k=-0.00523697982873 rel.dev Fourier 8.8e-31, Hurwitz 2.9e-31, control (d dropped) 0.118
+[E] p=0.3 d=-0.25: k=1 m_k=-0.0559525091418 rel.dev Fourier 2.7e-26, Hurwitz 2.7e-26, control (d dropped) 1.93; k=2 m_k=-0.00452014517571 rel.dev Fourier 1.7e-31, Hurwitz 1.7e-31, control (d dropped) 5.01; k=3 m_k=0.00024713462222 rel.dev Fourier 1.2e-30, Hurwitz 1.4e-30, control (d dropped) 24.7
+[E] p=0.3 d=-0.5: k=1 m_k=0.0307691924954 rel.dev Fourier 2.9e-26, Hurwitz 2.9e-26, control (d dropped) 6.33; k=2 m_k=0.00924140149689 rel.dev Fourier 0.0, Hurwitz 0.0, control (d dropped) 3.94; k=3 m_k=0.00271685917818 rel.dev Fourier 2.8e-31, Hurwitz 1.4e-31, control (d dropped) 3.15
+[E] p=0.3 d=-0.8: k=1 m_k=0.0827947391654 rel.dev Fourier 3.1e-26, Hurwitz 3.1e-26, control (d dropped) 2.98; k=2 m_k=0.00865220398445 rel.dev Fourier 1.8e-31, Hurwitz 1.8e-31, control (d dropped) 4.14; k=3 m_k=0.000365757765269 rel.dev Fourier 1.1e-30, Hurwitz 1.6e-30, control (d dropped) 17.0
+[E] p=0.3 d=-0.98: k=1 m_k=-0.000736050908593 rel.dev Fourier 1.5e-24, Hurwitz 1.5e-24, control (d dropped) 222.0; k=2 m_k=-0.0144249724149 rel.dev Fourier 4.3e-31, Hurwitz 1.1e-31, control (d dropped) 0.883; k=3 m_k=-0.00478193282006 rel.dev Fourier 1.4e-30, Hurwitz 3.2e-31, control (d dropped) 0.224
+[E] p=0.6 d=-0.02: k=1 m_k=-0.0501316196755 rel.dev Fourier 1.4e-25, Hurwitz 1.4e-25, control (d dropped) 0.0836; k=2 m_k=-0.00225591036491 rel.dev Fourier 3.4e-31, Hurwitz 1.7e-31, control (d dropped) 0.175; k=3 m_k=-3.35373826198e-5 rel.dev Fourier 9.0e-31, Hurwitz 1.8e-30, control (d dropped) 1.25
+[E] p=0.6 d=-0.25: k=1 m_k=-0.00904029035141 rel.dev Fourier 5.6e-26, Hurwitz 5.6e-26, control (d dropped) 5.01; k=2 m_k=0.000864020466795 rel.dev Fourier 0.0, Hurwitz 2.2e-31, control (d dropped) 4.07; k=3 m_k=0.000187037610495 rel.dev Fourier 3.9e-31, Hurwitz 2.6e-31, control (d dropped) 1.4
+[E] p=0.6 d=-0.5: k=1 m_k=0.0184828029938 rel.dev Fourier 8.5e-26, Hurwitz 8.5e-26, control (d dropped) 3.94; k=2 m_k=0.00149753885216 rel.dev Fourier 0.0, Hurwitz 0.0, control (d dropped) 2.77; k=3 m_k=5.38359948726e-5 rel.dev Fourier 7.0e-27, Hurwitz 7.0e-27, control (d dropped) 2.4
+[E] p=0.6 d=-0.8: k=1 m_k=0.0173044079689 rel.dev Fourier 1.1e-25, Hurwitz 1.1e-25, control (d dropped) 4.14; k=2 m_k=-0.000750611417529 rel.dev Fourier 2.6e-31, Hurwitz 1.3e-31, control (d dropped) 2.53; k=3 m_k=-0.000195775892119 rel.dev Fourier 0.0, Hurwitz 3.7e-31, control (d dropped) 0.614
+[E] p=0.6 d=-0.98: k=1 m_k=-0.0288499448299 rel.dev Fourier 7.7e-26, Hurwitz 7.7e-26, control (d dropped) 0.883; k=2 m_k=-0.00262563637832 rel.dev Fourier 7.3e-31, Hurwitz 0.0, control (d dropped) 0.00997; k=3 m_k=-0.000112974881882 rel.dev Fourier 1.1e-31, Hurwitz 1.1e-30, control (d dropped) 0.331
+[E] p=0.75 d=-0.02: k=1 m_k=-0.0282597636991 rel.dev Fourier 2.5e-25, Hurwitz 2.5e-25, control (d dropped) 0.0989; k=2 m_k=-0.000525542241859 rel.dev Fourier 1.8e-31, Hurwitz 0.0, control (d dropped) 0.309; k=3 m_k=3.25493040301e-5 rel.dev Fourier 5.5e-31, Hurwitz 1.8e-31, control (d dropped) 0.26
+[E] p=0.75 d=-0.25: k=1 m_k=-0.00211136622145 rel.dev Fourier 2.6e-26, Hurwitz 2.6e-26, control (d dropped) 13.7; k=2 m_k=0.000565165550118 rel.dev Fourier 1.7e-31, Hurwitz 1.7e-31, control (d dropped) 2.22; k=3 m_k=4.6956728372e-5 rel.dev Fourier 1.3e-31, Hurwitz 1.3e-31, control (d dropped) 0.487
+[E] p=0.75 d=-0.5: k=1 m_k=0.0125893087985 rel.dev Fourier 1.4e-25, Hurwitz 1.4e-25, control (d dropped) 3.47; k=2 m_k=0.000444778396292 rel.dev Fourier 9.5e-29, Hurwitz 9.5e-29, control (d dropped) 2.55; k=3 m_k=-1.90217781712e-5 rel.dev Fourier 1.6e-31, Hurwitz 4.7e-31, control (d dropped) 2.27
+[E] p=0.75 d=-0.8: k=1 m_k=0.00618643088317 rel.dev Fourier 2.3e-25, Hurwitz 2.3e-25, control (d dropped) 6.02; k=2 m_k=-0.000582426094762 rel.dev Fourier 1.7e-31, Hurwitz 1.7e-31, control (d dropped) 0.181; k=3 m_k=-4.52441646895e-5 rel.dev Fourier 5.3e-31, Hurwitz 1.3e-31, control (d dropped) 1.53
+[E] p=0.75 d=-0.98: k=1 m_k=-0.0215709277845 rel.dev Fourier 1.7e-25, Hurwitz 1.7e-25, control (d dropped) 0.44; k=2 m_k=-0.000785996448826 rel.dev Fourier 6.1e-31, Hurwitz 0.0, control (d dropped) 0.125; k=3 m_k=1.4742085165e-5 rel.dev Fourier 1.0e-31, Hurwitz 8.2e-31, control (d dropped) 0.634
+[P] p=0.3 d=-0.25: max rel |jump - l_pm| = 7.17e-14  (|l_+(40)| = 0.8584)
+[P] p=0.3 d=-0.8: max rel |jump - l_pm| = 1.09e-13  (|l_+(40)| = 0.9562)
+[P] p=0.6 d=-0.25: max rel |jump - l_pm| = 1.19e-14  (|l_+(40)| = 0.8235)
+[P] p=0.6 d=-0.8: max rel |jump - l_pm| = 2.36e-14  (|l_+(40)| = 0.9157)
+[R] p=0.6 d=-0.02 K=1: sup_z n^((K+1)p)|res| = 10:0.69656, 40:0.80518, 160:0.82475, 640:0.82385 (d-free majorant 2.028); n^((K+2)p)|res - next|: 10:0.999, 40:0.447, 160:0.3548, 640:0.2958; max|res/next - 1|: n=10 0.306, n=640 0.00747
+[R] p=0.6 d=-0.02 K=2: sup_z n^((K+1)p)|res| = 10:0.999, 40:0.44697, 160:0.35476, 640:0.29575 (d-free majorant 3.515); n^((K+2)p)|res - next|: 10:4.9, 40:4.415, 160:3.591, 640:3.232; max|res/next - 1|: n=10 5.13, n=640 0.279
+[R] p=0.6 d=-0.5 K=1: sup_z n^((K+1)p)|res| = 10:0.43496, 40:0.55458, 160:0.55746, 640:0.55133 (d-free majorant 2.028); n^((K+2)p)|res - next|: 10:0.6227, 40:0.5088, 160:0.4599, 640:0.4233; max|res/next - 1|: n=10 0.287, n=640 0.0161
+[R] p=0.6 d=-0.5 K=2: sup_z n^((K+1)p)|res| = 10:0.62267, 40:0.50881, 160:0.45994, 640:0.42333 (d-free majorant 3.515); n^((K+2)p)|res - next|: 10:3.942, 40:3.373, 160:2.587, 640:2.258; max|res/next - 1|: n=10 2.57, n=640 0.121
+[R] p=0.6 d=-0.98 K=1: sup_z n^((K+1)p)|res| = 10:0.91433, 40:1.008, 160:0.98691, 640:0.96989 (d-free majorant 2.028); n^((K+2)p)|res - next|: 10:0.8946, 40:0.9159, 160:0.8792, 640:0.8465; max|res/next - 1|: n=10 0.235, n=640 0.0184
+[R] p=0.6 d=-0.98 K=2: sup_z n^((K+1)p)|res| = 10:0.89457, 40:0.91587, 160:0.87916, 640:0.84651 (d-free majorant 3.515); n^((K+2)p)|res - next|: 10:4.593, 40:3.544, 160:2.591, 640:2.211; max|res/next - 1|: n=10 1.43, n=640 0.0567
+[R] p=0.3 d=-0.02 K=1: sup_z n^((K+1)p)|res| = 10:0.46256, 40:0.37669, 160:0.33922, 640:0.31796 (d-free majorant 0.7568); n^((K+2)p)|res - next|: 10:0.3882, 40:0.3101, 160:0.2819, 640:0.2659; max|res/next - 1|: n=10 0.809, n=640 0.243
+[R] p=0.3 d=-0.02 K=2: sup_z n^((K+1)p)|res| = 10:0.38821, 40:0.31012, 160:0.28188, 640:0.26588 (d-free majorant 0.54); n^((K+2)p)|res - next|: 10:0.312, 40:0.2346, 160:0.2172, 640:0.2076; max|res/next - 1|: n=10 0.656, n=640 0.13
+[R] p=0.3 d=-0.5 K=1: sup_z n^((K+1)p)|res| = 10:0.21409, 40:0.1569, 160:0.13498, 640:0.1231 (d-free majorant 0.7568); n^((K+2)p)|res - next|: 10:0.2368, 40:0.1742, 160:0.1536, 640:0.1423; max|res/next - 1|: n=10 1.14, n=640 0.339
+[R] p=0.3 d=-0.5 K=2: sup_z n^((K+1)p)|res| = 10:0.23677, 40:0.17419, 160:0.15358, 640:0.14232 (d-free majorant 0.54); n^((K+2)p)|res - next|: 10:0.2381, 40:0.1664, 160:0.1501, 640:0.1414; max|res/next - 1|: n=10 0.964, n=640 0.171
+[R] p=0.3 d=-0.98 K=1: sup_z n^((K+1)p)|res| = 10:0.34678, 40:0.25527, 160:0.21691, 640:0.19596 (d-free majorant 0.7568); n^((K+2)p)|res - next|: 10:0.3981, 40:0.3057, 160:0.2701, 640:0.2504; max|res/next - 1|: n=10 1.28, n=640 0.382
+[R] p=0.3 d=-0.98 K=2: sup_z n^((K+1)p)|res| = 10:0.39812, 40:0.30569, 160:0.27015, 640:0.2504 (d-free majorant 0.54); n^((K+2)p)|res - next|: 10:0.3888, 40:0.2926, 160:0.2642, 640:0.2484; max|res/next - 1|: n=10 0.895, n=640 0.171
+[D] p=0.6 d=-0.5: max_x n^2p|E_n(x)-E_n(0)|/|x| = 20:0.047326, 80:0.047304, 320:0.04687
+[D] p=0.6 d=-0.98: max_x n^2p|E_n(x)-E_n(0)|/|x| = 20:0.085158, 80:0.083542, 320:0.082387
+[G] p=0.6 d=-0.5: max |G_d(z) - G_d(1) - J(z)| over 6 points (4 at angular distance 1e-8 from a seam) = 5.47e-27
+[G] p=0.3 d=-0.8: max |G_d(z) - G_d(1) - J(z)| over 6 points (4 at angular distance 1e-8 from a seam) = 8.91e-27
+ALL 398 CHECKS PASSED
