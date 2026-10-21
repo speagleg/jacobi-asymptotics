@@ -11,6 +11,7 @@ Status (2026-10-20): exploratory note from the Plan E3 session. Labels per VERIF
   REVIEW_SPEC2_A.md and REVIEW_SPEC2_B.md, two independent readers, both ACCEPT WITH FIXES; fixes applied 2026-10-21, §6).
   Review does not upgrade labels: S1′, S1″, S1‴, the pole law and the κ law remain CONJECTURE / NUMERICAL / HEURISTIC.
   The main correction is the sign of the pole law (§3.12) and its limitation to the leading power of each pole (F2).
+- §3.17 (2026-10-21, NOT REVIEWED): quartic oscillator — pole law with cot ≠ 0 on a real operator, d₂ to 3·10⁻⁵ (NUMERICAL).
 - §3.16 (2026-10-21, NOT REVIEWED): drums at p = 1 (NUMERICAL): perimeter via the W·cot = 0·∞ limit, corners via Z(0).
 - §3.15 (2026-10-21, NOT REVIEWED): the subleading pole term, Conjecture S1⁗ (NUMERICAL; exact to fit precision for q₁ ≤ 1).
 - §3.14 (2026-10-21, NOT REVIEWED): the π cot kernel derived. Theorem K (lattice, PROVED-mod-cite on E3), Lemma K0 (PROVED),
@@ -1108,6 +1109,42 @@ was never adjusted: the value above is its 0·∞ limit, computed after seeing t
 - corners and curvature at n^{−1}, through Z(0).
 For integrable drums this information sits below the Poisson counting noise, except the perimeter. For chaotic drums, with
 GOE-like rigidity, S4 predicts noise smaller by a factor ~3–4; that is untested.
+
+### 3.17 The quartic oscillator: the pole law with cot ≠ 0 on a real operator (NUMERICAL; NOT REVIEWED)
+
+**Why it matters.** In every real operator tested before (bouncer, Bessel zeros, Robin), the poles of Z sit at half-integers,
+where cot = 0. So the π cot kernel had been tested at a nonzero value only on synthetic lattices (§3.12, §3.15). The quartic
+oscillator H = −d²/dq² + q⁴ (p = 4/3) is the first real operator where it is.
+
+**Spectrum** (`checks/spec_quartic.py`, `checks/spec_quartic.out`).
+- **Exact part.** E_K for K ≤ 1200 come from a harmonic-oscillator basis (frequency E_max^{1/4}, banded, sizes 4000 and 5000).
+  They are converged to 3·10⁻¹⁶ relative, with E₁ = 1.0603620905.
+- **WKB fit.** On 200 < K ≤ 900, K − ½ = A·E^{3/4} + B·E^{−3/4} + C·E^{−9/4}, with A = (1/π)∫_{−1}^1√(1 − t⁴)dt exact. The fit gives
+  B = −0.0476724854, which equals **−1/(12πA)** = −0.04767248522 to 4·10⁻¹⁰.
+- **Tail.** Beyond K = 1000 the series is used, solved by Newton.
+
+**Nodes.** λ_K := A^{4/3}E_K satisfy λ^{3/4} = k′ + γ/k′ + O(k′^{−3}), with k′ = K − ½. This is a Hurwitz lattice with δ = −½ plus an
+m = 1 index correction γ = −AB = 1/(12π). Its pole is at q = m/p = 3/4, where W(3/4) = W(1/p) = 1 and **cot(3π/4) = −1**.
+
+**Predictions** (s = 2; no fitted constant):
+- **d₁** = −(s − 1)/2 − pδ = +1/6. Equivalently, Z(0) = ζ(0, ½) = 0, which agrees with Voros (Z(0) = 0 for the quartic).
+- **ε₁ = 0.** The heat-trace exponents of q⁴ are −3/4, 3/4, 9/4, … and none is an integer, so Z(−1) = 0.
+- **d₂** = [Hurwitz shift, δ = −½] + pole term = 0.192708 + πγ = 0.192708 + **1/12** = 0.276042. The pole term is
+  −mγW(q)π cot(πq) = +πγ.
+
+| coefficient | fit (spread) | prediction | without pole term | sign flipped |
+|---|---|---|---|---|
+| d₁ | +0.16666667 (8·10⁻⁹) | +1/6 | — | — |
+| ε₁ (n^{−7/3}) | +0.00001 (3·10⁻³) | 0 | — | — |
+| d₂ | +0.276010 (1·10⁻⁵) | +0.276042 | +0.192708 | +0.109375 |
+
+The pole term is confirmed on a real operator, with cot ≠ 0, to 3·10⁻⁵ against a size of 0.083. The alternatives are excluded
+by about 8000 spreads. The d₂ test is a prediction. The γ bug in the first run (−A²B instead of −AB) changed the prediction, not
+the measure. The corrected value follows from λ^{3/4} = A·E^{3/4} alone and was not tuned.
+
+**A closed form.** Since B = −1/(12πA), the quartic's pole contribution to d₂ is exactly 1/12, independent of the WKB constant A.
+This suggests a general rule for homogeneous potentials |q|^N: the second-order Bohr–Sommerfeld term gives γ = 1/(12π)·(…),
+and π cot(πq) turns it into a rational. Open: derive B for |q|^N and check N = 6.
 
 ### 3.9 Novelty (Rule L, first pass, 2026-10-20) — summary of research/program/novelty_SPEC.md (local, gitignored)
 
