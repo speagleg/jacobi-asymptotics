@@ -850,8 +850,8 @@ and shows that S1‴ holds for the lattice, in the sense that S1‴ asserts:
 - the kernel −π cot(πw) comes out of the RH functional itself;
 - the Weyl pole w = −1/p lies to the left of the strip Re w > 0, so the exclusion REVIEW_SPEC2_A F4(i) asked for is automatic,
   as is w = 0 (the Z(0) term enters d₁ through the index normalisation, not through e_n);
-- the second kernel π cot(πwp/2) contributes nothing, because of the trivial zeros (for other node sets it does not cancel;
-  see Open);
+- the second kernel π cot(πwp/2) contributes nothing. Its apparent poles are removable: they come from rewriting with
+  ζ(−wp), and the original integrand has none (see the Structural reading);
 - e_n is a smooth function of n with an asymptotic expansion in powers only. The n^{−1/2} edge oscillation of the literal
   truncated sum (F4(ii)) is an artefact of truncating at u = 1.
 The lattice proof uses p > 1 (𝔢 on the negative axis). For p < 1 the seam version of Lemma F.1 has the same Fourier sum
@@ -946,9 +946,13 @@ remains CONJECTURE (NUMERICAL), now with a derivation from Hypothesis G (HEURIST
   the Mellin transform of the truncated law: π cot(πq).
 - The zeta values Z(−j) come from discreteness and enter through the band factor. Their kernel is the integer residues of
   −π cot(πw).
-- Both are one Mellin–Barnes integral because both are the same soft-edge sum, read at its poles. The second lattice kernel,
-  π cot(πwp/2), is invisible for the lattice only because of the trivial zeros. For Hurwitz lattices, ζ(−2l, a) ≠ 0, so it
-  would produce n^{−1−2l} terms, i.e. integer-layer terms. Whether this accounts for the δ-dependence of d₃ in §3.11(a) is open.
+- Both are one Mellin–Barnes integral because both are the same soft-edge sum, read at its poles.
+- *Correction (same day):* the second lattice kernel π cot(πwp/2) is an artefact of writing I(w) with ζ(−wp). In the original
+  form −2pΓ(wp)ζ(1 + wp)(2πn)^{−wp}sin(πw − πwp/2) there are no poles at w = 2l/p at all. The same holds for Hurwitz lattices,
+  where the Fourier sum Σ_m sin(πw − πwp/2 + 2πmδ)/m^{1+wp} is entire in w for δ ∉ ℤ. So the band factor of a Hurwitz lattice
+  produces only the ζ(−jp, a) residues. The integer layer (the index shift) must come from the outer scalar j_δ (its
+  Bernoulli-polynomial coefficients, §3.1) and from the normalisation, not from a hidden kernel. A speculation to the
+  contrary, written earlier the same day, is withdrawn.
 
 **Rule A.**
 - *Is Theorem K just E3 re-summed?* Its expansion is E3's series (asymptotic only, since ζ(−jp) grows factorially). The
@@ -962,7 +966,7 @@ remains CONJECTURE (NUMERICAL), now with a derivation from Hypothesis G (HEURIST
 **Open.**
 - Hypothesis G (the proof of S1″).
 - The p < 1 version of Theorem K.
-- The second kernel for Hurwitz lattices and the integer layer.
+- The integer layer from the outer scalar j_δ (§3.1) for Hurwitz lattices.
 - The subleading pole terms from the Jacobian tilt and the tan pole. This needs E3.7 for branched tilts, i.e. a hard-edge
   computation.
 
