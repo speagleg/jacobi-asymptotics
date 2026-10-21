@@ -30,6 +30,7 @@ r m4_zeta_lattice.out "m4_zeta_lattice.py"
 ( KORD=5 SHI=18 JMAX=5 $PY -B m4_zeta_exact.py > m4_zeta_exact.out 2>&1; echo EXIT $? >> m4_zeta_exact.out )
 ( EO=1 KORD=4 SHI=14 $PY -B m4_zeta_exact2.py A > m4_zeta_exact2_A.out 2>&1; echo EXIT $? >> m4_zeta_exact2_A.out )
 ( EO=2 KORD=5 SHI=18 $PY -B m4_zeta_exact2.py B > m4_zeta_exact2_B.out 2>&1; echo EXIT $? >> m4_zeta_exact2_B.out )
+( KORD=4 SHI=14 $PY -B m4_shift_exact.py > m4_shift_exact.out 2>&1; echo EXIT $? >> m4_shift_exact.out )
 r spec_hurwitz_moments.out "spec_hurwitz_moments.py" & A=$!; r spec_hurwitz_moments_plt1.out "spec_hurwitz_moments_plt1.py" & B=$!; wait $A $B
 r spec_hur.out "spec_hur.py 0.6 2.0 -0.5" "spec_hur.py 0.6 2.0 0.5" "spec_hur.py 0.6 2.0 1.0" "spec_hur.py 0.75 3.0 1.0" "spec_hur.py 1.5 2.0 0.5" "spec_hur.py 1.5 2.0 1.0" & A=$!
 r spec_pert.out "spec_pert.py 0.6 2.0 2 0.5" "spec_pert.py 0.6 2.0 3 -0.4" & B=$!; wait $A $B
@@ -67,4 +68,3 @@ echo run_all done
 # Not run by default (long or interactive post-processing; outputs committed individually):
 #   spec_quartic.py, spec_qN.py <N>, spec_corners.py <shape>, spec_edgekernel.py, spec_noiselin.py, spec_kernelfft.py
 #   (the kernel-FFT form-factor numbers of SPEC §3.18 come from post-processing described in spec_kernelfft.py; TODO store it)
-( KORD=4 SHI=14 $PY -B m4_shift_exact.py > m4_shift_exact.out 2>&1; echo EXIT $? >> m4_shift_exact.out )
