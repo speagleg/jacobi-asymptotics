@@ -987,7 +987,7 @@ pole also contributes at n^{−2−pq}, where cot(πq) = 0 does not kill it. Wha
 - Subtract the leading pole term and the first-order zeta layer pW(j)·pjγζ(1 + m − pj)n^{−jp}.
 - Fit the n^{−1−m} coefficient S of what is left (n^{−2−m} in n^pb_n/c), over windows n ≥ 200, 400 and 4–6 nuisance exponents.
 
-**Conjecture S1⁗ (NUMERICAL, for q₁ := (m + 1)/p ≤ 1).** Per unit γ,
+**Conjecture S1⁗ (NUMERICAL; precise for q₁ := (m + 1)/p ≤ 1, consistent at ~10⁻³ for q₁ > 1).** Per unit γ,
 
   S = −(mpq₁/2)·W(q₁) + L·(1 + m + p)·d₁⁰/p,   L := −mW(q)π cot(πq) (the leading pole coefficient), d₁⁰ = −(s − 1)/2.
 
@@ -1020,13 +1020,15 @@ The two terms have separate origins:
 - For q₁ ≤ 1 the formula holds to the fit precision in six cases (p = 2, 2.2, 2.5, 3, 4; m = 1, 2; all at s = 2). The
   s-dependence has so far been tested only at p = 1.8 (q₁ > 1), where the s = 3 − s = 2 difference matches the shift term to
   10⁻⁴.
-- For q₁ > 1 a residual remains, 0.3% (p = 1.8) to 7% (p = 1.25) of S. It is s-independent: +1.5·10⁻³ and +1.6·10⁻³ at
-  p = 1.8, s = 2, 3. It is not explained.
-  - It could be a fit artefact: the q₁ > 1 cases are those with crowded exponents near p = 1, and their spreads are 10–100×
-    larger.
-  - It could be a third mechanism that switches on when the tilt z^{q₁} is steeper than linear at the hard edge. One candidate
-    is the tan pole of Proposition 3.14.4 at w = q₁. Its value p·q₁W(q₁) is far too large to be the residual itself, but
-    whether it lies inside the relevant strip changes at q₁ = 1.
+- For q₁ > 1 the small-pool fits left a residual of 0.3% (p = 1.8) to 7% (p = 1.25) of S. *Resolved (same day): fit
+  systematics.* Refitting the cached data with broad pools (20 fits: windows n ≥ 150–600 and 3–7 nuisance exponents i + jp + lm)
+  gives the following medians minus prediction:
+  - p = 1.5: −2·10⁻³ (it was +4·10⁻²; the prediction lies inside the interquartile range);
+  - p = 1.8: +3·10⁻³ (the prediction is at the edge of the interquartile range);
+  - p = 2.5, m = 2: −9·10⁻² (an unstable pool);
+  - p = 3 and p = 2.2, for comparison: 2·10⁻⁶ and 6·10⁻⁴.
+  The sign of the "residual" depends on the pool, so it is not a third mechanism. S1⁗ is consistent with every case tested.
+  Its precision degrades from 10⁻⁶ (q₁ ≤ 1, clean exponents) to about 10⁻³ (q₁ > 1, crowded exponents near p = 1).
 - **p = 2.** The synthetic family's first-order n⁻³ coefficient (zeta layer plus subleading) is −3.70γ ≠ 0. A decaying index
   correction is therefore visible at n⁻³ at p = 2 in general. The exact index shift of the Bessel-zero family (§3.10) is a
   special cancellation: there the correction γ ∝ (4μ² − 1) is tied to the index offset δ = μ/2 − ¼.
@@ -1046,7 +1048,7 @@ The two terms have separate origins:
 - Nothing is fitted: both terms are closed forms in p, s, m.
 
 **Open.**
-- The q₁ > 1 residual.
+- ~~The q₁ > 1 residual~~ (fit systematics; see Reading).
 - A derivation of δ_eff from the outer scalar (the same open step as for rule H).
 - E3.7 for branched tilts, proved rather than observed.
 - The analogous subleading term for the κ pole and for half-integer poles (bouncer ε₃, Robin ε₂). The bouncer's n⁻³
@@ -1156,7 +1158,22 @@ W = 1. The pole contribution to d₂ is A·B·π cot(π/p), with cot(π/p) = −
   limit is 1/6.
 - Only N = 4 is tested against b_n itself (above). For the others the number is the pole law's prediction, evaluated with an
   exact-eigenvalue B.
-- Open: derive (N − 1)/(6(N + 2)) from the second-order WKB integral, and test N = 6 against b_n.
+- **Derivation (same day; PROVED-mod-cite given the second-order Bohr–Sommerfeld/Dunham term, NOT QUOTED; conditional on
+  the pole law).** The second-order quantisation reads
+
+    (1/π)∫_{−q₊}^{q₊}√(E − V)dq − (1/(24π))·∂²_E∫_{−q₊}^{q₊}V′²(E − V)^{−1/2}dq = K − ½ + O(E^{−3a}),
+
+  and the coefficient −1/(24π) is checked numerically at N = 4: B/(5·I₆) = −0.013263 = −1/(24π). For V = q^N, with x := 1/N
+  and the substitutions q = E^{1/N}t, u = t^N:
+  - A = (2/(πN))·B(x, 3/2);
+  - B = −(N/(12π))·e(e − 1)·B(2 − x, ½), where e = 3/2 − x.
+  The reflection formulas Γ(x)Γ(1 − x) = π/sin πx and Γ(½ + x)Γ(½ − x) = π/cos πx collapse the product to
+
+    A·B = −(N − 1)·cot(π/N)/(6π(N + 2)).
+
+  The pole term is A·B·π·cot(π/p), and π/p = π/2 + π/N, so cot(π/p) = −tan(π/N). It therefore equals **(N − 1)/(6(N + 2))**.
+  The kernel's cot(π/p) cancels WKB's cot(π/N) identically. This explains why every homogeneous potential gives a rational
+  d₂ shift, and N = 4 reproduces B = −1/(12πA).
 
 ### 3.18 The noise mechanism: an edge kernel and a variance-level linear statistic (NUMERICAL; single seeds; NOT REVIEWED)
 
