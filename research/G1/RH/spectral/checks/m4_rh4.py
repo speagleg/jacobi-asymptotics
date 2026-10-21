@@ -218,6 +218,7 @@ def run(p, al, c=mp.mpf(1), verbose=False, mu=None):
     pts = {'r': (4*c, Dr), '0': (mp.mpf(0), D0)}
     other = {'r': '0', '0': 'r'}
     def pp(e):            # principal part of a Laurent series
+        assert e.hi >= -1, "truncation too shallow: principal part not determined"
         return S(e.lo, [e.get(t) for t in range(e.lo, 0)]) if e.lo < 0 else S(0, [mp.mpc(0)])
     def reexpand(ppser, frm, to):
         """sum_{m>=1} C_m (z - z_frm)^{-m}, expanded in t = z - z_to (Taylor), z_to - z_frm = d"""

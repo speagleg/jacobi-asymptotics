@@ -848,3 +848,16 @@ Formulas linearized from the PDF. Hypothesis throughout: "α is a positive numbe
 z^{−1}(1 + O(z^{−2})) and (z² − 4)^{1/4−α}ϕ(z/2)^{2α−3/2} = z^{−1}(1 + O(z^{−2})), so the 1/z coefficient 𝒩₁ of N has
 (𝒩₁)₁₂ = −ie^L and (𝒩₁)₂₁ = ie^{−L}, as used in App. H (Paper II referee 2, m3). (4.24) is the normalising factor at +2 used in
 "The circle at 2" of App. H. With this entry every WLXZ equation cited in Paper II is quoted in this file.
+
+## (JZC M4 reuse) entries above used by spectral/JZC_M4_proof.md — no new external source read
+
+Lemma N.6a (jump data at every order k) uses, at general k:
+- (DLMF-10.40, Paper 2): 10.40.1–10.40.4 and a_k (10.17.1);
+- (DLMF-10.17, Plan 55): 10.17.5–6, 10.17.11–12 and b_k (10.17.8);
+- (DLMF-9, Paper 2): 9.7.5–9.7.6;
+- (DLMF-9.7.2, Plan 65): u_k, v_k.
+
+The pages were re-read on 2026-10-21 (dlmf.nist.gov/10.17, /10.40, /9.7); the quoted formulas are unchanged.
+`checks/m4_rh_exact.py` asserts, for k ≤ 8:
+- b_k = a_k + (k − ½)a_{k−1} (the term-wise derivative of 10.40.2);
+- the 9.7.2 recurrence for u_k, and v_k.
