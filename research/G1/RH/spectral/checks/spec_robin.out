@@ -1,0 +1,18 @@
+Robin Z_E(-j) as functions of h: {0: '1/4', 1: '-h**2/2', 2: 'h*(h + 1)*(h**2 - h + 1)/2', 3: '-(32*h**6 + 48*h**3 + 21)/64'}
+bisection bracket width max 1.8e-12; E_1 = 1.647619413489, residual max |F| 4.1e-12
+h=1.0 s=2.0: Z(0) = 0.250000, Z_lam'(-1) = -0.177886, Z_lam'(-2) = +0.126574
+  d1: fit +0.00000009 (2.9e-06)  pred -0.00000000
+  eps1 (n^-5/3): fit -0.1049772 (1.7e-03)  pred -0.1049934  diff +1.6e-05   [Neumann h=0: 0]
+  n^-2: fit +0.055677 (1.6e-02)  pred (index shift, delta = -0.750) +0.055556  diff +1.2e-04
+Robin Z_E(-j) as functions of h: {0: '1/4', 1: '-h**2/2', 2: 'h*(h + 1)*(h**2 - h + 1)/2', 3: '-(32*h**6 + 48*h**3 + 21)/64'}
+bisection bracket width max 1.8e-12; E_1 = 1.407444367273, residual max |F| 4.0e-12
+h=0.5 s=2.0: Z(0) = 0.250000, Z_lam'(-1) = -0.044472, Z_lam'(-2) = +0.035599
+  d1: fit +0.00000002 (1.4e-06)  pred -0.00000000
+  eps1 (n^-5/3): fit -0.0262417 (8.3e-04)  pred -0.0262484  diff +6.7e-06   [Neumann h=0: 0]
+  n^-2: fit +0.055618 (8.0e-03)  pred (index shift, delta = -0.750) +0.055556  diff +6.2e-05
+Robin Z_E(-j) as functions of h: {0: '1/4', 1: '-h**2/2', 2: 'h*(h + 1)*(h**2 - h + 1)/2', 3: '-(32*h**6 + 48*h**3 + 21)/64'}
+bisection bracket width max 1.8e-12; E_1 = 1.903275719051, residual max |F| 4.1e-12
+h=2.0 s=2.0: Z(0) = 0.250000, Z_lam'(-1) = -0.711545, Z_lam'(-2) = +1.139168
+  d1: fit +0.00000106 (6.4e-06)  pred -0.00000000
+  eps1 (n^-5/3): fit -0.4198287 (3.3e-03)  pred -0.4199737  diff +1.4e-04   [Neumann h=0: 0]
+  n^-2: fit +0.055611 (3.2e-02)  pred (index shift, delta = -0.750) +0.055556  diff +5.5e-05

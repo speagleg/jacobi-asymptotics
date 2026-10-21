@@ -682,7 +682,14 @@ At h = 0 these reduce to the Neumann values (Z_E(−3) = −21/64). S1′ then p
 - d₂ = the index-shift value with δ = −¾. Every Robin index correction (hk^{−1/3}: q = ½; h³k^{−1}: q = 3/2) and the Neumann WKB
   term (q = 3/2) sit at half-integers, where cot = 0.
 
-ROBIN_TABLE
+| h | ε₁ predicted (= 2pcZ_{λ′}(−1)) | ε₁ fitted (spread) | d₁ fitted (pred 0) | d₂ fitted − index shift (spread) |
+|---|---|---|---|---|
+| ½ | −0.0262484 | −0.0262417 (8·10⁻⁴) | 2·10⁻⁸ | 6·10⁻⁵ (8·10⁻³) |
+| 1 | −0.1049934 | −0.1049772 (1.7·10⁻³) | 9·10⁻⁸ | 1.2·10⁻⁴ (1.6·10⁻²) |
+| 2 | −0.4199737 | −0.4198287 (3.3·10⁻³) | 1·10⁻⁶ | 5·10⁻⁵ (3.2·10⁻²) |
+
+ε₁ scales as h² (ratios 1 : 4 : 16) with the predicted constant. So b_n reads off the Robin parameter through Z(−1) = −h²/2, and
+the boundary condition's type (μ) through Z(0). (`checks/spec_robin_summary.out`; s = 2, n ≤ 1600.)
 
 ### 3.9 Novelty (Rule L, first pass, 2026-10-20) — summary of research/program/novelty_SPEC.md (local, gitignored)
 
