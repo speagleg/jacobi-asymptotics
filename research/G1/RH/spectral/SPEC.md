@@ -11,6 +11,7 @@ Status (2026-10-20): exploratory note from the Plan E3 session. Labels per VERIF
   REVIEW_SPEC2_A.md and REVIEW_SPEC2_B.md, two independent readers, both ACCEPT WITH FIXES; fixes applied 2026-10-21, §6).
   Review does not upgrade labels: S1′, S1″, S1‴, the pole law and the κ law remain CONJECTURE / NUMERICAL / HEURISTIC.
   The main correction is the sign of the pole law (§3.12) and its limitation to the leading power of each pole (F2).
+- §3.16 (2026-10-21, NOT REVIEWED): drums at p = 1 (NUMERICAL): perimeter via the W·cot = 0·∞ limit, corners via Z(0).
 - §3.15 (2026-10-21, NOT REVIEWED): the subleading pole term, Conjecture S1⁗ (NUMERICAL; exact to fit precision for q₁ ≤ 1).
 - §3.14 (2026-10-21, NOT REVIEWED): the π cot kernel derived. Theorem K (lattice, PROVED-mod-cite on E3), Lemma K0 (PROVED),
   Lemma Q (soft-edge condition, PROVED-mod-cite + NUMERICAL inequalities), Proposition E (PROVED as Mellin algebra). Principle
@@ -1049,6 +1050,56 @@ The two terms have separate origins:
 - The analogous subleading term for the κ pole and for half-integer poles (bouncer ε₃, Robin ε₂). The bouncer's n⁻³
   coefficient can now be predicted. It needs the bouncer's actual index correction and its Jacobian; a script to do this
   is open.
+
+### 3.16 Hearing a drum's perimeter and corners in b_n (NUMERICAL; p = 1, outside the proved framework; NOT REVIEWED)
+
+**Setting** (`checks/spec_corners.py`, `checks/spec_corners.out`). Dirichlet eigenvalues of planar drums are rescaled to unit
+Weyl density, λ̃ = Aλ/4π, so that N(λ̃) = λ̃ − β√λ̃ + c₀ + (fluctuations). Here β = L/√(4πA) carries the perimeter and
+c₀ = Z(0) the corners and curvature: 1/4 for any rectangle, 1/3 for the equilateral triangle, 1/6 for a smooth simply connected
+domain. The measure is Σ λ̃^{−2}δ_{1/λ̃} (p = 1, s = 2). A "smoothed drum" is the regular node set N_s(λ_k) = k − ½ − c₀ with the
+same β and c₀ and no counting fluctuations. Write D := n(y − y_lattice).
+
+**Perimeter (a test of the pole law with W·cot = 0·∞).** The perimeter term is a pole of Z(−w) at q = −½ with residue β/2. The
+pole law gives pR·W(q)π cot(πq)·n^{−1−pq}. Here cot(πq) = 0, but W(q) ∝ Γ(q + ½) has a pole at the same point, and the product
+tends to −π(4c)^{−1/2} = −π/√2. So the prediction is
+
+  D ⊃ −(π/(2√2))·β·n^{+1/2}.
+
+| smoothed drum | β | fitted n^{1/2} coefficient (half-range) | −πβ/(2√2) |
+|---|---|---|---|
+| square perimeter | 1.128379 | −1.253317 (1·10⁻⁵) | −1.253314 |
+| triangle | 1.286074 | −1.428473 (1·10⁻⁵) | −1.428469 |
+| disk | 1 | −1.110722 (7·10⁻⁶) | −1.110721 |
+| golden rectangle | 1.161199 | −1.289770 (1·10⁻⁵) | −1.289767 |
+
+*Rule X.* Before the run I predicted "no n^{1/2} term (cot = 0)", forgetting W's pole. The formula itself, evaluated correctly,
+was never adjusted: the value above is its 0·∞ limit, computed after seeing the data but with no free parameter.
+
+**Corners.**
+- **Isolated at fixed β** (square perimeter with c₀ = 1/4 against c₀ = 1/3). The n⁰ coefficient of the difference is 0.08335,
+  stable to 2·10⁻⁵ over six fits, against Δc₀ = 1/12 = 0.08333. So b_n hears the corner term exactly, as S1's pZ(0) says,
+  at p = 1.
+- **Absolute n⁰ coefficient.** It is c₀ + ½ + (π²/16)β² in all five smoothed drums (0.617β² against π²/16 = 0.6169; the
+  medians agree to 4 digits, although single fits are unstable). The β² part is second order in the perimeter, outside
+  Principle E. It is a closed-form datum for the second-order theory.
+
+**Actual drums.**
+- **Generic (golden rectangle, simple spectrum).** D − D_smoothed has mean ≈ 0 (+0.3, +0.5, −0.2, +1.0 over the four
+  octaves) but a standard deviation of 11 → 38 that grows like n^{0.55}. These are the counting fluctuations of an
+  integrable billiard (S4, Poisson-like). The perimeter term (≈ −1.29√n) is above this noise, just. The corner term
+  (≈ 0.08) is not resolvable from one spectrum at n ≤ 1600.
+- **Degenerate spectra (square, triangle).** b_n sees *distinct* eigenvalues only, since multiplicities merge into masses.
+  The square's distinct eigenvalues are the sums of two squares, with density ~ K·Q/√(log Q), where K = 0.7642 is the
+  Landau–Ramanujan constant. The leading law then gives nb_n/c ≈ (4K/π)/√(log Q_edge): 0.438 against 0.443 at n = 100, and
+  0.364 against 0.374 at n = 1000. A Jacobi matrix of a square drum hears the arithmetic of sums of two squares; this is
+  heuristic at the leading-order level.
+
+**Reading.** At p = 1, where nothing is proved, b_n reads the drum's heat-trace data in the order the kernel predicts:
+- area as the leading law;
+- perimeter at n^{−1/2}, through the 0·∞ limit of W·π cot;
+- corners and curvature at n^{−1}, through Z(0).
+For integrable drums this information sits below the Poisson counting noise, except the perimeter. For chaotic drums, with
+GOE-like rigidity, S4 predicts noise smaller by a factor ~3–4; that is untested.
 
 ### 3.9 Novelty (Rule L, first pass, 2026-10-20) — summary of research/program/novelty_SPEC.md (local, gitignored)
 

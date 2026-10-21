@@ -63,12 +63,14 @@ def coeffs_of(name):
     b = np.array([float(l.split()[1]) for l in open(f)]); n = np.arange(1, len(b) + 1, dtype=np.float64)
     return n, n*b/c - 1                                                  # y_n with p = 1 (b_n ~ c/n)
 
-C_ = Checks()
+C_ = Checks(); Dsm = {}
 n, y0 = coeffs_of("lattice")
 for name in sys.argv[1:]:
     _, y = coeffs_of(name); D = n*(y - y0)
     beta, c0 = shape(name)
-    print(f"{name}: beta = {beta:.6f}, c0 = Z(0) = {c0:.6f}; predicted n^0 coefficient of D: c0 + 1/2 = {c0 + 0.5:+.6f}; n^(+1/2): 0")
+    pper, p0 = -np.pi*beta/(2*np.sqrt(2)), c0 + 0.5 + np.pi**2/16*beta**2
+    print(f"{name}: beta = {beta:.6f}, c0 = Z(0) = {c0:.6f}; predicted n^(+1/2) coefficient of D: -pi beta/(2 sqrt 2) = {pper:+.6f}"
+          f" (pole law, W cot -> -pi (4c)^(-1/2)); n^0: c0 + 1/2 + (pi^2/16) beta^2 = {p0:+.6f} (empirical beta^2 term, §3.16)")
     if name.startswith("smooth"):
         res = {}
         for lo in (100, 200, 400):
@@ -77,11 +79,20 @@ for name in sys.argv[1:]:
                 res.setdefault(0, []).append(co[E.index(0)])
                 if -0.5 in E: res.setdefault(-0.5, []).append(co[E.index(-0.5)])
                 res.setdefault(0.5, []).append(co[E.index(0.5)])
-        for e, lab in ((-0.5, "n^(+1/2) [pred 0]"), (0, "n^0 [pred c0+1/2]"), (0.5, "n^(-1/2)")):
-            v = np.array(res[e]); print(f"   {lab:>20}: median {np.median(v):+.6f}  half-range {(v.max() - v.min())/2:.1e}")
-        v0 = np.array(res[0]); C_.check(f"{name} n^0", float(np.median(v0)), c0 + 0.5, max(3*(v0.max() - v0.min())/2, 1e-3))
+        for e, lab in ((-0.5, "n^(+1/2)"), (0, "n^0"), (0.5, "n^(-1/2)")):
+            v = np.array(res[e]); print(f"   {lab:>9}: median {np.median(v):+.6f}  half-range {(v.max() - v.min())/2:.1e}")
+        vp = np.array(res[-0.5]); C_.check(f"{name} perimeter n^(1/2)", float(np.median(vp)), pper, max(3*(vp.max() - vp.min())/2, 2e-5))
+        C_.check(f"{name} n^0 (median; single fits unstable)", float(np.median(res[0])), p0, 2e-3)
+        Dsm[name] = D
     else:
         for lo in (100, 200, 400, 800):
             sel = (n >= lo) & (n < 2*lo)
             print(f"   n in [{lo},{2*lo}): mean D {np.mean(D[sel]):+.4f}   RMS D {np.sqrt(np.mean(D[sel]**2)):.4f}   std D {np.std(D[sel]):.4f}")
+if "smooth_square" in Dsm and "smooth:1.128379:0.333333" in Dsm:     # corners at fixed perimeter: Delta c0 = 1/12
+    d = Dsm["smooth:1.128379:0.333333"] - Dsm["smooth_square"]; v = []
+    for lo in (100, 400):
+        for E in ([0, 0.5, 1], [0, 0.5, 1, 1.5], [0, 0.5, 1, 1.5, 2]):
+            sel = n >= lo; Am = np.vstack([n[sel]**-e for e in E]).T; v.append(np.linalg.lstsq(Am, d[sel], rcond=None)[0][0])
+    v = np.array(v); print(f"corner difference at fixed beta: n^0 coefficient {np.median(v):+.7f} (half-range {(v.max() - v.min())/2:.1e}); predicted 1/12 = {1/12:.7f}")
+    C_.check("corners at fixed perimeter", float(np.median(v)), 1/12, max(3*(v.max() - v.min())/2, 5e-5))
 C_.finish() if C_.n else None

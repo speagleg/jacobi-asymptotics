@@ -1,23 +1,37 @@
-smooth_square: beta = 1.128379, c0 = Z(0) = 0.250000; predicted n^0 coefficient of D: c0 + 1/2 = +0.750000; n^(+1/2): 0
-      n^(+1/2) [pred 0]: median -1.253317  half-range 1.1e-05
-      n^0 [pred c0+1/2]: median +1.535554  half-range 9.0e+01
-               n^(-1/2): median -0.596237  half-range 5.1e+03
-smooth_triangle: beta = 1.286074, c0 = Z(0) = 0.333333; predicted n^0 coefficient of D: c0 + 1/2 = +0.833333; n^(+1/2): 0
-      n^(+1/2) [pred 0]: median -1.428473  half-range 1.4e-05
-      n^0 [pred c0+1/2]: median +1.853799  half-range 1.0e+02
-               n^(-1/2): median -0.943220  half-range 5.8e+03
-smooth_disk: beta = 1.000000, c0 = Z(0) = 0.166667; predicted n^0 coefficient of D: c0 + 1/2 = +0.666667; n^(+1/2): 0
-      n^(+1/2) [pred 0]: median -1.110722  half-range 6.5e-06
-      n^0 [pred c0+1/2]: median +1.283612  half-range 8.0e+01
-               n^(-1/2): median -0.340771  half-range 4.5e+03
-square: beta = 1.128379, c0 = Z(0) = 0.250000; predicted n^0 coefficient of D: c0 + 1/2 = +0.750000; n^(+1/2): 0
+smooth_square: beta = 1.128379, c0 = Z(0) = 0.250000; predicted n^(+1/2) coefficient of D: -pi beta/(2 sqrt 2) = -1.253314 (pole law, W cot -> -pi (4c)^(-1/2)); n^0: c0 + 1/2 + (pi^2/16) beta^2 = +1.535398 (empirical beta^2 term, §3.16)
+    n^(+1/2): median -1.253317  half-range 1.1e-05
+         n^0: median +1.535554  half-range 9.0e+01
+    n^(-1/2): median -0.596237  half-range 5.1e+03
+smooth_triangle: beta = 1.286074, c0 = Z(0) = 0.333333; predicted n^(+1/2) coefficient of D: -pi beta/(2 sqrt 2) = -1.428469 (pole law, W cot -> -pi (4c)^(-1/2)); n^0: c0 + 1/2 + (pi^2/16) beta^2 = +1.853595 (empirical beta^2 term, §3.16)
+    n^(+1/2): median -1.428473  half-range 1.4e-05
+         n^0: median +1.853799  half-range 1.0e+02
+    n^(-1/2): median -0.943220  half-range 5.8e+03
+smooth_disk: beta = 1.000000, c0 = Z(0) = 0.166667; predicted n^(+1/2) coefficient of D: -pi beta/(2 sqrt 2) = -1.110721 (pole law, W cot -> -pi (4c)^(-1/2)); n^0: c0 + 1/2 + (pi^2/16) beta^2 = +1.283517 (empirical beta^2 term, §3.16)
+    n^(+1/2): median -1.110722  half-range 6.5e-06
+         n^0: median +1.283612  half-range 8.0e+01
+    n^(-1/2): median -0.340771  half-range 4.5e+03
+smooth_rect: beta = 1.161199, c0 = Z(0) = 0.250000; predicted n^(+1/2) coefficient of D: -pi beta/(2 sqrt 2) = -1.289767 (pole law, W cot -> -pi (4c)^(-1/2)); n^0: c0 + 1/2 + (pi^2/16) beta^2 = +1.581750 (empirical beta^2 term, §3.16)
+    n^(+1/2): median -1.289770  half-range 1.2e-05
+         n^0: median +1.581916  half-range 9.3e+01
+    n^(-1/2): median -0.628800  half-range 5.3e+03
+smooth:1.128379:0.333333: beta = 1.128379, c0 = Z(0) = 0.333333; predicted n^(+1/2) coefficient of D: -pi beta/(2 sqrt 2) = -1.253314 (pole law, W cot -> -pi (4c)^(-1/2)); n^0: c0 + 1/2 + (pi^2/16) beta^2 = +1.618731 (empirical beta^2 term, §3.16)
+    n^(+1/2): median -1.253317  half-range 1.3e-05
+         n^0: median +1.618906  half-range 9.0e+01
+    n^(-1/2): median -0.753786  half-range 5.1e+03
+square: beta = 1.128379, c0 = Z(0) = 0.250000; predicted n^(+1/2) coefficient of D: -pi beta/(2 sqrt 2) = -1.253314 (pole law, W cot -> -pi (4c)^(-1/2)); n^0: c0 + 1/2 + (pi^2/16) beta^2 = +1.535398 (empirical beta^2 term, §3.16)
    n in [100,200): mean D -85.9273   RMS D 87.7050   std D 17.5690
    n in [200,400): mean D -179.2466   RMS D 182.9565   std D 36.6570
    n in [400,800): mean D -368.8054   RMS D 376.1479   std D 73.9583
    n in [800,1600): mean D -759.3529   RMS D 774.3185   std D 151.5007
-triangle: beta = 1.286074, c0 = Z(0) = 0.333333; predicted n^0 coefficient of D: c0 + 1/2 = +0.833333; n^(+1/2): 0
+triangle: beta = 1.286074, c0 = Z(0) = 0.333333; predicted n^(+1/2) coefficient of D: -pi beta/(2 sqrt 2) = -1.428469 (pole law, W cot -> -pi (4c)^(-1/2)); n^0: c0 + 1/2 + (pi^2/16) beta^2 = +1.853595 (empirical beta^2 term, §3.16)
    n in [100,200): mean D -83.4285   RMS D 85.1323   std D 16.9471
    n in [200,400): mean D -173.1410   RMS D 176.6229   std D 34.8979
    n in [400,800): mean D -356.3710   RMS D 363.4848   std D 71.5607
    n in [800,1600): mean D -732.4572   RMS D 747.1299   std D 147.3412
-ALL 3 CHECKS PASSED
+rect: beta = 1.161199, c0 = Z(0) = 0.250000; predicted n^(+1/2) coefficient of D: -pi beta/(2 sqrt 2) = -1.289767 (pole law, W cot -> -pi (4c)^(-1/2)); n^0: c0 + 1/2 + (pi^2/16) beta^2 = +1.581750 (empirical beta^2 term, §3.16)
+   n in [100,200): mean D -13.8551   RMS D 17.7623   std D 11.1147
+   n in [200,400): mean D -20.2133   RMS D 26.2536   std D 16.7534
+   n in [400,800): mean D -30.0388   RMS D 38.5810   std D 24.2108
+   n in [800,1600): mean D -41.8618   RMS D 56.5116   std D 37.9624
+corner difference at fixed beta: n^0 coefficient +0.0833487 (half-range 2.0e-05); predicted 1/12 = 0.0833333
+ALL 11 CHECKS PASSED
