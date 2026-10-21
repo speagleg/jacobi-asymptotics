@@ -1,4 +1,4 @@
-"""SPEC §3.15 probe: the subleading pole term (REVIEW_SPEC2_A F2). Lattices lam_k = (k + g/k^m)^p, weights lam^{-s/p}, m = 1.
+"""SPEC §3.15 probe: the subleading pole term (REVIEW_SPEC2_A F2). Lattices lam_k = (k + g/k^m)^p, weights lam^{-s/p}.
 First order in g is isolated by antisymmetrising (g, -g) and Richardson over g in {1/4, 1/2}:
   A(g) := [D(g) - D(-g)]/2 = g a1 + g^3 a3 + ...,  a1 = (8 A(1/4) - A(1/2))/1.5,   D(g) := n (y_g - y_lat).
 From a1(n) the known first-order terms are subtracted:
@@ -9,16 +9,16 @@ with candidate mechanisms of §3.14 (Prop. 3.14.4), with q1 = (m+1)/p:
   (a) Jacobian tilt through E3.7 (if E3.7 extends to branched tilts): m p q1 W(q1)/2;
   (b) the tan pole of the phase perturbation at w = q1:                 p q1 W(q1);
 No assertion on the candidates (exploration); assertions only on the stability of the extraction.
-Usage: spec_subpole.py p[:s] [p[:s] ...]   (s defaults to 2)."""
+Usage: spec_subpole.py p[:s[:m]] ...   (s defaults to 2, m to 1)."""
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'second_order', 'checks'))
 import numpy as np, mpmath as mp
 from spec_common import Checks, run, NMAX, c_p_mp
 from so_coeffs import coeffs
 from so_fit import sequences
-C_ = Checks(); m = 1.0
+C_ = Checks()
 for arg in sys.argv[1:]:
-    p, s = (float(v) for v in arg.split(':')) if ':' in arg else (float(arg), 2.0)
+    v = [float(x) for x in arg.split(':')]; p = v[0]; s = v[1] if len(v) > 1 else 2.0; m = v[2] if len(v) > 2 else 1.0
     K = (200 if p < 1 else 100)*NMAX; k = np.arange(1, K + 1, dtype=np.float64)
     al, b = coeffs(p, s, K, NMAX); _, y0, *_ = sequences(p, al, b)
     D = {}
@@ -51,6 +51,7 @@ for arg in sys.argv[1:]:
     ca, cb = float(mm*pm*q1*W(q1)/2), float(pm*q1*W(q1))
     print(f"   subleading coefficient of n^-{tgt} (per unit g): S = {S:+.6f} (half-range {hr:.1e})")
     print(f"   candidates: (a) Jacobian {ca:+.6f}   (b) tan pole {cb:+.6f}   (a)+(b) {ca + cb:+.6f}   (b)-(a) {cb - ca:+.6f}")
+    print(f"   closed-form guess (p >= 2, m = 1): -W(q1) - (1/2 + 1/p) lead = {-float(W(q1)) - (0.5 + 1/p)*lead:+.6f};  X := (S + W(q1))/lead = {(S + float(W(q1)))/lead if lead else float('nan'):+.6f}")
     print(f"   ratios: S/(p q1 W(q1)) = {S/cb:+.6f}   S/lead = {S/lead if lead else float('nan'):+.6f}   S/W(q1) = {S/float(W(q1)):+.6f}")
     # g^3 contamination check: compare a1 with the plain antisymmetric A(1/4)/(1/4) at the target
     for e, v in zeta_terms:
