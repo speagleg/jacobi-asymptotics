@@ -68,7 +68,7 @@ for kind in ("power:0.6", "power:1.5", "drum", "log"):
         ub = -mp.quad(lambda w: 2*w*nu_exp(a - w*w)*mp.log(abs(z - a + w*w)), wb)
         vb = sorted(set([v for v in vpts if v != mp.inf] + ([mp.sqrt(z - a)] if z > a else [])))
         us = -mp.quad(lambda v: 2*v*sig(a + v*v)*mp.log(abs(z - a - v*v)), vb + ([mp.inf] if mp.inf in vpts else []))
-        return ub + us
+        return mp.re(ub + us)        # rounding near the edge leaves ~1e-20 imaginary parts
     mp.mp.dps = 12
     l0 = U(a/2); band = [U(a*t) - l0 for t in (mp.mpf('0.1'), mp.mpf('0.9'))]
     outer = [U(z) - l0 for z in zs]
