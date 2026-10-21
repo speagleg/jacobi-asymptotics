@@ -107,7 +107,9 @@ def Xik(k, al):
     return mmul(Mi, had(Mm, [[s*a, a], [s*b, b]]))
 
 
-def run(p, al, c=mp.mpf(1), verbose=False, mu=None):
+def run(p, al, c=mp.mpf(1), verbose=False, mu=None, nu=None):
+    """al: the exponent alpha (Szego factor and natural index); nu: the Bessel order (default al; decoupled for JZC_M4 §7)"""
+    nu = al if nu is None else mp.mpf(nu)
     p, al = mp.mpf(p), mp.mpf(al); ap = 1/p + mp.mpf(1)/2; sc = mp.sqrt(c)
     # ---------------- soft edge, u^2 = z - 4c ----------------
     Kt = L
@@ -173,7 +175,7 @@ def run(p, al, c=mp.mpf(1), verbose=False, mu=None):
     ifh = fh.inv()
     D0 = {}
     for k in range(1, KORD + 1):
-        Q = mmul(mmul(s3, Xik(k, al)), s3)
+        Q = mmul(mmul(s3, Xik(k, nu)), s3)
         Mk = conj_hard(Q)
         facp = ifh
         for _ in range(k - 1): facp = facp*ifh
