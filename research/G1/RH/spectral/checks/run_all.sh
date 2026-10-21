@@ -67,3 +67,4 @@ echo run_all done
 # Not run by default (long or interactive post-processing; outputs committed individually):
 #   spec_quartic.py, spec_qN.py <N>, spec_corners.py <shape>, spec_edgekernel.py, spec_noiselin.py, spec_kernelfft.py
 #   (the kernel-FFT form-factor numbers of SPEC §3.18 come from post-processing described in spec_kernelfft.py; TODO store it)
+( KORD=4 SHI=14 $PY -B m4_shift_exact.py > m4_shift_exact.out 2>&1; echo EXIT $? >> m4_shift_exact.out )
