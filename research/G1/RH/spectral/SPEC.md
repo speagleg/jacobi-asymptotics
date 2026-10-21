@@ -570,16 +570,71 @@ the count, so Z(0) is unchanged.
 - **Zeta layer.** ε₁ = 2pc·Z(−1) with the exact regularised Z(−1): agreement 3·10⁻⁶ (p = 0.6) and 9·10⁻⁴ (p = 1.5).
 - **m = 2.** After the exact zeta-layer change is subtracted, Δd₂ = 0 to print precision.
 - **m = 1.** Δd₂ = γ·1.81380, exactly linear in γ (γ = −½, ½, 1). It is the same at p = 0.6 and 1.5 and at s = 2 and 3, and the
-  same when the correction acts only on k > 50 (1.8136, converging). Numerically 1.81380 ± 2·10⁻⁶, consistent with π/√3 =
-  1.8137994 (NOT derived).
+  same when the correction acts only on k > 50 (1.8136, converging). *Correction (§3.12):* the constant is −π·cot(π/p). At
+  p = 0.6 and 1.5 it equals π/√3 only because cot(5π/3) = cot(2π/3) = −1/√3. It is not p-independent: it is checked at
+  p = 0.75, 0.8, 1.25 and 1.8 to 10⁻⁶.
 - **Interpretation (HEURISTIC).** A γ/k index correction gives Z(s) = Σ(k + γ/k)^{−ps} a pole at s = −1/p, with residue γ/p.
   The generalised identity C(2q, q)c(p)^q = 1 at q = 1/p (a consequence of c(p)'s definition and the duplication formula;
   C(2j, j)c(1/j)^j = 1 is its integer case) makes the "j = 1/p" member of the zeta layer land at n^{−1−p·(1/p)} = n⁻². With the
-  prefactor p cancelling the residue's 1/p, this would give Δd₂ = γ·(a universal constant). So the integer layer is the zeta
+  prefactor p cancelling the residue's 1/p, Δd₂ = γ·(an s-independent constant); §3.12 derives it as −γπcot(π/p). So the integer layer is the zeta
   layer's pole part. If this is right, S1′ becomes a single statement: all poles and zeta values of Z, each entering through
   C(2q, q)c^q with q the location.
-- **Consequence for the bouncer.** Its WKB correction is O(k⁻²) in the index (λ′^{3/2} = (k − ¼)(1 + O(k⁻²))), the m = 2 case, so
-  d₂ is unaffected. This matches §3.10.
+- **Consequence for the bouncer** (corrected in §3.12). λ′ = (k − ¼)^{2/3}(1 + O(k⁻²)) gives λ′^{3/2} = (k − ¼) + γ₁/(k − ¼) + …, an
+  m = 1 index correction. It is invisible in d₂ because cot(π/p) = cot(3π/2) = 0, not because it is O(k⁻²).
+
+### 3.12 The pole law (NUMERICAL, to 10⁻⁶; HEURISTIC derivation)
+
+**Statement.** Write the zeta layer as a Mellin–Barnes integral,
+
+  (p/n)·Σ_jW(j)Z(−j)n^{−jp} = −(p/n)·(1/2πi)∫W(w)Z(−w)·π cot(πw)·n^{−wp}dw,
+  W(q) := C(2q, q)c^q = (4c)^qΓ(q + ½)/(√πΓ(q + 1)).
+
+Here π cot(πw) has residue 1 at every integer, so it generates the integer terms. A pole of w ↦ Z(−w) at a non-integer w = q,
+with residue R, then contributes
+
+  −p·R·W(q)·π cot(πq)·n^{−1−pq}
+
+to n^pb_n/c. The sign is calibrated once, by the m = 1 data at p = 0.6. Note W(1/p) = 1 for every p: by the duplication
+formula and the definition of c(p), (4c)^{1/p} = π/(2I(p)); C(2j, j)c(1/j)^j = 1 is the case p = 1/j.
+
+**Test.** For λ_k = (k + γk^{−m})^p, Z(s) = ζ(ps) − psγζ(ps + m + 1) + O(γ²) has a pole at q = m/p with residue R = −mγ/p. The
+prediction is a term −mγW(m/p)π cot(πm/p)·n^{−1−m} (m = 1: a shift of d₂). Measured (`checks/spec_pole.out`; s = 2, γ = ½;
+n(y − y_lat) after subtracting the exact first-order zeta layer):
+
+| p | m | cot(πm/p) | predicted | fitted (n ≥ 200 / 400 / 800) |
+|---|---|---|---|---|
+| 1.25 | 1 | −1.3764 | +2.162016 | +2.162016 / +2.162017 / +2.162022 |
+| 1.8 | 1 | −0.1763 | +0.276974 | +0.276974 / +0.276974 / +0.276973 |
+| 0.8 | 1 | +1 | −1.570796 | −1.570792 / −1.570795 / −1.570815 |
+| 0.75 | 1 | +0.5774 | −0.906900 | −0.906866 / −0.906885 / −0.906954 |
+| 1.5 | ½ | +0.5774 | −0.424704 (new n^{−3/2} term) | −0.424703 / −0.424697 / −0.424630 |
+| 1.25 | ½ | +0.3249 | −0.235183 (new n^{−3/2} term) | −0.235178 / −0.235112 / −0.232695 |
+| 0.6, 1.5 (§3.11) | 1 | −0.5774 | +0.906900 per γ = ½ | +0.906900 |
+
+A pole moved to a non-integer exponent (m = ½) produces a new power n^{−3/2} in b_n, with the predicted coefficient, including
+W(q) ≠ 1.
+
+**Consistency checks (not inputs).**
+- *Bouncer (p = 2/3).* The WKB index corrections are odd powers 1/k^m (m = 1, 3, …), so q = 3m/2 is a half-integer and cot = 0.
+  Every pole term vanishes, and the integer layer is a pure index shift (§3.10), consistent with Z_E(−j) = 0 for 3 ∤ j.
+- *Bessel zeros (p = 2).* McMahon gives j_{μ,k}/π = (k + a − 1) − κ′/(2k) + … with odd powers only, so q = m/2 is a half-integer and
+  cot = 0. This is consistent with the Lommel formula being an exact index shift to all orders.
+- *Resonance.* When a pole meets an integer (p = 3/4, m = 1: the second pole of Z at w = 3/p = 4), cot has a pole too, and a
+  term n^{−1−jp}log n is predicted. Not tested; it lies beyond the fit range here.
+
+**Reading.** Conjecture S1′ becomes one statement (Conjecture S1″, NUMERICAL): the 1/n-order series of n^pb_n/c is the
+Mellin–Barnes integral above. Its residues at integers are the zeta layer W(j)Z(−j). Its residues at the poles of Z are the
+contributions of the Weyl and index-correction data, weighted by π cot(πq), with W(1/p) = 1 making the Weyl-scale data enter
+cleanly. Hurwitz shifts (§3.11(a)), whose Z has no poles beyond the Weyl pole, act through the exact index-shift rule, which
+is second order in δ and outside this first-order formula.
+
+**Open.**
+- A derivation of the π cot(πw) kernel from the RH analysis. Heuristically it is the analytic continuation of the band-factor
+  moments: Lemma F.1/H's moment integral, Mellin-transformed in k.
+- Second-order (γ²) terms.
+- The log-resonance prediction.
+- Poles from genuine operators: Robin boundary conditions give index corrections in powers k^{−1/3}, hence new exponents
+  n^{−1−m} with m = 1/3, 2/3.
 
 ### 3.9 Novelty (Rule L, first pass, 2026-10-20) — summary of research/program/novelty_SPEC.md (local, gitignored)
 

@@ -24,7 +24,7 @@ def dZ(j, terms=10, kex=3000):
     rem = sum((mp.mpf(kk) + gg*mp.mpf(kk)**(-mm))**q - sum(mp.binomial(q, i)*gg**i*mp.mpf(kk)**(q - (mm + 1)*i) for i in range(terms)) for kk in range(1, kex + 1))
     return reg + rem
 D = n*(y - y0)
-jmax = int(np.floor(2.5/p)) + 1
+jmax = int(np.ceil(2.5/p)) - 1        # j p < 2.5 (the fit range); avoids poles of Z(-w) colliding with integers beyond it (e.g. p = 3/4: w = 3/p = 4)
 for j in range(1, jmax + 1):
     D = D - float(p*W(j)*dZ(j))*n**(-j*p)
 pred = float(-mm*gg*W(mm/pm)*mp.pi*mp.cot(mp.pi*mm/pm))
