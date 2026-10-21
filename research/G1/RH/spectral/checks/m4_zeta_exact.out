@@ -1,0 +1,28 @@
+j=1: lead = C(2j,j) p j/2 identically: True
+j=1: N^-(2+jp) = 0 identically: True
+j=1: N^-(3+jp)/N^-(1+jp) = A_j + B_j al^2 identically: True
+j=1: N^-(4+jp) = 0 identically: True
+j=1: N^-(5+p)/N^-(1+p) = g1_4 identically: True
+   (141s)
+j=2: lead = C(2j,j) p j/2 identically: True
+j=2: N^-(2+jp) = 0 identically: True
+j=2: N^-(3+jp)/N^-(1+jp) = A_j + B_j al^2 identically: True
+j=2: N^-(4+jp) = 0 identically: True
+   (135s)
+j=3: lead = C(2j,j) p j/2 identically: True
+j=3: N^-(2+jp) = 0 identically: True
+j=3: N^-(3+jp)/N^-(1+jp) = A_j + B_j al^2 identically: True
+j=3: N^-(4+jp) = 0 identically: True
+   (152s)
+j=4: lead = C(2j,j) p j/2 identically: True
+j=4: N^-(2+jp) = 0 identically: True
+j=4: N^-(3+jp)/N^-(1+jp) = A_j + B_j al^2 identically: True
+j=4: N^-(4+jp) = 0 identically: True
+   (152s)
+j=5: lead = C(2j,j) p j/2 identically: True
+j=5: N^-(2+jp) = 0 identically: True
+j=5: N^-(3+jp)/N^-(1+jp) = A_j + B_j al^2 identically: True
+j=5: N^-(4+jp) = 0 identically: True
+   (159s)
+ALL IDENTITIES HOLD
+EXIT 0
