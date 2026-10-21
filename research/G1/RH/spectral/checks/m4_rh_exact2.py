@@ -16,7 +16,9 @@ import os, sys, time
 from sympy import QQ, symbols, factor, Rational, binomial, factorial
 from sympy.polys.fields import field
 KORD = int(os.environ.get("KORD", "4"))
-K, p, al, jj = field("p,alpha,j", QQ)
+K, p, al, jj, be = field("p,alpha,j,beta", QQ)
+DECOUPLE = os.environ.get("DECOUPLE", "0") == "1"   # Szego exponent beta independent of the Bessel order alpha (JZC_M4 §7)
+SZ = be if DECOUPLE else al
 EO = int(os.environ.get("EO", "2"))
 ONE, ZERO = K(1), K(0)
 
@@ -190,7 +192,7 @@ def run(verbose=True, jmu=None):
     sq1 = (one + xs).powr1(HALF); sqz = sq1*G(K(2))
     a2 = S(1, [G1])*sqz.inv()
     base = sq1 + S(1, [G(HALF)])
-    h2 = base.powr1(-(2 + 2*al)); ih2 = base.powr1(2 + 2*al)
+    h2 = base.powr1(-(2 + 2*SZ)); ih2 = base.powr1(2 + 2*SZ)
     def conj_soft(X):
         Z = [[S.const(X[0][0]), ih2*X[0][1]], [h2*X[1][0], S.const(X[1][1])]]
         Y = conjTi(Z); uu = S(1, [G1])
@@ -213,7 +215,7 @@ def run(verbose=True, jmu=None):
     g0 = g.get(0); assert g0.b == ZERO and g0.a == 1/(p + 2)**2
     fh = (g*G((p + 2)**2)).powr1(HALF).shift(1)*G(1/(p + 2))
     a2h = (one + S(2, [G(K(1)/4)])).powr1(HALF).shift(-1)*G(K(2))     # sqrt(4 + v^2)/v
-    rho2 = (S(1, [G(HALF)]) + (one + S(2, [G(K(1)/4)])).powr1(HALF)).powr1(2*(al + 1))
+    rho2 = (S(1, [G(HALF)]) + (one + S(2, [G(K(1)/4)])).powr1(HALF)).powr1(2*(SZ + 1))
     irho2 = rho2.inv(); ia2h = a2h.inv(); ifh = fh.inv()
     s3 = [[G1, GZ], [GZ, -G1]]
     def conj_hard(Q):
@@ -307,7 +309,7 @@ def run(verbose=True, jmu=None):
     dd = [b.get(k) for k in range(KORD + 1)]
     assert all(all(y == ZERO for y in x.i) for x in dd), "imaginary part"
     d = [x.r[0] for x in dd]; e = [[x.r[m] for x in dd] for m in range(EO + 1)]
-    delta = al/2 + HALF
+    delta = SZ/2 + HALF
     x = S(1, [G1]); inv_n = x*(one - x*G(delta)).inv()
     tot = S.const(G(d[0])); q = S.const(1)
     for k in range(1, KORD + 1): q = q*inv_n; tot = tot + q*G(d[k])

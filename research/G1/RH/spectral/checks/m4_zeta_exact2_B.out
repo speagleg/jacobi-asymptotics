@@ -1,6 +1,6 @@
 sha256 m4_zeta_exact2.py: badda6a534fbf621c2bbef3eca6c7822b26d13493a655a1655860449a8bab9f4
-sha256 m4_rh_exact2.py: 143a308b8744bfccf3110c3a3f4a60a8f192268b0f65f78b64bf8bd76c116521
-   (233s)
+sha256 m4_rh_exact2.py: 2d18e25944304c02b2a38290bfe36013727e6e99fe7ae6032ba6aa2cdb5cbc06
+   (835s)
 mu1^2: N^-(1+2p) = 0 identically: True
 mu1^2: N^-(2+2p) = p(3p+1)/2 identically: True
 mu1^2: N^-(3+2p) = 0 identically: True

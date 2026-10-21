@@ -1,0 +1,23 @@
+sha256 m3a_g5_exact.py: 3445d560e2ae8f15b39674951aeafd5693f3393ec0126bca3eb4e406baeaaebb
+sha256 m4_rh_exact2.py: 2d18e25944304c02b2a38290bfe36013727e6e99fe7ae6032ba6aa2cdb5cbc06
+integer layer f1 = f3 = 0 (beta-free) identically: True
+f3 = 0 identically: True
+f2 = (p+1)/12 - (p+2)alpha^2/8 (beta-free) identically: True
+f4 = closed form at the Bessel order (beta-free) identically: True
+j=1: lead = C(2j,j) p j/2 identically: True
+j=1: N^-(2+jp) = 0 identically: True
+j=1: N^-(3+jp)/N^-(1+jp) = A_j + B_j alpha^2 (beta-free) identically: True
+j=1: N^-(4+jp) = 0 identically: True
+   (106s)
+j=2: lead = C(2j,j) p j/2 identically: True
+j=2: N^-(2+jp) = 0 identically: True
+j=2: N^-(3+jp)/N^-(1+jp) = A_j + B_j alpha^2 (beta-free) identically: True
+j=2: N^-(4+jp) = 0 identically: True
+   (140s)
+j=3: lead = C(2j,j) p j/2 identically: True
+j=3: N^-(2+jp) = 0 identically: True
+j=3: N^-(3+jp)/N^-(1+jp) = A_j + B_j alpha^2 (beta-free) identically: True
+j=3: N^-(4+jp) = 0 identically: True
+   (89s)
+ALL IDENTITIES HOLD
+EXIT 0
