@@ -11,6 +11,9 @@ Status (2026-10-20): exploratory note from the Plan E3 session. Labels per VERIF
   REVIEW_SPEC2_A.md and REVIEW_SPEC2_B.md, two independent readers, both ACCEPT WITH FIXES; fixes applied 2026-10-21, §6).
   Review does not upgrade labels: S1′, S1″, S1‴, the pole law and the κ law remain CONJECTURE / NUMERICAL / HEURISTIC.
   The main correction is the sign of the pole law (§3.12) and its limitation to the leading power of each pole (F2).
+- §3.14 (2026-10-21, NOT REVIEWED): the π cot kernel derived. Theorem K (lattice, PROVED-mod-cite on E3), Lemma K0 (PROVED),
+  Lemma Q (soft-edge condition, PROVED-mod-cite + NUMERICAL inequalities), Proposition E (PROVED as Mellin algebra). Principle
+  E and Hypothesis G are CONJECTURE / HEURISTIC; S1″ itself stays CONJECTURE (NUMERICAL).
 
 ## 0. Setting
 
@@ -701,7 +704,8 @@ terms linear in δ but one order lower (−(p+1)δd₁⁰ and −(1+2p)δε₁) 
 produced by this formula.
 
 **Open.**
-- A derivation of the π cot(πw) kernel from the RH analysis (§3.13 gives a heuristic one).
+- A derivation of the π cot(πw) kernel from the RH analysis: done for the lattice's integer residues (§3.14, Theorem K); for
+  the poles, derived from the soft-edge condition under Hypothesis G (§3.14). A full proof needs G.
 - The subleading pole terms: a formula for the n^{−2−pq} coefficient. The Bessel family (exact) and the Hurwitz p = 2 control are
   the test data.
 - Second-order (γ²) terms. For γ/k these are absent at d₂ (exactly linear; §3.11(b)).
@@ -787,6 +791,181 @@ committed (3f13e62, 04:48) before the h = ½ and h = 2 runs (04:50).
 - **Caution for ε₂.** A future test of the Robin ε₂ at n^{−1−2p} = n^{−7/3} must include the subleading term of the q = ½ pole,
   which sits at n^{−2−pq} = n^{−7/3} as well (§3.12, Limitation).
 
+### 3.14 Where the π cot kernel comes from (Theorem K: PROVED-mod-cite; Lemma K0: PROVED; Lemma Q: PROVED-mod-cite with NUMERICAL inequalities; Principle E: CONJECTURE; NOT REVIEWED)
+
+Two mechanisms produce the same kernel:
+- **The band factor (E3's lattice proof).** The whole 1/n-order zeta layer is one linear functional of the band factor.
+  Theorem K writes it exactly as a Mellin–Barnes integral whose kernel contains −π cot(πw). Its residues at the integers are
+  E3's ε_j.
+- **The leading-order equilibrium.** The constant c(p) of Law P is fixed by a soft-edge condition that is literally a sum of
+  the per-node law (1 − u)^{−1/2} over the saturated (out-of-band) nodes (Lemma Q). The Mellin transform of that *truncated* law
+  is −π cot(πw)·W(w)(4c)^{−w} (Lemma K0). Perturbing the node set moves the edge, and the poles of Z enter with π cot(πq).
+So the kernel of §3.12 is derived, not fitted. What is still missing for a proof of S1″ is stated as Hypothesis G below.
+
+**Lemma K0 (PROVED).** Let L(u) := (1 − u)^{−1/2}1_{u<1}. For Re w < 0,
+
+  L̃(w) := ∫_0^∞u^{−w−1}L(u)du = B(−w, ½) = −π cot(πw)·Γ(w + ½)/(√πΓ(w + 1)),
+
+continued meromorphically to ℂ, with simple poles at w = 0, 1, 2, … where −Res L̃ = C(2j, j)4^{−j} (the Taylor coefficients of
+L at 0). At a = 4c, (a/n^p)^w·Γ(w + ½)/(√πΓ(w + 1)) = W(w)n^{−pw}.
+
+*Proof.* B(−w, ½) = Γ(−w)√π/Γ(½ − w). By the reflection formulas Γ(½ − w)Γ(½ + w) = π/cos πw and Γ(−w)Γ(1 + w) = −π/sin πw,
+√πΓ(−w)/Γ(½ − w) = Γ(−w)Γ(w + ½)cos(πw)/√π = −π cot(πw)Γ(w + ½)/(√πΓ(w + 1)). ∎ (Checked: `checks/spec_kernel.out` (K0).)
+
+The two analytic continuations of (1 − u)^{−1/2} into u > 1, ∓i|1 − u|^{−1/2}, have Mellin transforms with Γ(−w)Γ(1 + w)e^{±iπw}.
+Their average is the truncated L, so K0 is §3.13's "averaging" made exact.
+
+**Theorem K (p > 1, s > 1; PROVED-mod-cite: E3 Lemmas F.1′, E3.7; DLMF 5.9.1, 25.2.1, 25.4.1 as quoted in RH/CITATIONS.md; the
+Mellin–Barnes integral for (1 + x)^{−3/2}, standard, NOT QUOTED).** Let 𝔢 = 𝔢_n be the jump density of Lemma F.1′ and
+
+  e_n := (cp/π)∫_0^∞𝔢(−r)·r^{−1/2}(r + 4c)^{−3/2}dr.
+
+(i) e_n = cp·Σ_kμ_{n,k}Q_k(4c) term by term: e_n is Lemma E3.7's functional evaluated on the full band factor rather than on its
+  truncation P_n.
+(ii) For 0 < c₀ < 1,
+
+  e_n = (1/2πi)∫_{(c₀)} pW(w)ζ(−wp)n^{−wp}·π[cot(πwp/2) − cot(πw)] dw.
+
+(iii) For every J ≥ 1, e_n = Σ_{j≤J} pW(j)ζ(−jp)n^{−jp} + O(n^{−(J+1)p}); the terms are E3's ε_j.
+
+*Proof.*
+- **(i).** Σ_kQ_k(4c)y^{−k−1} = y^{−2}(1 − 4c/y)^{−1/2}(1 − 4c/y)^{−1} for |y| > 4c (product of the generating functions of
+  C(2j, j)c^j and (4c)^l). At y = −r this is r^{−1/2}(r + 4c)^{−3/2}. Insert m_k = (1/2π)∫𝔢y^{−k−1}dy (Lemma F.1′(i)); the
+  interchange is justified because 𝔢 is exponentially small for |y| ≤ 2R₁ (E_pgt1 Lemma E.2(c)).
+- **Mellin transform of 𝔢.** As in Lemma F.1′(i), with k replaced by complex w (the Fubini bound is the same with Re w):
+  I(w) := ∫_0^∞𝔢(−r)r^{−w−1}dr = −2pΓ(wp)ζ(1 + wp)(2πn)^{−wp}sin(πw − πwp/2) for Re w > 0. The strip is set by 𝔢(−r) → π(1 − 2/p)
+  as r → ∞ (t₊ → 0) and by its exponential decay as r → 0. By DLMF 25.4.1, I(w) = (2π/w)ζ(−wp)n^{−wp}[sin πw·cot(πwp/2) − cos πw].
+- **(ii).** r^{−1/2}(r + 4c)^{−3/2} = (1/2πi)∫Γ(−s)Γ(3/2 + s)/Γ(3/2)·(4c)^sr^{−2−s}ds, with −3/2 < Re s < 0. Put w = s + 1 and
+  exchange the integrals (absolute convergence on Re w = c₀ ∈ (0, 1)). Then Γ(1 − w)/w = π/(sin(πw)Γ(1 + w)) collects the
+  factors into pW(w)·(π/sin πw)·(w/2π)n^{pw}I(w), which is the stated integrand.
+- **(iii).** On vertical lines |cot(πwp/2) − cot(πw)| ≤ Ce^{−min(p, 2)π|Im w|}, while ζ(−wp) and W grow at most polynomially. So
+  the contour moves right. The poles are those of −π cot(πw) at w = j, each giving −Res = pW(j)ζ(−jp)n^{−jp}. The poles of
+  cot(πwp/2) at w = 2l/p (l ≥ 1) sit on the trivial zeros ζ(−2l) = 0 and are removable; where 2l/p = j is also an integer, the
+  product is regular and the j-th term is 0. ∎
+- **Check** (`checks/spec_kernel.out` (K)): quadrature of e_n against the Mellin–Barnes integral agrees to all 16 printed
+  digits at (p, n) = (1.5, 10), (1.25, 20), (3, 10), and the residue sums converge to it (5 terms: 10⁻⁸ relative or better).
+
+*What Theorem K adds to E3.* E3 controls e only through its truncated polynomial expansion. Theorem K gives the exact functional
+and shows that S1‴ holds for the lattice, in the sense that S1‴ asserts:
+- the kernel −π cot(πw) comes out of the RH functional itself;
+- the Weyl pole w = −1/p lies to the left of the strip Re w > 0, so the exclusion REVIEW_SPEC2_A F4(i) asked for is automatic,
+  as is w = 0 (the Z(0) term enters d₁ through the index normalisation, not through e_n);
+- the second kernel π cot(πwp/2) contributes nothing, because of the trivial zeros (for other node sets it does not cancel;
+  see Open);
+- e_n is a smooth function of n with an asymptotic expansion in powers only. The n^{−1/2} edge oscillation of the literal
+  truncated sum (F4(ii)) is an artefact of truncating at u = 1.
+The lattice proof uses p > 1 (𝔢 on the negative axis). For p < 1 the seam version of Lemma F.1 has the same Fourier sum
+(§3.1), and the same representation is expected but not written out.
+
+**Proposition 3.14.4 (the band factor does not carry the pole term; computation PROVED, conclusion HEURISTIC).** Perturb the
+lattice to λ_k = (k + γk^{−m})^p, keeping the interpolating phase of Lemma F.1′ but with t(z) = κ(n^p/z), κ the inverse of
+k ↦ λ_k. To first order, δt₊ = −γn^{−m}(re^{iπ})^{m/p}, and δ𝔢 = 2Im[F′(t₊)δt₊] with F′(t) = 2πi/(e^{2πit} − 1). Then
+
+  ∫_0^∞δ𝔢(−r)r^{−w−1}dr = −2πγp·n^{−pw}ζ(1 + m − pw)[cos πw + sin πw·tan(π(pw − m)/2)],  Re w > (m + 1)/p
+
+(same Fubini/DLMF 5.9.1 argument, with Σ_{m′}m′^{m−pw} = ζ(pw − m) and the functional equation; checked to 10⁻¹³ at
+w = 2.3, 3.1, `spec_kernel.out` (P)). With δZ(−w) = pwγζ(1 + m − pw), the contribution to e is
+
+  (1/2πi)∫ pW(w)δZ(−w)n^{−pw}·π[−cot(πw) − tan(π(pw − m)/2)] dw,
+
+taken on a line Re w > (m + 1)/p.
+- **The integers** give pW(j)δZ(−j)n^{−pj}, the zeta layer of the perturbed set, exactly as for the lattice.
+- **The pole at q = m/p lies to the left of the strip.** Equivalently: δ𝔢 = γΦ(r/n^p) is O(γ) only at r ~ n^p (t ~ 1), so for
+  any admissible interpolant (bounded for t < 1) its contribution to e_n is O(n^{−p}). A term n^{−pq} = n^{−m} with m < p (all
+  the m = 1, p > 1 rows of §3.12) cannot come from the band factor.
+- **The Jacobian tilt.** The band weight changes by log|t′| → γmn^{−1−m}z^{(m+1)/p}, a branched tilt at the hard edge. By the
+  Beta integral (1/π)∫_0^1(1 − v^q)(1 − v)^{−3/2}v^{−1/2}dv = 2Γ(q + ½)/(√πΓ(q)) (`spec_kernel.out` (B)), E3.7's functional on
+  z^q is (2q/4c)W(q) (if E3.7 extends to branched tilts, which is not shown). Both this and the tan pole at w = (m + 1)/p sit
+  at n^{−2−m}, the order of the subleading pole terms of §3.12 (F2). They are candidates for those terms.
+
+**Lemma Q (the soft-edge condition; PROVED-mod-cite: balayage onto an interval, standard; the constrained-equilibrium
+characterisation (Rakhmanov 1996, Dragnev–Saff 1997), NOT READ under Rule C; the variational inequalities NUMERICAL).**
+Rescale the lattice nodes to z_k = (n/k)^p, so the normalised node density is σ(y) = (1/p)y^{−1/p−1} on (0, ∞). The
+equilibrium measure of unit mass with upper constraint σ and no external field (the weights k^{−s} are subexponential) is
+μ = ν|_{[0,a]} + σ|_{[a,∞)}, where
+
+  ν(x) = [1 − ∫_a^∞σ(y)√(y(y − a))/(y − x)dy]/(π√(x(a − x))),
+
+and the edge a is fixed by the soft-edge (continuity) condition
+
+  ∫_a^∞σ(y)(1 − a/y)^{−1/2}dy = 1.     (Q)
+
+For this σ, (Q) reads a^{−1/p}(1/p)B(1/p, ½) = 1, i.e. a^{1/p} = √πΓ(1/p + 1)/Γ(1/p + ½) = π/(2I(p)), i.e. **a = 4c(p)**. This is an
+independent derivation of the constant of Law P.
+- **Equilibrium on the band.** ν is (arcsine, mass 1) minus the balayage of σ|_{[a,∞)} onto [0, a], so U^μ is constant there.
+- **Positivity.** √(y(y − a))/(y − x) < √(y/(y − a)) for x < a, so the bracket is positive on [0, a) and vanishes at x = a
+  exactly under (Q).
+- **Upper constraint and outer inequality (NUMERICAL, `spec_kernel.out` (Q), p = 0.6 and 1.5).** ν ≤ σ on the band, U^μ is
+  constant there to 10⁻¹¹, and U^μ − ℓ < 0 on the saturated region; a = 4c to 10⁻¹².
+
+In node language, (Q) is (1/n)Σ_{u_k<1}(1 − u_k)^{−1/2} ≈ 1 with u_k = 4cλ_k/n^p. The per-node law of S2′ is the derivative of this
+condition: deleting one saturated node lowers the sum by (1 − u₀)^{−1/2}, and the edge must move to compensate (see Principle E).
+
+**Proposition E (Mellin algebra; PROVED as an identity of asymptotic series).** Let Λ be regular (λ_k ~ k^p, so w ↦ Z(−w) has
+the Weyl pole at w = −1/p with residue −1/p). Suppose its other poles are at points q with residues R_q, and Z(−j) is finite
+for integers j ≥ 0. Define F_n(a) as the Mellin pole part of Σ_kL(aλ_k/n^p), i.e. (1/2πi)∫L̃(w)Z(−w)(a/n^p)^wdw with all poles
+to the right. Then, by Lemma K0,
+
+  F_n(a) = n(a/4c)^{−1/p} + Σ_{j≥0}C(2j, j)4^{−j}Z(−j)(a/n^p)^j + Σ_q R_qπcot(πq)Γ(q + ½)/(√πΓ(q + 1))·(a/n^p)^q,
+
+and the solution of F_n(4c(1 + η)) = n is, to first order,
+
+  η = (p/n)[Z(0) + Σ_{j≥1}W(j)Z(−j)n^{−jp} + Σ_q R_qW(q)π cot(πq)n^{−pq}] + O(nη²).
+
+The four parts of S1 are exactly these terms:
+- **j = 0.** pZ(0)/n is the Z(0) part of d₁ (S1).
+- **j ≥ 1.** ε_j = pW(j)Z(−j) (S1′(II)).
+- **The poles.** They give the pole law of §3.12, +pR_qW(q)π cot(πq)n^{−1−pq}, with the sign that the data require. This
+  includes the κ pole (the moved Weyl pole) and the log resonance (a pole meeting an integer).
+- **The Weyl pole.** It is the leading term n itself, not a correction, which explains its exclusion.
+
+**Principle E (CONJECTURE; NUMERICAL support = all of §§2–3.13).** For a regular node set, the 1/n-order layer of n^pb_n/c, at
+leading order per node, is η of Proposition E. Equivalently, the band edge is fixed by the discrete soft-edge condition
+Σ_{u_k<1}(1 − u_k)^{−1/2} = n (Mellin pole part).
+- **Proved instances.**
+  - The lattice: its integer residues are E3's ε_j (Theorem K), and Lemma Q gives the leading order.
+  - One deleted saturated atom: Principle E gives Δ(ny_n) = −p(1 − u₀)^{−1/2}, which is Theorem S2′ (§3.2, PROVED by an
+    independent route via Uvarov). This consistency was not used in formulating E.
+- **Not covered.**
+  - The integer layer beyond Z(0) (the quadratic and one-order-lower index-shift terms; F5).
+  - The −pα/2 part of d₁ (the weights).
+  - The subleading pole terms (F2). Proposition 3.14.4 identifies candidates for these.
+
+**Hypothesis G (what a proof of S1″ needs).** For λ_k = Λ(k) with Λ(t) = t^p(1 + O(t^{−1−m})), the RH analysis of Paper 2/E2/E3
+goes through with:
+- (G1) the g-function of the constrained equilibrium of the n-dependent continuum node density;
+- (G2) the band factor given by the Cauchy integral of 𝔢_κ;
+- (G3) parametrix corrections whose first-order dependence on the perturbation is O(n^{−2−m}).
+Under G, the first-order change of n^pb_n/c at order n^{−1−m} is the edge shift of (Q) for the perturbed continuum density
+(1/n)|dt_κ/dz|. Its Mellin-regularised value is, by Lemma K0 at w = q, pR_qW(q)π cot(πq)n^{−1−pq}. The integer residues come
+from G2 (Proposition 3.14.4). Proving G is the plan-sized task: Paper 2 for non-lattice nodes. The pole law S1″ therefore
+remains CONJECTURE (NUMERICAL), now with a derivation from Hypothesis G (HEURISTIC) and with its kernel no longer an input.
+
+**Structural reading.**
+- The poles of Z come from the smooth (continuum) node density and enter through the equilibrium (g-function). Their kernel is
+  the Mellin transform of the truncated law: π cot(πq).
+- The zeta values Z(−j) come from discreteness and enter through the band factor. Their kernel is the integer residues of
+  −π cot(πw).
+- Both are one Mellin–Barnes integral because both are the same soft-edge sum, read at its poles. The second lattice kernel,
+  π cot(πwp/2), is invisible for the lattice only because of the trivial zeros. For Hurwitz lattices, ζ(−2l, a) ≠ 0, so it
+  would produce n^{−1−2l} terms, i.e. integer-layer terms. Whether this accounts for the δ-dependence of d₃ in §3.11(a) is open.
+
+**Rule A.**
+- *Is Theorem K just E3 re-summed?* Its expansion is E3's series (asymptotic only, since ζ(−jp) grows factorially). The
+  content is the exact functional, its strip, and the two kernels.
+- *Is Lemma Q circular with S2′?* No. (Q) comes from potential theory alone, and S2′ was proved from Uvarov's identity. Their
+  agreement is a check.
+- *Fitted inputs?* None. The kernel identification of §3.12 (Rule X) now has a derivation. The pole-law predictions predate it.
+- *Why was the band factor not enough?* Proposition 3.14.4 shows that its pole contribution lies on the wrong side of the
+  strip, at scale n^{−p}. Searching for the pole term there would have failed.
+
+**Open.**
+- Hypothesis G (the proof of S1″).
+- The p < 1 version of Theorem K.
+- The second kernel for Hurwitz lattices and the integer layer.
+- The subleading pole terms from the Jacobian tilt and the tan pole. This needs E3.7 for branched tilts, i.e. a hard-edge
+  computation.
+
 ### 3.9 Novelty (Rule L, first pass, 2026-10-20) — summary of research/program/novelty_SPEC.md (local, gitignored)
 
 The search was web-only: arXiv was read through WebFetch, and MathSciNet/zbMATH were unavailable. Quotes there are second-hand
@@ -857,8 +1036,9 @@ Consequences for this note:
    - Determinant construction: carry out "Paper 2 for Airy nodes" (P1)–(P4).
 5. **Quartic oscillator** (p = 4/3, the κ-regime of E3 Thm E3.1): compare 2pcZ(−1) with Voros's spectral zeta.
 6. **Quantify S4**: the amplitude and law of the soft-edge noise.
-7. **The pole law (next proof target).** Derive the π cot(πw) kernel from the band-factor moment integral (Lemmas F.1/F.1′/H
-   with a perturbed node set), i.e. prove S1″ at the leading power of each pole. Then the subleading pole terms (§3.12,
+7. **The pole law.** Kernel derived (§3.14): Theorem K for the lattice, and the soft-edge condition (Lemma Q, Proposition E)
+   for the poles. Remaining: Hypothesis G, i.e. Paper 2's construction for non-lattice nodes; the p < 1 version of Theorem K;
+   and E3.7 for branched hard-edge tilts. Then the subleading pole terms (§3.12,
    Limitation), with the exact Bessel family and the Hurwitz p = 2 control (ε₁ = π²/256) as test data.
 
 ## 6. Rule A / Rule X log

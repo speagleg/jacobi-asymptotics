@@ -13,6 +13,7 @@ r spec_bouncer_heat.out "spec_bouncer_heat.py"
 r spec_airy_index.out "spec_airy_index.py"
 r spec_mobius.out "spec_mobius.py"
 r spec_lommel.out "spec_lommel.py"
+r spec_kernel.out "spec_kernel.py"
 r spec_hurwitz_moments.out "spec_hurwitz_moments.py" & A=$!; r spec_hurwitz_moments_plt1.out "spec_hurwitz_moments_plt1.py" & B=$!; wait $A $B
 r spec_hur.out "spec_hur.py 0.6 2.0 -0.5" "spec_hur.py 0.6 2.0 0.5" "spec_hur.py 0.6 2.0 1.0" "spec_hur.py 0.75 3.0 1.0" "spec_hur.py 1.5 2.0 0.5" "spec_hur.py 1.5 2.0 1.0" & A=$!
 r spec_pert.out "spec_pert.py 0.6 2.0 2 0.5" "spec_pert.py 0.6 2.0 3 -0.4" & B=$!; wait $A $B
