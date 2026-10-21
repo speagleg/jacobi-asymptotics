@@ -9,15 +9,16 @@ with candidate mechanisms of §3.14 (Prop. 3.14.4), with q1 = (m+1)/p:
   (a) Jacobian tilt through E3.7 (if E3.7 extends to branched tilts): m p q1 W(q1)/2;
   (b) the tan pole of the phase perturbation at w = q1:                 p q1 W(q1);
 No assertion on the candidates (exploration); assertions only on the stability of the extraction.
-Usage: spec_subpole.py p [p ...]   (s = 2)."""
+Usage: spec_subpole.py p[:s] [p[:s] ...]   (s defaults to 2)."""
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'second_order', 'checks'))
 import numpy as np, mpmath as mp
 from spec_common import Checks, run, NMAX, c_p_mp
 from so_coeffs import coeffs
 from so_fit import sequences
-C_ = Checks(); s = 2.0; m = 1.0
-for p in [float(a) for a in sys.argv[1:]]:
+C_ = Checks(); m = 1.0
+for arg in sys.argv[1:]:
+    p, s = (float(v) for v in arg.split(':')) if ':' in arg else (float(arg), 2.0)
     K = (200 if p < 1 else 100)*NMAX; k = np.arange(1, K + 1, dtype=np.float64)
     al, b = coeffs(p, s, K, NMAX); _, y0, *_ = sequences(p, al, b)
     D = {}
@@ -37,7 +38,7 @@ for p in [float(a) for a in sys.argv[1:]]:
         if abs(arg - 1) < 1e-12: continue
         cj = float(pm*W(j)*pm*j*mp.zeta(arg)); zeta_terms.append((j*p, cj)); R = R - cj*n**(-j*p)
     tgt = 1 + m
-    print(f"p={p} m={m}: q={float(q):.4f} q1={float(q1):.4f}  lead pole coef {lead:+.6f}  zeta terms {[(round(e, 3), round(v, 6)) for e, v in zeta_terms]}")
+    print(f"p={p} s={s} m={m}: q={float(q):.4f} q1={float(q1):.4f}  lead pole coef {lead:+.6f}  zeta terms {[(round(e, 3), round(v, 6)) for e, v in zeta_terms]}")
     # fit R on n >= lo with a pool of exponents around the target (first order in g only)
     pool = sorted({round(e, 9) for e in [tgt, tgt + 1, 1 + m + p, 1 + p, 1 + 2*p, 2 + p, m + p, 2 + m + p, 3 + m] if e > m + 1e-9})
     res = []
