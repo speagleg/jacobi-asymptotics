@@ -47,7 +47,7 @@ if __name__ == "__main__":
     sel = (Ke > 150) & (Ke <= 700)
     Am = np.vstack([E2[sel]**-AEX, E2[sel]**(-3*AEX)]).T; B, Cc = np.linalg.lstsq(Am, r[sel], rcond=None)[0]
     Bs = np.linalg.lstsq(Am[:, :1], r[sel], rcond=None)[0][0]
-    print(f"WKB fit on 200 < K <= 900: B = {B:.10f}, C = {Cc:.6f} (one-term B = {Bs:.10f}); residual at K=800: {r[799] - B*E2[799]**-AEX - Cc*E2[799]**(-3*AEX):+.1e}")
+    print(f"WKB fit on 150 < K <= 700: B = {B:.10f}, C = {Cc:.6f} (one-term B = {Bs:.10f}); residual at K=800: {r[799] - B*E2[799]**-AEX - Cc*E2[799]**(-3*AEX):+.1e}")
     gamma = -A*B; poleterm = -gamma*np.pi/np.tan(np.pi/p)  # = (N-1)/(6(N+2))
     _g = 0                                  # lam^{3/4} = A E^{3/4}, E^{-3/4} = A/lam^{3/4} ~ A/k'  =>  gamma = -A B
     # nodes: exact for K <= 1000, series beyond (solve K - 1/2 = A E^{3/4} + B E^{-3/4} + C E^{-9/4} by Newton)
@@ -67,7 +67,7 @@ if __name__ == "__main__":
     d2f = lambda p, s: (p + 1)*(s - 1)**2/(8*p) - (p + 2)*(s - 1 - p)**2/(8*p*p) + (p + 1)/12
     d2shift = d2f(p, s) + p*(p + 1)*delta**2/2 - (p + 1)*delta*d10
     print(f"gamma = -A B = {gamma:+.8f} (pole term -gamma pi cot(pi/p) = {poleterm:.8f});  predicted d1 = {d1:+.8f};  eps1 = 2pcZ(-1) = {eps1:+.8f} (Z(-1) = {Zm1:+.8f})")
-    print(f"d2 predictions: shift-only {d2shift:+.6f};  + pi gamma (pole law) {d2shift + poleterm:+.6f};  sign flipped {d2shift - poleterm:+.6f};  (N-1)/(6(N+2)) = {(NPOW-1)/(6*(NPOW+2)):.8f}")
+    print(f"d2 predictions: shift-only {d2shift:+.6f};  + pole term (pole law) {d2shift + poleterm:+.6f};  sign flipped {d2shift - poleterm:+.6f};  (N-1)/(6(N+2)) = {(NPOW-1)/(6*(NPOW+2)):.8f}")
     v1, h1 = fit(n, y, p, [], 1.0); print(f"d1 fit {v1:+.8f} ({h1:.1e})"); C_.check("d1", v1, d1, max(3*h1, 1e-6))
     v2, h2 = fit(n, y - d1/n - eps1*n**(-1 - p), p, [1.0, 1 + p], 2.0)
     print(f"d2 fit (after d1, eps1) {v2:+.6f} ({h2:.1e});  minus pole-law prediction {v2 - d2shift - poleterm:+.1e}")

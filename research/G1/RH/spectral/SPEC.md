@@ -1156,8 +1156,16 @@ W = 1. The pole contribution to d₂ is A·B·π cot(π/p), with cot(π/p) = −
 - N = 1 (V = |q|) gives 0, consistent with the cot = 0 behaviour of linear potentials (the bouncer, §3.12).
 - The N = 2 limit is 1/24, where the harmonic oscillator's exact Bohr–Sommerfeld rule meets the resonance p = 1. The N → ∞
   limit is 1/6.
-- Only N = 4 is tested against b_n itself (above). For the others the number is the pole law's prediction, evaluated with an
-  exact-eigenvalue B.
+- N = 4 and N = 6 are tested against b_n itself (`checks/spec_qN.py`, `checks/spec_qN.out`):
+
+  | N | d₁ fit (pred) | ε₁ fit (pred 0) | d₂ fit (spread) | shift + (N − 1)/(6(N + 2)) | without pole term |
+  |---|---|---|---|---|---|
+  | 4 | +0.16666667 (1/6) | 1·10⁻⁵ ± 3·10⁻³ | +0.276010 (1·10⁻⁵) | +0.276042 | +0.192708 |
+  | 6 | +0.25000000 (1/4) | 5·10⁻⁵ ± 2·10⁻³ | +0.315918 (3·10⁻⁵) | +0.315972 | +0.211806 |
+
+  For N = 8–12 the rational is the pole law's prediction, evaluated with an exact-eigenvalue B. (The scripts' regularised
+  Z(−1), about 10⁻³–10⁻², is a truncation artefact. The heat-trace exponents −a + 2aj contain no 1 for N = 4, 6, so Z(−1) = 0,
+  and the fits agree with 0.)
 - **Derivation (same day; PROVED-mod-cite given the second-order Bohr–Sommerfeld/Dunham term, NOT QUOTED; conditional on
   the pole law).** The second-order quantisation reads
 
