@@ -112,7 +112,7 @@ def run(p, al, c=mp.mpf(1), verbose=False, mu=None, nu=None, want_a=False):
     nu = al if nu is None else mp.mpf(nu)
     p, al = mp.mpf(p), mp.mpf(al); ap = 1/p + mp.mpf(1)/2; sc = mp.sqrt(c)
     # ---------------- soft edge, u^2 = z - 4c ----------------
-    Kt = L
+    Kt = S.HI//2 + 4                                        # enough terms of S(e) for u^{S.HI} (was the fixed L = 44)
     Scoef = [mp.mpf(0)]*Kt
     for k in range(Kt):
         for m in range(Kt - k):
@@ -146,14 +146,16 @@ def run(p, al, c=mp.mpf(1), verbose=False, mu=None, nu=None, want_a=False):
             for j in range(2):
                 e = D[i][j]; lo = e.lo
                 odd = max([abs(e.get(t)) for t in range(lo, e.hi + 1) if t % 2 != 0] + [0])
-                assert odd < mp.mpf(10)**(-25), ("soft Delta not even in u", k, i, j, odd)
+                scale = max([abs(e.get(t)) for t in range(lo, e.hi + 1)] + [mp.mpf(1)])
+                assert odd < scale*mp.mpf(10)**(-(mp.mp.dps*2)//3), ("soft Delta not even in u", k, i, j, odd)
                 lo2 = (lo + (lo % 2))//2
                 row.append(S(lo2, [e.get(2*t) for t in range(lo2, e.hi//2 + 1)], e.hi//2))
             Dw.append(row)
         Dr[k] = Dw
     # ---------------- hard edge, z = -v^2 ----------------
-    zc = [mp.mpf(0)]*L                                     # a-series coefficients in z
-    for k in range(L//2):
+    LZ = S.HI + 4                                          # enough z-terms for the cap (was L//2 = 22, see JZC_M4 §9 note)
+    zc = [mp.mpf(0)]*LZ                                    # a-series coefficients in z
+    for k in range(LZ):
         zc[k] = mp.rf(mp.mpf(1)/2, k)/mp.factorial(k)/(4*c)**k/((ap + k)*(k + mp.mpf(1)/2))
     aser_z = S(0, [x*(4*c)**mp.mpf(-0.5)/(p*mp.pi) for x in zc])
     fz = (aser_z*aser_z).shift(1)*(-(mp.pi**2)/4)            # f(z) series in z
@@ -187,7 +189,8 @@ def run(p, al, c=mp.mpf(1), verbose=False, mu=None, nu=None, want_a=False):
             for j in range(2):
                 e = D[i][j]; lo = e.lo
                 odd = max([abs(e.get(t)) for t in range(lo, e.hi + 1) if t % 2 != 0] + [0])
-                assert odd < mp.mpf(10)**(-25), ("hard Delta not even in v", k, i, j, odd)
+                scale = max([abs(e.get(t)) for t in range(lo, e.hi + 1)] + [mp.mpf(1)])
+                assert odd < scale*mp.mpf(10)**(-(mp.mp.dps*2)//3), ("hard Delta not even in v", k, i, j, odd)
                 lo2 = (lo + (lo % 2))//2
                 row.append(S(lo2, [e.get(2*t)*(-1)**t for t in range(lo2, e.hi//2 + 1)], e.hi//2))   # v^{2t} = (-z)^t
             Dz.append(row)
@@ -224,7 +227,7 @@ def run(p, al, c=mp.mpf(1), verbose=False, mu=None, nu=None, want_a=False):
         return S(e.lo, [e.get(t) for t in range(e.lo, 0)]) if e.lo < 0 else S(0, [mp.mpc(0)])
     def reexpand(ppser, frm, to):
         """sum_{m>=1} C_m (z - z_frm)^{-m}, expanded in t = z - z_to (Taylor), z_to - z_frm = d"""
-        d = pts[to][0] - pts[frm][0]; NT = 30; out = S(0, [mp.mpc(0)]*NT, NT - 1)
+        d = pts[to][0] - pts[frm][0]; NT = S.HI; out = S(0, [mp.mpc(0)]*NT, NT - 1)
         for m in range(1, -ppser.lo + 1):
             Cm = ppser.get(-m)
             if Cm == 0: continue
@@ -253,7 +256,8 @@ def run(p, al, c=mp.mpf(1), verbose=False, mu=None, nu=None, want_a=False):
                 for j in range(2):
                     x = Rin[e][k][i][j]
                     bad = max([abs(x.get(t)) for t in range(x.lo, 0)] + [0])
-                    assert bad < mp.mpf(10)**(-20), ("R_in singular", k, e, bad)
+                    scale = max([abs(y) for y in x.c] + [mp.mpf(1)])
+                    assert bad < scale*mp.mpf(10)**(-(mp.mp.dps)//2), ("R_in singular", k, e, bad)
     # ---------------- extraction ----------------
     # Q1 = P1 + sum eps^k R1[k]; b = sqrt(Q12 Q21)/c as a series in eps
     Q12 = S(0, [I_*c] + [R1[k][0][1] for k in range(1, KORD + 1)])
