@@ -12,7 +12,8 @@ Claims checked (asserted):
   [0a] the single-integral formula for L_h equals Paper 2 (eq:szego-repr) evaluated by Gauss-Chebyshev quadrature over the band with
        log h0(x) = -2 G0(x) at the nodes (independent route; checks the Fubini step of Remark P1.4).
   [0b] G0 from the representation equals the literal glued exponent of G3 §2 (j_d, B_in^d with the Moebius factor, B_out^d, chi_d by
-       quadrature of G3's seam densities) near 0, at angular distance 1e-8 from both seams (both sides) and on the negative axis.
+       quadrature of G3's seam densities) near 0, at relative angular distance 1e-12 (EPS) from the seams (both sides) and on the negative
+       axis (fixed per Rule R review B, N-2).
   [1] Lemma P1 (b)-(d): with mu_k = 2 m_k(d) (Fourier sums S_k(d), Lemma F.1_d (iii)) and M_mu = sum_k mu_k Q_k,
         sup_z n^{(K+1)p} |G0(z) - sum_{k<=K} m_k z^k| / |z|   and   sup_z n^{(K+1)p} |L_h(z) - R(z) M_mu(z)| / |R(z)|
       are bounded in n (n = 10..640; K = 0, 1, 2), d-uniformly (d = -0.02, -0.5, -0.98), on a grid of 0 < |z| <= 0.3 incl. both
@@ -30,11 +31,12 @@ Claims checked (asserted):
   [5] Lemma P3 (iii), the matching rate in n on the circle |z| = c/2 (central-sector points incl. both boundary values on both seams):
       J := P0hat P0inf^{-1} with the TRUE glued rho_nat: n |J - I| flat; after Delta_1^nat/n the remainder is O(n^-2) (exponent
       log2(e(n)/e(2n)) in [1.9, 2.15]) or exponentially small (alpha = -1/2, Bessel order 1/2).
-      Lemma P5 (band-factor gauge, = H-c for p < 1): with Delta_1^mu (rho_mod e^{-R M_mu/2}, J_g = ceil(1/p) moments) in place of
+      Lemma P5 (band-factor gauge, = H-c for p < 1): with Delta_1^mu (rho_mod e^{-R M_mu/2}, J_g = floor(1/p) moments (the smallest J with (J+1)p > 1); fixed per Rule R review B, N-2) in place of
       Delta_1^nat the remainder exponent is >= min(2, 1 + (J_g+1)p) - 0.1.
       CONTROLS (must fail): (a) nu = beta' in Q0: O(1/n) remainder (asserted only if |beta'| != |alpha|: Q0 depends on nu^2);
-      (b) band factor dropped (rho_mod in Delta_1): the remainder is not O(n^-2) (exponent ~ 1 + p) (asserted only if that remainder
-      exceeds 10x the true one at n = 400, i.e. if the control is discriminating). The [1] n^{-2p} controls are asserted only if
+      (b) band factor dropped (rho_mod in Delta_1): the remainder is not O(n^-2) (exponent ~ 1 + p) (asserted wherever the control is
+      discriminating: if some of its exponents fall below the claim's window [1.9, 2.15], or if that remainder exceeds 10x the true
+      one at n = 400; asserted in 4 of 5 sets; fixed per Rule R review B, N-1). The [1] n^{-2p} controls are asserted only if
       |S_1(d)| >= 0.05 zeta(1+p) (otherwise m_1 is too small for the n^{-p} rate to be visible: Remark P1.3).
       The glue test [2] uses an angular offset 1e-24 (with 1e-12 the offset error is O(1e-8) relative).
   [6] Lemma P3 (iv): |P0hat^{+-1}| |zeta|^{|alpha|/2} n^{-1/2} <= C (n = 10, 100, 1000; true glued rho; seam points included).
@@ -334,11 +336,12 @@ for (p, al, dn, dd) in PARAMS:
     else:
         C_.check(f"[5] remainder after Delta_1^nat/n is O(n^-2) {tag}", float(all(mp.mpf('1.9') <= x <= mp.mpf('2.15') for x in xT[1:])), 1.0, 0.0)
         C_.check(f"[5] P5 gauge remainder exponent >= min(2, 1 + (J+1)p) - 0.1 {tag}", float(min(xG[1:]) >= min(2, 1 + (Jg + 1)*Md.p) - mp.mpf('0.1')), 1.0, 0.0)
-    # discriminating only if the band-factor part of Delta_1 (size ~ |m_1| n^{-1-p}) dominates the O(n^-2) remainder at n = 400
-    if eM[-1] > 10*eT[-1]:
+    # discriminating if the dropped-factor exponents leave the claim's window, or if the band-factor part of Delta_1 (size ~ |m_1| n^{-1-p})
+    # dominates the O(n^-2) remainder at n = 400 (guard widened per Rule R review B, N-1)
+    if not all(mp.mpf('1.9') <= x for x in xM[1:]) or eM[-1] > 10*eT[-1]:
         C_.check(f"[5] CONTROL band factor dropped: O(n^-2) (resp. exp. small) fails {tag}", float(all(mp.mpf('1.9') <= x for x in xM[1:])), 0.0, 0.0)
     else:
-        print(f"    control (band factor dropped) not applicable: e_mod/e_true at n=400 = {mp.nstr(eM[-1]/eT[-1], 3)} < 10")
+        print(f"    control (band factor dropped) not applicable: exponents >= 1.9 and e_mod/e_true at n=400 = {mp.nstr(eM[-1]/eT[-1], 3)} < 10")
     if abs(abs(bp) - abs(Md.al)) > mp.mpf(10)**-12:   # alpha enters as a float (0.3 is not exact)     # Q0 depends on nu^2 only: nu = beta' = -alpha is not a different Bessel datum
         C_.check(f"[5] CONTROL nu = beta' fails the O(n^-2) test {tag}", float(all(mp.mpf('1.9') <= x <= mp.mpf('2.15') for x in xB[1:])), 0.0, 0.0)
     else:

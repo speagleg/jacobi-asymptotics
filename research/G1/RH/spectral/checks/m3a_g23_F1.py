@@ -1,4 +1,4 @@
-"""JZC M3a, gap 3 of Theorem H (JZC_M3a_H_G23plt1.md §3): E_plt1 Lemma F.1 (i)-(iv) with the complex seam jump densities
+"""JZC M3a, gap 3 of Theorem H (JZC_M3a_H_G23plt1.md §2; fixed per Rule R review B, B23-8): E_plt1 Lemma F.1 (i)-(iv) with the complex seam jump densities
 of JZC_M3a_H_G3.md (NUMERICAL, mpmath dps 30).  0 < p < 1, -1 < d < 0, theta := pi p/2 (seam angle), q(r) := exp(-2 pi n r^{-1/p}),
   l(r)   := -log(1 - q)                      (E_plt1's real density, d = 0)
   l_pm(r):= -Log(1 - e^{+-2 pi i d} q)       (the jump G_out - G_in on Gamma_pm, G3 §2 / Lemma F.1(i)_d)

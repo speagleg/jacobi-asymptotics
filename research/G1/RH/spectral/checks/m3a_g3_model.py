@@ -1,7 +1,7 @@
 """JZC M3a, gap G3 (JZC_M3a_H_G3.md §4): for 0 < p < 1, does the decoupled model M(beta' = alpha + 2d, nu = alpha)
 (m4_rh4.run(p, beta, nu=nu, mu=...)) with the Hurwitz band factor mu_{n,j} = 2 zeta(-jp, 1+d)/(j n^{jp}) reproduce every stored
 p < 1 Hurwitz fit datum?  This is m3a_hd_model.py restricted to the p < 1 rows (pattern and tolerances copied from there):
-the band factor is now the seam one (E_plt1 Lemma F.1 with the shifted jump, JZC_M3a_H_G3.md Prop 3.2), whose moments
+the band factor is now the seam one (E_plt1 Lemma F.1 with the shifted jump, JZC_M3a_H_G3.md Cor 5 (fixed per Rule R review B, B3-4)), whose moments
 are the same Hurwitz values (SPEC §3.1, spec_hurwitz_moments_plt1.out).
 Data (Rule X: fits made earlier by other scripts from the actual Hurwitz measures, read from their .out files):
   spec_hur.out (d1, eps1, eps2 at p = 0.6, 0.75), spec_hur_d2.out (n^-2 at p = 0.6, 0.75), spec_hur_small.out (p = 1/3, 1/4).

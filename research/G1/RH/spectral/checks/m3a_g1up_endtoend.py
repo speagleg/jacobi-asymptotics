@@ -11,8 +11,9 @@ Predictions of M(beta', nu = alpha) with the Hurwitz band factor (Theorem H(i)-(
   eps_j (n^{-1-jp}) = C(2j, j) p c^j * (-(jp/pi) Gamma(jp) (2 pi)^{-jp} S_j(delta)),  S_j(delta) = sum_m sin(pi j p/2 - 2 pi m delta)/m^{1+jp}
       (the Fourier-sum form, JZC_M3a_H §3.2; S_j from the Hurwitz series by residue classes, delta rational); j = 1, 2.
 Rows: d1 (free fit); eps1, d2 (fits of y - d1/n over the free basis); eps2 (after subtracting d1, eps1, d2); d2|eps (after subtracting d1,
-eps1, eps2: the n^-2 coefficient is poorly separated from n^{-1-p}, n^{-1-2p} at p = 0.6 in the free fit; each subtracted term is
-itself tested in its own row, so the conditional row is not circular).
+eps1, eps2: the n^-2 coefficient is poorly separated from n^{-1-p}, n^{-1-2p} at p = 0.6 in the free fit; each subtracted term except
+eps2 (not discriminating at n <= 1600) is tested in its own row; the row is insensitive to eps2 at the scale of its tolerance (Rule R
+review B, §4.3) (fixed per Rule R review B, N-3)).
 Controls (must fail): the lattice prediction (delta ignored: beta' -> alpha) for d1; H2 (beta = nu = alpha + 2 delta) for d2|eps; the lattice
 band factor (S_1(0) in place of S_1(delta)) for eps1.
 Truncation: K and 2K measures give the same fits (difference < tolerance / 10).

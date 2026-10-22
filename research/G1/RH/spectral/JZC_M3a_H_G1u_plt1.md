@@ -1,7 +1,12 @@
 # JZC M3a, Theorem H item 1 for 0 < p < 1: the glued Hurwitz hard-edge parametrix in the α-frame, and the n-uniform comparison
 
-Status (2026-10-21): NOT REVIEWED (Rule R pending for everything below). Labels per VERIFICATION_POLICY.md. Novelty: UNCHECKED.
-This note closes, modulo review, the last open p < 1 part of item 1 of JZC_M3a_H.md §4. That part has two pieces:
+Rule R review B: L P1, P2, P4, P5, §3a ACCEPT; L P3, Prop G1u′ (A), (B) and the checks ACCEPT WITH FIXES
+(research/G1/review/REVIEW_JZC_M3a_H_plt1_G1up_B.md); fixes P1-1, P3-1, G-1, N-1 – N-4 applied 2026-10-22.
+Status (2026-10-22): L P1–P5 and Prop G1u′ (A), (B) are **REVIEWED** (Rule R: review B re-derived every lemma and re-ran both checks
+byte-identically, the end-to-end one with regenerated caches; fixes applied). Their inputs G3 and G23plt1 are REVIEWED (Rule R review
+B, REVIEW_JZC_M3a_H_plt1_inputs_B.md); JZC_M4_proof Theorem N.6 / N.6a–c is PROVED-mod-cite with review A done, second reader pending.
+Labels per VERIFICATION_POLICY.md. Novelty: UNCHECKED.
+This note closes the last open p < 1 part of item 1 of JZC_M3a_H.md §4. That part has two pieces:
 - rebuilding E_plt1's glued global parametrix with the α-frame factor W̃♮ (Szegő exponent β′ = α + 2δ, Bessel order α);
 - the n-uniform hard-edge comparison and the order-K small-norm expansion for the Hurwitz problem when **0 < p < 1, −1 < δ < 0,
   1 < s < 1 + 2p**.
@@ -29,8 +34,8 @@ Counts are in §5.
 | L P2 | ρ♮ := W̃♮/D_W for the glued W̃♮ = (𝗐_n(−z)^{β′}(4c − z))^{1/2}e^{−𝒢_δ}. (i) ρ♮ = ρ♮^{mod}e^{−L_h/2}, \|log(ρ♮/ρ♮^{mod})\| ≤ Cn^{−p}\|z\|^{1/2}, \|ρ♮\|^{±1} ≤ C (n-free, δ-free). (ii) Exact lip match ϱ_±ρ♮^{−2} = ω♮. (iii) ρ♮₊ρ♮₋ = 1 on the band. (iv) No jump on (−δ₀, 0). (v) Glue ρ♮_out = ρ♮_in·e^{−ℓ_±(\|z\|)} on the seams | PROVED-mod-cite (L P1; G1u L1 (i)–(iii), (v); Paper 2 (eq:DW-factor); G23plt1 F.1_δ (i)) |
 | L P3 | the glued Hurwitz parametrix P̂₀♮ = Â♮(2πn)^{σ₃/2}Φ_α(n²f)ρ♮^{−σ₃}. (i) Â♮ = Â^{mod}(I + 𝔈) with Â^{mod} analytic and n-free, \|𝔈\| ≤ Cn^{−p}: \|Â♮^{±1}\| ≤ C n-free, seams included. (ii) Exact band and lip jumps, none on (−δ₀, 0); glue jump on the seams \|J_g − I\| ≤ Cn\|z\|^{−3/2}e^{−2πn\|z\|^{−1/p}}. (iii) Circle expansion I + Σ_{k≤K}Δ_k♮n^{−k} + O(n^{−K−1}) uniformly, seam crossings included. (iv) Bessel-scale size n^{1/2}\|ζ\|^{−\|α\|/2} | PROVED-mod-cite (L P1, L P2; G1u L2 (iii)–(iv) proofs; E_plt1 L E′.3 (sectors); Paper 2 L bessel-local, L comparison-parametrix) |
 | L P4 | lip mismatch \|ω♮ − ϱ_±\| ≤ C\|z\|^{1/2} (n-free); fixed-n identification: R := Q♮P̂₀♮^{−1} has \|R\| ≤ C_{n,η}\|z\|^{−\|α\|−η}, is bounded near 0 up to a log, R_± ∈ I + ∂𝒞(L²) | PROVED-mod-cite (L P2, L P3; G23plt1 P2.6; Paper 2 L supersmall, L B-cauchy (c)) |
-| L P5 | the band-factor gauge (H-c) for p < 1 in the α-frame: Δ_k♮ = G_{μ^δ_n}Δ_k^{mod,β′}G_{μ^δ_n}^{−1} + O(n^{−(J+1)p}) on both circles, seam crossings included; μ^δ_{n,j} = 2m_j(δ). An independent proof of JZC_M3a_H_Hc.md Lemma Hc.5 (being written in parallel), via L P1 (d) on the whole disc | PROVED-mod-cite (L P1 (d); E3 L E3.4 [REVIEWED]; JZC_M4_proof N.6a formulas) |
-| **Prop G1u′** | p < 1. (A) Paper 2 §7 holds verbatim for Q♮, with L P4 in place of L lip-mismatch. (B) The order-K small norm (N.6c) holds for the Hurwitz problem in the α-frame with the glued P̂₀♮, remainder O(n^{−K−1} + n^{−1−(J+1)p}). This is Theorem N.6's chain for M(β′, ν = α) with gauge μ^δ_n | (A), (B) PROVED-mod-cite, NOT REVIEWED (inputs §4: H-a, G3, G23plt1, all NOT REVIEWED) |
+| L P5 | the band-factor gauge (H-c) for p < 1 in the α-frame: Δ_k♮ = G_{μ^δ_n}Δ_k^{mod,β′}G_{μ^δ_n}^{−1} + O(n^{−(J+1)p}) on both circles, seam crossings included; μ^δ_{n,j} = 2m_j(δ). An independent proof of JZC_M3a_H_Hc.md Lemma Hc.5 (NOT REVIEWED before Rule R review B; fixed per Rule R review B, G-1), via L P1 (d) on the whole disc | PROVED-mod-cite (L P1 (d); E3 L E3.4 [REVIEWED]; JZC_M4_proof N.6a formulas) |
+| **Prop G1u′** | p < 1. (A) Paper 2 §7 holds verbatim for Q♮, with L P4 in place of L lip-mismatch. (B) The order-K small norm (N.6c) holds for the Hurwitz problem in the α-frame with the glued P̂₀♮, remainder O(n^{−K−1} + n^{−1−(J+1)p}). This is Theorem N.6's chain for M(β′, ν = α) with gauge μ^δ_n | (A), (B) PROVED-mod-cite + REVIEWED (inputs §4: H-a, G3, G23plt1 REVIEWED; JZC_M4_proof N.6a–c review A done, second reader pending) (updated per Rule R review B, C-11 of REVIEW_JZC_M3a_H_assembly_B.md) |
 | §3a | exactly which lines of RH_plt1b §2 / E_plt1 §0, E′.3, E′.5, E′.5′ / JZC_M4_proof N.6a–c (p < 1 parts) / G1u L1–L4 change | (record) |
 | §5 | numerics. Hard edge: L P1–P4 with the actual seam band factor, matching rate in n at β′ down to −2.2, gauge, controls. End-to-end: p = 0.6, 0.75, β′ = −2.1, −1.5 | NUMERICAL |
 
@@ -73,7 +78,8 @@ e^{Cn|z|^{1/2}}, which belongs to the classical frame.
 **One structural difference from p > 1.** For p < 1 there is **no** jump on (−δ_r, 0) at all: 𝒢_δ is analytic there in S_out. The
 p > 1 construction has the super-small h_n^δ jump there. In exchange, the glue jumps sit on the two seam segments.
 
-**Overlap with JZC_M3a_H_Hc.md.** That memo (another agent, in progress, read-only here) states Lemma Hc.5, the H-c gauge for p < 1
+**Overlap with JZC_M3a_H_Hc.md.** That memo (JZC_M3a_H_Hc.md Lemma Hc.5 (NOT REVIEWED before Rule R review B); fixed per Rule R
+review B, G-1) states Lemma Hc.5, the H-c gauge for p < 1
 given F.1_δ (iv). It uses the derivative/window argument at the band-crossing points of the circles. L P5 below is an independent
 proof of the same statement from L P1 (d). Either closes H-c for p < 1.
 
@@ -155,7 +161,8 @@ K(ζ, w) = 1/(ζ − w) − 1/(ζ − 1).
     - Here |g₊| ≤ ℓ(ρ)/(ρ sin θ) and |g₊′| ≤ ℓ′(ρ)/(ρ sin θ) + ℓ(ρ)/(ρ sin θ)², with ρ = |ζ| ∈ [r*/2, 3r*/2]. These use (M2), (M3) and
       (B1): d/dζ ℓ₊(|ζ|) = e^{−iθ}ℓ₊′.
     - By (B2) the window is ≤ Ce^{−c₁n}.
-    - Off 𝒲 on Γ₊: |ζ − z| ≥ |ζ − z*| − r*/4 ≥ |ζ − z*|/2 ≥ (|ζ| + r*)/12, which gives ≤ Ce^{−c₁n}.
+    - Off 𝒲 on Γ₊: |ζ − z| ≥ |ζ − z*| − r*/4 ≥ |ζ − z*|/2 and, ζ and z* lying on one ray with ||ζ| − r*| ≥ r*/2,
+      |ζ − z*| ≥ (|ζ| + r*)/5, (fixed per Rule R review B, P1-1) ≥ (|ζ| + r*)/12, which gives ≤ Ce^{−c₁n}.
     - On Γ₋: the angle between z and Γ₋ is ≥ 2θ − arcsin τ ≥ θ, so |ζ − z| ≥ sin(θ/2)(|ζ| + |z|), which gives ≤ Ce^{−c₁n}.
   - No constant depends on dist(z, Γ₊), so the bound holds for the boundary values.
 - Collecting: |I_K| ≤ C_Kn^{−(K+1)p} + C(1 + Σ_{k≤K}kR₁^{k−1})e^{−c₁n}, which is (b) after enlarging C_K. ℓ_± entered only through
@@ -172,7 +179,7 @@ K(ζ, w) = 1/(ζ − w) − 1/(ζ − 1).
 - Insert I = Σ_{k≤K}m_kq_k + I_K and the arcsine moments (1/π)∫_0^{4c}x^jdx/√(x(4c − x)) = C(2j, j)c^j (E3 L E3.4 (i), proof). Then
   (1/π)∫q_k(z, x)dx/√(…) = Q_k(z), which gives the formula.
 - The bound follows from (1/π)∫_0^{4c}dx/√(x(4c − x)) = 1 and (b). Finally |𝓡(z)| ≤ C|z|^{1/2} near 0. ∎
-(PROVED-mod-cite: G23plt1 F.1_δ (i)–(iv), Lemma M [NOT REVIEWED]; E_plt1 F.1 (iii)/(iv) Mellin bound (DLMF 5.2.1, 25.2.1 as quoted
+(PROVED-mod-cite: G23plt1 F.1_δ (i)–(iv), Lemma M [REVIEWED]; E_plt1 F.1 (iii)/(iv) Mellin bound (DLMF 5.2.1, 25.2.1 as quoted
 there); Paper 2 (eq:szego), (eq:szego-repr); E3 L E3.4 [REVIEWED].)
 
 *Remarks.*
@@ -225,7 +232,7 @@ by L P1 (a), (b). This is G1u L1 (iii).
 (−z)^{β′/2}, (4c − z)^{1/2} and D_W are analytic there.
 (v) F.1_δ (i) gives 𝒢_δ,out − 𝒢_δ,in = ℓ_±(|z|). Then e^{−ℓ_±} = 1 − e^{±2πiδ}q, and |e^{±2πiδ}q| = q.
 (vi) Multiply principal powers of the same base, and use D_W = D_W^{(α)}D_{x^{2δ}} (G12 L2.3 (i)), sector by sector. ∎
-(PROVED-mod-cite: L P1; Paper 2 (eq:DW-factor), (eq:szego); G1u L1 (i)–(iii), (v); G23plt1 F.1_δ (i) [NOT REVIEWED].)
+(PROVED-mod-cite: L P1; Paper 2 (eq:DW-factor), (eq:szego); G1u L1 (i)–(iii), (v); G23plt1 F.1_δ (i) [REVIEWED].)
 
 ### 2.3 Lemma P3 (the glued Hurwitz hard-edge parametrix)
 
@@ -268,13 +275,17 @@ This is D_∞^{−σ₃}P₀♮D_W^{σ₃} for E_plt1's classical glued construc
   |ζ| ≤ 2 and ≤ C|z|^{−1/4} for |ζ| ≥ 2. Since |ζ| ≍ n²|z|, both are ≤ Cn^{1/2}|z|^{−1/2} on U_0. With |ρ♮^{±1}| ≤ C,
   |J_g − I| ≤ Cn|z|^{−1}·|z|^{−1/2}q + Cq.
 - Finally sup_{0<r≤δ_r}r^{−m}e^{−πnr^{−1/p}} ≤ C_mn^{−mp}.
+- The jump of R := Q♮P̂₀♮^{−1} on the seam segments is not J_g but J_R = P̂₀♮_inJ_g^{−1}P̂₀♮_in^{−1} =
+  Â♮_inXe^{−ℓ_±σ₃}X^{−1}Y_±^{−1}(Â♮_in)^{−1}, so |J_R − I| ≤ C(n|z|^{−1} + |z|^{−1/2})e^{−2πn|z|^{−1/p}} by (i) and the bounds on X
+  above (added per Rule R review B, P3-1).
 (iii) G1u L2 (iii)'s proof verbatim (pointwise algebra in ρ♮).
 - The large-ζ expansion of Ψ_α to order K holds in the three sectors of E_plt1 L E′.3 (rays at π − θ_L; DLMF 10.40.1–4 with
   δ = θ_L/2 in the central sector, 10.17.5–6, .11–.12 in the thin ones, at general k as quoted in JZC_M4_proof N.6a).
 - On |z| = δ_r, P₀^∞^{±1}, f^{−1/2} and ρ♮^{±1} are bounded n-free (L P2 (i)), boundary values included.
 (iv) G1u L2 (iv) verbatim: Paper 2 (eq:he-Phi-large), (eq:he-Phi-small), L bessel-local (iii), with |Â♮^{±1}|, |ρ♮^{±1}| ≤ C from (i) and
 L P2 (i). ∎
-(PROVED-mod-cite: L P1, L P2; G1u L2 [NOT REVIEWED]; E_plt1 L E′.3 (sectors) [REVIEWED]; JZC_M4_proof N.6a (DLMF at general k);
+(PROVED-mod-cite: L P1, L P2; G1u L2 [REVIEWED for p > 1, review A; used here only in their p-free parts] (fixed per Rule R
+review B, G-1); E_plt1 L E′.3 (sectors) [REVIEWED]; JZC_M4_proof N.6a (DLMF at general k);
 Paper 2 L bessel-local, L comparison-parametrix (i) (band-jump algebra).)
 
 *Remark.* The glue enters P̂₀♮ only through the super-small Y_±, J_g. That is why (i) needs no analytic part: Â♮ itself is
@@ -304,7 +315,7 @@ and |L_h| ≤ Cn^{−p}|z|^{1/2} (L P1 (d)). The rest is G1u L3 / Paper 2's proo
   O(1 + |log|z||).
 - The difference is O(|z|^{−|α|−2η}) with |α| + 2η < 1 and has no jump, hence is removable.
 - Membership in I + ∂𝒞(L²) is Paper 2 L B-cauchy (c), as in Cor L2 (at ∞, R = Q♮(P₀^∞)^{−1} = I + O(1/z)). ∎
-(PROVED-mod-cite: L P1–P3; G23plt1 P2.6 [NOT REVIEWED]; Paper 2 L supersmall, L lip-mismatch (proof), L B-cauchy (c).)
+(PROVED-mod-cite: L P1–P3; G23plt1 P2.6 [REVIEWED]; Paper 2 L supersmall, L lip-mismatch (proof), L B-cauchy (c).)
 
 ### 2.5 Lemma P5 (the band-factor gauge for p < 1 in the α-frame = H-c, p < 1)
 
@@ -330,7 +341,8 @@ Finally, E3 L E3.4 (iii) gives Δ_k^{⋄,μ} = G_μΔ_k^{⋄,mod,β′}G_μ^{−
 (JZC_M4_proof N.6a, last bullet) and for exponent β′. ∎
 (PROVED-mod-cite: L P1 (d), L P2 (i); E3 L E3.4 [REVIEWED]; Paper 2 (eq:omega), (eq:omega-4c).)
 
-Relation to JZC_M3a_H_Hc.md Lemma Hc.5 (same statement, NOT REVIEWED, in progress by another agent): Hc.5 uses F.1_δ (iv)'s sup bound
+Relation to JZC_M3a_H_Hc.md Lemma Hc.5 (same statement; JZC_M3a_H_Hc.md Lemma Hc.5 (NOT REVIEWED before Rule R review B), REVIEWED
+by it; fixed per Rule R review B, G-1): Hc.5 uses F.1_δ (iv)'s sup bound
 plus its derivative bound near the band crossings {δ_r, 4c − ε} of the circles. L P5 uses only F.1_δ (i)–(iii) and the moment bound of
 (iv)'s far part (through L P1). The two proofs are independent.
 
@@ -357,7 +369,8 @@ G3 Cor 5; G23plt1 P2.6), and assume H-a (JZC_M3a_H_Ha.md; it covers p < 1). Then
 The contour Σ_R contains the seam segments Γ_± ∩ U_0. Uniformly in n ≥ n₀:
 - on ∂U_0: J_R = I + Σ_{k≤K}Δ_k♮n^{−k} + O(n^{−K−1}) (L P3 (iii)). On ∂U(4c, ε): N.6a's soft-edge expansion with (−ω^{(β′)})^{±1/2};
 - in U_0: |J_R − I| ≤ C_Kn^{−K}min(1, |z|^K) on the lips (Paper 2 L supersmall amplified by L P3 (iv); as RH_px L4.3) and on the seam
-  segments (L P3 (ii)). There is no contour on (−δ_r, 0);
+  segments, where J_R = P̂₀♮_inJ_g^{−1}P̂₀♮_in^{−1} = Â♮_inXe^{−ℓ_±σ₃}X^{−1}Y_±^{−1}(Â♮_in)^{−1}, so |J_R − I| ≤
+  C(n|z|^{−1} + |z|^{−1/2})e^{−2πn|z|^{−1/p}} by L P3 (i), (ii) (fixed per Rule R review B, P3-1). There is no contour on (−δ_r, 0);
 - elsewhere: |J_R − I| ≤ Ce^{−n/C}, resp. Cn^{−pn/4} on the top segment (Paper 2 F5 for Q♮; H-a top vertex X₁ + δ′; G23plt1 P2.6 (ii));
 - so ‖J_R − I‖_{L¹∩L²∩L^∞(Σ_R)} = O(1/n) and ‖𝒞₋‖ ≤ C. This is Paper 2 F1 for the contour, plus finitely many fixed rays from 0
   inside U_0, as in E_plt1 Prop E′.5′ (1). Then R₋ = (1 − 𝒞_{J_R})^{−1}I, by L P4 (b) for the identification, and ‖R₋ − I‖_{L²} = O(1/n).
@@ -382,7 +395,7 @@ Nothing else in Paper 2 §7 / App B sees the weight at the hard edge (App B "the
 - N.6b's meromorphy of Δ_k^{mod,β′} for p < 1. This is the parity argument, which is β-free: on (0, δ), ρ_{mod}²₊ρ_{mod}²₋ = 1 for every
   exponent (Υ̂₊Υ̂₋ = 16c²); on (−δ, 0), ρ_{mod} is analytic.
 The point 0 is reached as in E_plt1 Prop E′.5′: the super-small local jumps, lips and seam glue, vanish to all orders at 0. For z on
-(−δ_r, 0) and s on a seam, |s − z| ≥ max(|s|, |z|). ∎ (PROVED-mod-cite, NOT REVIEWED; inputs §4.)
+(−δ_r, 0) and s on a seam, |s − z| ≥ max(|s|, |z|). ∎ (PROVED-mod-cite + REVIEWED (Rule R review B); inputs §4.)
 
 **α ≥ 1 (s ≥ 1 + 2p).** Not covered, exactly as for p > 1: G23plt1 P2.6 and L P4 (b) use |α| < 1. OPEN (outside the Setting).
 
@@ -425,30 +438,31 @@ The point 0 is reached as in E_plt1 Prop E′.5′: the super-small local jumps,
 ## 4. Inputs and labels
 
 L P1 uses:
-- G23plt1 Lemma F.1_δ (i)–(iii) and Lemma M (PROVED-mod-cite, NOT REVIEWED; built on G3 Lemma 3, NOT REVIEWED);
+- G23plt1 Lemma F.1_δ (i)–(iii) and Lemma M (PROVED-mod-cite + REVIEWED; built on G3 Lemma 3, REVIEWED; Rule R review B);
 - E_plt1 F.1 (iii)/(iv)'s Mellin bound [REVIEWED for δ = 0; via M2 for δ];
 - Paper 2 (eq:szego), (eq:szego-repr);
 - E3 L E3.4 [REVIEWED].
 
 L P2–P4 use:
-- G1u L1–L4 (PROVED-mod-cite, NOT REVIEWED);
+- G1u L1–L4 [REVIEWED for p > 1, review A; used here only in their p-free parts] (fixed per Rule R review B, G-1; C-11);
 - G23plt1 P2.6;
 - G3 Cor 5 (H-d (i)–(iii) for p < 1);
 - E_plt1 L E′.3 (sectors) [REVIEWED];
 - JZC_M4_proof N.6a–c (PROVED-mod-cite; review A done);
 - Paper 2 L supersmall, L bessel-local, L comparison-parametrix, L B-cauchy (c), §7 / App B;
-- H-a (JZC_M3a_H_Ha.md, NOT REVIEWED).
+- H-a (JZC_M3a_H_Ha.md, REVIEWED) (fixed per Rule R review B, C-11 of REVIEW_JZC_M3a_H_assembly_B.md).
 
 Labels:
-- **L P1–P5 and Prop G1u′ (A), (B): PROVED-mod-cite, NOT REVIEWED.**
+- **L P1–P5 and Prop G1u′ (A), (B): PROVED-mod-cite + REVIEWED** (Rule R review B, research/G1/review/REVIEW_JZC_M3a_H_plt1_G1up_B.md).
 - Novelty: UNCHECKED (Rule L not done; the method is the standard Deift–Zhou small-norm argument).
 
 **Effect on Theorem H (JZC_M3a_H.md §4).**
-- Item 1 is now closed for p < 1 as well, modulo Rule R.
+- Item 1 is now closed for p < 1 as well (Rule R review B done).
 - Together with items 2–4 (done) and H-c (L P5 here; JZC_M3a_H_Hc.md Hc.5), **(i) for 0 < p < 1 has no remaining CONDITIONAL
-  input**. Every piece is PROVED-mod-cite and NOT REVIEWED.
+  input**. Every piece is PROVED-mod-cite; every memo-level piece is REVIEWED except JZC_M4_proof Theorem N.6 / N.6a–c (review A done,
+  second reader pending).
 - (ii) is unchanged: exact at the orders of Prop S, Conjecture Σ beyond.
-- For p > 1, (i) rests on H-c (JZC_M3a_H_Hc.md Cor Hc.4, in progress).
+- For p > 1, (i) rests on H-c (JZC_M3a_H_Hc.md Cor Hc.4 (PROVED-mod-cite + REVIEWED)) (fixed per Rule R review B, G-1; C-11).
 - Not covered: δ > 0, p = 1 with δ ≠ 0, α ≥ 1.
 
 ## 5. Numerical checks (Rule N: NUMERICAL, not certified; finite samples of universally quantified statements)
@@ -466,7 +480,7 @@ tail, binary128 RKPW, cache tmp/plan62_cache; generation ≈ 2–4 min per measu
 
 ### 5a. Hard edge
 
-(m3a_g1up_hardedge.out: **ALL 157 CHECKS PASSED**, 34 of them controls that must fail and do; 5 controls are reported as not applicable (Rule A 9b); runtime ≈ 30 min.) Parameter sets (p, α, δ; β′):
+(m3a_g1up_hardedge.out: **ALL 159 CHECKS PASSED**, 36 of them controls that must fail and do; 3 controls are reported as not applicable (Rule A 9b); runtime ≈ 30 min (51 min in the 2026-10-22 re-run). Re-run after Rule R review B, N-1: the band-factor-dropped control is now asserted in 4 of 5 sets; the output differs from the reviewed one only in those lines and the count, 157/34/5 → 159/36/3.) Parameter sets (p, α, δ; β′):
 (0.6, −½, −0.8; −2.1), (0.6, −0.6, −0.8; −2.2), (0.3, −0.3, −0.9; −2.1), (0.75, 0.3, −0.3; −0.3), (0.75, 0.6, −0.95; −1.3).
 - [0a] L_h by the single-integral formula (Remark P1.4) = Paper 2 (eq:szego-repr) by 64-node Gauss–Chebyshev band quadrature, to
   7·10⁻²⁹ relative. The 4 points include a seam boundary value and S_out.
@@ -488,12 +502,13 @@ tail, binary128 RKPW, cache tmp/plan62_cache; generation ≈ 2–4 min per measu
 - [3] |Â♮^{±1}| ≤ 1.77 (10⁻¹² ≤ |z| ≤ 10⁻², seams both sides); Â♮₊ = Â♮₋ on the band to 10⁻²⁵. Control: |z|^{1/2}|Â_w| grows to
   10⁹–10¹¹.
 - [4] Exact lip match to 10⁻³⁰. |ω♮ − ϱ_±|/|z|^{1/2} ∈ [0.44, 1.88] at n = 10 and 1000. Control: |ω♮ − e^{∓iπβ′}| ≥ 0.27.
-- [5] Circle |z| = c/2, 8 points, 4 of them seam boundary values.
+- [5] Circle |z| = c/2, 8 points, 4 of them seam boundary values (the circle |z| = c/2 is larger than U_0; the algebra is the same)
+  (per Rule R review B, N-4).
   - n|J − I| is flat (e.g. 0.8452 … 0.8461).
   - Remainder after Δ₁♮/n: exponents 1.95–2.07 → 2.00 (α ≠ ±½); 10⁻²² … 10⁻³¹, exponentially small, at α = −½.
   - Gauge (J = ⌊1/p⌋): exponents 2.00–2.22, as predicted.
-  - Controls (asserted where discriminating, Rule A 9b): band factor dropped, exponents 1.59–1.60 (p = 0.6, α = −½) and 1.19–1.30
-    (p = 0.3); ν = β′, exponent 1.00.
+  - Controls (asserted where discriminating, Rule A 9b): band factor dropped, exponents 1.59–1.60 (p = 0.6, α = −½), 1.19–1.30
+    (p = 0.3), 1.72–1.88 (p = 0.6, α = −0.6) and 1.88–1.92 (p = 0.75, α = 0.6) (the last two asserted since review B, N-1); ν = β′, exponent 1.00.
 - [6] |P̂₀♮^{±1}||ζ|^{|α|/2}n^{−1/2} ≤ 1.32 (|ζ| ∈ [10⁻⁸, 2], n = 10, 100, 1000, seam points incl.). Control: ρ_w gives up to 10²⁷.
 
 ### 5b. End-to-end (m3a_g1up_endtoend.out: **ALL 29 CHECKS PASSED**, 9 of them controls that must fail and do)
@@ -564,12 +579,15 @@ Notes on the rows:
    - [5] ν = β′ control at (p, α, δ) = (0.75, 0.3, −0.3): β′ = −0.3 = −α, and Q₀ depends on ν² only. The control is degenerate; this
      is G1u's guard |β′| ≠ |α|, which the port had dropped and now restores.
    - [5] band-factor-dropped control at the same point: m₁(−0.3) is small at p = 0.75, so the n^{−1−p} term is invisible against
-     O(n^{−2}) at n ≤ 400 (exponents 1.96–2.01). Now asserted only if the dropped-factor remainder exceeds 10× the true one at n = 400.
+     O(n^{−2}) at n ≤ 400 (exponents 1.96–2.01). Now asserted only if the dropped-factor remainder exceeds 10× the true one at n = 400,
+     or (since Rule R review B, N-1) if its exponents leave the claim's window [1.9, 2.15].
    - [2] glue identity at (0.75, 0.3, −0.3): relative error 1.8·10⁻⁸ against tolerance 10⁻⁸. The boundary values were taken at angular
      offset 10⁻¹²θ, which produces an O(10⁻¹²) error against |e^{−ℓ} − 1| ≈ 5·10⁻⁵. The offset is now 10⁻²⁴; the tolerance is unchanged.
    - A third run caught that the restored guard compared mpf values exactly (α = 0.3 enters as a float, so |β′| − |α| ≈ 10⁻¹⁷ ≠ 0); it now uses ||β′| − |α|| > 10⁻¹² (fourth run).
-   - Net effect: the band-factor-dropped control is asserted in 2 of 5 sets, (0.6, −½, −0.8) and (0.3, −0.3, −0.9). In the other 3 its
-     effect is 0.9–3.6× the O(n⁻²) remainder at n = 400, which is visible but not decisive.
+   - Net effect (fixed per Rule R review B, N-1; guard widened in the script and re-run): the band-factor-dropped control is asserted in
+     4 of 5 sets: (0.6, −½, −0.8) and (0.3, −0.3, −0.9) by the 10× guard, and (0.6, −0.6, −0.8) (exponents 1.78, 1.75, 1.72) and
+     (0.75, 0.6, −0.95) (1.92, 1.90, 1.88), whose dropped-factor exponents already fall outside the claim's window [1.9, 2.15]; only at
+     (0.75, 0.3, −0.3) (1.99, 2.01, 2.01) is the control non-discriminating.
    No claim assertion was weakened.
 10. *Matching rate with the band factor.*
     - With the true ρ♮, the remainder after Δ₁♮/n is O(n⁻²): exponents 2.04 → 2.00 at α = −0.6.
@@ -587,8 +605,9 @@ Notes on the rows:
 
 ## 7. What remains
 
-- **Rule R** (independent second reader) for L P1–P5 and Prop G1u′, and for their inputs: G23plt1 F.1_δ and P2.6, and G3 Lemma 3,
-  Prop 4, Cor 5 (all NOT REVIEWED).
+- **Rule R:** done for L P1–P5 and Prop G1u′ (review B, REVIEW_JZC_M3a_H_plt1_G1up_B.md) and for their inputs G23plt1 F.1_δ, P2.6
+  and G3 Lemma 3, Prop 4, Cor 5 (review B, REVIEW_JZC_M3a_H_plt1_inputs_B.md). Still pending: the second reader of JZC_M4_proof
+  Theorem N.6 / N.6a–c.
 - **α ≥ 1** (s ≥ 1 + 2p): the in-lens identification, as for p > 1. OPEN.
 - **p > 1.** L P1's argument should give H-c for p > 1 as well, with E_pgt1's representation (E.2.1)_δ (a Cauchy integral over
   (−∞, 0) with density 𝔢_δ; JZC_M3a_H_Hc.md Hc.1) in place of F.1_δ. The analogue of (B1) is |y − x| ≥ |y| for y < 0 ≤ x, which

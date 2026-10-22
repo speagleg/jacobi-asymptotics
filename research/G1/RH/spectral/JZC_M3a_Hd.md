@@ -3,8 +3,8 @@
 Rule R review A: ACCEPT WITH FIXES (research/G1/review/REVIEW_JZC_M3a_H_pgt1_chain_A.md); fixes applied 2026-10-21.
 Status (2026-10-21): **REVIEWED** for Lemma H-d (i)–(iii) (the jump algebra; Rule R: independent second reader A re-derived it line by
 line against Paper 2's proof of Lemma jumpsV and re-ran m3a_hd_outer.py, m3a_hd_model.py, byte-identical outputs; fixes Hd-1, Hd-2
-applied). Prop 2.1 is superseded by G12 C1.5; (iv) rests on G12 L2.3, and G12 is NOT REVIEWED (its review A did not re-run the
-checks). Labels per VERIFICATION_POLICY.md. Scope: JZC_M3_scope §3.1, lemma H-d, for
+applied). Prop 2.1 is superseded by G12 C1.5; (iv) rests on G12 L2.3, and G12 is REVIEWED since Rule R review B
+(REVIEW_JZC_M3a_H_assembly_B.md §A; status updated 2026-10-22); for p < 1 (iv) is JZC_M3a_H_G23plt1.md P2.6 (REVIEWED, review B). Labels per VERIFICATION_POLICY.md. Scope: JZC_M3_scope §3.1, lemma H-d, for
 Hurwitz lattices λ_k = (k + δ)^p, k ≥ 1, −1 < δ ≤ 0 (a := 1 + δ), p > 1 for the outer scalar (§2; p < 1: §7 gap G3), s > 1,
 α := (s−1−p)/p. Checks: `checks/m3a_hd_outer.py/.out` (34 assertions), `checks/m3a_hd_model.py/.out` (42 assertions).
 External results not read under Rule C are marked NOT QUOTED. Everything quoted from Paper 2 is from papers/paper2/*.tex.
@@ -158,7 +158,8 @@ The δ = ½, 1 data lie outside −1 < δ ≤ 0; they fit the same β′ = α + 
   because the lattice g at degree n is used unchanged (G1 of the scope: σ_n = σ). With Theorem N.6 extended to M(β, ν) (gap G5)
   this proves the Hurwitz expansion to N.6's orders in the form b(n; α+2δ, α).
 - **What needs Σ.** Rule H's form (n/(n+δ))^pΦ(n+δ) is b(n; β′, α) = (n/(n+δ))^p b(n+δ; α, α) — Σ at γ = δ. At finite order this
-  is Prop S (JZC_M4 §7: identically in (p, ν, β) for k ≤ 4 by exact algebra, NUMERICAL to k = 8) (fixed per Rule R review A of the p>1 chain, Hd-2: a stale clause about m4_shift_exact.out deleted; that run reports orders 1–4 and ALL IDENTITIES HOLD) plus the μ-layers (m4_shift_zeta.out, NUMERICAL). So rule H to the orders of N.6(iii)
+  is Prop S (JZC_M4 §7: identically in (p, ν, β) for k ≤ 4 by exact algebra, NUMERICAL to k = 8) (fixed per Rule R review A of the p>1 chain, Hd-2: a stale clause about m4_shift_exact.out deleted; that run reports orders 1–4 and ALL IDENTITIES HOLD) plus the μ-layers (first order, j ≤ 3: exact, m3a_g5_exact (every j: symbolic-j case of m3a_g5_exact); otherwise NUMERICAL,
+  m4_shift_zeta.out) (fixed per Rule R review B, C-11 of REVIEW_JZC_M3a_H_assembly_B.md). So rule H to the orders of N.6(iii)
   = H-d + N.6 for M(β, ν) + Prop S at those orders (exact for the integer layer to order 4).
 - **What remains for Σ itself** (all orders). The gauge relates the degree-n problem to the "(n+γ)-normalised" one **in the n^p frame
   with phase e^{2nφ}**; Σ asserts equality with the problem at degree n + γ **in the (n+γ)^p frame with phase e^{2(n+γ)φ}**. Their
@@ -191,10 +192,13 @@ For H-d (frame 1), p > 1:
   geometry-free and fixes the exponent mod 1; continuity in δ fixes it). Not computed.
 - G4. Hurwitz's formula (Lemma H, DLMF 25.11.9 / Apostol Thm 12.6) and DLMF 5.11.8: NOT QUOTED (Rule C). DLMF 5.11.8 is no
   longer needed, see (2.1) (corrected 2026-10-21, see G12 §5).
-- G5. Theorem N.6 for the decoupled model M(β, ν): its proof enters β only through ρ² = φ^{2(β+1)} (bounded, analytic on the circles);
-  expected routine, not written.
+- G5. Theorem N.6 for the decoupled model M(β, ν): its proof enters β only through ρ² = φ^{2(β+1)} (hard edge) and φ^{−2(β+1)} (soft edge) (definition of M(β, ν), JZC_M4 §7;
+  m4_rh_exact2 l. 195, 218). Both are bounded above and below on the circles and jump across the band (ρ₊ρ₋ = 1 there); the Δ_k^{mod}
+  are nonetheless meromorphic in both discs (N.6b; the engine asserts the parity in u_to_w) (fixed per Rule R review B, B-3 of
+  REVIEW_JZC_M3a_H_assembly_B.md). Now written: JZC_M3a_H.md §3.3.
 For rule H as stated (n/(n+δ))^pΦ(n+δ): G1–G5 plus Prop S at the orders of N.6(iii) (exact for the integer layer to order 4; orders
-5–6 and the μ-layers NUMERICAL). For Σ at all orders: the finite-γ change of frame of §5 (string equation / Bleher–Its route).
+5–6 NUMERICAL; the μ-layers: first order, j ≤ 3 (every j: symbolic-j case): exact, m3a_g5_exact; otherwise NUMERICAL, m4_shift_zeta.out
+(fixed per Rule R review B, C-11)). For Σ at all orders: the finite-γ change of frame of §5 (string equation / Bleher–Its route).
 
 Status 2026-10-21: G1 = G12 §1; G2 = G12 §2; G4 resolved by the Fourier-sum route (JZC_M3a_H §3.1–3.2); G5 = JZC_M3a_H §3.3;
 G3 = JZC_M3a_H_G3.md (p < 1) (fixed per Rule R review A of the p>1 chain, Hd-2).

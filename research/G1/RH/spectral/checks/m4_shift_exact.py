@@ -4,6 +4,10 @@ phi^{-2(beta+1)} at the soft edge, phi = (z^{1/2} + (z-4c)^{1/2})/(2 c^{1/2})); 
 Asserted identically in (p, alpha, beta):
   (R) reflection: d_k(-beta-2) = (-1)^k d_k(beta)  [Theorem R, JZC_M4 §7];
   (S) shift: every f_k (natural form in N) is independent of beta; f_odd = 0.
+Controls (must fail, asserted to fail; added per Rule R review B, REVIEW_JZC_M3a_H_assembly_B.md B-1): the same raw d_k
+re-expanded in the wrong index N' = n + (alpha+1)/2 (Bessel order in the index) and N' = n: f_1 = 0 and f_1..f_K beta-free FAIL;
+reflection about the wrong centre, d_k(-beta) = (-1)^k d_k(beta) for all k, FAILS. (They show that beta enters the data and
+that the shift test discriminates the index.)
 --- original docstring of m4_rh_exact.py follows ---
 JZC M4: EXACT symbolic version of m4_rh4.py (order-k RH model computation), over the field Q(p, alpha)[i], c = 1.
 Same formulas as m4_rh4.py (see its docstring); every input is a rational function of (p, alpha) once c = 1:
@@ -312,4 +316,25 @@ if __name__ == "__main__":
     for k in range(1, KORD + 1):
         r = factor(d[k].as_expr().subs(B, -B - 2) - (-1)**k*d[k].as_expr()); ok &= (r == 0)
         print(f"reflection d{k}(-beta-2) - (-1)^{k} d{k}(beta) =", r, flush=True)
-    print("ALL IDENTITIES HOLD" if ok else "IDENTITY FAILURE"); assert ok
+    # ---- controls (Rule R review B, B-1) ----
+    def to_N(raw, dl):
+        """natural-form coefficients in 1/N', N' = n + dl, of (N'/n)^p sum_k raw_k n^{-k} (same algebra as run())"""
+        hi0 = S.HI; S.HI = KORD
+        one = S.const(1); x = S(1, [G1]); y = x*(one - x*G(dl)).inv()
+        tot = S.const(G(raw[0])); q = S.const(1)
+        for k in range(1, KORD + 1): q = q*y; tot = tot + q*G(raw[k])
+        F = (one - x*G(dl)).powr1(-p)*tot
+        out = [F.get(k).a for k in range(KORD + 1)]; S.HI = hi0; return out
+    ok &= (to_N(d, be/2 + HALF) == list(f)); print("helper reproduces f from raw d in N = n + (beta+1)/2:", to_N(d, be/2 + HALF) == list(f))
+    nctl = 0
+    for lab, dl in (("N' = n + (alpha+1)/2", al/2 + HALF), ("N' = n", ZERO)):
+        fb = to_N(d, dl); holds = (fb[1] == ZERO) and not any(factor(v.as_expr()).has(B) for v in fb[1:])
+        ok &= not holds; nctl += 1
+        print(f"CONTROL (must fail) integer layer in {lab}: f1 = {factor(fb[1].as_expr())}; f1 = 0 and beta-free: "
+              f"{'holds -> FAIL' if holds else 'fails -> PASS'}", flush=True)
+    holds = all(factor(d[k].as_expr().subs(B, -B) - (-1)**k*d[k].as_expr()) == 0 for k in range(1, KORD + 1))
+    ok &= not holds; nctl += 1
+    print(f"CONTROL (must fail) reflection about the wrong centre d_k(-beta) = (-1)^k d_k(beta), k <= {KORD}: "
+          f"{'holds -> FAIL' if holds else 'fails -> PASS'} (d1(-beta) + d1(beta) = {factor(d[1].as_expr().subs(B, -B) + d[1].as_expr())})", flush=True)
+    print(f"{nctl} controls")
+    print("ALL IDENTITIES HOLD, ALL CONTROLS FAIL" if ok else "IDENTITY OR CONTROL FAILURE"); assert ok

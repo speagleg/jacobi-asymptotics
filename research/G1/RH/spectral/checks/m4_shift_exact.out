@@ -1,10 +1,10 @@
-sha256 m4_shift_exact.py: fb5d9ceb299b4249520b399fdfacac90ab96d42fa788c75dfcc19073ceefbd98
-  soft edge done (1s)
-  hard edge done (4s)
-  order 1 done (4s)
-  order 2 done (6s)
-  order 3 done (11s)
-  order 4 done (23s)
+sha256 m4_shift_exact.py: c5bf8bb1a9743a0710e409964758c169d573b58ff33cee996a5adc22f0d2349d
+  soft edge done (2s)
+  hard edge done (9s)
+  order 1 done (9s)
+  order 2 done (17s)
+  order 3 done (30s)
+  order 4 done (69s)
 f1: depends on beta: False;  f1 = 0
 f2: depends on beta: False;  f2 = -(3*alpha**2*p + 6*alpha**2 - 2*p - 2)/24
 f3: depends on beta: False;  f3 = 0
@@ -13,5 +13,10 @@ reflection d1(-beta-2) - (-1)^1 d1(beta) = 0
 reflection d2(-beta-2) - (-1)^2 d2(beta) = 0
 reflection d3(-beta-2) - (-1)^3 d3(beta) = 0
 reflection d4(-beta-2) - (-1)^4 d4(beta) = 0
-ALL IDENTITIES HOLD
+helper reproduces f from raw d in N = n + (beta+1)/2: True
+CONTROL (must fail) integer layer in N' = n + (alpha+1)/2: f1 = p*(alpha - beta)/2; f1 = 0 and beta-free: fails -> PASS
+CONTROL (must fail) integer layer in N' = n: f1 = -p*(beta + 1)/2; f1 = 0 and beta-free: fails -> PASS
+CONTROL (must fail) reflection about the wrong centre d_k(-beta) = (-1)^k d_k(beta), k <= 4: fails -> PASS (d1(-beta) + d1(beta) = -p)
+3 controls
+ALL IDENTITIES HOLD, ALL CONTROLS FAIL
 EXIT 0

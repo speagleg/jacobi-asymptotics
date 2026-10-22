@@ -1,23 +1,50 @@
-sha256 m3a_g5_exact.py: 3445d560e2ae8f15b39674951aeafd5693f3393ec0126bca3eb4e406baeaaebb
+sha256 m3a_g5_exact.py: e583e1fcb0709fa3cc35afe0ce03ae0de462d69f6ed35187f4250fa42b9d56e1
 sha256 m4_rh_exact2.py: 2d18e25944304c02b2a38290bfe36013727e6e99fe7ae6032ba6aa2cdb5cbc06
+helper: to_N(raw d, (beta+1)/2, p) = engine f identically: True
 integer layer f1 = f3 = 0 (beta-free) identically: True
 f3 = 0 identically: True
 f2 = (p+1)/12 - (p+2)alpha^2/8 (beta-free) identically: True
 f4 = closed form at the Bessel order (beta-free) identically: True
+   control: index N' = n + (alpha+1)/2 gives f1 = p*(alpha - beta)/2
+CONTROL (must fail) integer layer in N' = n + (alpha+1)/2: f1 = 0 and f1..f4 beta-free: fails -> PASS
+   control: index N' = n gives f1 = -p*(beta + 1)/2
+CONTROL (must fail) integer layer in N' = n: f1 = 0 and f1..f4 beta-free: fails -> PASS
+j=1: helper round trip to_N(to_n(g)) = g identically: True
+j=1: N^-(jp) = 0 identically: True
 j=1: lead = C(2j,j) p j/2 identically: True
 j=1: N^-(2+jp) = 0 identically: True
 j=1: N^-(3+jp)/N^-(1+jp) = A_j + B_j alpha^2 (beta-free) identically: True
 j=1: N^-(4+jp) = 0 identically: True
-   (106s)
+CONTROL (must fail) j=1: zeta layer with prefactor (N/n)^p: N^-(2+jp) = 0 and beta-free: fails -> PASS
+CONTROL (must fail) j=1: zeta layer in N' = n + (alpha+1)/2: N^-(2+jp) = 0 and N^-(3+jp)/N^-(1+jp) = A_j + B_j alpha^2: fails -> PASS
+   (138s)
+j=2: helper round trip to_N(to_n(g)) = g identically: True
+j=2: N^-(jp) = 0 identically: True
 j=2: lead = C(2j,j) p j/2 identically: True
 j=2: N^-(2+jp) = 0 identically: True
 j=2: N^-(3+jp)/N^-(1+jp) = A_j + B_j alpha^2 (beta-free) identically: True
 j=2: N^-(4+jp) = 0 identically: True
-   (140s)
+CONTROL (must fail) j=2: zeta layer with prefactor (N/n)^p: N^-(2+jp) = 0 and beta-free: fails -> PASS
+CONTROL (must fail) j=2: zeta layer in N' = n + (alpha+1)/2: N^-(2+jp) = 0 and N^-(3+jp)/N^-(1+jp) = A_j + B_j alpha^2: fails -> PASS
+   (172s)
+j=3: helper round trip to_N(to_n(g)) = g identically: True
+j=3: N^-(jp) = 0 identically: True
 j=3: lead = C(2j,j) p j/2 identically: True
 j=3: N^-(2+jp) = 0 identically: True
 j=3: N^-(3+jp)/N^-(1+jp) = A_j + B_j alpha^2 (beta-free) identically: True
 j=3: N^-(4+jp) = 0 identically: True
-   (89s)
-ALL IDENTITIES HOLD
+CONTROL (must fail) j=3: zeta layer with prefactor (N/n)^p: N^-(2+jp) = 0 and beta-free: fails -> PASS
+CONTROL (must fail) j=3: zeta layer in N' = n + (alpha+1)/2: N^-(2+jp) = 0 and N^-(3+jp)/N^-(1+jp) = A_j + B_j alpha^2: fails -> PASS
+   (126s)
+j=sym: helper round trip to_N(to_n(g)) = g identically: True
+j=sym: N^-(jp) = 0 identically: True
+j=sym: lead = p j/2 (mu normalised by C(2j,j)) identically: True
+j=sym: N^-(2+jp) = 0 identically: True
+j=sym: N^-(3+jp)/N^-(1+jp) = A_j + B_j alpha^2 (beta-free) identically: True
+j=sym: N^-(4+jp) = 0 identically: True
+CONTROL (must fail) j=sym: zeta layer with prefactor (N/n)^p: N^-(2+jp) = 0 and beta-free: fails -> PASS
+CONTROL (must fail) j=sym: zeta layer in N' = n + (alpha+1)/2: N^-(2+jp) = 0 and N^-(3+jp)/N^-(1+jp) = A_j + B_j alpha^2: fails -> PASS
+   (3271s)
+29 identities, 10 controls
+ALL IDENTITIES HOLD, ALL CONTROLS FAIL
 EXIT 0

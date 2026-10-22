@@ -1,4 +1,4 @@
-"""JZC M3a, gap 2 of Theorem H for 0 < p < 1 (JZC_M3a_H_G23plt1.md §2): the a-priori bound for the Hurwitz interpolant in the
+"""JZC M3a, gap 2 of Theorem H for 0 < p < 1 (JZC_M3a_H_G23plt1.md §1; fixed per Rule R review B, B23-8): the a-priori bound for the Hurwitz interpolant in the
 seam geometry (NUMERICAL, mpmath dps 40/30).  Hurwitz measure sigma^d = sum_{k>=1} tau_k^{-s} delta_{tau_k^{-p}}, tau_k = k + d,
 a = 1 + d, alpha = (s-1-p)/p, 1 < s < 1 + 2p.  Summation engine (S_A: direct + exact Hurwitz tails; S_B: Euler-Maclaurin with analytic
 derivatives; own EM tails hz) copied from m3a_g12_apriori.py (where it is described); seam engine from m3a_g3_seam.py, with the Cauchy
@@ -11,9 +11,9 @@ Claims checked (asserted):
       Cauchy sum are removed exactly: residue w(X_k)U_j1(X_k), theta_d' = theta'); CONTROL that must fail: with the lattice theta
       instead of theta_d the jump across X_k is ~ 2 Res/(eps X_k); (b) inside the lens (arg z = phi_1/2), |R_j2| has exponent min(alpha, 0)
       as z -> 0; (c) on the arcs |t| in d + N + 1/2, |arg t| < theta_lip/p, |e^{2 pi i(t-d)} - 1| >= min(1 - e^{-pi/2}, 2e^{-pi/4} sin(7pi/16)).
-  [O] (O5) near 0 for the seam scalar F_d (G3 Lemma 3(iii)), the input of Prop 2.4(i): F_d/F_0 -> 1 off the lens in S_in, in S_out and at
+  [O] (O5) near 0 for the seam scalar F_d (G3 Lemma 3(iii)), the input of P2.6 (i) (fixed per Rule R review B, B23-8): F_d/F_0 -> 1 off the lens in S_in, in S_out and at
       angular distance 1e-8 from both seams (both sides); F~_d/F_0 -> 1 in the lens (F_0 = (4c)^{-1/2} e^{chi_d(0)}).
-  [W] Lemma 2.6 (seam scalar at infinity, uniformly up to the seams; the input of Lemma normalisation for F_nat): chi_d -> 0 and
+  [W] Lemma 2.5 (fixed per Rule R review B, B23-8) (seam scalar at infinity, uniformly up to the seams; the input of Lemma normalisation for F_nat): chi_d -> 0 and
       F_d (-z)^{-d}/(2 pi n)^{-1/2-d} -> 1 at angular distance 1e-8 from the seams, |z| = 1e8, 1e12; Plemelj: chi_out - chi_in = chi_+^d."""
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import mpmath as mp

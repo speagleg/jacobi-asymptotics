@@ -743,6 +743,8 @@ the result as ζ(−kp)/k. Also Theorem E′.1 (sign of κ_p): ζ(−p) = −2(2
 (25.4.1 at s = 1 + p; ζ(1+p) > 0 by 25.2.1; Γ(1+p) > 0 by 5.2.1).
 **Also used in: JZC_M3a_H_Hc** (Lemma Hc.2(i)): 25.2.1 at s = 1 + kp for the Fubini bound and |S_k(δ)| ≤ ζ(1+kp); 25.4.1 only at
 δ = 0. (added per Rule R review A of the p>1 chain, Hc-1)
+**Also used in: JZC_M3a_H_G23plt1** (Lemma F.1_δ (iii)): 5.2.1 at Re(kp) > 0 after u ↦ mu, and 25.2.1 at s = 1 + kp (Re s > 1) only
+as the majorant Σ_m m^{−1−kp} for Fubini and for |S_k(δ)| ≤ ζ(1+kp); 25.4.1 not used. (added per Rule R review B, B23-7)
 
 ## (Plan 67 reuse) entries above used by second_order/E_plt1.md
 

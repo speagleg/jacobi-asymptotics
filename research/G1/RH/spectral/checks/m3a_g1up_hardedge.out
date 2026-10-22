@@ -51,7 +51,6 @@
 [4] p=0.6 alpha=-0.6 delta=-0.8 (beta'=-2.20): lip match rel.err 6.33e-31; |omega_nat - e^(-+i pi alpha)|/|z|^(1/2) in [1.796, 1.876] (n = 10, 1000); control min |omega_nat - e^(-+i pi beta')| = 1.05
 [5] p=0.6 alpha=-0.6 delta=-0.8 (beta'=-2.20), |z| = c/2, 8 pts (4 on seams): n|J-I| = 0.8452, 0.84479, 0.84517, 0.84566, 0.84611
     remainder exponents log2(e(n)/e(2n)): true rho_nat 2.043, 2.019, 2.008, 2.004; gauge (J=1) 2.04, 2.017, 2.007, 2.002; CONTROL band factor dropped 1.825, 1.783, 1.751, 1.724; CONTROL nu=beta' 0.9994, 0.9997, 0.9999, 0.9999
-    control (band factor dropped) not applicable: e_mod/e_true at n=400 = 3.55 < 10
 [6] p=0.6 alpha=-0.6 delta=-0.8 (beta'=-2.20): max |P0hat^(+-1)| |zeta|^(|alpha|/2) n^(-1/2) = 0.76026 (seam points incl.); control (rho_w, |zeta| = 1e-8) up to 4.799e+24
 [2] p=0.3 alpha=-0.3 delta=-0.9 (beta'=-2.10): |rho_nat| in [0.689368, 1.0] (n = 10, 100, 1000; 1e-12 <= |z| <= c/2, seams both sides); n^p|log(rho_nat/rho_mod)|/|z|^(1/2) = 10:0.1514, 100:0.1546, 1000:0.1551
     band: max|rho_+ rho_- - 1| = 8.81e-23; glue: max |rho_out/rho_in - e^(-l_pm)|/|e^(-l_pm) - 1| = 1.24e-23 (n = 4, |z| = 2, 3)
@@ -66,7 +65,7 @@
 [4] p=0.75 alpha=0.3 delta=-0.3 (beta'=-0.30): lip match rel.err 5.94e-31; |omega_nat - e^(-+i pi alpha)|/|z|^(1/2) in [1.016, 1.039] (n = 10, 1000); control min |omega_nat - e^(-+i pi beta')| = 1.531
 [5] p=0.75 alpha=0.3 delta=-0.3 (beta'=-0.30), |z| = c/2, 8 pts (4 on seams): n|J-I| = 0.70543, 0.71315, 0.7172, 0.71926, 0.7203
     remainder exponents log2(e(n)/e(2n)): true rho_nat 1.95, 1.974, 1.987, 1.993; gauge (J=1) 1.947, 1.972, 1.986, 1.993; CONTROL band factor dropped 1.961, 1.991, 2.009, 2.012; CONTROL nu=beta' 1.95, 1.974, 1.987, 1.993
-    control (band factor dropped) not applicable: e_mod/e_true at n=400 = 0.89 < 10
+    control (band factor dropped) not applicable: exponents >= 1.9 and e_mod/e_true at n=400 = 0.89 < 10
     control nu = beta' not applicable: |beta'| = |alpha|
 [6] p=0.75 alpha=0.3 delta=-0.3 (beta'=-0.30): max |P0hat^(+-1)| |zeta|^(|alpha|/2) n^(-1/2) = 0.72075 (seam points incl.); control (rho_w, |zeta| = 1e-8) up to 5.989e+8
 [2] p=0.75 alpha=0.6 delta=-0.95 (beta'=-1.30): |rho_nat| in [0.894788, 1.0] (n = 10, 100, 1000; 1e-12 <= |z| <= c/2, seams both sides); n^p|log(rho_nat/rho_mod)|/|z|^(1/2) = 10:0.08808, 100:0.08585, 1000:0.08544
@@ -75,6 +74,5 @@
 [4] p=0.75 alpha=0.6 delta=-0.95 (beta'=-1.30): lip match rel.err 5.61e-31; |omega_nat - e^(-+i pi alpha)|/|z|^(1/2) in [0.4441, 0.4771] (n = 10, 1000); control min |omega_nat - e^(-+i pi beta')| = 0.2703
 [5] p=0.75 alpha=0.6 delta=-0.95 (beta'=-1.30), |z| = c/2, 8 pts (4 on seams): n|J-I| = 0.39118, 0.38672, 0.38442, 0.3832, 0.38254
     remainder exponents log2(e(n)/e(2n)): true rho_nat 2.065, 2.031, 2.016, 2.008; gauge (J=1) 2.061, 2.029, 2.014, 2.007; CONTROL band factor dropped 1.939, 1.917, 1.898, 1.881; CONTROL nu=beta' 1.0, 1.0, 1.0, 1.0
-    control (band factor dropped) not applicable: e_mod/e_true at n=400 = 1.56 < 10
 [6] p=0.75 alpha=0.6 delta=-0.95 (beta'=-1.30): max |P0hat^(+-1)| |zeta|^(|alpha|/2) n^(-1/2) = 0.55699 (seam points incl.); control (rho_w, |zeta| = 1e-8) up to 1.509e+24
-ALL 157 CHECKS PASSED
+ALL 159 CHECKS PASSED

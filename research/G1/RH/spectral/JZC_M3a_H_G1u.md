@@ -3,7 +3,8 @@
 Rule R review A: ACCEPT WITH FIXES (research/G1/review/REVIEW_JZC_M3a_H_pgt1_chain_A.md); fixes applied 2026-10-21.
 Status (2026-10-21): **REVIEWED** for p > 1 (L1–L4, Prop G1u (A), (B); Rule R: independent second reader A re-derived them and re-ran
 m3a_g1u_hardedge.py, m3a_g1u_endtoend.py, byte-identical outputs; fixes G1u-1–G1u-3 applied). The "p < 1" paragraph of §3 was not
-reviewed. Inputs keep their own labels (G12: NOT REVIEWED; E3.7 for M(β′, α): exact check m3a_e37_decoupled, not yet reviewed).
+reviewed. Inputs keep their own labels (G12: REVIEWED; E3.7 for M(β′, α): exact check m3a_e37_decoupled, REVIEWED — both by Rule R review B,
+REVIEW_JZC_M3a_H_assembly_B.md; status updated 2026-10-22).
 Labels per VERIFICATION_POLICY.md. Closes, modulo the inputs listed in §4, item 1 of JZC_M3a_H.md §4 ("the n-uniform hard-edge comparison with Szegő exponent β′") for **p > 1, −1 < δ ≤ 0,
 1 < s < 1 + 2p** (|α| < 1). Checks: `checks/m3a_g1u_hardedge.py/.out` (110 assertions, 34 of them controls that must fail),
 `checks/m3a_g1u_endtoend.py/.out` (29 assertions, 8 controls). Everything attributed to Paper 2 is quoted from papers/paper2/{sec_6,sec_7,app_a,app_b,
@@ -249,7 +250,7 @@ in-lens part was not done. OPEN.
 ## 4. Inputs and labels
 
 Proposition G1u (A) uses: Paper 2 §6–7 and App A–C (as read; labels as in the repo), G12 P1.4, C1.5, L2.1–L2.3, P2.4 (PROVED-mod-cite,
-NOT REVIEWED), H-d Lemma (i)–(iii) (PROVED for the jump algebra, REVIEWED: Rule R review A of the p>1 chain), L1–L4 above, H-a
++ REVIEWED since Rule R review B, status updated 2026-10-22), H-d Lemma (i)–(iii) (PROVED for the jump algebra, REVIEWED: Rule R review A of the p>1 chain), L1–L4 above, H-a
 (JZC_M3a_H_Ha.md) (fixed per Rule R review A of the p>1 chain, G1u-2).
 (B) additionally uses JZC_M4_proof N.6a–c (PROVED-mod-cite; review A done), RH_px §4.1–§5 [REVIEWED], E_pgt1 L E.3, and the band-factor
 input H-c for δ (JZC_M3a_H §2, §3.2: the gauge Δ_k = G_μΔ_k^{mod}G_μ^{−1} + O(n^{−(J+1)p}) with the Hurwitz moments).

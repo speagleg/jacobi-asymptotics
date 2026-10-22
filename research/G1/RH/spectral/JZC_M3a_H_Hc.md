@@ -2,10 +2,12 @@
 
 Rule R review A: ACCEPT WITH FIXES (research/G1/review/REVIEW_JZC_M3a_H_pgt1_chain_A.md); fixes applied 2026-10-21.
 Status (2026-10-21): **REVIEWED for p > 1** (Hc.1–Hc.3, Cor Hc.4; Rule R: independent second reader A re-derived them and re-ran
-m3a_hc_pgt1.py, m3a_hc_gauge.py, byte-identical outputs; fixes Hc-1, Hc-2 applied). **Hc.5 (p < 1) is NOT REVIEWED** (outside that
-review). Inputs keep their own labels (G12: NOT REVIEWED). Labels per VERIFICATION_POLICY.md. Novelty: UNCHECKED.
+m3a_hc_pgt1.py, m3a_hc_gauge.py, byte-identical outputs; fixes Hc-1, Hc-2 applied). Rule R review B (research/G1/review/REVIEW_JZC_M3a_H_plt1_G1up_B.md §3): Hc.5 ACCEPT WITH FIXES; fixes
+Hc5-1, Hc5-2 applied 2026-10-22. Status (2026-10-22): **Hc.5 (p < 1) is REVIEWED** (review B re-derived it and re-ran m3a_hc_gauge.py,
+byte-identical). Inputs keep their own labels (G12: REVIEWED, review B of the assembly; G23plt1 F.1_δ: REVIEWED, review B of the p < 1
+inputs). Labels per VERIFICATION_POLICY.md. Novelty: UNCHECKED.
 Closes item 5 of JZC_M3a_H.md §4 for **p > 1**; for **0 < p < 1** it reduces item 5 to E_plt1 Lemma F.1 with complex
-seam densities, which is JZC_M3a_H_G23plt1.md Lemma F.1_δ (NOT REVIEWED; cited, not redone here).
+seam densities, which is JZC_M3a_H_G23plt1.md Lemma F.1_δ (REVIEWED; cited, not redone here).
 Setting: Hurwitz lattice λ_k = (k + δ)^p, k ≥ 1, **−1 < δ ≤ 0** (δ < 0 for p < 1), a := 1 + δ, **1 < s < 1 + 2p**, α := (s − 1 − p)/p,
 β′ := α + 2δ, c = c(p). H-c itself does not use s (the band factor is s-free); the hypothesis on s is the Setting of Theorem H, where
 H-c is used (G1u Prop (B)).
@@ -13,11 +15,11 @@ Checks: `checks/m3a_hc_pgt1.py/.out` (Lemmas Hc.1–Hc.2), `checks/m3a_hc_gauge.
 
 | # | Statement | Label |
 |---|---|---|
-| Hc.1 | E_pgt1 Lemma E.2 for H_n^δ = (D̃_δB_δ)^{−2}, p > 1: jump i𝔢_δ on (−∞, 0) with **δ-free** majorants; representation (E.2.1)_δ; G_δ − G_δ(1) = O(n^{−p}) with one derivative, C = C(p) | PROVED-mod-cite (G12 L1.2, L1.3, P1.4 [NOT REVIEWED]; Paper 2 Lemma binetcut (iii), (eq:binet-bound) via G12) |
+| Hc.1 | E_pgt1 Lemma E.2 for H_n^δ = (D̃_δB_δ)^{−2}, p > 1: jump i𝔢_δ on (−∞, 0) with **δ-free** majorants; representation (E.2.1)_δ; G_δ − G_δ(1) = O(n^{−p}) with one derivative, C = C(p) | PROVED-mod-cite (G12 L1.2, L1.3, P1.4 [REVIEWED, review B of the assembly]; Paper 2 Lemma binetcut (iii), (eq:binet-bound) via G12) |
 | Hc.2 | E3 Lemma F.1′ for δ, p > 1: (i) m_k(δ) = −(p/π)Γ(kp)(2πn)^{−kp}S_k(δ) (Fourier sum); (ii) G_δ(z) − G_δ(1) = Σ_{k≤K}m_k(δ)(z^k − 1) + O(n^{−(K+1)p}) on \|z\| ≤ 4c + 2, boundary values included, with derivative bounds; C = C(p, K) **independent of δ** | PROVED-mod-cite (Hc.1; DLMF 5.9.1, 25.2.1 as quoted in RH/CITATIONS.md "(Plan E3)", "(DLMF-zeta, Plan 67)") |
 | Hc.3 | the gauge (E3 Lemma E3.5 / JZC_M4_proof N.6a, band part) in G1u's α-frame, p > 1: for every k and J, uniformly on both circles, Δ_k♮ = G_{μ^δ_n}Δ_k^{mod,β′}G_{μ^δ_n}^{−1} + O(n^{−(J+1)p}), μ^δ_{n,j} := 2m_j(δ) | PROVED-mod-cite (Hc.2; E3 Lemma E3.4 [REVIEWED]; Paper 2 (eq:szego-repr); G1u L1, L2 [REVIEWED, review A of the p>1 chain]) |
 | Cor Hc.4 | H-c holds for p > 1: Prop G1u (B) no longer depends on H-c; item 5 of JZC_M3a_H §4 is closed for p > 1 | PROVED-mod-cite + REVIEWED (Rule R review A of the p>1 chain) |
-| Hc.5 | p < 1: the gauge of Hc.3 with the seam band factor (complex densities ℓ_±; circles crossing the seams, sector-wise) | PROVED-mod-cite given G23plt1 Lemma F.1_δ (iv) (NOT REVIEWED); the hard-edge data in the α-frame need the glued W̃♮ (G1u "p < 1", not part of H-c) |
+| Hc.5 | p < 1: the gauge of Hc.3 with the seam band factor (complex densities ℓ_±; circles crossing the seams, sector-wise) | PROVED-mod-cite given G23plt1 Lemma F.1_δ (iv) (REVIEWED) + REVIEWED (Rule R review B); the hard-edge data in the α-frame are JZC_M3a_H_G1u_plt1.md (L P2–P3), not part of H-c (fixed per Rule R review B, Hc5-1) |
 | Rem | m_k(δ) = ζ(−kp, 1+δ)/(kn^{kp}) | NUMERICAL only (JZC_M3a_H Remark 3.3; Hurwitz's formula NOT QUOTED) |
 
 ## 0. Setting, notation, what is reused
@@ -41,7 +43,7 @@ n-free, while Theorem N.6 uses μ_{n,j} = 2ζ(−jp)/(jn^{jp}) (n-dependent). Th
 
 *Reused verbatim:* E3 Lemma E3.4 (PROVED, REVIEWED: purely algebraic, holds for every real μ); JZC_M4_proof Lemma N.6a's formulas for
 Δ_k^0, Δ_k^r (k-free conjugation structure); Paper 2 (eq:szego-repr) ("for every z ∉ [0, 4c] and every number 𝔠",
-papers/paper2/sec_6.tex l. 170–173). *Inputs from this repo:* G12 L1.1–L1.3, P1.4 (NOT REVIEWED); G1u L1, L2 (REVIEWED, Rule R review A of the p>1 chain; status updated 2026-10-21).
+papers/paper2/sec_6.tex l. 170–173). *Inputs from this repo:* G12 L1.1–L1.3, P1.4 (REVIEWED, Rule R review B of the assembly; status updated 2026-10-22); G1u L1, L2 (REVIEWED, Rule R review A of the p>1 chain; status updated 2026-10-21).
 
 ## 1. Lemma Hc.1 (E_pgt1 Lemma E.2 for δ)
 
@@ -82,7 +84,7 @@ off it, hence analytic on ℂ∖{0} (Morera).
 (c) E_pgt1 Lemma E.2 (c) and (ii) verbatim: the far part |y| ≥ 2R₁ uses only |𝔢_δ| ≤ π e^{−2π sin(π/p)n|y|^{−1/p}} (substitute |y| = n^pw);
 the near part y ∈ [−2R₁, 0) uses only |𝔢_δ|, |𝔢_δ′| = O(e^{−c₂n}) and the vanishing to all orders at 0 (window subtraction of 𝔢_δ(Re z));
 the derivative bounds are differentiation under the integral (far part), integration by parts (near part) and Cauchy's estimate. All
-constants enter through the majorants of (a), which are δ-free. ∎ (PROVED-mod-cite: G12 L1.1–L1.3, P1.4 [NOT REVIEWED], through them
+constants enter through the majorants of (a), which are δ-free. ∎ (PROVED-mod-cite: G12 L1.1–L1.3, P1.4 [REVIEWED, review B of the assembly], through them
 Paper 2 (eq:binet-bound) and Lemma binetcut (iii).)
 
 ### 1.1 Line-by-line record: E_pgt1 Lemma E.2 → Hc.1
@@ -194,7 +196,8 @@ G_{μ^δ}Δ_k^{mod,β′}G_{μ^δ}^{−1} + O(n^{−(J+1)p}), with μ^δ_{n,j} =
 O(n^{−K−1} + n^{−1−(J+1)p}), conditional only on H-a, which JZC_M3a_H_Ha.md supplies (PROVED-mod-cite). With JZC_M3a_H §3.3 (N.6a–c for
 M(β, ν), and E3 Lemma E3.7 for M(β′, α): JZC_M3a_H §3.3, exact check m3a_e37_decoupled) this removes the last listed open item of
 Theorem H (i) for p > 1. Label: PROVED-mod-cite + REVIEWED (Rule R review A of the p>1 chain, fixes applied 2026-10-21). Of the chain's
-links, Ha, Hd (i)–(iii), G1u (p > 1) and Hc (p > 1) are REVIEWED; G12 is NOT REVIEWED (its review A did not re-run the checks) (status
+links, Ha, Hd (i)–(iii), G1u (p > 1) and Hc (p > 1) are REVIEWED; G12 is REVIEWED since Rule R review B of the assembly (REVIEW_JZC_M3a_H_assembly_B.md §A; status updated 2026-10-22); the remaining
+link not marked REVIEWED is JZC_M4_proof Theorem N.6 / N.6a–c (review A done, second reader pending) (earlier status
 updated 2026-10-21).
 
 ## 4. p < 1 (Lemma Hc.5): what changes
@@ -202,23 +205,24 @@ updated 2026-10-21).
 The band factor is the seam one, H_n^δ = (D̃_δB_in^δe^{χ_δ})^{−2} = e^{−2𝒢_δ} (G3 §2, Lemma 3 (iii)). Its analogue of Hc.1–Hc.2 is
 JZC_M3a_H_G23plt1.md **Lemma F.1_δ** (E_plt1 Lemma F.1 with the complex seam densities ℓ_±(r) = −Log(1 − e^{±2πiδ}e^{−2πnr^{−1/p}}),
 majorants |ℓ_±| ≤ ℓ, |ℓ_±′| ≤ ℓ′ (Lemma M), moments the same Fourier sums m_k(δ) = −(p/π)Γ(kp)(2πn)^{−kp}S_k(δ), real; (iv) with C, n₀
-independent of δ). It is cited, not redone here (coordinator's instruction; NOT REVIEWED; m3a_g23_F1.out, 398 checks). What H-c needs beyond
+independent of δ). It is cited, not redone here (coordinator's instruction; REVIEWED (Rule R review B); m3a_g23_F1.out, 398 checks). What H-c needs beyond
 F.1_δ:
 
 **Lemma Hc.5.** Let 0 < p < 1, −1 < δ < 0, J ≥ 1, and assume G23plt1 Lemma F.1_δ (i)–(iv). Define the circle data as in §3 with log h° :=
 −2(𝒢_δ − 𝒢_δ(1)) taken **sector-wise** (𝒢_δ,in in S_in, 𝒢_δ,out in S_out, both boundary values on the seams), i.e. with E_plt1's glued W̃
 (RH_plt1b §2) in the α-frame form W̃♮ = (𝗐(−z)^{β′}(4c−z))^{1/2}e^{−𝒢_δ}·const. Then Step 1–3 of Hc.3 hold: Δ_k = G_{μ^δ_n}Δ_k^{mod,β′}G_{μ^δ_n}^{−1}
-+ O(n^{−(J+1)p}) uniformly on both circles, boundary values at the seams and at (−δ_r, 0) included.
++ O(n^{−(J+1)p}) uniformly on both circles, boundary values at the seams included (fixed per Rule R review B, Hc5-1: for p < 1 there is no cut on
+(−δ_r, 0); −δ_r ∈ S_out is an ordinary point).
 *Proof (the changed lines only).* (1) Reality: ℓ₋ = conj ℓ₊ (Lemma M (M1)) and (F.1_δ) give 𝒢_δ(z̄) = conj 𝒢_δ(z), so log h° is real on the band
 and μ^δ_n is real (F.1_δ (iii)): E3 L E3.4 applies. (2) Step 1: (eq:szego-repr) holds for every number 𝔠, so 𝔠 := log h°(z) may be the
 sector value at z ∈ S_out or either seam boundary value; P_μ is entire, so the split L = 𝓡M_μ + T holds sector-wise with E := the sector
 value of E_n^{(J)}. (3) Step 2: the sup bound uses F.1_δ (iv) on |z| ≤ R₁ with seam boundary values; the derivative bound is needed only on
 U(x₀, 2η₀) around x₀ ∈ {δ_r, 4c − ε}, which lies in S_in at distance ≥ η₀ sin(πp/2) from the seams (choose η₀ ≤ δ_r sin(πp/2)/4) — F.1_δ (iv),
 derivative part. The points where ∂U_0 crosses the seams are at distance δ_r sin(πp/2) from [0, 4c], where the sup bound suffices.
-(4) Step 3 verbatim. ∎ (PROVED-mod-cite, given G23plt1 F.1_δ (iv) [NOT REVIEWED]; Paper 2 (eq:szego-repr); E3 L E3.4.)
+(4) Step 3 verbatim. ∎ (PROVED-mod-cite, given G23plt1 F.1_δ (iv) [REVIEWED]; Paper 2 (eq:szego-repr); E3 L E3.4. REVIEWED: Rule R review B.)
 
-*Not part of H-c, still open for p < 1 (G1u "p < 1"):* the glued hard-edge parametrix rebuilt with W̃♮ (its glue jumps are super-small,
-1 − e^{∓2πi(t−δ)}, |·| = e^{−2πn|z|^{−1/p}}), and items 2–3 of JZC_M3a_H §4 (now in G23plt1). Hc.5 is the band-factor part only.
+*Not part of H-c (p < 1):* the glued hard-edge parametrix with W̃♮ is JZC_M3a_H_G1u_plt1.md (L P2–P3), which also gives an independent
+proof of Hc.5 (L P5); items 2–3 of JZC_M3a_H §4 are G23plt1 (fixed per Rule R review B, Hc5-1). Hc.5 is the band-factor part only.
 *What changes vs p > 1:* densities complex (two seams, conjugate) instead of one real density on (−∞, 0); circles cross the seams (sector values);
 the Möbius factor in B_in^δ does not affect 𝒢_δ − 𝒢_δ(1) (G3 Rule A 8, Lemma 1); 5.2.1 (real Mellin constant) instead of 5.9.1.
 
@@ -288,9 +292,10 @@ errors 18 → 2.9·10⁵ (growing like n^p).
 
 ## 7. What remains
 
-- Rule R second reader for Hc.5 (p < 1) and for the NOT REVIEWED inputs G12, G23plt1 (Hc.1–Hc.4 and G1u: done, review A of the p>1
-  chain).
-- p < 1: Hc.5 is conditional on G23plt1 Lemma F.1_δ (NOT REVIEWED); the α-frame glued hard-edge parametrix (G1u "p < 1") and the a-priori
-  bound (item 2, G23plt1) are outside H-c.
+- Rule R: done for Hc.1–Hc.4 (review A of the p>1 chain), Hc.5 (review B, REVIEW_JZC_M3a_H_plt1_G1up_B.md) and the inputs G12
+  (REVIEW_JZC_M3a_H_assembly_B.md §A), G23plt1 (REVIEW_JZC_M3a_H_plt1_inputs_B.md).
+- p < 1: Hc.5 rests on G23plt1 Lemma F.1_δ (REVIEWED); the α-frame glued hard-edge parametrix is JZC_M3a_H_G1u_plt1.md (L P2–P3), which
+  also gives an independent proof of Hc.5 (L P5); the a-priori bound (item 2) is G23plt1 (fixed per Rule R review B, Hc5-1); both are
+  outside H-c.
 - Hurwitz's formula is still NOT QUOTED: Theorem H's constants are the Fourier sums S_j(δ); their identification with ζ(−jp, a) is NUMERICAL.
 - Notation corrections applied in JZC_M3a_H.md §1 (μ^δ_{n,j} = 2m_j(δ)) and §3.2 (DLMF 5.9.1 for p > 1).

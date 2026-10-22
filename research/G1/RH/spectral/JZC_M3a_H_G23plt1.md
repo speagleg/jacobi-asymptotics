@@ -1,6 +1,9 @@
 # JZC M3a, Theorem H gaps 2 and 3 for 0 < p < 1: the a-priori bound in the seam geometry, and E_plt1 Lemma F.1 with the complex seam densities
 
-Status (2026-10-21): NOT REVIEWED (Rule R pending for everything below). Labels per VERIFICATION_POLICY.md. Closes, modulo review,
+Rule R review B: ACCEPT WITH FIXES (research/G1/review/REVIEW_JZC_M3a_H_plt1_inputs_B.md); fixes B23-1 – B23-9 applied 2026-10-22.
+Status (2026-10-22): L2.1′–L2.5, P2.6, Lemma M and Lemma F.1_δ (i)–(iv) are **REVIEWED** (Rule R: review B re-derived the key steps
+and re-ran both checks byte-identically; fixes applied); Remark H stays NUMERICAL (Hurwitz's formula NOT QUOTED). The inputs
+G12 L1.1, L1.2 are REVIEWED (JZC_M3a_H_G12.md header). Labels per VERIFICATION_POLICY.md. Closes
 items 2 and 3 of JZC_M3a_H.md §4 ("What is still open for (i)"). Setting: Hurwitz lattice λ_k = (k + δ)^p, k ≥ 1, **0 < p < 1,
 −1 < δ < 0**, a := 1 + δ, 1 < s < 1 + 2p, α := (s − 1 − p)/p ∈ (−1, 1), n ≥ n₀ fixed where stated. Seam objects (χ_±^δ, χ_δ, F_δ,
 B_in^δ, B_out^δ, λ_δ, ϖ_δ, H_n^δ) are those of JZC_M3a_H_G3.md §2; everything else (U, R, W, φ, θ_δ, κ_δ, F♮ := F_δ(−z)^{−δ}, Q♮,
@@ -10,14 +13,14 @@ Checks: `checks/m3a_g23_apriori.py/.out` (gap 2), `checks/m3a_g23_F1.py/.out` (g
 
 | # | Statement | Label |
 |---|---|---|
-| L2.1′ | G12 L2.1 (Hurwitz sum bound) holds for 0 < p < 1 verbatim; line-by-line audit: it is p-free (p enters only the constant 1/sin(πp/8)) | PROVED + NUMERICAL |
-| L2.2′ | G12 L2.2 (lens sectors) holds for 0 < p < 1; the poles of 𝒦_j in the sector are exactly the Hurwitz nodes; arc constant corrected | PROVED + NUMERICAL |
-| L2.3′ | G12 L2.3 (column factorisation, exponent \|α\|/2) holds for 0 < p < 1, in S_in and S_out alike | PROVED-mod-cite (Paper 2 L szego (i)) |
-| L2.4 | seam inputs near 0: (O5) near 0 for F_δ, (O3)–(O4) for H_n^δ (ν_p = ½), hence \|D_W^{(α)}\|^{±1} ≤ C_{n,η}\|z\|^{±α/2−η} | PROVED-mod-cite (Paper 2 L seam, L corner, L szego (vi); G3 Lemma 3; G12 L1.2) + NUMERICAL |
-| L2.5 | the seam scalar at ∞ uniformly up to the seams: χ_δ bounded on {\|z\| ≥ 1} and χ_δ → 0 uniformly; \|F_δ\|^{±1} ≤ C_n\|z\|^{N_n} next to the seams | PROVED-mod-cite (G3 Lemma 3 (ii); G12 L1.2 (c)) + NUMERICAL |
-| P2.6 | Prop apriori for Q♮, p < 1: \|Q♮\| ≤ C_{n,η,δ}\|z\|^{−\|α\|/2−η}; Q♮ → I; Cor L2 (Q♮_± ∈ I + ∂𝒞(L²)) | PROVED-mod-cite (Paper 2 L szego, L normalisation, Cor L2; G3 Lemma 3, Prop 4) |
-| L M | majorants of the complex seam densities: ℓ₋ = conj ℓ₊, \|ℓ_±\| ≤ ℓ, \|ℓ_±′\| ≤ ℓ′, \|ℓ_±\| ≤ π + log(1/s_δ) | PROVED + NUMERICAL |
-| F.1_δ | E_plt1 Lemma F.1 (i)–(iv) with ℓ_±: (i), (ii), (iv) hold with the listed line changes; (iii) gives the Fourier sum m_k(δ) = −(p/π)Γ(kp)(2πn)^{−kp}S_k(δ) (not ζ(−kp)/(kn^{kp})); the constants of (iv) are δ-free | PROVED-mod-cite (as E_plt1 F.1 + G3 Lemma 3 + G12 L1.2; DLMF 5.2.1, 25.2.1) + NUMERICAL |
+| L2.1′ | G12 L2.1 (Hurwitz sum bound) holds for 0 < p < 1 verbatim; line-by-line audit: it is p-free (p enters only the constant 1/sin(πp/8)) | PROVED + REVIEWED + NUMERICAL |
+| L2.2′ | G12 L2.2 (lens sectors) holds for 0 < p < 1; the poles of 𝒦_j in the sector are exactly the Hurwitz nodes; arc constant corrected | PROVED + REVIEWED + NUMERICAL |
+| L2.3′ | G12 L2.3 (column factorisation, exponent \|α\|/2) holds for 0 < p < 1, in S_in and S_out alike | PROVED-mod-cite (Paper 2 L szego (i)) + REVIEWED |
+| L2.4 | seam inputs near 0: (O5) near 0 for F_δ, (O3)–(O4) for H_n^δ (ν_p = ½), hence \|D_W^{(α)}\|^{±1} ≤ C_{n,η}\|z\|^{±α/2−η} | PROVED-mod-cite (Paper 2 L seam, L corner, L szego (vi); G3 Lemma 3; G12 L1.2) + REVIEWED + NUMERICAL |
+| L2.5 | the seam scalar at ∞ uniformly up to the seams: χ_δ bounded on {\|z\| ≥ 1} and χ_δ → 0 uniformly; \|F_δ\|^{±1} ≤ C_n\|z\|^{N_n} next to the seams | PROVED-mod-cite (G3 Lemma 3 (ii), (ii′)/(iii′); G12 L1.2 (c)) + REVIEWED + NUMERICAL |
+| P2.6 | Prop apriori for Q♮, p < 1: \|Q♮\| ≤ C_{n,η,δ}\|z\|^{−\|α\|/2−η}; Q♮ → I; Cor L2 (Q♮_± ∈ I + ∂𝒞(L²)) | PROVED-mod-cite (Paper 2 L szego, L normalisation, Cor L2; G3 Lemma 3, Prop 4) + REVIEWED |
+| L M | majorants of the complex seam densities: ℓ₋ = conj ℓ₊, \|ℓ_±\| ≤ ℓ, \|ℓ_±′\| ≤ ℓ′, \|ℓ_±\| ≤ π + log(1/s_δ) | PROVED + REVIEWED + NUMERICAL |
+| F.1_δ | E_plt1 Lemma F.1 (i)–(iv) with ℓ_±: (i), (ii), (iv) hold with the listed line changes; (iii) gives the Fourier sum m_k(δ) = −(p/π)Γ(kp)(2πn)^{−kp}S_k(δ) (not ζ(−kp)/(kn^{kp})); the constants of (iv) are δ-free | PROVED-mod-cite (as E_plt1 F.1 + G3 Lemma 3 + G12 L1.2; DLMF 5.2.1, 25.2.1) + REVIEWED + NUMERICAL |
 | Rem H | m_k(δ) = ζ(−kp, 1+δ)/(kn^{kp}) | NUMERICAL (Hurwitz's formula NOT QUOTED) |
 
 ## 0. What Paper 2 does for p < 1 in App C, and the shape of the answer
@@ -32,9 +35,11 @@ same for the KMVV route: "(Y4)_x. The sum bound is p-free. The lens-sector argum
 φ₀ < πp."
 
 So the p < 1 Hurwitz a-priori bound is G12 §2 (L2.1–P2.4) with the seam inputs of G3 in place of the Binet-cut inputs of G12 §1. The
-audit below confirms that L2.1–L2.3 are p-free and that every p > 1-specific input of P2.4 has a seam replacement. One input was
-not covered by any written lemma: the bound on e^{χ_δ} at ∞ *next to the seams* (needed for the polynomial bound in (O5) at ∞, hence
-for G3 Lemma 2/Prop 4 and Lemma normalisation). Lemma 2.5 supplies it (window argument of Lemma corner (iii), at ∞). The same
+audit below confirms that L2.1–L2.3 are p-free and that every p > 1-specific input of P2.4 has a seam replacement. One input is
+new relative to Paper 2: the bound on e^{χ_δ} at ∞ *next to the seams* (needed for the polynomial bound in (O5) at ∞, hence
+for G3 Lemma 2/Prop 4 and Lemma normalisation). G3's addendum (ii′)/(iii′) (review A F2) gives the polynomial bound; Lemma 2.5
+re-proves it with the sharper conclusion χ_δ → 0 uniformly in arg z (window argument of Lemma corner (iii), at ∞) (fixed per Rule R
+review B, B23-1). The same
 statement is asserted without proof in Paper 2 for δ = 0 (For FIXES, §5).
 
 For gap 3 (E_plt1 Lemma F.1 with the complex densities ℓ_±): every estimate in F.1 uses ℓ only through |ℓ| and |ℓ′|, and the
@@ -99,7 +104,8 @@ proofs use only the density bounds of corner (i), supplied for χ_±^δ by G3 Le
 |ζ| ≤ 2, χ_±^δ/ζ integrable at ∞). In the lens, F̃_δ omits κ_δ, and the same facts apply. (b) For z ∈ Z_n,
 log H_n^δ − log H_n^δ(0⁺) = 2j_δ(t) − 2log B_in^δ(z) − 2(χ_δ(z) − χ_δ(0)). For |z| ≤ 1: |t| ≥ n ≥ 2, |arg t| ≤ 3π/8, so G12 L1.2(b) gives
 |j_δ(t)| ≤ C|z|^{1/p}/n and |d j_δ(t)/dz| = |j_δ′(t)||t|/(p|z|) ≤ C|z|^{1/p−1}/n; |log B_in^δ| ≤ C|z| and |(log B_in^δ)′| ≤ C (Re(λ_δz) > 0
-on S_in, so |1 + λ_δz| ≥ 1); corner (ii) for χ_δ gives |χ_δ − χ_δ(0)| ≤ C|z|(1 + log(1/|z|)), |χ_δ′| ≤ C(1 + log(1/|z|)). Since 1/p > 1,
+on S_in, so |1 + λ_δz| ≥ 1); corner (ii) for χ_δ (Z_n ⊂ {|arg z| < 3πp/8}, so corner (ii) applies with τ₀ = sin(πp/8), as in Paper 2's proof of (O3); fixed per
+Rule R review B, B23-5) gives |χ_δ − χ_δ(0)| ≤ C|z|(1 + log(1/|z|)), |χ_δ′| ≤ C(1 + log(1/|z|)). Since 1/p > 1,
 the total is ≤ C|z|^{1/2} with derivative ≤ C|z|^{−1/2}: (O3) with ν_p = ½, as in Paper 2. For |z| ≥ 1 in Z_n: j_δ is bounded on
 {|t| ≥ e^{−c₀}, |arg t| ≤ 3π/8} (L1.2(b) for |t| ≥ 2, continuity of the analytic j_δ on the compact rest), |log B_in^δ| ≤ C(1 + log|z|),
 |χ_δ − χ_δ(0)| ≤ C(1 + log|z|)²: (O4). (c) Paper 2 Lemma szego (vi), last claim, for the weight W₀^{(α)} = 𝗐_nz^α(4c − z)H_n^δ: its
@@ -125,7 +131,7 @@ and |χ_+^δ′(ζ)| ≤ C_n/|ζ| on 1 ≤ |ζ| ≤ ρ₀ (continuity on a compa
 → 0 as |z| → ∞ by dominated convergence (majorant |χ_±^δ(ρ)|/ρ). (B) Otherwise z is within τ|z| of one seam, say Σ^s_+, with nearest
 point z* = re^{iθ_seam}; then (1 − τ)|z| ≤ r ≤ (1 + τ)|z| and |z − z*| ≤ r/4. Split Σ^s_+ into the window 𝒲 := {|ζ − z*| ≤ r/2} and
 the rest. On 𝒲: χ_+^δ(ζ) = χ_+^δ(z*) + (χ_+^δ(ζ) − χ_+^δ(z*)). The constant contributes χ_+^δ(z*)[Log(ζ − z)] between the end points
-z* ± (r/2)e^{iθ_seam}, which are at distance in [r/4, 3r/4] from z, and the argument of ζ − z changes by less than π along the segment;
+z* ± (r/2)e^{iθ_seam}, which are at distance in [r/2, 0.56r] from z (fixed per Rule R review B, B23-4), and the argument of ζ − z changes by less than π along the segment;
 so this is ≤ |χ_+^δ(z*)|(log 3 + π). The remainder: |χ_+^δ(ζ) − χ_+^δ(z*)| ≤ sup_𝒲|χ_+^δ′|·|ζ − z*| and |ζ − z| ≥ |ζ − z*| (z − z* is
 orthogonal to the seam), so it contributes ≤ sup_𝒲|χ_+^δ′|·length(𝒲) ≤ 2sup_{ρ≥r/2}ε(ρ) (resp. ≤ 2C_n for r ≤ 2ρ₀). Off 𝒲, |ζ − z| ≥ |ζ − z*|/2 ≥ (|ζ| + r)/12 (|ζ − z*| = ||ζ| − r| > r/2), so
 this part is ≤ 12∫|χ_+^δ(ρ)|dρ/(ρ + r) ≤ 12A, → 0 as r → ∞. On Σ^s_−, |ζ − z| ≥ c_p(|ζ| + |z|) (the angle between z and Σ^s_− is at least
@@ -134,15 +140,17 @@ boundary values too; and |χ_+^δ(z*)| → 0, sup_{ρ≥r/2}ε(ρ) → 0. *Polyn
 powers and a bounded factor. In S_in, |t| ≤ n(X₁ + δ′)^{−1/p} =: a − ε_n < a and |arg t| ≤ π/2; the zeros of 1 − e^{∓2πi(t−δ)} are
 t ∈ δ + ℤ, at distance ≥ min(ε_n, |δ|) from this closed half-disc, so |κ_δ|^{±1} ≤ C_n; |j_δ(t)| ≤ |δ + ½|·|ln|t|| + C_n (G12 L1.2 (c)
 and continuity) gives |D̃_δ|^{±1} ≤ C_n|t|^{−|δ+½|} = C_n'|z|^{|δ+½|/p}; B_in^δ, K are powers; e^{χ_δ} is bounded above and below. ∎
-(PROVED-mod-cite: G3 Lemma 3 (ii) [NOT REVIEWED]; G12 L1.2 (c); Paper 2 Lemma corner (ii)–(iii) for the geometry.)
+(PROVED-mod-cite: G3 Lemma 3 (ii) and (ii′)/(iii′) (added per Rule R review B, B23-1) [REVIEWED]; G12 L1.2 (c); Paper 2 Lemma corner
+(ii)–(iii) for the geometry.)
 NUMERICAL (§4, [W]): at angular distance 10⁻⁸ from both seams, max|χ_δ| decreases from |z| = 10⁸ to 10¹² (≤ 10⁻⁵ at 10¹²) and
-|F_δ(−z)^{−δ}/(2πn)^{−½−δ} − 1| ≤ 10⁻⁵ at 10¹²; χ_δ bounded next to the seams on |z| ∈ [1, 10⁵]; Plemelj χ_out − χ_in = χ_+^δ at 10³.
+|F_δ(−z)^{−δ}/(2πn)^{−½−δ} − 1| ≤ 10⁻⁵ at 10¹²; max|χ_δ| ≤ 0.75 at |z| ∈ {1, 10, 10³, 10⁵} next to the seams (fixed per Rule R review B, B23-2); Plemelj χ_out − χ_in = χ_+^δ at 10³.
 
 *Why Lemma 2.5 is needed.* G3 Prop 4 obtains F_δ ~ (2πn)^{−½−δ}(−z)^δ uniformly from G3 Lemma 2, whose hypothesis is
 |F|^{±1} ≤ C|z|^N on all of {|z| > R}; and Paper 2 Lemma normalisation needs |ϰ_∞| ≤ C_n|z|^{N_n} on {|z| > X₁ + δ′} ∖ ℝ. Next to the
-seams at ∞ neither Lemma corner (ii) (needs dist ≥ τ₀|z|) nor (iii) (only U(0, 1)) applies. G3 Lemma 3 (iii) quotes "the polynomial
-bound at ∞" as verbatim from Paper 2 Lemma seam (iv), where it reads "In S_in ∩ {|z| ≥ n^p+δ′}, |t| < 1 and t stays away from 1, so D,
-B_in, K and e^χ are bounded above and below by powers of |z|" with no argument for e^χ near the seams. Lemma 2.5 closes this for δ < 0.
+seams at ∞ neither Lemma corner (ii) (needs dist ≥ τ₀|z|) nor (iii) (only U(0, 1)) applies. G3 Lemma 3 (iii′) proves the polynomial
+bound by the same window argument; L2.5 adds the uniform limit (fixed per Rule R review B, B23-1). (Paper 2 Lemma seam (iv) reads "In
+S_in ∩ {|z| ≥ n^p+δ′}, |t| < 1 and t stays away from 1, so D, B_in, K and e^χ are bounded above and below by powers of |z|" with no
+argument for e^χ near the seams.)
 
 **Proposition 2.6 (a-priori bound, Hurwitz, 0 < p < 1).** Fix n ≥ n₀, 0 < p < 1, −1 < δ < 0. Then det Q♮ ≡ 1, and
 (i) for every η > 0, |Q♮(z)| ≤ C_{n,η,δ}|z|^{−|α|/2−η} on U(0, δ_r) ∖ Σ;
@@ -162,13 +170,15 @@ The same holds for (Q♮)^{−1}; and Q♮_± ∈ I + ∂𝒞(L²(Σ)) (Cor L2 v
   Lemma-2 hypothesis is now supplied by L2.5); so Q♮ = k_∞^{−σ₃}(Uz^{−nσ₃})k^{σ₃} → I.
 - (iii): H-d Lemma (ii) / G3 Cor 5 (jumps); seams carry no jump.
 - Cor L2: Paper 2's proof with η = (1 − |α|)/4: the margin is δ- and p-free. ∎
-(PROVED-mod-cite: Paper 2 L szego, L normalisation, L signs, Cor L2; G3 Lemma 3, Prop 4, Cor 5 [NOT REVIEWED]; NOT REVIEWED.)
+(PROVED-mod-cite: Paper 2 L szego, L normalisation, L signs, Cor L2; G3 Lemma 3, Prop 4, Cor 5 [REVIEWED]; REVIEWED (Rule R review B).)
 
 *What changes vs p > 1 (G12 §2).* Exponents: none (|α|/2; L² margin (1+|α|)/4). Constants: 1/sin(πp/8) in L2.1′; a^{p−s} (γ < 0
 always); C_n of L2.4–L2.5 through G3's constants (λ_δ, 1/|sin πδ| in κ_δ near t = 0, s_δ); the factor 2 from |G|. Geometry: lens and
 sum-bound regions inside S_in resp. all sectors; poles of 𝒦_j = Hurwitz nodes (the Γ-poles t = δ − m sit on arg z = ±πp ⊂ S_out).
 **What would fail:** as for p > 1, using D_W alone (exponent β′ = α + 2δ) gives |z|^{−|β′|/2}, not L² when |β′| ≥ 1 (e.g. p = ½,
-s = 1.25: α = −½, δ = −0.9, β′ = −2.3); the cancellation of L2.3′ is essential; checked numerically by the control in [A].
+s = 1.25: α = −½, δ = −0.9, β′ = −2.3); the cancellation of L2.3′ is essential (it is algebra: D_W = D_W^{(α)}D_{x^{2δ}}); the
+numerical control in [A] shows the matching fact on the U side: |U_{j2}| has exponent min(α, 0), not min(α + 2δ, 0) (fixed per Rule R
+review B, B23-3).
 
 ## 2. Gap 3: E_plt1 Lemma F.1 with the complex seam densities
 
@@ -196,16 +206,17 @@ NUMERICAL (§4, [M]): (M1)–(M4) on 91 points r ∈ [10⁻³, 10⁶] × n ∈ {
   m_k(δ) = −(p/π)Γ(kp)(2πn)^{−kp}S_k(δ),  S_k(δ) := Σ_{m≥1}sin(πkp/2 − 2πmδ)/m^{1+kp};  |m_k(δ)| ≤ (p/π)Γ(kp)ζ(1+kp)(2πn)^{−kp}.
 (iv) For every K ≥ 1 there are C = C(p, K) and n₀ = n₀(p, K), **independent of δ**, such that for n ≥ n₀, |z| ≤ R₁ (boundary values on
   the seams included), |𝒢_δ(z) − 𝒢_δ(1) − Σ_{k=1}^K m_k(δ)(z^k − 1)| ≤ Cn^{−(K+1)p}; the derivative of the left side is ≤ Cn^{−(K+1)p}/η
-  for |z| ≤ R₁ − η, dist(z, Γ₊ ∪ Γ₋) ≥ η; with E_n^δ(z) := 𝒢_δ(z) − 𝒢_δ(1) − m_1(δ)(z − 1): |E_n^δ| ≤ Cn^{−2p} on |z| ≤ R₁,
+  for η ∈ (0, 1], |z| ≤ R₁ − η, dist(z, Γ₊ ∪ Γ₋) ≥ η (fixed per Rule R review B, B23-6); with E_n^δ(z) := 𝒢_δ(z) − 𝒢_δ(1) − m_1(δ)(z − 1): |E_n^δ| ≤ Cn^{−2p} on |z| ≤ R₁,
   |E_n^δ′(x)| ≤ Cn^{−2p} for real 0 < |x| ≤ R₁/2, E_n^δ extends continuously to 0, and |E_n^δ(x) − E_n^δ(0)| ≤ Cn^{−2p}|x|.
 Hence log H_n^δ(z) − log H_n^δ(1) = −2m_1(δ)(z − 1) − 2E_n^δ(z), i.e. H_n^δ ∝ e^{−λ_n^δz}e^{−2E_n^δ}, λ_n^δ := 2m_1(δ).
 (PROVED-mod-cite: as E_plt1 Lemma F.1 [Paper 2 Lemmas seam, corner; (eq:binet-bound); DLMF 5.2.1, 25.2.1 as quoted in RH/CITATIONS.md
-"(DLMF-zeta, Plan 67)"], with G3 Lemma 3 [NOT REVIEWED] for the seam objects and G12 L1.2 for j_δ; DLMF 25.4.1 is no longer used.)
+"(DLMF-zeta, Plan 67)"], with G3 Lemma 3 [REVIEWED] for the seam objects and G12 L1.2 for j_δ; DLMF 25.4.1 is no longer used.)
 *Proof.* E_plt1's proof with the changes listed line by line in §2.2; every line not listed there is used verbatim. ∎
 
 **Remark H (NUMERICAL; Hurwitz's formula NOT QUOTED).** m_k(δ) = ζ(−kp, 1+δ)/(kn^{kp}), i.e. λ_n^δ = 2ζ(−p, a)n^{−p}, μ^δ_{n,k} = 2m_k(δ) =
-2ζ(−kp, a)/(kn^{kp}). Agreement to ≤ 10⁻²⁴ (relative) for k ≤ 3, p ∈ {0.3, 0.6, 0.75}, δ ∈ {−0.02, −0.25, −0.5, −0.8, −0.98} ([E]); the
-controls (density with δ dropped; ζ(−kp, 1−δ)) fail (relative mismatch 0.06–25). This is the p < 1 counterpart of JZC_M3a_H.md Remark 3.3.
+2ζ(−kp, a)/(kn^{kp}). Agreement to ≤ 2·10⁻²⁴ (relative) (fixed per Rule R review B, B23-9) for k ≤ 3, p ∈ {0.3, 0.6, 0.75}, δ ∈ {−0.02, −0.25, −0.5, −0.8, −0.98} ([E]); the
+controls (density with δ dropped; ζ(−kp, 1−δ)) fail (relative mismatch 0.01–220 for the d-dropped control; fixed per Rule R review B,
+B23-9). This is the p < 1 counterpart of JZC_M3a_H.md Remark 3.3.
 
 ### 2.2 Line-by-line record: which lines of E_plt1 Lemma F.1 change
 
@@ -251,7 +262,7 @@ controls (density with δ dropped; ζ(−kp, 1−δ)) fail (relative mismatch 0.
 
 So the G3 memo's "(iv) expected verbatim" is right for the *estimates*, but every line that touches ℓ changes (through M2–M3), and
 (iii) changes its value; the moments that the circle jumps of H-e see are the Fourier sums of JZC_M3a_H.md §3.2. For p < 1 that
-section's sentence "the seam integrals give the same Fourier sum" is now Lemma F.1_δ (iii) (PROVED-mod-cite, NOT REVIEWED).
+section's sentence "the seam integrals give the same Fourier sum" is now Lemma F.1_δ (iii) (PROVED-mod-cite + REVIEWED).
 
 ## 3. Rule A (adversarial pass) — log
 
@@ -264,8 +275,8 @@ Gap 2.
 4. *(eq:imtheta)'s range 0 < arg z < min(π, πp)* is the binding p < 1 condition for the lens ray (ϑ_lip = πp/4 < πp): satisfied.
 5. *G12 L2.2's arc constant* covers only |v| < ¼; the |v| ≥ ¼ case gives 1 − e^{−π/2} (Paper 2: "clear"). Corrected (c_arc = 0.7921).
 6. *Seams near 0.* F_δ next to the seams (both sides) at |z| = 10⁻⁸: F_δ/F₀ → 1 ([O]). The proof uses corner (iii) for χ_δ.
-7. *Seams at ∞.* No written lemma covered e^{χ} next to the seams at ∞ (Paper 2's (O5) paragraph asserts it; G3 quotes it). Lemma 2.5
-   proves it for δ < 0 via |χ_+^δ′(ζ)| = o(1/|ζ|), which rests on the exact cancellation of the 1/ζ coefficients (the same identity as
+7. *Seams at ∞.* Paper 2's (O5) paragraph asserts the bound on e^{χ} next to the seams at ∞ without proof; G3 Lemma 3 (iii′) proves
+   the polynomial bound by the same window argument (fixed per Rule R review B, B23-1). Lemma 2.5 proves the sharper uniform limit for δ < 0 via |χ_+^δ′(ζ)| = o(1/|ζ|), which rests on the exact cancellation of the 1/ζ coefficients (the same identity as
    the decay of χ_±^δ). With Paper 2's lattice B_in, B_out at δ ≠ 0 the coefficient is δ/p ≠ 0 (G3 §0) and χ_+ would grow like log ζ
    — that is why the re-balanced B's are needed here too.
 8. *δ → −1:* a^{p−s} in L2.1′, λ_δ → ∞ in G3; fixed δ fine. *δ → 0⁻:* s_δ ~ 2π|δ| and κ_δ's constant ~ 1/|sin πδ| blow up (H-d §3
@@ -286,7 +297,7 @@ Gap 3.
 16. *δ-uniformity of (iv).* Claimed from (M2)–(M3); checked: n^{(K+1)p}|res_K| at δ ∈ {−0.02, −½, −0.98} stays below the δ-free
     majorant 2(p/π)Γ((K+1)p)(2π)^{−(K+1)p}ζ(1+(K+1)p)·max|z^{K+1} − 1| ([R]). (ii) itself (𝒢_δ − 𝒢_δ(1) = 𝒥) has δ-dependent qualitative
     inputs only.
-17. *Controls:* the real density (δ dropped) gives S_k(0) ≠ S_k(δ) (relative mismatch 0.06–25); ζ(−kp, 1−δ) in place of ζ(−kp, 1+δ) fails. (A first
+17. *Controls:* the real density (δ dropped) gives S_k(0) ≠ S_k(δ) (relative mismatch 0.01–220 for the d-dropped control; fixed per Rule R review B, B23-9); ζ(−kp, 1−δ) in place of ζ(−kp, 1+δ) fails. (A first
     version used ζ(−kp, −δ), which coincides with ζ(−kp, 1+δ) at δ = −½ — a vacuous control; replaced.)
 18. *Möbius factor.* B_in^δ's pole −1/λ_δ lies in S_out, where 𝒢_δ uses B_out^δ: no singularity of 𝒢_δ in |z| ≤ R₁. (ii) at points next
     to the seams with the literal 𝒢_δ (χ_δ from G3's densities) equals 𝒥 ([G]).
@@ -318,7 +329,8 @@ F.1 quadratures). n = 4 unless stated.
 - [M] (M1)–(M4) on 91 log-spaced r ∈ [10⁻³, 10⁶] × n ∈ {4, 40} × p ∈ {0.3, 0.6, 0.75} × δ ∈ {−0.02, −¼, −½, −0.8, −0.98}:
   max|ℓ_±|/ℓ = 1, max|ℓ_±′|/ℓ′ = 1 (equality as q → 0), ℓ₋ = conj ℓ₊ to 10⁻²⁵.
 - [E] (iii)_δ at n = 7, k ≤ 3, same p × δ grid: literal seam integral = Fourier sum (S_k from the Hurwitz series by residue classes) to
-  ≤ 4·10⁻²⁶ relative; Im m_k ≤ 10⁻²⁰|m_k|; |S_k(δ)| ≤ ζ(1+kp); Remark H (mpmath ζ(−kp, 1+δ)) to ≤ 4·10⁻²⁶; two controls fail.
+  ≤ 2·10⁻²⁴ relative; Im m_k ≤ 10⁻²⁰|m_k|; |S_k(δ)| ≤ ζ(1+kp); Remark H (mpmath ζ(−kp, 1+δ)) to ≤ 2·10⁻²⁴ (both fixed per Rule R
+  review B, B23-9); two controls fail.
 - [P] p ∈ {0.3, 0.6} × δ ∈ {−¼, −0.8}: 𝒥_out − 𝒥_in = ℓ_± across both seams at |z| ∈ {½, 3, 40}, relative error ≤ 1.1·10⁻¹³ (floor 10⁻⁶
   where ℓ underflows).
 - [R] (iv)_δ, K ∈ {1, 2}, n ∈ {10, 40, 160, 640}, δ ∈ {−0.02, −½, −0.98}; z ∈ {½, −1.3, 2e^{iθ/2}, 1.5e^{0.8πi}, both boundary values at
@@ -338,9 +350,10 @@ sin(0.9π)), loosened from 0.1 to 0.4 and supplemented by the next-order check. 
 
 ## 5. What remains
 
-- **Rule R** for everything here, and for its inputs G3 Lemma 3, Prop 4, Cor 5 and G12 L1.2 (all NOT REVIEWED).
+- **Rule R:** done for everything here (review B, research/G1/review/REVIEW_JZC_M3a_H_plt1_inputs_B.md) and for its inputs G3 Lemma 3,
+  Prop 4, Cor 5 (same review) and G12 L1.1, L1.2 (review B of the assembly, REVIEW_JZC_M3a_H_assembly_B.md §A). Remark H stays NUMERICAL.
 - Theorem H, item 1 of JZC_M3a_H.md §4 (the n-uniform hard-edge comparison with Szegő exponent β′, in the α-frame of L2.3/L2.3′): not
-  touched. Item 4 (H-a written out): not touched. With this note, items 2 and 3 are closed modulo review for 0 < p < 1, −1 < δ < 0.
+  touched. Item 4 (H-a written out): not touched. With this note, items 2 and 3 are closed for 0 < p < 1, −1 < δ < 0 (Rule R review B done).
 - Hurwitz's formula remains NOT QUOTED; the band factor is stated with the Fourier sums S_k(δ) (F.1_δ (iii)).
 - The constants of L2.4–L2.5 are fixed-n; n-uniform versions are part of item 1.
 - **For FIXES (via a human; Rule 1):** Paper 2, Lemma seam (iv), (O5) "near ∞": "In S_in ∩ {|z| ≥ n^p+δ′} … D, B_in, K and e^χ are bounded

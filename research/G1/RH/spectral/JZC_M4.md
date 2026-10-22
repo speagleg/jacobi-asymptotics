@@ -216,9 +216,10 @@ d_k(−β−2, ν) = (−1)^kd_k(β, ν).
 - The extraction (Q₁)₁₂(Q₁)₂₁ is invariant under σ₂-conjugation ([[a, b], [c, d]] ↦ [[d, −c], [−b, a]]), and Q₁ = P₁ + R₁ with
   P₁ = −cσ₂. ∎
 
-Exact check: `m4_shift_exact.out` (identically in (p, α, β), orders ≤ 6). Numerical check: `m4_shift_num.out` (order 8).
+Exact check: `m4_shift_exact.out` (identically in (p, α, β), to order 4 (an order-6 run did not finish); fixed per Rule R review B, C-11
+of REVIEW_JZC_M3a_H_assembly_B.md; with controls since that review, B-1). Numerical check: `m4_shift_num.out` (order 8).
 
-**Proposition S (shift; exact computer algebra to order 6, NUMERICAL to order 8).** With N := n + (β+1)/2, the natural-form
+**Proposition S (shift; exact computer algebra to order 4 (an order-6 run did not finish; fixed per Rule R review B, C-11), NUMERICAL to order 8).** With N := n + (β+1)/2, the natural-form
 coefficients f_k of F := (N/n)^p·b(n; β, ν)n^p/c are independent of β. The odd ones vanish. Checked:
 - identically in (p, ν, β) for k ≤ 4 (and k ≤ 6 when m4_shift_exact.out reports it);
 - at 40 digits for k ≤ 8 at 36 points (p, ν, β), m4_shift_num.out.

@@ -66,8 +66,11 @@ Dr1, D01 = cap["Dr"][1], cap["D0"][1]
 Br, Ar, A0 = laurent(Dr1, -2), laurent(Dr1, -1), laurent(D01, -1)
 p, al, be = sp.Symbol("p"), sp.Symbol("alpha"), sp.Symbol("beta")
 print("B_r =", Br.applyfunc(sp.factor)); print("A_r =", Ar.applyfunc(sp.factor)); print("A_0 =", A0.applyfunc(sp.factor))
-chk("no z^{-2} or deeper term at 0; no w^{-3} or deeper at 4c", D01[0][0].lo >= -1 and all(Dr1[i][j].lo >= -2 for i in range(2) for j in range(2))
-    and all(laurent(D01, t) == sp.zeros(2) for t in range(D01[0][0].lo, -1)))
+# lowest Laurent order over ALL entries (Rule R review B, REVIEW_JZC_M3a_H_assembly_B.md B-4; was D01[0][0] only)
+lo0 = min(D01[i][j].trim().lo for i in range(2) for j in range(2)); lor = min(Dr1[i][j].trim().lo for i in range(2) for j in range(2))
+print(f"lowest Laurent order over all entries: {lo0} at 0, {lor} at 4c")
+chk("no z^{-2} or deeper term at 0; no w^{-3} or deeper at 4c (all entries)", lo0 >= -1 and lor >= -2
+    and all(laurent(D01, t) == sp.zeros(2) for t in range(min(lo0, -1), -1)))
 (d2_, f2_), cap2 = run_capture(None, 14)
 chk("Laurent data stable under truncation SHI 10 -> 14", mzero(laurent(cap2["Dr"][1], -2) - Br) and mzero(laurent(cap2["Dr"][1], -1) - Ar)
     and mzero(laurent(cap2["D0"][1], -1) - A0))

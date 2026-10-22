@@ -1,10 +1,11 @@
 # JZC M3a, gap G3: the Hurwitz outer scalar for 0 < p < 1 (seams with j_δ), and Lemma H-d for p < 1
 
 Rule R review A: ACCEPT WITH FIXES (research/G1/review/REVIEW_JZC_M3a_H_G3_A.md); fixes applied 2026-10-21.
+Rule R review B: ACCEPT WITH FIXES (research/G1/review/REVIEW_JZC_M3a_H_plt1_inputs_B.md); fixes B3-1 – B3-7 applied 2026-10-22.
 
-Status (2026-10-21): NOT REVIEWED. Rule R needs the second reader to re-run the checks (VERIFICATION_POLICY.md Rule R); review A
-did spot checks of its own but did not re-run the repo scripts, and the repo's practice (JZC_M4_proof.md, JZC_M1.md) is a second
-reader before REVIEWED. Labels per VERIFICATION_POLICY.md. Closes (modulo review) gap G3 of
+Status (2026-10-22): Lemmas 1–3 (incl. (ii′), (iii′)), Prop 4 and Cor 5 (H-d (i)–(iii) and the band-factor paragraph) are
+**REVIEWED** (Rule R: review B re-derived the key steps and re-ran both checks byte-identically; review A's and B's fixes applied).
+Labels per VERIFICATION_POLICY.md. Closes gap G3 of
 JZC_M3a_Hd.md §7. Setting: Hurwitz lattice λ_k = (k + δ)^p, k ≥ 1, **0 < p < 1, −1 < δ < 0** (δ = 0 is Paper 2), 1 < s < 1 + 2p
 (fixed per Rule R review A, F8),
 α = (s−1−p)/p, t = nz^{−1/p}, θ_δ := π(t − δ), κ_δ± := 1/(1 − e^{∓2iθ_δ}), j_δ(t) := LnΓ(t−δ) − (t−δ−½)ln t + t − ½ln 2π,
@@ -15,11 +16,11 @@ Checks: `checks/m3a_g3_seam.py/.out` (81 assertions), `checks/m3a_g3_model.py/.o
 
 | # | Statement | Label |
 |---|---|---|
-| Lemma 1 (uniqueness) | two outer scalars with the same (O1)_δ jump, (O2), (O5) near 0 and polynomial bounds at ∞ differ by a constant | PROVED (elementary) |
-| Lemma 2 (monodromy) | any such F_δ is C(−z)^{δ+m}(1 + o(1)) at ∞ for some m ∈ ℤ, C ≠ 0, uniformly in arg z | PROVED (elementary) |
-| Lemma 3 (seam_δ) | Paper 2 Lemma seam with j_δ and modified B_in, B_out: χ_δ exists, F_δ satisfies (O1)_δ–(O4), (O5) near 0 | PROVED-mod-cite (Paper 2), NOT REVIEWED |
-| Prop 4 (= Prop 2.1 for p < 1) | F_δ = (2πn)^{−½−δ}(−z)^δ(1 + o(1)) at ∞; at 0 nothing new | PROVED-mod-cite (Paper 2), NOT REVIEWED; NUMERICAL (m3a_g3_seam) |
-| Cor 5 (Lemma H-d, p < 1) | F♮ := F_δ(−z)^{−δ} gives M(β′ = α + 2δ, ν = α), band factor the seam H_n^δ | PROVED for the jump algebra (as H-d §3; H-d (i)–(iii) only, (iv) open: §7) (fixed per Rule R review A, F1), NOT REVIEWED; band-factor moments = the Fourier sums of H.md §3.2 (unconditional, via E_plt1 Lemma F.1 (ii)); their identification with ζ(−kp, 1+δ)/(kn^{kp}) is H.md Remark 3.3 (NOT QUOTED) (fixed per Rule R review A, F7) |
+| Lemma 1 (uniqueness) | two outer scalars with the same (O1)_δ jump, (O2), (O5) near 0 and polynomial bounds at ∞ differ by a constant | PROVED (elementary) + REVIEWED |
+| Lemma 2 (monodromy) | any such F_δ is C(−z)^{δ+m}(1 + o(1)) at ∞ for some m ∈ ℤ, C ≠ 0, uniformly in arg z | PROVED (elementary) + REVIEWED |
+| Lemma 3 (seam_δ) | Paper 2 Lemma seam with j_δ and modified B_in, B_out: χ_δ exists, F_δ satisfies (O1)_δ–(O4), (O5) near 0 | PROVED-mod-cite (Paper 2) + REVIEWED |
+| Prop 4 (= Prop 2.1 for p < 1) | F_δ = (2πn)^{−½−δ}(−z)^δ(1 + o(1)) at ∞; at 0 nothing new | PROVED-mod-cite (Paper 2) + REVIEWED; NUMERICAL (m3a_g3_seam) |
+| Cor 5 (Lemma H-d, p < 1) | F♮ := F_δ(−z)^{−δ} gives M(β′ = α + 2δ, ν = α), band factor the seam H_n^δ | PROVED-mod-cite (Paper 2) for the jump algebra (as H-d §3; H-d (i)–(iii) only, (iv) is JZC_M3a_H_G23plt1.md P2.6 (fixed per Rule R review B, B3-1)) (fixed per Rule R review A, F1) + REVIEWED; band-factor moments = the Fourier sums of H.md §3.2 (unconditional, via E_plt1 Lemma F.1 (ii)); their identification with ζ(−kp, 1+δ)/(kn^{kp}) is H.md Remark 3.3 (NOT QUOTED) (fixed per Rule R review A, F7) |
 | Test | M(α+2δ, α) with Hurwitz μ reproduces all 22 stored p < 1 Hurwitz fit data; H2–H4 excluded | NUMERICAL (m3a_g3_model) |
 
 ## 0. Answer
@@ -134,20 +135,21 @@ tends to C_δ^{−1}: removable at ∞, nonzero); lips, saturated regions and Σ
 D_δB_in^δKe^{χ_δ} has the same κ_δ structure as for p > 1. ∎ (The former "(iv) …" clause is deleted, fixed per Rule R review A, F1.)
 *Band factor.* By E_plt1 Lemma F.1 (ii) (verbatim, densities ℓ_±), 𝒢_δ(z) − 𝒢_δ(1) is the Cauchy integral of the pure jump, with
 moments = the Fourier sums of H.md §3.2 (unconditional, via E_plt1 Lemma F.1 (ii)); their identification with
-ζ(−kp, 1+δ)/(kn^{kp}) is H.md Remark 3.3 (NOT QUOTED; NUMERICAL to 2·10⁻¹⁶) (fixed per Rule R review A, F7); μ_{n,k} = 2m_k(δ)
-as for p > 1; F.1 (iv)'s remainder bound was not re-derived for complex ℓ_± (expected verbatim: |ℓ_±| is
-bounded at ∞ and super-small at 0).
+ζ(−kp, 1+δ)/(kn^{kp}) is H.md Remark 3.3 (NOT QUOTED; NUMERICAL: ≤ 2·10⁻²⁴ relative, m3a_g23_F1.out [E]; 2·10⁻¹⁶ in spec_hurwitz_moments_plt1.out) (fixed per
+Rule R review A, F7; precision fixed per Rule R review B, B3-2); μ_{n,k} = 2m_k(δ) as for p > 1; F.1 (iv) with the complex ℓ_± is
+JZC_M3a_H_G23plt1.md Lemma F.1_δ (iv) (constants δ-free, via Lemma M); F.1 (iii) gives the Fourier sums, not ζ(−kp)/(kn^{kp})
+(fixed per Rule R review B, B3-1).
 
 ## 5. Numerical evidence (NUMERICAL)
 
 `checks/m3a_g3_seam.out` (dps 25 + extra digits in j_δ for |t| ≫ 1; n = 4, c = 1; p ∈ {0.3, 0.6, 0.75} × δ ∈ {−0.25, −0.5, −0.8}):
-- (B) densities: |χ_+^δ(10⁻⁶e^{iπp/2})| ≤ 6·10⁻⁷, |χ_+^δ(10⁴⁰e^{iπp/2})| ≤ 2·10⁻²⁴ (working-precision floor); lattice-B densities:
-  |χ^{lat}_+ − (δ/p)Log ζ − c_+| ≤ 5·10⁻²⁴ at |ζ| = 10⁴⁰ (the §0 constant c_+ = lnΓ(1+δ) − δ ln n − iπδ); λ_δ's two forms agree.
-- (C) gluing across Σ^s_+ at |ζ| = 2, 2000: |F_in/F_out − 1| ≤ 2.2ε for ε = 10⁻⁴, 10⁻⁶ (O(ε), as for a continuous function).
+- (B) densities: |χ_+^δ(10⁻⁶e^{iπp/2})| ≤ 7·10⁻⁷ (fixed per Rule R review B, B3-7), |χ_+^δ(10⁴⁰e^{iπp/2})| ≤ 2·10⁻²⁴ (working-precision floor); lattice-B densities:
+  |χ^{lat}_+ − (δ/p)Log ζ − c_+| ≤ 6·10⁻²⁴ (fixed per Rule R review B, B3-7) at |ζ| = 10⁴⁰ (the §0 constant c_+ = lnΓ(1+δ) − δ ln n − iπδ); λ_δ's two forms agree.
+- (C) gluing across Σ^s_+ at |ζ| = 2, 2000: |F_in/F_out − 1| ≤ 2.2ε (asserted ≤ 50ε) for ε = 10⁻⁴, 10⁻⁶ (O(ε), as for a continuous function) (per Rule R review B, B3-5).
 - (D) ∞, five rays arg z ∈ {±πp/4 (S_in), π/2, 3π/4, −0.95π (S_out)}: |F_δ(z)(−z)^{−δ}/(2πn)^{−½−δ} − 1| ≤ 7·10⁻¹⁴ at |z| = 10¹⁴;
   exponent of |F_δ| fitted between 10¹⁰ and 10¹⁴: δ to ≤ 7·10⁻¹¹ (all 9 (p, δ); asserted 10⁻⁸).
-- (E) 0: |F_δ(10⁻⁸e^{iφ})/((4c)^{−½}e^{χ_δ(0)}) − 1| ≤ 2·10⁻⁹ for φ = 0.45πp (S_in, off the lens) and π/2 (S_out).
-- (F) Lemma F.1 (ii)_δ: 𝒢_δ(z) − 𝒢_δ(1) = pure-jump Cauchy integral at 4 points (S_in, (0, 1), S_out, ℂ₋) to ≤ 6·10⁻²⁶.
+- (E) 0: |F_δ(10⁻⁸e^{iφ})/((4c)^{−½}e^{χ_δ(0)}) − 1| ≤ 3·10⁻⁹ (fixed per Rule R review B, B3-7) for φ = 0.45πp (S_in, off the lens) and π/2 (S_out).
+- (F) Lemma F.1 (ii)_δ: 𝒢_δ(z) − 𝒢_δ(1) = pure-jump Cauchy integral at 4 points (S_in, (0, 1), S_out, ℂ₋) to ≤ 6·10⁻²⁶ (asserted ≤ 10⁻¹²) (per Rule R review B, B3-5).
 81 assertions, all pass. Exploratory (not asserted): χ_δ(0) at δ = −½ equals (p/2)ln 2 to the printed digits (p = 0.3, 0.6, 0.75).
 
 `checks/m3a_g3_model.out` (m4_rh4, KORD = 4, dps 40; data provenance as in m3a_hd_model, Rule X: fits of the actual Hurwitz
@@ -157,6 +159,9 @@ worst 0.07 tol (d₁ exact; e.g. n^{−2} at p = 0.6, δ = −½: +0.042222 vs f
 −0.819444 vs −0.819479). Alternatives on p < 1 data: H2 (α+2δ, α+2δ) 3 009 tol, H3 (α, α+2δ) 53 192 tol, H4 (α+δ, α) 26 596 tol.
 These rows were already among H-d's 36 (no new p < 1 Hurwitz fit data exist in checks/spec_hur*.out); the new content is that the
 p < 1 band factor they test is now the seam one of §2. p = 0.3, 0.75 at δ < 0 have no stored fits.
+All in-range rows are at δ = −½ (β′ = α − 1); the ε_j rows do not discriminate between H1–H4; in-range exclusions: H2 58 tol,
+H3 30 000, H4 15 000 (the 3 009 for H2 is on the δ = 1 row). The band factor uses ζ(−jp, 1+δ) (Remark 3.3, NUMERICAL), not the
+Fourier sums (fixed per Rule R review B, B3-3).
 
 ## 6. Rule A (adversarial pass) — log
 
@@ -179,11 +184,12 @@ p < 1 band factor they test is now the seam one of §2. p = 0.3, 0.75 at δ < 0 
 
 ## 7. What remains
 
-- Rule R second reader for Lemmas 1–3, Prop 4, Cor 5 (review A applied, see header). E_plt1 Lemma F.1 (iv) with complex ℓ_±
-  (expected verbatim).
+- Rule R second reader for Lemmas 1–3, Prop 4, Cor 5: done (review B, see header). (Fixed per Rule R review B, B3-1: the item
+  "E_plt1 Lemma F.1 (iv) with complex ℓ_± (expected verbatim)" is deleted; it is JZC_M3a_H_G23plt1.md Lemma F.1_δ (iv).)
 - H-d (iv) (a-priori bound) for p < 1: open (expected from G12 L2.1 (p-free), L2.2, L2.3 and P2.4 with Lemma 3 (iii) for (O3)–(O5)
   near 0 and Prop 4 at ∞) (fixed per Rule R review A, F1). This is gap 2 of JZC_M3a_H.md §4, being worked on in
-  JZC_M3a_H_G23plt1.md (in progress).
+  JZC_M3a_H_G23plt1.md (done there: L2.1′–L2.5, P2.6) (fixed per Rule R review B, B3-1).
 - Inherited from H-d: G2 (App C, Lemma sumbound for the Hurwitz U), G4 (Hurwitz's formula, DLMF 5.11.8 — the latter is no longer
-  used here: Lemma 3 uses only Paper 2's (eq. binet-bound) via j_δ = j(t−δ) + r_δ), G5 (Theorem N.6 for M(β, ν)).
+  used here: Lemma 3 uses only Paper 2's (eq. binet-bound) via j_δ = j(t−δ) + r_δ), G5 (Theorem N.6 for M(β, ν)) (G2 for p < 1 is G23plt1 L2.1′; G5 is JZC_M3a_H.md §3.3) (fixed per Rule R
+  review B, B3-1).
 - δ > 0 (phantom nodes) and p = 1 with δ ≠ 0 are not treated. No stored p < 1 fits at p = 0.3, 0.75 for δ < 0; d₃-level p < 1 data none.

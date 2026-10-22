@@ -1,4 +1,4 @@
-"""JZC M3a, step H-c (JZC_M3a_H_Hc.md Lemma Hc.3 (p > 1) and Hc.4 (p < 1)): the band-factor gauge on the two circles (NUMERICAL, mpmath dps 24).
+"""JZC M3a, step H-c (JZC_M3a_H_Hc.md Lemma Hc.3 (p > 1) and Hc.5 (p < 1) (fixed per Rule R review B, Hc5-2)): the band-factor gauge on the two circles (NUMERICAL, mpmath dps 24).
 The gauge lemma reduces to one scalar statement (Hc.3, proof step 2): with h := H_n^d/H_n^d(1) on the band, mu_k := 2 m_k(d) (Fourier-sum
 moments, Lemma Hc.2 (i)), M_mu(z) := sum_k mu_k Q_k(z), Q_k(z) := sum_{j<k} z^{k-1-j} C(2j,j) c^j (E3 Lemma E3.4), R(z) := (z(z-4c))^{1/2}
 (~ z at infinity, cut [0,4c]) and log h(z) := the value at z of the continuation used in rho / (-omega)^{1/2} (G1u L1; sector-wise for p < 1):

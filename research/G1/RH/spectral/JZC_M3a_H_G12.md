@@ -2,9 +2,12 @@
 
 Rule R review A: ACCEPT WITH FIXES (research/G1/review/REVIEW_JZC_M3a_H_G12_A.md); fixes applied 2026-10-21.
 
-Status (2026-10-21): NOT REVIEWED. Rule R needs the second reader to re-run the checks (VERIFICATION_POLICY.md Rule R); review A
-did spot checks of its own but did not re-run the repo scripts, and the repo's practice (JZC_M4_proof.md, JZC_M1.md) is a second
-reader before REVIEWED. Labels per VERIFICATION_POLICY.md. Closes JZC_M3a_Hd.md §7 G1 and G2 for
+Rule R review B: ACCEPT (research/G1/review/REVIEW_JZC_M3a_H_assembly_B.md §A); fixes A-1, A-2 applied 2026-10-22.
+
+Status (2026-10-22): PROVED-mod-cite + **REVIEWED** (Rule R: review A re-derived and spot-checked; review B
+(research/G1/review/REVIEW_JZC_M3a_H_assembly_B.md §A) re-derived L1.1, L1.2, C1.5, L2.1, L2.3, P2.4 and re-ran both checks with
+identical output) (fixed per Rule R review B, A-2). The table labels below are unchanged; each carries REVIEWED. Labels per
+VERIFICATION_POLICY.md. Closes JZC_M3a_Hd.md §7 G1 and G2 for
 p > 1, −1 < δ ≤ 0. Checks: `checks/m3a_g12_outer.py/.out`, `checks/m3a_g12_apriori.py/.out` (spec_common.Checks: 58 and 67 assertions, all pass).
 Everything attributed to Paper 2 is quoted from papers/paper2/{sec_5,sec_6,app_outer,app_c}.tex as read for this note.
 
@@ -165,7 +168,7 @@ column ≤ C|z|^{α/2}, second ≤ C|z|^{−η}(1+|z|^α)|z|^{−α/2}; in the l
 ≤ C|z|^{−|α|/2−2η}. (ii) As in Paper 2: near 4c, (F̃♮D_W)² = W·ω♮·e^{±2πiδ} with ω♮ := D_W²/W₀^{(β′)} (W/F̃♮² = W₀^{(β′)}e^{∓2πiδ} in ℂ_±,
 H-d §3 (ii)), bounded above and below by Lemma szego (vi)(b) applied to q₁ = x^{α+2δ}H°_n (H°_n := H_n^δ/H_n^δ(0⁺); r_n ≡ 1) (fixed per Rule R review A, F5(b)) (analytic and positive near 4c; (iv) holds for
 any exponent); at ∞, Lemma normalisation holds for F♮ (C1.5), so Q♮ = k_∞^{−σ₃}(Uz^{−nσ₃})k^{σ₃} → I. (iii) H-d Lemma (ii) (jumps). ∎
-(PROVED-mod-cite, NOT REVIEWED.)
+(PROVED-mod-cite + REVIEWED; status updated 2026-10-22 after Rule R review B, see header.)
 
 *What changes vs Paper 2.* Exponents: none (|α|/2; the L² margin (1+|α|)/4 < ½ is δ-free). Constants: M_n, a^{p−s}, a^{1+p−s}/|1+p−s|, the
 L1.2–L1.3 constants C(p,δ) (n-free), C_n of P1.4(c) (through κ_δ near t = 0: ∝ 1/|sin πδ|), the factor 2 from |G|. Geometry: node set
@@ -180,7 +183,7 @@ cancellation of L2.3 between (−z)^{−δ} in F♮ and D_{x^{2δ}} in D_W is es
   F_δ(10⁻¹²e^{iψ}) = (4c)^{−½}B_δ(0) to 2·10⁻¹¹ for ψ ∈ {π/3, π/2, π − 10⁻³π}.
 - `m3a_g12_apriori.out` (dps 50, n = 4): exact moments ζ(s+jp, a); U_{j2} by direct summation + (A) exact Hurwitz-type tails
   (own Euler–Maclaurin: mpmath's zeta(σ, b) has relative error 4·10⁻¹¹ at σ = 20, b = 1200.5) or (B) Euler–Maclaurin with analytic
-  derivatives; A and B agree to 6·10⁻⁵¹. (mp.zeta(σ, b) is used only for small b, checked against the EM continuation
+  derivatives; A and B agree to 4·10⁻⁵⁰ (fixed per Rule R review B, A-1). (mp.zeta(σ, b) is used only for small b, checked against the EM continuation
   to 10⁻⁴⁰; it is also O(b) in time for σ < 1.) L2.1 at (p, s) ∈ {(1.5, 1.75), (1.5, 2.5), (1.5, 3.1), (3, 2.5), (3, 5.5)}, δ ∈ {0, −0.5, −0.9},
   |z| ∈ {1, 10⁻², 10⁻⁴, 10⁻⁸, 10⁻¹⁶, 10⁻²⁴}, arg z ∈ {π/6, π/2, π}: |U_{j2}| ≤ I₁ ≤ I₂ everywhere (max |U_{j2}|/I₁ = 0.16); the exponent of |U_{j2}(iy)| from 10⁻¹⁶
   to 10⁻²⁴ is α = −½ to 10⁻⁸ for every δ (α + 2δ would be −1.5, −2.3), 0 to 10⁻⁷ for α > 0, −0.023 at α = 0 (the logarithm).
@@ -206,13 +209,13 @@ cancellation of L2.3 between (−z)^{−δ} in F♮ and D_{x^{2δ}} in D_W is es
 
 ## 5. Outcome
 
-*Now proved (NOT REVIEWED):* G1 — H-d Prop 2.1 in full for p > 1, −1 < δ ≤ 0: F_δ = C_δ(−z)^δ(1 + o(1)) uniformly at ∞ with C_δ > 0 explicit
+*Now proved (REVIEWED, see header):* G1 — H-d Prop 2.1 in full for p > 1, −1 < δ ≤ 0: F_δ = C_δ(−z)^δ(1 + o(1)) uniformly at ∞ with C_δ > 0 explicit
 (C1.5), F_δ unchanged at 0 ((O2)–(O5) at 0, P1.4(a)), and (O1)/(O5) at ∞ for F♮, so Lemma normalisation and the extraction hold for the
 degree-n Hurwitz U (H-d Lemma (i)). G2 — Prop apriori and Cor L2 for Q♮ with the lattice exponent |α|/2 (P2.4), via the Hurwitz sum
 bound (L2.1), lens sectors (L2.2) and the column factorisation (L2.3). DLMF 5.11.8 is no longer needed for p > 1.
-*Remains:* Rule R second reader (review A applied, see header); G3 (p < 1, seams); G4 (Hurwitz's formula, for Lemma H only); G5 (N.6 for M(β′, ν)); the n-uniform hard-edge comparison
-with Szegő exponent β′ (Paper 2 §7 with D_{x^{β′}}; not touched here — note |β′| may exceed 1 there too, so the comparison must also be
-run in the α-frame of L2.3).
+*Remains (as of 2026-10-22):* nothing for G1–G2. G3: JZC_M3a_H_G3.md; G4: resolved by the Fourier-sum route (JZC_M3a_H §3.1–3.2); G5:
+JZC_M3a_H §3.3; the n-uniform comparison: JZC_M3a_H_G1u.md (p > 1), JZC_M3a_H_G1u_plt1.md (p < 1) — it is run in the α-frame of L2.3, as
+anticipated (fixed per Rule R review B, A-2).
 *Corrections to JZC_M3a_Hd.md:* (1) (2.1) need not cite DLMF 5.11.8 (L1.1 + Paper 2's binet-bound suffice; only O(1/t) is used).
 (2) (2.4)'s "monodromy" step is replaced by Lemma normalisation, which gives the limit uniformly in direction. (3) (O5) at ∞ and the
 contour vertices must use X₁ + δ′ = (n/a)^p + δ′, not n^p + δ′ (its §1 quote of (O5); §6 item 6 noted the node). (4) §3 (iv)'s
