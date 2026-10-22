@@ -11,7 +11,8 @@ Lemma WE.1 (asserted here):
        [z^m] A_rho = C(2rho,rho) prod_{i=0}^m (rho-i)/(2(2rho-2i-1))  -- the engine's symbolic-j data at 0, at j = rho.
        The Taylor coefficients: EXACT (Mellin continuation of the Stieltjes form, Gamma identities, symbolic rho); the branched term:
        EXACT from the jump condition (it is the unique z^{rho-1/2} x analytic function with the jump of z^rho/R on (-4, 0)), and
-       the full decomposition is checked NUMERICALLY (mpmath quad, 30 digits) at rho in {0.3, -0.2, 2/3, 0.9}.
+       the full decomposition is checked NUMERICALLY (mpmath quad, 40 digits) at rho in {0.3, -0.2, 2/3, 0.9}; these quadrature
+       checks use the Stieltjes form and are therefore limited to rho < 1 (fixed per Rule R review B, W3).
   (iii) Hence R M_rho = R A_rho -/+ i tan(pi rho) z^rho near 0 (sign = side of the band): the branched part of the gauge exponent is
        a multiple of z^rho with a side-dependent sign, i.e. NOT of the form of the engine's jump conjugation (the engine handles A_rho).
   (iv) E3.7 for the branched tilt at the n^{-1} level: the response of the 1/n coefficient is c p M_rho(4c) = p rho C(2rho,rho)/2 per

@@ -9,9 +9,11 @@ P K.11); §7 stays an OBSTRUCTION (heuristic, sharpened by JZC_W_kappa P K.14). 
 with, and does not upgrade, the labels below. Novelty: UNCHECKED (no Rule L pass).
 **Status of Conjecture W for σ^{δ,κ}** (p > 1, −1 < δ ≤ 0, κ ≠ 0, κ > −a^p, |α| < 1; review A §3; JZC_W_kappa header and P K.12): at first
 order in the poles, n^pb_n/c = 𝔅_n[M(α + 2δ, α); t] + Σ_m(continued pole layer at j = q_m) + O(n^{−2p}), and in W's displayed form (pole term
-× (1 + O(N^{−1}))) with remainder O(n^{−1−p}): **PROVED-mod-cite + REVIEWED**, with one unreviewed input (JZC_W_exact WE.1, elementary).
-Not covered: second order in the poles; p < 1 (OBSTRUCTION for this route); p = 1/m; α ∉ (−1, 1); non-coherent branched tilts ((F-br),
-GAP, not needed here) (fixed per Rule R review A of the W chain, B4). No claim about RH: no measure built from zeta zeros is
+× (1 + O(N^{−1}))) with remainder O(n^{−1−p}) (truncation orders K ≥ 2p − 1, resp. K ≥ p; J ≥ 1, M = J + 1): **PROVED-mod-cite +
+REVIEWED, with every input REVIEWED** (JZC_W_exact WE.1 and Prop K.12′ by Rule R review B, research/G1/review/REVIEW_JZC_W_WE1_K12p_B.md,
+fixes applied 2026-10-22; Legendre duplication NOT QUOTED, not used for the displayed form's coefficient, review B W2).
+Not covered: second order in the poles; p < 1 (OBSTRUCTION for this route; p = 1/m < 1 belongs to the p < 1 case) (fixed per Rule R
+review B, A2); α ∉ (−1, 1); non-coherent branched tilts ((F-br), GAP, not needed here); W′ (fixed per Rule R review A of the W chain, B4). No claim about RH: no measure built from zeta zeros is
 used. Checks: `checks/w_outer_index.py/.out`, `checks/w_outer_scalar.py/.out`, `checks/w_outer_e2e.py/.out` (§8; caches in
 `tmp/w_cache/`, gitignored). Everything attributed to Paper 2 is quoted from papers/paper2/{sec_5,sec_6}.tex as read for this note
 (read-only); the H-chain notes (JZC_M3a_H_Ha, JZC_M3a_Hd, JZC_M3a_H_G12, JZC_M3a_H_Hc, JZC_M3a_H_G1u) are cited with their labels.
@@ -27,7 +29,7 @@ used. Checks: `checks/w_outer_index.py/.out`, `checks/w_outer_scalar.py/.out`, `
 | L W-out.5 | PV lemma: ∫_0^L y^q dy/(y − z) = −π(−z)^q/sin(πq) + Σ_{j≥0} z^jL^{q−j}/(q − j) | PROVED (elementary) + NUMERICAL + REVIEWED |
 | **P W-out.5** | structure of H_n^κ: log H_n^κ = (Hurwitz G_δ∘ζ) + log r_n − 2Ψ₀; the integer-power part gives **exactly W's Toda parameters μ_j = 2Z_κ(−j)/j − B_j** (the gauge supplies κ^jζ(0, a)), the branched part is the tilt Σ_m 2π cot(πq_m)a_m(z/n^p)^{q_m}, a_m = −R_{q_m}/q_m | PROVED-mod-cite (Hc.2; DLMF 5.12.1, 5.5.3 for κ < 0) — with ζ(−mp, a) in place of the Fourier sums by JZC_M3a_H Remark 3.3 (PROVED-mod-cite (CITATIONS (Hurwitz-DK)); NUMERICAL support) (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)); + REVIEWED |
 | P W-out.7 | the first-order fractional-time response of W applied to that tilt is **exactly W's pole term** pR_qW(q)π cot(πq)(n/N)^pN^{−1−pq} | PROVED (algebra) + REVIEWED |
-| **P W-out.6** | reduction: (i) the κ-problem is exactly the decoupled model M(α + 2δ, α) with band factor H_n^κ and the lip factor e^{±2πiρ₁}; (ii) Conjecture W holds for σ^{δ,κ} at first order in the poles (remainder O(n^{−2p}) with the continued pole dressing; O(n^{−1−p}) in W's displayed form); (iii) the n^{−k} coefficients, k < p, are those of M(α + 2δ, α) (κ-free) | (i) PROVED-mod-cite + REVIEWED; (ii) PROVED-mod-cite (W_kappa P K.12 + K.12′) + REVIEWED (input WE.1 NOT REVIEWED); (iii) PROVED-mod-cite (W_kappa P K.11) + REVIEWED; formerly CONDITIONAL (BT, BT₀) (fixed per Rule R review A of the W chain, B4) |
+| **P W-out.6** | reduction: (i) the κ-problem is exactly the decoupled model M(α + 2δ, α) with band factor H_n^κ and the lip factor e^{±2πiρ₁}; (ii) Conjecture W holds for σ^{δ,κ} at first order in the poles (remainder O(n^{−2p}) with the continued pole dressing; O(n^{−1−p}) in W's displayed form); (iii) the n^{−k} coefficients, k < p, are those of M(α + 2δ, α) (κ-free) | (i) PROVED-mod-cite + REVIEWED; (ii) PROVED-mod-cite (W_kappa P K.12 + K.12′) + REVIEWED, every input REVIEWED (WE.1 by Rule R review B); (iii) PROVED-mod-cite (W_kappa P K.11) + REVIEWED; formerly CONDITIONAL (BT, BT₀) (fixed per Rule R review A of the W chain, B4) |
 | Remark 3.6 | the literal reading of JZC_W §5.1 item 1 ("F_Λ ∼ C(−z)^{−Z(0)−½} at ∞") is false for κ ≠ 0 at fixed n; the exponent at z = ∞ of an unnormalised scalar is construction-dependent; the invariant is the exponent of the normalising gauge at the hard edge | PROVED (by L W-out.3) + NUMERICAL (exponent −½, not δ) + REVIEWED |
 | §7 | p < 1: the gauge density is unbounded at the hard edge (ρ₁ ∼ n^{1−p}x^{1−1/p}, 1 − 1/p < 0) and O(n^{1−p}) ≫ 1 on the band: the lattice g cannot carry it | OBSTRUCTION (heuristic, for this route); sharpened by JZC_W_kappa P K.14 (exponent e(p) = (1 − p)(2 + p)/p on the Bessel scale) (fixed per Rule R review A of the W chain, B4) |
 | §8 | 104 + 125 + 44 assertions incl. controls that must fail; end-to-end: d₁, d₂ of M(α + 2δ, α) to 10⁻¹⁰, 5·10⁻⁸ at κ = ±0.3; the n^{−p} pole term to 4·10⁻⁷ | NUMERICAL |
@@ -450,5 +452,6 @@ n^{−p} (pole term, 4·10⁻⁷) and (iii) at n^{−1}, n^{−2} (10⁻¹⁰, 5
    FP_j and the pole tilt τ = −2π cot(πq)R_q/q are written invariantly, so the next case is a node set with an analytic index map and no
    Möbius structure (JZC_M3_scope M3b, SPEC §3.8's bouncer), where Φ_δ∘ζ must be replaced by the Binet scalar composed with the index map.
 7. Rule R for this note: done (review A of the W chain). Rule L before any novelty claim (UNCHECKED). Still open for W on this family:
-   second order in the poles; p < 1 (item 5; OBSTRUCTION for this route, JZC_W_kappa P K.14); p = 1/m; α ∉ (−1, 1); Rule R of
-   JZC_W_exact WE.1 (fixed per Rule R review A of the W chain, B4).
+   second order in the poles; p < 1 (item 5; OBSTRUCTION for this route, JZC_W_kappa P K.14; p = 1/m < 1 belongs to it); α ∉ (−1, 1)
+   (fixed per Rule R review A of the W chain, B4). Rule R of JZC_W_exact WE.1: done (review B, research/G1/review/REVIEW_JZC_W_WE1_K12p_B.md)
+   (fixed per Rule R review B, A2).

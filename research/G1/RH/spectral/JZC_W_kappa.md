@@ -11,20 +11,26 @@ the assembled chain. Labels per VERIFICATION_POLICY.md; REVIEWED is combined wit
 Novelty: UNCHECKED (no Rule L pass). No claim about RH: no measure built from zeta zeros is used. Checks: `checks/w_kappa_gauge.py/.out`,
 `checks/w_kappa_transfer.py/.out`, `checks/w_kappa_apriori.py/.out`, `checks/w_kappa_plt1.py/.out` (§7). Everything attributed to Paper 2
 is quoted from papers/paper2/{sec_5,sec_6,sec_7,app_c}.tex as read for this note (read-only). Inputs from this repo are cited with their
-labels; the inputs from JZC_W_outer.md (L W-out.0–5, P W-out.3, 5, 7) are REVIEWED by the same review A. The one input of this note that
-is still **NOT REVIEWED** is JZC_W_exact Lemma WE.1 (used only in Prop K.12′; elementary, and WE.1(ii) independently spot-checked by
-review A to the quadrature floor 6·10⁻¹⁸) (fixed per Rule R review A of the W chain, R1).
+labels; the inputs from JZC_W_outer.md (L W-out.0–5, P W-out.3, 5, 7) are REVIEWED by the same review A. JZC_W_exact Lemma WE.1 (used only
+in Prop K.12′) is REVIEWED by Rule R review B (research/G1/review/REVIEW_JZC_W_WE1_K12p_B.md), so **every input of this note is REVIEWED**.
+Rule R review B (2026-10-22; independent reader B, not reviewer A: re-derived WE.1 and Prop K.12′, re-ran w_exact_gauge, w_exact_laguerre,
+w_kappa_transfer, m3a_e37_decoupled (identical outputs), independent checks we1_cauchy.py and k12p_coef.py): Prop K.12′ and the assembly
+(P K.12, this header) ACCEPT WITH FIXES K1–K4, A1–A2, all applied here, 2026-10-22; Prop K.12′ is now REVIEWED by an independent reader
+(review A wrote its text R1; review B re-derived it).
 
 **Status of Conjecture W for σ^{δ,κ}** (λ_k = (k + δ)^p + κ, p > 1, −1 < δ ≤ 0, κ ≠ 0, κ > −a^p, 1 < s < 1 + 2p, i.e. |α| < 1; review A
-§3) (fixed per Rule R review A of the W chain, B3):
+§3) (fixed per Rule R review A of the W chain, B3; updated after Rule R review B):
 - *first order in the poles:* n^pb_n(σ^{δ,κ})/c = 𝔅_n[M(α + 2δ, α); t] + Σ_m(the continued symbolic-j layer at j = q_m with μ = −τ_mn^{−pq_m},
-  leading term pR_{q_m}W(q_m)π cot(πq_m)(n/N)^pN^{−1−pq_m}) + **O(n^{−2p})** — **PROVED-mod-cite + REVIEWED** (P K.12 + Prop K.12′), with the
-  single unreviewed input WE.1; no hypothesis (BT, BT₀, BT_coh, (F-br)) is used;
-- *W's displayed form* (pole term at leading order, (1 + O(N^{−1}))): the same with remainder **O(n^{−1−p})**: κ-free Szegő shift
-  β′ = α + 2δ, every n^{−k} coefficient with k < p equal to that of M(α + 2δ, α), and the single pole term at n^{−p} with W's exact
-  coefficient;
-- *not covered:* second order in the poles (products, O(n^{−2p})); p < 1 (OBSTRUCTION for this route, P K.14); p = 1/m; α ∉ (−1, 1);
-  non-coherent branched tilts ((F-br) for general branched band factors stays a GAP; irrelevant to this family). Novelty UNCHECKED.
+  leading term pR_{q_m}W(q_m)π cot(πq_m)(n/N)^pN^{−1−pq_m}) + **O(n^{−2p})** (truncation K ≥ 2p − 1, J ≥ 1, M = J + 1) — **PROVED-mod-cite +
+  REVIEWED, with every input REVIEWED** (P K.12 + Prop K.12′; WE.1 REVIEWED by review B); no hypothesis (BT, BT₀, BT_coh, (F-br)) is used;
+- *W's displayed form* (pole term at leading order, (1 + O(N^{−1}))): the same with remainder **O(n^{−1−p})** (truncation K ≥ p): κ-free
+  Szegő shift β′ = α + 2δ, every n^{−k} coefficient with k < p equal to that of M(α + 2δ, α), and the single pole term at n^{−p} with W's
+  exact coefficient — **PROVED-mod-cite + REVIEWED, with every input REVIEWED**;
+- *Rule C note:* Legendre duplication (DLMF 5.5.5) is NOT QUOTED; it is not used for the displayed form's coefficient (K.12′(c) uses the Beta
+  value, JZC_W_exact WE.1 *Normalisation*), and enters the refined form only through writing WE.1's prefactor as C(2ρ,ρ) (review B, W2);
+- *not covered:* second order in the poles (products, O(n^{−2p})); p < 1 (OBSTRUCTION for this route, P K.14; p = 1/m < 1 belongs to the
+  p < 1 case) (fixed per Rule R review B, A2); α ∉ (−1, 1); non-coherent branched tilts ((F-br) for general branched band factors stays a
+  GAP; irrelevant to this family); W′ (at p = 2 it lies at the order of the refined remainder, K4). Novelty UNCHECKED.
 
 | # | Statement | Label |
 |---|---|---|
@@ -40,8 +46,8 @@ review A to the quadrature floor 6·10⁻¹⁸) (fixed per Rule R review A of th
 | L K.9 | the coherent BT model BT_coh: its circle data are meromorphic in both discs (N.6b holds); for a non-coherent pair (σ_ρ ≠ (τ_ρ/π)tan(πρ)) Δ₁ jumps across (−δ_r, 0) **for the lip-matched parametrix**; JZC_W_BT Lemma BT.1 gives a meromorphic alternative with an explicit lip term (Theorem BT) (fixed per Rule R review A of the W chain, B6) | PROVED-mod-cite (JZC_M4_proof N.6b's parity argument [REVIEWED]); "non-coherent" part PROVED (elementary) + NUMERICAL; both + REVIEWED |
 | **L K.10** | **transfer** (Hc.3 + G1u to the composite band factor and the lip factor): uniformly on both circles, Δ_k^κ = Δ_k^{BT_coh} + O(n^{−(J+1)p}) (M ≥ J + 1 branched terms), and Δ_k^κ = Δ_k^{M(β′,α)} + O(n^{1−p}) | PROVED-mod-cite (Hc.2, Hc.3 [REVIEWED]; L K.1; P W-out.5 [REVIEWED]) + NUMERICAL + REVIEWED |
 | **P K.11** | **P W-out.6 (iii) without BT₀**: n^pb_n(σ^{δ,κ})/c = 𝔅_n[M(α + 2δ, α)] + O(n^{−p}); the n^{−k} coefficients, k < p, are those of M(α + 2δ, α) (κ-free) | PROVED-mod-cite (P K.8(B), L K.10, N.6b–c [REVIEWED]; W_outer inputs REVIEWED) + REVIEWED |
-| **P K.12** | **P W-out.6 (ii)**: n^pb_n/c = 𝔅_n^{rec}[BT_coh] + O(n^{−K−1} + n^{−1−(J+1)p}); with Prop K.12′ this is W at first order in the poles, remainder O(n^{−2p}) (refined form, continued pole dressing), resp. O(n^{−1−p}) in W's displayed form (fixed per Rule R review A of the W chain, B3) | (reduction) PROVED-mod-cite + REVIEWED; (ii) PROVED-mod-cite + REVIEWED via Prop K.12′ (input WE.1 NOT REVIEWED; was CONDITIONAL on BT_coh) |
-| **Prop K.12′** | **BT_coh at the order P K.12 needs**: 𝔅_n^{rec}[BT_coh] = 𝔅_n[M(β, ν); μ_n] − Σ_ρ(pρW(ρ)/2)τ_ρn^{−1−pρ} + O(n^{−2−p·min𝓡}); refined: first-order part = Σ_ρ(engine symbolic-j layer at j = ρ, μ = −τ_ρn^{−pρ}) to all orders in 1/n, remainder O(n^{−2−2p·min𝓡}); so Hypothesis BT_coh holds with η = 1 (fixed per Rule R review A of the W chain, R1) | PROVED-mod-cite (JZC_W_BT BT.1(iii), BT.5 [REVIEWED]; JZC_W_exact WE.1 [NOT REVIEWED]; m3a_e37_decoupled route 1, N.6b, N.6c [REVIEWED]) + REVIEWED (reviewer A's own fix text, §2 of the review) |
+| **P K.12** | **P W-out.6 (ii)**: n^pb_n/c = 𝔅_n^{rec}[BT_coh] + O(n^{−K−1} + n^{−1−(J+1)p}); with Prop K.12′ this is W at first order in the poles, remainder O(n^{−2p}) (refined form, continued pole dressing), resp. O(n^{−1−p}) in W's displayed form (fixed per Rule R review A of the W chain, B3) | (reduction) PROVED-mod-cite + REVIEWED; (ii) PROVED-mod-cite + REVIEWED via Prop K.12′, every input REVIEWED (WE.1 by Rule R review B); K ≥ 2p − 1 (refined), K ≥ p (displayed) (was CONDITIONAL on BT_coh) (fixed per Rule R review B, A1) |
+| **Prop K.12′** | **BT_coh at the order P K.12 needs**: 𝔅_n^{rec}[BT_coh] = 𝔅_n[M(β, ν); μ_n] − Σ_ρ(pρW(ρ)/2)τ_ρn^{−1−pρ} + O(n^{−2−p·min𝓡}); refined: first-order part = Σ_ρ(engine symbolic-j layer at j = ρ, μ = −τ_ρn^{−pρ}) to all orders in 1/n (layer around M(β, ν; μ_n); around μ_n = 0 add O(n^{−2−p−p·min𝓡}), K1), remainder O(n^{−2−2p·min𝓡}); so Hypothesis BT_coh holds with η = 1 (fixed per Rule R review A of the W chain, R1) | PROVED-mod-cite (JZC_W_BT BT.1(iii), BT.5 [REVIEWED]; JZC_W_exact WE.1 [REVIEWED, review B]; m3a_e37_decoupled route 1, N.6b, N.6c, E3 Lemma E3.4 [REVIEWED]) + REVIEWED (reviewer A's fix text, §2 of review A; independently re-derived by Rule R reviewer B, research/G1/review/REVIEW_JZC_W_WE1_K12p_B.md, fixes K1–K4 applied) |
 | P K.13 | 1 < p < 2: (O3) with ν_p **fails** for H_n^κ (exponent q₁ = 1 − 1/p < ½), but every use of ν_p in Paper 2 §6–§7/App C and in G12/G1u/Hc survives, because the lip coefficient carries the gauge only through X (exponent ½, L K.4); no restriction on p > 1 is needed | PROVED-mod-cite + NUMERICAL + REVIEWED |
 | **P K.14** | p < 1: the gauge density is forced to be ρ₁ (any frame-compatible gauge); on the Bessel scale \|ρ₁\| ≍ \|κ\|n^{(1−p)(2+p)/p} → ∞; the lip entries are unbounded (κ > 0) or vanish (κ < 0) at the hard edge, H_n^κ(0⁺) does not exist unless cot(π/p) = 0, and 𝒞[ρ₁] does not exist for p ≤ ½ | (a), (b) PROVED (elementary) + NUMERICAL + REVIEWED; failure of the lattice-g route: OBSTRUCTION (for this route) |
 | §6.3 | fix: the n-dependent constrained equilibrium g_κ (saturated-region jump 2iθ_κ/n), gauge only beyond z_* | PROOF SKETCH (not a proof) / HEURISTIC |
@@ -346,7 +352,8 @@ W_outer §8 KO1–KO3: d₁ to 10⁻¹⁰ (p = 2.5, 1.5), d₂ (p = 2.5) to 5·1
 **Proposition K.12 (P W-out.6 (ii)).** Assume (S), K ≥ 1, J ≥ 1, M = J + 1. Then (PROVED-mod-cite)
   n^pb_n(σ^{δ,κ})/c = 𝔅_n^{rec}[BT_coh(α + 2δ, α; μ^κ_n, (2a_m)_{m≤M})] + O(n^{−K−1} + n^{−1−(J+1)p}),
 and, by Prop K.12′ below, Conjecture W holds for σ^{δ,κ} at first order in the poles, in the following two precise forms (review A §3)
-(fixed per Rule R review A of the W chain, B3):
+(fixed per Rule R review A of the W chain, B3), with K ≥ 2p − 1 for the refined form and K ≥ p for W's displayed form (J ≥ 1, M = J + 1
+suffice for both) (fixed per Rule R review B, A1):
 - *(refined form; first order in the poles, all orders of their dressing)*
   n^pb_n/c = 𝔅_n[M(α + 2δ, α); t] + Σ_m(the continued symbolic-j layer at j = q_m with μ = −τ_mn^{−pq_m}) + O(n^{−2p}),  t_j = −2Z_κ(−j)/j + B_j,
   the m-th layer having leading term pR_{q_m}W(q_m)π cot(πq_m)(n/N)^pN^{−1−pq_m}; the remainder O(n^{−2p}) is the second order in the
@@ -367,35 +374,49 @@ that recursion in the branched data, i.e. the "E3.7 for branched tilts" computat
 **Proposition K.12′ (BT_coh at the order P K.12 needs)** (fixed per Rule R review A of the W chain, R1; text of review A §2, verbatim).
 For coherent data (β, ν; μ_n, (σ_ρ)_{ρ∈𝓡}) with μ_{n,j} = O(n^{−jp}) and bounded σ_ρ,
   𝔅_n^{rec}[BT_coh] = 𝔅_n[M(β, ν); μ_n] − Σ_{ρ∈𝓡}(pρW(ρ)/2)τ_ρ n^{−1−pρ} + O(n^{−2−p·min𝓡}),
-and more precisely the first-order part in (τ_ρ) is Σ_ρ (engine symbolic-j layer at j = ρ) with μ = −τ_ρn^{−pρ}, to all orders in 1/n.
+and more precisely the first-order part in (τ_ρ) is Σ_ρ (engine symbolic-j layer at j = ρ) with μ = −τ_ρn^{−pρ}, to all orders in 1/n
+(the layer taken around M(β, ν; μ_n); if it is taken around μ_n = 0, as in JZC_W, add the mixed Toda × branched terms
+O(n^{−2−p−p·min𝓡}), which vanish at n⁻¹ by (c) and are O(n^{−1−2p}) ⊂ O(n^{−2p}) for the κ-family, min𝓡 = q₁ < 1) (fixed per Rule R
+review B, K1).
 The remainder of that refined form is O(n^{−2−2p·min𝓡}), the second-order part.
+For ρ ∈ ½ + ℤ (τ_ρ = 0) the layer is the limit ρ′ → ρ at fixed σ_ρ. The gauge data −(μ/2)RA_{ρ′} converge to
+(πσ/(2 sin πρ))(−z)^ρ and μM_{ρ′}(4c) → 0, and the layer is polynomial in these data (fixed per Rule R review B, K3).
 
 *Proof.*
 (a) **Gauge form.** By coherence and JZC_W_exact WE.1(iii), ρ_BT = ρ_a := ρ_mod·exp(−½Σ_ρμ_ρRA_ρ)·(Toda gauge), with μ_ρ := −τ_ρn^{−pρ}.
   This is JZC_W_BT BT.1 with the mismatch exponent μ tan πρ + πσ = 0 (Prop BT.5). Hence Δ_k^{BT} = G_aΔ_k^{mod}G_a^{−1}, with G_a
   the E3 gauge of the tilt function M = Σ_jμ_jQ_j + Σ_ρμ_ρM_ρ. G_a is exactly E3's G, since P₀^∞e^{hσ₃}(P₀^∞)^{−1} = cosh h + (sinh h/R)·RN
   with N² = I and RN = T[[0, z−4c], [z, 0]]T^{−1}. Its Taylor data at 0 (A_ρ) and at 4c (M_ρ) are the engine's symbolic-j data at j = ρ (WE.1(i)–(ii)).
+  At the soft edge only the band tilt enters (the lips avoid U(4c, h₀)); h is analytic at 4c and D_h²/h = e^{μRM_ρ}, so E3 Lemma E3.4's
+  argument gives Δ^{r,BT} = G(M_ρ)Δ^{r,mod}G(M_ρ)^{−1} there. Route 1 treats M(0) = A_ρ(0) and M(4c) = M_ρ(4c) as independent symbols,
+  so A_ρ ≠ M_ρ is harmless (fixed per Rule R review B, K2).
 (b) **Entire dependence.** By N.6b (REVIEWED), every Laurent coefficient of Δ_k^{BT} is entire in the times (μ_j, μ_ρ) with n-free
   coefficients. So each order n^{−k} of 𝔅^{rec} is entire in the times. Its value at μ_ρ = 0 is 𝔅_n[M(β, ν); μ_n] (Theorem N.6).
 (c) **The n⁻¹ order.** By the decoupled E3.7 identity (m3a_e37_decoupled route 1, REVIEWED: e(M) − e(0) = cp·M(4c) identically in
   M(0), M(4c), M′(4c)), the n⁻¹ coefficient is exactly linear in the times, with no products. Its ρ-part is
-  cp·μ_ρM_ρ(4c) = (pρW(ρ)/2)μ_ρ (WE.1(i) at m = 0, with c-scaling; W(ρ) = c^ρC(2ρ, ρ), JZC_W §1).
+  cp·μ_ρM_ρ(4c) = (pρW(ρ)/2)μ_ρ (WE.1(i) at m = 0, with c-scaling; W(ρ) = c^ρC(2ρ, ρ), JZC_W §1). (The Beta value
+  M_ρ^{(1)}(4) = 4^ρΓ(ρ+½)/(2√πΓ(ρ)) gives pρ(4c)^ρΓ(ρ+½)/(2√πΓ(ρ+1)) = pρW(ρ)/2 with W in JZC_W's Γ-form directly; Legendre duplication,
+  NOT QUOTED, is not needed here: JZC_W_exact WE.1 *Normalisation*, review B §2.1) (fixed per Rule R review B, W2).
 (d) **Orders n^{−k}, k ≥ 2.** By (b) these are O(|μ_ρ|) = O(n^{−p·min𝓡}) for the first-order part, and O(|μ_ρ|²) beyond.
 (e) Finally (n/N)^pN^{−1−pρ} = n^{−1−pρ}(1 + O(1/n)). ∎
 
 **Consequently** Hypothesis BT_coh holds with η = 1. P K.12 (ii) is PROVED-mod-cite, with inputs: L K.10, P K.8, and the
-W_outer inputs; BT.1(iii), BT.5; WE.1; m3a_e37_decoupled, N.6b, N.6c (REVIEWED). After review A, all of these are REVIEWED except
-JZC_W_exact WE.1 (NOT REVIEWED; elementary).
+W_outer inputs; BT.1(iii), BT.5; WE.1; m3a_e37_decoupled, N.6b, N.6c, E3 Lemma E3.4 (REVIEWED). After reviews A and B, all of these are
+REVIEWED (JZC_W_exact WE.1 by Rule R review B, research/G1/review/REVIEW_JZC_W_WE1_K12p_B.md) (updated after Rule R review B).
 *Checks (review A §2, not repo scripts):* (a) the algebra of BT.5 and ρ_BT = ρ_a by hand; WE.1(ii) at the κ-family's exponents by an
 independent quadrature (we1.py; ρ ∈ {⅓, 4/3, 0.7}, four points incl. both sides of the negative axis: deviation ≤ 6·10⁻¹⁸, the quadrature
 floor at dps 30; control "no branched term" misses by 0.9–3.3; ρ = 4/3 = q₂ at p = 3/2 tests the continuation beyond ρ < 1); (c) WE.2 route 2
 confirms the first order (response pj/2 per unit μC(2j, j), symbolic j, zero at orders 2 and 3), and w_bt_poles7 asserts g1[1] = pj/2 at
-p = 3, 3/2. *Caveats:* WE.1 is NOT REVIEWED; 𝔅^{rec} is the finite recursion at fixed K (as in P K.12's definition), and the n^{−k}
+p = 3, 3/2. *Checks (review B §3, not repo scripts):* WE.1 by an independent Cauchy-integral construction (we1_cauchy.py, 46 checks;
+ρ ∈ {0.15, 0.45, −0.35, 1.6, 5/3, 2.3}, relative ≤ 1.6·10⁻²⁶); K.12′(c)'s coefficient against the fitted κ-measures KO1–KO3 (k12p_coef.py;
+agreement 1.7·10⁻⁷ … 5·10⁻⁷, inside the fit half-ranges; NUMERICAL). *Caveats:* WE.1 is REVIEWED (review B; it was NOT REVIEWED when
+review A wrote K.12′); 𝔅^{rec} is the finite recursion at fixed K (as in P K.12's definition), and the n^{−k}
 coefficients are uniform in n because, in the n^p frame, the model data are n-free and only the times depend on n.
 *p = 2.* All q_m are half-integers, so τ_m = 0 and the data are pure lip factors exp(C(−z/n^p)^q). (a) holds in the limiting form, because
 (−z)^{½} = −R/(4−z)^{½} is of engine form (JZC_W_BT Prop BT.5, fix B7). W's pole terms vanish (cot = 0); the W′ term, n^{−3−p/2} = n^{−4}, lies
-inside the coarse remainder O(n^{−2−p/2}) = O(n^{−3}), and in the refined form it is part of the continued first-order layer (JZC_W_exact:
-exact limit).
+inside the coarse remainder O(n^{−2−p/2}) = O(n^{−3}). In the refined form it belongs to the first-order layer (JZC_W_exact: exact
+limit), but at p = 2 the refined remainder is O(n^{−2p}) = O(n^{−4}): second-order terms in a₁ enter at n^{−2−2pq₁} = n^{−4} too. So K.12′
+does not establish W′ (W′ stays a CONJECTURE) (fixed per Rule R review B, K4).
 
 ## 5. 1 < p < 2 (Proposition K.13)
 
@@ -560,8 +581,10 @@ constraint is the κ-node density (1/n)|t_κ′(y)|dy instead of the lattice's (
 (Updated after Rule R review A of the W chain: items 1, 2 and 5 of the former list are done — BT_coh by Prop K.12′ (R1), Rule R for this
 note and its W_outer inputs by review A, the W_outer corrections applied there (B4).)
 1. **Second order in the poles**: products of branched terms (the O(n^{−2p}) remainder of P K.12's refined form); not treated.
-2. **JZC_W_exact Lemma WE.1**: Rule R (it is the one NOT REVIEWED input of Prop K.12′; elementary, numerically spot-checked by review A);
-   optionally a reviewer B for the assembled chain incl. Prop K.12′ (review A's suggestion). Rule L before any novelty claim (UNCHECKED).
+2. ~~JZC_W_exact Lemma WE.1: Rule R; a reviewer B for the assembled chain incl. Prop K.12′~~ — done: Rule R review B
+   (research/G1/review/REVIEW_JZC_W_WE1_K12p_B.md) REVIEWED WE.1, Prop K.12′ and the assembly; fixes W1–W3, K1–K4, A1–A2 applied
+   2026-10-22. Remaining here: Rule L before any novelty claim (UNCHECKED); Legendre duplication (DLMF 5.5.5) to be quoted from a source
+   actually read (not needed for the displayed form, review B W2).
 3. p < 1: the n-dependent equilibrium g_κ (§6.2–6.3), including its sign conditions (OBSTRUCTION for the lattice-g route, P K.14); the case
    p = 1/m (κ-dependent Z(0)).
 4. α ∉ (−1, 1) (s ∉ (1, 1 + 2p)): not covered (as in G12/G1u).

@@ -3,8 +3,12 @@
 Note (2026-10-22, after Rule R review A of the W chain, research/G1/review/REVIEW_JZC_W_kappa_chain_A.md): Lemma WE.1 is now an input of
 JZC_W_kappa Prop K.12′ (and thereby of the κ-family's first-order W). Review A did not review this note; it spot-checked WE.1(ii) at the
 κ-family's exponents by an independent quadrature (ρ ∈ {⅓, 4/3, 0.7}, deviation ≤ 6·10⁻¹⁸ = quadrature floor) and requested no fix here.
-WE.1 stays NOT REVIEWED; it is the one unreviewed input of that chain.
-Status (2026-10-22): NOT REVIEWED (no Rule R reader yet). Labels per VERIFICATION_POLICY.md. Novelty: UNCHECKED. No claim about RH:
+Note (2026-10-22, after Rule R review B, research/G1/review/REVIEW_JZC_W_WE1_K12p_B.md): **Lemma WE.1 is REVIEWED** (independent second
+reader B re-derived (i)–(iii) from the write-up, re-ran w_exact_gauge and w_exact_laguerre (identical outputs), checked WE.1 by an
+independent Cauchy-integral construction at ρ ∈ {0.15, 0.45, −0.35, 1.6, 5/3, 2.3}; verdict ACCEPT WITH FIXES W1–W3, all applied here and in
+checks/w_exact_gauge.py). With it, every input of the κ-family's first-order W (JZC_W_kappa P K.12 + Prop K.12′) is REVIEWED.
+Status (2026-10-22): **Lemma WE.1: PROVED + REVIEWED** (Rule R reviewer B, research/G1/review/REVIEW_JZC_W_WE1_K12p_B.md). **WE.2–WE.6, P0–P3, W′
+and the rest of this note: NOT REVIEWED** (review B did not review them; they keep their labels). Labels per VERIFICATION_POLICY.md. Novelty: UNCHECKED. No claim about RH:
 no measure built from zeta zeros is used. Scope: the two parts of Conjecture W (JZC_W.md) named in JZC_W §5.1 item 4 and §1.3 (W′),
 tested with the exact engine of JZC_M4_proof (m4_rh_exact2.py), not with measures.
 
@@ -23,7 +27,7 @@ Checks (all in `checks/`; every `.out` prints the sha256 of its script and of th
 
 | # | Statement | Label |
 |---|---|---|
-| Lemma WE.1 | the E3 gauge of a branched tilt exp(−μz^ρ) splits (c = 1) as M_ρ = A_ρ + tan(πρ)z^{ρ−½}(4−z)^{−½}; the Taylor data of A_ρ at 0 and of M_ρ at 4c are **exactly** the engine's symbolic-j data at j = ρ | PROVED (elementary: Stieltjes form, Beta integrals, reflection formula; exact sympy identities for m ≤ 8; decomposition checked numerically to 2·10⁻⁴⁰) |
+| Lemma WE.1 | the E3 gauge of a branched tilt exp(−μz^ρ) splits (c = 1) as M_ρ = A_ρ + tan(πρ)z^{ρ−½}(4−z)^{−½}; the Taylor data of A_ρ at 0 and of M_ρ at 4c are **exactly** the engine's symbolic-j data at j = ρ; (i) for all ρ > −½, (ii), (iii) for all ρ > −½, ρ ∉ ½ + ℤ | PROVED (elementary: Stieltjes form, Beta integrals (DLMF 5.12.3), reflection formula (DLMF 5.5.3), removable singularity, continuation in ρ; Legendre duplication NOT QUOTED, needed only to write the prefactor as C(2ρ,ρ), W2; exact sympy identities for m ≤ 8; decomposition checked numerically to 2·10⁻⁴⁰) + REVIEWED (Rule R reviewer B, research/G1/review/REVIEW_JZC_W_WE1_K12p_B.md; fixes W1–W3 applied) |
 | Prop WE.2 | branched E3.7 at the n⁻¹ level: the n⁻¹ coefficient of the response of n^pb_n/c to exp(−μz^ρ) is d₁ + c p M_ρ(4c)μ, exactly linear in μ (zero second- and third-order response), which is W's −(pρW(ρ)/2)t_ρ | PROVED for the analytic (A_ρ) part of the gauge; that the branched remainder does not reach n⁻¹ (it starts at relative n^{−2ρ−1}) is HEURISTIC for general p and exact at p = −1 (§2) |
 | Prop WE.3 | at p = −1 the decoupled model M(ν−1, ν) is the Laguerre weight; its symbolic-j zeta-layer response, continued to j = ρ, equals the analytic part of the exact Laguerre response to x^ρ through N⁻⁶, identically in (ν, ρ) | PROVED (exact identity of the engine output with the Laguerre analytic series; the Laguerre two-series form rests on a connection formula and singularity analysis NOT QUOTED, and is checked numerically to 2·10⁻²¹) |
 | Finding WE.4 | the first-order response to a branched tilt is **not** the continued series alone: it has a hard-edge companion H(ρ)N^{−2ρ−2}(1 + O(N⁻²)), H = ½(pρ+2ρ+1)(p+2)^{2ρ+1}Φ_ν(ρ)/C(2ρ,ρ), Φ_ν(ρ) = Γ(−1−2ρ)Γ(ν+ρ+1)/(Γ(−ρ)²Γ(ν−ρ)) | exact at p = −1 (Laguerre); general p: CONJECTURE, supported by exact pole-cancellation identities (P0: all p; P1: pre-registered, exact in ν at 5 values of p, plus post hoc p) |
@@ -68,15 +72,32 @@ of E3 Lemma E3.4), and M_ρ is analytic off (−∞, 0] with the jump of z^ρ/R 
 (i) [w^m]M_ρ(4+w) = C(2ρ,ρ)ρ(ρ−1)⋯(ρ−m)/(4^{m+1}(½)_{m+1}).
 (ii) M_ρ = A_ρ + tan(πρ)z^{ρ−½}(4−z)^{−½} near 0, with A_ρ analytic at 0 and [z^m]A_ρ = C(2ρ,ρ)Π_{i=0}^m(ρ−i)/(2(2ρ−2i−1)).
 (iii) Hence R·M_ρ = R·A_ρ ± i tan(πρ)z^ρ near 0, the sign being that of Im z.
-*Proof.* (i) Expand (s+4+w)⁻¹ in w; each term is a Beta integral 4^{ρ−m−1}B(ρ+½, m+1−ρ); with sin πρ/π = 1/(Γ(ρ)Γ(1−ρ)) and
-Legendre duplication this is the stated rational multiple of C(2ρ,ρ) = Γ(2ρ+1)/Γ(ρ+1)². (ii) The coefficients of the analytic part
-are the Mellin-continued moments (−1)^m(sin πρ/π)4^{ρ−m−1}B(ρ−½−m, m+1−ρ); the same identities give the formula. The remainder
-M_ρ − A_ρ is z^{ρ−½}φ(z) with φ analytic; its jump on (−4, 0) must equal that of z^ρ/R, −2i sin(πρ)|x|^{ρ−½}(4−x)^{−½}, while
-z^{ρ−½} jumps by −2i cos(πρ)|x|^{ρ−½}: so φ = tan(πρ)(4−z)^{−½}. (iii) R = z^{½}(z−4)^{½} and (z−4)^{½}/(4−z)^{½} = ±i. ∎
+*Proof.* (i) Expand (s+4+w)⁻¹ in w; each term is a Beta integral 4^{ρ−m−1}B(ρ+½, m+1−ρ) (DLMF 5.12.3, quoted in RH/CITATIONS.md
+(DLMF-2); its hypotheses ℜa = ρ + ½ > 0, ℜb = m + 1 − ρ > 0 hold for −½ < ρ < 1); with B(a, b) = Γ(a)Γ(b)/Γ(a+b) (DLMF 5.12.1, (DLMF-2)),
+sin πρ/π = 1/(Γ(ρ)Γ(1−ρ)) (DLMF 5.5.3, (DLMF-2); ρ ∉ ℤ) and Γ(z+1) = zΓ(z) (DLMF 5.5.1, quoted in RH/CITATIONS.md) this is the stated
+rational multiple of 4^ρΓ(ρ+½)/(√πΓ(ρ+1)) (Γ(½) = √π: 5.5.3 at z = ½); Legendre duplication (DLMF 5.5.5) identifies that prefactor with
+C(2ρ,ρ) = Γ(2ρ+1)/Γ(ρ+1)² — **NOT QUOTED** (the DLMF §5.5 page could not be read in the session applying review B; see *Normalisation*
+below) (fixed per Rule R review B, W2). (ii) Put F := M_ρ − tan(πρ)z^{ρ−½}(4−z)^{−½}. On (−4, 0) the jump of z^ρ/R is
+−2i sin(πρ)|x|^{ρ−½}(4−x)^{−½} and that of z^{ρ−½} is −2i cos(πρ)|x|^{ρ−½}, so F has no jump there; F is analytic in 0 < |z| < 4 and
+O(|z|^{ρ−½} + |log z|) = o(1/|z|) at 0 (ρ > −½), hence analytic at 0. A_ρ := F. Its Taylor coefficients for −½ < ρ < 1: split the
+Stieltjes integral at s = 1; ∫_1^∞ is analytic in |z| < 1, and ∫_0^1 termwise with (s+4)^{−½} = Σh_ks^k gives the singular part
+tan(πρ)z^{ρ−½}(4−z)^{−½} plus an analytic part. Together the coefficients are the Mellin-continued moments
+(−1)^m(sin πρ/π)4^{ρ−m−1}B(ρ−½−m, m+1−ρ). The same identities as in (i) give the formula (fixed per Rule R review B, W1).
+(iii) R = z^{½}(z−4)^{½} and (z−4)^{½}/(4−z)^{½} = ±i. ∎
+*Range.* For fixed z, M_ρ(z) (defined for ρ > −½ by z^ρ/R − 2C_ρ) and its Taylor coefficients at 4 and those of F at 0 are analytic in
+ρ, and the right-hand sides of (i), (ii) are meromorphic with poles only at ½ + ℤ (in (ii)). So (i) holds for all ρ > −½, and (ii), (iii)
+for all ρ > −½, ρ ∉ ½ + ℤ (identity theorem in ρ). The κ-family uses ρ = q_m = m − 1/p, m ≤ M, including q₂ ∈ (1, 2) (fixed per Rule R
+review B, W1).
+*Normalisation* (fixed per Rule R review B, W2). Put N(ρ) := 4^ρΓ(ρ+½)/(√πΓ(ρ+1)) (= W(ρ)/c^ρ in JZC_W §1's Γ-form). The proof above,
+without duplication, gives (i)–(ii) with C(2ρ,ρ) replaced by N(ρ); N(j) = C(2j, j) at integers j ≥ 0 by 5.5.1 and Γ(½) = √π. N(ρ) = C(2ρ,ρ) for
+non-integer ρ is Legendre duplication, NOT QUOTED. JZC_W_kappa Prop K.12′(c)'s coefficient pρW(ρ)/2 uses only N(ρ) (the Beta value), so it
+does not need duplication (review B §2.1); duplication enters only in writing the prefactor as C(2ρ,ρ) and in the identification with the
+engine's C(2j, j)-normalised symbolic-j data.
 Checks: (i), (ii) as exact sympy identities in symbolic ρ for m ≤ 8; the decomposition (ii) and the Taylor series (i) against direct
 quadrature of the Stieltjes form (head by tanh-sinh with the substitution s = t^{2/(2ρ+1)}, tail by exact termwise integration) at
 ρ ∈ {0.3, −0.2, 2/3, 0.9} and four z: relative deviation ≤ 2·10⁻⁴⁰ (40 digits, 260 Taylor terms); (iii) to 10⁻³⁰. Controls: sin(πρ) for tan(πρ), no
-branched term, (½)_m for (½)_{m+1}: all fail.
+branched term, (½)_m for (½)_{m+1}: all fail. ρ > 1: Rule R review B, Cauchy-integral check at ρ ∈ {1.6, 5/3, 2.3} (and 0.15, 0.45, −0.35),
+relative ≤ 1.6·10⁻²⁶; review A at 4/3 (fixed per Rule R review B, W1).
 
 **Consequence.** The engine run with symbolic j and then j = ρ is *exactly* the RH computation with the gauge built from A_ρ at the
 hard edge and M_ρ at the soft edge. What it omits is the branched remainder ±i tan(πρ)μz^ρ/2 in the gauge exponent at the hard

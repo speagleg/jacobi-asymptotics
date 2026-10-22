@@ -1,4 +1,4 @@
-sha256 w_exact_gauge.py: d055f98d9e2f2e445bcb8f29a8e5d0ed1f8308e24232fbd7a0f3b3ecba19b962
+sha256 w_exact_gauge.py: d2208e9b0b8040ec41fc0f80a1af03121ac45bfdccc65f3c9ebb75e4be8e3ded
 sha256 w_exact_engine.py: 54ad07279b4f891908985a8c8782413aee89007b6b0caf976f51b470d7af14e8
 [ 1] identity: (i) [w^m] M_rho(4+w) = C(2rho,rho) rho(rho-1)..(rho-m)/(4^{m+1}(1/2)_{m+1}), m <= 8, symbolic rho: holds -> PASS
 [ 2] CONTROL (must fail): (i) control: (1/2)_m in place of (1/2)_{m+1}: FAILS -> PASS
@@ -12,7 +12,7 @@ sha256 w_exact_engine.py: 54ad07279b4f891908985a8c8782413aee89007b6b0caf976f51b4
 [ 8] identity: (iii) R M_br = s i tan(pi rho) z^rho with s = +1 (Im z > 0), -1 (Im z < 0): holds -> PASS
 [ 9] identity: (iv) W(rho) = C(2rho,rho) c^rho (Legendre duplication): holds -> PASS
 [10] identity: (iv) c p M(4c) (-t) = -(p rho W(rho)/2) t: holds -> PASS
-   route 2 (69s): d1 = -p*(beta + 1)/2, first-order = j*p/2
+   route 2 (41s): d1 = -p*(beta + 1)/2, first-order = j*p/2
 [11] identity: (v) d1 = -p(beta+1)/2 (decoupled): holds -> PASS
 [12] identity: (v) first-order mu response of the 1/n coefficient = p j/2 (per mu C(2j,j)), identically in (p, nu, beta, j): holds -> PASS
 [13] identity: (v) second- and third-order responses of the 1/n coefficient vanish identically: holds -> PASS
