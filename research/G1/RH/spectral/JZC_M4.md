@@ -1,6 +1,6 @@
 # JZC M4: the second-order layer — the natural index N = n + α/2 − Z(0) (Plan JZC, milestone M4; first results)
 
-Status (2026-10-21): NOT REVIEWED. **Proof of Props N.3–N.4 (all p ≠ 1): JZC_M4_proof.md (Theorem N.6; Rule R review A applied).** §5 added 2026-10-21 (integer layer to order 8); §6 added 2026-10-21 (zeta layer in natural form); §7 added 2026-10-21 (reflection and shift); §8 added 2026-10-21 (Toda structure). Labels per VERIFICATION_POLICY.md.
+Status (2026-10-21): NOT REVIEWED. **Proof of Props N.3–N.4 (all p ≠ 1): JZC_M4_proof.md (Theorem N.6, PROVED-mod-cite + REVIEWED; Rule R reviews A and B applied; status updated 2026-10-22).** §5 added 2026-10-21 (integer layer to order 8); §6 added 2026-10-21 (zeta layer in natural form); §7 added 2026-10-21 (reflection and shift); §8 added 2026-10-21 (Toda structure). Labels per VERIFICATION_POLICY.md.
 
 | # | Statement | Label |
 |---|---|---|
@@ -9,7 +9,7 @@ Status (2026-10-21): NOT REVIEWED. **Proof of Props N.3–N.4 (all p ≠ 1): JZC
 | Conj S1-N | n^pb_n/c = (n/N)^p·F_{p,α}(N; Z), N := n + α/2 − Z(0). F has no 1/N term; its integer layer is even in 1/N; its N⁻² coefficient is f₂; the spectral terms (zeta layer, poles) appear as functions of N | CONJECTURE (NUMERICAL: m4_natural_index.out, 7 lattices; S1′, rule H, S1⁗ as instances). The integer-layer part is now established through order 8 for the Riemann–Hilbert model: Prop N.3 |
 | Prop N.4 | Zeta layer with the band factor (E3 gauge added to the order-k computation): each ε_j term is ε_jN^{−1−jp}·(1 + g_jN⁻² + O(N⁻⁴)), even in 1/N, with g_j = A_j + B_jα² in closed form for all j (§6); the ζ(−p)² layer starts at (ε₁N^{−1−p})²·(3p+1)/(2p) | **PROVED-mod-cite for p ≠ 1, every j (Theorem N.6(ii); symbolic-j exact algebra m4_zeta_exact2_A), and the ζ(−p)² layer (3p+1)/(2p), h₂ (m4_zeta_exact2_B).** As coefficients of b_n: see the visibility table of Theorem N.6(iii) |
 | Conj S1-N′ | refined S1-N: F_{p,α} is a function of N⁻² and the monomials X_j := ε_jN^{−1−jp} only, i.e. F = Σ_β c_β(N⁻²)ΠX_j^{β_j} with each c_β an even series | CONJECTURE in general; PROVED-mod-cite for β ∈ {0, e_j (all j), 2e₁} to the orders of Theorem N.6(ii) |
-| Prop N.3 | Integer layer from the order-k Riemann–Hilbert model computation (E2's frame, extended from k = 2 to k = 8): f₁ = f₃ = f₅ = f₇ = 0; f₄, f₆ in closed form (§5); f_{2k} is even in α | **PROVED-mod-cite for p ≠ 1 (JZC_M4_proof.md Theorem N.6(ii): μ = 0 layer to N⁻⁶, exact).** As coefficients of b_n (Thm N.6(iii)): f₂ (all p), f₄ (p > 2/3), f₆ (p > 4/3). f₈ and beyond: NUMERICAL (m4_rh4.out, m4_f8_denominator.out) |
+| Prop N.3 | Integer layer from the order-k Riemann–Hilbert model computation (E2's frame, extended from k = 2 to k = 8): f₁ = f₃ = f₅ = f₇ = 0; f₄, f₆ in closed form (§5); f_{2k} is even in α | **f₁ = f₃ = f₅ = 0, f₂, f₄, f₆: PROVED-mod-cite for p ≠ 1 (Thm N.6(ii), REVIEWED); f₇ = 0, f₈ and beyond: NUMERICAL** (m4_rh4.out ≤ 10⁻³⁵, m4_f8_denominator.out) (fixed per Rule R review B, M5). As coefficients of b_n (Thm N.6(iii)): f₂ (all p), f₄ (p > 2/3), f₆ (p > 4/3) |
 
 ## 1. The identity
 

@@ -252,7 +252,7 @@ in-lens part was not done. OPEN.
 Proposition G1u (A) uses: Paper 2 §6–7 and App A–C (as read; labels as in the repo), G12 P1.4, C1.5, L2.1–L2.3, P2.4 (PROVED-mod-cite,
 + REVIEWED since Rule R review B, status updated 2026-10-22), H-d Lemma (i)–(iii) (PROVED for the jump algebra, REVIEWED: Rule R review A of the p>1 chain), L1–L4 above, H-a
 (JZC_M3a_H_Ha.md) (fixed per Rule R review A of the p>1 chain, G1u-2).
-(B) additionally uses JZC_M4_proof N.6a–c (PROVED-mod-cite; review A done), RH_px §4.1–§5 [REVIEWED], E_pgt1 L E.3, and the band-factor
+(B) additionally uses JZC_M4_proof N.6a–c (PROVED-mod-cite + REVIEWED, Rule R reviews A and B (updated 2026-10-22 after Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md)), RH_px §4.1–§5 [REVIEWED], E_pgt1 L E.3, and the band-factor
 input H-c for δ (JZC_M3a_H §2, §3.2: the gauge Δ_k = G_μΔ_k^{mod}G_μ^{−1} + O(n^{−(J+1)p}) with the Hurwitz moments).
 Label: **(A), (B) PROVED-mod-cite (inputs H-a, H-c as above)** (fixed per Rule R review A of the p>1 chain, G1u-2); **REVIEWED** (Rule R review A of the p>1
 chain, fixes applied 2026-10-21). Novelty: UNCHECKED.

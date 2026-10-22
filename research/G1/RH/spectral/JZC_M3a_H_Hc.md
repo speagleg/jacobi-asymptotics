@@ -197,8 +197,8 @@ O(n^{−K−1} + n^{−1−(J+1)p}), conditional only on H-a, which JZC_M3a_H_Ha
 M(β, ν), and E3 Lemma E3.7 for M(β′, α): JZC_M3a_H §3.3, exact check m3a_e37_decoupled) this removes the last listed open item of
 Theorem H (i) for p > 1. Label: PROVED-mod-cite + REVIEWED (Rule R review A of the p>1 chain, fixes applied 2026-10-21). Of the chain's
 links, Ha, Hd (i)–(iii), G1u (p > 1) and Hc (p > 1) are REVIEWED; G12 is REVIEWED since Rule R review B of the assembly (REVIEW_JZC_M3a_H_assembly_B.md §A; status updated 2026-10-22); the remaining
-link not marked REVIEWED is JZC_M4_proof Theorem N.6 / N.6a–c (review A done, second reader pending) (earlier status
-updated 2026-10-21).
+link, JZC_M4_proof Theorem N.6 / N.6a–c, is PROVED-mod-cite + REVIEWED since Rule R review B of JZC_M4_proof (REVIEW_JZC_M4_proof_B.md)
+(earlier status updated 2026-10-21; (updated 2026-10-22 after Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md)).
 
 ## 4. p < 1 (Lemma Hc.5): what changes
 

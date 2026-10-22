@@ -1,12 +1,13 @@
 # JZC M3a: Theorem H — Jacobi coefficients for Hurwitz lattices (λ_k = (k + δ)^p)
 
-Status (2026-10-22): DRAFT, assembled; Theorem H is not marked REVIEWED as a whole, because its input JZC_M4_proof Theorem N.6
-(Lemmas N.6a–c) is PROVED-mod-cite with Rule R review A done and a second reader still pending. Rule R review A of the p>1 chain
+Status (2026-10-22): DRAFT, assembled. Every memo-level link of Theorem H (i) is now REVIEWED, including its input JZC_M4_proof
+Theorem N.6 (Lemmas N.6a–d), which is PROVED-mod-cite + REVIEWED since Rule R review B of JZC_M4_proof (REVIEW_JZC_M4_proof_B.md;
+fixes M1–M5 applied) (updated 2026-10-22 after Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md); the honest label of (i) and (ii) is in §4. Rule R review A of the p>1 chain
 (research/G1/review/REVIEW_JZC_M3a_H_pgt1_chain_A.md: ACCEPT WITH FIXES, fixes applied 2026-10-21) makes H-a, H-d (i)–(iii), G1u (p > 1)
 and H-c (p > 1) REVIEWED. Rule R reviews B (research/G1/review/REVIEW_JZC_M3a_H_plt1_inputs_B.md, REVIEW_JZC_M3a_H_plt1_G1up_B.md,
 REVIEW_JZC_M3a_H_assembly_B.md; fixes applied 2026-10-22) make G12, G3 (Lemmas 1–3, Prop 4, Cor 5), G23plt1 (L2.1′–P2.6, Lemma M,
-F.1_δ (i)–(iv)), G1u_plt1 (L P1–P5, Prop G1u′), Hc.5 and m3a_e37_decoupled REVIEWED; Theorem N.6 is PROVED-mod-cite with review A done
-(second reader pending) (§4) (fixed per Rule R review B, C-7, updated for the reviews B now done). The pieces are:
+F.1_δ (i)–(iv)), G1u_plt1 (L P1–P5, Prop G1u′), Hc.5 and m3a_e37_decoupled REVIEWED; Theorem N.6 is PROVED-mod-cite + REVIEWED
+(reviews A and B of JZC_M4_proof) (§4) (fixed per Rule R review B, C-7, updated for the reviews B now done). The pieces are:
 - JZC_M3a_Hd.md: the index transfer H-d, with the jump algebra;
 - JZC_M3a_H_G12.md: the outer scalar (G1) and the a-priori bound (G2), p > 1;
 - JZC_M3a_H_G3.md: the seam outer scalar, p < 1 (G3);
@@ -57,7 +58,7 @@ Setting:
 | H-b′ | a-priori bound and L² boundary values for the normalised Q♮, lattice exponent \|α\|/2 (column factorisation) | Paper 2 App C | p > 1: G12 L2.1–P2.4 (PROVED-mod-cite; REVIEWED after review B); p < 1: JZC_M3a_H_G23plt1.md L2.1′–P2.6 (PROVED-mod-cite + REVIEWED, Rule R review B; this is H-d (iv) for p < 1, which G3 Cor 5 does not cover) (fixed per Rule R review B, C-1 / H-1 (1)) |
 | H-c | band factor: Binet-cut B_δ (p > 1) or seam χ_δ (p < 1); moments m_j(δ) as Fourier sums; gauge on the circles | E_pgt1 L E.2, E3 L F.1′, E3.4–E3.5, E_plt1 L F.1, SPEC §3.1 | §3.2; JZC_M3a_H_Hc.md: p > 1 Hc.1–Hc.3 (PROVED-mod-cite + REVIEWED, review A of the p>1 chain); p < 1 Hc.5 given G23plt1 F.1_δ (PROVED-mod-cite + REVIEWED, Rule R review B); p < 1 also L P5 of JZC_M3a_H_G1u_plt1.md (fixed per Rule R review B, H-1 (4)) |
 | H-d | index transfer: F_δ ∼ C_δ(−z)^δ at ∞, absorbed by the gauge (−z)^{−δσ₃}; result M(β′, α) | JZC_M3a_Hd.md | jump algebra PROVED + REVIEWED (review A of the p>1 chain); analytic inputs G1–G3; for p < 1, G3 Cor 5 gives H-d (i)–(iii), not (iv) (fixed per Rule R review A of G3, F1); (iv) is G23plt1 P2.6; both REVIEWED (Rule R review B) |
-| H-e | circle jumps, small norm, residue recursion for M(β, ν) | JZC_M4_proof Lemmas N.6a–c (PROVED-mod-cite; Rule R review A done, second reader pending) (β enters the model only through ρ² = φ^{2(β+1)} and φ^{−2(β+1)}, bounded above and below on the circles, with a jump across the band; fixed per Rule R review B, B-3, C-7); for p > 1 the hard-edge circle data are JZC_M3a_H_G1u.md (REVIEWED); for p < 1 they are JZC_M3a_H_G1u_plt1.md L P3 (glued parametrix; REVIEWED, Rule R review B) (fixed per Rule R review B, C-2 / H-1 (2)); E3 Lemma E3.7 for M(β, ν) | §3.3 |
+| H-e | circle jumps, small norm, residue recursion for M(β, ν) | JZC_M4_proof Lemmas N.6a–c (PROVED-mod-cite + REVIEWED, Rule R reviews A and B (updated 2026-10-22 after Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md)) (β enters the model only through ρ² = φ^{2(β+1)} and φ^{−2(β+1)}, bounded above and below on the circles, with a jump across the band; fixed per Rule R review B, B-3, C-7); for p > 1 the hard-edge circle data are JZC_M3a_H_G1u.md (REVIEWED); for p < 1 they are JZC_M3a_H_G1u_plt1.md L P3 (glued parametrix; REVIEWED, Rule R review B) (fixed per Rule R review B, C-2 / H-1 (2)); E3 Lemma E3.7 for M(β, ν) | §3.3 |
 | H-f | exact algebra for M(β, ν); natural form | m4_shift_exact, m3a_g5_exact | §3.3 |
 
 ## 3. Gaps closed here
@@ -134,7 +135,7 @@ review B, B3-2). NOT QUOTED under Rule C.
 - Numerically: m4_shift_num.out (order 8, 108 checks), m4_shift_zeta.out (40 checks), and m3a_hd_model.out (the Hurwitz data,
   42 checks).
 
-## 4. Status of Theorem H (2026-10-22; Theorem H itself is not marked REVIEWED — Theorem N.6 awaits its second reader; the REVIEWED links are listed under "Rule R reviews")
+## 4. Status of Theorem H (2026-10-22; every memo-level link of (i) is REVIEWED, Theorem N.6 included since REVIEW_JZC_M4_proof_B.md; (ii) is exact only at the orders stated and CONDITIONAL on Conjecture Σ beyond; the REVIEWED links are listed under "Rule R reviews")
 
 **What is done.**
 - *Fixed-n analytic inputs.*
@@ -196,12 +197,16 @@ review B, B3-2). NOT QUOTED under Rule C.
   n^{−2−(B+1)p}, which needs E3.7 for M(β′, α) (§3.3: exact, m3a_e37_decoupled). For p < 1 H-c is Hc.5 (given G23plt1 F.1_δ; also
   G1u_plt1 L P5), and (i) is PROVED-mod-cite for p < 1 as well (inputs G3, G23plt1, H-a, JZC_M3a_H_G1u_plt1.md, JZC_M4_proof N.6).
   Every other ingredient keeps its own label: Paper 2 results are cited (Rule C, quoted in the memos); the E-series lemmas are REVIEWED;
-  JZC_M4_proof N.6a–c and Theorem N.6 are PROVED-mod-cite (review A done, second reader pending) (fixed per Rule R review B, C-8).
+  JZC_M4_proof N.6a–d and Theorem N.6 are PROVED-mod-cite + REVIEWED (Rule R reviews A and B of JZC_M4_proof) (fixed per Rule R
+  review B, C-8; (updated 2026-10-22 after Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md)).
   **Honest label of (i)** (per REVIEW_JZC_M3a_H_assembly_B.md C, last paragraph, updated for the reviews B of G3, G23plt1, G1u_plt1 and
   Hc.5 now done): PROVED-mod-cite for p ≠ 1 (−1 < δ ≤ 0; δ < 0 for p < 1, δ = 0 being Theorem N.6 itself); for p > 1 **and** for
-  0 < p < 1 every memo-level link is REVIEWED (Ha, Hd (i)–(iii), G12, G1u, Hc.1–Hc.4; G3, G23plt1, G1u_plt1, Hc.5; m3a_e37_decoupled)
-  except **JZC_M4_proof Theorem N.6 / Lemmas N.6a–c (PROVED-mod-cite; Rule R review A done, second reader pending)**. So (i) is not
-  REVIEWED as a whole until that reader has done N.6. Band-factor constants: the Fourier sums; Remark 3.3 (ζ(−jp, a)) NUMERICAL. Numerically, (i) is confirmed against all stored Hurwitz fits (m3a_hd_model.out, 42 checks; m3a_g3_model.out, 25
+  0 < p < 1 every memo-level link is REVIEWED (Ha, Hd (i)–(iii), G12, G1u, Hc.1–Hc.4; G3, G23plt1, G1u_plt1, Hc.5; m3a_e37_decoupled;
+  **JZC_M4_proof Theorem N.6 / Lemmas N.6a–d**, REVIEWED since Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md, fixes M1–M5
+  applied). So **(i) is PROVED-mod-cite and REVIEWED for p ≠ 1** (every memo-level link REVIEWED), with the band-factor constants as
+  the Fourier sums S_j(δ) of §3.2 (the identification with ζ(−jp, a), Remark 3.3, is NUMERICAL; Hurwitz's formula NOT QUOTED)
+  (updated 2026-10-22 after Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md). (The extension of N.6a–c from the lattice to M(β′, α) is §3.3, checked by Rule R review B of the assembly, B-3, and used
+  inside the REVIEWED Prop G1u (B) / Prop G1u′ (B).) Band-factor constants: the Fourier sums; Remark 3.3 (ζ(−jp, a)) NUMERICAL. Numerically, (i) is confirmed against all stored Hurwitz fits (m3a_hd_model.out, 42 checks; m3a_g3_model.out, 25
   checks, p < 1).
 - **(ii)** follows from (i) and Prop S at the exact orders: the integer layer to N⁻⁴ and the first-order zeta layer with its
   N⁻²-relative dressing, every j ≥ 1 (j = 1, 2, 3 and symbolic j, m3a_g5_exact; per Rule R review B, B-1, C-9), at every β. The
@@ -243,8 +248,9 @@ n^{−2−(B+1)p} is PROVED-mod-cite, with E3.7 for M(β′, α) by exact comput
 nonzero at random points, and re-derived E3.7 for M(β, ν) by renaming α ↦ β in check_e3_gauge.py's identity plus an independent
 contour-integral check; fixed per Rule R review B, C-12).
 With C-1 and C-2 closed, the review's chain verdict applies: for p > 1 the chain H-a → H-b → H-b′ → H-c → H-d → H-e → (i) has no known gap;
-its remaining links not marked REVIEWED are JZC_M4_proof Theorem N.6 / Lemmas N.6a–c (PROVED-mod-cite; Rule R review A done, second
-reader pending) — G12 and m3a_e37_decoupled are REVIEWED by review B (REVIEW_JZC_M3a_H_assembly_B.md) (fixed per Rule R review B, C-7).
+its last link not marked REVIEWED at the time, JZC_M4_proof Theorem N.6 / Lemmas N.6a–c, is now PROVED-mod-cite + REVIEWED (Rule R
+review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md) — G12 and m3a_e37_decoupled are REVIEWED by review B (REVIEW_JZC_M3a_H_assembly_B.md)
+(fixed per Rule R review B, C-7; (updated 2026-10-22 after Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md)).
 
 **For FIXES (via a human; Rule 1):** two wording gaps in Paper 2. (1) Binetcut (iv), (O5) at ∞. The text says "where 𝔟′ is bounded";
 the argument needs |𝔟′(y)| ≤ C/|y|, which Paper 2's own proof of (ii) supplies (G12 §4 item 6). (2) Lemma seam (iv), (O5) at ∞

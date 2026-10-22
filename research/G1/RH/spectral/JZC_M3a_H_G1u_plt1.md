@@ -4,7 +4,8 @@ Rule R review B: L P1, P2, P4, P5, §3a ACCEPT; L P3, Prop G1u′ (A), (B) and t
 (research/G1/review/REVIEW_JZC_M3a_H_plt1_G1up_B.md); fixes P1-1, P3-1, G-1, N-1 – N-4 applied 2026-10-22.
 Status (2026-10-22): L P1–P5 and Prop G1u′ (A), (B) are **REVIEWED** (Rule R: review B re-derived every lemma and re-ran both checks
 byte-identically, the end-to-end one with regenerated caches; fixes applied). Their inputs G3 and G23plt1 are REVIEWED (Rule R review
-B, REVIEW_JZC_M3a_H_plt1_inputs_B.md); JZC_M4_proof Theorem N.6 / N.6a–c is PROVED-mod-cite with review A done, second reader pending.
+B, REVIEW_JZC_M3a_H_plt1_inputs_B.md); JZC_M4_proof Theorem N.6 / N.6a–c is PROVED-mod-cite + REVIEWED (Rule R reviews A and B)
+(updated 2026-10-22 after Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md).
 Labels per VERIFICATION_POLICY.md. Novelty: UNCHECKED.
 This note closes the last open p < 1 part of item 1 of JZC_M3a_H.md §4. That part has two pieces:
 - rebuilding E_plt1's glued global parametrix with the α-frame factor W̃♮ (Szegő exponent β′ = α + 2δ, Bessel order α);
@@ -35,7 +36,7 @@ Counts are in §5.
 | L P3 | the glued Hurwitz parametrix P̂₀♮ = Â♮(2πn)^{σ₃/2}Φ_α(n²f)ρ♮^{−σ₃}. (i) Â♮ = Â^{mod}(I + 𝔈) with Â^{mod} analytic and n-free, \|𝔈\| ≤ Cn^{−p}: \|Â♮^{±1}\| ≤ C n-free, seams included. (ii) Exact band and lip jumps, none on (−δ₀, 0); glue jump on the seams \|J_g − I\| ≤ Cn\|z\|^{−3/2}e^{−2πn\|z\|^{−1/p}}. (iii) Circle expansion I + Σ_{k≤K}Δ_k♮n^{−k} + O(n^{−K−1}) uniformly, seam crossings included. (iv) Bessel-scale size n^{1/2}\|ζ\|^{−\|α\|/2} | PROVED-mod-cite (L P1, L P2; G1u L2 (iii)–(iv) proofs; E_plt1 L E′.3 (sectors); Paper 2 L bessel-local, L comparison-parametrix) |
 | L P4 | lip mismatch \|ω♮ − ϱ_±\| ≤ C\|z\|^{1/2} (n-free); fixed-n identification: R := Q♮P̂₀♮^{−1} has \|R\| ≤ C_{n,η}\|z\|^{−\|α\|−η}, is bounded near 0 up to a log, R_± ∈ I + ∂𝒞(L²) | PROVED-mod-cite (L P2, L P3; G23plt1 P2.6; Paper 2 L supersmall, L B-cauchy (c)) |
 | L P5 | the band-factor gauge (H-c) for p < 1 in the α-frame: Δ_k♮ = G_{μ^δ_n}Δ_k^{mod,β′}G_{μ^δ_n}^{−1} + O(n^{−(J+1)p}) on both circles, seam crossings included; μ^δ_{n,j} = 2m_j(δ). An independent proof of JZC_M3a_H_Hc.md Lemma Hc.5 (NOT REVIEWED before Rule R review B; fixed per Rule R review B, G-1), via L P1 (d) on the whole disc | PROVED-mod-cite (L P1 (d); E3 L E3.4 [REVIEWED]; JZC_M4_proof N.6a formulas) |
-| **Prop G1u′** | p < 1. (A) Paper 2 §7 holds verbatim for Q♮, with L P4 in place of L lip-mismatch. (B) The order-K small norm (N.6c) holds for the Hurwitz problem in the α-frame with the glued P̂₀♮, remainder O(n^{−K−1} + n^{−1−(J+1)p}). This is Theorem N.6's chain for M(β′, ν = α) with gauge μ^δ_n | (A), (B) PROVED-mod-cite + REVIEWED (inputs §4: H-a, G3, G23plt1 REVIEWED; JZC_M4_proof N.6a–c review A done, second reader pending) (updated per Rule R review B, C-11 of REVIEW_JZC_M3a_H_assembly_B.md) |
+| **Prop G1u′** | p < 1. (A) Paper 2 §7 holds verbatim for Q♮, with L P4 in place of L lip-mismatch. (B) The order-K small norm (N.6c) holds for the Hurwitz problem in the α-frame with the glued P̂₀♮, remainder O(n^{−K−1} + n^{−1−(J+1)p}). This is Theorem N.6's chain for M(β′, ν = α) with gauge μ^δ_n | (A), (B) PROVED-mod-cite + REVIEWED (inputs §4: H-a, G3, G23plt1 REVIEWED; JZC_M4_proof N.6a–c PROVED-mod-cite + REVIEWED, reviews A and B (updated 2026-10-22 after Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md)) (updated per Rule R review B, C-11 of REVIEW_JZC_M3a_H_assembly_B.md) |
 | §3a | exactly which lines of RH_plt1b §2 / E_plt1 §0, E′.3, E′.5, E′.5′ / JZC_M4_proof N.6a–c (p < 1 parts) / G1u L1–L4 change | (record) |
 | §5 | numerics. Hard edge: L P1–P4 with the actual seam band factor, matching rate in n at β′ down to −2.2, gauge, controls. End-to-end: p = 0.6, 0.75, β′ = −2.1, −1.5 | NUMERICAL |
 
@@ -448,7 +449,7 @@ L P2–P4 use:
 - G23plt1 P2.6;
 - G3 Cor 5 (H-d (i)–(iii) for p < 1);
 - E_plt1 L E′.3 (sectors) [REVIEWED];
-- JZC_M4_proof N.6a–c (PROVED-mod-cite; review A done);
+- JZC_M4_proof N.6a–c (PROVED-mod-cite + REVIEWED; Rule R reviews A and B) (updated 2026-10-22 after Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md);
 - Paper 2 L supersmall, L bessel-local, L comparison-parametrix, L B-cauchy (c), §7 / App B;
 - H-a (JZC_M3a_H_Ha.md, REVIEWED) (fixed per Rule R review B, C-11 of REVIEW_JZC_M3a_H_assembly_B.md).
 
@@ -459,8 +460,8 @@ Labels:
 **Effect on Theorem H (JZC_M3a_H.md §4).**
 - Item 1 is now closed for p < 1 as well (Rule R review B done).
 - Together with items 2–4 (done) and H-c (L P5 here; JZC_M3a_H_Hc.md Hc.5), **(i) for 0 < p < 1 has no remaining CONDITIONAL
-  input**. Every piece is PROVED-mod-cite; every memo-level piece is REVIEWED except JZC_M4_proof Theorem N.6 / N.6a–c (review A done,
-  second reader pending).
+  input**. Every piece is PROVED-mod-cite; every memo-level piece is REVIEWED, JZC_M4_proof Theorem N.6 / N.6a–c included (Rule R
+  reviews A and B) (updated 2026-10-22 after Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md).
 - (ii) is unchanged: exact at the orders of Prop S, Conjecture Σ beyond.
 - For p > 1, (i) rests on H-c (JZC_M3a_H_Hc.md Cor Hc.4 (PROVED-mod-cite + REVIEWED)) (fixed per Rule R review B, G-1; C-11).
 - Not covered: δ > 0, p = 1 with δ ≠ 0, α ≥ 1.
@@ -606,8 +607,8 @@ Notes on the rows:
 ## 7. What remains
 
 - **Rule R:** done for L P1–P5 and Prop G1u′ (review B, REVIEW_JZC_M3a_H_plt1_G1up_B.md) and for their inputs G23plt1 F.1_δ, P2.6
-  and G3 Lemma 3, Prop 4, Cor 5 (review B, REVIEW_JZC_M3a_H_plt1_inputs_B.md). Still pending: the second reader of JZC_M4_proof
-  Theorem N.6 / N.6a–c.
+  and G3 Lemma 3, Prop 4, Cor 5 (review B, REVIEW_JZC_M3a_H_plt1_inputs_B.md). JZC_M4_proof Theorem N.6 / N.6a–c:
+  done (reviews A and B, REVIEW_JZC_M4_proof_B.md) (updated 2026-10-22 after Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md).
 - **α ≥ 1** (s ≥ 1 + 2p): the in-lens identification, as for p > 1. OPEN.
 - **p > 1.** L P1's argument should give H-c for p > 1 as well, with E_pgt1's representation (E.2.1)_δ (a Cauchy integral over
   (−∞, 0) with density 𝔢_δ; JZC_M3a_H_Hc.md Hc.1) in place of F.1_δ. The analogue of (B1) is |y − x| ≥ |y| for y < 0 ≤ x, which

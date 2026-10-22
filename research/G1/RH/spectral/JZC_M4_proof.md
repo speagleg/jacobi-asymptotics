@@ -1,7 +1,10 @@
 # JZC M4 proof: the lattice expansion as a double series in 1/N and the band-factor parameters (Theorem N.6)
 
-Status (2026-10-21): Rule R review A done (REVIEW_JZC_M4_proof_A.md, ACCEPT WITH FIXES; all fixes applied in this revision,
-log in §9). A second reader is pending before REVIEWED. Labels per VERIFICATION_POLICY.md.
+Status (2026-10-22): **REVIEWED** — Lemmas N.6a, N.6b, Prop N.6c, Lemma N.6d and Theorem N.6 (i)–(iii). Rule R review A
+(REVIEW_JZC_M4_proof_A.md, ACCEPT WITH FIXES; fixes applied, log in §9) and Rule R review B (research/G1/review/REVIEW_JZC_M4_proof_B.md,
+ACCEPT WITH FIXES: an independent second reader re-derived the key steps, re-ran every exact and cited numerical check with identical
+outputs, and found no mathematical error; fixes M1–M5 applied, I1, I3, I4 applied, I2 and I5 recorded, log in §10). REVIEWED is
+combined with the labels in the table below and does not upgrade them. Labels per VERIFICATION_POLICY.md.
 
 This note turns JZC_M4 §5–§6 (Props N.3, N.4) into theorems, for every p > 0 with p ≠ 1. It generalises to every order K the
 REVIEWED order-2 proofs of:
@@ -13,11 +16,11 @@ The algebra is exact computer algebra in (p, α), and also in the zeta index j; 
 
 | # | Statement | Label |
 |---|---|---|
-| Lemma N.6a | jumps on the two circles to every order K, from the general-k DLMF coefficients; Δ_k = G_{μ_n}Δ_k^{mod}G_{μ_n}⁻¹ + O(n^{−(J+1)p}) | PROVED-mod-cite (E2 Lemma E2.3 / E_plt1 Lemma E′.3 arguments [REVIEWED]; DLMF 10.17.1, .5–.6, .8, .11–.12, 10.40.1–4, 9.7.1–2, 9.7.5–6 at general k [CITATIONS]; E3 Lemmas F.1′, E3.4–E3.5, E_plt1 Lemma F.1 [REVIEWED]) |
-| Lemma N.6b | Δ_k^{mod} meromorphic in both discs for every k (p > 1: limit argument; p < 1: parity argument); Δ_k^μ likewise, with Laurent coefficients entire in μ | PROVED |
-| Prop N.6c | small norm to order K, residue recursion | PROVED-mod-cite (Paper 2 F1, F5, RH_px §5, E_pgt1 Prop E.5′ / E_plt1 Prop E′.5′ [REVIEWED]; induction on the order) |
-| Lemma N.6d | exact algebra: the μ = 0 layer to N⁻⁶; the first-order μ_j layer for all j (symbolic j) to N⁻⁴ relative, and for j ≤ 5 to N⁻⁵ relative; the second-order μ₁ layer to N⁻⁵ relative | PROVED (exact computer algebra over ℚ(p, α)[i] and ℚ(p, α, j)[i]; m4_rh_exact.py, m4_rh_exact2.py, m4_zeta_exact.py, m4_zeta_exact2.py; outputs listed in §5) |
-| **Thm N.6** | double expansion of n^pb_n/c in 1/n and μ_n (all orders, structural), with the natural forms of its layers (exact) and the explicit b_n expansion to O(n⁻⁷ + n^{−2−3p}) | PROVED-mod-cite (the four items above; E3 Lemma E3.7 [REVIEWED]; Paper 2 F8) |
+| Lemma N.6a | jumps on the two circles to every order K, from the general-k DLMF coefficients; Δ_k = G_{μ_n}Δ_k^{mod}G_{μ_n}⁻¹ + O(n^{−(J+1)p}) | PROVED-mod-cite + REVIEWED (E2 Lemma E2.3 / E_plt1 Lemma E′.3 arguments [REVIEWED]; DLMF 10.17.1, .5–.6, .8, .11–.12, 10.40.1–4, 9.7.1–2, 9.7.5–6 at general k [CITATIONS]; E3 Lemmas F.1′, E3.4–E3.5, E_plt1 Lemma F.1 [REVIEWED]) |
+| Lemma N.6b | Δ_k^{mod} meromorphic in both discs for every k (p > 1: limit argument; p < 1: parity argument); Δ_k^μ likewise, with Laurent coefficients entire in μ | PROVED + REVIEWED |
+| Prop N.6c | small norm to order K, residue recursion | PROVED-mod-cite + REVIEWED (Paper 2 F1, F5, RH_px §5, E_pgt1 Prop E.5′ / E_plt1 Prop E′.5′ [REVIEWED]; induction on the order) |
+| Lemma N.6d | exact algebra: the μ = 0 layer to N⁻⁶; the first-order μ_j layer for all j (symbolic j) through N^{−4−jp} (bracket error O(N⁻⁴)), and for j ≤ 5 through N^{−5−jp} (bracket error O(N⁻⁵); the N⁻⁴ bracket coefficient is displayed only for j = 1, g₁,₄); the second-order μ₁ layer through N^{−5−2p} (bracket error O(N⁻⁴)) (fixed per Rule R review B, M2) | PROVED + REVIEWED (exact computer algebra over ℚ(p, α)[i] and ℚ(p, α, j)[i]; m4_rh_exact.py, m4_rh_exact2.py, m4_zeta_exact.py, m4_zeta_exact2.py; outputs listed in §5) |
+| **Thm N.6** | double expansion of n^pb_n/c in 1/n and μ_n (all orders, structural), with the natural forms of its layers (exact) and the explicit b_n expansion to O(n⁻⁷ + n^{−2−3p}) | PROVED-mod-cite + REVIEWED (the four items above; E3 Lemma E3.7 [REVIEWED]; Paper 2 F8) |
 
 ## 1. Statement
 
@@ -26,7 +29,8 @@ Notation is that of E_pgt1 §0, E_plt1 §0, E2 §0 and E3 §0: the Q-frame, P₀
 - α = (s−1)/p − 1 and N := n + α/2 + ½;
 - G_μ, E3's gauge (Lemma E3.4(ii)), for μ ∈ ℂ^J, and Δ_k^μ := G_μΔ_k^{mod}G_μ⁻¹, with Δ_k^{mod} as in Lemma N.6a;
 - μ_{n,j} := 2ζ(−jp)/(jn^{jp}), the band-factor parameters of E3 Lemma F.1′ (p > 1) and E_plt1 Lemma F.1(iii) (p < 1);
-- ε_j := C(2j, j)pc^jζ(−jp), as in E3.
+- ε_j := C(2j, j)pc^jζ(−jp), as in E3;
+- s > 1 as in E_pgt1/E_plt1 (Paper 2's s < 1 + 2p is not needed, E_pgt1 §7, E_plt1 §0) (fixed per Rule R review B, I4).
 
 **Residue recursion.** Set R_in⁽⁰⁾ := I near each e ∈ {0, 4c}. For m ≥ 1, define:
 - F_m(μ) := Σ_{j=1}^m R_in⁽ᵐ⁻ʲ⁾(μ)Δ_j^μ, meromorphic in each disc;
@@ -38,7 +42,7 @@ For m = 1, 2 these are E2 Prop E2.5 and E3 Prop E3.6. Define 𝔇_K(n; μ) := �
 Q₁ = P₁ + Σ_{m≤K}R_1⁽ᵐ⁾(μ)n^{−m}. Write 𝔇_K(n; μ) = Σ_β μ^β𝔇_{β,K}(n) for its Taylor series in μ. Each 𝔇_{β,K}(n) is a
 polynomial in 1/n of degree ≤ K; 𝔇_{0,K} starts 1 + d₁/n, and 𝔇_{β,K} = O(n⁻²) for |β| ≥ 2.
 
-**Theorem N.6 (PROVED-mod-cite).** Let p > 0, p ≠ 1, s > 1, and K, J, B ≥ 1.
+**Theorem N.6 (PROVED-mod-cite + REVIEWED).** Let p > 0, p ≠ 1, s > 1, and K, J, B ≥ 1.
 
 (i) *Double expansion.*
   n^pb_n/c = Σ_{|β|≤B} μ_n^β𝔇_{β,K}(n) + O(n^{−K−1} + n^{−2−(B+1)p} + n^{−1−(J+1)p}).
@@ -50,7 +54,7 @@ polynomial in 1/n of degree ≤ K; 𝔇_{0,K} starts 1 + d₁/n, and 𝔇_{β,K}
     term in the bracket, and g_j = A_j + B_jα² with
     - A_j = [j²(j²+2j−2)p³ + 2(j+1)(2j²−1)p² + (5j²+2j−6)p + 2(j−2)]/(24(2j−1)p),
     - B_j = (p+2)(j²p² + (j+1)p + 2)/(8(2j−1)p).
-    For j ≤ 5 at K = 5, the bracket error is O(N⁻⁵); for j = 1 the N⁻⁴ term is g₁,₄ (JZC_M4 §6).
+    For j = 1 at K = 5 the N⁻⁴ bracket term is g₁,₄ and the error is O(N⁻⁵) (JZC_M4 §6) (fixed per Rule R review B, M2).
   - **μ₁², second order:** μ_{n,1}²𝔇_{2e₁,5}(n) = (n/N)^pε₁²N^{−2−2p}[(3p+1)/(2p) + h₂N⁻² + O(N⁻⁴)]. There is no N^{−1−2p}
     term, no N⁻¹ term in the bracket, and the N⁻³ term in the bracket is zero; h₂ is given in §5.
 
@@ -63,7 +67,7 @@ polynomial in 1/n of degree ≤ K; 𝔇_{0,K} starts 1 + d₁/n, and 𝔇_{β,K}
 
 **Remainder bookkeeping (review F5).**
 - The first-order brackets.
-  - j = 1: the bracket is known to N⁻⁵ relative (K = 5), so the error is O(n^{−6−p}). This is inside the remainder: 6 + p >
+  - j = 1: the bracket is known through N⁻⁴ relative (K = 5; error O(N⁻⁵)) (fixed per Rule R review B, M2), so the error is O(n^{−6−p}). This is inside the remainder: 6 + p >
     2 + 3p iff p < 2, and 6 + p ≥ 8 for p ≥ 2.
   - j ≥ 2: the bracket error is O(N⁻⁴) relative (symbolic-j run at K = 4), i.e. O(n^{−5−jp}). This is inside the remainder:
     5 + jp ≥ 5 + 2p > 2 + 3p for p < 3, and 5 + 2p ≥ 11 for p ≥ 3.
@@ -74,7 +78,8 @@ polynomial in 1/n of degree ≤ K; 𝔇_{0,K} starts 1 + d₁/n, and 𝔇_{β,K}
   O(n⁻⁷ + n^{−2−3p}).
 
 **Which coefficients of b_n are determined (review F1).** A term cN^{−e} in (iii) is a coefficient of n^pb_n/c exactly when
-e < min(7, 2 + 3p). This gives:
+e < min(7, 2 + 3p) (when several displayed terms share the exponent e, the determined coefficient is their sum; e.g.
+f₄ + ε₂ at p = 3/2, f₄ + ε₁ at p = 3, f₆ + ε₂ at p = 5/2, f₂ + ε_{j₀} at p = 1/j₀, §8) (fixed per Rule R review B, M4). This gives:
 
 | term | exponent e | determined for |
 |---|---|---|
@@ -92,7 +97,8 @@ e < min(7, 2 + 3p). This gives:
 - Conjecture S1-N holds to N⁻⁶ in the following form. The μ = 0 layer has no N⁻¹, N⁻³, N⁻⁵ terms. Every first-order zeta
   layer has no N⁻¹, N⁻³ terms relative to its leading power. The ζ(−p)² layer starts at (ε₁N^{−1−p})² with no odd
   correction to N⁻³ relative.
-- As coefficients of b_n, the following hold in the ranges of the table: f₂, f₄, f₆, ε₁, ε₂, ε₃, ε₁g₁, ε₂g₂, ε₁g₁,₄, and
+- As coefficients of b_n, the following hold in the ranges of the table: f₂, f₄, f₆, ε_j (j ≥ 1, in the range (j − 3)p < 1,
+  1 + jp < 7) (fixed per Rule R review B, M4), ε₁g₁, ε₂g₂, ε₁g₁,₄, and
   (3p+1)/(2p)ε₁².
 - Everything in (ii) holds as an identity of the layers, for every p.
 
@@ -109,7 +115,8 @@ re-read 2026-10-21):
 - **10.17.1:** "a₀(ν) = 1, a_k(ν) = ((4ν² − 1²)(4ν² − 3²)⋯(4ν² − (2k−1)²))/(k!8^k)".
 - **10.17.5:** "H^{(1)}_ν(z) ∼ (2/(πz))^{1/2}e^{iω}Σ_{k=0}^∞ i^k a_k(ν)/z^k", −π + δ ≤ ph z ≤ 2π − δ.
 - **10.17.6:** "H^{(2)}_ν(z) ∼ (2/(πz))^{1/2}e^{−iω}Σ_{k=0}^∞(−i)^k a_k(ν)/z^k", −2π + δ ≤ ph z ≤ π − δ.
-  §10.17(ii): "These results follow by differentiation of the corresponding expansions."
+- **10.17.11–10.17.12:** H^{(1)′}_ν, H^{(2)′}_ν with b_k(ν) in the sectors of 10.17.5–6 (quoted in "(DLMF-10.17, Plan 55)")
+  (fixed per Rule R review B, M3: the truncated, unquoted §10.17(ii) sentence is deleted; 10.17.11–12 are quoted verbatim in CITATIONS).
 - **10.40.1:** I_ν(z) ∼ e^z(2πz)^{−1/2}Σ(−1)^ka_k(ν)z^{−k}, |ph z| ≤ π/2 − δ.
 - **10.40.2:** K_ν(z) ∼ (π/(2z))^{1/2}e^{−z}Σa_k(ν)z^{−k}, |ph z| ≤ 3π/2 − δ.
 - **10.40.3, 10.40.4:** the same for I_ν′ and −K_ν′, with b_k(ν).
@@ -150,9 +157,10 @@ General-k 9.7.2 is quoted in "(DLMF-9.7.2, Plan 65)"; the reuse is listed in CIT
 
 ## 3. Lemma N.6b: meromorphy for every k
 
-E2 Lemma E2.6(a) (review A B1) argues as follows. G_n := P̂^{mod}(P₀^∞)⁻¹ is analytic in U_e ∖ {e}, the expansion of Lemma
-N.6a holds uniformly on compacts K ⊂ U_e ∖ {e}, and so Δ_k = lim n^k(G_n − I − Σ_{i<k}Δ_in^{−i}) is analytic and single-valued in
-U_e ∖ {e}. Its explicit formula grows at most polynomially at e, so e is a pole. Nothing in this depends on k. The gauge G_μ is
+E2 Lemma E2.6(a) (review A B1) argues as follows. G_n := P̂^{mod}(P₀^∞)⁻¹ is analytic in U_e ∖ ({e} ∪ lips). On the lips its jump
+is P₀^∞v(P₀^∞)⁻¹ = I + O(e^{−n/C_K}) on every compact K ⊂ U_e ∖ {e} (Paper 2 F4–F6). The expansion of Lemma N.6a holds uniformly on
+such K from both sides of each lip, so the one-sided limits Δ_k = lim n^k(G_n − I − Σ_{i<k}Δ_in^{−i}) agree across the lips. Hence Δ_k
+is continuous, and by Morera analytic and single-valued, in U_e ∖ {e} (fixed per Rule R review B, M1). Its explicit formula grows at most polynomially at e, so e is a pole. Nothing in this depends on k. The gauge G_μ is
 entire in (z, μ) (E3 Lemma E3.4(ii)), so Δ_k^μ is meromorphic with Laurent coefficients entire in μ.
 
 *p < 1* (where the glued parametrix carries seam jumps inside U_0, so the limit argument is replaced by the explicit jump
@@ -219,7 +227,7 @@ per order.)
 
 ## 5. Lemma N.6d: the exact algebra
 
-**Lemma N.6d (PROVED; exact computer algebra).** The scripts carry out the residue recursion of §1 and the extraction of
+**Lemma N.6d (PROVED + REVIEWED; exact computer algebra).** The scripts carry out the residue recursion of §1 and the extraction of
 Theorem N.6 in exact arithmetic, with c = 1. All inputs are rational functions of (p, α) once c = 1:
 - the series of E2 Lemma E2.4 have rational coefficients;
 - π cancels in f = −(π²/4)z𝔞²;
@@ -299,7 +307,7 @@ of §1 proves (iii). ∎
    the model weight (E3 Lemma E3.4: G₀ = I). The band factor enters only through μ_n, with REVIEWED bounds (E3 Lemma F.1′,
    E_plt1 Lemma F.1).
 2. *Exactness of the truncation logic.* Checked by review A (I1). Independent cross-checks:
-   - the numerical version m4_rh4.py, at truncation depths 14–64;
+   - the numerical version m4_rh4.py, at truncation depths 40–64 (fixed per Rule R review B, I3);
    - the lattice fits, m4_f4_lattice.out and m4_zeta_lattice.out.
 3. *Sector independence for all k.* This is now the tie argument (§2), with review A's k = 3 re-derivation and numerical
    sector checks.
@@ -310,7 +318,8 @@ of §1 proves (iii). ∎
    determined, and the text says so.
 7. *Symbolic j.* The Taylor data are valid for every integer j ≥ 1 (asserted against j ≤ 8; the formulas are exact
    consequences of the generating function). The rational functions in j have poles only at j = ½, which is not an
-   integer.
+   integer. All divisions in the run are by j-free quantities (ε⁰ parts, integers) except the Taylor-data factors 2(2j − 2i − 1)
+   and the final pj/2, none of which vanishes at an integer j ≥ 1 (fixed per Rule R review B, I1).
 8. *p < 1.* The changes are confined to §2 (sectors, glue), §3 (parity argument) and §4 (off-circle pieces). Each cites the
    REVIEWED p < 1 counterpart (E_plt1 Lemmas E′.3, E′.5, F.1; Prop E′.5′; E3 Prop E3.6). The algebra is p-free: the
    identities are rational in p, with poles only at p ∈ {0, −2/3, −2/5}.
@@ -345,3 +354,29 @@ consistent with E3 Corollary E3.3(ii): there d₂ − p/12, here f₂ + ε_{j₀
 - **F7.** The docstring is fixed; the c-scaling is stated as c^jμ_j (§5).
 - **F8.** CITATIONS "(JZC M4 reuse)" now has the hypotheses line and the KMVV and Paper 2 model entries.
 - **I2.** The μ-analyticity argument no longer uses "bounded away from 0" (§6).
+
+## 10. Rule R review B (REVIEW_JZC_M4_proof_B.md, ACCEPT WITH FIXES): applied
+
+Reviewer B re-derived the key steps (jump matrices and parity, tie argument incl. derivative columns, Prop N.6c orientation and
+induction, Thm N.6(i) μ-Taylor bound, bookkeeping and visibility, symbolic-j Taylor data, second-order gauge, closed forms), re-ran
+every exact check and the cited numerical checks (identical outputs up to timings; provenance lines match MANIFEST.sha256), and ran an
+independent Arb lattice spot check (NUMERICAL). With M1–M5 applied, Lemmas N.6a, N.6b, Prop N.6c, Lemma N.6d and Theorem N.6 are
+REVIEWED (labels otherwise unchanged).
+- **M1.** §3, p > 1 paragraph: G_n jumps across the lips; the one-sided limits agree, Morera (applied).
+- **M2.** Orders stated in one convention: header row Lemma N.6d, Thm N.6(ii) j = 1 sentence, §1 bookkeeping (applied).
+- **M3.** §2 Inputs: the truncated §10.17(ii) sentence deleted; 10.17.11–10.17.12 bullet added (applied; no new DLMF text quoted).
+- **M4.** §1: coincident exponents rule; ε_j (j ≥ 1) in Consequences (applied).
+- **M5.** JZC_M4.md label table, row Prop N.3: f₇ = 0 is NUMERICAL (applied there).
+- **I1.** §7 item 7: divisions in the symbolic-j run (applied). **I3.** §7 item 2: depths 40–64 (applied). **I4.** §1: s > 1
+  (applied).
+- **I2 (pending; not applied).** checks/m4_rh_exact2.py reproduces the pre-F7 docstring of m4_rh_exact.py (assertions listed only up
+  to f₄; no c-normalisation line). Stale, not wrong. The script is not edited, because the sha256 provenance lines of
+  m4_zeta_exact2_A.out / _B.out (and the MANIFEST) depend on it; the fix (copy or point to the current m4_rh_exact.py docstring)
+  should be made together with a regeneration of those outputs.
+
+**For owners (I5; textual fixes outside this memo, not made here).**
+- E2 Lemma E2.6(a): "P̂^{mod} and P₀^∞ have the same jumps in U_e ∖ {e}" needs the M1 wording (G_n jumps across the lips by
+  P₀^∞v(P₀^∞)⁻¹ = I + O(e^{−n/C_K}); the one-sided limits agree; Morera).
+- E2 Lemma E2.3: the F3 wording ("ξ(q^{±1}ζ) = −ξ(ζ)"), already noted in §2 and §9.
+Both conclusions stand by the arguments of §§2–3. The review gives the M1 text but no exact replacement text for E2, so E2 (REVIEWED)
+is left to its owner.
