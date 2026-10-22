@@ -1,0 +1,44 @@
+sha256 sigma_frame_num.py: 12e30324c0ac3e8246d60c7c90bb066d6f91958119ecb7dadc388991a737c99c
+sha256 m4_rh4.py: 7cb7145402ec573f94cc1ef8a66ac338c829c912fdd90c1be4ed5f845b2c2067
+p=1.7 nu=0.3 gamma=0.37: FI residual 4.58e-37; controls (half, no-shift, no-frame, nu-moved) 1.61, 0.618, 0.325, 0.106
+p=1.7 nu=0.3 gamma=-0.21: FI residual 3.29e-37; controls (half, no-shift, no-frame, nu-moved) 0.406, 2.36, 0.225, 0.703
+p=1.7 nu=0.3 gamma=1.0: FI residual 9.42e-37; controls (half, no-shift, no-frame, nu-moved) 8.52, 0.808, 0.808, 1.74
+p=1.7 nu=0.3 gamma=2.5: FI residual 8.77e-35; controls (half, no-shift, no-frame, nu-moved) 2.96, 435.0, 3.11, 31.1
+p=1.7 nu=-0.45 gamma=0.37: FI residual 1.43e-37; controls (half, no-shift, no-frame, nu-moved) 0.271, 0.429, 0.429, 0.514
+p=1.7 nu=-0.45 gamma=-0.21: FI residual 2.61e-37; controls (half, no-shift, no-frame, nu-moved) 0.114, 0.307, 0.243, 0.0976
+p=1.7 nu=-0.45 gamma=1.0: FI residual 4.61e-37; controls (half, no-shift, no-frame, nu-moved) 0.381, 2.27, 1.16, 2.43
+p=1.7 nu=-0.45 gamma=2.5: FI residual 1.63e-33; controls (half, no-shift, no-frame, nu-moved) 2.95, 3.96e+3, 4.51, 269.0
+p=0.6 nu=0.3 gamma=0.37: FI residual 7.29e-39; controls (half, no-shift, no-frame, nu-moved) 0.57, 0.27, 0.16, 0.0665
+p=0.6 nu=0.3 gamma=-0.21: FI residual 6.87e-39; controls (half, no-shift, no-frame, nu-moved) 0.161, 0.794, 0.0906, 0.38
+p=0.6 nu=0.3 gamma=1.0: FI residual 1.49e-38; controls (half, no-shift, no-frame, nu-moved) 3.41, 0.432, 0.432, 1.75
+p=0.6 nu=0.3 gamma=2.5: FI residual 2.53e-37; controls (half, no-shift, no-frame, nu-moved) 0.566, 88.1, 15.9, 5.55
+p=0.6 nu=-0.45 gamma=0.37: FI residual 2.18e-39; controls (half, no-shift, no-frame, nu-moved) 0.105, 0.191, 0.191, 0.375
+p=0.6 nu=-0.45 gamma=-0.21: FI residual 2.16e-39; controls (half, no-shift, no-frame, nu-moved) 0.0488, 0.108, 0.108, 0.0585
+p=0.6 nu=-0.45 gamma=1.0: FI residual 3.98e-39; controls (half, no-shift, no-frame, nu-moved) 0.215, 0.515, 0.515, 1.69
+p=0.6 nu=-0.45 gamma=2.5: FI residual 4.83e-36; controls (half, no-shift, no-frame, nu-moved) 1.21, 326.0, 17.5, 6.83
+p=3.2 nu=0.3 gamma=0.37: FI residual 2.16e-35; controls (half, no-shift, no-frame, nu-moved) 3.56, 0.894, 0.655, 0.136
+p=3.2 nu=0.3 gamma=-0.21: FI residual 5.19e-36; controls (half, no-shift, no-frame, nu-moved) 0.575, 4.12, 0.653, 0.713
+p=3.2 nu=0.3 gamma=1.0: FI residual 7.92e-35; controls (half, no-shift, no-frame, nu-moved) 20.0, 1.04, 1.04, 1.81
+p=3.2 nu=0.3 gamma=2.5: FI residual 8.74e-33; controls (half, no-shift, no-frame, nu-moved) 5.39, 1.03e+3, 2.6, 202.0
+p=3.2 nu=-0.45 gamma=0.37: FI residual 1.46e-35; controls (half, no-shift, no-frame, nu-moved) 0.454, 0.63, 0.63, 0.676
+p=3.2 nu=-0.45 gamma=-0.21: FI residual 2.82e-35; controls (half, no-shift, no-frame, nu-moved) 0.267, 1.28, 0.432, 0.18
+p=3.2 nu=-0.45 gamma=1.0: FI residual 1.05e-34; controls (half, no-shift, no-frame, nu-moved) 0.655, 13.7, 1.7, 6.87
+p=3.2 nu=-0.45 gamma=2.5: FI residual 2.22e-31; controls (half, no-shift, no-frame, nu-moved) 19.8, 3.82e+4, 8.66, 9.36e+3
+p=1.414 nu=0.3 gamma=0.37: FI residual 1.07e-36; controls (half, no-shift, no-frame, nu-moved) 1.29, 0.529, 0.273, 0.0968
+p=1.414 nu=0.3 gamma=-0.21: FI residual 7.89e-37; controls (half, no-shift, no-frame, nu-moved) 0.345, 1.92, 0.157, 0.646
+p=1.414 nu=0.3 gamma=1.0: FI residual 2.07e-36; controls (half, no-shift, no-frame, nu-moved) 6.94, 0.737, 0.737, 1.77
+p=1.414 nu=0.3 gamma=2.5: FI residual 9.19e-35; controls (half, no-shift, no-frame, nu-moved) 3.86, 321.0, 4.4, 22.7
+p=1.414 nu=-0.45 gamma=0.37: FI residual 3.24e-37; controls (half, no-shift, no-frame, nu-moved) 0.231, 0.377, 0.377, 0.479
+p=1.414 nu=-0.45 gamma=-0.21: FI residual 6.0e-37; controls (half, no-shift, no-frame, nu-moved) 0.0903, 0.23, 0.214, 0.0868
+p=1.414 nu=-0.45 gamma=1.0: FI residual 1.06e-36; controls (half, no-shift, no-frame, nu-moved) 0.349, 1.51, 1.02, 2.44
+p=1.414 nu=-0.45 gamma=2.5: FI residual 9.06e-34; controls (half, no-shift, no-frame, nu-moved) 1.71, 2.28e+3, 6.52, 109.0
+zeta j=1 p=1.7 nu=0.3 gamma=0.37: FI_j residual 3.28e-29; control (exponent p) 0.385
+zeta j=1 p=1.7 nu=0.3 gamma=-0.21: FI_j residual 8.41e-30; control (exponent p) 0.247
+zeta j=2 p=1.7 nu=0.3 gamma=0.37: FI_j residual 2.29e-27; control (exponent p) 0.464
+zeta j=2 p=1.7 nu=0.3 gamma=-0.21: FI_j residual 6.04e-28; control (exponent p) 0.352
+zeta j=1 p=0.6 nu=0.3 gamma=0.37: FI_j residual 3.31e-30; control (exponent p) 0.116
+zeta j=1 p=0.6 nu=0.3 gamma=-0.21: FI_j residual 1.66e-30; control (exponent p) 0.0687
+zeta j=2 p=0.6 nu=0.3 gamma=0.37: FI_j residual 2.88e-28; control (exponent p) 0.258
+zeta j=2 p=0.6 nu=0.3 gamma=-0.21: FI_j residual 1.24e-28; control (exponent p) 0.152
+ALL 176 CHECKS PASSED
+EXIT 0
