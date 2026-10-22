@@ -1,0 +1,38 @@
+[CF] p=1.5 d=-0.3 kappa=0.5: |zs| = 16.0; spread of C[rho1] - closed form over 7 points = 2.43e-25; controls: cot in place of 1/sin 1.33, no log term 0.111;  C(0) = 0.586345767530212
+  [PSI] |PV C(1.1) - closed form| = 1.72e-13
+[CF] p=1.5 d=-0.3 kappa=-0.3: |zs| = 26.6667; spread of C[rho1] - closed form over 7 points = 1.73e-25; controls: cot in place of 1/sin 0.973, no log term 0.11;  C(0) = -0.352256426259816
+  [PSI] |PV C(1.1) - closed form| = 9.57e-14
+[CF] p=3 d=-0.7 kappa=1.0: |zs| = 64.0; spread of C[rho1] - closed form over 7 points = 4.8e-26; controls: cot in place of 1/sin 0.4, no log term 0.112;  C(0) = 0.0782855728114035
+  [PSI] |PV C(1.1) - closed form| = 4.29e-14
+[CF] p=3 d=-0.7 kappa=-0.02: |zs| = 3200.0; spread of C[rho1] - closed form over 7 points = 1.18e-27; controls: cot in place of 1/sin 0.112, no log term 0.112;  C(0) = -0.00132192838001498
+  [PSI] |PV C(1.1) - closed form| = 8.45e-16
+[CF] p=1.25 d=-0.5 kappa=2.0: |zs| = 2.82843; spread of C[rho1] - closed form over 7 points = 4.63e-24; controls: cot in place of 1/sin 11.3, no log term 4.63e-24;  C(0) = 5.85857980086467
+  [PSI] |PV C(1.1) - closed form| = 8.77e-13
+[CF] p=2 d=-0.5 kappa=0.7: |zs| = 22.8571; spread of C[rho1] - closed form over 7 points = 1.48e-25; controls: cot in place of 1/sin 0.86, no log term 1.48e-25;  C(0) = 0.27194677921668
+  [PSI] |PV C(1.1) - closed form| = 1.36e-13
+  (time 109s)
+[COH] p=1.5 kappa=0.5 n=4: coherent factor jump on (-delta_r,0) 2.34e-26; band product vs tilt 3.19e-26; non-coherent jump / (n^(1-p)|y|^q1) >= 1.045
+[COH] p=1.5 kappa=0.5 n=64: coherent factor jump on (-delta_r,0) 5.89e-27; band product vs tilt 7.74e-27; non-coherent jump / (n^(1-p)|y|^q1) >= 1.047
+[COH] p=3 kappa=1.0 n=4: coherent factor jump on (-delta_r,0) 3.44e-27; band product vs tilt 6.94e-27; non-coherent jump / (n^(1-p)|y|^q1) >= 1.046
+[COH] p=3 kappa=1.0 n=64: coherent factor jump on (-delta_r,0) 1.35e-29; band product vs tilt 3.03e-29; non-coherent jump / (n^(1-p)|y|^q1) >= 1.047
+[COH] p=1.25 kappa=-0.4 n=4: coherent factor jump on (-delta_r,0) 3.54e-26; band product vs tilt 2.57e-26; non-coherent jump / (n^(1-p)|y|^q1) >= 1.627
+[COH] p=1.25 kappa=-0.4 n=64: coherent factor jump on (-delta_r,0) 1.75e-26; band product vs tilt 1.32e-26; non-coherent jump / (n^(1-p)|y|^q1) >= 1.627
+[X] p=1.5 d=-0.3 kappa=0.5 n=4: max |log X|/(n^(1-p)|z|^(1/2)) = 0.7062;  max |log X| n^p = 0.8933; |log(X+X-)| on band 5.11e-19; jump of A_X 1.4e-18  (t 180s)
+[X] p=1.5 d=-0.3 kappa=0.5 n=16: max |log X|/(n^(1-p)|z|^(1/2)) = 0.7433;  max |log X| n^p = 3.761; |log(X+X-)| on band 2.52e-19; jump of A_X 6.99e-19  (t 253s)
+[X] p=1.5 d=-0.3 kappa=0.5 n=64: max |log X|/(n^(1-p)|z|^(1/2)) = 0.7512;  max |log X| n^p = 15.2; |log(X+X-)| on band 1.25e-19; jump of A_X 3.5e-19  (t 334s)
+[X] p=1.25 d=-0.5 kappa=-0.4 n=4: max |log X|/(n^(1-p)|z|^(1/2)) = 0.5995;  max |log X| n^p = 0.7583; |log(X+X-)| on band 6.82e-19; jump of A_X 1.73e-18  (t 426s)
+[X] p=1.25 d=-0.5 kappa=-0.4 n=16: max |log X|/(n^(1-p)|z|^(1/2)) = 0.5893;  max |log X| n^p = 2.981; |log(X+X-)| on band 4.84e-19; jump of A_X 1.23e-18  (t 512s)
+[X] p=1.25 d=-0.5 kappa=-0.4 n=64: max |log X|/(n^(1-p)|z|^(1/2)) = 0.5874;  max |log X| n^p = 11.89; |log(X+X-)| on band 3.42e-19; jump of A_X 8.67e-19  (t 592s)
+[X] p=3 d=-0.7 kappa=1.0 n=4: max |log X|/(n^(1-p)|z|^(1/2)) = 1.757;  max |log X| n^p = 2.222; |log(X+X-)| on band 3.31e-20; jump of A_X 3.17e-20  (t 663s)
+[X] p=3 d=-0.7 kappa=1.0 n=16: max |log X|/(n^(1-p)|z|^(1/2)) = 1.688;  max |log X| n^p = 8.538; |log(X+X-)| on band 1.97e-21; jump of A_X 1.89e-21  (t 733s)
+[X] p=3 d=-0.7 kappa=1.0 n=64: max |log X|/(n^(1-p)|z|^(1/2)) = 1.672;  max |log X| n^p = 33.83; |log(X+X-)| on band 1.22e-22; jump of A_X 1.16e-22  (t 815s)
+[X] p=2 d=-0.5 kappa=0.7 n=4: max |log X|/(n^(1-p)|z|^(1/2)) = 1.1;  max |log X| n^p = 1.392; |log(X+X-)| on band 1.98e-21; jump of A_X 5.23e-22  (t 830s)
+[X] p=2 d=-0.5 kappa=0.7 n=16: max |log X|/(n^(1-p)|z|^(1/2)) = 1.1;  max |log X| n^p = 5.564; |log(X+X-)| on band 4.86e-22; jump of A_X 1.25e-22  (t 842s)
+[X] p=2 d=-0.5 kappa=0.7 n=64: max |log X|/(n^(1-p)|z|^(1/2)) = 1.1;  max |log X| n^p = 22.25; |log(X+X-)| on band 1.21e-22; jump of A_X 3.11e-23  (t 855s)
+[NU] p=1.25 kappa=-0.4: local exponents on the lip (1e-6 -> 1e-8): band factor (gauge part) 0.2 (q1 = 0.2); lip-entry factor log X 0.5 (1/2)
+[NU] p=1.5 kappa=0.5: local exponents on the lip (1e-6 -> 1e-8): band factor (gauge part) 0.333333 (q1 = 0.333333); lip-entry factor log X 0.5 (1/2)
+[NU] p=3 kappa=1.0: local exponents on the lip (1e-6 -> 1e-8): band factor (gauge part) 0.6667 (q1 = 0.666667); lip-entry factor log X 0.5 (1/2)
+[NU] p=1.25 kappa=-0.4: S(n) at n = 64, 256, 1024: ['0.002365', '0.0004196', '7.435e-5']; decay exponent 1.2483 (pred p = 1.25; q1-based (p+2)(p-1)/p = 0.65)
+[NU] p=1.5 kappa=0.5: S(n) at n = 64, 256, 1024: ['0.001068', '0.0001346', '1.689e-5']; decay exponent 1.4975 (pred p = 1.5; q1-based (p+2)(p-1)/p = 1.1666666666666667)
+total time 1390s
+ALL 94 CHECKS PASSED

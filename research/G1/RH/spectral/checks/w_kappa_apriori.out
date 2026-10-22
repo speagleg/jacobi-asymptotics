@@ -1,0 +1,13 @@
+[SB] p=1.5 s=1.75 (alpha=-0.5) d=-0.5 kappa=0.5: max |U_j2|/I1^kappa = 0.07457; exponent of |U_j2(iy)| (0.0001 -> 1.0e-6): -0.505165, -0.503375 (min(alpha,0) = -0.5; alpha + 2d = -1.5)  (t 1199s)
+[SB] p=1.5 s=1.75 (alpha=-0.5) d=-0.5 kappa=-0.3: max |U_j2|/I1^kappa = 0.0004161; exponent of |U_j2(iy)| (0.0001 -> 1.0e-6): -0.504356, -0.50263 (min(alpha,0) = -0.5; alpha + 2d = -1.5)  (t 2199s)
+[SB] p=1.5 s=3.1 (alpha=0.4) d=-0.3 kappa=2.0: max |U_j2|/I1^kappa = 0.1069; exponent of |U_j2(iy)| (0.0001 -> 1.0e-6): -0.0148049, -0.0114535 (min(alpha,0) = 0; alpha + 2d = -0.2)  (t 3178s)
+[SB] p=3.0 s=2.5 (alpha=-0.5) d=-0.9 kappa=1.0: max |U_j2|/I1^kappa = 0.1221; exponent of |U_j2(iy)| (1.0e-6 -> 1.0e-8): -0.500255, -0.50013 (min(alpha,0) = -0.5; alpha + 2d = -2.3)  (t 3199s)
+[SB] p=3.0 s=2.5 (alpha=-0.5) d=-0.9 kappa=-0.0005: max |U_j2|/I1^kappa = 2.8e-8; exponent of |U_j2(iy)| (1.0e-6 -> 1.0e-8): -0.50024, -0.500112 (min(alpha,0) = -0.5; alpha + 2d = -2.3)  (t 3217s)
+[SB] p=3.0 s=5.5 (alpha=0.5) d=-0.5 kappa=0.5: max |U_j2|/I1^kappa = 0.000907; exponent of |U_j2(iy)| (1.0e-6 -> 1.0e-8): -0.000413011, -0.000231281 (min(alpha,0) = 0; alpha + 2d = -0.5)  (t 3234s)
+[AR] p=1.5 d=-0.3 kappa=0.5 n=4: t_kappa-arcs min |e^(2 pi i(t_k - d)) - 1| = 1.0 (bound 0.84246); lattice-t arcs: 1.0
+[AR] p=1.5 d=-0.3 kappa=-0.3 n=4: t_kappa-arcs min |e^(2 pi i(t_k - d)) - 1| = 1.0 (bound 0.84246); lattice-t arcs: 1.0
+[AR] p=3.0 d=-0.7 kappa=1.0 n=4: t_kappa-arcs min |e^(2 pi i(t_k - d)) - 1| = 1.0 (bound 0.84246); lattice-t arcs: 1.0
+[AR] p=1.25 d=-0.5 kappa=2.0 n=8: t_kappa-arcs min |e^(2 pi i(t_k - d)) - 1| = 1.0 (bound 0.84246); lattice-t arcs: 0.93544
+[AR] p=3.0 d=-0.5 kappa=60.0 n=4: t_kappa-arcs min |e^(2 pi i(t_k - d)) - 1| = 1.0 (bound 0.84246); lattice-t arcs: 0.3995
+total time 3255s
+ALL 36 CHECKS PASSED
