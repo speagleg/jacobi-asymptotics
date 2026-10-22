@@ -462,7 +462,7 @@ Labels:
 - Together with items 2–4 (done) and H-c (L P5 here; JZC_M3a_H_Hc.md Hc.5), **(i) for 0 < p < 1 has no remaining CONDITIONAL
   input**. Every piece is PROVED-mod-cite; every memo-level piece is REVIEWED, JZC_M4_proof Theorem N.6 / N.6a–c included (Rule R
   reviews A and B) (updated 2026-10-22 after Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md).
-- (ii) is unchanged: exact at the orders of Prop S, Conjecture Σ beyond.
+- (ii) is unchanged: exact at the orders of Prop S, Conjecture Σ beyond. (Now: integer layer to all orders and zeta layers of weight ≤ 2 PROVED-mod-cite + REVIEWED via Theorem Σ, JZC_SIGMA.md; weight ≥ 3 CONDITIONAL; JZC_M3a_H §4 (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md).)
 - For p > 1, (i) rests on H-c (JZC_M3a_H_Hc.md Cor Hc.4 (PROVED-mod-cite + REVIEWED)) (fixed per Rule R review B, G-1; C-11).
 - Not covered: δ > 0, p = 1 with δ ≠ 0, α ≥ 1.
 

@@ -100,7 +100,7 @@ is ∝ cot(πq) and adds nothing at half-integers.
 | case | data | W gives | label of the case |
 |---|---|---|---|
 | lattice λ_k = k^p (v = 1) | Z(0) = −½, t_j = −2ζ(−jp)/j, no poles | M(α, α) + Toda: Theorem N.6(i)–(iii), Theorem T | PROVED-mod-cite (JZC_M4_proof), Theorem T PROVED-mod-cite |
-| Hurwitz (k + δ)^p | κ = λ^{1/p} − δ: Z(0) = −½ − δ, Z(−j) = ζ(−jp, 1+δ), D = 1 | β = α + 2δ: Theorem H(i) (M(α + 2δ, α) with Hurwitz μ); rule H = H(ii) | PROVED-mod-cite for −1 < δ ≤ 0 (JZC_M3a_H §4; (ii) beyond Prop S's orders CONDITIONAL on Σ) |
+| Hurwitz (k + δ)^p | κ = λ^{1/p} − δ: Z(0) = −½ − δ, Z(−j) = ζ(−jp, 1+δ), D = 1 | β = α + 2δ: Theorem H(i) (M(α + 2δ, α) with Hurwitz μ); rule H = H(ii) | PROVED-mod-cite for −1 < δ ≤ 0 (JZC_M3a_H §4; (ii): integer layer to all orders and zeta layers of weight ≤ 2 PROVED-mod-cite + REVIEWED via Theorem Σ, JZC_SIGMA.md; weight ≥ 3 beyond Prop S's orders CONDITIONAL) (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md) |
 | (k + γk^{−m})^p | q = m/p, R = −mγ/p, Z(0) = −½ | leading: −mγW(m/p)π cot(πm/p)n^{−1−m} (pole law); next order: shift −(1+m+p)(s−1)/(2p)·L and tilt −(mpq₁/2)W(q₁)γ | S1″ and S1⁗: CONJECTURE (NUMERICAL), SPEC §3.12, §3.15 |
 | k^p + κ | moved Weyl pole q = 1 − 1/p, R = −κq/p | −2(2−p)cκn^{−p} | κ law, NUMERICAL (SPEC §3.5, §3.12) |
 | bouncer, Robin, quartic | WKB index corrections | S1′ values, cot = 0 at half-integers, quartic d₂ | NUMERICAL (SPEC §3.3–3.4, §3.13, §3.17) |

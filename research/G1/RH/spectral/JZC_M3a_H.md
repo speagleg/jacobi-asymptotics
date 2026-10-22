@@ -14,6 +14,11 @@ F.1_δ (i)–(iv)), G1u_plt1 (L P1–P5, Prop G1u′), Hc.5 and m3a_e37_decouple
 - §3 below: citations (G4) and the decoupled model in exact algebra (G5);
 - §4: the resulting status and the precise list of what is still open.
 
+**Theorem H (ii) after Theorem Σ** (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md): JZC_SIGMA.md proves Conjecture Σ (Theorem Σ, with Cor Σ.2 for the
+zeta layers μ₁, μ₂, μ₁²), PROVED-mod-cite + REVIEWED (Rule R review A, REVIEW_JZC_SIGMA_A.md, fixes S1–S8 applied). With Theorem H (i),
+(ii)'s natural form is now PROVED-mod-cite + REVIEWED for the integer layer to all orders and for the zeta layers of weight ≤ 2
+(μ₁, μ₂, μ₁²); for layers of weight ≥ 3 it remains CONDITIONAL (§1, §4).
+
 Labels per VERIFICATION_POLICY.md.
 
 ## 1. Statement
@@ -45,11 +50,15 @@ Setting:
 
   This is **rule H** (SPEC §3.11(a)) at the orders of Theorem N.6, with the β′-independence of the natural form supplied by
   JZC_M4 Prop S. That is exact algebra for the integer layer to order 4, and for the zeta layer at first order (j = 1, 2, 3 and
-  symbolic j, i.e. every j ≥ 1, to N⁻⁴ relative) by §3.3; beyond that it is Conjecture Σ.
+  symbolic j, i.e. every j ≥ 1, to N⁻⁴ relative) by §3.3; beyond that it was Conjecture Σ, which is now **Theorem Σ** (JZC_SIGMA.md,
+  PROVED-mod-cite + REVIEWED): the β′-independence of the natural form holds for the integer layer to all orders (Theorem Σ) and for
+  the zeta layers μ₁, μ₂, μ₁² to all orders (Cor Σ.2), identically in (p, β′, α) (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md).
   The terms shown are exact (Prop S at exact orders) for f₂, f₄ and for ε_jN^{−1−jp}(1 + g_jN⁻²) for every j (the symbolic-j decoupled
   check was added to m3a_g5_exact per REVIEW_JZC_M3a_H_assembly_B B-1); for f₆ and for the second-order layer ε₁²N^{−2−2p}(3p+1)/(2p)
-  + … of N.6(iii), the natural form in N is CONDITIONAL on Conjecture Σ (fixed per Rule R review B, C-9; for p < 2/3 the ε₁² term is
-  larger than f₄N⁻⁴).
+  + … of N.6(iii), the natural form in N was CONDITIONAL on Conjecture Σ (fixed per Rule R review B, C-9; for p < 2/3 the ε₁² term is
+  larger than f₄N⁻⁴); it is now PROVED-mod-cite + REVIEWED by Theorem Σ (f₆ and every f_{2k}, integer layer) and Cor Σ.2 (the ε₁² =
+  2e₁ layer, and the μ₂ layer at every relative order). Layers of weight ≥ 3 (μ₃, μ₁μ₂, μ₁³, including ε_jN^{−1−jp} for j ≥ 3 beyond the
+  N⁻² relative order shown) remain CONDITIONAL on the weight-≥ 3 extension of Cor Σ.2 (JZC_SIGMA.md §3.3, §7 item 2) (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md).
 
 ## 2. Structure of the proof
 
@@ -147,7 +156,7 @@ review B, B3-2); the formula at 96 points to 5·10⁻⁴² (checks/m3a_hurwitz_f
 - Numerically: m4_shift_num.out (order 8, 108 checks), m4_shift_zeta.out (40 checks), and m3a_hd_model.out (the Hurwitz data,
   42 checks).
 
-## 4. Status of Theorem H (2026-10-22; every memo-level link of (i) is REVIEWED, Theorem N.6 included since REVIEW_JZC_M4_proof_B.md; (ii) is exact only at the orders stated and CONDITIONAL on Conjecture Σ beyond; the REVIEWED links are listed under "Rule R reviews")
+## 4. Status of Theorem H (2026-10-22; every memo-level link of (i) is REVIEWED, Theorem N.6 included since REVIEW_JZC_M4_proof_B.md; (ii): integer layer to all orders and zeta layers of weight ≤ 2 PROVED-mod-cite + REVIEWED via Theorem Σ (JZC_SIGMA.md), weight ≥ 3 CONDITIONAL (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md); the REVIEWED links are listed under "Rule R reviews")
 
 **What is done.**
 - *Fixed-n analytic inputs.*
@@ -227,8 +236,16 @@ review B, B3-2); the formula at 96 points to 5·10⁻⁴² (checks/m3a_hurwitz_f
 - **(ii)** follows from (i) and Prop S at the exact orders: the integer layer to N⁻⁴ and the first-order zeta layer with its
   N⁻²-relative dressing, every j ≥ 1 (j = 1, 2, 3 and symbolic j, m3a_g5_exact; per Rule R review B, B-1, C-9), at every β. The
   second-order layer ε₁²N^{−2−2p}(3p+1)/(2p) is not checked for M(β, ν) at all (C-9). The orders where Prop S is exact do not cover the full remainder of Theorem N.6, so
-  beyond them (ii) is CONDITIONAL on Conjecture Σ, with NUMERICAL support to order 8 (m4_shift_num.out, 108 checks) and for
+  beyond them (ii) was CONDITIONAL on Conjecture Σ, with NUMERICAL support to order 8 (m4_shift_num.out, 108 checks) and for
   the zeta layer (m4_shift_zeta.out, 40 checks).
+  **Now** (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md): Conjecture Σ is Theorem Σ (JZC_SIGMA.md; PROVED-mod-cite + REVIEWED, Rule R review A, REVIEW_JZC_SIGMA_A.md,
+  fixes S1–S8 applied; novelty UNCHECKED). Theorem Σ is an identity of the formal model, identically in (p, β, ν), so it applies at
+  β′ = α + 2δ for every p in Theorem H's scope. Hence (ii) = (i) + Theorem Σ + Cor Σ.2 is **PROVED-mod-cite + REVIEWED** for the integer
+  layer to all orders (f_{2k} δ-independent in N, f_odd = 0 by Cor Σ.1) and for the zeta layers of weight ≤ 2, μ₁, μ₂, μ₁² (incl. the
+  ε₁² layer, also checked numerically by review A of JZC_SIGMA), to all relative orders, with the remainder of (i). **Still CONDITIONAL:**
+  the natural form of the zeta layers of weight ≥ 3 (μ₃, μ₁μ₂, μ₁³) beyond the exact orders above (needs linear independence of
+  Πζ(−jp)^{β_j} over ℚ(p), or Lemma F for Toda-tilted measures; JZC_SIGMA §3.3). The Hurwitz band-factor constants ζ(−jp, a)
+  (Remark 3.3) keep their own label (PROVED-mod-cite, not yet second-read).
 - **Band-factor constants.** These are the Fourier sums S_j(δ) (§3.2), unconditionally. The identification with ζ(−jp, a) is
   Remark 3.3: PROVED-mod-cite (CITATIONS (Hurwitz-DK)), not yet second-read (Rule R); NUMERICAL support kept (updated 2026-10-22:
   Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)).

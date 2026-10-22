@@ -1,15 +1,16 @@
 # JZC M4: the second-order layer — the natural index N = n + α/2 − Z(0) (Plan JZC, milestone M4; first results)
 
-Status (2026-10-21): NOT REVIEWED. **Proof of Props N.3–N.4 (all p ≠ 1): JZC_M4_proof.md (Theorem N.6, PROVED-mod-cite + REVIEWED; Rule R reviews A and B applied; status updated 2026-10-22).** §5 added 2026-10-21 (integer layer to order 8); §6 added 2026-10-21 (zeta layer in natural form); §7 added 2026-10-21 (reflection and shift); §8 added 2026-10-21 (Toda structure). Labels per VERIFICATION_POLICY.md.
+Status (2026-10-21): NOT REVIEWED. **Proof of Props N.3–N.4 (all p ≠ 1): JZC_M4_proof.md (Theorem N.6, PROVED-mod-cite + REVIEWED; Rule R reviews A and B applied; status updated 2026-10-22).** §5 added 2026-10-21 (integer layer to order 8); §6 added 2026-10-21 (zeta layer in natural form); §7 added 2026-10-21 (reflection and shift); §8 added 2026-10-21 (Toda structure). **Conjecture Σ of §7 is now Theorem Σ (JZC_SIGMA.md, PROVED-mod-cite + REVIEWED, Rule R
+review A, fixes S1–S8 applied); consequences marked (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md).** Labels per VERIFICATION_POLICY.md.
 
 | # | Statement | Label |
 |---|---|---|
 | Identity N.1 | E2's d₂(p, s) = p(p+1)δ_N²/2 + f₂(p, α), δ_N := α/2 + ½, f₂ := −(p+2)α²/8 + (p+1)/12, α := (s−1)/p − 1 | PROVED (algebra) |
 | Prop N.2 | Bessel-zero (Lommel) measures, p = s = 2 (α = −½): n²b_n/c = (n/N)²·(1 − 1/(4N²))^{−1/2} exactly, N = n + μ/2 = n + α/2 − Z(0) | PROVED-mod-cite (algebra from the Lommel closed form of SPEC §3.10, which rests on (VA, Paper 2) and is not re-derived for general μ, SPEC §3.9) |
-| Conj S1-N | n^pb_n/c = (n/N)^p·F_{p,α}(N; Z), N := n + α/2 − Z(0). F has no 1/N term; its integer layer is even in 1/N; its N⁻² coefficient is f₂; the spectral terms (zeta layer, poles) appear as functions of N | CONJECTURE (NUMERICAL: m4_natural_index.out, 7 lattices; S1′, rule H, S1⁗ as instances). The integer-layer part is now established through order 8 for the Riemann–Hilbert model: Prop N.3 |
+| Conj S1-N | n^pb_n/c = (n/N)^p·F_{p,α}(N; Z), N := n + α/2 − Z(0). F has no 1/N term; its integer layer is even in 1/N; its N⁻² coefficient is f₂; the spectral terms (zeta layer, poles) appear as functions of N | CONJECTURE (NUMERICAL: m4_natural_index.out, 7 lattices; S1′, rule H, S1⁗ as instances). The integer-layer part is now established through order 8 for the Riemann–Hilbert model: Prop N.3. The evenness in 1/N of the model's integer layer holds to all orders: PROVED-mod-cite + REVIEWED (Cor Σ.1 of JZC_SIGMA.md) (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md) |
 | Prop N.4 | Zeta layer with the band factor (E3 gauge added to the order-k computation): each ε_j term is ε_jN^{−1−jp}·(1 + g_jN⁻² + O(N⁻⁴)), even in 1/N, with g_j = A_j + B_jα² in closed form for all j (§6); the ζ(−p)² layer starts at (ε₁N^{−1−p})²·(3p+1)/(2p) | **PROVED-mod-cite for p ≠ 1, every j (Theorem N.6(ii); symbolic-j exact algebra m4_zeta_exact2_A), and the ζ(−p)² layer (3p+1)/(2p), h₂ (m4_zeta_exact2_B).** As coefficients of b_n: see the visibility table of Theorem N.6(iii) |
-| Conj S1-N′ | refined S1-N: F_{p,α} is a function of N⁻² and the monomials X_j := ε_jN^{−1−jp} only, i.e. F = Σ_β c_β(N⁻²)ΠX_j^{β_j} with each c_β an even series | CONJECTURE in general; PROVED-mod-cite for β ∈ {0, e_j (all j), 2e₁} to the orders of Theorem N.6(ii) |
-| Prop N.3 | Integer layer from the order-k Riemann–Hilbert model computation (E2's frame, extended from k = 2 to k = 8): f₁ = f₃ = f₅ = f₇ = 0; f₄, f₆ in closed form (§5); f_{2k} is even in α | **f₁ = f₃ = f₅ = 0, f₂, f₄, f₆: PROVED-mod-cite for p ≠ 1 (Thm N.6(ii), REVIEWED); f₇ = 0, f₈ and beyond: NUMERICAL** (m4_rh4.out ≤ 10⁻³⁵, m4_f8_denominator.out) (fixed per Rule R review B, M5). As coefficients of b_n (Thm N.6(iii)): f₂ (all p), f₄ (p > 2/3), f₆ (p > 4/3) |
+| Conj S1-N′ | refined S1-N: F_{p,α} is a function of N⁻² and the monomials X_j := ε_jN^{−1−jp} only, i.e. F = Σ_β c_β(N⁻²)ΠX_j^{β_j} with each c_β an even series | CONJECTURE in general; PROVED-mod-cite for β ∈ {0, e_j (all j), 2e₁} to the orders of Theorem N.6(ii). Additionally: β = 0 even in N to all orders (Cor Σ.1), and the β-independence (shift N = n + (β+1)/2) of the e₁, e₂, 2e₁ layers to all orders (Cor Σ.2), both PROVED-mod-cite + REVIEWED (JZC_SIGMA.md); their evenness beyond N.6(ii)'s orders and layers of weight ≥ 3 remain open (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md) |
+| Prop N.3 | Integer layer from the order-k Riemann–Hilbert model computation (E2's frame, extended from k = 2 to k = 8): f₁ = f₃ = f₅ = f₇ = 0; f₄, f₆ in closed form (§5); f_{2k} is even in α | **f₁ = f₃ = f₅ = 0, f₂, f₄, f₆: PROVED-mod-cite for p ≠ 1 (Thm N.6(ii), REVIEWED); f₇ = 0, f₈ and beyond: NUMERICAL** (m4_rh4.out ≤ 10⁻³⁵, m4_f8_denominator.out) (fixed per Rule R review B, M5). **f₇ = 0 and f_k = 0 for every odd k, and f_{2k} even in α (a polynomial in α²): PROVED-mod-cite + REVIEWED for the model's integer layer, identically in p (Cor Σ.1 of JZC_SIGMA.md, Theorem Σ with Theorem R); the values f₈, f₁₀, … and the degree k in α² of f_{2k} remain NUMERICAL** (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md). As coefficients of b_n (Thm N.6(iii)): f₂ (all p), f₄ (p > 2/3), f₆ (p > 4/3) |
 
 ## 1. The identity
 
@@ -99,8 +100,10 @@ results do not change when the truncation depth is raised (40 → 56 → 64).
 
 **Results.**
 - d₁ and d₂ reproduce E2 Theorem E2.1 to 10⁻²⁸ at every point, including p < 1 and α up to 2.6.
-- **f₁ = f₃ = f₅ = f₇ = 0** (≤ 10⁻³⁵) at every sampled (p, α), p ∈ [⅓, 12]: the integer layer of F is even in 1/N.
-- **f_{2k} is even in α.** Each f_{2k} is a polynomial of degree 2k in α with only even powers.
+- **f₁ = f₃ = f₅ = f₇ = 0** (≤ 10⁻³⁵) at every sampled (p, α), p ∈ [⅓, 12]: the integer layer of F is even in 1/N. (Now proved
+  to all orders: Cor Σ.1 of JZC_SIGMA.md, PROVED-mod-cite + REVIEWED (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md).)
+- **f_{2k} is even in α.** Each f_{2k} is a polynomial of degree 2k in α with only even powers. (Evenness in α and polynomiality
+  in α²: PROVED-mod-cite + REVIEWED via Theorem Σ (F depends on ν only through ν²) (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md); the degree is observed, not proved.)
 - **Closed forms.** Exact rationals at 12 (f₄) and 16 (f₆) values of p, each at 5–6 values of α, were interpolated by
   rational functions of p. f₄'s constant term needed 5 points and was checked on 7 more; f₆'s coefficients needed 8–10 points
   and were checked on 6–8 more:
@@ -134,12 +137,12 @@ results do not change when the truncation depth is raised (40 → 56 → 64).
 - Rule X: the f₄(2, α) polynomial (23 − 40α² − 16α⁴)/512 was first read off lattice fits. The Riemann–Hilbert computation
   was then built independently and reproduced it exactly, then gave all p.
 
-**Why even in α (HEURISTIC).** The Bessel data a_k(α), b_k(α) depend on α only through α² (DLMF 10.17.1, 10.17.8). Elsewhere,
+**Why even in α (HEURISTIC; now a theorem: Theorem Σ, JZC_SIGMA.md (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md)).** The Bessel data a_k(α), b_k(α) depend on α only through α² (DLMF 10.17.1, 10.17.8). Elsewhere,
 α enters only through the power ρ^{2(α+1)} at the hard edge and the matching power at the soft edge (the Szegő-type
 factor of z^α). For Laguerre polynomials, the same structure produces exactly the index shift n → n + α/2. So, to all
 orders, the α-odd part should be absorbed by the shift in N = n + α/2 + ½. This is a candidate route to deriving the α/2 part
 of the natural index. The evenness in 1/N suggests a reflection symmetry N → −N of the model problem, also not yet
-identified.
+identified. (Both are now settled: the reflection is Theorem R of §7, and the shift is Theorem Σ (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md).)
 
 ## 6. The zeta layer in natural form (Proposition N.4, Conjecture S1-N′)
 
@@ -191,7 +194,7 @@ F = Σ_β c_β(N⁻²)Π_jX_j^{β_j}, each c_β an even power series. Establishe
 - *The X₁² coefficient.* (3p+1)/(2p) = 1 + (p+1)/(2p) is α-free, like the leading ε_j. A resummation in the spirit of Conjecture
   E3.C should produce it, but this is not attempted here.
 
-## 7. Reflection and shift: where the natural index and the evenness come from (Theorem R, Conjecture Σ)
+## 7. Reflection and shift: where the natural index and the evenness come from (Theorem R, Theorem Σ)
 
 **The decoupled model.** In the jump data of the order-k computation (JZC_M4_proof.md Lemma N.6a), the exponent α plays two
 separate roles:
@@ -226,22 +229,26 @@ coefficients f_k of F := (N/n)^p·b(n; β, ν)n^p/c are independent of β. The o
 
 **The zeta layer too** (NUMERICAL, m4_shift_zeta.out, 40 checks). With the E3 gauge to first order in μ_j (j = 1, 2), the
 natural-form response is β-independent and has no odd relative terms, at p ∈ {1.7, 0.6} and ν ∈ {0.3, 0.8}. So the shift
-structure covers all of S1-N′: F = Φ_p(N²; ν², X_j), with β entering only through N.
+structure covers all of S1-N′: F = Φ_p(N²; ν², X_j), with β entering only through N. (For the layers e₁, e₂, 2e₁ the shift is now
+PROVED-mod-cite + REVIEWED to all orders, Cor Σ.2 of JZC_SIGMA.md; weight ≥ 3 open (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md).)
 
-**Conjecture Σ (shift lemma, all orders).** b(n; β, ν)n^p/c = (n/N)^p·F_p(N; ν²), with N = n + (β+1)/2 and F_p independent
-of β.
+**Theorem Σ (shift lemma, all orders; formerly Conjecture Σ).** b(n; β, ν)n^p/c = (n/N)^p·F_p(N; ν²), with N = n + (β+1)/2 and
+F_p independent of β (integer layer, as formal series, identically in (p, β, ν)). **PROVED-mod-cite + REVIEWED** (JZC_SIGMA.md: a
+second, non-integer steepest-descent frame m = n + γ of the same lattice problem (Lemma F, 0 ≤ γ < (1 − |α|)/2) plus uniqueness of
+asymptotic expansions and the identity theorem; Rule R review A, REVIEW_JZC_SIGMA_A.md, fixes applied). The zeta layers e₁, e₂, 2e₁
+obey the same shift (Cor Σ.2, same label); weight ≥ 3 open. Novelty UNCHECKED. (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md)
 
-**Corollary (given Σ; the proof is two lines).**
+**Corollary (Cor Σ.1 of JZC_SIGMA.md; now unconditional, PROVED-mod-cite + REVIEWED (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md); the proof is two lines).**
 - *Evenness in N, all orders.* By Theorem R, (n/N′)^pF(N′) at β′ = −β−2 equals (n/N′)^pF(−N′), where N′ = n − (β+1)/2.
   So F(N′) = F(−N′) as formal series.
 - *Evenness in α.* F depends on ν only through ν², since a_k and b_k do.
 - *The natural index is the Szegő shift.* N = n + α/2 + ½ = n + (β+1)/2. In particular the lattice's −Z(0) = ½ is part of the
   Szegő exponent β + 1 = (s−1)/p, not a separate effect. (For general spectra −Z(0) enters through the outer scalar; that
   part of M4 remains.)
-- So the integer layer is a function of (p, ν², N²) only: f_{2k} is a polynomial of degree k in ν², consistent with f₂, f₄,
-  f₆.
+- So the integer layer is a function of (p, ν², N²) only: f_{2k} is a polynomial in ν² (of degree k: observed, consistent with
+  f₂, f₄, f₆; the degree is not proved (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md)).
 
-Theorem R and Conjecture Σ together reduce **all-order** evenness to one statement about the β-dependence.
+Theorem R and Theorem Σ together give **all-order** evenness of the integer layer (formerly: reduced it to Conjecture Σ) (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md).
 
 **Lemma BR (self-similar Buyarov–Rakhmanov identity; PROVED).** Let Φ(z) be the phase of the lattice equilibrium in the
 Q-frame, with the hard-edge branch 2f^{1/2} and the soft-edge branch φ̃ (E2 Lemma E2.4, c = 1). Then (1 + p·z∂_z)Φ = −2 log φ,
@@ -263,7 +270,8 @@ So Lemma BR says that ∂_n(nΦ) = −2 log φ, the complex potential of the arc
 Buyarov–Rakhmanov identity d/dt(tμ_t) = ω_{supp}, proved here directly for the lattice equilibrium; no citation is needed. The
 n-flow of the phase is therefore generated by the same function, log φ, as the β-flow (ρ² = φ^{2(β+1)}).
 
-**Mechanism for Σ (HEURISTIC; a proof route).** Σ is equivalent to the flow identity
+**Mechanism for Σ (HEURISTIC; a proof route; superseded as a route by JZC_SIGMA.md, which proves Σ by a second frame instead of a
+model-level flow (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md)).** Σ is equivalent to the flow identity
 ∂_β log b = ½(∂_n log b − p/n) on formal series. The β-flow is generated by the gauge log φ·σ₃: ∂_βρ² = 2 log φ·ρ². The n-flow
 of an equilibrium problem with a fixed constraint is generated by the equilibrium measure of the support. This is the
 Buyarov–Rakhmanov identity d/dt(tμ_t) = ω_{supp μ_t}, the arcsine measure of the band, whose complex potential is log φ. The
@@ -332,7 +340,9 @@ the arrangement of Bleher–Its 2005, Thm 5.2 (NOVELTY_JZC item N).
 So both Toda variables follow one pattern: b at N = n + (β+1)/2 and α at N + ½, each β-free and ν-even. The reflection of
 Theorem R becomes the reversal symmetry of the Toda lattice, b_n ↔ b_{−n}, α_n ↔ α_{−n−1}, at the level of N.
 
-**Toward Σ: what the exact transformation Y ↦ Yz^{δσ₃} gives (HEURISTIC; the open point).**
+**Toward Σ: what the exact transformation Y ↦ Yz^{δσ₃} gives (HEURISTIC; the open point — resolved in JZC_SIGMA.md: the change
+of scale is handled by steepest-descending the same degree-n problem in the frame of index n + δ, not by comparing models
+(updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md)).**
 - In the full Riemann–Hilbert problem, Ỹ := Yz^{δσ₃} has:
   - normalisation z^{(n+δ)σ₃} at ∞ (a degree shift);
   - weight multiplied by z^{−2δ} (Szegő exponent β ↦ β − 2δ);
@@ -356,7 +366,8 @@ even in M = N + ½ (to all orders). Then:
   follows.
 
 Therefore **all-order S1-N′ is equivalent to the evenness of the two integer layers**. By §7 that reduces to the shift lemma Σ
-(for b, and its analogue for α).
+(for b, and its analogue for α). (For b this is now Theorem Σ, so B is even in N to all orders; the analogue for α (A even in M) is
+not yet written, JZC_SIGMA.md §7 item 3, so all-order S1-N′ stays CONJECTURE (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md).)
 
 **Where the 1/(2j−1) of §6 comes from (HEURISTIC, explanatory).** By (T) the μ_j-response is driven by
 (J^j)_{nn} − (J^j)_{n−1,n−1}. For a slowly varying Jacobi matrix,
@@ -412,7 +423,9 @@ digits; borel.py, Borel–Padé in s = t² for c_k = f_{2k}/(2k−1)!).
   polynomials B_{k+1}(−δ), SPEC §3.1) gives −Z(0).
 - A closed form for F_{p,α} (p = 2, α = −½: (1 − 1/(4N²))^{−1/2}). f₂, f₄, f₆ are known (§5); the hard-edge denominators
   ∏((2k+1)p + 2) suggest a hypergeometric structure in the parameter a′ = 1/p + ½.
-- Proofs of evenness: reduced by §7 (Theorem R, PROVED) to the shift lemma, Conjecture Σ; proof route via Buyarov–Rakhmanov.
+- ~~Proofs of evenness~~: for the integer layer of b done — Theorem R (PROVED) + Theorem Σ (JZC_SIGMA.md, PROVED-mod-cite +
+  REVIEWED) give f_odd = 0 to all orders (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md). Still open: the diagonal analogue (A even in M; JZC_SIGMA §7 item 3), zeta
+  layers of weight ≥ 3, and evenness of the zeta layers beyond Theorem N.6(ii)'s orders.
 - ~~Write the order-k remainder estimates~~: done for every p ≠ 1 in JZC_M4_proof.md (Theorem N.6).
 - The second-order edge kernel (§6 remark): derive g(w) for continuous w; test it on pole terms (S1⁗ data) and on drums.
 - ~~Prove A_j, B_j for all j~~: done (symbolic-j exact algebra, Theorem N.6(ii)); also the ζ(−p)² layer to N⁻⁴ relative.

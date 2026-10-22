@@ -24,7 +24,7 @@ g-function, the same n^p scaling, and band factor H_n^δ (μ^δ_{n,k} = 2m_k(δ)
 (JZC_M3a_H_Hc.md Lemma Hc.2); = 2ζ(−kp, a)/(kn^{kp}) by Remark 3.3 (PROVED-mod-cite (CITATIONS (Hurwitz-DK)); NUMERICAL support) (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK))) (fixed per Rule R review A of the p>1 chain, Hd-2). By the exact gauge (−z)^{δσ₃} this is the same
 problem as (ii) "Szegő α, normalisation z^{(n+δ)σ₃}" in the n^p frame (no rescaling). Not (iii). Natural index
 N = n + (β′+1)/2 = n + α/2 + ½ + δ, as rule H requires. Identifying the result with "the lattice at degree n + δ" (the form
-(n/(n+δ))^pΦ(n+δ) of rule H) is Conjecture Σ, which H-d does not need and does not prove.
+(n/(n+δ))^pΦ(n+δ) of rule H) is Conjecture Σ, which H-d does not need and does not prove. (Σ is now Theorem Σ, JZC_SIGMA.md, PROVED-mod-cite + REVIEWED, by a non-integer frame with the jump structure of H-d (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md).)
 
 ## 1. Inputs quoted from Paper 2
 
