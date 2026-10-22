@@ -132,8 +132,15 @@ checked numerically to 10⁻²⁷ for p ∈ {1.25, 1.5, 3}, δ ∈ {0, −½, 0.
    - Checks: m3a_g1u_hardedge.out (110 checks incl. 34 controls; the circle jump is I + Δ₁♮/n + O(n⁻²) at β′ down to −2.2)
      and m3a_g1u_endtoend.out (29 checks incl. 8 controls: fitted Hurwitz Jacobi coefficients at β′ = −2.1, −1.5 match
      M(β′, α); the alternatives are excluded by 10⁴–10⁵ tolerances).
-   - The local analysis at 0 holds for p < 1, but the p < 1 case is conditional on items 2–3 and on E_plt1's glued parametrix
-     with W̃♮.
+   - **p < 1: done** in JZC_M3a_H_G1u_plt1.md (PROVED-mod-cite, NOT REVIEWED).
+     - E_plt1's glued parametrix is rebuilt with W̃♮ (L P2–P3).
+     - The key new step is Lemma P1, a Cauchy-difference bound on the seam band factor. It is δ-uniform.
+     - The glue jump is polynomially amplified in the Q-frame.
+     - L P5 is an independent proof of H-c for p < 1.
+     - Prop G1u′ gives (A) Paper 2 §7 verbatim and (B) the order-K small-norm expansion.
+     - Checks: m3a_g1up_hardedge.out (157 checks incl. 34 controls; the actual seam band factor, β′ down to −2.2) and
+       m3a_g1up_endtoend.out (29 checks incl. 9 controls; fitted Hurwitz Jacobi coefficients at p = 0.6, 0.75, β′ = −2.1,
+       −1.5).
    - Still OPEN: α ≥ 1, in-lens identification. That is outside the Setting (|α| < 1).
    - A naive β′ treatment fails: the bound |z|^{−|β′|/2} is not L² when |β′| ≥ 1.
 2. ~~**H-b′ for p < 1**~~: **done** in JZC_M3a_H_G23plt1.md §1 (PROVED-mod-cite, NOT REVIEWED).
@@ -161,7 +168,7 @@ checked numerically to 10⁻²⁷ for p ∈ {1.25, 1.5, 3}, δ ∈ {0, −½, 0.
 **Status by part.**
 - **(i)**: for p > 1, item 5 (H-c) is now JZC_M3a_H_Hc.md (Cor Hc.4), so (i) is PROVED-mod-cite for p > 1, including the remainder
   n^{−2−(B+1)p}, which needs E3.7 for M(β′, α) (§3.3: exact, m3a_e37_decoupled). NOT REVIEWED as a whole: Ha, Hd (i)–(iii), G1u and Hc
-  (p > 1) are REVIEWED (review A of the p>1 chain); G12 and the new E3.7 check are not (status updated 2026-10-21). For p < 1 H-c is Hc.5 (given G23plt1 F.1_δ), and (i) is conditional on rebuilding E_plt1's glued parametrix with W̃♮ (item 1, p < 1 part); items 2–3 are done. Every other ingredient is PROVED-mod-cite (Paper 2, E-series lemmas) and NOT
+  (p > 1) are REVIEWED (review A of the p>1 chain); G12 and the new E3.7 check are not (status updated 2026-10-21). For p < 1 H-c is Hc.5 (given G23plt1 F.1_δ), and (i) is PROVED-mod-cite for p < 1 as well (NOT REVIEWED; inputs G3, G23plt1, H-a, JZC_M3a_H_G1u_plt1.md, JZC_M4_proof N.6). Every other ingredient is PROVED-mod-cite (Paper 2, E-series lemmas) and NOT
   REVIEWED. Numerically, (i) is confirmed against all stored Hurwitz fits (m3a_hd_model.out, 42 checks; m3a_g3_model.out, 25
   checks, p < 1).
 - **(ii)** follows from (i) and Prop S at the exact orders: the integer layer to N⁻⁴ and the first-order zeta layer with its

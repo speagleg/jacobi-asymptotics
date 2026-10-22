@@ -1,0 +1,80 @@
+[0a] p=0.6 d=-1/2 n=4: max rel |Gauss-Chebyshev (eq:szego-repr) - single-integral L_h| = 7.01e-29 (4 points, one on a seam)
+[0b] p=0.6 d=-0.5 n=4: max |(G_lit(z) - G_lit(0.05)) - (G0(z) - G0(0.05))| = 1.37e-28 (5 points, 3 at angular distance 1e-12 th from a seam)
+[0b] p=0.3 d=-0.8 n=4: max |(G_lit(z) - G_lit(0.05)) - (G0(z) - G0(0.05))| = 7.6e-27 (5 points, 3 at angular distance 1e-12 th from a seam)
+[1] p=0.6 d=-0.02 K=0: sup n^((K+1)p)|G0 - sum m_k z^k|/|z| = 10:0.1717, 40:0.1658, 160:0.1632, 640:0.162; sup n^((K+1)p)|L_h - R M_mu|/|R| = 10:0.3533, 40:0.336, 160:0.3282, 640:0.3249
+    K=0: 2 x majorant 0.4316 (G0), 0.8632 (L_h)
+[1] p=0.6 d=-0.02 K=1: sup n^((K+1)p)|G0 - sum m_k z^k|/|z| = 10:0.04228, 40:0.04275, 160:0.04268, 640:0.04261; sup n^((K+1)p)|L_h - R M_mu|/|R| = 10:0.1234, 40:0.1258, 160:0.1256, 640:0.1254
+    K=1: 2 x majorant 0.1051 (G0), 0.3092 (L_h)
+[1] p=0.6 d=-0.02 K=2: sup n^((K+1)p)|G0 - sum m_k z^k|/|z| = 10:0.001015, 40:0.001956, 160:0.003004, 640:0.003413; sup n^((K+1)p)|L_h - R M_mu|/|R| = 10:0.006633, 40:0.006039, 160:0.01044, 640:0.01215
+    K=2: 2 x majorant 0.05407 (G0), 0.1949 (L_h)
+    control n^(2p) (K=0): G0 10:0.6837, 40:1.516, 160:3.428, 640:7.821; L_h 10:1.406, 40:3.073, 160:6.897, 640:15.68
+[1] p=0.6 d=-0.5 K=0: sup n^((K+1)p)|G0 - sum m_k z^k|/|z| = 10:0.06665, 40:0.06255, 160:0.06076, 640:0.05999; sup n^((K+1)p)|L_h - R M_mu|/|R| = 10:0.1401, 40:0.1281, 160:0.1228, 640:0.1205
+    K=0: 2 x majorant 0.4316 (G0), 0.8632 (L_h)
+[1] p=0.6 d=-0.5 K=1: sup n^((K+1)p)|G0 - sum m_k z^k|/|z| = 10:0.02885, 40:0.02875, 160:0.0285, 640:0.02835; sup n^((K+1)p)|L_h - R M_mu|/|R| = 10:0.08468, 40:0.08482, 160:0.08397, 640:0.08347
+    K=1: 2 x majorant 0.1051 (G0), 0.3092 (L_h)
+[1] p=0.6 d=-0.5 K=2: sup n^((K+1)p)|G0 - sum m_k z^k|/|z| = 10:0.002447, 40:0.00471, 160:0.005465, 640:0.005751; sup n^((K+1)p)|L_h - R M_mu|/|R| = 10:0.006833, 40:0.01624, 160:0.01943, 640:0.02063
+    K=2: 2 x majorant 0.05407 (G0), 0.1949 (L_h)
+    control n^(2p) (K=0): G0 10:0.2653, 40:0.5721, 160:1.277, 640:2.896; L_h 10:0.5577, 40:1.171, 160:2.58, 640:5.819
+[1] p=0.6 d=-0.98 K=0: sup n^((K+1)p)|G0 - sum m_k z^k|/|z| = 10:0.1057, 40:0.09827, 160:0.09511, 640:0.09376; sup n^((K+1)p)|L_h - R M_mu|/|R| = 10:0.2239, 40:0.2018, 160:0.1925, 640:0.1885
+    K=0: 2 x majorant 0.4316 (G0), 0.8632 (L_h)
+[1] p=0.6 d=-0.98 K=1: sup n^((K+1)p)|G0 - sum m_k z^k|/|z| = 10:0.05174, 40:0.05074, 160:0.05008, 640:0.04976; sup n^((K+1)p)|L_h - R M_mu|/|R| = 10:0.153, 40:0.15, 160:0.1477, 640:0.1465
+    K=1: 2 x majorant 0.1051 (G0), 0.3092 (L_h)
+[1] p=0.6 d=-0.98 K=2: sup n^((K+1)p)|G0 - sum m_k z^k|/|z| = 10:0.008887, 40:0.01126, 160:0.01202, 640:0.0123; sup n^((K+1)p)|L_h - R M_mu|/|R| = 10:0.02957, 40:0.03986, 160:0.04307, 640:0.04424
+    K=2: 2 x majorant 0.05407 (G0), 0.1949 (L_h)
+    control n^(2p) (K=0): G0 10:0.4209, 40:0.8988, 160:1.998, 640:4.526; L_h 10:0.8913, 40:1.846, 160:4.044, 640:9.099
+[1] p=0.3 d=-0.5 K=0: sup n^((K+1)p)|G0 - sum m_k z^k|/|z| = 10:0.09156, 40:0.0754, 160:0.06714, 640:0.06254; sup n^((K+1)p)|L_h - R M_mu|/|R| = 10:0.2288, 40:0.174, 160:0.1471, 640:0.1326
+    K=0: 2 x majorant 1.294 (G0), 2.589 (L_h)
+[1] p=0.3 d=-0.5 K=1: sup n^((K+1)p)|G0 - sum m_k z^k|/|z| = 10:0.07262, 40:0.06119, 160:0.05488, 640:0.05128; sup n^((K+1)p)|L_h - R M_mu|/|R| = 10:0.2365, 40:0.1927, 160:0.1686, 640:0.1551
+    K=1: 2 x majorant 0.3298 (G0), 0.9701 (L_h)
+[1] p=0.3 d=-0.5 K=2: sup n^((K+1)p)|G0 - sum m_k z^k|/|z| = 10:0.05432, 40:0.04777, 160:0.0435, 640:0.04093; sup n^((K+1)p)|L_h - R M_mu|/|R| = 10:0.2055, 40:0.1789, 160:0.1609, 640:0.15
+    K=2: 2 x majorant 0.1595 (G0), 0.5752 (L_h)
+    control n^(2p) (K=0): G0 10:0.1827, 40:0.228, 160:0.3077, 640:0.4346; L_h 10:0.4566, 40:0.5263, 160:0.6743, 640:0.9216
+[1] p=0.3 d=-0.98 K=0: sup n^((K+1)p)|G0 - sum m_k z^k|/|z| = 10:0.06124, 40:0.03396, 160:0.02042, 640:0.01301; sup n^((K+1)p)|L_h - R M_mu|/|R| = 10:0.2001, 40:0.1061, 160:0.06158, 640:0.0381
+    K=0: 2 x majorant 1.294 (G0), 2.589 (L_h)
+[1] p=0.3 d=-0.98 K=1: sup n^((K+1)p)|G0 - sum m_k z^k|/|z| = 10:0.1196, 40:0.09873, 160:0.08756, 640:0.08122; sup n^((K+1)p)|L_h - R M_mu|/|R| = 10:0.3939, 40:0.3129, 160:0.2702, 640:0.2464
+    K=1: 2 x majorant 0.3298 (G0), 0.9701 (L_h)
+[1] p=0.3 d=-0.98 K=2: sup n^((K+1)p)|G0 - sum m_k z^k|/|z| = 10:0.09718, 40:0.08429, 160:0.07658, 640:0.07203; sup n^((K+1)p)|L_h - R M_mu|/|R| = 10:0.3702, 40:0.316, 160:0.2832, 640:0.264
+    K=2: 2 x majorant 0.1595 (G0), 0.5752 (L_h)
+    control n^(2p) (K=0): G0 10:0.1222, 40:0.1027, 160:0.09361, 640:0.09039; L_h 10:0.3992, 40:0.3209, 160:0.2823, 640:0.2647
+    control not applicable: |S_1(d)|/zeta(1+p) = 0.00204 < 0.05 (m_1 small; n^-2p control not discriminating)
+[2] p=0.6 alpha=-0.5 delta=-0.8 (beta'=-2.10): |rho_nat| in [0.684093, 1.0] (n = 10, 100, 1000; 1e-12 <= |z| <= c/2, seams both sides); n^p|log(rho_nat/rho_mod)|/|z|^(1/2) = 10:0.07492, 100:0.0768, 1000:0.07716
+    band: max|rho_+ rho_- - 1| = 8.35e-23; glue: max |rho_out/rho_in - e^(-l_pm)|/|e^(-l_pm) - 1| = 3.27e-21 (n = 4, |z| = 2, 3)
+[3] p=0.6 alpha=-0.5 delta=-0.8 (beta'=-2.10): max |A^(+-1)| (1e-12 <= |z| <= 1e-2, seams both sides, n = 100) = 1.6918; band jump 1.4e-25; control |z|^(1/2)|A_w| from 23.56 to 2.103e+9
+[4] p=0.6 alpha=-0.5 delta=-0.8 (beta'=-2.10): lip match rel.err 7.38e-31; |omega_nat - e^(-+i pi alpha)|/|z|^(1/2) in [1.643, 1.716] (n = 10, 1000); control min |omega_nat - e^(-+i pi beta')| = 1.061
+[5] p=0.6 alpha=-0.5 delta=-0.8 (beta'=-2.10), |z| = c/2, 8 pts (4 on seams): n|J-I| = 0.77017, 0.77446, 0.77733, 0.77924, 0.78051
+    remainder exponents log2(e(n)/e(2n)): true rho_nat 18.39, 36.77, 27.77, 0.04117; gauge (J=1) 2.638, 2.245, 2.23, 2.22; CONTROL band factor dropped 1.589, 1.593, 1.596, 1.597; CONTROL nu=beta' 1.0, 1.0, 1.0, 1.0
+    nu = 1/2: true remainders 4.39e-6, 1.28e-11, 1.09e-22, 4.76e-31, 4.62e-31
+[6] p=0.6 alpha=-0.5 delta=-0.8 (beta'=-2.10): max |P0hat^(+-1)| |zeta|^(|alpha|/2) n^(-1/2) = 0.93618 (seam points incl.); control (rho_w, |zeta| = 1e-8) up to 5.005e+24
+[2] p=0.6 alpha=-0.6 delta=-0.8 (beta'=-2.20): |rho_nat| in [0.660851, 1.0] (n = 10, 100, 1000; 1e-12 <= |z| <= c/2, seams both sides); n^p|log(rho_nat/rho_mod)|/|z|^(1/2) = 10:0.07492, 100:0.0768, 1000:0.07716
+    band: max|rho_+ rho_- - 1| = 9.11e-23; glue: max |rho_out/rho_in - e^(-l_pm)|/|e^(-l_pm) - 1| = 3.55e-21 (n = 4, |z| = 2, 3)
+[3] p=0.6 alpha=-0.6 delta=-0.8 (beta'=-2.20): max |A^(+-1)| (1e-12 <= |z| <= 1e-2, seams both sides, n = 100) = 1.7734; band jump 1.55e-25; control |z|^(1/2)|A_w| from 23.69 to 2.103e+9
+[4] p=0.6 alpha=-0.6 delta=-0.8 (beta'=-2.20): lip match rel.err 6.33e-31; |omega_nat - e^(-+i pi alpha)|/|z|^(1/2) in [1.796, 1.876] (n = 10, 1000); control min |omega_nat - e^(-+i pi beta')| = 1.05
+[5] p=0.6 alpha=-0.6 delta=-0.8 (beta'=-2.20), |z| = c/2, 8 pts (4 on seams): n|J-I| = 0.8452, 0.84479, 0.84517, 0.84566, 0.84611
+    remainder exponents log2(e(n)/e(2n)): true rho_nat 2.043, 2.019, 2.008, 2.004; gauge (J=1) 2.04, 2.017, 2.007, 2.002; CONTROL band factor dropped 1.825, 1.783, 1.751, 1.724; CONTROL nu=beta' 0.9994, 0.9997, 0.9999, 0.9999
+    control (band factor dropped) not applicable: e_mod/e_true at n=400 = 3.55 < 10
+[6] p=0.6 alpha=-0.6 delta=-0.8 (beta'=-2.20): max |P0hat^(+-1)| |zeta|^(|alpha|/2) n^(-1/2) = 0.76026 (seam points incl.); control (rho_w, |zeta| = 1e-8) up to 4.799e+24
+[2] p=0.3 alpha=-0.3 delta=-0.9 (beta'=-2.10): |rho_nat| in [0.689368, 1.0] (n = 10, 100, 1000; 1e-12 <= |z| <= c/2, seams both sides); n^p|log(rho_nat/rho_mod)|/|z|^(1/2) = 10:0.1514, 100:0.1546, 1000:0.1551
+    band: max|rho_+ rho_- - 1| = 8.81e-23; glue: max |rho_out/rho_in - e^(-l_pm)|/|e^(-l_pm) - 1| = 1.24e-23 (n = 4, |z| = 2, 3)
+[3] p=0.3 alpha=-0.3 delta=-0.9 (beta'=-2.10): max |A^(+-1)| (1e-12 <= |z| <= 1e-2, seams both sides, n = 100) = 1.5627; band jump 1.71e-25; control |z|^(1/2)|A_w| from 32.4 to 2.869e+10
+[4] p=0.3 alpha=-0.3 delta=-0.9 (beta'=-2.10): lip match rel.err 1.46e-30; |omega_nat - e^(-+i pi alpha)|/|z|^(1/2) in [1.692, 1.82] (n = 10, 1000); control min |omega_nat - e^(-+i pi beta')| = 0.4511
+[5] p=0.3 alpha=-0.3 delta=-0.9 (beta'=-2.10), |z| = c/2, 8 pts (4 on seams): n|J-I| = 0.83444, 0.83495, 0.8386, 0.84307, 0.84743
+    remainder exponents log2(e(n)/e(2n)): true rho_nat 2.034, 2.011, 2.001, 1.997; gauge (J=3) 2.038, 2.014, 2.004, 1.999; CONTROL band factor dropped 1.298, 1.185, 1.219, 1.251; CONTROL nu=beta' 1.001, 1.001, 1.0, 1.0
+[6] p=0.3 alpha=-0.3 delta=-0.9 (beta'=-2.10): max |P0hat^(+-1)| |zeta|^(|alpha|/2) n^(-1/2) = 1.3175 (seam points incl.); control (rho_w, |zeta| = 1e-8) up to 4.759e+27
+[2] p=0.75 alpha=0.3 delta=-0.3 (beta'=-0.30): |rho_nat| in [1.0, 1.27535] (n = 10, 100, 1000; 1e-12 <= |z| <= c/2, seams both sides); n^p|log(rho_nat/rho_mod)|/|z|^(1/2) = 10:0.0148, 100:0.01297, 1000:0.01267
+    band: max|rho_+ rho_- - 1| = 5.17e-23; glue: max |rho_out/rho_in - e^(-l_pm)|/|e^(-l_pm) - 1| = 1.79e-20 (n = 4, |z| = 2, 3)
+[3] p=0.75 alpha=0.3 delta=-0.3 (beta'=-0.30): max |A^(+-1)| (1e-12 <= |z| <= 1e-2, seams both sides, n = 100) = 1.4109; band jump 7.85e-26; control |z|^(1/2)|A_w| from 2.188 to 2235.0
+[4] p=0.75 alpha=0.3 delta=-0.3 (beta'=-0.30): lip match rel.err 5.94e-31; |omega_nat - e^(-+i pi alpha)|/|z|^(1/2) in [1.016, 1.039] (n = 10, 1000); control min |omega_nat - e^(-+i pi beta')| = 1.531
+[5] p=0.75 alpha=0.3 delta=-0.3 (beta'=-0.30), |z| = c/2, 8 pts (4 on seams): n|J-I| = 0.70543, 0.71315, 0.7172, 0.71926, 0.7203
+    remainder exponents log2(e(n)/e(2n)): true rho_nat 1.95, 1.974, 1.987, 1.993; gauge (J=1) 1.947, 1.972, 1.986, 1.993; CONTROL band factor dropped 1.961, 1.991, 2.009, 2.012; CONTROL nu=beta' 1.95, 1.974, 1.987, 1.993
+    control (band factor dropped) not applicable: e_mod/e_true at n=400 = 0.89 < 10
+    control nu = beta' not applicable: |beta'| = |alpha|
+[6] p=0.75 alpha=0.3 delta=-0.3 (beta'=-0.30): max |P0hat^(+-1)| |zeta|^(|alpha|/2) n^(-1/2) = 0.72075 (seam points incl.); control (rho_w, |zeta| = 1e-8) up to 5.989e+8
+[2] p=0.75 alpha=0.6 delta=-0.95 (beta'=-1.30): |rho_nat| in [0.894788, 1.0] (n = 10, 100, 1000; 1e-12 <= |z| <= c/2, seams both sides); n^p|log(rho_nat/rho_mod)|/|z|^(1/2) = 10:0.08808, 100:0.08585, 1000:0.08544
+    band: max|rho_+ rho_- - 1| = 2.24e-23; glue: max |rho_out/rho_in - e^(-l_pm)|/|e^(-l_pm) - 1| = 8.64e-21 (n = 4, |z| = 2, 3)
+[3] p=0.75 alpha=0.6 delta=-0.95 (beta'=-1.30): max |A^(+-1)| (1e-12 <= |z| <= 1e-2, seams both sides, n = 100) = 1.0811; band jump 3.79e-26; control |z|^(1/2)|A_w| from 47.74 to 1.41e+11
+[4] p=0.75 alpha=0.6 delta=-0.95 (beta'=-1.30): lip match rel.err 5.61e-31; |omega_nat - e^(-+i pi alpha)|/|z|^(1/2) in [0.4441, 0.4771] (n = 10, 1000); control min |omega_nat - e^(-+i pi beta')| = 0.2703
+[5] p=0.75 alpha=0.6 delta=-0.95 (beta'=-1.30), |z| = c/2, 8 pts (4 on seams): n|J-I| = 0.39118, 0.38672, 0.38442, 0.3832, 0.38254
+    remainder exponents log2(e(n)/e(2n)): true rho_nat 2.065, 2.031, 2.016, 2.008; gauge (J=1) 2.061, 2.029, 2.014, 2.007; CONTROL band factor dropped 1.939, 1.917, 1.898, 1.881; CONTROL nu=beta' 1.0, 1.0, 1.0, 1.0
+    control (band factor dropped) not applicable: e_mod/e_true at n=400 = 1.56 < 10
+[6] p=0.75 alpha=0.6 delta=-0.95 (beta'=-1.30): max |P0hat^(+-1)| |zeta|^(|alpha|/2) n^(-1/2) = 0.55699 (seam points incl.); control (rho_w, |zeta| = 1e-8) up to 1.509e+24
+ALL 157 CHECKS PASSED

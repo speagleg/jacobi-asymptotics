@@ -1,0 +1,38 @@
+p=0.6 s=1.3 delta=-0.8 (alpha=-0.500, beta'=-2.100), K = (160000, 320000); S_1(delta) = -0.58907602, S_1(0) = 1.8492233:
+   d1   : fit +0.3300001 (half-range 3.1e-06) | M(beta', alpha) +0.3300000 | dev/tol 0.007
+          K -> 2K: +0.3300001 -> +0.3299999 (diff 1.3e-07)
+   eps1 : fit +0.0286709 (half-range 8.3e-04) | M(beta', alpha) +0.0286624 | dev/tol 0.003
+          K -> 2K: +0.0286709 -> +0.0286545 (diff 1.6e-05)
+   d2   : fit +0.1961128 (half-range 1.7e-01) | M(beta', alpha) +0.1972833 | dev/tol 0.002  [NOT ASSERTED: tolerance > |value|/3, not discriminating]
+   eps2 : fit -0.0099061 (half-range 9.3e-02) | M(beta', alpha) -0.0102967 | dev/tol 0.001  [NOT ASSERTED: tolerance > |value|/3, not discriminating]
+   d2|eps: fit +0.1973138 (half-range 6.1e-03) | M(beta', alpha) +0.1972833 | dev/tol 0.002
+          K -> 2K: +0.1973138 -> +0.1972784 (diff 3.5e-05)
+   control d1 (lattice, delta ignored): -0.1500000, dev/tol 48000.0 (must be > 10)
+   control d2|eps (H2: beta = nu = alpha + 2 delta): -1.1547167, dev/tol 74.1 (must be > 10)
+   control eps1 (lattice band factor, S_1(0)): -0.0899767, dev/tol 47.8 (must be > 10)
+p=0.6 s=1.3 delta=-0.5 (alpha=-0.500, beta'=-1.500), K = (160000, 320000); S_1(delta) = -0.6291909, S_1(0) = 1.8492233:
+   d1   : fit +0.1500000 (half-range 2.4e-06) | M(beta', alpha) +0.1500000 | dev/tol 0.005
+          K -> 2K: +0.1500000 -> +0.1500000 (diff 8.8e-08)
+   eps1 : fit +0.0306203 (half-range 7.4e-04) | M(beta', alpha) +0.0306142 | dev/tol 0.003
+          K -> 2K: +0.0306203 -> +0.0306098 (diff 1.0e-05)
+   d2   : fit +0.0813070 (half-range 1.5e-01) | M(beta', alpha) +0.0820833 | dev/tol 0.002  [NOT ASSERTED: tolerance > |value|/3, not discriminating]
+   eps2 : fit +0.0208931 (half-range 8.4e-02) | M(beta', alpha) +0.0205428 | dev/tol 0.001  [NOT ASSERTED: tolerance > |value|/3, not discriminating]
+   d2|eps: fit +0.0821106 (half-range 5.5e-03) | M(beta', alpha) +0.0820833 | dev/tol 0.002
+          K -> 2K: +0.0821106 -> +0.0820781 (diff 3.3e-05)
+   control d1 (lattice, delta ignored): -0.1500000, dev/tol 30000.0 (must be > 10)
+   control d2|eps (H2: beta = nu = alpha + 2 delta): -0.5679167, dev/tol 39.6 (must be > 10)
+   control eps1 (lattice band factor, S_1(0)): -0.0899767, dev/tol 54.6 (must be > 10)
+p=0.75 s=1.375 delta=-0.8 (alpha=-0.500, beta'=-2.100), K = (160000, 320000); S_1(delta) = -0.36116313, S_1(0) = 1.8129474:
+   d1   : fit +0.4125000 (half-range 4.1e-07) | M(beta', alpha) +0.4125000 | dev/tol 0.001
+          K -> 2K: +0.4125000 -> +0.4125000 (diff 3.4e-09)
+   eps1 : fit +0.0182857 (half-range 1.5e-04) | M(beta', alpha) +0.0183016 | dev/tol 0.034
+          K -> 2K: +0.0182857 -> +0.0182893 (diff 3.6e-06)
+   d2   : fit +0.2586266 (half-range 2.9e-03) | M(beta', alpha) +0.2584115 | dev/tol 0.025
+          K -> 2K: +0.2586266 -> +0.2586196 (diff 7.0e-06)
+   eps2 : fit -0.0210297 (half-range 7.9e-02) | M(beta', alpha) -0.0203891 | dev/tol 0.003  [NOT ASSERTED: tolerance > |value|/3, not discriminating]
+   d2|eps: fit +0.2584098 (half-range 1.0e-04) | M(beta', alpha) +0.2584115 | dev/tol 0.006
+          K -> 2K: +0.2584098 -> +0.2584106 (diff 8.2e-07)
+   control d1 (lattice, delta ignored): -0.1875000, dev/tol 60000.0 (must be > 10)
+   control d2|eps (H2: beta = nu = alpha + 2 delta): -1.1715885, dev/tol 4689.0 (must be > 10)
+   control eps1 (lattice band factor, S_1(0)): -0.0918692, dev/tol 237.1 (must be > 10)
+ALL 29 CHECKS PASSED
