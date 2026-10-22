@@ -887,3 +887,23 @@ The pages were re-read on 2026-10-21 (dlmf.nist.gov/10.17, /10.40, /9.7); the qu
   - |ph Z| ≤ π − δ for 9.7.5–9.7.6, with Z = e^{2πim/3}ζ.
 - `checks/m4_rh_exact.py` asserts, for k ≤ 8, b_k = a_k + (k − ½)a_{k−1} (the term-wise derivative of 10.40.2) and the 9.7.2
   recurrence for u_k, v_k.
+
+## (Hurwitz-DK, Theorem H Remark 3.3) Hurwitz's formula, as stated in A. Dixit and R. Kumar, "On Hurwitz zeta function and Lommel functions", arXiv:1912.01199v1 (2019-12-03), Theorem 1.1, eq. (1.1) — READ (HTML rendering ar5iv.labs.arxiv.org/html/1912.01199 and abstract page arxiv.org/abs/1912.01199 fetched 2026-10-22 by WebFetch)
+
+> Theorem 1.1 (attributed there to Hurwitz, citing their ref. [23], p. 37, eq. (2.17.3)): for 0 < a ≤ 1 and Re(s) < 0,
+> ζ(s, a) = (2Γ(1−s)/(2π)^{1−s}) { sin(½πs) Σ_{n≥1} cos(2πna)/n^{1−s} + cos(½πs) Σ_{n≥1} sin(2πna)/n^{1−s} }.
+> (Footnote there: also valid for Re(s) < 1 when 0 < a < 1, citing Apostol, Thm 12.6. Not used.)
+
+Verbatim from the PDF (arxiv.org/pdf/1912.01199v1, fetched 2026-10-22): the hypotheses "For $0 < a \le 1$ and Re(s) < 0,"; the
+equation opening "\zeta(s,a) = \frac{2\Gamma(1-s)}{(2\pi)^{1-s}} \left\{"; the introduction "the following formula of Hurwitz
+[23, p. 37, Equation (2.17.3)]"; refs "[23] Titchmarsh, E. C.: The Theory of the Riemann Zeta Function, Clarendon Press, Oxford,
+1986." and "[1] Apostol, T.M.: Introduction to Analytic Number Theory, Springer-Verlag, New York (1998)." The remainder of the
+display (the two series with coefficients sin(½πs), cos(½πs) and cos(2πna)/n^{1−s}, sin(2πna)/n^{1−s}) was read from the
+HTML rendering and is confirmed independently to 5·10⁻⁴² against mpmath's Hurwitz zeta at 48 (p, δ, k) points, with a control
+that fails (spectral/checks/m3a_hurwitz_formula.out). Secondary source (Dixit–Kumar quoting Titchmarsh); DLMF 25.11.9 could
+still not be read (the page truncates under our fetcher).
+
+**Used in: JZC_M3a_H Remark 3.3** (and Remark H of JZC_M3a_H_G23plt1, the Remark in JZC_M3a_H_Hc §2): at s = −kp (k ≥ 1,
+p > 0, so Re s < 0 ✓) and a = 1 + δ (−1 < δ ≤ 0, so 0 < a ≤ 1 ✓). Since cos(2πma) = cos(2πmδ) and sin(2πma) = sin(2πmδ),
+the bracket is −Σ_m sin(πkp/2 − 2πmδ)/m^{1+kp} = −S_k(δ), and 2Γ(1+kp)(2π)^{−1−kp} = (kp/π)Γ(kp)(2π)^{−kp}, so
+ζ(−kp, a) = −(kp/π)Γ(kp)(2π)^{−kp}S_k(δ), i.e. m_k(δ) = ζ(−kp, a)/(kn^{kp}).
