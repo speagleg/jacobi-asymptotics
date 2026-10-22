@@ -1,0 +1,47 @@
+sha256 w_bt_companion.py: f5440ba4710c01db0a0bbcade6473ee9c13138990fdf1567c12937affd9d7df2
+sha256 w_bt_core.py: 116335d94b6b12b7122883eb017f3cc0a95447e756f8731f3a1a2f969366df52
+sha256 w_bt_engine.py: 67a700f4a4a5caa8cf620a3b0b6820a3d47f93bb43bb6c1a2c40b3d0b1372154
+sha256 w_exact_lag.py: bfeac6c812fcddad0dff281531e6036bf45a3e1e0e4fb0bfac6dfcabccaf9e30
+--- p = 1/2 (137s): c_0 = (5*j + 2)/4
+   c_2 = 5*(75*alpha**2*j**3 + 30*alpha**2*j**2 - 126*alpha**2*j + 36*alpha**2 + 125*j**5 + 800*j**4 + 1825*j**3 + 1951*j**2 + 990*j + 144)/(2688*(2*j + 3))
+[ 1] identity: p=1/2: odd-shift Mellin part vanishes; no n^(-2rho-1) term: holds -> PASS
+[ 2] identity: p=1/2: c_0 = (p rho + 2 rho + 1)/2 (= H(rho) C(2rho,rho)/((p+2)^(2rho+1) Phi)): holds -> PASS
+[ 3] identity: p=1/2: c_1 = c_3 = 0: holds -> PASS
+[ 4] identity: p=1/2: derived dressing at rho = 1/2 equals X(p, nu) (JZC_W_exact Obs WE.6, post hoc there): -5*(36*alpha**2 - 5009)/43008: holds -> PASS
+[ 5] CONTROL (must fail): p=1/2: control: refuted P2 dressing g(rho*) at rho = 1/2: FAILS -> PASS
+[ 6] identity: p=1/2: Res_(j=1/2) g1[5] (cached engine run, w_exact_poles) = -(p+2)^2 c_2(1/2) Res(Phi/C): holds -> PASS
+--- p = 3/2 (94s): c_0 = (7*j + 2)/4
+   c_2 = (3087*alpha**2*j**3 + 4998*alpha**2*j**2 - 378*alpha**2*j + 756*alpha**2 + 2401*j**5 + 15092*j**4 + 30037*j**3 + 26047*j**2 + 11426*j + 1200)/(4992*(2*j + 3))
+[ 7] identity: p=3/2: odd-shift Mellin part vanishes; no n^(-2rho-1) term: holds -> PASS
+[ 8] identity: p=3/2: c_0 = (p rho + 2 rho + 1)/2 (= H(rho) C(2rho,rho)/((p+2)^(2rho+1) Phi)): holds -> PASS
+[ 9] identity: p=3/2: c_1 = c_3 = 0: holds -> PASS
+[10] identity: p=3/2: derived dressing at rho = 1/2 equals X(p, nu) (JZC_W_exact Obs WE.6, post hoc there): (70476*alpha**2 + 582325)/878592: holds -> PASS
+[11] CONTROL (must fail): p=3/2: control: refuted P2 dressing g(rho*) at rho = 1/2: FAILS -> PASS
+[12] identity: p=3/2: Res_(j=1/2) g1[5] (cached engine run, w_exact_poles) = -(p+2)^2 c_2(1/2) Res(Phi/C): holds -> PASS
+--- p = 2 (68s): c_0 = (4*j + 1)/2
+   c_2 = (192*alpha**2*j**3 + 336*alpha**2*j**2 + 36*alpha**2 + 128*j**5 + 800*j**4 + 1504*j**3 + 1180*j**2 + 492*j + 45)/(192*(2*j + 3))
+[13] identity: p=2: odd-shift Mellin part vanishes; no n^(-2rho-1) term: holds -> PASS
+[14] identity: p=2: c_0 = (p rho + 2 rho + 1)/2 (= H(rho) C(2rho,rho)/((p+2)^(2rho+1) Phi)): holds -> PASS
+[15] identity: p=2: c_1 = c_3 = 0: holds -> PASS
+[16] identity: p=2: derived dressing at rho = 1/2 equals X(p, nu) (JZC_W_exact Obs WE.6, post hoc there): (4*alpha**2 + 23)/32: holds -> PASS
+[17] CONTROL (must fail): p=2: control: refuted P2 dressing g(rho*) at rho = 1/2: FAILS -> PASS
+[18] identity: p=2: Res_(j=1/2) g1[5] (cached engine run, w_exact_poles) = -(p+2)^2 c_2(1/2) Res(Phi/C): holds -> PASS
+--- p = 3 (74s): c_0 = (5*j + 1)/2
+   c_2 = 5*(225*alpha**2*j**3 + 420*alpha**2*j**2 + 18*alpha**2*j + 27*alpha**2 + 125*j**5 + 775*j**4 + 1325*j**3 + 857*j**2 + 334*j + 24)/(528*(2*j + 3))
+[19] identity: p=3: odd-shift Mellin part vanishes; no n^(-2rho-1) term: holds -> PASS
+[20] identity: p=3: c_0 = (p rho + 2 rho + 1)/2 (= H(rho) C(2rho,rho)/((p+2)^(2rho+1) Phi)): holds -> PASS
+[21] identity: p=3: c_1 = c_3 = 0: holds -> PASS
+[22] identity: p=3: derived dressing at rho = 1/2 equals X(p, nu) (JZC_W_exact Obs WE.6, post hoc there): 5*(492*alpha**2 + 1813)/10752: holds -> PASS
+[23] CONTROL (must fail): p=3: control: refuted P2 dressing g(rho*) at rho = 1/2: FAILS -> PASS
+[24] identity: p=3: Res_(j=1/2) g1[5] (cached engine run, w_exact_poles) = -(p+2)^2 c_2(1/2) Res(Phi/C): holds -> PASS
+--- p = 5 (70s): c_0 = (7*j + 1)/2
+   c_2 = (5145*alpha**2*j**3 + 9996*alpha**2*j**2 + 504*alpha**2*j + 315*alpha**2 + 2401*j**5 + 14749*j**4 + 22001*j**3 + 9779*j**2 + 3690*j + 180)/(816*(2*j + 3))
+[25] identity: p=5: odd-shift Mellin part vanishes; no n^(-2rho-1) term: holds -> PASS
+[26] identity: p=5: c_0 = (p rho + 2 rho + 1)/2 (= H(rho) C(2rho,rho)/((p+2)^(2rho+1) Phi)): holds -> PASS
+[27] identity: p=5: c_1 = c_3 = 0: holds -> PASS
+[28] identity: p=5: derived dressing at rho = 1/2 equals X(p, nu) (JZC_W_exact Obs WE.6, post hoc there): (13188*alpha**2 + 29215)/26112: holds -> PASS
+[29] CONTROL (must fail): p=5: control: refuted P2 dressing g(rho*) at rho = 1/2: FAILS -> PASS
+[30] identity: p=5: Res_(j=1/2) g1[5] (cached engine run, w_exact_poles) = -(p+2)^2 c_2(1/2) Res(Phi/C): holds -> PASS
+total 30 checks (455s)
+ALL IDENTITIES HOLD
+ALL 30 CHECKS PASSED

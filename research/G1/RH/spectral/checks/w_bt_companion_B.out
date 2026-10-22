@@ -1,0 +1,15 @@
+sha256 w_bt_companion.py: f5440ba4710c01db0a0bbcade6473ee9c13138990fdf1567c12937affd9d7df2
+sha256 w_bt_core.py: 116335d94b6b12b7122883eb017f3cc0a95447e756f8731f3a1a2f969366df52
+sha256 w_bt_engine.py: 67a700f4a4a5caa8cf620a3b0b6820a3d47f93bb43bb6c1a2c40b3d0b1372154
+sha256 w_exact_lag.py: bfeac6c812fcddad0dff281531e6036bf45a3e1e0e4fb0bfac6dfcabccaf9e30
+   p = 3/2, decoupled beta (182s)
+   c_0 = (7*j + 2)/4
+   c_1 = 0
+   c_2 = (3087*alpha**2*j**3 + 4998*alpha**2*j**2 - 378*alpha**2*j + 756*alpha**2 + 2401*j**5 + 15092*j**4 + 30037*j**3 + 26047*j**2 + 11426*j + 1200)/(4992*(2*j + 3))
+   c_3 = 0
+[ 1] identity: (B) c_0..c_3 are independent of beta (natural index N = n + (beta+1)/2): holds -> PASS
+[ 2] identity: (B) c_0 = (p rho + 2 rho + 1)/2, c_1 = c_3 = 0 at p = 3/2: holds -> PASS
+[ 3] CONTROL (must fail): (B) control: the RAW (n-expanded) companion is beta-free: FAILS -> PASS
+total 3 checks (193s)
+ALL IDENTITIES HOLD
+ALL 3 CHECKS PASSED
