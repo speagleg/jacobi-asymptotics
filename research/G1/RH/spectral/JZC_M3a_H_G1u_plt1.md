@@ -531,7 +531,7 @@ Notes on the rows:
 - So, in the regime β′ ≤ −1 at p < 1, the actual Hurwitz Jacobi coefficients follow M(β′ = α + 2δ, ν = α) with the Hurwitz band
   factor:
   - d₁ = −p(β′+1)/2 to 10⁻⁷;
-  - ε₁ (the Fourier sum, = 2pcζ(−p, a) by Remark 3.3 — asserted in the script to 10⁻²⁵ as a NUMERICAL identity, not used) to 10⁻⁵;
+  - ε₁ (the Fourier sum, = 2pcζ(−p, a) by Remark 3.3, PROVED-mod-cite (CITATIONS (Hurwitz-DK)) (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)) — asserted in the script to 10⁻²⁵ as a NUMERICAL identity, not used) to 10⁻⁵;
   - d₂ to 3·10⁻⁵.
 - The lattice (δ ignored), H2 (Bessel order shifted with β′) and the lattice band factor (S₁(0)) are excluded.
 - This is evidence for the *conclusion* of Prop G1u′ + N.6, not for the uniform bounds themselves.
@@ -601,7 +601,8 @@ Notes on the rows:
     - The band factor's representation is identified with the literal construction ([0b]; G23plt1 [G]).
     - The moments come from series.
     - The Jacobi coefficients are those of the actual measures, and nothing is fitted to the predictions.
-    - ε₁'s prediction is the Fourier sum; its equality with 2pcζ(−p, a) is asserted as a NUMERICAL side identity (Remark 3.3, NOT QUOTED).
+    - ε₁'s prediction is the Fourier sum; its equality with 2pcζ(−p, a) is asserted as a NUMERICAL side identity (Remark 3.3, now PROVED-mod-cite (CITATIONS (Hurwitz-DK));
+      (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK))).
 12. *Converse used?* No: L P1 is a bound, and nowhere is it used that the bound is attained.
 
 ## 7. What remains

@@ -15,7 +15,7 @@ used. Checks: `checks/w_outer_index.py/.out`, `checks/w_outer_scalar.py/.out`, `
 | **P W-out.3** | the gauge G_κ = (−z)^{−δ}E_κ, E_κ = exp 𝒞[ρ₁] (ρ₁ = minus the index offset): F♮_κ := F_κG_κ satisfies (O1) with the lattice θ, is bounded above and below at z_*, and **F♮_κ → C_κ ≠ 0 uniformly at ∞**; at the hard edge **G_κ = (−z)^{−δ}E_κ(0)(1 + O(n^{1−p}\|z\|^{1−1/p}))**: the outer exponent −Z(0) − ½ = δ sits at the hard edge, κ-free | PROVED-mod-cite (G12 C1.5; Paper 2 L normalisation) |
 | L W-out.4 | H-d for σ^{δ,κ}: the jumps are those of M(β′ = α + 2δ, ν = α) with band weight W₀^κ = 𝗐_n z^{β′}(4c − z)H_n^κ, except the factor e^{±2πiρ₁(z)} in the (2,1) entries of lips, Σ^△, top segment | PROVED (algebra, as JZC_M3a_Hd (ii)) + NUMERICAL |
 | L W-out.5 | PV lemma: ∫_0^L y^q dy/(y − z) = −π(−z)^q/sin(πq) + Σ_{j≥0} z^jL^{q−j}/(q − j) | PROVED (elementary) + NUMERICAL |
-| **P W-out.5** | structure of H_n^κ: log H_n^κ = (Hurwitz G_δ∘ζ) + log r_n − 2Ψ₀; the integer-power part gives **exactly W's Toda parameters μ_j = 2Z_κ(−j)/j − B_j** (the gauge supplies κ^jζ(0, a)), the branched part is the tilt Σ_m 2π cot(πq_m)a_m(z/n^p)^{q_m}, a_m = −R_{q_m}/q_m | PROVED-mod-cite (Hc.2; DLMF 5.12.1, 5.5.3 for κ < 0) — with ζ(−mp, a) in place of the Fourier sums by JZC_M3a_H Remark 3.3 (NUMERICAL) |
+| **P W-out.5** | structure of H_n^κ: log H_n^κ = (Hurwitz G_δ∘ζ) + log r_n − 2Ψ₀; the integer-power part gives **exactly W's Toda parameters μ_j = 2Z_κ(−j)/j − B_j** (the gauge supplies κ^jζ(0, a)), the branched part is the tilt Σ_m 2π cot(πq_m)a_m(z/n^p)^{q_m}, a_m = −R_{q_m}/q_m | PROVED-mod-cite (Hc.2; DLMF 5.12.1, 5.5.3 for κ < 0) — with ζ(−mp, a) in place of the Fourier sums by JZC_M3a_H Remark 3.3 (PROVED-mod-cite (CITATIONS (Hurwitz-DK)); NUMERICAL support) (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)) |
 | P W-out.7 | the first-order fractional-time response of W applied to that tilt is **exactly W's pole term** pR_qW(q)π cot(πq)(n/N)^pN^{−1−pq} | PROVED (algebra) |
 | **P W-out.6** | reduction: (i) the κ-problem is exactly the decoupled model M(α + 2δ, α) with band factor H_n^κ and the lip factor e^{±2πiρ₁}; (ii) under Hypothesis BT, Conjecture W holds for σ^{δ,κ} at first order in the poles; (iii) under the weaker BT₀ the n^{−k} coefficients, k < p, are those of M(α + 2δ, α) (κ-free) | (i) PROVED-mod-cite; (ii), (iii) CONDITIONAL (BT, BT₀ = W §5.1 item 4, GAP) |
 | Remark 3.6 | the literal reading of JZC_W §5.1 item 1 ("F_Λ ∼ C(−z)^{−Z(0)−½} at ∞") is false for κ ≠ 0 at fixed n; the exponent at z = ∞ of an unnormalised scalar is construction-dependent; the invariant is the exponent of the normalising gauge at the hard edge | PROVED (by L W-out.3) + NUMERICAL (exponent −½, not δ) |
@@ -38,7 +38,7 @@ G_δ := −j_δ(t) + log B_δ, so (D̃_δB_δ)^{−2} = e^{−2G_δ} = H_n^δ (H
   F_δ(z) = C_δ(−z)^δ(1 + o(1)). Moreover C_δ = e^{L_δ} > 0."
 - Hc **Lemma Hc.2(ii)** (quoted): "G_δ(z) − G_δ(1) = Σ_{k≤K}m_k(δ)(z^k − 1) + O(n^{−(K+1)p}) on |z| ≤ 4c + 2, boundary values included, with
   derivative bounds; C = C(p, K) independent of δ", m_k(δ) the Fourier sums of JZC_M3a_H §3.2; = ζ(−kp, a)/(kn^{kp}) by Remark 3.3
-  (NUMERICAL; Hurwitz's formula NOT QUOTED).
+  (PROVED-mod-cite (CITATIONS (Hurwitz-DK)); NUMERICAL support; a = 1 + δ ∈ (0, 1] as Dixit–Kumar Thm 1.1 requires) (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)).
 - Paper 2 **(O1)–(O5)** (sec_5 §frame-outer, quoted): "(O1) F is analytic and zero-free in ℂ∖[0,∞) (in particular, it has no jump on
   (−∞,0)), it has continuous boundary values on (0,∞)∖{X_k}, and F₊ = F₋e^{2iθ} on (4c,∞)∖{X_k}. … (O5) (For each fixed n.) |F|^{±1} is
   bounded on U(0,δ)∖(Ω̄_b ∪ [0,∞)), and F̃^{±1} is bounded on U(0,δ) ∩ Ω_b. There is N_n with |F(z)|^{±1} ≤ C_n|z|^{N_n} for
@@ -282,7 +282,7 @@ B(s, 1 + 1/p) (equal for Re s > 0 termwise; both sides meromorphic). Integration
 - By 5.5.3 (−r − j, −r ∉ ℤ), Γ(−r − j)/Γ(−r) = (−1)^jΓ(1 + r)/Γ(1 + r + j), so the two n-terms cancel, and FP_j = ζ(0, a)κ^jn^{−jp}/j again.
 Then (i) = Hurwitz + density + gauge. ∎
 (PROVED-mod-cite: Hc.2 (REVIEWED), DLMF-2 (5.12.1, 5.5.3) for κ < 0; the name ζ(−kp, a) for the Fourier-sum constants is Remark 3.3,
-NUMERICAL. NUMERICAL: [T] the identity (i) to 10⁻³⁰ for j ≤ 5 at 4 parameter sets (without the gauge share it fails); [A] a_m = −R_{q_m}/q_m;
+PROVED-mod-cite (CITATIONS (Hurwitz-DK)) (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)). NUMERICAL: [T] the identity (i) to 10⁻³⁰ for j ≤ 5 at 4 parameter sets (without the gauge share it fails); [A] a_m = −R_{q_m}/q_m;
 [W5] FP₁, FP₂ extracted from 𝒞[ρ₁] near 0 at κ = 0.5, −0.3, 1, −0.02.)
 
 **Proposition W-out.7 (pole terms = gauge tilt response).** Conjecture W's fractional-time response −(pρW(ρ)/2)t_ρ(n/N)^pN^{−1−pρ}

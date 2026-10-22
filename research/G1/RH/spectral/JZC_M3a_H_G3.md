@@ -20,7 +20,7 @@ Checks: `checks/m3a_g3_seam.py/.out` (81 assertions), `checks/m3a_g3_model.py/.o
 | Lemma 2 (monodromy) | any such F_δ is C(−z)^{δ+m}(1 + o(1)) at ∞ for some m ∈ ℤ, C ≠ 0, uniformly in arg z | PROVED (elementary) + REVIEWED |
 | Lemma 3 (seam_δ) | Paper 2 Lemma seam with j_δ and modified B_in, B_out: χ_δ exists, F_δ satisfies (O1)_δ–(O4), (O5) near 0 | PROVED-mod-cite (Paper 2) + REVIEWED |
 | Prop 4 (= Prop 2.1 for p < 1) | F_δ = (2πn)^{−½−δ}(−z)^δ(1 + o(1)) at ∞; at 0 nothing new | PROVED-mod-cite (Paper 2) + REVIEWED; NUMERICAL (m3a_g3_seam) |
-| Cor 5 (Lemma H-d, p < 1) | F♮ := F_δ(−z)^{−δ} gives M(β′ = α + 2δ, ν = α), band factor the seam H_n^δ | PROVED-mod-cite (Paper 2) for the jump algebra (as H-d §3; H-d (i)–(iii) only, (iv) is JZC_M3a_H_G23plt1.md P2.6 (fixed per Rule R review B, B3-1)) (fixed per Rule R review A, F1) + REVIEWED; band-factor moments = the Fourier sums of H.md §3.2 (unconditional, via E_plt1 Lemma F.1 (ii)); their identification with ζ(−kp, 1+δ)/(kn^{kp}) is H.md Remark 3.3 (NOT QUOTED) (fixed per Rule R review A, F7) |
+| Cor 5 (Lemma H-d, p < 1) | F♮ := F_δ(−z)^{−δ} gives M(β′ = α + 2δ, ν = α), band factor the seam H_n^δ | PROVED-mod-cite (Paper 2) for the jump algebra (as H-d §3; H-d (i)–(iii) only, (iv) is JZC_M3a_H_G23plt1.md P2.6 (fixed per Rule R review B, B3-1)) (fixed per Rule R review A, F1) + REVIEWED; band-factor moments = the Fourier sums of H.md §3.2 (unconditional, via E_plt1 Lemma F.1 (ii)); their identification with ζ(−kp, 1+δ)/(kn^{kp}) is H.md Remark 3.3 (PROVED-mod-cite (CITATIONS (Hurwitz-DK)); NUMERICAL support) (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)) (fixed per Rule R review A, F7) |
 | Test | M(α+2δ, α) with Hurwitz μ reproduces all 22 stored p < 1 Hurwitz fit data; H2–H4 excluded | NUMERICAL (m3a_g3_model) |
 
 ## 0. Answer
@@ -135,7 +135,7 @@ tends to C_δ^{−1}: removable at ∞, nonzero); lips, saturated regions and Σ
 D_δB_in^δKe^{χ_δ} has the same κ_δ structure as for p > 1. ∎ (The former "(iv) …" clause is deleted, fixed per Rule R review A, F1.)
 *Band factor.* By E_plt1 Lemma F.1 (ii) (verbatim, densities ℓ_±), 𝒢_δ(z) − 𝒢_δ(1) is the Cauchy integral of the pure jump, with
 moments = the Fourier sums of H.md §3.2 (unconditional, via E_plt1 Lemma F.1 (ii)); their identification with
-ζ(−kp, 1+δ)/(kn^{kp}) is H.md Remark 3.3 (NOT QUOTED; NUMERICAL: ≤ 2·10⁻²⁴ relative, m3a_g23_F1.out [E]; 2·10⁻¹⁶ in spec_hurwitz_moments_plt1.out) (fixed per
+ζ(−kp, 1+δ)/(kn^{kp}) is H.md Remark 3.3 (PROVED-mod-cite (CITATIONS (Hurwitz-DK)) (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)); NUMERICAL support: ≤ 2·10⁻²⁴ relative, m3a_g23_F1.out [E]; 2·10⁻¹⁶ in spec_hurwitz_moments_plt1.out) (fixed per
 Rule R review A, F7; precision fixed per Rule R review B, B3-2); μ_{n,k} = 2m_k(δ) as for p > 1; F.1 (iv) with the complex ℓ_± is
 JZC_M3a_H_G23plt1.md Lemma F.1_δ (iv) (constants δ-free, via Lemma M); F.1 (iii) gives the Fourier sums, not ζ(−kp)/(kn^{kp})
 (fixed per Rule R review B, B3-1).
@@ -160,7 +160,7 @@ worst 0.07 tol (d₁ exact; e.g. n^{−2} at p = 0.6, δ = −½: +0.042222 vs f
 These rows were already among H-d's 36 (no new p < 1 Hurwitz fit data exist in checks/spec_hur*.out); the new content is that the
 p < 1 band factor they test is now the seam one of §2. p = 0.3, 0.75 at δ < 0 have no stored fits.
 All in-range rows are at δ = −½ (β′ = α − 1); the ε_j rows do not discriminate between H1–H4; in-range exclusions: H2 58 tol,
-H3 30 000, H4 15 000 (the 3 009 for H2 is on the δ = 1 row). The band factor uses ζ(−jp, 1+δ) (Remark 3.3, NUMERICAL), not the
+H3 30 000, H4 15 000 (the 3 009 for H2 is on the δ = 1 row). The band factor uses ζ(−jp, 1+δ) (Remark 3.3, PROVED-mod-cite (CITATIONS (Hurwitz-DK)) (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK))), not the
 Fourier sums (fixed per Rule R review B, B3-3).
 
 ## 6. Rule A (adversarial pass) — log
@@ -189,7 +189,7 @@ Fourier sums (fixed per Rule R review B, B3-3).
 - H-d (iv) (a-priori bound) for p < 1: open (expected from G12 L2.1 (p-free), L2.2, L2.3 and P2.4 with Lemma 3 (iii) for (O3)–(O5)
   near 0 and Prop 4 at ∞) (fixed per Rule R review A, F1). This is gap 2 of JZC_M3a_H.md §4, being worked on in
   JZC_M3a_H_G23plt1.md (done there: L2.1′–L2.5, P2.6) (fixed per Rule R review B, B3-1).
-- Inherited from H-d: G2 (App C, Lemma sumbound for the Hurwitz U), G4 (Hurwitz's formula, DLMF 5.11.8 — the latter is no longer
+- Inherited from H-d: G2 (App C, Lemma sumbound for the Hurwitz U), G4 (Hurwitz's formula — now quoted, CITATIONS (Hurwitz-DK), Remark 3.3 PROVED-mod-cite (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)); DLMF 5.11.8 — the latter is no longer
   used here: Lemma 3 uses only Paper 2's (eq. binet-bound) via j_δ = j(t−δ) + r_δ), G5 (Theorem N.6 for M(β, ν)) (G2 for p < 1 is G23plt1 L2.1′; G5 is JZC_M3a_H.md §3.3) (fixed per Rule R
   review B, B3-1).
 - δ > 0 (phantom nodes) and p = 1 with δ ≠ 0 are not treated. No stored p < 1 fits at p = 0.3, 0.75 for δ < 0; d₃-level p < 1 data none.

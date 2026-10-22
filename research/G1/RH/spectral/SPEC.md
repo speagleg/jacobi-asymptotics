@@ -4,7 +4,7 @@ Status (2026-10-20): exploratory note from the Plan E3 session. Labels per VERIF
 - §§1–2 and §4: CONJECTURE / HEURISTIC / NUMERICAL (Rule N: fit half-ranges are spreads over fit choices, not error bounds).
 - §3.2: Lemma U (PROVED) and Theorem S2′ (PROVED-mod-cite), **REVIEWED** (Rule R: REVIEW_SPEC_A.md, ACCEPT WITH FIXES; fixes
   applied, §6). A single second reader; the other parts were reviewed for labels only.
-- §3.1: Lemma H is CONDITIONAL on Hurwitz's formula (unread under Rule C), with NUMERICAL confirmation.
+- §3.1: Lemma H is CONDITIONAL on Hurwitz's formula (unread under Rule C), with NUMERICAL confirmation. (Update 2026-10-22: Hurwitz's formula is now QUOTED, CITATIONS (Hurwitz-DK), for 0 < a ≤ 1, Re s < 0; see JZC_M3a_H Remark 3.3. Lemma H at a ∈ (0, 1] is therefore PROVED-mod-cite.)
 - §3.3: Proposition B, PROVED-mod-cite pending Rule C (Hadamard factorisation of Ai; the Mellin correspondence), NOT REVIEWED;
   NUMERICAL confirmation. This note builds on E3.md (REVIEWED), in particular its Lemma E3.7. Novelty: first pass done, §3.9.
 - §§3.3–3.13 (second round): **REVIEWED** for correctness of the stated evidence, derivations and labels (Rule R:

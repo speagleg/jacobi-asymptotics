@@ -2,7 +2,7 @@
 
 Rule R review B: ACCEPT WITH FIXES (research/G1/review/REVIEW_JZC_M3a_H_plt1_inputs_B.md); fixes B23-1 – B23-9 applied 2026-10-22.
 Status (2026-10-22): L2.1′–L2.5, P2.6, Lemma M and Lemma F.1_δ (i)–(iv) are **REVIEWED** (Rule R: review B re-derived the key steps
-and re-ran both checks byte-identically; fixes applied); Remark H stays NUMERICAL (Hurwitz's formula NOT QUOTED). The inputs
+and re-ran both checks byte-identically; fixes applied); Remark H is PROVED-mod-cite (CITATIONS (Hurwitz-DK)), NUMERICAL support kept, not yet second-read (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)). The inputs
 G12 L1.1, L1.2 are REVIEWED (JZC_M3a_H_G12.md header). Labels per VERIFICATION_POLICY.md. Closes
 items 2 and 3 of JZC_M3a_H.md §4 ("What is still open for (i)"). Setting: Hurwitz lattice λ_k = (k + δ)^p, k ≥ 1, **0 < p < 1,
 −1 < δ < 0**, a := 1 + δ, 1 < s < 1 + 2p, α := (s − 1 − p)/p ∈ (−1, 1), n ≥ n₀ fixed where stated. Seam objects (χ_±^δ, χ_δ, F_δ,
@@ -21,7 +21,7 @@ Checks: `checks/m3a_g23_apriori.py/.out` (gap 2), `checks/m3a_g23_F1.py/.out` (g
 | P2.6 | Prop apriori for Q♮, p < 1: \|Q♮\| ≤ C_{n,η,δ}\|z\|^{−\|α\|/2−η}; Q♮ → I; Cor L2 (Q♮_± ∈ I + ∂𝒞(L²)) | PROVED-mod-cite (Paper 2 L szego, L normalisation, Cor L2; G3 Lemma 3, Prop 4) + REVIEWED |
 | L M | majorants of the complex seam densities: ℓ₋ = conj ℓ₊, \|ℓ_±\| ≤ ℓ, \|ℓ_±′\| ≤ ℓ′, \|ℓ_±\| ≤ π + log(1/s_δ) | PROVED + REVIEWED + NUMERICAL |
 | F.1_δ | E_plt1 Lemma F.1 (i)–(iv) with ℓ_±: (i), (ii), (iv) hold with the listed line changes; (iii) gives the Fourier sum m_k(δ) = −(p/π)Γ(kp)(2πn)^{−kp}S_k(δ) (not ζ(−kp)/(kn^{kp})); the constants of (iv) are δ-free | PROVED-mod-cite (as E_plt1 F.1 + G3 Lemma 3 + G12 L1.2; DLMF 5.2.1, 25.2.1) + REVIEWED + NUMERICAL |
-| Rem H | m_k(δ) = ζ(−kp, 1+δ)/(kn^{kp}) | NUMERICAL (Hurwitz's formula NOT QUOTED) |
+| Rem H | m_k(δ) = ζ(−kp, 1+δ)/(kn^{kp}) | PROVED-mod-cite (CITATIONS (Hurwitz-DK)) + NUMERICAL; not yet second-read (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)) |
 
 ## 0. What Paper 2 does for p < 1 in App C, and the shape of the answer
 
@@ -213,10 +213,11 @@ Hence log H_n^δ(z) − log H_n^δ(1) = −2m_1(δ)(z − 1) − 2E_n^δ(z), i.e
 "(DLMF-zeta, Plan 67)"], with G3 Lemma 3 [REVIEWED] for the seam objects and G12 L1.2 for j_δ; DLMF 25.4.1 is no longer used.)
 *Proof.* E_plt1's proof with the changes listed line by line in §2.2; every line not listed there is used verbatim. ∎
 
-**Remark H (NUMERICAL; Hurwitz's formula NOT QUOTED).** m_k(δ) = ζ(−kp, 1+δ)/(kn^{kp}), i.e. λ_n^δ = 2ζ(−p, a)n^{−p}, μ^δ_{n,k} = 2m_k(δ) =
+**Remark H (PROVED-mod-cite (CITATIONS (Hurwitz-DK)); NUMERICAL support kept; updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)).** m_k(δ) = ζ(−kp, 1+δ)/(kn^{kp}), i.e. λ_n^δ = 2ζ(−p, a)n^{−p}, μ^δ_{n,k} = 2m_k(δ) =
 2ζ(−kp, a)/(kn^{kp}). Agreement to ≤ 2·10⁻²⁴ (relative) (fixed per Rule R review B, B23-9) for k ≤ 3, p ∈ {0.3, 0.6, 0.75}, δ ∈ {−0.02, −0.25, −0.5, −0.8, −0.98} ([E]); the
 controls (density with δ dropped; ζ(−kp, 1−δ)) fail (relative mismatch 0.01–220 for the d-dropped control; fixed per Rule R review B,
-B23-9). This is the p < 1 counterpart of JZC_M3a_H.md Remark 3.3.
+B23-9). This is the p < 1 counterpart of JZC_M3a_H.md Remark 3.3, whose proof (Hurwitz's formula, Dixit–Kumar Thm 1.1, at s = −kp,
+a = 1 + δ ∈ (0, 1)) applies verbatim, since F.1_δ (iii) gives the same Fourier sum (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)).
 
 ### 2.2 Line-by-line record: which lines of E_plt1 Lemma F.1 change
 
@@ -246,7 +247,7 @@ B23-9). This is the p < 1 counterpart of JZC_M3a_H.md Remark 3.3.
 | (iii) "−log(1 − e^{−u}) = Σe^{−mu}/m (non-negative terms, Tonelli)" | −Log(1 − e^{2πiδ}e^{−u}) = Σe^{2πimδ}e^{−mu}/m; terms complex: **Fubini**, with the absolutely convergent majorant Σ_m∫e^{−mu}u^{kp−1}du/m = Γ(kp)ζ(1+kp) < ∞ (the δ = 0 computation) | **CHANGED** (Tonelli → Fubini) |
 | (iii) DLMF 5.2.1 (∫e^{−mu}u^{kp−1}du = Γ(kp)m^{−kp}) | same | verbatim |
 | (iii) "= Γ(kp)ζ(1+kp) (DLMF 25.2.1); hence m_k = −(sin(πkp/2)/π)pΓ(kp)ζ(1+kp)(2πn)^{−kp}" | Im(e^{2πimδ}e^{−iπkp/2}) = −sin(πkp/2 − 2πmδ): m_k(δ) = −(p/π)Γ(kp)(2πn)^{−kp}S_k(δ); \|S_k(δ)\| ≤ ζ(1+kp) (DLMF 25.2.1) | **CHANGED** (value) |
-| (iii) DLMF 25.4.1 → ζ(−kp)/(kn^{kp}) | not available for δ ≠ 0; the identification with ζ(−kp, a)/(kn^{kp}) is Hurwitz's formula (NOT QUOTED): Remark H, NUMERICAL | **DROPPED** |
+| (iii) DLMF 25.4.1 → ζ(−kp)/(kn^{kp}) | not available for δ ≠ 0; the identification with ζ(−kp, a)/(kn^{kp}) is Hurwitz's formula (QUOTED, CITATIONS (Hurwitz-DK)): Remark H, PROVED-mod-cite + NUMERICAL (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)) | **DROPPED** |
 | (iv) Taylor expansion of K for \|ζ\| ≥ 2R₁ | same | verbatim |
 | (iv) far part: "∫_{2R₁}^∞ℓr^{−K−2} ≤ ∫_0^∞ℓr^{−K−2} = n^{−(K+1)p}p(2π)^{−(K+1)p}Γ((K+1)p)ζ(1+(K+1)p)" | \|ℓ_±\| ≤ ℓ (M2): same bound, δ-free | **CHANGED** (via M2) |
 | (iv) near part: "ℓ(r) ≤ 2e^{−2πnr^{−1/p}} …, ℓ′(r) = O(nr^{−1−1/p}e^{−2πnr^{−1/p}})"; near parts of m_k; z away from the seams | (M2), (M3) | **CHANGED** (via M2, M3) |
@@ -351,10 +352,12 @@ sin(0.9π)), loosened from 0.1 to 0.4 and supplemented by the next-order check. 
 ## 5. What remains
 
 - **Rule R:** done for everything here (review B, research/G1/review/REVIEW_JZC_M3a_H_plt1_inputs_B.md) and for its inputs G3 Lemma 3,
-  Prop 4, Cor 5 (same review) and G12 L1.1, L1.2 (review B of the assembly, REVIEW_JZC_M3a_H_assembly_B.md §A). Remark H stays NUMERICAL.
+  Prop 4, Cor 5 (same review) and G12 L1.1, L1.2 (review B of the assembly, REVIEW_JZC_M3a_H_assembly_B.md §A). Remark H is now PROVED-mod-cite (CITATIONS (Hurwitz-DK)); that citation step has not had a
+  second reader (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)).
 - Theorem H, item 1 of JZC_M3a_H.md §4 (the n-uniform hard-edge comparison with Szegő exponent β′, in the α-frame of L2.3/L2.3′): not
   touched. Item 4 (H-a written out): not touched. With this note, items 2 and 3 are closed for 0 < p < 1, −1 < δ < 0 (Rule R review B done).
-- Hurwitz's formula remains NOT QUOTED; the band factor is stated with the Fourier sums S_k(δ) (F.1_δ (iii)).
+- Hurwitz's formula is QUOTED (CITATIONS (Hurwitz-DK)); the band factor is stated with the Fourier sums S_k(δ) (F.1_δ (iii)),
+  equal to ζ(−kp, 1+δ)/(kn^{kp}) by Remark H (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)).
 - The constants of L2.4–L2.5 are fixed-n; n-uniform versions are part of item 1.
 - **For FIXES (via a human; Rule 1):** Paper 2, Lemma seam (iv), (O5) "near ∞": "In S_in ∩ {|z| ≥ n^p+δ′} … D, B_in, K and e^χ are bounded
   above and below by powers of |z|". For e^χ next to the seams this needs the window argument of Lemma corner (iii) at ∞ (corner (ii)

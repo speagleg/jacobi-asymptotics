@@ -25,8 +25,9 @@ Setting:
 - σ^δ := Σ_{k≥1}(k + δ)^{−s}δ_{(k+δ)^{−p}}, the measure on the reciprocals of the Hurwitz lattice;
 - α := (s − 1 − p)/p, c = c(p) (the lattice constant; the continuum density is unchanged);
 - the shifted Szegő exponent **β′ := α + 2δ** (= α − 2Z(0) − 1, where Z(0) = ζ(0, a) = −½ − δ);
-- the band-factor parameters μ^δ_{n,j} := 2m_j(δ), where m_j(δ) is given by the Fourier sum of §3.2
-  (= ζ(−jp, a)/(jn^{jp}), Remark 3.3 (NUMERICAL; NOT QUOTED); fixed per Rule R review B, C-4) (fixed per H-c: the former "2m_j(δ)n^{jp}" was n-free; JZC_M3a_H_Hc.md §0).
+- the band-factor parameters μ^δ_{n,j} := 2m_j(δ) = 2ζ(−jp, a)/(jn^{jp}), where m_j(δ) is the Fourier sum of §3.2 and the
+  equality is Remark 3.3 (PROVED-mod-cite (CITATIONS (Hurwitz-DK)); the Fourier-sum form remains equivalent; NUMERICAL support kept)
+  (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)); fixed per Rule R review B, C-4) (fixed per H-c: the former "2m_j(δ)n^{jp}" was n-free; JZC_M3a_H_Hc.md §0).
 
 **Theorem H (target; status per §4).**
 - (i) *Reduction.* For every K, J, B, the expansion of n^pb_n(σ^δ)/c is the double expansion of Theorem N.6(i) for the
@@ -37,8 +38,9 @@ Setting:
   n^pb_n/c = (n/N)^p[1 + f₂N⁻² + f₄N⁻⁴ + Σ_jε_j(δ)N^{−1−jp}(1 + g_jN⁻²) + …]
 
   - f_{2k} = f_{2k}(p, α) are the lattice integer-layer coefficients (JZC_M4 §5): the integer layer does not depend on δ in N;
-  - ε_j(δ) := C(2j, j)pc^j·(−(jp/π)Γ(jp)(2π)^{−jp}S_j(δ)) (§3.2); = C(2j, j)pc^jζ(−jp, a) by Remark 3.3 (classical; NOT QUOTED
-    under Rule C; NUMERICAL to 10⁻²⁷ for p > 1, 2·10⁻²⁴ for p < 1) (fixed per Rule R review B, C-4);
+  - ε_j(δ) = C(2j, j)pc^jζ(−jp, a), equivalently the Fourier-sum form C(2j, j)pc^j·(−(jp/π)Γ(jp)(2π)^{−jp}S_j(δ)) (§3.2), by
+    Remark 3.3 (PROVED-mod-cite (CITATIONS (Hurwitz-DK)); NUMERICAL support to 10⁻²⁷ for p > 1, 2·10⁻²⁴ for p < 1)
+    (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)) (fixed per Rule R review B, C-4);
   - g_j(p, α) are the lattice dressings (JZC_M4 §6).
 
   This is **rule H** (SPEC §3.11(a)) at the orders of Theorem N.6, with the β′-independence of the natural form supplied by
@@ -70,10 +72,14 @@ Setting:
   is the hard-edge statement of H-b: nothing changes at 0. **Superseded (G12 L1.1, G3 Lemma 3):** the exact shift identity
   j_δ(t) = j(t−δ) + (t−δ−½)Log(1−δ/t) + δ reduces every bound on j_δ to Paper 2's own Binet bound on j, so the proof no longer
   uses DLMF 5.11.8. The quotation is kept for the record only.
-- **Hurwitz's formula (DLMF 25.11.9) is NOT QUOTED.** No source we could read in full shows it: the DLMF page truncates before
-  25.11.9 under our fetcher, and the Wikipedia text has the formulas stripped. Theorem H is therefore stated with the band-factor
-  moments as the explicit Fourier sums that the proof produces (§3.2). The identification with ζ(−jp, a) is Remark 3.3:
-  classical, and NUMERICAL (10⁻²⁷ for p > 1, spec_hurwitz_moments.out; 2·10⁻²⁴ for p < 1, m3a_g23_F1.out [E]; per Rule R review B, B3-2).
+- **Hurwitz's formula is QUOTED** (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)): CITATIONS (Hurwitz-DK)
+  quotes it from Dixit–Kumar, arXiv:1912.01199v1, Theorem 1.1 (hypotheses 0 < a ≤ 1, Re s < 0, verbatim; a secondary source quoting
+  Titchmarsh (2.17.3)); DLMF 25.11.9 itself still truncates under our fetcher. Applied at s = −kp, a = 1 + δ (both hypotheses hold for
+  k ≥ 1, p > 0, −1 < δ ≤ 0). The proof produces the band-factor moments as the explicit Fourier sums (§3.2); their identification with
+  ζ(−jp, a) is Remark 3.3, now PROVED-mod-cite (CITATIONS (Hurwitz-DK)), so Theorem H is stated with ζ(−jp, a) directly (the Fourier-sum
+  form remains equivalent). NUMERICAL support kept: 10⁻²⁷ for p > 1, spec_hurwitz_moments.out; 2·10⁻²⁴ for p < 1, m3a_g23_F1.out [E]
+  (per Rule R review B, B3-2); the formula itself against mpmath at 96 comparisons to 5·10⁻⁴², control fails (checks/m3a_hurwitz_formula.out).
+  (Previously: NOT QUOTED, the DLMF page truncating before 25.11.9 and the Wikipedia text having the formulas stripped.)
 
 ### 3.2 The band-factor moments as Fourier sums (H-c)
 SPEC §3.1 (p > 1) and its p < 1 analogue compute the moments directly from the Binet-cut and seam integrals:
@@ -87,12 +93,18 @@ With these (SPEC §3.1, proof of Lemma H, first two steps; no Hurwitz formula ne
 
 This needs only DLMF 5.2.1 (p < 1) or 5.9.1 (p > 1), DLMF 25.2.1, and absolute convergence; the Fubini bound is that of E3 Lemma
 F.1′ (p > 1; Hc.2) or E_plt1 Lemma F.1 with complex densities (p < 1; G23plt1 F.1_δ) (fixed per Rule R review B, C-5). Theorem H
-uses μ^δ_{n,k} := 2m_k(δ), and so ε_j(δ) := C(2j, j)pc^j·(−(jp/π)Γ(jp)(2π)^{−jp}S_j(δ)) in place of C(2j, j)pc^jζ(−jp, a).
+uses μ^δ_{n,k} := 2m_k(δ), and so ε_j(δ) = C(2j, j)pc^j·(−(jp/π)Γ(jp)(2π)^{−jp}S_j(δ)), which is C(2j, j)pc^jζ(−jp, a) by Remark 3.3
+(updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)).
 For p < 1 the seam integrals give the same Fourier sum (SPEC §3.1, "p < 1"; spec_hurwitz_moments_plt1.out).
 
-**Remark 3.3.** By Hurwitz's formula the Fourier sum equals ζ(−kp, a)/(kn^{kp}), so ε_j(δ) = C(2j, j)pc^jζ(−jp, a). This is
-checked numerically to 10⁻²⁷ for p ∈ {1.25, 1.5, 3}, δ ∈ {0, −½, 0.3, 1.4}; for p < 1 to 2·10⁻²⁴ (m3a_g23_F1.out [E]) (fixed per Rule R
-review B, B3-2). NOT QUOTED under Rule C.
+**Remark 3.3** (PROVED-mod-cite (CITATIONS (Hurwitz-DK)); updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)).
+m_k(δ) = ζ(−kp, a)/(kn^{kp}), so ε_j(δ) = C(2j, j)pc^jζ(−jp, a). *Proof.* Hurwitz's formula (Dixit–Kumar Thm 1.1; 0 < a ≤ 1, Re s < 0)
+at s = −kp (Re s = −kp < 0) and a = 1 + δ ∈ (0, 1]: cos(2πma) = cos(2πmδ), sin(2πma) = sin(2πmδ), sin(−πkp/2) = −sin(πkp/2), so the
+bracket is Σ_m[−sin(πkp/2)cos(2πmδ) + cos(πkp/2)sin(2πmδ)]/m^{1+kp} = −S_k(δ); and 2Γ(1+kp)(2π)^{−1−kp} = (kp/π)Γ(kp)(2π)^{−kp}.
+Hence ζ(−kp, a) = −(kp/π)Γ(kp)(2π)^{−kp}S_k(δ) = kn^{kp}m_k(δ) by §3.2. ∎ (Derivation as in CITATIONS (Hurwitz-DK).) NUMERICAL support:
+checked to 10⁻²⁷ for p ∈ {1.25, 1.5, 3} at the Hurwitz parameters a ∈ {0.5, 0.3, 0.75, 0.4} of spec_hurwitz_moments.out (stored there as δ ∈ {−0.5, 0.3, 0.75, 1.4}, compared at a = frac(δ); corrected 2026-10-22), and to 5·10⁻⁴² at a = 1+δ, δ ∈ {0, −0.3, −0.5, −0.9} (m3a_hurwitz_formula.out); for p < 1 to 2·10⁻²⁴ (m3a_g23_F1.out [E]) (fixed per Rule R
+review B, B3-2); the formula at 96 points to 5·10⁻⁴² (checks/m3a_hurwitz_formula.out). This citation step has not had a second reader
+(Rule R). (Previously: NOT QUOTED under Rule C, NUMERICAL only.)
 
 ### 3.3 G5: the decoupled model
 - Lemmas N.6a–c hold for M(β, ν) verbatim. β enters the model only through ρ² = φ^{2(β+1)} (hard edge) and φ^{−2(β+1)} (soft edge)
@@ -204,9 +216,13 @@ review B, B3-2). NOT QUOTED under Rule C.
   0 < p < 1 every memo-level link is REVIEWED (Ha, Hd (i)–(iii), G12, G1u, Hc.1–Hc.4; G3, G23plt1, G1u_plt1, Hc.5; m3a_e37_decoupled;
   **JZC_M4_proof Theorem N.6 / Lemmas N.6a–d**, REVIEWED since Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md, fixes M1–M5
   applied). So **(i) is PROVED-mod-cite and REVIEWED for p ≠ 1** (every memo-level link REVIEWED), with the band-factor constants as
-  the Fourier sums S_j(δ) of §3.2 (the identification with ζ(−jp, a), Remark 3.3, is NUMERICAL; Hurwitz's formula NOT QUOTED)
-  (updated 2026-10-22 after Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md). (The extension of N.6a–c from the lattice to M(β′, α) is §3.3, checked by Rule R review B of the assembly, B-3, and used
-  inside the REVIEWED Prop G1u (B) / Prop G1u′ (B).) Band-factor constants: the Fourier sums; Remark 3.3 (ζ(−jp, a)) NUMERICAL. Numerically, (i) is confirmed against all stored Hurwitz fits (m3a_hd_model.out, 42 checks; m3a_g3_model.out, 25
+  the Fourier sums S_j(δ) of §3.2 (updated 2026-10-22 after Rule R review B of JZC_M4_proof, REVIEW_JZC_M4_proof_B.md). With Remark 3.3
+  (PROVED-mod-cite (CITATIONS (Hurwitz-DK))), (i) holds with ε_j = C(2j, j)pc^jζ(−jp, a) (μ^δ_{n,j} = 2ζ(−jp, a)/(jn^{jp})) directly: that
+  form is **PROVED-mod-cite (adds CITATIONS (Hurwitz-DK))**; the REVIEWED marker covers the Fourier-sum form and everything else, while
+  this new citation step (CITATIONS (Hurwitz-DK) and Remark 3.3) has not had a second reader (Rule R) (updated 2026-10-22: Hurwitz's
+  formula quoted, CITATIONS (Hurwitz-DK)). (The extension of N.6a–c from the lattice to M(β′, α) is §3.3, checked by Rule R review B of the assembly, B-3, and used
+  inside the REVIEWED Prop G1u (B) / Prop G1u′ (B).) Band-factor constants: the Fourier sums = ζ(−jp, a)/(jn^{jp}) by Remark 3.3, PROVED-mod-cite
+  (CITATIONS (Hurwitz-DK)), NUMERICAL support kept (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)). Numerically, (i) is confirmed against all stored Hurwitz fits (m3a_hd_model.out, 42 checks; m3a_g3_model.out, 25
   checks, p < 1).
 - **(ii)** follows from (i) and Prop S at the exact orders: the integer layer to N⁻⁴ and the first-order zeta layer with its
   N⁻²-relative dressing, every j ≥ 1 (j = 1, 2, 3 and symbolic j, m3a_g5_exact; per Rule R review B, B-1, C-9), at every β. The
@@ -214,7 +230,8 @@ review B, B3-2). NOT QUOTED under Rule C.
   beyond them (ii) is CONDITIONAL on Conjecture Σ, with NUMERICAL support to order 8 (m4_shift_num.out, 108 checks) and for
   the zeta layer (m4_shift_zeta.out, 40 checks).
 - **Band-factor constants.** These are the Fourier sums S_j(δ) (§3.2), unconditionally. The identification with ζ(−jp, a) is
-  Remark 3.3 (classical; NOT QUOTED under Rule C; NUMERICAL).
+  Remark 3.3: PROVED-mod-cite (CITATIONS (Hurwitz-DK)), not yet second-read (Rule R); NUMERICAL support kept (updated 2026-10-22:
+  Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)).
 
 **Not covered:** δ > 0 (phantom nodes); p = 1 with δ ≠ 0.
 
@@ -233,7 +250,8 @@ per Rule R review B, C-6; a human should decide which reading the repo uses and 
 **Rule R reviews B (2026-10-22)** (reviewer B; each re-derived the key steps and re-ran the checks byte-identically):
 - research/G1/review/REVIEW_JZC_M3a_H_plt1_inputs_B.md: JZC_M3a_H_G3.md and JZC_M3a_H_G23plt1.md ACCEPT WITH FIXES (B3-1 – B3-7,
   B23-1 – B23-9, all MINOR/typo/INFO, applied). REVIEWED: G3 Lemmas 1–3 (incl. (ii′), (iii′)), Prop 4, Cor 5 (i)–(iii); G23plt1
-  L2.1′–L2.5, P2.6, Lemma M, F.1_δ (i)–(iv). Remark H stays NUMERICAL (Hurwitz's formula NOT QUOTED).
+  L2.1′–L2.5, P2.6, Lemma M, F.1_δ (i)–(iv). Remark H stayed NUMERICAL at that review; it is now PROVED-mod-cite (CITATIONS
+  (Hurwitz-DK)), not yet second-read (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)).
 - research/G1/review/REVIEW_JZC_M3a_H_plt1_G1up_B.md: JZC_M3a_H_G1u_plt1.md ACCEPT / ACCEPT WITH FIXES (P3-1, G-1, P1-1, N-1 – N-4,
   applied; m3a_g1up_hardedge re-run after N-1), Hc.5 ACCEPT WITH FIXES (Hc5-1, Hc5-2, applied); H-1 applied here. REVIEWED: L P1–P5,
   Prop G1u′ (A), (B); Hc.5.

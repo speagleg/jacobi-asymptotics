@@ -20,7 +20,7 @@ Checks: `checks/m3a_hc_pgt1.py/.out` (Lemmas Hc.1–Hc.2), `checks/m3a_hc_gauge.
 | Hc.3 | the gauge (E3 Lemma E3.5 / JZC_M4_proof N.6a, band part) in G1u's α-frame, p > 1: for every k and J, uniformly on both circles, Δ_k♮ = G_{μ^δ_n}Δ_k^{mod,β′}G_{μ^δ_n}^{−1} + O(n^{−(J+1)p}), μ^δ_{n,j} := 2m_j(δ) | PROVED-mod-cite (Hc.2; E3 Lemma E3.4 [REVIEWED]; Paper 2 (eq:szego-repr); G1u L1, L2 [REVIEWED, review A of the p>1 chain]) |
 | Cor Hc.4 | H-c holds for p > 1: Prop G1u (B) no longer depends on H-c; item 5 of JZC_M3a_H §4 is closed for p > 1 | PROVED-mod-cite + REVIEWED (Rule R review A of the p>1 chain) |
 | Hc.5 | p < 1: the gauge of Hc.3 with the seam band factor (complex densities ℓ_±; circles crossing the seams, sector-wise) | PROVED-mod-cite given G23plt1 Lemma F.1_δ (iv) (REVIEWED) + REVIEWED (Rule R review B); the hard-edge data in the α-frame are JZC_M3a_H_G1u_plt1.md (L P2–P3), not part of H-c (fixed per Rule R review B, Hc5-1) |
-| Rem | m_k(δ) = ζ(−kp, 1+δ)/(kn^{kp}) | NUMERICAL only (JZC_M3a_H Remark 3.3; Hurwitz's formula NOT QUOTED) |
+| Rem | m_k(δ) = ζ(−kp, 1+δ)/(kn^{kp}) | PROVED-mod-cite (CITATIONS (Hurwitz-DK)) + NUMERICAL (JZC_M3a_H Remark 3.3; not yet second-read) (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)) |
 
 ## 0. Setting, notation, what is reused
 
@@ -135,7 +135,7 @@ At δ = 0, S_k(0) = sin(πkp/2)ζ(1+kp) and DLMF 25.4.1 at s = 1 + kp gives ζ(�
 (PROVED-mod-cite: Hc.1; DLMF 5.9.1, 25.2.1 (and 25.4.1 at δ = 0 only), quoted in RH/CITATIONS.md "(Plan E3)", "(DLMF-zeta, Plan 67)";
 both entries now record this reuse ("Also used in: JZC_M3a_H_Hc") (fixed per Rule R review A of the p>1 chain, Hc-1).)
 
-*Remark (NUMERICAL, not used; Hurwitz's formula NOT QUOTED).* m̂_k(δ) = ζ(−kp, 1+δ)/k (JZC_M3a_H Remark 3.3), so μ^δ_{n,j} =
+*Remark (PROVED-mod-cite (CITATIONS (Hurwitz-DK)), NUMERICAL support; not used in Hc.1–Hc.5; updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)).* m̂_k(δ) = ζ(−kp, 1+δ)/k (JZC_M3a_H Remark 3.3), so μ^δ_{n,j} =
 2ζ(−jp, a)/(jn^{jp}); confirmed again in m3a_hc_pgt1 [3] (k ≤ 3, 12 (p, δ), ≤ 10⁻²⁵ relative).
 
 ### 2.1 Line-by-line record: E3 Lemma F.1′ → Hc.2
@@ -234,7 +234,7 @@ fail and do (C1: 9, C2: 6, C3: 24).
   when q_δ > 0, asserted ≤ 1 + 10⁻¹²).
 - [2] (E.2.1)_δ: G_δ(z) − G_δ(1) from the **construction** (−j_δ + log B_δ, B_δ by quadrature of 𝔟_δ) equals the Cauchy integral of 𝔢_δ at 5
   points (4c + 1, 2 + 1.5i, −1.5 + 0.5i, −2 + 10⁻⁶i, 0.3), n = 8: ≤ 10⁻³³.
-- [3] m_k(δ) by quadrature = Fourier sum (residue classes mod 20; cross-checked by lerchphi), k ≤ 3; δ = 0 = ζ(−kp)/(kn^{kp}); Remark 3.3 (NUMERICAL).
+- [3] m_k(δ) by quadrature = Fourier sum (residue classes mod 20; cross-checked by lerchphi), k ≤ 3; δ = 0 = ζ(−kp)/(kn^{kp}); Remark 3.3 (NUMERICAL check of a statement now PROVED-mod-cite (CITATIONS (Hurwitz-DK)), updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)).
 - [4] remainder: r_K := [G_δ(z) − G_δ(1)] − Σ_{k≤K}m_k(δ)(z^k − 1), K = 1, 2, n = 8…64 (p = 3: …32), 7 points incl. |z| = R₁ and both sides of
   (−R₁, 0): n^{(K+1)p}max|r_K| below the δ-free majorant 2M̄_{K+1}max|z^{K+1} − 1|, and r_K/(m_j(z^j − 1)) → 1 at rate n^{−p} (j the first index
   > K with m_j(δ) ≠ 0: j = 3 at p = 3, δ = 0, K = 1, where m₂(0) = 0 — but m₂(δ) ≠ 0 for δ ≠ 0).
@@ -297,5 +297,6 @@ errors 18 → 2.9·10⁵ (growing like n^p).
 - p < 1: Hc.5 rests on G23plt1 Lemma F.1_δ (REVIEWED); the α-frame glued hard-edge parametrix is JZC_M3a_H_G1u_plt1.md (L P2–P3), which
   also gives an independent proof of Hc.5 (L P5); the a-priori bound (item 2) is G23plt1 (fixed per Rule R review B, Hc5-1); both are
   outside H-c.
-- Hurwitz's formula is still NOT QUOTED: Theorem H's constants are the Fourier sums S_j(δ); their identification with ζ(−jp, a) is NUMERICAL.
+- Hurwitz's formula is QUOTED (CITATIONS (Hurwitz-DK)): Theorem H's constants are the Fourier sums S_j(δ); their identification with
+  ζ(−jp, a) is JZC_M3a_H Remark 3.3, PROVED-mod-cite (CITATIONS (Hurwitz-DK)), NUMERICAL support kept (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)).
 - Notation corrections applied in JZC_M3a_H.md §1 (μ^δ_{n,j} = 2m_j(δ)) and §3.2 (DLMF 5.9.1 for p > 1).

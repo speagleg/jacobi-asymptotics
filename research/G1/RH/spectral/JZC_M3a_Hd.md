@@ -21,7 +21,7 @@ External results not read under Rule C are marked NOT QUOTED. Everything quoted 
 (i), and only (i), in the frame where Paper 2's normalisation stays U z^{−nσ₃}: the Hurwitz problem at degree n is the lattice-type
 problem with **Szegő exponent β′ = α + 2δ** (= α − 2Z(0) − 1, Z(0) = ζ(0, a) = −½ − δ), **Bessel order unchanged (ν = α)**, the same
 g-function, the same n^p scaling, and band factor H_n^δ (μ^δ_{n,k} = 2m_k(δ), the Fourier sums of JZC_M3a_H.md §3.2
-(JZC_M3a_H_Hc.md Lemma Hc.2); = 2ζ(−kp, a)/(kn^{kp}) by Remark 3.3 (NUMERICAL)) (fixed per Rule R review A of the p>1 chain, Hd-2). By the exact gauge (−z)^{δσ₃} this is the same
+(JZC_M3a_H_Hc.md Lemma Hc.2); = 2ζ(−kp, a)/(kn^{kp}) by Remark 3.3 (PROVED-mod-cite (CITATIONS (Hurwitz-DK)); NUMERICAL support) (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK))) (fixed per Rule R review A of the p>1 chain, Hd-2). By the exact gauge (−z)^{δσ₃} this is the same
 problem as (ii) "Szegő α, normalisation z^{(n+δ)σ₃}" in the n^p frame (no rescaling). Not (iii). Natural index
 N = n + (β′+1)/2 = n + α/2 + ½ + δ, as rule H requires. Identifying the result with "the lattice at degree n + δ" (the form
 (n/(n+δ))^pΦ(n+δ) of rule H) is Conjecture Σ, which H-d does not need and does not prove.
@@ -105,7 +105,7 @@ Q♮ = k_∞^{−σ₃}(Uz^{−nσ₃})k^{σ₃} near ∞ with U the **degree-n*
 near 0, ω♮ = ω^{(β′)}e^{±2πiδ}, whose band limits are e^{∓iπβ′}e^{±2πiδ} = e^{∓iπα} = c_±: the hard-edge model is Paper 2's
 order-α Bessel model, glued with the Szegő function of x^{β′}. This is JZC_M4 §7's decoupled problem **M(β′ = α + 2δ, ν = α)**,
 with band factor H_n^δ = e^{−P_n^δ}(1 + O(n^{−(K+1)p})), μ^δ_{n,k} = 2m_k(δ), the Fourier sums of JZC_M3a_H.md §3.2 (JZC_M3a_H_Hc.md
-Lemma Hc.2); = 2ζ(−kp, a)/(kn^{kp}) by Remark 3.3 (NUMERICAL) (fixed per Rule R review A of the p>1 chain, Hd-2).
+Lemma Hc.2); = 2ζ(−kp, a)/(kn^{kp}) by Remark 3.3 (PROVED-mod-cite (CITATIONS (Hurwitz-DK)); NUMERICAL support) (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)) (fixed per Rule R review A of the p>1 chain, Hd-2).
 (iv) A priori bound: F♮D_W = F_δD_W^{(α)}·[(−z)^{−δ}D_{x^{2δ}}] and G := [·] = (4c/Υ)^δe^{±iπδ} in ℂ_± with principal branches
 (arg Υ ∈ (0, π) in ℂ₊); only its modulus |G| = |4c/Υ|^δ is used (G12 L2.3), so G is bounded above and below near 0
 (Υ(0) = −4c) (re-corrected per Rule R review A of G12, F3: the identity holds with principal branches; only |G| = |4c/Υ|^δ is
@@ -190,7 +190,8 @@ For H-d (frame 1), p > 1:
 - G3. p < 1: the seam construction (Lemma seam) with j_δ; Γ(t − δ) has its poles at t = δ − m on arg z = ±πp, inside S_out where D is
   not used. Expected: the seam densities grow like (δ/p)log ζ, so χ produces the same (−z)^δ at ∞ (the monodromy argument of §2 is
   geometry-free and fixes the exponent mod 1; continuity in δ fixes it). Not computed.
-- G4. Hurwitz's formula (Lemma H, DLMF 25.11.9 / Apostol Thm 12.6) and DLMF 5.11.8: NOT QUOTED (Rule C). DLMF 5.11.8 is no
+- G4. Hurwitz's formula (Lemma H, DLMF 25.11.9 / Apostol Thm 12.6): QUOTED from Dixit–Kumar arXiv:1912.01199v1 Thm 1.1, CITATIONS
+  (Hurwitz-DK); Remark 3.3 is PROVED-mod-cite (CITATIONS (Hurwitz-DK)) (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)). DLMF 5.11.8: NOT QUOTED (Rule C). DLMF 5.11.8 is no
   longer needed, see (2.1) (corrected 2026-10-21, see G12 §5).
 - G5. Theorem N.6 for the decoupled model M(β, ν): its proof enters β only through ρ² = φ^{2(β+1)} (hard edge) and φ^{−2(β+1)} (soft edge) (definition of M(β, ν), JZC_M4 §7;
   m4_rh_exact2 l. 195, 218). Both are bounded above and below on the circles and jump across the band (ρ₊ρ₋ = 1 there); the Δ_k^{mod}

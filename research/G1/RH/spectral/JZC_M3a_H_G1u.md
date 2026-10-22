@@ -291,7 +291,7 @@ So in the regime |β′| ≥ 1, down to β′ = −2.1, the Jacobi coefficients 
 third coefficient (d₃ at p = 3 is an m4_rh4 output, not a closed form fitted here), and the lattice (δ ignored) and H2 (Bessel order
 shifted with β′) are excluded by 10⁴–10⁵ tolerances. This is evidence for the *conclusion* of Prop G1u + N.6 (and of Theorem H(i)) at
 |β′| ≥ 1, not for the uniform bounds themselves. ε₁ is β-free (not discriminating); its prediction uses mpmath's ζ(−p, a), i.e. the
-identification of Remark 3.3 (NUMERICAL).
+identification of Remark 3.3 (PROVED-mod-cite (CITATIONS (Hurwitz-DK)); NUMERICAL support) (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)).
 
 ## 6. Rule A (adversarial pass) — log
 
