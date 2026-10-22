@@ -1,0 +1,54 @@
+w_outer_e2e.py run at 2026-10-22 09:56:22 MDT
+KO1: p=2.5 d=-0.3 kappa=0.3 s=2.0: alpha=-0.6  beta'=-1.2  Z(0)=-0.2 (series -0.2)  beta_A1=-1.6
+   R  (M(alpha+2d, alpha)): d1 = 0.25, d2 = 0.132916666667, d3 = 0.0466875, d4 = 0.0288511010599
+   W  : n^-1: 0.25, n^-2: 0.1329166667, n^-2.5: 0.1970441048, n^-3: 0.0466875, n^-3.5: -0.3809443463
+                      toda mu1 at n^-3.5: -0.4794663987
+                    pole q=0.6 at n^-2.5: 0.1970441048
+              pole-shift q=0.6 at n^-3.5: 0.09852205242
+KO2: p=2.5 d=-0.3 kappa=-0.3 s=2.0: alpha=-0.6  beta'=-1.2  Z(0)=-0.2 (series -0.2)  beta_A1=-2.4356017
+   R  (M(alpha+2d, alpha)): d1 = 0.25, d2 = 0.132916666667, d3 = 0.0466875, d4 = 0.0288511010599
+   W  : n^-1: 0.25, n^-2: 0.1329166667, n^-2.5: -0.1970441048, n^-3: 0.0466875, n^-3.5: 0.407232073
+                      toda mu1 at n^-3.5: 0.5057541254
+                    pole q=0.6 at n^-2.5: -0.1970441048
+              pole-shift q=0.6 at n^-3.5: -0.09852205242
+KO3: p=1.5 d=-0.4 kappa=0.4 s=2.5: alpha=0.0  beta'=-0.8  Z(0)=-0.1 (series -0.1)  beta_A1=-1.0
+   R  (M(alpha+2d, alpha)): d1 = -0.15, d2 = 0.227083333333, d3 = -0.0751041666667, d4 = 0.0539119591346
+   W  : n^-1: -0.15, n^-1.5: -0.2265089372, n^-2: 0.2270833333, n^-2.5: -0.07408890983, n^-3: -0.1606146644, n^-3.5: 0.0568166364
+                      toda mu1 at n^-2.5: -0.142041591
+                      toda mu1 at n^-3.5: 0.0568166364
+                 pole q=0.3333 at n^-1.5: -0.2265089372
+           pole-shift q=0.3333 at n^-2.5: 0.06795268117
+                  pole q=1.333 at n^-3.0: -0.08551049775
+predictions file time 2026-10-22 09:41:13
+=== KO1 (wO_p2.5_d-0.3_k0.3_s2.0__158d77e30df26e38.txt; 0 s) ===
+  n^-1.0: fit +0.250000000 (half-range 1.4e-07)  W +0.250000000 (diff +1.2e-10, 0.00 tol)  R +0.250000000 (0.00 tol)
+      control A0 beta=alpha: -0.500000000  misses by 300000 tol  (FAILS as required)
+      control A1 beta from F_kappa at infinity: +0.750000000  misses by 200000 tol  (FAILS as required)
+  n^-2.0: fit +0.132916618 (half-range 6.7e-05)  W +0.132916667 (diff -4.9e-08, 0.00 tol)  R +0.132916667 (0.00 tol)
+      control A0 at n^-2: +0.264166667 misses by 649 tol
+  n^-2.5: fit +0.197043934 (half-range 1.3e-05)  W +0.197044105 (diff -1.7e-07, 0.00 tol)
+      control 'no pole term': +0.000000000 misses by 5112.4 tol
+  n^-3.0: fit +0.046687346 (half-range 3.8e-04)  W +0.046687500 (diff -1.5e-07, 0.00 tol)
+  n^-3.5: fit -0.380982583 (half-range 1.1e-02)  W -0.380944346 (diff -3.8e-05, 0.00 tol)
+      control 'no pole term': -0.479466399 misses by 2.9 tol (weak)
+      control 'Toda time without the gauge share 2 kappa zeta(0,a) = -0.1200': -0.183900241 misses by 5.8 tol (weak)
+=== KO2 (wO_p2.5_d-0.3_k-0.3_s2.0__65803fc1e4e612a0.txt; 1 s) ===
+  n^-1.0: fit +0.250000000 (half-range 4.3e-07)  W +0.250000000 (diff +3.6e-11, 0.00 tol)  R +0.250000000 (0.00 tol)
+      control A0 beta=alpha: -0.500000000  misses by 300000 tol  (FAILS as required)
+      control A1 beta from F_kappa at infinity: +1.794502126  misses by 617801 tol  (FAILS as required)
+  n^-2.0: fit +0.132916688 (half-range 7.5e-05)  W +0.132916667 (diff +2.1e-08, 0.00 tol)  R +0.132916667 (0.00 tol)
+      control A0 at n^-2: +0.264166667 misses by 585 tol
+  n^-2.5: fit -0.197043709 (half-range 6.8e-06)  W -0.197044105 (diff +4.0e-07, 0.02 tol)
+      control 'no pole term': +0.000000000 misses by 9722.0 tol
+  n^-3.0: fit +0.046682827 (half-range 2.4e-04)  W +0.046687500 (diff -4.7e-06, 0.01 tol)
+  n^-3.5: fit +0.407190193 (half-range 7.3e-03)  W +0.407232073 (diff -4.2e-05, 0.00 tol)
+      control 'no pole term': +0.505754125 misses by 4.5 tol (weak)
+      control 'Toda time without the gauge share 2 kappa zeta(0,a) = +0.1200': +0.210187968 misses by 9.0 tol (weak)
+=== KO3 (wO_p1.5_d-0.4_k0.4_s2.5__a3d54ee405ff3585.txt; 0 s) ===
+  n^-1.0: fit -0.149999987 (half-range 1.4e-05)  W -0.150000000 (diff +1.3e-08, 0.00 tol)  R -0.150000000 (0.00 tol)
+      control A0 beta=alpha: -0.750000000  misses by 14785 tol  (FAILS as required)
+      control A1 beta from F_kappa at infinity: +0.000000000  misses by 3696 tol  (FAILS as required)
+  n^-1.5: fit -0.226508433 (half-range 3.3e-05)  W -0.226508937 (diff +5.0e-07, 0.01 tol)
+      control 'no pole term': +0.000000000 misses by 2259.6 tol
+  n^-2.0: fit +0.227084442 (half-range 2.6e-04)  W +0.227083333 (diff +1.1e-06, 0.00 tol)
+ALL 44 CHECKS PASSED
