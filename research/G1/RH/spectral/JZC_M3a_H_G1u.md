@@ -1,7 +1,10 @@
 # JZC M3a, gap 1 of Theorem H: the n-uniform hard-edge comparison with Szegő exponent β′ = α + 2δ (p > 1)
 
-Status (2026-10-21): NOT REVIEWED (Rule R pending). Labels per VERIFICATION_POLICY.md. Closes, modulo review and the inputs
-listed in §4, item 1 of JZC_M3a_H.md §4 ("the n-uniform hard-edge comparison with Szegő exponent β′") for **p > 1, −1 < δ ≤ 0,
+Rule R review A: ACCEPT WITH FIXES (research/G1/review/REVIEW_JZC_M3a_H_pgt1_chain_A.md); fixes applied 2026-10-21.
+Status (2026-10-21): **REVIEWED** for p > 1 (L1–L4, Prop G1u (A), (B); Rule R: independent second reader A re-derived them and re-ran
+m3a_g1u_hardedge.py, m3a_g1u_endtoend.py, byte-identical outputs; fixes G1u-1–G1u-3 applied). The "p < 1" paragraph of §3 was not
+reviewed. Inputs keep their own labels (G12: NOT REVIEWED; E3.7 for M(β′, α): exact check m3a_e37_decoupled, not yet reviewed).
+Labels per VERIFICATION_POLICY.md. Closes, modulo the inputs listed in §4, item 1 of JZC_M3a_H.md §4 ("the n-uniform hard-edge comparison with Szegő exponent β′") for **p > 1, −1 < δ ≤ 0,
 1 < s < 1 + 2p** (|α| < 1). Checks: `checks/m3a_g1u_hardedge.py/.out` (110 assertions, 34 of them controls that must fail),
 `checks/m3a_g1u_endtoend.py/.out` (29 assertions, 8 controls). Everything attributed to Paper 2 is quoted from papers/paper2/{sec_6,sec_7,app_a,app_b,
 app_c}.tex as read for this note (read-only; nothing there was edited). No external theorem is quoted here that is not already
@@ -15,7 +18,7 @@ JZC_M4_proof Lemma N.6a (DLMF 10.17, 10.40, 9.7 as quoted there).
 | L2 | the Hurwitz hard-edge parametrix P̂₀♮ (Bessel order α): matching factor Â♮ analytic (mod super-small) and bounded n-uniformly; exact lip match; circle jump I + Σ_{k≤K}Δ_k♮n^{−k} + O(n^{−K−1}) uniformly; Bessel-scale size n^{1/2}\|ζ\|^{−\|α\|/2} | PROVED-mod-cite (L1; Paper 2 L bessel-local, (eq:he-Phi-large/small); JZC_M4_proof N.6a / E_pgt1 L E.3 for the expansion) |
 | L3 | lip mismatch: \|ω♮ − e^{∓iπα}\| ≤ C\|z\|^{ν_p}log(2/\|z\|) on the lips in U(0, δ_r), C n-free | PROVED-mod-cite (L1; Paper 2 L szego (ii)) |
 | L4 | fixed n: R := Q♮P̂₀♮^{−1} satisfies \|R\| ≤ C_{n,η}\|z\|^{−\|α\|−η} near 0, so R is bounded at 0 and R_± ∈ I + ∂𝒞(L²) | PROVED-mod-cite (G12 P2.4; Paper 2 L B-cauchy (c)) |
-| **Prop G1u** | (A) Paper 2 §7 (UR-comparison, UR-true, Prop moments) holds verbatim for Q♮, with ε′_n = n^{−2ν_p}log n; (B) the order-K small norm (N.6c) holds for the Hurwitz problem in the α-frame, with remainder O(n^{−K−1} + n^{−1−(J+1)p}) | (A) PROVED-mod-cite; (B) PROVED-mod-cite, CONDITIONAL on H-a and H-c (§4); NOT REVIEWED |
+| **Prop G1u** | (A) Paper 2 §7 (UR-comparison, UR-true, Prop moments) holds verbatim for Q♮, with ε′_n = n^{−2ν_p}log n; (B) the order-K small norm (N.6c) holds for the Hurwitz problem in the α-frame, with remainder O(n^{−K−1} + n^{−1−(J+1)p}) | (A) PROVED-mod-cite; (B) PROVED-mod-cite (H-a: JZC_M3a_H_Ha.md; H-c: JZC_M3a_H_Hc.md Cor Hc.4) (fixed per Rule R review A of the p>1 chain, G1u-2); REVIEWED (p > 1) |
 | §5 | numerics: L1–L3 pointwise, circle matching rate O(n^{−2}) after Δ₁♮, \|β′\| ≥ 1 incl. β′ = −2.1, −2.2; end-to-end Hurwitz Jacobi coefficients at β′ = −2.1, −1.5 | NUMERICAL |
 
 ## 0. Answer
@@ -61,7 +64,7 @@ lattice g, φ, f, the outer scalar F♮ = F_δ(−z)^{−δ}. Jumps (H-d Lemma (
 | F2 (band weight) | x^α, H_n Hölder (O3)–(O4) | x^{β′}; (O3)–(O4) for H_n^δ: G12 P1.4(a) | survives |
 | F3, F6 (lips, f, localisation (eq:he-localisation)) | none (built from μ*, lattice g) | unchanged (H-d: lattice g) | survives |
 | F4 (super-small E) | \|κ_± − 1\|, e^{−2nφ̃}, ω^{±1} | \|e^{∓2iθ_δ}\| = \|e^{∓2iθ}\|; phases of modulus 1 | survives |
-| F5 (P₀^∞; Airy; far arcs) | ω near 4c (L szego (vi)(b) with q₁ = x^αĤ°), (vi)(c) | q₁ = x^{β′}Ĥ° is analytic and positive near 4c, (iv) holds for any exponent; top vertex X₁ + δ′ (H-a) | survives (H-a: input) |
+| F5 (P₀^∞; Airy; far arcs) | ω near 4c (L szego (vi)(b) with q₁ = x^αĤ°), (vi)(c) | q₁ = x^{β′}Ĥ° is analytic and positive near 4c, (iv) holds for any exponent; top vertex X₁ + δ′ (H-a) | survives (Ha §4, 'F5 on the moved arcs') (fixed per Rule R review A of the p>1 chain, G1u-1 = C-1) |
 | F7 (a priori, Cor L2) | \|D_W\|^{±1} ≤ C\|z\|^{±α/2−η}, exponent \|α\|/2 | **breaks if done with β′** (\|z\|^{−\|β′\|/2} ∉ L² for \|β′\| ≥ 1); G12 P2.4 gives \|α\|/2 via L2.3 | survives (G12) |
 | F8 (extraction) | ϰ_∞ at ∞ | G12 C1.5 (F♮ → C_δ) | survives |
 | L bessel-local, (eq:he-Phi-large/small) | Bessel order α: \|Ψ_α^{±1}\| ≤ C\|ζ\|^{−\|α\|/2} | order stays α (H-d; H3 excluded by data) | unchanged |
@@ -190,7 +193,7 @@ Paper 2 L B-cauchy (c).)
 
 **Proposition G1u (n-uniform hard-edge comparison for the Hurwitz problem, p > 1).** Let p > 1, −1 < δ ≤ 0, 1 < s < 1 + 2p (so
 α ∈ (−1, 1) and β′ = α + 2δ ∈ (−3, 1), with |β′| ≥ 1 allowed), and let Q♮ be the Hurwitz Q-matrix of frame 1 (H-d Lemma; G12 P2.4).
-Assume H-a (the Hurwitz interpolation and contour with top vertex X₁ + δ′, JZC_M3a_H §4 item 4). Then there is n₀ = n₀(p, s, δ) such that
+With H-a (JZC_M3a_H_Ha.md) (fixed per Rule R review A of the p>1 chain, G1u-2), there is n₀ = n₀(p, s, δ) such that
 for n ≥ n₀:
 
 **(A) (Paper 2 §7 verbatim.)** Prop UR-comparison holds for the comparison problem Q̃ built with A₀, Φ_α at 0 and the Airy parametrix with
@@ -210,7 +213,9 @@ circles clockwise. Then, uniformly in n ≥ n₀:
 and the residue recursion of JZC_M4_proof Prop N.6c holds with Δ_k♮ in place of Δ_k:
   R = I + Σ_{k≤K}R^{(k)}n^{−k} + O(n^{−K−1})  uniformly at distance ≥ d from Σ_R, and R₁ = Σ_{k≤K}R₁^{(k)}n^{−k} + O(n^{−K−1}).
 With the band-factor input H-c (Δ_k♮ = G_{μ^δ}Δ_k^{mod,β′}G_{μ^δ}^{−1} + O(n^{−(J+1)p}), E3 L E3.4–E3.5 and the Hurwitz analogue of F.1′), this is
-Prop N.6c for M(β′, ν = α) with remainder **O(n^{−K−1} + n^{−1−(J+1)p})** — the same exponents as for the lattice.
+Prop N.6c for M(β′, ν = α) with remainder **O(n^{−K−1} + n^{−1−(J+1)p})** — the same exponents as for the lattice. Input for the
+step to Theorem N.6(i): E3 Lemma E3.7 for M(β′, α) (the n⁻¹ coefficient is d₁ + cpM_μ(4c), exactly linear in μ; JZC_M3a_H.md §3.3,
+exact check checks/m3a_e37_decoupled.out) (fixed per Rule R review A of the p>1 chain, G1u-2 / C-2).
 
 *Proof.* (A) By §1 every item of Paper 2 §7 used in UR-comparison, UR-true and Prop moments holds for Q♮: the comparison problem
 is the lattice-α one at 0 and has a bounded (−ω♮)^{±1/2} at 4c (App B "the two instances": "No α is involved" at the soft edge, and at
@@ -223,7 +228,8 @@ The bound in U_0 is L2 (iv) times F4 (and the h_n^δ jump on (−δ_r, 0)): |P̂
 and ≤ C|z|^{−1/2} for |ζ| ≥ 2, against e^{−n|z|^{−1/p}/C}: since sup_{0<r≤δ_r} r^{−m}e^{−nr^{−1/p}/(2C)} ≤ C_mn^{−mp}, every power of n and of
 |z| is absorbed, giving C_Kn^{−K}min(1, |z|^K). The far arcs are F5. Identification: L4 (fixed n). The small-norm and induction steps
 of N.6c are then verbatim (they use only these jump bounds, ‖𝒞₋‖ ≤ C, and the meromorphy of Δ_k♮ in U_0: the model Δ_k^{mod,β′} is
-N.6b's object at β = β′, which is β-free in its proof). ∎ (PROVED-mod-cite, NOT REVIEWED; inputs listed in §4.)
+N.6b's object at β = β′, which is β-free in its proof). ∎ (PROVED-mod-cite; REVIEWED per Rule R review A of the p>1 chain; inputs listed
+in §4.)
 
 **p < 1 (what changes).** The local analysis in U_0 (L1–L3, L2's parametrix, the circle expansion) is p-free once f, the lattice φ and
 the bounds (O3)–(O4) for H_n^δ are given; G3 Lemma 3 supplies the latter with the seam construction. Check [2]–[6] pass at p = 0.6,
@@ -243,13 +249,16 @@ in-lens part was not done. OPEN.
 ## 4. Inputs and labels
 
 Proposition G1u (A) uses: Paper 2 §6–7 and App A–C (as read; labels as in the repo), G12 P1.4, C1.5, L2.1–L2.3, P2.4 (PROVED-mod-cite,
-NOT REVIEWED), H-d Lemma (i)–(iii) (PROVED for the jump algebra, NOT REVIEWED), L1–L4 above, H-a (routine, not written: OPEN item 4).
+NOT REVIEWED), H-d Lemma (i)–(iii) (PROVED for the jump algebra, REVIEWED: Rule R review A of the p>1 chain), L1–L4 above, H-a
+(JZC_M3a_H_Ha.md) (fixed per Rule R review A of the p>1 chain, G1u-2).
 (B) additionally uses JZC_M4_proof N.6a–c (PROVED-mod-cite; review A done), RH_px §4.1–§5 [REVIEWED], E_pgt1 L E.3, and the band-factor
 input H-c for δ (JZC_M3a_H §2, §3.2: the gauge Δ_k = G_μΔ_k^{mod}G_μ^{−1} + O(n^{−(J+1)p}) with the Hurwitz moments).
-Label: **(A) PROVED-mod-cite, CONDITIONAL on H-a; (B) PROVED-mod-cite, CONDITIONAL on H-a and H-c; NOT REVIEWED.** Novelty: UNCHECKED.
+Label: **(A), (B) PROVED-mod-cite (inputs H-a, H-c as above)** (fixed per Rule R review A of the p>1 chain, G1u-2); **REVIEWED** (Rule R review A of the p>1
+chain, fixes applied 2026-10-21). Novelty: UNCHECKED.
 
-Effect on Theorem H (JZC_M3a_H §4): item 1 is closed for p > 1, 1 < s < 1 + 2p, modulo Rule R and H-a. (i) for p > 1 then rests on
-H-a (item 4) and the band-factor input; for p < 1 on items 2–4.
+Effect on Theorem H (JZC_M3a_H §4): item 1 is closed for p > 1, 1 < s < 1 + 2p. (i) for p > 1 rests on H-a (JZC_M3a_H_Ha.md), the
+band-factor input H-c (JZC_M3a_H_Hc.md) and E3.7 for M(β′, α) (JZC_M3a_H §3.3); for p < 1 on items 2–3 and the glued parametrix
+(status updated 2026-10-21 after Rule R review A of the p>1 chain).
 
 ## 5. Numerical checks (Rule N: NUMERICAL, not certified)
 
@@ -258,7 +267,8 @@ the central sector; 110 assertions, ALL PASSED; 34 of them are controls that mus
 (3, −½, −0.8), (3, −0.3, −0.9), (1.5, 0.3, −0.3), (3, 0.6, −0.95), (0.6, −½, −0.8), (1.5, −½, 0); β′ = −2.1, −2.2, −2.1, −2.1, −0.3, −1.3, −2.1, −0.5.
 - [1] the Szegő exponent function by quadrature equals ½log(4cz/Υ) to 2·10⁻⁴¹ (asserted 10⁻²⁵) (so D_{x^b} = (4cz/Υ)^{b/2} for every real b);
 - [2] L1 (iv), (iii) and control; [3] L2 (i) and control; [4] L1 (ii), L3 and control; [5] L2 (iii) for n = 25…400 and control; [6] L2 (iv)
-  for n ∈ {10, 100, 1000} and control. Values quoted under the lemmas.
+  for n ∈ {10, 100, 1000} and control. Values quoted under the lemmas. The [5] control (Δ₁ with ν = β′) is not asserted at β′ = −α, where
+  ν = β′ gives the same Bessel data (fixed per Rule R review A of the p>1 chain, G1u-3, INFO).
 Limits: model weight only (H_n^δ ≡ const; its effect is the n-free Hölder factor of L1 (iv), checked by G12 for (O3)–(O4)); central-sector
 points only on the circle (the sector-independence of (E.3.1) is check_e_num [2] of Plan 65); finite samples.
 
@@ -311,9 +321,8 @@ identification of Remark 3.3 (NUMERICAL).
 
 ## 7. What remains
 
-- Rule R (independent second reader) for L1–L4 and Prop G1u.
-- H-a written out (Hurwitz interpolation, top vertex X₁ + δ′; JZC_M3a_H §4 item 4) — used by F5 and F8 for Q♮.
-- H-c: the band-factor gauge with the Hurwitz moments at order J (the Hurwitz analogue of E3 L F.1′, E3.4–E3.5), for route B.
+- (Rule R for L1–L4 and Prop G1u: done, review A of the p>1 chain. H-a and H-c: done, JZC_M3a_H_Ha.md, JZC_M3a_H_Hc.md. The three
+  former bullets are deleted (fixed per Rule R review A of the p>1 chain, G1u-2).)
 - p < 1: items 2–3 of JZC_M3a_H §4 and E_plt1's glued parametrix with W̃♮ (§3).
 - α ≥ 1 (s ≥ 1 + 2p): the in-lens part of the identification in the α-frame (§3). OPEN.
 - Route B was checked numerically only for the model weight; a direct numerical check of the Hurwitz R near 0 (fixed n) was not done.
@@ -325,7 +334,7 @@ identification of Remark 3.3 (NUMERICAL).
   problem and the circle jumps are insensitive to β′ (route A: weight-free; route B: through the bounded ρ♮).
 - **JZC_M3a_Hd.md §6 item 4** says "Not tested numerically below β′ = −1." The datum spec_shift_hi δ = −½ (p = 1.5, s = 2, α = −⅓) has
   β′ = −4/3 and is reproduced by H1 in m3a_hd_model.out (d₃ = +0.103299 vs fit +0.10330). So one point below −1 was tested;
-  m3a_g1u_endtoend adds β′ = −1.5, −2.1.
+  m3a_g1u_endtoend adds β′ = −1.5, −2.1. (Applied in JZC_M3a_Hd.md §6 item 4, 2026-10-21, per Hd-2 of Rule R review A of the p>1 chain.)
 - **JZC_M3a_H_G12.md L2.3** is correct as stated (|G| = |4c/Υ|^δ); add, if useful: G = (4c/Υ̂)^δ near 0, G₊G₋ = 1 on the band (G is not analytic at 0).
 - **For FIXES (Paper 2, via a human):** none found in §7/App B for this purpose. (Paper 2's L lip-mismatch proof is written for the exponent α
   but is valid verbatim for any real exponent; no change needed.)

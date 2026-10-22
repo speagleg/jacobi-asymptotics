@@ -1,7 +1,10 @@
 # JZC M3a, step H-c: the band-factor gauge for the Hurwitz lattice (item 5 of Theorem H)
 
-Status (2026-10-21): NOT REVIEWED (Rule R pending for everything below). Labels per VERIFICATION_POLICY.md. Novelty: UNCHECKED.
-Closes, modulo review, item 5 of JZC_M3a_H.md §4 for **p > 1**; for **0 < p < 1** it reduces item 5 to E_plt1 Lemma F.1 with complex
+Rule R review A: ACCEPT WITH FIXES (research/G1/review/REVIEW_JZC_M3a_H_pgt1_chain_A.md); fixes applied 2026-10-21.
+Status (2026-10-21): **REVIEWED for p > 1** (Hc.1–Hc.3, Cor Hc.4; Rule R: independent second reader A re-derived them and re-ran
+m3a_hc_pgt1.py, m3a_hc_gauge.py, byte-identical outputs; fixes Hc-1, Hc-2 applied). **Hc.5 (p < 1) is NOT REVIEWED** (outside that
+review). Inputs keep their own labels (G12: NOT REVIEWED). Labels per VERIFICATION_POLICY.md. Novelty: UNCHECKED.
+Closes item 5 of JZC_M3a_H.md §4 for **p > 1**; for **0 < p < 1** it reduces item 5 to E_plt1 Lemma F.1 with complex
 seam densities, which is JZC_M3a_H_G23plt1.md Lemma F.1_δ (NOT REVIEWED; cited, not redone here).
 Setting: Hurwitz lattice λ_k = (k + δ)^p, k ≥ 1, **−1 < δ ≤ 0** (δ < 0 for p < 1), a := 1 + δ, **1 < s < 1 + 2p**, α := (s − 1 − p)/p,
 β′ := α + 2δ, c = c(p). H-c itself does not use s (the band factor is s-free); the hypothesis on s is the Setting of Theorem H, where
@@ -12,8 +15,8 @@ Checks: `checks/m3a_hc_pgt1.py/.out` (Lemmas Hc.1–Hc.2), `checks/m3a_hc_gauge.
 |---|---|---|
 | Hc.1 | E_pgt1 Lemma E.2 for H_n^δ = (D̃_δB_δ)^{−2}, p > 1: jump i𝔢_δ on (−∞, 0) with **δ-free** majorants; representation (E.2.1)_δ; G_δ − G_δ(1) = O(n^{−p}) with one derivative, C = C(p) | PROVED-mod-cite (G12 L1.2, L1.3, P1.4 [NOT REVIEWED]; Paper 2 Lemma binetcut (iii), (eq:binet-bound) via G12) |
 | Hc.2 | E3 Lemma F.1′ for δ, p > 1: (i) m_k(δ) = −(p/π)Γ(kp)(2πn)^{−kp}S_k(δ) (Fourier sum); (ii) G_δ(z) − G_δ(1) = Σ_{k≤K}m_k(δ)(z^k − 1) + O(n^{−(K+1)p}) on \|z\| ≤ 4c + 2, boundary values included, with derivative bounds; C = C(p, K) **independent of δ** | PROVED-mod-cite (Hc.1; DLMF 5.9.1, 25.2.1 as quoted in RH/CITATIONS.md "(Plan E3)", "(DLMF-zeta, Plan 67)") |
-| Hc.3 | the gauge (E3 Lemma E3.5 / JZC_M4_proof N.6a, band part) in G1u's α-frame, p > 1: for every k and J, uniformly on both circles, Δ_k♮ = G_{μ^δ_n}Δ_k^{mod,β′}G_{μ^δ_n}^{−1} + O(n^{−(J+1)p}), μ^δ_{n,j} := 2m_j(δ) | PROVED-mod-cite (Hc.2; E3 Lemma E3.4 [REVIEWED]; Paper 2 (eq:szego-repr); G1u L1, L2 [NOT REVIEWED]) |
-| Cor Hc.4 | H-c holds for p > 1: Prop G1u (B) no longer depends on H-c; item 5 of JZC_M3a_H §4 is closed for p > 1 | PROVED-mod-cite, NOT REVIEWED |
+| Hc.3 | the gauge (E3 Lemma E3.5 / JZC_M4_proof N.6a, band part) in G1u's α-frame, p > 1: for every k and J, uniformly on both circles, Δ_k♮ = G_{μ^δ_n}Δ_k^{mod,β′}G_{μ^δ_n}^{−1} + O(n^{−(J+1)p}), μ^δ_{n,j} := 2m_j(δ) | PROVED-mod-cite (Hc.2; E3 Lemma E3.4 [REVIEWED]; Paper 2 (eq:szego-repr); G1u L1, L2 [REVIEWED, review A of the p>1 chain]) |
+| Cor Hc.4 | H-c holds for p > 1: Prop G1u (B) no longer depends on H-c; item 5 of JZC_M3a_H §4 is closed for p > 1 | PROVED-mod-cite + REVIEWED (Rule R review A of the p>1 chain) |
 | Hc.5 | p < 1: the gauge of Hc.3 with the seam band factor (complex densities ℓ_±; circles crossing the seams, sector-wise) | PROVED-mod-cite given G23plt1 Lemma F.1_δ (iv) (NOT REVIEWED); the hard-edge data in the α-frame need the glued W̃♮ (G1u "p < 1", not part of H-c) |
 | Rem | m_k(δ) = ζ(−kp, 1+δ)/(kn^{kp}) | NUMERICAL only (JZC_M3a_H Remark 3.3; Hurwitz's formula NOT QUOTED) |
 
@@ -38,7 +41,7 @@ n-free, while Theorem N.6 uses μ_{n,j} = 2ζ(−jp)/(jn^{jp}) (n-dependent). Th
 
 *Reused verbatim:* E3 Lemma E3.4 (PROVED, REVIEWED: purely algebraic, holds for every real μ); JZC_M4_proof Lemma N.6a's formulas for
 Δ_k^0, Δ_k^r (k-free conjugation structure); Paper 2 (eq:szego-repr) ("for every z ∉ [0, 4c] and every number 𝔠",
-papers/paper2/sec_6.tex l. 170–173). *Inputs from this repo (NOT REVIEWED):* G12 L1.1–L1.3, P1.4; G1u L1, L2.
+papers/paper2/sec_6.tex l. 170–173). *Inputs from this repo:* G12 L1.1–L1.3, P1.4 (NOT REVIEWED); G1u L1, L2 (REVIEWED, Rule R review A of the p>1 chain; status updated 2026-10-21).
 
 ## 1. Lemma Hc.1 (E_pgt1 Lemma E.2 for δ)
 
@@ -127,7 +130,8 @@ At δ = 0, S_k(0) = sin(πkp/2)ζ(1+kp) and DLMF 25.4.1 at s = 1 + kp gives ζ(�
 (ii) E3 Lemma F.1′(ii) verbatim, with (E.2.1)_δ (Hc.1 (b)) and the δ-free majorants (Hc.1 (a)): for |y| ≥ 2R₁, |z| ≤ R₁,
 (z − 1)/((y − z)(y − 1)) = Σ_{k≤K}(z^k − 1)y^{−k−1} + O(|y|^{−K−2}); the far part of the remainder is ≤ C∫|𝔢_δ||y|^{−K−2}dy ≤ C′n^{−(K+1)p}
 (|y| = n^pw); the near parts of (E.2.1)_δ and of the m_k are O(e^{−cn}) with derivatives (Hc.1 (c)). Derivatives: as in Hc.1 (c). ∎
-(PROVED-mod-cite: Hc.1; DLMF 5.9.1, 25.2.1 (and 25.4.1 at δ = 0 only), quoted in RH/CITATIONS.md "(Plan E3)", "(DLMF-zeta, Plan 67)".)
+(PROVED-mod-cite: Hc.1; DLMF 5.9.1, 25.2.1 (and 25.4.1 at δ = 0 only), quoted in RH/CITATIONS.md "(Plan E3)", "(DLMF-zeta, Plan 67)";
+both entries now record this reuse ("Also used in: JZC_M3a_H_Hc") (fixed per Rule R review A of the p>1 chain, Hc-1).)
 
 *Remark (NUMERICAL, not used; Hurwitz's formula NOT QUOTED).* m̂_k(δ) = ζ(−kp, 1+δ)/k (JZC_M3a_H Remark 3.3), so μ^δ_{n,j} =
 2ζ(−jp, a)/(jn^{jp}); confirmed again in m3a_hc_pgt1 [3] (k ≤ 3, 12 (p, δ), ≤ 10⁻²⁵ relative).
@@ -162,7 +166,7 @@ on (−∞, 0)); this is the continuation used in G1u's W̃♮ (G1u L1 uses the 
 (h°)^{1/2}/D_{h°}). By multiplicativity of Szegő functions (Paper 2 (eq:DW-factor)), D_W = D_W^{mod}D_{h°}·const^{1/2}, hence
   ρ♮ = ρ♮^{mod}·(h°)^{1/2}/D_{h°} = ρ♮^{mod}e^{−L/2},  (−ω^{(β′)})^{1/2} = (−ω^{(β′),mod})^{1/2}e^{L/2},  L := log D_{h°}² − log h°
 (for the soft-edge root: Paper 2 (eq:omega-4c), L₁ is (eq:szego-repr) applied to q₁ = x^{β′}h°, which is additive in log q₁). By (eq:szego-repr)
-with 𝔠 = log h°(z) and Hc.2 (ii) with K = J (log h°(x) = −P_μ(x) + P_μ(1) − 2E(x), E := E_n^{(J)}, μ := μ^δ_n):
+with 𝔠 = log h°(z) (at the crossing point x₀, by continuity of both sides from ℂ_± (fixed per Rule R review A of the p>1 chain, Hc-2, INFO)) and Hc.2 (ii) with K = J (log h°(x) = −P_μ(x) + P_μ(1) − 2E(x), E := E_n^{(J)}, μ := μ^δ_n):
   L(z) = (𝓡(z)/π)∫_0^{4c}(log h°(x) − log h°(z))dx/(√(x(4c−x))(z−x)) = 𝓡(z)M_μ(z) + T(z),
   T(z) := −(2𝓡(z)/π)∫_0^{4c}(E(x) − E(z))dx/(√(x(4c−x))(z−x)),
 the first term being E3 Lemma E3.4(i)'s computation ((P_μ(z) − P_μ(x))/(z − x) = Σ_kμ_kΣ_{j<k}x^jz^{k−1−j} and the arcsine moments).
@@ -188,8 +192,10 @@ and is valid for every k (N.6a needs all k). (4) The hard-edge Bessel matrices Y
 **Corollary Hc.4 (item 5 for p > 1).** For p > 1, −1 < δ ≤ 0, 1 < s < 1 + 2p, the input "H-c" of Prop G1u (B) (Δ_k♮ =
 G_{μ^δ}Δ_k^{mod,β′}G_{μ^δ}^{−1} + O(n^{−(J+1)p}), with μ^δ_{n,j} = 2m_j(δ)) holds (Hc.3), so Prop G1u (B) is PROVED-mod-cite with remainder
 O(n^{−K−1} + n^{−1−(J+1)p}), conditional only on H-a, which JZC_M3a_H_Ha.md supplies (PROVED-mod-cite). With JZC_M3a_H §3.3 (N.6a–c for
-M(β, ν)) this removes the last listed open item of Theorem H (i) for p > 1. Label: PROVED-mod-cite, NOT REVIEWED (every link of the chain —
-G12, G1u, Ha, Hd, Hc — is NOT REVIEWED).
+M(β, ν), and E3 Lemma E3.7 for M(β′, α): JZC_M3a_H §3.3, exact check m3a_e37_decoupled) this removes the last listed open item of
+Theorem H (i) for p > 1. Label: PROVED-mod-cite + REVIEWED (Rule R review A of the p>1 chain, fixes applied 2026-10-21). Of the chain's
+links, Ha, Hd (i)–(iii), G1u (p > 1) and Hc (p > 1) are REVIEWED; G12 is NOT REVIEWED (its review A did not re-run the checks) (status
+updated 2026-10-21).
 
 ## 4. p < 1 (Lemma Hc.5): what changes
 
@@ -282,7 +288,8 @@ errors 18 → 2.9·10⁵ (growing like n^p).
 
 ## 7. What remains
 
-- Rule R second reader for Hc.1–Hc.5 (and for the NOT REVIEWED inputs G12, G1u, G23plt1).
+- Rule R second reader for Hc.5 (p < 1) and for the NOT REVIEWED inputs G12, G23plt1 (Hc.1–Hc.4 and G1u: done, review A of the p>1
+  chain).
 - p < 1: Hc.5 is conditional on G23plt1 Lemma F.1_δ (NOT REVIEWED); the α-frame glued hard-edge parametrix (G1u "p < 1") and the a-priori
   bound (item 2, G23plt1) are outside H-c.
 - Hurwitz's formula is still NOT QUOTED: Theorem H's constants are the Fourier sums S_j(δ); their identification with ζ(−jp, a) is NUMERICAL.

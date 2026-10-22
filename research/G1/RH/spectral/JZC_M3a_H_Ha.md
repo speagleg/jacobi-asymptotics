@@ -1,6 +1,8 @@
 # JZC M3a, step H-a of Theorem H: the interpolation problem for the Hurwitz lattice
 
-Status (2026-10-21): NOT REVIEWED (Rule R pending). Labels per VERIFICATION_POLICY.md. Closes (modulo review) item 4 of
+Rule R review A: ACCEPT WITH FIXES (research/G1/review/REVIEW_JZC_M3a_H_pgt1_chain_A.md); fixes applied 2026-10-21.
+Status (2026-10-21): **REVIEWED** (Rule R: independent second reader A re-derived L Ha.1–P Ha.5 and the contour and re-ran
+m3a_ha_interp.py, byte-identical output; fixes Ha-1–Ha-3 and C-1 applied). Labels per VERIFICATION_POLICY.md. Closes item 4 of
 JZC_M3a_H.md §4, step H-a of its §2 table. Setting: −1 < δ ≤ 0, a := 1 + δ ∈ (0, 1], p > 0, p ≠ 1, 1 < s < 1 + 2p,
 α := (s−1−p)/p ∈ (−1, 1), n ≥ 1 (n ≥ n₀ where stated). Both p > 1 and 0 < p < 1 are covered; δ = 0 is Paper 2 verbatim.
 Check: `checks/m3a_ha_interp.py/.out` (298 assertions and 33 controls; every control fails as required; ALL 298 CHECKS PASSED).
@@ -12,7 +14,7 @@ within sections; they are the first two numbered statements of §5).
 |---|---|---|
 | L Ha.1 | node set: in ℂ∖(−∞,0] the zeros of 1 − e^{2iθ_δ} are t ∈ δ + ℤ. The Hurwitz nodes are t = δ + k (k ≥ 1). The other zeros t = δ − m (m ≥ 0) do not occur for p > 1, and for p < 1 they lie on arg z = ±πp, outside 𝒵_n, the lens sector and S_in. Γ-factorisation of sin π(t−δ) | PROVED-mod-cite (DLMF 5.5.3 via Paper 2 T4) |
 | L Ha.2 | interpolation lemma (Paper 2 L5.1) for σ^δ: poles X_k = (n/τ_k)^p, residues n^pτ_k^{−s}U_{j1}(X_k), expansion for \|z\| > X₁ = (n/a)^p, (eq:extractU), (eq:U-sum) | PROVED-mod-cite (Paper 2 T1(a), L5.1, L5.2 proofs; hypothesis x_k ≤ 1 removed) |
-| L Ha.3 | uniqueness: the interpolation problem (Y1)–(Y4) for σ^δ has exactly one solution, (eq:Y-solution) | PROVED (elementary) |
+| L Ha.3 | uniqueness: the interpolation problem (Y1)–(Y3), (Y4′) for σ^δ has exactly one solution, (eq:Y-solution) | PROVED (elementary) |
 | L Ha.4 | node masses: Res_{X_k} W/(e^{2iθ_δ} − 1) = Res_{X_k} we^{−iθ_δ}/Π_δ = w(X_k) = n^pτ_k^{−s}; no other poles in 𝒵_n | PROVED |
 | P Ha.5 | Step 1 with κ_δ: R is continuous at every node ⇔ the residue conditions of L Ha.2. So the RH problem for R, which has jumps on Σ only, is equivalent to the interpolation problem, and by L Ha.3 to the OPs of σ^δ | PROVED |
 | Contour | top segment at X₁ + δ′, c₀ := 1 + log(1/a), 𝒵_n ⊃ the closure of Ω_b ∪ Ω_sat for n ≥ n₀(p) | PROVED (bookkeeping) |
@@ -76,12 +78,13 @@ w(z) := n^pt^{−s} (ℓ₁ ≡ 1, r_n ≡ 1), W := 2iθ′w = 𝗐_nz^α exactl
 t(X_k) = nX_k^{−1/p} = τ_k. The positive points of δ + ℤ are δ + k, k ≥ 1, because δ ≤ 0 < 1 + δ. (iii) arg t = −arg z/p on ℂ∖(−∞,0]
 ((eq:imtheta) context), and |arg z| < π. The bounds on ϑ_w, ϑ_lip are (eq:thetaw)/(eq:angles) for p < 1 (𝗆 ≤ 1). (iv) DLMF 5.5.3 (T4)
 with z = t − δ. The formula for D̃_δ is e^{−j_δ} written out. Re t > 0 on S_in = {|arg z| < πp/2} because |arg t| < π/2, and then
-Re(t − δ) ≥ Re t > 0. ∎ (PROVED-mod-cite: DLMF 5.5.3 as quoted in Paper 2 T4. NUMERICAL: argument-principle counts, §5.)
+Re(t − δ) ≥ Re t > 0. ∎ (PROVED-mod-cite: DLMF 5.5.3 as quoted in Paper 2 T4. Numerical evidence: argument-principle counts, §5.) (fixed per Rule R review A of the p>1 chain, Ha-3)
 
 This is the check asked for: the points t = δ − m, m ≥ 0, are not nodes, and they do not lie in any sector that the frame uses.
 For p > 1 they do not exist at all. Paper 2's lattice remark ("the points with t ∈ −ℕ have |arg s| = πp > ϑ_lip") becomes "the points
-with t ∈ δ − ℕ₀". The only new point is t = δ (m = 0). It lies on the same rays, at |z| = (n/|δ|)^p > X₁, in Ω_∞, where κ_δ is not
-used.
+with t ∈ δ − ℕ₀". The only new point is t = δ (m = 0). It lies on the same rays, at |z| = (n/|δ|)^p (which is > X₁ only for δ > −½; for δ ≤ −½ it
+lies between n^p and X₁), on the rays arg z = ±πp, outside 𝒵_n, the lens and S_in; so it is in Ω_∞, where κ_δ is not used
+(fixed per Rule R review A of the p>1 chain, Ha-1).
 
 ## 2. The interpolation lemma (Lemma Ha.2 = Paper 2 L5.1 for σ^δ)
 
@@ -114,18 +117,21 @@ The same extraction on the circle |z| = (n^p + X₁)/2, which lies outside the l
 
 Paper 2 does not use uniqueness ("We never use that Y is the unique solution of an interpolation problem"), and nothing downstream
 needs it. It is recorded here because H-a asks that "the RH problem for σ^δ" be equivalent to the interpolation problem. Near 0 the
-nodes accumulate, so the usual growth condition at the poles cannot be imposed at 0. We replace it by the structural condition (Y4).
+nodes accumulate, so the usual growth condition at the poles cannot be imposed at 0. We replace it by the structural condition (Y4′).
 
 **Interpolation problem IP^δ_n.** Find a 2×2 matrix function Y with:
 (Y1) Y is analytic in ℂ∖({x_k} ∪ {0});
 (Y2) Res_{x_k}Y = lim_{z→x_k}Y(z)(0 w_k; 0 0) for every k. That is, the first column is analytic at x_k, and the second column has at most a
   simple pole there, with residue w_kY_{j1}(x_k);
 (Y3) Y(z)z^{−nσ₃} = I + O(1/z) as z → ∞;
-(Y4) Y_{j1} extends to an entire function, and Y_{j2}(z) − Σ_k w_kY_{j1}(x_k)/(z − x_k) extends to an entire function (j = 1, 2).
+(Y4′) Y_{j1} extends to an entire function, and there are numbers r_{jk} with Σ_k|r_{jk}| < ∞ such that Y_{j2}(z) − Σ_k r_{jk}/(z − x_k)
+  extends to an entire function (j = 1, 2) (fixed per Rule R review A of the p>1 chain, Ha-2). (The former (Y4) had r_{jk} = w_kY_{j1}(x_k) built in, so it implied (Y2) and
+  made the "Consequently" of P Ha.5 vacuous.)
 
 **Lemma Ha.3.** For n ≥ 1, IP^δ_n has exactly one solution, namely (eq:Y-solution) built from the monic OPs of σ^δ.
 
-*Proof.* Existence: Lemma Ha.2(a). (Y4) holds with both differences ≡ 0. Uniqueness: let Y solve IP^δ_n. By (Y4) and Σw_k < ∞,
+*Proof.* Existence: Lemma Ha.2(a). (Y4′) holds with r_{jk} = w_kY_{j1}(x_k) and both differences ≡ 0. Uniqueness: let Y solve IP^δ_n.
+By (Y2), r_{jk} = w_kY_{j1}(x_k) (fixed per Rule R review A of the p>1 chain, Ha-2). By (Y4′),
 C_j(z) := Σ_kw_kY_{j1}(x_k)/(z − x_k) converges, is analytic off {x_k} ∪ {0} and is O(1/z). By (Y3), Y₁₁ = z^n(1 + O(1/z)) and
 Y₂₁ = O(z^{n−1}). Since they are entire, Cauchy's estimates make Y₁₁ a monic polynomial of degree n and Y₂₁ a polynomial of degree
 ≤ n − 1. E_j := Y_{j2} − C_j is entire. By (Y3), Y₁₂ = O(z^{−n−1}) and Y₂₂ = O(z^{−n}), so E_j = O(1/z) (n ≥ 1), and E_j ≡ 0 by
@@ -157,7 +163,7 @@ column has at most a simple pole at each X_k, with residue r_{jk}. Define R by (
 
   R restricted to each of Ω_b^±, Ω_sat± extends continuously to X_k  ⇔  r_{jk} = w(X_k)U_{j1}(X_k) (j = 1, 2).
 
-Consequently, for U = n^{pnσ₃}Y(zn^{−p}) with Y in the class (Y1), (Y3), (Y4), the following are equivalent:
+Consequently, for U = n^{pnσ₃}Y(zn^{−p}) with Y in the class (Y1), (Y3), (Y4′) (fixed per Rule R review A of the p>1 chain, Ha-2), the following are equivalent:
 - (Y2) holds, so that Y is (eq:Y-solution), by L Ha.3;
 - R has no singularity at any node, i.e. R solves the RH problem whose jumps M₋^{−1}M₊ lie on Σ only (Paper 2 (eq:VM) context), with
   R = U for |z| > X₁ + δ′ + h₀.
@@ -181,6 +187,11 @@ closure of Ω_b ∪ Ω_sat minus {0} lies in 𝒵_n: arguments as in Paper 2, an
 on the top node itself (t = a) and up to |z| < e^{pc₀}n^p. The lips, Σ_v and the band are unchanged (they depend only on the lattice g).
 Every n^p + δ′ in Paper 2's contour (saturated segment, Σ^{△±}, Σ_top, the vertex n^p + δ′ ± ih₀, and the domain {|z| > n^p + δ′} of
 Lemma normalisation and of (O5) at ∞) becomes X₁ + δ′. This agrees with JZC_M3a_H_G12.md §0 and with the corrected JZC_M3a_Hd.md §1.
+
+*F5 on the moved arcs* (fixed per Rule R review A of the p>1 chain, G1u-1 = C-1). Paper 2's F5 argument (sec_6, 'Σ^{△±} and the top segment') holds verbatim for
+x ≤ X₁ + δ′: Re φ ≤ −½log x for x ≥ x₀ (lattice g); |Im θ(x ± ih₀)| ≥ h₀nx^{−1−1/p}/C gives |κ_δ±| ≤ Ca^{−p−1}n^p (|e^{∓2iθ_δ}| = |e^{∓2iθ}|);
+on the top segment |1 − e^{∓2iθ_δ}| ≥ a^{p+1}n^{−p}/C; log x ≤ C log n; the phase e^{±2πiδ} of these entries (H-d (ii)) has modulus 1. Hence
+|v − I| ≤ C_ae^{−n/C} there, and ≤ C_an^{−pn/4} on the top segment.
 
 *What changes vs Paper 2 (δ = 0 gives Paper 2 in every line).*
 | object | Paper 2 (lattice) | Hurwitz (H-a) |
@@ -232,9 +243,9 @@ Result: ALL 298 CHECKS PASSED; all 33 controls failed as required. Runtime ≈ 2
    (−∞, 0), on the cut of t (not covered).
 4. *Converse direction of P Ha.5.* Tested: a wrong residue (lattice phase) leaves a 1/(z − X_k) singularity in both the lens and the
    saturated formulas (control).
-5. *Uniqueness without (Y4).* Without a condition at the accumulation point 0, IP^δ_n need not determine Y: (Y1)–(Y3) do not exclude
+5. *Uniqueness without (Y4′).* Without a condition at the accumulation point 0, IP^δ_n need not determine Y: (Y1)–(Y3) do not exclude
    adding to Y_{j2} a function with an essential singularity at 0 that is O(z^{−n−1}) at ∞ (e.g. a multiple of
-   e^{1/z} − Σ_{m≤n}z^{−m}/m!). So the class condition (Y4) is needed for L Ha.3. Paper 2 never uses uniqueness, and neither does Theorem H.
+   e^{1/z} − Σ_{m≤n}z^{−m}/m!). So the class condition (Y4′) is needed for L Ha.3. Paper 2 never uses uniqueness, and neither does Theorem H.
 6. *Nodes at vertices* (X_k = 4c for some k): as in Paper 2. R is continuous up to X_k from each region separately, so the statement is
    unchanged. Nothing new for δ.
 7. *det of the factors*: det L^δ = det A^{△δ} = 1 and det κ_δ^{σ₃} = 1, so det R = det U = 1 (L Ha.2(a)).
@@ -244,11 +255,12 @@ Result: ALL 298 CHECKS PASSED; all 33 controls failed as required. Runtime ≈ 2
 
 ## 7. Outcome
 
-H-a is written out for −1 < δ ≤ 0, p > 1 and p < 1 (PROVED / PROVED-mod-cite, NOT REVIEWED):
+H-a is written out for −1 < δ ≤ 0, p > 1 and p < 1 (PROVED / PROVED-mod-cite + REVIEWED: Rule R review A of the p>1 chain, fixes
+applied 2026-10-21):
 - the interpolation lemma for σ^δ (L Ha.2), with top node X₁ = (n/a)^p and Laurent region |z| > X₁;
-- uniqueness in the class (Y4) (L Ha.3);
+- uniqueness in the class (Y4′) (L Ha.3);
 - node masses and residues with θ_δ = π(t − δ), sin π(t − δ), 1/Γ(t − δ) (L Ha.1, L Ha.4);
 - the equivalence of the RH problem for R with the interpolation problem, i.e. pole removal ⇔ residue conditions (P Ha.5);
 - the contour with top vertex X₁ + δ′ and c₀ = 1 + log(1/a).
 
-This closes item 4 of JZC_M3a_H.md §4 modulo Rule R. JZC_M3a_H.md itself is not edited here. Items 1–3 there are untouched.
+This closes item 4 of JZC_M3a_H.md §4 (Rule R review A done, fixes applied 2026-10-21; JZC_M3a_H.md §4 records it).

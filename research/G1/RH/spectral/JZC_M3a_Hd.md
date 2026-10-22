@@ -1,14 +1,18 @@
 # JZC M3a, lemma H-d: the Hurwitz index transfer is a Szegő shift β′ = α + 2δ at fixed Bessel order α; relation to Σ
 
-Status (2026-10-21): NOT REVIEWED (Rule R pending). Labels per VERIFICATION_POLICY.md. Scope: JZC_M3_scope §3.1, lemma H-d, for
+Rule R review A: ACCEPT WITH FIXES (research/G1/review/REVIEW_JZC_M3a_H_pgt1_chain_A.md); fixes applied 2026-10-21.
+Status (2026-10-21): **REVIEWED** for Lemma H-d (i)–(iii) (the jump algebra; Rule R: independent second reader A re-derived it line by
+line against Paper 2's proof of Lemma jumpsV and re-ran m3a_hd_outer.py, m3a_hd_model.py, byte-identical outputs; fixes Hd-1, Hd-2
+applied). Prop 2.1 is superseded by G12 C1.5; (iv) rests on G12 L2.3, and G12 is NOT REVIEWED (its review A did not re-run the
+checks). Labels per VERIFICATION_POLICY.md. Scope: JZC_M3_scope §3.1, lemma H-d, for
 Hurwitz lattices λ_k = (k + δ)^p, k ≥ 1, −1 < δ ≤ 0 (a := 1 + δ), p > 1 for the outer scalar (§2; p < 1: §7 gap G3), s > 1,
 α := (s−1−p)/p. Checks: `checks/m3a_hd_outer.py/.out` (34 assertions), `checks/m3a_hd_model.py/.out` (42 assertions).
 External results not read under Rule C are marked NOT QUOTED. Everything quoted from Paper 2 is from papers/paper2/*.tex.
 
 | # | Statement | Label |
 |---|---|---|
-| Prop 2.1 | outer scalar at ∞: F_δ = D_δB_δK ~ C_δ(−z)^δ, C_δ ≠ 0; at 0 unchanged (j_δ = O(1/t)) | PROOF SKETCH (§2) + NUMERICAL (m3a_hd_outer) |
-| Lemma H-d | with F♮ := F_δ(−z)^{−δ}, Paper 2's frame (degree n, lattice g, n^p scaling) turns the Hurwitz problem into the decoupled model M(β′, ν) of JZC_M4 §7 with β′ = α + 2δ, ν = α, band factor H_n^δ | PROVED for the jump algebra (§3, NOT REVIEWED); the analytic inputs are §7 gaps G1–G4 |
+| Prop 2.1 | outer scalar at ∞: F_δ = D_δB_δK ~ C_δ(−z)^δ, C_δ ≠ 0; at 0 unchanged (j_δ = O(1/t)) | PROOF SKETCH, superseded by G12 C1.5 (PROVED-mod-cite; review A: ACCEPT WITH FIXES) (fixed per Rule R review A of the p>1 chain, Hd-2) + NUMERICAL (m3a_hd_outer) |
+| Lemma H-d | with F♮ := F_δ(−z)^{−δ}, Paper 2's frame (degree n, lattice g, n^p scaling) turns the Hurwitz problem into the decoupled model M(β′, ν) of JZC_M4 §7 with β′ = α + 2δ, ν = α, band factor H_n^δ | PROVED for the jump algebra (§3) + REVIEWED (Rule R review A of the p>1 chain); the analytic inputs are §7 gaps G1–G4 (status: §7) |
 | Test | M(α+2δ, α) with Hurwitz μ reproduces all 36 Hurwitz fit data; the three alternatives are excluded | NUMERICAL (§4) |
 | Relation to Σ | H-d is the exact gauge Y ↦ Y(−z)^{γσ₃} with γ = −δ (p-free); rule H's form (n/(n+δ))^pΦ(n+δ) is Σ at γ = δ, not part of H-d | PROVED (algebra) / reduction (§5) |
 
@@ -16,7 +20,8 @@ External results not read under Rule C are marked NOT QUOTED. Everything quoted 
 
 (i), and only (i), in the frame where Paper 2's normalisation stays U z^{−nσ₃}: the Hurwitz problem at degree n is the lattice-type
 problem with **Szegő exponent β′ = α + 2δ** (= α − 2Z(0) − 1, Z(0) = ζ(0, a) = −½ − δ), **Bessel order unchanged (ν = α)**, the same
-g-function, the same n^p scaling, and band factor H_n^δ (Lemma H moments ζ(−kp, a)). By the exact gauge (−z)^{δσ₃} this is the same
+g-function, the same n^p scaling, and band factor H_n^δ (μ^δ_{n,k} = 2m_k(δ), the Fourier sums of JZC_M3a_H.md §3.2
+(JZC_M3a_H_Hc.md Lemma Hc.2); = 2ζ(−kp, a)/(kn^{kp}) by Remark 3.3 (NUMERICAL)) (fixed per Rule R review A of the p>1 chain, Hd-2). By the exact gauge (−z)^{δσ₃} this is the same
 problem as (ii) "Szegő α, normalisation z^{(n+δ)σ₃}" in the n^p frame (no rescaling). Not (iii). Natural index
 N = n + (β′+1)/2 = n + α/2 + ½ + δ, as rule H requires. Identifying the result with "the lattice at degree n + δ" (the form
 (n/(n+δ))^pΦ(n+δ) of rule H) is Conjecture Σ, which H-d does not need and does not prove.
@@ -89,15 +94,18 @@ Q♮ = k_∞^{−σ₃}(Uz^{−nσ₃})k^{σ₃} near ∞ with U the **degree-n*
 (ii) Jumps of V♮ (recomputing jumpsV with θ_δ, θ and F♮; W₀^{(β′)} := 𝗐_n z^{α+2δ}(4c − z)H_n^δ, principal power):
 - band (a): W/(F̃♮₊F̃♮₋) = W₀^{(β′)}(x), since ((−z)^{−δ})₊((−z)^{−δ})₋ = x^{−2δ} (F̃♮ jumps on the band; only the product enters);
 - saturated (d): diagonal e^{−2iθ}·e^{2iθ} = I; entry e^{2nφ̃}/W₀^{(β′)}(x) (−F̃♮₊F̃♮₋ = (D̃_δB_δ)²x^{−2δ}/(4c − x));
-- Σ_v (c), lip super-small entries, Σ^△, top: the entries carry e^{−2nφ}e^{∓2iθ_δ} = e^{−2nφ̃}e^{±2πiδ}, and W/F̃♮² = W₀^{(β′)}e^{∓2πiδ} in
-  ℂ_±; the phases cancel: all are the lattice formulas with W₀^{(β′)} (principal);
-- lips, main entries (b): e^{2nφ}/(W/F̃♮²) = e^{2nφ}e^{±2πiδ}/W₀^{(β′)} in ℂ_± (no θ here, so the phase stays);
+- Σ_v (c) and the (1,2) entries on the lips: these carry e^{−2nφ}e^{∓2iθ_δ} = e^{−2nφ̃}e^{±2πiδ}, and W/F̃♮² = W₀^{(β′)}e^{∓2πiδ} in ℂ_±, so
+  the phases cancel and these are the lattice formulas with W₀^{(β′)};
+- lips, (2,1) entries (main and super-small), Σ^△ (e) and the top segment (f): κ_δ±e^{2nφ}F̃♮²/W = κ_δ±e^{2nφ}e^{±2πiδ}/W₀^{(β′)}
+  (no e^{2iθ} to absorb the phase). In the Q-frame these entries read with ω♮ := ω^{(β′)}e^{±2πiδ}. Σ^△ and the top lie outside U(4c, ε),
+  and only |e^{±2πiδ}| = 1 enters their bounds (F5) (fixed per Rule R review A of the p>1 chain, Hd-1);
 - none on (−∞, 0) (n is an integer; F♮ has no jump there).
 (iii) Q-frame. D_W := Szegő function of W₀^{(β′)} = D_W^{(α)}·D_{x^{2δ}}, D_{x^{2δ}}² = (4cz/Υ)^{2δ}. The global parametrix is P₀^∞
 (weight-free). In the Airy disc (which the lips avoid) every jump is the β′-lattice one: Szegő data φ^{−2(β′+1)} at 4c. On the lips
 near 0, ω♮ = ω^{(β′)}e^{±2πiδ}, whose band limits are e^{∓iπβ′}e^{±2πiδ} = e^{∓iπα} = c_±: the hard-edge model is Paper 2's
 order-α Bessel model, glued with the Szegő function of x^{β′}. This is JZC_M4 §7's decoupled problem **M(β′ = α + 2δ, ν = α)**,
-with band factor H_n^δ = e^{−P_n^δ}(1 + O(n^{−(K+1)p})), μ_{n,k} = 2ζ(−kp, a)/(kn^{kp}) (Lemma H, CONDITIONAL on Hurwitz's formula).
+with band factor H_n^δ = e^{−P_n^δ}(1 + O(n^{−(K+1)p})), μ^δ_{n,k} = 2m_k(δ), the Fourier sums of JZC_M3a_H.md §3.2 (JZC_M3a_H_Hc.md
+Lemma Hc.2); = 2ζ(−kp, a)/(kn^{kp}) by Remark 3.3 (NUMERICAL) (fixed per Rule R review A of the p>1 chain, Hd-2).
 (iv) A priori bound: F♮D_W = F_δD_W^{(α)}·[(−z)^{−δ}D_{x^{2δ}}] and G := [·] = (4c/Υ)^δe^{±iπδ} in ℂ_± with principal branches
 (arg Υ ∈ (0, π) in ℂ₊); only its modulus |G| = |4c/Υ|^δ is used (G12 L2.3), so G is bounded above and below near 0
 (Υ(0) = −4c) (re-corrected per Rule R review A of G12, F3: the identity holds with principal branches; only |G| = |4c/Υ|^δ is
@@ -106,7 +114,7 @@ used); the δ-powers cancel in each column of Prop apriori's proof, so (F7) hold
 *Proof of (i)–(iii).* Algebra of jumpsV's proof with θ_δ/θ kept apart: (a) uses only L₋^{−1}L₊ = U(W), true for any phase
 (−W(e^{−2iθ_δ}κ_δ+ + e^{2iθ_δ}κ_δ−) = W); (c): (A^△₊)^{−1}L₊ conjugated by e^{nφσ₃} times A₊ has (1,1) = κ_δ+, (2,1) = 0 and
 (1,2) = −Wκ_δ+e^{−2nφ}e^{−2iθ_δ}; (d): κ_δ+^{−1} + κ_δ−^{−1} = κ_δ+^{−1}κ_δ−^{−1} for any real phase. The rest is the bookkeeping above. ∎
-(PROVED, NOT REVIEWED; Rule A in §6.)
+(PROVED; REVIEWED per Rule R review A of the p>1 chain; Rule A in §6.)
 
 *Frame 2.* V₂ := V♮(−z)^{δσ₃} uses F_δ itself: Szegő α, the lip phases gone, but a constant diagonal jump e^{−2πiδσ₃} on (4c, ∞),
 extra phases e^{±2πiδ} on Σ_v, and normalisation Q₂ ~ (−z)^{δσ₃}, i.e. U at "degree n + δ". This is (ii); it is equivalent to frame 1
@@ -150,8 +158,7 @@ The δ = ½, 1 data lie outside −1 < δ ≤ 0; they fit the same β′ = α + 
   because the lattice g at degree n is used unchanged (G1 of the scope: σ_n = σ). With Theorem N.6 extended to M(β, ν) (gap G5)
   this proves the Hurwitz expansion to N.6's orders in the form b(n; α+2δ, α).
 - **What needs Σ.** Rule H's form (n/(n+δ))^pΦ(n+δ) is b(n; β′, α) = (n/(n+δ))^p b(n+δ; α, α) — Σ at γ = δ. At finite order this
-  is Prop S (JZC_M4 §7: identically in (p, ν, β) for k ≤ 4 by exact algebra, NUMERICAL to k = 8; the run m4_shift_exact.out in the
-  tree currently reports orders ≤ 3 only) plus the μ-layers (m4_shift_zeta.out, NUMERICAL). So rule H to the orders of N.6(iii)
+  is Prop S (JZC_M4 §7: identically in (p, ν, β) for k ≤ 4 by exact algebra, NUMERICAL to k = 8) (fixed per Rule R review A of the p>1 chain, Hd-2: a stale clause about m4_shift_exact.out deleted; that run reports orders 1–4 and ALL IDENTITIES HOLD) plus the μ-layers (m4_shift_zeta.out, NUMERICAL). So rule H to the orders of N.6(iii)
   = H-d + N.6 for M(β, ν) + Prop S at those orders (exact for the integer layer to order 4).
 - **What remains for Σ itself** (all orders). The gauge relates the degree-n problem to the "(n+γ)-normalised" one **in the n^p frame
   with phase e^{2nφ}**; Σ asserts equality with the problem at degree n + γ **in the (n+γ)^p frame with phase e^{2(n+γ)φ}**. Their
@@ -164,11 +171,13 @@ The δ = ½, 1 data lie outside −1 < δ ≤ 0; they fit the same β′ = α + 
 
 1. *Soft-edge twist?* First pass (frame 1): lips and Σ_v both seemed to carry e^{∓2πiδ}, which would make the Airy disc's jump
    product e^{∓2πiδσ₃} ≠ I (impossible for an honest V♮). Error found: Σ_v's entry contains e^{−2iθ_δ} = e^{−2iθ}e^{2πiδ} (from L_±),
-   which cancels the phase. Only the lips (θ-free entries) keep it, and the lips avoid U(4c, h₀). Recorded in §3 (ii).
+   which cancels the phase. The (2,1) entries on the lips, Σ^△ and the top segment keep it; none of these arcs meets U(4c, ε)
+   (fixed per Rule R review A of the p>1 chain, Hd-1). Recorded in §3 (ii).
 2. *Alternatives to (i):* H2–H4 (§4) and "degree shift without (n/(n+δ))^p" (d₁ would be −(s−1)/2, wrong) are excluded by data.
 3. *δ = 0:* F♮ = F, β′ = α; the lattice limit is continuous in every formula of §3 (Prop 2.1's constant is not uniform, see §3).
 4. *β′ < −1* (e.g. α = −½, δ = −0.8): D_{x^{β′}} is explicit and only enters through F♮D_W (§3 (iv)), so no integrability of x^{β′} is
-   used. The model (m4_rh4) is polynomial/analytic in β; nothing special at β′ = −1. Not tested numerically below β′ = −1.
+   used. The model (m4_rh4) is polynomial/analytic in β; nothing special at β′ = −1. Tested at β′ = −4/3 (spec_shift_hi, δ = −½) and, in
+   m3a_g1u_endtoend, at β′ = −1.5, −2.1 (fixed per Rule R review A of the p>1 chain, Hd-2).
 5. *Is ν really α?* (2.1): the hard-edge Stirling term is O(1/t) for every δ, so W₀'s local power is z^α·(−z)^{2δ}; data exclude H3.
 6. *Top node:* X₁ = (n/(1+δ))^p > n^p; the contour must reach X₁ + δ′ (routine, H-a); with ℓ₁ ≡ 1 the bound e^{pc₀}n^p is free.
 
@@ -186,6 +195,9 @@ For H-d (frame 1), p > 1:
   expected routine, not written.
 For rule H as stated (n/(n+δ))^pΦ(n+δ): G1–G5 plus Prop S at the orders of N.6(iii) (exact for the integer layer to order 4; orders
 5–6 and the μ-layers NUMERICAL). For Σ at all orders: the finite-γ change of frame of §5 (string equation / Bleher–Its route).
+
+Status 2026-10-21: G1 = G12 §1; G2 = G12 §2; G4 resolved by the Fourier-sum route (JZC_M3a_H §3.1–3.2); G5 = JZC_M3a_H §3.3;
+G3 = JZC_M3a_H_G3.md (p < 1) (fixed per Rule R review A of the p>1 chain, Hd-2).
 
 *Correction to JZC_M3_scope §3.1 (H-d heuristic).* "After rescaling by ν^p, all jumps are the lattice's at the real parameter ν" is not
 what happens: rescaling cannot move the node offset (it sits in θ_δ), and none is needed. The z^{O(δ)} power is exactly (−z)^δ (p-free,
