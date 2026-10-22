@@ -17,8 +17,8 @@ Setting:
 - σ^δ := Σ_{k≥1}(k + δ)^{−s}δ_{(k+δ)^{−p}}, the measure on the reciprocals of the Hurwitz lattice;
 - α := (s − 1 − p)/p, c = c(p) (the lattice constant; the continuum density is unchanged);
 - the shifted Szegő exponent **β′ := α + 2δ** (= α − 2Z(0) − 1, where Z(0) = ζ(0, a) = −½ − δ);
-- the band-factor parameters μ^δ_{n,j} := 2m_j(δ)n^{jp}, where m_j(δ) is given by the Fourier sum of §3.2
-  (= ζ(−jp, a)/(jn^{jp}), Remark 3.3).
+- the band-factor parameters μ^δ_{n,j} := 2m_j(δ), where m_j(δ) is given by the Fourier sum of §3.2
+  (= ζ(−jp, a)/(jn^{jp}), Remark 3.3) (fixed per H-c: the former "2m_j(δ)n^{jp}" was n-free; JZC_M3a_H_Hc.md §0).
 
 **Theorem H (target; status per §4).**
 - (i) *Reduction.* For every K, J, B, the expansion of n^pb_n(σ^δ)/c is the double expansion of Theorem N.6(i) for the
@@ -43,7 +43,7 @@ Setting:
 | H-a | interpolation with sin π(t − δ) and 1/Γ(t − δ); node masses; top node X₁ = (n/a)^p | Paper 2 L5.1–5.2, with t ↦ t − δ | JZC_M3a_H_Ha.md (PROVED-mod-cite, NOT REVIEWED) |
 | H-b | outer scalar j_δ: sectors and bounds, via the shift identity j_δ(t) = j(t−δ) + (t−δ−½)Log(1−δ/t) + δ and Paper 2's Binet bound (no DLMF 5.11.8 needed) | Paper 2 L6.1, L6.4; H-d §2 | p > 1: G12 L1.1–C1.5; p < 1: G3 Lemmas 1–3, Prop 4 (PROVED-mod-cite, NOT REVIEWED) |
 | H-b′ | a-priori bound and L² boundary values for the normalised Q♮, lattice exponent \|α\|/2 (column factorisation) | Paper 2 App C | p > 1: G12 L2.1–P2.4 (PROVED-mod-cite, NOT REVIEWED); p < 1: OPEN (= H-d (iv) for p < 1; G3 Cor 5 covers H-d (i)–(iii) only, fixed per Rule R review A of G3, F1) |
-| H-c | band factor: Binet-cut B_δ (p > 1) or seam χ_δ (p < 1); moments m_j(δ) as Fourier sums | E_pgt1 L E.2, E3 L F.1′, E_plt1 L F.1, SPEC §3.1 | §3.2 |
+| H-c | band factor: Binet-cut B_δ (p > 1) or seam χ_δ (p < 1); moments m_j(δ) as Fourier sums; gauge on the circles | E_pgt1 L E.2, E3 L F.1′, E3.4–E3.5, E_plt1 L F.1, SPEC §3.1 | §3.2; JZC_M3a_H_Hc.md: p > 1 Hc.1–Hc.3 (PROVED-mod-cite, NOT REVIEWED); p < 1 Hc.5 given G23plt1 F.1_δ |
 | H-d | index transfer: F_δ ∼ C_δ(−z)^δ at ∞, absorbed by the gauge (−z)^{−δσ₃}; result M(β′, α) | JZC_M3a_Hd.md | jump algebra PROVED (NOT REVIEWED); analytic inputs G1–G3; for p < 1, G3 Cor 5 gives H-d (i)–(iii), not (iv) (fixed per Rule R review A of G3, F1) |
 | H-e | circle jumps, small norm, residue recursion for M(β, ν) | JZC_M4_proof Lemmas N.6a–c (β enters only through ρ² = φ^{2(β+1)}, bounded and analytic on the circles) | §3.3 |
 | H-f | exact algebra for M(β, ν); natural form | m4_shift_exact, m3a_g5_exact | §3.3 |
@@ -65,7 +65,8 @@ Setting:
 ### 3.2 The band-factor moments as Fourier sums (H-c)
 SPEC §3.1 (p > 1) and its p < 1 analogue compute the moments directly from the Binet-cut and seam integrals:
 - the jump density 𝔢_δ = 2 Im Log(1 − e^{−2πi(t₊−δ)}) on the cut;
-- the Mellin integral ∫_0^∞ e^{−mu}u^{kp−1}du = Γ(kp)m^{−kp} (DLMF 5.2.1, quoted in CITATIONS (DLMF-zeta, Plan 67)).
+- the Mellin integral ∫_0^∞ e^{−mu}u^{kp−1}du = Γ(kp)m^{−kp} (DLMF 5.2.1, quoted in CITATIONS (DLMF-zeta, Plan 67)) for p < 1; for
+  p > 1 the constant is complex (m·2πine^{−iπ/p}) and the input is DLMF 5.9.1 (CITATIONS "(Plan E3)") (fixed per H-c).
 
 With these (SPEC §3.1, proof of Lemma H, first two steps; no Hurwitz formula needed):
 
@@ -136,12 +137,14 @@ checked numerically to 10⁻²⁷ for p ∈ {1.25, 1.5, 3}, δ ∈ {0, −½, 0.
    33 controls that fail as required). It needs Paper 2's T1(a) re-proved at the top node, since x₁ = a^{−p} > 1; the
    expansion holds for |z| > X₁ = (n/a)^p. It also shows why δ > 0 is excluded: the point t = δ is a phantom node, with no
    mass on it, and pole removal fails there.
-5. **H-c, the band-factor gauge with Hurwitz moments** (E_pgt1 L E.2–E.3 / E_plt1 L F.1 for H_n^δ: the expansion of the
-   band factor in μ^δ_{n,j} = 2m_j(δ)n^{jp} with uniform remainder). The moments themselves are §3.2. The gauge lemma is
-   restated for δ but not yet re-proved line by line.
+5. ~~**H-c, the band-factor gauge with Hurwitz moments**~~: **done for p > 1** in JZC_M3a_H_Hc.md (Hc.1 = E_pgt1 L E.2 for δ,
+   Hc.2 = E3 L F.1′ for δ with δ-free constants, Hc.3 = the gauge Δ_k♮ = G_{μ^δ}Δ_k^{mod,β′}G_{μ^δ}^{−1} + O(n^{−(J+1)p}) for every k;
+   PROVED-mod-cite, NOT REVIEWED; m3a_hc_pgt1.out, m3a_hc_gauge.out). For p < 1, Hc.5 gives the gauge from JZC_M3a_H_G23plt1.md
+   Lemma F.1_δ (iv) (NOT REVIEWED).
 
 **Status by part.**
-- **(i)** is CONDITIONAL on item 5 (H-c) for p > 1. For p < 1 it is also conditional on rebuilding E_plt1's glued parametrix with W̃♮ (item 1, p < 1 part); items 2–3 are done. Every other ingredient is PROVED-mod-cite (Paper 2, E-series lemmas) and NOT
+- **(i)**: for p > 1, item 5 (H-c) is now JZC_M3a_H_Hc.md (Cor Hc.4), so (i) is PROVED-mod-cite for p > 1 (NOT REVIEWED; every link
+  G12, G1u, Ha, Hd, Hc awaits Rule R). For p < 1 H-c is Hc.5 (given G23plt1 F.1_δ), and (i) is conditional on rebuilding E_plt1's glued parametrix with W̃♮ (item 1, p < 1 part); items 2–3 are done. Every other ingredient is PROVED-mod-cite (Paper 2, E-series lemmas) and NOT
   REVIEWED. Numerically, (i) is confirmed against all stored Hurwitz fits (m3a_hd_model.out, 42 checks; m3a_g3_model.out, 25
   checks, p < 1).
 - **(ii)** follows from (i) and Prop S at the exact orders: the integer layer to N⁻⁴ and the first-order zeta layer with its
