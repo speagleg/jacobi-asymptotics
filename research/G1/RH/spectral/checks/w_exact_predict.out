@@ -1,0 +1,24 @@
+sha256 w_exact_predict.py: 7bf0165c74818dac1e6d565695686d4bbf350a899da360bf4b5933755417175d
+sha256 w_exact_lag.py: bfeac6c812fcddad0dff281531e6036bf45a3e1e0e4fb0bfac6dfcabccaf9e30
+p = 3/2:
+  P0 Res_(j=1/2) g1[3] = 539*(2*alpha - 1)*(2*alpha + 1)/8192
+  P1 Res_(j=3/2) g1[5] = 540225*(2*alpha - 3)*(2*alpha - 1)*(2*alpha + 1)*(2*alpha + 3)/16777216
+  P2 Res_(j=1/2) g1[5] = 539*(2*alpha - 1)*(2*alpha + 1)*(18564*alpha**2 + 19375)/100663296  (rho* = 11/6)
+p = 2:
+  P0 Res_(j=1/2) g1[3] = 3*(2*alpha - 1)*(2*alpha + 1)/32
+  P1 Res_(j=3/2) g1[5] = 63*(2*alpha - 3)*(2*alpha - 1)*(2*alpha + 1)*(2*alpha + 3)/1024
+  P2 Res_(j=1/2) g1[5] = 3*(2*alpha - 1)*(2*alpha + 1)*(4*alpha**2 + 3)/64  (rho* = 3/2)
+p = 3:
+  P0 Res_(j=1/2) g1[3] = 175*(2*alpha - 1)*(2*alpha + 1)/1024
+  P1 Res_(j=3/2) g1[5] = 95625*(2*alpha - 3)*(2*alpha - 1)*(2*alpha + 1)*(2*alpha + 3)/524288
+  P2 Res_(j=1/2) g1[5] = 875*(2*alpha - 1)*(2*alpha + 1)*(996*alpha**2 + 439)/1572864  (rho* = 7/6)
+p = 1/2:
+  P0 Res_(j=1/2) g1[3] = 225*(2*alpha - 1)*(2*alpha + 1)/8192
+  P1 Res_(j=3/2) g1[5] = 106875*(2*alpha - 3)*(2*alpha - 1)*(2*alpha + 1)*(2*alpha + 3)/16777216
+  P2 Res_(j=1/2) g1[5] = 1125*(2*alpha - 1)*(2*alpha + 1)*(628*alpha**2 + 2003)/33554432  (rho* = 9/2)
+p = 5/2:
+  P0 Res_(j=1/2) g1[3] = 1053*(2*alpha - 1)*(2*alpha + 1)/8192
+  P1 Res_(j=3/2) g1[5] = 1830519*(2*alpha - 3)*(2*alpha - 1)*(2*alpha + 1)*(2*alpha + 3)/16777216
+  P2 Res_(j=1/2) g1[5] = 351*(2*alpha - 1)*(2*alpha + 1)*(158220*alpha**2 + 89677)/167772160  (rho* = 13/10)
+predictions written 2026-10-22 09:38:30 -> w_exact_predictions.json
+EXIT 0

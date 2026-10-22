@@ -1,0 +1,101 @@
+sha256 w_exact_poles.py: c97f83a803bc9267aa8ee084f7dcfdf3f156ce0fc3860f4e3a79e4289cea7803
+sha256 w_exact_lag.py: bfeac6c812fcddad0dff281531e6036bf45a3e1e0e4fb0bfac6dfcabccaf9e30
+sha256 w_exact_engine.py: 54ad07279b4f891908985a8c8782413aee89007b6b0caf976f51b470d7af14e8
+sha256 w_exact_predict.py: 7bf0165c74818dac1e6d565695686d4bbf350a899da360bf4b5933755417175d
+[ 1] identity: Rule X: predictions written 2026-10-22 09:38:30 before this run: holds -> PASS
+--- p = 1/2 (registered): engine KORD = 5 done (74s)
+[ 2] identity: p=1/2: g1[0] = g1[2] = g1[4] = 0: holds -> PASS
+[ 3] identity: p=1/2: g1[1] = p j/2: holds -> PASS
+[ 4] identity: p=1/2: g1[3]/g1[1] = A_j + B_j nu^2: holds -> PASS
+   g1[5] denominator: 2580480*(2*j - 3)*(2*j - 1)
+[ 5] identity: p=1/2: the j-poles of g1[5] are exactly j = 1/2, 3/2, simple: holds -> PASS
+   Res_(j=1/2) g1[3] = 225*(2*alpha - 1)*(2*alpha + 1)/8192
+   Res_(j=3/2) g1[5] = 106875*(2*alpha - 3)*(2*alpha - 1)*(2*alpha + 1)*(2*alpha + 3)/16777216
+   Res_(j=1/2) g1[5] = -375*(2*alpha - 1)*(2*alpha + 1)*(36*alpha**2 - 5009)/117440512
+[ 6] identity: p=1/2: P0 Res_(j=1/2) g1[3] = registered: holds -> PASS
+[ 7] identity: p=1/2: P1 Res_(j=3/2) g1[5] = registered (leading branched term, rho = 3/2): holds -> PASS
+[ 8] CONTROL (must fail): p=1/2: registered P2 (reflection rho* = rho + (2rho+1)/p) -- REFUTED: FAILS -> PASS
+[ 9] CONTROL (must fail): p=1/2: control P1 with kappa^(-rho): FAILS -> PASS
+[10] CONTROL (must fail): p=1/2: control P1 with the opposite sign: FAILS -> PASS
+[11] CONTROL (must fail): p=1/2: control P2 with g(rho*) -> 0 (Res_(1/2) g1[5] = 0): FAILS -> PASS
+   X(p, nu) := -Res_(1/2) g1[5] / Res_(1/2) H = -5*(36*alpha**2 - 5009)/43008  (post hoc: relative N^-2 dressing of the branched series at rho = 1/2)
+--- p = 5/2 (registered): engine KORD = 5 done (80s)
+[12] identity: p=5/2: g1[0] = g1[2] = g1[4] = 0: holds -> PASS
+[13] identity: p=5/2: g1[1] = p j/2: holds -> PASS
+[14] identity: p=5/2: g1[3]/g1[1] = A_j + B_j nu^2: holds -> PASS
+   g1[5] denominator: 35020800*(2*j - 3)*(2*j - 1)
+[15] identity: p=5/2: the j-poles of g1[5] are exactly j = 1/2, 3/2, simple: holds -> PASS
+   Res_(j=1/2) g1[3] = 1053*(2*alpha - 1)*(2*alpha + 1)/8192
+   Res_(j=3/2) g1[5] = 1830519*(2*alpha - 3)*(2*alpha - 1)*(2*alpha + 1)*(2*alpha + 3)/16777216
+   Res_(j=1/2) g1[5] = 27*(2*alpha - 1)*(2*alpha + 1)*(264492*alpha**2 + 1182685)/318767104
+[16] identity: p=5/2: P0 Res_(j=1/2) g1[3] = registered: holds -> PASS
+[17] identity: p=5/2: P1 Res_(j=3/2) g1[5] = registered (leading branched term, rho = 3/2): holds -> PASS
+[18] CONTROL (must fail): p=5/2: registered P2 (reflection rho* = rho + (2rho+1)/p) -- REFUTED: FAILS -> PASS
+[19] CONTROL (must fail): p=5/2: control P1 with kappa^(-rho): FAILS -> PASS
+[20] CONTROL (must fail): p=5/2: control P1 with the opposite sign: FAILS -> PASS
+[21] CONTROL (must fail): p=5/2: control P2 with g(rho*) -> 0 (Res_(1/2) g1[5] = 0): FAILS -> PASS
+   X(p, nu) := -Res_(1/2) g1[5] / Res_(1/2) H = (264492*alpha**2 + 1182685)/1517568  (post hoc: relative N^-2 dressing of the branched series at rho = 1/2)
+--- p = 1/3 (post hoc): engine KORD = 5 done (77s)
+[22] identity: p=1/3: g1[0] = g1[2] = g1[4] = 0: holds -> PASS
+[23] identity: p=1/3: g1[1] = p j/2: holds -> PASS
+[24] identity: p=1/3: g1[3]/g1[1] = A_j + B_j nu^2: holds -> PASS
+   g1[5] denominator: 2799360*(2*j - 3)*(2*j - 1)
+[25] identity: p=1/3: the j-poles of g1[5] are exactly j = 1/2, 3/2, simple: holds -> PASS
+   Res_(j=1/2) g1[3] = 637*(2*alpha - 1)*(2*alpha + 1)/27648
+   Res_(j=3/2) g1[5] = 2401*(2*alpha - 3)*(2*alpha - 1)*(2*alpha + 1)*(2*alpha + 3)/524288
+   Res_(j=1/2) g1[5] = -49*(2*alpha - 1)*(2*alpha + 1)*(10948*alpha**2 - 312129)/1146617856
+[26] identity: p=1/3 (post hoc): P0 Res_(j=1/2) g1[3] = -Res_(1/2) H: holds -> PASS
+[27] identity: p=1/3 (post hoc): P1 Res_(j=3/2) g1[5] = -Res_(3/2) H: holds -> PASS
+[28] CONTROL (must fail): p=1/3: control P1 with kappa^(-rho): FAILS -> PASS
+[29] CONTROL (must fail): p=1/3: control P1 with the opposite sign: FAILS -> PASS
+[30] CONTROL (must fail): p=1/3: control P2 with g(rho*) -> 0 (Res_(1/2) g1[5] = 0): FAILS -> PASS
+   X(p, nu) := -Res_(1/2) g1[5] / Res_(1/2) H = -(10948*alpha**2 - 312129)/539136  (post hoc: relative N^-2 dressing of the branched series at rho = 1/2)
+--- p = 2/3 (post hoc): engine KORD = 5 done (53s)
+[31] identity: p=2/3: g1[0] = g1[2] = g1[4] = 0: holds -> PASS
+[32] identity: p=2/3: g1[1] = p j/2: holds -> PASS
+[33] identity: p=2/3: g1[3]/g1[1] = A_j + B_j nu^2: holds -> PASS
+   g1[5] denominator: 2799360*(2*j - 3)*(2*j - 1)
+[34] identity: p=2/3: the j-poles of g1[5] are exactly j = 1/2, 3/2, simple: holds -> PASS
+   Res_(j=1/2) g1[3] = 7*(2*alpha - 1)*(2*alpha + 1)/216
+   Res_(j=3/2) g1[5] = 5*(2*alpha - 3)*(2*alpha - 1)*(2*alpha + 1)*(2*alpha + 3)/576
+   Res_(j=1/2) g1[5] = (2*alpha - 1)*(2*alpha + 1)*(32*alpha**2 + 1785)/93312
+[35] identity: p=2/3 (post hoc): P0 Res_(j=1/2) g1[3] = -Res_(1/2) H: holds -> PASS
+[36] identity: p=2/3 (post hoc): P1 Res_(j=3/2) g1[5] = -Res_(3/2) H: holds -> PASS
+[37] CONTROL (must fail): p=2/3: control P1 with kappa^(-rho): FAILS -> PASS
+[38] CONTROL (must fail): p=2/3: control P1 with the opposite sign: FAILS -> PASS
+[39] CONTROL (must fail): p=2/3: control P2 with g(rho*) -> 0 (Res_(1/2) g1[5] = 0): FAILS -> PASS
+   X(p, nu) := -Res_(1/2) g1[5] / Res_(1/2) H = (32*alpha**2 + 1785)/3024  (post hoc: relative N^-2 dressing of the branched series at rho = 1/2)
+--- p = 4/3 (post hoc): engine KORD = 5 done (50s)
+[40] identity: p=4/3: g1[0] = g1[2] = g1[4] = 0: holds -> PASS
+[41] identity: p=4/3: g1[1] = p j/2: holds -> PASS
+[42] identity: p=4/3: g1[3]/g1[1] = A_j + B_j nu^2: holds -> PASS
+   g1[5] denominator: 1399680*(2*j - 3)*(2*j - 1)
+[43] identity: p=4/3: the j-poles of g1[5] are exactly j = 1/2, 3/2, simple: holds -> PASS
+   Res_(j=1/2) g1[3] = 25*(2*alpha - 1)*(2*alpha + 1)/432
+   Res_(j=3/2) g1[5] = 625*(2*alpha - 3)*(2*alpha - 1)*(2*alpha + 1)*(2*alpha + 3)/24576
+   Res_(j=1/2) g1[5] = 125*(2*alpha - 1)*(2*alpha + 1)*(548*alpha**2 + 5355)/17915904
+[44] identity: p=4/3 (post hoc): P0 Res_(j=1/2) g1[3] = -Res_(1/2) H: holds -> PASS
+[45] identity: p=4/3 (post hoc): P1 Res_(j=3/2) g1[5] = -Res_(3/2) H: holds -> PASS
+[46] CONTROL (must fail): p=4/3: control P1 with kappa^(-rho): FAILS -> PASS
+[47] CONTROL (must fail): p=4/3: control P1 with the opposite sign: FAILS -> PASS
+[48] CONTROL (must fail): p=4/3: control P2 with g(rho*) -> 0 (Res_(1/2) g1[5] = 0): FAILS -> PASS
+   X(p, nu) := -Res_(1/2) g1[5] / Res_(1/2) H = 5*(548*alpha**2 + 5355)/41472  (post hoc: relative N^-2 dressing of the branched series at rho = 1/2)
+--- p = 5 (post hoc): engine KORD = 5 done (52s)
+[49] identity: p=5: g1[0] = g1[2] = g1[4] = 0: holds -> PASS
+[50] identity: p=5: g1[1] = p j/2: holds -> PASS
+[51] identity: p=5: g1[3]/g1[1] = A_j + B_j nu^2: holds -> PASS
+   g1[5] denominator: 979200*(2*j - 3)*(2*j - 1)
+[52] identity: p=5: the j-poles of g1[5] are exactly j = 1/2, 3/2, simple: holds -> PASS
+   Res_(j=1/2) g1[3] = 441*(2*alpha - 1)*(2*alpha + 1)/1024
+   Res_(j=3/2) g1[5] = 497007*(2*alpha - 3)*(2*alpha - 1)*(2*alpha + 1)*(2*alpha + 3)/524288
+   Res_(j=1/2) g1[5] = 147*(2*alpha - 1)*(2*alpha + 1)*(13188*alpha**2 + 29215)/8912896
+[53] identity: p=5 (post hoc): P0 Res_(j=1/2) g1[3] = -Res_(1/2) H: holds -> PASS
+[54] identity: p=5 (post hoc): P1 Res_(j=3/2) g1[5] = -Res_(3/2) H: holds -> PASS
+[55] CONTROL (must fail): p=5: control P1 with kappa^(-rho): FAILS -> PASS
+[56] CONTROL (must fail): p=5: control P1 with the opposite sign: FAILS -> PASS
+[57] CONTROL (must fail): p=5: control P2 with g(rho*) -> 0 (Res_(1/2) g1[5] = 0): FAILS -> PASS
+   X(p, nu) := -Res_(1/2) g1[5] / Res_(1/2) H = (13188*alpha**2 + 29215)/26112  (post hoc: relative N^-2 dressing of the branched series at rho = 1/2)
+total 57 checks (389s)
+ALL IDENTITIES HOLD
+ALL 57 CHECKS PASSED
+EXIT 0

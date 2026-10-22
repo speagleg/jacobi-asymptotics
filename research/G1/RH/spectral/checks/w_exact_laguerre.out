@@ -1,0 +1,38 @@
+sha256 w_exact_laguerre.py: 411d9daed3e6c41170ee3a307855ee851df3d4b2d4375aa090cee7c0c29006af
+sha256 w_exact_lag.py: bfeac6c812fcddad0dff281531e6036bf45a3e1e0e4fb0bfac6dfcabccaf9e30
+sha256 w_exact_engine.py: 54ad07279b4f891908985a8c8782413aee89007b6b0caf976f51b470d7af14e8
+[ 1] identity: (L1) finite-sum formula = quadrature (n = 5, alpha = 0.3, rho = 0.37), rel < 1e-30: holds -> PASS
+[ 2] identity: (L1) rho = 1: m_n = 2n + alpha + 1 (n = 7): holds -> PASS
+[ 3] identity: (L3) connection formula at 3 rho x 2 x (max dev 2.67e-51 < 1e-40): holds -> PASS
+[ 4] identity: gamma_ratio_series (DLMF 5.11.8 differenced) vs mpmath at N = 200, 14 terms (rel 3.21e-31 < 1e-25): holds -> PASS
+[ 5] identity: Phi_nu(rho) = int y^rho J_nu(2 sqrt y)^2 dy at (nu, rho) = (1.5, -1.6): 0.671079381043051 vs 0.671079381751036 (quadosc, rel < 1e-7): holds -> PASS
+   engine p = -1, KORD = 6: 287s
+[ 6] identity: (A) integer layer f_0..f_6 = sqrt(1 - nu^2/(4N^2)) (Laguerre): holds -> PASS
+[ 7] identity: (A) engine g1[0](j = rho) = Laguerre analytic G^A_0: holds -> PASS
+[ 8] identity: (A) engine g1[1](j = rho) = Laguerre analytic G^A_1: holds -> PASS
+[ 9] identity: (A) engine g1[2](j = rho) = Laguerre analytic G^A_2: holds -> PASS
+[10] identity: (A) engine g1[3](j = rho) = Laguerre analytic G^A_3: holds -> PASS
+[11] identity: (A) engine g1[4](j = rho) = Laguerre analytic G^A_4: holds -> PASS
+[12] identity: (A) engine g1[5](j = rho) = Laguerre analytic G^A_5: holds -> PASS
+[13] identity: (A) engine g1[6](j = rho) = Laguerre analytic G^A_6: holds -> PASS
+   G^A_3 = rho*(3*alpha**2*rho**2 - 3*alpha**2*rho + 3*alpha**2 - rho**4 + 2*rho**3 + rho**2 - 2*rho)/(48*(2*rho - 1)) 
+   G^A_5 = -rho*(45*alpha**4*rho**4 - 270*alpha**4*rho**3 + 585*alpha**4*rho**2 - 720*alpha**4*rho + 405*alpha**4 - 30*alpha**2*rho**6 + 210*alpha**2*rho**5 - 540*alpha**2*rho**4 + 330*alpha**2*rho**3 + 570*alpha**2*rho**2 - 540*alpha**2*rho + 5*rho**8 - 52*rho**7 + 194*rho**6 - 304*rho**5 + 125*rho**4 + 212*rho**3 - 324*rho**2 + 144*rho)/(11520*(2*rho - 3)*(2*rho - 1))
+[14] CONTROL (must fail): (A) control: G^A in N' = n + (nu+1)/2 has no N'^-2 term: FAILS -> PASS
+[15] CONTROL (must fail): (A) control: only the i = 0 term of P_1 (no (-2rho)_i structure) reproduces g1[3]: FAILS -> PASS
+[16] identity: (B) rat_0 = (rho+1)/2, rat_1 = rat_3 = 0: holds -> PASS
+[17] identity: (B) reflection rat_k = G^A_(k+1)(rho -> -1-rho), k <= 5: holds -> PASS
+[18] CONTROL (must fail): (B) control: reflection rho -> -rho: FAILS -> PASS
+[19] identity: (C) rho0 = 1/2: Res G^A_k + Res (Phi/C) rat_(k-2rho0-2) = 0 for k <= 6 (2 nonzero poles): holds -> PASS
+[20] identity: (C) rho0 = 3/2: Res G^A_k + Res (Phi/C) rat_(k-2rho0-2) = 0 for k <= 6 (1 nonzero poles): holds -> PASS
+   r := Res_(rho=1/2) G^A_3 = 3*(2*alpha - 1)*(2*alpha + 1)/1024  (= G_1 Res g = -(1/4) Res g at p = -1)
+   max |m - m^A - m^B|/|m| = 1.89e-21;  n = 800: (rho, |m - m^A|/|m|, |m^B|/|m|, n^(-2rho-1)) = [(0.37, 8.44e-08, 8.44e-08, 8.88e-06), (0.6666666666666666, 2.37e-09, 2.37e-09, 1.68e-07), (0.37, 2.76e-07, 2.76e-07, 8.88e-06), (0.6666666666666666, 5.73e-10, 5.73e-10, 1.68e-07), (1.3, 1.1e-13, 1.1e-13, 3.54e-11)]
+[21] identity: (D) m_n = m^A + m^B (14 terms each) to < 1e-18 relative (2 alpha x 3 rho x n = 100..800): holds -> PASS
+[22] CONTROL (must fail): (D) control: m^A alone reproduces m_n to < 1e-18 at n = 800 in every case with Phi != 0 (Phi = 0 at alpha = 0.3, rho = 1.3): FAILS -> PASS
+   rho = 1/2, alpha = 0.3: d y / d log N = ['-0.003750000943', '-0.003750000274', '-0.003750000078'], predicted 2r = -0.0037500000
+[23] identity: (D) rho = 1/2, alpha = 0.3: log N N^-3 coefficient = 2 Res_(1/2) G^A_3 (last slope, rel < 1e-5): holds -> PASS
+   rho = 1/2, alpha = 0.0: d y / d log N = ['-0.005859378053', '-0.005859375838', '-0.005859375228'], predicted 2r = -0.0058593750
+[24] identity: (D) rho = 1/2, alpha = 0.0: log N N^-3 coefficient = 2 Res_(1/2) G^A_3 (last slope, rel < 1e-5): holds -> PASS
+total 24 checks (368s)
+ALL IDENTITIES HOLD
+ALL 24 CHECKS PASSED
+EXIT 0
