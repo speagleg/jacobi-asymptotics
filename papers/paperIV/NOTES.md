@@ -129,3 +129,56 @@ No entry from CITATIONS.md beyond these was needed; DLMF formulas used: 5.5.3, 5
   sources before submission (Rule C). BeckermannKuijlaars2001 Thm 2.1 is decisive for the novelty of Theorem Q.
 - Inconsistencies flagged by the drafting agent and fixed in the notes: JZC_M1 step (i) now cites (H2); m1_theoremQ count 28;
   JZC_M4 Prop N.2 relabelled PROVED-mod-cite; run_all.sh lists the scripts it does not run.
+
+## Session additions (2026-10-22): Theorem Σ, Toda, Theorem H, the κ-family, Conjecture W
+Build: `pdflatex main; bibtex main; pdflatex main; pdflatex main` → **40 pages**, 0 errors, 0 overfull boxes, 0 undefined references;
+12 underfull boxes (cosmetic); 1 BibTeX warning (missing pages in BeckermannKuijlaars2001, pre-existing). Multi-index of the
+layers renamed β → **r** (`\br`) in §5 and §9 to free β for the Szegő exponent.
+
+New section order: 1 intro, 2 prior, 3 equilibrium, 4 kernel, 5 natural index, **6 Reflection, shift and the Toda structure
+(secS.tex)**, **7 Hurwitz lattices (secH.tex)**, 8 examples (was 6), 9 conjectures (was 7), 10 literature (was 8), A.
+
+| Repo statement (label) | Paper | Form in the paper |
+|---|---|---|
+| JZC_M4 §7 decoupled model; Theorem R (PROVED, algebra; M4 NOT REVIEWED) | §6.1, Thm 6.1 | moved from §7.4 unchanged |
+| JZC_M4 Lemma BR (PROVED) | Lemma 6.2 | moved from §7.4 |
+| JZC_SIGMA Theorem Σ + Prop FI (PROVED-mod-cite (Lemma F (ii)) + REVIEWED) | Thm 6.3 (i), (6.2); Thm D in intro | theorem; proof: FI⇔Σ algebra, Lemma 6.5, uniqueness on p∈(1,2)∖ℚ, α∈(−½,½), γ∈(0,¼), identity theorem |
+| JZC_SIGMA Cor Σ.1 (PROVED-mod-cite + REVIEWED) | Cor 6.4 | corollary with proof; f_{2k} degree k in ν² stated as observed only |
+| JZC_SIGMA Cor Σ.2 (PROVED-mod-cite + REVIEWED; weight ≥ 3 open) | Thm 6.3 (ii) | stated in natural-form version (equivalent to the base-ν statement by the FI⇔Σ algebra) |
+| JZC_SIGMA Lemma F (i) (PROVED algebra + REVIEWED), (ii) (PROVED-mod-cite by transfer, 0 ≤ γ < (1−|α|)/2, + REVIEWED) | Lemma 6.5 | lemma, proof sketch; text says the transfer is written in the repo notes and not repeated |
+| JZC_SIGMA Remark C (OBSTRUCTION) | §6.3 first paragraph | one sentence |
+| JZC_SIGMA §5 checks (exact order 4, numerical order 8, controls) | text after proof of Thm 6.3 | sentence, with Rule X caveat |
+| JZC_M4 §8 Theorem T (**PROVED-mod-cite, NOT REVIEWED**) | **Prop 6.6** (not a theorem) | proposition, "proof sketch", text says the a_n-extraction and τ-uniformity are not written out |
+| JZC_M4 §8 diagonal layer, a₂ (NUMERICAL, m4_toda (A), m4_diag) | Conj 6.7 | conjecture + numerical evidence |
+| JZC_M4 §8 Cor T′ (conditional/heuristic), 1/(2j−1) reading (HEURISTIC) | Rem 6.8 | remark, "we expect … not written out", "heuristic reading" |
+| JZC_M3a_H Theorem H (i) (PROVED-mod-cite + REVIEWED for p ≠ 1, every memo link REVIEWED; ζ(−jp,a) form adds Remark 3.3, PROVED-mod-cite via CITATIONS (Hurwitz-DK), not second-read) | Thm 7.1 (i); Thm E in intro | theorem; constants via Hurwitz's formula quoted from Dixit–Kumar Thm 1.1 with hypotheses checked in the text |
+| JZC_M3a_H Theorem H (ii) (integer layer all orders, weight ≤ 2 layers: PROVED-mod-cite + REVIEWED via Σ; e_j, j ≥ 3: exact to N⁻² relative dressing; weight ≥ 3 beyond: CONDITIONAL) | Thm 7.1 (ii) + text after it | theorem; weight ≥ 3 stated as open |
+| H-a … H-f (JZC_M3a_H §2) | §7.3 (H-a)–(H-f) | proof outline; estimates "written out in the notes of the repository" |
+| JZC_M3a_Hd (index transfer, α-frame) | §7.2 | text |
+| JZC_W_outer + JZC_W_kappa (P K.11, P K.12 + Prop K.12′) + JZC_W_BT (BT.1, BT.5): κ-family W at first order in the poles, PROVED-mod-cite + REVIEWED; input WE.1 (JZC_W_exact) reviewed by REVIEW_JZC_W_WE1_K12p_B.md (16:04, ACCEPT WITH FIXES W1–W3, K1–K4, A1–A2, all MINOR) — **fixes not yet applied in the memos when this draft was built** | Thm 7.2 (displayed form, remainder O(n^{−1−p}), coefficient −2(2−p)cκ = pR_qW(q)π cot(πq)); refined form in the text after it | theorem + footnote ("re-read independently … minor corrections still being incorporated") + proof outline. Check K1 (mixed Toda × branched terms; harmless for the κ-family) when the fixes land |
+| JZC_W_kappa P K.14 / W_outer §7 (p < 1 OBSTRUCTION) | last paragraph of §7.4 | sentence |
+| JZC_W Conj W (CONJECTURE, NUMERICAL) | Conj 9.5 + (W1)–(W5) | conjecture |
+| JZC_W Prop W.1 (PROVED, elementary) | §9.3 data paragraph ("which is exactly …") | sentence |
+| JZC_W Obs W.3 (NUMERICAL) | text after Conj 9.5 | sentence, labelled by precision |
+| JZC_W Obs W.4, finding (multiplicities); Z(−j) = 0 for l(l+1) (PROVED) | Rem 9.6 | remark with the elementary proof |
+| JZC_W Refinement W′ (CONJECTURE, post hoc, one pre-registered confirmation) | Rem 9.7, Problem 9.9 | remark; K4 of review B: K.12′ does not prove W′ (the paper does not claim it) |
+| JZC_W_BT Theorem BT (formal-layer identity PROVED, asymptotics CONDITIONAL (F-br)), Prop BT.5 (REVIEWED) | Rem 9.8 | remark; "not proved for actual measures"; note that for ρ < ½ the companion lies inside W's claimed precision (our reading of the orders) |
+| JZC_W §2.3 table (NUMERICAL, pre-registered) | §8.5, Table 8.6 | selection of 16 of 41 rows; protocol and pass criterion stated |
+| JZC_M4 §9 large order (NUMERICAL) | §9.2 paragraph | numerical sentences (not requested; added because the old hypergeometric remark would otherwise mislead) |
+
+Bibliography: **DixitKumar** added (arXiv:1912.01199). Statement quoted in research/G1/RH/CITATIONS.md (Hurwitz-DK); title/authors/date
+re-read from the arXiv abstract page by WebFetch on 2026-10-22 (v1 only, no journal reference). Rule C flag kept: WebFetch is not a
+first-hand reading of the PDF; verify before submission. Titchmarsh (2.17.3), the primary source, is mentioned in §10 as not consulted.
+DLMF 5.2.1 is now used (step H-c; quoted in CITATIONS (DLMF-zeta, Plan 67)).
+
+Not included, and why:
+- Weight ≥ 3 zeta-layer shift and evenness of the zeta layers beyond N.6(ii): open in the memos (stated as open).
+- Lemma F for γ < 0: not covered by a reviewed statement (not used).
+- The shift for a_n (JZC_SIGMA §7 item 3): not done; Conj 6.7 states it.
+- Theorem BT's c₂, c₄ closed forms, Cor BT.4/BT.6, JZC_W_exact Prop WE.2/WE.3, the refuted P2: below the level of detail of the paper
+  (BT.4/BT.6 CONDITIONAL; Thm BT asymptotics CONDITIONAL).
+- JZC_W §1.6 (p = 1) and §5 (proof obstacles): reflected only in §9.4 "What a proof needs".
+
+New TODOs: Theorem 7.1's and Lemma 6.5's estimates live only in repo memos (JZC_M3a_H chain, JZC_SIGMA) — same status as E2/E3 (§3
+above): they need an appendix or a separate paper before submission. The scripts of §§6, 7, 8.5, 9.2 are not in run_all.sh (secA
+says so). Once the review-B fixes are applied to JZC_W_exact/JZC_W_kappa, revise the footnote to Theorem 7.2.

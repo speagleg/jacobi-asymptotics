@@ -68,6 +68,8 @@ within $4\cdot10^{-6}$ to $6\cdot10^{-5}$, with spreads $8\cdot10^{-4}$ to $10^{
 $p=1.5$ the values $g_1=95/288$ ($\alpha=0$) and $22/9$ ($\alpha=1$) were first seen in these fits.
 
 \subsection{Hurwitz lattices}\label{sec:hurwitz}
+For $-1<\delta\le0$ (and $\delta<0$ if $p<1$) and $1<s<1+2p$ the statements tested here are Theorem~\ref{thm:H}; the rows with $a\ge\frac32$
+($\delta>0$) or $s\ge1+2p$ are outside it, and all rows predate the theorem.
 For $\lambda_m=(m+\delta)^p$, $\delta>-1$, one has $Z_\Lambda(w)=\zeta(pw,a)$ with $a=1+\delta$, so $Z_\Lambda(-j)=\zeta(-jp,a)$ and
 $Z_\Lambda(0)=\frac12-a$. The natural-index law of Section~\ref{sec:conj} predicts the $1/n$ coefficient
 $d_1=-\frac{s-1}2-p\delta$ and the $n^{-1-p}$ coefficient $2pc\,\zeta(-p,a)$ in place of $\kp$. Table~\ref{tab:hurwitz}
@@ -141,6 +143,7 @@ to $q=1-1/p$, with residue $-\kappa q/p$, and the pole law gives $-2(2-p)c\kappa
 $W(-1/p)=p\tan(\pi/p)/\pi$. Fits of the $n^{-p}$ coefficient give $-1.20342$ $(0.13)$, $-0.60154$ $(0.04)$, $-1.22311$ $(0.74)$
 at $(p,\kappa)=(0.6,1),(0.6,\frac12),(0.3,1)$, against $-1.20247$, $-0.60123$, $-1.22262$ (script \texttt{spec\_kappa\_fit}); the
 first row was the identification point, and at $p=0.3$ the spread is $60\%$ of the value, so that row is not evidence.
+For $p>1$ the law is now Theorem~\ref{thm:kappa} (with $\delta=0$); the rows here have $p<1$, where it is not proved.
 The Hankel determinants of the shifted measure are those of the old nodes with an $m$-dependent weight: since
 $\varphi(y)=y/(1+\kappa y)$ satisfies $\varphi(a)-\varphi(b)=(a-b)/((1+\kappa a)(1+\kappa b))$, Heine's formula gives
 $D_m(\sigma_\kappa)=D_m((1+\kappa y)^{-2(m-1)}\sigma')$ with $\sigma'=(1+\kappa y)^{-s/p}\sigma$, and a first-order expansion of
@@ -190,6 +193,64 @@ $+3\cdot10^{-3}$ ($p=1.8$) and $-9\cdot10^{-2}$ ($p=2.5$, $m=2$), with signs dep
 $p=2$, $m=1$, gives a nonzero $n^{-3}$ coefficient $-3.70\gamma$ for this family; for Bessel zeros (\S\ref{sec:bessel}),
 whose index correction at $p=2$ is tied to the offset, the corresponding terms cancel, and the expansion is the pure
 index shift of Proposition~\ref{prop:bessel}.
+
+\subsection{Conjecture~\ref{conj:W}: predictions before fits}\label{sec:num-W}
+To test Conjecture~\ref{conj:W} on node sets with poles, with $Z(0)\ne-\frac12$, and with masses that are not pure powers, every
+coefficient was predicted from the spectral data alone (regularised $Z(0)$ and $Z(-j)$, residues, density and mass factors) and the
+recursion of \S\ref{sec:recursion} at $40$ digits (Toda responses by central differences), and the predictions were stored before
+any of the nine measures was computed; the test script asserts the time stamps. The conjecture has no fitted constant. The
+alternatives are the conjecture with one piece switched off: no Szeg\H{o} shift ($\beta=\alpha$), no pole term, no $Z(-j)$, no density or
+mass tilt, no natural-index shift of the pole terms. A coefficient passes if $|\text{fit}-\text{prediction}|\le\max(3\cdot\text{spread},
+2\cdot10^{-6}(1+|\text{prediction}|))$. Of the $41$ coefficients tested, $40$ pass; the exception is the sphere at $n^{-4}$, outside the
+claimed precision (Remark~\ref{rem:Wprime}). Table~\ref{tab:W} shows a selection.
+
+The families are: (A) $\lambda_k=k^p+ak^{p-1}$, $s=2$, which is a Hurwitz offset $\delta=a/p$ plus decaying corrections, so
+$Z(0)=-\frac12-\frac ap$, with poles at $q_i=(i-1)/p$; (B) Bessel zeros $\lambda_k=(j_{\nu',k}/\pi)^P$, $s=2$, with $Z(0)=-\frac{\nu'}2-\frac14$
+and poles at $q=(2i-1)/P$ (the residues use McMahon's expansion, checked against computed zeros to $5\cdot10^{-26}$); (M2) the nodes
+$l^{3/2}$ with masses $(2l+1)l^{-s}$, $s=3$, a mass factor with the fractional time $\rho=\frac23$; (M1) the sphere, nodes $l(l+1)$ with
+multiplicity $2l+1$, $s=4$.
+
+\begin{table}[ht]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrrr}
+\toprule
+measure & coeff. & prediction & fit (spread) & difference & next alternative\\
+\midrule
+A: $p=1.5$, $a=-\frac34$ & $n^{-2}$ & $+0.0984431$ & $+0.0984431$ $(3\cdot10^{-5})$ & $-3\cdot10^{-9}$ & no pole: $1392$\\
+ & $n^{-2.5}$ & $+0.2215758$ & $+0.2215749$ $(4\cdot10^{-5})$ & $-9\cdot10^{-7}$ & no $Z(-j)$: $1912$\\
+ & $n^{-3}$ & $+0.0699377$ & $+0.0699393$ $(1.1\cdot10^{-3})$ & $+1.6\cdot10^{-6}$ & no tilt: $25$\\
+A: $p=1.5$, $a=0.6$ & $n^{-2}$ & $+1.0955036$ & $+1.0955031$ $(1.6\cdot10^{-4})$ & $-5\cdot10^{-7}$ & no pole: $150$\\
+A: $p=3$, $a=-0.6$ & $n^{-2}$ & $+0.1347742$ & $+0.1347742$ $(5\cdot10^{-9})$ & $+5\cdot10^{-10}$ & no pole: $31968$\\
+ & $n^{-3}$ & $+0.0452648$ & $+0.0452649$ $(2.7\cdot10^{-6})$ & $+1.0\cdot10^{-7}$ & no shift: $1466$\\
+A: $p=0.6$, $a=-0.3$ & $n^{-1.6}$ & $+0.0854664$ & $+0.0854637$ $(3.7\cdot10^{-4})$ & $-3\cdot10^{-6}$ & no $Z(-j)$: $77$\\
+ & $n^{-2}$ & $+0.1329122$ & $+0.1327116$ $(1.1\cdot10^{-3})$ & $-2.0\cdot10^{-4}$ & no pole: $27$\\
+B: $\nu'=0$, $P=1.5$ & $n^{-2}$ & $+0.1957151$ & $+0.1957150$ $(1.4\cdot10^{-5})$ & $-1.3\cdot10^{-7}$ & no pole: $562$\\
+B: $\nu'=1$, $P=1.5$ & $n^{-2.5}$ & $-0.0664936$ & $-0.0664957$ $(5\cdot10^{-4})$ & $-2\cdot10^{-6}$ & no $Z(-j)$: $42$\\
+B: $\nu'=0$, $P=3$ & $n^{-2}$ & $+0.0742502$ & $+0.0742502$ $(3\cdot10^{-9})$ & $+5\cdot10^{-10}$ & no pole: $10692$\\
+ & $n^{-3}$ & $+0.0049259$ & $+0.0049264$ $(1.2\cdot10^{-5})$ & $+4.8\cdot10^{-7}$ & no shift: $276$\\
+M2 & $n^{-2}$ & $+0.1180556$ & $+0.1180558$ $(3.8\cdot10^{-6})$ & $+2.7\cdot10^{-7}$ & no mass tilt: $21830$\\
+ & $n^{-3}$ & $+0.1900476$ & $+0.1900481$ $(1.1\cdot10^{-3})$ & $+4.8\cdot10^{-7}$ & no shift: $90$\\
+M1 (sphere) & $n^{-3}$ & $-5$ & $-4.99999992$ $(3\cdot10^{-6})$ & $8\cdot10^{-8}$ & one tilt only: $12851$\\
+ & $n^{-4}$ & $+7.5449219$ & $+7.776241$ $(3.3\cdot10^{-4})$ & $+0.23132$ & not claimed\\
+\bottomrule
+\end{tabular}
+\caption{Conjecture~\ref{conj:W} against fits (scripts \texttt{w\_predict}, \texttt{w\_test}). The last column gives the miss of the
+closest alternative in units of the tolerance. The row $a=0.6$ has $\delta=0.4>0$, outside Theorem~\ref{thm:H}; the rows $p=0.6$ are the
+weakest tests. Fit-free residuals $n^e(y_n-\sum_{e'<e}W_{e'}n^{-e'})-W_e$ at $n=200,400,800,1600$ decay in the rows shown except the sphere's $n^{-4}$ (script
+\texttt{w\_resid}).}
+\label{tab:W}
+\end{table}
+
+The $n^{-1}$ coefficients test the Szeg\H{o} shift $\beta=\alpha-2Z(0)-1$ at $Z(0)\ne-\frac12$: they agree to $10^{-8}$ or better, and $\beta=\alpha$
+is excluded by $10^3$--$10^5$ tolerances. The $n^{-3}$ rows of the families A and B test, beyond Conjecture~\ref{conj:natural}, the natural-index
+shift of the pole terms with $Z(0)\ne-\frac12$ and the density tilt as a fractional Toda time. At $q_1=\frac43$ (family A, $p=1.5$) the agreement
+is $2\cdot10^{-6}$--$3\cdot10^{-5}$ against spreads of $10^{-3}$: consistent, not precise. For the Bessel anchor at $P=2$
+(Proposition~\ref{prop:bessel}) the prediction of Conjecture~\ref{conj:W}, the bare model $M(\nu'-1,-\frac12)$, reproduces the coefficients
+$n^{-1},\dots,n^{-4}$ of the exact closed form to $2\cdot10^{-21}$. The probes of Remark~\ref{rem:Wprime} were designed after the sphere's
+$n^{-4}$ failure (script \texttt{w\_probe}); the two measures $k^2+\frac14$ at $s=2$ and $s=3.5$ were then computed after the predictions of the
+refinement had been stored (script \texttt{w\_probe2}).
 
 \subsection{Drums}\label{sec:drums}
 Let $\lambda$ run over the Dirichlet eigenvalues of a planar domain of area $\mathcal A$ and perimeter $\mathcal P$,

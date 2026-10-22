@@ -1,3 +1,9 @@
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+The top-level auxiliary file: main.aux
+The style file: amsplain.bst
+Database file #1: refs.bib
+Warning--missing pages in BeckermannKuijlaars2001
+(There was 1 warning)
 This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
@@ -66,13 +72,14 @@ For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (./main.out)
 (./main.out) (./sec1.tex [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
- [2] [3]) (./sec2.tex (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
-) [4] [5]) (./sec3.tex [6] [7]
+ [2] [3] [4]) (./sec2.tex
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd) [5] [6]) (./sec3.tex
+ [7] [8]
 Underfull \hbox (badness 1024) in paragraph at lines 108--111
 []$\OML/cmm/m/it/10.95 y^^[\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y\OT1/cmr/m/
 n/10.95 ) = []\OML/cmm/m/it/10.95 y[]$ \OT1/cmr/m/n/10.95 is strictly de-creas-
 ing and (H3) holds. Equa-tion [] reads
-[8]) (./sec4.tex [9] [10]
+[9]) (./sec4.tex [10] [11]
 Underfull \hbox (badness 1895) in paragraph at lines 94--102
 \OT1/cmr/m/n/10.95 with com-plex $\OML/cmm/m/it/10.95 w$\OT1/cmr/m/n/10.95 ; th
 e strip comes from $\U/euf/m/n/10.95 j\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 r
@@ -84,7 +91,7 @@ Underfull \hbox (badness 1297) in paragraph at lines 94--102
  v\OT1/cmr/m/n/10.95 )[]$ with $\OML/cmm/m/it/10.95 v \OT1/cmr/m/n/10.95 = \OMS
 /cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 4\OML/cmm/m/it/10.95 ce[]=r$ \OT1/cmr/m/n
 /10.95 by [] (now
-[11]) (./sec5.tex [12] [13]
+[12]) (./sec5.tex [13] [14]
 Underfull \hbox (badness 2237) in paragraph at lines 152--157
 []\OT1/cmr/m/n/10.95 Define $\U/euf/m/n/10.95 D[]\OT1/cmr/m/n/10.95 (\OML/cmm/m
 /it/10.95 n\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 ^^V\OT1/cmr/m/n/10.95 ) := 
@@ -92,7 +99,7 @@ Underfull \hbox (badness 2237) in paragraph at lines 152--157
 /m/n/10.95 )[])[]\OML/cmm/m/it/10.95 =c$\OT1/cmr/m/n/10.95 , ex-panded to or-de
 r $\OML/cmm/m/it/10.95 n[]$\OT1/cmr/m/n/10.95 , where $\OML/cmm/m/it/10.95 Q[] 
 \OT1/cmr/m/n/10.95 =
-[14] [15]
+[15] [16]
 Underfull \hbox (badness 1681) in paragraph at lines 235--242
 []\OT1/cmr/m/n/10.95 (i) By [] and Propo-si-tion [][]5.5[][], $\OML/cmm/m/it/10
 .95 n[]b[] \OT1/cmr/m/n/10.95 = (\OML/cmm/m/it/10.95 Q[]\OT1/cmr/m/n/10.95 )[](
@@ -106,7 +113,12 @@ O\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it
 /10.95 n[]\OT1/cmr/m/n/10.95 )$. The $\OML/cmm/m/it/10.95 n[]$ \OT1/cmr/m/n/10.
 95 term of $(\OML/cmm/m/it/10.95 Q[]\OT1/cmr/m/n/10.95 )[](\OML/cmm/m/it/10.95 
 Q[]\OT1/cmr/m/n/10.95 )[]$ is $\OML/cmm/m/it/10.95 c[]$\OT1/cmr/m/n/10.95 ,
-[16]) (./sec6.tex [17] [18] [19] [20] [21]) (./sec7.tex [22]
+[17]) (./secS.tex [18] [19] [20] [21]
+Underfull \hbox (badness 1838) in paragraph at lines 194--195
+ \OT1/cmr/m/n/10.95 6.4.\OT1/cmr/bx/n/10.95 The zeta layer as a Toda flow.[][] 
+\OT1/cmr/m/n/10.95 In the un-scaled vari-able the band fac-tor
+[22]) (./secH.tex [23] [24] [25]) (./sec6.tex [26] [27] [28] [29] [30] [31]
+[32]) (./sec7.tex
 Underfull \hbox (badness 1424) in paragraph at lines 20--22
 []\OT1/cmr/m/it/10.95 for ev-ery pole $\OML/cmm/m/it/10.95 q \OMS/cmsy/m/n/10.9
 5 6\OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 1\OML/cmm/m/i
@@ -115,48 +127,55 @@ t/10.95 =p$ \OT1/cmr/m/it/10.95 of $\OML/cmm/m/it/10.95 Z[]\OT1/cmr/m/n/10.95 (
 10.95 ^^@ \OML/cmm/m/it/10.95 ^^P\OT1/cmr/m/n/10.95 (\OMS/cmsy/m/n/10.95 ^^@\OM
 L/cmm/m/it/10.95 pw\OT1/cmr/m/n/10.95 )$\OT1/cmr/m/it/10.95 , with residue $\OM
 L/cmm/m/it/10.95 R[]$\OT1/cmr/m/it/10.95 , the term
-[23] [24]) (./sec8.tex [25]) (./secA.tex [26]
+[33] [34] [35] [36]) (./sec8.tex [37]) (./secA.tex
+Underfull \vbox (badness 2359) has occurred while \output is active [38]
 Underfull \hbox (badness 10000) in paragraph at lines 61--63
 []\OT1/cmtt/m/n/10 spec[]pole\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 spec[]gamma\OT1
 /cmr/m/n/10 , \OT1/cmtt/m/n/10 spec[]kappa\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 sp
 ec[]kappa[]fit\OT1/cmr/m/n/10 ,
 
-Underfull \hbox (badness 4686) in paragraph at lines 66--68
+Underfull \hbox (badness 3148) in paragraph at lines 66--68
+[]\OT1/cmtt/m/n/10 m4[]shift[]exact\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 sigma[]fr
+ame[]exact \OT1/cmr/m/n/10 (ex-act), \OT1/cmtt/m/n/10 m4[]shift[]num\OT1/cmr/m/
+n/10 ,
+
+Underfull \hbox (badness 4686) in paragraph at lines 74--76
 []\OT1/cmtt/m/n/10 spec[]jitter\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 spec[]window\
 OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 spec[]edgekernel\OT1/cmr/m/n/10 , \OT1/cmtt/m
 /n/10 spec[]stats\OT1/cmr/m/n/10 ,
-) (./main.bbl [27]) [28] (./main.aux) )
+) [39] (./main.bbl) [40] (./main.aux) )
 (see the transcript file for additional information) </root/.texlive2023/texmf-
 var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> </root/.texlive2023/texmf-var/f
 onts/pk/ljfour/jknappen/ec/tcrm1095.600pk></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-extra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/e
-ufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
-am10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
-m10.pfb>
-Output written on main.pdf (28 pages, 581477 bytes).
+public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/c
+mex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cme
+x9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (40 pages, 699450 bytes).
 Transcript written on main.log.

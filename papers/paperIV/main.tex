@@ -31,6 +31,7 @@
 \newcommand{\fe}{\mathfrak e}
 \newcommand{\fj}{\mathfrak j}
 \newcommand{\Nat}{N}
+\newcommand{\br}{\mathbf r}
 \newcommand{\binomc}[2]{\tbinom{#1}{#2}}
 \DeclareMathOperator{\Res}{Res}
 \DeclareMathOperator{\PV}{PV}
@@ -45,7 +46,7 @@ spectral dictionary and the natural index}
 
 \subjclass[2020]{Primary 42C05; Secondary 47B36, 31A15, 30E15, 11M35}
 \keywords{Orthogonal polynomials, Jacobi matrices, recurrence coefficients, discrete measures, constrained equilibrium,
-Riemann--Hilbert problems, spectral zeta functions, Mellin transforms}
+Riemann--Hilbert problems, spectral zeta functions, Hurwitz zeta function, Mellin transforms, Toda hierarchy}
 
 \begin{document}
 
@@ -53,18 +54,21 @@ Riemann--Hilbert problems, spectral zeta functions, Mellin transforms}
 For an increasing sequence $\Lambda=\{\lambda_m\}$ with $\lambda_m\sim m^p$ we study the recurrence coefficients
 $a_n,b_n$ of the discrete measure $\sum_m\lambda_m^{-s/p}\delta_{1/\lambda_m}$; the lattice $\lambda_m=m^p$ gives the
 measures $\sum_kk^{-s}\delta_{k^{-p}}$ of the earlier papers of this series, for which $n^pb_n\to c(p)$. For the lattice
-and every $p\ne1$ we prove an expansion of $n^pb_n/c(p)$ to order $n^{-7}+n^{-2-3p}$. It is a double series in $1/n$
-and in the parameters $\zeta(-jp)n^{-jp}$ of the band factor, computed to every order by a finite residue recursion
-and evaluated by exact computer algebra. In the natural index $N=n+\frac\alpha2+\frac12$, $\alpha=(s-1-p)/p$, every
-computed layer is even in $1/N$, and the first-order zeta terms are $\varepsilon_jN^{-1-jp}(1+g_jN^{-2})$ with
-$\varepsilon_j=\binom{2j}{j}p\,c^j\zeta(-jp)$ and $g_j$ quadratic in $\alpha$, for all $j$. We write the full zeta
-layer as one Mellin--Barnes integral with kernel $\pi[\cot(\pi wp/2)-\cot(\pi w)]$, for all $p\ne1$. On the potential
-theory side we solve the constrained equilibrium problem for a general decreasing node density explicitly and show that
-its soft edge carries every pole of the node zeta function with the weight $\pi\cot(\pi q)$. For non-lattice spectra
-these statements become a conjectural dictionary between the expansion of $b_n$ and the spectral zeta function of
-$\Lambda$. We test it on Hurwitz lattices, Bessel zeros (where it is exact), planar drums and anharmonic oscillators;
-for the oscillators $-\frac{\mathrm d^2}{\mathrm dq^2}+q^N$ the predicted $n^{-2}$ shift is the rational number
-$(N-1)/(6(N+2))$.
+and every $p\ne1$ we prove an expansion of $n^pb_n/c$ to order $n^{-7}+n^{-2-3p}$. It is a double series in $1/n$
+and in $\zeta(-jp)n^{-jp}$, computed by a finite residue recursion and exact computer algebra. In the natural index $N=n+\frac\alpha2+\frac12$, $\alpha=(s-1-p)/p$, the integer
+layer is even in $1/N$ to all orders: separating the roles of $\alpha$ as Bessel order and as Szeg\H{o} exponent, we prove a
+reflection symmetry and, by steepest descent in a second frame of non-integer index, that the Szeg\H{o} exponent enters only
+through $N$. The first-order zeta terms are $\varepsilon_jN^{-1-jp}(1+g_jN^{-2})$ with
+$\varepsilon_j=\binom{2j}{j}p\,c^j\zeta(-jp)$ and $g_j$ quadratic in $\alpha$, for all $j$, and, formally, the zeta layers are Toda flows of
+the integer layer. For Hurwitz lattices $\lambda_m=(m+\delta)^p$, $-1<\delta\le0$, the offset only shifts the Szeg\H{o} exponent, so the lattice
+expansion holds with $N$ shifted by $\delta$ and $\zeta(-jp)$ replaced by $\zeta(-jp,1+\delta)$; for
+$\lambda_m=(m+\delta)^p+\kappa$, $p>1$, we prove the first pole term. We write the zeta layer as a Mellin--Barnes integral
+with kernel $\pi[\cot(\pi wp/2)-\cot(\pi w)]$ and solve the constrained equilibrium problem for a general decreasing node
+density explicitly; its soft edge carries every pole of the node zeta function with the weight $\pi\cot(\pi q)$. For general
+spectra these statements become a conjectural dictionary between the expansion of $b_n$ and the spectral zeta function of
+$\Lambda$, which we test numerically on perturbed lattices, Bessel zeros and spectra with multiplicities (with predictions
+fixed before the measures were computed), and on planar drums and anharmonic oscillators; for the oscillators $-\frac{\mathrm d^2}{\mathrm dq^2}+q^N$ the
+predicted $n^{-2}$ shift is the rational number $(N-1)/(6(N+2))$.
 \end{abstract}
 
 \maketitle
@@ -74,6 +78,8 @@ $(N-1)/(6(N+2))$.
 \input{sec3}
 \input{sec4}
 \input{sec5}
+\input{secS}
+\input{secH}
 \input{sec6}
 \input{sec7}
 \input{sec8}

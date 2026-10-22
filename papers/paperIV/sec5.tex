@@ -150,10 +150,10 @@ $-\frac1{2\pi i}\int\mathsf R_-(J-I)$, and $-\frac1{2\pi i}\oint_{\mathrm{cw}}\m
 \end{proof}
 
 Define $\cD_K(n;\mu):=((Q_1)_{12}(Q_1)_{21})^{1/2}/c$, expanded to order $n^{-K}$, where
-$Q_1=P_1+\sum_{m\le K}\mathsf R_1^{(m)}(\mu)n^{-m}$, and write $\cD_K(n;\mu)=\sum_\beta\mu^\beta\cD_{\beta,K}(n)$ for its
-Taylor series in $\mu$. Each $\cD_{\beta,K}$ is a polynomial in $1/n$ of degree at most $K$. A polynomial in $1/n$ is
-\emph{written in natural form} when it is re-expanded in $1/N$ by $1/n=N^{-1}/(1-\delta_NN^{-1})$; a layer $\mu^\beta$ carries
-$n^{-|\beta|_wp}=N^{-|\beta|_wp}(N/n)^{|\beta|_wp}$, with $|\beta|_w:=\sum_jj\beta_j$.
+$Q_1=P_1+\sum_{m\le K}\mathsf R_1^{(m)}(\mu)n^{-m}$, and write $\cD_K(n;\mu)=\sum_{\br}\mu^{\br}\cD_{\br,K}(n)$ for its
+Taylor series in $\mu$. Each $\cD_{\br,K}$ is a polynomial in $1/n$ of degree at most $K$. A polynomial in $1/n$ is
+\emph{written in natural form} when it is re-expanded in $1/N$ by $1/n=N^{-1}/(1-\delta_NN^{-1})$; a layer $\mu^{\br}$ carries
+$n^{-|\br|_wp}=N^{-|\br|_wp}(N/n)^{|\br|_wp}$, with $|\br|_w:=\sum_jjr_j$.
 
 \begin{lemma}[exact algebra]\label{lem:N6d}
 The recursion~\eqref{eq:recursion} and the extraction $\cD_K$ give, identically in the symbols:
@@ -217,7 +217,7 @@ $f_4=\frac3{128}$ and $f_6=\frac5{1024}$, in agreement with Proposition~\ref{pro
 \begin{theorem}\label{thm:N6}
 Let $p>0$, $p\ne1$, $s>1$, and $K,J,B\ge1$.
 \begin{enumerate}
-\item[(i)] \emph{Double expansion.} $\displaystyle\frac{n^pb_n}c=\sum_{|\beta|\le B}\mu_n^\beta\cD_{\beta,K}(n)
+\item[(i)] \emph{Double expansion.} $\displaystyle\frac{n^pb_n}c=\sum_{|\br|\le B}\mu_n^{\br}\cD_{\br,K}(n)
   +O\bigl(n^{-K-1}+n^{-2-(B+1)p}+n^{-1-(J+1)p}\bigr)$.
 \item[(ii)] \emph{Natural forms of the layers.} $\cD_{0,6}$, $\mu_{n,j}\cD_{e_j,4}$ and $\mu_{n,1}^2\cD_{2e_1,5}$ satisfy
 \begin{gather*}
@@ -237,15 +237,15 @@ $Q_1=P_1+\sum_{m\le K}\mathsf R_1^{(m)}(\mu_n)n^{-m}+O(n^{-K-1}+n^{-1-(J+1)p})$.
 $c^2$, since $P_1$ does not depend on $\mu$, so each coefficient of $\cD_K(n;\mu)$ is a polynomial in the entries of the
 $\mathsf R_1^{(i)}(\mu)$, $i\le K$, which are entire in $\mu$ and independent of $n$. Taylor's theorem in $\mu$ on $|\mu|\le1$
 applies coefficientwise. The $n^0$ coefficient is $1$ for all $\mu$, and the $n^{-1}$ coefficient is $d_1+cpM_\mu(4c)$,
-exactly linear in $\mu$ by Lemma~\ref{lem:E37}; hence $\cD_{\beta,K}=O(n^{-2})$ for $|\beta|\ge2$, and the Taylor remainder
+exactly linear in $\mu$ by Lemma~\ref{lem:E37}; hence $\cD_{\br,K}=O(n^{-2})$ for $|\br|\ge2$, and the Taylor remainder
 after order $B$ is $O(|\mu|^{B+1}n^{-2})$. Since $|\mu_n|=O(n^{-p})$, this is $O(n^{-2-(B+1)p})$.
 
 (ii) This is Lemma~\ref{lem:N6d} in natural form, with the normalisations
 $\mu_{n,j}\binom{2j}jpc^jj/2=\varepsilon_jn^{-jp}$ and $\mu_{n,1}^2p(3p+1)/2\cdot c^2=\varepsilon_1^2n^{-2p}(3p+1)/(2p)$.
 
-(iii) In~(i) keep $\beta=0$ at $K=6$; $\beta=e_j$ for every $j$ with $1+jp<\min(7,2+3p)$, at $K=5$ ($j\le5$) or $K=4$; and
-$\beta=2e_1$ at $K=5$. The other terms with $|\beta|=2$ ($\mu_1\mu_2,\mu_2^2,\dots$) are $O(n^{-2-3p})$ because
-$\cD_\beta=O(n^{-2})$ and $|\beta|_w\ge3$, and those with $|\beta|=3$ are $O(n^{-2-3p})$. The truncation errors are bounded as
+(iii) In~(i) keep $\br=0$ at $K=6$; $\br=e_j$ for every $j$ with $1+jp<\min(7,2+3p)$, at $K=5$ ($j\le5$) or $K=4$; and
+$\br=2e_1$ at $K=5$. The other terms with $|\br|=2$ ($\mu_1\mu_2,\mu_2^2,\dots$) are $O(n^{-2-3p})$ because
+$\cD_\br=O(n^{-2})$ and $|\br|_w\ge3$, and those with $|\br|=3$ are $O(n^{-2-3p})$. The truncation errors are bounded as
 follows. The $j=1$ bracket is known to relative order $N^{-5}$, an error $O(n^{-6-p})$, which is $O(n^{-2-3p})$ for $p<2$
 and $O(n^{-8})$ for $p\ge2$. For $j\ge2$ the bracket error is $O(n^{-5-jp})$, and $5+2p>2+3p$ for $p<3$, $5+2p\ge11$ for
 $p\ge3$. The $h_2$ term of the $\varepsilon_1^2$ layer is $O(n^{-4-2p})$, which is $O(n^{-2-3p})$ for $p<2$ and $O(n^{-7})$ for
@@ -282,17 +282,21 @@ $\varepsilon_{j_0}N^{-2}$ merges with $f_2N^{-2}$, and $f_2+\varepsilon_{j_0}=f_
 
 \begin{remark}\label{rem:N6}
 (a) Theorem~\ref{thm:N6} does not prove evenness in $1/N$ to all orders, nor any closed form of the bare function; the
-computed layers are listed in~(ii), and the layers $\mu_1\mu_2$, $\mu_2^2$, $\mu_1^3$ and higher are not computed. Nothing
+computed layers are listed in~(ii), and the layers $\mu_1\mu_2$, $\mu_2^2$, $\mu_1^3$ and higher are not computed. Evenness of the
+integer layer to all orders is Corollary~\ref{cor:even} below. Nothing
 is claimed at $p=1$, where the hard-edge and band-factor constructions of \cite{PaperII} change.
 (b) The same recursion evaluated numerically at $40$ digits, with truncation depths $40$--$64$, gives $f_1=f_3=f_5=f_7=0$ to
 $10^{-35}$ at every sampled $(p,\alpha)$ with $p\in[\frac13,12]$, each $f_{2k}$ even in $\alpha$, and
 $f_8(3,0)=1311857/632311515$, $f_8(2,0)=3899/2^{21}$ after rational recognition. The denominators of $f_4$, $f_6$ are
 $3p+2$ and $(3p+2)^2(5p+2)$; they come from the factors $1/(a'+k)$, $a'=\frac1p+\frac12$, of the hard-edge local map,
 $a'+k=((2k+1)p+2)/(2p)$, and $632311515=3^5\cdot5\cdot11^3\cdot17\cdot23$ is $3^5\cdot5\,(3p+2)^3(5p+2)(7p+2)$ at $p=3$
-(scripts \texttt{m4\_rh4}, \texttt{m4\_f8\_denominator}). These statements are numerical.
+(scripts \texttt{m4\_rh4}, \texttt{m4\_f8\_denominator}). These statements are numerical, except $f_7=0$ and the evenness in
+$\alpha$, which hold to all orders by Corollary~\ref{cor:even}.
 (c) Heuristically, evenness in $\alpha$ after the shift reflects the fact that the Bessel coefficients $a_k(\alpha)$,
 $b_k(\alpha)$ depend on $\alpha$ only through $\alpha^2$, while elsewhere $\alpha$ enters only through the power of $z$ at the
-hard edge, which the shift by $\frac\alpha2$ absorbs. We have no proof, and no explanation of the evenness in $1/N$.
+hard edge, which the shift by $\frac\alpha2$ absorbs. Section~\ref{sec:shiftsec} makes this precise: the two roles of $\alpha$
+separate, the Szeg\H{o} exponent is absorbed by the natural index (Theorem~\ref{thm:shift}), and the evenness in $1/N$ is a
+reflection symmetry (Theorem~\ref{thm:reflect}, Corollary~\ref{cor:even}).
 (d) The factor $1/(2j-1)$ in $g_j$, read as a function of a continuous Mellin variable $w$, is a simple pole at
 $w=\frac12$, the Mellin signature of $(1-u)^{+1/2}$, against $(1-u)^{-1/2}$ for the leading kernel
 (Lemma~\ref{lem:K0}). Partial fractions give
