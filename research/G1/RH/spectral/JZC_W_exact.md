@@ -1,5 +1,9 @@
 # JZC W exact: computer-algebra tests of branched E3.7 and of Refinement W′
 
+Note (2026-10-22, after Rule R review A of the W chain, research/G1/review/REVIEW_JZC_W_kappa_chain_A.md): Lemma WE.1 is now an input of
+JZC_W_kappa Prop K.12′ (and thereby of the κ-family's first-order W). Review A did not review this note; it spot-checked WE.1(ii) at the
+κ-family's exponents by an independent quadrature (ρ ∈ {⅓, 4/3, 0.7}, deviation ≤ 6·10⁻¹⁸ = quadrature floor) and requested no fix here.
+WE.1 stays NOT REVIEWED; it is the one unreviewed input of that chain.
 Status (2026-10-22): NOT REVIEWED (no Rule R reader yet). Labels per VERIFICATION_POLICY.md. Novelty: UNCHECKED. No claim about RH:
 no measure built from zeta zeros is used. Scope: the two parts of Conjecture W (JZC_W.md) named in JZC_W §5.1 item 4 and §1.3 (W′),
 tested with the exact engine of JZC_M4_proof (m4_rh_exact2.py), not with measures.

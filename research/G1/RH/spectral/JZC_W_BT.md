@@ -1,9 +1,15 @@
 # JZC W BT: branched tilts in the decoupled model — the hard-edge companion from the lip mismatch (Hypothesis BT)
 
-Status (2026-10-22): **NOT REVIEWED** (no Rule R reader). Labels per VERIFICATION_POLICY.md; "PROVED" below means written proof +
-Rule A log (§7), no second reader. Novelty: UNCHECKED (no Rule L pass). No claim about RH: no measure built from zeta zeros is used.
+Rule R review A: ACCEPT WITH FIXES (research/G1/review/REVIEW_JZC_W_kappa_chain_A.md; it covers this note, JZC_W_outer.md and
+JZC_W_kappa.md); fixes B1, B2, B7, B8, B9 applied here 2026-10-22.
+Status (2026-10-22): **REVIEWED** (Rule R: independent second reader A re-derived the key steps, re-ran w_bt_companion (Q/L/P/B),
+w_bt_mellin, w_bt_symp, w_bt_predict and both w_bt_poles7 runs (identical to the stored outputs, §5), audited the pre-registration;
+fixes applied) for **Lemma BT.1, Lemma BT.3 (i) and (iii), Prop BT.5**. Not re-derived by the review, labels unchanged: Lemma BT.2's
+analytic claim (label corrected, B9), BT.3 (ii), Theorem BT beyond its layer-identity reading (c_2, c_4 closed forms are exact outputs at the
+listed p only), Cor BT.4, Cor BT.6. Labels per VERIFICATION_POLICY.md; REVIEWED is combined with, and does not upgrade, the labels below.
+Novelty: UNCHECKED (no Rule L pass). No claim about RH: no measure built from zeta zeros is used.
 Inputs keep their labels: JZC_M4_proof (Lemmas N.6a–d, Theorem N.6: REVIEWED), JZC_M3a_H_G1u (L1–L2: REVIEWED), JZC_W_exact (NOT
-REVIEWED), JZC_W_outer (NOT REVIEWED). Paper 2 (papers/paper2/sec_2.tex T2–T4, sec_7.tex §7.1–7.2) is quoted as read for this note
+REVIEWED; WE.1(ii) spot-checked by review A), JZC_W_outer (L W-out.0–5, P W-out.3, 5, 7: REVIEWED by review A). Paper 2 (papers/paper2/sec_2.tex T2–T4, sec_7.tex §7.1–7.2) is quoted as read for this note
 (read-only). External facts: only DLMF items already quoted in CITATIONS (§2.3).
 
 Checks (all in `checks/`, Python = the session venv, `-B`; every `.out` prints the sha256 of the scripts it uses):
@@ -15,17 +21,18 @@ Checks (all in `checks/`, Python = the session venv, `-B`; every `.out` prints t
   the cached engine residues at five p (P), β-independence (B), and the pole-term cancellation (Q).
 - `w_bt_symp.py` → `w_bt_symp.out`: c_0, c_1 with symbolic (p, ν, β, ρ).
 - `w_bt_predict.py` → `w_bt_predict.out`, `w_bt_predictions.json`: **pre-registration** (11:14:19) of the N⁻⁷ pole residues;
-  `w_bt_poles7.py` → `w_bt_poles7_p3_2.out`, `w_bt_poles7_p3.out`: the registered test (engine runs started 11:14:33).
+  `w_bt_poles7.py` → `w_bt_poles7_p3_2.out`, `w_bt_poles7_p3.out`: the registered test (the runs whose outputs are stored started
+  11:51:22; an earlier attempt at 11:14:33 aborted, §5) (fixed per Rule R review A of the W chain, B1).
 
 | # | Statement | Label |
 |---|---|---|
 | Def BT.0 | the branched model: M(β, ν) with band tilt h = e^{−μz^ρ} and lip factors e^{±iπσz^ρ}, as an RH problem | definition |
-| Lemma BT.1 | with the engine's (A_ρ-gauge) hard-edge parametrix, the error matrix has the engine's circle jumps and, inside U_0, **only** the lip jump I + ϱ_±(e^{±i(μ tan πρ + πσ)z^ρ} − 1)·C L(ζ) C⁻¹, L = (w/π)M[[iKK′, K²], [K′², −iKK′]]M⁻¹ | PROVED (exact algebra from G1u L1–L2, JZC_W_exact WE.1(iii)); L's closed form NUMERICAL-checked to 10⁻³⁰ |
-| Lemma BT.2 | first-order formula: ∂_μR_1 = (engine) + (i tan πρ sin π(ρ−ν)/π)∫_0^δ x^ρ R_in C L C⁻¹ R_in⁻¹(−x)dx + O(e^{−cn}) | PROVED-mod-cite (Paper 2 T3(b) = Conway–Deift Thm 4.4 moments; the derivative at μ = 0 needs ρ ≥ \|ν\|, §2.2); deformation NUMERICAL-checked |
-| Lemma BT.3 | ∫_0^∞w^{s−1}K_ν(w)²dw = 2^{s−3}Γ(s/2+ν)Γ(s/2−ν)Γ(s/2)²/Γ(s); the K′², KK′ moments by the Bessel ODE; tan πρ sin π(ρ−ν)𝒦(2ρ+2) = −2^{2ρ}π²Φ_ν(ρ) | PROVED-mod-cite (DLMF 10.32.9, 5.2.1, 5.12.3, 5.12.1, 5.5.3); NUMERICAL to 10⁻¹²…10⁻³⁰ |
+| Lemma BT.1 | with the engine's (A_ρ-gauge) hard-edge parametrix, the error matrix has the engine's circle jumps and, inside U_0, **only** the lip jump I + ϱ_±(e^{±i(μ tan πρ + πσ)z^ρ} − 1)·C L(ζ) C⁻¹, L = (w/π)M[[iKK′, K²], [K′², −iKK′]]M⁻¹ | PROVED (exact algebra from G1u L1–L2, JZC_W_exact WE.1(iii)); L's closed form NUMERICAL-checked to 10⁻³⁰; + REVIEWED |
+| Lemma BT.2 | first-order formula: ∂_μR_1 = (engine) + (i tan πρ sin π(ρ−ν)/π)∫_0^δ x^ρ R_in C L C⁻¹ R_in⁻¹(−x)dx + O(e^{−cn}) | formula PROVED for the formal lip layer; as a derivative of the true R_1: CONDITIONAL (F-br) (Paper 2 T3(b) = Conway–Deift Thm 4.4 moments presuppose the tilted model's error problem with R_± ∈ I + ∂𝒞(L²), part of (F-br); the derivative at μ = 0 needs ρ ≥ \|ν\|, §2.2); deformation NUMERICAL-checked (fixed per Rule R review A of the W chain, B9) |
+| Lemma BT.3 | ∫_0^∞w^{s−1}K_ν(w)²dw = 2^{s−3}Γ(s/2+ν)Γ(s/2−ν)Γ(s/2)²/Γ(s); the K′², KK′ moments by the Bessel ODE; tan πρ sin π(ρ−ν)𝒦(2ρ+2) = −2^{2ρ}π²Φ_ν(ρ) | PROVED-mod-cite (DLMF 10.32.9, 5.2.1, 5.12.3, 5.12.1, 5.5.3); NUMERICAL to 10⁻¹²…10⁻³⁰; (i), (iii) + REVIEWED |
 | **Thm BT** | first-order response = engine's symbolic-j layer at j = ρ **plus** the companion (p+2)^{2ρ+1}Φ_ν(ρ)(n/N)^{(ρ+1)p}N^{−2ρ−2}Σ_kc_kN^{−k}, every c_k given by a finite exact algorithm; c_0 = (pρ+2ρ+1)/2, c_1 = c_3 = 0, c_2, c_4 explicit | formal-layer identity: PROVED (exact algebra + BT.1–BT.3); as an asymptotic statement for true problems: CONDITIONAL (F-br, §3.3) |
 | Cor BT.4 | (a) H(ρ) of JZC_W_exact WE.4 for all p (was CONJECTURE); (b) X(p, ν) of Obs WE.6 (was POST HOC) = c_2(½)/c_0(½); (c) the ρ = ½ log terms; (d) E3.7 at n⁻¹ for branched tilts | (a) PROVED as a layer identity in (p, ν, β, ρ) (`w_bt_symp`); (b) PROVED as layer identities at p ∈ {−1, ½, 3/2, 2, 3, 5} (identities in (ν, ρ), not in p); (c) PROVED-mod (uniformity in ρ); (d) CONDITIONAL (F-br) |
-| **Prop BT.5** | pole terms (the κ-problem structure: tilt τ and lip factor with πσ = τ tan πq) have **no** lip mismatch: they are exactly the analytic (A_q-)gauge problem; hence no companion, and W′'s premise holds for M(β, ν) | PROVED (algebra, given P W-out.5(iii) and L W-out.4, NOT REVIEWED) |
+| **Prop BT.5** | pole terms (the κ-problem structure: tilt τ and lip factor with πσ = τ tan πq) have **no** lip mismatch: they are exactly the analytic (A_q-)gauge problem; hence no companion, and W′'s premise holds for M(β, ν) | PROVED (algebra, given P W-out.5(iii) and L W-out.4, REVIEWED) + REVIEWED; stated through the single factor exp(C(−z/n^p)^q), so q = ½ (p = 2) is included (fixed per Rule R review A of the W chain, B7); as asymptotics of σ^{δ,κ}: PROVED-mod-cite via JZC_W_kappa P K.5, L K.10, P K.12 and Prop K.12′ (fixed per Rule R review A of the W chain, B2) |
 | Cor BT.6 | Hypothesis BT (W_outer §6) in first order: the lip coefficients σ_ρ do not enter at N^{−1−pρ}; they enter at relative N^{−2ρ−1}, exactly as μ ↦ μ + πσ cot πρ in the companion | PROVED as layer identity; CONDITIONAL (F-br) as asymptotics |
 | Tests | Laguerre (p = −1) through N⁻⁴ identically in (ν, ρ); c_0 symbolic in p; X and cached Res_{½}g1[5] at 5 p; β-free; **pre-registered N⁻⁷ residues at p = 3/2, 3: all hold** | exact identities; 76 assertions incl. 17 controls (+ 11 numerical) |
 
@@ -45,7 +52,9 @@ Checks (all in `checks/`, Python = the session venv, `-B`; every `.out` prints t
    it reproduces the exact Laguerre branched series through N⁻⁴ identically in (ν, ρ), with no calibration.
 3. **Pole terms have no companion.** For the κ-problem (JZC_W_outer P W-out.5) the branched band tilt and the lip phase come from
    the single factor exp(C(−z)^q), analytic across (−δ, 0); in Lemma BT.1 they enter as μ tan πq + πσ = 0. So pole terms are
-   *exactly* the analytic-gauge problem — the premise of W′ (JZC_W_exact §4) — and N.6b's meromorphy holds for them.
+   *exactly* the analytic-gauge problem — the premise of W′ (JZC_W_exact §4) — and N.6b's meromorphy holds for them. As asymptotics of
+   σ^{δ,κ} this is PROVED-mod-cite via JZC_W_kappa P K.5, L K.10, P K.12 and Prop K.12′ (R1); the leading coefficient of the analytic layer
+   is m3a_e37_decoupled route 1 with WE.1 (fixed per Rule R review A of the W chain, B2).
 4. **What is not proved.** The analytic transfer (that the formal layers are asymptotic expansions of the Jacobi coefficients of
    true branched-tilted measures) needs the frame for a branched band factor (F-br, §3.3); the derivative at μ = 0 needs ρ ≥ |ν|
    in L^∞ (for |ν| − ½ < ρ < |ν| only the formal identity); second order in μ is not treated.
@@ -85,9 +94,10 @@ Lemma E3.4 with the Taylor data of A_ρ, WE.1(ii)); (iv) R := Q(P̂₀^a)^{−1}
   and L(ζ) = (w/π)M[[iK_νK_ν′, K_ν²], [K_ν′², −iK_νK_ν′]]M^{−1}, w = 2ζ^{1/2}, K_ν = K_ν(w), 𝒞_a := conjugation by P₀^∞ρ_a^{σ₃}.
 *Proof.* (i)–(ii): ρ_a = ρ_mod·e^{−μRA_ρ/2} with A_ρ analytic in |z| < 4 and R₊ = −R₋ on the band, so ρ_{a,+}ρ_{a,−} = 1 on (0, δ) and
 ρ_a has no jump on (−δ, 0); with this, the proofs of G1u L2(i)–(ii) (REVIEWED) apply verbatim (they use only these two properties and
-|ρ_a^{±1}| ≤ C). (iii): G1u L2(iii) with ρ_a; P₀^∞ρ_a^{σ₃}(P₀^∞)^{−1} = G_a·P₀^∞ρ_mod^{σ₃}(P₀^∞)^{−1} and, to first order,
-R·P₀^∞σ₃(P₀^∞)^{−1} = T[[0, z−4], [z, 0]]T^{−1} (computed: T^{−1}σ₃T = σ₁, A² = ((4−z)/(−z))^{1/2}), which is E3's
-G = T[[cosh h, −(z−4)S], [−zS, cosh h]]T^{−1}, h = RM/2. (iv): The true lip entry is ωe^{2nφ}·e^{±iπσz^ρ} with ω = ϱ_±ρ^{−2} (L1(ii)),
+|ρ_a^{±1}| ≤ C). (iii): G1u L2(iii) with ρ_a; P₀^∞ρ_a^{σ₃}(P₀^∞)^{−1} = G_a·P₀^∞ρ_mod^{σ₃}(P₀^∞)^{−1} and, exactly,
+R·P₀^∞σ₃(P₀^∞)^{−1} = T[[0, z−4], [z, 0]]T^{−1} (computed: T^{−1}σ₃T = σ₁, A² = ((4−z)/(−z))^{1/2}); hence P₀^∞e^{hσ₃}(P₀^∞)^{−1} =
+cosh h·I + (sinh h/R)·RN with N := P₀^∞σ₃(P₀^∞)^{−1}, N² = I, which is E3's G = T[[cosh h, −(z−4)S], [−zS, cosh h]]T^{−1}, h = RM/2 (the engine
+uses the full cosh/sinh gauge) (fixed per Rule R review A of the W chain, B8). (iv): The true lip entry is ωe^{2nφ}·e^{±iπσz^ρ} with ω = ϱ_±ρ^{−2} (L1(ii)),
 = ω_ae^{2nφ}e^{±iμ tan(πρ)z^ρ}e^{±iπσz^ρ}. On the band and on (−δ, 0) Q and P̂₀^a have the same jumps ((ii) and Def BT.0). On the lips
 R₊ = R₋P̂₋[[1,0],[(ω − ω_a)e^{2nφ},1]]P̂₋^{−1}; ρ_a^{−σ₃}E₂₁ρ_a^{σ₃} = ρ_a²E₂₁ and (ω − ω_a)ρ_a² = ϱ_±(e^{±i(μt+πσ)z^ρ} − 1), t = tan πρ;
 f^{σ₃/4}n^{σ₃/2} = ζ^{σ₃/4}. The closed form: e^{−4ζ^{1/2}}Φ_νE₂₁Φ_ν^{−1} = −σ₃Ψ_νE₂₁Ψ_ν^{−1}σ₃ (the exponentials cancel), and
@@ -101,6 +111,10 @@ of parametrix).
 
 ### 2.2 Lemma BT.2 (first-order formula and deformation)
 
+*Label (B9):* the formula is PROVED for the formal lip layer; read as the derivative of the true R_1 it is CONDITIONAL (F-br): the
+differentiability of μ ↦ R_1(μ) at fixed n via Conway–Deift presupposes that the tilted model's error problem exists with
+R_± ∈ I + ∂𝒞(L²), which is part of (F-br) and is not cited. Theorem BT's layer label is unaffected; nothing in the κ-family uses BT.2
+(fixed per Rule R review A of the W chain, B9).
 **Lemma BT.2.** Let |ν| < 1, ρ > 0, ρ ≥ |ν|. Then at fixed large n, μ ↦ R_1(μ) is differentiable at 0 and
   ∂_μR_1|_0 = (engine's first-order circle response) + ∂_μR_1^{lip}, where for σ = 0
   ∂_μR_1^{lip} = (i tan(πρ) sin(π(ρ − ν))/π) ∫_0^δ x^ρ F(−x)dx + O(e^{−cn}),  F := R_in 𝒞L(ζ)𝒞^{−1} R_in^{−1},
@@ -222,14 +236,16 @@ lattice and Hurwitz measures (N.6, G1u frames, REVIEWED) but needs the node-sum 
 
 **Prop BT.5 (pole terms carry no companion).** In the κ-problem (JZC_W_outer L W-out.4, P W-out.5(iii)) the branched band factor and the
 lip phase are the two halves of exp(C_m(−z/n^p)^{q_m}), C_m = 2πa_m/sin(πq_m): in ℂ_±, (−z)^q = z^q(cos πq ∓ i sin πq), i.e. a band tilt
-τ = C cos πq and a lip factor with πσ = C sin πq = τ tan πq. In Lemma BT.1(iv) (with μ = −τ) the mismatch exponent is
+τ = C cos πq and a lip factor with πσ = C sin πq = τ tan πq. The statement is through the single factor exp(C(−z/n^p)^q), which is in
+engine form for every q: at q = ½ (p = 2 for all m) "πσ = τ tan πq" reads 0·∞ (τ = 0, tan infinite), but (−z)^{½} = −R/(4−z)^{½} is of
+engine form; there the pole term vanishes (cot = 0) and the W′ term is the limit (JZC_W_exact) (fixed per Rule R review A of the W chain, B7). In Lemma BT.1(iv) (with μ = −τ) the mismatch exponent is
 μ tan πq + πσ = 0. Hence the κ-problem's hard-edge parametrix built with ρ_a is **exact** (no lip mismatch, to all orders in the a_m):
 the pole layers are exactly the analytic A_q-gauge layers, the engine's continued response at j = q_m with μ = −τ_m n^{−pq_m}. This is
 W's pole term pR_qW(q)π cot(πq)(n/N)^pN^{−1−pq} (P W-out.7) **with** the continued dressing [1 + g(q)N⁻² + …] and no companion: the premise
 of W′ (JZC_W_exact §4), from which W′'s closed form R_{1/2}W(½)π²(p+2)²(p+4)(1−4ν²)/256·n^{−3−p/2} follows (the exact limit there).
-PROVED (algebra; inputs P W-out.5(iii), L W-out.4: NOT REVIEWED) as a statement about the decoupled model; as asymptotics of σ^{δ,κ}
-it is CONDITIONAL on the transfer items of P W-out.6(ii) (H-b′, Hc.3 on the circles), but **no longer on BT**: the circle jumps are
-G_aΔ^{mod}G_a^{−1} with G_a analytic in U_0, so N.6b applies. (`w_bt_companion_Q.out`: the trigonometric identity and τ tan πq = πσ for
+PROVED (algebra; inputs P W-out.5(iii), L W-out.4: REVIEWED) + REVIEWED as a statement about the decoupled model; as asymptotics of
+σ^{δ,κ}: PROVED-mod-cite via JZC_W_kappa P K.5, L K.10, P K.12 and Prop K.12′ (R1); the leading coefficient of the analytic layer is
+m3a_e37_decoupled route 1 with WE.1 (fixed per Rule R review A of the W chain, B2). The circle jumps are G_aΔ^{mod}G_a^{−1} with G_a analytic in U_0, so N.6b applies. (`w_bt_companion_Q.out`: the trigonometric identity and τ tan πq = πσ for
 τ_m = 2π cot(πq_m)a_m, σ_m = 2a_m; control σ = 0 fails.)
 
 **Cor BT.6 (Hypothesis BT, first order).** For the band factor exp(Σ_ρτ_ρ(z/n^p)^ρ) with lip factors exp(±iπΣσ_ρ(z/n^p)^ρ) the first-order
@@ -246,7 +262,10 @@ engine's N⁻⁷ coefficient g1[7] at j = ½ (from c_4), 3/2 (from c_2), 5/2 (fr
 add the two control switches (`control=`); the prediction run's output prints the earlier sha256 (7ef4f425…), the computation is unchanged.
 A first attempt (started 11:14:33) aborted in the engine's truncation guard ("principal part not determined", SHI = 24) before
 computing any residue; the runs were restarted with SHI = 30 at 11:51:22 (still after the registration) and their outputs replace the
-aborted ones.
+aborted ones. The committed script's default was then still SHI = 24 (the stored runs had SHI = 30 exported, and the .out does not print
+SHI); the default is now "30", so the committed script reproduces the stored outputs without an environment variable (review A re-ran
+both with SHI = 30: 11/11 each, identical). This one-line default change alters no assertion and no computed line; the stored outputs
+were not re-run, so the "sha256 w_bt_poles7.py" line in them (43b9ce28…) is that of the pre-fix script (git history) (fixed per Rule R review A of the W chain, B1).
 **RESULT: all registered predictions hold, at both p, identically in ν** (`w_bt_poles7_p3_2.out`, `w_bt_poles7_p3.out`, 11 + 11
 checks; 40 min engine time each): g1[0] = g1[2] = g1[4] = g1[6] = 0; the j-poles of g1[7] are exactly ½, 3/2, 5/2, simple; and
 Res_{½}g1[7], Res_{3/2}g1[7], Res_{5/2}g1[7] equal the registered values, e.g. at p = 3/2
@@ -298,5 +317,7 @@ c_2(ρ) and c_4(ρ), which were never fitted, predict the engine's N⁻⁷ pole 
 - **Second order** in branched tilts (BT's remainder; JZC_W's products of pole/fractional terms).
 - **Closed forms in p** for c_2 (and c_4): only fixed-p values here (six p for c_2, p ∈ {−1, 3/2, 3} for c_4); a symbolic-p run of
   w_bt_core at KORD = 3 is the next step (it is the same code with PVAL unset).
-- **The H-chain transfer for the κ-problem** (P W-out.6(ii)): with Prop BT.5 it no longer needs BT, only H-b′ and Hc.3 on the circles.
-- Measure tests of the companion at ρ < ½ (JZC_W_exact §6 (a), (b)) and Rule R review of this note.
+- **The H-chain transfer for the κ-problem** (P W-out.6(ii)): done — H-b′ and Hc.3 on the circles are JZC_W_kappa P K.5 and L K.10, and with Prop K.12′
+  P W-out.6(ii) is PROVED-mod-cite (fixed per Rule R review A of the W chain, B2).
+- Measure tests of the companion at ρ < ½ (JZC_W_exact §6 (a), (b)). Rule R of this note: done for BT.1, BT.3 (i), (iii), BT.5 (review A);
+  BT.2's analytic claim, BT.3 (ii), Thm BT's fixed-p c_2/c_4 values, Cor BT.4, Cor BT.6 not re-derived.

@@ -1,7 +1,9 @@
 # JZC W: the general statement — Jacobi coefficients of measures on reciprocal Weyl-type spectra (Conjecture W)
 
 Status (2026-10-22): NOT REVIEWED. Labels per VERIFICATION_POLICY.md. Conjecture W itself is a **CONJECTURE (NUMERICAL)**; its
-special cases carry their own labels (§1.4). Novelty: UNCHECKED (no Rule L pass for this note; NOVELTY_JZC.md covers the
+special cases carry their own labels (§1.4). **For the family λ_k = (k + δ)^p + κ** (p > 1, −1 < δ ≤ 0, κ > −a^p, |α| < 1) W is
+**PROVED-mod-cite + REVIEWED at first order in the poles** (remainder O(n^{−2p}); O(n^{−1−p}) in W's displayed form), with one unreviewed
+input (JZC_W_exact WE.1): JZC_W_outer.md + JZC_W_kappa.md (P K.11, P K.12, Prop K.12′) + JZC_W_BT.md (BT.1, BT.5); §1.5 (updated 2026-10-22 after Rule R review A of the W chain, research/G1/review/REVIEW_JZC_W_kappa_chain_A.md). Novelty: UNCHECKED (no Rule L pass for this note; NOVELTY_JZC.md covers the
 ingredients). Checks: `checks/w_common.py`, `w_spectra.py`, `w_predict.py/.out`, `w_test.py` → `w_test.out`; caches in
 `tmp/w_cache/` (gitignored). No claim about RH: no measure built from zeta zeros is used anywhere in this note.
 
@@ -136,6 +138,17 @@ Notes on the reductions.
 
 - **PROVED / PROVED-mod-cite (special cases):** Theorem N.6 (lattice), Theorem T (Toda structure), Theorem H (Hurwitz, −1 < δ ≤ 0,
   p ≠ 1), Prop N.2 (Bessel P = 2), Prop W.1 (the density factor), the reductions of §1.4, and Z(−j) = 0 for l(l+1) (§2.4).
+- **PROVED-mod-cite + REVIEWED (the κ-family)** (updated 2026-10-22 after Rule R review A of the W chain, research/G1/review/REVIEW_JZC_W_kappa_chain_A.md): for σ^{δ,κ} (λ_k = (k + δ)^p + κ, p > 1, −1 < δ ≤ 0, κ ≠ 0, κ > −a^p,
+  1 < s < 1 + 2p, i.e. |α| < 1), W holds at first order in the poles:
+  n^pb_n/c = 𝔅_n[M(α + 2δ, α); t] + Σ_m(the continued symbolic-j layer at j = q_m, μ = −τ_mn^{−pq_m}; leading term
+  pR_{q_m}W(q_m)π cot(πq_m)(n/N)^pN^{−1−pq_m}) + **O(n^{−2p})**; in W's displayed form (pole term × (1 + O(N^{−1}))) the remainder is
+  **O(n^{−1−p})**: κ-free Szegő shift β′ = α + 2δ (Z(0) = −½ − δ), every n^{−k} coefficient with k < p that of M(α + 2δ, α), and the
+  single pole term at n^{−p} with W's exact coefficient (JZC_W_kappa P K.11, P K.12 + Prop K.12′; JZC_W_outer P W-out.5, W-out.7;
+  JZC_W_BT BT.1, BT.5). No hypothesis (BT, BT₀, BT_coh, (F-br)) is used. Rule R review A covered the chain; its one input not REVIEWED
+  is JZC_W_exact Lemma WE.1 (elementary; WE.1(ii) independently spot-checked). **Not covered:** second order in the poles (products,
+  the O(n^{−2p}) remainder); p < 1 (OBSTRUCTION for the lattice-g route, JZC_W_kappa P K.14); p = 1/m (κ-dependent Z(0)); α ∉ (−1, 1);
+  non-coherent branched tilts ((F-br) for general branched band factors, a GAP; not needed for this family); W′ and the pole dressing
+  beyond first order as separate statements. Novelty UNCHECKED (no Rule L pass).
 - **NUMERICAL:** the pole law (SPEC), S1⁗ (SPEC), and Conjecture W on the nine measures of §2 and the Lommel anchor.
 - **New in W (CONJECTURE):** (i) β = α − 2Z(0) − 1 beyond Hurwitz lattices, i.e. for node sets with poles (the Szegő shift and the
   pole terms coexist, and the pole terms live at the same natural index); (ii) the unification of the Jacobian tilt, the mass
@@ -331,6 +344,12 @@ The "spectral zeta with multiplicities" reading is not even at the right order: 
   at ν = α = ±½ (bouncer and Robin at p = 2/3, s = 2: α = ½; Bessel at p = s = 2: α = −½), where the factor 1 − 4ν² vanishes; the
   sphere (α = 0) is the first case where the term shows.
 - **Not new:** the pieces (SPEC, JZC_M4, Theorem H). Novelty of the combination: UNCHECKED (Rule L not run for this note).
+- **Proof status after this note** (updated 2026-10-22 after Rule R review A of the W chain, research/G1/review/REVIEW_JZC_W_kappa_chain_A.md): for the κ-family (λ_k = (k + δ)^p + κ, p > 1, |α| < 1) W is PROVED-mod-cite + REVIEWED at
+  first order in the poles, remainder O(n^{−2p}) with the continued pole dressing and O(n^{−1−p}) in W's displayed form (§1.5; one input,
+  JZC_W_exact WE.1, NOT REVIEWED). §5.1 items 1 and 4 are thereby settled for this family (item 1 in the corrected form of JZC_W_outer
+  Remark 3.6: the invariant is the gauge exponent at the hard edge, not the exponent at ∞; item 4 for coherent branched tilts, JZC_W_kappa
+  Prop K.12′). Still open: second order in the poles, p < 1 (§5.1 item 3, OBSTRUCTION for the lattice-g route), p = 1/m, α ∉ (−1, 1),
+  non-coherent branched tilts ((F-br)), general node sets, p = 1, and novelty (UNCHECKED).
 
 ## 5. The main obstacles to a proof
 

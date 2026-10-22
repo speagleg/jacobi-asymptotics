@@ -1,25 +1,35 @@
 # JZC W, first proof step: the general outer scalar for λ_k = (k + δ)^p + κ (Conjecture W, §5.1 item 1)
 
-Status (2026-10-22): **NOT REVIEWED** (no Rule R reader yet). Labels per VERIFICATION_POLICY.md; every PROVED below means "written proof,
-Rule A logged (§9), no second reader". Novelty: UNCHECKED (no Rule L pass). No claim about RH: no measure built from zeta zeros is
+Rule R review A: ACCEPT WITH FIXES (research/G1/review/REVIEW_JZC_W_kappa_chain_A.md; it covers this note, JZC_W_kappa.md and
+JZC_W_BT.md); fix B4 (the corrections listed in JZC_W_kappa §9 item 5) applied here 2026-10-22.
+Status (2026-10-22): **REVIEWED** (Rule R: independent second reader A re-derived the key steps and re-ran w_outer_index, w_outer_scalar
+and w_outer_e2e (twice: fresh caches, then on the caches), all identical to the stored outputs; fixes applied) for **L W-out.0–5,
+P W-out.3, P W-out.5, P W-out.7, Remark 3.6 and P W-out.6 (i)**. P W-out.6 (ii), (iii) are now proved in JZC_W_kappa (P K.12 + Prop K.12′,
+P K.11); §7 stays an OBSTRUCTION (heuristic, sharpened by JZC_W_kappa P K.14). Labels per VERIFICATION_POLICY.md; REVIEWED is combined
+with, and does not upgrade, the labels below. Novelty: UNCHECKED (no Rule L pass).
+**Status of Conjecture W for σ^{δ,κ}** (p > 1, −1 < δ ≤ 0, κ ≠ 0, κ > −a^p, |α| < 1; review A §3; JZC_W_kappa header and P K.12): at first
+order in the poles, n^pb_n/c = 𝔅_n[M(α + 2δ, α); t] + Σ_m(continued pole layer at j = q_m) + O(n^{−2p}), and in W's displayed form (pole term
+× (1 + O(N^{−1}))) with remainder O(n^{−1−p}): **PROVED-mod-cite + REVIEWED**, with one unreviewed input (JZC_W_exact WE.1, elementary).
+Not covered: second order in the poles; p < 1 (OBSTRUCTION for this route); p = 1/m; α ∉ (−1, 1); non-coherent branched tilts ((F-br),
+GAP, not needed here) (fixed per Rule R review A of the W chain, B4). No claim about RH: no measure built from zeta zeros is
 used. Checks: `checks/w_outer_index.py/.out`, `checks/w_outer_scalar.py/.out`, `checks/w_outer_e2e.py/.out` (§8; caches in
 `tmp/w_cache/`, gitignored). Everything attributed to Paper 2 is quoted from papers/paper2/{sec_5,sec_6}.tex as read for this note
 (read-only); the H-chain notes (JZC_M3a_H_Ha, JZC_M3a_Hd, JZC_M3a_H_G12, JZC_M3a_H_Hc, JZC_M3a_H_G1u) are cited with their labels.
 
 | # | Statement | Label |
 |---|---|---|
-| L W-out.0 | Z(0) = −½ − δ for every κ > −a^p when p > 1, and when p < 1 with 1/p ∉ ℕ; for p = 1/m: Z(0) = −½ − δ + (−κ)^m. Poles of w ↦ Z(−w) at q_m = m − 1/p, R_{q_m} = −binom(q_m, m)κ^m/p | PROVED (elementary) + NUMERICAL |
-| L W-out.1 | the index map is a Möbius change of variable: t_κ = t∘ζ, ζ(z) = z/(1 − κz/n^p); zeros of 1 − e^{2iθ_κ} off its cut are exactly the κ-nodes (p > 1) | PROVED (elementary) |
-| L W-out.2 | H-a for σ^{δ,κ}: W_κ = 𝗐_n z^α r_n, r_n := (1 − κz/n^p)^{1/p − 1}; residues = masses; top node X₁ = n^p/(a^p + κ); P Ha.5 verbatim | PROVED-mod-cite (JZC_M3a_H_Ha L Ha.2–P Ha.5, REVIEWED) |
-| L W-out.3 | the unnormalised scalar F_κ := Φ_δ∘ζ·K (Φ_δ = Hurwitz F_δ/K): jumps; F_κ/F_δ → 1 at the hard edge; \|F_κ\| ≍ \|z − z_*\|^{−δ−½} at z_* := n^p/κ; **F_κ ~ C(−z)^{−½} at z = ∞, not C(−z)^{−Z(0)−½}** | PROVED-mod-cite (G12 C1.5, P1.4 [REVIEWED]) |
-| **P W-out.3** | the gauge G_κ = (−z)^{−δ}E_κ, E_κ = exp 𝒞[ρ₁] (ρ₁ = minus the index offset): F♮_κ := F_κG_κ satisfies (O1) with the lattice θ, is bounded above and below at z_*, and **F♮_κ → C_κ ≠ 0 uniformly at ∞**; at the hard edge **G_κ = (−z)^{−δ}E_κ(0)(1 + O(n^{1−p}\|z\|^{1−1/p}))**: the outer exponent −Z(0) − ½ = δ sits at the hard edge, κ-free | PROVED-mod-cite (G12 C1.5; Paper 2 L normalisation) |
-| L W-out.4 | H-d for σ^{δ,κ}: the jumps are those of M(β′ = α + 2δ, ν = α) with band weight W₀^κ = 𝗐_n z^{β′}(4c − z)H_n^κ, except the factor e^{±2πiρ₁(z)} in the (2,1) entries of lips, Σ^△, top segment | PROVED (algebra, as JZC_M3a_Hd (ii)) + NUMERICAL |
-| L W-out.5 | PV lemma: ∫_0^L y^q dy/(y − z) = −π(−z)^q/sin(πq) + Σ_{j≥0} z^jL^{q−j}/(q − j) | PROVED (elementary) + NUMERICAL |
-| **P W-out.5** | structure of H_n^κ: log H_n^κ = (Hurwitz G_δ∘ζ) + log r_n − 2Ψ₀; the integer-power part gives **exactly W's Toda parameters μ_j = 2Z_κ(−j)/j − B_j** (the gauge supplies κ^jζ(0, a)), the branched part is the tilt Σ_m 2π cot(πq_m)a_m(z/n^p)^{q_m}, a_m = −R_{q_m}/q_m | PROVED-mod-cite (Hc.2; DLMF 5.12.1, 5.5.3 for κ < 0) — with ζ(−mp, a) in place of the Fourier sums by JZC_M3a_H Remark 3.3 (PROVED-mod-cite (CITATIONS (Hurwitz-DK)); NUMERICAL support) (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)) |
-| P W-out.7 | the first-order fractional-time response of W applied to that tilt is **exactly W's pole term** pR_qW(q)π cot(πq)(n/N)^pN^{−1−pq} | PROVED (algebra) |
-| **P W-out.6** | reduction: (i) the κ-problem is exactly the decoupled model M(α + 2δ, α) with band factor H_n^κ and the lip factor e^{±2πiρ₁}; (ii) under Hypothesis BT, Conjecture W holds for σ^{δ,κ} at first order in the poles; (iii) under the weaker BT₀ the n^{−k} coefficients, k < p, are those of M(α + 2δ, α) (κ-free) | (i) PROVED-mod-cite; (ii), (iii) CONDITIONAL (BT, BT₀ = W §5.1 item 4, GAP) |
-| Remark 3.6 | the literal reading of JZC_W §5.1 item 1 ("F_Λ ∼ C(−z)^{−Z(0)−½} at ∞") is false for κ ≠ 0 at fixed n; the exponent at z = ∞ of an unnormalised scalar is construction-dependent; the invariant is the exponent of the normalising gauge at the hard edge | PROVED (by L W-out.3) + NUMERICAL (exponent −½, not δ) |
-| §7 | p < 1: the gauge density is unbounded at the hard edge (ρ₁ ∼ n^{1−p}x^{1−1/p}, 1 − 1/p < 0) and O(n^{1−p}) ≫ 1 on the band: the lattice g cannot carry it | OBSTRUCTION (heuristic, for this route) |
+| L W-out.0 | Z(0) = −½ − δ for every κ > −a^p when p > 1, and when p < 1 with 1/p ∉ ℕ; for p = 1/m: Z(0) = −½ − δ + (−κ)^m. Poles of w ↦ Z(−w) at q_m = m − 1/p, R_{q_m} = −binom(q_m, m)κ^m/p | PROVED (elementary) + NUMERICAL + REVIEWED |
+| L W-out.1 | the index map is a Möbius change of variable: t_κ = t∘ζ, ζ(z) = z/(1 − κz/n^p); zeros of 1 − e^{2iθ_κ} off its cut are exactly the κ-nodes (p > 1) | PROVED (elementary) + REVIEWED |
+| L W-out.2 | H-a for σ^{δ,κ}: W_κ = 𝗐_n z^α r_n, r_n := (1 − κz/n^p)^{1/p − 1}; residues = masses; top node X₁ = n^p/(a^p + κ); P Ha.5 verbatim | PROVED-mod-cite (JZC_M3a_H_Ha L Ha.2–P Ha.5, REVIEWED) + REVIEWED |
+| L W-out.3 | the unnormalised scalar F_κ := Φ_δ∘ζ·K (Φ_δ = Hurwitz F_δ/K): jumps; F_κ/F_δ → 1 at the hard edge; \|F_κ\| ≍ \|z − z_*\|^{−δ−½} at z_* := n^p/κ; **F_κ ~ C(−z)^{−½} at z = ∞, not C(−z)^{−Z(0)−½}** | PROVED-mod-cite (G12 C1.5, P1.4 [REVIEWED]) + REVIEWED |
+| **P W-out.3** | the gauge G_κ = (−z)^{−δ}E_κ, E_κ = exp 𝒞[ρ₁] (ρ₁ = minus the index offset): F♮_κ := F_κG_κ satisfies (O1) with the lattice θ, is bounded above and below at z_*, and **F♮_κ → C_κ ≠ 0 uniformly at ∞**; at the hard edge **G_κ = (−z)^{−δ}E_κ(0)(1 + O(n^{1−p}\|z\|^{1−1/p}))**: the outer exponent −Z(0) − ½ = δ sits at the hard edge, κ-free | PROVED-mod-cite (G12 C1.5; Paper 2 L normalisation) + REVIEWED |
+| L W-out.4 | H-d for σ^{δ,κ}: the jumps are those of M(β′ = α + 2δ, ν = α) with band weight W₀^κ = 𝗐_n z^{β′}(4c − z)H_n^κ, except the factor e^{±2πiρ₁(z)} in the (2,1) entries of lips, Σ^△, top segment | PROVED (algebra, as JZC_M3a_Hd (ii)) + NUMERICAL + REVIEWED |
+| L W-out.5 | PV lemma: ∫_0^L y^q dy/(y − z) = −π(−z)^q/sin(πq) + Σ_{j≥0} z^jL^{q−j}/(q − j) | PROVED (elementary) + NUMERICAL + REVIEWED |
+| **P W-out.5** | structure of H_n^κ: log H_n^κ = (Hurwitz G_δ∘ζ) + log r_n − 2Ψ₀; the integer-power part gives **exactly W's Toda parameters μ_j = 2Z_κ(−j)/j − B_j** (the gauge supplies κ^jζ(0, a)), the branched part is the tilt Σ_m 2π cot(πq_m)a_m(z/n^p)^{q_m}, a_m = −R_{q_m}/q_m | PROVED-mod-cite (Hc.2; DLMF 5.12.1, 5.5.3 for κ < 0) — with ζ(−mp, a) in place of the Fourier sums by JZC_M3a_H Remark 3.3 (PROVED-mod-cite (CITATIONS (Hurwitz-DK)); NUMERICAL support) (updated 2026-10-22: Hurwitz's formula quoted, CITATIONS (Hurwitz-DK)); + REVIEWED |
+| P W-out.7 | the first-order fractional-time response of W applied to that tilt is **exactly W's pole term** pR_qW(q)π cot(πq)(n/N)^pN^{−1−pq} | PROVED (algebra) + REVIEWED |
+| **P W-out.6** | reduction: (i) the κ-problem is exactly the decoupled model M(α + 2δ, α) with band factor H_n^κ and the lip factor e^{±2πiρ₁}; (ii) Conjecture W holds for σ^{δ,κ} at first order in the poles (remainder O(n^{−2p}) with the continued pole dressing; O(n^{−1−p}) in W's displayed form); (iii) the n^{−k} coefficients, k < p, are those of M(α + 2δ, α) (κ-free) | (i) PROVED-mod-cite + REVIEWED; (ii) PROVED-mod-cite (W_kappa P K.12 + K.12′) + REVIEWED (input WE.1 NOT REVIEWED); (iii) PROVED-mod-cite (W_kappa P K.11) + REVIEWED; formerly CONDITIONAL (BT, BT₀) (fixed per Rule R review A of the W chain, B4) |
+| Remark 3.6 | the literal reading of JZC_W §5.1 item 1 ("F_Λ ∼ C(−z)^{−Z(0)−½} at ∞") is false for κ ≠ 0 at fixed n; the exponent at z = ∞ of an unnormalised scalar is construction-dependent; the invariant is the exponent of the normalising gauge at the hard edge | PROVED (by L W-out.3) + NUMERICAL (exponent −½, not δ) + REVIEWED |
+| §7 | p < 1: the gauge density is unbounded at the hard edge (ρ₁ ∼ n^{1−p}x^{1−1/p}, 1 − 1/p < 0) and O(n^{1−p}) ≫ 1 on the band: the lattice g cannot carry it | OBSTRUCTION (heuristic, for this route); sharpened by JZC_W_kappa P K.14 (exponent e(p) = (1 − p)(2 + p)/p on the Bessel scale) (fixed per Rule R review A of the W chain, B4) |
 | §8 | 104 + 125 + 44 assertions incl. controls that must fail; end-to-end: d₁, d₂ of M(α + 2δ, α) to 10⁻¹⁰, 5·10⁻⁸ at κ = ±0.3; the n^{−p} pole term to 4·10⁻⁷ | NUMERICAL |
 
 ## 0. Setting, hypotheses, what is reused
@@ -236,8 +246,10 @@ band weight real and equal to the formula to 10⁻⁸ (at η = 10⁻¹⁴), lip 
 For F5 on Σ^△ and the top segment (Re z ≤ X₁ + δ′ < z_*, |Im z| ≤ h₀) the only change from Hd is the factor |e^{±2πiρ₁(z)}| = e^{∓2πIm ρ₁} ≤ C
 (|ρ₁| ≤ C there), so |v − I| ≤ Ce^{−n/C} survives. For the Hölder conditions of Paper 2's (O3)/(F2) on 𝒵_n ∩ {|z| ≤ 1}: the new part of
 log H_n^κ is −2Ψ₀ + log r_n, with |Ψ₀(z) − Ψ₀(0)| ≤ Cn^{1−p}|z|^{q₁} (P W-out.5), q₁ = 1 − 1/p. **For p ≥ 2, q₁ ≥ ½ ≥ ν_p and (O3) holds with
-n-free constants; for 1 < p < 2 it holds with ν_p replaced by q₁ < ν_p** (GAP: whether Paper 2's frame needs ν_p exactly; G1u L3's lip
-mismatch bound |z|^{ν_p}log(2/|z|) likewise holds for p ≥ 2 only).
+n-free constants; for 1 < p < 2 it holds with ν_p replaced by q₁ < ν_p** — for H_n^κ alone. This is no restriction: by JZC_W_kappa
+P K.13, every use of ν_p in Paper 2 and G12/G1u/Hc concerns the lip coefficient, which carries the gauge only through X (exponent ½,
+JZC_W_kappa L K.4), and G1u L3's lip mismatch bound |z|^{ν_p}log(2/|z|) holds for every p > 1 with the lip phase included (JZC_W_kappa
+L K.6(v)) (fixed per Rule R review A of the W chain, B4).
 
 ## 5. The band factor (H-c): Toda times and pole tilts
 
@@ -301,17 +313,20 @@ every time" extends to the poles: a pole is a fractional time of the gauge.)
 |---|---|---|---|
 | H-a | sin π(t − δ), 1/Γ(t − δ), top node (n/a)^p | sin π(t_κ − δ), t_κ = t∘ζ; W_κ = W·r_n (density); X₁ = n^p/(a^p + κ); 𝒵_n radius < z_* | L W-out.1–2: PROVED-mod-cite |
 | H-b | F_δ ∼ C_δ(−z)^δ at ∞; gauge (−z)^{−δ} | F_κ = Φ_δ∘ζ·K ∼ (−z)^{−½} at ∞; gauge G_κ = (−z)^{−δ}E_κ with variable density ρ₁ = −(index offset); hard-edge exponent −δ | P W-out.3: PROVED-mod-cite |
-| H-b′ | G12 L2.1–P2.4 (a-priori bound, \|α\|/2) | column factorisation with G♮ := G_κD_{x^{2δ}}D_{e^{−2Ψ₀}}: \|E_κ\|^{±1} and the Szegő function of the Hölder factor e^{−2Ψ₀} are bounded near 0 (fixed n), so P2.4 should transfer; L2.1 needs the κ-node sum (node spacing 1 in t_κ, masses t^{−s}) | GAP (not written; expected routine) |
-| H-c | Hc.2–Hc.3: H_n^δ = e^{−Σμζ^k}(1 + O(n^{−(J+1)p})) | H_n^κ = (Hurwitz∘ζ)·r_n·e^{−2Ψ₀}: integer part = W's Toda times (P W-out.5(i)); **branched part τ_m(z/n^p)^{q_m} + lip factor** | integer part PROVED-mod-cite; the gauge Hc.3 on the circles for the branched part: GAP (BT) |
+| H-b′ | G12 L2.1–P2.4 (a-priori bound, \|α\|/2) | column factorisation with G♮ := G_κD_{x^{2δ}}D_{e^{−2Ψ₀}}: \|E_κ\|^{±1} and the Szegő function of the Hölder factor e^{−2Ψ₀} are bounded near 0 (fixed n), so P2.4 should transfer; L2.1 needs the κ-node sum (node spacing 1 in t_κ, masses t^{−s}) | PROVED-mod-cite: JZC_W_kappa P K.5 (L K.2–K.4) (fixed per Rule R review A of the W chain, B4) |
+| H-c | Hc.2–Hc.3: H_n^δ = e^{−Σμζ^k}(1 + O(n^{−(J+1)p})) | H_n^κ = (Hurwitz∘ζ)·r_n·e^{−2Ψ₀}: integer part = W's Toda times (P W-out.5(i)); **branched part τ_m(z/n^p)^{q_m} + lip factor** | integer part PROVED-mod-cite; the gauge Hc.3 on the circles for the branched part: PROVED-mod-cite, JZC_W_kappa L K.10 (fixed per Rule R review A of the W chain, B4) |
 | H-d | jumps of M(α + 2δ, α); lip phases e^{±2πiδ} | same, plus e^{±2πiρ₁(z)} on lips/Σ^△/top; Bessel order α, Szegő β′ = α + 2δ | L W-out.4: PROVED |
-| H-e | N.6a–c for M(β, ν), G1u in the α-frame | the circle jumps contain branched terms of size n^{1−p}\|z\|^{q₁}: N.6b's meromorphy fails; G1u (A) (Paper 2 §7, leading order) should transfer for p ≥ 2 (L3's mismatch bound holds), (B) does not | GAP (BT, BT₀) |
-| H-f | exact algebra of M(β, ν) | unchanged for the integer and Toda layers; for the branched layer: W's fractional-response formula (only observed) | P W-out.7 (algebra) + GAP |
+| H-e | N.6a–c for M(β, ν), G1u in the α-frame | the circle jumps contain branched terms of size n^{1−p}\|z\|^{q₁}: N.6b's meromorphy fails — not for the coherent data of the κ-problem (JZC_W_kappa L K.9), and not needed for (iii) (JZC_W_kappa P K.11); G1u (A), (B) transfer for every p > 1 (JZC_W_kappa P K.8) | PROVED-mod-cite: JZC_W_kappa L K.9, P K.8, P K.11 (fixed per Rule R review A of the W chain, B4) |
+| H-f | exact algebra of M(β, ν) | unchanged for the integer and Toda layers; for the branched layer: W's fractional-response formula (for the κ-family's coherent first-order branched layer: JZC_W_kappa Prop K.12′) | P W-out.7 (algebra) + PROVED-mod-cite (Prop K.12′) (fixed per Rule R review A of the W chain, B4) |
 
 **Hypothesis BT (branched tilts; = JZC_W §5.1 item 4; GAP).** For p > 1, |ν| < 1, real β, the decoupled model M(β, ν) of JZC_M4 §7 in the
 n^p frame with band factor exp(−Σ_{j≤J}μ_{n,j}z^j + Σ_{ρ∈𝓡}τ_ρ(z/n^p)^ρ) (𝓡 ⊂ (0, ∞)∖ℕ finite, μ_{n,j} = O(n^{−jp}), τ_ρ bounded; z^ρ principal,
 continued from the band) and lip (2,1) factors exp(±iπΣ_ρσ_ρ(z/n^p)^ρ) (σ_ρ bounded) has
   n^pb_n/c = 𝔅_n[M(β, ν); μ] − Σ_ρ(pρW(ρ)/2)τ_ρ(n/N)^pN^{−1−pρ} + O(n^{−1−p·min𝓡−η}) for some η > 0,
 N = n + (β + 1)/2: in particular the lip coefficients σ_ρ do not enter at order N^{−1−pρ}.
+*Scope for the κ-family:* only **coherent** tilts (σ_ρ = (τ_ρ/π)tan(πρ)) occur here, and for them BT is JZC_W_kappa's BT_coh, proved there
+(Prop K.12′, η = 1); for the non-coherent companion (independent σ_ρ, e.g. a genuine x^ρ tilt) see JZC_W_BT (Theorem BT, Cor BT.6; as
+asymptotics CONDITIONAL on (F-br)) (fixed per Rule R review A of the W chain, B4).
 **Hypothesis BT₀ (crude form).** The same model satisfies n^pb_n/c = 𝔅_n[M(β, ν); μ] + O(n^{−1−p·min𝓡}log n).
 
 **Proposition W-out.6 (reduction).** Assume (S), p > 1.
@@ -320,17 +335,19 @@ N = n + (β + 1)/2: in particular the lip coefficients σ_ρ do not enter at ord
   e^{±2πiρ₁(z)}; Lemma normalisation and the extraction hold (P W-out.3(d)); and H_n^κ has the structure of P W-out.5: Toda parameters
   μ_{n,j} = (2Z_κ(−j)/j − B_j)n^{−jp} up to O(n^{−(J+1)p}), branched tilts τ_m = −2π cot(πq_m)R_{q_m}/q_m, lip coefficients σ_m = 2a_m
   (m = 1, …; q_m = m − 1/p), and products of these at higher order. **Z(0) = −½ − δ does not depend on κ** (L W-out.0), so β′ is κ-free.
-(ii) *(CONDITIONAL on BT, and on BT's companion that the transfer G1u/Hc.3 to the composite band factor holds)* Conjecture W holds for
-  σ^{δ,κ} at first order in the poles and to N.6's orders in the integer and Toda layers:
-  n^pb_n/c = 𝔅_n[M(α + 2δ, α); t] + Σ_m pR_{q_m}W(q_m)π cot(πq_m)(n/N)^pN^{−1−pq_m}(1 + O(N^{−1})) + …,  t_j = −2Z_κ(−j)/j + B_j.
-(iii) *(CONDITIONAL on BT₀ and the same transfer)* For every k < p, the coefficient of n^{−k} in n^pb_n/c equals that of M(α + 2δ, α): it does
+(ii) *(PROVED-mod-cite (W_kappa P K.12 + K.12′); formerly CONDITIONAL on BT and on the transfer G1u/Hc.3 to the composite band factor,
+  now W_kappa L K.10 + P K.8)* Conjecture W holds for σ^{δ,κ} at first order in the poles:
+  n^pb_n/c = 𝔅_n[M(α + 2δ, α); t] + Σ_m pR_{q_m}W(q_m)π cot(πq_m)(n/N)^pN^{−1−pq_m}(1 + O(N^{−1})) + …,  t_j = −2Z_κ(−j)/j + B_j,
+  precisely: with the continued pole dressing the remainder is O(n^{−2p}); in the displayed form, with (1 + O(N^{−1})), it is O(n^{−1−p})
+  (W_kappa P K.12) (fixed per Rule R review A of the W chain, B4).
+(iii) *(PROVED-mod-cite (W_kappa P K.11); formerly CONDITIONAL on BT₀ and the same transfer)* For every k < p, the coefficient of n^{−k} in n^pb_n/c equals that of M(α + 2δ, α): it does
   not depend on κ. In particular d₁ = −p(β′ + 1)/2 = −(s − 1)/2 − pδ, and d₂ = d₂(M(α + 2δ, α)) for p > 2.
-*Proof.* (i) collects L W-out.0–W-out.4 and P W-out.3, W-out.5. (ii): insert P W-out.5 into BT, use P W-out.7 for the pole terms. (iii): the
-non-model terms of BT₀ start at n^{−1−pq₁} = n^{−p}. ∎
+*Proof.* (i) collects L W-out.0–W-out.4 and P W-out.3, W-out.5. (ii): JZC_W_kappa P K.12 with Prop K.12′ (BT_coh), P W-out.5 and P W-out.7
+for the pole terms. (iii): JZC_W_kappa P K.11 (the non-model terms start at n^{−1−pq₁} = n^{−p}). ∎ (fixed per Rule R review A of the W chain, B4)
 
 What (ii) adds to W for this family: W's three layers are *derived* from one exact transformation; what remains is a statement about the
-decoupled model alone (BT), with no node set in it. Numerically (§8) (ii) holds at n^{−p} (pole term, 4·10⁻⁷) and (iii) at n^{−1}, n^{−2}
-(10⁻¹⁰, 5·10⁻⁸).
+decoupled model alone (BT_coh), with no node set in it, and that statement is JZC_W_kappa Prop K.12′. Numerically (§8) (ii) is consistent at
+n^{−p} (pole term, 4·10⁻⁷) and (iii) at n^{−1}, n^{−2} (10⁻¹⁰, 5·10⁻⁸); both are now PROVED-mod-cite (JZC_W_kappa P K.12 + K.12′, P K.11) (fixed per Rule R review A of the W chain, B4).
 
 ## 7. p < 1: what changes
 
@@ -415,13 +432,15 @@ decoupled model alone (BT), with no node set in it. Numerically (§8) (ii) holds
 ## 10. What remains
 
 1. **Hypothesis BT** (= JZC_W §5.1 item 4): N.6/E3.7 for the decoupled model with branched band tilts and lip factors vanishing at 0.
-   This is now the *only* gap between Theorem H's machinery and Conjecture W(i) at first order for this family; it is a statement about a
-   model problem with no node set in it. A test without measures: run the exact/float engine with a z^ρ tilt (JZC_W §5.3); here P W-out.7
+   This was the *only* gap between Theorem H's machinery and Conjecture W(i) at first order for this family; it is now closed for the
+   κ-family by JZC_W_kappa Prop K.12′ (BT_coh, the coherent case, which is all this family needs) (fixed per Rule R review A of the W chain, B4); for general (non-coherent)
+   branched tilts it stays open as (F-br) (JZC_W_BT §3.3). Originally: it is a statement about a model problem with no node set in it. A test without measures: run the exact/float engine with a z^ρ tilt (JZC_W §5.3); here P W-out.7
    fixes the expected answer.
 2. **The transfer of Hc.3/G1u to the composite factor** (Hurwitz∘ζ · r_n · e^{−2Ψ₀}) for the analytic part (routine: ζ is analytic on the
-   circles, Hc.2 applies), and H-b′ (G12 §2) for the κ-nodes (sum bound with node spacing 1 in t_κ; column factorisation with E_κ). Not written.
-3. **1 < p < 2:** the Hölder exponent of the gauge at 0 is q₁ = 1 − 1/p < ν_p = ½; whether Paper 2's frame (O3)/(F2) and G1u L3 tolerate a smaller
-   exponent is not checked.
+   circles, Hc.2 applies), and H-b′ (G12 §2) for the κ-nodes (sum bound with node spacing 1 in t_κ; column factorisation with E_κ). Done:
+   JZC_W_kappa L K.10, P K.8 and P K.5 (fixed per Rule R review A of the W chain, B4).
+3. **1 < p < 2:** the Hölder exponent of the gauge at 0 is q₁ = 1 − 1/p < ν_p = ½; no restriction is needed: JZC_W_kappa P K.13 (the lip
+   coefficient carries the gauge only through X, exponent ½) (fixed per Rule R review A of the W chain, B4).
 4. **Lip factors (HEURISTIC prediction, not tested):** a lip factor of size n^{−pρ}|z|^ρ acts through the Bessel region |z| ≍ n^{−2}, where the
    Bessel order enters b_n at relative n^{−2}; so the lip coefficients σ_ρ = 2a_m should first act at n^{−2−(p+2)ρ} (ρ = 0, a constant lip phase,
    gives the Bessel-order shift at n^{−2}, as for δ); at ρ = ½ this is W′'s n^{−3−p/2}. For ρ ≠ ½ this predicts a term at n^{−2−(p+2)q_m}, not at W′'s n^{−3−pq_m} (they agree only at q = ½).
@@ -430,4 +449,6 @@ decoupled model alone (BT), with no node set in it. Numerically (§8) (ii) holds
 6. **General node sets:** the construction uses the Möbius structure only to reuse G12/Hc; the gauge ρ₁ = −(index offset), the Toda share
    FP_j and the pole tilt τ = −2π cot(πq)R_q/q are written invariantly, so the next case is a node set with an analytic index map and no
    Möbius structure (JZC_M3_scope M3b, SPEC §3.8's bouncer), where Φ_δ∘ζ must be replaced by the Binet scalar composed with the index map.
-7. Rule R for this note; Rule L before any novelty claim.
+7. Rule R for this note: done (review A of the W chain). Rule L before any novelty claim (UNCHECKED). Still open for W on this family:
+   second order in the poles; p < 1 (item 5; OBSTRUCTION for this route, JZC_W_kappa P K.14); p = 1/m; α ∉ (−1, 1); Rule R of
+   JZC_W_exact WE.1 (fixed per Rule R review A of the W chain, B4).

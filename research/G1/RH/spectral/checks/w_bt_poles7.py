@@ -8,11 +8,14 @@ Asserted at each registered p, identically in (nu, j):
   the j-poles of g1[7] are exactly 1/2, 3/2, 5/2, simple (registered);
   Res_{j=rho0} g1[7] = registered value, rho0 = 1/2 (tests c_4), 3/2 (tests c_2), 5/2 (tests c_0 = H) (registered).
 Controls (must fail): rho0 = 1/2 with c_4 -> 0; rho0 = 3/2 with c_2 -> 0; rho0 = 1/2 with the opposite sign.
-Usage: python w_bt_poles7.py 3/2   (one p per process; run several in parallel)"""
+Usage: python w_bt_poles7.py 3/2   (one p per process; run several in parallel)
+SHI (engine truncation guard) defaults to 30, the value of the stored runs (SHI = 24 aborted, JZC_W_BT §5); the default was 24 when the
+stored outputs were produced, so their "sha256 w_bt_poles7.py" line is that of the pre-fix file; no computed line changes
+(fixed per Rule R review A of the W chain, B1)."""
 import os, sys, json, time, hashlib
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 T_START = time.time()
-os.environ["KORD"] = os.environ.get("KORD", "7"); os.environ.setdefault("SHI", "24"); os.environ["EO"] = "1"
+os.environ["KORD"] = os.environ.get("KORD", "7"); os.environ.setdefault("SHI", "30"); os.environ["EO"] = "1"
 os.environ.pop("DECOUPLE", None); os.environ.pop("SZOFF", None)
 ps = sys.argv[1]; os.environ["PVAL"] = ps
 import sympy as sp
