@@ -1,0 +1,164 @@
+w_predict.py run at 2026-10-22 08:06:11 MDT
+
+=== A15m: A p=1.5 a=-0.75 s=2.0 ===
+  Z(0) = 0.0 (regularised sum: -9.43504301855505e-28);  Z(-1) = 0.130429466843183  Z(-2) = -0.0209635416666667
+  pole q = 0.6666666667: R = 0.0416666666666667 (h Z(-(q+h)) = 0.0416666666667)
+  pole q = 1.333333333: R = -0.0138888888888889 (h Z(-(q+h)) = -0.0138888888889)
+  poles (q, R, L = p R W(q) pi cot(pi q)) at n^-(1+pq): q=0.6667 R=+0.0416667; q=1.333 R=-0.0138889; q=2 R=+0; q=2.667 R=+0.00173611; q=3.333 R=-0.000632957
+  alpha = -0.3333333333, beta = alpha - 2Z(0) - 1 = -1.333333333, N = n + -0.1666666667; Toda mu_j = 2Z(-j)/j - B_j: {1: 0.2608589337, 2: -0.041796875}; branched tilts {1.333: -0.0625}; resonant j []
+  n^-1.0: W =               0.25   = [model] 0.25
+  n^-2.0: W =    0.0984430952909   = [model] 0.21180556 + [pole q=0.6667] -0.11336246
+  n^-2.5: W =     0.221575799396   = [toda mu1] 0.2215758
+  n^-3.0: W =    0.0699377321444   = [model] 0.10329861 + [pole-shift q=0.6667] -0.066128102 + [pole q=1.333] -0.050103807 + [tilt rho=1.333] 0.08287103
+  n^-3.5: W =     0.147717199597   = [toda mu1] 0.1477172
+  alternative 'S1 without the Szego shift (beta = alpha)': changes n^-1: -0.75, n^-2: 0.15625, n^-3: -0.172275, n^-3.5: -0.443152
+  alternative 'no pole terms': changes n^-2: 0.113362, n^-3: 0.116232
+  alternative 'Toda times without Z(-j)': changes n^-2.5: -0.221576, n^-3.5: -0.147717
+  alternative 'no Jacobian/density tilt': changes n^-3: -0.082871
+  alternative 'pole/tilt terms not at N': changes n^-3: 0.0661281
+  (3 s)
+
+=== A15p: A p=1.5 a=0.6 s=2.0 ===
+  Z(0) = -0.9 (regularised sum: -0.9);  Z(-1) = -0.150216936876246  Z(-2) = -0.0144666666666667
+  pole q = 0.6666666667: R = 0.0266666666666667 (h Z(-(q+h)) = 0.0266666666663)
+  pole q = 1.333333333: R = 0.00711111111111111 (h Z(-(q+h)) = 0.00711111111102)
+  poles (q, R, L = p R W(q) pi cot(pi q)) at n^-(1+pq): q=0.6667 R=+0.0266667; q=1.333 R=+0.00711111; q=2 R=+0; q=2.667 R=-0.000568889; q=3.333 R=-0.000165926
+  alpha = -0.3333333333, beta = alpha - 2Z(0) - 1 = 0.4666666667, N = n + 0.7333333333; Toda mu_j = 2Z(-j)/j - B_j: {1: -0.3004338738, 2: -0.0038}; branched tilts {1.333: -0.04}; resonant j []
+  n^-1.0: W =               -1.1   = [model] -1.1
+  n^-2.0: W =      1.09550358099   = [model] 1.1680556 + [pole q=0.6667] -0.072551975
+  n^-2.5: W =    -0.255191090455   = [toda mu1] -0.25519109
+  n^-3.0: W =     -1.00773154555   = [model] -1.2726389 + [pole-shift q=0.6667] 0.18621673 + [pole q=1.333] 0.025653149 + [tilt rho=1.333] 0.053037459
+  n^-3.5: W =     0.748560532001   = [toda mu1] 0.74856053
+  alternative 'S1 without the Szego shift (beta = alpha)': changes n^-1: 0.6, n^-2: -0.8, n^-3: 0.903705, n^-3.5: -0.408306
+  alternative 'no pole terms': changes n^-2: 0.072552, n^-3: -0.21187
+  alternative 'Toda times without Z(-j)': changes n^-2.5: 0.255191, n^-3.5: -0.748561
+  alternative 'no Jacobian/density tilt': changes n^-3: -0.0530375
+  alternative 'pole/tilt terms not at N': changes n^-3: -0.186217
+  (20 s)
+
+=== A3: A p=3.0 a=-0.6 s=2.0 ===
+  Z(0) = -0.3 (regularised sum: -0.3);  Z(-1) = 0.00473333333333333
+  pole q = 0.3333333333: R = 0.0133333333333333 (h Z(-(q+h)) = 0.0133333333333)
+  pole q = 0.6666666667: R = 0.00355555555555556 (h Z(-(q+h)) = 0.00355555555559)
+  poles (q, R, L = p R W(q) pi cot(pi q)) at n^-(1+pq): q=0.3333 R=+0.0133333; q=0.6667 R=+0.00355556; q=1 R=+0; q=1.333 R=-0.000284444; q=1.667 R=-8.2963e-05
+  alpha = -0.6666666667, beta = alpha - 2Z(0) - 1 = -1.066666667, N = n + -0.03333333333; Toda mu_j = 2Z(-j)/j - B_j: {1: 0.02013333333}; branched tilts {0.6667: -0.04}; resonant j []
+  n^-1.0: W =                0.1   = [model] 0.1
+  n^-2.0: W =     0.134774196792   = [model] 0.062222222 + [pole q=0.3333] 0.072551975
+  n^-3.0: W =    0.0452647641143   = [model] 0.0096296296 + [pole-shift q=0.3333] 0.012091996 + [pole q=0.6667] -0.022054806 + [tilt rho=0.6667] 0.045597945
+  alternative 'S1 without the Szego shift (beta = alpha)': changes n^-1: -0.6, n^-2: 0.16, n^-3: -0.174774
+  alternative 'no pole terms': changes n^-2: -0.072552, n^-3: 0.00996281
+  alternative 'no Jacobian/density tilt': changes n^-3: -0.0455979
+  alternative 'pole/tilt terms not at N': changes n^-3: -0.012092
+  (11 s)
+
+=== A06: A p=0.6 a=-0.3 s=2.0 ===
+  Z(0) = 0.0 (regularised sum: 3.04285219648502e-27);  Z(-1) = 0.165843623222081  Z(-2) = -0.244367130315492  Z(-3) = -0.246865940507614  Z(-4) = 0.144163798671357  Z(-5) = -12932812417246.7  Z(-6) = -0.125421397370306  Z(-7) = 0.1814524128248
+  pole q = 1.666666667: R = -0.0833333333333333 (h Z(-(q+h)) = -0.0833333333333)
+  pole q = 3.333333333: R = 0.0777777777777778 (h Z(-(q+h)) = 0.0777777777778)
+  poles (q, R, L = p R W(q) pi cot(pi q)) at n^-(1+pq): q=1.667 R=-0.0833333; q=3.333 R=+0.0777778; q=5 R=-0.0675; q=6.667 R=+0.0581778; q=8.333 R=-0.0503148
+  alpha = 0.6666666667, beta = alpha - 2Z(0) - 1 = -0.3333333333, N = n + 0.3333333333; Toda mu_j = 2Z(-j)/j - B_j: {1: 0.3316872464, 2: -0.2443671303, 3: -0.1645772937, 4: 0.07208189934, 6: -0.04180713246}; branched tilts {3.333: 0.05}; resonant j [5]
+  n^-1.0: W =               -0.2   = [model] -0.2
+  n^-1.6: W =    0.0854663869957   = [toda mu1] 0.085466387
+  n^-2.0: W =     0.132912190434   = [model] 0.042222222 + [pole q=1.667] 0.090689968
+  n^-2.2: W =    -0.162246722617   = [toda mu2] -0.16224672
+  n^-2.6: W =   -0.0626753504635   = [toda mu1] -0.06267535
+  n^-2.8: W =    -0.234632618003   = [toda mu3] -0.23463262
+  alternative 'S1 without the Szego shift (beta = alpha)': changes n^-1: -0.3, n^-2: 0.28, n^-2.6: -0.094013
+  alternative 'no pole terms': changes n^-2: -0.09069
+  alternative 'Toda times without Z(-j)': changes n^-1.6: -0.0854664, n^-2.2: 0.162247, n^-2.6: 0.0626754, n^-2.8: 0.234633
+  (89 s)
+
+=== M1: M1 sphere l(l+1), mult 2l+1, s=4.0 ===
+  Z(0) = -1.0 (regularised sum: -1.0);  Z(-1) = 4.08636487381701e-31  Z(-2) = -1.67034575406409e-31
+  pole q = 0.5: R = 0.0625 (h Z(-(q+h)) = 0.0624999999997)
+  pole q = 1.5: R = -0.01171875 (h Z(-(q+h)) = -0.01171875)
+  poles (q, R, L = p R W(q) pi cot(pi q)) at n^-(1+pq): q=0.5 R=+0.0625; q=1.5 R=-0.0117188; q=2.5 R=+0.00244141; q=3.5 R=-0.000534058
+  alpha = 0.0, beta = alpha - 2Z(0) - 1 = 1.0, N = n + 1.0; Toda mu_j = 2Z(-j)/j - B_j: {1: 8.172729748e-31}; branched tilts {}; resonant j []
+  n^-1.0: W =               -2.0   = [model] -2.0
+  n^-2.0: W =               3.25   = [model] 3.25 + [pole q=0.5] 8.1172161e-44
+  n^-3.0: W =               -5.0   = [model] -5.0 + [toda mu1] 1.0082701e-30 + [pole-shift q=0.5] -3.2468864e-43
+  n^-4.0: W =        7.544921875   = [model] 7.5449219 + [toda mu1] -5.0413506e-30 + [pole q=1.5] 2.7056325e-42
+  alternative 'S1 without the Szego shift (beta = alpha)': changes n^-1: 1.0, n^-2: -2.25, n^-3: 4.0, n^-4: -6.5625
+  alternative 'no Jacobian/density tilt': changes n^-3: -0.154213, n^-4: 0.771063
+  alternative 'no multiplicity/mass tilt': changes n^-3: 0.154213, n^-4: -0.771063
+  (11 s)
+
+=== M2: M2 nodes l^1.5, mult 2l+1, s=3.0 ===
+  Z(0) = -0.5 (regularised sum: -0.5);  Z(-1) = -0.025485201889833  Z(-2) = 0.00833333333333333
+  poles (q, R, L = p R W(q) pi cot(pi q)) at n^-(1+pq): 
+  alpha = -0.3333333333, beta = alpha - 2Z(0) - 1 = -0.3333333333, N = n + 0.3333333333; Toda mu_j = 2Z(-j)/j - B_j: {1: -0.05097040378, 2: -0.03333333333}; branched tilts {0.6667: 0.5, 1.333: -0.125}; resonant j []
+  n^-1.0: W =               -0.5   = [model] -0.5
+  n^-2.0: W =     0.118055555405   = [model] 0.36805556 + [tilt rho=0.6667] -0.25
+  n^-2.5: W =   -0.0432946949656   = [toda mu1] -0.043294695
+  n^-3.0: W =     0.190047616031   = [model] -0.26736111 + [tilt-shift rho=0.6667] 0.29166667 + [tilt rho=1.333] 0.16574206
+  n^-3.5: W =    0.0577262599542   = [toda mu1] 0.05772626
+  alternative 'Toda times without Z(-j)': changes n^-2.5: 0.0432947, n^-3.5: -0.0577263
+  alternative 'no multiplicity/mass tilt': changes n^-2: 0.25, n^-3: -0.457409
+  alternative 'pole/tilt terms not at N': changes n^-3: -0.291667
+  (9 s)
+
+=== B0_15: B Bessel nu=0 P=1.5 s=2.0 ===
+  Z(0) = -0.25 (regularised sum: -0.25);  Z(-1) = -0.00208986631252009  Z(-2) = -0.000797320190581838
+  pole q = 0.6666666667: R = -0.00844343197019481 (h Z(-(q+h)) = -0.00844343197018)
+  McMahon (5 terms) vs besseljzero, k = 150..300: max rel. error 4.77e-26
+  poles (q, R, L = p R W(q) pi cot(pi q)) at n^-(1+pq): q=0.6667 R=-0.00844343; q=2 R=+0.00133672; q=3.333 R=-0.000726623; q=4.667 R=+0.000805637
+  alpha = -0.3333333333, beta = alpha - 2Z(0) - 1 = -0.8333333333, N = n + 0.08333333333; Toda mu_j = 2Z(-j)/j - B_j: {1: -0.004179732625}; branched tilts {1.333: 0.012665148}; resonant j [2]
+  n^-1.0: W =             -0.125   = [model] -0.125
+  n^-2.0: W =     0.195715092865   = [model] 0.17274306 + [pole q=0.6667] 0.022972037
+  n^-2.5: W =  -0.00355030048067   = [toda mu1] -0.0035503005
+  n^-3.0: W =   -0.0713449217733   = [model] -0.047851562 + [pole-shift q=0.6667] -0.0067001775 + [tilt rho=1.333] -0.016793182
+  n^-3.5: W =   0.00118343349356   = [toda mu1] 0.0011834335
+  alternative 'S1 without the Szego shift (beta = alpha)': changes n^-1: -0.375, n^-2: 0.195313, n^-3: -0.23961, n^-3.5: 0.0035503
+  alternative 'no pole terms': changes n^-2: -0.022972, n^-3: 0.00670018
+  alternative 'Toda times without Z(-j)': changes n^-2.5: 0.0035503, n^-3.5: -0.00118343
+  alternative 'no Jacobian/density tilt': changes n^-3: 0.0167932
+  alternative 'pole/tilt terms not at N': changes n^-3: 0.00670018
+  (10 s)
+
+=== B1_15: B Bessel nu=1 P=1.5 s=2.0 ===
+  Z(0) = -0.75 (regularised sum: -0.75);  Z(-1) = -0.0391411272427468  Z(-2) = 0.00810271984750095
+  pole q = 0.6666666667: R = 0.0253302959105844 (h Z(-(q+h)) = 0.0253302959104)
+  McMahon (5 terms) vs besseljzero, k = 150..300: max rel. error 4.44e-26
+  poles (q, R, L = p R W(q) pi cot(pi q)) at n^-(1+pq): q=0.6667 R=+0.0253303; q=2 R=-0.00336853; q=3.333 R=+0.00128598; q=4.667 R=-0.00116532
+  alpha = -0.3333333333, beta = alpha - 2Z(0) - 1 = 0.1666666667, N = n + 0.5833333333; Toda mu_j = 2Z(-j)/j - B_j: {1: -0.07828225449}; branched tilts {1.333: -0.037995444}; resonant j [2]
+  n^-1.0: W =             -0.875   = [model] -0.875
+  n^-2.0: W =     0.728826943628   = [model] 0.79774306 + [pole q=0.6667] -0.068916112
+  n^-2.5: W =    -0.066493613506   = [toda mu1] -0.066493614
+  n^-3.0: W =    -0.569224886029   = [model] -0.76030816 + [pole-shift q=0.6667] 0.14070373 + [tilt rho=1.333] 0.050379545
+  n^-3.5: W =     0.155151764847   = [toda mu1] 0.15515176
+  alternative 'S1 without the Szego shift (beta = alpha)': changes n^-1: 0.375, n^-2: -0.429688, n^-3: 0.432645, n^-3.5: -0.0664936
+  alternative 'no pole terms': changes n^-2: 0.0689161, n^-3: -0.140704
+  alternative 'Toda times without Z(-j)': changes n^-2.5: 0.0664936, n^-3.5: -0.155152
+  alternative 'no Jacobian/density tilt': changes n^-3: -0.0503795
+  alternative 'pole/tilt terms not at N': changes n^-3: -0.140704
+  (10 s)
+
+=== B0_3: B Bessel nu=0 P=3.0 s=2.0 ===
+  Z(0) = -0.25 (regularised sum: -0.25);  Z(-1) = -0.000797320190581838
+  pole q = 0.3333333333: R = -0.00422171598509741 (h Z(-(q+h)) = -0.00422171598509)
+  McMahon (5 terms) vs besseljzero, k = 150..300: max rel. error 4.77e-26
+  poles (q, R, L = p R W(q) pi cot(pi q)) at n^-(1+pq): q=0.3333 R=-0.00422172; q=1 R=+0.000668358; q=1.667 R=-0.000363312; q=2.333 R=+0.000402818
+  alpha = -0.6666666667, beta = alpha - 2Z(0) - 1 = -1.166666667, N = n + -0.08333333333; Toda mu_j = 2Z(-j)/j - B_j: {}; branched tilts {0.6667: 0.012665148}; resonant j [1]
+  n^-1.0: W =               0.25   = [model] 0.25
+  n^-2.0: W =     0.074250184913   = [model] 0.097222222 + [pole q=0.3333] -0.022972037
+  n^-3.0: W =   0.00492588496645   = [model] 0.028935185 + [pole-shift q=0.3333] -0.0095716822 + [tilt rho=0.6667] -0.014437618
+  alternative 'S1 without the Szego shift (beta = alpha)': changes n^-1: -0.75, n^-2: 0.125, n^-3: -0.0928127
+  alternative 'no pole terms': changes n^-2: 0.022972, n^-3: 0.00957168
+  alternative 'no Jacobian/density tilt': changes n^-3: 0.0144376
+  alternative 'pole/tilt terms not at N': changes n^-3: 0.00957168
+  (3 s)
+
+=== W1: Lommel anchor, Bessel zeros at P = 2, s = 2 (exact closed form, JZC_M4 Prop N.2) ===
+  nu = 0: total Toda parameters mu_j = 2Z(-j)/j - B_j = {1: -6.9588e-22, 2: -8.61411e-17}
+    n^-1: W                  0.0  exact                  0.0  diff 0.0
+    n^-2: W                0.125  exact                0.125  diff 0.0
+    n^-3: W -8.58507463154434e-22  exact                  0.0  diff -8.59e-22
+    n^-4: W            0.0234375  exact            0.0234375  diff -2.3e-40
+  nu = 1: total Toda parameters mu_j = 2Z(-j)/j - B_j = {1: 6.86333e-22, 2: 9.17249e-17}
+    n^-1: W                 -1.0  exact                 -1.0  diff 0.0
+    n^-2: W                0.875  exact                0.875  diff 0.0
+    n^-3: W                -0.75  exact                -0.75  diff 8.47e-22
+    n^-4: W            0.6484375  exact            0.6484375  diff -2.12e-21
+
+predictions written to tmp/w_cache/predictions.json at 2026-10-22 08:09:00 MDT
+ALL 37 CHECKS PASSED

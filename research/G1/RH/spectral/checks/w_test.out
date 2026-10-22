@@ -1,0 +1,52 @@
+=== A15m: A p=1.5 a=-0.75 s=2.0  (measure wA_p1.5_a-0.75_s2.0__dc17fdf5f0bdd10e.txt, cached, 160000 atoms + tail [(159999.99999960928, 1.0, 2.0)]; 4 s) ===
+  n^-1.0  : fit +0.25000000 (half-range 2.7e-07)  W +0.25000000  diff -6.3e-11  tol 2.5e-06  PASS   | alternatives: beta=alpha: -0.500000 (300000 tol)
+  n^-2.0  : fit +0.09844309 (half-range 2.7e-05)  W +0.09844310  diff -2.7e-09  tol 8.1e-05  PASS   | alternatives: beta=alpha: +0.254693 (1919 tol); no pole: +0.211806 (1392 tol)
+  n^-2.5  : fit +0.22157491 (half-range 3.9e-05)  W +0.22157580  diff -8.9e-07  tol 1.2e-04  PASS   | alternatives: no zeta: +0.000000 (1912 tol)
+  n^-3.0  : fit +0.06993930 (half-range 1.1e-03)  W +0.06993773  diff +1.6e-06  tol 3.3e-03  PASS   | alternatives: beta=alpha: -0.102338 (53 tol); no pole: +0.186170 (36 tol); no density tilt: -0.012933 (25 tol); no shift: +0.136066 (20 tol)
+  n^-3.5  : fit +0.14774814 (half-range 2.9e-02)  W +0.14771720  diff +3.1e-05  tol 8.6e-02  PASS   | alternatives: beta=alpha: -0.295434 (5 tol); no zeta: +0.000000 (2 tol)
+=== A15p: A p=1.5 a=0.6 s=2.0  (measure wA_p1.5_a0.6_s2.0__f45607679efe2c1d.txt, cached, 160000 atoms + tail [(160000.8999997499, 1.0, 2.0)]; 4 s) ===
+  n^-1.0  : fit -1.10000001 (half-range 2.1e-06)  W -1.10000000  diff -7.9e-09  tol 6.3e-06  PASS   | alternatives: beta=alpha: -0.500000 (95069 tol)
+  n^-2.0  : fit +1.09550309 (half-range 1.6e-04)  W +1.09550358  diff -4.9e-07  tol 4.8e-04  PASS   | alternatives: beta=alpha: +0.295504 (1652 tol); no pole: +1.168056 (150 tol)
+  n^-2.5  : fit -0.25518963 (half-range 1.5e-04)  W -0.25519109  diff +1.5e-06  tol 4.4e-04  PASS   | alternatives: no zeta: +0.000000 (577 tol)
+  n^-3.0  : fit -1.00776546 (half-range 1.1e-03)  W -1.00773155  diff -3.4e-05  tol 3.4e-03  PASS   | alternatives: beta=alpha: -0.104027 (269 tol); no pole: -1.219601 (63 tol); no density tilt: -1.060769 (16 tol); no shift: -1.193948 (55 tol)
+  n^-3.5  : fit +0.74856900 (half-range 3.0e-02)  W +0.74856053  diff +8.5e-06  tol 9.1e-02  PASS   | alternatives: beta=alpha: +0.340255 (4 tol); no zeta: +0.000000 (8 tol)
+=== A3: A p=3.0 a=-0.6 s=2.0  (measure wA_p3.0_a-0.6_s2.0__b49fc4b2a281c0e6.txt, cached, 160000 atoms + tail [(160000.2999997499, 1.0, 2.0)]; 3 s) ===
+  n^-1.0  : fit +0.10000000 (half-range 1.8e-09)  W +0.10000000  diff +6.2e-13  tol 2.2e-06  PASS   | alternatives: beta=alpha: -0.500000 (272727 tol)
+  n^-2.0  : fit +0.13477420 (half-range 4.5e-09)  W +0.13477420  diff +5.2e-10  tol 2.3e-06  PASS   | alternatives: beta=alpha: +0.294774 (70499 tol); no pole: +0.062222 (31968 tol)
+  n^-3.0  : fit +0.04526487 (half-range 2.7e-06)  W +0.04526476  diff +1.0e-07  tol 8.2e-06  PASS   | alternatives: beta=alpha: -0.129509 (21193 tol); no pole: +0.055228 (1208 tol); no density tilt: -0.000333 (5529 tol); no shift: +0.033173 (1466 tol)
+=== A06: A p=0.6 a=-0.3 s=2.0  (measure wA_p0.6_a-0.3_s2.0__70f0008f2907639d.txt, cached, 320000 atoms + tail [(320000.00000015635, 1.0, 2.0)]; 8 s) ===
+  n^-1.0  : fit -0.20000001 (half-range 3.1e-05)  W -0.20000000  diff -1.0e-08  tol 9.3e-05  PASS   | alternatives: beta=alpha: -0.500000 (3225 tol)
+  n^-1.6  : fit +0.08546365 (half-range 3.7e-04)  W +0.08546639  diff -2.7e-06  tol 1.1e-03  PASS   | alternatives: no zeta: +0.000000 (77 tol)
+  n^-2.0  : fit +0.13271155 (half-range 1.1e-03)  W +0.13291219  diff -2.0e-04  tol 3.4e-03  PASS   | alternatives: beta=alpha: +0.412912 (83 tol); no pole: +0.042222 (27 tol)
+  n^-2.2  : fit -0.16215660 (half-range 1.5e-03)  W -0.16224672  diff +9.0e-05  tol 4.5e-03  PASS   | alternatives: no zeta: +0.000000 (36 tol)
+  n^-2.6  : fit -0.05965164 (half-range 2.8e-02)  W -0.06267535  diff +3.0e-03  tol 8.5e-02  PASS   | alternatives: beta=alpha: -0.156688 (1 tol); no zeta: +0.000000 (1 tol)
+  n^-2.8  : fit -0.22807094 (half-range 9.3e-02)  W -0.23463262  diff +6.6e-03  tol 2.8e-01  PASS   | alternatives: no zeta: +0.000000 (1 tol)
+=== M1: M1 sphere l(l+1), mult 2l+1, s=4.0  (measure wM1_s4.0__035bd86925b23ff0.txt, cached, 160000 atoms + tail [(160000.99999921877, 2.0, 3.0)]; 2 s) ===
+  n^-1.0  : fit -2.00000000 (half-range 3.1e-07)  W -2.00000000  diff +3.9e-11  tol 6.0e-06  PASS   | alternatives: beta=alpha: -1.000000 (166667 tol)
+  n^-2.0  : fit +3.25000000 (half-range 1.1e-06)  W +3.25000000  diff -2.4e-10  tol 8.5e-06  PASS   | alternatives: beta=alpha: +1.000000 (264706 tol)
+  n^-3.0  : fit -4.99999992 (half-range 3.3e-06)  W -5.00000000  diff +7.8e-08  tol 1.2e-05  PASS   | alternatives: beta=alpha: -1.000000 (333333 tol); no density tilt: -5.154213 (12851 tol); no mass tilt: -4.845787 (12851 tol)
+  n^-4.0  : fit +7.77624075 (half-range 3.3e-04)  W +7.54492188  diff +2.3e-01  tol 1.0e-03  FAIL   | alternatives: beta=alpha: +0.982422 (6803 tol); no density tilt: +8.315985 (540 tol); no mass tilt: +6.773859 (1004 tol)
+=== M2: M2 nodes l^1.5, mult 2l+1, s=3.0  (measure wM2_p1.5_s3.0__3fa7b6b1de5c7623.txt, cached, 160000 atoms + tail [(160000.5, 2.0, 2.0), (160000.5, 1.0, 3.0)]; 1 s) ===
+  n^-1.0  : fit -0.50000000 (half-range 4.9e-07)  W -0.50000000  diff -1.5e-10  tol 3.0e-06  PASS
+  n^-2.0  : fit +0.11805583 (half-range 3.8e-06)  W +0.11805556  diff +2.7e-07  tol 1.1e-05  PASS   | alternatives: no mass tilt: +0.368056 (21830 tol)
+  n^-2.5  : fit -0.04329670 (half-range 5.2e-05)  W -0.04329469  diff -2.0e-06  tol 1.6e-04  PASS   | alternatives: no zeta: +0.000000 (275 tol)
+  n^-3.0  : fit +0.19004810 (half-range 1.1e-03)  W +0.19004762  diff +4.8e-07  tol 3.2e-03  PASS   | alternatives: no mass tilt: -0.267361 (141 tol); no shift: -0.101619 (90 tol)
+  n^-3.5  : fit +0.05778675 (half-range 2.9e-02)  W +0.05772626  diff +6.0e-05  tol 8.8e-02  PASS   | alternatives: no zeta: +0.000000 (1 tol)
+=== B0_15: B Bessel nu=0 P=1.5 s=2.0  (measure wB_nu0_P1.5_s2.0__097b0b948f7b0e3b.txt, cached, 160000 atoms + tail [(160000.25000007916, 1.0, 2.0)]; 1 s) ===
+  n^-1.0  : fit -0.12500000 (half-range 1.8e-07)  W -0.12500000  diff -2.6e-10  tol 2.3e-06  PASS   | alternatives: beta=alpha: -0.500000 (166667 tol)
+  n^-2.0  : fit +0.19571496 (half-range 1.4e-05)  W +0.19571509  diff -1.3e-07  tol 4.1e-05  PASS   | alternatives: beta=alpha: +0.391028 (4776 tol); no pole: +0.172743 (562 tol)
+  n^-2.5  : fit -0.00355096 (half-range 4.5e-04)  W -0.00355030  diff -6.6e-07  tol 1.4e-03  PASS   | alternatives: no zeta: +0.000000 (3 tol)
+  n^-3.0  : fit -0.07135965 (half-range 1.8e-02)  W -0.07134492  diff -1.5e-05  tol 5.3e-02  PASS   | alternatives: beta=alpha: -0.310955 (5 tol); no pole: -0.064645 (0 tol); no density tilt: -0.054552 (0 tol); no shift: -0.064645 (0 tol)
+  n^-3.5  : fit +0.00092510 (half-range 9.4e-01)  W +0.00118343  diff -2.6e-04  tol 2.8e+00  PASS   | alternatives: beta=alpha: +0.004734 (0 tol); no zeta: +0.000000 (0 tol)
+=== B1_15: B Bessel nu=1 P=1.5 s=2.0  (measure wB_nu1_P1.5_s2.0__b3f4522977ca9486.txt, cached, 160000 atoms + tail [(160000.74999976254, 1.0, 2.0)]; 1 s) ===
+  n^-1.0  : fit -0.87500000 (half-range 1.3e-06)  W -0.87500000  diff -3.9e-09  tol 4.0e-06  PASS   | alternatives: beta=alpha: -0.500000 (94343 tol)
+  n^-2.0  : fit +0.72882642 (half-range 5.8e-05)  W +0.72882694  diff -5.3e-07  tol 1.7e-04  PASS   | alternatives: beta=alpha: +0.299139 (2469 tol); no pole: +0.797743 (396 tol)
+  n^-2.5  : fit -0.06649571 (half-range 5.2e-04)  W -0.06649361  diff -2.1e-06  tol 1.6e-03  PASS   | alternatives: no zeta: +0.000000 (42 tol)
+  n^-3.0  : fit -0.56923915 (half-range 1.7e-02)  W -0.56922489  diff -1.4e-05  tol 5.2e-02  PASS   | alternatives: beta=alpha: -0.136579 (8 tol); no pole: -0.709929 (3 tol); no density tilt: -0.619604 (1 tol); no shift: -0.709929 (3 tol)
+  n^-3.5  : fit +0.15476745 (half-range 9.1e-01)  W +0.15515176  diff -3.8e-04  tol 2.7e+00  PASS   | alternatives: beta=alpha: +0.088658 (0 tol); no zeta: +0.000000 (0 tol)
+=== B0_3: B Bessel nu=0 P=3.0 s=2.0  (measure wB_nu0_P3.0_s2.0__9038c248e30103a3.txt, cached, 160000 atoms + tail [(160000.25000007916, 1.0, 2.0)]; 1 s) ===
+  n^-1.0  : fit +0.25000000 (half-range 7.7e-10)  W +0.25000000  diff -1.4e-12  tol 2.5e-06  PASS   | alternatives: beta=alpha: -0.500000 (300000 tol)
+  n^-2.0  : fit +0.07425019 (half-range 3.1e-09)  W +0.07425018  diff +4.5e-10  tol 2.1e-06  PASS   | alternatives: beta=alpha: +0.199250 (58180 tol); no pole: +0.097222 (10692 tol)
+  n^-3.0  : fit +0.00492637 (half-range 1.2e-05)  W +0.00492588  diff +4.8e-07  tol 3.5e-05  PASS   | alternatives: beta=alpha: -0.087887 (2672 tol); no pole: +0.014498 (276 tol); no density tilt: +0.019364 (416 tol); no shift: +0.014498 (276 tol)
+  FAIL M1 n^-4.0
+1 OF 50 CHECKS FAILED
