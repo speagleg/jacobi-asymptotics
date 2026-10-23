@@ -1,13 +1,21 @@
 # JZC SHIFT: the index-shift law of the multi-time layers is the dispersionless limit of the Toda flow
 
-Status (2026-10-23): **NOT REVIEWED** (no Rule R reader). Labels per VERIFICATION_POLICY.md; NOT REVIEWED applies to every item of
-this note. Novelty: UNCHECKED (no Rule L pass; §8). No claim about RH: no measure built from zeta zeros is used (the "zeta times"
+Status (2026-10-23, after Rule R review A): **REVIEWED** — research/G1/review/REVIEW_JZC_TODA_SHIFT_A.md (reviewer A, independent
+second reader: re-derived Lemmas LB, D, R, H, the proof of Thm SH and Cor SH.1–SH.3; re-ran shift_toda, shift_existing (on
+JZC_W2's caches), shift_dressing and shift_exact R1, R4, R5, R6 (engines from empty caches, byte-identical engine outputs); R2, R3, R7 not re-run; compared
+LB with all seven toda_engine configurations, 96/96). Verdict ACCEPT WITH FIXES S1–S5, all applied below, each marked "(fixed per Rule
+R review A, <id>)". Final labels: Thm SH with integer exponents, on the lattice line β′ = ν and on β′ ≠ ν (via JZC_TODA Theorem T_H):
+PROVED-mod-cite + REVIEWED; at fractional/symbolic exponents the continued identities for the engine's model: PROVED-mod-cite +
+REVIEWED, but their identification with JZC_W2's pole layers rests additionally on JZC_W2 Prop 2.1 (iii), NOT REVIEWED; Lemmas LB, D,
+R, H: PROVED + REVIEWED; Prop DR: PROVED-mod-cite (Theorem T) + exact algebra + REVIEWED, with the g_j split for j > 10 and the
+h(j, k) closed form CONJECTURE (unchanged). Labels per VERIFICATION_POLICY.md. Novelty: UNCHECKED (no Rule L pass; §8). No claim about RH: no measure built from zeta zeros is used (the "zeta times"
 are the band-factor parameters of the formal model, treated as free parameters). Scope: JZC_W2 Obs 2.3 (the index-shift law) and
-JZC_W2 §6 item 2 (dressings). Branch plan-e2-d2; nothing committed.
-Inputs, with their labels: JZC_M4 §8 **Theorem T** (Toda structure of the layers; PROVED-mod-cite, proof sketch, **NOT REVIEWED**);
+JZC_W2 §6 item 2 (dressings). Branch plan-e2-d2; committed in af22e48 (fixed per Rule R review A, T5: was "nothing committed").
+Inputs, with their labels: **JZC_TODA Theorem T and T_H** (Toda structure of the layers; PROVED-mod-cite + REVIEWED) (fixed per Rule
+R review A, S1: was "JZC_M4 §8 Theorem T (… proof sketch, NOT REVIEWED)");
 JZC_M4_proof **Theorem N.6** (PROVED-mod-cite + REVIEWED) and its exact layer identities (m4_zeta_exact2 (A), (B)); E3 **Lemma E3.7**
 (REVIEWED); JZC_W2 **Prop 2.1** (NOT REVIEWED; built on K.12′, BT.5, WE.1, all REVIEWED) and its exact outputs; JZC_SIGMA Theorem Σ
-(REVIEWED; used only in remarks). No external theorem is used: the Toda hierarchy is derived in JZC_M4 §8 (elementary), and the one
+(REVIEWED; used only in remarks). No external theorem is used: the Toda hierarchy is derived in JZC_M4 §8 and proved in full as JZC_TODA Lemma T.1 (elementary), and the one
 classical identity needed (Lagrange inversion) is proved in §1.2 (Rule C: nothing to quote).
 
 Checks (all in `checks/`, Python = the session venv, `-B`; caches in `tmp/shift/`; every `.out` prints the sha256 of its script and
@@ -18,7 +26,10 @@ modules):
 - `shift_existing.py` → `shift_existing.out` (§1.3: LB against every existing exact engine output; 40 identities, 20 controls).
 - `shift_predict.py` → `shift_predict.out`, **`shift_predictions.json`** (§4.1: registration, **2026-10-23 08:32:31 −06:00**).
 - `shift_exact.py` → `shift_exact_R{1..6}.out` (§4.2: the registered exact engine runs; w2_engine.py by subprocess, not modified).
-- `shift_dressing.py` → `shift_dressing.out` (§5: dressings from the Toda flow of the integer layers).
+- `shift_dressing.py` → `shift_dressing.out` (§5: dressings from the Toda flow of the integer layers). (Updated 2026-10-23 after
+  JZC_TODA / JZC_SHIFT review: review A found that the (E4) comparison with R1 was skipped silently when `tmp/shift/eng_R1_*.json` was
+  absent; the script now stops with an error unless exactly one tmp/w2/exact_H_*.json and one tmp/shift/eng_R1_*.json exist, and prints
+  the sha256 of the R1 cache. Re-run 2026-10-23: ALL 18 CHECKS PASSED (14 identities, 4 controls), unchanged verdicts.)
 - `shift_hjk.py` → `shift_hjk.out`, `shift_predict2.py` → `shift_predict2.out`, **`shift_predictions2.json`** (registration 2,
   2026-10-23T09:02:55−06:00), `shift_exact.py R7 shift_predictions2.json` → `shift_exact_R7.out` (§5.3).
 The `shift_exact_R1..R6.out` files are the final script re-run on the cached engine outputs (`tmp/shift/eng_R*.json`, created
@@ -26,21 +37,21 @@ The `shift_exact_R1..R6.out` files are the final script re-run on the cached eng
 
 | # | Statement | Label |
 |---|---|---|
-| **Thm SH** | (index-shift law) For the formal model with band-factor times μ_a of exponents j_a, write n^pb_n/c = Σ_kn^{−k}b_k(μ). (i) **b_k is a polynomial of degree ≤ k in the times** (an order-m layer starts at n^{−m}); (ii) its degree-k part is the n^{−k} coefficient of **(n/x)^p, x = n − (1/p)Σ_aε_ax^{−pj_a}** (ε_a = (pj_a/2)c^{j_a}C(2j_a, j_a)μ̂_a, μ_a = μ̂_an^{−pj_a}); in natural form the leading coefficient of e^β is **LB(β) = Π_a(pj_a/2)^{β_a}·(p + 1 + S)_{\|β\|−1}/(β!p^{\|β\|−1})**, S = pΣβ_aj_a, at N^{−\|β\|} | lattice line β = ν, integer j_a: **PROVED-mod-cite** (Theorem T, Theorem N.6, E3.7) + exact algebra (Lemmas D, R, H); every p, ν on β = ν and every exponent (integer, fractional, symbolic; pole layers): same label via rationality (Cor SH.1–SH.2); **β ≠ ν: CONDITIONAL** on (T_H) (Cor SH.3); NOT REVIEWED |
-| Lemma LB | Taylor coefficients of x^{−p} in closed form (Lagrange inversion, proved in §1.2) | PROVED (+ exact check `shift_toda` (L)) |
-| Lemma D | formal dispersionless limit of the discrete Toda hierarchy: defect ≥ 0 and the defect-0 parts obey the dispersionless hierarchy | PROVED (algebra, §2.2; exact check (D) to order 7) |
-| Lemma R | hard-edge reduction: the line α = 2b is invariant under every dispersionless flow; on it the flow is the Hopf equation ∂_{t_j}b = (jC(2j, j)/2)b^j∂_nb | PROVED (algebra, §2.3; (S)) |
-| Lemma H | hodograph: b = cx^{−p}, x = n + Σ_at_a(j_aC(2j_a, j_a)/2)c^{j_a}x^{−pj_a}, is the solution | PROVED (§2.4; (H)) |
+| **Thm SH** | (index-shift law) For the formal model with band-factor times μ_a of exponents j_a, write n^pb_n/c = Σ_kn^{−k}b_k(μ). (i) **b_k is a polynomial of degree ≤ k in the times** (an order-m layer starts at n^{−m}); (ii) its degree-k part is the n^{−k} coefficient of **(n/x)^p, x = n − (1/p)Σ_aε_ax^{−pj_a}** (ε_a = (pj_a/2)c^{j_a}C(2j_a, j_a)μ̂_a, μ_a = μ̂_an^{−pj_a}); in natural form the leading coefficient of e^β is **LB(β) = Π_a(pj_a/2)^{β_a}·(p + 1 + S)_{\|β\|−1}/(β!p^{\|β\|−1})**, S = pΣβ_aj_a, at N^{−\|β\|} | lattice line β = ν, integer j_a: **PROVED-mod-cite + REVIEWED** (JZC_TODA Theorem T, Theorem N.6, E3.7) + exact algebra (Lemmas D, R, H); every p ≠ 1, ν on β = ν and every exponent (integer, fractional, symbolic): same label via rationality (Cor SH.1–SH.2) — the identification with JZC_W2's pole layers uses JZC_W2 Prop 2.1 (iii) (NOT REVIEWED); the continued identities themselves hold for the engine's model at every exponent (fixed per Rule R review A, S3); **β ≠ ν: PROVED-mod-cite + REVIEWED** via JZC_TODA Theorem T_H + Cor T.3 (Cor SH.3) (fixed per Rule R review A, S1) |
+| Lemma LB | Taylor coefficients of x^{−p} in closed form (Lagrange inversion, proved in §1.2) | PROVED + REVIEWED (+ exact check `shift_toda` (L)) |
+| Lemma D | formal dispersionless limit of the discrete Toda hierarchy: defect ≥ 0 and the defect-0 parts obey the dispersionless hierarchy | PROVED + REVIEWED (algebra, §2.2, wording S2; exact check (D) to order 7) |
+| Lemma R | hard-edge reduction: the line α = 2b is invariant under every dispersionless flow; on it the flow is the Hopf equation ∂_{t_j}b = (jC(2j, j)/2)b^j∂_nb | PROVED + REVIEWED (algebra, §2.3; (S)) |
+| Lemma H | hodograph: b = cx^{−p}, x = n + Σ_at_a(j_aC(2j_a, j_a)/2)c^{j_a}x^{−pj_a}, is the solution | PROVED + REVIEWED (§2.4; (H)) |
 | §1.3 | LB = all existing exact data (B, T, M, Q, H; (3p+1)/(2p); W2 Cor 2.4) | PROVED (exact computer algebra, 40 identities) |
 | §4 | registered exact runs R1–R6 (orders 4, 4 mixed, 5 mixed, 6; symbolic j at p = 3/2; e₁²e₂² symbolic (j, k) at p = 5/2; j = q₁ at p = 3/2, 5/2) and Toda-dressing predictions | PROVED (exact computer algebra), predictions registered before the runs: **all hold**, all controls fail |
-| **Prop DR** | (dressings) every layer is the discrete Toda flow of the two integer layers; at relative order N⁻² it depends on them only through f₂ and a₂; the diagonal a₂ = −(p+1)/24 + (p+1)(p+2)ν²/8 is **derived** from (T1); g_j = [c₀(j) + c_a(j)a₂ + c_f(j)f₂] in closed form; h₂ and h(j, k) (p = 3/2) reproduced | PROVED-mod-cite (Theorem T) + exact algebra; the split of g_j into three parts for integer j > 10: CONJECTURE (the sum is proved) |
+| **Prop DR** | (dressings) every layer is the discrete Toda flow of the two integer layers; at relative order N⁻² it depends on them only through f₂ and a₂; the diagonal a₂ = −(p+1)/24 + (p+1)(p+2)ν²/8 is **derived** from (T1); g_j = [c₀(j) + c_a(j)a₂ + c_f(j)f₂] in closed form; h₂ and h(j, k) (p = 3/2) reproduced | PROVED-mod-cite (JZC_TODA Theorem T) + exact algebra + REVIEWED (review A; re-run 18/18); the split of g_j into three parts for integer j > 10: CONJECTURE (the sum is proved) |
 | Obs DR′ | no "dressed index shift" (x = N − (1/p)Σε_ax^{−pj_a}(1 + γ_ax^{−2}), F(x) = integer layer) reproduces h₂ | PROVED (exact; OBSTRUCTION for that ansatz) |
 | §5.3 | h(j, k) (second-order dressing) in closed form in (p, ν, j, k) | exact at integer j, k ≤ 9 for all p (PROVED-mod-cite, Theorem T); closed form: CONJECTURE (interpolated in (j, k)), identical to the exact symbolic-(j, k) engine output at p = 3/2 and (registered) p = 5/2 |
 
 ## 0. Answer
 
 **The index-shift law holds to all orders, and the mechanism is the dispersionless limit of the Toda hierarchy at a hard edge.**
-Theorem T (JZC_M4 §8) says that all multi-time layers of the lattice model are the Toda-hierarchy flow of the two integer layers
+Theorem T (JZC_TODA; PROVED-mod-cite + REVIEWED) says that all multi-time layers of the lattice model are the Toda-hierarchy flow of the two integer layers
 (b_n, α_n). Grade a term t^βn^{−p(1+Σβ_aj_a)−i} by its **defect** i − |β|. Every Toda equation is in conservation form,
 ∂_t(·) = (1 − S_{−1})(·), and a difference raises the defect by one, so by induction every layer has defect ≥ 0 (this is the degree
 bound (i)), and the defect-0 parts satisfy the *dispersionless* Toda hierarchy (Lemma D). The hard edge (band [0, 4b], i.e. α = 2b at
@@ -49,7 +60,7 @@ leading order) is a Riemann invariant r₋ = α − 2b = 0 and is preserved (Lem
 b = cx^{−p}, **x = n + Σ_jt_jV_j(cx^{−p})** (Lemma H) — exactly Obs 2.3's x = N − (1/p)Σε_ax^{−pj_a}. The leading coefficients are its
 Lagrange–Bürmann coefficients LB(β). Fractional exponents (pole times) follow because every engine coefficient is a rational function
 of the exponents with denominators Π(2j − odd), so the identities at all integer exponent tuples continue (Cor SH.2). The decoupled
-case β ≠ ν needs Theorem T for the Hurwitz family (T_H), a transfer not written (CONDITIONAL).
+case β ≠ ν needs Theorem T for the Hurwitz family (T_H), which is JZC_TODA Theorem T_H with Cor T.3 (fixed per Rule R review A, S1).
 
 **Running index.** In the language of task (2): each Toda time acts, to leading order, as a translation of the index by the
 characteristic speed, x − n = Σ_jt_jV_j(b(x)), which depends on the local value of b — a *running* index. For the Szegő "time" (the
@@ -111,18 +122,19 @@ symbolic α, β, j, k): zeros below |β| and LB(β) at N^{−|β|}, β-free — 
 ## 2. The mechanism and the proof
 
 ### 2.1 Inputs
-(a) **Toda hierarchy** (JZC_M4 §8, elementary; signs and the diagonal formula re-derived here). For a weight e^{Σt_jx^j}w with
+(a) **Toda hierarchy** (JZC_M4 §8 = JZC_TODA Lemma T.1, PROVED + REVIEWED, elementary; signs and the diagonal formula re-derived here). For a weight e^{Σt_jx^j}w with
 orthonormal Jacobi matrix J (diagonal α_n, off-diagonal J_{n,n−1} = b_n, b_n² = h_n/h_{n−1}): ∂_{t_j}p_n = −((J^j)_− + ½(J^j)_0)p, hence
 ∂_{t_j}J = [B_j, J], B_j := −((J^j)_− + ½(J^j)_0), whose diagonal and subdiagonal entries give
 
   ∂_{t_j}b_n = ½b_n[(J^j)_{nn} − (J^j)_{n−1,n−1}],     ∂_{t_j}α_n = F_j(n) − F_j(n − 1),  F_j(n) := b_{n+1}(J^j)_{n+1,n}.   (Toda)
 
 (j = 1: ∂α_n = b²_{n+1} − b²_n, the Toda lattice.) Both are in **conservation form** (1 − S_{−1})(·), S_k: n ↦ n + k.
-(b) **Theorem T** (JZC_M4 §8; PROVED-mod-cite, NOT REVIEWED): the μ-Taylor coefficients of Theorem N.6(i) and their α_n counterparts
+(b) **Theorem T** (JZC_TODA Theorem T and T_H; PROVED-mod-cite + REVIEWED) (fixed per Rule R review A, S1): the μ-Taylor coefficients of Theorem N.6(i) and their α_n counterparts
 are the (Toda)-derivatives at t = 0 of the integer layers b_n^{(0)} = cn^{−p}B(n), α_n^{(0)} = 2cn^{−p}A(n), as identities of formal
 series in 1/n (shifted arguments re-expanded), for every p ≠ 1, |α| < 1, and every finite set of integer exponents.
 (c) B(n) = 1 + O(1/n) (Theorem N.6(i), d₀ = 1); A(n) = A₀ + O(1/n) with **A₀ = 1**: by (T1) the first-order j = 1 lead is A₀p/2 in
-engine units, and E3.7 [REVIEWED] says it is p/2 (`shift_toda` (A0)).
+engine units, and E3.7 [REVIEWED] says it is p/2 (`shift_toda` (A0)). (Updated 2026-10-23 after JZC_TODA / JZC_SHIFT review: A₀ = 1 is also
+JZC_TODA Lemma T.B.3 directly; either route suffices, review A §4.2.)
 
 ### 2.2 Lemma D (formal dispersionless limit; PROVED)
 Let (α_n(t), b_n(t)) be formal power series in t = (t_j)_{j∈𝒥} (𝒥 ⊂ ℕ finite) whose t^β-coefficients are n^{−p(1+Σβ_jj)}·(power series in
@@ -138,7 +150,8 @@ problem has exactly one solution.
 terms of defect > d (binomial expansion of (n + k)^{−σ−i}), and (1 − S_{−1}) maps n^{−σ−i} to (σ + i)n^{−σ−i−1} + (defect > d + 1), i.e.
 raises the defect by one and acts on the defect-(d+1) part as ∂_n. Induction on |β|: if all coefficients of order ≤ m have defect ≥ 0,
 then (J^j)_{nn} and F_j (sums of products of shifted entries) have defect ≥ 0 at orders ≤ m, the right sides of (Toda) have defect ≥ 1,
-and the t^{β+e_j} coefficient (= 1/(β_j + 1) × the t^β coefficient of the right side, kp index j + 1 → 1) has defect ≥ 0: (i). Taking
+and the t^{β+e_j} coefficient (= 1/(β_j + 1) times the t^β coefficient of the right side; the extra factor n^{−pj} of the right side is the weight of
+t_j, so the n-order index i of the new coefficient is Σi_k + 1) (fixed per Rule R review A, S2) has defect ≥ 0: (i). Taking
 defect-minimal parts: products of defect-0 parts and S_k (identity on defect-0 parts) turn (J^j)_{nn}, F_j into H_j(α⁰, b⁰), G_j(α⁰, b⁰)
 and (1 − S_{−1}) into ∂_n: (ii). Uniqueness: the order-(m+1) Taylor coefficients are given by the order-≤ m ones. ∎
 (`shift_toda` (D): with generic initial data α_n = 2n^{−p}(1 + ΣA_in^{−i}), b_n = n^{−p}(1 + ΣB_in^{−i}), A_i, B_i free, p symbolic, the
@@ -163,8 +176,8 @@ hodograph series solves the reduced flows and has the LB coefficients, exponent 
 (2.1(c) for the initial data): (i) is Lemma D(i) (defect ≥ 0 ⇔ b_{k,β} = 0 for |β| > k), (ii) is Lemma D(ii) + R + H. ∎
 (PROVED-mod-cite: Theorem T, Theorem N.6, E3.7.)
 
-**Cor SH.1 (all p ≠ 1, ν, on β = ν).** The engine's coefficients are rational in (p, α); the identities hold on p > 1, |α| < 1, hence
-identically. (PROVED-mod-cite, as Thm SH.)
+**Cor SH.1 (all p ≠ 1, ν, on β = ν).** The engine's coefficients are rational in (p, α); the identities hold on p ≠ 1, |α| < 1 (JZC_TODA Theorem T), hence
+identically (fixed per Rule R review A, S4). (PROVED-mod-cite + REVIEWED, as Thm SH.)
 
 **Cor SH.2 (every exponent: fractional, symbolic, pole layers).** In w2_engine.py (any number of exponents by the same construction) the
 exponents enter only through the gauge's Taylor data, rational in j with denominators 2(2j − 2i − 1) (at 0) and j-free ones (at 4), and
@@ -173,18 +186,21 @@ series inversions and the extraction's square root act on j-free leading terms).
 ℚ(p, α, β)[j₁, …][Π(2j_a − odd)^{−1}], and its value at positive integer exponents is the integer-exponent run, which is the E3-gauge
 model of Theorem N.6 (m4_zeta_exact2 (A) asserts the Taylor data). A rational function of (j₁, …, j_r) vanishing on ℕ^r_{≥1} is 0;
 so Thm SH holds identically in the exponents, in particular at j = q_m: by JZC_W2 Prop 2.1(iii) these are the pole layers, and
-**Obs 2.3 of JZC_W2 is a theorem on β′ = α** (κ-families with δ = 0). (PROVED-mod-cite: as Thm SH + JZC_W2 Prop 2.1.)
+**Obs 2.3 of JZC_W2 is a theorem on β′ = α** (κ-families with δ = 0). (PROVED-mod-cite: as Thm SH + JZC_W2 Prop 2.1.) The
+identification with JZC_W2's pole layers uses JZC_W2 Prop 2.1 (iii) (NOT REVIEWED); the continued identities themselves hold for the
+engine's model at every exponent (fixed per Rule R review A, S3). Label: the continued identities PROVED-mod-cite + REVIEWED; the
+statement about the pole layers PROVED-mod-cite (JZC_W2 Prop 2.1 (iii), NOT REVIEWED) + REVIEWED for the step from it.
 
-**Cor SH.3 (β ≠ ν; CONDITIONAL).** Hypothesis **(T_H)**: Theorem T holds for the Hurwitz lattices σ^δ (λ_k = (k + δ)^p, −1 < δ ≤ 0),
-whose formal model is M(α + 2δ, α) (Theorem H(i), JZC_M3a_H §4, PROVED-mod-cite + REVIEWED). Its proof would be Theorem T's sketch with
-Theorem H(i) in place of N.6(i) (polynomial tilts are again E3 gauges; the times become free). Under (T_H) the argument above runs on
+**Cor SH.3 (β ≠ ν; PROVED-mod-cite + REVIEWED).** Hypothesis **(T_H)**: Theorem T holds for the Hurwitz lattices σ^δ (λ_k = (k + δ)^p,
+−1 < δ ≤ 0), whose formal model is M(α + 2δ, α) (Theorem H(i), JZC_M3a_H §4, PROVED-mod-cite + REVIEWED). (T_H) is JZC_TODA Theorem
+T_H with Cor T.3; hence Thm SH holds for all (β, ν): PROVED-mod-cite (fixed per Rule R review A, S1; was CONDITIONAL). The argument above runs on
 {(β, ν) = (α + 2δ, α)}, an open set, and rationality in (β, ν) gives Thm SH for all (β, ν). Exact evidence without (T_H): the leads are
 β-free in every symbolic-β output (B, T, M, Q, H, R1), and R2–R4 (β ≠ ν, rational) obey LB.
 
 **Consequences.** (1) E3.7 ("the n⁻¹ coefficient is exactly linear in μ") is the case k = 1 of (i). (2) JZC_W2 §6 item 4 (quartic
 start at N⁻⁴ for general p): by (i), every order-m monomial starts at n^{−m}, so in JZC_W2 Thm 2.5 the cubic pole monomials are
-O(n^{−3p}) and all quartic ones O(n^{−4p}): the remainder is O(n^{−3p}) for all p > 1, p ≠ 2 (on β′ = α; for β′ ≠ α under (T_H)).
-Not propagated to JZC_W2 (other notes are not edited here).
+O(n^{−3p}) and all quartic ones O(n^{−4p}): the remainder is O(n^{−3p}) for all p > 1, p ≠ 2 (on β′ = α; for β′ ≠ α by Cor SH.3).
+(Updated 2026-10-23 after JZC_TODA / JZC_SHIFT review: propagated to JZC_W2 Thm 2.5.)
 
 ### 2.5 The running-index reading, and why no exact gauge is expected (HEURISTIC)
 The m-frame gauge z^{γσ₃} of JZC_SIGMA changes the Szegő exponent by −2γ, i.e. it is the Szegő part of the weight tilt
@@ -239,7 +255,8 @@ order for symbolic j now holds at p = 3/2 as well as 5/2.)
 With b_n^{(0)} from N.1/N.6(ii) to n⁻² and α_n^{(0)} = 2n^{−p}(1 + A₁n^{−1} + A₂n^{−2} + …) (c = 1), the exact first-order j = 1 layer
 (natural N⁻² = 0, N⁻³ = (p/2)g₁; m4_zeta_exact2 (A)) determines, via (T1), **A₁ = −p(α/2 + 1)** (A is centred at M = n + α/2 + 1 =
 N + ½) and **A₂ = p(p + 1)(α/2 + 1)²/2 + a₂, a₂ = −(p + 1)/24 + (p + 1)(p + 2)α²/8** — m4_diag's closed form (NUMERICAL there; now
-PROVED-mod-cite (Theorem T, N.6(ii)) for the M⁻¹, M⁻² coefficients on the lattice line).
+PROVED-mod-cite (Theorem T, N.6(ii)) for the M⁻¹, M⁻² coefficients on the lattice line). (Updated 2026-10-23 after JZC_TODA /
+JZC_SHIFT review: also confirmed by direct extraction, JZC_TODA Prop T.4, which gives a₂ and a₄ identically in (p, ν, β); REVIEWED.)
 
 ### 5.2 Everything at relative order N⁻² from (f₂, a₂) (`shift_dressing` (E2)–(E7))
 By Theorem T the layers are the discrete Toda flow of (A, B); the relative-order-N^{−r} (defect-r) coefficients depend only on the
@@ -294,7 +311,11 @@ Res_{j=½}Res_{k=½}h = 5(1 − 4α²)/64: like the first-order W′ term, the w
 ## 6. Rule A (adversarial pass) — log
 1. *Rule X.* Registration (08:32:31) before every engine run; `shift_exact.py` asserts it per run. A first launch of the R1/R3 runs
    (08:33) was started as a detached shell job and killed by pid after ~1 min, before either engine finished (no output file existed;
-   `tmp/shift/` was empty when checked); the runs were restarted as tracked background jobs. The Toda predictions use the exact j = 1
+   `tmp/shift/` was empty when checked); the runs were restarted as tracked background jobs. The registration files were first
+   committed in af22e48 (09:13:39), after the runs; precedence rests on the filesystem mtimes and the in-file timestamps. eng_R1 and
+   eng_R3 (mtimes 08:35:57) come from the 08:33 launch: the kill stopped the detached shell but not the engine subprocesses. Rule R
+   review A re-ran R1, R4, R5, R6 from empty caches: byte-identical engine outputs. (fixed per Rule R review A, S5; the sentence
+   "killed … before either engine finished" above is inaccurate in that respect.) The Toda predictions use the exact j = 1
    first-order layer and f₂ as inputs; the registered targets (h(1, 2) at p = 5/2, the μ₁², μ₁³ dressings at p = 5/2) are other
    coefficients. g₂ (also in R5) was already known (JZC_M4 §6) and is not counted as a prediction. The comparisons of §1.3 and §5.2 are
    with pre-existing data, made with formulas not fitted to them (LB; Toda), except the decomposition of g_j (read off j ≤ 7; labelled).
@@ -310,8 +331,8 @@ Res_{j=½}Res_{k=½}h = 5(1 − 4α²)/64: like the first-order W′ term, the w
    symbolic Taylor data at integer j are the integer polynomials (m4_zeta_exact2 (A), asserted j ≤ 8). The pole exponents q_m = m − 1/p
    are never half-integers for p ≠ 2 (JZC_W2), so the continued identities hold there.
 8. *Fast engine.* FTfast (transfer recursion for (J^j)) = FT (path enumeration) asserted on generic data before use.
-9. *Theorem T is a sketch.* Its analytic step (uniformity in the tilt of Theorem N.6(i)) is not reviewed; everything labelled
-   PROVED-mod-cite here inherits that. Its formal consequences are tested independently by m4_toda.out (numerical) and here by the exact
+9. *Theorem T.* ~~Theorem T is a sketch; its analytic step is not reviewed.~~ Theorem T and T_H are now JZC_TODA (PROVED-mod-cite +
+   REVIEWED); no uniformity in the tilt is needed (Baire, JZC_TODA Lemma T.2) (fixed per Rule R review A, S1). Its formal consequences are tested independently by m4_toda.out (numerical) and here by the exact
    agreement of the Toda-derived g_j, h₂, h(j, k) with the engine.
 10. *pkill.* A `pkill -f` pattern again matched its own shell (cf. JZC_W2 Rule A 11); no data affected; processes then killed by pid.
 11. *Interpolation of h(j, k).* Degree 8 was taken from the p = 3/2 form (jk × degree 6); the fit is unique and over-determined (25
@@ -322,15 +343,15 @@ Res_{j=½}Res_{k=½}h = 5(1 − 4α²)/64: like the first-order W′ term, the w
     the registration (its sha256 1a4c1c70… is printed in every output).
 
 ## 7. What remains
-1. **Rule R** for this note (Lemma D's induction, Cor SH.2's rationality argument, §5).
-2. **(T_H)**: write Theorem T for the Hurwitz family (or the tilted m-frame of JZC_SIGMA) to remove the condition for β ≠ ν; and a
-   Rule R review of Theorem T itself.
+1. ~~Rule R for this note.~~ Done: REVIEW_JZC_TODA_SHIFT_A.md, fixes S1–S5 applied.
+2. ~~(T_H)~~: supplied by JZC_TODA Theorem T_H + Cor T.3 (PROVED-mod-cite + REVIEWED) (fixed per Rule R review A, S1). Remaining: a
+   Rule R review of JZC_W2 Prop 2.1 (iii), on which the pole-layer reading of Cor SH.2 rests (S3).
 3. The p = 2 second-order W′-type terms from the residues of §5.3 (needs JZC_W_exact §4's limit bookkeeping); a proof of the
    (j, k)-degree bound behind the h(j, k) closed form.
 4. A closed form of the defect-2 part to all orders in the times (a dispersive correction to the hodograph solution, e.g. via the
    quasi-classical expansion of the Toda hierarchy/string equation); §5 gives the first and second orders.
-5. Propagation (not done; other notes not edited): JZC_W2 Obs 2.3 → Thm SH (β′ = α), its §6 item 4 and Thm 2.5's remainder; JZC_M4 §8
-   a₂'s label; m4_diag's closed form.
+5. Propagation: done 2026-10-23 after JZC_TODA / JZC_SHIFT review (JZC_W2 Obs 2.3 → Thm SH, Thm 2.5's remainder; JZC_M4 §8 a₂'s
+   label; Paper IV).
 6. Rule L (§8).
 
 ## 8. Literature (Rule L) — not done

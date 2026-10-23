@@ -129,7 +129,13 @@ This is Theorem~\ref{thm:shift} with Corollary~\ref{cor:even}. The evenness come
 $d_k(p,-\beta-2,\nu)=(-1)^kd_k(p,\beta,\nu)$ (Theorem~\ref{thm:reflect}); the shift is proved by steepest descent of the same lattice
 problem in a second frame, of non-integer index $n+\gamma$, in which the Szeg\H{o} exponent is $\alpha-2\gamma$ and the Bessel order is
 still $\alpha$ (Lemma~\ref{lem:frame}), and by comparing the two expansions of $b_n$. In the same model the zeta layers are Toda flows
-of the integer layer, with the times $-2\zeta(-jp)/j$ (Proposition~\ref{prop:toda}).
+of the integer layers of $b_n$ and $a_n$, with the times $-2\zeta(-jp)/j$ (Theorem~\ref{thm:toda}): tilting the lattice by
+$e^{\sum\tau_jx^j}$ changes only these times, and a Baire-category argument turns the exact Toda equations of the tilted measures into
+identities between the layers. At the hard edge the dispersionless limit of this flow is a family of Hopf equations, and their
+characteristics give the leading term of every zeta layer in closed form: to leading order in $1/n$ at each order in the times,
+$n^pb_n/c$ is $(n/x)^p$ with $x=n-\frac1p\sum_j\varepsilon_jx^{-jp}$, so the zeta times act as an implicit shift of the index
+(Theorem~\ref{thm:indexshift}). The diagonal integer layer of $a_n$ is centred at $N+\frac12$, even and independent of the Szeg\H{o}
+exponent to order $N^{-4}$ (Proposition~\ref{prop:diag4}).
 
 The fifth result treats the first node sets other than the lattice. For the Hurwitz lattice $\lambda_k=(k+\delta)^p$ the offset
 $\delta$ changes only the Szeg\H{o} exponent, $\beta'=\alpha+2\delta$, at fixed Bessel order, and Theorem~\ref{thm:D} turns this into a
@@ -179,8 +185,8 @@ spectral form factor (Section~\ref{sec:noise}).
 Section~\ref{sec:prior} restates the results of the earlier papers that are used, together with two results of the
 same project that extend them by one order. Section~\ref{sec:equilibrium} proves Theorem~\ref{thm:C},
 Section~\ref{sec:kernel} proves Theorem~\ref{thm:B}, and Section~\ref{sec:natural} proves Theorem~\ref{thm:A} and its
-general form. Section~\ref{sec:shiftsec} introduces the decoupled model and proves Theorem~\ref{thm:D}, and states the Toda
-structure of the zeta layers. Section~\ref{sec:hurwitz-thm} proves Theorem~\ref{thm:E} and the theorem on shifted Hurwitz
+general form. Section~\ref{sec:shiftsec} introduces the decoupled model and proves Theorem~\ref{thm:D}, the Toda
+structure of the zeta layers and the index-shift law. Section~\ref{sec:hurwitz-thm} proves Theorem~\ref{thm:E} and the theorem on shifted Hurwitz
 lattices; the analytic estimates of these two sections are transfers of those of \cite{PaperII}, which we outline and do not
 reproduce. Section~\ref{sec:examples} collects the examples and the numerical evidence, including the pre-registered tests of
 Conjecture~\ref{conj:W}, and Section~\ref{sec:conj} the conjectures. Section~\ref{sec:literature} relates the results to the

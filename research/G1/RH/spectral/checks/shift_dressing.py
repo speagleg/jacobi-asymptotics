@@ -112,10 +112,17 @@ C.check("(E3) mu_1^2 layer: N^-4 = (p^2/4) h2 (JZC_M4_proof h2, all p, alpha)", 
 C.check("(E3) control: with f2 := 0 the mu_1^2 N^-4 coefficient is reproduced", z(n2[4].subs(F2s, 0) - P**2*h2/4), must_fail=True)
 
 # ---------------------------------------------------------------- (E4)
-fn = glob.glob(os.path.join(W2C, "exact_H_*.json"))[0]; print(f"sha256 {os.path.basename(fn)}: {sha(fn)}")
+# (fixed per Rule R review A: (E4) needs both engine caches; a missing cache stops the run instead of silently skipping a check)
+fh = sorted(glob.glob(os.path.join(W2C, "exact_H_*.json")))
+if len(fh) != 1:
+    sys.exit(f"ERROR: expected exactly one tmp/w2/exact_H_*.json (JZC_W2 H run), found {len(fh)}; run the JZC_W2 exact H engine first")
+fn = fh[0]; print(f"sha256 {os.path.basename(fn)}: {sha(fn)}")
 hH = sp.sympify(json.load(open(fn))['nat']['1,1'][4], locals=dict(alpha=AL, beta=BE, j=J, k=KK))
-fr1 = glob.glob(os.path.join(SHC, "eng_R1_*.json"))
-r1 = sp.sympify(json.load(open(fr1[0]))['nat']['2,0'][4], locals=dict(alpha=AL, beta=BE, j=J)) if fr1 else None
+fr1 = sorted(glob.glob(os.path.join(SHC, "eng_R1_*.json")))
+if len(fr1) != 1:
+    sys.exit(f"ERROR: expected exactly one tmp/shift/eng_R1_*.json, found {len(fr1)}; run `shift_exact.py R1` first")
+print(f"sha256 {os.path.basename(fr1[0])}: {sha(fr1[0])}")
+r1 = sp.sympify(json.load(open(fr1[0]))['nat']['2,0'][4], locals=dict(alpha=AL, beta=BE, j=J))
 Kh, alh = field('alpha', QQ); ph = Kh(sp.Rational(3, 2))
 a0h, b0h = lattice_initial(Kh, ph, alh, D)
 okh = True; okr = True; t0 = time.time()
@@ -127,11 +134,10 @@ for j in range(1, 5):
             n = to_natural([ex(c) for c in b[(1, (1, 1))]], (j + k + 1)*sp.Rational(3, 2), (1, 1), (j, k), DEL)
         else:
             n = to_natural([2*ex(c) for c in b[(1, (2,))]], (2*j + 1)*sp.Rational(3, 2), (1, 1), (j, j), DEL)
-            if r1 is not None: okr &= z(n[4]/2 - r1.subs(J, j))
+            okr &= z(n[4]/2 - r1.subs(J, j))
         okh &= z(n[4] - hH.subs({J: j, KK: k}))
 C.check("(E4) h(j, k) at p = 3/2, 1 <= j <= k <= 4: Toda = exact engine (w2_exact H)", okh)
-if r1 is not None:
-    C.check("(E4) e1^2 N^-4 at p = 3/2, j <= 4: Toda = exact engine (shift_exact R1, symbolic j)", okr)
+C.check("(E4) e1^2 N^-4 at p = 3/2, j <= 4: Toda = exact engine (shift_exact R1, symbolic j)", okr)
 print(f"   (E4) {time.time() - t0:.0f}s", flush=True)
 
 # ---------------------------------------------------------------- (E5)

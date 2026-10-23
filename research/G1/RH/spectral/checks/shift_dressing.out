@@ -1,4 +1,4 @@
-sha256 shift_dressing.py: 698d46fb01d600aac04bfd8c9e600dc03e580bd4d9cb1648860c8998547114d2
+sha256 shift_dressing.py: 5f81ed5ab02b71556f223c8cb8d282660975ee6c1a27015fa93d527a7e9c34f7
 sha256 shift_common.py: 1a4c1c70a5e4c0b976aa39e339dcc4dbde6f32607c7f4cd02b0a4d979d3f023a
 [1] identity: (FTfast) transfer-recursion engine = path-enumeration engine FT (exponents (3), (1, 4), order 2, generic data): holds -> PASS
 [2] identity: (E1) (T1) + exact j = 1 layer determine A1, A2 uniquely: holds -> PASS
@@ -12,9 +12,10 @@ sha256 shift_common.py: 1a4c1c70a5e4c0b976aa39e339dcc4dbde6f32607c7f4cd02b0a4d97
 [10] identity: (E3) mu_1^2 layer: N^-4 = (p^2/4) h2 (JZC_M4_proof h2, all p, alpha): holds -> PASS
 [11] CONTROL (must fail): (E3) control: with f2 := 0 the mu_1^2 N^-4 coefficient is reproduced: fails -> PASS
 sha256 exact_H_a859ee628e9a.json: 09dcb4523f7d5b8246e3400401e10e9ab30caeb5d7fd43e0f6cedc21ac472fae
+sha256 eng_R1_6bd04b9e02e1.json: 9b3ef2fafc7b58ae4b6b0149eb59a54f0e21c08d4c4a5c14699db0c5380d1a22
 [12] identity: (E4) h(j, k) at p = 3/2, 1 <= j <= k <= 4: Toda = exact engine (w2_exact H): holds -> PASS
 [13] identity: (E4) e1^2 N^-4 at p = 3/2, j <= 4: Toda = exact engine (shift_exact R1, symbolic j): holds -> PASS
-   (E4) 6s
+   (E4) 4s
 [14] identity: (E5) g_j = c0(j) + c_a(j) a2 + c_f(j) f2 for j = 1..10 (f2, a2 free symbols): holds -> PASS
 [15] identity: (E5) identically in symbolic j: c0 + c_a a2 + c_f f2 at the lattice f2, a2 = A_j + B_j alpha^2: holds -> PASS
    c0(j) = j*(j*p + 2)*(j**2*p + 2*j*p + 2*j - 2*p - 1)/(24*(2*j - 1))   c_a(j) = j*(j*p + 2)/(p*(2*j - 1))   c_f(j) = (j**2*p + j*p + 2*j - p - 2)/(p*(2*j - 1))
@@ -22,6 +23,6 @@ sha256 exact_H_a859ee628e9a.json: 09dcb4523f7d5b8246e3400401e10e9ab30caeb5d7fd43
    (E6) index dressing gamma_1 = g_1 - (p+2) f2/p: True ; ansatz h2 - exact h2 = (2*p + 3)*(alpha**2*p**3 + 6*alpha**2*p**2 + 12*alpha**2*p + 8*alpha**2 - p**3 - 2*p**2 - 3*p - 2)/(8*p**2)
 [17] identity: (E7) A centred at M = N + 1/2: all layers of exponents (1, 2), order <= 3, have zero N^(-|beta|-1) and N^(-|beta|-3) coefficients (generic even f2, f4, f6, a2, a4, a6): holds -> PASS
 [18] CONTROL (must fail): (E7) control: A centred at N: all layers of exponents (1, 2), order <= 3, have zero N^(-|beta|-1) and N^(-|beta|-3) coefficients (generic even f2, f4, f6, a2, a4, a6): fails -> PASS
-   (E7) 140s
+   (E7) 73s
 ALL 18 CHECKS PASSED (14 identities, 4 controls; failures: 0)
 EXIT 0

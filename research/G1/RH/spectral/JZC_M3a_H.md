@@ -244,7 +244,10 @@ review B, B3-2); the formula at 96 points to 5·10⁻⁴² (checks/m3a_hurwitz_f
   layer to all orders (f_{2k} δ-independent in N, f_odd = 0 by Cor Σ.1) and for the zeta layers of weight ≤ 2, μ₁, μ₂, μ₁² (incl. the
   ε₁² layer, also checked numerically by review A of JZC_SIGMA), to all relative orders, with the remainder of (i). **Still CONDITIONAL:**
   the natural form of the zeta layers of weight ≥ 3 (μ₃, μ₁μ₂, μ₁³) beyond the exact orders above (needs linear independence of
-  Πζ(−jp)^{β_j} over ℚ(p), or Lemma F for Toda-tilted measures; JZC_SIGMA §3.3). The Hurwitz band-factor constants ζ(−jp, a)
+  Πζ(−jp)^{β_j} over ℚ(p), or Lemma F for Toda-tilted measures; JZC_SIGMA §3.3). (Updated 2026-10-23 after JZC_TODA / JZC_SHIFT
+  review: JZC_TODA Theorem T_H (PROVED-mod-cite + REVIEWED) supplies the Toda-tilted Hurwitz measures σ^δ_τ with free times and the
+  same layers (Lemma T.A, Hurwitz rows); combining it with Lemma F (ii)'s transfer for σ^δ_τ is the route of JZC_TODA §8 item 4. Not
+  done, so the weight ≥ 3 label stays CONDITIONAL.) The Hurwitz band-factor constants ζ(−jp, a)
   (Remark 3.3) keep their own label (PROVED-mod-cite, not yet second-read).
 - **Band-factor constants.** These are the Fourier sums S_j(δ) (§3.2), unconditionally. The identification with ζ(−jp, a) is
   Remark 3.3: PROVED-mod-cite (CITATIONS (Hurwitz-DK)), not yet second-read (Rule R); NUMERICAL support kept (updated 2026-10-22:

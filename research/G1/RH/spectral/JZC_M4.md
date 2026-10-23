@@ -1,7 +1,9 @@
 # JZC M4: the second-order layer — the natural index N = n + α/2 − Z(0) (Plan JZC, milestone M4; first results)
 
 Status (2026-10-21): NOT REVIEWED. **Proof of Props N.3–N.4 (all p ≠ 1): JZC_M4_proof.md (Theorem N.6, PROVED-mod-cite + REVIEWED; Rule R reviews A and B applied; status updated 2026-10-22).** §5 added 2026-10-21 (integer layer to order 8); §6 added 2026-10-21 (zeta layer in natural form); §7 added 2026-10-21 (reflection and shift); §8 added 2026-10-21 (Toda structure). **Conjecture Σ of §7 is now Theorem Σ (JZC_SIGMA.md, PROVED-mod-cite + REVIEWED, Rule R
-review A, fixes S1–S8 applied); consequences marked (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md).** Labels per VERIFICATION_POLICY.md.
+review A, fixes S1–S8 applied); consequences marked (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md).** **§8's Theorem T now has a
+full proof: JZC_TODA.md (Theorem T, T_H, PROVED-mod-cite + REVIEWED, Rule R review A, fixes T1–T5 applied); the diagonal layer's a₂, a₄
+are exact (JZC_TODA Prop T.4) (updated 2026-10-23 after JZC_TODA / JZC_SHIFT review).** Labels per VERIFICATION_POLICY.md.
 
 | # | Statement | Label |
 |---|---|---|
@@ -287,6 +289,14 @@ the phase alone. The analogue for varying weights is Bleher–Its 2005, Thm 5.2:
 
 ## 8. The zeta layer is a Toda flow (Theorem T)
 
+**(Updated 2026-10-23 after JZC_TODA / JZC_SHIFT review.)** Theorem T below is proved in full in **JZC_TODA.md** (Theorem T for the lattice, Theorem T_H for the
+Hurwitz lattices, Cor T.3 for M(β, ν) identically; PROVED-mod-cite + REVIEWED, research/G1/review/REVIEW_JZC_TODA_SHIFT_A.md). The
+proof there replaces the sketch below: Lemma T.1 (exact Toda hierarchy for exponential tilts, elementary), Lemma T.A (the tilted
+lattice is Paper 2's σ_{p,s,ℓ₁} with ℓ₁ ∈ (A_ϑ); same layers at μ_n − τn^{−p·}), Lemma T.B (the α_n-layers, from R₂), Lemma T.2 (Baire:
+pointwise expansions of an exact flow ⇒ formal identities; no uniformity in τ, no term-by-term differentiation). The sketch's
+"uniformly for τ in a compact set" is not needed and not claimed. Review scope: E_pgt1, E_plt1, RH_px, G1u were not re-read line by
+line (rows of the transfer table checked only for how the weight enters).
+
 **Unscaled form of the band factor.** In the scaled variable z = n^px, the band factor is exp(−Σ_kμ_{n,k}z^k) with
 μ_{n,k} = 2ζ(−kp)/(kn^{kp}) (E3 Lemma F.1′; E_plt1 Lemma F.1). In the unscaled variable this is
 
@@ -302,7 +312,7 @@ h_n = ∫π_n²w_t, and recurrence xπ_n = π_{n+1} + α_nπ_n + b_n²π_{n−1}
 - Hence ∂_{t_j}log b_n² = (J^j)_{nn} − (J^j)_{n−1,n−1}. In particular ∂_{t_1}log b_n² = α_n − α_{n−1} and
   ∂_{t_1}α_n = b_{n+1}² − b_n² (the Toda lattice).
 
-**Theorem T (Toda structure of the zeta layer; PROVED-mod-cite).** Let p ≠ 1. The μ-Taylor coefficients 𝔇_β of Theorem N.6(i),
+**Theorem T (Toda structure of the zeta layer; PROVED-mod-cite + REVIEWED: JZC_TODA.md (updated 2026-10-23 after JZC_TODA / JZC_SHIFT review)).** Let p ≠ 1. The μ-Taylor coefficients 𝔇_β of Theorem N.6(i),
 and their counterparts for α_n, are the Toda-hierarchy derivatives of the integer layers b_n^{(0)} = cn^{−p}B(n) and
 α_n^{(0)} = 2cn^{−p}A(n), with ∂_{μ_j} = −n^{jp}∂_{t_j} (z^j = n^{jp}x^j). For example:
 - (T1) ∂_{μ₁}(n^pb_n) = −½n^p(α_n − α_{n−1})·n^pb_n;
@@ -311,7 +321,7 @@ and their counterparts for α_n, are the Toda-hierarchy derivatives of the integ
 
 All of these are identities between formal series in 1/n, with every quantity evaluated at μ = 0.
 
-*Proof (sketch; the inputs are those of Theorem N.6).*
+*Proof (sketch; SUPERSEDED by the full proof in JZC_TODA.md §§2–4 (updated 2026-10-23 after JZC_TODA / JZC_SHIFT review); the inputs are those of Theorem N.6).*
 - Consider the tilted lattice measures σ_τ := e^{Σ_jτ_jx^j}σ_{p,s}, with τ real and small. In the scaled variable the tilt is
   exp(Σ_jτ_jn^{−jp}z^j), an entire factor, bounded on the contours of the Riemann–Hilbert frame. Combined with the band
   factor, it is again of E3's gauge form, with μ_{n,j} replaced by μ_{n,j} − τ_jn^{−jp} (E3 Lemma E3.4 holds for any
@@ -326,16 +336,22 @@ All of these are identities between formal series in 1/n, with every quantity ev
 The formal identities are confirmed numerically to every computed order: `checks/m4_toda.py`, m4_toda.out (12 checks: T1, T2,
 T3 at three (p, α), exact up to central-difference error, 10⁻²⁰–10⁻²⁷).
 
-**The diagonal layer** (NUMERICAL to order 8, m4_toda.out (A)). In natural form, with M := n + α/2 + 1 = N + ½, the
+**The diagonal layer** (NUMERICAL to order 8, m4_toda.out (A); to order 4 now exact: JZC_TODA Prop T.4 (updated 2026-10-23 after JZC_TODA / JZC_SHIFT review)).
+ In natural form, with M := n + α/2 + 1 = N + ½, the
 diagonal integer layer (M/n)^pA(n) has no odd powers of 1/M. At the Bessel point (p, α) = (2, −½) it is
 1 + 1/(4M²) + 1/(16M⁴) + … = (1 − 1/(4M²))⁻¹ (the Lommel diagonal). So b_n is centred at N and α_n at N + ½, which is exactly
 the arrangement of Bleher–Its 2005, Thm 5.2 (NOVELTY_JZC item N).
 
-**The diagonal layer obeys the same shift and has a closed form** (NUMERICAL, `m4_diag.out`, 19 checks).
+**The diagonal layer obeys the same shift and has a closed form** (NUMERICAL, `m4_diag.out`, 19 checks; **to order M⁻⁴ exact**
+(updated 2026-10-23 after JZC_TODA / JZC_SHIFT review): JZC_TODA Prop T.4, by direct extraction of the α_n-layer (Lemma T.B) identically in (p, ν, β) — no M⁻¹, M⁻³ term,
+β-free to M⁻⁴, a₂ as below and a₄ = (p + 1)(p + 3)[45p²(p + 2)²ν⁴ + 30p(p² + 6p + 8)ν² − 21p² − 38p + 4]/(5760p(3p + 2)); exact
+computer algebra for the model, PROVED-mod-cite + REVIEWED as coefficients of α_n of the lattice. Evenness in 1/M and β-independence
+**beyond M⁻⁴** remain NUMERICAL (m4_diag, m4_toda (A) to order 8) / CONJECTURE to all orders, JZC_SIGMA §7 item 3.)
 - With ν and β decoupled, the natural form of A in M = n + β/2 + 1 is independent of β and even in 1/M.
 - Its M⁻² coefficient is **a₂ = −(p+1)/24 + (p+1)(p+2)ν²/8**, to be set beside f₂ = (p+1)/12 − (p+2)ν²/8. This was
-  reconstructed from p ∈ {½, …, 6} and asserted at three fresh points.
-- At the Bessel point the layer is (1 − 1/(4M²))⁻¹.
+  reconstructed from p ∈ {½, …, 6} and asserted at three fresh points; it is now exact (JZC_TODA Prop T.4; also derived from (T1) in
+  JZC_SHIFT §5.1) (updated 2026-10-23 after JZC_TODA / JZC_SHIFT review).
+- At the Bessel point the layer is (1 − 1/(4M²))⁻¹ (exact to M⁻⁴: a₂ = 1/4, a₄ = 1/16, JZC_TODA Prop T.4; beyond, NUMERICAL).
 
 So both Toda variables follow one pattern: b at N = n + (β+1)/2 and α at N + ½, each β-free and ν-even. The reflection of
 Theorem R becomes the reversal symmetry of the Toda lattice, b_n ↔ b_{−n}, α_n ↔ α_{−n−1}, at the level of N.
@@ -356,7 +372,8 @@ of scale is handled by steepest-descending the same degree-n problem in the fram
 - This is the same computation as M3a's index-transfer lemma H-d (JZC_M3_scope §3.1), where a Hurwitz offset enters the
   outer scalar's power of z at ∞. **Plan: do H-d and Σ together.**
 
-**Corollary T′ (the parity part of S1-N′ reduces to the integer layers; given Theorem T).** Suppose B is even in N and A is
+**Corollary T′ (the parity part of S1-N′ reduces to the integer layers; given Theorem T — now PROVED-mod-cite + REVIEWED, JZC_TODA
+(updated 2026-10-23 after JZC_TODA / JZC_SHIFT review); the argument below is HEURISTIC as written, and its exact content to order 3 is JZC_SHIFT §5.2 (E7)).** Suppose B is even in N and A is
 even in M = N + ½ (to all orders). Then:
 - α_n − α_{n−1} = A(N + ½) − A(N − ½) (natural form) is odd in N. So each first-order zeta term is ε_jN^{−1−jp} times an even
   series. This is the structure found in §6, now explained.

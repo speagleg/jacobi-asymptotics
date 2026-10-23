@@ -1,7 +1,8 @@
 # JZC W2: Conjecture W for λ_k = (k + δ)^p + κ at second order in the poles (pole² and pole×Toda layers)
 
 Status (2026-10-22): **NOT REVIEWED** (no Rule R reader). Labels per VERIFICATION_POLICY.md; NOT REVIEWED applies to every item
-of this note. Novelty: UNCHECKED (no Rule L pass). No claim about RH: no measure built from zeta zeros is used. Scope:
+of this note (Prop 2.1, Thm 2.5 remain NOT REVIEWED; Obs 2.3 is now JZC_SHIFT Thm SH, REVIEWED there, and Thm 2.5's remainder improves to
+O(n^{−3p}) (updated 2026-10-23 after JZC_TODA / JZC_SHIFT review)). Novelty: UNCHECKED (no Rule L pass). No claim about RH: no measure built from zeta zeros is used. Scope:
 JZC_W_kappa §9 item 1 ("second order in the poles: products of branched terms, the O(n^{−2p}) remainder of P K.12's refined form").
 Inputs, with their labels: JZC_W_kappa P K.12 and Prop K.12′ (PROVED-mod-cite + REVIEWED; review A, and review B
 research/G1/review/REVIEW_JZC_W_WE1_K12p_B.md for K.12′ and the assembly); JZC_W_BT Prop BT.5 (PROVED + REVIEWED); JZC_W_exact
@@ -25,9 +26,9 @@ the modules it uses and of the engine):
 |---|---|---|
 | **Prop 2.1** | (formal layers of BT_coh to all orders in the times) every n^{−k} coefficient of 𝔅_n^{rec}[BT_coh] is an entire function of the times (μ_j, μ_ρ) whose Taylor coefficients are the exact outputs of the multi-parameter engine at the symbolic exponents continued to j = ρ; in particular the second-order (pole², pole×Toda) part is the engine's bilinear layer, and **there is no second-order lip/companion term** | PROVED-mod-cite (K.12′(a)–(b) [REVIEWED], BT.5 [REVIEWED], WE.1 [REVIEWED]; exact algebra of the engine) |
 | **Prop 2.2** | exact layer identities (formal model M(β, ν), symbolic p, ν, β, j, k unless stated): (i) bilinear e₁e₂ layer: natural N⁰ = N⁻¹ = 0, **N⁻² = jkp(pj + pk + p + 1)/4**, i.e. per natural leads ε_x = (px/2)e_x: **ε_jε_k(1 + p + pj + pk)/p**, diagonal half; (ii) third order: e₁³ and e₁²e₂ start at N⁻³ with closed forms; (iii) fourth order (p = 5/2): e₁⁴ starts at N⁻⁴; (iv) the bilinear N⁻³ term is 0 and the N⁻⁴ dressing h(j, k) (p = 3/2) is β-free, symmetric, has simple poles at j = ½ and k = ½ only, and reduces to JZC_M4_proof's h₂ at j = k = 1 | PROVED (exact computer algebra, `w2_exact_{B,T,M,Q,H}.out`, 27 identities incl. 3 controls) |
-| Obs 2.3 | the leading terms of all computed orders are the Lagrange–Bürmann coefficients of (n/x)^p, **x = N − (1/p)Σ_a ε_a x^{−p j_a}** (the times act as a shift of the natural index) | exact at orders 2 (all j, k, p), 3 (e³, e²e′; all p), 4 (e⁴, p = 5/2); CONJECTURE beyond |
+| Obs 2.3 → **Thm SH** | the leading terms of all orders are the Lagrange–Bürmann coefficients of (n/x)^p, **x = N − (1/p)Σ_a ε_a x^{−p j_a}** (the times act as a shift of the natural index), and every order-m layer starts at N^{−m} | **now JZC_SHIFT Thm SH** (updated 2026-10-23 after JZC_TODA / JZC_SHIFT review): PROVED-mod-cite + REVIEWED for integer exponents, all p ≠ 1, all (β, ν) (via JZC_TODA Theorem T, T_H); at fractional/pole exponents the continued identities of the engine's model: same label (Cor SH.2); as a statement about the pole layers it uses this note's Prop 2.1 (iii) (NOT REVIEWED). (Was: exact at orders 2–4; CONJECTURE beyond.) |
 | **Cor 2.4** | κ-family, leading second-order pole terms: pole q_m × pole q_m′: L_mL_{m′}(p(m + m′ + 1) − 1)/p (½ if m = m′) at (n/N)^pN^{−p(m+m′)}; pole q_m × Toda t_j: **(1 + m + j)L_mε_j** at (n/N)^pN^{−1−p(m+j)}; L_m := pR_{q_m}W(q_m)π cot(πq_m) (W's first-order pole coefficient), ε_j the first-order Toda lead. In particular **q₁²: L₁²(3p − 1)/(2p)·n^{−2p}** and **q₁×t₁: 3L₁ε₁·n^{−1−2p}** | PROVED (Prop 2.2(i) + the times of K.12) |
-| **Thm 2.5** | (S), p > 1, p ≠ 2: n^pb_n/c = 𝔅_n[M(α+2δ, α); t] + Σ_m Λ¹_m + Σ_{m≤m′} Λ²_{q_mq_m′} + Σ_{m,j} Λ²_{q_m t_j} + **O(n^{1−3p})** (+ the truncation errors O(n^{−K−1} + n^{−1−(J+1)p}) of P K.12); with Prop 2.2(ii)–(iii) the remainder improves to O(n^{−3p} + n^{2−4p}) | PROVED-mod-cite (P K.12, Prop K.12′, BT.5, WE.1, route 1, N.6b–c, all REVIEWED; Prop 2.1–2.2); NOT REVIEWED |
+| **Thm 2.5** | (S), p > 1, p ≠ 2: n^pb_n/c = 𝔅_n[M(α+2δ, α); t] + Σ_m Λ¹_m + Σ_{m≤m′} Λ²_{q_mq_m′} + Σ_{m,j} Λ²_{q_m t_j} + **O(n^{1−3p})** (+ the truncation errors O(n^{−K−1} + n^{−1−(J+1)p}) of P K.12); with Prop 2.2(ii)–(iii) the remainder improves to O(n^{−3p} + n^{2−4p}); **with JZC_SHIFT Thm SH (i) to O(n^{−3p}) for all p > 1, p ≠ 2** (updated 2026-10-23 after JZC_TODA / JZC_SHIFT review) | PROVED-mod-cite (P K.12, Prop K.12′, BT.5, WE.1, route 1, N.6b–c, all REVIEWED; Prop 2.1–2.2; for O(n^{−3p}): + JZC_SHIFT Thm SH (i), Cor SH.2–SH.3 [PROVED-mod-cite + REVIEWED]); NOT REVIEWED (Prop 2.1, Thm 2.5 not second-read) |
 | §4 | registered predictions (16:56:01) for p = 3/2, 5/2, κ = ±k, k/2: fits of the n^{−2p}, n^{−1−2p} coefficients | NUMERICAL (§4.2) |
 
 **Main outcome.** For the κ-family, W at first order in the poles (JZC_W_kappa P K.12 + K.12′) extends to second order: the
@@ -35,8 +36,9 @@ products of pole terms and the pole×Toda cross terms are exactly the formal mod
 symbolic exponents, continued to the pole exponents q_m = m − 1/p, with **no second-order companion or lip term** (coherence makes the
 gauge form exact to all orders). The leading coefficients are elementary: q₁² enters at n^{−2p} with L₁²(3p − 1)/(2p), q₁×t₁ at
 n^{−1−2p} with 3L₁ε₁, and in general the second-order bracket is (1 + p + pj + pk)/p — the analogue of JZC_M4_proof's (3p + 1)/(2p)
-(j = k = 1), and all computed orders are the Lagrange–Bürmann coefficients of a single index shift (Obs 2.3). Analytically:
-proved with remainder O(n^{1−3p}) (O(n^{−3p} + n^{2−4p}) with the exact cubic identities). Numerically, the registered
+(j = k = 1), and all computed orders are the Lagrange–Bürmann coefficients of a single index shift (Obs 2.3; now JZC_SHIFT Thm SH, all
+orders (updated 2026-10-23 after JZC_TODA / JZC_SHIFT review)). Analytically: proved with remainder O(n^{1−3p}) (O(n^{−3p} + n^{2−4p}) with the exact cubic identities; O(n^{−3p}) for
+all p > 1, p ≠ 2, with JZC_SHIFT Thm SH (i) (updated 2026-10-23 after JZC_TODA / JZC_SHIFT review)). Numerically, the registered
 predictions hold at p = 3/2 to 10⁻¹³ (n⁻³) and 10⁻¹⁰ (n⁻⁴), and at p = 5/2 to 4·10⁻¹³ (n⁻⁵) and 4·10⁻¹⁰ (n⁻⁶), while "no second order", "Toda-only bracket",
 "naive exponentiation" and "naive square" miss by 10⁶–10⁸ fit half-ranges.
 
@@ -108,6 +110,13 @@ each order in the times, **n^pb_n/c ≈ (n/x)^p: the band-factor times act as a 
 the first-order shift x ≈ N − (1/p)Σε_aN^{−pj_a}, and the products are its iterates. (Exact at the listed orders; CONJECTURE in general;
 HEURISTIC as an explanation. It is consistent with N.6(ii)'s "(n/N)^p" normalisation and with E3.7 (no N⁻¹ term beyond first order).)
 
+**Obs 2.3 is now a theorem** (updated 2026-10-23 after JZC_TODA / JZC_SHIFT review): JZC_SHIFT **Theorem SH** — (i) every order-m Taylor coefficient of b_k vanishes for k < m; (ii) the
+order-k part of b_k is the n^{−k} coefficient of (n/x)^p, with leading natural coefficients LB(β) — proved via the dispersionless limit of
+the Toda hierarchy (JZC_TODA Theorem T, T_H) on the hard edge (Riemann invariant α − 2b = 0, Hopf flows, hodograph solution). Labels:
+for integer exponents, all p ≠ 1 and all (β, ν): PROVED-mod-cite + REVIEWED (REVIEW_JZC_TODA_SHIFT_A.md). At fractional, symbolic and
+pole exponents, the continued identities hold for the engine's model (Cor SH.2; PROVED-mod-cite + REVIEWED); their reading as
+statements about the pole layers of σ^{δ,κ} uses this note's Prop 2.1 (iii), which is NOT REVIEWED.
+
 **Corollary 2.4 (κ-family closed forms).** With pq_m = pm − 1 and ε_{q_m} = L_mn^{−pq_m}, Prop 2.2(i) gives the leading second-order
 pole terms of n^pb_n/c:
 - pole × pole: L_mL_{m′}·(p(1 + m + m′) − 1)/p·(n/N)^pN^{−p(m+m′)} (factor ½ if m = m′); e.g. **q₁²: L₁²(3p − 1)/(2p)·n^{−2p}(1 + O(n⁻¹))**;
@@ -147,11 +156,21 @@ vanish for k ≤ 2, so they are O(n^{−3−3(p−1)}) = O(n^{−3p}) and O(n^{�
 O(n^{−2−(p−1)−p−(2p−1)}) = O(n^{−4p}) by (4); quartic ones are O(n^{−2−4(p−1)}) = O(n^{2−4p}). ∎
 (PROVED-mod-cite: P K.12, K.12′, BT.5, WE.1, route 1, N.6b–c, Theorem N.6, all REVIEWED; Prop 2.1, 2.2 (this note, NOT REVIEWED).)
 
+**Remainder O(n^{−3p})** (updated 2026-10-23 after JZC_TODA / JZC_SHIFT review). JZC_SHIFT Thm SH (i) (b_{k,β} = 0 for |β| > k), valid for the engine's model M(α + 2δ, α) at every
+exponent (Cor SH.2 for the pole exponents q_m, Cor SH.3 for β′ = α + 2δ ≠ α), replaces Prop 2.2(ii)–(iii) in step (6): the order-m part
+of b_k vanishes for k < m, so the terms of order m ≥ 3 in the times contribute Σ_{m≥3}O(n^{−m}|μ|^m) with |μ| ≤ Cn^{1−p} (step (3)), i.e.
+O(n^{−3}n^{3(1−p)}) = O(n^{−3p}) (the series in m is geometric with ratio O(n^{−p})). Hence, for every p > 1, p ≠ 2,
+  n^pb_n(σ^{δ,κ})/c = 𝔅_n[M(α + 2δ, α); t] + Σ_{m≤M}Λ¹_m + Σ_{m≤m′≤M}Λ²_{q_mq_m′} + Σ_{m≤M, j≤J}Λ²_{q_mt_j} + O(n^{−K−1} + n^{−1−(J+1)p} + n^{−3p}).
+Label: **PROVED-mod-cite** (as Theorem 2.5, + JZC_SHIFT Thm SH (i), Cor SH.2–SH.3 [PROVED-mod-cite + REVIEWED]); NOT REVIEWED, because
+Theorem 2.5 and Prop 2.1 (iii) (which identifies the continued layers at j = q_m with the pole layers) are not second-read. In particular
+the q₁×t₁ layer (leading term n^{−1−2p}) is captured for every p > 1, p ≠ 2.
+
 *What is and is not proved.* Proved: the second-order layer is the engine's bilinear layer (Prop 2.1) and its closed form at leading
 order (Cor 2.4); the asymptotic statement with remainder O(n^{1−3p}) (or O(n^{−3p} + n^{2−4p})). Not proved: closed forms in p of the
 second-order dressing (only p = 3/2 symbolic in (α, β, j, k), and exact rational values at the registered data); Obs 2.3 beyond the
 listed orders; p = 2; the quartic start at N⁻⁴ for general p (exact at p = 5/2 symbolically and at q₁ for the registered data, asserted
-in `w2_predict.py`), which would give O(n^{−3p}) for all p > 1.
+in `w2_predict.py`), which would give O(n^{−3p}) for all p > 1. (Updated 2026-10-23 after JZC_TODA / JZC_SHIFT review: Obs 2.3 to all
+orders and the quartic start are now JZC_SHIFT Thm SH; the remainder O(n^{−3p}) for all p > 1, p ≠ 2 is proved above.)
 
 ## 4. Numerical test (pre-registered; NUMERICAL)
 
@@ -270,8 +289,9 @@ emax, J ∈ {2, …, 5}, lo ∈ {150, 300, 600}; median and half-range (half-ran
 1. **Rule R** for this note (Prop 2.1's ring-homomorphism argument, Prop 2.2's identities, Thm 2.5's remainder bookkeeping).
 2. **Closed forms in p** of the second-order dressing h(j, k) (only p = 3/2 symbolic; the full symbolic run is too slow as written) and
    a proof of Obs 2.3 (the index-shift / Lagrange structure) to all orders — it would give the leading term of every order at once.
+   (Obs 2.3: done, JZC_SHIFT Thm SH; h(j, k) closed form in (p, ν, j, k): JZC_SHIFT §5.3, CONJECTURE (interpolated) (updated 2026-10-23 after JZC_TODA / JZC_SHIFT review).)
 3. **p = 2**: the finite W′-type second-order term τ_aτ_bh at q = ½ (needs h at p = 2).
-4. The quartic start at N⁻⁴ for general p (exact at p = 5/2 only), which would make the remainder O(n^{−3p}) for 1 < p ≤ 2.
+4. ~~The quartic start at N⁻⁴ for general p~~ — done: JZC_SHIFT Thm SH (i); remainder O(n^{−3p}) for all p > 1, p ≠ 2 (§3) (updated 2026-10-23 after JZC_TODA / JZC_SHIFT review).
 5. Rule L before any novelty claim.
 6. The float64 tail floor of `w_common.run_measure` (Rule A item 7) affects earlier numerical notes' precision, not their labels; a
    re-run with `w2_data`'s generator would sharpen JZC_W_outer §8 (not done; those files belong to other notes).

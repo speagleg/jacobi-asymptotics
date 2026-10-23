@@ -1,11 +1,20 @@
 # JZC TODA: Theorem T — the layers of the lattice model are the Toda flow of the integer layers (full proof; T_H for Hurwitz)
 
-Status (2026-10-23): **NOT REVIEWED** (no Rule R reader). Every item below carries NOT REVIEWED in addition to its label. Labels per
-VERIFICATION_POLICY.md. Novelty: the Toda hierarchy for exponential tilts is KNOWN (§9); the statements about the lattice layers are
-UNCHECKED (Rule L not done). No claim about RH: the "zeta times" t_j = −2ζ(−jp)/j are the band-factor constants of the formal model
-(E3 Lemma F.1′), and the proof below never uses their values — the tilts make all times free parameters. Branch plan-e2-d2; nothing
-committed. Scope: JZC_M4 §8 Theorem T (a sketch, PROVED-mod-cite, NOT REVIEWED until now) and its Hurwitz version (T_H), which JZC_SHIFT
-(Thm SH, Lemmas D, R, H, Prop DR, Cor SH.3) and Paper IV use.
+Status (2026-10-23, after Rule R review A): **REVIEWED** — research/G1/review/REVIEW_JZC_TODA_SHIFT_A.md (reviewer A, independent
+second reader: re-derived Lemmas T.1, T.A, T.B, T.2, Theorem T (ii)–(iv), T_H, Cor T.3, Prop T.4; re-ran toda_measures and all seven
+toda_layers configurations from empty caches, byte-identical engine outputs; independent exact check of T.1 for j = 4, 5, 6 with atoms
+of both signs; independent Arb test of the actual tilted lattice). Verdict ACCEPT WITH FIXES T1–T5, all applied below, each marked
+"(fixed per Rule R review A, <id>)". Final labels: Lemma T.1, Lemma T.2: PROVED + REVIEWED; Lemma T.A, Lemma T.B, Theorem T, Theorem
+T_H, Cor T.3: PROVED-mod-cite + REVIEWED (review A, REVIEW_JZC_TODA_SHIFT_A.md); Prop T.4: exact computer algebra for the model, and
+PROVED-mod-cite as coefficients of α_n, + REVIEWED. **Scope of the review** (recorded per review A §2.2 "What I did not verify"): the
+reviewer did not re-read the REVIEWED lemmas of E_pgt1, E_plt1, RH_px and G1u line by line; for those rows of the transfer table
+(§3.1) it checked only that the weight enters as stated (the same granularity as JZC_SIGMA Lemma F (ii)). (fixed per Rule R review A,
+T5.) Labels per VERIFICATION_POLICY.md. Novelty: the Toda hierarchy for exponential tilts is KNOWN (§9); the statements about the
+lattice layers are UNCHECKED (Rule L not done). No claim about RH: the "zeta times" t_j = −2ζ(−jp)/j are the band-factor constants of
+the formal model (E3 Lemma F.1′), and the proof below never uses their values — the tilts make all times free parameters. Branch
+plan-e2-d2; committed in 7c18fcd (fixed per Rule R review A, T5: was "nothing committed"). Scope: JZC_M4 §8 Theorem T (a sketch,
+PROVED-mod-cite, NOT REVIEWED until this note) and its Hurwitz version (T_H), which JZC_SHIFT (Thm SH, Lemmas D, R, H, Prop DR,
+Cor SH.3) and Paper IV use.
 
 Inputs, with their labels: JZC_M4_proof **Theorem N.6** and Lemmas N.6a–d (PROVED-mod-cite + REVIEWED); E3 **Lemma E3.4** (PROVED,
 REVIEWED), Lemma F.1′ and E_plt1 Lemma F.1 (PROVED-mod-cite, REVIEWED); JZC_M3a_H **Theorem H (i)** (PROVED-mod-cite; every memo-level
@@ -23,19 +32,19 @@ Checks (`checks/`, Python = the session venv, `-B`; caches in `tmp/toda/`; every
 
 | # | Statement | Label |
 |---|---|---|
-| **Lemma T.1** | Toda hierarchy for exponential tilts of a compactly supported positive measure: ∂_{t_j}π_n = −Σ_{m<n}(L^j)_{nm}π_m, ∂_{t_j}log h_n = (J^j)_{nn}, ∂_{t_j}b_n = ½b_n[(J^j)_{nn} − (J^j)_{n−1,n−1}], ∂_{t_j}a_n = F_j(n) − F_j(n−1), F_j(n) = b_{n+1}(J^j)_{n+1,n}; also for finite measures with b_M := 0 | **PROVED** (elementary, self-contained, §2) + exact check `toda_measures` (736 identities, 864 controls fail); KNOWN (§9) |
-| **Lemma T.A** | for every fixed tilt τ ∈ ℝ^J, Theorem N.6 (i) holds for σ_τ := e^{Στ_jx^j}σ_{p,s} with the **same layers** and μ_n replaced by μ_n − τn^{−p·}; likewise Theorem H (i) for σ^δ_τ | **PROVED-mod-cite by transfer** (Paper 2 F1–F8 apply to σ_τ directly, since σ_τ = σ_{p,s,ℓ₁} with ℓ₁ ∈ (A_ϑ) for every ϑ; the REVIEWED ℓ₁ ≡ 1 chain behind N.6 / H (i) with H_n ↦ H_nr_n, r_n entire; §3.1; for σ^δ_τ the frame itself is a bounded-factor transfer of the Hurwitz chain). **The one analytic step of Theorem T; Rule R target** |
-| **Lemma T.B** | the α_n-layers: R_2 = ΣR_2^{(m)}(μ_n)n^{−m} + O(η_n) with R_2^{(m)} = Σ_eRes_e(zF_m), and n^pα_n/(2c) = Σ_{\|β\|≤B}μ_n^β𝔄_{β,K}(n) + O(n^{−K−1} + n^{−1−(B+1)p} + n^{−1−(J+1)p}), 𝔄_{0} = 1 + O(1/n) | **PROVED-mod-cite** (as Prop N.6c, + Paper 2 F8, E_pgt1 §7.1; §3.2); exact engine `toda_engine` (cross-checked against m4_rh4, NUMERICAL) |
-| **Lemma T.2** | from exact flows with pointwise (non-uniform) polynomial expansions to formal identities: Baire ball, integrated identity, coefficient extraction | **PROVED** (elementary, §4.1) |
-| **Theorem T** | (i) = Lemma T.A + T.B; (ii) **formal Toda hierarchy** in the ring ℛ of series Σu^γn^{−p\|γ\|_w}F_γ(1/n): ∂_{u_j}b̂ = ½c^jn^{−jp}b̂[(𝒥^j)_{00} − (𝒥^j)_{−1,−1}], ∂_{u_j}(2â) = c^jn^{−jp}[𝒷_1(𝒥^j)_{10} − 𝒷_0(𝒥^j)_{0,−1}]; (iii) ∂_{μ_j} = −n^{jp}∂_{u_j}, hence JZC_M4's (T1)–(T3) and every layer identity at μ = 0; (iv) the layers are determined by the integer layers (B, A) | **PROVED-mod-cite** (Lemma T.A [transfer, NOT REVIEWED], Lemma T.B, Theorem N.6 [REVIEWED], Lemmas T.1, T.2); p > 0, p ≠ 1, s ∈ (1, 1 + 2p) (\|α\| < 1), every finite set of integer exponents |
-| **Theorem T_H** | the same for the Hurwitz lattices σ^δ (−1 < δ ≤ 0; δ < 0 if p < 1) with the layers of M(α + 2δ, α) | **PROVED-mod-cite** (as Theorem T, with Theorem H (i) [PROVED-mod-cite, links REVIEWED] in place of N.6 (i)) |
-| **Cor T.3** | (ii)–(iv) hold for the layers of M(β, ν) identically in (p, β, ν) (rational identities) — JZC_SHIFT's hypothesis (T_H) in the form Cor SH.3 uses | **PROVED-mod-cite** (Theorem T_H + rationality, §5.2) |
-| Prop T.4 | the diagonal integer layer: 𝔄_0 = 1 − p(β+2)/(2n) + …; in M := n + β/2 + 1 it has no M⁻¹, M⁻³ term and M⁻² coefficient **a₂ = −(p+1)/24 + (p+1)(p+2)ν²/8**, β-free to M⁻⁴ | exact computer algebra for the model (Lemma T.B's engine), identically in (p, ν, β), to order 4 (`toda_layers`); as a coefficient of α_n: PROVED-mod-cite for the lattice (Lemma T.B) |
+| **Lemma T.1** | Toda hierarchy for exponential tilts of a compactly supported positive measure: ∂_{t_j}π_n = −Σ_{m<n}(L^j)_{nm}π_m, ∂_{t_j}log h_n = (J^j)_{nn}, ∂_{t_j}b_n = ½b_n[(J^j)_{nn} − (J^j)_{n−1,n−1}], ∂_{t_j}a_n = F_j(n) − F_j(n−1), F_j(n) = b_{n+1}(J^j)_{n+1,n}; also for finite measures with b_M := 0 | **PROVED** (elementary, self-contained, §2) **+ REVIEWED** (review A; independent check j = 4, 5, 6, atoms of both signs, 252/252) + exact check `toda_measures` (736 identities, 864 controls fail); KNOWN (§9) |
+| **Lemma T.A** | for every fixed tilt τ ∈ ℝ^J, Theorem N.6 (i) holds for σ_τ := e^{Στ_jx^j}σ_{p,s} with the **same layers** and μ_n replaced by μ_n − τn^{−p·}; likewise Theorem H (i) for σ^δ_τ | **PROVED-mod-cite by transfer** (Paper 2 F1–F8 apply to σ_τ directly, since σ_τ = σ_{p,s,ℓ₁} with ℓ₁ ∈ (A_ϑ) for every ϑ; the REVIEWED ℓ₁ ≡ 1 chain behind N.6 / H (i) with H_n ↦ H_nr_n, r_n entire; §3.1; for σ^δ_τ the frame itself is a bounded-factor transfer of the Hurwitz chain, row list T2) **+ REVIEWED** (review A; E_pgt1/E_plt1/RH_px/G1u rows checked only for how the weight enters). The one analytic step of Theorem T |
+| **Lemma T.B** | the α_n-layers: R_2 = ΣR_2^{(m)}(μ_n)n^{−m} + O(η_n) with R_2^{(m)} = Σ_eRes_e(zF_m), and n^pα_n/(2c) = Σ_{\|β\|≤B}μ_n^β𝔄_{β,K}(n) + O(n^{−K−1} + n^{−1−(B+1)p} + n^{−1−(J+1)p}), 𝔄_{0} = 1 + O(1/n) | **PROVED-mod-cite** (as Prop N.6c, + Paper 2 F8, E_pgt1 §7.1; §3.2); exact engine `toda_engine` (cross-checked against m4_rh4, NUMERICAL) **+ REVIEWED** (review A) |
+| **Lemma T.2** | from exact flows with pointwise (non-uniform) polynomial expansions to formal identities: Baire ball, integrated identity, coefficient extraction | **PROVED** (elementary, §4.1) **+ REVIEWED** (review A; error exponent corrected, T1) |
+| **Theorem T** | (i) = Lemma T.A + T.B; (ii) **formal Toda hierarchy** in the ring ℛ of series Σu^γn^{−p\|γ\|_w}F_γ(1/n): ∂_{u_j}b̂ = ½c^jn^{−jp}b̂[(𝒥^j)_{00} − (𝒥^j)_{−1,−1}], ∂_{u_j}(2â) = c^jn^{−jp}[𝒷_1(𝒥^j)_{10} − 𝒷_0(𝒥^j)_{0,−1}]; (iii) ∂_{μ_j} = −n^{jp}∂_{u_j}, hence JZC_M4's (T1)–(T3) and every layer identity at μ = 0; (iv) the layers are determined by the integer layers (B, A) | **PROVED-mod-cite + REVIEWED** (review A) (Lemma T.A [transfer, REVIEWED], Lemma T.B, Theorem N.6 [REVIEWED], Lemmas T.1, T.2); p > 0, p ≠ 1, s ∈ (1, 1 + 2p) (\|α\| < 1), every finite set of integer exponents |
+| **Theorem T_H** | the same for the Hurwitz lattices σ^δ (−1 < δ ≤ 0; δ < 0 if p < 1) with the layers of M(α + 2δ, α) | **PROVED-mod-cite + REVIEWED** (review A, after T2) (as Theorem T, with Theorem H (i) [PROVED-mod-cite, links REVIEWED] in place of N.6 (i)) |
+| **Cor T.3** | (ii)–(iv) hold for the layers of M(β, ν) identically in (p, β, ν) (rational identities) — JZC_SHIFT's hypothesis (T_H) in the form Cor SH.3 uses | **PROVED-mod-cite + REVIEWED** (review A) (Theorem T_H + rationality, §5.2, normalisation T4) |
+| Prop T.4 | the diagonal integer layer: 𝔄_0 = 1 − p(β+2)/(2n) + …; in M := n + β/2 + 1 it has no M⁻¹, M⁻³ term and M⁻² coefficient **a₂ = −(p+1)/24 + (p+1)(p+2)ν²/8**, β-free to M⁻⁴ | exact computer algebra for the model (Lemma T.B's engine), identically in (p, ν, β), to order 4 (`toda_layers`); as a coefficient of α_n: PROVED-mod-cite for the lattice (Lemma T.B); + REVIEWED (review A re-ran it and re-did a₂, a₄ at (2, −½)). Evenness and β-independence of 𝔄_0 beyond order 4: not claimed |
 | Checks | `toda_measures.out` (736 identities, 864 controls fail), `toda_layers.out` (75 identities, 91 controls fail) (§7) | exact computer algebra; X2 NUMERICAL |
 
 ## 0. Answer
 
-**Theorem T is proved (PROVED-mod-cite, NOT REVIEWED), with one analytic transfer (Lemma T.A) as the only step not already reviewed.**
+**Theorem T is proved (PROVED-mod-cite + REVIEWED, review A), with one analytic transfer (Lemma T.A), reviewed in review A at the granularity recorded in the status line.**
 The proof has three parts.
 1. *Exact Toda at fixed n* (Lemma T.1, elementary). For every compactly supported positive measure and every real tilt
    e^{Σt_jx^j}, differentiating the orthogonality relations gives the Toda hierarchy for (a_n, b_n) at every n. No citation is needed.
@@ -59,7 +68,7 @@ ring of formal series (§1.2). Its content is that the shift n ↦ n + i acts at
 
 **T_H.** The Hurwitz lattices σ^δ are tilted the same way, and Theorem H (i) replaces Theorem N.6 (i). This gives the formal Toda
 hierarchy for the layers of M(α + 2δ, α). That family is open in the (β, ν)-plane and the identities are rational, so they hold for
-M(β, ν) identically (Cor T.3). This discharges JZC_SHIFT's hypothesis (T_H) at the label PROVED-mod-cite, NOT REVIEWED.
+M(β, ν) identically (Cor T.3). This discharges JZC_SHIFT's hypothesis (T_H) at the label PROVED-mod-cite + REVIEWED (review A).
 
 **Exact checks.** Lemma T.1 holds exactly on finite truncations of the actual measures: 736 identities, and all 864 controls fail
 (§7.1). The formal hierarchy holds on the exact engine's layers identically in (p, α) (lattice line), and in (p, α, β) (decoupled model).
@@ -109,7 +118,7 @@ entries with indices in [min(r, s) − j, max(r, s) + j].
 
 ### 1.3 Theorem T
 
-**Theorem T (PROVED-mod-cite; NOT REVIEWED).** Let p > 0, p ≠ 1, s ∈ (1, 1 + 2p), J ∈ ℕ.
+**Theorem T (PROVED-mod-cite + REVIEWED, review A).** Let p > 0, p ≠ 1, s ∈ (1, 1 + 2p), J ∈ ℕ.
 
 (i) *Tilted expansions.* For every τ ∈ ℝ^J, all K, B ∈ ℕ and J′ ≥ J, as n → ∞ (constants depending on τ, K, B, J′):
 
@@ -137,10 +146,10 @@ entries with indices in [min(r, s) − j, max(r, s) + j].
   the u-degree.) So **the layers are the Toda flow of the two integer layers**, and the lattice expansion is that flow evaluated at the
   total time u = t = (−2ζ(−jp)/j)_j, in the sense of Theorem N.6 (i) with u = t (Θ⁻¹ at u = t is Σ_βμ_n^β𝔇_β).
 
-**Theorem T_H (PROVED-mod-cite; NOT REVIEWED).** Let p ≠ 1, s ∈ (1, 1 + 2p), −1 < δ ≤ 0 (δ < 0 if p < 1; δ = 0 is Theorem T). Then
+**Theorem T_H (PROVED-mod-cite + REVIEWED, review A).** Let p ≠ 1, s ∈ (1, 1 + 2p), −1 < δ ≤ 0 (δ < 0 if p < 1; δ = 0 is Theorem T). Then
 (i)–(iv) hold for σ^δ_τ, with the layers 𝔇_β(n; α + 2δ, α), 𝔄_β(n; α + 2δ, α) of M(α + 2δ, α), and with μ^δ_n − τn^{−p·} in (i).
 
-**Corollary T.3 (PROVED-mod-cite; NOT REVIEWED).** For every finite set of integer exponents, every coefficient identity contained in
+**Corollary T.3 (PROVED-mod-cite + REVIEWED, review A).** For every finite set of integer exponents, every coefficient identity contained in
 (T-b), (T-a) for the layers of M(β, ν) holds identically in (p, β, ν), as an identity of rational functions. In particular JZC_SHIFT
 §2.1 (b) holds on β′ ≠ ν, which is its hypothesis (T_H) (Cor SH.3).
 
@@ -148,7 +157,7 @@ entries with indices in [min(r, s) − j, max(r, s) + j].
 classical Toda flow of orthogonal polynomials). Theorem T (ii) is an **identity of formal series** (the coefficients of the asymptotic
 expansions). Lemma T.2 is the bridge between them. Theorem T (i) is a statement about the actual tilted measures.
 
-## 2. Lemma T.1: the Toda hierarchy for exponential tilts (PROVED; self-contained)
+## 2. Lemma T.1: the Toda hierarchy for exponential tilts (PROVED + REVIEWED, review A; self-contained)
 
 **Lemma T.1.** Let μ be a positive Borel measure on ℝ with compact support, either with infinitely many support points (set M := ∞)
 or with exactly M support points. For t ∈ ℝ^J let μ_t := e^{P_t(x)}μ, P_t(x) := Σ_jt_jx^j. Let π_n(·; t) (0 ≤ n < M) be the monic
@@ -204,7 +213,7 @@ sign in 4; L^{j+1} in 2; (L^j)_{n+1,n+1} in 3; the transposed entry (L^j)_{n,n+1
 
 ## 3. The tilted lattice (Lemma T.A) and the α-layers (Lemma T.B)
 
-### 3.1 Lemma T.A (PROVED-mod-cite by transfer; NOT REVIEWED)
+### 3.1 Lemma T.A (PROVED-mod-cite by transfer + REVIEWED, review A)
 
 **Lemma T.A.** Let p > 0, p ≠ 1, s ∈ (1, 1 + 2p), J ∈ ℕ and τ ∈ ℝ^J be fixed. Then the conclusions of JZC_M4_proof Lemma N.6a, Lemma
 N.6b, Prop N.6c and Theorem N.6 (i) hold for σ_τ, with μ_n replaced by μ^τ_n and the **same** functions Δ_k^μ, R^{(m)}(μ), 𝔇_K(n; μ)
@@ -221,6 +230,10 @@ N.6b, Prop N.6c and Theorem N.6 (i) hold for σ_τ, with μ_n replaced by μ^τ_
   not used in it. So
   **r_n = e^{−Σ_jτ_jn^{−jp}}·q_{μ′_n}, q_μ := e^{−Σμ_kz^k}, μ′_{n,j} := −τ_jn^{−jp}**,
   an entire, zero-free polynomial tilt, real and positive on (0, ∞).
+  All constants and the threshold n₀ in Lemma T.A depend on τ; no uniformity in τ is claimed or used (Lemma T.2 needs only
+  pointwise expansions). No step uses monotonicity of the masses or comparisons between atoms, so the sign and size of τ are
+  immaterial (Paper 2 Definition A requires neither boundedness nor monotonicity; the external field (1/n)log of the tilt is
+  ≤ C(τ)/n on Z_n and is not put into g). (fixed per Rule R review A, T3)
 - The REVIEWED chain behind Theorem N.6 (i) (E_pgt1, E2, E3, E_plt1, RH_px, RH_plt1b, JZC_M4_proof) is "the frame of Paper 2
   specialised to ℓ₁ ≡ 1" (E_pgt1 §0, E_plt1 §0). In it the weight enters only through W₀ = 𝗐_nz^α(4c − z)H_n (r_n ≡ 1). The transfer
   is therefore **H_n ↦ H_n^τ := H_n·r_n**, row by row:
@@ -245,15 +258,29 @@ N.6b, Prop N.6c and Theorem N.6 (i) hold for σ_τ, with μ_n replaced by μ^τ_
   - H-c becomes H_n^δ ↦ H_n^δr_n as in row 3.
   - H-e is N.6a–c for M(β′, α); G1u's hard-edge data change as in row 6.
 
-  Paper 2's frame for general ℓ₁ does not cover Hurwitz nodes. So for σ^δ_τ the first row is the Hurwitz chain's own frame (H-a, H-b,
-  H-b′, G12, G3, G23plt1), with W₀ multiplied by r_n: the same bounded-factor argument as in the off-circle row.
+  For σ^δ_τ the tilt multiplies the mass at the node x by e^{P_τ(x)}; for any node parametrisation, the interpolating weight is
+  therefore multiplied by the entire function e^{P_τ(z/n^p)} = e^{Σ_jτ_jn^{−jp}}r_n(z), r_n as above. Row by row:
+  - (H-a) JZC_M3a_H_Ha L Ha.2 and P Ha.5: residues n^pτ_k^{−s}e^{P_τ(τ_k^{−p})}U_{j1}(X_k); W ↦ W·e^{P_τ(z/n^p)} (l. 58 there); the
+    interpolation and uniqueness arguments do not use the form of w.
+  - (H-b) the outer scalars (G12 §1, G3 §2) are built from t, δ alone: unchanged.
+  - (H-b′) the a-priori bounds (G12 L2.1–P2.4; G23plt1 L2.1′–P2.6) use W₀^{(β′)} through D_W and bounds of Paper 2 Lemma szego (vi)
+    type; D_{r_n} is explicit by E3 Lemma E3.4 (i) (real μ′_n), bounded above and below on the relevant sets uniformly in n, so the
+    constants change by a factor depending on τ only.
+  - (H-c) Hc.2, Hc.3 (p > 1), Hc.5 (p < 1): log H_n^δr_n − log(H_n^δr_n)(1) = −Σ_k(μ^δ_{n,k} + μ′_{n,k})(z^k − 1) + O(n^{−(K+1)p}),
+    K ≥ J, same remainder.
+  - (H-d) the index transfer is a weight-free gauge.
+  - (H-e) N.6a–c for M(β′, α) at μ^δ_n + μ′_n (E3.4 (iii), the same G_μ).
+  - (G1u, G1u_plt1 L P3) W̃ ↦ W̃·r_n^{1/2}, entire: same jumps, bounds changed by sup_{U(0,δ)}|r_n^{±1/2}|.
+
+  (fixed per Rule R review A, T2: this row list replaces the earlier one-paragraph "same bounded-factor argument" for the Hurwitz
+  frame, which is not Paper 2's Proposition frame.)
 
 *Label.* PROVED-mod-cite by transfer, with the citation base of Theorem N.6 (i) / Theorem H (i). The transfer table is an argument, at
 the same granularity as JZC_SIGMA Lemma F (ii). **It is the one step of Theorem T that is neither elementary nor already REVIEWED, and is
 the target for Rule R.** The p < 1 rows were checked against the statements as quoted in E_plt1 / JZC_M4_proof / JZC_M3a_H. The seam
 outer scalar of RH_plt1b (§1 there) is weight-free, which was checked. The rest of RH_plt1b was not re-read line by line.
 
-### 3.2 Lemma T.B: the α_n-layers (PROVED-mod-cite; NOT REVIEWED)
+### 3.2 Lemma T.B: the α_n-layers (PROVED-mod-cite + REVIEWED, review A)
 
 JZC_M4_proof states Theorem N.6 for b_n only. Theorem T needs α_n.
 
@@ -294,7 +321,7 @@ weaker remainder n^{−1−(B+1)p} suffices: B is free.)
 
 ## 4. Proof of Theorem T
 
-### 4.1 Lemma T.2 (from pointwise expansions of an exact flow to formal identities; PROVED)
+### 4.1 Lemma T.2 (from pointwise expansions of an exact flow to formal identities; PROVED + REVIEWED, review A)
 
 We write the argument for (T-b) along a time u_j; (T-a) is identical with Lemma T.1.4 in place of T.1.3.
 
@@ -338,7 +365,10 @@ Now compute the coefficient of u^γh^m. In β̃_{n+i}(u) the coefficient of u^γ
 𝔇_{γ,K}(n + i)], and the bracket is an analytic function of x = 1/n for |x| < 1/(J + 2). Products add weights, and ∫_0^h(u + ηe_j)^δdη
 produces u^γh^m with δ = γ + (m − 1)e_j. So the u^γh^m-coefficient of Π_n equals n^{−p(1+|γ|_w+mj)}ψ_{γ,m}(1/n), with ψ_{γ,m} analytic at
 0. If ψ is analytic at 0 and ψ(1/n) = O(n^{−L′}) along the integers, then its Taylor coefficients of order < L′ vanish (the first nonzero
-one would dominate). With L′ := L + p(|γ|_w + mj), the Taylor coefficients of ψ_{γ,m} of order < L′ vanish.
+one would dominate). Since the u^γh^m-coefficient of Π_n is O(n^{−p−L}), ψ_{γ,m}(1/n) = O(n^{−L′}) with
+L′ := L − p(|γ|_w + mj); hence the Taylor coefficients of ψ_{γ,m} of order < L′ vanish. Given (γ, m) and an order k, choose
+L > k + p(|γ|_w + mj) (and then J, K, B as in Step 0); so every Taylor coefficient of every ψ_{γ,m} vanishes. (fixed per Rule R
+review A, T1: the earlier text had L′ := L + p(|γ|_w + mj); the conclusion is unaffected.)
 
 The Taylor coefficients of ψ_{γ,m} of order ≤ K and with |γ| + m ≤ B are the corresponding coefficients of the **formal** element
 Π := b̂(u + he_j) − b̂(u) − ∫_0^hΨ_j(formal entries)(u + ηe_j)dη of ℛ_J[h]. The truncations K (in 1/n) and B (in the times) only affect
@@ -373,12 +403,12 @@ u = τ + t^{δ,(J)}; Lemma T.1 applies to σ^δ_τ (hypotheses checked in §2). 
   E3.4 holds for any polynomial tilt)" is row 2 of the transfer table.
 - JZC_SHIFT §2.1 (b) is Theorem T (ii)–(iv) on the lattice line, for every finite set of integer exponents and every p ≠ 1, |α| < 1. Its
   §2.1 (c) "A₀ = 1" is now direct: Lemma T.B.3 (n⁰ coefficient of 𝔄_0 is 𝖺(P_0^∞)/(2c) = 1). Its Cor SH.3 hypothesis (T_H) is
-  Theorem T_H with Cor T.3. Labels: Thm SH on β′ ≠ ν becomes PROVED-mod-cite (Theorem T_H), with T_H's NOT REVIEWED inherited.
-  JZC_SHIFT itself is not edited here.
+  Theorem T_H with Cor T.3. Labels: Thm SH on β′ ≠ ν becomes PROVED-mod-cite (Theorem T_H). (Updated 2026-10-23 after review A: T_H is REVIEWED; JZC_SHIFT was updated per S1.)
+  (Updated 2026-10-23 after JZC_TODA / JZC_SHIFT review: JZC_SHIFT now cites this note per its fix S1.)
 - JZC_SHIFT §5.1's derivation of A₁, A₂ from (T1) is now confirmed by direct extraction (Prop T.4). m4_diag's closed form a₂
   (NUMERICAL there) is exact for the model (Prop T.4).
 - Paper IV may state Theorem T as a Proposition at the label PROVED-mod-cite, with Lemma T.A (transfer) as the step to review.
-  papers/ is not edited here.
+  (Updated 2026-10-23 after JZC_TODA / JZC_SHIFT review: Paper IV now states it as a Theorem, with the proof outline T.1, T.A, T.2.)
 
 ### 5.2 Rationality (Cor T.3)
 Each coefficient identity in (T-b), (T-a) has the form R(p, β′, ν) = 0. Here R is a polynomial in finitely many layer coefficients
@@ -386,6 +416,9 @@ d_{k,γ}, 𝔞_{k,γ} and in binomial coefficients binom(−p(1 + w) − m, l) (
 (p, β′, ν):
 - the residue recursion and both extractions are field operations on the Laurent data (JZC_SIGMA §1, which also covers β′; the gauge
   Taylor data are rational for integer exponents, m4_zeta_exact2 (A));
+- c = c(p) is not rational in p; the layers are computed at c = 1, and the model is homogeneous under z ↦ z/c with
+  μ_j ↦ μ_jc^j, which is how c^j enters (T-b), (T-a). So the identities R = 0 are rational in (p, β′, ν) in these units.
+  (fixed per Rule R review A, T4)
 - the α-extraction divides only by (Q_1)_{12}, whose leading term is ic.
 
 By Theorem T_H, R vanishes on {(p, α + 2δ, α): p ∈ (0, ∞) ∖ {1}, α ∈ (−1, 1), δ ∈ (−1, 0)}, and for each p the set of
@@ -489,17 +522,21 @@ Results (`toda_layers.out`): **ALL 75 IDENTITIES HOLD; ALL 91 CONTROLS FAIL.**
   (1 − 1/(4M²))⁻¹ (JZC_M4 §8).
 
 ## 8. What remains
-1. **Rule R** for this note. The priority is Lemma T.A (the transfer table, especially the hard-edge row and the p < 1 rows). Lemma T.B
-   is a short extension of N.6c. Lemmas T.1, T.2 are elementary.
-2. A direct numerical test of Lemma T.A: Jacobi coefficients of a tilted lattice (e.g. p = 2, where μ_n = 0) against the layers at
-   μ = −τn^{−2·}. Not done here; it needs a tail-corrected high-precision lattice computation (Plan 62 style).
+1. ~~Rule R for this note.~~ **Done**: REVIEW_JZC_TODA_SHIFT_A.md (review A, 2026-10-23), ACCEPT WITH FIXES T1–T5, applied. Not
+   covered by the review: a line-by-line re-reading of E_pgt1, E_plt1, RH_px, G1u (rows of §3.1 checked only for how the weight
+   enters). (fixed per Rule R review A, T5)
+2. ~~A direct numerical test of Lemma T.A.~~ **Done in review A §3.3** (NUMERICAL): Arb moments of the infinite tilted lattice,
+   Chebyshev algorithm over power series in τ (orders 0–2) and finite τ = ±3, ±10 at p = 2, s = 3, against Theorem T (i) with the exact
+   layers; cases p = 2 (tilts x, x²), p = 3/2 (μ_n ≠ 0), Hurwitz δ = −1/2, p = 7/3 (tilt x³); relative errors decay like n⁻⁴ (first
+   order) and n⁻³ (second order). (fixed per Rule R review A, T5)
 3. All-order evenness of the diagonal layer A in M = N + ½ and its β-independence (JZC_SIGMA §7 item 3): exact here only to order 4
    (Prop T.4). Route: run JZC_SIGMA's frame identity for α_n (Lemma T.B in the m-frame).
 4. JZC_SIGMA §3.3 (Cor Σ.2 for weight ≥ 3) can now avoid the linear independence of zeta monomials. Use Lemma F of JZC_SIGMA for the
    tilted measures σ_τ: by Lemma T.A the times are free, so each μ^β layer separates. Not done here: it needs Lemma F (ii)'s transfer
    for σ_τ, which is the combination of the two transfer tables.
-5. Propagation (other notes not edited): JZC_M4 §8 (label of Theorem T, point to this note); JZC_SHIFT header and Cor SH.3 ((T_H)
-   supplied, label); JZC_M3a_H §4 (route for weight ≥ 3); Paper IV's Proposition; m4_diag / JZC_M4 §8 a₂ label (Prop T.4).
+5. ~~Propagation~~ — done 2026-10-23 after JZC_TODA / JZC_SHIFT review: JZC_M4 §8 (label of Theorem T, pointer, a₂/a₄ exact to
+   order 4); JZC_SHIFT header, §2.1 (b), Cor SH.3 (S1); JZC_W2 (Obs 2.3 → Thm SH, Thm 2.5 remainder); JZC_M3a_H §4 (route note only,
+   label unchanged); Paper IV (Theorem, index-shift theorem, diagonal-layer statement).
 6. Rule L (§9).
 
 ## 9. Literature (Rule L) — partial

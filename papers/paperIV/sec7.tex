@@ -67,9 +67,12 @@ $X_j:=\varepsilon_jN^{-1-jp}$: $F=\sum_{\br}c_{\br}(N^{-2})\prod_jX_j^{r_j}$, wi
 
 Theorem~\ref{thm:N6} proves the instances $\br=e_j$ to relative order $N^{-3}$ for every $j$ (and $N^{-4}$ for $j=1$) and
 $\br=2e_1$ to relative order $N^{-3}$, with $c_{2e_1}(0)=(3p+1)/(2p)$, and Corollary~\ref{cor:even} proves the instance $\br=0$ to all
-orders. Theorem~\ref{thm:shift}(ii) shows that the layers $e_1$, $e_2$, $2e_1$ are natural in $N$ to all orders (their coefficients in
+orders. Theorem~\ref{thm:indexshift} gives the leading coefficient of every layer, $c_{\br}(0)=(p+1+S)_{|\br|-1}/(\br!\,p^{|\br|-1})$,
+$S=p|\br|_w$, and shows that each layer is $\prod_jX_j^{r_j}$ times a power series in $N^{-1}$; that this series is even in $N$
+beyond the orders above is open. Theorem~\ref{thm:shift}(ii) shows that the layers $e_1$, $e_2$, $2e_1$ are natural in $N$ to all orders (their coefficients in
 $N$ do not depend on the Szeg\H{o} exponent); their evenness beyond the orders of Theorem~\ref{thm:N6}(ii), and the layers of weight
-$\ge3$, are open. By Remark~\ref{rem:parity} the parity part of the conjecture would follow from Conjecture~\ref{conj:diag}. The numbers
+$\ge3$, are open. By Remark~\ref{rem:parity} the parity part of the conjecture would follow from Conjecture~\ref{conj:diag}
+(proved to order $M^{-4}$ in Proposition~\ref{prop:diag4}). The numbers
 $(3p+1)/(2p)=1+(p+1)/(2p)$, like $\varepsilon_j$, do not depend on $\alpha$. A closed form for $c_0=F_p$ is known only at
 $(p,\alpha)=(2,-\frac12)$, where it is $(1-x/4)^{-1/2}$ in $x=N^{-2}$. The hard-edge denominators $\prod_k((2k+1)p+2)$ of
 Remark~\ref{rem:N6}(b) suggested a hypergeometric structure in $a'=\frac1p+\frac12$, but the series $F_p$ appears to be divergent:
@@ -115,7 +118,7 @@ layers to every order, each pole and fractional term to relative order $O(N^{-2}
 such a term with a Toda time, are not claimed.
 \end{conjecture}
 
-The first sum is the decoupled model flowed along the Toda hierarchy (Proposition~\ref{prop:toda}); for $\rho=j\in\N$ the first-order
+The first sum is the decoupled model flowed along the Toda hierarchy (Theorem~\ref{thm:toda}); for $\rho=j\in\N$ the first-order
 Toda response is $\varepsilon_j=pW(j)Z(-j)=-\frac{pjW(j)}2t_j$ at $B_j=0$, so there is one linear response $-\frac{p\rho W(\rho)}2t_\rho$ for
 every time, integer or not. The lattice is Theorem~\ref{thm:N6}; Hurwitz lattices are Theorem~\ref{thm:H} ($\beta=\alpha+2\delta$);
 the shifted Hurwitz lattices are Theorem~\ref{thm:kappa}, at first order in the poles; and Conjecture~\ref{conj:natural} is the first
@@ -219,7 +222,7 @@ Theorem~\ref{thm:K} merge and \cite{PaperII} uses a different hard-edge analysis
 dictionary persists. (b) \emph{Higher layers.} The layers $\mu_1\mu_2$, $\mu_2^2$, $\mu_1^3$ control the coefficients below
 $n^{-2-3p}$ and are not computed, and their shift (Theorem~\ref{thm:shift}(ii) for weight $\ge3$) is open; it would follow from the
 linear independence of the products $\prod_j\zeta(-jp)^{r_j}$ over $\mathbb Q(p)$, or from a version of Lemma~\ref{lem:frame} for the
-tilted measures of Proposition~\ref{prop:toda}, in which the $\mu_j$ are free parameters. (c) \emph{Irregular spectra.} For spectra with displacements of the order of the spacing
+tilted measures of Theorem~\ref{thm:toda}, in which the $\mu_j$ are free parameters. (c) \emph{Irregular spectra.} For spectra with displacements of the order of the spacing
 there is no deterministic expansion; Section~\ref{sec:noise} suggests that the variance of the irregular part is
 $n\int\kappa(\omega)S_h(\omega)\diff\omega/\pi$ with a universal kernel spectrum $\kappa$. A closed form for $\kappa$, presumably from
 the Airy kernel of the soft edge, is open, as is a proof that rigidity at wavelengths of two to forty spacings sets the

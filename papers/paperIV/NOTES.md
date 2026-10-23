@@ -205,3 +205,28 @@ Discrepancies D1–D15 of review B §3, as adopted:
 Theorem numbers in §3 shift by one (Thm 3.1, Rem 3.2, Cor 3.3, Prop 3.4, Rem 3.5, Rem 3.6); all references are by \label.
 Build: `pdflatex main; bibtex main; pdflatex main; pdflatex main` → **41 pages**, 0 errors, 0 overfull boxes, 0 undefined
 references; 12 underfull boxes (cosmetic); 1 BibTeX warning (missing pages in BeckermannKuijlaars2001, pre-existing).
+
+## Session additions (2026-10-23): Rule R review A of JZC_TODA / JZC_SHIFT applied to §6 (updated 2026-10-23 after JZC_TODA / JZC_SHIFT review)
+Source: research/G1/review/REVIEW_JZC_TODA_SHIFT_A.md (ACCEPT WITH FIXES T1–T5, S1–S5; all applied in the memos). §6 now has
+§6.4 (Toda structure, now a theorem) and a new §6.5 (index-shift law, diagonal layer). Numbering in §6 after Theorem 6.3/Cor 6.4/
+Lemma 6.5: **Lemma 6.6** (new), **Theorem 6.7** (was Prop 6.6), **Theorem 6.8** (new), **Remark 6.9** (new), **Proposition 6.10** (new),
+**Conjecture 6.11** (was Conj 6.7), **Remark 6.12** (was Rem 6.8). Label `prop:toda` renamed `thm:toda` (refs in sec1, sec7, sec8 updated).
+
+| Repo statement (label) | Paper | Form in the paper |
+|---|---|---|
+| JZC_TODA Lemma T.1 (PROVED + REVIEWED; KNOWN, not cited: Van Assche read only via a fetch tool) | Lemma 6.6 | lemma with full (short) proof |
+| JZC_TODA Theorem T (i)–(iv), T_H, Cor T.3 (PROVED-mod-cite + REVIEWED, review A; scope: E_pgt1/E_plt1/RH_px/G1u rows checked only for how the weight enters) | **Theorem 6.7** (was Prop 6.6) | theorem; proof outline: (i) Lemma T.A transfer (ℓ analytic of every angle, [II, Def 1.1]; gauge Lemma 2.3; r_n^{1/2} entire), (ii) Lemma T.2 Baire + integrated identity + coefficient extraction, (iii) T_H via Thm 7.1(i) + rationality (normalisation fix T4); "details in the notes of the repository" |
+| JZC_TODA §7 checks (toda_measures, toda_layers) | text after Thm 6.7 | sentence. Review A's independent Arb test of the tilted lattice is **not** quoted (its scripts are in a reviewer scratchpad, not in the repo) |
+| JZC_SHIFT Thm SH (i)–(ii), Lemmas LB, D, R, H (integer exponents, all p ≠ 1, all (β, ν): PROVED-mod-cite + REVIEWED) | **Theorem 6.8** (index-shift law) | theorem; proof outline: defect grading, conservation form, dispersionless hierarchy, Riemann invariant a = 2b, Hopf equations, characteristics, Lagrange inversion; β ≠ ν via Thm 6.7(iii) |
+| JZC_SHIFT Cor SH.2 (continued identities: PROVED-mod-cite + REVIEWED; pole-layer identification via JZC_W2 Prop 2.1 (iii), NOT REVIEWED) | Remark 6.9 | remark; the pole-product reading for σ^{δ,κ} stated as conjectural |
+| JZC_SHIFT §1.3, §4 (R1–R7), §5 (E2, E3, E6) | text after Thm 6.8 | sentence (exact agreement; dressed-index-shift ansatz fails) |
+| JZC_TODA Prop T.4 (exact computer algebra for the model to order 4; PROVED-mod-cite as coefficients of α_n; + REVIEWED) | **Proposition 6.10** | a₂ and a₄ proved to order M⁻⁴, β-free, no M⁻¹, M⁻³ |
+| JZC_M4 §8 diagonal layer beyond order 4 (NUMERICAL, m4_toda (A), m4_diag) | **Conjecture 6.11** (was Conj 6.7) | conjecture restricted to all-order evenness/β-independence |
+| JZC_SHIFT §5.2 (E7) | Rem 6.12 | parity: exact to third order in the times for generic even integer layers |
+
+Also: abstract (one clause: Toda flows of the integer layers of b_n and a_n; leading term = implicit index shift), §1.2 paragraph after
+Theorem D (Theorem 6.7, 6.8, Prop 6.10), §1.4 organisation, §9 (Conj 9.4 text: c_r(0) from Thm 6.8; Conj 6.11 proved to M⁻⁴), §10
+(dispersionless tools; literature not searched for Thm 6.8; Rule L for Thm SH not done), \cA macro in main.tex. The abstract was already
+above the 1920-character guideline of Papers I–III (2233 characters of source); it is now 2393: shorten before submission.
+Build: `pdflatex main; bibtex main; pdflatex main; pdflatex main` → **44 pages**, 0 errors, 0 overfull boxes, 0 undefined references;
+11 underfull boxes (cosmetic); 1 BibTeX warning (missing pages in BeckermannKuijlaars2001, pre-existing).
