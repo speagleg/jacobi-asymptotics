@@ -1,0 +1,42 @@
+sha256 w2_predict.py: e7fc8f90dcc848f92fd9e6825ae5428f86f1faa8ef2bb7c7cbadcb8315814cf3
+sha256 w2_common.py: de18f9d85f6c77f7a355b37f35a8443f59007bad2dbdc21821ce77796ea137bd
+sha256 w2_engine.py: 8e69b2e33912b097cf6cf8abd27df0c9c0910735395e29c8292e4b2506bca02d
+   [engine p=3/2 j1=1/3 j2=1 E=(3,0) KORD=6: 64s]
+   [engine p=3/2 j1=4/3 j2=1 E=(1,0) KORD=6: 26s]
+   [engine p=3/2 j1=7/3 j2=1 E=(1,0) KORD=6: 27s]
+   [engine p=3/2 j1=1 j2=1 E=(2,0) KORD=6: 34s]
+   [engine p=3/2 j1=2 j2=1 E=(1,0) KORD=6: 22s]
+   [engine p=3/2 j1=3 j2=1 E=(1,0) KORD=6: 23s]
+   [engine p=3/2 j1=1/3 j2=4/3 E=(1,1) KORD=6: 62s]
+   [engine p=3/2 j1=1/3 j2=1 E=(2,1) KORD=6: 132s]
+   [engine p=3/2 j1=1/3 j2=2 E=(1,1) KORD=6: 77s]
+   [engine p=3/2 j1=4/3 j2=1 E=(1,1) KORD=6: 77s]
+   [engine p=3/2 j1=1/3 j2=1 E=(4,0) KORD=4: 36s]
+P15a: p=3/2 d=-1/4 kappa=1/2 s=11/5  alpha=-1/5  beta'=-7/10  (593s)
+   n^-3.0: total -0.14765335832   order>=2 part 0.0935271069135   A0 none: -0.2411804652  A1 Toda-only: -0.09420929723  A2 exp: -0.2010974194  A3 square: -0.1610143736
+   n^-4.0: total 0.125427334814   order>=2 part 0.207284465183   A0 none: -0.08185713037  A1 Toda-only: 0.1494448741  A2 exp: -0.01877476551  A3 square: 0.04430759934
+P15b: p=3/2 d=-1/4 kappa=-1/2 s=11/5  alpha=-1/5  beta'=-7/10  (609s)
+   n^-3.0: total -0.14765335832   order>=2 part 0.0935271069135   A0 none: -0.2411804652  A1 Toda-only: -0.09420929723  A2 exp: -0.2010974194  A3 square: -0.1610143736
+   n^-4.0: total 0.0650121722129   order>=2 part 0.267699627785   A0 none: -0.2026874556  A1 Toda-only: 0.1024553032  A2 exp: -0.1194667032  A3 square: -0.03624595079
+P15c: p=3/2 d=-1/4 kappa=1/4 s=11/5  alpha=-1/5  beta'=-7/10  (625s)
+   n^-3.0: total -0.117591073955   order>=2 part 0.0233817767284   A0 none: -0.1409728507  A1 Toda-only: -0.1042300587  A2 exp: -0.1309520892  A3 square: -0.1209313278
+   n^-4.0: total 0.0900315022176   order>=2 part 0.0442692209706   A0 none: 0.04576228125  A1 Toda-only: 0.09435768808  A2 exp: 0.05901557402  A3 square: 0.07226886679
+   [engine p=5/2 j1=3/5 j2=1 E=(3,0) KORD=8: 212s]
+   [engine p=5/2 j1=8/5 j2=1 E=(1,0) KORD=8: 87s]
+   [engine p=5/2 j1=13/5 j2=1 E=(1,0) KORD=8: 85s]
+   [engine p=5/2 j1=1 j2=1 E=(2,0) KORD=8: 115s]
+   [engine p=5/2 j1=2 j2=1 E=(1,0) KORD=8: 75s]
+   [engine p=5/2 j1=3/5 j2=8/5 E=(1,1) KORD=8: 204s]
+   [engine p=5/2 j1=3/5 j2=1 E=(1,1) KORD=8: 186s]
+   [engine p=5/2 j1=3/5 j2=1 E=(4,0) KORD=4: 35s]
+P25a: p=5/2 d=-1/4 kappa=2/5 s=2  alpha=-3/5  beta'=-11/10  (1641s)
+   n^-5.0: total 0.247386047452   order>=2 part 0.0897320764874   A0 none: 0.157653971  A1 Toda-only: 0.2749959171  A2 exp: 0.1921663081  A3 square: 0.2266786452
+   n^-6.0: total -0.991205698496   order>=2 part -0.518206221638   A0 none: -0.4729994769  A1 Toda-only: -1.054432764  A2 exp: -0.6440092672  A3 square: -0.8150190576
+P25b: p=5/2 d=-1/4 kappa=-2/5 s=2  alpha=-3/5  beta'=-11/10  (1656s)
+   n^-5.0: total 0.247386047452   order>=2 part 0.0897320764874   A0 none: 0.157653971  A1 Toda-only: 0.2749959171  A2 exp: 0.1921663081  A3 square: 0.2266786452
+   n^-6.0: total -1.09679257051   order>=2 part -0.553401845645   A0 none: -0.5433907249  A1 Toda-only: -1.164712386  A2 exp: -0.7261323899  A3 square: -0.9088740549
+P25c: p=5/2 d=-1/4 kappa=1/5 s=2  alpha=-3/5  beta'=-11/10  (1671s)
+   n^-5.0: total 0.0661962776219   order>=2 part 0.0224330191219   A0 none: 0.0437632585  A1 Toda-only: 0.07309874504  A2 exp: 0.05239134278  A3 square: 0.06101942706
+   n^-6.0: total -0.231368236701   order>=2 part -0.125152102409   A0 none: -0.1062161343  A1 Toda-only: -0.2465884094  A2 exp: -0.1475020975  A3 square: -0.1887880608
+REGISTERED /home/claude/speagleg/jacobi-asymptotics/research/G1/RH/spectral/checks/w2_predictions.json at 2026-10-22 16:56:01 MDT
+EXIT 0

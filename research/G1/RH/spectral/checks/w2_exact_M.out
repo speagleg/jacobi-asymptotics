@@ -1,0 +1,11 @@
+sha256 w2_exact.py: befee036ba88cac13a58b863739d7caee61d3b361717168aaa974ef303e255c6
+sha256 w2_engine.py: b5d60698e3f5187918b27960c9cfa32e32afe29af449c977bb256cb725d244f9
+engine config {'DECOUPLE': '1', 'E1': '2', 'E2': '1', 'KORD': '3', 'SHI': '10'}: 1833s
+[1] identity: e1^2 e2: N^-0 = 0: holds -> PASS
+[2] identity: e1^2 e2: N^-1 = 0: holds -> PASS
+[3] identity: e1^2 e2: N^-2 = 0: holds -> PASS
+[4] identity: e1^2 e2: N^-3 = (pj/2)^2 (pk/2) (p+1+S)(p+2+S)/(2 p^2): holds -> PASS
+[5] CONTROL (must fail): control: S = p(j + 2k): fails -> PASS
+e1^2 e2 N^-3 = j**2*k*p*(2*j*p + k*p + p + 1)*(2*j*p + k*p + p + 2)/16
+ALL IDENTITIES HOLD
+EXIT 0

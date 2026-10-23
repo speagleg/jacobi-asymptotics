@@ -1,0 +1,13 @@
+sha256 w2_exact.py: befee036ba88cac13a58b863739d7caee61d3b361717168aaa974ef303e255c6
+sha256 w2_engine.py: b5d60698e3f5187918b27960c9cfa32e32afe29af449c977bb256cb725d244f9
+engine config {'DECOUPLE': '1', 'E1': '3', 'E2': '0', 'KORD': '3', 'SHI': '10'}: 158s
+[1] identity: e1^2: N^-2 = j^2 p (2jp+p+1)/8 (= B(j, j)/2): holds -> PASS
+[2] identity: e1^3: N^-0 = 0: holds -> PASS
+[3] identity: e1^3: N^-1 = 0: holds -> PASS
+[4] identity: e1^3: N^-2 = 0: holds -> PASS
+[5] identity: e1^3: N^-3 = j^3 p (3jp+p+1)(3jp+p+2)/48: holds -> PASS
+[6] identity: e1^3 = Lagrange(m=3) in eps-form: holds -> PASS
+[7] CONTROL (must fail): control: (3jp+p+1)^2: fails -> PASS
+e1^2 N^-3 = 0   e1^3 N^-3 = j**3*p*(3*j*p + p + 1)*(3*j*p + p + 2)/48
+ALL IDENTITIES HOLD
+EXIT 0

@@ -1,0 +1,13 @@
+sha256 w2_exact.py: befee036ba88cac13a58b863739d7caee61d3b361717168aaa974ef303e255c6
+sha256 w2_engine.py: b5d60698e3f5187918b27960c9cfa32e32afe29af449c977bb256cb725d244f9
+engine config {'DECOUPLE': '1', 'E1': '1', 'E2': '1', 'KORD': '2', 'SHI': '8'}: 22s
+[1] identity: e1 e2: natural N^0 = 0: holds -> PASS
+[2] identity: e1 e2: natural N^-1 = 0: holds -> PASS
+[3] identity: e1 e2: natural N^-2 = j k p (pj + pk + p + 1)/4: holds -> PASS
+[4] identity: e1 e2 at N^-2 in eps-form = 2 * Lagrange(m=2), eps = p x e/2: holds -> PASS
+[5] identity: first order: natural N^-1 = p j/2: holds -> PASS
+[6] identity: j = k = 1: (eps_1^2 bracket) (3p+1)/(2p) (JZC_M4_proof N.6(ii)): holds -> PASS
+[7] CONTROL (must fail): control: (pj + pk + 1): fails -> PASS
+N^-2 (e1 e2) = j*k*p*(j*p + k*p + p + 1)/4
+ALL IDENTITIES HOLD
+EXIT 0
