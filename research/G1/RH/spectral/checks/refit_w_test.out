@@ -1,0 +1,73 @@
+sha256 refit_w.py: 0528abbd8eb4a249fc1708184e1f151519d22367ead572ef8153597d869e9a0c
+sha256 refit_data.py: fbeeb9332fd5779c370c32b79470cca04b13541e6a2db59a394dd650de7a1b36
+sha256 w2_data.py: 8c7cc6f8c99b61315ec9c17ed6298c2071e27174e76b60d09b8c06f11ee74357
+refit_w.py test run at 2026-10-23 08:31:22 MDT
+   [refit data new_A3__1383c3f12f15ff04.txt: 324087 records, 204s]
+=== A3: A p=3.0 a=-0.6 s=2.0 (old wA_p3.0_a-0.6_s2.0__b49fc4b2a281c0e6.txt; new tmp/refit/new_A3__*) ===
+  A3: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 5.7e-16, 1.5e-15, 8.7e-17, 1.7e-16, 7.9e-16;  max n^3|dy| = 3.2e-06;  noise sigma_y old 1.5e-15, new 4.0e-21
+  A3 n^-1.0  : W +0.100000000 | old +0.100000000 (1.8e-09) diff +6.2e-13 PASS | new +0.100000000 (1.8e-09) diff -1.9e-14 [0.00 tol] PASS | new - old -6.4e-13   alts(new): beta=alpha 272727 tol
+  A3 n^-2.0  : W +0.134774197 | old +0.134774197 (4.5e-09) diff +5.2e-10 PASS | new +0.134774197 (4.5e-09) diff +1.9e-11 [0.00 tol] PASS | new - old -5.0e-10   alts(new): beta=alpha 70499 tol; no pole 31968 tol
+  A3 n^-3.0  : W +0.045264764 | old +0.045264867 (2.7e-06) diff +1.0e-07 PASS | new +0.045264760 (5.5e-08) diff -4.1e-09 [0.00 tol] PASS | new - old -1.1e-07   alts(new): beta=alpha 83603 tol; no pole 4766 tol; no density tilt 21812 tol; no shift 5784 tol
+   [refit data new_B0_3__0ae5f4386a125fde.txt: 324087 records, 367s]
+=== B0_3: B Bessel nu=0 P=3.0 s=2.0 (old wB_nu0_P3.0_s2.0__9038c248e30103a3.txt; new tmp/refit/new_B0_3__*) ===
+  B0_3: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 1.2e-16, 3.4e-15, 1.1e-15, 1.4e-15, 2.4e-15;  max n^3|dy| = 9.9e-06;  noise sigma_y old 4.6e-15, new 8.1e-21
+  B0_3 n^-1.0  : W +0.250000000 | old +0.250000000 (7.7e-10) diff -1.4e-12 PASS | new +0.250000000 (7.7e-10) diff -6.1e-14 [0.00 tol] PASS | new - old +1.4e-12   alts(new): beta=alpha 300000 tol
+  B0_3 n^-2.0  : W +0.074250185 | old +0.074250185 (3.1e-09) diff +4.5e-10 PASS | new +0.074250185 (7.5e-10) diff +9.9e-12 [0.00 tol] PASS | new - old -4.4e-10   alts(new): beta=alpha 58180 tol; no pole 10692 tol
+  B0_3 n^-3.0  : W +0.004925885 | old +0.004926367 (1.2e-05) diff +4.8e-07 PASS | new +0.004925879 (4.6e-08) diff -6.1e-09 [0.00 tol] PASS | new - old -4.9e-07   alts(new): beta=alpha 46179 tol; no pole 4762 tol; no density tilt 7183 tol; no shift 4762 tol
+   [refit data new_M2__2cbcbd1c8835f8fa.txt: 324087 records, 395s]
+=== M2: M2 nodes l^1.5, mult 2l+1, s=3.0 (old wM2_p1.5_s3.0__3fa7b6b1de5c7623.txt; new tmp/refit/new_M2__*) ===
+  M2: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 1.9e-16, 3.3e-17, 4.8e-15, 8.3e-15, 2.5e-14;  max n^3.5|dy| = 4.2e-03;  noise sigma_y old 1.3e-15, new 1.4e-20
+  M2 n^-1.0  : W -0.500000000 | old -0.500000000 (4.9e-07) diff -1.5e-10 PASS | new -0.500000000 (4.9e-07) diff -1.7e-11 [0.00 tol] PASS | new - old +1.3e-10
+  M2 n^-2.0  : W +0.118055555 | old +0.118055830 (3.8e-06) diff +2.7e-07 PASS | new +0.118055849 (2.4e-06) diff +2.9e-07 [0.04 tol] PASS | new - old +1.9e-08   alts(new): no mass tilt 34127 tol
+  M2 n^-2.5  : W -0.043294695 | old -0.043296703 (5.2e-05) diff -2.0e-06 PASS | new -0.043294686 (5.2e-05) diff +8.8e-09 [0.00 tol] PASS | new - old +2.0e-06   alts(new): no zeta 275 tol
+  M2 n^-3.0  : W +0.190047616 | old +0.190048101 (1.1e-03) diff +4.8e-07 PASS | new +0.190048523 (1.2e-05) diff +9.1e-07 [0.03 tol] PASS | new - old +4.2e-07   alts(new): no mass tilt 13210 tol; no shift 8423 tol
+  M2 n^-3.5  : W +0.057726260 | old +0.057786747 (2.9e-02) diff +6.0e-05 PASS | new +0.057775502 (7.7e-05) diff +4.9e-05 [0.21 tol] PASS | new - old -1.1e-05   alts(new): no zeta 249 tol
+=== A15m: A p=1.5 a=-0.75 s=2.0 (old wA_p1.5_a-0.75_s2.0__dc17fdf5f0bdd10e.txt; new tmp/refit/new_A15m__*) ===
+  A15m: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 1.3e-15, 9.1e-16, 5.3e-15, 5.7e-15, 2.4e-14;  max n^3.5|dy| = 4.0e-03;  noise sigma_y old 1.7e-15, new 7.8e-21
+  A15m n^-1.0  : W +0.250000000 | old +0.250000000 (2.7e-07) diff -6.3e-11 PASS | new +0.250000000 (2.7e-07) diff -1.9e-12 [0.00 tol] PASS | new - old +6.1e-11   alts(new): beta=alpha 300000 tol
+  A15m n^-2.0  : W +0.098443095 | old +0.098443093 (2.7e-05) diff -2.7e-09 PASS | new +0.098443108 (2.6e-05) diff +1.3e-08 [0.00 tol] PASS | new - old +1.6e-08   alts(new): beta=alpha 2013 tol; no pole 1461 tol
+  A15m n^-2.5  : W +0.221575799 | old +0.221574913 (3.9e-05) diff -8.9e-07 PASS | new +0.221575792 (2.1e-06) diff -7.3e-09 [0.00 tol] PASS | new - old +8.8e-07   alts(new): no zeta 34491 tol
+  A15m n^-3.0  : W +0.069937732 | old +0.069939298 (1.1e-03) diff +1.6e-06 PASS | new +0.069937739 (3.2e-05) diff +6.8e-09 [0.00 tol] PASS | new - old -1.6e-06   alts(new): beta=alpha 1782 tol; no pole 1203 tol; no density tilt 857 tol; no shift 684 tol
+  A15m n^-3.5  : W +0.147717200 | old +0.147748137 (2.9e-02) diff +3.1e-05 PASS | new +0.147717200 (3.1e-05) diff +2.4e-10 [0.00 tol] PASS | new - old -3.1e-05   alts(new): beta=alpha 4791 tol; no zeta 1597 tol
+   [refit data new_A15p__347fb1c2203d2333.txt: 324087 records, 356s]
+=== A15p: A p=1.5 a=0.6 s=2.0 (old wA_p1.5_a0.6_s2.0__f45607679efe2c1d.txt; new tmp/refit/new_A15p__*) ===
+  A15p: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 9.5e-18, 7.2e-16, 6.0e-15, 8.8e-15, 2.3e-14;  max n^3.5|dy| = 3.8e-03;  noise sigma_y old 1.4e-15, new 3.2e-20
+  A15p n^-1.0  : W -1.100000000 | old -1.100000008 (2.1e-06) diff -7.9e-09 PASS | new -1.100000008 (2.1e-06) diff -7.6e-09 [0.00 tol] PASS | new - old +3.3e-10   alts(new): beta=alpha 95069 tol
+  A15p n^-2.0  : W +1.095503581 | old +1.095503094 (1.6e-04) diff -4.9e-07 PASS | new +1.095503512 (1.6e-04) diff -6.9e-08 [0.00 tol] PASS | new - old +4.2e-07   alts(new): beta=alpha 1652 tol; no pole 150 tol
+  A15p n^-2.5  : W -0.255191090 | old -0.255189635 (1.5e-04) diff +1.5e-06 PASS | new -0.255189217 (1.1e-04) diff +1.9e-06 [0.01 tol] PASS | new - old +4.2e-07   alts(new): no zeta 795 tol
+  A15p n^-3.0  : W -1.007731546 | old -1.007765461 (1.1e-03) diff -3.4e-05 PASS | new -1.007731556 (3.6e-04) diff -1.0e-08 [0.00 tol] PASS | new - old +3.4e-05   alts(new): beta=alpha 829 tol; no pole 194 tol; no density tilt 49 tol; no shift 171 tol
+  A15p n^-3.5  : W +0.748560532 | old +0.748569004 (3.0e-02) diff +8.5e-06 PASS | new +0.748558285 (5.4e-05) diff -2.2e-06 [0.01 tol] PASS | new - old -1.1e-05   alts(new): beta=alpha 2535 tol; no zeta 4647 tol
+   [refit data new_B0_15__8b35851aefbbcfc2.txt: 324087 records, 540s]
+=== B0_15: B Bessel nu=0 P=1.5 s=2.0 (old wB_nu0_P1.5_s2.0__097b0b948f7b0e3b.txt; new tmp/refit/new_B0_15__*) ===
+  B0_15: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 1.6e-15, 2.1e-15, 3.2e-15, 7.1e-15, 2.2e-14;  max n^3.5|dy| = 3.6e-03;  noise sigma_y old 2.9e-15, new 3.9e-21
+  B0_15 n^-1.0  : W -0.125000000 | old -0.125000000 (1.8e-07) diff -2.6e-10 PASS | new -0.125000000 (1.8e-07) diff -3.7e-11 [0.00 tol] PASS | new - old +2.2e-10   alts(new): beta=alpha 166667 tol
+  B0_15 n^-2.0  : W +0.195715093 | old +0.195714959 (1.4e-05) diff -1.3e-07 PASS | new +0.195715093 (1.5e-06) diff +5.7e-11 [0.00 tol] PASS | new - old +1.3e-07   alts(new): beta=alpha 43790 tol; no pole 5150 tol
+  B0_15 n^-2.5  : W -0.003550300 | old -0.003550960 (4.5e-04) diff -6.6e-07 PASS | new -0.003550300 (6.6e-06) diff +3.5e-10 [0.00 tol] PASS | new - old +6.6e-07   alts(new): no zeta 178 tol
+  B0_15 n^-3.0  : W -0.071344922 | old -0.071359647 (1.8e-02) diff -1.5e-05 PASS | new -0.071344917 (1.3e-06) diff +5.2e-09 [0.00 tol] PASS | new - old +1.5e-05   alts(new): beta=alpha 61999 tol; no pole 1734 tol; no density tilt 4345 tol; no shift 1734 tol
+  B0_15 n^-3.5  : W +0.001183433 | old +0.000925098 (9.4e-01) diff -2.6e-04 PASS | new +0.001183362 (1.0e-05) diff -7.1e-08 [0.00 tol] PASS | new - old +2.6e-04   alts(new): beta=alpha 113 tol; no zeta 38 tol
+   [refit data new_B1_15__25c5a8027d731db8.txt: 324087 records, 474s]
+=== B1_15: B Bessel nu=1 P=1.5 s=2.0 (old wB_nu1_P1.5_s2.0__b3f4522977ca9486.txt; new tmp/refit/new_B1_15__*) ===
+  B1_15: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 1.1e-16, 4.2e-16, 6.0e-15, 7.8e-15, 2.1e-14;  max n^3.5|dy| = 3.4e-03;  noise sigma_y old 2.3e-15, new 3.1e-20
+  B1_15 n^-1.0  : W -0.875000000 | old -0.875000004 (1.3e-06) diff -3.9e-09 PASS | new -0.875000002 (1.3e-06) diff -2.0e-09 [0.00 tol] PASS | new - old +1.9e-09   alts(new): beta=alpha 94343 tol
+  B1_15 n^-2.0  : W +0.728826944 | old +0.728826416 (5.8e-05) diff -5.3e-07 PASS | new +0.728826947 (4.9e-05) diff +3.6e-09 [0.00 tol] PASS | new - old +5.3e-07   alts(new): beta=alpha 2894 tol; no pole 464 tol
+  B1_15 n^-2.5  : W -0.066493614 | old -0.066495713 (5.2e-04) diff -2.1e-06 PASS | new -0.066493583 (8.8e-05) diff +3.0e-08 [0.00 tol] PASS | new - old +2.1e-06   alts(new): no zeta 251 tol
+  B1_15 n^-3.0  : W -0.569224886 | old -0.569239151 (1.7e-02) diff -1.4e-05 PASS | new -0.569225132 (4.5e-05) diff -2.5e-07 [0.00 tol] PASS | new - old +1.4e-05   alts(new): beta=alpha 3216 tol; no pole 1046 tol; no density tilt 374 tol; no shift 1046 tol
+  B1_15 n^-3.5  : W +0.155151765 | old +0.154767448 (9.1e-01) diff -3.8e-04 PASS | new +0.155157166 (1.3e-04) diff +5.4e-06 [0.01 tol] PASS | new - old +3.9e-04   alts(new): beta=alpha 167 tol; no zeta 389 tol
+   [refit data new_M1__d96054a65744ab53.txt: 322039 records, 199s]
+=== M1: M1 sphere l(l+1), mult 2l+1, s=4.0 (old wM1_s4.0__035bd86925b23ff0.txt; new tmp/refit/new_M1__*) ===
+  M1: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 8.4e-18, 1.3e-17, 1.3e-16, 5.6e-16, 1.7e-15;  max n^4|dy| = 1.1e-02;  noise sigma_y old 8.9e-16, new 8.9e-16
+  M1 n^-1.0  : W -2.000000000 | old -2.000000000 (3.1e-07) diff +3.9e-11 PASS | new -2.000000000 (3.1e-07) diff +3.9e-11 [0.00 tol] PASS | new - old -1.8e-14   alts(new): beta=alpha 166667 tol
+  M1 n^-2.0  : W +3.250000000 | old +3.250000000 (1.1e-06) diff -2.4e-10 PASS | new +3.249999999 (1.1e-06) diff -8.0e-10 [0.00 tol] PASS | new - old -5.6e-10   alts(new): beta=alpha 264706 tol
+  M1 n^-3.0  : W -5.000000000 | old -4.999999922 (3.3e-06) diff +7.8e-08 PASS | new -5.000000003 (3.7e-06) diff -3.0e-09 [0.00 tol] PASS | new - old -8.1e-08   alts(new): beta=alpha 333333 tol; no density tilt 12851 tol; no mass tilt 12851 tol
+  M1 n^-4.0  : W +7.544921875 | old +7.776240753 (3.3e-04) diff +2.3e-01 FAIL | new +7.776236988 (4.5e-04) diff +2.3e-01 [171.72 tol] FAIL | new - old -3.8e-06   alts(new): beta=alpha 5043 tol; no density tilt 401 tol; no mass tilt 744 tol
+  M1 W' n^-4.0  : W +7.776240728 | old +7.776240753 (3.3e-04) diff +2.5e-08 PASS | new +7.776236988 (4.5e-04) diff -3.7e-06 [0.00 tol] PASS | new - old -3.8e-06   (3 pi^2/128 = 0.2313189; new fit - M(1,0) = +0.2313151)
+   [refit data new_A06__d2ccab64abbada56.txt: 642414 records, 314s]
+=== A06: A p=0.6 a=-0.3 s=2.0 (old wA_p0.6_a-0.3_s2.0__70f0008f2907639d.txt; new tmp/refit/new_A06__*) ===
+  A06: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 1.5e-14, 5.7e-14, 2.1e-13, 4.7e-13, 5.5e-08;  max n^2.8|dy| = 5.2e+01;  noise sigma_y old 1.7e-15, new 5.7e-12
+  A06 n^-1.0  : W -0.200000000 | old -0.200000010 (3.1e-05) diff -1.0e-08 PASS | new -0.199858925 (9.4e-03) diff +1.4e-04 [0.01 tol] PASS | new - old +1.4e-04   alts(new): beta=alpha 11 tol
+  A06 n^-1.6  : W +0.085466387 | old +0.085463646 (3.7e-04) diff -2.7e-06 PASS | new +0.108214605 (2.5e+00) diff +2.3e-02 [0.00 tol] PASS | new - old +2.3e-02   alts(new): no zeta 0 tol
+  A06 n^-2.0  : W +0.132912190 | old +0.132711546 (1.1e-03) diff -2.0e-04 PASS | new +0.906383557 (1.3e+02) diff +7.7e-01 [0.00 tol] PASS | new - old +7.7e-01   alts(new): beta=alpha 0 tol; no pole 0 tol
+  A06 n^-2.2  : W -0.162246723 | old -0.162156604 (1.5e-03) diff +9.0e-05 PASS | new +1.093245688 (2.4e+02) diff +1.3e+00 [0.00 tol] PASS | new - old +1.3e+00   alts(new): no zeta 0 tol
+  A06 n^-2.6  : W -0.062675350 | old -0.059651637 (2.8e-02) diff +3.0e-03 PASS | new +69.815315840 (2.0e+04) diff +7.0e+01 [0.00 tol] PASS | new - old +7.0e+01   alts(new): beta=alpha 0 tol; no zeta 0 tol
+  A06 n^-2.8  : W -0.234632618 | old -0.228070939 (9.3e-02) diff +6.6e-03 PASS | new +216.352604129 (7.4e+04) diff +2.2e+02 [0.00 tol] PASS | new - old +2.2e+02   alts(new): no zeta 0 tol
+ALL 41 CHECKS PASSED

@@ -1,0 +1,10 @@
+sha256 refit_validate.py: 332a6524d03e8b18192a85edd72d4331791e73326eb8f8378eb3628b44aa6d6f
+sha256 refit_data.py: fbeeb9332fd5779c370c32b79470cca04b13541e6a2db59a394dd650de7a1b36
+sha256 w2_data.py: 8c7cc6f8c99b61315ec9c17ed6298c2071e27174e76b60d09b8c06f11ee74357
+w2_data file: data_p3|2_d-1|4_k1|2_s11|5_K100_6bf85a1e07e9d68e.txt
+   [refit data val_P15a__f5e1ac7d29daf10f.txt: 243801 records, 92s]
+(1) P15a: max |y_refit - y_w2| = 1.05e-32; at n = 300, 600, 1200: ['3.02e-34', '2.42e-34', '1.75e-33']
+   [refit data val_A15m_K50__770acae6d3fa696e.txt: 164923 records, 78s]
+   [refit data wA_p1.5_a-0.75_s2.0__de4d801969f48cd1.txt: 324087 records, 166s]
+(2) A15m K = 50 vs 100 nmax: max |dy| = 7.95e-32; n^4 |dy| at n = 400, 800, 1600: ['4.87e-22', '7.21e-21', '3.4e-19']
+VALIDATION PASSED

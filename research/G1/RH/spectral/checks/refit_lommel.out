@@ -1,0 +1,10 @@
+sha256 refit_lommel.py: 8e92890a16e4a2494a7512f58b2e4f62463f5bd4ab1580f369f8ec3892a2cd3c
+sha256 refit_data.py: 4306268527ea40277e508e1323c7df13fdfc352e4e3e5a83c4bbb224365016cc
+   [refit data lommel_mu0_K4000__a8a816b910453d49.txt: 13718 records, 2s]
+mu=0 K=4000: max_n<=40 |n^2 b_n/c - closed form| = 1.94e-31
+   [refit data lommel_mu0_K40000__ebb97aad4e11e44a.txt: 85341 records, 13s]
+mu=0 K=40000: max_n<=40 |n^2 b_n/c - closed form| = 2.05e-31
+   [refit data lommel_mu1.5_K4000__5634e235fc93d4ad.txt: 13718 records, 2s]
+mu=1.5 K=4000: max_n<=40 |n^2 b_n/c - closed form| = 2.5e-32
+   [refit data lommel_mu1.5_K40000__65931a5598639f0e.txt: 85341 records, 14s]
+mu=1.5 K=40000: max_n<=40 |n^2 b_n/c - closed form| = 3.44e-32

@@ -1,0 +1,46 @@
+sha256 refit_m4.py: d08c38d0aa47d42d80f5306ded30561af7bb005a2ce5e1a7c39e32220d1a5a4d
+sha256 refit_data.py: fbeeb9332fd5779c370c32b79470cca04b13541e6a2db59a394dd650de7a1b36
+sha256 w2_data.py: 8c7cc6f8c99b61315ec9c17ed6298c2071e27174e76b60d09b8c06f11ee74357
+== JZC_M4 §3 (m4_natural_index): residual coefficients, old -> new ==
+   [refit data lat_p1.5_s2.0_d0.0__cc808860270ba588.txt: 324087 records, 527s]
+p=1.5 s=2.0: |dy| at n = 200..1600: 4.4e-16, 1.9e-16, 4.8e-15, 4.7e-15, 2.3e-14;  sd of N^4 R on n >= 600: old 6.1e-02, new 3.7e-04
+    N^-1: old -4.27e-11 (3e-11) PASS | new -4.54e-13 (1e-12) PASS
+    N^-2: old +1.49e-07 (1e-07) PASS | new +4.20e-10 (5e-09) PASS
+    N^-3: old -3.03e-04 (2e-04) PASS | new -2.08e-07 (1e-05) PASS
+   [refit data lat_p1.5_s3.0_d0.0__7dbc04de1ff67fef.txt: 322039 records, 358s]
+p=1.5 s=3.0: |dy| at n = 200..1600: 1.4e-16, 1.0e-15, 6.6e-16, 1.6e-14, 1.4e-14;  sd of N^4 R on n >= 600: old 5.8e-02, new 4.4e-04
+    N^-1: old +4.76e-11 (3e-11) PASS | new -6.73e-13 (1e-12) PASS
+    N^-2: old -1.60e-07 (1e-07) PASS | new +4.34e-09 (5e-09) PASS
+    N^-3: old +3.18e-04 (2e-04) PASS | new -1.34e-05 (1e-05) PASS
+   [refit data lat_p1.25_s2.0_d0.0__937bead6727c10c0.txt: 324087 records, 201s]
+p=1.25 s=2.0: |dy| at n = 200..1600: 5.9e-16, 1.8e-15, 1.4e-14, 7.7e-14, 1.7e-13;  sd of N^4 R on n >= 600: old 2.8e-01, new 5.2e-04
+    N^-1: old +3.94e-11 (3e-11) PASS | new -8.02e-13 (1e-12) PASS
+    N^-2: old -1.52e-07 (1e-07) PASS | new +5.61e-09 (5e-09) PASS
+    N^-3: old +5.17e-04 (4e-04) PASS | new -2.99e-05 (3e-05) PASS
+   [refit data lat_p2.5_s2.0_d0.0__bd4c307321f1102c.txt: 324087 records, 143s]
+p=2.5 s=2.0: |dy| at n = 200..1600: 2.0e-16, 6.6e-16, 2.9e-15, 9.1e-16, 2.4e-15;  sd of N^4 R on n >= 600: old 4.0e-03, new 5.2e-04
+    N^-1: old -1.72e-11 (2e-11) PASS | new +6.17e-13 (8e-13) PASS
+    N^-2: old +5.45e-08 (5e-08) PASS | new -1.87e-09 (3e-09) PASS
+    N^-3: old -6.03e-05 (6e-05) PASS | new +2.45e-06 (3e-06) PASS
+   [refit data lat_p3.0_s2.0_d0.0__b416c6ca379d8a67.txt: 324087 records, 139s]
+p=3.0 s=2.0: |dy| at n = 200..1600: 3.9e-17, 1.9e-16, 7.9e-17, 7.1e-16, 2.8e-17;  sd of N^4 R on n >= 600: old 2.7e-03, new 6.5e-04
+    N^-1: old +2.18e-12 (4e-13) PASS | new +1.57e-12 (2e-13) PASS
+    N^-2: old -4.03e-09 (9e-10) PASS | new -2.92e-09 (3e-10) PASS
+    N^-3: old +2.32e-06 (5e-07) PASS | new +1.66e-06 (1e-07) PASS
+   [refit data lat_p1.5_s2.5_d0.0__f3cf0b933d290909.txt: 322743 records, 142s]
+p=1.5 s=2.5: |dy| at n = 200..1600: 1.5e-16, 5.6e-16, 3.1e-15, 1.1e-14, 3.7e-14;  sd of N^4 R on n >= 600: old 5.9e-02, new 3.7e-04
+    N^-1: old +2.37e-12 (2e-12) PASS | new -5.86e-13 (3e-13) PASS
+    N^-2: old -7.48e-09 (8e-09) PASS | new +2.44e-09 (1e-09) PASS
+    N^-3: old +1.25e-05 (2e-05) PASS | new -6.73e-06 (3e-06) PASS
+   [refit data lat_p2.0_s3.0_d0.0__2cdc2368fa7da1a2.txt: 322039 records, 148s]
+p=2.0 s=3.0: |dy| at n = 200..1600: 2.4e-16, 9.8e-16, 7.3e-16, 1.3e-15, 2.3e-15;  sd of N^4 R on n >= 600: old 4.1e-03, new 4.3e-04
+    N^-1: old -1.86e-13 (2e-13) PASS | new +5.92e-15 (5e-14) PASS
+    N^-2: old +4.35e-10 (4e-10) PASS | new +8.38e-12 (1e-10) PASS
+    N^-3: old -3.20e-07 (3e-07) PASS | new -1.71e-08 (8e-08) PASS
+== JZC_M3a_H_G1u §5a (m3a_g1u_endtoend), beta' = -2.1 cases at K = 160000: old -> new ==
+   [refit data lat_p1.5_s1.75_d-0.8__8d7b512f528c4d7e.txt: 325431 records, 144s]
+  p=1.5 s=1.75 d=-0.8 old: d1 +0.82500000 (hr 6.6e-09, pred +0.82500000, dev -8.1e-11); d2 +0.66614474 (hr 3.5e-05, pred +0.66614583, dev -1.1e-06); eps1 -0.03665561 (hr 1.1e-03, pred -0.03664920, dev -6.4e-06)
+  p=1.5 s=1.75 d=-0.8 new: d1 +0.82500000 (hr 1.8e-09, pred +0.82500000, dev +1.6e-12); d2 +0.66614583 (hr 2.0e-06, pred +0.66614583, dev -4.7e-09); eps1 -0.03664919 (hr 2.1e-07, pred -0.03664920, dev +1.4e-08)
+   [refit data lat_p3.0_s2.5_d-0.8__37fea00f5695b259.txt: 322743 records, 143s]
+  p=3.0 s=2.5 d=-0.8 old: d1 +1.65000000 (hr 1.0e-10, pred +1.65000000, dev -1.9e-12); d2 +1.99208333 (hr 2.1e-08, pred +1.99208333, dev -2.1e-10); d3 +2.15072869 (hr 1.3e-05, pred +2.15072917, dev -4.8e-07)
+  p=3.0 s=2.5 d=-0.8 new: d1 +1.65000000 (hr 7.5e-11, pred +1.65000000, dev -1.8e-15); d2 +1.99208333 (hr 1.5e-10, pred +1.99208333, dev +1.5e-13); d3 +2.15072917 (hr 1.8e-09, pred +2.15072917, dev +6.7e-12)
