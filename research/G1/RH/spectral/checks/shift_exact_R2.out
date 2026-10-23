@@ -1,0 +1,37 @@
+sha256 shift_exact.py: 013c3c7376ffac52b4e10d801f7e6957e02ecdaac49e05214d8d005ff324b5f9
+sha256 shift_common.py: 1a4c1c70a5e4c0b976aa39e339dcc4dbde6f32607c7f4cd02b0a4d979d3f023a
+sha256 w2_engine.py: 8e69b2e33912b097cf6cf8abd27df0c9c0910735395e29c8292e4b2506bca02d
+sha256 shift_predictions.json: ac50dc6812012d37994267aaf9e619312fb06ed5d037b66e35babaff7293a1d8
+engine R2 {'DECOUPLE': '1', 'PVAL': '5/2', 'AVAL': '-3/5', 'BVAL': '-11/10', 'E1': '2', 'E2': '2', 'KORD': '4', 'SHI': '16'}: cached output eng_R2_c0ab56707127.json
+registration 2026-10-23T08:32:31-06:00 predates the engine output (2026-10-23T08:54:58)
+[1] identity: R2 LB nat[e1^0 e2^1][N^-1] = 5*k/4: holds -> PASS
+[2] identity: R2 LB nat[e1^0 e2^2][N^-2] = 5*k**2*(10*k + 7)/32: holds -> PASS
+[3] identity: R2 LB nat[e1^1 e2^0][N^-1] = 5*j/4: holds -> PASS
+[4] identity: R2 LB nat[e1^1 e2^1][N^-2] = 5*j*k*(5*j + 5*k + 7)/16: holds -> PASS
+[5] identity: R2 LB nat[e1^1 e2^2][N^-3] = 5*j*k**2*(5*j + 10*k + 7)*(5*j + 10*k + 9)/128: holds -> PASS
+[6] identity: R2 LB nat[e1^2 e2^0][N^-2] = 5*j**2*(10*j + 7)/32: holds -> PASS
+[7] identity: R2 LB nat[e1^2 e2^1][N^-3] = 5*j**2*k*(10*j + 5*k + 7)*(10*j + 5*k + 9)/128: holds -> PASS
+[8] identity: R2 LB nat[e1^2 e2^2][N^-4] = 5*j**2*k**2*(10*j + 10*k + 7)*(10*j + 10*k + 9)*(10*j + 10*k + 11)/1024: holds -> PASS
+   (26 LB coefficients compared; the zero coefficients below the leading order are asserted silently, all hold)
+[9] CONTROL (must fail): R2 control e1^0 e2^2: shift coefficient 1/(2p): fails -> PASS
+[10] CONTROL (must fail): R2 control e1^0 e2^2: exponent p + 2 + S: fails -> PASS
+[11] CONTROL (must fail): R2 control e1^1 e2^1: shift coefficient 1/(2p): fails -> PASS
+[12] CONTROL (must fail): R2 control e1^1 e2^1: exponent p + 2 + S: fails -> PASS
+[13] CONTROL (must fail): R2 control e1^1 e2^2: shift coefficient 1/(2p): fails -> PASS
+[14] CONTROL (must fail): R2 control e1^1 e2^2: exponent p + 2 + S: fails -> PASS
+[15] CONTROL (must fail): R2 control e1^2 e2^0: shift coefficient 1/(2p): fails -> PASS
+[16] CONTROL (must fail): R2 control e1^2 e2^0: exponent p + 2 + S: fails -> PASS
+[17] CONTROL (must fail): R2 control e1^2 e2^1: shift coefficient 1/(2p): fails -> PASS
+[18] CONTROL (must fail): R2 control e1^2 e2^1: exponent p + 2 + S: fails -> PASS
+[19] CONTROL (must fail): R2 control e1^2 e2^2: shift coefficient 1/(2p): fails -> PASS
+[20] CONTROL (must fail): R2 control e1^2 e2^2: exponent p + 2 + S: fails -> PASS
+   nat[e1^0 e2^1] = ['0', '5*k/4', '0', 'k*(3125*k**4 + 11250*k**3 + 7325*k**2 + 1330*k - 1926)/(9600*(2*k - 1))', '0']
+   nat[e1^0 e2^2] = ['0', '0', '5*k**2*(10*k + 7)/32', '0', 'k**2*(187500*k**6 + 443750*k**5 + 110875*k**4 - 170100*k**3 - 108385*k**2 - 5000*k + 10593)/(38400*(2*k - 1)**2)']
+   nat[e1^1 e2^0] = ['0', '5*j/4', '0', 'j*(3125*j**4 + 11250*j**3 + 7325*j**2 + 1330*j - 1926)/(9600*(2*j - 1))', '0']
+   nat[e1^1 e2^1] = ['0', '0', '5*j*k*(5*j + 5*k + 7)/16', '0', 'j*k*(31250*j**5*k - 15625*j**5 + 93750*j**4*k**2 + 134375*j**4*k - 90625*j**4 + 125000*j**3*k**3 + 325000*j**3*k**2 + 127000*j**3*k - 160375*j**3 + 93750*j**2*k**4 + 325000*j**2*k**3 + 149000*j**2*k**2 - 9725*j**2*k - 87225*j**2 + 31250*j*k**5 + 134375*j*k**4 + 127000*j*k**3 - 9725*j*k**2 - 42320*j*k - 5000*j - 15625*k**5 - 90625*k**4 - 160375*k**3 - 87225*k**2 - 5000*k + 21186)/(38400*(2*j - 1)*(2*k - 1))']
+   nat[e1^1 e2^2] = ['0', '0', '0', '5*j*k**2*(5*j + 10*k + 7)*(5*j + 10*k + 9)/128', '0']
+   nat[e1^2 e2^0] = ['0', '0', '5*j**2*(10*j + 7)/32', '0', 'j**2*(187500*j**6 + 443750*j**5 + 110875*j**4 - 170100*j**3 - 108385*j**2 - 5000*j + 10593)/(38400*(2*j - 1)**2)']
+   nat[e1^2 e2^1] = ['0', '0', '0', '5*j**2*k*(10*j + 5*k + 7)*(10*j + 5*k + 9)/128', '0']
+   nat[e1^2 e2^2] = ['0', '0', '0', '0', '5*j**2*k**2*(10*j + 10*k + 7)*(10*j + 10*k + 9)*(10*j + 10*k + 11)/1024']
+ALL 20 CHECKS PASSED (8 identities, 12 controls; failures: 0)
+EXIT 0
