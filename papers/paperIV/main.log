@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.18)  23 OCT 2026 11:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.18)  23 OCT 2026 11:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -344,30 +344,30 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 50.
 
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 50.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -458,164 +458,120 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 149.
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 52.
+Package hyperref Info: Link coloring ON on input line 50.
  (./main.out)
 (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
- (./sec1.tex [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
-) (./sec2.tex
-LaTeX Font Info:    Trying to load font information for U+euf on input line 38.
+ (./p1_intro.tex [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 46.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [5] [6]) (./sec3.tex [7] [8]
-Underfull \hbox (badness 1024) in paragraph at lines 114--117
-[]$\OML/cmm/m/it/10.95 y^^[\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y\OT1/cmr/m/
-n/10.95 ) = []\OML/cmm/m/it/10.95 y[]$ \OT1/cmr/m/n/10.95 is strictly de-creas-
-ing and (H3) holds. Equa-tion [] reads
- []
-
-[9] [10]) (./sec4.tex [11]
-Underfull \hbox (badness 1895) in paragraph at lines 94--102
-\OT1/cmr/m/n/10.95 with com-plex $\OML/cmm/m/it/10.95 w$\OT1/cmr/m/n/10.95 ; th
-e strip comes from $\U/euf/m/n/10.95 j\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 r
-\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^X [] [] \OML/cmm/m/it/10.95 r$ \OT1/
-cmr/m/n/10.95 at in-fin-ity and the super-
+) [2] [3])
+(./p2_frame.tex [4]) (./p3_kernel.tex [5] [6] [7]) (./p4_main.tex
+Underfull \hbox (badness 2521) in paragraph at lines 24--28
+\OT1/cmr/m/it/10.95 uni-formly, with $\OT1/cmr/m/n/10.95 ^^A[] = (2\OML/cmm/m/i
+t/10.95 f[]\OT1/cmr/m/n/10.95 )[]\OML/cmm/m/it/10.95 P[]^^Z[]\OT1/cmr/m/n/10.95
+ (\OML/cmm/m/it/10.95 ^^[[]\OT1/cmr/m/n/10.95 ^^D[]\OML/cmm/m/it/10.95 ^^[[]\OT
+1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ^^Z[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.
+95 P[]\OT1/cmr/m/n/10.95 )[]$ \OT1/cmr/m/it/10.95 on $\OML/cmm/m/it/10.95 @U[]$
+\OT1/cmr/m/it/10.95 , $\OT1/cmr/m/n/10.95 ^^A[] =
  []
 
 
-Underfull \hbox (badness 1297) in paragraph at lines 94--102
-\OT1/cmr/m/n/10.95 exponential de-cay at $0$. Ex-pand $(1 + \OML/cmm/m/it/10.95
- v\OT1/cmr/m/n/10.95 )[]$ with $\OML/cmm/m/it/10.95 v \OT1/cmr/m/n/10.95 = \OMS
-/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 4\OML/cmm/m/it/10.95 ce[]=r$ \OT1/cmr/m/n
-/10.95 by [] (now
+Underfull \hbox (badness 2020) in paragraph at lines 24--28
+\OT1/cmr/m/n/10.95 (\OMS/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10
+.95 =[]\OT1/cmr/m/n/10.95 )[]\OML/cmm/m/it/10.95 P[]\OT1/cmr/m/n/10.95 (\OMS/cm
+sy/m/n/10.95 ^^@\OML/cmm/m/it/10.95 !\OT1/cmr/m/n/10.95 )[]\OML/cmm/m/it/10.95 
+X[]\OT1/cmr/m/n/10.95 (\OMS/cmsy/m/n/10.95 ^^@\OML/cmm/m/it/10.95 !\OT1/cmr/m/n
+/10.95 )[](\OML/cmm/m/it/10.95 P[]\OT1/cmr/m/n/10.95 )[]$ \OT1/cmr/m/it/10.95 o
+n $\OML/cmm/m/it/10.95 @U[]$\OT1/cmr/m/it/10.95 , and $\OT1/cmr/m/n/10.95 ^^A[]
+ = \OML/cmm/m/it/10.95 G[]\OT1/cmr/m/n/10.95 ^^A[]\OML/cmm/m/it/10.95 G[] \OT1/
+cmr/m/n/10.95 +
  []
 
-[12]) (./sec5.tex [13] [14] [15]
-Underfull \hbox (badness 2237) in paragraph at lines 152--157
-[]\OT1/cmr/m/n/10.95 Define $\U/euf/m/n/10.95 D[]\OT1/cmr/m/n/10.95 (\OML/cmm/m
-/it/10.95 n\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 ^^V\OT1/cmr/m/n/10.95 ) := 
-((\OML/cmm/m/it/10.95 Q[]\OT1/cmr/m/n/10.95 )[](\OML/cmm/m/it/10.95 Q[]\OT1/cmr
-/m/n/10.95 )[])[]\OML/cmm/m/it/10.95 =c$\OT1/cmr/m/n/10.95 , ex-panded to or-de
-r $\OML/cmm/m/it/10.95 n[]$\OT1/cmr/m/n/10.95 , where $\OML/cmm/m/it/10.95 Q[] 
-\OT1/cmr/m/n/10.95 =
- []
-
-[16] [17]
-Underfull \hbox (badness 1681) in paragraph at lines 235--242
-[]\OT1/cmr/m/n/10.95 (i) By [] and Propo-si-tion [][]5.5[][], $\OML/cmm/m/it/10
-.95 n[]b[] \OT1/cmr/m/n/10.95 = (\OML/cmm/m/it/10.95 Q[]\OT1/cmr/m/n/10.95 )[](
-\OML/cmm/m/it/10.95 Q[]\OT1/cmr/m/n/10.95 )[]$ with $\OML/cmm/m/it/10.95 Q[] \O
-T1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 P[] \OT1/cmr/m/n/10.95 +
- []
-
-
-Underfull \hbox (badness 1117) in paragraph at lines 235--242
-[][] \OT1/cmss/m/n/10.95 R[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^V[]\OT1/c
-mr/m/n/10.95 )\OML/cmm/m/it/10.95 n[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 
-O\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it
-/10.95 n[]\OT1/cmr/m/n/10.95 )$. The $\OML/cmm/m/it/10.95 n[]$ \OT1/cmr/m/n/10.
-95 term of $(\OML/cmm/m/it/10.95 Q[]\OT1/cmr/m/n/10.95 )[](\OML/cmm/m/it/10.95 
-Q[]\OT1/cmr/m/n/10.95 )[]$ is $\OML/cmm/m/it/10.95 c[]$\OT1/cmr/m/n/10.95 ,
- []
-
-[18]) (./secS.tex [19] [20] [21]
-Underfull \hbox (badness 1838) in paragraph at lines 206--207
- \OT1/cmr/m/n/10.95 6.4.\OT1/cmr/bx/n/10.95 The zeta layer as a Toda flow.[][] 
+[8] [9]) (./p5_structure.tex [10] [11]
+Underfull \hbox (badness 1838) in paragraph at lines 85--86
+ \OT1/cmr/m/n/10.95 5.3.\OT1/cmr/bx/n/10.95 The zeta layer as a Toda flow.[][] 
 \OT1/cmr/m/n/10.95 In the un-scaled vari-able the band fac-tor
  []
 
-[22] [23] [24] [25] [26]) (./secH.tex [27] [28] [29]) (./sec6.tex [30] [31]
-[32] [33] [34] [35] [36]) (./sec7.tex
-Underfull \hbox (badness 1424) in paragraph at lines 20--22
-[]\OT1/cmr/m/it/10.95 for ev-ery pole $\OML/cmm/m/it/10.95 q \OMS/cmsy/m/n/10.9
-5 6\OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 1\OML/cmm/m/i
-t/10.95 =p$ \OT1/cmr/m/it/10.95 of $\OML/cmm/m/it/10.95 Z[]\OT1/cmr/m/n/10.95 (
-\OMS/cmsy/m/n/10.95 ^^@\OML/cmm/m/it/10.95 w\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/
-10.95 ^^@ \OML/cmm/m/it/10.95 ^^P\OT1/cmr/m/n/10.95 (\OMS/cmsy/m/n/10.95 ^^@\OM
-L/cmm/m/it/10.95 pw\OT1/cmr/m/n/10.95 )$\OT1/cmr/m/it/10.95 , with residue $\OM
-L/cmm/m/it/10.95 R[]$\OT1/cmr/m/it/10.95 , the term
- []
-
-[37] [38] [39] [40]) (./sec8.tex [41]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [42])
-(./secA.tex [43]
-Underfull \hbox (badness 10000) in paragraph at lines 61--63
-[]\OT1/cmtt/m/n/10 spec[]pole\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 spec[]gamma\OT1
-/cmr/m/n/10 , \OT1/cmtt/m/n/10 spec[]kappa\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 sp
-ec[]kappa[]fit\OT1/cmr/m/n/10 ,
+[12] [13]) (./p6_hurwitz.tex [14] [15]) (./p7_weyl.tex [16] [17] [18])
+(./p8_lit.tex [19]) (./pA_equilibrium.tex [20]) (./pB_repro.tex [21]
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
+\OT1/cmtt/m/n/10 toda[]measures\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 toda[]layers\
+OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 shift[]toda\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10
+ shift[]exact\OT1/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 3148) in paragraph at lines 66--68
-[]\OT1/cmtt/m/n/10 m4[]shift[]exact\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 sigma[]fr
-ame[]exact \OT1/cmr/m/n/10 (ex-act), \OT1/cmtt/m/n/10 m4[]shift[]num\OT1/cmr/m/
-n/10 ,
+Underfull \hbox (badness 10000) in paragraph at lines 59--60
+[]\OT1/cmtt/m/n/10 m3a[]e37[]decoupled\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 m3a[]g
+5[]exact \OT1/cmr/m/n/10 (ex-act), \OT1/cmtt/m/n/10 m3a[]hd[]model\OT1/cmr/m/n/
+10 ,
  []
 
 
-Underfull \hbox (badness 4686) in paragraph at lines 74--76
-[]\OT1/cmtt/m/n/10 spec[]jitter\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 spec[]window\
-OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 spec[]edgekernel\OT1/cmr/m/n/10 , \OT1/cmtt/m
-/n/10 spec[]stats\OT1/cmr/m/n/10 ,
+Underfull \hbox (badness 10000) in paragraph at lines 60--62
+\OT1/cmtt/m/n/10 spec[]gamma\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 spec[]corners\OT
+1/cmr/m/n/10 , \OT1/cmtt/m/n/10 spec[]homog\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 s
+pec[]jitter\OT1/cmr/m/n/10 ,
  []
 
-) (./main.bbl [44] [45]) [46] (./main.aux)
+) (./main.bbl [22]) [23] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F39DECBEE0446650A3E2666C27778581;10827.
+(rerunfilecheck)             Checksum: 1A96ED0F949CF3B1DDAFCC2AD9DC71AE;7226.
  ) 
 Here is how much of TeX's memory you used:
- 11969 strings out of 476106
- 179451 string characters out of 5793932
+ 11789 strings out of 476106
+ 177672 string characters out of 5793932
  1950975 words of memory out of 5000000
- 33397 multiletter control sequences out of 15000+600000
- 575066 words of font info for 100 fonts, out of 8000000 for 9000
+ 33307 multiletter control sequences out of 15000+600000
+ 575447 words of font info for 101 fonts, out of 8000000 for 9000
  220 hyphenation exceptions out of 8191
- 75i,12n,79p,643b,703s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,589b,695s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </root/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> </
-root/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (46 pages, 723948 bytes).
+root/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcti1095.600pk> </root/
+.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (23 pages, 558131 bytes).
 PDF statistics:
- 1388 PDF objects out of 1440 (max. 8388607)
- 1263 compressed objects within 13 object streams
- 231 named destinations out of 1000 (max. 500000)
- 441 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 844 PDF objects out of 1000 (max. 8388607)
+ 746 compressed objects within 8 object streams
+ 143 named destinations out of 1000 (max. 500000)
+ 289 words of extra memory for PDF output out of 10000 (max. 10000000)
 

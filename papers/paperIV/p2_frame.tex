@@ -1,0 +1,56 @@
+% Section 2: the frame of Paper II (recap; compressed from archive/sec2.tex).
+\section{The frame of \texorpdfstring{\cite{PaperII}}{[II]}}\label{sec:frame}
+% TODO (before submission): Lemmas 2.1, 2.2, 2.3 (band factor, gauge, linear response) and the second-order (k <= 2) versions of the
+% jump and small-norm estimates are proved in the repository notes research/G1/RH/second_order/E2_pgt1.md (Theorem E2.1) and E3.md
+% (Theorems E3.1, E3.2, Corollaries E3.3, E3.4, Lemmas F.1', E3.4, E3.7), both reviewed, but they are not in any paper. Either write
+% them into an appendix of this paper or into a separate paper, and replace this comment by a citation.
+
+We use the notation of \cite[Sections~4, 8 and~10]{PaperII}. After the rescaling $z=n^px$ the polynomials oscillate on the band
+$[0,4c]$, with a hard edge at $0$ and a soft edge at $4c$; the weight on the band is $W_0=\mathsf w_nz^\alpha(4c-z)H_n(z)$, with a constant
+$\mathsf w_n>0$ and the \emph{band factor} $H_n$, which collects the discreteness of the nodes. With
+$\mathsf T:=\frac1{\sqrt2}\bigl(\begin{smallmatrix}1&1\\i&-i\end{smallmatrix}\bigr)$ and
+$P_0^\infty=\mathsf T((z-4c)/z)^{\sigma_3/4}\mathsf T^{-1}$, the error matrix $\mathsf R$ of the steepest-descent analysis has jumps
+$I+O(1/n)$ on two small circles around $0$ and $4c$, exponentially small jumps elsewhere, and
+\begin{equation}\label{eq:extract}
+  n^{2p}b_n^2=(Q_1)_{12}(Q_1)_{21},\qquad Q_1=P_1+\mathsf R_1,
+\end{equation}
+where $P_1$ and $\mathsf R_1$ are the $1/z$ coefficients at infinity of the global parametrix and of $\mathsf R$
+\cite[Lemmas~4.1, 4.2, Proposition~5.6]{PaperII}. ``Mod'' denotes the \emph{model weight} $z^\alpha(4c-z)$ ($H_n$ replaced by a constant).
+
+The band factor is $H_n=e^{-2G}$, where $G$ is a Cauchy integral of an explicit jump density on $(-\infty,0)$ for $p>1$, and on the two
+seams $\arg z=\pm\pi p/2$ for $0<p<1$ \cite[Lemmas~8.1 and~10.1]{PaperII}. Its moments are zeta values:
+
+\begin{lemma}[band factor]\label{lem:Fprime}
+Let $p\ne1$ and $K\ge1$. The $k$-th moment of the jump density of $G$ is $m_k=\zeta(-kp)/(kn^{kp})$, and
+\[
+  \log H_n(z)-\log H_n(1)=-\sum_{k\le K}\mu_{n,k}(z^k-1)+O(n^{-(K+1)p}),\qquad\mu_{n,k}=\frac{2\zeta(-kp)}{kn^{kp}},
+\]
+uniformly for $|z|\le4c+2$, boundary values included, with one derivative.
+\end{lemma}
+
+For $p<1$ this is \cite[Lemma~10.1(iii)--(iv)]{PaperII}. For $p>1$ it is the same computation on the negative axis: expand the jump
+density in powers of $\exp(-a_nr^{-1/p})$, $\Re a_n=2\pi n\sin(\pi/p)>0$, integrate termwise by \cite[(5.9.1)]{DLMF}, sum by
+\cite[(25.2.1)]{DLMF}, and apply the reflection formula \cite[(25.4.1)]{DLMF}.
+
+So the band factor is an exponential tilt $q_\mu(z)=\exp(-\sum_k\mu_kz^k)$ at $\mu=\mu_n$. With
+\begin{equation}\label{eq:Qk}
+  Q_k(z):=\sum_{j=0}^{k-1}\binom{2j}{j}c^jz^{k-1-j},\qquad M_\mu(z):=\sum_k\mu_kQ_k(z),\qquad Q_k(4c)=\tfrac12c^{k-1}k\tbinom{2k}{k},
+\end{equation}
+and $\mathcal R(z)=(z(z-4c))^{1/2}$, tilts act on the jump data by an entire conjugation, and their first-order effect on $b_n$ is exactly linear:
+
+\begin{lemma}[gauge]\label{lem:gauge}
+For the weight $z^\alpha(4c-z)q_\mu(z)$ the jump data on the two circles are $\Delta_k^\mu=G_\mu\Delta_k^{\mathrm{mod}}G_\mu^{-1}$ with
+$G_\mu=P_0^\infty e^{-\mathcal RM_\mu\sigma_3/2}(P_0^\infty)^{-1}$, which is entire in $(z,\mu)$, $\det G_\mu=1$.
+\end{lemma}
+
+\begin{lemma}[linear response]\label{lem:E37}
+For every $\mu\in\C^K$, the $1/n$ coefficient of $n^pb_n/c$ for the weight of Lemma~\ref{lem:gauge} is $d_1+cp\,M_\mu(4c)$, with
+$d_1=-p(\alpha+1)/2$; it is exactly linear in $\mu$.
+\end{lemma}
+
+Lemma~\ref{lem:gauge} is the formula for the Szeg\H{o} function of an exponential tilt (the arcsine moments of $[0,4c]$ are
+$\binom{2j}jc^j$). Lemma~\ref{lem:E37} is a direct computation: expanding $G_\mu$ at $0$ and at $4c$, the residue at $0$ is unchanged and the
+residue at $4c$ moves by a matrix quadratic in $M_\mu(4c)$, but the combination entering the $1/n$ coefficient moves by exactly
+$cpM_\mu(4c)$. At $\mu=\mu_n$ this gives the zeta terms $cp\,\mu_{n,j}Q_j(4c)=\varepsilon_jn^{-jp}$, and with $\mu=0$ the $1/n$
+coefficient $d_1=-p(\alpha+1)/2$ of \cite[Theorem~1.4]{PaperII}; since $(1+\delta/n)^{-p}=1-p\delta/n+O(n^{-2})$, $d_1$ is the first term of
+$(n/N)^p$, the origin of~\eqref{eq:N}.

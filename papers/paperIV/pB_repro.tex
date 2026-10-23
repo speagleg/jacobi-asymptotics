@@ -1,0 +1,69 @@
+% Appendix B: closed forms (from archive/sec5.tex) and reproducibility (from archive/secA.tex, trimmed to the scripts cited).
+\section{Closed forms and reproducibility}\label{app:repro}
+
+\subsection*{Closed forms of Lemma~\ref{lem:N6d}}
+\begin{equation}\label{eq:f6}
+  f_6=\frac{\phi_0+\phi_2\alpha^2+\phi_4\alpha^4+\phi_6\alpha^6}{(3p+2)^2(5p+2)},
+\end{equation}
+\begin{align*}
+  \phi_0&=-\frac{p+1}{362880\,p^2}\bigl(450p^8+1590p^7-316p^6-23761p^5-66864p^4\\
+  &\qquad\qquad-65507p^3-18220p^2-1632p-40\bigr),\\
+  \phi_2&=\frac{(p+1)(p+2)(90p^6+270p^5+664p^4-165p^3-1649p^2-288p+28)}{11520\,p},\\
+  \phi_4&=-\frac{(p+1)(p+2)^2(20p^4+45p^3+162p^2+72p+16)}{1536},\\
+  \phi_6&=\frac{p(p+2)^3(16p^3+7p^2-4p-4)}{3072},
+\end{align*}
+\begin{multline}\label{eq:g14}
+  g_{1,4}=\frac{p+1}{5760\,p^2(3p+2)}\bigl(9p^6+117p^5+161p^4-569p^3-1550p^2-976p+48\bigr)\\
+  +\frac{(p+1)(p+2)(3p^4+33p^3+124p^2+182p+108)\alpha^2}{192\,p(3p+2)}
+  +\frac{(p+2)^3(p^3-4p-4)\alpha^4}{128\,p(3p+2)},
+\end{multline}
+\begin{equation}\label{eq:h2}
+  h_2=\frac{(p+1)(p+2)(3p^2+2p+1)}{8p^2}+\frac{(p+2)(2p^3-p^2-7p-6)\alpha^2}{16p^2}.
+\end{equation}
+At $(p,\alpha)=(2,-\frac12)$, $f_4=\frac3{128}$ and $f_6=\frac5{1024}$, as in Proposition~\ref{prop:bessel}.
+
+\subsection*{Scripts}
+All scripts are in \texttt{research/G1/RH/spectral/checks} of the repository named in the data availability statement, next to their stored
+outputs. They use the project's toolkit (quadruple-precision recurrence coefficients, with caches keyed by a hash of the node array and of
+$(p,s,K)$), \texttt{mpmath} and \texttt{sympy}; scripts that test a prediction end with assertions and print ``ALL $n$ CHECKS PASSED'' or ``ALL
+IDENTITIES HOLD''. The exact runs of Lemma~\ref{lem:N6d} begin with the SHA-256 hashes of the scripts that produced them:
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+script & SHA-256 & runs (content)\\
+\midrule
+\texttt{m4\_rh\_exact.py} & \texttt{1e2904089fa3053cd6a7249dd4cd6149} & \texttt{m4\_rh\_exact\_k4}, \texttt{\_k6}\\
+ & \texttt{2be3bb9c90b46c0932ff2507c9d9ffcc} & (Lemma~\ref{lem:N6d}(a))\\
+\texttt{m4\_zeta\_exact.py} & \texttt{3df62305bba0a4801a767c252eeee000} & \texttt{m4\_zeta\_exact}\\
+ & \texttt{31e499f7c80a36946542fea6cd834041} & ((b), $j\le5$; $g_{1,4}$)\\
+\texttt{m4\_rh\_exact2.py} & \texttt{143a308b8744bfccf3110c3a3f4a60a8} & (shared engine)\\
+ & \texttt{f192268b0f65f78b64bf8bd76c116521} & \\
+\texttt{m4\_zeta\_exact2.py} & \texttt{badda6a534fbf621c2bbef3eca6c7822} & \texttt{\_A}: (b), $j$ symbolic;\\
+ & \texttt{b26d13493a655a1655860449a8bab9f4} & \texttt{\_B}: (c)\\
+\bottomrule
+\end{tabular}
+\end{center}
+The first two runs also assert $b_k=a_k+(k-\frac12)a_{k-1}$ (the termwise derivative of \cite[(10.40.2)]{DLMF}) and the recursion for $u_k,v_k$ of
+\cite[(9.7.2)]{DLMF} for $k\le8$. The other scripts cited are:
+\begin{center}
+\small
+\begin{tabular}{lp{10cm}}
+\toprule
+used in & scripts\\
+\midrule
+\S\ref{sec:kernel}, App.~\ref{app:Q} & \texttt{m1\_theoremQ}, \texttt{m1\_edge}, \texttt{spec\_kernel}, \texttt{m2\_thmK\_plt1}\\
+\S\ref{sec:natural} & \texttt{m4\_rh4}, \texttt{m4\_f8\_denominator}, \texttt{spec\_lommel}\\
+\S\ref{sec:structure} & \texttt{m4\_shift\_exact}, \texttt{sigma\_frame\_exact} (exact), \texttt{sigma\_frame\_num}, \texttt{toda\_measures},
+  \texttt{toda\_layers}, \texttt{shift\_toda}, \texttt{shift\_exact}, \texttt{shift\_dressing}, \texttt{m4\_toda}, \texttt{m4\_diag}\\
+\S\ref{sec:hurwitz} & \texttt{m3a\_e37\_decoupled}, \texttt{m3a\_g5\_exact} (exact), \texttt{m3a\_hd\_model}, \texttt{w\_outer\_e2e}\\
+\S\ref{sec:weyl} & \texttt{w\_predict}, \texttt{w\_test}, \texttt{w\_resid}, \texttt{w\_probe}, \texttt{w\_probe2}, \texttt{spec\_pole},
+  \texttt{spec\_gamma}, \texttt{spec\_corners}, \texttt{spec\_homog}, \texttt{spec\_jitter}, \texttt{spec\_stats}, \texttt{large\_order/*}\\
+\bottomrule
+\end{tabular}
+\end{center}
+The shell script \texttt{run\_all.sh} regenerates the exact runs (about $35$ minutes) and the \texttt{m1\_}, \texttt{m4\_} and
+\texttt{spec\_} computations; the scripts \texttt{sigma\_*}, \texttt{toda\_*}, \texttt{shift\_*}, \texttt{m3a\_*}, \texttt{w\_*}, \texttt{m4\_toda},
+\texttt{m4\_diag} and \texttt{large\_order/*} are run individually, and the measures of \S\ref{sec:evidence} are cached outside the repository.
+% TODO: add the individually run scripts to run_all.sh (the W caches live in tmp/w_cache, gitignored) before the tag is made; check
+% which spec_ scripts run_all.sh actually executes (some are listed there only in comments).

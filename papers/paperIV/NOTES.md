@@ -263,3 +263,61 @@ updated in parallel (marked "(Rule L, 2026-10-23)").
 Build: `pdflatex main; bibtex main; pdflatex main ×3` (a third pdflatex pass was needed for the shifted labels) → **46 pages**, 0 errors,
 0 overfull boxes, 0 undefined references; 12 underfull boxes (cosmetic); 1 BibTeX warning (missing pages in BeckermannKuijlaars2001,
 pre-existing).
+
+## Restructuring plan (2026-10-23): focused version, target 20–25 pp
+Instruction (user): "I am not interested in a 45 page paper that rehashes known results, so we fix the paper to highlight the novel
+results and only use what is necessary for support." The 46-page draft (sec1–sec8, secS, secH, secA) is moved unchanged to
+`archive/` (not built). New files `p1_intro.tex` … `p8_lit.tex`, `pA_equilibrium.tex`, `pB_repro.tex`. Title: "Spectral zeta values in
+the recurrence coefficients of reciprocal spectra". No statement is strengthened; labels (proved / conjecture / numerical) as in the memos.
+
+| § | Title | budget | Content | from (old) |
+|---|---|---|---|---|
+| 1 | Introduction | 4 pp | setting; **Thm A** (lattice: double expansion with ζ(−jp) monomials, natural index N = n + α/2 − ζ(0), evenness of the integer layer, explicit expansion to n⁻⁷ + n^{−2−3p}); **Thm B** (Mellin–Barnes kernel); **Thm C** (Hurwitz = Szegő shift); **Thm D** (κ-family pole term); the dictionary + Conj W in words; one paragraph new vs known; organisation | sec1 (rewritten), sec8 verdicts |
+| 2 | The frame of [II] | 1 p | recap only: extraction (eq:extract), band factor = tilt (Lemma Fprime), gauge, linear response (statements; proofs cited / one-line) | sec2 (Thm 2.1 and Thm E2E3 cut to sentences) |
+| 3 | Equilibrium and kernel | 3 pp | Prop (constrained equilibrium, infinite-mass hard edge; proof → App. A), Cor a = 4c, Lemma K0, Prop M1.2 (with its short proof), Thm K = Thm B (proof compressed), one remark | sec3, sec4 §§4.1–4.2 |
+| 4 | Proof of Theorem A | 4 pp | residue recursion (N.6a–c as one proposition, proof sketch), Lemma N.6d, Thm N.6, visibility table, Bessel zeros (exact anchor); closed forms f₆, g₁,₄, h₂ → App. B | sec5 |
+| 5 | Natural index and Toda structure (tools) | 3 pp | decoupled model; Thm (shift + reflection + evenness; credits KT, Bleher–Its), proof sketch (m-frame); Toda identities (cited, VanAsscheToda), Thm T compressed (EMP credit); index-shift law (Ercolani credit), one remark (diagonal layer, parity, 1/(2j−1)) | secS |
+| 6 | Hurwitz lattices and their shifts | 3 pp | Thm H = Thm C (+ Dixit–Kumar quote), index transfer, outline (H-a)–(H-f) compressed; Thm κ = Thm D + outline | secH |
+| 7 | Weyl-type spectra: Conjecture W | 3 pp | (W1)–(W5), spectral data, Conj W, proved cases, one compact pre-registered evidence table, Remark (sphere n⁻⁴ failure, W′), Remark (further directions: drums, oscillators, irregular spectra, large order: one sentence each), three open problems | sec7 §§7.3–7.5, sec6 §6.5 table (trimmed) |
+| 8 | Relation to the literature | 1.5 pp | short, honest; "according to" kept | sec8 (compressed) |
+| A | Proof of the equilibrium proposition | 1.5 pp | proof of Thm Q (i)–(iv) verbatim (the new, infinite-mass case) | sec3 |
+| B | Closed forms and reproducibility | 1.5 pp | f₆, g₁,₄, h₂; script hashes; script ↔ section table (trimmed) | sec5, secA |
+
+**Cut (kept in archive/ only):** Thm 2.1 and Thm 2.5 (E2E3) as statements (one sentence each); Remark Q(a),(c), Remark drum-root, Remark
+Q-checks (one sentence); §4.3 perturbed index functions (Prop 4.4, Rem 4.5, hypothetical); Prop N.1 (folded into one sentence); Remark N6
+(b)–(d) (one sentence each, or into §5 remark); Lemma BR; Theorem reflect as a separate theorem (now part (ii) of the structure theorem,
+proof three lines); the Toda tilt lemma's proof (cited as classical); Prop diag4 / Conj diag (one remark); Rem parity (one sentence);
+Rem indexshift-poles (one sentence); all of sec6 except a trimmed Table W (lattice tables 6.1–6.2, Hurwitz table 6.3, pole-law table 6.4,
+κ paragraph, subleading pole table 6.5, drums 6.6, oscillators 6.7, noise 6.8); sec7 Conj natural (now the first-order reading of W in §1),
+Rem sublead, Conj S4, Conj S1N′ (now open problem), large-order paragraph (one sentence), Rem companion (one sentence), Problem kernel2 (open
+problem), §7.3 "what a proof needs", Rem S2 (TODO, not in any paper), §7.4.
+
+### Result of the restructuring (2026-10-23)
+Build: `pdflatex main; bibtex main; pdflatex main ×3` → **23 pages** (body §§1–8 ≈ 19 pp, App. A–B ≈ 3 pp, refs 1 p), 0 errors, 0 overfull
+boxes, 0 undefined references, 6 underfull boxes (cosmetic), 1 BibTeX warning (missing pages in BeckermannKuijlaars2001, pre-existing).
+Abstract 1288 characters of source. Old draft: `archive/sec*.tex`, `archive/main_46pp.tex`, `archive/main_46pp.pdf`.
+Bibliography: 28 entries cited; VanAsscheVanBaelen, MarinoSchiappaWeiss, CostinGaroufalidis are no longer cited (kept in refs.bib, not
+printed). All Rule C "verify before submission" flags kept unchanged. TODO comments kept (frame lemmas E2/E3 not in a paper; Lommel masses;
+McMahon; Dunham term; run_all.sh; data tag).
+
+New numbering: Thm A (= Thm 4.3 + Cor 5.2), Thm B (= Thm 3.6), Thm C (= Thm 6.1), Thm D (= Thm 6.3), Prop 3.1 (= JZC_M1 Thm Q),
+Cor 3.2, Lemma 3.3 (K0), Prop 3.4 (M1.2), Prop 4.1 (N.6a–c merged), Lemma 4.2 (N.6d), Thm 4.3 (N.6), Prop 4.4 (Bessel), Thm 5.1
+(reflection + shift + zeta-layer shift), Cor 5.2, Thm 5.3 (Toda), Thm 5.4 (index shift), Rem 5.5 (diagonal layer, parity), Conj 7.1 (W),
+Rem 7.2 (sphere, W′, companion), Rem 7.3 (further directions), Problem 7.4.
+
+**Statements whose wording changed (no mathematical strengthening):**
+- Thm A: now one main theorem combining Thm N.6 (i), (iii) and Cor Σ.1 (evenness to all orders) with the natural form of the computed layers;
+  (i) is stated without J (the n^{−1−(J+1)p} remainder is absorbed by choosing J ≥ K/p); N written as n + α/2 − ζ(0).
+- Thm D (intro) / Thm 6.3: the footnote "minor corrections still being incorporated" removed, since JZC_W_kappa / JZC_W_exact record the
+  review-B fixes K1–K4, A1–A2, W1–W3 as applied (2026-10-22); the statement itself is unchanged (displayed form, O(n^{−1−p})).
+- Thm C (Theorem Q) of the old draft is now Proposition 3.1, stated without the auxiliary identity for πsqrt(x(a−x))ν (moved into the proof,
+  App. A); old Remark Q(a)–(b) merged into Remark A.1.
+- Lemma 2.3 (linear response) restated directly as "the 1/n coefficient is d₁ + cpM_μ(4c)" (was defined through e(μ)); same content.
+- Old Theorem 6.1 (reflection) and Theorem 6.3 (shift) merged into Theorem 5.1 (i)–(iii); Lemma `lem:frame` folded into the proof sketch
+  of 5.1(ii) (same range p > 1, |α| < 1, 0 ≤ γ < (1 − |α|)/2; transfer still "written out in the notes of the repository").
+- Lemma `lem:todatilt` no longer has its own proof (cited as classical, VanAsscheToda Lemma 2.1, Thm 2.4).
+- Prop `prop:diag4` and Conj `conj:diag` became Remark 5.5 (a₂ stated, a₄ dropped; beyond order four "supported only numerically").
+- Conj `conj:natural` (natural-index law) is no longer a separate conjecture: it is described as the first-order reading of Conj W
+  (eq. (1.8), the dictionary). Conj S1-N′ became Problem 7.4(b); Problem `prob:kernel2` became 7.4(c).
+- Remark 7.2: the pole-law synthetic test is summarised as "six rows predicted in advance agree to 4·10⁻⁵ or better (n ≥ 200)" (from the
+  old Table 6.4).

@@ -4,45 +4,45 @@ The top-level auxiliary file: main.aux
 The style file: amsplain.bst
 Database file #1: refs.bib
 Warning--missing pages in BeckermannKuijlaars2001
-You've used 31 entries,
+You've used 28 entries,
             2213 wiz_defined-function locations,
-            689 strings with 9115 characters,
-and the built_in function-call counts, 8146 in all, are:
-= -- 692
-> -- 379
+            674 strings with 8605 characters,
+and the built_in function-call counts, 7377 in all, are:
+= -- 630
+> -- 335
 < -- 0
-+ -- 154
-- -- 120
-* -- 577
-:= -- 1286
-add.period$ -- 31
-call.type$ -- 31
-change.case$ -- 156
++ -- 137
+- -- 106
+* -- 530
+:= -- 1163
+add.period$ -- 28
+call.type$ -- 28
+change.case$ -- 140
 chr.to.int$ -- 0
-cite$ -- 32
-duplicate$ -- 341
-empty$ -- 775
-format.name$ -- 120
-if$ -- 1717
+cite$ -- 29
+duplicate$ -- 308
+empty$ -- 703
+format.name$ -- 106
+if$ -- 1553
 int.to.chr$ -- 0
-int.to.str$ -- 31
-missing$ -- 40
-newline$ -- 103
-num.names$ -- 57
-pop$ -- 315
+int.to.str$ -- 28
+missing$ -- 37
+newline$ -- 94
+num.names$ -- 51
+pop$ -- 278
 preamble$ -- 1
-purify$ -- 125
+purify$ -- 112
 quote$ -- 0
-skip$ -- 187
+skip$ -- 167
 stack$ -- 0
-substring$ -- 354
-swap$ -- 32
+substring$ -- 339
+swap$ -- 29
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 124
+type$ -- 112
 warning$ -- 1
-while$ -- 72
-width$ -- 33
-write$ -- 260
+while$ -- 66
+width$ -- 30
+write$ -- 236
 (There was 1 warning)

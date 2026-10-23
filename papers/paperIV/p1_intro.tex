@@ -1,0 +1,155 @@
+% Section 1: Introduction (rewritten 2026-10-23 for the focused version; the 46-page draft is in archive/).
+\section{Introduction}\label{sec:intro}
+
+\subsection{Setting}\label{sec:setting}
+Let $p>0$, $s>1$, and let $\Lambda=\{\lambda_m\}_{m\ge1}$ be an increasing sequence of positive numbers with
+$\lambda_m\sim m^p$. We study the discrete measure on the reciprocals of $\Lambda$,
+\begin{equation}\label{eq:sigmaL}
+  \sigma_\Lambda:=\sum_{m\ge1}\lambda_m^{-s/p}\,\delta_{1/\lambda_m},
+\end{equation}
+and the coefficients of the recurrence $xP_n=P_{n+1}+a_nP_n+b_n^2P_{n-1}$ of its monic orthogonal polynomials; $a_n,b_n$
+are the entries of the Jacobi matrix whose spectrum is $\{1/\lambda_m\}\cup\{0\}$. For the \emph{lattice} $\lambda_m=m^p$,
+$\sigma_\Lambda=\sigma_{p,s}:=\sum_kk^{-s}\delta_{k^{-p}}$ is the measure of the earlier papers of this series
+\cite{PaperI,PaperII,Paper3}, and
+\begin{equation}\label{eq:cp}
+  n^pb_n\to c(p):=\frac14\Bigl(\frac{\sqrt\pi\,\Gamma(\frac1p+1)}{\Gamma(\frac1p+\frac12)}\Bigr)^{p},\qquad n^pa_n\to2c(p),
+\end{equation}
+with rate $O(1/n)$ and an explicit $1/n$ term \cite[Theorems~1.2 and~1.4]{PaperII}. We write $c=c(p)$ and
+\begin{equation}\label{eq:alpha-y}
+  \alpha:=\frac{s-1-p}{p}>-1,
+\end{equation}
+the Bessel order of the hard edge at $0$ in \cite{PaperII}. The organising object is the \emph{node zeta function}
+\begin{equation}\label{eq:Z}
+  Z_\Lambda(w):=\sum_{m\ge1}\lambda_m^{-w},
+\end{equation}
+continued meromorphically from $\Re w>1/p$; for the lattice $Z_\Lambda(w)=\zeta(pw)$. Two families of numbers recur:
+\begin{equation}\label{eq:W}
+  W(q):=\binom{2q}{q}c^q=\frac{(4c)^q\,\Gamma(q+\frac12)}{\sqrt\pi\,\Gamma(q+1)},\qquad
+  \varepsilon_j:=W(j)\,p\,\zeta(-jp)\quad(j\ge1).
+\end{equation}
+$W(1/p)=1$ is the definition of $c$, and $\varepsilon_1=\kp:=2pc\,\zeta(-p)$ is the constant of \cite[Theorem~1.4(ii)]{PaperII}.
+The question of this paper is how the expansion of $n^pb_n/c$ continues beyond the $1/n$ term, and how it depends on
+$\Lambda$. The answer is that its coefficients are spectral data of $\Lambda$: the values $Z_\Lambda(-j)$ and $Z_\Lambda(0)$ and the
+poles of $Z_\Lambda$.
+
+\subsection{Main results}\label{sec:results}
+Put $\mu_{n,j}:=2\zeta(-jp)/(jn^{jp})$ and define the \emph{natural index}
+\begin{equation}\label{eq:N}
+  N:=n+\frac\alpha2-\zeta(0)=n+\frac\alpha2+\frac12 .
+\end{equation}
+
+\begin{mainthm}[zeta values in the Jacobi coefficients of the lattice]\label{thm:A}
+Let $p>0$, $p\ne1$, $s>1$.
+\begin{enumerate}
+\item[(i)] \emph{Double expansion.} For all $K,B\ge1$,
+\[
+  \frac{n^pb_n}c=\sum_{|\br|\le B}\mu_n^{\br}\,\cD_{\br,K}(n)+O\bigl(n^{-K-1}+n^{-2-(B+1)p}\bigr),
+\]
+where $\mu_n^{\br}=\prod_j\mu_{n,j}^{r_j}$ and the \emph{layers} $\cD_{\br,K}$ are polynomials in $1/n$ of degree at most $K$ with
+coefficients rational in $(p,\alpha)$, independent of the zeta values and computed by a finite residue recursion.
+\item[(ii)] \emph{Natural form.} In the index $N$, the integer layer is $(n/N)^pF_p(N)$ with
+$F_p(N)=1+\sum_{k\ge1}f_{2k}(p,\alpha^2)N^{-2k}$ even in $N$ to all orders; the first-order zeta layers are
+$(n/N)^p\varepsilon_jN^{-1-jp}(1+g_jN^{-2}+O(N^{-4}))$ for every $j\ge1$, and the layer $\mu_1^2$ is
+$(n/N)^p\varepsilon_1^2N^{-2-2p}(\frac{3p+1}{2p}+O(N^{-2}))$.
+\item[(iii)] \emph{The coefficients.}
+\begin{multline}\label{eq:thmA}
+  \frac{n^pb_n}{c}=\Bigl(\frac nN\Bigr)^p\Bigl[1+\frac{f_2}{N^2}+\frac{f_4}{N^4}+\frac{f_6}{N^6}
+  +\frac{\varepsilon_1}{N^{1+p}}\Bigl(1+\frac{g_1}{N^2}+\frac{g_{1,4}}{N^4}\Bigr)\\
+  +\sum_{j\ge2}\frac{\varepsilon_j}{N^{1+jp}}\Bigl(1+\frac{g_j}{N^2}\Bigr)
+  +\frac{3p+1}{2p}\,\frac{\varepsilon_1^2}{N^{2+2p}}\Bigr]
+  +O\bigl(n^{-7}+n^{-2-3p}\bigr),
+\end{multline}
+the sum over the finitely many $j\ge2$ with $1+jp<\min(7,2+3p)$, where
+\[
+  f_2=\frac{p+1}{12}-\frac{(p+2)\alpha^2}{8},\qquad g_j=A_j+B_j\alpha^2,\qquad
+  B_j=\frac{(p+2)\bigl(j^2p^2+(j+1)p+2\bigr)}{8(2j-1)p},
+\]
+\[
+  A_j=\frac{j^2(j^2+2j-2)p^3+2(j+1)(2j^2-1)p^2+(5j^2+2j-6)p+2(j-2)}{24(2j-1)p},
+\]
+and $f_4$, $f_6$, $g_{1,4}$ are the rational functions~\eqref{eq:f4}, \eqref{eq:f6}, \eqref{eq:g14}.
+\end{enumerate}
+\end{mainthm}
+
+Parts~(i) and~(iii) are Theorem~\ref{thm:N6}; the evenness in~(ii) to all orders is Corollary~\ref{cor:even}. Not every term
+of~\eqref{eq:thmA} is a coefficient of $b_n$ for every $p$; Table~\ref{tab:visible} lists which are. Three things are visible
+in~\eqref{eq:thmA}: the shift $n\mapsto N$ absorbs the whole $1/n$ term and the $(s-1)^2$ part of the $n^{-2}$ term; the
+coefficients of the zeta monomials are the values $\zeta(-jp)$, through $\varepsilon_j$; and those monomials carry their own
+even dressings. The second result explains the zeta terms: the band factor of \cite{PaperII} enters the first-order
+correction through one linear functional $e_n$ (\S\ref{sec:kernel}), with asymptotic series $\sum_j\varepsilon_jn^{-jp}$.
+
+\begin{mainthm}[the zeta layer as a Mellin--Barnes integral]\label{thm:B}
+Let $p>0$, $p\ne1$, and $0<c_0<1$. The band-factor functional $e_n$ of the lattice satisfies
+\[
+  e_n=\frac1{2\pi i}\int_{c_0-i\infty}^{c_0+i\infty}p\,W(w)\,\zeta(-wp)\,n^{-wp}\,
+  \pi\Bigl[\cot\frac{\pi wp}2-\cot(\pi w)\Bigr]\diff w ,
+\]
+and $e_n=\sum_{j\le J}\varepsilon_jn^{-jp}+O(n^{-(J+1)p})$ for every $J$. The kernel $-\pi\cot(\pi w)W(w)(4c)^{-w}$ is the Mellin
+transform of the truncated per-node law $(1-u)^{-1/2}\mathbf 1_{u<1}$, whose root fixes the soft edge $4c$ of the zeros.
+\end{mainthm}
+
+The third and fourth results treat the first node sets other than the lattice. In the residue recursion the exponent $\alpha$
+plays two roles, the Bessel order $\nu$ of the hard edge and the Szeg\H{o} exponent $\beta$ of the weight. Separating them gives a
+\emph{decoupled model} $M(\beta,\nu)$ (\S\ref{sec:structure}), whose integer layer is $(n/N)^pF_p(N;\nu)$ in $N=n+\frac{\beta+1}2$ with
+$F_p$ independent of $\beta$. For Hurwitz lattices the offset acts only on $\beta$.
+
+\begin{mainthm}[Hurwitz lattices]\label{thm:C}
+Let $p\ne1$, $-1<\delta\le0$ ($\delta<0$ if $p<1$), $a=1+\delta$ and $1<s<1+2p$. For $\sigma_\Lambda$ with $\lambda_k=(k+\delta)^p$, the
+double expansion of $n^pb_n/c$ is that of the decoupled model with $(\beta,\nu)=(\alpha+2\delta,\alpha)$ and band-factor parameters
+$2\zeta(-jp,a)/(jn^{jp})$. Consequently~\eqref{eq:thmA} holds with $N$ replaced by
+$N_\delta=n+\frac\alpha2-\zeta(0,a)=n+\frac\alpha2+\frac12+\delta$ and $\zeta(-jp)$ by $\zeta(-jp,a)$, with the same $f_{2k}$ and $g_j$;
+the integer layer and the zeta layers of weight at most two are those of the lattice in $N_\delta$ to all orders.
+\end{mainthm}
+
+For $p>1$ the shifted lattices $\lambda_k=(k+\delta)^p+\kappa$ have a node zeta function with a pole at $q=1-\frac1p$ in the
+variable $w\mapsto Z_\Lambda(-w)$, with residue $R_q=-\kappa q/p$. It produces a term that is not a zeta value:
+
+\begin{mainthm}[shifted Hurwitz lattices]\label{thm:D}
+Let $p>1$, $-1<\delta\le0$, $a=1+\delta$, $\kappa\ne0$ with $\kappa>-a^p$, $1<s<1+2p$, and $\lambda_k=(k+\delta)^p+\kappa$. Then
+\[
+  \frac{n^pb_n}c=\sum_{0\le k<1+p}d_k(p,\alpha+2\delta,\alpha)\,n^{-k}+p\,R_q\,W(q)\,\pi\cot(\pi q)\,n^{-p}+O(n^{-1-p}),
+\]
+where $\sum_kd_k(p,\beta,\nu)n^{-k}$ is the integer layer of $M(\beta,\nu)$, and $pR_qW(q)\pi\cot(\pi q)=-2(2-p)c\kappa$.
+\end{mainthm}
+
+\subsection{The spectral dictionary}\label{sec:dictionary}
+The four theorems are instances of one reading. For a node set $\Lambda$ consider
+\begin{equation}\label{eq:dictionary}
+  \frac pn\cdot\frac1{2\pi i}\int_{\uparrow}-W(w)\,\pi\cot(\pi w)\,Z_\Lambda(-w)\,n^{-wp}\diff w .
+\end{equation}
+Its residue terms are: at the integers $w=j\ge1$, $W(j)pZ_\Lambda(-j)n^{-1-jp}$, the zeta terms of Theorems~\ref{thm:A}--\ref{thm:C}; at
+$w=0$, $pZ_\Lambda(0)/n$, the $Z(0)$ part of the index shift $N=n+\frac\alpha2-Z_\Lambda(0)$; and at the poles $q$ of $Z_\Lambda(-w)$ other
+than the Weyl pole $-1/p$, with residues $R_q$, $pR_qW(q)\pi\cot(\pi q)n^{-1-pq}$, the term of Theorem~\ref{thm:D}. The cotangent is the
+Mellin signature of truncating the per-node law at the soft edge (Lemma~\ref{lem:K0}, Proposition~\ref{prop:M12}). For a general Weyl-type
+spectrum we conjecture (Conjecture~\ref{conj:W}) that $n^pb_n/c$ is the decoupled model with Szeg\H{o} exponent $\alpha-2Z_\Lambda(0)-1$,
+flowed along the Toda hierarchy with times $-2Z_\Lambda(-j)/j$ corrected by the density and mass of the nodes, plus these pole terms. The
+conjecture is proved for the families of Theorems~\ref{thm:A}--\ref{thm:D} (for Theorem~\ref{thm:D} at first order in the poles), it is exact
+for reciprocal squared Bessel zeros (Proposition~\ref{prop:bessel}), and it was tested on nine further measures with predictions stored
+before the measures were computed (\S\ref{sec:evidence}).
+
+\subsection{What is new}\label{sec:new}
+As far as we know (Section~\ref{sec:literature}), the following are new: an asymptotic expansion of recurrence coefficients whose
+coefficients are spectral zeta values at non-positive arguments, with the natural index containing $-Z(0)$ and the exact dressings $g_j$
+(Theorem~\ref{thm:A}); the Mellin--Barnes form of the zeta layer (Theorem~\ref{thm:B}); the identification of a Hurwitz offset with a shift
+of the Szeg\H{o} exponent at fixed Bessel order (Theorem~\ref{thm:C}); the cotangent-weighted pole terms (Theorem~\ref{thm:D},
+Proposition~\ref{prop:M12}); and Conjecture~\ref{conj:W}. The supporting tools are new settings for known mechanisms, and we say so where
+they are used: the constrained equilibrium problem is known for constraints of finite mass \cite{BeckermannKuijlaars2001,BeckermannHelart},
+and we need only its infinite-mass hard-edge case (Proposition~\ref{prop:Q}); the evenness after a half-index shift is known for varying
+weights \cite{BleherIts,KuijlaarsTibboel}, and our reflection uses the grading argument of \cite{KuijlaarsTibboel}; the Toda hierarchy for
+tilts is classical \cite{VanAsscheToda}, its use to organise the coefficients of an expansion is the method of \cite{EMP}, and its
+dispersionless limit is the genus-zero mechanism of \cite{Ercolani}. Exact special cases with explicit recurrence coefficients (Lommel and
+Tricomi--Carlitz polynomials) are classical; nobody we know of reads them through zeta values.
+
+\subsection{Organisation and notation}\label{sec:organisation}
+Section~\ref{sec:frame} recalls the frame of \cite{PaperII}. Section~\ref{sec:kernel} contains the potential theory that fixes the band and
+the soft edge, and proves Theorem~\ref{thm:B}. Section~\ref{sec:natural} proves Theorem~\ref{thm:A}(i), (iii) by an order-$K$ residue
+recursion and exact computer algebra. Section~\ref{sec:structure} introduces the decoupled model and proves the evenness, the Toda structure of
+the zeta layers and the index-shift law. Section~\ref{sec:hurwitz} proves Theorems~\ref{thm:C} and~\ref{thm:D} (Theorems~\ref{thm:H} and~\ref{thm:kappa}); Section~\ref{sec:weyl} states
+Conjecture~\ref{conj:W} with its evidence and open problems; Section~\ref{sec:literature} relates the results to the literature.
+Appendix~\ref{app:Q} proves the equilibrium proposition and Appendix~\ref{app:repro} lists closed forms and scripts. The analytic estimates
+behind Sections~\ref{sec:structure} and~\ref{sec:hurwitz} are transfers of those of \cite{PaperII} and of Section~\ref{sec:natural}; we outline
+them and do not reproduce them.
+
+Throughout, $p>0$, $c=c(p)$, and $\alpha$, $W$, $\varepsilon_j$, $N$ are as in \eqref{eq:alpha-y}--\eqref{eq:N}; $\binom{2q}{q}=
+\Gamma(2q+1)/\Gamma(q+1)^2$ for complex $q$. Numbers obtained by fitting floating-point data are quoted with the spread of the fit over fit
+windows and nuisance exponents in parentheses; such a spread is not an error bound.

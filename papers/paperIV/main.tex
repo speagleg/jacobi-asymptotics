@@ -13,6 +13,7 @@
 \newtheorem{problem}[theorem]{Problem}
 \newtheorem{mainthm}{Theorem}
 \renewcommand{\themainthm}{\Alph{mainthm}}
+\newtheorem*{conjW*}{Conjecture W}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \theoremstyle{remark}
@@ -31,68 +32,58 @@
 \newcommand{\cA}{\mathfrak A}
 \newcommand{\fe}{\mathfrak e}
 \newcommand{\fj}{\mathfrak j}
-\newcommand{\Nat}{N}
 \newcommand{\br}{\mathbf r}
-\newcommand{\binomc}[2]{\tbinom{#1}{#2}}
 \DeclareMathOperator{\Res}{Res}
 \DeclareMathOperator{\PV}{PV}
-\DeclareMathOperator{\Var}{Var}
 \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
 
-\title[Jacobi coefficients of measures on reciprocal spectra]{Jacobi coefficients of measures on reciprocal spectra: a
-spectral dictionary and the natural index}
+\title[Spectral zeta values in recurrence coefficients]{Spectral zeta values in the recurrence coefficients of reciprocal
+spectra}
 \author{Gordon Speagle}
 \date{October 2026}
 
-\subjclass[2020]{Primary 42C05; Secondary 47B36, 31A15, 30E15, 11M35}
-\keywords{Orthogonal polynomials, Jacobi matrices, recurrence coefficients, discrete measures, constrained equilibrium,
-Riemann--Hilbert problems, spectral zeta functions, Hurwitz zeta function, Mellin transforms, Toda hierarchy}
+\subjclass[2020]{Primary 42C05; Secondary 47B36, 30E15, 11M35, 37K10}
+\keywords{Orthogonal polynomials, Jacobi matrices, recurrence coefficients, discrete measures, spectral zeta functions,
+Hurwitz zeta function, Riemann--Hilbert problems, Mellin transforms, Toda hierarchy}
 
 \begin{document}
 
 \begin{abstract}
-For an increasing sequence $\Lambda=\{\lambda_m\}$ with $\lambda_m\sim m^p$ we study the recurrence coefficients
-$a_n,b_n$ of the discrete measure $\sum_m\lambda_m^{-s/p}\delta_{1/\lambda_m}$; for the lattice $\lambda_m=m^p$,
-$n^pb_n\to c(p)$. For the lattice and every $p\ne1$ we prove an expansion of $n^pb_n/c$ to order $n^{-7}+n^{-2-3p}$, a
-double series in $1/n$ and $\zeta(-jp)n^{-jp}$ computed by a finite residue recursion and exact computer algebra. In the
-natural index $N=n+\frac\alpha2+\frac12$, $\alpha=(s-1-p)/p$, the integer layer is even in $1/N$ to all orders: separating
-the roles of $\alpha$ as Bessel order and Szeg\H{o} exponent, we prove a reflection symmetry and, by steepest descent in a
-second frame of non-integer index, that the Szeg\H{o} exponent enters only through $N$. The first-order zeta terms are
-$\varepsilon_jN^{-1-jp}(1+g_jN^{-2})$, $\varepsilon_j=\binom{2j}{j}p\,c^j\zeta(-jp)$; the zeta layers are Toda flows of the
-integer layers, and the leading term of each is an implicit shift of the index. For Hurwitz lattices $(m+\delta)^p$, $-1<\delta\le0$, the
-offset only shifts the Szeg\H{o} exponent, so $N$ moves by $\delta$ and $\zeta(-jp)$ becomes $\zeta(-jp,1+\delta)$; for
-$(m+\delta)^p+\kappa$, $p>1$, we prove the first pole term. We write the zeta layer as a Mellin--Barnes integral with kernel
-$\pi[\cot(\pi wp/2)-\cot(\pi w)]$ and solve explicitly the constrained equilibrium problem with a constraint of infinite
-mass at a hard edge; its soft edge carries every pole of the node zeta function with the weight $\pi\cot(\pi q)$. For general
-spectra this becomes a conjectural dictionary between $b_n$ and the spectral zeta function of $\Lambda$, tested
-numerically on perturbed lattices, Bessel zeros and spectra with multiplicities (with predictions fixed in advance), and on
-planar drums and anharmonic oscillators.
+For an increasing sequence $\Lambda=\{\lambda_m\}$ with $\lambda_m\sim m^p$ we study the recurrence coefficients of the
+measure $\sum_m\lambda_m^{-s/p}\delta_{1/\lambda_m}$. For the lattice $\lambda_m=m^p$ and every $p\ne1$ we prove that
+$n^pb_n/c(p)$ has a double expansion in $1/N$ and in monomials $N^{-1-jp}$ whose coefficients are the spectral zeta values
+$\zeta(-jp)$, in the natural index $N=n+\frac\alpha2-\zeta(0)$, $\alpha=(s-1-p)/p$. The integer layer is even in $1/N$ to all
+orders, the first zeta terms carry exact dressings $\varepsilon_jN^{-1-jp}(1+g_jN^{-2})$, and the zeta layer is a
+Mellin--Barnes integral with kernel $\pi[\cot(\pi wp/2)-\cot(\pi w)]$ in which the zeta values act as Toda times. For Hurwitz
+lattices $(m+\delta)^p$ the offset shifts only the Szeg\H{o} exponent of the hard edge, so $N$ moves by $\delta$ and $\zeta(-jp)$
+becomes $\zeta(-jp,1+\delta)$; for $(m+\delta)^p+\kappa$, $p>1$, the pole of the spectral zeta function contributes
+$pR_qW(q)\pi\cot(\pi q)\,n^{-p}$. For general Weyl-type spectra we conjecture that the Jacobi coefficients are a decoupled
+Bessel--Szeg\H{o} model flowed along the Toda hierarchy with spectral-zeta times, plus cotangent-weighted pole terms, and we test
+this with predictions fixed before the measures were computed.
 \end{abstract}
 
 \maketitle
 
-\input{sec1}
-\input{sec2}
-\input{sec3}
-\input{sec4}
-\input{sec5}
-\input{secS}
-\input{secH}
-\input{sec6}
-\input{sec7}
-\input{sec8}
+\input{p1_intro}
+\input{p2_frame}
+\input{p3_kernel}
+\input{p4_main}
+\input{p5_structure}
+\input{p6_hurwitz}
+\input{p7_weyl}
+\input{p8_lit}
 \appendix
-\input{secA}
+\input{pA_equilibrium}
+\input{pB_repro}
 
 \section*{Acknowledgements}
 The research and the exposition were developed with the assistance of an AI system (Claude, Anthropic); the author
 takes responsibility for the content.
 
 \section*{Data and code availability}
-{\raggedright The scripts that produced the exact identities of Section~\ref{sec:natural} and the numbers of
-Section~\ref{sec:examples}, with their outputs, are available in the repository
-\url{https://github.com/speagleg/jacobi-asymptotics}; Appendix~\ref{app:repro} lists them.
+{\raggedright The scripts that produced the exact identities and the numbers quoted in this paper, with their outputs, are
+available in the repository \url{https://github.com/speagleg/jacobi-asymptotics}; Appendix~\ref{app:repro} lists them.
 % TODO: tag (v1.0-paper4) to be fixed when the paper is frozen; the branch at drafting time is plan-e2-d2.
 \par}
 
