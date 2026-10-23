@@ -1,0 +1,401 @@
+"""toda_engine.py (JZC_TODA): a COPY of w2_engine.py (sha256 8e69b2e33912b097cf6cf8abd27df0c9c0910735395e29c8292e4b2506bca02d,
+not modified) with ONE addition, marked "toda change": the second moment R_2 of the residue recursion and the diagonal (alpha_n)
+extraction of E_pgt1 §0 / Paper 2 F8:
+  R_2^{(k)} = 4c Res_{4c}F_k + [w^{-2}]F_k at 4c + [z^{-2}]F_k at 0   (the 1/z^2 coefficient of the principal parts at infinity;
+                                                                       the same formula as m4_rh4.py l. 249),
+  Q1 = P1 + R1, Q2 = P2 + R1 P1 + R2, P1 = [[0, ic], [-ic, 0]], P2 = [[c^2/2, 2ic^2], [-2ic^2, c^2/2]] (c = 1),
+  n^p alpha_n/(2c) = [ (Q2)_12/(Q1)_12 - (Q1)_22 ]/2   (JZC_TODA Lemma T.B),
+returned per monomial e1^a e2^b exactly like the b-layer: ea[(a, b)][m] = coefficient of n^{-m} e1^a e2^b. The b-part (d, f, e, nat) is
+byte-for-byte the w2_engine computation. With W2JSON set, the JSON also contains 'ea'.
+Original docstring of w2_engine.py follows.
+w2_engine.py (JZC_W2): a COPY of m4_rh_exact2.py (sha256 2d18e259...cbc06, not modified) generalised to TWO band-factor
+parameters with independent (symbolic) exponents.  Changes, all marked "w2 change":
+  1. env PVAL fixes p to a rational number (as w_exact_engine.py); env SZOFF as there; DECOUPLE as in m4_rh_exact2.
+  2. the dual numbers G live in K[i][e1, e2]/(e1^{E1+1}, e2^{E2+1}) (env E1, E2; default 1, 1) instead of K[i][eps]/(eps^{EO+1});
+     component (a, b) = coefficient of e1^a e2^b.
+  3. the gauge exponent is M = e1 Q_{j} + e2 Q_{k} (E3 Lemma E3.4 with the full cosh/sinh gauge), each Q normalised by C(2x, x)
+     and given by its symbolic Taylor data at 0 and at 4 (m4_zeta_exact2 (A); = A_rho, M_rho of JZC_W_exact WE.1 at x = rho);
+     j and k are independent field symbols (field Q(p, alpha, j, k, beta)), or fixed numbers via env J1VAL, J2VAL.
+  5. env AVAL, BVAL fix alpha and beta to rational numbers (exact rational outputs at given data).
+  6. env W2JSON: write d, e, nat (as strings) to that JSON file instead of printing.
+  7. env NT: depth of the Taylor re-expansion of principal parts at the other edge (fixed 12 in m4_rh_exact2; default 12).
+  4. run() returns d (mu = 0 layer), f, and resp[(a, b)] = the n-expansion coefficients e_{(a,b),m} (m = 0..KORD) of the
+     e1^a e2^b component of n^p b_n / c, and nat[(a, b)] = its natural form: (N/n)^{(a j + b k + 1) p} sum_m e_m n^{-m} in powers
+     of 1/N (N = n + (beta+1)/2), the convention of m4_rh_exact2's gz (for (a, 0) it is gz[a] exactly).
+The second-order (bilinear) response of n^p b_n/c to the tilt exp(-mu_1 Q_j/C(2j,j) - mu_2 Q_k/C(2k,k)) is mu_1 mu_2 resp[(1,1)];
+the diagonal mu_1^2 coefficient is resp[(1,1)]|_{k=j}/2 (the second derivative of an entire function of M, bilinear in M).
+Original docstring of m4_rh_exact2 follows.
+JZC M4: EXACT symbolic computation, generalised (m4_rh_exact2): dual numbers to order EO in the band-factor parameter
+(env EO, default 2), and optionally a SYMBOLIC zeta index j (field Q(p, alpha, j)).
+Otherwise identical to m4_rh_exact.py (the version used for m4_rh_exact_k4/k6.out and m4_zeta_exact.out), whose docstring
+follows.
+JZC M4: EXACT symbolic version of m4_rh4.py (order-k RH model computation), over the field Q(p, alpha)[i], c = 1.
+Same formulas as m4_rh4.py (see its docstring); every input is a rational function of (p, alpha) once c = 1:
+  - u_k, v_k (DLMF 9.7.2): u_k = (2k+1)(2k+3)...(6k-1)/(216^k k!), v_k = -(6k+1)/(6k-1) u_k  (rational);
+  - a_k, b_k (DLMF 10.17.1, 10.17.8): polynomials in alpha;
+  - the local-map series (E2 Lemma E2.4) have rational coefficients in p; pi cancels in f (f = -(pi^2/4) z a(z)^2,
+    a(z) = (4c)^{-1/2}/(p pi) * sum ...), and the square roots are of series with leading coefficient 1 (or a perfect square:
+    f^{1/2} ~ v/(p+2), sqrt(4 + v^2) ~ 2);
+  - T, M carry 1/sqrt 2; they occur in pairs (T..T^{-1}, M^{-1}(M o C)), so we use T0 = sqrt2 T etc. and a factor 1/2 per pair.
+Output: the exact rational functions d_1..d_K and f_1..f_K. Assertions (identities in p, alpha):
+  d1 = -p(alpha+1)/2, d2 = E2 Thm E2.1, f1 = f3 = 0, f2 = -(p+2)alpha^2/8 + (p+1)/12, f4 = closed form (m4_rh4.f4_closed)."""
+import os, sys, time
+from sympy import QQ, symbols, factor, Rational, binomial, factorial
+from sympy.polys.fields import field
+KORD = int(os.environ.get("KORD", "4"))
+PVAL = os.environ.get("PVAL")          # w2 change 1 (as w_exact_engine): p fixed to a rational number
+if PVAL is None:
+    K, p, al, jj, kk, be = field("p,alpha,j,k,beta", QQ)
+else:
+    K, al, jj, kk, be = field("alpha,j,k,beta", QQ); p = K(Rational(PVAL))
+if os.environ.get("AVAL"): al = K(Rational(os.environ["AVAL"]))       # w2 change 5: alpha (Bessel order) fixed
+if os.environ.get("BVAL"): be = K(Rational(os.environ["BVAL"]))       # w2 change 5: beta (Szego exponent, DECOUPLE=1) fixed
+if os.environ.get("J1VAL"): jj = K(Rational(os.environ["J1VAL"]))
+if os.environ.get("J2VAL"): kk = K(Rational(os.environ["J2VAL"]))
+DECOUPLE = os.environ.get("DECOUPLE", "0") == "1"   # Szego exponent beta independent of the Bessel order alpha (JZC_M4 §7)
+SZOFF = os.environ.get("SZOFF")
+SZ = be if DECOUPLE else (al + K(Rational(SZOFF)) if SZOFF is not None else al)
+E1 = int(os.environ.get("E1", "1")); E2 = int(os.environ.get("E2", "1"))     # w2 change 2
+NE = (E1 + 1)*(E2 + 1); EO = E1 + E2
+MON = [(a, b) for a in range(E1 + 1) for b in range(E2 + 1)]
+IDX = {m: t for t, m in enumerate(MON)}
+PROD = [(IDX[m1], IDX[m2], IDX[(m1[0] + m2[0], m1[1] + m2[1])]) for m1 in MON for m2 in MON
+        if m1[0] + m2[0] <= E1 and m1[1] + m2[1] <= E2]
+ONE, ZERO = K(1), K(0)
+
+
+class G:
+    """element of K[i][e1,e2]/(e1^{E1+1}, e2^{E2+1}): r[t] + i i[t] is the coefficient of the monomial MON[t] (w2 change 2)"""
+    __slots__ = ("r", "i")
+    def __init__(s, a, b=None, r=None, i=None):
+        if r is not None: s.r, s.i = r, i; return
+        a = K(a) if isinstance(a, int) else a; b = ZERO if b is None else (K(b) if isinstance(b, int) else b)
+        s.r = [a] + [ZERO]*(NE - 1); s.i = [b] + [ZERO]*(NE - 1)
+    @staticmethod
+    def eps(m, coef=None):
+        """the monomial m = (a, b) (an int m means (m, 0))"""
+        m = (m, 0) if isinstance(m, int) else m
+        r = [ZERO]*NE; i = [ZERO]*NE
+        if m in IDX: r[IDX[m]] = ONE if coef is None else coef
+        return G(None, r=r, i=i)
+    @property
+    def a(s): return s.r[0]
+    @property
+    def b(s): return s.i[0]
+    def __add__(s, o):
+        if isinstance(o, S): return NotImplemented
+        o = o if isinstance(o, G) else G(o); return G(None, r=[x + y for x, y in zip(s.r, o.r)], i=[x + y for x, y in zip(s.i, o.i)])
+    __radd__ = __add__
+    def __sub__(s, o):
+        if isinstance(o, S): return NotImplemented
+        o = o if isinstance(o, G) else G(o); return G(None, r=[x - y for x, y in zip(s.r, o.r)], i=[x - y for x, y in zip(s.i, o.i)])
+    def __rsub__(s, o): return G(o) - s
+    def __neg__(s): return G(None, r=[-x for x in s.r], i=[-x for x in s.i])
+    def __mul__(s, o):
+        if isinstance(o, S): return NotImplemented
+        if not isinstance(o, G): return G(None, r=[x*o for x in s.r], i=[x*o for x in s.i])
+        r = [ZERO]*NE; i = [ZERO]*NE
+        for t1, t2, t3 in PROD:
+            a1, b1, a2, b2 = s.r[t1], s.i[t1], o.r[t2], o.i[t2]
+            if (a1 == ZERO and b1 == ZERO) or (a2 == ZERO and b2 == ZERO): continue
+            r[t3] += a1*a2 - b1*b2; i[t3] += a1*b2 + b1*a2
+        return G(None, r=r, i=i)
+    __rmul__ = __mul__
+    def inv(s):
+        d = s.r[0]*s.r[0] + s.i[0]*s.i[0]; x0 = G(s.r[0]/d, -s.i[0]/d)        # 1/(x0 + y) = x0^{-1} sum (-y x0^{-1})^m
+        y = G(None, r=[ZERO] + s.r[1:], i=[ZERO] + s.i[1:])
+        out = G(1); term = G(1); q = -(y*x0)
+        for _ in range(EO): term = term*q; out = out + term
+        return out*x0
+    def __truediv__(s, o): return s*(o.inv() if isinstance(o, G) else G(ONE/o))
+    def iszero(s): return all(x == ZERO for x in s.r) and all(x == ZERO for x in s.i)
+    def part(s, m): return G(s.r[m], s.i[m])
+GZ, G1, GI = G(0), G(1), G(0, 1)
+
+
+class S:
+    """truncated Laurent series over G, valid up to t^hi"""
+    HI = int(os.environ.get("SHI", "30"))
+    def __init__(s, lo, c, hi=None):
+        s.lo = lo; s.hi = S.HI if hi is None else min(hi, S.HI)
+        c = [x if isinstance(x, G) else G(x) for x in list(c)[:max(s.hi - lo + 1, 0)]]
+        s.c = c + [GZ]*(s.hi - lo + 1 - len(c))
+    @staticmethod
+    def const(a): return S(0, [a if isinstance(a, G) else G(a)])
+    def get(s, k): i = k - s.lo; return s.c[i] if 0 <= i < len(s.c) else GZ
+    def __add__(s, o):
+        if not isinstance(o, S): o = S.const(o)
+        lo = min(s.lo, o.lo); hi = min(s.hi, o.hi)
+        return S(lo, [s.get(k) + o.get(k) for k in range(lo, hi + 1)], hi)
+    __radd__ = __add__
+    def __neg__(s): return S(s.lo, [-x for x in s.c], s.hi)
+    def __sub__(s, o): return s + (-o if isinstance(o, S) else S.const(-o if isinstance(o, G) else G(-o)))
+    def __rsub__(s, o): return (-s) + o
+    def __mul__(s, o):
+        if not isinstance(o, S): o = o if isinstance(o, G) else G(o); return S(s.lo, [x*o for x in s.c], s.hi)
+        lo = s.lo + o.lo; hi = min(s.hi + o.lo, o.hi + s.lo, S.HI)
+        out = [GZ]*(hi - lo + 1)
+        for i, a in enumerate(s.c):
+            if a.iszero(): continue
+            for j, b in enumerate(o.c):
+                k = i + j
+                if k > hi - lo: break
+                if b.iszero(): continue
+                out[k] = out[k] + a*b
+        return S(lo, out, hi)
+    __rmul__ = __mul__
+    def shift(s, m): return S(s.lo + m, s.c, s.hi + m)
+    def trim(s):
+        lo = s.lo
+        while lo <= s.hi and s.get(lo).iszero(): lo += 1
+        return S(lo, [s.get(k) for k in range(lo, s.hi + 1)], s.hi)
+    def inv(s):
+        t = s.trim(); a0i = t.c[0].inv(); n = t.hi - t.lo + 1
+        b = [GZ]*n; b[0] = a0i
+        for k in range(1, n):
+            acc = GZ
+            for j in range(1, k + 1): acc = acc + t.c[j]*b[k - j]
+            b[k] = -(acc*a0i)
+        return S(-t.lo, b, -t.lo + n - 1)
+    def powr1(s, e):
+        """(series with t^0 coefficient exactly 1)^e, e in K"""
+        t = s.trim(); assert t.lo == 0 and t.c[0].r[0] == ONE and all(x == ZERO for x in t.c[0].r[1:] + t.c[0].i)
+        n = t.hi + 1; q = t.c; b = [GZ]*n; b[0] = G1
+        for k in range(1, n):
+            acc = GZ
+            for j in range(1, k + 1): acc = acc + q[j]*b[k - j]*(((e + 1)*j - k)/K(k))
+            b[k] = acc
+        return S(0, b, n - 1)
+
+
+def mmul(A, B): return [[A[i][0]*B[0][j] + A[i][1]*B[1][j] for j in range(2)] for i in range(2)]
+def madd(A, B): return [[A[i][j] + B[i][j] for j in range(2)] for i in range(2)]
+def msub(A, B): return [[A[i][j] - B[i][j] for j in range(2)] for i in range(2)]
+def mscal(A, f): return [[A[i][j]*f for j in range(2)] for i in range(2)]
+T0 = [[G1, G1], [GI, -GI]]; Ti0 = [[G1, -GI], [G1, GI]]          # T = T0/sqrt2, T^{-1} = Ti0/sqrt2
+M0 = [[G1, GI], [GI, G1]]; Mi0 = [[G1, -GI], [-GI, G1]]          # M = M0/sqrt2, M^{-1} = Mi0/sqrt2
+HALF = K(1)/2
+def conjT(Z): return mscal(mmul(mmul(T0, Z), Ti0), HALF)          # T Z T^{-1}
+def conjTi(Z): return mscal(mmul(mmul(Ti0, Z), T0), HALF)         # T^{-1} Z T
+def had(A, B): return [[A[i][j]*B[i][j] for j in range(2)] for i in range(2)]
+
+
+def airy_uv(k):
+    u = Rational(1)
+    for j in range(2*k + 1, 6*k, 2): u *= j
+    u = u/(Rational(216)**k*factorial(k))
+    return K(u), K(-Rational(6*k + 1, 6*k - 1)*u)
+
+
+def bessel_ab(k):
+    a = ONE; b = ONE
+    for j in range(1, k + 1): a = a*(4*al**2 - (2*j - 1)**2)
+    for j in range(1, k): b = b*(4*al**2 - (2*j - 1)**2)
+    b = b*(4*al**2 + 4*k**2 - 1)
+    d = K(int(factorial(k))*8**k)
+    return a/d, b/d
+
+
+def Xk(k):
+    u, v = airy_uv(k); sg = (-1)**k
+    return mscal(mmul(Mi0, had(M0, [[G(u), G(u*sg)], [G(v), G(v*sg)]])), HALF)
+
+
+def Xik(k):
+    a, b = bessel_ab(k); sg = (-1)**k
+    return mscal(mmul(Mi0, had(M0, [[G(a*sg), G(a)], [G(b*sg), G(b)]])), HALF)
+
+
+def rf(x, k):
+    r = ONE
+    for j in range(k): r = r*(x + j)
+    return r
+
+
+def u_to_w(e):
+    odd = [t for t in range(e.lo, e.hi + 1) if t % 2 != 0 and not e.get(t).iszero()]
+    assert not odd, "not even"
+    lo2 = (e.lo + (e.lo % 2))//2
+    return S(lo2, [e.get(2*t) for t in range(lo2, e.hi//2 + 1)], e.hi//2)
+
+
+def run(verbose=True, jmu=None):
+    t0 = time.time(); c = ONE; ap = 1/p + HALF
+    L = S.HI + 2
+    # ---------- soft edge (u^2 = z - 4c) ----------
+    Sc = [ZERO]*L
+    for k in range(L):
+        for m in range(L - k):
+            Sc[k + m] = Sc[k + m] + rf(1 - ap, k)/K(int(factorial(k)))*rf(1 + 1/p, m)/K(int(factorial(m)))/((k + HALF)*(k + m + 3*HALF))
+    Su = S(0, [G(Sc[t//2]*(K(-1)/4)**(t//2)) if t % 2 == 0 else GZ for t in range(2*L)])
+    kp = Sc[0]/p/8                                       # (1/p)(4c)^{-3/2} S(0)
+    phit_over = Su*G(1/Sc[0])
+    xs = S(2, [G(K(1)/4)]); one = S.const(1)
+    sq1 = (one + xs).powr1(HALF); sqz = sq1*G(K(2))
+    a2 = S(1, [G1])*sqz.inv()
+    base = sq1 + S(1, [G(HALF)])
+    h2 = base.powr1(-(2 + 2*SZ)); ih2 = base.powr1(2 + 2*SZ)
+    def conj_soft(X):
+        Z = [[S.const(X[0][0]), ih2*X[0][1]], [h2*X[1][0], S.const(X[1][1])]]
+        Y = conjTi(Z); uu = S(1, [G1])
+        return conjT([[uu*Y[0][0], uu*a2*Y[0][1]], [sqz*Y[1][0], uu*Y[1][1]]])
+    invpo = phit_over.inv(); Dr = {}
+    for k in range(1, KORD + 1):
+        Mk = conj_soft(Xk(k)); fac = S(-(3*k + 1), [G1])
+        for _ in range(k): fac = fac*invpo
+        fac = fac*G(1/kp**k)
+        Dr[k] = [[u_to_w(Mk[i][j]*fac) for j in range(2)] for i in range(2)]
+    if verbose: print(f"  soft edge done ({time.time() - t0:.0f}s)", flush=True)
+    # ---------- hard edge (z = -v^2) ----------
+    # a-series / ((4c)^{-1/2}/(p pi)) = sum_k (1/2)_k/k! z^k/(4^k (a'+k)(k+1/2)); f = -(pi^2/4) z a^2 = -z/(16 p^2) (sum)^2
+    zc = [rf(HALF, k)/K(int(factorial(k)))/K(4)**k/((ap + k)*(k + HALF)) for k in range(L)]
+    sumz = S(0, [G(x) for x in zc])
+    fz = (sumz*sumz).shift(1)*G(-1/(16*p**2))
+    def z_to_v(e):
+        return S(2*e.lo, [e.get(t//2)*G(K((-1)**(t//2))) if t % 2 == 0 else GZ for t in range(2*e.lo, 2*e.hi + 2)], 2*e.hi + 1)
+    g = z_to_v(fz).shift(-2)                              # f = v^2 g, g(0) = 1/(p+2)^2
+    g0 = g.get(0); assert g0.b == ZERO and g0.a == 1/(p + 2)**2
+    fh = (g*G((p + 2)**2)).powr1(HALF).shift(1)*G(1/(p + 2))
+    a2h = (one + S(2, [G(K(1)/4)])).powr1(HALF).shift(-1)*G(K(2))     # sqrt(4 + v^2)/v
+    rho2 = (S(1, [G(HALF)]) + (one + S(2, [G(K(1)/4)])).powr1(HALF)).powr1(2*(SZ + 1))
+    irho2 = rho2.inv(); ia2h = a2h.inv(); ifh = fh.inv()
+    s3 = [[G1, GZ], [GZ, -G1]]
+    def conj_hard(Q):
+        Zh = [[S.const(Q[0][0]), rho2*Q[0][1]], [irho2*Q[1][0], S.const(Q[1][1])]]
+        Y = conjTi(Zh)
+        return conjT([[Y[0][0], a2h*Y[0][1]], [Y[1][0]*ia2h, Y[1][1]]])
+    D0 = {}
+    for k in range(1, KORD + 1):
+        Mk = conj_hard(mmul(mmul(s3, Xik(k)), s3)); fac = ifh
+        for _ in range(k - 1): fac = fac*ifh
+        fac = fac*G(K(1)/2**k)
+        D0[k] = []
+        for i in range(2):
+            row = []
+            for j in range(2):
+                e = u_to_w(Mk[i][j]*fac)                  # series in v^2 = -z
+                row.append(S(e.lo, [e.get(t)*G(K((-1)**t)) for t in range(e.lo, e.hi + 1)], e.hi))
+            D0[k].append(row)
+    if verbose: print(f"  hard edge done ({time.time() - t0:.0f}s)", flush=True)
+    # ---------- band-factor gauge (E3 Lemma E3.4) to order EO in mu_j: G = T[[ch, -(z-4c)S], [-zS, ch]]T^{-1},
+    # h = R M/2, M = mu Q_j, S = sinh(h)/R; cosh h = sum (z(z-4c) M^2/4)^m/(2m)!, S = (M/2) sum (z(z-4c) M^2/4)^m/(2m+1)!.
+    # Symbolic j: mu is normalised by C(2j, j), i.e. Q_j is replaced by Q_j/C(2j, j), whose Taylor data are rational in j:
+    #   at 0: coeff of z^m = prod_{i<=m} (j - i)/(2(2j - 2i - 1));  at 4: coeff of w^m = j(j-1)...(j-m)/(4^{m+1} (1/2)_{m+1}).
+    if jmu:      # w2 change 3: M = e1 Q_j/C(2j,j) + e2 Q_k/C(2k,k), symbolic Taylor data (rational in the exponent)
+        NQ = S.HI + 2
+        def Qser(at, xv):
+            cs = []
+            for m in range(NQ):
+                v = ONE
+                if at == 0:
+                    for i in range(m + 1): v = v*(xv - i)/(2*(2*xv - 2*i - 1))
+                else:
+                    for i in range(m + 1): v = v*(xv - i)
+                    v = v/(K(4)**(m + 1)*rf(HALF, m + 1))
+                cs.append(G(v))
+            return S(0, cs, NQ - 1)
+        def gauge(at):
+            zser = S(0, [G(K(4)), G1]) if at == 4 else S(1, [G1])
+            Mq = Qser(at, jj)*G.eps((1, 0))
+            if E2 >= 1: Mq = Mq + Qser(at, kk)*G.eps((0, 1))
+            h2 = zser*(zser - 4)*Mq*Mq*G(K(1)/4)
+            ch = S.const(0); sh = S.const(0); hp = S.const(1)
+            for m in range(EO//2 + 1):
+                ch = ch + hp*G(K(1)/int(factorial(2*m))); sh = sh + hp*G(K(1)/int(factorial(2*m + 1))); hp = hp*h2
+            Sg = sh*Mq*G(HALF)
+            Gm = conjT([[ch, -(zser - 4)*Sg], [-(zser*Sg), ch]]); Gi = conjT([[ch, (zser - 4)*Sg], [zser*Sg, ch]])
+            return Gm, Gi
+        Gr, Gri = gauge(4); G0, G0i = gauge(0)
+        for k in Dr: Dr[k] = mmul(mmul(Gr, Dr[k]), Gri)
+        for k in D0: D0[k] = mmul(mmul(G0, D0[k]), G0i)
+    # ---------- small norm ----------
+    pts = {'r': (K(4), Dr), '0': (K(0), D0)}; other = {'r': '0', '0': 'r'}
+    def pp(e):
+        assert e.hi >= -1, "truncation too shallow: principal part not determined"
+        return S(e.lo, [e.get(t) for t in range(e.lo, 0)]) if e.lo < 0 else S.const(0)
+    NT = int(os.environ.get("NT", "12"))          # w2 change 7: re-expansion depth (m4_rh_exact2: 12; KORD 8 needs more)
+    def reexpand(ps, frm, to):
+        d = pts[to][0] - pts[frm][0]; out = S(0, [GZ]*NT, NT - 1)
+        for m in range(1, -ps.lo + 1):
+            Cm = ps.get(-m)
+            if Cm.iszero(): continue
+            out = out + S(0, [Cm*G(K(int(binomial(-m, k)))*d**(-m - k)) for k in range(NT)], NT - 1)
+        return out
+    Rin = {e: {0: [[S.const(1), S.const(0)], [S.const(0), S.const(1)]]} for e in pts}; R1 = {}; R2 = {}   # toda change: R2
+    for k in range(1, KORD + 1):
+        prod = {}
+        for e in pts:
+            acc = [[S.const(0), S.const(0)], [S.const(0), S.const(0)]]
+            for j in range(1, k + 1): acc = madd(acc, mmul(Rin[e][k - j], pts[e][1][j]))
+            prod[e] = acc
+        PP = {e: [[pp(prod[e][i][j]) for j in range(2)] for i in range(2)] for e in pts}
+        R1[k] = [[PP['r'][i][j].get(-1) + PP['0'][i][j].get(-1) for j in range(2)] for i in range(2)]
+        # toda change: second moment at infinity, (z-4)^{-1} = 1/z + 4/z^2 + ..., (z-4)^{-2} = 1/z^2 + ...  (c = 1)
+        R2[k] = [[PP['r'][i][j].get(-1)*G(K(4)) + PP['r'][i][j].get(-2) + PP['0'][i][j].get(-2) for j in range(2)] for i in range(2)]
+        for e in pts:
+            o = other[e]
+            Rout = [[PP[e][i][j] + reexpand(PP[o][i][j], o, e) for j in range(2)] for i in range(2)]
+            Rin[e][k] = msub(Rout, prod[e])
+            for i in range(2):
+                for j in range(2):
+                    x = Rin[e][k][i][j]
+                    assert all(x.get(t).iszero() for t in range(x.lo, 0)), ("R_in singular", k, e)
+        if verbose: print(f"  order {k} done ({time.time() - t0:.0f}s)", flush=True)
+    # ---------- extraction: sqrt(Q12 Q21)/c, Q1 = P1 + sum eps^k R1[k], P1 = [[0, i c], [-i c, 0]] ----------
+    hi0 = S.HI; S.HI = KORD
+    Q12 = S(0, [GI] + [R1[k][0][1] for k in range(1, KORD + 1)]); Q21 = S(0, [-GI] + [R1[k][1][0] for k in range(1, KORD + 1)])
+    b = (Q12*Q21).powr1(HALF)
+    dd = [b.get(k) for k in range(KORD + 1)]
+    assert all(all(y == ZERO for y in x.i) for x in dd), "imaginary part"
+    d = [x.r[0] for x in dd]; e = {mo: [x.r[IDX[mo]] for x in dd] for mo in MON}
+    # toda change: diagonal extraction a(Q) = (Q2)_12/(Q1)_12 - (Q1)_22, Q2 = P2 + R1 P1 + R2 (c = 1); n^p alpha_n/(2c) = a/2
+    ser = lambda lst: S(0, lst)
+    R1s = [[ser([GZ] + [R1[k][i][j] for k in range(1, KORD + 1)]) for j in range(2)] for i in range(2)]
+    R2s = [[ser([GZ] + [R2[k][i][j] for k in range(1, KORD + 1)]) for j in range(2)] for i in range(2)]
+    P1m = [[S.const(GZ), S.const(GI)], [S.const(-GI), S.const(GZ)]]
+    P2m = [[S.const(G(HALF)), S.const(GI*G(K(2)))], [S.const(-GI*G(K(2))), S.const(G(HALF))]]
+    Q1m = madd(P1m, R1s); Q2m = madd(madd(P2m, mmul(R1s, P1m)), R2s)
+    Aser = (Q2m[0][1]*Q1m[0][1].inv() - Q1m[1][1])*G(HALF)
+    aa_ = [Aser.get(k) for k in range(KORD + 1)]
+    assert all(all(y == ZERO for y in x.i) for x in aa_), "imaginary part (alpha)"
+    ea = {mo: [x.r[IDX[mo]] for x in aa_] for mo in MON}
+    delta = SZ/2 + HALF
+    x = S(1, [G1]); inv_n = x*(one - x*G(delta)).inv()
+    tot = S.const(G(d[0])); q = S.const(1)
+    for k in range(1, KORD + 1): q = q*inv_n; tot = tot + q*G(d[k])
+    F = (one - x*G(delta)).powr1(-p)*tot
+    f = [F.get(k).a for k in range(KORD + 1)]
+    nat = None
+    if jmu:      # w2 change 4: natural forms (N/n)^{(a j + b k + 1)p} sum_m e_m n^{-m}, in powers of 1/N
+        nat = {}
+        for mo in MON:
+            if mo == (0, 0): continue
+            tz = S.const(G(e[mo][0])); q = S.const(1)
+            for k in range(1, KORD + 1): q = q*inv_n; tz = tz + q*G(e[mo][k])
+            Fz = (one - x*G(delta)).powr1(-(mo[0]*jj + mo[1]*kk + 1)*p)*tz
+            nat[mo] = [Fz.get(k).a for k in range(KORD + 1)]
+    S.HI = hi0
+    run.ea = ea                       # toda change: the alpha layers (attribute, so the return signature is w2_engine's)
+    return (d, f, e, nat) if jmu else (d, f)
+
+
+def _provenance(*mods):
+    import hashlib, os as _os
+    for m in mods:
+        fn = m if isinstance(m, str) else m.__file__
+        print(f"sha256 {_os.path.basename(fn)}: {hashlib.sha256(open(fn, 'rb').read()).hexdigest()}", flush=True)
+
+
+if __name__ == "__main__":
+    _provenance(__file__)
+    d, f, e, nat = run(jmu=True, verbose=not os.environ.get("W2JSON"))
+    if os.environ.get("W2JSON"):        # w2 change 6: dump exact outputs (strings of rational functions) for w2_common
+        import json
+        json.dump({'d': [str(x.as_expr()) for x in d],
+                   'e': {f"{mo[0]},{mo[1]}": [str(x.as_expr()) for x in v] for mo, v in e.items()},
+                   'nat': {f"{mo[0]},{mo[1]}": [str(x.as_expr()) for x in v] for mo, v in nat.items()},
+                   'ea': {f"{mo[0]},{mo[1]}": [str(x.as_expr()) for x in v] for mo, v in run.ea.items()}},   # toda change
+                  open(os.environ["W2JSON"], "w"), indent=0)
+    else:
+        for mo, v in nat.items():
+            for k, x in enumerate(v): print(f"e1^{mo[0]} e2^{mo[1]}, natural N^-{k}:", factor(x.as_expr()))

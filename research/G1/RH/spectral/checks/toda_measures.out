@@ -1,0 +1,23 @@
+sha256 toda_measures.py: 6690b25d774b5c76444cbe430289007aca3025df9e8d4a9d7c4ecd0b184c08c2
+sigma_{2,3}, M = 6 atoms, times x^(1,), tau-degree <= 4: 23 identities, 27 controls
+sigma_{2,3}, M = 6 atoms, times x^(2,), tau-degree <= 4: 23 identities, 27 controls
+sigma_{2,3}, M = 6 atoms, times x^(3,), tau-degree <= 3: 23 identities, 27 controls
+sigma_{2,3}, M = 6 atoms, times x^(1, 2), tau-degree <= 3: 46 identities, 54 controls
+sigma_{2,3}, M = 6 atoms, times x^(1, 2, 3), tau-degree <= 2: 69 identities, 81 controls
+sigma_{3,2}, M = 6 atoms, times x^(1,), tau-degree <= 4: 23 identities, 27 controls
+sigma_{3,2}, M = 6 atoms, times x^(2,), tau-degree <= 4: 23 identities, 27 controls
+sigma_{3,2}, M = 6 atoms, times x^(3,), tau-degree <= 3: 23 identities, 27 controls
+sigma_{3,2}, M = 6 atoms, times x^(1, 2), tau-degree <= 3: 46 identities, 54 controls
+sigma_{3,2}, M = 6 atoms, times x^(1, 2, 3), tau-degree <= 2: 69 identities, 81 controls
+Hurwitz sigma^{-1/2} (p=2, s=3), M = 6 atoms, times x^(1,), tau-degree <= 4: 23 identities, 27 controls
+Hurwitz sigma^{-1/2} (p=2, s=3), M = 6 atoms, times x^(2,), tau-degree <= 4: 23 identities, 27 controls
+Hurwitz sigma^{-1/2} (p=2, s=3), M = 6 atoms, times x^(3,), tau-degree <= 3: 23 identities, 27 controls
+Hurwitz sigma^{-1/2} (p=2, s=3), M = 6 atoms, times x^(1, 2), tau-degree <= 3: 46 identities, 54 controls
+Hurwitz sigma^{-1/2} (p=2, s=3), M = 6 atoms, times x^(1, 2, 3), tau-degree <= 2: 69 identities, 81 controls
+random rational measure, M = 6 atoms, times x^(1,), tau-degree <= 4: 23 identities, 27 controls
+random rational measure, M = 6 atoms, times x^(2,), tau-degree <= 4: 23 identities, 27 controls
+random rational measure, M = 6 atoms, times x^(3,), tau-degree <= 3: 23 identities, 27 controls
+random rational measure, M = 6 atoms, times x^(1, 2), tau-degree <= 3: 46 identities, 54 controls
+random rational measure, M = 6 atoms, times x^(1, 2, 3), tau-degree <= 2: 69 identities, 81 controls
+identities checked: 736, controls: 864
+ALL 736 IDENTITIES HOLD; ALL 864 CONTROLS FAIL

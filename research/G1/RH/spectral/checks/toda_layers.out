@@ -1,0 +1,186 @@
+sha256 toda_layers.py: 1b9a4ca571d860933c13e62dc0f5f8511964fc06fa57a9bf5e92c464c99eb987
+sha256 toda_engine.py: fcd0e4e2aef3d759cb1df7d4426492a61f0d83679e949c864155b56870a3286c
+sha256 w2_engine.py: 8e69b2e33912b097cf6cf8abd27df0c9c0910735395e29c8292e4b2506bca02d
+== L1: exponents (1, 1), E = (2, 0), KORD = 4, lattice line M(alpha, alpha)
+  identity: L1 flow e_1 (j = 1), orders [1, 2]: (T-b) d_e B = -(1/2C) B[(J^j)_00 - (J^j)_-1-1]: holds
+  identity: L1 flow e_1 (j = 1), orders [1, 2]: (T-a) d_e (2A) = -(1/C)[b_1 (J^j)_10 - b_0 (J^j)_0,-1]: holds
+  control: L1 flow e_1 (j = 1), orders [1, 2]: control (T-b) opposite sign: fails
+  control: L1 flow e_1 (j = 1), orders [1, 2]: control (T-a) opposite sign: fails
+  control: L1 flow e_1 (j = 1), orders [1, 2]: control (T-b) with (J^j)_11: fails
+  control: L1 flow e_1 (j = 1), orders [1, 2]: control (T-a) with F_j(n) = b_0 (J^j)_10: fails
+  control: L1 flow e_1 (j = 1), orders [1, 2]: control (T-b) without 1/C_a: fails
+  control: L1 flow e_1 (j = 1), orders [1, 2]: control (T-b) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  control: L1 flow e_1 (j = 1), orders [1, 2]: control (T-a) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  identity: L1 flow e_1 (j = 1), orders [1, 2]: scaled-time shift agrees at FIRST order (expected; the difference is second order): holds
+  identity: L1: A n^-1 coefficient = -p(beta_Sz + 2)/2 (E_pgt1 Thm E.1 on the lattice line): holds
+  L1: natural form of A in M = n + beta_Sz/2 + 1: M^-0: 1; M^-1: 0; M^-2: (p + 1)*(3*alpha**2*p + 6*alpha**2 - 1)/24; M^-3: 0; M^-4: (p + 1)*(p + 3)*(45*alpha**4*p**4 + 180*alpha**4*p**3 + 180*alpha**4*p**2 + 30*alpha**2*p**3 + 180*alpha**2*p**2 + 240*alpha**2*p - 21*p**2 - 38*p + 4)/(5760*p*(3*p + 2))
+  identity: L1: A natural form: M^-1 = 0: holds
+  identity: L1: A natural form: M^-3 = 0: holds
+  identity: L1: A natural form: M^-2 = -(p+1)/24 + (p+1)(p+2)nu^2/8: holds
+  identity: L1: A natural form: beta_Sz-free to M^-4: holds
+  control: L1: control: A centred at N = n + beta_Sz/2 + 1/2 has an N^-1 term: fails
+== L2: exponents (2, 3), E = (1, 1), KORD = 4, lattice line M(alpha, alpha)
+  identity: L2 flow e_1 (j = 2), orders [1, 2]: (T-b) d_e B = -(1/2C) B[(J^j)_00 - (J^j)_-1-1]: holds
+  identity: L2 flow e_1 (j = 2), orders [1, 2]: (T-a) d_e (2A) = -(1/C)[b_1 (J^j)_10 - b_0 (J^j)_0,-1]: holds
+  control: L2 flow e_1 (j = 2), orders [1, 2]: control (T-b) opposite sign: fails
+  control: L2 flow e_1 (j = 2), orders [1, 2]: control (T-a) opposite sign: fails
+  control: L2 flow e_1 (j = 2), orders [1, 2]: control (T-b) with (J^j)_11: fails
+  control: L2 flow e_1 (j = 2), orders [1, 2]: control (T-a) with F_j(n) = b_0 (J^j)_10: fails
+  control: L2 flow e_1 (j = 2), orders [1, 2]: control (T-b) without 1/C_a: fails
+  control: L2 flow e_1 (j = 2), orders [1, 2]: control (T-b) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  control: L2 flow e_1 (j = 2), orders [1, 2]: control (T-a) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  identity: L2 flow e_1 (j = 2), orders [1, 2]: scaled-time shift agrees at FIRST order (expected; the difference is second order): holds
+  identity: L2 flow e_2 (j = 3), orders [1, 2]: (T-b) d_e B = -(1/2C) B[(J^j)_00 - (J^j)_-1-1]: holds
+  identity: L2 flow e_2 (j = 3), orders [1, 2]: (T-a) d_e (2A) = -(1/C)[b_1 (J^j)_10 - b_0 (J^j)_0,-1]: holds
+  control: L2 flow e_2 (j = 3), orders [1, 2]: control (T-b) opposite sign: fails
+  control: L2 flow e_2 (j = 3), orders [1, 2]: control (T-a) opposite sign: fails
+  control: L2 flow e_2 (j = 3), orders [1, 2]: control (T-b) with (J^j)_11: fails
+  control: L2 flow e_2 (j = 3), orders [1, 2]: control (T-a) with F_j(n) = b_0 (J^j)_10: fails
+  control: L2 flow e_2 (j = 3), orders [1, 2]: control (T-b) without 1/C_a: fails
+  control: L2 flow e_2 (j = 3), orders [1, 2]: control (T-b) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  control: L2 flow e_2 (j = 3), orders [1, 2]: control (T-a) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  identity: L2 flow e_2 (j = 3), orders [1, 2]: scaled-time shift agrees at FIRST order (expected; the difference is second order): holds
+  identity: L2: A n^-1 coefficient = -p(beta_Sz + 2)/2 (E_pgt1 Thm E.1 on the lattice line): holds
+  L2: natural form of A in M = n + beta_Sz/2 + 1: M^-0: 1; M^-1: 0; M^-2: (p + 1)*(3*alpha**2*p + 6*alpha**2 - 1)/24; M^-3: 0; M^-4: (p + 1)*(p + 3)*(45*alpha**4*p**4 + 180*alpha**4*p**3 + 180*alpha**4*p**2 + 30*alpha**2*p**3 + 180*alpha**2*p**2 + 240*alpha**2*p - 21*p**2 - 38*p + 4)/(5760*p*(3*p + 2))
+  identity: L2: A natural form: M^-1 = 0: holds
+  identity: L2: A natural form: M^-3 = 0: holds
+  identity: L2: A natural form: M^-2 = -(p+1)/24 + (p+1)(p+2)nu^2/8: holds
+  identity: L2: A natural form: beta_Sz-free to M^-4: holds
+  control: L2: control: A centred at N = n + beta_Sz/2 + 1/2 has an N^-1 term: fails
+== L3: exponents (1, 2), E = (1, 1), KORD = 4, decoupled M(beta, nu = alpha)
+  identity: L3 flow e_1 (j = 1), orders [1, 2]: (T-b) d_e B = -(1/2C) B[(J^j)_00 - (J^j)_-1-1]: holds
+  identity: L3 flow e_1 (j = 1), orders [1, 2]: (T-a) d_e (2A) = -(1/C)[b_1 (J^j)_10 - b_0 (J^j)_0,-1]: holds
+  control: L3 flow e_1 (j = 1), orders [1, 2]: control (T-b) opposite sign: fails
+  control: L3 flow e_1 (j = 1), orders [1, 2]: control (T-a) opposite sign: fails
+  control: L3 flow e_1 (j = 1), orders [1, 2]: control (T-b) with (J^j)_11: fails
+  control: L3 flow e_1 (j = 1), orders [1, 2]: control (T-a) with F_j(n) = b_0 (J^j)_10: fails
+  control: L3 flow e_1 (j = 1), orders [1, 2]: control (T-b) without 1/C_a: fails
+  control: L3 flow e_1 (j = 1), orders [1, 2]: control (T-b) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  control: L3 flow e_1 (j = 1), orders [1, 2]: control (T-a) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  identity: L3 flow e_1 (j = 1), orders [1, 2]: scaled-time shift agrees at FIRST order (expected; the difference is second order): holds
+  identity: L3 flow e_2 (j = 2), orders [1, 2]: (T-b) d_e B = -(1/2C) B[(J^j)_00 - (J^j)_-1-1]: holds
+  identity: L3 flow e_2 (j = 2), orders [1, 2]: (T-a) d_e (2A) = -(1/C)[b_1 (J^j)_10 - b_0 (J^j)_0,-1]: holds
+  control: L3 flow e_2 (j = 2), orders [1, 2]: control (T-b) opposite sign: fails
+  control: L3 flow e_2 (j = 2), orders [1, 2]: control (T-a) opposite sign: fails
+  control: L3 flow e_2 (j = 2), orders [1, 2]: control (T-b) with (J^j)_11: fails
+  control: L3 flow e_2 (j = 2), orders [1, 2]: control (T-a) with F_j(n) = b_0 (J^j)_10: fails
+  control: L3 flow e_2 (j = 2), orders [1, 2]: control (T-b) without 1/C_a: fails
+  control: L3 flow e_2 (j = 2), orders [1, 2]: control (T-b) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  control: L3 flow e_2 (j = 2), orders [1, 2]: control (T-a) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  identity: L3 flow e_2 (j = 2), orders [1, 2]: scaled-time shift agrees at FIRST order (expected; the difference is second order): holds
+  identity: L3: A n^-1 coefficient = -p(beta_Sz + 2)/2 (E_pgt1 Thm E.1 on the lattice line): holds
+  L3: natural form of A in M = n + beta_Sz/2 + 1: M^-0: 1; M^-1: 0; M^-2: (p + 1)*(3*alpha**2*p + 6*alpha**2 - 1)/24; M^-3: 0; M^-4: (p + 1)*(p + 3)*(45*alpha**4*p**4 + 180*alpha**4*p**3 + 180*alpha**4*p**2 + 30*alpha**2*p**3 + 180*alpha**2*p**2 + 240*alpha**2*p - 21*p**2 - 38*p + 4)/(5760*p*(3*p + 2))
+  identity: L3: A natural form: M^-1 = 0: holds
+  identity: L3: A natural form: M^-3 = 0: holds
+  identity: L3: A natural form: M^-2 = -(p+1)/24 + (p+1)(p+2)nu^2/8: holds
+  identity: L3: A natural form: beta_Sz-free to M^-4: holds
+  control: L3: control: A centred at N = n + beta_Sz/2 + 1/2 has an N^-1 term: fails
+== Q1: exponents (1, 2), E = (2, 1), KORD = 4, lattice line M(alpha, alpha)
+  identity: Q1 flow e_1 (j = 1), orders [1, 2, 3]: (T-b) d_e B = -(1/2C) B[(J^j)_00 - (J^j)_-1-1]: holds
+  identity: Q1 flow e_1 (j = 1), orders [1, 2, 3]: (T-a) d_e (2A) = -(1/C)[b_1 (J^j)_10 - b_0 (J^j)_0,-1]: holds
+  control: Q1 flow e_1 (j = 1), orders [1, 2, 3]: control (T-b) opposite sign: fails
+  control: Q1 flow e_1 (j = 1), orders [1, 2, 3]: control (T-a) opposite sign: fails
+  control: Q1 flow e_1 (j = 1), orders [1, 2, 3]: control (T-b) with (J^j)_11: fails
+  control: Q1 flow e_1 (j = 1), orders [1, 2, 3]: control (T-a) with F_j(n) = b_0 (J^j)_10: fails
+  control: Q1 flow e_1 (j = 1), orders [1, 2, 3]: control (T-b) without 1/C_a: fails
+  control: Q1 flow e_1 (j = 1), orders [1, 2, 3]: control (T-b) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  control: Q1 flow e_1 (j = 1), orders [1, 2, 3]: control (T-a) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  identity: Q1 flow e_1 (j = 1), orders [1, 2, 3]: scaled-time shift agrees at FIRST order (expected; the difference is second order): holds
+  identity: Q1 flow e_2 (j = 2), orders [1, 2, 3]: (T-b) d_e B = -(1/2C) B[(J^j)_00 - (J^j)_-1-1]: holds
+  identity: Q1 flow e_2 (j = 2), orders [1, 2, 3]: (T-a) d_e (2A) = -(1/C)[b_1 (J^j)_10 - b_0 (J^j)_0,-1]: holds
+  control: Q1 flow e_2 (j = 2), orders [1, 2, 3]: control (T-b) opposite sign: fails
+  control: Q1 flow e_2 (j = 2), orders [1, 2, 3]: control (T-a) opposite sign: fails
+  control: Q1 flow e_2 (j = 2), orders [1, 2, 3]: control (T-b) with (J^j)_11: fails
+  control: Q1 flow e_2 (j = 2), orders [1, 2, 3]: control (T-a) with F_j(n) = b_0 (J^j)_10: fails
+  control: Q1 flow e_2 (j = 2), orders [1, 2, 3]: control (T-b) without 1/C_a: fails
+  control: Q1 flow e_2 (j = 2), orders [1, 2, 3]: control (T-b) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  control: Q1 flow e_2 (j = 2), orders [1, 2, 3]: control (T-a) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  identity: Q1 flow e_2 (j = 2), orders [1, 2, 3]: scaled-time shift agrees at FIRST order (expected; the difference is second order): holds
+  identity: Q1: A n^-1 coefficient = -p(beta_Sz + 2)/2 (E_pgt1 Thm E.1 on the lattice line): holds
+  Q1: natural form of A in M = n + beta_Sz/2 + 1: M^-0: 1; M^-1: 0; M^-2: -11/1920; M^-3: 0; M^-4: -391711/159744000
+  identity: Q1: A natural form: M^-1 = 0: holds
+  identity: Q1: A natural form: M^-3 = 0: holds
+  identity: Q1: A natural form: M^-2 = -(p+1)/24 + (p+1)(p+2)nu^2/8: holds
+  identity: Q1: A natural form: beta_Sz-free to M^-4: holds
+  control: Q1: control: A centred at N = n + beta_Sz/2 + 1/2 has an N^-1 term: fails
+== Q2: exponents (1, 3), E = (1, 1), KORD = 4, decoupled M(beta, nu = alpha)
+  identity: Q2 flow e_1 (j = 1), orders [1, 2]: (T-b) d_e B = -(1/2C) B[(J^j)_00 - (J^j)_-1-1]: holds
+  identity: Q2 flow e_1 (j = 1), orders [1, 2]: (T-a) d_e (2A) = -(1/C)[b_1 (J^j)_10 - b_0 (J^j)_0,-1]: holds
+  control: Q2 flow e_1 (j = 1), orders [1, 2]: control (T-b) opposite sign: fails
+  control: Q2 flow e_1 (j = 1), orders [1, 2]: control (T-a) opposite sign: fails
+  control: Q2 flow e_1 (j = 1), orders [1, 2]: control (T-b) with (J^j)_11: fails
+  control: Q2 flow e_1 (j = 1), orders [1, 2]: control (T-a) with F_j(n) = b_0 (J^j)_10: fails
+  control: Q2 flow e_1 (j = 1), orders [1, 2]: control (T-b) without 1/C_a: fails
+  control: Q2 flow e_1 (j = 1), orders [1, 2]: control (T-b) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  control: Q2 flow e_1 (j = 1), orders [1, 2]: control (T-a) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  identity: Q2 flow e_1 (j = 1), orders [1, 2]: scaled-time shift agrees at FIRST order (expected; the difference is second order): holds
+  identity: Q2 flow e_2 (j = 3), orders [1, 2]: (T-b) d_e B = -(1/2C) B[(J^j)_00 - (J^j)_-1-1]: holds
+  identity: Q2 flow e_2 (j = 3), orders [1, 2]: (T-a) d_e (2A) = -(1/C)[b_1 (J^j)_10 - b_0 (J^j)_0,-1]: holds
+  control: Q2 flow e_2 (j = 3), orders [1, 2]: control (T-b) opposite sign: fails
+  control: Q2 flow e_2 (j = 3), orders [1, 2]: control (T-a) opposite sign: fails
+  control: Q2 flow e_2 (j = 3), orders [1, 2]: control (T-b) with (J^j)_11: fails
+  control: Q2 flow e_2 (j = 3), orders [1, 2]: control (T-a) with F_j(n) = b_0 (J^j)_10: fails
+  control: Q2 flow e_2 (j = 3), orders [1, 2]: control (T-b) without 1/C_a: fails
+  control: Q2 flow e_2 (j = 3), orders [1, 2]: control (T-b) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  control: Q2 flow e_2 (j = 3), orders [1, 2]: control (T-a) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  identity: Q2 flow e_2 (j = 3), orders [1, 2]: scaled-time shift agrees at FIRST order (expected; the difference is second order): holds
+  identity: Q2: A n^-1 coefficient = -p(beta_Sz + 2)/2 (E_pgt1 Thm E.1 on the lattice line): holds
+  Q2: natural form of A in M = n + beta_Sz/2 + 1: M^-0: 1; M^-1: 0; M^-2: -89/3675; M^-3: 0; M^-4: -2417911/684285000
+  identity: Q2: A natural form: M^-1 = 0: holds
+  identity: Q2: A natural form: M^-3 = 0: holds
+  identity: Q2: A natural form: M^-2 = -(p+1)/24 + (p+1)(p+2)nu^2/8: holds
+  identity: Q2: A natural form: beta_Sz-free to M^-4: holds
+  control: Q2: control: A centred at N = n + beta_Sz/2 + 1/2 has an N^-1 term: fails
+== Q3: exponents (3, 2), E = (1, 2), KORD = 4, lattice line M(alpha, alpha)
+  identity: Q3 flow e_1 (j = 3), orders [1, 2, 3]: (T-b) d_e B = -(1/2C) B[(J^j)_00 - (J^j)_-1-1]: holds
+  identity: Q3 flow e_1 (j = 3), orders [1, 2, 3]: (T-a) d_e (2A) = -(1/C)[b_1 (J^j)_10 - b_0 (J^j)_0,-1]: holds
+  control: Q3 flow e_1 (j = 3), orders [1, 2, 3]: control (T-b) opposite sign: fails
+  control: Q3 flow e_1 (j = 3), orders [1, 2, 3]: control (T-a) opposite sign: fails
+  control: Q3 flow e_1 (j = 3), orders [1, 2, 3]: control (T-b) with (J^j)_11: fails
+  control: Q3 flow e_1 (j = 3), orders [1, 2, 3]: control (T-a) with F_j(n) = b_0 (J^j)_10: fails
+  control: Q3 flow e_1 (j = 3), orders [1, 2, 3]: control (T-b) without 1/C_a: fails
+  control: Q3 flow e_1 (j = 3), orders [1, 2, 3]: control (T-b) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  control: Q3 flow e_1 (j = 3), orders [1, 2, 3]: control (T-a) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  identity: Q3 flow e_1 (j = 3), orders [1, 2, 3]: scaled-time shift agrees at FIRST order (expected; the difference is second order): holds
+  identity: Q3 flow e_2 (j = 2), orders [1, 2, 3]: (T-b) d_e B = -(1/2C) B[(J^j)_00 - (J^j)_-1-1]: holds
+  identity: Q3 flow e_2 (j = 2), orders [1, 2, 3]: (T-a) d_e (2A) = -(1/C)[b_1 (J^j)_10 - b_0 (J^j)_0,-1]: holds
+  control: Q3 flow e_2 (j = 2), orders [1, 2, 3]: control (T-b) opposite sign: fails
+  control: Q3 flow e_2 (j = 2), orders [1, 2, 3]: control (T-a) opposite sign: fails
+  control: Q3 flow e_2 (j = 2), orders [1, 2, 3]: control (T-b) with (J^j)_11: fails
+  control: Q3 flow e_2 (j = 2), orders [1, 2, 3]: control (T-a) with F_j(n) = b_0 (J^j)_10: fails
+  control: Q3 flow e_2 (j = 2), orders [1, 2, 3]: control (T-b) without 1/C_a: fails
+  control: Q3 flow e_2 (j = 2), orders [1, 2, 3]: control (T-b) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  control: Q3 flow e_2 (j = 2), orders [1, 2, 3]: control (T-a) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  identity: Q3 flow e_2 (j = 2), orders [1, 2, 3]: scaled-time shift agrees at FIRST order (expected; the difference is second order): holds
+  identity: Q3: A n^-1 coefficient = -p(beta_Sz + 2)/2 (E_pgt1 Thm E.1 on the lattice line): holds
+  Q3: natural form of A in M = n + beta_Sz/2 + 1: M^-0: 1; M^-1: 0; M^-2: 5/16; M^-3: 0; M^-4: 9101/108864
+  identity: Q3: A natural form: M^-1 = 0: holds
+  identity: Q3: A natural form: M^-3 = 0: holds
+  identity: Q3: A natural form: M^-2 = -(p+1)/24 + (p+1)(p+2)nu^2/8: holds
+  identity: Q3: A natural form: beta_Sz-free to M^-4: holds
+  control: Q3: control: A centred at N = n + beta_Sz/2 + 1/2 has an N^-1 term: fails
+== Q4: exponents (1, 1), E = (3, 0), KORD = 4, lattice line M(alpha, alpha)
+  identity: Q4 flow e_1 (j = 1), orders [1, 2, 3]: (T-b) d_e B = -(1/2C) B[(J^j)_00 - (J^j)_-1-1]: holds
+  identity: Q4 flow e_1 (j = 1), orders [1, 2, 3]: (T-a) d_e (2A) = -(1/C)[b_1 (J^j)_10 - b_0 (J^j)_0,-1]: holds
+  control: Q4 flow e_1 (j = 1), orders [1, 2, 3]: control (T-b) opposite sign: fails
+  control: Q4 flow e_1 (j = 1), orders [1, 2, 3]: control (T-a) opposite sign: fails
+  control: Q4 flow e_1 (j = 1), orders [1, 2, 3]: control (T-b) with (J^j)_11: fails
+  control: Q4 flow e_1 (j = 1), orders [1, 2, 3]: control (T-a) with F_j(n) = b_0 (J^j)_10: fails
+  control: Q4 flow e_1 (j = 1), orders [1, 2, 3]: control (T-b) without 1/C_a: fails
+  control: Q4 flow e_1 (j = 1), orders [1, 2, 3]: control (T-b) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  control: Q4 flow e_1 (j = 1), orders [1, 2, 3]: control (T-a) scaled-time shift (1+ix)^{-p} (no n^{jp}): fails
+  identity: Q4 flow e_1 (j = 1), orders [1, 2, 3]: scaled-time shift agrees at FIRST order (expected; the difference is second order): holds
+  identity: Q4: A n^-1 coefficient = -p(beta_Sz + 2)/2 (E_pgt1 Thm E.1 on the lattice line): holds
+  Q4: natural form of A in M = n + beta_Sz/2 + 1: M^-0: 1; M^-1: 0; M^-2: 203/1920; M^-3: 0; M^-4: 7857451/294912000
+  identity: Q4: A natural form: M^-1 = 0: holds
+  identity: Q4: A natural form: M^-3 = 0: holds
+  identity: Q4: A natural form: M^-2 = -(p+1)/24 + (p+1)(p+2)nu^2/8: holds
+  identity: Q4: A natural form: beta_Sz-free to M^-4: holds
+  control: Q4: control: A centred at N = n + beta_Sz/2 + 1/2 has an N^-1 term: fails
+  identity: X1: toda_engine b-part (d, e, nat) == w2_engine's at Q1 (string-identical): holds
+  X2: |A_exact - A_m4rh4| = 2.57e-39 (mu = 0), 7.24e-23 (first order, central difference)
+  identity: X2 (NUMERICAL): exact alpha layer at mu = 0 = m4_rh4 numerical, to 1e-30: holds
+  identity: X2 (NUMERICAL): exact first-order alpha layer = m4_rh4 central difference, to 1e-15: holds
+  identity: X3: L1 (symbolic, SHI = 16) at (p, alpha) = (3/2, 3/10) equals Q1 (SHI = 30): b- and alpha-layers, orders <= 2 in e_1: holds
+identities: 75, controls: 91
+ALL 75 IDENTITIES HOLD; ALL 91 CONTROLS FAIL
