@@ -19,7 +19,10 @@ zeta layers μ₁, μ₂, μ₁²), PROVED-mod-cite + REVIEWED (Rule R review A,
 (ii)'s natural form is now PROVED-mod-cite + REVIEWED for the integer layer to all orders and for the zeta layers of weight ≤ 2
 (μ₁, μ₂, μ₁²); for layers of weight ≥ 3 it remains CONDITIONAL (§1, §4).
 
-Labels per VERIFICATION_POLICY.md.
+Labels per VERIFICATION_POLICY.md. Novelty (Rule L, 2026-10-23; NOVELTY_ZETA.md Z2): Theorem H **POSSIBLY-NEW** (NOT FOUND as a statement).
+Closest prior work: Hurwitz's formula KNOWN (Dixit–Kumar, arXiv:1912.01199, Thm 1.1); exact instances in which a lattice offset enters
+only through the index are classical recurrences — Lommel (n + ν) and Tricomi–Carlitz (n + α; Wu–Lin–Xu–Zhao, arXiv:1410.3948) — none read
+as a Hurwitz/Szegő identity; ζ_Bessel(0) = −(ν + ½)/2 KNOWN (Naber–Bruck–Costello, arXiv:2211.05765).
 
 ## 1. Statement
 
@@ -239,7 +242,7 @@ review B, B3-2); the formula at 96 points to 5·10⁻⁴² (checks/m3a_hurwitz_f
   beyond them (ii) was CONDITIONAL on Conjecture Σ, with NUMERICAL support to order 8 (m4_shift_num.out, 108 checks) and for
   the zeta layer (m4_shift_zeta.out, 40 checks).
   **Now** (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md): Conjecture Σ is Theorem Σ (JZC_SIGMA.md; PROVED-mod-cite + REVIEWED, Rule R review A, REVIEW_JZC_SIGMA_A.md,
-  fixes S1–S8 applied; novelty UNCHECKED). Theorem Σ is an identity of the formal model, identically in (p, β, ν), so it applies at
+  fixes S1–S8 applied; novelty POSSIBLY-NEW since Rule L, 2026-10-23, NOVELTY_TODA.md §2). Theorem Σ is an identity of the formal model, identically in (p, β, ν), so it applies at
   β′ = α + 2δ for every p in Theorem H's scope. Hence (ii) = (i) + Theorem Σ + Cor Σ.2 is **PROVED-mod-cite + REVIEWED** for the integer
   layer to all orders (f_{2k} δ-independent in N, f_odd = 0 by Cor Σ.1) and for the zeta layers of weight ≤ 2, μ₁, μ₂, μ₁² (incl. the
   ε₁² layer, also checked numerically by review A of JZC_SIGMA), to all relative orders, with the remainder of (i). **Still CONDITIONAL:**

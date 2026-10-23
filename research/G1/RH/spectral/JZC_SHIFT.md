@@ -8,7 +8,7 @@ R review A, <id>)". Final labels: Thm SH with integer exponents, on the lattice 
 PROVED-mod-cite + REVIEWED; at fractional/symbolic exponents the continued identities for the engine's model: PROVED-mod-cite +
 REVIEWED, but their identification with JZC_W2's pole layers rests additionally on JZC_W2 Prop 2.1 (iii), NOT REVIEWED; Lemmas LB, D,
 R, H: PROVED + REVIEWED; Prop DR: PROVED-mod-cite (Theorem T) + exact algebra + REVIEWED, with the g_j split for j > 10 and the
-h(j, k) closed form CONJECTURE (unchanged). Labels per VERIFICATION_POLICY.md. Novelty: UNCHECKED (no Rule L pass; §8). No claim about RH: no measure built from zeta zeros is used (the "zeta times"
+h(j, k) closed form CONJECTURE (unchanged). Labels per VERIFICATION_POLICY.md. Novelty (Rule L, 2026-10-23; NOVELTY_TODA.md §3): Thm SH POSSIBLY-NEW for the setting only; mechanism KNOWN (Ercolani 2011, EMP 2008); must not be presented as a new mechanism (§8). No claim about RH: no measure built from zeta zeros is used (the "zeta times"
 are the band-factor parameters of the formal model, treated as free parameters). Scope: JZC_W2 Obs 2.3 (the index-shift law) and
 JZC_W2 §6 item 2 (dressings). Branch plan-e2-d2; committed in af22e48 (fixed per Rule R review A, T5: was "nothing committed").
 Inputs, with their labels: **JZC_TODA Theorem T and T_H** (Toda structure of the layers; PROVED-mod-cite + REVIEWED) (fixed per Rule
@@ -354,7 +354,18 @@ Res_{j=½}Res_{k=½}h = 5(1 − 4α²)/64: like the first-order W′ term, the w
    label; Paper IV).
 6. Rule L (§8).
 
-## 8. Literature (Rule L) — not done
-Novelty UNCHECKED. The ingredients (dispersionless Toda hierarchy, Riemann invariants, hodograph solutions, string equations for
+## 8. Literature (Rule L) — done 2026-10-23 (NOVELTY_TODA.md §3; queries §6)
+- **Mechanism KNOWN.** Genus zero of the continuum Toda hierarchy is an inviscid Burgers (Hopf) equation with power-law speed, solved
+  implicitly by characteristics: Ercolani, arXiv:0912.1904 (Nonlinearity 2011) §2.3, f_s = c_νf^νf_w, eq. (30) 1 = z₀ − c_νsz₀^ν;
+  Ercolani–McLaughlin–Pierce, math-ph/0606010, eq. (2.6); higher orders = forced linear equations from the k^{−2g} terms (EMP (2.7)),
+  the analogue of "dressings = dispersive part" (Prop DR). Lagrange inversion of the genus-zero string equation is textbook map
+  enumeration (Bouttier, arXiv:1104.3003, §26.4). Endpoints of the support are dToda Riemann invariants (Konopelchenko–Martínez
+  Alonso–Medina, arXiv:1005.4773), so Lemma R is a specialisation of a known structure. Lemma LB is the generalised binomial series.
+- **NOT FOUND (POSSIBLY-NEW for the setting only):** initial data b(n, 0) = cn^{−p} for a fixed measure (no N); the hard-edge line
+  a = 2b as the reduction; continuation to fractional and pole exponents; zeta-valued times; the explicit multi-time rising-factorial
+  formula as a statement about recurrence coefficients; the specific dressing results (g_j split, h₂, h(j, k)).
+- **Do not claim** that the dispersionless/Hopf/characteristics reading or the Lagrange-inversion form is new.
+
+Earlier text (before the 2026-10-23 pass): Novelty UNCHECKED. The ingredients (dispersionless Toda hierarchy, Riemann invariants, hodograph solutions, string equations for
 orthogonal polynomials with varying weights; cf. NOVELTY_JZC item N, Bleher–Its 2005) are of the kind found in the literature on
 dispersionless limits and random matrices; none was read for this note, and nothing here depends on them.

@@ -9,8 +9,8 @@ T_H, Cor T.3: PROVED-mod-cite + REVIEWED (review A, REVIEW_JZC_TODA_SHIFT_A.md);
 PROVED-mod-cite as coefficients of α_n, + REVIEWED. **Scope of the review** (recorded per review A §2.2 "What I did not verify"): the
 reviewer did not re-read the REVIEWED lemmas of E_pgt1, E_plt1, RH_px and G1u line by line; for those rows of the transfer table
 (§3.1) it checked only that the weight enters as stated (the same granularity as JZC_SIGMA Lemma F (ii)). (fixed per Rule R review A,
-T5.) Labels per VERIFICATION_POLICY.md. Novelty: the Toda hierarchy for exponential tilts is KNOWN (§9); the statements about the
-lattice layers are UNCHECKED (Rule L not done). No claim about RH: the "zeta times" t_j = −2ζ(−jp)/j are the band-factor constants of
+T5.) Labels per VERIFICATION_POLICY.md. Novelty (Rule L, 2026-10-23; NOVELTY_TODA.md): Lemma T.1 KNOWN (§9); Theorem T (ii)–(iii), T_H POSSIBLY-NEW for the
+setting only (fixed measure, zeta base times, Baire transfer), mechanism KNOWN (Ercolani–McLaughlin–Pierce continuum-Toda hierarchy). No claim about RH: the "zeta times" t_j = −2ζ(−jp)/j are the band-factor constants of
 the formal model (E3 Lemma F.1′), and the proof below never uses their values — the tilts make all times free parameters. Branch
 plan-e2-d2; committed in 7c18fcd (fixed per Rule R review A, T5: was "nothing committed"). Scope: JZC_M4 §8 Theorem T (a sketch,
 PROVED-mod-cite, NOT REVIEWED until this note) and its Hurwitz version (T_H), which JZC_SHIFT (Thm SH, Lemmas D, R, H, Prop DR,
@@ -539,7 +539,7 @@ Results (`toda_layers.out`): **ALL 75 IDENTITIES HOLD; ALL 91 CONTROLS FAIL.**
    label unchanged); Paper IV (Theorem, index-shift theorem, diagonal-layer statement).
 6. Rule L (§9).
 
-## 9. Literature (Rule L) — partial
+## 9. Literature (Rule L) — done 2026-10-23 (NOVELTY_TODA.md)
 - The Toda hierarchy for exponential tilts of orthogonal-polynomial measures is classical, and Lemma T.1 is KNOWN. W. Van Assche,
   "Orthogonal polynomials, Toda lattices and Painlevé equations", arXiv:2202.11017 (KU Leuven): §2.1 Lemma 2.1 (measure e^{xt}dμ(x), μ
   positive on ℝ with all moments of μ_t finite; dP_n/dt = −a_n²P_{n−1}; in the proof db_n/dt = a²_{n+1} − a_n², da_n²/dt =
@@ -548,4 +548,13 @@ Results (`toda_layers.out`): **ALL 75 IDENTITIES HOLD; ALL 91 CONTROLS FAIL.**
   does not meet Rule C's "quoted verbatim with every hypothesis", so **nothing in this note rests on it**: Lemma T.1 is proved in full
   in §2. The paraphrased statements agree with Lemma T.1 (j = 1 and general j).
 - Deift's book (Courant Lecture Notes 3) was not accessible; it is not used.
-- The statements about the lattice layers (Theorem T (ii), T_H) were not searched for. Novelty UNCHECKED.
+- ~~The statements about the lattice layers (Theorem T (ii), T_H) were not searched for. Novelty UNCHECKED.~~ (Rule L, 2026-10-23)
+  Searched in NOVELTY_TODA.md §1 (queries §6). Verdicts:
+  - **Lemma T.1: KNOWN** (Van Assche, arXiv:2202.11017, Lemma 2.1, Lemma 2.3, Thm 2.4; Moser, Flaschka for j = 1). Paper IV cites the survey.
+  - **Theorem T (ii)–(iii), T_H: POSSIBLY-NEW for the setting only.** Mechanism KNOWN: Toda equations with shifted indices re-expanded
+    in 1/n as a hierarchy for the coefficients of an asymptotic expansion is Ercolani–McLaughlin–Pierce, arXiv:math-ph/0606010 (CMP
+    2008), Thm 2.2, §4 ("Fundamental Asymptotic Principle"), for varying weights e^{−N(x²/2+tx^{2ν})}; also Ercolani arXiv:0912.1904,
+    Ercolani–Pierce arXiv:1106.1143. NOT FOUND: a fixed measure with no large parameter N (times entering as u_jn^{−jp}), the zeta
+    base times t_k = −2ζ(−kp)/k, the Baire transfer (Lemma T.2), T_H and the rational continuation to the decoupled model.
+  - Prop T.4 (a₂, a₄): no separate claim; the centring at M = N + ½ is the arrangement of Bleher–Its 2005 Thm 5.2.
+  - Unread decisive items: NOVELTY_TODA §4 (Ercolani 2011 full text; Ercolani–Waters; Laguerre-ensemble map enumeration).

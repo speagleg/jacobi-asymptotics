@@ -1,5 +1,20 @@
 # NOVELTY_JZC: Rule L search for the Jacobi–zeta correspondence (Theorem K/K0, Theorem Q, natural index N, X_j structure)
 
+> **Update (Rule L, 2026-10-23).** Three follow-up searches extend this file; their queries are listed in each (Rule L log):
+> - **NOVELTY_Q.md** (item Q; supersedes §2 below): Theorem Q **PARTIALLY KNOWN** — endpoint equation and monotone criterion in
+>   Beckermann–Kuijlaars, SINUM 39 (2001) Lemma 3.1(a) (unread; via Beckermann–Helart arXiv:1707.07871 Lemma 1.5), density = the
+>   constrained Buyarov–Rakhmanov superposition (BK 2001 Thm 2.1); new = infinite mass / Y = ∞, closed form (G), edge constant.
+>   Cor Q.1: no claim. Prop M1.2: POSSIBLY-NEW. Queries: NOVELTY_Q §5.
+> - **Correction to §2.1 below:** Beckermann–Kuijlaars ETNA 2002 eq. (2.25) / Thms 2.7–2.8 are the *external-field* case (they cite
+>   Kuijlaars–McLaughlin and Kuijlaars 2000, not BK 2001); they are not the nearest analogue of (Q). The Q ≡ 0 analogue is BH Lemma
+>   1.5 / BK01 Lemma 3.1(a) (NOVELTY_Q §2.4).
+> - **NOVELTY_TODA.md** (Theorem T, Theorem Σ, index-shift law): Lemma T.1 KNOWN (Van Assche arXiv:2202.11017); Theorem T (ii)–(iii),
+>   Σ, Thm SH POSSIBLY-NEW for the setting only, mechanisms KNOWN (Ercolani arXiv:0912.1904; EMP math-ph/0606010; Kuijlaars–Tibboel
+>   arXiv:0708.3956; Filipuk–Van Assche–Zhang arXiv:1105.5229). Queries: NOVELTY_TODA §6.
+> - **NOVELTY_ZETA.md** (items K/N.6, H, W, large order): NOT FOUND → POSSIBLY-NEW; closest relatives Tricomi–Carlitz (arXiv:1410.3948),
+>   Neumann–Bessel (arXiv:2406.09746), Murugan–Van Zyl–Watanabe (arXiv:2608.07258), Magnus / Foulquié Moreno et al. (arXiv:0905.2753);
+>   large order: phenomenon PARTIALLY KNOWN (Mariño–Schiappa–Weiss, Costin–Garoufalidis), stays UNCHECKED. Queries: NOVELTY_ZETA §7.
+
 Date: 2026-10-21. Branch plan-e2-d2. Searcher: a subagent of the JZC session. Rule L only: this file records what the search
 found. It does not review the mathematics (Rule R) or the citations (Rule C). Structure follows research/program/novelty_SPEC.md.
 

@@ -13,6 +13,7 @@ are exact (JZC_TODA Prop T.4) (updated 2026-10-23 after JZC_TODA / JZC_SHIFT rev
 | Prop N.4 | Zeta layer with the band factor (E3 gauge added to the order-k computation): each ε_j term is ε_jN^{−1−jp}·(1 + g_jN⁻² + O(N⁻⁴)), even in 1/N, with g_j = A_j + B_jα² in closed form for all j (§6); the ζ(−p)² layer starts at (ε₁N^{−1−p})²·(3p+1)/(2p) | **PROVED-mod-cite for p ≠ 1, every j (Theorem N.6(ii); symbolic-j exact algebra m4_zeta_exact2_A), and the ζ(−p)² layer (3p+1)/(2p), h₂ (m4_zeta_exact2_B).** As coefficients of b_n: see the visibility table of Theorem N.6(iii) |
 | Conj S1-N′ | refined S1-N: F_{p,α} is a function of N⁻² and the monomials X_j := ε_jN^{−1−jp} only, i.e. F = Σ_β c_β(N⁻²)ΠX_j^{β_j} with each c_β an even series | CONJECTURE in general; PROVED-mod-cite for β ∈ {0, e_j (all j), 2e₁} to the orders of Theorem N.6(ii). Additionally: β = 0 even in N to all orders (Cor Σ.1), and the β-independence (shift N = n + (β+1)/2) of the e₁, e₂, 2e₁ layers to all orders (Cor Σ.2), both PROVED-mod-cite + REVIEWED (JZC_SIGMA.md); their evenness beyond N.6(ii)'s orders and layers of weight ≥ 3 remain open (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md) |
 | Prop N.3 | Integer layer from the order-k Riemann–Hilbert model computation (E2's frame, extended from k = 2 to k = 8): f₁ = f₃ = f₅ = f₇ = 0; f₄, f₆ in closed form (§5); f_{2k} is even in α | **f₁ = f₃ = f₅ = 0, f₂, f₄, f₆: PROVED-mod-cite for p ≠ 1 (Thm N.6(ii), REVIEWED); f₇ = 0, f₈ and beyond: NUMERICAL** (m4_rh4.out ≤ 10⁻³⁵, m4_f8_denominator.out) (fixed per Rule R review B, M5). **f₇ = 0 and f_k = 0 for every odd k, and f_{2k} even in α (a polynomial in α²): PROVED-mod-cite + REVIEWED for the model's integer layer, identically in p (Cor Σ.1 of JZC_SIGMA.md, Theorem Σ with Theorem R); the values f₈, f₁₀, … and the degree k in α² of f_{2k} remain NUMERICAL** (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md). As coefficients of b_n (Thm N.6(iii)): f₂ (all p), f₄ (p > 2/3), f₆ (p > 4/3) |
+| Novelty | Identity N.1, Props N.2–N.4, Conj S1-N / S1-N′ (zeta-value expansion, natural index with −Z(0), g_j, (3p+1)/(2p)); Theorems R, Σ, T (§§7–8); large order (§9) | (Rule L, 2026-10-23) **N.3/N.4 = Thm N.6 content: POSSIBLY-NEW** (NOT FOUND; NOVELTY_ZETA Z1: exact special cases KNOWN as formulas only — Lommel, Tricomi–Carlitz arXiv:1410.3948; singularity → power-term principle PARTIALLY KNOWN for continuous weights, Magnus 1995, Foulquié Moreno–Martínez-Finkelshtein–Sousa arXiv:0905.2753; Murugan–Van Zyl–Watanabe arXiv:2608.07258). Evenness after a half-index shift: phenomenon PARTIALLY KNOWN (Bleher–Its 2005; NOVELTY_JZC item N). Theorem R: mechanism KNOWN (Kuijlaars–Tibboel Lemma 4.1); Theorem Σ POSSIBLY-NEW; Theorem T POSSIBLY-NEW for the setting only (NOVELTY_TODA). §9 large order: phenomenon PARTIALLY KNOWN (Mariño–Schiappa–Weiss arXiv:0711.1954; Costin–Garoufalidis arXiv:math/0703641), novelty stays UNCHECKED (A(p) unidentified) |
 
 ## 1. The identity
 
@@ -238,7 +239,7 @@ PROVED-mod-cite + REVIEWED to all orders, Cor Σ.2 of JZC_SIGMA.md; weight ≥ 3
 F_p independent of β (integer layer, as formal series, identically in (p, β, ν)). **PROVED-mod-cite + REVIEWED** (JZC_SIGMA.md: a
 second, non-integer steepest-descent frame m = n + γ of the same lattice problem (Lemma F, 0 ≤ γ < (1 − |α|)/2) plus uniqueness of
 asymptotic expansions and the identity theorem; Rule R review A, REVIEW_JZC_SIGMA_A.md, fixes applied). The zeta layers e₁, e₂, 2e₁
-obey the same shift (Cor Σ.2, same label); weight ≥ 3 open. Novelty UNCHECKED. (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md)
+obey the same shift (Cor Σ.2, same label); weight ≥ 3 open. Novelty: ~~UNCHECKED~~ POSSIBLY-NEW (Rule L, 2026-10-23; NOVELTY_TODA.md §2: statement and proof NOT FOUND; phenomenon PARTIALLY KNOWN — Bleher–Its, EMP, Kuijlaars–Tibboel, Filipuk–Van Assche–Zhang). (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md)
 
 **Corollary (Cor Σ.1 of JZC_SIGMA.md; now unconditional, PROVED-mod-cite + REVIEWED (updated 2026-10-22 after Theorem Σ, JZC_SIGMA.md); the proof is two lines).**
 - *Evenness in N, all orders.* By Theorem R, (n/N′)^pF(N′) at β′ = −β−2 equals (n/N′)^pF(−N′), where N′ = n − (β+1)/2.
@@ -430,6 +431,10 @@ digits; borel.py, Borel–Padé in s = t² for c_k = f_{2k}/(2k−1)!).
   Φ(z*) = ∫(phase) at a complex critical point of the g-function phase. We did not find such a point. Φ(4c) = iπ·(band mass)
   = 0.90109i is reproduced, but a search for Φ′ = 0 in the convergence region of the ₃F₂ representation returns only spurious
   roots with |z| ~ 10¹³. **A(p) is not identified.**
+- **Literature (Rule L, 2026-10-23; NOVELTY_ZETA.md §4).** Divergent 1/N expansions of matrix-model data with large order fixed by an
+  instanton action are KNOWN for varying weights (Mariño–Schiappa–Weiss, arXiv:0711.1954); Euler–Maclaurin remainders are Gevrey-1 and
+  resurgent (Costin–Garoufalidis, arXiv:math/0703641). For a fixed discrete measure with a hard edge and a complex action pair: NOT FOUND.
+  Novelty kept UNCHECKED (A(p) unidentified; nothing to compare).
 - **Consequence for the program.** Theorem N.6 and Theorem H are statements about finite-order truncations with explicit
   remainders, so the divergence does not affect them. It does mean that an "all-order closed form" for F must be understood
   as a Borel-resummed or transseries object. Optimal truncation at k ≈ |A|N/2 leaves an error of size e^{−|A|N}·(oscillating).

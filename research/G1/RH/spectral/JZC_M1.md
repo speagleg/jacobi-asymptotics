@@ -13,7 +13,7 @@ for general constraint densities. It also proves that the continuum soft-edge ro
 | Cor Q.1 | lattice: a = 4c(p) | PROVED + REVIEWED (the computation; its identification as the equilibrium edge is Thm Q) |
 | Prop M1.2 | soft-edge root a_n for a counting function with a power expansion: first-order terms −R·L̃(q)(a/n^p)^q at the poles of Z_N with π cot kernel (Lemma K0), plus integer terms; higher orders by reversion (resonant q ∈ ℕ and log laws excluded) | PROVED + REVIEWED (termwise integration, explicit remainder; REVIEW_JZC_M1_A F1(c); re-derived in REVIEW_JZC_M1_B §1) |
 | Checks | m1_theoremQ.out (4 densities, 32 assertions), m1_edge.out (continuum pole term to ≤ 10⁻⁸ (printed digits)–10⁻⁶, 4 assertions) | NUMERICAL |
-| Novelty | Thm Q (explicit ν, the criterion "yσ (or √yσ) decreasing", infinite-mass constraint with a hard edge and no void) | POSSIBLY-NEW (§6; pending Beckermann–Kuijlaars 2001, Kuijlaars 2000, Dragnev–Saff §4; B6 caveats) |
+| Novelty | Thm Q; Cor Q.1; Prop M1.2 | (Rule L, 2026-10-23; NOVELTY_Q.md) **Thm Q: PARTIALLY KNOWN.** For compact, finite-mass constraints with no external field, the endpoint equation (Q) with a monotonicity criterion (one band touching the end) is Beckermann–Kuijlaars, SINUM 39 (2001) Lemma 3.1(a) (unread; relayed by Beckermann–Helart, arXiv:1707.07871, Lemma 1.5), and the density is the constrained Buyarov–Rakhmanov superposition μ_t = ∫_0^tω_{S(τ)}dτ (BK 2001 Thm 2.1 and proof, relayed by Beckermann–Güttel §4 and ETNA 2002 (2.10); Buyarov–Rakhmanov, Sb. Math. 190 (1999)); NOVELTY_Q §2.3 checks numerically that ν = ∫_a^Y\|F′(b)\|ω_{[0,b]}db. NOT FOUND (POSSIBLY-NEW): the infinite-mass constraint at a hard edge and Y = ∞ (existence, uniqueness, outer inequality proved directly), the closed single-integral form (G), the edge constant C = −h(a)/(π√a). **Cor Q.1: no novelty claim** (elementary evaluation, cf. BH Ex. 1.8–1.9; the lattice problem is Paper I Thm 1.3). **Prop M1.2: POSSIBLY-NEW** (NOT FOUND; the Mellin technique is standard). Was: POSSIBLY-NEW for Thm Q (§6) |
 
 ## 1. Setting
 
@@ -263,6 +263,31 @@ What m1_theoremQ tests (REVIEW_JZC_M1_A F5):
   J. Matrix Anal. Appl., Q ≡ 0; abstract only), Beckermann–Kuijlaars 2001 (NOT READ) and Dragnev–Saff 1997 §4. The identification of (Q) with Law P's constant and with the per-node
   law of S2′ is this project's.
 
+### 6.1 Rule L verdict (Rule L, 2026-10-23; source: NOVELTY_Q.md, which supersedes NOVELTY_JZC §2 for this item)
+The first-pass verdict above is replaced. Every source below was read second-hand (WebFetch); under Rule C each must be re-read before
+it is cited as more than "according to".
+- **Theorem Q: PARTIALLY KNOWN.** For constraints of finite mass with compact support and no external field:
+  - Beckermann–Helart, arXiv:1707.07871 (2017), Lemma 1.5, "following [BK01, Lemma 3.1(a)]": if √((x − A)(B − x))σ′(x) vanishes at A
+    and increases on [A, B], then supp(σ − μ_t) = [a(t), B] with a(t) the unique root of an equation that becomes (Q) after the
+    reflection y = B − x (NOVELTY_Q §1 dictionary). For Y < ∞ that criterion is implied by "√yσ decreasing" (Remark (a) / F7), so it
+    is weaker than (H2).
+  - Beckermann–Kuijlaars, SIAM J. Numer. Anal. 39 (2001) 300–329, Thm 2.1 and its proof (relayed by Beckermann–Güttel §4, ETNA 2002
+    eq. (2.10), Beckermann's Madrid talk slide 4.7): the Q ≡ 0 constrained analogue of the Buyarov–Rakhmanov formula
+    (Buyarov–Rakhmanov, Sb. Math. 190:6 (1999) 791–802), μ_t = ∫_0^tω_{S(τ)}dτ with S(τ) decreasing.
+  - In the present setting the superposition is ν(x) = ∫_a^Y|F′(b)|ω_{[0,b]}(x)db, ω_{[0,b]} = 1/(π√(x(b − x))). NOVELTY_Q §2.3 checks
+    numerically (double precision, not certified; lattice p = 0.6, 1.5 and σ = e^{−y}/y) that this equals (G). An analytic proof of
+    the identity is not written (suggested as a remark).
+  - Remaining NOT FOUND (POSSIBLY-NEW): (a) the constraint of infinite mass at a hard edge (h → ∞) and Y = ∞, with existence,
+    uniqueness and the strict outer inequality proved directly (Paper I Lemma 3.3), outside the finite-mass theory; (b) the closed
+    single-Cauchy-integral form (G), its balayage form and the per-point k_y proof; (c) the edge constant C = −h(a)/(π√a).
+  - BK01 itself is unread (robots-blocked); the exact hypothesis of Lemma 3.1(a) and the form of Thm 2.1 rest on relays.
+- **Cor Q.1: no novelty claim.** Elementary evaluation of a known-type endpoint equation (cf. BH Ex. 1.8–1.9); Paper I's
+  μ* = ∫_0^1 arc_{4ct^{−p}}dt is the same superposition with a(τ) = 4cτ^{−p}.
+- **Prop M1.2: POSSIBLY-NEW** (NOT FOUND). Termwise Mellin asymptotics is standard (Flajolet–Gourdon–Dumas 1995, located, not read).
+- Correction to the first pass: the ETNA 2002 (2.25) analogue cited above is the external-field case (after Kuijlaars–McLaughlin,
+  Kuijlaars 2000), not BK01; the no-field analogue is BH Lemma 1.5 / BK01 Lemma 3.1(a) (NOVELTY_Q §2.4; NOVELTY_JZC header).
+- Mathematical labels (PROVED + REVIEWED) are unaffected. Paper IV sec8.tex (§10) carries the attribution.
+
 ## 7. Review log
 
 REVIEW_JZC_M1_A.md (ACCEPT WITH FIXES), applied 2026-10-21:
@@ -290,4 +315,4 @@ REVIEW_JZC_M1_B.md (reviewer B, ACCEPT WITH FIXES), applied 2026-10-23:
 - B6: §6 points to G2/CITATIONS.md (R96), (DS97), (VAVB) with the hypothesis caveats; BK2002 as "according to".
 - B7: η remainder O(η²).
 - Discrepancies D3 (wording of (iv)), D4 (ℓ), D10 (Rule A numerics) adopted; Paper IV sec3.tex updated in parallel.
-Labels: Thm Q (i)–(iv), Cor Q.1, Prop M1.2 PROVED + REVIEWED; checks NUMERICAL; novelty POSSIBLY-NEW.
+Labels: Thm Q (i)–(iv), Cor Q.1, Prop M1.2 PROVED + REVIEWED; checks NUMERICAL; novelty (Rule L, 2026-10-23): Thm Q PARTIALLY KNOWN, Cor Q.1 no claim, Prop M1.2 POSSIBLY-NEW (§6.1, NOVELTY_Q.md).

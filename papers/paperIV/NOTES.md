@@ -230,3 +230,36 @@ Theorem D (Theorem 6.7, 6.8, Prop 6.10), §1.4 organisation, §9 (Conj 9.4 text:
 above the 1920-character guideline of Papers I–III (2233 characters of source); it is now 2393: shorten before submission.
 Build: `pdflatex main; bibtex main; pdflatex main; pdflatex main` → **44 pages**, 0 errors, 0 overfull boxes, 0 undefined references;
 11 underfull boxes (cosmetic); 1 BibTeX warning (missing pages in BeckermannKuijlaars2001, pre-existing).
+
+## Session additions (2026-10-23): Rule L attributions (NOVELTY_Q, NOVELTY_TODA, NOVELTY_ZETA)
+Sources: research/G1/RH/spectral/NOVELTY_Q.md §3, NOVELTY_TODA.md §5, NOVELTY_ZETA.md §6.2 (drafted passages). All new sources were read
+only through WebFetch; nothing is quoted in a CITATIONS.md, so the text says "according to" / "we have not found". Memo novelty fields
+updated in parallel (marked "(Rule L, 2026-10-23)").
+- **sec8.tex (§10)** rewritten. Constrained equilibrium: NOVELTY_Q wording (BK 2001 Lemma 3.1(a) via Beckermann–Helart Lemma 1.5;
+  constrained Buyarov–Rakhmanov superposition via Beckermann–Güttel / BK 2002; ν = ∫|F′(b)|ω_{[0,b]}db stated as checked numerically, not
+  proved; new = infinite mass / Y = ∞, (eq:nu), edge constant; Cor 3.3 no claim; Prop 3.4 not found). Spectral data: Lommel, J′_ν zeros
+  (Chung–Lee–Park), Tricomi–Carlitz (Wu–Lin–Xu–Zhao), Šťovíček–Świderski, Magnus / Foulquié Moreno et al., Murugan–Van Zyl–Watanabe.
+  Shifted index: + Kuijlaars–Tibboel, Filipuk–Van Assche–Zhang; the frame device now "not found" (was "not searched"). New paragraph
+  "Toda flows" (Van Assche survey, EMP §4, Ercolani, Bouttier, Konopelchenko–Martínez Alonso–Medina: mechanism known, setting new).
+  Hurwitz: "not found" + Lommel/Tricomi–Carlitz as exact instances. New paragraph "Large order" (Mariño–Schiappa–Weiss,
+  Costin–Garoufalidis). Drafted citations without a bib entry were dropped (Dickinson, Grosjean, Goh–Wimp, Koelink–Van Assche, Parker
+  et al., Avdoshkin et al., Naber–Bruck–Costello, Ercolani–Waters).
+- **secS.tex (§6)**: after the proof of Thm 6.1 the Kuijlaars–Tibboel grading attribution; after Cor 6.4 the half-shifted-index
+  paragraph (Bleher–Its, EMP, KT, FVZ); before Lemma 6.6's j = 1 remark "classical (Moser, Flaschka; Van Assche survey)"; before
+  Thm 6.7 the EMP §4 method sentence; §6.5 first sentence "by the genus-zero mechanism of [Ercolani]" and, after the checks paragraph,
+  the genus-zero / Riemann-invariant paragraph ("the mechanism itself is not new"); Rem 6.12 "(the dispersionless symbol)".
+- **sec1.tex**: before Theorem C, the finite-mass case is attributed (BK 2001, BH) and Theorem C is stated as a new setting; Theorem D
+  paragraph: reflection "by the grading argument of [KT]", Toda layers "the method of [EMP] … here for a fixed measure", index shift
+  "genus-zero mechanism … in this new setting".
+- **Abstract** shortened 2360 → 1861 characters of source (guideline ~1920). Dropped: "g_j quadratic in α, for all j", the dispersionless
+  characteristics clause, the (N−1)/(6(N+2)) oscillator value; Theorem C now described as the infinite-mass hard-edge case (no
+  general-novelty wording). The "predictions fixed in advance" qualifier still applies only to the perturbed lattices, Bessel zeros and
+  multiplicity spectra.
+- **refs.bib**: 16 entries added (BeckermannHelart, BeckermannGuettel, BuyarovRakhmanov, VanAsscheToda, KuijlaarsTibboel, Ercolani,
+  FilipukVanAsscheZhang, KonopelchenkoMAM, Bouttier, WuLinXuZhao, ChungLeePark, MuruganVanZylWatanabe, Magnus, FoulquieMoreno,
+  MarinoSchiappaWeiss, CostinGaroufalidis), each flagged "Rule C: metadata second-hand (WebFetch), verify before submission";
+  arXiv metadata re-read from the arxiv.org/abs pages on 2026-10-23 (BeckermannGuettel: no arXiv page; preprint + MaRDI record, volume
+  and pages not confirmed; BuyarovRakhmanov from the mathnet page relayed in NOVELTY_Q).
+Build: `pdflatex main; bibtex main; pdflatex main ×3` (a third pdflatex pass was needed for the shifted labels) → **46 pages**, 0 errors,
+0 overfull boxes, 0 undefined references; 12 underfull boxes (cosmetic); 1 BibTeX warning (missing pages in BeckermannKuijlaars2001,
+pre-existing).

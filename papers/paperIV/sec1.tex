@@ -93,8 +93,10 @@ is the Mellin transform of the truncated per-node law $(1-u)^{-1/2}\mathbf 1_{u<
 
 The third result is on the side of potential theory. In the variable $x=n^p\cdot(\text{node})$, the $n$ nodes that
 carry the polynomial $P_n$ have the continuum density $\sigma(y)=\frac1py^{-1/p-1}$, and the zero distribution of
-$P_n$ is the equilibrium measure of unit mass constrained by $\sigma$ \cite{Rakhmanov,DragnevSaff,PaperI}. We solve
-this problem for every constraint with $y\sigma(y)$ decreasing.
+$P_n$ is the equilibrium measure of unit mass constrained by $\sigma$ \cite{Rakhmanov,DragnevSaff,PaperI}. For constraints of finite
+mass with compact support and no external field, the endpoint equation and the structure of the solution are known
+\cite{BeckermannKuijlaars2001,BeckermannHelart} (Section~\ref{sec:literature}). We solve the problem in a new setting, a constraint of
+infinite mass at a hard edge, for every constraint with $y\sigma(y)$ decreasing, and give the density in closed form.
 
 \begin{mainthm}[constrained equilibrium]\label{thm:C}
 Let $\sigma$ be a positive, locally H\"older continuous density on $(0,Y]$, $0<Y\le\infty$, with $y\sigma(y)$ strictly
@@ -126,13 +128,14 @@ $n^pb_n/c$ is $(n/N)^p(1+f_2N^{-2}+f_4N^{-4}+\dotsb)$ to every order, with no od
 \end{mainthm}
 
 This is Theorem~\ref{thm:shift} with Corollary~\ref{cor:even}. The evenness comes from an exact reflection
-$d_k(p,-\beta-2,\nu)=(-1)^kd_k(p,\beta,\nu)$ (Theorem~\ref{thm:reflect}); the shift is proved by steepest descent of the same lattice
+$d_k(p,-\beta-2,\nu)=(-1)^kd_k(p,\beta,\nu)$ (Theorem~\ref{thm:reflect}, by the grading argument of \cite{KuijlaarsTibboel}); the shift is proved by steepest descent of the same lattice
 problem in a second frame, of non-integer index $n+\gamma$, in which the Szeg\H{o} exponent is $\alpha-2\gamma$ and the Bessel order is
 still $\alpha$ (Lemma~\ref{lem:frame}), and by comparing the two expansions of $b_n$. In the same model the zeta layers are Toda flows
 of the integer layers of $b_n$ and $a_n$, with the times $-2\zeta(-jp)/j$ (Theorem~\ref{thm:toda}): tilting the lattice by
 $e^{\sum\tau_jx^j}$ changes only these times, and a Baire-category argument turns the exact Toda equations of the tilted measures into
-identities between the layers. At the hard edge the dispersionless limit of this flow is a family of Hopf equations, and their
-characteristics give the leading term of every zeta layer in closed form: to leading order in $1/n$ at each order in the times,
+identities between the layers; the method is that of \cite{EMP} for varying weights, here for a fixed measure. At the hard edge the
+dispersionless limit of this flow is a family of Hopf equations, and their characteristics give the leading term of every zeta layer in
+closed form, by the genus-zero mechanism of map enumeration \cite{Ercolani,EMP} in this new setting: to leading order in $1/n$ at each order in the times,
 $n^pb_n/c$ is $(n/x)^p$ with $x=n-\frac1p\sum_j\varepsilon_jx^{-jp}$, so the zeta times act as an implicit shift of the index
 (Theorem~\ref{thm:indexshift}). The diagonal integer layer of $a_n$ is centred at $N+\frac12$, even and independent of the Szeg\H{o}
 exponent to order $N^{-4}$ (Proposition~\ref{prop:diag4}).

@@ -6,8 +6,8 @@ re-derived the key steps (gauge, residues, (−∞, 0) cancellation, lip phase, 
 uniqueness, rationality, FI ⇔ Σ, evenness, the ζ(−2p)/ζ(−p)² separation), re-ran sigma_frame_exact.py (with and without the d_k cache:
 identical outputs, byte-identical cache) and sigma_frame_num.py (byte-identical), plus independent spot checks: general base β ≠ ν at
 order 8, the 2e₁ layer, order 10; fixes S1 (major, scope γ ≥ 0) and S2–S8 applied). Weight ≥ 3 zeta layers remain open (§3.3, §7).
-Labels per VERIFICATION_POLICY.md. Novelty: UNCHECKED (Rule L not
-done; §8). Scope: the integer layer of the decoupled model M(β, ν) of JZC_M4 §7 (Conjecture Σ as stated there), its first- and
+Labels per VERIFICATION_POLICY.md. Novelty (Rule L, 2026-10-23; NOVELTY_TODA.md §2): Theorem Σ / Prop FI / Cor Σ.1–Σ.2
+POSSIBLY-NEW (statement and proof); phenomenon PARTIALLY KNOWN; Theorem R's grading mechanism KNOWN (Kuijlaars–Tibboel) (§8). Scope: the integer layer of the decoupled model M(β, ν) of JZC_M4 §7 (Conjecture Σ as stated there), its first- and
 second-weight zeta layers, and what this gives for Theorem R's evenness. Nothing here concerns RH or zeros; the lattice is
 σ_{p,s} = Σ_k k^{−s}δ_{k^{−p}} (Paper 2 with ℓ₁ ≡ 1). Checks: `checks/sigma_frame_exact.py/.out` (+ `sigma_frame_exact_fresh.out`, the engine run), `checks/sigma_frame_num.py/.out`.
 Read-only inputs (not edited): papers/paper2/{sec_3,sec_5,sec_6,sec_7,app_outer}.tex, JZC_M4.md, JZC_M4_proof.md, JZC_M3a_Hd.md,
@@ -307,7 +307,16 @@ Hurwitz-chain evidence for the same jump structure (m3a_g1u_hardedge.out: the Q-
 5. KORD ≥ 5 exact runs of sigma_frame_exact.py (not attempted: the engine needed 588 s for KORD = 4 on the shared machine, and order 6
    did not finish in earlier runs). They would only re-confirm Prop S; Theorem Σ does not depend on them.
 
-## 8. Literature (Rule L) — not done
-Novelty UNCHECKED. The mechanism (an exact gauge z^{γσ₃} at the hard edge plus a second, non-integer steepest-descent frame) was not
+## 8. Literature (Rule L) — done 2026-10-23 (NOVELTY_TODA.md §2; queries §6)
+- **Theorem Σ (FI, β-independence of F_p in N), the m-frame proof (Lemma F), Cor Σ.1 for a fixed measure: POSSIBLY-NEW** (NOT FOUND).
+- **Phenomenon "even in a half-shifted index": PARTIALLY KNOWN** — Bleher–Its 2005 Thm 5.2 (string-equation reindexing, varying
+  weights); EMP Thm 2.2; Kuijlaars–Tibboel arXiv:0708.3956 Thm 1.1; exact index–exponent pairing n + α/2 with α² in the semiclassical
+  Laguerre case (Filipuk–Van Assche–Zhang, arXiv:1105.5229, Thm 2.1, eq. (13)). Not found: decoupling of the Szegő exponent from the
+  Bessel order; the frame identity; a non-integer steepest-descent frame with the gauge z^{γσ₃}.
+- **Theorem R (reflection): mechanism KNOWN** — the ℤ₂-grading span{I, σ₂} / span{σ₃, iσ₁} of the jump corrections is Kuijlaars–Tibboel
+  Lemma 4.1 (used there to kill odd powers of a_{n,n}); the (n, β) ↦ (−n, −β−2) covariance on M(β, ν) is POSSIBLY-NEW (minor).
+- Keep POSSIBLY-NEW, not NEW, until NOVELTY_TODA §4 items 1, 2, 5, 6 are read.
+
+Earlier text (before the 2026-10-23 pass): Novelty UNCHECKED. The mechanism (an exact gauge z^{γσ₃} at the hard edge plus a second, non-integer steepest-descent frame) was not
 searched for. NOVELTY_JZC item N records Bleher–Its 2005 Thm 5.2 (evenness via string equations for varying weights) as the nearest
 known phenomenon; it was not re-read for this note.

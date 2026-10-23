@@ -7,8 +7,12 @@ K ≥ 2p − 1; O(n^{−1−p}) in W's displayed form, K ≥ p; J ≥ 1, M = J +
 JZC_W_BT.md (BT.1, BT.5) + JZC_W_exact.md (WE.1); §1.5 (updated 2026-10-22 after Rule R review A of the W chain,
 research/G1/review/REVIEW_JZC_W_kappa_chain_A.md, and Rule R review B, research/G1/review/REVIEW_JZC_W_WE1_K12p_B.md, which reviewed WE.1,
 Prop K.12′ and the assembly; fixes applied). Rule C: Legendre duplication NOT QUOTED; not used for the displayed form's coefficient (review B
-W2). The rest of this note is NOT REVIEWED. Novelty: UNCHECKED (no Rule L pass for this note; NOVELTY_JZC.md covers the
-ingredients). Checks: `checks/w_common.py`, `w_spectra.py`, `w_predict.py/.out`, `w_test.py` → `w_test.out`; caches in
+W2). The rest of this note is NOT REVIEWED. Novelty (Rule L, 2026-10-23; NOVELTY_ZETA.md Z3): Conjecture W, the κ-family theorem (P K.12 + Prop K.12′), the zeta-time Toda
+reading and the pole kernel W(q)π cot(πq): **POSSIBLY-NEW** (NOT FOUND); ingredients KNOWN (Toda = tilt; spectral zeta values; leading-order
+growth ↔ tail); subleading Lanczos asymptotics from continuous endpoint data PARTIALLY KNOWN (Murugan–Van Zyl–Watanabe, arXiv:2608.07258);
+singularity → power-term principle for continuous weights (Magnus 1995; Foulquié Moreno et al., arXiv:0905.2753); exact test case
+Neumann–Bessel (arXiv:2406.09746), not prior art. Drum reading POSSIBLY-NEW (NUMERICAL). (Was: UNCHECKED; NOVELTY_JZC.md covers the
+ingredients.) Checks: `checks/w_common.py`, `w_spectra.py`, `w_predict.py/.out`, `w_test.py` → `w_test.out`; caches in
 `tmp/w_cache/` (gitignored). No claim about RH: no measure built from zeta zeros is used anywhere in this note.
 
 | # | Statement | Label |
@@ -156,7 +160,7 @@ Notes on the reductions.
   the O(n^{−2p}) remainder); p < 1 (OBSTRUCTION for the lattice-g route, JZC_W_kappa P K.14; p = 1/m < 1 (κ-dependent Z(0)) belongs to the
   p < 1 case) (fixed per Rule R review B, A2); α ∉ (−1, 1);
   non-coherent branched tilts ((F-br) for general branched band factors, a GAP; not needed for this family); W′ and the pole dressing
-  beyond first order as separate statements. Novelty UNCHECKED (no Rule L pass).
+  beyond first order as separate statements. Novelty POSSIBLY-NEW (Rule L, 2026-10-23; NOVELTY_ZETA.md Z3).
 - **NUMERICAL:** the pole law (SPEC), S1⁗ (SPEC), and Conjecture W on the nine measures of §2 and the Lommel anchor.
 - **New in W (CONJECTURE):** (i) β = α − 2Z(0) − 1 beyond Hurwitz lattices, i.e. for node sets with poles (the Szegő shift and the
   pole terms coexist, and the pole terms live at the same natural index); (ii) the unification of the Jacobian tilt, the mass
@@ -351,13 +355,13 @@ The "spectral zeta with multiplicities" reading is not even at the right order: 
   cases, where q = ½, 3/2 occur; only q = ½ has the pole of g). Every earlier real-operator test with a q = ½ pole happened to sit
   at ν = α = ±½ (bouncer and Robin at p = 2/3, s = 2: α = ½; Bessel at p = s = 2: α = −½), where the factor 1 − 4ν² vanishes; the
   sphere (α = 0) is the first case where the term shows.
-- **Not new:** the pieces (SPEC, JZC_M4, Theorem H). Novelty of the combination: UNCHECKED (Rule L not run for this note).
+- **Not new:** the pieces (SPEC, JZC_M4, Theorem H). Novelty of the combination: POSSIBLY-NEW (Rule L, 2026-10-23; NOVELTY_ZETA.md Z3, NOT FOUND).
 - **Proof status after this note** (updated 2026-10-22 after Rule R review A of the W chain, research/G1/review/REVIEW_JZC_W_kappa_chain_A.md): for the κ-family (λ_k = (k + δ)^p + κ, p > 1, |α| < 1) W is PROVED-mod-cite + REVIEWED at
   first order in the poles, remainder O(n^{−2p}) with the continued pole dressing and O(n^{−1−p}) in W's displayed form (§1.5; every input
   REVIEWED, JZC_W_exact WE.1 by Rule R review B, research/G1/review/REVIEW_JZC_W_WE1_K12p_B.md). §5.1 items 1 and 4 are thereby settled for this family (item 1 in the corrected form of JZC_W_outer
   Remark 3.6: the invariant is the gauge exponent at the hard edge, not the exponent at ∞; item 4 for coherent branched tilts, JZC_W_kappa
   Prop K.12′). Still open: second order in the poles, p < 1 (§5.1 item 3, OBSTRUCTION for the lattice-g route; including p = 1/m (fixed per Rule R review B, A2)), α ∉ (−1, 1),
-  non-coherent branched tilts ((F-br)), general node sets, p = 1, and novelty (UNCHECKED).
+  non-coherent branched tilts ((F-br)), general node sets, p = 1 (novelty: POSSIBLY-NEW, Rule L, 2026-10-23).
 
 ## 5. The main obstacles to a proof
 

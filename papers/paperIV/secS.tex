@@ -1,5 +1,6 @@
 % Section 6: Reflection, shift and the Toda structure (from research/G1/RH/spectral/JZC_M4.md Sec. 7-8, JZC_SIGMA.md, JZC_TODA.md, JZC_SHIFT.md;
-% updated 2026-10-23 after JZC_TODA / JZC_SHIFT review).
+% updated 2026-10-23 after JZC_TODA / JZC_SHIFT review; attributions added (Rule L, 2026-10-23) from the drafted passages of
+% research/G1/RH/spectral/NOVELTY_TODA.md Sec. 5, all sources second-hand (WebFetch), Rule C reading still due).
 \section{Reflection, shift and the Toda structure}\label{sec:shiftsec}
 
 Theorem~\ref{thm:N6} computes the layers of the lattice expansion to fixed orders and observes that they are even in $1/N$.
@@ -40,6 +41,10 @@ $\sigma_2$ multiplies them by $(-1)^k$, while $\sigma_2d^{\sigma_3}\sigma_2=d^{-
 $\sigma_2\Delta_k(\beta)n^{-k}\sigma_2=\Delta_k(-\beta-2)(-n)^{-k}$, the recursion is covariant under conjugation by a constant
 matrix, and $(Q_1)_{12}(Q_1)_{21}$ is invariant under conjugation by $\sigma_2$.
 \end{proof}
+
+The grading of the jump corrections into $\operatorname{span}\{I,\sigma_2\}$ and $\operatorname{span}\{\sigma_3,i\sigma_1\}$ is the device
+that Kuijlaars and Tibboel \cite[Lemma~4.1]{KuijlaarsTibboel} use to show that the odd powers of $1/n$ in the off-diagonal recurrence
+coefficient vanish for one-cut varying weights; here it gives a covariance under $(n,\beta)\mapsto(-n,-\beta-2)$.
 
 \begin{lemma}[self-similar Buyarov--Rakhmanov identity]\label{lem:BR}
 Let $\Phi$ denote the phase of the lattice equilibrium in the scaled frame, with hard-edge branch $2f^{1/2}$ and soft-edge
@@ -101,6 +106,11 @@ Corollary~\ref{cor:even} settles the integer-layer part of Remark~\ref{rem:N6}(a
 all orders, while the values $f_8,f_{10},\dots$ and the observed degree $k$ of $f_{2k}$ in $\alpha^2$ remain numerical. The $\alpha$-even
 part has the heuristic explanation of Remark~\ref{rem:N6}(c): $\alpha$ enters the integer layer through $\nu^2$ and through $\beta$,
 and the shift absorbs $\beta$.
+
+Evenness in a half-shifted index is known for varying weights with a string equation \cite[Theorem~5.2]{BleherIts}, \cite{EMP,KuijlaarsTibboel}.
+In the semiclassical Laguerre case the index and the hard-edge exponent enter the discrete Painlev\'e system through $n+\alpha/2$ and
+$\alpha^2$ \cite[Theorem~2.1]{FilipukVanAsscheZhang}. What is new here, as far as we know, is the decoupling of the Szeg\H{o} exponent
+from the Bessel order and the frame identity~\eqref{eq:FI} for a fixed discrete measure.
 
 \subsection{Proof of the shift theorem: a second frame}\label{sec:shift-proof}
 The decoupled model is not related to itself by any transformation of the formal recursion that we know. In particular,
@@ -225,7 +235,8 @@ $\pi_n=x^n+\gamma_nx^{n-1}+\dotsb$, then $a_n=\gamma_n-\gamma_{n+1}$, and the fo
 $\partial_{t_j}\gamma_n=-(h_n/h_{n-1})^{1/2}(\mathcal J^j)_{n,n-1}=-F_j(n-1)$.
 \end{proof}
 
-For $j=1$ these are the equations $\partial_t\log b_n^2=a_n-a_{n-1}$, $\partial_ta_n=b_{n+1}^2-b_n^2$ of the Toda lattice. To state the
+The Toda hierarchy for exponential tilts is classical (Moser, Flaschka; see the survey \cite{VanAsscheToda}, Lemma~2.1 and
+Theorem~2.4 there); we include the short proof for the identities in the form used below. For $j=1$ these are the equations $\partial_t\log b_n^2=a_n-a_{n-1}$, $\partial_ta_n=b_{n+1}^2-b_n^2$ of the Toda lattice. To state the
 consequence for the layers, let $\cA_{\br}(n)$ be the analogues of $\cD_{\br}$ for the diagonal coefficient, obtained from the second
 moment $\mathsf R_2=\Res_0(z\mathsf F)+\Res_{4c}(z\mathsf F)$ of the same residue recursion and the extraction
 $n^pa_n=(Q_2)_{12}/(Q_1)_{12}-(Q_1)_{22}$ of \cite{PaperII}, and $A:=\cA_0$; the $n^0$ coefficient of $\cA_K(n;\mu)$ is $1$ for every
@@ -236,6 +247,10 @@ $\mu$. Substitute $\mu_j=-u_jn^{-jp}$ with times $u_j$ that do not depend on $n$
 formal series in $1/n$ and the $u_j$. Let $\hat{\mathcal J}$ be the tridiagonal matrix indexed by $i\in\mathbb Z$ with
 $\hat{\mathcal J}_{ii}=2(1+\frac in)^{-p}\hat a(n+i)$ and $\hat{\mathcal J}_{i,i-1}=\hat{\mathcal J}_{i-1,i}=\hat b_i:=(1+\frac in)^{-p}\hat b(n+i)$,
 where $n\mapsto n+i$ acts at fixed $u$ and is re-expanded in $1/n$; these are the formal values of $n^pa_{n+i}/c$ and $n^pb_{n+i}/c$.
+Using the Toda equations, with shifted indices re-expanded in $1/n$, to generate the coefficients of an asymptotic expansion is the
+method of Ercolani, McLaughlin and Pierce \cite[Section~4]{EMP} for varying weights $e^{-N(x^2/2+tx^{2\nu})}$. Here there is no large
+parameter other than $n$, the measure is fixed, the times enter as $u_jn^{-jp}$ with base values~\eqref{eq:todatimes}, and the
+identities are transferred from the exact flows by a category argument rather than derived from a string equation.
 
 \begin{theorem}[Toda structure]\label{thm:toda}
 Let $p>0$, $p\ne1$ and $1<s<1+2p$.
@@ -297,7 +312,7 @@ arithmetic (scripts \texttt{toda\_measures}, \texttt{toda\_layers}). In this rea
 layers, with times~\eqref{eq:todatimes} given by the zeta values.
 
 \subsection{The index-shift law}\label{sec:indexshift}
-Theorem~\ref{thm:toda} determines the leading term of every layer in closed form. Let the decoupled model carry band-factor
+Theorem~\ref{thm:toda} determines the leading term of every layer in closed form, by the genus-zero mechanism of \cite{Ercolani}. Let the decoupled model carry band-factor
 parameters $\mu_1,\dots,\mu_r$ with exponents $j_1,\dots,j_r\in\N$, write $\mu_a=\hat\mu_an^{-pj_a}$ and
 $\hat\varepsilon_a:=\frac{pj_a}2\binom{2j_a}{j_a}c^{j_a}\hat\mu_a$ (for the lattice, $\hat\varepsilon_j=\varepsilon_j$), and expand
 $n^pb(n;\beta,\nu;\mu)/c=\sum_kn^{-k}b_k(\mu)$.
@@ -343,6 +358,14 @@ exponents and to sixth order at rational parameters, with $\beta\ne\nu$ included
 integer layers reproduces the computed dressings $g_j$ and $h_2$ of Theorem~\ref{thm:N6}(ii) (scripts \texttt{shift\_toda},
 \texttt{shift\_existing}, \texttt{shift\_exact}, \texttt{shift\_dressing}). A ``dressed'' index shift $x=N-\frac1p\varepsilon x^{-p}(1+\gamma x^{-2})$
 does not reproduce $h_2$: the corrections to the leading term are dispersive, not a reparametrisation of the index.
+
+At leading order the mechanism is the genus-zero one of random-matrix map enumeration: the continuum limit of the Toda equations is an
+inviscid Burgers (Hopf) equation with power-law speed, solved implicitly by characteristics, and the coefficients of the implicit
+solution are obtained by Lagrange inversion (\cite[Section~2.3]{Ercolani}; \cite{EMP}; for Lagrange inversion in map counting, e.g.
+\cite[Section~26.4]{Bouttier}). The endpoints of the support are Riemann invariants of the dispersionless Toda hierarchy
+(cf.~\cite{KonopelchenkoMAM}); the hard edge fixes one of them at $0$, which is the invariance of the line $a=2b$. What differs here is the
+initial profile $b=cn^{-p}$ of a fixed measure accumulating at a hard edge (instead of the Gaussian $b^2=n/N$), the reduction to the
+line $a=2b$, arbitrary real and pole exponents, and zeta-valued times; the mechanism itself is not new.
 
 \begin{remark}[non-integer exponents]\label{rem:indexshift-poles}
 The layer coefficients of the decoupled model are rational functions of the exponents $j_a$, with denominators that are products of
@@ -397,6 +420,6 @@ and exact computer algebra confirms it to third order in the times for generic e
 Corollary~\ref{cor:even} the evenness of $B$ is proved; that of $A$ is Proposition~\ref{prop:diag4} to order $M^{-4}$ and
 Conjecture~\ref{conj:diag} beyond. The $1/(2j-1)$ in $g_j$ has a
 heuristic reading in the same picture: for a slowly varying Jacobi matrix, $(\mathcal J^j)_{nn}$ is approximately
-$\frac1{2\pi}\int_0^{2\pi}(a+2b\cos\theta)^j\diff\theta$, whose first variation off the point $a=2b$ involves
+$\frac1{2\pi}\int_0^{2\pi}(a+2b\cos\theta)^j\diff\theta$ (the dispersionless symbol), whose first variation off the point $a=2b$ involves
 $\binom{2j-2}{j-1}/\binom{2j}j=j/(2(2j-1))$.
 \end{remark}

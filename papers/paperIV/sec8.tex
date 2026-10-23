@@ -1,45 +1,86 @@
-% Section 8: Relation to the literature (from research/G1/RH/spectral/NOVELTY_JZC.md; the bibliographic data of the entries
+% Section 10: Relation to the literature (from research/G1/RH/spectral/NOVELTY_JZC.md; the bibliographic data of the entries
 % added for this section were relayed second-hand and must be checked against the sources before submission; DixitKumar:
 % statement quoted in research/G1/RH/CITATIONS.md (Hurwitz-DK); metadata from the arXiv abstract page via WebFetch, 2026-10-22).
 % Rule R review B of JZC_M1 (B6, 2026-10-23): Rakhmanov, DragnevSaff and VanAsscheVanBaelen are quoted with hypotheses in
 % research/G2/CITATIONS.md, entries (R96), (DS97), (VAVB); BeckermannKuijlaars2002 is not quoted in any CITATIONS.md (hence
 % "according to"); BeckermannKuijlaars2001 has not been read.
+% Rule L, 2026-10-23: rewritten from the drafted passages of NOVELTY_Q.md Sec. 3 (constrained equilibrium), NOVELTY_TODA.md Sec. 5
+% (shifted index, Toda) and NOVELTY_ZETA.md Sec. 6.2 (spectral data, large order). Every work added here was read only through a
+% summarising fetch tool (WebFetch); none is quoted in a CITATIONS.md, hence "according to" and "we have not found" throughout.
+% Drafted citations not used (no bib entry made): Dickinson, Grosjean, Carlitz/Goh-Wimp, Koelink-Van Assche, Parker et al.,
+% Avdoshkin-Dymarsky-Smolkin, Naber-Bruck-Costello, Ercolani-Waters.
 \section{Relation to the literature}\label{sec:literature}
 
 \emph{Constrained equilibrium.} Existence, uniqueness and the structure (band, saturated region, balayage) of equilibrium
 problems with an upper constraint are classical \cite{Rakhmanov,DragnevSaff}; these results assume a finite constraint
 (Dragnev--Saff) or a compact interval (Rakhmanov) and are not used in the proof of Theorem~\ref{thm:Q}, which establishes
-existence and uniqueness directly. For conjugate-gradient convergence, according to \cite{BeckermannKuijlaars2002},
-Beckermann and Kuijlaars derived endpoint equations of the same Cauchy-integral form as~\eqref{eq:Q}, with an external
-field and compactly supported constraints; a formula for the case without external field is
-attributed to \cite{BeckermannKuijlaars2001}, which we have not been able to consult. We have not found the explicit density
-formula of Theorem~\ref{thm:Q}, the criterion that $y\sigma(y)$ be decreasing, or the treatment of a constraint of infinite
-mass with a hard edge at $0$. The fully saturated equilibrium of \cite{VanAsscheVanBaelen} ($y\sigma$ constant on a
-$q$-lattice) is the boundary case of hypothesis~(H2).
+existence and uniqueness directly. For constraints of finite mass with compact support and no external field, the structure of
+Theorem~\ref{thm:Q} appears in the analysis of conjugate-gradient convergence by Beckermann and Kuijlaars
+\cite{BeckermannKuijlaars2001}. Let $\mu_t$ denote the constrained equilibrium measure of mass $t$ for a constraint $\sigma$ on $[A,B]$.
+According to \cite[Lemma~1.5]{BeckermannHelart}, which follows \cite[Lemma~3.1(a)]{BeckermannKuijlaars2001}, if
+$\sqrt{(x-A)(B-x)}\,\sigma'(x)$ vanishes at $A$ and increases on $[A,B]$, then the support of $\sigma-\mu_t$ is a single interval
+$[a(t),B]$, and $a(t)$ solves an equation that becomes~\eqref{eq:Q} after the reflection $y=B-x$; for $Y<\infty$ this criterion is
+implied by the hypothesis of Remark~\ref{rem:Q}(a). According to \cite{BeckermannGuettel,BeckermannKuijlaars2002},
+\cite[Theorem~2.1]{BeckermannKuijlaars2001} and its proof also give a constrained analogue of the Buyarov--Rakhmanov formula
+\cite{BuyarovRakhmanov}, in which $\mu_t$ is a superposition of the equilibrium measures of the decreasing sets
+$\operatorname{supp}(\sigma-\mu_\tau)$, $\tau<t$. In the present setting this superposition is
+$\nu(x)=\int_a^Y|F'(b)|\,\omega_{[0,b]}(x)\diff b$, with $F$ as in~\eqref{eq:Q} and $\omega_{[0,b]}(x)=1/(\pi\sqrt{x(b-x)})$ the
+equilibrium density of $[0,b]$; we have checked numerically, but not proved, that this agrees with~\eqref{eq:nu}, which is then a closed
+form of it. What is new here, as far as we know, is the constraint of infinite mass at a hard edge, with $Y=\infty$ allowed. In this
+case the finite-mass theory \cite{Rakhmanov,DragnevSaff} does not apply, and existence, uniqueness and the strict outer inequality are
+proved directly. Also new, as far as we know, are the single-integral form~\eqref{eq:nu} and the edge constant of
+Remark~\ref{rem:Q}(b). Corollary~\ref{cor:Q1} is an elementary evaluation of an endpoint equation of this known type, for the lattice
+problem of \cite[Theorem~1.3]{PaperI}. We have not been able to consult \cite{BeckermannKuijlaars2001} itself. The fully saturated
+equilibrium of \cite{VanAsscheVanBaelen} ($y\sigma$ constant on a $q$-lattice) is the boundary case of hypothesis~(H2). We have not found
+Proposition~\ref{prop:M12}, the expansion of the soft-edge root along the poles of the node zeta function; its termwise Mellin
+asymptotics is a standard technique.
 
-\emph{Spectral data and Jacobi parameters.} Orthogonal polynomials on reciprocal spectra, with asymptotics at fixed argument
-expressed through a regularised characteristic function, are studied in \cite{StovicekSwiderski}. We know of no expansion
-of the recurrence coefficients themselves in terms of spectral zeta values at negative arguments, as in Theorem~\ref{thm:K},
-and no reading of geometric spectral invariants (perimeter, corners) from Jacobi parameters. The Lommel family
-\cite{VA} is the classical exactly solvable case (Proposition~\ref{prop:bessel}).
+\emph{Spectral data and Jacobi parameters.} Orthogonal polynomials whose moments are spectral zeta values at positive integers are
+classical for Bessel zeros: the Lommel polynomials are orthogonal on the reciprocal zeros \cite{VA} (Proposition~\ref{prop:bessel}),
+and an analogue for the zeros of $J_\nu'$ is given in \cite{ChungLeePark}. The Tricomi--Carlitz polynomials, orthogonal on the points
+$\pm(k+\alpha)^{-1/2}$ \cite{WuLinXuZhao}, give a further family with nodes accumulating at $0$ and explicit recurrence coefficients;
+from the three-term recurrence as stated there, the lattice offset enters only through the index $n+\alpha$, as it does in
+Theorem~\ref{thm:H} (at $p=1$ in the variable $x^2$, outside the range of our theorems). Positive Jacobi matrices with compact inverse
+are studied in \cite{StovicekSwiderski}, where the asymptotics of the polynomials at fixed argument are expressed through a regularised
+characteristic function; according to our reading, asymptotics of the Jacobi parameters are not treated there. We know of no expansion
+of recurrence coefficients in terms of spectral zeta values at non-positive arguments, as in Theorems~\ref{thm:K} and~\ref{thm:N6}. For
+continuous weights it is known that singularities of the weight produce identifiable power-law or oscillating terms in the recurrence
+coefficients \cite{Magnus,FoulquieMoreno}; the pole terms of Proposition~\ref{prop:M12}, Theorem~\ref{thm:kappa} and
+Conjecture~\ref{conj:W} may be viewed as an instance of this principle at the accumulation point of a discrete spectrum, with the poles
+of $Z(-w)$ as singularity data. Subleading corrections to Lanczos coefficients have recently been derived from the endpoint data of
+continuous equilibrium densities, including a hard-edge $n^{-2}$ term \cite{MuruganVanZylWatanabe}, which we have not compared with
+$f_2$. We have not found a reading of Weyl-law or heat-trace invariants (perimeter, corners) from Jacobi or Lanczos coefficients.
 
 \emph{Expansions in a shifted index.} For varying weights $e^{-nV}$ the recurrence coefficients have expansions in even
 powers of $1/n$ after a half-index shift; the odd terms are removed by a reindexing symmetry of the string equations
-\cite{BleherIts}, and for even weights the coefficients are generating functions of maps \cite{EMP}. For Jacobi-type weights
-on $[-1,1]$ the first correction vanishes \cite{KMVV}. The present setting is a fixed discrete measure without a string
-equation: the shift involves the spectral constant $Z(0)$, and the evenness comes with the zeta layer and its own even
-dressing (Theorem~\ref{thm:N6}, Conjecture~\ref{conj:S1Nprime}). Theorem~\ref{thm:reflect} plays the role of the
-reindexing symmetry of \cite{BleherIts}, and the evenness to all orders (Corollary~\ref{cor:even}) is obtained without a string
-equation, from a second steepest-descent frame at a non-integer index (Lemma~\ref{lem:frame}). We have not searched the literature
-systematically for this device, which is a gauge $z^{\gamma\sigma_3}$ of the exact Riemann--Hilbert problem combined with a change of
-frame. The centring of $b_n$ at $N$ and of $a_n$ at $N+\frac12$ (Proposition~\ref{prop:diag4} and Conjecture~\ref{conj:diag}) is the
-arrangement of \cite[Theorem~5.2]{BleherIts}. The identities of the Toda hierarchy used in Theorem~\ref{thm:toda} are elementary and
-proved in the text (Lemma~\ref{lem:todatilt}). Theorem~\ref{thm:indexshift} uses the dispersionless limit of the Toda hierarchy, a
-Riemann invariant and the solution by characteristics, which are familiar in the theory of dispersionless integrable systems; we have
-not searched the literature for the statement itself.
+\cite{BleherIts}, by the structure of the local parametrices \cite{KuijlaarsTibboel}, and for even weights the coefficients are
+generating functions of maps \cite{EMP}. For Jacobi-type weights on $[-1,1]$ the first correction vanishes \cite{KMVV}, and an exact pairing of
+$n+\alpha/2$ with $\alpha^2$ occurs for semiclassical Laguerre weights \cite{FilipukVanAsscheZhang} (Section~\ref{sec:shift-thm}). The present setting is a
+fixed discrete measure without a string equation: the shift involves the spectral constant $Z(0)$, and the evenness comes with the zeta
+layer and its own even dressing (Theorem~\ref{thm:N6}, Conjecture~\ref{conj:S1Nprime}). The grading argument in the proof of
+Theorem~\ref{thm:reflect} is that of \cite[Lemma~4.1]{KuijlaarsTibboel}, and the theorem plays the role of the reindexing symmetry of
+\cite{BleherIts}. What we have not found in the literature is the decoupling of the Szeg\H{o} exponent from the Bessel order, the frame
+identity~\eqref{eq:FI}, and its proof from a second steepest-descent frame at a non-integer index (Lemma~\ref{lem:frame}), a gauge
+$z^{\gamma\sigma_3}$ of the exact Riemann--Hilbert problem combined with a change of frame. The centring of $b_n$ at $N$ and of $a_n$ at
+$N+\frac12$ (Proposition~\ref{prop:diag4} and Conjecture~\ref{conj:diag}) is the arrangement of \cite[Theorem~5.2]{BleherIts}.
+
+\emph{Toda flows.} The Toda hierarchy for exponential tilts (Lemma~\ref{lem:todatilt}) is classical \cite{VanAsscheToda}. Re-expanding
+the Toda equations with shifted indices in $1/n$ to generate the coefficients of an asymptotic expansion is the method of
+\cite[Section~4]{EMP} for varying weights; Theorem~\ref{thm:toda} applies it to a fixed measure, with the zeta values as base times,
+and transfers the identities from the exact flows by a category argument. The mechanism of Theorem~\ref{thm:indexshift} is the
+genus-zero one of random-matrix map enumeration \cite{Ercolani,EMP,Bouttier}, and the role of the endpoints as Riemann invariants of
+the dispersionless Toda hierarchy is known \cite{KonopelchenkoMAM}; Section~\ref{sec:indexshift} gives the references in place. The
+new ingredients are the setting (a fixed measure accumulating at a hard edge, real and pole exponents, zeta-valued times), not the
+mechanism.
 
 \emph{Hurwitz zeta values.} The band-factor moments of a Hurwitz lattice come out of the analysis as Fourier series, and their
 identification with $\zeta(-jp,a)$ is Hurwitz's formula, which we quote from \cite[Theorem~1.1]{DixitKumar}; there it is attributed to
-Hurwitz and quoted from Titchmarsh's monograph, which we have not consulted. The index transfer of Section~\ref{sec:hurwitz-thm}, a
-change of the Szeg\H{o} exponent at fixed Bessel order, and the statements of Theorems~\ref{thm:H} and~\ref{thm:kappa}, have not been
-checked against the literature on discrete orthogonal polynomials beyond the works cited in this section.
+Hurwitz and quoted from Titchmarsh's monograph, which we have not consulted. We have not found the index transfer of
+Section~\ref{sec:hurwitz-thm}, a change of the Szeg\H{o} exponent at fixed Bessel order, or the statements of Theorems~\ref{thm:H}
+and~\ref{thm:kappa} in the literature; the closest exact instances are the Lommel and Tricomi--Carlitz recurrences above, in which an
+offset of the nodes enters only through the index.
+
+\emph{Large order.} Divergent $1/N$ expansions whose large-order behaviour is governed by an instanton action are familiar for matrix
+models with varying weights \cite{MarinoSchiappaWeiss}, and Euler--Maclaurin remainders are resurgent \cite{CostinGaroufalidis}; we have
+not found a large-order analysis for a fixed discrete measure, and the singularities found numerically in
+Section~\ref{sec:conj-even} are not identified.
