@@ -6,7 +6,9 @@ Claims checked numerically for several densities with y sigma(y) strictly decrea
   (M)  int_0^a nu + int_a^Y sigma = 1;
   (U)  0 <= nu <= sigma on (0, a);
   (E)  U^mu = const on [0, a]   and   U^mu < const on (a, Y]: via Phi(z) = (z-a) PV int s(y)/(z-y) dy > 0, AND by direct
-       evaluation of the logarithmic potential (REVIEW_JZC_M1_A F5: (N) and (M) are identities in F(a), i.e. checks of the root only).
+       evaluation of the logarithmic potential (REVIEW_JZC_M1_A F5: (N) and (M) are identities in F(a), i.e. checks of the root only);
+       and Phi is tied to the direct potential: -sqrt((z-a)/z) Phi(z)/(z-a) = U'(z) at z = 1.5a by a central difference
+       (REVIEW_JZC_M1_B B5: without this, a sign error in Phi's finite-Y PV term passed all checks; it now fails).
 (H2) is verified analytically (comments below) and on a fine grid of d(y sigma)/dy.
 Densities: power laws (p = 0.6, 1.5); drum (p = 1, perimeter beta, cut at the first node); log law (Riemann-von Mangoldt-type,
 lambda = T^2, cut at T = 2 pi e^{3/2}).
@@ -72,7 +74,13 @@ for kind in ("power:0.6", "power:1.5", "drum", "log"):
     mp.mp.dps = 12
     l0 = U(a/2); band = [U(a*t) - l0 for t in (mp.mpf('0.1'), mp.mpf('0.9'))]
     outer = [U(z) - l0 for z in zs]
+    # Phi vs the direct potential (REVIEW_JZC_M1_B B5): U'(z) = -Re G(z) = -sqrt((z-a)/z) H(z) = -sqrt((z-a)/z) Phi(z)/(z-a),
+    # by a central difference of the direct U at z = 1.5a (this ties the Phi code, incl. its finite-Y PV term, to U)
+    zd = zs[1]; hd = zd*mp.mpf('1e-3'); dUd = (U(zd + hd) - U(zd - hd))/(2*hd)
     mp.mp.dps = 20
+    dPhi = -mp.sqrt((zd - a)/zd)*phis[1]/(zd - a); drel = abs(dPhi - dUd)/abs(dUd)
+    print(f"   Phi vs direct U': at z = 1.5a, -sqrt((z-a)/z) Phi/(z-a) = {mp.nstr(dPhi, 8)}, central difference of U = {mp.nstr(dUd, 8)}, rel diff {mp.nstr(drel, 2)}")
+    C_.check(f"{kind}: Phi matches direct U'", float(drel), 0.0, 1e-4)
     print(f"   direct potential: U - l on band {[mp.nstr(b, 2) for b in band]};  on (a,Y) {[mp.nstr(o, 4) for o in outer]}")
     C_.check(f"{kind}: U const on band (direct)", float(max(abs(b) for b in band)), 0.0, 1e-6)
     C_.check(f"{kind}: U < l on (a,Y) (direct)", float(max(outer) < 0), 1.0, 0)

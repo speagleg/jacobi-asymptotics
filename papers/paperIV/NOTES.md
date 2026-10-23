@@ -7,7 +7,7 @@ Last build: **26 pages**, 0 errors, 0 overfull boxes, 0 undefined references, 0 
 (badness ≤ 10000, cosmetic, mostly the `p{}` columns of the appendix tables). `main.pdf` and `main.bbl` in this
 directory are from that build.
 
-**Status: DRAFT, not reviewed as a paper.** The sources are only partly reviewed: JZC_M1 (one reader), JZC_M4_proof
+**Status: DRAFT, not reviewed as a paper.** The sources are only partly reviewed: JZC_M1 (one reader; two readers and REVIEWED since 2026-10-23, see the last section), JZC_M4_proof
 (review A only), JZC_M2, JZC_M4 and SPEC §§3.14–3.18 (NOT REVIEWED). Theorems A–C therefore need Rule R before any
 "REVIEWED" claim. No mathematical statement of the sources was strengthened.
 
@@ -17,7 +17,7 @@ directory are from that build.
 |---|---|---|---|
 | 1 | Introduction | 1–4 | setting σ_Λ, Z_Λ, W(q), ε_j, N; Theorems A (= 5.7(iii)), B (= 4.2), C (= 3.2 + 3.5); the dictionary in one display; organisation/notation |
 | 2 | Setting and prior results | 4–6 | Thm 2.1 = [II, Thm 1.4]; frame of [II §§4, 8, 10]; Lemma 2.2 (band-factor moments), 2.3 (gauge), 2.4 (linear response), Thm 2.5 (d₂, ε_j) |
-| 3 | The constrained equilibrium | 6–9 | Lemma 3.1 (energy positivity, input, unproved), Thm 3.2, Rem 3.3, Cor 3.4 (a = 4c), Prop 3.5 (soft edge carries poles), Rem 3.6 (drum root), Rem 3.7 (checks) |
+| 3 | The constrained equilibrium | 6–9 | Thm 3.2, Rem 3.3, Cor 3.4 (a = 4c), Prop 3.5 (soft edge carries poles), Rem 3.6 (drum root), Rem 3.7 (checks). *(2026-10-23: Lemma 3.1 deleted (review B, B1); now Thm 3.1, Rem 3.2, Cor 3.3, Prop 3.4, Rem 3.5, Rem 3.6.)* |
 | 4 | The kernel | 9–12 | Lemma 4.1 (K0), §4.2 functional e_n, Thm 4.2 (K for p > 1 and K′ for p < 1), Rem 4.3, Prop 4.4 (perturbed phase), Rem 4.5 |
 | 5 | Natural index, expansion of the lattice | 12–17 | Prop 5.1 (N.1), Prop 5.2 (Bessel), Lemmas 5.3, 5.4, Prop 5.5, Lemma 5.6 (N.6a–d), closed forms (5.2)–(5.6), Thm 5.7 (N.6), Table 5.1 (visibility), Rem 5.8 |
 | 6 | Examples and numerical evidence | 17–23 | method; Tables 6.1–6.8: natural index, f₄ lattice, Hurwitz, pole law (+ κ shift, Möbius), subleading pole (6.1), drums, q^N oscillators, noise |
@@ -36,12 +36,12 @@ Source lines: sec1 151, sec2 124, sec3 199, sec4 157, sec5 301, sec6 324, sec7 1
 | E3 Lemma E3.4 (PROVED) | Lemma 2.3 | lemma, no proof (TODO) |
 | E3 Lemma E3.7 (PROVED, exact algebra) | Lemma 2.4 | lemma, proof sketch |
 | E2 Thm E2.1, E3 Thm E3.1, E3.2, Cor E3.3, E3.4 (PROVED-mod-cite, REVIEWED) | Thm 2.5 | theorem, proof outline only (TODO) |
-| JZC_M1 Thm Q (PROVED-mod-cite: Saff–Totik I.1.8 NOT QUOTED) | Thm 3.2 + Lemma 3.1 | theorem with full proof; the unquoted input is Lemma 3.1, stated as used without proof |
-| JZC_M1 weaker hypothesis (F7), edge remark (F3), node-language reading | Rem 3.3 | remark |
-| JZC_M1 Cor Q.1 (PROVED) | Cor 3.4 | corollary with proof |
-| JZC_M1 Prop M1.2 (PROVED) | Prop 3.5 | proposition with proof |
-| SPEC §3.16 β² derivation (exact algebra of the continuum condition) | Rem 3.6 | remark (computation) |
-| m1_theoremQ.out, m1_edge.out (NUMERICAL) | Rem 3.7 | remark |
+| JZC_M1 Thm Q (PROVED + REVIEWED since 2026-10-23, REVIEW_JZC_M1_B B1: energy positivity is Paper I Lemma 3.3 = G2 Lemma EP; was PROVED-mod-cite, Saff–Totik I.1.8 NOT QUOTED) | Thm 3.1 (was Thm 3.2 + Lemma 3.1) | theorem with full proof; positivity cited as [PaperI, Lemma 3.3], with its integrability hypothesis checked for τ = μ′ − μ; Lemma 3.1 and its TODO deleted |
+| JZC_M1 weaker hypothesis (F7) + review B Rule A numerics, edge remark (F3 + B3 qualifier), node-language reading | Rem 3.2 (was 3.3) | remark |
+| JZC_M1 Cor Q.1 (PROVED + REVIEWED) | Cor 3.3 (was 3.4) | corollary with proof |
+| JZC_M1 Prop M1.2 (PROVED + REVIEWED) | Prop 3.4 (was 3.5) | proposition with proof; remainder O(η²) (B7) |
+| SPEC §3.16 β² derivation (exact algebra of the continuum condition) | Rem 3.5 (was 3.6) | remark (computation) |
+| m1_theoremQ.out (32 assertions), m1_edge.out (NUMERICAL) | Rem 3.6 (was 3.7) | remark |
 | SPEC §3.14 Lemma K0 (PROVED) | Lemma 4.1 | lemma with proof |
 | SPEC §3.14 Thm K (p > 1) + JZC_M2 Thm K′ (p < 1) (PROVED-mod-cite; MB for (1+x)^{−3/2} NOT QUOTED) | Thm 4.2 | theorem with proof; MB step written as Mellin inversion of DLMF 5.12.3 (inversion itself not quoted) |
 | SPEC §3.14 "What Theorem K adds", "Structural reading" (HEURISTIC parts) | Rem 4.3 | remark |
@@ -80,7 +80,8 @@ only "RH" string in the PDF is the repository path `research/G1/RH/spectral/chec
 
 - `sec8.tex`: whole section (literature) — placeholder with the list of topics; no citations invented.
 - `sec2.tex` top: Thm 2.5 and Lemmas 2.2–2.4 rest on E2_pgt1.md / E3.md (REVIEWED, but in no paper).
-- `sec3.tex` Lemma 3.1: Saff–Totik Lemma I.1.8 not read/quoted; no bib entry exists in the project.
+- ~~`sec3.tex` Lemma 3.1: Saff–Totik Lemma I.1.8 not read/quoted~~ — resolved 2026-10-23 (REVIEW_JZC_M1_B B1): Lemma 3.1 deleted;
+  the proof cites [PaperI, Lemma 3.3] (no compact support needed), with the integrability hypothesis checked in (iv).
 - `sec5.tex` Prop 5.2: general-ν Lommel masses and McMahon's expansion (DLMF 10.21.19) not quoted.
 - `sec6.tex` §6.6: the second-order Bohr–Sommerfeld (Dunham) term not quoted; §6.7: the predicted noise variances come from
   a post-processing step whose output is not stored.
@@ -182,3 +183,25 @@ Not included, and why:
 New TODOs: Theorem 7.1's and Lemma 6.5's estimates live only in repo memos (JZC_M3a_H chain, JZC_SIGMA) — same status as E2/E3 (§3
 above): they need an appendix or a separate paper before submission. The scripts of §§6, 7, 8.5, 9.2 are not in run_all.sh (secA
 says so). Once the review-B fixes are applied to JZC_W_exact/JZC_W_kappa, revise the footnote to Theorem 7.2.
+
+## Session additions (2026-10-23): Rule R review B of JZC_M1 applied to §3 (Theorem C)
+Source: research/G1/review/REVIEW_JZC_M1_B.md (ACCEPT WITH FIXES B1–B7). JZC_M1 Thm Q (i)–(iv), Cor Q.1, Prop M1.2 are now
+PROVED + REVIEWED (Thm Q with no external input); novelty POSSIBLY-NEW (unchanged; B6 caveats).
+Discrepancies D1–D15 of review B §3, as adopted:
+- D1/D2 (B1): Lemma `lem:energy`, its TODO and the sentence "The proof of optimality uses one fact that we do not prove." deleted;
+  (iv) cites \cite[Lemma~3.3]{PaperI} (PaperI already in refs.bib) with the integrability check for τ; the inversion is gone.
+  The intro sentence after Theorem C (sec1.tex) that referred to Lemma `lem:energy` now says no outside input is used.
+- D3, D4: paper wording kept; the memo was matched to it.
+- D5 (B2): (ii) uses the per-point balayage argument (k_y, ρ_y, Fubini); (H1) says Hölder is used only in (iii).
+- D6 (B4): continuity of F added in (i).
+- D7 (B3): Remark (b) qualified (Hölder > ½ at a), with C = −h(a)/(π√a) and h(a) written out.
+- D10: Remark (a) adds that the hypotheses are not necessary but cannot be dropped (review B §2.5 numerics).
+- D8, D9, D11, D13: no action. D12: Remark (checks) now mentions the direct potential and the Φ-vs-U′ comparison (B5).
+- D14 (B7): (eq:M12b) remainder O(η²); Theorem C in sec1.tex: O(nη_n²) for nη_n (was O(n²η_n²)).
+- D15 (B6): sec8.tex adds "these results assume a finite constraint (Dragnev–Saff) or a compact interval (Rakhmanov) and are not
+  used in the proof of Theorem C"; Beckermann–Kuijlaars 2002 is now "according to"; a source comment points to G2/CITATIONS.md
+  (R96), (DS97), (VAVB).
+- Rem 3.6 (checks): "between 10⁻⁹ and 10⁻⁶" → "between 10⁻⁸ (the printed digits) and 10⁻⁶" (review B INFO).
+Theorem numbers in §3 shift by one (Thm 3.1, Rem 3.2, Cor 3.3, Prop 3.4, Rem 3.5, Rem 3.6); all references are by \label.
+Build: `pdflatex main; bibtex main; pdflatex main; pdflatex main` → **41 pages**, 0 errors, 0 overfull boxes, 0 undefined
+references; 12 underfull boxes (cosmetic); 1 BibTeX warning (missing pages in BeckermannKuijlaars2001, pre-existing).

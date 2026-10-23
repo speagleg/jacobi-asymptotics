@@ -67,7 +67,7 @@ integrand is pW(w)δZ(−w)n^{−pw}·π[−cot(πw) − tan(π(pw − m)/2)] (p
 
 | Layer | Content | Status |
 |---|---|---|
-| L1 continuum | leading law; all poles of Z with π cot; nonlinear terms | Theorem Q, Prop M1.2 (PROVED-mod-cite), as a statement about the equilibrium; its identification with b_n needs G1 |
+| L1 continuum | leading law; all poles of Z with π cot; nonlinear terms | Theorem Q, Prop M1.2 (PROVED + REVIEWED, two readers; updated 2026-10-23), as a statement about the equilibrium; its identification with b_n needs G1 |
 | L2 discreteness | the Z(−j) | Theorem K′ for the lattice, all p ≠ 1 (PROVED-mod-cite); general κ needs G2 |
 | L3 second order | δ_eff (rule H), Jacobian tilt | NUMERICAL (S1⁗, §3.15); derivation open (M4) |
 | Link to b_n | G1–G3 (Riemann–Hilbert for non-lattice nodes) | open (M3) |

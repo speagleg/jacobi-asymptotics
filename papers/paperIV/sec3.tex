@@ -11,7 +11,7 @@ in Section~\ref{sec:conj}.
 \subsection{Theorem C}\label{sec:thmQ}
 Let $0<Y\le\infty$ and let $\sigma$ be a density on $(0,Y]$ such that
 \begin{enumerate}
-\item[(H1)] $\sigma$ is positive and locally H\"older continuous on $(0,Y)$;
+\item[(H1)] $\sigma$ is positive and locally H\"older continuous on $(0,Y)$ (the H\"older condition is used only in~(iii));
 \item[(H2)] $y\mapsto y\sigma(y)$ is strictly decreasing on $(0,Y)$;
 \item[(H3)] if $Y=\infty$, then $\int_1^\infty\sigma(y)\log y\diff y<\infty$.
 \end{enumerate}
@@ -24,16 +24,6 @@ $[0,Y]$ with $\mu([0,Y])=1$ and $\mu\le\sigma$. The \emph{soft-edge condition} i
   F(a):=\int_a^Y\sigma(y)\Bigl(1-\frac ay\Bigr)^{-1/2}\diff y=1 .
 \end{equation}
 
-The proof of optimality uses one fact that we do not prove.
-
-\begin{lemma}[energy positivity]\label{lem:energy}
-Let $\tau$ be a signed measure with compact support in $\R$, $\tau(\R)=0$ and $\int\!\!\int\bigl|\log|x-y|\bigr|\diff|\tau|(x)\diff|\tau|(y)<\infty$.
-Then $I(\tau)\ge0$, with equality only for $\tau=0$.
-\end{lemma}
-% TODO (citation): this is the positivity lemma usually cited as Saff--Totik, Logarithmic Potentials with External
-% Fields, Lemma I.1.8. It has not been read and quoted with its hypotheses (repo rule C), and no bibliography of the
-% project contains the book. Add the entry only after reading it.
-
 \begin{theorem}\label{thm:Q}
 Assume \textup{(H1)--(H3)}.
 \begin{enumerate}
@@ -45,24 +35,34 @@ Assume \textup{(H1)--(H3)}.
 Then $\mu:=\nu\diff x|_{[0,a]}+\sigma\diff y|_{[a,Y]}$ has unit mass, $0<\nu<\sigma$ on $(0,a)$, and
 $\pi\sqrt{x(a-x)}\,\nu(x)=1-\int_a^Y\sigma(y)\sqrt{y(y-a)}\,(y-x)^{-1}\diff y$.
 \item[(iii)] There is a constant $\ell$ with $U^\mu=\ell$ on $[0,a]$ and $U^\mu<\ell$ on $(a,Y]$.
-\item[(iv)] $\mu$ is the unique solution of the constrained equilibrium problem among measures of finite energy.
+\item[(iv)] $\mu$ is the unique solution of the constrained equilibrium problem.
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
 (i) Substituting $y=au$, $F(a)=\int_1^{Y/a}a\sigma(au)(1-1/u)^{-1/2}\diff u$. For fixed $u$, $a\sigma(au)=(au\,\sigma(au))/u$
-is strictly decreasing in $a$ by (H2), and the upper limit decreases, so $F$ is strictly decreasing. As $a\to0$,
+is strictly decreasing in $a$ by (H2), and the upper limit decreases, so $F$ is strictly decreasing. On $[a_0,a_1]\subset(0,Y)$
+we have $a\sigma(au)\le a_0\sigma(a_0u)$ by (H2), so $F$ is continuous by dominated convergence. As $a\to0$,
 $F(a)\ge\int_a^Y\sigma\to\infty$. If $Y<\infty$, $F(a)\to0$ as $a\to Y$. If $Y=\infty$, split at $2a$: $\int_{2a}^\infty\le
 \sqrt2\int_{2a}^\infty\sigma\to0$, and, since $\sigma(y)\le a\sigma(a)/y$ on $[a,2a]$, $\int_a^{2a}\le
 a\sigma(a)\int_1^2(1-1/u)^{-1/2}\diff u\to0$.
 
 (ii) Let $S(z):=\int_a^Ys(y)(z-y)^{-1}\diff y$ and $\tilde G(z):=((z-a)/z)^{1/2}S(z)$ (principal branch), analytic off
-$[0,Y]$, and let $G(z):=\int(z-x)^{-1}\diff\mu(x)$. On $(a,Y)$, $S(z\pm i0)=\PV\!\int s(y)(z-y)^{-1}\diff y\mp i\pi s(z)$ and
-$s=\sigma\sqrt{z/(z-a)}$, so $\tilde G$ jumps by $-2\pi i\sigma$; on $(0,a)$, $((z-a)/z)^{1/2}$ takes the values
-$\pm i\sqrt{(a-x)/x}$ and $S$ is real, so $\tilde G$ jumps by $-2\pi i\nu$. These are the jumps of $G$. Both functions
-are $o(|z-z_0|^{-1})$ at $z_0\in\{0,a,Y\}$ and tend to $0$ at infinity, so $G-\tilde G$ is entire and vanishes at
-infinity, and $G=\tilde G$. Hence $\tilde G(z)\sim F(a)/z=1/z$ at infinity, so $\mu$ has unit mass; $\Re G(x\pm i0)=0$ on
-$(0,a)$; and $\nu>0$ because $s>0$. With $R(y):=\sqrt{y(y-a)}$ one has $R\sigma=s\,(y-a)$, which gives
+$[0,Y]$, and let $G(z):=\int(z-x)^{-1}\diff\mu(x)$. For fixed $y\in(a,Y)$ put
+\[
+  k_y(z):=\frac{((z-a)/z)^{1/2}-\sqrt{(y-a)/y}}{z-y},\qquad \rho_y(x):=\frac1\pi\sqrt{\frac{a-x}x}\,\frac1{y-x}>0\quad(0<x<a).
+\]
+The singularity of $k_y$ at $z=y$ is removable, so $k_y$ is analytic off $[0,a]$; it is $O(|z|^{-1/2})$ at $0$, bounded
+at $a$, and $\sim(1-\sqrt{(y-a)/y})/z$ at infinity; since $((z-a)/z)^{1/2}$ takes the values $\pm i\sqrt{(a-x)/x}$ on
+$(0,a)$ from above and below, $k_y$ jumps by $-2\pi i\rho_y$ there. As $[0,a]$ is compact, Liouville's theorem gives
+$k_y(z)=\int_0^a\rho_y(x)(z-x)^{-1}\diff x$, and $\rho_y$ has mass $1-\sqrt{(y-a)/y}$. Since $\sigma=s\sqrt{(y-a)/y}$,
+\[
+  \tilde G(z)=\int_a^Ys(y)\Bigl[\frac{\sqrt{(y-a)/y}}{z-y}+k_y(z)\Bigr]\diff y
+  =\int_a^Y\frac{\sigma(y)\diff y}{z-y}+\int_0^a\frac{\nu(x)\diff x}{z-x}=G(z),
+\]
+by Fubini's theorem (everything is positive, $|z-x|^{-1}\le|\Im z|^{-1}$, and $\int s(1-\sqrt{(y-a)/y})\diff y\le F(a)$),
+because $\int s(y)\rho_y(x)\diff y=\nu(x)$. Hence $\mu$ has mass $\int_a^Y\sigma+\int s(1-\sqrt{(y-a)/y})=\int s=F(a)=1$;
+$\Re G(x\pm i0)=0$ on $(0,a)$, where $S$ is real-analytic; and $\nu>0$ because $s>0$. With $R(y):=\sqrt{y(y-a)}$ one has $R\sigma=s\,(y-a)$, which gives
 $\tilde G=R(z)^{-1}\bigl[F(a)+\int\sigma R\,(z-y)^{-1}\diff y\bigr]$; the difference of the two expressions for $\nu$ is
 $(F(a)-1)/(\pi\sqrt{x(a-x)})$, which vanishes by~\eqref{eq:Q}. For the upper bound write $s(y)=g(y)(y-a)^{-1/2}$ and use
 $\int_a^\infty(y-a)^{-1/2}(y-x)^{-1}\diff y=\pi(a-x)^{-1/2}$:
@@ -81,21 +81,27 @@ The first integrand is positive since $g$ is decreasing. The principal value is 
 $(z-a)^{-1/2}\log\frac{\sqrt{Y-a}+\sqrt{z-a}}{\sqrt{Y-a}-\sqrt{z-a}}>0$ if $Y<\infty$. Hence $H>0$, $\varphi'<0$ and
 $\varphi<0$ on $(a,Y]$.
 
-(iv) Let $\mu'\le\sigma$ have unit mass and finite energy, and $\tau:=\mu'-\mu$. Then
-$I(\mu')-I(\mu)=I(\tau)+2\int(U^\mu-\ell)\diff\tau$. The integrand vanishes on $[0,a]$; on $(a,Y]$, $\tau\le0$ and
-$U^\mu-\ell<0$, so the integral is $\ge0$. For $I(\tau)$, map $x\mapsto x^*:=1/(1+x)$, which sends $[0,Y]$ into $(0,1]$;
-since $\log\frac1{|x^*-y^*|}=\log\frac1{|x-y|}+\log(1+x)+\log(1+y)$ and $\tau(\R)=0$, the extra terms integrate to
-$2\tau(\R)\int\log(1+x)\diff\tau=0$ (finite by (H3), since $\mu,\mu'\le\sigma$). So $I(\tau)=I(\tau^*)\ge0$ by
-Lemma~\ref{lem:energy}, with equality only if $\tau=0$.
+(iv) Since $\log^+|x-y|\le\log(1+x)+\log(1+y)$ and (H3) bounds the logarithmic moment of every $\mu'\le\sigma$,
+$I(\mu')>-\infty$ for every competitor; let $\mu'\le\sigma$ have unit mass and $I(\mu')<\infty$, and $\tau:=\mu'-\mu$. Then
+$I(\mu')-I(\mu)=I(\tau)+2\int(U^\mu-\ell)\diff\tau$. The integrand vanishes on $[0,a]$ (at every point, since the density
+of $\mu$ is at most $g(a)x^{-1/2}$ on $(0,a)$ and bounded on $[a,Y]$, so $U^\mu$ is continuous); on $(a,Y]$, $\tau\le0$ and
+$U^\mu-\ell<0$, so the integral is $\ge0$. For $I(\tau)$: $\tau$ is a finite signed measure with $\tau(\R)=0$, and
+$\iint|\log|x-y||\diff|\tau|\diff|\tau|<\infty$ (the positive part of the logarithm by (H3), the negative part because $\mu$
+has density at most $g(a)\max(x^{-1/2},a^{-1/2})$ and $I(\mu')<\infty$). So $I(\tau)\ge0$, with equality only if $\tau=0$,
+by \cite[Lemma~3.3]{PaperI}.
 \end{proof}
 
 \begin{remark}\label{rem:Q}
 (a) The proof of (ii)--(iii) uses only that $g$ is decreasing; (H2) enters through the monotonicity of $F$ in (i). So
 (H2) may be replaced by ``$\sqrt y\,\sigma(y)$ strictly decreasing and $\int_0^Y\sigma>1$''; uniqueness of the root then
-follows from (iv), since $a$ is the left end of the saturated set of the unique minimiser.
+follows from (iv), since $a$ is the left end of the saturated set of the unique minimiser. Neither condition is necessary,
+but they cannot simply be dropped: in a discretised energy minimisation, a constraint density with a dip below the edge gives
+three roots of~\eqref{eq:Q} and a minimiser with two bands, and a shallower dip gives one root but a saturated interval
+inside the band.
 (b) Without~\eqref{eq:Q}, $\nu$ acquires a multiple of $(a-x)^{-1/2}$, which violates $\nu\ge0$ or $\nu\le\sigma$. Under
-\eqref{eq:Q}, $\nu(a^-)=g(a)/\sqrt a=\sigma(a)$, so $\mu$ is continuous at $a$, and $\sigma-\nu$ vanishes like a constant
-times $\sqrt{a-x}$.
+\eqref{eq:Q}, $\nu(a^-)=g(a)/\sqrt a=\sigma(a)$, so $\mu$ is continuous at $a$. If $\sigma$ is H\"older of order $>\frac12$
+near $a$ (for instance $C^1$), then $\sigma-\nu=C\sqrt{a-x}\,(1+o(1))$ with $C=-h(a)/(\pi\sqrt a)>0$, where
+$h(a):=\int_a^Y(g(y)-g(a))(y-a)^{-3/2}\diff y-2g(a)(Y-a)^{-1/2}\mathbf 1_{Y<\infty}$.
 (c) In node language~\eqref{eq:Q} is the statement that $\frac1n\sum_{u_k<1}(1-u_k)^{-1/2}\approx1$, with
 $u_k=a\lambda_k/n^p$: the edge is fixed by a sum of the per-node quantity $(1-u)^{-1/2}$ over the saturated nodes.
 \end{remark}
@@ -145,7 +151,7 @@ with remainder $O(A^{-\rho_K})$ after the terms with $q<-\rho_K$ and $j<-\rho_K$
 $\int L(A\lambda)\diff\mathcal N(\lambda)=n$, written $A=4c(1+\eta)n^{-p}$, satisfies
 \begin{equation}\label{eq:M12b}
   \eta=\frac pn\Bigl[\sum_{j\ge0}W(j)Z_{\mathcal N}(-j)n^{-jp}+\sum_{q\ne-1/p}R_qW(q)\,\pi\cot(\pi q)\,n^{-pq}\Bigr]
-  +O(n\eta^2),
+  +O(\eta^2),
 \end{equation}
 and the higher orders follow by reversion of the series.
 \end{proposition}
@@ -191,9 +197,10 @@ Section~\ref{sec:drums}.
 \begin{remark}[numerical checks]\label{rem:Q-checks}
 For the lattice at $p=0.6$ and $p=1.5$, for the drum density of Remark~\ref{rem:drum-root} cut at the first node, and for a
 fourth density, the root, the two forms of $\nu$, the mass, $0<\nu/\sigma<1$ and the outer inequality of
-Theorem~\ref{thm:Q} were evaluated by quadrature; the root agrees with $4c$ to $10^{-12}$ in the lattice cases, and the
+Theorem~\ref{thm:Q} were evaluated by quadrature, the outer inequality both through $H$ and by direct evaluation of
+$U^\mu$, and $-((z-a)/z)^{1/2}H(z)$ was compared with a difference quotient of $U^\mu$; the root agrees with $4c$ to $10^{-12}$ in the lattice cases, and the
 two forms of $\nu$ to $10^{-21}$, which tests the root and the quadrature rather than~(ii). The first-order pole term
 of~\eqref{eq:M12b} was fitted from the root over $n=100$--$6400$ for $\lambda_k=(k+\gamma k^{-m})^p$ at
 $(p,m)=(1.5,\frac12),(0.75,\frac14),(1.25,\frac12),(1.8,\frac34)$; it agrees with $pR_qW(q)\pi\cot(\pi q)$ to between
-$10^{-9}$ and $10^{-6}$ (scripts \texttt{m1\_theoremQ}, \texttt{m1\_edge}).
+$10^{-8}$ (the printed digits) and $10^{-6}$ (scripts \texttt{m1\_theoremQ}, \texttt{m1\_edge}).
 \end{remark}

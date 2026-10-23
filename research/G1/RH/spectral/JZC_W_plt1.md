@@ -2,7 +2,7 @@
 
 Status (2026-10-22): **NOT REVIEWED** (no Rule R reader; every label below is the author's, pending Rule R). Labels per
 VERIFICATION_POLICY.md. Novelty: UNCHECKED (no Rule L pass). No claim about RH: no measure built from zeta zeros is used.
-Inputs, with their labels: JZC_M1 Theorem Q (i)–(iii) (PROVED, elementary; Rule R: one reader, REVIEW_JZC_M1_A.md; **not REVIEWED** —
+Inputs, with their labels: JZC_M1 Theorem Q (i)–(iii) (PROVED, elementary; Rule R: two readers, REVIEW_JZC_M1_A.md and REVIEW_JZC_M1_B.md, REVIEWED — updated 2026-10-23; **not REVIEWED** —
 the brief called it reviewed; only (iv), which is not used here, needs the unquoted Saff–Totik input); JZC_W_kappa L K.1, P K.14 (REVIEWED);
 JZC_W_outer L W-out.0, W-out.2, W-out.5 (REVIEWED); JZC_M3a_H_G3 Lemma 3, Prop 4, Cor 5, JZC_M3a_H_G23plt1 (P2.6, F.1_δ), JZC_M3a_H_G1u_plt1
 (L P1–P5, Prop G1u′) (all REVIEWED); Paper 2 sec_5 (Lemma g-function, Lemma signs, Lemma lips, (O1)–(O5), Lemma jumpsV) and app_outer
@@ -133,7 +133,7 @@ balayage form are (i), 0 < ν < σ is (ii)–(iii), and its (iii) (via H > 0, in
 −2πiσ_ε on S₊ and on S₋ (on S₋, (z − a)/z > 0, so the root is analytic there and only the Cauchy integral jumps, by −2πis·((y − a)/y)^{1/2} =
 −2πiσ_ε), −2πiν_ε on (0, a), none elsewhere; it is o(1/\|z − z₀\|) at z₀ ∈ {0, a, −z′} and G̃ = F(a)/z + O(z^{−2}) = 1/z + O(z^{−2}) at ∞ (both
 pieces of S are integrable against s, s = O(y^{−2}) at ±∞). G := ∫dμ_ε/(z − y) has the same jumps and endpoint behaviour; G − G̃ is entire and
-→ 0: G = G̃ (Liouville). So μ_ε has mass 1, Re G = 0 on (0, a) (U^* constant), and the balayage form follows from R(y)σ_ε(y) = s(y)(y − a) on
+→ 0: G = G̃ (Liouville). *[Note 2026-10-23 (REVIEW_JZC_M1_B B2, §5): for Y = ∞ this Liouville step is incomplete as written — "→ 0 at ∞" is not uniform near the unbounded support, and Morera across the support needs Plemelj–Privalov, NOT QUOTED. It is closed by the per-point balayage argument now in JZC_M1 §2 (ii) (k_y, ρ_y and Fubini; k_y is still analytic off [0, a] with S₋ on the negative axis), or by the |Im z|-bound lemma of REVIEW_JZC_M1_B B2. Not yet rewritten here; κ > 0 (Y < ∞) is unaffected.]* So μ_ε has mass 1, Re G = 0 on (0, a) (U^* constant), and the balayage form follows from R(y)σ_ε(y) = s(y)(y − a) on
 both pieces (R < 0 on S₋, where y − a < 0) exactly as in Theorem Q (ii). (ii) g_σ(y) = (1/p)u^{3/2}(u − ε)^{1/p−1} (u = 1/y > 0) is increasing in
 u, so g_σ is strictly decreasing on (0, ∞) (both signs of ε). On S₋, y − x < 0 and s > 0, so the S₋-part of T is negative, and
   ν_ε(x) < (1/π)((a − x)/x)^{1/2}∫_a^∞g_σ(y)(y − a)^{−1/2}dy/(y − x) < g_σ(a)/x^{1/2} ≤ g_σ(x)/x^{1/2} = σ_ε(x)
@@ -154,7 +154,7 @@ Paper 2's x₀-argument (κ > 0: the support lies in (0, ∞)). Lemma signs (ii)
 with h analytic near a (the S₋-part is analytic there) and h(a) as stated; each of its terms is negative (g_σ strictly decreasing; g_σ(a) > 0;
 s > 0 and y − a < 0 on S₋). Analyticity in ε: in the u-variables all integrals are integrals of (u − ε)^{1/p−1}(1 − au)^{−1/2}×(rational in u, x)
 over (ε, 1/a), which after v = (u − ε)/(1/a − ε) are over a fixed interval with integrands analytic in (ε, a, x). ∎
-(PROVED-mod-cite: JZC_M1 Theorem Q (i)–(iii) (one reader); Paper 2 Lemma g-function, Lemma signs (proofs read for this note).
+(PROVED-mod-cite: JZC_M1 Theorem Q (i)–(iii) (REVIEWED, two readers; updated 2026-10-23); Paper 2 Lemma g-function, Lemma signs (proofs read for this note).
 NUMERICAL: w_plt1_equilibrium [B]–[I].)
 
 *Remark (the negative axis for κ < 0, clean form).* For x ∈ (−z′/2, 0): ∫_{(0,∞)}dμ_ε(y)/(y − x) ≥ ∫_0^a ν_ε(y)dy/(y + z′/2) ≥ m_b/(a + z′/2)
@@ -354,7 +354,7 @@ constant C_ε; Theorem Q's density at ε = 0 equals Paper 2's ψ* = λ_pI_{x/4c}
 
 ## 7. What remains
 
-1. **Rule R** for this note (Prop 1–3, Lemma 3) and a second reader for JZC_M1 Theorem Q (i)–(iii), on which Prop 2 rests (one reader so far).
+1. **Rule R** for this note (Prop 1–3, Lemma 3) (the second reader for JZC_M1 Theorem Q is done: REVIEW_JZC_M1_B.md, 2026-10-23) — Theorem Q (i)–(iii), on which Prop 2 rests (one reader so far).
 2. **Sketch 4 → proof:** (a) the a-priori bound (G23plt1 P2.6) for F♮_κ = F♮_δ∘ζ; (b) N.6a–c with ε-analytic model data on [0, a_ε], with
    remainders uniform in ε; (c) G1u_plt1's comparison with the Bessel variable n²f_ε; (d) the transfer (Hc.3 Step 2 through ζ). No step is
    expected to be hard (no OBSTRUCTION found); none is written.

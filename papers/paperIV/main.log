@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.18)  22 OCT 2026 16:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.18)  23 OCT 2026 09:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -472,7 +472,7 @@ LaTeX Font Info:    Trying to load font information for U+euf on input line 38.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [5] [6]) (./sec3.tex [7] [8]
-Underfull \hbox (badness 1024) in paragraph at lines 108--111
+Underfull \hbox (badness 1024) in paragraph at lines 114--117
 []$\OML/cmm/m/it/10.95 y^^[\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y\OT1/cmr/m/
 n/10.95 ) = []\OML/cmm/m/it/10.95 y[]$ \OT1/cmr/m/n/10.95 is strictly de-creas-
 ing and (H3) holds. Equa-tion [] reads
@@ -494,7 +494,7 @@ Underfull \hbox (badness 1297) in paragraph at lines 94--102
 /10.95 by [] (now
  []
 
-[12]) (./sec5.tex [13] [14]
+[12]) (./sec5.tex [13] [14] [15]
 Underfull \hbox (badness 2237) in paragraph at lines 152--157
 []\OT1/cmr/m/n/10.95 Define $\U/euf/m/n/10.95 D[]\OT1/cmr/m/n/10.95 (\OML/cmm/m
 /it/10.95 n\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 ^^V\OT1/cmr/m/n/10.95 ) := 
@@ -504,7 +504,7 @@ r $\OML/cmm/m/it/10.95 n[]$\OT1/cmr/m/n/10.95 , where $\OML/cmm/m/it/10.95 Q[]
 \OT1/cmr/m/n/10.95 =
  []
 
-[15] [16]
+[16]
 Underfull \hbox (badness 1681) in paragraph at lines 235--242
 []\OT1/cmr/m/n/10.95 (i) By [] and Propo-si-tion [][]5.5[][], $\OML/cmm/m/it/10
 .95 n[]b[] \OT1/cmr/m/n/10.95 = (\OML/cmm/m/it/10.95 Q[]\OT1/cmr/m/n/10.95 )[](
@@ -522,14 +522,14 @@ O\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it
 Q[]\OT1/cmr/m/n/10.95 )[]$ is $\OML/cmm/m/it/10.95 c[]$\OT1/cmr/m/n/10.95 ,
  []
 
-[17]) (./secS.tex [18] [19] [20] [21]
+[17] [18]) (./secS.tex [19] [20] [21]
 Underfull \hbox (badness 1838) in paragraph at lines 194--195
  \OT1/cmr/m/n/10.95 6.4.\OT1/cmr/bx/n/10.95 The zeta layer as a Toda flow.[][] 
 \OT1/cmr/m/n/10.95 In the un-scaled vari-able the band fac-tor
  []
 
-[22]) (./secH.tex [23] [24] [25]) (./sec6.tex [26] [27] [28] [29] [30] [31]
-[32]) (./sec7.tex
+[22]) (./secH.tex [23] [24] [25] [26]) (./sec6.tex [27] [28] [29] [30] [31]
+[32]) (./sec7.tex [33]
 Underfull \hbox (badness 1424) in paragraph at lines 20--22
 []\OT1/cmr/m/it/10.95 for ev-ery pole $\OML/cmm/m/it/10.95 q \OMS/cmsy/m/n/10.9
 5 6\OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 1\OML/cmm/m/i
@@ -540,10 +540,7 @@ L/cmm/m/it/10.95 pw\OT1/cmr/m/n/10.95 )$\OT1/cmr/m/it/10.95 , with residue $\OM
 L/cmm/m/it/10.95 R[]$\OT1/cmr/m/it/10.95 , the term
  []
 
-[33] [34] [35] [36]) (./sec8.tex [37]) (./secA.tex
-Underfull \vbox (badness 2359) has occurred while \output is active []
-
- [38]
+[34] [35] [36]) (./sec8.tex [37]) (./secA.tex [38]
 Underfull \hbox (badness 10000) in paragraph at lines 61--63
 []\OT1/cmtt/m/n/10 spec[]pole\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 spec[]gamma\OT1
 /cmr/m/n/10 , \OT1/cmtt/m/n/10 spec[]kappa\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 sp
@@ -564,7 +561,11 @@ OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 spec[]edgekernel\OT1/cmr/m/n/10 , \OT1/cmtt/m
 /n/10 spec[]stats\OT1/cmr/m/n/10 ,
  []
 
-) [39] (./main.bbl) [40] (./main.aux)
+
+Underfull \vbox (badness 5771) has occurred while \output is active []
+
+ [39])
+(./main.bbl [40]) [41] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -573,13 +574,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 0A050E35630DD1599A102A11F39E4C45;10640.
  ) 
 Here is how much of TeX's memory you used:
- 11920 strings out of 476106
- 178690 string characters out of 5793932
- 1957975 words of memory out of 5000000
- 33374 multiletter control sequences out of 15000+600000
+ 11919 strings out of 476106
+ 178674 string characters out of 5793932
+ 1954975 words of memory out of 5000000
+ 33373 multiletter control sequences out of 15000+600000
  575066 words of font info for 100 fonts, out of 8000000 for 9000
  220 hyphenation exceptions out of 8191
- 75i,12n,79p,643b,701s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,643b,661s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </root/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> </
 root/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/te
@@ -613,10 +614,10 @@ pe1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (40 pages, 699450 bytes).
+Output written on main.pdf (41 pages, 701201 bytes).
 PDF statistics:
- 1246 PDF objects out of 1440 (max. 8388607)
- 1124 compressed objects within 12 object streams
+ 1251 PDF objects out of 1440 (max. 8388607)
+ 1128 compressed objects within 12 object streams
  205 named destinations out of 1000 (max. 500000)
  433 words of extra memory for PDF output out of 10000 (max. 10000000)
 
