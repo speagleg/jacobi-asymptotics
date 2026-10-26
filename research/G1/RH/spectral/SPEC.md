@@ -11,6 +11,9 @@ Status (2026-10-20): exploratory note from the Plan E3 session. Labels per VERIF
   REVIEW_SPEC2_A.md and REVIEW_SPEC2_B.md, two independent readers, both ACCEPT WITH FIXES; fixes applied 2026-10-21, §6).
   Review does not upgrade labels: S1′, S1″, S1‴, the pole law and the κ law remain CONJECTURE / NUMERICAL / HEURISTIC.
   The main correction is the sign of the pole law (§3.12) and its limitation to the leading power of each pole (F2).
+- JZC_P1.md (2026-10-26, NOT REVIEWED): p = 1 continuation (NUMERICAL). For lattices, Hurwitz shifts and polynomial tilts, every
+  coefficient of (1.7) through N⁻⁷ is the p → 1 continuation (integer layers, Toda layers via FT at p = 1, Pochhammer leads);
+  no log n terms; Tricomi–Carlitz exact through N⁻⁶.
 - JZC_M4.md (2026-10-21, NOT REVIEWED): the natural index N = n + α/2 − Z(0) (Conjecture S1-N; E2's d₂ = shift² + f₂ identity;
   Bessel exact; no N⁻³ term in 7 lattices).
 - JZC_M2.md (2026-10-21, NOT REVIEWED): Theorem K′ — the band-factor Mellin–Barnes kernel π[cot(πwp/2) − cot(πw)] for all p ≠ 1

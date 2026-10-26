@@ -1,0 +1,80 @@
+sha256 p1_continuation.py: eef1d21e096ee4ec58a46992fb90b8c2b360e2c4a6fa61b9d3ade08d50110e25
+sha256 shift_common.py: 1a4c1c70a5e4c0b976aa39e339dcc4dbde6f32607c7f4cd02b0a4d979d3f023a
+sha256 m4_rh4.py: 7cb7145402ec573f94cc1ef8a66ac338c829c912fdd90c1be4ed5f845b2c2067
+sha256 p1_arb.py: a14978757880f85a345ae58f66ae864879ebab99b54945de3f840d10fc591b77
+[1] identity: (I) f4, f6 (m4_rh4) at the Bessel point (2, -1/2) = 3/128, 5/1024: holds -> PASS
+[2] identity: (I) a2, a4 (JZC_TODA Prop T.4) at the Bessel point (2, -1/2) = 1/4, 1/16: holds -> PASS
+   FT p=1 alpha=-1/2 js=(1, 2, 3, 4, 5, 6) M=3 D=7: 83 layers (57s)
+[3] identity: (I) FT at p = 1: first-order layers have dressing g_j(1, -1/2) = A_j + B_j alpha^2 (j = 1..6): holds -> PASS
+[4] identity: (I) FT at p = 1: the eps1^2 layer is N^-2-2p [(3p+1)/(2p) + h2 N^-2] in eps-units (Theorem 4.3(ii)), h2 = h2(1, -1/2): holds -> PASS
+   FT(p = 1, alpha = -1/2) layer eps2 in eps-units, coefficients of N^-(i + S), i = 0..7: [0, 1, 0, 139/96, 0, 40915/18432, 0, 19945061/5308416]
+   FT(p = 1, alpha = -1/2) layer eps1 eps2 in eps-units, coefficients of N^-(i + S), i = 0..7: [0, 0, 5, 0, 1661/96, 0, 323929/6144, 0]
+   FT(p = 1, alpha = -1/2) layer eps1^3 in eps-units, coefficients of N^-(i + S), i = 0..7: [0, 0, 0, 5, 0, 683/32, 0, 1386899/18432]
+   FT(p = 1, alpha = -1/2) layer eps1^2 eps2 in eps-units, coefficients of N^-(i + S), i = 0..7: [0, 0, 0, 21, 0, 4413/32, 0, 1473743/2048]
+   FT(p = 1, alpha = -1/2) layer eps1 eps3 in eps-units, coefficients of N^-(i + S), i = 0..7: [0, 0, 6, 0, 1627/48, 0, 488047/3072, 0]
+[5] identity: (I) FT at p = 1: eps1^3 lead = (p+1+S)_2/(3! p^2) = 5 (Catalan C_3) and eps1^2 eps2 lead = (6)_2/2! = 21: holds -> PASS
+   base window spread 1.28e-26; f8(1, -1/2) [NUMERICAL] = 0.000722282021133987991900911
+   base: max_k<=7 |C_k(data) - C_k(pred)| = 1.28e-26 (tol 1.0e-24)
+[6] identity: (B) base: C_k = f_k (f2, f4, f6 continued to p = 1), C_odd = 0, k <= 7: holds -> PASS
+   diagonal: a6(1, -1/2) [NUMERICAL] = 0.006085431134259259259259259
+[7] identity: (B) diagonal: (M/n)A = 1 + a2 M^-2 + a4 M^-4 + O(M^-6), a2 = 5/48, a4 = 53/2304, odd = 0 (k <= 5): holds -> PASS
+[8] CONTROL (must fail): (B) control: natural index shifted by 1/4 still gives C_1 = 0: fails -> PASS
+   tilt_p1_t1=-1_2 (spread 6.9e-25): max_k<=7 |C_k(data) - C_k(pred)| = 7.13e-25 (tol 3.1e-24)
+   tilt_p1_t1=-1_4 (spread 1.7e-25): max_k<=7 |C_k(data) - C_k(pred)| = 1.79e-25 (tol 1.5e-24)
+   tilt_p1_t1=-1_4,t2=-1_4 (spread 3.1e-24): max_k<=7 |C_k(data) - C_k(pred)| = 3.17e-24 (tol 1.0e-23)
+   tilt_p1_t1=-1_4,t2=1_4 (spread 1.7e-25): max_k<=7 |C_k(data) - C_k(pred)| = 1.73e-25 (tol 1.5e-24)
+   tilt_p1_t1=1 (spread 2.0e-26): max_k<=7 |C_k(data) - C_k(pred)| = 2.03e-26 (tol 1.1e-24)
+   tilt_p1_t1=1_2 (spread 4.2e-26): max_k<=7 |C_k(data) - C_k(pred)| = 4.3e-26 (tol 1.1e-24)
+   tilt_p1_t1=1_2,t2=-1_4 (spread 4.0e-25): max_k<=7 |C_k(data) - C_k(pred)| = 4.13e-25 (tol 2.2e-24)
+   tilt_p1_t1=1_2,t2=1_4 (spread 1.0e-25): max_k<=7 |C_k(data) - C_k(pred)| = 1.07e-25 (tol 1.3e-24)
+   tilt_p1_t1=1_4 (spread 5.2e-26): max_k<=7 |C_k(data) - C_k(pred)| = 5.32e-26 (tol 1.2e-24)
+   tilt_p1_t1=1_4,t2=-1_4 (spread 8.6e-25): max_k<=7 |C_k(data) - C_k(pred)| = 8.83e-25 (tol 3.6e-24)
+   tilt_p1_t1=1_4,t2=1_4 (spread 1.1e-25): max_k<=7 |C_k(data) - C_k(pred)| = 1.14e-25 (tol 1.3e-24)
+   tilt_p1_t1=3_4 (spread 2.7e-26): max_k<=7 |C_k(data) - C_k(pred)| = 2.74e-26 (tol 1.1e-24)
+   tilt_p1_t2=-1_2 (spread 2.7e-24): max_k<=7 |C_k(data) - C_k(pred)| = 2.78e-24 (tol 9.1e-24)
+   tilt_p1_t2=-1_4 (spread 1.7e-24): max_k<=7 |C_k(data) - C_k(pred)| = 1.73e-24 (tol 6.0e-24)
+   tilt_p1_t2=1_2 (spread 8.5e-25): max_k<=7 |C_k(data) - C_k(pred)| = 8.73e-25 (tol 3.5e-24)
+   tilt_p1_t2=1_4 (spread 2.7e-26): max_k<=7 |C_k(data) - C_k(pred)| = 2.67e-26 (tol 1.1e-24)
+   tilt_p1_t3=-1_2 (spread 2.6e-22): max_k<=7 |C_k(data) - C_k(pred)| = 2.69e-22 (tol 7.8e-22)
+   tilt_p1_t3=-1_4 (spread 1.2e-23): max_k<=7 |C_k(data) - C_k(pred)| = 1.23e-23 (tol 3.7e-23)
+   tilt_p1_t3=1_2 (spread 6.3e-23): max_k<=7 |C_k(data) - C_k(pred)| = 6.49e-23 (tol 1.9e-22)
+   tilt_p1_t3=1_4 (spread 2.8e-24): max_k<=7 |C_k(data) - C_k(pred)| = 2.83e-24 (tol 9.3e-24)
+   tilt_p1_t4=-1_2 (spread 2.1e-21): max_k<=7 |C_k(data) - C_k(pred)| = 2.17e-21 (tol 6.3e-21)
+   tilt_p1_t4=-1_4 (spread 2.2e-22): max_k<=7 |C_k(data) - C_k(pred)| = 2.23e-22 (tol 6.5e-22)
+   tilt_p1_t4=1_2 (spread 6.9e-22): max_k<=7 |C_k(data) - C_k(pred)| = 7.12e-22 (tol 2.1e-21)
+   tilt_p1_t4=1_4 (spread 1.2e-22): max_k<=7 |C_k(data) - C_k(pred)| = 1.23e-22 (tol 3.6e-22)
+   tilt_p1_t5=-1_2 (spread 6.4e-21): max_k<=7 |C_k(data) - C_k(pred)| = 6.62e-21 (tol 1.9e-20)
+   tilt_p1_t5=-1_4 (spread 9.2e-22): max_k<=7 |C_k(data) - C_k(pred)| = 9.43e-22 (tol 2.8e-21)
+   tilt_p1_t5=1_2 (spread 3.8e-21): max_k<=7 |C_k(data) - C_k(pred)| = 3.94e-21 (tol 1.2e-20)
+   tilt_p1_t5=1_4 (spread 3.4e-22): max_k<=7 |C_k(data) - C_k(pred)| = 3.51e-22 (tol 1.0e-21)
+   tilt_p1_t6=-1_2 (spread 1.2e-20): max_k<=7 |C_k(data) - C_k(pred)| = 1.26e-20 (tol 3.7e-20)
+   tilt_p1_t6=-1_4 (spread 2.5e-21): max_k<=7 |C_k(data) - C_k(pred)| = 2.62e-21 (tol 7.6e-21)
+   tilt_p1_t6=1_2 (spread 4.4e-21): max_k<=7 |C_k(data) - C_k(pred)| = 4.55e-21 (tol 1.3e-20)
+   tilt_p1_t6=1_4 (spread 1.6e-21): max_k<=7 |C_k(data) - C_k(pred)| = 1.66e-21 (tol 4.8e-21)
+[9] identity: (T) 32 time-controlled tilts at p = 1: C_k (k <= 7) = FT(p = 1) prediction: holds -> PASS
+[10] CONTROL (must fail): (T) control: (p+1+S)^{m-1} in place of the Pochhammer symbol for eps_1^3 (t1 = 1, N^-6): fails -> PASS
+   FT p=1 alpha=-1/2 js=(2,) M=1 D=7: 1 layers (0s)
+[11] CONTROL (must fail): (T) control: FT with a2 := 0 reproduces the t2 = 1/4 tilt: fails -> PASS
+   FT p=1 alpha=1/2 js=(1, 2, 3, 4, 5, 6) M=3 D=7: 83 layers (55s)
+   FT p=1 alpha=3/2 js=(1, 2, 3, 4, 5, 6) M=3 D=7: 83 layers (57s)
+   hur_s3_2_d13_10 (alpha = -1/2, spread 2.1e-31): max_k<=7 |C_k(data) - C_k(pred)| = 2.91e-31 (tol 1.0e-24)
+   hur_s3_2_d17_10 (alpha = -1/2, spread 1.1e-29): max_k<=7 |C_k(data) - C_k(pred)| = 1.08e-29 (tol 1.0e-24)
+   hur_s3_2_d1_10 (alpha = -1/2, spread 4.8e-30): max_k<=7 |C_k(data) - C_k(pred)| = 5.02e-30 (tol 1.0e-24)
+   hur_s3_2_d1_2 (alpha = -1/2, spread 3.2e-30): max_k<=7 |C_k(data) - C_k(pred)| = 3.27e-30 (tol 1.0e-24)
+   hur_s3_2_d1_5 (alpha = -1/2, spread 6.7e-30): max_k<=7 |C_k(data) - C_k(pred)| = 6.91e-30 (tol 1.0e-24)
+   hur_s3_2_d21_10 (alpha = -1/2, spread 1.9e-29): max_k<=7 |C_k(data) - C_k(pred)| = 2.03e-29 (tol 1.0e-24)
+   hur_s3_2_d2_5 (alpha = -1/2, spread 5.8e-30): max_k<=7 |C_k(data) - C_k(pred)| = 6.05e-30 (tol 1.0e-24)
+   hur_s3_2_d3_10 (alpha = -1/2, spread 2.2e-31): max_k<=7 |C_k(data) - C_k(pred)| = 2.9e-31 (tol 1.0e-24)
+   hur_s3_2_d3_5 (alpha = -1/2, spread 3.5e-30): max_k<=7 |C_k(data) - C_k(pred)| = 3.65e-30 (tol 1.0e-24)
+   hur_s3_2_d4_5 (alpha = -1/2, spread 2.1e-31): max_k<=7 |C_k(data) - C_k(pred)| = 2.72e-31 (tol 1.0e-24)
+   hur_s3_2_d9_10 (alpha = -1/2, spread 5.6e-30): max_k<=7 |C_k(data) - C_k(pred)| = 5.77e-30 (tol 1.0e-24)
+   hur_s5_2_d1_5 (alpha = 1/2, spread 5.4e-30): max_k<=7 |C_k(data) - C_k(pred)| = 5.53e-30 (tol 1.0e-24)
+   hur_s5_2_d3_10 (alpha = 1/2, spread 2.7e-31): max_k<=7 |C_k(data) - C_k(pred)| = 3.32e-31 (tol 1.0e-24)
+   hur_s7_2_d1_5 (alpha = 3/2, spread 4.3e-30): max_k<=7 |C_k(data) - C_k(pred)| = 4.42e-30 (tol 1.0e-24)
+   hur_s7_2_d3_10 (alpha = 3/2, spread 1.7e-30): max_k<=7 |C_k(data) - C_k(pred)| = 1.85e-30 (tol 1.0e-24)
+[12] identity: (H) 15 pure Hurwitz lattices at p = 1 (alpha = -1/2, 1/2, 3/2): C_k (k <= 7) = FT(p = 1) with t_j = -2 zeta(-j, d)/j: holds -> PASS
+[13] CONTROL (must fail): (H) control: the transcription A_j = j*(numerator)/(24(2j-1)p) at N^-5 (d = 3/10): fails -> PASS
+[14] identity: (C) Tricomi-Carlitz: exact expansion = FT(p = 1) prediction, identically in a, through N^-6: holds -> PASS
+   p = 2: N^-5 coefficient of d/dt2 = -4.5660511422188642455 (pred -4.5660511422188642455); g2 = 2.75
+[15] identity: (P2) p = 2, s = 3: the t2 layer has lead -pW(2) and g2 = A2(2) + B2(2)*0 = 11/4: holds -> PASS
+ALL 15 CHECKS PASSED (11 identities, 4 controls; failures: 0)
