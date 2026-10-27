@@ -1,0 +1,7 @@
+sha256 ls_synthetic.py: 4ca3970e1b2c9e91b2b009f7f6f9a2b72f6712328bb587d47fccb781c6545dc8
+sha256 ls_common.py: c0c7a9c2d88d990e5ec75b6efba3f7e89acf148df7d05f92ce8a7e2564a97fab
+smooth comparator: bits left -4695
+(S0) A = 0: 398 explicit nodes, bits left -4689, max |D_n| = 1.3e-56
+(S1) bits left -4701; edge law: corr = -0.9656, slope = -0.9137; CLEAN lines (l, amp, phase) = [(3.05, 3.759, -0.69), (6.105, 0.918, -2.93), (2.765, 0.112, -0.84)]
+(S2) bits left -4708; edge law: corr = -0.8307, slope = -0.8395; CLEAN lines = [(3.065, 3.53, -0.88), (4.89, 1.877, -0.64), (7.8, 1.218, -0.97)]
+ALL SYNTHETIC CONTROLS PASSED
