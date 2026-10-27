@@ -28,6 +28,7 @@ xs = [float(l) for l, _ in dist]
 grid = np.linspace(50, LCUT, 4000)
 Nd = np.searchsorted(np.array(xs), grid, side='right').astype(float)
 nu_f, c_f = np.polyfit(grid, Nd, 1)
+nu_f, c_f = float(nu_f), float(c_f)
 NU = mp.mpf(repr(nu_f)); A = mp.mpf(repr(-c_f - 0.5))
 print(f"smooth fit: nu = {nu_f:.6f}, a = {float(A):.6f}  (N_dist = nu*lambda - a - 1/2)", flush=True)
 NMAX = min(300, int(1.2*nu_f*LCUT)); NS = list(range(40, NMAX))

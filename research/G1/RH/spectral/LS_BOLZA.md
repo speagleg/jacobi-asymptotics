@@ -1,6 +1,6 @@
 # LS BOLZA: hearing the closed geodesics of the Bolza surface in Lanczos coefficients (PRE-REGISTRATION, then results)
 
-Status (2026-10-27): **PRE-REGISTRATION**.
+Status (2026-10-27): **PRE-REGISTRATION** (§§1–4) **+ RESULTS** (§5: B1–B3 FAIL, B4 PASS; post-hoc diagnostics labelled EXPLORATORY).
 - §§1–4 were written and committed before any Bolza eigenvalue was read by this pipeline. The commit hash is the timestamp.
 - §5 (results) is added in a later commit and may not change §§1–4. Any deviation is recorded there under Rule X.
 - Labels per VERIFICATION_POLICY.md: the edge law (§2) is NUMERICAL on synthetic spectra (`checks/ls_synthetic.py`) and
@@ -97,6 +97,50 @@ within ±0.12 of ℓ_sys = 2 arccosh(1 + √2) = 3.0571.
 - A line at 2ℓ_sys = 6.114 could be either the genuine repeated geodesic or the nonlinear second harmonic (§2), so it is not
   counted as evidence.
 
-## 5. Results
+## 5. Results (2026-10-27; §§1–4 unchanged)
 
-(to be added after the data run; §§1–4 unchanged)
+**Data.** The Strohmaier–Uski file arrived through the chat (arXiv is blocked from both machines). It was transcribed and its
+sha256 matches bolzakit's pin 869f48bc… byte for byte.
+- 1000 eigenvalues, 334 distinct, with multiplicities {1: 42, 2: 43, 3: 124, 4: 125}.
+- Smooth fit: ν = 0.333378 and a = 0.0443, so the distinct-eigenvalue density is ≈ 1/3.
+- n ∈ [40, 300), natural-index shift 1.0443. Bits left ≥ 4632 in every run.
+
+**Rule X, deviation 1 (mechanical).** The first run crashed on `mp.mpf(repr(np.float64))`. The fix converts with float() first. No
+analysis choice changed. The script's sha256 changed from 2b71b9… to eac3e5…, and the diff is that one line.
+
+**Registered outcomes (`checks/ls_bolza.out`):**
+
+| prediction | registered | result | verdict |
+|---|---|---|---|
+| (B1) edge law on the real spectrum | corr ≤ −0.6, slope ∈ [−1.3, −0.6] | corr = −0.006, slope = −0.004 | **FAIL** |
+| (B2) systole within ±0.12 of 3.0571 | among CLEAN's 5 lines | nearest line 3.205 (Δ = 0.148); it is the strongest line | **FAIL** |
+| (B3) b_n's top 3 lines among N_osc's top 5 | ±0.12 | D_n: 3.205, 1.21, 7.745; E[N_osc]: 7.995, 5.725, 3.005, 1.92, 4.46 | **FAIL** |
+| (B4) multiplicity masses act as a tilt | same top 3 | M1 and M2 lines agree (3.205/3.21, 1.21/1.20, 7.745/7.77) | PASS |
+
+So, as registered, **the Lanczos coefficients of the Bolza spectrum do not demonstrably hear the systole.**
+
+**Post-hoc diagnostics (EXPLORATORY; they do not change any verdict above):**
+- **The E[N_osc] estimator was ill-posed for real data.** The data's N_osc is a step function. Its finite-part edge transform is
+  dominated by the nodes nearest the edge: rms E = 28 against rms D = 12. The synthetic calibration only ever used smooth N_osc.
+  This was a design flaw of (B1).
+- **Smoothing does not fix it.** With N_osc Gaussian-smoothed over σ = 1.5–12 in λ, corr rises only to −0.11 … −0.16. At σ = 12
+  the slope is −0.92, the size the edge law predicts.
+- **The long-wavelength parts agree.** A moving average over W = 11–31 consecutive n of both D_n and E_σ=12 gives corr −0.58 …
+  −0.61, with the predicted sign, and rms D_lp ≈ 2–4.
+- **D_n is dominated by short-scale noise.** Its rms is 12, the lag-1 autocorrelation 0.39 and the lag-5 autocorrelation 0.08.
+  This is consistent with SPEC §3.18 (the noise has the variance of a linear statistic, not its realisation) and with the
+  Poisson-like level statistics of an arithmetic surface. At these n the noise is larger than the geodesic signal.
+- **The strongest CLEAN line, 3.205, is within the ℓ-resolution of the window (≈ 2π/Δr* ≈ 0.47) of the systole.** That is
+  suggestive, not evidence, because no null distribution has been computed.
+
+**Reading.**
+- The coherent part of the edge law is plausibly present at long wavelength, with the right sign and size.
+- On Bolza, with 1000 eigenvalues, it sits under a short-scale noise floor that the registered tests did not anticipate.
+- The registered claim, "b_n hears the systole", is not supported by this run.
+
+**What a fair next test needs (to be pre-registered afresh, not run on this data as if new):**
+1. A null distribution for CLEAN's top line, from spectra with Bolza's smooth part and Poisson-like or GOE-like fluctuations but
+   no injected lines.
+2. A low-pass protocol fixed in advance (W, or a filter in r*).
+3. Independent data: another surface, Bolza eigenvalues beyond 998, or a non-arithmetic genus-2 surface, whose GOE-like rigidity
+   should lower the noise floor by the factor 3–4 of §3.6.
