@@ -1,0 +1,5 @@
+sha256 carlitz_penner.py: a5a2722458560cf2637230978a85d53f0cba6376ae17e72b8dd4c4bace7a8156
+a = 0.3: (H1) |log det(moments) - recurrence| <= 1.32e-24;  (H2) |recurrence - Barnes G| <= 2.35e-38
+a = 0.7: (H1) |log det(moments) - recurrence| <= 8.7e-25;  (H2) |recurrence - Barnes G| <= 3.76e-37
+a = 1.0: (H1) |log det(moments) - recurrence| <= 1.08e-24;  (H2) |recurrence - Barnes G| <= 1.88e-37
+ALL PASSED
