@@ -1,0 +1,8 @@
+sha256 lz2_diag_ring1.py: 90d804c57218ee1783659ca608bc53a8285e7596a74acd667d219f18cce0baaa
+base 63.480173110961914
+edge crossing n* = 2 lambda_k0 = 400.6
+n in [60,200): sign changes of F = 107, zeros passing y0 (count increase) = 85, mean |F| = 0.062
+n in [200,380): sign changes of F = 123, zeros passing y0 (count increase) = 61, mean |F| = 1.177
+n in [420,600): sign changes of F = 0, zeros passing y0 (count increase) = 1, mean |F| = 0.037
+n in [600,900): sign changes of F = 0, zeros passing y0 (count increase) = 0, mean |F| = 0.005
+n in [900,1199): sign changes of F = 0, zeros passing y0 (count increase) = 1, mean |F| = 0.002

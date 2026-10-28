@@ -1,0 +1,15 @@
+sha256 lz2_synthetic.py: c2f806b0fcaf0988ed05226bf939cc3e33d55d092ac275dbc4c4add64135eddf
+sha256 lz_synthetic.py: 425e9f6b63478f41a983fa2f6c00f872e6346064d946a93d22af701fb66e8ed9
+sha256 lz_common.py: a0cdf997cfa8a911b2e9f6f4baef7839c9878bfd9f4a1df6c2442206049e82e2
+   220 spectra in 3251s
+log2   l = 0.6931: null median 0.0241, Q95 0.0480, Q99 0.0567;  positive control: median 0.0276, above Q99 in 1/20
+log3   l = 1.0986: null median 0.0696, Q95 0.1906, Q99 0.2880;  positive control: median 0.0837, above Q99 in 0/20
+log4   l = 1.3863: null median 0.0465, Q95 0.1098, Q99 0.1612;  positive control: median 0.0736, above Q99 in 0/20
+log5   l = 1.6094: null median 0.0235, Q95 0.0575, Q99 0.0844;  positive control: median 0.0310, above Q99 in 0/20
+log7   l = 1.9459: null median 0.0229, Q95 0.0463, Q99 0.0549;  positive control: median 0.0314, above Q99 in 1/20
+c0.80  l = 0.8000: null median 0.0282, Q95 0.0588, Q99 0.0727;  positive control: median 0.0393, above Q99 in 0/20
+c0.90  l = 0.9000: null median 0.0351, Q95 0.0787, Q99 0.0959;  positive control: median 0.0400, above Q99 in 1/20
+c1.25  l = 1.2500: null median 0.1653, Q95 0.4605, Q99 0.5760;  positive control: median 0.1904, above Q99 in 0/20
+c1.50  l = 1.5000: null median 0.0309, Q95 0.0658, Q99 0.0832;  positive control: median 0.0401, above Q99 in 1/20
+c1.75  l = 1.7500: null median 0.0183, Q95 0.0407, Q99 0.0470;  positive control: median 0.0286, above Q99 in 2/20
+positive control: log 2 above Q99 in 1/20; >= 3 of 5 lines above Q99 in 0/20; control frequencies above Q99: mean 0.20 per seed

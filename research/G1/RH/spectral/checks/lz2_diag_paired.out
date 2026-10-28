@@ -1,0 +1,14 @@
+sha256 lz2_diag_paired.py: 6bb9e534d79d19fcc65a2a3d3171971ee4a0fcdd45b1b6502e5baf72a2490658
+paired response rms per seed: [0.4728 0.5267 0.5357 0.5001 0.465  0.4643 0.5008 0.4738 0.4722 0.4503
+ 0.5262 0.5325 0.464  0.546  0.5079 0.4999 0.4668 0.466  0.5014 0.5569]
+mean response rms 0.18895430230579982   seed-to-seed scatter rms 0.4603365693748403
+  T*+-3: corr(mean response, S_P) = -0.012, slope = -0.0085
+  T*+-2: corr(mean response, S_P) = -0.016, slope = -0.0113
+  T*+-1: corr(mean response, S_P) = -0.008, slope = -0.0053
+  T*+-0.5: corr(mean response, S_P) = 0.011, slope = 0.0073
+  T*++0: corr(mean response, S_P) = 0.033, slope = 0.0230
+  T*++0.5: corr(mean response, S_P) = 0.040, slope = 0.0276
+  T*++1: corr(mean response, S_P) = 0.022, slope = 0.0151
+  T*++2: corr(mean response, S_P) = -0.030, slope = -0.0206
+  T*++3: corr(mean response, S_P) = -0.025, slope = -0.0171
+{'log2': 0.0016, 'log3': 0.0157, 'log4': 0.0067, 'log5': 0.0084, 'log7': 0.0024, 'c0.80': 0.0159, 'c0.90': 0.0058, 'c1.25': 0.011, 'c1.50': 0.0059, 'c1.75': 0.0029}

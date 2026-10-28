@@ -1,0 +1,13 @@
+sha256 lz2_diag_linearity.py: 3ca3bdc3cea8d9841f1efd8cc8329bd77c685000f1d58e35a39f306c2b47dfbf
+background lat: linear-response rms per unit eps = 0.726; amplitude at log2 per unit eps = 0.198
+   eps=0.02: corr(response, linear response) = 0.999, rms ratio = 1.00, log2 amplitude per unit eps = 0.198
+   eps=0.05: corr(response, linear response) = 0.995, rms ratio = 1.00, log2 amplitude per unit eps = 0.197
+   eps=0.1: corr(response, linear response) = 0.978, rms ratio = 1.00, log2 amplitude per unit eps = 0.196
+   eps=0.2: corr(response, linear response) = 0.903, rms ratio = 1.02, log2 amplitude per unit eps = 0.189
+   eps=0.4: corr(response, linear response) = 0.622, rms ratio = 1.10, log2 amplitude per unit eps = 0.169
+background gue: linear-response rms per unit eps = 0.993; amplitude at log2 per unit eps = 0.059
+   eps=0.02: corr(response, linear response) = 0.999, rms ratio = 1.00, log2 amplitude per unit eps = 0.060
+   eps=0.05: corr(response, linear response) = 0.995, rms ratio = 1.00, log2 amplitude per unit eps = 0.061
+   eps=0.1: corr(response, linear response) = 0.976, rms ratio = 1.00, log2 amplitude per unit eps = 0.063
+   eps=0.2: corr(response, linear response) = 0.904, rms ratio = 1.01, log2 amplitude per unit eps = 0.072
+   eps=0.4: corr(response, linear response) = 0.667, rms ratio = 1.04, log2 amplitude per unit eps = 0.086
