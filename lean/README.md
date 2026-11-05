@@ -90,6 +90,7 @@ of P_n(0) is used) and Remark `rem:sharp` are not formalized.
 | `lemmaK0_gamma`, **`lemmaK0_integral`** | Paper IV Lemma K0 (real w < 0) | ∫₀¹u^{−w−1}(1−u)^{−1/2}du = B(−w,½) = −π cot(πw)Γ(w+½)/(√πΓ(w+1)); **extra hypothesis w + ½ ∉ ℤ** (Lean's Γ is 0 at its poles, so the paper's removable points are excluded) — sorry-free |
 | `softF`, **`softF_integral`**, `softF_eq`, **`softF_eq_one_iff`**, `softF_strictAntiOn`, `softF_existsUnique_root` | JZC_M1 condition (Q) and Corollary Q.1; Paper IV Cor. "a = 4c" | for σ(y) = (1/p)y^{−1/p−1}: F(a) = ∫_a^∞σ(y)(1−a/y)^{−1/2}dy = (4c/a)^{1/p}, so (Q) has the unique root a = 4c(p) (the computation; that a is the equilibrium edge is Theorem Q, not formalized) — sorry-free |
 | `momHankel`, **`det_momHankel_add_atom`**, **`log_jb2_sub`**, `hankel_det_add_atom`, **`hankelQuad_eq_kernel`**, **`logDetDiff_add_atom_kernel`** | SPEC §3.2 Lemma U (reversed Uvarov) | H_m(σ′ + w₀δ_{x₀}) = H_m(σ′) + w₀vvᵀ; F(m) = log(1 + w₀Σ_{j<m}p′_j(x₀)²); log b_n²(σ) − log b_n²(σ′) = F(n+1) − 2F(n) + F(n−1) — sorry-free (Theorem S2′, which feeds the RH expansions into this, is not formalized) |
+| `TodaTilt.tpi`, `TodaTilt.th`, **`TodaTilt.hasDerivAt_th`**, `TodaTilt.hasDerivAt_log_th`, `TodaTilt.hasDerivAt_log_tb2`, `TodaTilt.tpi_deriv_expansion`, `TodaTilt.tpi_recurrence`, **`TodaTilt.toda_log_b2`**, **`TodaTilt.toda_a`** | JZC_TODA Lemma T.1 (finite support, one time t, tilt e^{tx^j}) | items (1), (2), (3) for every j: ∂_tπ_n = −Σ_{m<n}(∫x^jπ_nπ_m/h_m)π_m (at the atoms), ∂_th_n = ∫x^jπ_n², ∂_t log b_n² = (J^j)_{nn} − (J^j)_{n−1,n−1}; item (4) and the Toda lattice for j = 1: ∂_t log b_n² = a_n − a_{n−1}, ∂_ta_n = b²_{n+1} − b²_n (b_M = 0 automatic). Not covered: item (4) for j ≥ 2, n = 0 cases, (J^j)_{nn} as a matrix entry (defined as ∫x^jπ_n²/h_n), real-analyticity, infinite measures — sorry-free |
 
 Plan 60 (lean/HALL_PLAN.md) formalizes Theorem H_all for pure powers: `theoremHPure_all` / `theoremHPure_kappa` prove
 the named input `TheoremHPure p κ_p s` for every p > 0, s > 1, sorry-free, with κ_p in the paper's Gamma form (rows marked
@@ -103,6 +104,6 @@ maximiser and the equality case of Lemma 3.3 (neither is used by Theorem 1.1).
 Check: `./check.sh` (build + axioms audit + completeness list; prints AUDIT OK).
 
 Plan L1 (lean/SPECTRAL_PLAN.md, 2026-11-05) formalizes the elementary and special-function parts of the spectral-dictionary work
-(Paper IV and research/G1/RH/spectral): the rows from `naturalForm_iff_E21` to `logDetDiff_add_atom_kernel` above. The asymptotic
+(Paper IV and research/G1/RH/spectral): the rows from `naturalForm_iff_E21` to `TodaTilt.toda_a` above. The asymptotic
 theorems that rest on Riemann–Hilbert analysis (E2/E3, N.6, T.A, SH, Theorems A–D as asymptotic statements) and the potential theory of
 Theorem Q are not formalized; SPECTRAL_PLAN.md says why and what each formalized statement covers.

@@ -363,3 +363,10 @@ import JacobiAsym
 #print axioms JacobiAsym.logDetDiff_add_atom
 #print axioms JacobiAsym.hankelQuad_eq_kernel
 #print axioms JacobiAsym.logDetDiff_add_atom_kernel
+#print axioms JacobiAsym.TodaTilt.hasDerivAt_th
+#print axioms JacobiAsym.TodaTilt.hasDerivAt_log_th
+#print axioms JacobiAsym.TodaTilt.hasDerivAt_log_tb2
+#print axioms JacobiAsym.TodaTilt.toda_log_b2
+#print axioms JacobiAsym.TodaTilt.tpi_deriv_expansion
+#print axioms JacobiAsym.TodaTilt.tpi_recurrence
+#print axioms JacobiAsym.TodaTilt.toda_a
