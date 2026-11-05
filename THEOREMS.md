@@ -416,6 +416,11 @@ NOVELTY_Q / NOVELTY_TODA / NOVELTY_ZETA / NOVELTY_JZC.
 | JZC_W2 Prop 2.1, Thm 2.5 | W at second order in the poles | NOT REVIEWED | 0 | JZC_W2.md |
 | Conjecture W, W′, W_<1 | general Weyl-type spectra | CONJECTURE (NUMERICAL); pre-registration self-attested by mtimes only, not ordered in git (JZC_W.md §2) | – | JZC_W*.md |
 
+**Lean (Plan L1, lean/SPECTRAL_PLAN.md, sorry-free):** Cor Q.1's computation (`softF_eq_one_iff`); Lemma R (`pathH_two_mul`,
+`pathG_two_mul`); Lemma U in full (`logDetDiff_add_atom_kernel`, `log_jb2_sub`); Paper IV's W(1/p) = 1, W(j) = C(2j,j)c^j, the
+Theorem D pole constant and Lemma K0 (`SpectralConstants`); Q_k(4c) (`tiltQ_four_mul`); the equivalence of Paper IV's natural form
+with E2.1's form to O(n⁻³) (`naturalForm_iff_E21`). The asymptotic theorems themselves are not formalized.
+
 ## 3. Dependency summary
 
 ### 3.1 External citations → results

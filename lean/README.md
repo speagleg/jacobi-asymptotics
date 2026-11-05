@@ -82,6 +82,14 @@ of P_n(0) is used) and Remark `rem:sharp` are not formalized.
 | **`paper1_thm11`**, `paper1_thm11_heine` | **Paper 1 Theorem 1.1 in full** | **p > 0, C > 0, f ∈ C¹[1,∞) (`HasDerivWithinAt f (f' ξ) (Ici 1) ξ` for ξ ≥ 1, `ContinuousOn f' (Ici 1)`), ξ^{p+1}f′(ξ) → −pC, ∃ 0 < m ≤ ξ^{p+1}\|f′\| ≤ M on [1,∞); w ≥ 0, Σw < ∞, w_k ≥ c₁k^{−s}, c₁ > 0, s ∈ ℝ: (log det(m_{i+j})_{i,j<n} − (−pn² log n + (κ_p + log C)n²))/n² → 0, κ_p = 3p/2 + log(¼(π/(2I(p)))^p) — sorry-free, no hypothesis strengthened (0-based: atom k is f(k+1))** |
 | **`paper1_cor12`** | **Paper 1 Corollary 1.2** | **(2/n²)Σ_{j=1}^{n−1}(n−j) log(j^p √(jb2 j)) → log(c(p)C) — sorry-free** |
 | `zetaHankel`, `zeta_re_eq_tsum`, `zetaHankel_eq`, **`paper1_cor14`**, `paper1_cor14_one`, `paper1_cor14_two` | **Paper 1 Corollary 1.4 (G2 HZ)** | **log det_{1≤i,j≤n} ζ(a(i+j)+b) = −an² log n + (3a/2 + log c(a))n² + o(n²) for real a > 0, 2a + b > 1 (Mathlib `riemannZeta`, real parts); special cases a = 1 (3/2 − log 2, b > −1), a = 2 (3 + log(π²/16), b > −3) — sorry-free** |
+| **`naturalForm_iff_E21`**, `natural_expansion`, `natShift_sq_add_f2`, `neg_mul_natShift`, `d2_two`, `d2_closed` | Paper IV Theorem A (integer layer, natural index N = n + α/2 + ½) ↔ G1 E2 Thm E2.1 | coefficient identities −p·a = −(s−1)/2 and p(p+1)a²/2 + f₂ = d₂ (a = (α+1)/2); d₂(2, s) = (s²+6s−11)/16; **(n/N)^p(1 + f₂/N²) + O(N⁻³) ⇔ 1 − (s−1)/(2n) + d₂/n² + O(n⁻³)** for any sequence (exact statement of both forms for p ≥ 2; for other p it concerns the integer layer only) — sorry-free |
+| **`pathH_two_mul`**, **`pathG_two_mul`**, `deriv_pathG_two_mul`, `freeJacobi_pow_coeff_zero`, `freeJacobi_pow_coeff_one` | JZC_SHIFT Lemma R (hard-edge reduction) | H_j(2b,b) = C(2j,j)b^j, G_j(2b,b) = C(2j,j)(j/(j+1))b^{j+1}; H_j, G_j are the (J^j)_{nn}, b(J^j)_{n+1,n} entries of the free Jacobi operator a + bT + bT⁻¹ — sorry-free |
+| `two_mul_sum_centralBinom_four_pow`, **`tiltQ_four_mul`**, `resW_succ` | Paper IV eq. (2.x) Q_k(4c) (Lemma 2.4) | Q_k(4c) = ½c^{k−1}kC(2k,k) — sorry-free |
+| `Wq`, **`Wq_one_div`**, `gamma_nat_add_half_ratio`, **`Wq_nat`**, `centralBinom_mul_hallC_pow_eq_one` | Paper IV eq. (1.4) W(q); E3 Cor E3.3 resonance | W(1/p) = 1; W(j) = C(2j,j)c^j; jp = 1 ⇒ C(2j,j)c^j = 1 — sorry-free |
+| **`theoremD_constant`** | Paper IV Theorem D (pole constant) | p > 1, q = 1 − 1/p, R_q = −κq/p: pR_qW(q)π cot(πq) = −2(2−p)cκ (identity only; the asymptotic statement of Theorem D is not formalized) — sorry-free |
+| `lemmaK0_gamma`, **`lemmaK0_integral`** | Paper IV Lemma K0 (real w < 0) | ∫₀¹u^{−w−1}(1−u)^{−1/2}du = B(−w,½) = −π cot(πw)Γ(w+½)/(√πΓ(w+1)); **extra hypothesis w + ½ ∉ ℤ** (Lean's Γ is 0 at its poles, so the paper's removable points are excluded) — sorry-free |
+| `softF`, **`softF_integral`**, `softF_eq`, **`softF_eq_one_iff`**, `softF_strictAntiOn`, `softF_existsUnique_root` | JZC_M1 condition (Q) and Corollary Q.1; Paper IV Cor. "a = 4c" | for σ(y) = (1/p)y^{−1/p−1}: F(a) = ∫_a^∞σ(y)(1−a/y)^{−1/2}dy = (4c/a)^{1/p}, so (Q) has the unique root a = 4c(p) (the computation; that a is the equilibrium edge is Theorem Q, not formalized) — sorry-free |
+| `momHankel`, **`det_momHankel_add_atom`**, **`log_jb2_sub`**, `hankel_det_add_atom`, **`hankelQuad_eq_kernel`**, **`logDetDiff_add_atom_kernel`** | SPEC §3.2 Lemma U (reversed Uvarov) | H_m(σ′ + w₀δ_{x₀}) = H_m(σ′) + w₀vvᵀ; F(m) = log(1 + w₀Σ_{j<m}p′_j(x₀)²); log b_n²(σ) − log b_n²(σ′) = F(n+1) − 2F(n) + F(n−1) — sorry-free (Theorem S2′, which feeds the RH expansions into this, is not formalized) |
 
 Plan 60 (lean/HALL_PLAN.md) formalizes Theorem H_all for pure powers: `theoremHPure_all` / `theoremHPure_kappa` prove
 the named input `TheoremHPure p κ_p s` for every p > 0, s > 1, sorry-free, with κ_p in the paper's Gamma form (rows marked
@@ -93,3 +101,8 @@ full (`paper1_thm11`: general atoms f(k), general weights, any real s), Corollar
 maximiser and the equality case of Lemma 3.3 (neither is used by Theorem 1.1).
 
 Check: `./check.sh` (build + axioms audit + completeness list; prints AUDIT OK).
+
+Plan L1 (lean/SPECTRAL_PLAN.md, 2026-11-05) formalizes the elementary and special-function parts of the spectral-dictionary work
+(Paper IV and research/G1/RH/spectral): the rows from `naturalForm_iff_E21` to `logDetDiff_add_atom_kernel` above. The asymptotic
+theorems that rest on Riemann–Hilbert analysis (E2/E3, N.6, T.A, SH, Theorems A–D as asymptotic statements) and the potential theory of
+Theorem Q are not formalized; SPECTRAL_PLAN.md says why and what each formalized statement covers.
