@@ -25,17 +25,17 @@ $n^pa_n(\sigma)\to2c$ and $n^pb_n(\sigma)\to c$, then the same holds for $x\sigm
 
 The Jacobi matrix of $x\sigma$ is obtained by factoring the Jacobi matrix of $\sigma$ as a product $LU$ of bidiagonal
 matrices and multiplying the factors in the opposite order; these transfer formulas are classical
-\cite[\S1]{DD}. The entries of the factors are not known in advance, since they involve the values $P_n(0)$. The point
-of the proof is that no information about $P_n(0)$ is needed beyond its sign: the factors satisfy a recursion whose
-limiting map has a double (parabolic) fixed point, and positivity alone forces them to converge to it. The factors
+\cite[\S1]{DD}. The entries of the factors are not known in advance, since they involve the values $P_n(0)$. The proof needs no
+information about $P_n(0)$ beyond its sign. The factors satisfy a recursion whose limiting map has a double
+(parabolic) fixed point, and positivity alone forces them to converge to it. The factors
 form a chain sequence, and the statement without rate follows from a proposition of Dai, Piao and Qiao
 \cite[Proposition~2.1]{DPQ} together with the transfer formulas. The part with a rate is the one we need, since it lets
 the rate $O(1/n)$ survive the shift; we have not found the rate statement in the literature. The parameters of the
 chain converge only at the rate $O(\sqrt{\eta_n})$ in general, and this is sharp (Remark~\ref{rem:sharp}); the
-coefficients of $x\sigma$ involve only their increments, which are $O(\eta_n)$. Theorem~\ref{thm:shift}, for discrete
-measures $\sum_kw_k\delta_{x_k}$ with $w_k>0$, $\sum_kw_k<\infty$ and bounded, strictly decreasing atoms $x_k\ge0$
-(a class that contains every $\sigma_{p,s,\ell}$), and Lemmas~\ref{lem:chain-limit} and~\ref{lem:chain-rate} below
-have been formally verified in the Lean proof assistant.
+coefficients of $x\sigma$ involve only their increments, which are $O(\eta_n)$. Lemmas~\ref{lem:chain-limit}
+and~\ref{lem:chain-rate} below have been formally verified in the Lean proof assistant, and so has
+Theorem~\ref{thm:shift} for discrete measures $\sum_kw_k\delta_{x_k}$ with $w_k>0$, $\sum_kw_k<\infty$ and bounded,
+strictly decreasing atoms $x_k\ge0$ (a class that contains every $\sigma_{p,s,\ell}$).
 
 Throughout, $a_n,b_n$ are the recurrence coefficients of $\sigma$ (\S\ref{sec:prelim-op}), and $\tilde a_n,\tilde b_n$
 are those of $x\sigma$.
@@ -125,8 +125,8 @@ If $\hat a_n\to2c$, $\hat b_n\to c$ and $\hat u_{n-1}\to c$, the last identity t
   \hat u_n\approx F(\hat u_{n-1}),\qquad F(t):=2c-\frac{c^2}t,\qquad
   F(t)-t=-\frac{(t-c)^2}t,\qquad F(c+y)=c+\frac{cy}{c+y}.
 \end{equation}
-The map $F$ is increasing on $(0,\infty)$, has the single fixed point $c$, and this fixed point is double: $F(t)\le t$
-for every $t>0$. An orbit that settles below $c$ is therefore pushed down towards $0$, and one above $c$ is pulled down
+The map $F$ is increasing on $(0,\infty)$ and has the single fixed point $c$. This fixed point is double, and
+$F(t)\le t$ for every $t>0$. An orbit that settles below $c$ is therefore pushed down towards $0$, and one above $c$ is pulled down
 to $c$. Positivity of $u_n$ rules out the first possibility.
 
 \begin{lemma}\label{lem:chain-limit}
@@ -217,7 +217,7 @@ the last step is $\sqrt{n(n+1)}\ge n-1$. Since $1/n\le\eta_n/\eta_1\le\sqrt{\eta
 $\lambda_+\eta_n/(2\sqrt{\eta_1})$. Together, $y_{n+1}\le\lambda_+\sqrt{\eta_{n+1}}$.
 
 \emph{Entry.} If $y_n>\lambda_+\sqrt{\eta_n}$ for some $n\ge n_4$, then $y_n^2/\hat u_n\ge y_n^2/(2c)\ge2M_1\eta_n$, so
-$y_{n+1}\le y_n-M_1\eta_n$. While $y$ stays above $\lambda_+\sqrt{\eta}\ge0$ it decreases by the non-summable amounts
+$y_{n+1}\le y_n-M_1\eta_n$. While $y_k>\lambda_+\sqrt{\eta_k}\ge0$ the sequence decreases by the non-summable amounts
 $M_1\eta_n$, which cannot go on for ever. So $y_m\le\lambda_+\sqrt{\eta_m}$ for some $m\ge n$, and by the step
 $y_k\le\lambda_+\sqrt{\eta_k}$ for all $k\ge m$.
 

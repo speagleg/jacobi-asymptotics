@@ -53,15 +53,15 @@ recursion is covariant, and $(Q_1)_{12}(Q_1)_{21}$ is invariant. This grading is
 $(n,\beta)\mapsto(-n,-\beta-2)$.
 
 (ii) No transformation of the formal recursion is known to relate $M(\beta,\nu)$ to itself (the Christoffel shift $x\sigma_{p,s}=\sigma_{p,s+p}$
-moves $\beta$ and $\nu$ together). Instead the degree-$n$ Riemann--Hilbert problem $Y$ of the lattice is steepest-descended in the frame of a
+moves $\beta$ and $\nu$ together). Instead we apply steepest descent to the degree-$n$ Riemann--Hilbert problem $Y$ of the lattice in the frame of a
 non-integer index $m=n+\gamma$: put $U_m(z):=m^{pn\sigma_3}Y(zm^{-p})$ and $\tilde U:=CU_mz^{\gamma\sigma_3}C^{-1}$, $C=m^{p\gamma\sigma_3}$. The
 residue at the node $(m/k)^p$ acquires the factor $k^{2p\gamma}$, so the band weight has exponent $\alpha-2\gamma$; the cut of $z^{\gamma\sigma_3}$
 cancels the jump $e^{-2\pi im\sigma_3}$ on $(-\infty,0)$ because the degree $n$ is an integer; and in the hard-edge disc the lip entry is
 $\omega^{(\alpha-2\gamma)}e^{\mp2\pi i\gamma}e^{-4\zeta^{1/2}}$, $\zeta=m^2f$, whose band limits are $e^{\mp i\pi\alpha}$. So the $m$-frame problem
 is $M(\alpha-2\gamma,\alpha)$: Bessel order $\alpha$, Szeg\H{o} exponent $\alpha-2\gamma$. For $p>1$, $|\alpha|<1$ and $0\le\gamma<(1-|\alpha|)/2$ the
 estimates of the Hurwitz analysis of \S\ref{sec:H-proof}, in which the index enters only as a real scale, transfer and give
-$m^pb_n/c=\sum_{|\br|\le B}\mu_m^{\br}\cD_{\br,K}(m;\alpha-2\gamma,\alpha)+O(m^{-K-1}+m^{-2-(B+1)p}+m^{-1-(J+1)p})$; this transfer is written out
-step by step in the notes of the repository, and we do not repeat it. Now fix $p\in(1,2)\setminus\mathbb Q$, $\alpha\in(-\frac12,\frac12)$,
+$m^pb_n/c=\sum_{|\br|\le B}\mu_m^{\br}\cD_{\br,K}(m;\alpha-2\gamma,\alpha)+O(m^{-K-1}+m^{-2-(B+1)p}+m^{-1-(J+1)p})$. This transfer is written
+out step by step in the notes of the repository; we do not repeat it. Now fix $p\in(1,2)\setminus\mathbb Q$, $\alpha\in(-\frac12,\frac12)$,
 $\gamma\in(0,\frac14)$. Both frames express $n^pb_n/c$ as $\sum_ec_en^{-e}+o(n^{-E})$ with exponents $k+|\br|_wp$, pairwise distinct since $p$ is
 irrational, so the coefficients agree; at integer exponents only $\br=0$ contributes, which is~\eqref{eq:FI} at $\beta=\alpha$. The coefficients of
 the difference are rational in $(p,\alpha,\gamma)$ and vanish on an open set for infinitely many $p$, hence identically;
@@ -139,7 +139,7 @@ form the layer $\mu^{\br}$ is $(n/N)^p\hat\varepsilon^{\br}N^{-|\br|-S}[(p+1+S)_
 \end{theorem}
 
 For one time this gives $\varepsilon_jN^{-1-jp}$, and $\frac{3p+1}{2p}$ for $\mu_1^2$ (Theorem~\ref{thm:N6}(ii)): at leading order in $1/n$ at each
-order in the times, \emph{the zeta times act as an implicit shift of the index}. \emph{Outline.} Grade the term $\hat\mu^{\br}n^{-k-S}$ by its
+order in the times, the zeta times act as an implicit shift of the index. \emph{Outline.} Grade the term $\hat\mu^{\br}n^{-k-S}$ by its
 defect $k-|\br|$; the equations of Theorem~\ref{thm:toda}(ii) are in conservation form, so every term has defect $\ge0$, and the defect-zero parts
 solve the dispersionless Toda hierarchy with initial data $a^0=2cn^{-p}$, $b^0=cn^{-p}$. These lie on the line $a=2b$ of a hard edge at $0$,
 which is invariant, and on it every flow is a Hopf equation $\partial_{t_j}b=V_j(b)\partial_nb$, $V_j(b)=\frac j2\binom{2j}jb^j$, solved by

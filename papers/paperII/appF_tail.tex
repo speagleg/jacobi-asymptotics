@@ -52,9 +52,9 @@ Lemmas~\ref{lem:stieltjes} and~\ref{lem:rowproduct} give
 the latter by Proposition~\ref{prop:moments} in case~(a) and by Proposition~\ref{prop:classical} in case~(b), together
 with~\eqref{eq:P1P2}. For $r_0<r\le1$, where $r_0:=\frac14\delta$ in case~(a) and $r_0:=\frac12\delta_1$ in case~(b)
 ($\delta_1$ is fixed below), we use $\nu_n([0,r])\le1\le r_0^{-1/2}r^{1/2}$. For $j=n-1$ apply the
-result at degree $n-1$ with $M':=Mn/(n-1)\ge M$; this costs a factor $\frac12$ in $\gamma_*$. The geometric fact used below is
-that for $s'$ on the band or on a lip in $\mathbb D(0,\delta)$ the angle between $s'$ and $z$ is at least $\pi/3$, so
-$|s'-z|\ge\frac12(|s'|+|z|)$; and that $|f(z)|\asymp r$, $\zeta_z:=n^2f(z)$ satisfies $|\arg\zeta_z|<\pi/6+\pi/24$.
+result at degree $n-1$ with $M':=Mn/(n-1)\ge M$; this costs a factor $\frac12$ in $\gamma_*$. Two geometric facts are
+used below. For $s'$ on the band or on a lip in $\mathbb D(0,\delta)$ the angle between $s'$ and $z$ is at least $\pi/3$,
+so $|s'-z|\ge\frac12(|s'|+|z|)$. Moreover $|f(z)|\asymp r$, and $\zeta_z:=n^2f(z)$ satisfies $|\arg\zeta_z|<\pi/6+\pi/24$.
 
 \emph{Case (a).} Here $1<s<1+2p$, $|\alpha|<1$, $\ell\equiv1$, so $\varepsilon_\Lambda\equiv0$ and
 $\varepsilon'_n=n^{-2\nu_p}\log n$. Put $y:=n^2r$, $D_z:=(2\pi n)^{\sigma_3/2}\zeta_z^{-\sigma_3/4}$ and let $y_0\ge1$ be such
@@ -120,9 +120,9 @@ four parts gives~\eqref{eq:K-weighted}, hence~\eqref{eq:Q-ray}, and~\eqref{eq:ta
 
 \emph{Case (b).} Here $p>1$ and $\alpha>-1$ is arbitrary, and we work in the frame of \S\ref{sec:classical-small}.
 First, $|\mathsf R(z)-I|\le C/n$ for $0<r\le\frac12\delta_1$, with a fixed $\delta_1\le\delta$. To see this, note
-$\mathsf R(z)-I=\Cauchy(\mathsf R_-(J_{\mathsf R}-I))(z)$ by Proposition~\ref{prop:classical}(iii); the part of
+$\mathsf R(z)-I=\Cauchy(\mathsf R_-(J_{\mathsf R}-I))(z)$ by Proposition~\ref{prop:classical}(iii). The part of
 $\Sigma_{\mathsf R}$ outside $\mathbb D(0,\delta_1)$ is at distance $\ge\frac12\delta_1$ from $z$ and contributes $O(1/n)$
-by Proposition~\ref{prop:classical}(ii), (iv); on $\Sigma_{\mathsf R}\cap \mathbb D(0,\delta_1)$ (two lips leaving $0$ at angles
+by Proposition~\ref{prop:classical}(ii), (iv). On $\Sigma_{\mathsf R}\cap \mathbb D(0,\delta_1)$ (two lips leaving $0$ at angles
 $\pm\pi/3$ and the segment $(-\delta_1,0)$) we have $|s'-z|\ge\frac14(|s'|+|z|)$ for $\delta_1$ small, and by
 Lemma~\ref{lem:mismatch-classical} and Cauchy--Schwarz the contribution is $O(n^{-K})$. Next, in $U_0$,
 $Q=\mathsf R\check A(2\pi n)^{\sigma_3/2}\sigma_3\Psi_\alpha(\zeta)\sigma_3\,(e^{-2\zeta^{1/2}}\rho_n^{-1})^{\sigma_3}$, and the last
@@ -145,8 +145,8 @@ give $|Q_{11}Q_{12}|\le Cn\,b(|u|)$ with $b(\varrho):=(1+\log(4/\varrho))\varrho
 for $\varrho\ge2$. By~\eqref{eq:tail-reduction}, with $|u|\asymp\sqrt y$, $y=n^2r$:
 if $|u|\ge2$ then $\nu_n([0,r])\le Crn/(n\sqrt r)=Cr^{1/2}$; if $|u|\le2$ then
 $\nu_n([0,r])\le Cn^{-1}y^{1+\min(\alpha,0)}(1+\log(C/y))$. With $r=M^{-p}$ and $p(1+\min(\alpha,0))=\min(p,s-1)=:\beta$, the
-first case gives~\eqref{eq:tail-arcsine} for $M\le Cn^{2/p}$; the second gives $\sum_{k>Mn}m_n(k)\le Cn^{-1}\le CM^{-p/2}$ for the
-remaining $M\le n^{2/p}$, where $1\le y\le C$; and the second gives
+first case gives~\eqref{eq:tail-arcsine} for $M\le Cn^{2/p}$. The second case gives $\sum_{k>Mn}m_n(k)\le Cn^{-1}\le CM^{-p/2}$
+for the remaining $M\le n^{2/p}$, where $1\le y\le C$, and
 $\sum_{k>Mn}m_n(k)\le Cn^{-1}(M/n^{2/p})^{-\beta}(1+\log(M/n^{2/p}))$ for $M\ge n^{2/p}$. For $\tau<\min(p/2,s-1)\le\beta$ we have
 $n^{-1}=(n^{2/p})^{-p/2}\le(n^{2/p})^{-\tau}$ and $(M/n^{2/p})^{-\beta}(1+\log(M/n^{2/p}))\le C_\tau(M/n^{2/p})^{-\tau}$, so the
 second bound is at most $C_\tau M^{-\tau}$; and $M^{-p/2}\le M^{-\tau}$ in the first range.

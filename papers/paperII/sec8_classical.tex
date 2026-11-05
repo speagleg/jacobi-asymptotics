@@ -90,7 +90,7 @@ $\C\setminus\{0\}$ by Morera's theorem. Near $0$, $|\arg t|\le\pi/p<\pi$ and $|t
 by~\eqref{eq:binet-bound}; $\log B$ is bounded near $0$, together with its boundary values on $(-\infty,0)$, by
 Lemma~\ref{lem:binetcut}(iii); and the integral is bounded near $0$
 because $\mathfrak e$ vanishes to infinite order there. So $0$ is a removable singularity. At infinity, for $|t|\le1$
-and $|\arg t|\le\pi/p$, \S\ref{sec:tool-dlmf}(a) gives $\mathrm{Ln}\,\Gamma(t)=\mathrm{Ln}\,\Gamma(1+t)-\ln t$ with
+and $|\arg t|\le\pi/p$, \S\ref{sec:tool-dlmf}(a) gives $\operatorname{Ln}\Gamma(t)=\operatorname{Ln}\Gamma(1+t)-\ln t$ with
 $|1+t|\ge\sin(\pi-\pi/p)>0$, so $|j(t)|\le C(1+|\log|z||)$; $|\log B(z)|\le C_n(1+\log|z|)$ for $|z|\ge2$ off the cut,
 again by Lemma~\ref{lem:binetcut}(iii); and the integral is $O(\log|z|)$. So $K$ is entire with
 $K(z)=O(\log|z|)$, hence constant, and $K(1)=0$.
@@ -383,14 +383,15 @@ $n^{2p}b_n^2=\mathsf b(Q)=c^2+O(1/n)$ and $n^pa_n=\mathsf a(Q)=2c+O(1/n)$, as $(
 For pure powers and $p\ne1$ the hard-edge parametrix can be built in the classical way, from a square root $\tilde W$ of
 the band weight continued to a full neighbourhood of $0$; for $p>1$ its jump on $(-\delta,0)$ is super-exponentially
 close to $I$ (Lemma~\ref{lem:bandfactor}(i)), and this is the construction of the present section. At $p=1$ it fails,
-already for $\ell\equiv1$: on $(-\delta,0)$, $\theta=\pi n/x$ is real, the continuations of the lens scalar from the two
-half-planes differ by the unimodular factor $\tilde F_+/\tilde F_-=-e^{-2i\theta}$, which is not close to $1$, and the
-continuation of $H_n=e^{2j(n/z)}$ (Lemma~\ref{lem:outer}) has double poles at $z=-n/m$, $m\in\N$, accumulating at $0$.
-The comparison parametrix of Section~\ref{sec:hardedge} never continues anything across $(-\delta,0)$: neither $V$ nor $Q$
-has a jump there, and it uses only $D_W$. This is why Theorem~\ref{thm:analytic} at $p=1$ is proved by that route. The comparison does not give a $1/n$ term,
-so at $p=1$ Theorem~\ref{thm:onen} is proved in the symmetric variable of \cite{WLXZ} instead (Section~\ref{sec:pone}):
-there the hard edge is an interior Fisher--Hartwig point of the band, and the imaginary axis, where the poles of the
-continued band factor lie, carries no jump. (The obstruction concerns this classical construction, not every quotient
+already for $\ell\equiv1$. On $(-\delta,0)$ the phase $\theta=\pi n/x$ is real, so the continuations of the lens scalar from
+the two half-planes differ by the unimodular factor $\tilde F_+/\tilde F_-=-e^{-2i\theta}$, which is not close to $1$.
+In addition, the continuation of $H_n=e^{2j(n/z)}$ (Lemma~\ref{lem:outer}) has double poles at $z=-n/m$, $m\in\N$,
+accumulating at $0$. The comparison parametrix of Section~\ref{sec:hardedge} never continues anything across
+$(-\delta,0)$: neither $V$ nor $Q$ has a jump there, and the parametrix uses only $D_W$. For this reason
+Theorem~\ref{thm:analytic} at $p=1$ is proved by that route. The comparison does not give a $1/n$ term, so at $p=1$
+Theorem~\ref{thm:onen} is proved in the symmetric variable of \cite{WLXZ} instead (Section~\ref{sec:pone}). There the
+hard edge is an interior Fisher--Hartwig point of the band, and the imaginary axis, where the poles of the continued band
+factor lie, carries no jump. (The obstruction concerns this classical construction, not every quotient
 construction.) For $p<1$ the construction applies after a modification: the square root of the band weight is glued
 along the seams of Appendix~\ref{app:outer}, with super-small jumps there, and the band factor is no longer constant to
 $o(1/n)$ near $0$ but has an explicit linear part of size $n^{-p}$ (Lemma~\ref{lem:plt1-band}); Section~\ref{sec:plt1}

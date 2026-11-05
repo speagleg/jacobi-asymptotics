@@ -2,19 +2,20 @@
 \section{Numerical illustrations}\label{sec:numerics}
 
 The computations below are floating-point illustrations; no proof uses them. The scripts and their stored outputs
-are in the repository named in the data availability statement. Coefficients were computed either by the Lanczos
-process with full reorthogonalisation in double precision on the atoms $k\le K$, or, where a tail correction is
-mentioned, from the atoms $k\le K$ together with a Gauss--Jacobi rule for the continuous tail
-$\int_{K+1/2}^\infty t^{-s}g(t^{-p})\diff t$, by an algorithm that adds one atom at a time and restores tridiagonal form by
-plane rotations, in quadruple precision; the latter reproduces the Lommel coefficients of
+are in the repository named in the data availability statement. Coefficients were computed by the Lanczos
+process with full reorthogonalisation in double precision on the atoms $k\le K$, except where a tail correction is
+mentioned. In that case the atoms $k\le K$ were supplemented by a Gauss--Jacobi rule for the continuous tail
+$\int_{K+1/2}^\infty t^{-s}g(t^{-p})\diff t$, and the coefficients were computed in quadruple precision by an algorithm
+that adds one atom at a time and restores tridiagonal form by plane rotations. This algorithm reproduces the Lommel
+coefficients of
 Proposition~\ref{prop:imp-lommel} to a relative error below $10^{-14}$ for $n\le400$.
 
 \emph{Rough weights.} Table~\ref{tab:rough} shows the construction of Theorem~\ref{thm:rough-b} for $p=s=2$, the window
 $W=(0.6,1.6)$, three scales $N_i=15,60,240$ (separation by the factor $4$, far below $R_W$) and two values of
 $\varepsilon$, both far above the proved range $\varepsilon\le\gamma_W/16\approx6\cdot10^{-9}$. At each scale the jump
 $F_m(w)-F_m(v)$ at the selected index $m$ agrees with the first-order prediction $\langle\varphi,\Delta^2m_m^v\rangle$
-to within $2\%$, the contribution of the other windows is at most $1.4\cdot10^{-3}$, and every jump exceeds the
-largest $|F_n(w)-F_n(v)|$ over the indices $n\in[10,246]$ with $|n-m_i|>2$ for all $i$ by a factor larger than $2$. The measure was truncated at
+to within $2\%$, and the contribution of the other windows is at most $1.4\cdot10^{-3}$. Every jump exceeds, by a factor larger
+than $2$, the largest $|F_n(w)-F_n(v)|$ over the indices $n\in[10,246]$ with $|n-m_i|>2$ for all $i$. The measure was truncated at
 $K=9600$ atoms; with two scales $(30,240)$ and $\varepsilon=0.2$, doubling $K$ changes the jumps by less than
 $10^{-3}$.
 
@@ -45,7 +46,7 @@ computed with the tail correction ($K=3.2\cdot10^5$ atoms, and $K=6.4\cdot10^5$ 
 a priori rate $n^{-1/2}$. For the uniform statements, on the grid $s\in\{1.5,1.75,\dots,4\}$ and with $K=4\cdot10^4$ plus the
 tail correction, the quantity $\sup_s|\Phi_n(s)-\Phi_n(\frac32)-(s-\frac32)\log c/p|$ of Theorem~\ref{thm:UFlim} equals
 $2.25\cdot10^{-2}$, $1.12\cdot10^{-2}$, $5.62\cdot10^{-3}$, $2.81\cdot10^{-3}$ for $p=1$ and $5.26\cdot10^{-2}$,
-$2.64\cdot10^{-2}$, $1.32\cdot10^{-2}$, $6.63\cdot10^{-3}$ for $p=2$, at $n=50,100,200,400$; the deviations
+$2.64\cdot10^{-2}$, $1.32\cdot10^{-2}$, $6.63\cdot10^{-3}$ for $p=2$, at $n=50,100,200,400$. The deviations
 $\sup_s|n^pb_n(s)/c-1|$ and $\sup_s|n^pa_n(s)/(2c)-1|$ are $3.7\cdot10^{-3}$ and $5.0\cdot10^{-3}$ ($p=1$), and
 $3.7\cdot10^{-3}$ and $6.2\cdot10^{-3}$ ($p=2$), at $n=400$, and halve with each doubling of $n$. For $p=1$ the grid extends
 beyond $\Sp=(1,3)$; there the computation illustrates what we expect but have not proved. Finally, for the
@@ -75,7 +76,8 @@ plus a quadrature of the continuous tail.}
 \emph{Slowly varying factors.} For $p=s=2$ and the unbounded factor $\ell(k)=\exp\sqrt{\log(k+e)}$, the relative
 deviation $n^pb_n(\sigma_{p,s,\ell})/(n^pb_n(\sigma_{p,s}))-1$ equals $1.09\cdot10^{-3}$, $5.23\cdot10^{-4}$,
 $2.49\cdot10^{-4}$, $1.18\cdot10^{-4}$, $5.6\cdot10^{-5}$ at $n=100,200,400,800,1600$ (extended precision, $K=1.2\cdot10^5$
-and $2.4\cdot10^5$ atoms without tail correction, which agree to $2\cdot10^{-7}$); $n$ times it decreases slowly, like
+and $2.4\cdot10^5$ atoms without tail correction, which agree to $2\cdot10^{-7}$). The product of $n$ and this
+deviation decreases slowly, like
 $\frac12\frac{\diff}{\diff\xi}\sqrt{\log(e^\xi+e)}$ at $\xi=\log n$. For the factor $\ell(k)=1+\frac12(-1)^k/\log(k+1)$ of
 Remark~\ref{rem:rate}, which is slowly varying but rough at every scale, the deviation $|b_n(\sigma_{2,2,\ell})/b_n(\sigma_{2,2})-1|$
 is $3.9\cdot10^{-3}$, $1.5\cdot10^{-3}$ and $8.2\cdot10^{-4}$ at $n=250,1000,3600$ (extended precision, a single truncation

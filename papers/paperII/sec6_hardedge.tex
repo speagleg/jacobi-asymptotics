@@ -22,7 +22,7 @@ $\log r_n(z)=\Lambda(\xi)-\Lambda(\log n)$ with $\xi=\log n-(\log z)/p$. The poi
 $\xi=+\infty$, where $\Lambda$ has no expansion: $r_n$ is neither analytic at $0$ nor of Fisher--Hartwig type. The
 Bessel parametrix of \S\ref{sec:tool-bessel} needs a square root $\tilde W$ of $W_0$ continued around $0$ across
 $(-\delta,0)$. Continuing $r_n^{1/2}$ from the two half-planes produces two values on $(-\delta,0)$ whose ratio is
-$\exp\bigl(\frac12(\Lambda(\xi-i\pi/p)-\Lambda(\xi+i\pi/p))\bigr)=1+O(\varepsilon_\Lambda)$; this even presupposes
+$\exp\bigl(\frac12(\Lambda(\xi-i\pi/p)-\Lambda(\xi+i\pi/p))\bigr)=1+O(\varepsilon_\Lambda)$. Even this presupposes
 that $\Lambda$ is analytic on the strip $|\im\xi|\le\pi/p$, which Definition~\ref{def:analytic} does not provide.
 The deviation from $1$ tends to $0$ with no rate in $n$, and after conjugation by the Bessel model at the scale
 $|z|\asymp n^{-2}$ it becomes $O(n\varepsilon_\Lambda)$, so a quotient argument does not close. A Bessel order that
@@ -32,8 +32,8 @@ drifts with $n$ removes only the power-like part $z^{-\Lambda'(\log n)/p}$ of $r
 \emph{Outline of the comparison argument.} Following Conway and Deift (\S\ref{sec:tool-cd}), we build the Bessel
 parametrix with $\tilde W:=D_W$, the Szeg\H{o} function of the whole band weight (\S\ref{sec:he-comparison}). It has
 exactly the band jump of $Q$ and no jump on $(-\delta,0)$. Together with the global parametrix and the Airy
-parametrix it gives an explicit matrix $\tilde Q$, so the matching errors on the two circles belong to the comparison
-problem and contribute explicit integrals at order $1/n$. The comparison problem differs from the problem for $Q$
+parametrix it gives an explicit matrix $\tilde Q$. The matching errors on the two circles therefore belong to the
+comparison problem, and they contribute explicit integrals at order $1/n$. The comparison problem differs from the problem for $Q$
 only on the lips of the lens, where the true jump contains $\omega=D_W^2/W_0$ and the model jump contains the
 constant $\varrho_\pm=e^{\mp i\pi\alpha}$. The difference $\omega-\varrho_\pm$ is $o(1)$ uniformly on the lips,
 without a rate (\S\ref{sec:he-mismatch}). That suffices for a Neumann series once the singular integral operator of
@@ -317,8 +317,8 @@ assumed.
 \end{lemma}
 
 The proof treats the four factors of $\omega$ in~\eqref{eq:omega} separately, by Lemma~\ref{lem:szego}. The first two
-are explicit; the third is H\"older at $0$; the fourth, the slowly varying factor, is handled by the scale-invariant
-path bound of Lemma~\ref{lem:pottersector}(iii), which is the point of the lemma: its right side depends on $x$ and $z$
+are explicit, and the third is H\"older at $0$. The fourth, the slowly varying factor, is the main point. It is handled
+by the path bound of Lemma~\ref{lem:pottersector}(iii), which is scale-invariant: its right side depends on $x$ and $z$
 only through $\arg z$ and $x/|z|$.
 
 \begin{proof}
@@ -360,8 +360,8 @@ on the rest of $\Sigma$ stated at the end of \S\ref{sec:he-comparison} this give
 \subsection{Uniform invertibility}\label{sec:he-resolvent}
 
 The comparison problem is explicit, but its solution is unbounded near $0$ at the Bessel scale: on $|\zeta|\le2$ it has
-size $n^{1/2}|\zeta|^{-|\alpha|/2}$. The following proposition says that, nevertheless, the singular integral operator
-attached to it is boundedly invertible on $L^2$, uniformly in $n$.
+size $n^{1/2}|\zeta|^{-|\alpha|/2}$. Nevertheless, the singular integral operator attached to it is boundedly invertible on
+$L^2$, uniformly in $n$.
 
 \begin{proposition}[Uniform resolvent bound for the comparison problem]\label{prop:UR-comparison}
 There are $n_0$ and $C$ such that for $n\ge n_0$:
@@ -398,8 +398,8 @@ large $n$. The Neumann-series step \S\ref{sec:tool-cd}(d) of Conway and Deift th
 $\varepsilon'_n\to0$ is used, not its rate.
 
 By Proposition~\ref{prop:frame}(vii), $Q-I=\Cauchy_\Sigma(Q_+-Q_-)$. On $\Sigma_{\circ}$ the function $Q$ has no jump, and it is bounded there by the same item
-(the circles stay away from $0$), so its values on $\Sigma_{\circ}$ are the boundary values of the same Cauchy integral, now
-regarded on $\hat\Sigma$ with density $0$ on $\Sigma_{\circ}$. Hence $Q_\pm\in I+\dC(L^2(\hat\Sigma))$. Then
+(the circles stay away from $0$). So its values on $\Sigma_{\circ}$ are the boundary values of the same Cauchy integral,
+now regarded on $\hat\Sigma$ with density $0$ on $\Sigma_{\circ}$. Hence $Q_\pm\in I+\dC(L^2(\hat\Sigma))$. Then
 $Q_--I=\Cauchy_-(Q_+-Q_-)=\Cauchy_-(Q_-(v-I))$, i.e.\ $(1-\Cauchy_v)Q_-=I$ in $L^2(\hat\Sigma)$ ($\hat\Sigma$ has finite length,
 so $I\in L^2(\hat\Sigma)$), and $Q_-=(1-\Cauchy_v)^{-1}I$.
 \end{proof}
@@ -429,8 +429,8 @@ terms with themselves and are $O(n^{-2})$. In particular $Q_k=P_k+O(1/n)$ for $k
 \end{proposition}
 
 \begin{proof}
-We split $v-\tilde v$ into the lip mismatch, the circle terms and an exponentially small rest; the lip mismatch
-is estimated pointwise and then integrated using Bessel localisation, and the correction term is bounded by
+We split $v-\tilde v$ into the lip mismatch, the circle terms and an exponentially small rest. The lip mismatch
+is estimated pointwise and then integrated using Bessel localisation; the correction term is bounded by
 Cauchy--Schwarz. We apply \S\ref{sec:tool-cd}(b) and its consequence \eqref{eq:CD-moments} with $A=Q$, $B=\tilde Q$, $v_A=v$, $v_B=\tilde v$ on
 $\hat\Sigma$, with exponents $r=r'=2$. The hypotheses hold: $v,\tilde v^{\pm1}\in L^\infty$, $Q_\pm\in I+\dC(L^2)$ by
 Proposition~\ref{prop:UR-true}, and $\tilde Q_\pm^{\pm1}\in I+\dC(L^2)$ by Proposition~\ref{prop:UR-comparison}(i). With

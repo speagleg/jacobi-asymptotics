@@ -27,10 +27,11 @@ bound $-\tfrac a2 n^2\log n+O(n^2)$; Monien described a heuristic and numerical 
 below proves the asymptotics, with the $n^2$ term, for every real $a>0$ with $2a+b>1$.
 
 > **Status in one paragraph.** Nothing here has been refereed by a journal yet. The work was developed with an AI
-> assistant (Claude, Anthropic), and every proof went through an independent AI referee pass whose reports are in the
-> repository. The averaged result (1) is additionally **machine-checked in Lean 4**. The pointwise results (2–4) and the counterexamples in 5
-> rely on published Riemann–Hilbert asymptotics, which are cited, not re-proved. Details are under
-> [How much to trust these results](#how-much-to-trust-these-results).
+> assistant (Claude, Anthropic), and every proof went through at least one separate AI referee pass whose reports are in
+> the repository. The averaged result (1) is **machine-checked in Lean 4**, as are several exact identities and
+> elementary lemmas behind results 3 and 7. The pointwise results (2–4, 7) and the counterexamples in 5 rely on published
+> Riemann–Hilbert asymptotics, which are cited, not re-proved. Paper IV (result 7) is a draft whose main proofs are partly
+> outlined. Details are under [How much to trust these results](#how-much-to-trust-these-results).
 
 ---
 
@@ -46,6 +47,7 @@ Throughout, $\sigma_{p,s} = \sum_k k^{-s}\,\delta_{k^{-p}}$ (pure powers), with 
 | 4 | **Slowly varying weights.** The pointwise law holds for weights $k^{-s}\ell(k)$ with any slowly varying $\ell$ | proved, using cited Riemann–Hilbert results | [Paper III](papers/paperIII/main.pdf) |
 | 5 | **Christoffel shift and sharpness.** The law passes from $s$ to $s+p$; bounded but irregular weights can break it | proved (shift); proved using cited results (counterexamples) | [Paper II](papers/paperII/main.pdf) §3, [Paper III](papers/paperIII/main.pdf) |
 | 6 | **Zeta zeros.** For the measure built from the zeros of $\zeta$, the averaged law is equivalent to a statement about close pairs of zeros | proved, using cited results on zeta zeros; the law itself is open | [`research/G3prime/`](research/G3prime/PROOF.md) |
+| 7 | **Zeta values in the expansion.** Beyond $1/n$, the coefficients of $n^pb_n/c(p)$ are spectral zeta values $\zeta(-jp)$; in the natural index $N=n+\frac{s-1}{2p}$ the integer part is even in $1/N$; Hurwitz and shifted lattices | second-order terms proved using cited results (repository notes); Paper IV's theorems partly outlined; general spectra conjectured | [Paper IV](papers/paperIV/main.pdf) (draft), [`research/G1/RH/`](research/G1/RH/second_order/E3.md) |
 
 ---
 
@@ -100,11 +102,11 @@ In averaged form, $\sum_{j\le n}\log\bigl(j^pb_j/c(p)\bigr) = -\tfrac{s-1}{2}\lo
 holds uniformly for $s$ in compact intervals.
 
 *Status:* proved, using the same Riemann–Hilbert citations as result 2. Each of the three ranges $p>1$, $p=1$ and
-$0<p<1$ has passed two independent referee passes. These are the newest results; they are proved in full in Paper II.
+$0<p<1$ has passed two separate referee passes. They are proved in full in Paper II. The next terms are result 7.
 
 ### 4. Slowly varying weights
 
-For every $p>0$, $s>1$ and **every** slowly varying factor $\ell$ (for example $\ell(k)=e^{\sqrt{\log k}}$, or any
+For every $p>0$, $s>1$ and every slowly varying factor $\ell$ (for example $\ell(k)=e^{\sqrt{\log k}}$, or any
 bounded, logarithmic or iterated-logarithmic factor), the measure $\sum_k k^{-s}\ell(k)\,\delta_{k^{-p}}$ satisfies
 $n^pb_n\to c(p)$ and $n^pa_n\to 2c(p)$. If $\log\ell(e^u)$ extends analytically to some horizontal strip
 $|\operatorname{Im}u|\le\vartheta$ (bounded, with derivative tending to 0), the rate is $O(1/n)$.
@@ -135,18 +137,47 @@ the critical line, so it is at least as hard as that open problem.
 *Status:* proved, using cited bounds on the zero-counting function and cited pair-correlation results. This says nothing
 for or against the Riemann Hypothesis.
 
+### 7. Zeta values in the expansion of $n^pb_n$ (Paper IV, draft)
+
+*Second order.* For $p>1$ and $s>1$,
+
+$$\frac{n^pb_n}{c(p)} = 1-\frac{s-1}{2n}+\frac{d_2}{n^2}+\kappa_p\,n^{-1-p}+O(n^{-3}),\qquad
+d_2=\frac{(p+1)(s-1)^2}{8p}-\frac{(p+2)(s-1-p)^2}{8p^2}+\frac{p+1}{12},$$
+
+with $\kappa_p=2p\,c(p)\,\zeta(-p)$ (for $p=2$, $d_2=(s^2+6s-11)/16$). For $0<p<1$ the terms $n^{-1-jp}$, $j\le\lfloor1/p\rfloor$,
+have the coefficients $\varepsilon_j=\binom{2j}{j}p\,c(p)^j\zeta(-jp)$, independent of $s$, and the $n^{-2}$ coefficient is
+$d_2$ (or $d_2-p/12$ when $p=1/j$). *Status:* proved, using the Riemann–Hilbert citations of result 2, in the
+repository notes [`E2_pgt1.md`](research/G1/RH/second_order/E2_pgt1.md) and [`E3.md`](research/G1/RH/second_order/E3.md)
+(two referee passes each); not yet in a paper. An independent high-precision recomputation (ball arithmetic, exact
+zeta moments) agrees with every coefficient to 15–25 digits.
+
+*Paper IV.* With the natural index $N=n+\frac\alpha2+\frac12$, $\alpha=(s-1-p)/p$, the expansion of $n^pb_n/c(p)$ for the
+lattice $\lambda_m=m^p$, $p\ne1$, is a double series in $1/N$ and in $N^{-1-jp}$ whose coefficients are the values
+$\zeta(-jp)$ with explicit even dressings; for Hurwitz lattices $(m+\delta)^p$ the offset only shifts $N$ and replaces
+$\zeta(-jp)$ by $\zeta(-jp,1+\delta)$; for $(m+\delta)^p+\kappa$ a pole of the spectral zeta function adds a cotangent-weighted
+term. For general Weyl-type spectra this is Conjecture W, tested numerically. *Status:* draft. The paper proves the
+algebra and the equilibrium problem in full; the analytic estimates behind its main theorems are outlined in the paper
+and written out only in repository notes (the paper's "Status of the proofs" paragraph lists which). Its numerical
+predictions were recorded before the test measures were computed, but that order is attested only by file times.
+
 ---
 
 ## How much to trust these results
 
 * **Not peer reviewed.** Nothing here has been refereed by a journal or read by a human specialist yet.
 * **AI-assisted.** The research, proofs and write-ups were developed with an AI assistant (Claude Code, Anthropic).
-  Every lemma went through an adversarial self-check and at least one independent AI referee pass before being marked
-  `REVIEWED`. The referee reports are in `research/*/review/`. This trail is visible, but it is not a substitute for
-  expert review.
+  Every lemma went through an adversarial self-check and at least one separate AI referee pass before being marked
+  `REVIEWED`. The referee reports are in `research/*/review/`. The referees are separate sessions of the same model,
+  often launched by the session that wrote the proof, so they are less independent than a human second reader. An
+  adversarial review of the whole repository (November 2026) found no false theorem; it corrected several labels and
+  the description of the numerical evidence (see the commit history). This trail is visible, but it is not a substitute
+  for expert review.
 * **Machine-checked where possible.** Result 1 (Paper 1's main theorem and its two corollaries) and the Christoffel
-  shift are formalised in Lean 4 / Mathlib ([`lean/`](lean/README.md)). The Riemann–Hilbert results are not; they rely
-  on large published theorems that are not in Mathlib.
+  shift are formalised in Lean 4 / Mathlib ([`lean/`](lean/README.md)). So are the elementary parts of results 3 and 7
+  ([`lean/SPECTRAL_PLAN.md`](lean/SPECTRAL_PLAN.md)): the equivalence of the natural-index and $1/n$ forms of the
+  expansion, the constants $W(1/p)=1$ and Theorem D's pole constant, the soft-edge equation $a=4c(p)$, the rank-one
+  (Uvarov) update of Hankel determinants, the path counts of the index-shift law, and the Toda equations for tilted finite
+  measures. The Riemann–Hilbert results are not formalised; they rely on large published theorems that are not in Mathlib.
 * **Status labels** (defined in [VERIFICATION_POLICY.md](VERIFICATION_POLICY.md)), as used in
   [THEOREMS.md](THEOREMS.md):
   * `PROVED`: self-contained proof in the repository.
@@ -168,22 +199,17 @@ for or against the Riemann Hypothesis.
 
 ## Papers
 
-The work is written up as a series of three papers, each built around one question.
+The work is written up as a series of four papers, each built around one question.
 
 | | Title | Question | Status |
 |---|---|---|---|
 | I | [Hankel determinants of discrete measures with power-law atoms, and of zeta values](papers/paper1/main.pdf) | What is the $n^2$ term of $\log D_n$? (result 1) | release candidate, 19 pp ([`ARXIV.md`](papers/paper1/ARXIV.md)) |
-| II | [Recurrence coefficients of discrete measures with power-law atoms: pointwise asymptotics and the $1/n$ term](papers/paperII/main.pdf) | Does each $n^pb_n$ converge, how fast, and what is the next term? (results 2, 3) | draft, 105 pp; all sections refereed (two independent mathematical referee passes) |
+| II | [Recurrence coefficients of discrete measures with power-law atoms: pointwise asymptotics and the $1/n$ term](papers/paperII/main.pdf) | Does each $n^pb_n$ converge, how fast, and what is the next term? (results 2, 3) | draft, 105 pp; all sections refereed (two separate AI referee passes) |
 | III | [Stability and instability of recurrence asymptotics for discrete measures with power-law atoms](papers/paperIII/main.pdf) | Which weights keep the law, and which break it? (results 4, 5) | draft, 29 pp |
+| IV | [Spectral zeta values in the recurrence coefficients of reciprocal spectra](papers/paperIV/main.pdf) | How does the expansion continue beyond $1/n$, and how does it depend on the spectrum? (result 7) | draft, 24 pp; main proofs partly outlined, not yet refereed as a paper |
 
 [`papers/paper2/`](papers/paper2/main.pdf) is the earlier combined draft that Papers II and III replace. Each paper folder
 has a `NOTES.md` listing open items.
-
----|---|---|
-| [`papers/paper1`](papers/paper1/main.pdf) | Hankel determinants of discrete measures with power-law atoms, and of zeta values | release candidate, 17 pp ([`ARXIV.md`](papers/paper1/ARXIV.md)) |
-| [`papers/paper2`](papers/paper2/main.pdf) | Recurrence coefficients of discrete measures with power-law atoms and slowly varying weights | draft, 67 pp; being reorganised |
-
-Each paper folder has a `NOTES.md` listing open items.
 
 ---
 
@@ -197,10 +223,10 @@ hold the full working proofs; they are long and written as lab notebooks.
 | [`THEOREMS.md`](THEOREMS.md) | index of every statement, with exact hypotheses, status labels, dependencies and open problems |
 | `papers/` | paper drafts (LaTeX, PDF, numerical checks) |
 | `research/G2/` | the averaged law (result 1): equilibrium problem, Hankel asymptotics |
-| `research/G1/` | the pointwise law (results 2–5); `research/G1/RH/` holds the Riemann–Hilbert analyses |
+| `research/G1/` | the pointwise law (results 2–5, 7); `research/G1/RH/` holds the Riemann–Hilbert analyses, `RH/second_order/` the second-order terms, `RH/spectral/` the Paper IV notes and checks |
 | `research/G3prime/` | the measure built from zeta zeros (result 6) |
 | `research/*/review/`, `research/*/checks/` | referee reports; numerical checks (scripts and outputs) |
-| `lean/` | Lean 4 / Mathlib formalisation (result 1 in full, the Christoffel shift, supporting lemmas) |
+| `lean/` | Lean 4 / Mathlib formalisation (result 1 in full, the Christoffel shift, the elementary parts of results 3 and 7, supporting lemmas) |
 | `certified/` | interval-arithmetic (Arb) verification of quoted constants and closed forms |
 | `src/jacobi_asym/`, `tests/` | Python toolkit (measures, recurrence coefficients, Hankel determinants) and its tests |
 

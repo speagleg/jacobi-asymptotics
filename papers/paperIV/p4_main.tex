@@ -1,10 +1,10 @@
 % Section 4: proof of Theorem A (from archive/sec5.tex, compressed; closed forms f6, g14, h2 moved to pB_repro.tex).
 \section{Proof of Theorem~\ref{thm:A}: the residue recursion}\label{sec:natural}
 
-We extend the analysis of \cite{PaperII} to every order $K$ in $1/n$ and every order $B$ in the band-factor parameters. Strategy: the band
-factor is a tilt (Lemma~\ref{lem:Fprime}), tilts act on the jump data by an entire gauge (Lemma~\ref{lem:gauge}), so every coefficient of
-the expansion is an entire function of the tilt parameters $\mu$ with $n$-independent Taylor coefficients; these are computed by a
-finite residue recursion in exact arithmetic. The analytic part is the order-$K$ version of estimates proved at order $1$ in
+We extend the analysis of \cite{PaperII} to every order $K$ in $1/n$ and every order $B$ in the band-factor parameters. The band
+factor is a tilt (Lemma~\ref{lem:Fprime}), and tilts act on the jump data by an entire gauge (Lemma~\ref{lem:gauge}). Hence every coefficient
+of the expansion is an entire function of the tilt parameters $\mu$ with $n$-independent Taylor coefficients, and a finite residue
+recursion in exact arithmetic computes these Taylor coefficients. The analytic part is the order-$K$ version of estimates proved at order $1$ in
 \cite{PaperII} and at order $2$ in the notes behind Section~\ref{sec:frame}.
 
 \subsection{The recursion}\label{sec:recursion}
@@ -160,8 +160,8 @@ The quadratic transformation of symmetric measures (as in \cite[Remark~9.6]{Pape
 $y=x^2$, and $c(2)=\pi^2/16$.
 \end{proof}
 
-Here $\alpha=-\frac12$, and $j_{\mu,k}=\pi(k+\frac\mu2-\frac14)+O(1/k)$ gives $Z_\Lambda(0)=\zeta(0,\frac\mu2+\frac34)=-\frac\mu2-\frac14$, so
-$N=n+\frac\alpha2-Z_\Lambda(0)$: the natural index of the dictionary, exactly.
+Here $\alpha=-\frac12$, and $j_{\mu,k}=\pi(k+\frac\mu2-\frac14)+O(1/k)$ gives $Z_\Lambda(0)=\zeta(0,\frac\mu2+\frac34)=-\frac\mu2-\frac14$.
+So $N=n+\frac\alpha2-Z_\Lambda(0)$ is exactly the natural index of the dictionary.
 % TODO (citation): McMahon's expansion (DLMF 10.21.19) is not quoted in the project's citation record.
 The bare function $(1-\frac1{4N^2})^{-1/2}=1+\frac1{8N^2}+\frac3{128N^4}+\frac5{1024N^6}+\dotsb$ is even, and its coefficients are
 $f_2,f_4,f_6$ at $(p,\alpha)=(2,-\frac12)$. The closed form agrees with the Jacobi coefficients computed from the zeros to

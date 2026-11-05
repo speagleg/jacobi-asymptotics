@@ -58,8 +58,8 @@ Tricomi--Carlitz weight the band entry is $e^L(4-x^2)e^{j(N/x^2)}$ exactly, sinc
 \cite[(2.15), (3.4), (3.7), (4.15), (4.24)]{WLXZ}; the factor $F$ adds $e^{j(N/x^2)}|x|^{2a}$. On the lens and
 saturated contours outside the three discs, which lie in sectors $|\arg(\pm z)|<\pi/4$ and in $|z|\le CN^{1/2}$
 \cite[(3.2)]{WLXZ}, we have $|t|\ge C^{-2}$ and $|\arg t|\le\pi/2$, so $e^{\pm j(t)}$ is bounded, by~\eqref{eq:binet-bound}
-for $|t|\ge1$ and by continuity on the remaining compact set, where $\Gamma$ has neither zeros nor poles; and
-$|(z^2)^{\pm a}|\le CN^{|a|}$; a polynomial factor does not affect a bound $O(e^{-cN})$.
+for $|t|\ge1$ and by continuity on the remaining compact set, where $\Gamma$ has neither zeros nor poles. Also
+$|(z^2)^{\pm a}|\le CN^{|a|}$, and a polynomial factor does not affect a bound $O(e^{-cN})$.
 \end{proof}
 
 \subsection{The Stirling truncation, the Szeg\H{o} functions and the global parametrix}\label{app:pone-global}
@@ -128,7 +128,7 @@ $\mathcal N_{s,-}\mathrm{diag}(\mathsf W_N^{-1},\mathsf W_N)\mathcal N_{s,-}^{-1
 \subsection{The Airy discs}\label{app:pone-airy}
 
 Let $P^{(3/2)}$ be the parametrix of \cite[(6.10)--(6.21)]{WLXZ} built from the weight of $\nu_{3/2}$, that is, from
-$we^{j(N/z^2)}$; in $U(\pm2,\varepsilon)$ we have $t\approx N/4$, so this weight is analytic and zero-free there, and
+$we^{j(N/z^2)}$. In $U(\pm2,\varepsilon)$ we have $t\approx N/4$, so this weight is analytic and zero-free there, and
 $P^{(3/2)}$ has exactly the jumps of the matrix $V$ of $\nu_{3/2}$ in $U(\pm2,\varepsilon)$, with
 $P^{(3/2)}\mathcal N^{-1}=I+O(1/N)$ on $\partial U(\pm2,\varepsilon)$ \cite[(6.14)]{WLXZ}. In $U(\pm2,\varepsilon)$ the factor
 $q(z):=(z^2)^a$ is analytic and zero-free, and by Lemma~\ref{lem:pone-weight} the jumps of $V$ for $\nu_s$ are those for
@@ -155,7 +155,7 @@ $\bigl(\begin{smallmatrix}0&\mathsf j\\-1/\mathsf j&0\end{smallmatrix}\bigr)$ on
 $\bigl(\begin{smallmatrix}1&0\\\mathsf j^{-1}e^{-2N\varphi^{\mathrm{KV}}}&1\end{smallmatrix}\bigr)$ on the lips, with
 $\varphi^{\mathrm{KV}}:=-\varphi$, plus discarded terms on the lips (diagonal entries $D/\hat D$ and an upper-right entry with
 $e^{-2N\hat\varphi}$). This is the form \cite[(5.1)--(5.2)]{KV} with the exponent $a$ and the analytic factor
-$h_0e^{2j(N/z^2)}/\mathsf Q_m$, where $h_0(z):=e^L(4-z^2)\mathsf Q_m(z)$ is analytic and zero-free in $U(0,\varepsilon)$; we fix an
+$h_0e^{2j(N/z^2)}/\mathsf Q_m$, where $h_0(z):=e^L(4-z^2)\mathsf Q_m(z)$ is analytic and zero-free in $U(0,\varepsilon)$. We fix an
 analytic branch of $h_0^{1/2}$ there (this replaces the assumption of positive real part in \cite[\S4.1]{Van}, which is used
 only to choose the branch). Let $f(z):=i\varphi^{\mathrm{KV}}(z)-i\varphi^{\mathrm{KV}}_+(0)$ in $\C_+$ and
 $-i\varphi^{\mathrm{KV}}(z)-i\varphi^{\mathrm{KV}}_+(0)$ in $\C_-$ \cite[(5.6)]{KV}. Since $\varphi^{\mathrm{KV}}_+(x)=\pi i\int_x^\infty\psi$
@@ -185,7 +185,7 @@ as in \cite[(5.26)--(5.30)]{KV}.
 \cite[\S4.1]{Van}, and $\det P_0=1$ by \cite[(4.53)]{Van}. (ii) $E_0$ is analytic in a neighbourhood of $U(0,\varepsilon)$ by the
 argument of \cite[p.~19]{KV}, which needs that $\mathcal D/W_h$ and $W_h/\mathcal D$ remain bounded as $z\to0$; this holds by
 Lemma~\ref{lem:pone-szego}(iv), since $\mathcal D/W_h=(\mathcal D_{\mathrm h}/W)(\mathcal D_{\mathrm q}/h_0^{1/2})$. Since $\varphi_+(0)$ is
-imaginary, $|e^{N\varphi^{\mathrm{KV}}_+(0)\sigma_3}|=1$; $\mathcal N_s$ is bounded near $\partial U(0,\varepsilon)$ uniformly in $N$,
+imaginary, $|e^{N\varphi^{\mathrm{KV}}_+(0)\sigma_3}|=1$. Moreover $\mathcal N_s$ is bounded near $\partial U(0,\varepsilon)$ uniformly in $N$,
 and the maximum principle bounds $\mathsf B_N^{\pm1}$ inside. (iii) is the case of one term of the computation in
 \S\ref{app:pone-jumps}, which rests on \cite[(4.43)--(4.46)]{Van} and \cite[(5.26)]{KV}.
 \end{proof}
@@ -217,7 +217,7 @@ $J_VJ_{P_0}^{-1}-I=(\mathsf W_N^{-1}-1)(J_{P_0}-I)$ and $J_H-I=(\mathsf W_N^{-1}
 By Lemmas~\ref{lem:pone-stirling} and~\ref{lem:pone-fh}(ii) and~\eqref{eq:pone-ampl}, $|J_H-I|\le C(|z|^2/N)^{2m+1}$ for
 $\rho\ge1$, and $|J_H-I|\le C(|z|^2/N)^{2m+1}\rho^{-2|a|}\le CN^{-6m-3}\rho^{\delta_m}$ for $\rho\le1$. The discarded lip terms
 are $O(e^{-cN/|z|^2})$: by \cite[(4.16)]{WLXZ}, $\tilde D=D(1-e^{\mp2i\theta})$, and on the lips
-$|e^{\mp2i\theta}|=e^{-2\pi N|\sin2\arg z|/|z|^2}$; conjugation by $P_0$ costs at most a polynomial in $N$ and $1/|z|$ times
+$|e^{\mp2i\theta}|=e^{-2\pi N|\sin2\arg z|/|z|^2}$. Conjugation by $P_0$ costs at most a polynomial in $N$ and $1/|z|$ times
 $e^{2N|\re\varphi|}$ with $|\re\varphi|\le C|z|$, which is harmless for $\varepsilon$ small. They are therefore $O(N^{-K})$
 for every $K$ and vanish faster than every power of $|z|$ at $0$.
 \end{proof}
@@ -244,7 +244,7 @@ with $K_\pm:=U_{11}(wF/\Pi)e^{\pm i\theta}$. The functions $K_\pm$ have simple p
 terms of $U_{12}$, and $K_--K_+=-2iU_{11}wF\theta'$ has no poles; since $|wF|\asymp|z|^{3+2a}$ and $|\theta'|\asymp N|z|^{-3}$,
 it is $O(|z|^{2a})$. Since $\theta=N\pi/z^2-\pi$ has $\im\theta<0$ in the upper right quadrant, $K_-$ is
 $O(|\theta'||wF|e^{-cN/|z|^2})$ there, and $K_+$ in the lower right quadrant. Let $\Omega_b:=\{0<|z|<b,\ |\arg z|<\phi_0\}$ with
-$\phi_0$ larger than the lens angle and $b$ between two nodes, with boundary rays $\Gamma_\pm$ and arc $C_b$, and cut off
+$\phi_0$ larger than the lens angle and $b$ between two nodes, with boundary rays $\Gamma_\pm$ and arc $C_b$. Cut off
 the tip by arcs $|z|=\eta_i$ through midpoints between consecutive nodes, $\eta_i\to0$; on such arcs $|K_\pm|=O(|z|^{2a})$, so
 they contribute $O(\eta_i^{1+2a})\to0$. The residue theorem then expresses the sum of the terms of $U_{12}$ over the nodes in
 $(0,b)$ minus $K_-(z)$ as $-\frac1{2\pi i}\oint_{\partial\Omega_b}K_-(z')\frac{\diff z'}{z'-z}$; on the lower ray we write

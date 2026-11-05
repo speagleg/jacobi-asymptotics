@@ -12,7 +12,8 @@ $\mathfrak n(\lambda)=\lambda^{1/p}+\sum_{r\in\mathcal R}A_r\lambda^r+\mathfrak 
 each $M$ (this excludes fluctuating counting functions);
 \item[(W3)] masses $w_k=\lambda_k^{-s/p}v(\lambda_k)$, $v(\lambda)=v_0\lambda^\tau(1+\sum_\rho b_\rho\lambda^{-\rho})$, $\rho>0$, with
 $s_{\mathrm{eff}}:=s-p\tau>1$ and, in this section, $\alpha:=(s_{\mathrm{eff}}-1-p)/p$;
-\item[(W4)] $p\ne1$; (W5) non-resonance for the coefficients claimed: if a pole $q$ below is an integer, the integer term and the pole term
+\item[(W4)] $p\ne1$;
+\item[(W5)] non-resonance for the coefficients claimed: if a pole $q$ below is an integer, the integer term and the pole term
 merge into $n^{-1-pq}\log n$, and no claim is made at $n^{-1-pq}$ and beyond for that family of terms (several test measures below have
 integer poles).
 \end{enumerate}
@@ -41,8 +42,8 @@ $B_j=0$, there is one linear response $-\frac{p\rho W(\rho)}2t_\rho$ for every t
 the dictionary~\eqref{eq:dictionary} of the introduction. \emph{Proved cases:} the lattice (Theorem~\ref{thm:N6}, Corollary~\ref{cor:even}),
 Hurwitz lattices (Theorem~\ref{thm:H}), and the shifted Hurwitz lattices at first order in the poles (Theorem~\ref{thm:kappa}). \emph{Exact
 case:} for $\lambda_k=(j_{\nu',k}/\pi)^2$, $s=2$, the poles are half-integers, where $\cot(\pi q)=0$, and the Toda times computed from the spectral
-data vanish to the precision of the regularised sums ($|t_1|<10^{-21}$); so the conjecture predicts the bare model $M(\nu'-1,-\frac12)$, which is
-Proposition~\ref{prop:bessel}. \emph{Multiplicities:} for the sphere, nodes $l(l+1)$ with multiplicity $2l+1$, the distinct nodes have $p=2$ (with
+data vanish to the precision of the regularised sums ($|t_1|<10^{-21}$). The conjecture therefore predicts the bare model $M(\nu'-1,-\frac12)$,
+which is Proposition~\ref{prop:bessel}. \emph{Multiplicities:} for the sphere, nodes $l(l+1)$ with multiplicity $2l+1$, the distinct nodes have $p=2$ (with
 multiplicities counted the Weyl exponent would be $1$), and $Z(-j)=0$ for every $j\ge1$: with $t=l+\frac12$, $(t^2-\frac14)^j$ is even in $t$ and
 $\zeta(-2m,\frac32)=-2^{-2m}$, so $Z(-j)=-(\frac14-\frac14)^j=0$; mass and density factors cancel, and the conjecture predicts the bare model
 $M(1,0)$.
@@ -61,7 +62,7 @@ $|\text{fit}-\text{prediction}|\le\max(3\cdot\text{spread},2\cdot10^{-6}(1+|\tex
 piece switched off (no Szeg\H{o} shift, no pole term, no $Z(-j)$, no density or mass tilt, no natural-index shift of the pole terms). Of $41$
 coefficients, $40$ pass; the exception is the sphere at $n^{-4}$, outside the claimed precision. Not every pass is a test: in $11$ of the $40$
 passing rows some alternative is also within $10$ tolerances, no alternative is available, or the tolerance exceeds the predicted value, so
-that the prediction $0$ would pass as well; $29$ passes exclude every alternative by more than $10$ tolerances (script
+that the prediction $0$ would pass as well. The other $29$ passes exclude every alternative by more than $10$ tolerances (script
 \texttt{w\_test\_discrimination}). The non-discriminating rows are mostly the deepest coefficients ($n^{-3}$ and $n^{-3.5}$ at $p=P=1.5$) and
 the rows $p=0.6$; the script output lists all eleven. The families are (A) $\lambda_k=k^p+ak^{p-1}$, a
 Hurwitz offset $a/p$ plus decaying corrections, $Z(0)=-\frac12-\frac ap$, poles at $q_i=(i-1)/p$; (B) Bessel zeros $(j_{\nu',k}/\pi)^P$,
@@ -120,9 +121,9 @@ proved for actual measures.
 
 \begin{remark}[further directions]\label{rem:further}
 The following are numerical or heuristic and are not used. \emph{Drums} ($p=1$, outside the theorems): for smoothed Dirichlet spectra of planar
-domains, rescaled to unit Weyl density, the perimeter, a pole at $q=-\frac12$ where $W$ has a pole and $\cot(\pi q)=0$, appears at order
+domains, rescaled to unit Weyl density, the perimeter gives a pole at $q=-\frac12$, where $W$ has a pole and $\cot(\pi q)=0$. It appears at order
 $n^{-1/2}$ with the $0\cdot\infty$ limit $-\pi\beta/(2\sqrt2)$ of the pole weight, $\beta=\mathcal P/\sqrt{4\pi\mathcal A}$, to $10^{-5}$ for four
-domains, and the corner and curvature constant enters through $pZ(0)$ (script \texttt{spec\_corners}). \emph{Anharmonic oscillators}
+domains; the corner and curvature constant enters through $pZ(0)$ (script \texttt{spec\_corners}). \emph{Anharmonic oscillators}
 $-\frac{\diff^2}{\diff q^2}+q^N$: the pole term is the rational number $\frac{N-1}{6(N+2)}$, conditionally on the second-order Bohr--Sommerfeld
 condition, and is reproduced to between $10^{-10}$ and $7\cdot10^{-8}$ (script \texttt{spec\_homog}).
 % TODO (citation): the second-order Bohr--Sommerfeld (Dunham) term is not quoted in the project's citation record.

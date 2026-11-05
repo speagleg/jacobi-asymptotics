@@ -90,9 +90,9 @@ for some constants $c_1>0$ and $s\in\R$. Then the measure $\sigma$ of \eqref{eq:
 
 The upper bound in the second condition of \eqref{eq:Ha} already follows from the limit and the
 continuity of $f'$; we state it for symmetry. Under \eqref{eq:Ha}, $f$ is strictly decreasing with a finite limit $L$,
-and $f(\xi)-L\sim C\xi^{-p}$; Hankel determinants are invariant under translation of $\sigma$ (Lemma~\ref{lem:elem}),
-so $L$ plays no role. The upper bound in \eqref{eq:main} uses only $\sum_kw_k<\infty$; apart from the finiteness of
-the moments, the lower bound uses only $w_k\ge c_1k^{-s}$.
+and $f(\xi)-L\sim C\xi^{-p}$. Hankel determinants are invariant under translation of $\sigma$ (Lemma~\ref{lem:elem}),
+so $L$ plays no role. Of the weight hypotheses, the upper bound in \eqref{eq:main} uses only $\sum_kw_k<\infty$; apart
+from the finiteness of the moments, the lower bound uses only $w_k\ge c_1k^{-s}$.
 
 Since $\sigma$ has infinitely many atoms, it has monic orthogonal polynomials of all degrees and a Jacobi matrix with
 off-diagonal entries $b_j>0$ (Lemma~\ref{lem:jacobi}). Theorem~\ref{thm:main} is equivalent to a doubly averaged
@@ -179,7 +179,7 @@ the measure. Problems of this kind were introduced by Rakhmanov~\cite{Rakhmanov}
 equilibrium measure on $[-1,1]$ for a constraint measure of total mass $>1$ with continuous potential
 \cite[Thm.~3]{Rakhmanov}, and used it to find the limiting zero distribution of polynomials that are extremal for
 discrete norms on $N$ points as $n/N\to c\in(0,1)$, in particular of the discrete Chebyshev polynomials
-\cite[Thms.~1 and~2]{Rakhmanov}. Dragnev and Saff added an external field; for a finite constraint measure on a closed set they proved existence,
+\cite[Thms.~1 and~2]{Rakhmanov}. Dragnev and Saff added an external field. For a finite constraint measure on a closed set they proved existence,
 uniqueness, a characterisation and a saturation property of the constrained minimiser \cite[Thms.~2.1
 and~2.6]{DragnevSaff}, with applications to discrete $L_p$-extremal polynomials on finite intervals
 \cite[Thm.~3.3]{DragnevSaff}. Kuijlaars and Van Assche~\cite{KVA-PLMS} treated discrete sets
@@ -210,7 +210,7 @@ asymptotically distributed as the average over $r\in(0,t)$ of the arcsine laws o
 $[\psi(r)-2\phi(r),\psi(r)+2\phi(r)]$ \cite[Thm.~1.4]{KVA-JAT}. For $\phi(r)=cr^{-p}$, $\psi(r)=2cr^{-p}$ and $t=1$
 this is $\mu^*$. Heuristically, therefore, $\mu^*$ is the zero distribution, after scaling by $n^p/C$, that the
 measures of Theorem~\ref{thm:main} with $L=0$ would have if $a_n\sim2b_n\sim2c(p)Cn^{-p}$ pointwise; the saturation condition in
-Theorem~\ref{thm:equilibrium}(i) is exactly the equation that fixes $c=c(p)$. This heuristic is not used in the
+Theorem~\ref{thm:equilibrium}(i) is the equation that fixes $c=c(p)$. This heuristic is not used in the
 proofs, and Corollary~\ref{cor:jacobi} concerns double Ces\`aro means only. Companion papers in preparation treat
 the pointwise asymptotics of $b_n$ and $a_n$.
 
@@ -227,7 +227,7 @@ reduced to $x_k=Ck^{-p}$ by a mean-value comparison (Lemma~\ref{lem:spacing}).
 
 The only potential-theoretic input beyond elementary calculus is the positivity of the logarithmic energy of
 signed measures of total mass zero (Lemma~\ref{lem:positivity}), a special case of \cite[Lemma~2.1]{BKMW} for which we
-give a short Fourier-analytic proof. It is used only for optimality and uniqueness in
+give a short Fourier-analytic proof. This positivity is used only for optimality and uniqueness in
 Theorem~\ref{thm:equilibrium}(iii), which enters the upper bound through $\sup_\cA\cJ_p\le\kappa_p$; the lower bound
 needs only Theorem~\ref{thm:equilibrium}(i) and the value $\cJ_p(\mu^*_u)=\kappa_p$.
 
@@ -462,7 +462,7 @@ converges. Hence $K_{\varepsilon,R}(a)\to k_0-\log|a|$. (In fact $k_0=0$, but we
 $\nu(\R)=0$.) All limits as $\varepsilon\to0$, $R\to\infty$ are taken along arbitrary sequences
 $\varepsilon_m\downarrow0$, $R_m\uparrow\infty$.
 
-\emph{Step 3.} The integrability hypothesis forces $|\nu|\otimes|\nu|$ to give zero mass to the diagonal $\{x=y\}$.
+\emph{Step 3: passage to the limit.} The integrability hypothesis forces $|\nu|\otimes|\nu|$ to give zero mass to the diagonal $\{x=y\}$.
 By \eqref{eq:Kbound} and dominated convergence along $(\varepsilon_m,R_m)$ (with respect to $|\nu|\otimes|\nu|$,
 dominating function $|\log|x-y||+6$), and since $\nu(\R)=0$,
 \begin{align*}
@@ -517,8 +517,8 @@ $z=\min(1,t_x^{-p})=\min(1,x/4c)$ we obtain
 \end{align*}
 because $(4c)^{1/p}=\pi/(2I(p))$ by the definition of $c=c(p)$. Thus $\mu^*=\lambda_p$ on $[4c,\infty)$ and
 $\mu^*<\lambda_p$ (in density) on $(0,4c)$. Pulling back by $x=u^{-p}$, which maps $\lambda_p$ to Lebesgue measure, gives
-the density $\rho^*$ of $\mu^*_u$; $\rho^*$ is continuous and positive on $(0,\infty)$, equal to $1$ exactly on
-$(0,\usat]$, and $\usat=(4c)^{-1/p}=2I(p)/\pi$. The total mass is $\int_0^1\dd t=1$. Hence $\mu^*_u\in\cA$.
+the density $\rho^*$ of $\mu^*_u$. This density is continuous and positive on $(0,\infty)$ and equals $1$ exactly on
+$(0,\usat]$, where $\usat=(4c)^{-1/p}=2I(p)/\pi$. The total mass is $\int_0^1\dd t=1$. Hence $\mu^*_u\in\cA$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:equilibrium}(ii)]
@@ -641,7 +641,7 @@ $\sum_j1/(k_j-k_i-1)\le1+\log n$; there is at most one adjacent partner. Countin
 which is of the stated form since $N\le n$.
 \end{proof}
 
-The diagonal estimate is the only place where $S\subset[1,Mn]$ is used: an isolated point $k\gg n$ makes
+The diagonal estimate is the only place where $S\subset[1,Mn]$ is used. An isolated point $k\gg n$ makes
 $\cJ_p(\bar\mu_S)$ very negative while contributing little to the point sum. Atoms beyond $Mn$ are therefore treated
 separately in Theorem~\ref{thm:upper}.
 
@@ -741,9 +741,10 @@ $\sum w_k<\infty$, so that the moments are finite). Then
 \end{theorem}
 
 \begin{proof}
-We approximate $\mu^*_u$ by a compactly supported admissible measure $\theta$ (Step~1), split the support of $\theta$
-into $n$ blocks of $\theta$-mass $1/n$ and take one atom next to the midpoint quantile of each block (Step~2), and show that the resulting single term of Heine's sum loses only $O(n\log n)$
-against $n^2\cJ_p(\theta)$ (Step~3). The weights cost only $O(n\log n)$ (Step~4).
+We approximate $\mu^*_u$ by a compactly supported admissible measure $\theta$ (Step~1). We split the support of
+$\theta$ into $n$ blocks of $\theta$-mass $1/n$ and take one atom next to the midpoint quantile of each block (Step~2).
+The resulting single term of Heine's sum loses only $O(n\log n)$ against $n^2\cJ_p(\theta)$ (Step~3), and the
+weights cost only $O(n\log n)$ (Step~4).
 
 Fix $\eta>0$.
 
@@ -760,13 +761,13 @@ $0$ beyond. So $\theta\in\cA$, and by Lemma~\ref{lem:scaling}
 for $U$ large enough, which we fix. Constants $C_U$ and $O_U(\cdot)$ below depend on $p$ and $U$ only (in
 Step~4 also on $c_1$ and $s$).
 
-\emph{Step 2: the quantile configuration.} Let $F$ be the distribution function of $\theta$; it is continuous and
-strictly increasing on $[0,U']$. For $1\le i\le n$ let $B_i=[l_i,r_i]:=[F^{-1}(\frac{i-1}{n}),F^{-1}(\frac in)]$,
-$q_i:=F^{-1}(\frac{i-1/2}{n})$, $k_i:=\lceil nq_i\rceil$ and $u_i:=k_i/n\in[q_i,q_i+\frac1n)$.
+\emph{Step 2: the quantile configuration.} Let $\Phi$ be the distribution function of $\theta$; it is continuous and
+strictly increasing on $[0,U']$. For $1\le i\le n$ let $B_i=[l_i,r_i]:=[\Phi^{-1}(\frac{i-1}{n}),\Phi^{-1}(\frac in)]$,
+$q_i:=\Phi^{-1}(\frac{i-1/2}{n})$, $k_i:=\lceil nq_i\rceil$ and $u_i:=k_i/n\in[q_i,q_i+\frac1n)$.
 \begin{itemize}
 \item Since $\theta\le\Leb$ and $\theta(B_i)=\frac1n$: $|B_i|\ge\frac1n$, so $l_i\ge\frac{i-1}{n}$ and
   $r_i\ge\frac in$; also $r_i-q_i\ge\frac1{2n}$ and $q_i-l_i\ge\frac1{2n}$. Hence $q_{i+1}-q_i\ge\frac1n$, so the $k_i$
-  are distinct, $k_1\ge1$, and $u_j-u_i\ge\frac1n$ for $i<j$. Moreover, for $i\le n-1$, $u_i<q_i+\frac1n\le r_i+\frac1{2n}\le r_{i+1}$.
+  are distinct, $k_1\ge1$, and $u_j-u_i\ge\frac1n$ for $i<j$. Finally, for $i\le n-1$, $u_i<q_i+\frac1n\le r_i+\frac1{2n}\le r_{i+1}$.
 \item Since the density is $\ge d_U$ on $(0,U']$: $|B_i|\le\frac1{d_Un}$, so $r_i\le\frac{i}{d_Un}$, and
   $u_j\le r_j+\frac1{2n}\le\frac{j+1}{d_Un}$.
 \item $S^*:=\{k_1<\dots<k_n\}\subset[1,U'n+1]$.
@@ -911,8 +912,8 @@ for $n\in\N$, $\nu\notin-\N$ and $j\in\{0,1\}$,
   \det H_n^{(j)}(\nu)=2^{-2n(n+j)}\prod_{k=1}^{2n+j-1}(\nu+k)^{k-2n-j},
 \]
 and by \cite[Rem.~5]{BariczStampach},
-$\det H_n^{(2)}(\nu)=2^{-2n(n+2)}(n+1)(n+\nu+1)\prod_{k=1}^{2n+1}(\nu+k)^{k-2n-2}$. Moreover
-$R_{2m}(\frac12)=\zeta(2m)/\pi^{2m}$ \cite[(22)]{BariczStampach}. Taking $\nu=\frac12$ and rescaling rows and columns by
+$\det H_n^{(2)}(\nu)=2^{-2n(n+2)}(n+1)(n+\nu+1)\prod_{k=1}^{2n+1}(\nu+k)^{k-2n-2}$. By \cite[(22)]{BariczStampach},
+$R_{2m}(\frac12)=\zeta(2m)/\pi^{2m}$. Taking $\nu=\frac12$ and rescaling rows and columns by
 powers of $\pi$ yields closed forms for $\det_{1\le i,i'\le n}\zeta(2(i+i')+b)$ with $b=2j-2\in\{-2,0,2\}$. For
 example, for $b=0$,
 \[
@@ -936,7 +937,7 @@ asymptotic statement is not made there.
 \section{Formal verification}\label{sec:lean}
 
 Theorem~\ref{thm:main}, Corollary~\ref{cor:jacobi} and Corollary~\ref{cor:zeta} have been formalised in the Lean~4
-proof assistant (version 4.34.1) with the Mathlib library, with the hypotheses as stated in Section~\ref{sec:intro}; in
+proof assistant (version 4.34.1) using the Mathlib library, with the hypotheses as stated in Section~\ref{sec:intro}; in
 Corollary~\ref{cor:zeta}, $\zeta$ is Mathlib's Riemann zeta function. The formalisation contains no unproved steps and
 uses only Lean's standard axioms (\texttt{propext}, \texttt{Quot.sound}, \texttt{Classical.choice}).
 
@@ -1021,8 +1022,8 @@ $n=10^5$, and $(n/\log n)$ times it lies between $-4.90$ and $-1.15$ for $n\in\{
 the error $O(n\log n)$ proved there.
 
 \section*{Acknowledgements}
-The research and the exposition were developed with the assistance of an AI system (Claude, Anthropic); the main
-theorem of this paper and its corollaries are formally verified in the Lean proof assistant; the author takes
+The research and the exposition were developed with the assistance of an AI system (Claude, Anthropic). The main
+theorem of this paper and its corollaries are formally verified in the Lean proof assistant. The author takes
 responsibility for the content.
 
 \section*{Data and code availability}

@@ -3,13 +3,13 @@
 
 This section collects the tools used in every later section. After fixing conventions (\S\ref{sec:conv}) we restate
 the results imported from \cite{PaperI} and \cite{PaperII} (\S\ref{sec:imports}); a reader who accepts these
-statements can read the rest of the paper without the earlier ones. We then prove two facts about slowly varying
+statements can read the rest of the paper without the earlier papers. We then prove two facts about slowly varying
 sequences (\S\ref{sec:prelim-sv}), the first-variation formulas (\S\ref{sec:fv}) with bounds on their second-order
 remainders (\S\ref{sec:lr}), and the two localisation properties of the spectral weights (\S\ref{sec:loc}). The proofs
 are short and, apart from the second-order bounds, of a standard kind.
 
 \subsection{Conventions}\label{sec:conv}
-Throughout, $\sigma=\sum_{k\ge1}w_k\delta_{x_k}$ with distinct atoms $x_k\in(0,1]$, weights $w_k>0$ and
+Throughout, $\sigma$ denotes a measure $\sum_{k\ge1}w_k\delta_{x_k}$ with distinct atoms $x_k\in(0,1]$, weights $w_k>0$ and
 $\|w\|_1:=\sum_kw_k<\infty$, except where a more general positive measure on $[0,\infty)$ is allowed explicitly. Such
 a $\sigma$ has infinite support and finite moments, so its monic orthogonal polynomials $P_n$ exist for all $n\ge0$
 and satisfy \eqref{eq:rec}. The orthonormal polynomials $p_n:=P_n/\sqrt{h_n}$ satisfy
@@ -255,8 +255,8 @@ $\langle q_m,q_m\rangle=1$ gives $\langle r,q_m\rangle=-\frac12\alpha_m$. Hence 
 
 \subsection{Second-order bounds}\label{sec:lr}
 The first-variation formulas are exact derivatives; to use them for a perturbation $e^\varphi$ of fixed size one
-needs the second derivative. The next lemma bounds it with absolute constants, for every base measure. It is the
-reason why the constructions of Section~\ref{sec:rough} need no information about the perturbed measures.
+needs the second derivative. The next lemma bounds it with absolute constants, for every base measure. Because of this uniformity, the
+constructions of Section~\ref{sec:rough} need no information about the perturbed measures.
 
 For a bounded real $\varphi$ put $\varepsilon:=\frac12(\sup\varphi-\inf\varphi)$. Write
 $\Delta^2m_N:=m_N-2m_{N-1}+m_{N-2}$ and $F_N:=\log(b_N^2/b_{N-1}^2)$ for $N\ge2$. A superscript $v$ denotes quantities

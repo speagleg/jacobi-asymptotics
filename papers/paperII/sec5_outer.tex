@@ -3,7 +3,7 @@
 \section{The outer scalar and the properties of the frame}\label{sec:outer}
 
 The frame of Section~\ref{sec:frame} still lacks an admissible outer scalar $F$
-(Definition~\ref{def:outer-admissible}), and constructing it is the only step of the Riemann--Hilbert analysis that
+(Definition~\ref{def:outer-admissible}). Its construction is the only step of the Riemann--Hilbert analysis that
 depends on the geometry. This section constructs $F$ and then carries out the steps common to all $p>0$: the Szeg\H{o} function of the band weight, the
 normalisation at infinity, the estimates on the lips near the hard edge, and the Airy parametrix at the soft edge.
 Proposition~\ref{prop:frame} collects the outcome; it is the only result of Sections~\ref{sec:frame}
@@ -25,19 +25,19 @@ satisfies $D_+/D_-=(1-e^{2i\theta})/(1-e^{-2i\theta})=-e^{2i\theta}$ on $(0,\inf
 $K(z):=(4c-z)^{-1/2}$ (principal branch, cut $[4c,\infty)$) supplies the missing factor $-1$, so that $DK$ has the
 jump required in Definition~\ref{def:outer-admissible}(a).
 
-The difficulty is the cut of $t(z)$ on $(-\infty,0)$, and how it is handled depends on how far the sector
-$|\arg t|<\pi/p$ reaches (Table~\ref{tab:geometry}): for $p>1$ the jump of $DK$ on $(-\infty,0)$ is removed by a
-Cauchy integral, the Binet-cut scalar $B$; at $p=1$ the reflection formula shows that $D$ has no jump there at all; for
-$p<1$ the poles of $\Gamma(t)$ enter, and $D$ is used only in the inner sector $|\arg z|<\pi p/2$ and glued to an
-elementary function outside along two seams. Lemma~\ref{lem:outer} states the result; the constructions for $p\ne1$
+The difficulty is the cut of $t(z)$ on $(-\infty,0)$. How it is handled depends on how far the sector
+$|\arg t|<\pi/p$ reaches (Table~\ref{tab:geometry}). For $p>1$ the jump of $DK$ on $(-\infty,0)$ is removed by a
+Cauchy integral, the Binet-cut scalar $B$. At $p=1$ the reflection formula shows that $D$ has no jump there at all.
+For $p<1$ the poles of $\Gamma(t)$ enter; $D$ is then used only in the inner sector $|\arg z|<\pi p/2$ and is glued to
+an elementary function outside it along two seams. Lemma~\ref{lem:outer} states the result; the constructions for $p\ne1$
 are in Appendix~\ref{app:outer}. The rest of the section (\S\ref{sec:outer-common}) is common to all geometries.
 
-Two facts about $j$ are used in all three geometries. By DLMF~5.11.1 with the remainder bound of DLMF~\S5.11(ii), first
-term $1/(12t)$ (\S\ref{sec:tool-dlmf}), for every $\phi<\pi$,
+Two facts about $j$ are used in all three geometries. By DLMF~5.11.1 and the remainder bound of DLMF~\S5.11(ii)
+(\S\ref{sec:tool-dlmf}), applied with the first neglected term $1/(12t)$, we have for every $\phi<\pi$
 \begin{equation}\label{eq:binet-bound}
   |j(t)|\le\frac{\sec^2(\phi/2)}{12|t|},\qquad |j'(t)|\le\frac{C_\phi}{|t|^2}\qquad(|\arg t|\le\phi,\ |t|\ge1),
 \end{equation}
-the second by Cauchy's estimate on a disc of radius $|t|/C_\phi$ in a slightly larger sector. And for $|t|\le1$,
+the second by Cauchy's estimate on a disc of radius $|t|/C_\phi$ in a slightly larger sector. For $|t|\le1$,
 $\re t\ge0$, $t\ne0$, DLMF~5.5.1 gives $\operatorname{Ln}\Gamma(t)=\operatorname{Ln}\Gamma(1+t)-\ln t$, hence
 \begin{equation}\label{eq:binet-small}
   j(t)=-\tfrac12\ln t-\tfrac12\ln(2\pi)+O(|t|\log(2/|t|))\qquad(t\to0,\ \re t\ge0).

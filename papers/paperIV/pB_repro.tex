@@ -24,7 +24,7 @@ At $(p,\alpha)=(2,-\frac12)$, $f_4=\frac3{128}$ and $f_6=\frac5{1024}$, as in Pr
 
 \subsection*{Scripts}
 All scripts are in \texttt{research/G1/RH/spectral/checks} of the repository named in the data availability statement, next to their stored
-outputs. They use the project's toolkit (recurrence coefficients by a binary128 Stieltjes kernel from double-precision atoms, masses and tail
+outputs. They use a common toolkit (recurrence coefficients by a binary128 Stieltjes kernel from double-precision atoms, masses and tail
 rule, with caches keyed by a hash of the node array and of $(p,s,K)$; see \S\ref{sec:evidence} for the audit of that input), \texttt{mpmath} and \texttt{sympy}; scripts that test a prediction end with assertions and print ``ALL $n$ CHECKS PASSED'' or ``ALL
 IDENTITIES HOLD''. The exact runs of Lemma~\ref{lem:N6d} begin with the SHA-256 hashes of the scripts that produced them:
 \begin{center}
