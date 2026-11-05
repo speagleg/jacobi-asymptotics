@@ -321,3 +321,23 @@ Rem 7.2 (sphere, W′, companion), Rem 7.3 (further directions), Problem 7.4.
   (eq. (1.8), the dictionary). Conj S1-N′ became Problem 7.4(b); Problem `prob:kernel2` became 7.4(c).
 - Remark 7.2: the pole-law synthetic test is summarised as "six rows predicted in advance agree to 4·10⁻⁵ or better (n ≥ 200)" (from the
   old Table 6.4).
+
+## Adversarial-review fixes (2026-11-05)
+Build: 24 pages, 0 errors, 0 overfull boxes, 0 undefined references.
+- Abstract: the Mellin–Barnes claim is restricted to the first-order zeta terms (the band-factor functional e_n; Theorem B proves no
+  more); "predictions fixed before" → "written before"; one sentence saying which estimates are only outlined.
+- §1.5 "Status of the proofs" (new paragraph): which results are proved in full here, which rest on outlined second-order frame
+  estimates that live only in unpublished repo notes (E2/E3, JZC chain), and that Theorem K for p < 1 (JZC_M2, NOT REVIEWED) has no
+  independent check. The dictionary paragraph no longer says the order of predictions and measures is shown by the repository.
+- Theorem A(i), Theorem 4.3(i): the multi-index sum is over r = (r_1, …, r_J) with the n^{-1-(J+1)p} remainder (as written before,
+  the j-sum was unbounded and diverges, since |ζ(−jp)| grows factorially).
+- §7.1 (W5) restated as non-resonance for the coefficients claimed (several test measures have integer poles; JZC_W.md (W5)).
+- §7.2: the pre-registration is self-attested by file mtimes (predictions, test, output and the conjecture share commit c881104);
+  the data are a binary128 kernel fed double-precision atoms and tail (was "quadruple precision"), with the REFIT audit mentioned;
+  11 of the 40 passes are non-discriminating (w_test_discrimination.out); caption reports w_resid's 3/41 failures; "next alternative"
+  for A p = 3 n⁻³ corrected to "no pole: 1208"; probe fits given separately (−0.2313059, +0.2313179).
+- App. B: stale SHA-256 of m4_rh_exact2.py (143a308b…, the 180db4b version) replaced by the current 2d18e259…; the toolkit precision
+  wording corrected; run_all.sh coverage and the undistributed W caches stated.
+Not changed (minor findings, left for the next pass): Prop 3.4's O(η²) remainder wording; §6 precision figures for the p = 1.5
+κ-case (w_outer_e2e KO3 is 1.3e-8 / 1.1e-6 / 5.0e-7); 16 vs 15 digits at p = 0.3 in §3; the literature section's reliance on WebFetch
+summaries (only in a .tex comment); unquoted citations already listed in §3 above.

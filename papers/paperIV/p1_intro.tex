@@ -41,11 +41,11 @@ Put $\mu_{n,j}:=2\zeta(-jp)/(jn^{jp})$ and define the \emph{natural index}
 \begin{mainthm}[zeta values in the Jacobi coefficients of the lattice]\label{thm:A}
 Let $p>0$, $p\ne1$, $s>1$.
 \begin{enumerate}
-\item[(i)] \emph{Double expansion.} For all $K,B\ge1$,
+\item[(i)] \emph{Double expansion.} For all $K,J,B\ge1$,
 \[
-  \frac{n^pb_n}c=\sum_{|\br|\le B}\mu_n^{\br}\,\cD_{\br,K}(n)+O\bigl(n^{-K-1}+n^{-2-(B+1)p}\bigr),
+  \frac{n^pb_n}c=\sum_{|\br|\le B}\mu_n^{\br}\,\cD_{\br,K}(n)+O\bigl(n^{-K-1}+n^{-2-(B+1)p}+n^{-1-(J+1)p}\bigr),
 \]
-where $\mu_n^{\br}=\prod_j\mu_{n,j}^{r_j}$ and the \emph{layers} $\cD_{\br,K}$ are polynomials in $1/n$ of degree at most $K$ with
+where the sum is over multi-indices $\br=(r_1,\dots,r_J)$, $\mu_n^{\br}=\prod_{j\le J}\mu_{n,j}^{r_j}$ and the \emph{layers} $\cD_{\br,K}$ are polynomials in $1/n$ of degree at most $K$ with
 coefficients rational in $(p,\alpha)$, independent of the zeta values and computed by a finite residue recursion.
 \item[(ii)] \emph{Natural form.} In the index $N$, the integer layer is $(n/N)^pF_p(N)$ with
 $F_p(N)=1+\sum_{k\ge1}f_{2k}(p,\alpha^2)N^{-2k}$ even in $N$ to all orders; the first-order zeta layers are
@@ -123,9 +123,10 @@ than the Weyl pole $-1/p$, with residues $R_q$, $pR_qW(q)\pi\cot(\pi q)n^{-1-pq}
 Mellin signature of truncating the per-node law at the soft edge (Lemma~\ref{lem:K0}, Proposition~\ref{prop:M12}). For a general Weyl-type
 spectrum we conjecture (Conjecture~\ref{conj:W}) that $n^pb_n/c$ is the decoupled model with Szeg\H{o} exponent $\alpha-2Z_\Lambda(0)-1$,
 flowed along the Toda hierarchy with times $-2Z_\Lambda(-j)/j$ corrected by the density and mass of the nodes, plus these pole terms. The
-conjecture is proved for the families of Theorems~\ref{thm:A}--\ref{thm:D} (for Theorem~\ref{thm:D} at first order in the poles), it is exact
-for reciprocal squared Bessel zeros (Proposition~\ref{prop:bessel}), and it was tested on nine further measures with predictions stored
-before the measures were computed (\S\ref{sec:evidence}).
+conjecture is proved for the families of Theorems~\ref{thm:A}--\ref{thm:D} (for Theorem~\ref{thm:D} at first order in the poles; in the sense
+of the next paragraph and \S\ref{sec:organisation}), it is exact for reciprocal squared Bessel zeros (Proposition~\ref{prop:bessel}), and it
+was tested on nine further measures with predictions written before the measures were computed (an order attested by file times, not by
+the repository history; \S\ref{sec:evidence}).
 
 \subsection{What is new}\label{sec:new}
 As far as we know (Section~\ref{sec:literature}), the following are new: an asymptotic expansion of recurrence coefficients whose
@@ -146,9 +147,19 @@ the soft edge, and proves Theorem~\ref{thm:B}. Section~\ref{sec:natural} proves 
 recursion and exact computer algebra. Section~\ref{sec:structure} introduces the decoupled model and proves the evenness, the Toda structure of
 the zeta layers and the index-shift law. Section~\ref{sec:hurwitz} proves Theorems~\ref{thm:C} and~\ref{thm:D} (Theorems~\ref{thm:H} and~\ref{thm:kappa}); Section~\ref{sec:weyl} states
 Conjecture~\ref{conj:W} with its evidence and open problems; Section~\ref{sec:literature} relates the results to the literature.
-Appendix~\ref{app:Q} proves the equilibrium proposition and Appendix~\ref{app:repro} lists closed forms and scripts. The analytic estimates
-behind Sections~\ref{sec:structure} and~\ref{sec:hurwitz} are transfers of those of \cite{PaperII} and of Section~\ref{sec:natural}; we outline
-them and do not reproduce them.
+Appendix~\ref{app:Q} proves the equilibrium proposition and Appendix~\ref{app:repro} lists closed forms and scripts.
+
+\emph{Status of the proofs.} Not every theorem is proved in full in this paper, and we say which. Proved here in full, from \cite{PaperII} and the formulas
+cited: Proposition~\ref{prop:Q}, Theorem~\ref{thm:K} for $p>1$, and the exact computer algebra of Lemma~\ref{lem:N6d}. The following rest on analytic estimates that are only outlined here: the second-order frame
+estimates of Section~\ref{sec:frame} (Lemmas~\ref{lem:Fprime}--\ref{lem:E37}, and Proposition~\ref{prop:N6c}, the jumps and small norm to
+every order), which extend \cite{PaperII} and are written out in research notes of the repository that are not part of any published paper;
+the transfer to the second frame behind Corollary~\ref{cor:even} and Theorem~\ref{thm:C}; the transfer to tilted measures behind
+Theorem~\ref{thm:toda} and the index-shift law; and the estimates (H-a)--(H-e) and the outline of the proof of Theorem~\ref{thm:D}. These
+results, including Theorem~\ref{thm:A}(i)--(ii), Theorem~\ref{thm:C} and Theorem~\ref{thm:D}, are therefore proved modulo those written-out
+estimates, which have been checked only by the computational and AI-assisted review described in the repository and not by an
+independent human referee. The case $p<1$ of Theorem~\ref{thm:K}, and hence of Theorem~\ref{thm:B}, has had no independent check. The
+analytic estimates behind Sections~\ref{sec:structure} and~\ref{sec:hurwitz} are transfers of those of \cite{PaperII} and of
+Section~\ref{sec:natural}; we outline them and do not reproduce them.
 
 Throughout, $p>0$, $c=c(p)$, and $\alpha$, $W$, $\varepsilon_j$, $N$ are as in \eqref{eq:alpha-y}--\eqref{eq:N}; $\binom{2q}{q}=
 \Gamma(2q+1)/\Gamma(q+1)^2$ for complex $q$. Numbers obtained by fitting floating-point data are quoted with the spread of the fit over fit

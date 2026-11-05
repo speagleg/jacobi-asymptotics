@@ -24,8 +24,8 @@ At $(p,\alpha)=(2,-\frac12)$, $f_4=\frac3{128}$ and $f_6=\frac5{1024}$, as in Pr
 
 \subsection*{Scripts}
 All scripts are in \texttt{research/G1/RH/spectral/checks} of the repository named in the data availability statement, next to their stored
-outputs. They use the project's toolkit (quadruple-precision recurrence coefficients, with caches keyed by a hash of the node array and of
-$(p,s,K)$), \texttt{mpmath} and \texttt{sympy}; scripts that test a prediction end with assertions and print ``ALL $n$ CHECKS PASSED'' or ``ALL
+outputs. They use the project's toolkit (recurrence coefficients by a binary128 Stieltjes kernel from double-precision atoms, masses and tail
+rule, with caches keyed by a hash of the node array and of $(p,s,K)$; see \S\ref{sec:evidence} for the audit of that input), \texttt{mpmath} and \texttt{sympy}; scripts that test a prediction end with assertions and print ``ALL $n$ CHECKS PASSED'' or ``ALL
 IDENTITIES HOLD''. The exact runs of Lemma~\ref{lem:N6d} begin with the SHA-256 hashes of the scripts that produced them:
 \begin{center}
 \small
@@ -37,8 +37,8 @@ script & SHA-256 & runs (content)\\
  & \texttt{2be3bb9c90b46c0932ff2507c9d9ffcc} & (Lemma~\ref{lem:N6d}(a))\\
 \texttt{m4\_zeta\_exact.py} & \texttt{3df62305bba0a4801a767c252eeee000} & \texttt{m4\_zeta\_exact}\\
  & \texttt{31e499f7c80a36946542fea6cd834041} & ((b), $j\le5$; $g_{1,4}$)\\
-\texttt{m4\_rh\_exact2.py} & \texttt{143a308b8744bfccf3110c3a3f4a60a8} & (shared engine)\\
- & \texttt{f192268b0f65f78b64bf8bd76c116521} & \\
+\texttt{m4\_rh\_exact2.py} & \texttt{2d18e25944304c02b2a38290bfe36013} & (shared engine)\\
+ & \texttt{727e6e99fe7ae6032ba6aa2cdb5cbc06} & \\
 \texttt{m4\_zeta\_exact2.py} & \texttt{badda6a534fbf621c2bbef3eca6c7822} & \texttt{\_A}: (b), $j$ symbolic;\\
  & \texttt{b26d13493a655a1655860449a8bab9f4} & \texttt{\_B}: (c)\\
 \bottomrule
@@ -57,13 +57,16 @@ used in & scripts\\
 \S\ref{sec:structure} & \texttt{m4\_shift\_exact}, \texttt{sigma\_frame\_exact} (exact), \texttt{sigma\_frame\_num}, \texttt{toda\_measures},
   \texttt{toda\_layers}, \texttt{shift\_toda}, \texttt{shift\_exact}, \texttt{shift\_dressing}, \texttt{m4\_toda}, \texttt{m4\_diag}\\
 \S\ref{sec:hurwitz} & \texttt{m3a\_e37\_decoupled}, \texttt{m3a\_g5\_exact} (exact), \texttt{m3a\_hd\_model}, \texttt{w\_outer\_e2e}\\
-\S\ref{sec:weyl} & \texttt{w\_predict}, \texttt{w\_test}, \texttt{w\_resid}, \texttt{w\_probe}, \texttt{w\_probe2}, \texttt{spec\_pole},
+\S\ref{sec:weyl} & \texttt{w\_predict}, \texttt{w\_test}, \texttt{w\_test\_discrimination}, \texttt{w\_resid}, \texttt{w\_probe}, \texttt{w\_probe2}, \texttt{spec\_pole},
   \texttt{spec\_gamma}, \texttt{spec\_corners}, \texttt{spec\_homog}, \texttt{spec\_jitter}, \texttt{spec\_stats}, \texttt{large\_order/*}\\
 \bottomrule
 \end{tabular}
 \end{center}
 The shell script \texttt{run\_all.sh} regenerates the exact runs (about $35$ minutes) and the \texttt{m1\_}, \texttt{m4\_} and
 \texttt{spec\_} computations; the scripts \texttt{sigma\_*}, \texttt{toda\_*}, \texttt{shift\_*}, \texttt{m3a\_*}, \texttt{w\_*}, \texttt{m4\_toda},
-\texttt{m4\_diag} and \texttt{large\_order/*} are run individually, and the measures of \S\ref{sec:evidence} are cached outside the repository.
+\texttt{m4\_diag} and \texttt{large\_order/*} are run individually, as are \texttt{spec\_corners}, \texttt{spec\_quartic} and
+\texttt{spec\_qN}, which \texttt{run\_all.sh} lists without running. The measures of \S\ref{sec:evidence} are cached outside the repository
+and are not distributed, so \texttt{w\_test} and \texttt{w\_resid} can be checked only by regenerating them; \texttt{w\_test\_discrimination}
+re-reads the stored output of \texttt{w\_test}.
 % TODO: add the individually run scripts to run_all.sh (the W caches live in tmp/w_cache, gitignored) before the tag is made; check
 % which spec_ scripts run_all.sh actually executes (some are listed there only in comments).
