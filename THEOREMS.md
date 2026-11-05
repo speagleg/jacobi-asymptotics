@@ -394,6 +394,28 @@ Pairings: repo a_n = α_{n−1}, so "a_n/(2b_n)" = α_{n−1}/(2b_n) (coefficien
 
 Novelty UNCHECKED (Prop 3.1 classical, not claimed; UL.md Lemma V and Prop SV elementary, not claimed).
 
+### 2.11 Spectral dictionary (research/G1/RH/spectral/; Paper IV sources; added 2026-11-05)
+
+Rows added after an adversarial review found that none of these results were registered here. Labels are copied from the
+notes' own status headers; nothing is upgraded. All Rule R readers for this section were subagents of one orchestrating session
+(see the review files), and several results have a **single** reader; the "Readers" column says which. Novelty per
+NOVELTY_Q / NOVELTY_TODA / NOVELTY_ZETA / NOVELTY_JZC.
+
+| Result | Statement (short) | Label | Readers | Where |
+|---|---|---|---|---|
+| Thm Q, Cor Q.1, Prop M1.2 | constrained equilibrium with an infinite-mass hard-edge constraint, unit mass, no external field: ν on [0, a], σ on [a, Y]; a = 4c for the lattice | PROVED + REVIEWED (no external input; energy positivity = Paper I Lemma 3.3). Rule C open: Plemelj–Privalov used for (iii) boundary values, NOT QUOTED. Novelty PARTIALLY KNOWN (Beckermann–Kuijlaars 2001, finite mass) | 2 (A, B) | JZC_M1.md |
+| Thm K (p > 1), Thm K′ (p < 1) | the band-factor functional e_n as a Mellin–Barnes integral with kernel π[cot(πwp/2) − cot(πw)] | PROVED-mod-cite (Mellin–Barnes for (1 + x)^{−3/2} NOT QUOTED); **NOT REVIEWED** | 0 | SPEC.md §3.14, JZC_M2.md |
+| Thm N.6 (Lemmas N.6a–d) | double expansion of n^pb_n/c in 1/n and μ_n; natural forms; explicit expansion to O(n⁻⁷ + n^{−2−3p}) | PROVED-mod-cite + REVIEWED | 2 (A, B) | JZC_M4_proof.md |
+| Thm Σ, Cor Σ.1–Σ.2 | decoupled model M(β, ν): (n/N)^pF_p(N; ν²), N = n + (β + 1)/2, F_p β-free (formal, all orders) | PROVED-mod-cite (Lemma F (ii)) + REVIEWED | 1 (A) | JZC_SIGMA.md |
+| Thm H [JZC] (Hurwitz lattices) | λ_k = (k + δ)^p: double expansion = M(α + 2δ, α) with ζ(−jp, 1 + δ); **not** item 11's Theorem H, see §6 | (i) PROVED-mod-cite, every memo link REVIEWED; note status DRAFT, assembled | links: 1–2 | JZC_M3a_H*.md |
+| Lemma T.1, T.2 | Toda hierarchy for exponential tilts; formal identities via a Baire argument | PROVED + REVIEWED | 1 (A) | JZC_TODA.md |
+| Lemma T.A, T.B, Thm T, T_H, Cor T.3 | transfer of N.6 / H (i) to tilted measures; formal Toda hierarchy for the layers | PROVED-mod-cite + REVIEWED. **Scope:** the "cite" is the whole RH chain (E_pgt1, E_plt1, RH_px, G1u) transferred by a table; the reader checked only how the weight enters those rows, not the rows line by line | 1 (A) | JZC_TODA.md |
+| Thm SH, Prop DR, Lemmas LB, D, R, H | index-shift law (Lagrange–Bürmann of (n/x)^p); dressings | SH, DR: PROVED-mod-cite (Theorem T) + REVIEWED; LB, D, R, H: PROVED + REVIEWED. Cor SH.2 at fractional exponents also rests on JZC_W2 Prop 2.1 (iii), NOT REVIEWED. R5: 10 of 23 registered TD predictions untestable (JZC_SHIFT §4.2) | 1 (A) | JZC_SHIFT.md |
+| P K.12, Prop K.12′ (κ-family, p > 1) | λ_k = (k + δ)^p + κ: W at first order in the poles, pole term −2(2 − p)cκ n^{−p} | PROVED-mod-cite + REVIEWED (WE.1 by review B) | 2 (A; B for WE.1) | JZC_W_kappa.md |
+| JZC_W_plt1 Prop 1–3 (κ-family, p < 1) | closed-form edge a_ε = 4c(1 − εa_ε)^{1−p/2}; sign conditions; frame | **NOT REVIEWED.** Prop 1 PROVED (elementary); Prop 2: κ > 0 PROVED-mod-cite, **κ < 0 GAP** (Liouville step, relabelled 2026-11-05); Prop 3 (iv) PROOF SKETCH | 0 | JZC_W_plt1.md |
+| JZC_W2 Prop 2.1, Thm 2.5 | W at second order in the poles | NOT REVIEWED | 0 | JZC_W2.md |
+| Conjecture W, W′, W_<1 | general Weyl-type spectra | CONJECTURE (NUMERICAL); pre-registration self-attested by mtimes only, not ordered in git (JZC_W.md §2) | – | JZC_W*.md |
+
 ## 3. Dependency summary
 
 ### 3.1 External citations → results
@@ -700,7 +722,7 @@ No name was changed. Where a name means different things, the meaning is fixed b
 | **Lemma S vs Theorem S** | G3′ Lemma S (index shift, §4); G3′ Theorem S (SPC_ℂ⁺ ⇒ G3′, rhfree/RHFREE.md §3) and S′ (RHFREE2); RH_plt1b Lemma S(iii) (seam); Lemma Sat (G3′ §5.2), Sat_p, Sat_p⁺ (G1). |
 | **N** | G3′ Proposition N (counting information does not decide G3′, §5) and Theorems N′, N″, N‴; Lemma N and Cor. N1 (inertia bound, rhfree/RHFREE2 §2); N₀ (smooth counting function); N(T) (zero counting). |
 | **P** | (1) "Law P" (the target law). (2) citation **(P)** = Beckermann–Kalyagin–Matos–Wielonsky Lemma 2.1 (G2 CITATIONS), as in "PROVED-mod-cite (P)". (3) item 11 Lemma P (α ≥ 2β), Lean `lemmaP`. (4) G3′ Corollary P (RH + (V) ⇒ G3′, §9.1; the G3′ §0 row is named "P"). (5) Lemmas P1–P3 (rhfree/RHPRIME). (6) Lemma PC, PC′ (rhfree). (7) RH_zeta.md E1(iv) "the positivity lemma (P)" = the same citation (P) (G2 CITATIONS: "Positivity of logarithmic energy"). Since Plan 47 (P) is replaced in G2 by **Lemma EP** (energy positivity, G2 §1). (8) G1 §3.1 P_n = Heine measure; p = the exponent. |
-| **H** | item 11 Theorem H (p ∈ {1,2}); G2 Theorem H_all; Lean named input `TheoremHPure`; Theorem H_L and Corollary H_L-ζ; item 11 Lemmas H1–H7; G3′ Lemma H (determinantal deletion, §5.2); G2 Cor. H-input. |
+| **H** | **Not** JZC_M3a_H's "Theorem H" (Hurwitz lattices, §2.11), which is unrelated and written Thm H [JZC] here. item 11 Theorem H (p ∈ {1,2}); G2 Theorem H_all; Lean named input `TheoremHPure`; Theorem H_L and Corollary H_L-ζ; item 11 Lemmas H1–H7; G3′ Lemma H (determinantal deletion, §5.2); G2 Cor. H-input. |
 | **R** | Rule R (review); G1 Conjecture R and Theorem R (§§3.2, 3.6) with Lemmas R1, R2; G3′ Lemma R (pair factors under thinning, §7). |
 | **L** | G1 Theorem L (localization at scale Mn, §3.8) and Lemma LP; G3′ Theorem L′ (log-gap condition, §4.1) and G3′-L (lower bound); L(j) = j²x̃_j (slow factor of the smooth ζ model, G3′ §1) and item 11's L in H_L. |
 | **T** | G3′ Theorem T, T′ (thinning, §7); G1 hypothesis (T3) and Theorems T3-conv, T3-sv, T3a, T3-avg, T3-all, T3-log; Lemma Tr (G3′ §4.1). |

@@ -42,5 +42,9 @@ for ps in sys.argv[1:]:
     preds[str(pv)] = P
 out = {"written": time.strftime("%Y-%m-%d %H:%M:%S"), "unix": time.time(), "p": preds,
        "also": "g1[6] = 0; j-poles of g1[7] exactly 1/2, 3/2, 5/2, simple"}
+# Registration guard (2026-11-05, adversarial review): a registration is never rewritten. To re-register on purpose, set
+# W_REREGISTER=1 and commit the new json BEFORE running the test, so git (not mtimes) orders prediction and test.
+if os.path.exists(os.path.join(here, "w_bt_predictions.json")) and os.environ.get("W_REREGISTER") != "1":
+    print("w_bt_predictions.json exists: registration is never rewritten (set W_REREGISTER=1 to override)"); sys.exit(0)
 json.dump(out, open(os.path.join(here, "w_bt_predictions.json"), "w"), indent=1)
 print(f"written w_bt_predictions.json at {out['written']}")

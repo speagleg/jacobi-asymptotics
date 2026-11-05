@@ -6,7 +6,10 @@ Usage: shift_exact.py R1|...|R6 [registration json; default shift_predictions.js
   (b)  for symbolic beta (R1): the leading coefficients are beta-free.
 Controls (must fail): the leading coefficient with the shift coefficient 1/p replaced by 1/(2p) (kappa = 1/2) and with the exponent
 p + 1 + S replaced by p + 2 + S, for every monomial of order >= 2; for TD: the bare index-shift law (dressing set to 0) at the
-relative-N^-2 coefficients of order >= 2."""
+relative-N^-2 coefficients of order >= 2.
+Untestable registrations (2026-11-05 fix, adversarial review): a registered key whose monomial the engine run does not produce (or
+produces to too low an order) cannot be compared. It used to be skipped silently; it is now listed and counted as UNTESTED, and the
+run reports "tested / registered" for LB and TD. An UNTESTED key is not a pass."""
 import os, sys, json, subprocess, time, datetime
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 from shift_common import *
@@ -36,10 +39,13 @@ nat = {tuple(map(int, k.split(','))): [sp.sympify(x, locals=loc) for x in v] for
 C = Checks()
 z = lambda e: sp.simplify(sp.cancel(sp.together(e))) == 0
 # (LB)
-nLB = 0; leads = []
+nLB = 0; leads = []; untested = []
+def testable(kk):
+    a, b, k = map(int, kk.split(','))
+    return (a, b) in nat and k < len(nat[(a, b)])
 for kk, v in run['LB'].items():
     a, b, k = map(int, kk.split(','))
-    if (a, b) not in nat or k >= len(nat[(a, b)]): continue
+    if not testable(kk): untested.append(('LB', kk, v)); continue
     got = nat[(a, b)][k]; pred = sp.sympify(v, locals=loc)
     ok = z(got - pred); nLB += 1
     if k == a + b: leads.append(((a, b), got))
@@ -60,13 +66,18 @@ for mo, got in leads:
     C.check(f"{name} control e1^{mo[0]} e2^{mo[1]}: shift coefficient 1/(2p)", z(got - LB(beta, jj, p, kappa=sp.Rational(1, 2))), must_fail=True)
     C.check(f"{name} control e1^{mo[0]} e2^{mo[1]}: exponent p + 2 + S", z(got - LB(beta, jj, p, shiftc=2)), must_fail=True)
 # (TD)
+nTD = 0
 for kk, v in sorted(run['TD'].items()):
     a, b, k = map(int, kk.split(','))
-    if (a, b) not in nat or k >= len(nat[(a, b)]): continue
+    if not testable(kk): untested.append(('TD', kk, v)); continue
+    nTD += 1
     got = nat[(a, b)][k]; pred = sp.sympify(v, locals=loc)
     C.check(f"{name} TD nat[e1^{a} e2^{b}][N^-{k}] = {pred}", z(got - pred))
     if k == a + b + 2 and a + b >= 2:
         C.check(f"{name} control: bare shift law (no dressing) at nat[e1^{a} e2^{b}][N^-{k}]", z(got), must_fail=True)
 for mo, v in sorted(nat.items()):
     if mo != (0, 0): print(f"   nat[e1^{mo[0]} e2^{mo[1]}] = {[str(sp.factor(x)) for x in v]}", flush=True)
+print(f"REGISTERED vs TESTED: LB {nLB}/{len(run['LB'])}, TD {nTD}/{len(run['TD'])}")
+for kind, kk, v in untested:
+    print(f"   UNTESTED ({kind}, monomial/order not produced by this engine run): [{kk}] = {v}")
 C.finish()

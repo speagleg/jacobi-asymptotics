@@ -1,9 +1,9 @@
-sha256 shift_exact.py: 013c3c7376ffac52b4e10d801f7e6957e02ecdaac49e05214d8d005ff324b5f9
+sha256 shift_exact.py: 2b864debe8204dfd0393881e47ec44a2b07d777989c30e5a7171c7316557c505
 sha256 shift_common.py: 1a4c1c70a5e4c0b976aa39e339dcc4dbde6f32607c7f4cd02b0a4d979d3f023a
 sha256 w2_engine.py: 8e69b2e33912b097cf6cf8abd27df0c9c0910735395e29c8292e4b2506bca02d
 sha256 shift_predictions.json: ac50dc6812012d37994267aaf9e619312fb06ed5d037b66e35babaff7293a1d8
-engine R6 {'DECOUPLE': '0', 'PVAL': '5/2', 'AVAL': '-3/5', 'J1VAL': '1', 'E1': '3', 'E2': '0', 'KORD': '5', 'SHI': '26', 'NT': '18'}: cached output eng_R6_bacdc8499ea0.json
-registration 2026-10-23T08:32:31-06:00 predates the engine output (2026-10-23T08:36:49)
+engine R6 {'DECOUPLE': '0', 'PVAL': '5/2', 'AVAL': '-3/5', 'J1VAL': '1', 'E1': '3', 'E2': '0', 'KORD': '5', 'SHI': '26', 'NT': '18'}: 62s
+registration 2026-10-23T08:32:31-06:00 predates the engine output (2026-11-05T11:31:31)
 [1] identity: R6 LB nat[e1^1 e2^0][N^-1] = 5/4: holds -> PASS
 [2] identity: R6 LB nat[e1^2 e2^0][N^-2] = 85/32: holds -> PASS
 [3] identity: R6 LB nat[e1^3 e2^0][N^-3] = 55/8: holds -> PASS
@@ -32,5 +32,6 @@ registration 2026-10-23T08:32:31-06:00 predates the engine output (2026-10-23T08
    nat[e1^1 e2^0] = ['0', '5/4', '0', '1319/600', '0', '13942399/4560000']
    nat[e1^2 e2^0] = ['0', '0', '85/32', '0', '156411/12800', '0']
    nat[e1^3 e2^0] = ['0', '0', '0', '55/8', '0', '11030827/153600']
+REGISTERED vs TESTED: LB 9/9, TD 15/15
 ALL 24 CHECKS PASSED (18 identities, 6 controls; failures: 0)
 EXIT 0

@@ -243,7 +243,7 @@ layer, §5.1) and generic symbols beyond n⁻²; only coefficients free of those
 | R2 | 997 s | 8 LB leads incl. **e₁²e₂²: 5j²k²(10j + 10k + 7)(10j + 10k + 9)(10j + 10k + 11)/1024** + 18 zeros; 12 controls fail |
 | R3 | 160 s | 10 LB leads incl. e₁⁵ = 7/2592, e₁⁴e₂ = 7/96 + 36 zeros; 16 controls fail |
 | R4 | 142 s | 6 LB leads incl. **e₁⁶ = 64881729/40960000** + 21 zeros; 10 controls fail |
-| R5 | 16 s | 3 LB + 13 Toda-dressing coefficients hold (incl. h(1, 2) at p = 5/2, symbolic α); control "no dressing" fails |
+| R5 | 16 s | 3 LB + 13 Toda-dressing coefficients hold (incl. h(1, 2) at p = 5/2, symbolic α); control "no dressing" fails. **13 of the 23 registered TD predictions were tested**: the 10 for e1² and e2² (incl. the nonzero [0,2,2] = 135/8, [0,2,4] = 3(2307α² + 12098)/128, [2,0,2] = 85/32, [2,0,4] = 27(2α² + 231)/512) are UNTESTED, because this run (E1 = E2 = 1) does not produce those monomials; they were skipped silently until the 2026-11-05 fix to shift_exact.py, which now lists them |
 | R6 | 33 s | 3 LB + 15 Toda coefficients hold (μ₁² and μ₁³ dressings); 2 "no dressing" controls fail |
 
 All registered predictions hold exactly; every control fails. (Orders 5 and 6 and the mixed fourth order e₁²e₂² are new; the fourth

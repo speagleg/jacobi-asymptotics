@@ -35,5 +35,9 @@ for p in PS:
     pred["p"][str(p)] = {"P0": str(P0), "P1": str(P1), "P2": str(P2)}
     print(f"p = {p}:\n  P0 Res_(j=1/2) g1[3] = {P0}\n  P1 Res_(j=3/2) g1[5] = {P1}\n  P2 Res_(j=1/2) g1[5] = {P2}  (rho* = {rs})")
 out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "w_exact_predictions.json")
+# Registration guard (2026-11-05, adversarial review): a registration is never rewritten. To re-register on purpose, set
+# W_REREGISTER=1 and commit the new json BEFORE running the test, so git (not mtimes) orders prediction and test.
+if os.path.exists(out) and os.environ.get("W_REREGISTER") != "1":
+    print("w_exact_predictions.json exists: registration is never rewritten (set W_REREGISTER=1 to override)"); sys.exit(0)
 json.dump(pred, open(out, "w"), indent=1)
 print(f"predictions written {pred['written']} -> {os.path.basename(out)}")
