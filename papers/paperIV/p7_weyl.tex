@@ -1,5 +1,5 @@
 % Section 7: Conjecture W, its evidence and open problems (from archive/sec7.tex Sec. 7.3 and archive/sec6.tex Sec. 6.5, trimmed;
-% memos JZC_W.md (Conj W: CONJECTURE (NUMERICAL); W': CONJECTURE), JZC_W_BT.md).
+% memos JZC_W.md, where Conjecture W is a conjecture supported numerically and the refinement W' a conjecture, and JZC_W_BT.md).
 \section{Weyl-type spectra: Conjecture W}\label{sec:weyl}
 
 \subsection{The statement}\label{sec:conj-W}
@@ -8,20 +8,20 @@ Let $\sigma:=\sum_kw_k\delta_{1/\lambda_k}$ with:
 \item[(W1)] distinct nodes $0<\lambda_1<\lambda_2<\dotsb\to\infty$ (eigenvalues with multiplicity are merged into one node, and the multiplicity
 goes into the mass);
 \item[(W2)] an index function $\mathfrak n$ with $\mathfrak n(\lambda_k)=k$ and a termwise differentiable expansion
-$\mathfrak n(\lambda)=\lambda^{1/p}+\sum_{r\in\mathcal R}A_r\lambda^r+\mathfrak n_0+O(\lambda^{-M})$, $\mathcal R\subset(-\infty,\frac1p)\setminus\{0\}$ finite for
-each $M$ (this excludes fluctuating counting functions);
-\item[(W3)] masses $w_k=\lambda_k^{-s/p}v(\lambda_k)$, $v(\lambda)=v_0\lambda^\tau(1+\sum_\rho b_\rho\lambda^{-\rho})$, $\rho>0$, with
-$s_{\mathrm{eff}}:=s-p\tau>1$ and, in this section, $\alpha:=(s_{\mathrm{eff}}-1-p)/p$;
+$\mathfrak n(\lambda)=\lambda^{1/p}+\sum_{r\in\mathcal E}\mathfrak n_r\lambda^r+\mathfrak n_0+O(\lambda^{-K})$, $\mathcal E\subset(-\infty,\frac1p)\setminus\{0\}$ finite for
+each $K$ (this excludes fluctuating counting functions);
+\item[(W3)] masses $w_k=\lambda_k^{-s/p}v(\lambda_k)$, $v(\lambda)=v_0\lambda^\omega(1+\sum_\rho v_\rho\lambda^{-\rho})$, $\rho>0$, with
+$s_{\mathrm{eff}}:=s-p\omega>1$ and, in this section, $\alpha:=(s_{\mathrm{eff}}-1-p)/p$;
 \item[(W4)] $p\ne1$;
 \item[(W5)] non-resonance for the coefficients claimed: if a pole $q$ below is an integer, the integer term and the pole term
 merge into $n^{-1-pq}\log n$, and no claim is made at $n^{-1-pq}$ and beyond for that family of terms (several test measures below have
 integer poles).
 \end{enumerate}
-The spectral data are: $Z(w)=\sum_k\lambda_k^{-w}$, continued by (W2), with $Z(0)=\mathfrak n_0-\frac12$; the poles $q=-r$ of $Z(-w)$, $r\in\mathcal R$,
-with residues $R_q=qA_{-q}$ (the Weyl pole $-\frac1p$ excluded); the density factor $D(x):=\mathfrak n'(\lambda)/(\frac1p\lambda^{1/p-1})$ and the
-mass factor $V(x):=v(1/x)x^\tau/v_0$ at $x=1/\lambda$, with $\log V+\log D=:\sum_\rho B_\rho x^\rho$; and the \emph{Toda times}
+The spectral data are: $Z(w)=\sum_k\lambda_k^{-w}$, continued by (W2), with $Z(0)=\mathfrak n_0-\frac12$; the poles $q=-r$ of $Z(-w)$, $r\in\mathcal E$,
+with residues $R_q=q\mathfrak n_{-q}$ (the Weyl pole $-\frac1p$ excluded); the density factor $D(x):=\mathfrak n'(\lambda)/(\frac1p\lambda^{1/p-1})$ and the
+mass factor $V(x):=v(1/x)x^\omega/v_0$ at $x=1/\lambda$, with $\log V+\log D=:\sum_\rho\vartheta_\rho x^\rho$; and the \emph{Toda times}
 \[
-  t_j:=-\frac{2Z(-j)}j+B_j\quad(j\in\N),\qquad t_\rho:=B_\rho\quad(\rho\notin\N).
+  t_j:=-\frac{2Z(-j)}j+\vartheta_j\quad(j\in\N),\qquad t_\rho:=\vartheta_\rho\quad(\rho\notin\N).
 \]
 For the lattice, $Z(0)=-\frac12$, $Z(-j)=\zeta(-jp)$, there are no poles, $D=V=1$, and $t_j$ are the times~\eqref{eq:todatimes}.
 
@@ -38,13 +38,13 @@ claimed.
 \end{conjecture}
 
 The first sum is $M(\beta,\nu)$ flowed along the Toda hierarchy (Theorem~\ref{thm:toda}); since $\varepsilon_j=pW(j)Z(-j)=-\frac{pjW(j)}2t_j$ at
-$B_j=0$, there is one linear response $-\frac{p\rho W(\rho)}2t_\rho$ for every time, integer or not. At first order in each datum the conjecture is
+$\vartheta_j=0$, there is one linear response $-\frac{p\rho W(\rho)}2t_\rho$ for every time, integer or not. At first order in each datum the conjecture is
 the dictionary~\eqref{eq:dictionary} of the introduction. \emph{Proved cases:} the lattice (Theorem~\ref{thm:N6}, Corollary~\ref{cor:even}),
 Hurwitz lattices (Theorem~\ref{thm:H}), and the shifted Hurwitz lattices at first order in the poles (Theorem~\ref{thm:kappa}). \emph{Exact
-case:} for $\lambda_k=(j_{\nu',k}/\pi)^2$, $s=2$, the poles are half-integers, where $\cot(\pi q)=0$, and the Toda times computed from the spectral
-data vanish to the precision of the regularised sums ($|t_1|<10^{-21}$). The conjecture therefore predicts the bare model $M(\nu'-1,-\frac12)$,
+case:} for $\lambda_k=(j_{\theta,k}/\pi)^2$, $s=2$, the poles are half-integers, where $\cot(\pi q)=0$, and the Toda times computed from the spectral
+data vanish to the precision of the regularised sums ($|t_1|<10^{-21}$). The conjecture therefore predicts the bare model $M(\theta-1,-\frac12)$,
 which is Proposition~\ref{prop:bessel}. \emph{Multiplicities:} for the sphere, nodes $l(l+1)$ with multiplicity $2l+1$, the distinct nodes have $p=2$ (with
-multiplicities counted the Weyl exponent would be $1$), and $Z(-j)=0$ for every $j\ge1$: with $t=l+\frac12$, $(t^2-\frac14)^j$ is even in $t$ and
+multiplicities counted the Weyl exponent would be $1$), and $Z(-j)=0$ for every $j\ge1$: with $u=l+\frac12$, $(u^2-\frac14)^j$ is even in $u$ and
 $\zeta(-2m,\frac32)=-2^{-2m}$, so $Z(-j)=-(\frac14-\frac14)^j=0$; mass and density factors cancel, and the conjecture predicts the bare model
 $M(1,0)$.
 
@@ -64,9 +64,9 @@ coefficients, $40$ pass; the exception is the sphere at $n^{-4}$, outside the cl
 passing rows some alternative is also within $10$ tolerances, no alternative is available, or the tolerance exceeds the predicted value, so
 that the prediction $0$ would pass as well. The other $29$ passes exclude every alternative by more than $10$ tolerances (script
 \texttt{w\_test\_discrimination}). The non-discriminating rows are mostly the deepest coefficients ($n^{-3}$ and $n^{-3.5}$ at $p=P=1.5$) and
-the rows $p=0.6$; the script output lists all eleven. The families are (A) $\lambda_k=k^p+ak^{p-1}$, a
-Hurwitz offset $a/p$ plus decaying corrections, $Z(0)=-\frac12-\frac ap$, poles at $q_i=(i-1)/p$; (B) Bessel zeros $(j_{\nu',k}/\pi)^P$,
-$Z(0)=-\frac{\nu'}2-\frac14$, poles at $(2i-1)/P$; (M2) nodes $l^{3/2}$ with masses $(2l+1)l^{-3}$, a fractional time $\rho=\frac23$; (M1) the sphere,
+the rows $p=0.6$; the script output lists all eleven. The families are (A) $\lambda_k=k^p+\xi k^{p-1}$, a
+Hurwitz offset $\xi/p$ plus decaying corrections, $Z(0)=-\frac12-\frac\xi p$, poles at $q_i=(i-1)/p$; (B) Bessel zeros $(j_{\theta,k}/\pi)^P$,
+$Z(0)=-\frac\theta2-\frac14$, poles at $(2i-1)/P$; (M2) nodes $l^{3/2}$ with masses $(2l+1)l^{-3}$, a fractional time $\rho=\frac23$; (M1) the sphere,
 $s=4$. Table~\ref{tab:W} shows a selection.
 
 \begin{table}[ht]
@@ -77,13 +77,13 @@ $s=4$. Table~\ref{tab:W} shows a selection.
 \toprule
 measure & coeff. & prediction & fit (spread) & difference & next alternative\\
 \midrule
-A: $p=1.5$, $a=-\frac34$ & $n^{-2}$ & $+0.0984431$ & $+0.0984431$ $(3\cdot10^{-5})$ & $-3\cdot10^{-9}$ & no pole: $1392$\\
+A: $p=1.5$, $\xi=-\frac34$ & $n^{-2}$ & $+0.0984431$ & $+0.0984431$ $(3\cdot10^{-5})$ & $-3\cdot10^{-9}$ & no pole: $1392$\\
  & $n^{-2.5}$ & $+0.2215758$ & $+0.2215749$ $(4\cdot10^{-5})$ & $-9\cdot10^{-7}$ & no $Z(-j)$: $1912$\\
-A: $p=3$, $a=-0.6$ & $n^{-2}$ & $+0.1347742$ & $+0.1347742$ $(5\cdot10^{-9})$ & $+5\cdot10^{-10}$ & no pole: $31968$\\
+A: $p=3$, $\xi=-0.6$ & $n^{-2}$ & $+0.1347742$ & $+0.1347742$ $(5\cdot10^{-9})$ & $+5\cdot10^{-10}$ & no pole: $31968$\\
  & $n^{-3}$ & $+0.0452648$ & $+0.0452649$ $(2.7\cdot10^{-6})$ & $+1.0\cdot10^{-7}$ & no pole: $1208$\\
-A: $p=0.6$, $a=-0.3$ & $n^{-2}$ & $+0.1329122$ & $+0.1327116$ $(1.1\cdot10^{-3})$ & $-2.0\cdot10^{-4}$ & no pole: $27$\\
-B: $\nu'=0$, $P=1.5$ & $n^{-2}$ & $+0.1957151$ & $+0.1957150$ $(1.4\cdot10^{-5})$ & $-1.3\cdot10^{-7}$ & no pole: $562$\\
-B: $\nu'=0$, $P=3$ & $n^{-2}$ & $+0.0742502$ & $+0.0742502$ $(3\cdot10^{-9})$ & $+5\cdot10^{-10}$ & no pole: $10692$\\
+A: $p=0.6$, $\xi=-0.3$ & $n^{-2}$ & $+0.1329122$ & $+0.1327116$ $(1.1\cdot10^{-3})$ & $-2.0\cdot10^{-4}$ & no pole: $27$\\
+B: $\theta=0$, $P=1.5$ & $n^{-2}$ & $+0.1957151$ & $+0.1957150$ $(1.4\cdot10^{-5})$ & $-1.3\cdot10^{-7}$ & no pole: $562$\\
+B: $\theta=0$, $P=3$ & $n^{-2}$ & $+0.0742502$ & $+0.0742502$ $(3\cdot10^{-9})$ & $+5\cdot10^{-10}$ & no pole: $10692$\\
  & $n^{-3}$ & $+0.0049259$ & $+0.0049264$ $(1.2\cdot10^{-5})$ & $+4.8\cdot10^{-7}$ & no shift: $276$\\
 M2 & $n^{-2}$ & $+0.1180556$ & $+0.1180558$ $(3.8\cdot10^{-6})$ & $+2.7\cdot10^{-7}$ & no mass tilt: $21830$\\
 M1 (sphere) & $n^{-3}$ & $-5$ & $-4.99999992$ $(3\cdot10^{-6})$ & $8\cdot10^{-8}$ & one tilt only: $12851$\\
@@ -92,8 +92,8 @@ M1 (sphere) & $n^{-3}$ & $-5$ & $-4.99999992$ $(3\cdot10^{-6})$ & $8\cdot10^{-8}
 \end{tabular}
 \caption{Conjecture~\ref{conj:W} against fits (scripts \texttt{w\_predict}, \texttt{w\_test}); the last column gives the miss of the closest
 alternative in units of the tolerance. The rows $p=0.6$ are the weakest tests. The fit-free residual check (script \texttt{w\_resid}) fails
-in $3$ of $41$ rows: the sphere's $n^{-4}$ (shown) and the non-discriminating $n^{-3.5}$ rows of $A$, $p=1.5$, $a=-\frac34$, and of $B$,
-$\nu'=0$, $P=1.5$ (not shown).}
+in $3$ of $41$ rows: the sphere's $n^{-4}$ (shown) and the non-discriminating $n^{-3.5}$ rows of $A$, $p=1.5$, $\xi=-\frac34$, and of $B$,
+$\theta=0$, $P=1.5$ (not shown).}
 \label{tab:W}
 \end{table}
 
@@ -122,9 +122,9 @@ proved for actual measures.
 \begin{remark}[further directions]\label{rem:further}
 The following are numerical or heuristic and are not used. \emph{Drums} ($p=1$, outside the theorems): for smoothed Dirichlet spectra of planar
 domains, rescaled to unit Weyl density, the perimeter gives a pole at $q=-\frac12$, where $W$ has a pole and $\cot(\pi q)=0$. It appears at order
-$n^{-1/2}$ with the $0\cdot\infty$ limit $-\pi\beta/(2\sqrt2)$ of the pole weight, $\beta=\mathcal P/\sqrt{4\pi\mathcal A}$, to $10^{-5}$ for four
+$n^{-1/2}$ with the $0\cdot\infty$ limit $-\pi\varpi/(2\sqrt2)$ of the pole weight, $\varpi=\mathcal P/\sqrt{4\pi\mathcal A}$, to $10^{-5}$ for four
 domains; the corner and curvature constant enters through $pZ(0)$ (script \texttt{spec\_corners}). \emph{Anharmonic oscillators}
-$-\frac{\diff^2}{\diff q^2}+q^N$: the pole term is the rational number $\frac{N-1}{6(N+2)}$, conditionally on the second-order Bohr--Sommerfeld
+$-\frac{\diff^2}{\diff y^2}+y^L$: the pole term is the rational number $\frac{L-1}{6(L+2)}$, conditionally on the second-order Bohr--Sommerfeld
 condition, and is reproduced to between $10^{-10}$ and $7\cdot10^{-8}$ (script \texttt{spec\_homog}).
 % TODO (citation): the second-order Bohr--Sommerfeld (Dunham) term is not quoted in the project's citation record.
 \emph{Irregular spectra}: if the nodes deviate from a smooth node function by a fraction of the spacing, the expansion is replaced by noise of

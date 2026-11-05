@@ -52,13 +52,13 @@ All matrices are $2\times2$, $|\cdot|$ is a fixed matrix norm, $e_1,e_2$ are the
   J:=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\qquad M=\frac1{\sqrt2}\begin{pmatrix}1&i\\i&1\end{pmatrix},\qquad
   \varrho_\pm:=e^{\mp i\pi\alpha}.
 \]
-Constants $C$ may depend on $p$, $s$, $\ell$ and on the radii $\delta$ (at $0$) and $\varepsilon$ (at $4c$), but never
+Constants $C$ may depend on $p$, $s$, $\ell$ and on the radii $\delta$ (at $0$) and $\eps$ (at $4c$), but never
 on $n$ or on the point $z$; they may change from line to line. Exponentially small factors are written $e^{-n/C}$.
 Powers and logarithms are principal unless said otherwise. The Cauchy transform $\Cauchy$, its boundary values
 $\Cauchy_\pm$, the operator $\Cauchy_vf=\Cauchy_-(f(v-I))$ and the class $I+\dC(L^2)$ are as in \S\ref{sec:tool-cd}.
 
 We work in the frame of $Q$ (see~\eqref{eq:Q}) and use only the eight items of Proposition~\ref{prop:frame}, for
-fixed radii $\delta,\varepsilon$ that may be taken as small as we wish. In $\mathbb D(0,\delta)$ the contour consists of the
+fixed radii $\delta,\eps$ that may be taken as small as we wish. In $\mathbb D(0,\delta)$ the contour consists of the
 band and two lips, with $v=J$ on $(0,\delta)$ and
 $v=\bigl(\begin{smallmatrix}1&0\\\omega e^{2n\varphi}&1\end{smallmatrix}\bigr)+E$ on the lips, where
 $\omega=D_W^2/W_0$ (Proposition~\ref{prop:frame}(i)); there is no jump on $(-\delta,0)$. Since $f'(0)<0$ and $f$ is
@@ -270,10 +270,10 @@ $(n^2f)^{-\sigma_3/4}=n^{-\sigma_3/2}f^{-\sigma_3/4}$,
 and $P^\infty_0$, $(P^\infty_0)^{-1}$ are bounded on the annulus. Both claims follow.
 \end{proof}
 
-\emph{The comparison problem.} Let $\Sigma_{\circ}:=\partial \mathbb D(0,\delta)\cup\partial \mathbb D(4c,\varepsilon)$, with both circles
+\emph{The comparison problem.} Let $\Sigma_{\circ}:=\partial \mathbb D(0,\delta)\cup\partial \mathbb D(4c,\eps)$, with both circles
 oriented clockwise (so that their $+$ side is the outside), and $\hat\Sigma:=\Sigma\cup\Sigma_{\circ}$. Define
 \begin{equation}\label{eq:he-Qtilde}
-  \tilde Q(z):=\begin{cases}\hat P_0(z),& z\in \mathbb D(0,\delta),\\ \hat P_r(z),& z\in \mathbb D(4c,\varepsilon),\\
+  \tilde Q(z):=\begin{cases}\hat P_0(z),& z\in \mathbb D(0,\delta),\\ \hat P_r(z),& z\in \mathbb D(4c,\eps),\\
   P^\infty_0(z),& \text{otherwise},\end{cases}\qquad z\notin\hat\Sigma .
 \end{equation}
 Then $\tilde Q$ is analytic off $\hat\Sigma$, $\det\tilde Q=1$, $\tilde Q\to I$ at infinity, and
@@ -281,8 +281,8 @@ $\tilde Q_+=\tilde Q_-\tilde v$ on $\hat\Sigma$ with
 \begin{equation}\label{eq:he-vtilde}
   \tilde v=\begin{cases}J & \text{on }(0,4c),\\
   \bigl(\begin{smallmatrix}1&0\\\varrho_\pm e^{2n\varphi}&1\end{smallmatrix}\bigr) & \text{on the lips in }\mathbb D(0,\delta)\cap\C_\pm,\\
-  v & \text{on }\Sigma\cap \mathbb D(4c,\varepsilon),\\
-  I & \text{on }\Sigma\setminus\bigl(\mathbb D(0,\delta)\cup \mathbb D(4c,\varepsilon)\cup[0,4c]\bigr),\\
+  v & \text{on }\Sigma\cap \mathbb D(4c,\eps),\\
+  I & \text{on }\Sigma\setminus\bigl(\mathbb D(0,\delta)\cup \mathbb D(4c,\eps)\cup[0,4c]\bigr),\\
   \tilde Q_{\mathrm{in}}^{-1}\tilde Q_{\mathrm{out}} & \text{on }\Sigma_{\circ},
   \end{cases}
 \end{equation}
@@ -293,7 +293,7 @@ $\tilde Q\to I$'' the \emph{comparison problem}; it is solved explicitly by \eqr
 
 The two problems differ in three places. On the circles, $v-\tilde v=I-\tilde Q_{\mathrm{in}}^{-1}\tilde
 Q_{\mathrm{out}}=O(1/n)$, by Lemma~\ref{lem:comparison-parametrix}(iii) and Proposition~\ref{prop:frame}(v). On
-$\Sigma\setminus(\mathbb D(0,\delta)\cup \mathbb D(4c,\varepsilon)\cup[0,4c])$, $|v-\tilde v|\le Ce^{-n/C}$ by Proposition~\ref{prop:frame}(v). On the lips in
+$\Sigma\setminus(\mathbb D(0,\delta)\cup \mathbb D(4c,\eps)\cup[0,4c])$, $|v-\tilde v|\le Ce^{-n/C}$ by Proposition~\ref{prop:frame}(v). On the lips in
 $\mathbb D(0,\delta)$, $v-\tilde v=d_ne_2e_1^{\mathsf T}+E$ with
 \begin{equation}\label{eq:he-dn}
   d_n(z):=\Bigl(\frac{D_W(z)^2}{W_0(z)}-\varrho_\pm\Bigr)e^{2n\varphi(z)} .
@@ -409,7 +409,7 @@ so $I\in L^2(\hat\Sigma)$), and $Q_-=(1-\Cauchy_v)^{-1}I$.
 Write $Q=I+Q_1/z+Q_2/z^2+O(z^{-3})$ and $P^\infty_0=I+P_1/z+P_2/z^2+O(z^{-3})$ at infinity; outside the discs $\tilde Q=P^\infty_0$,
 so $\tilde Q_k=P_k$. The circle terms
 \begin{equation}\label{eq:he-Xi}
-  \Xi_k:=-\frac1{2\pi i}\oint_{\Sigma_{\circ}}s^{k-1}\bigl(\tilde Q_{\mathrm{in}}(s)\tilde Q_{\mathrm{out}}(s)^{-1}-I\bigr)\diff s
+  \Xi_k:=-\frac1{2\pi i}\oint_{\Sigma_{\circ}}y^{k-1}\bigl(\tilde Q_{\mathrm{in}}(y)\tilde Q_{\mathrm{out}}(y)^{-1}-I\bigr)\diff y
   \qquad(k=1,2)
 \end{equation}
 are $O(1/n)$ by Lemma~\ref{lem:comparison-parametrix}(iii) and Proposition~\ref{prop:frame}(v); they are the first-order corrections of the
@@ -436,12 +436,12 @@ $\hat\Sigma$, with exponents $r=r'=2$. The hypotheses hold: $v,\tilde v^{\pm1}\i
 Proposition~\ref{prop:UR-true}, and $\tilde Q_\pm^{\pm1}\in I+\dC(L^2)$ by Proposition~\ref{prop:UR-comparison}(i). With
 $\mathcal E:=Q_-(v-\tilde v)\tilde v^{-1}\tilde Q_-^{-1}$, \eqref{eq:CD-moments} reads
 \[
-  Q_1-P_1=-\frac1{2\pi i}\int_{\hat\Sigma}\mathcal E\diff s,\qquad
-  Q_2-P_2=-\frac1{2\pi i}\int_{\hat\Sigma}s\,\mathcal E\diff s+(Q_1-P_1)P_1 .
+  Q_1-P_1=-\frac1{2\pi i}\int_{\hat\Sigma}\mathcal E\diff y,\qquad
+  Q_2-P_2=-\frac1{2\pi i}\int_{\hat\Sigma}y\,\mathcal E\diff y+(Q_1-P_1)P_1 .
 \]
 Split $(v-\tilde v)\tilde v^{-1}=\Delta_1+\Delta_2+\Delta_3$, where $\Delta_1:=d_ne_2e_1^{\mathsf T}$ on the lips in
 $\mathbb D(0,\delta)$ (we used $e_1^{\mathsf T}\tilde v^{-1}=e_1^{\mathsf T}$ there), $\Delta_2:=\tilde v^{-1}-I$ on $\Sigma_{\circ}$, and
-$\Delta_3$ is the rest: $E\tilde v^{-1}$ on the lips and $v-I$ on $\Sigma\setminus(\mathbb D(0,\delta)\cup \mathbb D(4c,\varepsilon)
+$\Delta_3$ is the rest: $E\tilde v^{-1}$ on the lips and $v-I$ on $\Sigma\setminus(\mathbb D(0,\delta)\cup \mathbb D(4c,\eps)
 \cup[0,4c])$. Then $\|\Delta_3\|_{L^\infty}\le Ce^{-n/C}$, on a set of length $O(n^p)$. Write $Q_-=\tilde Q_-+(Q_--\tilde
 Q_-)$.
 
@@ -488,7 +488,7 @@ because $|\alpha|<1$. In the region $|\zeta|\ge2$ substitute $t=nr^{1/2}$:
   \int_0^\delta\mathfrak m_n(r)r^{-1/2}e^{-nr^{1/2}/C}\diff r&=\frac2n\int_0^{n\delta^{1/2}}\mathfrak m_n(t^2/n^2)e^{-t/C}\diff t\\
   &\le\frac Cn\bigl(\varepsilon_\Lambda(T_n)+n^{-2\nu_p}\log n\bigr)=O(\varepsilon'_n/n).
 \end{align*}
-So $\int|\tilde Q_-\Delta_1\tilde Q_-^{-1}||\diff s|=O(\varepsilon'_n/n)$; the same computation applied to the square of
+So $\int|\tilde Q_-\Delta_1\tilde Q_-^{-1}||\diff y|=O(\varepsilon'_n/n)$; the same computation applied to the square of
 \eqref{eq:he-column-bound} gives
 \begin{equation}\label{eq:he-L2-columns}
   \|d_n\tilde Q_-e_2\|_{L^2}^2+\|d_ne_1^{\mathsf T}\tilde Q_-^{-1}\|_{L^2}^2=O(\varepsilon_n'^2/n).
@@ -497,8 +497,8 @@ So $\int|\tilde Q_-\Delta_1\tilde Q_-^{-1}||\diff s|=O(\varepsilon'_n/n)$; the s
 
 \emph{The other main terms.} On $\Sigma_{\circ}$, $\tilde Q_-\Delta_2\tilde Q_-^{-1}=\tilde Q_{\mathrm{in}}\tilde
 Q_{\mathrm{out}}^{-1}-I$, whose integrals are exactly the circle terms $\Xi_k$. The term $\Delta_3$ contributes
-$O(e^{-n/C})$: on $\Sigma\setminus(\mathbb D(0,\delta)\cup \mathbb D(4c,\varepsilon))$, $\tilde Q^{\pm1}=(P^\infty_0)^{\pm1}$ is bounded and
-$|s|\le Cn^p$, and on the lips $|\tilde Q_-^{\pm1}|\le Cn^{1/2}|z|^{-1/2}$ (by~\eqref{eq:he-Phi-large}, \eqref{eq:he-Phi-small} and
+$O(e^{-n/C})$: on $\Sigma\setminus(\mathbb D(0,\delta)\cup \mathbb D(4c,\eps))$, $\tilde Q^{\pm1}=(P^\infty_0)^{\pm1}$ is bounded and
+$|y|\le Cn^p$, and on the lips $|\tilde Q_-^{\pm1}|\le Cn^{1/2}|z|^{-1/2}$ (by~\eqref{eq:he-Phi-large}, \eqref{eq:he-Phi-small} and
 Lemma~\ref{lem:bessel-local}(iii)), so $|E||\tilde Q_-||\tilde Q_-^{-1}|\le C\exp(-n|z|^{-1/p}/C)\,n|z|^{-1}$ by Proposition~\ref{prop:frame}(iv), whose integral is
 $O(e^{-n/C})$.
 
@@ -512,10 +512,10 @@ which is~\eqref{eq:he-L2-diff}, using \eqref{eq:he-L2-columns}, the bound $O(1/n
 $\Delta_3$. Similarly $\|(v-\tilde v)\tilde v^{-1}\tilde Q_-^{-1}\|_{L^2}\le C(\varepsilon'_nn^{-1/2}+n^{-1})$. By the
 Cauchy--Schwarz inequality,
 \[
-  \Bigl|\int(Q_--\tilde Q_-)(v-\tilde v)\tilde v^{-1}\tilde Q_-^{-1}\diff s\Bigr|\le C\bigl(\varepsilon'_nn^{-1/2}+n^{-1}\bigr)^2
+  \Bigl|\int(Q_--\tilde Q_-)(v-\tilde v)\tilde v^{-1}\tilde Q_-^{-1}\diff y\Bigr|\le C\bigl(\varepsilon'_nn^{-1/2}+n^{-1}\bigr)^2
   \le C\bigl(\varepsilon_n'^2/n+n^{-2}\bigr).
 \]
-The factor $s$ in the second moment is bounded on the lips and the circles, and costs at most $n^p$ on the rest, where
+The factor $y$ in the second moment is bounded on the lips and the circles, and costs at most $n^p$ on the rest, where
 everything is exponentially small. Collecting terms gives the proposition.
 \end{proof}
 

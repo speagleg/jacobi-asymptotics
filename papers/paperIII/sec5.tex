@@ -135,7 +135,7 @@ $\sum_{j=1}^n\log(j^2b_j(s)/c(2))=-\frac{s-1}2\log n+C(s)+o(1)$.
 \end{corollary}
 
 \begin{proof}
-(a) Let $\psi^{(1)}$ be the Tricomi--Carlitz measure with parameter $\alpha=1$: by \cite[(1.4)--(1.5)]{WLXZ} it is the
+(a) Let $\psi^{(1)}$ be the Tricomi--Carlitz measure with parameter $t_0=1$: by \cite[(1.4)--(1.5)]{WLXZ} it is the
 symmetric measure with mass $(k+1)^{k-1}e^{-k}/k!$ at each of the points $\pm(k+1)^{-1/2}$, $k\ge0$, and the
 Tricomi--Carlitz polynomials $f_n=f^{(1)}_n$ are orthogonal with respect to it. By \cite[(1.9)]{WLXZ} their leading
 coefficient is $\prod_{k<n}(k+1)/(k+1)=1$, so they are monic, and \cite[(1.6)]{WLXZ} reads
@@ -154,6 +154,9 @@ e^{-1/12}k^{-3/2}$, which have the same coefficients as $\sigma_{\mathrm{TC}}$:
   \sum_{j=1}^n\log\frac{b_j(3/2)}{b^{\mathrm{TC}}_j}=-\frac12\log\frac{\zeta(3/2)}{\sqrt{2\pi}\,W_{\mathrm{TC}}}+O(1/n),
   \qquad W_{\mathrm{TC}}:=\sum_jv_j .
 \]
+In fact $W_{\mathrm{TC}}=1$: the tree function $y(x):=\sum_{j\ge1}j^{j-1}x^j/j!$ satisfies $y=xe^{y}$ on $[0,1/e]$, and
+$y=1$ is the only solution of $y=e^{y-1}$, so $W_{\mathrm{TC}}=y(1/e)=1$ (the Borel distribution with parameter $1$ has
+total mass $1$).
 Since $\log(2jb^{\mathrm{TC}}_j)=-\frac12\log(1+\frac1{2j})=-\frac1{4j}+O(j^{-2})$, this gives (a) for $s=\frac32$. By
 Theorem~\ref{thm:s}(i) with $p=1$, $\sum_{j\le n}\log(b_j(s+1)/b_j(s))=-\frac12\log n+\mathrm{const}+o(1)$, so the
 coefficient decreases by $\frac12$ at each step.

@@ -155,25 +155,25 @@ $\bigl(\begin{smallmatrix}0&\mathsf j\\-1/\mathsf j&0\end{smallmatrix}\bigr)$ on
 $\bigl(\begin{smallmatrix}1&0\\\mathsf j^{-1}e^{-2N\varphi^{\mathrm{KV}}}&1\end{smallmatrix}\bigr)$ on the lips, with
 $\varphi^{\mathrm{KV}}:=-\varphi$, plus discarded terms on the lips (diagonal entries $D/\hat D$ and an upper-right entry with
 $e^{-2N\hat\varphi}$). This is the form \cite[(5.1)--(5.2)]{KV} with the exponent $a$ and the analytic factor
-$h_0e^{2j(N/z^2)}/\mathsf Q_m$, where $h_0(z):=e^L(4-z^2)\mathsf Q_m(z)$ is analytic and zero-free in $U(0,\varepsilon)$. We fix an
-analytic branch of $h_0^{1/2}$ there (this replaces the assumption of positive real part in \cite[\S4.1]{Van}, which is used
+$\mathfrak v_0e^{2j(N/z^2)}/\mathsf Q_m$, where $\mathfrak v_0(z):=e^L(4-z^2)\mathsf Q_m(z)$ is analytic and zero-free in $U(0,\varepsilon)$. We fix an
+analytic branch of $\mathfrak v_0^{1/2}$ there (this replaces the assumption of positive real part in \cite[\S4.1]{Van}, which is used
 only to choose the branch). Let $f(z):=i\varphi^{\mathrm{KV}}(z)-i\varphi^{\mathrm{KV}}_+(0)$ in $\C_+$ and
 $-i\varphi^{\mathrm{KV}}(z)-i\varphi^{\mathrm{KV}}_+(0)$ in $\C_-$ \cite[(5.6)]{KV}. Since $\varphi^{\mathrm{KV}}_+(x)=\pi i\int_x^\infty\psi$
 on the band (\S\ref{sec:pone-second}), $f(x)=\pi\int_0^x\psi$, so $f$ is conformal near $0$ with $f'(0)=\pi\psi(0)>0$, and it is
 odd because $\psi$ is even; hence $f(i\R)\subset i\R$. Inside $U(0,\varepsilon)$ we take the lips to be the preimages of the
 rays $\arg\zeta=\pm\pi/4,\pm3\pi/4$ under $f$; they lie in $|\arg(\pm z)|\in[\pi/4-\eta,\pi/4+\eta]$ for small $\varepsilon$,
 inside the admissible region of \cite{WLXZ}, where $\re\varphi<0$. Let $W(z):=z^a$ or $(-z)^a$ according to the sectors of
-$\arg f$ as in \cite[(5.9)]{KV}, $W_h:=Wh_0^{1/2}$, $P^\infty:=\sigma_3\mathcal N_s\sigma_3$,
+$\arg f$ as in \cite[(5.9)]{KV}, $W_{\mathfrak v}:=W\mathfrak v_0^{1/2}$, $P^\infty:=\sigma_3\mathcal N_s\sigma_3$,
 \[
   \mathsf B_N:=E_0\,e^{N\varphi^{\mathrm{KV}}_+(0)\sigma_3}e^{-\pi i\sigma_3/4}\tfrac1{\sqrt2}\begin{pmatrix}1&i\\i&1\end{pmatrix},\qquad
-  P_0:=\mathsf B_N\,\Psi^{\mathrm{FH}}(Nf(z))\,W_h(z)^{-\sigma_3}e^{-N\varphi^{\mathrm{KV}}(z)\sigma_3},
+  P_0:=\mathsf B_N\,\Psi^{\mathrm{FH}}(Nf(z))\,W_{\mathfrak v}(z)^{-\sigma_3}e^{-N\varphi^{\mathrm{KV}}(z)\sigma_3},
 \]
-where $E_0:=P^\infty W_h^{\sigma_3}e^{\pm a\pi i\sigma_3/2}$, with the additional anti-diagonal factor in the sectors V--VIII,
+where $E_0:=P^\infty W_{\mathfrak v}^{\sigma_3}e^{\pm a\pi i\sigma_3/2}$, with the additional anti-diagonal factor in the sectors V--VIII,
 as in \cite[(5.26)--(5.30)]{KV}.
 
 \begin{lemma}[The Fisher--Hartwig parametrix]\label{lem:pone-fh}
 \begin{enumerate}
-\item[(i)] $P_0$ has, in $U(0,\varepsilon)$, the jumps of \cite[(5.1)--(5.2)]{KV} with the weight $h_0|x|^{2a}$, and
+\item[(i)] $P_0$ has, in $U(0,\varepsilon)$, the jumps of \cite[(5.1)--(5.2)]{KV} with the weight $\mathfrak v_0|x|^{2a}$, and
   $\det P_0\equiv1$.
 \item[(ii)] $\mathsf B_N$ is analytic in $U(0,\varepsilon)$, and $\mathsf B_N^{\pm1}$ are bounded uniformly in $N$.
 \item[(iii)] $P_0(P^\infty)^{-1}=I+O(1/N)$ uniformly on $\partial U(0,\varepsilon)$.
@@ -181,10 +181,10 @@ as in \cite[(5.26)--(5.30)]{KV}.
 \end{lemma}
 
 \begin{proof}
-(i) is the construction \cite[(5.10)--(5.24)]{KV}, the analytic factor entering only through $W_h$ as in
+(i) is the construction \cite[(5.10)--(5.24)]{KV}, the analytic factor entering only through $W_{\mathfrak v}$ as in
 \cite[\S4.1]{Van}, and $\det P_0=1$ by \cite[(4.53)]{Van}. (ii) $E_0$ is analytic in a neighbourhood of $U(0,\varepsilon)$ by the
-argument of \cite[p.~19]{KV}, which needs that $\mathcal D/W_h$ and $W_h/\mathcal D$ remain bounded as $z\to0$; this holds by
-Lemma~\ref{lem:pone-szego}(iv), since $\mathcal D/W_h=(\mathcal D_{\mathrm h}/W)(\mathcal D_{\mathrm q}/h_0^{1/2})$. Since $\varphi_+(0)$ is
+argument of \cite[p.~19]{KV}, which needs that $\mathcal D/W_{\mathfrak v}$ and $W_{\mathfrak v}/\mathcal D$ remain bounded as $z\to0$; this holds by
+Lemma~\ref{lem:pone-szego}(iv), since $\mathcal D/W_{\mathfrak v}=(\mathcal D_{\mathrm h}/W)(\mathcal D_{\mathrm q}/\mathfrak v_0^{1/2})$. Since $\varphi_+(0)$ is
 imaginary, $|e^{N\varphi^{\mathrm{KV}}_+(0)\sigma_3}|=1$. Moreover $\mathcal N_s$ is bounded near $\partial U(0,\varepsilon)$ uniformly in $N$,
 and the maximum principle bounds $\mathsf B_N^{\pm1}$ inside. (iii) is the case of one term of the computation in
 \S\ref{app:pone-jumps}, which rests on \cite[(4.43)--(4.46)]{Van} and \cite[(5.26)]{KV}.
@@ -198,7 +198,7 @@ for $N|z|\le1$.
 
 \begin{proof}
 Write $\Psi:=\Psi^{\mathrm{FH}}$, $\zeta:=Nf(z)$, $\rho:=|\zeta|\asymp N|z|$, and $P_0=\mathsf B_N\Psi(\zeta)\Lambda$ with
-$\Lambda:=W_h^{-\sigma_3}e^{-N\varphi^{\mathrm{KV}}\sigma_3}$, which is analytic across the lips and the band. First,
+$\Lambda:=W_{\mathfrak v}^{-\sigma_3}e^{-N\varphi^{\mathrm{KV}}\sigma_3}$, which is analytic across the lips and the band. First,
 \begin{equation}\label{eq:pone-ampl}
   |\Psi\sigma_3\Psi^{-1}|+|\Psi_+\Psi_-^{-1}-I|\le C\bigl(1+\rho^{-2|a|}\bigr).
 \end{equation}
@@ -377,7 +377,7 @@ at $-2$.
 \emph{The circle at $0$.} Write $\varphi_0:=\varphi^{\mathrm{KV}}_+(0)$. In $f^{-1}(\mathrm I\cup\mathrm{II})$ we have
 $\zeta=Nf=N(i\varphi^{\mathrm{KV}}-i\varphi_0)$, so $e^{-i\zeta\sigma_3}e^{-N\varphi^{\mathrm{KV}}\sigma_3}=e^{-N\varphi_0\sigma_3}$, and with
 $C_1=e^{-a\pi i\sigma_3/2}$ and the definition of $E_0$,
-$e^{-i\zeta\sigma_3}C_1W_h^{-\sigma_3}e^{-N\varphi^{\mathrm{KV}}\sigma_3}(P^\infty)^{-1}=e^{-N\varphi_0\sigma_3}E_0^{-1}$; in the other sectors
+$e^{-i\zeta\sigma_3}C_1W_{\mathfrak v}^{-\sigma_3}e^{-N\varphi^{\mathrm{KV}}\sigma_3}(P^\infty)^{-1}=e^{-N\varphi_0\sigma_3}E_0^{-1}$; in the other sectors
 the same identity follows from \cite[(5.28)--(5.30)]{KV} and the anti-diagonal factors of \cite[(4.45)--(4.46)]{Van}.
 Since $\mathsf B^{-1}=\frac1{\sqrt2}\bigl(\begin{smallmatrix}1&i\\i&1\end{smallmatrix}\bigr)$, Lemma~\ref{lem:pone-models}(b) gives
 \[

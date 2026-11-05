@@ -12,8 +12,8 @@ Let $p\ne1$, $-1<\delta\le0$ ($\delta<0$ if $p<1$), $a=1+\delta$, $1<s<1+2p$, an
 $\beta':=\alpha+2\delta$, $\mu^\delta_{n,j}:=2\zeta(-jp,a)/(jn^{jp})$, $N_\delta:=n+\frac\alpha2+\frac12+\delta$ and
 $\varepsilon_j(\delta):=\binom{2j}jp\,c^j\zeta(-jp,a)$.
 \begin{enumerate}
-\item[(i)] For all $K,J,B\ge1$,
-$\frac{n^pb_n}c=\sum_{|\br|\le B}(\mu^\delta_n)^{\br}\cD_{\br,K}(n;\beta',\alpha)+O(n^{-K-1}+n^{-2-(B+1)p}+n^{-1-(J+1)p})$.
+\item[(i)] For all $K,J,T\ge1$,
+$\frac{n^pb_n}c=\sum_{|\br|\le T}(\mu^\delta_n)^{\br}\cD_{\br,K}(n;\beta',\alpha)+O(n^{-K-1}+n^{-2-(T+1)p}+n^{-1-(J+1)p})$.
 \item[(ii)] The integer layer is $(n/N_\delta)^pF_p(N_\delta;\alpha)$, and the layers $e_1,e_2,2e_1$ are those of the lattice in $N_\delta$ to all
 orders, with $\zeta(-jp)$ replaced by $\zeta(-jp,a)$; every layer $e_j$ is $(n/N_\delta)^p\varepsilon_j(\delta)N_\delta^{-1-jp}(1+g_jN_\delta^{-2}+O(N_\delta^{-4}))$.
 In particular~\eqref{eq:thmA} holds for $\sigma^\delta$ with $N_\delta$, $\varepsilon_j(\delta)$, the same $f_2,f_4,f_6,g_j,g_{1,4}$ and the same remainder.
@@ -29,12 +29,12 @@ $t=nz^{-1/p}$ of \cite{PaperII} is a zero of the interpolating function that car
   m_k(\delta)=-\frac p\pi\Gamma(kp)(2\pi n)^{-kp}S_k(\delta),\qquad S_k(\delta):=\sum_{m\ge1}\frac{\sin(\pi kp/2-2\pi m\delta)}{m^{1+kp}},
 \end{equation}
 with $\mu^\delta_{n,k}=2m_k(\delta)$. We identify them by Hurwitz's formula in the form stated in \cite[Theorem~1.1]{DixitKumar} (quoted there from
-Titchmarsh): \emph{for $0<a\le1$ and $\Re s<0$,}
+Titchmarsh; we write $v$ for its variable, since $s$ is the weight exponent): \emph{for $0<a\le1$ and $\Re v<0$,}
 \[
-  \zeta(s,a)=\frac{2\Gamma(1-s)}{(2\pi)^{1-s}}\Bigl\{\sin\frac{\pi s}2\sum_{m\ge1}\frac{\cos(2\pi ma)}{m^{1-s}}
-  +\cos\frac{\pi s}2\sum_{m\ge1}\frac{\sin(2\pi ma)}{m^{1-s}}\Bigr\}.
+  \zeta(v,a)=\frac{2\Gamma(1-v)}{(2\pi)^{1-v}}\Bigl\{\sin\frac{\pi v}2\sum_{m\ge1}\frac{\cos(2\pi ma)}{m^{1-v}}
+  +\cos\frac{\pi v}2\sum_{m\ge1}\frac{\sin(2\pi ma)}{m^{1-v}}\Bigr\}.
 \]
-At $s=-kp$ ($\Re s<0$) and $a=1+\delta\in(0,1]$ the bracket is $-S_k(\delta)$, and $\zeta(-kp,a)=kn^{kp}m_k(\delta)$.
+At $v=-kp$ ($\Re v<0$) and $a=1+\delta\in(0,1]$ the bracket is $-S_k(\delta)$, and $\zeta(-kp,a)=kn^{kp}m_k(\delta)$.
 
 \subsection{The index transfer}\label{sec:H-mechanism}
 In $t=nz^{-1/p}$ the Hurwitz nodes sit at $t\in a+\N_0$ with the masses of the lattice, so the weight on the band, its power $z^\alpha$ and the
@@ -84,10 +84,10 @@ invariant; the exponent of the normalising gauge at the hard edge is. With the g
 and $\mathcal C$ a Cauchy transform on $(-\infty,0)$, the normalised scalar tends to a constant at infinity and
 $G_\kappa=(-z)^{-\delta}E_\kappa(0)(1+O(n^{1-p}|z|^{1-1/p}))$ at the hard edge, so the Szeg\H{o} shift is $\beta'$, independent of $\kappa$. The jumps
 are those of $M(\beta',\alpha)$ with a band factor whose integer moments give the Toda parameters, together with a branched part, the tilt
-$\sum_m2\pi\cot(\pi q_m)a_m(z/n^p)^{q_m}$, $a_m=-R_{q_m}/q_m$. The branched part and the lip factor $e^{\pm2\pi i\rho_1}$ come from one function
+$\sum_m2\pi\cot(\pi q_m)\mathfrak a_m(z/n^p)^{q_m}$, $\mathfrak a_m=-R_{q_m}/q_m$. The branched part and the lip factor $e^{\pm2\pi i\rho_1}$ come from one function
 analytic across $(-\delta_0,0)$, so the circle jumps stay meromorphic. The estimates transfer from (H-b)--(H-e). The first-order response of the model to
 the tilt $z^q$ is the symbolic-$j$ layer of Lemma~\ref{lem:N6d}(b) continued to $j=q$, so a tilt $e^{\tau x^q}$ contributes
-$-\frac{pqW(q)}2\tau(n/N_\delta)^pN_\delta^{-1-pq}$; for $\tau=2\pi\cot(\pi q)a_1$ this is $pR_qW(q)\pi\cot(\pi q)(n/N_\delta)^pN_\delta^{-1-pq}$.
+$-\frac{pqW(q)}2\tau(n/N_\delta)^pN_\delta^{-1-pq}$; for $\tau=2\pi\cot(\pi q)\mathfrak a_1$ this is $pR_qW(q)\pi\cot(\pi q)(n/N_\delta)^pN_\delta^{-1-pq}$.
 \end{proof}
 
 The proof gives more: up to $O(n^{-2p})$, $n^pb_n/c$ is the full double series of $M(\beta',\alpha)$ with the Toda parameters of $\Lambda$, plus, for

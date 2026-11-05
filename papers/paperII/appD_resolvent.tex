@@ -37,7 +37,7 @@ where, with a constant $C_1$ independent of $n$, and with the same statements fo
   a constant $\mathsf q$.
 \end{enumerate}
 Then the operators $\mathfrak g\mapsto1_{\Sigma_1}\Cauchy_\pm(\mathfrak g1_{\Sigma_1}\tilde Q_+^{-1})\tilde Q_\pm$ are bounded on
-$L^2(\Sigma_1)$ uniformly in $n$, and $\int_{\Sigma_1}(|\tilde Q_\pm|^2+|\tilde Q_\pm^{-1}|^2)|\diff s|\le C$.
+$L^2(\Sigma_1)$ uniformly in $n$, and $\int_{\Sigma_1}(|\tilde Q_\pm|^2+|\tilde Q_\pm^{-1}|^2)|\diff y|\le C$.
 \end{lemma}
 
 \begin{proof}
@@ -59,19 +59,19 @@ $|\Gamma_1\cap \mathbb D(\zeta,t)|\le Ct$, as does $\mathsf t_n\Gamma_1$ with th
 \end{equation}
 since $2|\beta|<1$. With \eqref{eq:resolvent-weights} and (B1) this gives the bound on $\int_{\Sigma_1}|\tilde Q_\pm^{\pm1}|^2$.
 
-\emph{Step 1: the prefactor.} For $s,z\in \mathbb D(z_0,r_1)$ write $\mathcal A(s)^{-1}\mathcal A(z)=I+(s-z)\mathfrak k_A(s,z)$; by Cauchy's
+\emph{Step 1: the prefactor.} For $y,z\in \mathbb D(z_0,r_1)$ write $\mathcal A(y)^{-1}\mathcal A(z)=I+(y-z)\mathfrak k_A(y,z)$; by Cauchy's
 estimates on the convex set $\mathbb D(z_0,r_1)$, $|\mathfrak k_A|\le C$. Then
 \begin{multline*}
   \Cauchy(\mathfrak g\tilde Q_+^{-1})(z)\tilde Q(z)=\Cauchy(\mathfrak gM_{n,+}^{-1})(z)M_n(z)\\
-  +\frac1{2\pi i}\int_{\Sigma_1}\mathfrak g(s)\bigl[M_{n,+}(s)^{-1}\mathsf t_n^{-\sigma_3/4}\bigr]\mathfrak k_A(s,z)
-  \bigl[\mathsf t_n^{\sigma_3/4}M_n(z)\bigr]\diff s .
+  +\frac1{2\pi i}\int_{\Sigma_1}\mathfrak g(y)\bigl[M_{n,+}(y)^{-1}\mathsf t_n^{-\sigma_3/4}\bigr]\mathfrak k_A(y,z)
+  \bigl[\mathsf t_n^{\sigma_3/4}M_n(z)\bigr]\diff y .
 \end{multline*}
-By \eqref{eq:resolvent-weights} the kernel of the second term is at most $C\,\mathfrak W(s)\mathfrak W(z)$, so by \eqref{eq:resolvent-Xi} it is
+By \eqref{eq:resolvent-weights} the kernel of the second term is at most $C\,\mathfrak W(y)\mathfrak W(z)$, so by \eqref{eq:resolvent-Xi} it is
 Hilbert--Schmidt with norm at most $C$.
 
-\emph{Step 2: the variable $\zeta$.} Let $\mathfrak k_0(s,z):=f_0'(s)/(f_0(s)-f_0(z))-1/(s-z)$, which is analytic and
-bounded on $\mathbb D(z_0,r_1)^2$. Then $\diff s/(s-z)=\diff\zeta_s/(\zeta_s-\zeta_z)-\mathfrak k_0(s,z)\diff s$. The term with
-$\mathfrak k_0$ is a scalar kernel times $M_{n,+}(s)^{-1}M_n(z)=[M_{n,+}(s)^{-1}\mathsf t_n^{-\sigma_3/4}][\mathsf t_n^{\sigma_3/4}M_n(z)]$,
+\emph{Step 2: the variable $\zeta$.} Let $\mathfrak k_0(y,z):=f_0'(y)/(f_0(y)-f_0(z))-1/(y-z)$, which is analytic and
+bounded on $\mathbb D(z_0,r_1)^2$. Then $\diff y/(y-z)=\diff\zeta_y/(\zeta_y-\zeta_z)-\mathfrak k_0(y,z)\diff y$. The term with
+$\mathfrak k_0$ is a scalar kernel times $M_{n,+}(y)^{-1}M_n(z)=[M_{n,+}(y)^{-1}\mathsf t_n^{-\sigma_3/4}][\mathsf t_n^{\sigma_3/4}M_n(z)]$,
 hence Hilbert--Schmidt with norm at most $C$ as in Step~1. The main term is
 $\mathcal S\mathfrak h:=\Cauchy^{\mathsf t_n\Gamma_1}(\mathfrak h\mathbb M_+^{-1})\mathbb M$ with $\mathbb M(\zeta):=M_n(z)$ and
 $\mathfrak h(\zeta)=\mathfrak g(z)$; as $|f_0'|^{\pm1}\le C$, the map $\mathfrak g\mapsto\mathfrak h$ changes $L^2$ norms by
@@ -113,7 +113,7 @@ symmetric.
 \emph{The two instances.} At the hard edge, $z_0=0$, $r_0=\delta$, $r_1=\frac34\delta$, $f_0=f$, $\mathsf t_n=n^2$,
 $\mathcal A=A_0(2\pi)^{\sigma_3/2}$ (Lemma~\ref{lem:comparison-parametrix}(i)) and $M_n(z)=\Phi_\alpha(n^2f(z))$; (B2) and (B3) are
 \eqref{eq:he-Phi-large} and \eqref{eq:he-Phi-small}, with $\beta=\alpha/2$, or the logarithmic case if $\alpha=0$. Here
-$|\beta|<\frac12$ is exactly $|\alpha|<1$. At the soft edge, $z_0=4c$, $r_0=\varepsilon$, $r_1=\frac34\varepsilon$,
+$|\beta|<\frac12$ is exactly $|\alpha|<1$. At the soft edge, $z_0=4c$, $r_0=\eps$, $r_1=\frac34\eps$,
 $f_0=f_r$, $\mathsf t_n=n^{2/3}$, $\mathcal A=A_r$ and $M_n=M_{r,n}$: by the two-scale structure in Proposition~\ref{prop:frame}(v)
 (Lemma~\ref{lem:airy}(i), (iv)), (B1)--(B3) hold with $\mathsf P=I$ and $\hat A=\Psi^{\mathrm I}$, the entire Airy model matrix.
 No $\alpha$ is involved.
@@ -128,10 +128,10 @@ reduced to a solvability statement for the inhomogeneous problem (Step~2), whose
 of $n$: this holds for $\Sigma$ by Proposition~\ref{prop:frame}(i) and for the two fixed circles. We show $\|\Cauchy_\pm\|_{L^2(\hat\Sigma)}\le C$. The
 operator splits into blocks according to source and target in $\Sigma$ or $\Sigma_{\circ}$. The block $\Sigma\to\Sigma$ is
 bounded by Proposition~\ref{prop:frame}(i), and $\Sigma_{\circ}\to\Sigma_{\circ}$ is the Cauchy operator of two fixed circles. For the mixed blocks let
-$\Sigma_{\mathrm{loc}}:=\Sigma\cap(\mathbb D(0,2\delta)\cup \mathbb D(4c,2\varepsilon))$, which is independent of $n$; on the fixed curve
+$\Sigma_{\mathrm{loc}}:=\Sigma\cap(\mathbb D(0,2\delta)\cup \mathbb D(4c,2\eps))$, which is independent of $n$; on the fixed curve
 $\Sigma_{\mathrm{loc}}\cup\Sigma_{\circ}$ the Cauchy operator is bounded by \S\ref{sec:tool-cd}(a). The rest of $\Sigma$ has distance at
-least $\min(\delta,\varepsilon)$ from $\Sigma_{\circ}$, and there the kernel is Hilbert--Schmidt:
-$\int_{\Sigma_{\circ}}\int_{\Sigma\setminus\Sigma_{\mathrm{loc}}}|s-z|^{-2}|\diff s||\diff z|\le|\Sigma_{\circ}|\,4C_\Sigma/\min(\delta,\varepsilon)$ by the proof
+least $\min(\delta,\eps)$ from $\Sigma_{\circ}$, and there the kernel is Hilbert--Schmidt:
+$\int_{\Sigma_{\circ}}\int_{\Sigma\setminus\Sigma_{\mathrm{loc}}}|y-z|^{-2}|\diff y||\diff z|\le|\Sigma_{\circ}|\,4C_\Sigma/\min(\delta,\eps)$ by the proof
 of Lemma~\ref{lem:cauchy-arcs}(a).
 
 \emph{Step 1: part (i).} Fix $n$. By \eqref{eq:he-Phi-small}, $|\tilde Q^{\pm1}(z)|\le C_n|z|^{-|\alpha|/2}$ near $0$
@@ -172,19 +172,19 @@ g\tilde Q_+^{-1}\in\mathcal D$, since $\tilde Q_+^{-1}$ is smooth on the arcs aw
 k\cdot\tilde Q$. By Lemma~\ref{lem:cauchy-arcs}(b), $m$ is continuous up to $\hat\Sigma$ and
 $m_+-m_-\tilde v=\bigl((\Cauchy\mathfrak k)_+-(\Cauchy\mathfrak k)_-\bigr)\tilde Q_+=\mathfrak g$.
 
-To bound $\|m_\pm\|_{L^2}$ uniformly, let $\Sigma_A:=\hat\Sigma\cap \mathbb D(0,\frac34\delta)$, $\Sigma_B:=\hat\Sigma\cap \mathbb D(4c,\frac34\varepsilon)$
-and $\Sigma_R:=\hat\Sigma\setminus(\mathbb D(0,\frac12\delta)\cup \mathbb D(4c,\frac12\varepsilon))$. On $\Sigma_R$ the matrices $\tilde Q^{\pm1}$ are
+To bound $\|m_\pm\|_{L^2}$ uniformly, let $\Sigma_A:=\hat\Sigma\cap \mathbb D(0,\frac34\delta)$, $\Sigma_B:=\hat\Sigma\cap \mathbb D(4c,\frac34\eps)$
+and $\Sigma_R:=\hat\Sigma\setminus(\mathbb D(0,\frac12\delta)\cup \mathbb D(4c,\frac12\eps))$. On $\Sigma_R$ the matrices $\tilde Q^{\pm1}$ are
 bounded uniformly in $n$: outside the discs $\tilde Q=P^\infty_0$ by \eqref{eq:Pinf0}; in $\frac12\delta\le|z|\le\delta$ by
-Lemma~\ref{lem:comparison-parametrix}(iii); in $\frac12\varepsilon\le|z-4c|\le\varepsilon$ by (B2) for the Airy instance, since
+Lemma~\ref{lem:comparison-parametrix}(iii); in $\frac12\eps\le|z-4c|\le\eps$ by (B2) for the Airy instance, since
 $|\zeta|\ge2$ there. Partition the source--target pairs into $\Sigma_A\times\Sigma_A$, $\Sigma_B\times\Sigma_B$,
 $(\Sigma_R\times\Sigma_R)\setminus(\Sigma_A\times\Sigma_A\cup\Sigma_B\times\Sigma_B)$ and the rest. The first two blocks are bounded by
 Lemma~\ref{lem:edge-block}. The third is $1_{\Sigma_R}T1_{\Sigma_R}-1_{\Sigma_R\cap\Sigma_A}T1_{\Sigma_R\cap\Sigma_A}-
 1_{\Sigma_R\cap\Sigma_B}T1_{\Sigma_R\cap\Sigma_B}$ with $T\mathfrak g=\Cauchy_\pm(\mathfrak g\tilde Q_+^{-1})\tilde Q_\pm$, and each
 term is bounded by Step~0 since $\tilde Q^{\pm1}$ is bounded on $\Sigma_R$. In the remaining pairs one point lies in
-$\mathbb D(0,\frac12\delta)$ (or $\mathbb D(4c,\frac12\varepsilon)$) and the other outside $\mathbb D(0,\frac34\delta)$ (resp.\ $\mathbb D(4c,\frac34\varepsilon)$), so
-$|s-z|\ge\frac14\min(\delta,\varepsilon)$. The kernel is at most $C|\tilde Q_+^{-1}(s)||\tilde Q(z)||s-z|^{-1}$, and its
+$\mathbb D(0,\frac12\delta)$ (or $\mathbb D(4c,\frac12\eps)$) and the other outside $\mathbb D(0,\frac34\delta)$ (resp.\ $\mathbb D(4c,\frac34\eps)$), so
+$|y-z|\ge\frac14\min(\delta,\eps)$. The kernel is at most $C|\tilde Q_+^{-1}(y)||\tilde Q(z)||y-z|^{-1}$, and its
 Hilbert--Schmidt norm is bounded by the $L^2$ bounds of Lemma~\ref{lem:edge-block} on the discs, the boundedness of
-$\tilde Q^{\pm1}$ on $\Sigma_R$, and $\int_{|s-z|\ge t}|s-z|^{-2}|\diff s|\le4C_\Sigma/t$. Hence $\|m_\pm\|\le C_2\|\mathfrak g\|$ with
+$\tilde Q^{\pm1}$ on $\Sigma_R$, and $\int_{|y-z|\ge t}|y-z|^{-2}|\diff y|\le4C_\Sigma/t$. Hence $\|m_\pm\|\le C_2\|\mathfrak g\|$ with
 $C_2$ independent of $n$ and of $\mathfrak g\in\mathcal D$.
 
 \emph{Step 5: $m_\pm\in\dC(L^2)$.} We apply Lemma~\ref{lem:cauchy-arcs}(c) to $\mathfrak F:=m$, for fixed $n$. Since $\mathfrak k$ vanishes

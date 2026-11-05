@@ -1,5 +1,5 @@
 % Section 5: the decoupled model, natural index, Toda structure (from archive/secS.tex, compressed to the statements used,
-% with proof sketches; attributions from research/G1/RH/spectral/NOVELTY_TODA.md Sec. 5, second-hand (WebFetch), Rule C reading due).
+% with proof sketches). The attributions in this section were taken from secondary summaries; the cited sources are still to be read.
 \section{The natural index and the Toda structure}\label{sec:structure}
 
 This section supplies three tools: the evenness of the integer layer in the natural index (which completes Theorem~\ref{thm:A}(ii)
@@ -15,7 +15,7 @@ $\phi^{-2(\beta+1)}$ at the soft edge, $\phi(z)=(z^{1/2}+(z-4c)^{1/2})/(2c^{1/2}
 of \S\ref{sec:recursion}, with the gauge of Lemma~\ref{lem:gauge}, define formal series
 \begin{equation}\label{eq:decoupled}
   \frac{n^p\,b(n;\beta,\nu;\mu)}{c}=\sum_{\br}\mu^{\br}\,\cD_{\br}(n;\beta,\nu),\qquad
-  B(n;\beta,\nu):=\cD_0(n;\beta,\nu)=\sum_{k\ge0}d_k(p,\beta,\nu)\,n^{-k},
+  \mathsf B(n;\beta,\nu):=\cD_0(n;\beta,\nu)=\sum_{k\ge0}d_k(p,\beta,\nu)\,n^{-k},
 \end{equation}
 the \emph{decoupled model} $M(\beta,\nu)$ and its \emph{integer layer}; for $\beta=\nu=\alpha$ they are the layers of Theorem~\ref{thm:N6}. Each
 $d_k$ is rational in $(p,\beta,\nu)$ and polynomial in $(\beta,\nu)$.
@@ -25,10 +25,10 @@ $d_k$ is rational in $(p,\beta,\nu)$ and polynomial in $(\beta,\nu)$.
 Identically in $(p,\beta,\nu)$, as formal series:
 \begin{enumerate}
 \item[(i)] \emph{(reflection)} $d_k(p,-\beta-2,\nu)=(-1)^kd_k(p,\beta,\nu)$ for all $k$;
-\item[(ii)] \emph{(shift)} $B(n;\beta,\nu)=(n/N)^pF_p(N;\nu)$ with $N:=n+\frac{\beta+1}2$ and a formal series $F_p$ in $1/N$ that does not depend on
+\item[(ii)] \emph{(shift)} $\mathsf B(n;\beta,\nu)=(n/N)^pF_p(N;\nu)$ with $N:=n+\frac{\beta+1}2$ and a formal series $F_p$ in $1/N$ that does not depend on
 $\beta$; equivalently, for every real $\gamma$,
 \begin{equation}\label{eq:FI}
-  B(n+\gamma;\beta-2\gamma,\nu)=\Bigl(1+\frac\gamma n\Bigr)^pB(n;\beta,\nu);
+  \mathsf B(n+\gamma;\beta-2\gamma,\nu)=\Bigl(1+\frac\gamma n\Bigr)^p\mathsf B(n;\beta,\nu);
 \end{equation}
 \item[(iii)] for $\br\in\{e_1,e_2,2e_1\}$ the series $(N/n)^{(1+|\br|_w)p}\cD_{\br}(n;\beta,\nu)$, re-expanded in $1/N$, does not depend on $\beta$.
 \end{enumerate}
@@ -40,7 +40,7 @@ Theorem~\ref{thm:N6} is, for every $K$, $\cD_{0,K}(n)=(n/N)^p[1+\sum_{2k\le K}f_
 \end{corollary}
 
 \begin{proof}
-By~(i), $B(n;\beta,\nu)=B(-n;-\beta-2,\nu)$; the natural index of the right side is $-N$, so~(ii) gives $F_p(N)=F_p(-N)$. The $\nu$-dependence is
+By~(i), $\mathsf B(n;\beta,\nu)=\mathsf B(-n;-\beta-2,\nu)$; the natural index of the right side is $-N$, so~(ii) gives $F_p(N)=F_p(-N)$. The $\nu$-dependence is
 through $a_k(\nu),b_k(\nu)$ only.
 \end{proof}
 
@@ -60,7 +60,7 @@ cancels the jump $e^{-2\pi im\sigma_3}$ on $(-\infty,0)$ because the degree $n$ 
 $\omega^{(\alpha-2\gamma)}e^{\mp2\pi i\gamma}e^{-4\zeta^{1/2}}$, $\zeta=m^2f$, whose band limits are $e^{\mp i\pi\alpha}$. So the $m$-frame problem
 is $M(\alpha-2\gamma,\alpha)$: Bessel order $\alpha$, Szeg\H{o} exponent $\alpha-2\gamma$. For $p>1$, $|\alpha|<1$ and $0\le\gamma<(1-|\alpha|)/2$ the
 estimates of the Hurwitz analysis of \S\ref{sec:H-proof}, in which the index enters only as a real scale, transfer and give
-$m^pb_n/c=\sum_{|\br|\le B}\mu_m^{\br}\cD_{\br,K}(m;\alpha-2\gamma,\alpha)+O(m^{-K-1}+m^{-2-(B+1)p}+m^{-1-(J+1)p})$. This transfer is written
+$m^pb_n/c=\sum_{|\br|\le T}\mu_m^{\br}\cD_{\br,K}(m;\alpha-2\gamma,\alpha)+O(m^{-K-1}+m^{-2-(T+1)p}+m^{-1-(J+1)p})$. This transfer is written
 out step by step in the notes of the repository; we do not repeat it. Now fix $p\in(1,2)\setminus\mathbb Q$, $\alpha\in(-\frac12,\frac12)$,
 $\gamma\in(0,\frac14)$. Both frames express $n^pb_n/c$ as $\sum_ec_en^{-e}+o(n^{-E})$ with exponents $k+|\br|_wp$, pairwise distinct since $p$ is
 irrational, so the coefficients agree; at integer exponents only $\br=0$ contributes, which is~\eqref{eq:FI} at $\beta=\alpha$. The coefficients of
@@ -90,7 +90,7 @@ the times of the Toda hierarchy. For a tilt $e^{\sum_jt_jx^j}\mu$ of a compactly
 $h_n=\int\pi_n^2$, one has $\partial_{t_j}\log h_n=(\mathcal J^j)_{nn}$, $\partial_{t_j}b_n=\frac12b_n[(\mathcal J^j)_{nn}-(\mathcal J^j)_{n-1,n-1}]$ and
 $\partial_{t_j}a_n=b_{n+1}(\mathcal J^j)_{n+1,n}-b_n(\mathcal J^j)_{n,n-1}$; this is classical (Moser, Flaschka; see \cite[Lemma~2.1,
 Theorem~2.4]{VanAsscheToda}). Let $\cA_{\br}$ be the analogues of $\cD_{\br}$ for $n^pa_n/(2c)$, from the second moment of the same recursion and
-the extraction of \cite{PaperII}, and $A:=\cA_0$. Substitute $\mu_j=-u_jn^{-jp}$ with $n$-independent $u_j$, put
+the extraction of \cite{PaperII}, and $\mathsf A:=\cA_0$. Substitute $\mu_j=-u_jn^{-jp}$ with $n$-independent $u_j$, put
 $\hat b:=\sum_{\br}(-u)^{\br}n^{-|\br|_wp}\cD_{\br}(n)$, $\hat a$ likewise, and let $\hat{\mathcal J}$ be the tridiagonal matrix on $\mathbb Z$ with
 $\hat{\mathcal J}_{ii}=2(1+\frac in)^{-p}\hat a(n+i)$, $\hat{\mathcal J}_{i,i-1}=\hat{\mathcal J}_{i-1,i}=\hat b_i:=(1+\frac in)^{-p}\hat b(n+i)$, the shift
 $n\mapsto n+i$ acting at fixed $u$ and re-expanded in $1/n$.
@@ -104,7 +104,7 @@ layers and $\mu_{n,j}$ replaced by $\mu_{n,j}-\tau_jn^{-jp}$, and likewise for $
 $\partial_{u_j}\hat b=\tfrac12c^jn^{-jp}\hat b[(\hat{\mathcal J}^j)_{00}-(\hat{\mathcal J}^j)_{-1,-1}]$ and
 $\partial_{u_j}(2\hat a)=c^jn^{-jp}[\hat b_1(\hat{\mathcal J}^j)_{10}-\hat b_0(\hat{\mathcal J}^j)_{0,-1}]$.
 \item[(iii)] The identities of (ii) hold for $M(\beta,\nu)$ identically in $(p,\beta,\nu)$, and they determine every $\cD_{\br}$ and $\cA_{\br}$ from
-the integer layers $B$ and $A$.
+the integer layers $\mathsf B$ and $\mathsf A$.
 \end{enumerate}
 \end{theorem}
 
@@ -130,10 +130,10 @@ $n$-independent Toda flow of the two integer layers, with times given by the zet
 \subsection{The index-shift law}\label{sec:indexshift}
 Let $M(\beta,\nu)$ carry parameters $\mu_a=\hat\mu_an^{-pj_a}$ with exponents $j_1,\dots,j_r$, put
 $\hat\varepsilon_a:=\frac{pj_a}2\binom{2j_a}{j_a}c^{j_a}\hat\mu_a$ ($\hat\varepsilon_j=\varepsilon_j$ for the lattice), and expand
-$n^pb(n;\beta,\nu;\mu)/c=\sum_kn^{-k}b_k(\mu)$.
+$n^pb(n;\beta,\nu;\mu)/c=\sum_kn^{-k}\mathsf b_k(\mu)$.
 
 \begin{theorem}[index-shift law]\label{thm:indexshift}
-Let $p\ne1$. Identically in $(p,\beta,\nu)$, $b_k$ is a polynomial of degree at most $k$ in $\mu$, and its part of degree exactly $k$ is the
+Let $p\ne1$. Identically in $(p,\beta,\nu)$, $\mathsf b_k$ is a polynomial of degree at most $k$ in $\mu$, and its part of degree exactly $k$ is the
 $n^{-k}$ coefficient of $(n/x)^p$, where $x$ is the formal solution of $x=n-\frac1p\sum_a\hat\varepsilon_ax^{-pj_a}$. Equivalently, in natural
 form the layer $\mu^{\br}$ is $(n/N)^p\hat\varepsilon^{\br}N^{-|\br|-S}[(p+1+S)_{|\br|-1}/(\br!\,p^{|\br|-1})+O(N^{-1})]$, $S:=p\sum_ar_aj_a$.
 \end{theorem}
@@ -154,11 +154,11 @@ symbolic exponents and sixth order at rational parameters, and the Toda flow of 
 non-integer exponents, in particular to the pole exponents of Theorem~\ref{thm:kappa}.
 
 \begin{remark}[the diagonal layer and the parity of the zeta layers]\label{rem:diag}
-Exact computer algebra on the second moment of the recursion gives, identically in $(p,\beta,\nu)$, $(M/n)^pA(n;\beta,\nu)=1+a_2M^{-2}+a_4M^{-4}+O(M^{-5})$
-with $M=n+\frac\beta2+1=N+\frac12$, $a_2=-\frac{p+1}{24}+\frac{(p+1)(p+2)\nu^2}8$, no odd terms and no $\beta$ to this order (script
+Exact computer algebra on the second moment of the recursion gives, identically in $(p,\beta,\nu)$, $(\tilde N/n)^p\mathsf A(n;\beta,\nu)=1+\tilde f_2\tilde N^{-2}+\tilde f_4\tilde N^{-4}+O(\tilde N^{-5})$
+with $\tilde N=n+\frac\beta2+1=N+\frac12$, $\tilde f_2=-\frac{p+1}{24}+\frac{(p+1)(p+2)\nu^2}8$, no odd terms and no $\beta$ to this order (script
 \texttt{toda\_layers}); evenness and $\beta$-independence beyond order four are supported only numerically (scripts \texttt{m4\_toda},
-\texttt{m4\_diag}). So $b_n$ is centred at $N$ and $a_n$ at $N+\frac12$, as in \cite[Theorem~5.2]{BleherIts} for varying weights. If $A$ is even in
-$M$, then $a_n-a_{n-1}$ is odd in $N$ and the second differences of $b_n^2$ are even, so by Theorem~\ref{thm:toda} the first-order zeta layers are
+\texttt{m4\_diag}). So $b_n$ is centred at $N$ and $a_n$ at $N+\frac12$, as in \cite[Theorem~5.2]{BleherIts} for varying weights. If $\mathsf A$ is even in
+$\tilde N$, then $a_n-a_{n-1}$ is odd in $N$ and the second differences of $b_n^2$ are even, so by Theorem~\ref{thm:toda} the first-order zeta layers are
 $\varepsilon_jN^{-1-jp}$ times even series and the $\varepsilon_1^2$ layer is $N^{-2-2p}$ times an even series, as found in
 Theorem~\ref{thm:N6}(ii); the general monomial structure is open (Problem~\ref{prob:open}(b)). The factor $1/(2j-1)$ in $g_j$ matches the first
 variation $\binom{2j-2}{j-1}/\binom{2j}j=j/(2(2j-1))$ of the dispersionless symbol $\frac1{2\pi}\int(a+2b\cos\theta)^j\diff\theta$ off the line $a=2b$

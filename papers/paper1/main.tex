@@ -12,6 +12,7 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \numberwithin{equation}{section}
+\renewcommand{\theenumi}{\roman{enumi}}
 \raggedbottom
 \setlength{\emergencystretch}{3em}
 
@@ -161,7 +162,7 @@ Zudilin~\cite{HaynesZudilin} wrote: ``for positive integers $a$ and $b$, we expe
 \zeta(a(i+j)+b)=-an^2\log n+O(n^2)$ as $n\to\infty$'', and proved the weaker bound
 $\log\det_{1\le i,j\le n}\zeta(a(i+j)+b)\le-(a/2)n^2\log n+O(n^2)$. They add that Monien justified the leading term
 for $r=0$ in a personal communication \cite[\S1]{HaynesZudilin}. Coons and Sutherland \cite[Thm.~1.3]{CoonsSutherland}
-proved that $H_n^{(r)}[F]>0$ and $\log H_n^{(r)}[F]<-cn^2$ for large $n$ and $r$, for nondegenerate Dirichlet series
+proved that $H_n^{(r)}[F]>0$ and $\log H_n^{(r)}[F]<-\varepsilon n^2$ for large $n$ and $r$, for nondegenerate Dirichlet series
 with nonnegative coefficients.
 
 Corollary~\ref{cor:zeta} therefore proves the asymptotic formula expected in~\cite{HaynesZudilin}, for all positive
@@ -178,7 +179,7 @@ $g(u)=u^{-p}$, the maximisation of $\cJ_p$ over $\cA$ is a logarithmic energy mi
 the measure. Problems of this kind were introduced by Rakhmanov~\cite{Rakhmanov}. He characterised the constrained
 equilibrium measure on $[-1,1]$ for a constraint measure of total mass $>1$ with continuous potential
 \cite[Thm.~3]{Rakhmanov}, and used it to find the limiting zero distribution of polynomials that are extremal for
-discrete norms on $N$ points as $n/N\to c\in(0,1)$, in particular of the discrete Chebyshev polynomials
+discrete norms on $N$ points as $n/N$ tends to a limit in $(0,1)$, in particular of the discrete Chebyshev polynomials
 \cite[Thms.~1 and~2]{Rakhmanov}. Dragnev and Saff added an external field. For a finite constraint measure on a closed set they proved existence,
 uniqueness, a characterisation and a saturation property of the constrained minimiser \cite[Thms.~2.1
 and~2.6]{DragnevSaff}, with applications to discrete $L_p$-extremal polynomials on finite intervals
@@ -195,7 +196,7 @@ symmetric measures in the unit disc after the scaling $x\mapsto x^{1/n}$.
 In our problem the atoms accumulate at a finite point with polynomial spacing, there is no external field, and in the
 variable $x=u^{-p}$ the constraint has infinite mass near the accumulation point. None of the results above covers this
 case, and we use none of them; Section~\ref{sec:equilibrium} is self-contained. In the variable $x$ our solution has
-the same product structure as in~\cite{KVA-PLMS}: $\mu^*$ is the law of $SY$, where $Y$ has the law $\arc_{4c(p)}$ and $S=T^{-p}$ with $T$ uniform on $(0,1)$ and independent of $Y$. We have not
+the same product structure as in~\cite{KVA-PLMS}: $\mu^*$ is the law of $SY$, where $Y$ has the law $\arc_{4c(p)}$ and $S=Z^{-p}$ with $Z$ uniform on $(0,1)$ and independent of $Y$. We have not
 found the problem $\sup_\cA\cJ_p$ or its solution in the works cited here.
 
 For $p=1$, Monien~\cite[\S3]{Monien} set up this maximisation heuristically, for densities $0<\rho\le1$ on
@@ -298,11 +299,11 @@ hypothesis of (iv) some term is positive.
 \end{proof}
 
 \begin{lemma}[Regular spacing comparison]\label{lem:spacing}
-Let $f,h\in C^1[1,\infty)$ with $f'<0$ and $h'<0$ on $[1,\infty)$, both bounded on $[1,\infty)$, and suppose that
-$\rho:=f'/h'$ satisfies $R^{-1}\le\rho\le R$ on $[1,\infty)$ for some $R\ge1$ and $\rho(\xi)\to1$ as $\xi\to\infty$.
-Put $\eta(m):=\sup_{\xi\ge m}|\log\rho(\xi)|$. Then for all weights $w_k\ge0$ with $\sum w_k<\infty$ and all $n\ge1$,
+Let $f,\tilde f\in C^1[1,\infty)$ with $f'<0$ and $\tilde f'<0$ on $[1,\infty)$, both bounded on $[1,\infty)$, and suppose that
+$\omega:=f'/\tilde f'$ satisfies $R^{-1}\le\omega\le R$ on $[1,\infty)$ for some $R\ge1$ and $\omega(\xi)\to1$ as $\xi\to\infty$.
+Put $\eta(m):=\sup_{\xi\ge m}|\log\omega(\xi)|$. Then for all weights $w_k\ge0$ with $\sum w_k<\infty$ and all $n\ge1$,
 \[
-  \Bigl|\log D_n\Bigl(\sum_kw_k\delta_{f(k)}\Bigr)-\log D_n\Bigl(\sum_kw_k\delta_{h(k)}\Bigr)\Bigr|
+  \Bigl|\log D_n\Bigl(\sum_kw_k\delta_{f(k)}\Bigr)-\log D_n\Bigl(\sum_kw_k\delta_{\tilde f(k)}\Bigr)\Bigr|
   \le2\sum_{i=1}^{n-1}(n-i)\,\eta(i)=o(n^2),
 \]
 whenever one (hence both) of the determinants is positive.
@@ -310,8 +311,8 @@ whenever one (hence both) of the determinants is positive.
 
 \begin{proof}
 Let $S=\{k_1<\dots<k_n\}$. For $i<j$, Cauchy's mean value theorem gives
-$(f(k_i)-f(k_j))/(h(k_i)-h(k_j))=\rho(\xi)$ for some $\xi\in(k_i,k_j)$. Since $\xi>k_i\ge i$, the ratio of the
-squared factors lies in $[e^{-2\eta(i)},e^{2\eta(i)}]$. Multiplying over pairs, $V_f(S)/V_h(S)$ lies in
+$(f(k_i)-f(k_j))/(\tilde f(k_i)-\tilde f(k_j))=\omega(\xi)$ for some $\xi\in(k_i,k_j)$. Since $\xi>k_i\ge i$, the ratio of the
+squared factors lies in $[e^{-2\eta(i)},e^{2\eta(i)}]$. Multiplying over pairs, $V_f(S)/V_{\tilde f}(S)$ lies in
 $[e^{-E_n},e^{E_n}]$ with $E_n=2\sum_{i<n}(n-i)\eta(i)$, and the bound follows by comparing the Heine sums term by
 term. Finally $\eta$ is bounded by $\log R$ and tends to $0$, so $E_n=o(n^2)$.
 \end{proof}
@@ -443,9 +444,9 @@ passage to the limit on the energy side (Step~3). The equality case is Fourier u
 
 \emph{Step 1: a uniform bound.} We use three elementary estimates: (a) for $1\le A<B$,
 $|\int_A^B\cos t\,\frac{\dd t}{t}|\le2/A\le2$ (integrate by parts); (b) for $0<A<B\le1$,
-$\int_A^B\cos t\,\frac{\dd t}{t}=\log\frac BA-\theta$ with $0\le\theta\le\int_A^B\frac t2\dd t\le\frac{B^2}{4}\le\frac14$,
+$\int_A^B\cos t\,\frac{\dd t}{t}=\log\frac BA-\gamma$ with $0\le\gamma\le\int_A^B\frac t2\dd t\le\frac{B^2}{4}\le\frac14$,
 because $0\le1-\cos t\le t^2/2$;
-(c) $\int_\varepsilon^Re^{-\xi}\frac{\dd\xi}{\xi}=\log\frac1\varepsilon+\theta'$ with $|\theta'|\le2$. Substitute
+(c) $\int_\varepsilon^Re^{-\xi}\frac{\dd\xi}{\xi}=\log\frac1\varepsilon+\gamma'$ with $|\gamma'|\le2$. Substitute
 $t=|a|\xi$, so that $\int_\varepsilon^R\cos(a\xi)\frac{\dd\xi}{\xi}=\int_{\varepsilon|a|}^{R|a|}\cos t\frac{\dd t}{t}$.
 If $\varepsilon|a|<1<R|a|$, then $K_{\varepsilon,R}(a)=-\log|a|+O(1)$. If $R|a|\le1$, then
 $K_{\varepsilon,R}(a)=\log R+O(1)$ and $0<\log R\le\log(1/|a|)$. If $\varepsilon|a|\ge1$, then
@@ -671,39 +672,39 @@ Let $w_k\ge0$ with $W=\sum_kw_k<\infty$ and $\sigma_0:=\sum_kw_k\delta_{k^{-p}}$
 \begin{proof}
 We split each $n$-subset $S$ of atoms into a head $H$ inside $[1,Mn]$ and a tail $T$ beyond $Mn$. The head is
 controlled by Corollary~\ref{cor:head}, which produces the energy $E_p$. The tail and the cross factors are bounded
-crudely: all tail atoms lie in $(0,(Mn)^{-p})$, and each head atom $a^{-p}$ is at distance less than $a^{-p}$
+crudely: all tail atoms lie in $(0,(Mn)^{-p})$, and each head atom $k^{-p}$ is at distance less than $k^{-p}$
 from every tail atom.
 Optimising over the proportion $t$ of tail atoms leaves an error $A^2/(4p\log M)$, which vanishes as $M\to\infty$.
 
 Fix $M\ge2$. Each $n$-set $S\subset\N$ splits uniquely as $S=H\cup T$ with $H:=S\cap[1,Mn]$ and $T:=S\cap(Mn,\infty)$;
-let $m:=|T|$ and $N:=n-m=|H|$. Then $V(S)=V(H)V(T)\prod_{a\in H,b\in T}(a^{-p}-b^{-p})^2$.
+let $m:=|T|$ and $N:=n-m=|H|$. Then $V(S)=V(H)V(T)\prod_{k\in H,l\in T}(k^{-p}-l^{-p})^2$.
 
-\emph{Cross pairs.} For $a\in H$ and $b\in T$, $0<a^{-p}-b^{-p}<a^{-p}$. Since $H$ consists of $N$ distinct positive
-integers, $\prod_{a\in H}a\ge N!$, so the cross product is at most $(N!)^{-2pm}$.
+\emph{Cross pairs.} For $k\in H$ and $l\in T$, $0<k^{-p}-l^{-p}<k^{-p}$. Since $H$ consists of $N$ distinct positive
+integers, $\prod_{k\in H}k\ge N!$, so the cross product is at most $(N!)^{-2pm}$.
 
-\emph{Tail.} All atoms $b^{-p}$ with $b\in T$ lie in the interval $(0,(Mn)^{-p})$; hence
+\emph{Tail.} All atoms $l^{-p}$ with $l\in T$ lie in the interval $(0,(Mn)^{-p})$; hence
 \[
   V(T)\le(Mn)^{-pm(m-1)},\qquad\sum_{|T|=m}w(T)\le W^m .
 \]
 
 \emph{Head.} $\sum_{|H|=N}w(H)V(H)\le W^N\sup_HV(H)$, and Corollary~\ref{cor:head} bounds $\sup_HV(H)$.
 
-By Lemma~\ref{lem:heine}, $D_n(\sigma_0)\le\sum_{m=0}^nT_m$, where
+By Lemma~\ref{lem:heine}, $D_n(\sigma_0)\le\sum_{m=0}^nQ_m$, where
 \begin{multline*}
-  \log T_m\le n\log^+W-2pm\log N!-pN^2\log N+E_pN^2\\
+  \log Q_m\le n\log^+W-2pm\log N!-pN^2\log N+E_pN^2\\
   -pm(m-1)\log(Mn)+C'_Mn\log n .
 \end{multline*}
 Recall that $E_p=\kappa_p$ is finite (Theorem~\ref{thm:equilibrium}(iii)). Put $t:=m/n$. If $N\ge1$, use
 $\log N!\ge N\log N-N$, $\log N=\log n+\log(1-t)$ and $\log(Mn)=\log n+\log M$.
 The coefficient of $\log n$ is $-p(2mN+N^2+m^2)=-pn^2$, and the remaining terms give
 \[
-  \log T_m+pn^2\log n-E_pn^2\le n^2\phi_M(t)+O_M(n\log n),
+  \log Q_m+pn^2\log n-E_pn^2\le n^2\phi_M(t)+O_M(n\log n),
 \]
 \[
   \phi_M(t):=-p(1-t)(1+t)\log(1-t)+2pt(1-t)-E_p\,t(2-t)-pt^2\log M .
 \]
 Since $-(1-t)\log(1-t)\le t$ on $[0,1)$, we get $\phi_M(t)\le p(1+t)t+2pt+2|E_p|t-pt^2\log M\le At-pt^2\log M$ with
-$A:=4p+2|E_p|$. If $N=0$ ($t=1$), then directly $\log T_n\le n\log^+W-pn(n-1)\log(Mn)+C'_Mn\log n$, and
+$A:=4p+2|E_p|$. If $N=0$ ($t=1$), then directly $\log Q_n\le n\log^+W-pn(n-1)\log(Mn)+C'_Mn\log n$, and
 $-p\log M-E_p\le A-p\log M$, so the same bound holds. The $O_M(n\log n)$ terms are uniform in $m$, and
 $\max_{t\in[0,1]}(At-pt^2\log M)\le A^2/(4p\log M)$. Summing the $n+1$ terms,
 \[
@@ -783,9 +784,9 @@ Then
 For $i<j$,
 $u\in B_i$ and $v\in B_j$ we have $u\le v$ and
 \[
-  F(u,v)=-p\log u+h(u/v),\qquad h(r):=\log(1-r^p),
+  F(u,v)=-p\log u+\chi(u/v),\qquad \chi(r):=\log(1-r^p),
 \]
-with $h$ decreasing on $(0,1)$. We show that $F(u_i,u_j)\ge\langle F\rangle_{B_i\times B_j}-\mathrm{err}_{ij}$
+with $\chi$ decreasing on $(0,1)$. We show that $F(u_i,u_j)\ge\langle F\rangle_{B_i\times B_j}-\mathrm{err}_{ij}$
 with $\sum_{i<j}\mathrm{err}_{ij}=O_U(n\log n)$. We use repeatedly that for $0<r<1$,
 \begin{equation}\label{eq:rp}
   \min(1,p)(1-r)\le1-r^p\le\max(1,p)(1-r).
@@ -798,23 +799,23 @@ $\lambda=\theta|_{B_1}$, $\delta=1/n$) gives $\langle\log(1/u)\rangle_{B_1}\le n
 and $\log u_1\le\log r_2\le\log\frac2{d_Un}$; so the loss is at most $p(\log\frac2{d_U}+1)$. Summing over $j>i$ and
 then over $i$ gives $O_U(n\log n)$.
 
-(b) \emph{The term $h$, for $j\ge i+3$.} On $B_i\times B_j$, $u/v\ge a:=l_i/r_j$, so the average of $h(u/v)$ is at most
-$h(a)$. At the point, $u_i/u_j\le b:=r_{i+1}/l_j$, and $b<1$ because $l_j=r_{j-1}\ge r_{i+2}>r_{i+1}$; so
-$h(u_i/u_j)\ge h(b)$. The loss is at most $h(a)-h(b)=\log\frac{1-a^p}{1-b^p}\le\frac{b^p-a^p}{1-b^p}$. By
-\eqref{eq:rp}, $b^p-a^p=b^p(1-(a/b)^p)\le\max(1,p)(1-a/b)$.
+(b) \emph{The term $\chi$, for $j\ge i+3$.} On $B_i\times B_j$, $u/v\ge y_-:=l_i/r_j$, so the average of $\chi(u/v)$ is at most
+$\chi(y_-)$. At the point, $u_i/u_j\le y_+:=r_{i+1}/l_j$, and $y_+<1$ because $l_j=r_{j-1}\ge r_{i+2}>r_{i+1}$; so
+$\chi(u_i/u_j)\ge\chi(y_+)$. The loss is at most $\chi(y_-)-\chi(y_+)=\log\frac{1-y_-^p}{1-y_+^p}\le\frac{y_+^p-y_-^p}{1-y_+^p}$. By
+\eqref{eq:rp}, $y_+^p-y_-^p=y_+^p(1-(y_-/y_+)^p)\le\max(1,p)(1-y_-/y_+)$.
 
-If $b\le\frac12$, then $1-b^p\ge1-2^{-p}$, and
-$1-\frac ab\le\bigl(1-\frac{l_i}{r_{i+1}}\bigr)+\bigl(1-\frac{l_j}{r_j}\bigr)\le\frac{2/(d_Un)}{(i+1)/n}+
+If $y_+\le\frac12$, then $1-y_+^p\ge1-2^{-p}$, and
+$1-\frac{y_-}{y_+}\le\bigl(1-\frac{l_i}{r_{i+1}}\bigr)+\bigl(1-\frac{l_j}{r_j}\bigr)\le\frac{2/(d_Un)}{(i+1)/n}+
 \frac{1/(d_Un)}{j/n}\le\frac{3}{d_U(i+1)}$, so the loss is at most $C_U/(i+1)$.
 
-If $b>\frac12$, then by \eqref{eq:rp}, $1-b^p\ge\min(1,p)(1-b)=\min(1,p)\frac{l_j-r_{i+1}}{l_j}\ge
+If $y_+>\frac12$, then by \eqref{eq:rp}, $1-y_+^p\ge\min(1,p)(1-y_+)=\min(1,p)\frac{l_j-r_{i+1}}{l_j}\ge
 \min(1,p)\frac{j-i-2}{nl_j}$, since the $j-i-2$ blocks $B_{i+2},\dots,B_{j-1}$ each have length $\ge\frac1n$. Also
-$1-\frac ab=\frac{b-a}{b}\le2(b-a)$ and $b-a\le\frac{r_{i+1}-l_i}{l_j}+\frac{l_i}{r_j}\cdot\frac{r_j-l_j}{l_j}\le
+$1-\frac{y_-}{y_+}=\frac{y_+-y_-}{y_+}\le2(y_+-y_-)$ and $y_+-y_-\le\frac{r_{i+1}-l_i}{l_j}+\frac{l_i}{r_j}\cdot\frac{r_j-l_j}{l_j}\le
 \frac{3}{d_Unl_j}$, so the loss is at most $C_U/(j-i-2)$.
 
 Summing, $\sum_{j\ge i+3}\bigl(C_U/(i+1)+C_U/(j-i-2)\bigr)=O_U(n\log n)$.
 
-(c) \emph{The term $h$, for $j\in\{i+1,i+2\}$.} The average of $h$ is $\le0$ since $h\le0$. At the point, by
+(c) \emph{The term $\chi$, for $j\in\{i+1,i+2\}$.} The average of $\chi$ is $\le0$ since $\chi\le0$. At the point, by
 \eqref{eq:rp}, $1-(u_i/u_j)^p\ge\min(1,p)\frac{u_j-u_i}{u_j}\ge\min(1,p)\frac{1/n}{(j+1)/(d_Un)}=
 \frac{\min(1,p)d_U}{j+1}$. So the loss is at most $\log(j+1)+C_U$, and there are at most $2n$ such pairs: $O_U(n\log n)$.
 
@@ -853,11 +854,11 @@ Theorems~\ref{thm:upper}, \ref{thm:lower} and~\ref{thm:equilibrium}(iii) ($E_p=\
 $\log D_n(\sigma_0)=-pn^2\log n+\kappa_pn^2+o(n^2)$. By Lemma~\ref{lem:elem}(iii), the measure
 $\sum_kw_k\delta_{Ck^{-p}}$ has $\log D_n$ larger by $n(n-1)\log C=n^2\log C+O(n)$.
 
-\emph{General atoms.} Let $f$ satisfy \eqref{eq:Ha} and put $h(\xi):=C\xi^{-p}$. Since $f'$ is continuous,
+\emph{General atoms.} Let $f$ satisfy \eqref{eq:Ha} and put $\tilde f(\xi):=C\xi^{-p}$. Since $f'$ is continuous,
 $\xi^{p+1}|f'(\xi)|$ is bounded below by a positive constant, and $\xi^{p+1}f'(\xi)\to-pC<0$, we have $f'<0$ on
 $[1,\infty)$; $f$ is bounded because $|f'(\xi)|\le C'\xi^{-p-1}$ is integrable. The ratio
-$\rho=f'/h'=\xi^{p+1}f'(\xi)/(-pC)$ is bounded above and below by positive constants and tends to $1$. All
-determinants involved are positive by Lemma~\ref{lem:elem}(iv), since $w_k>0$ for all $k$ and $f$, $h$ are injective.
+$\omega=f'/\tilde f'=\xi^{p+1}f'(\xi)/(-pC)$ is bounded above and below by positive constants and tends to $1$. All
+determinants involved are positive by Lemma~\ref{lem:elem}(iv), since $w_k>0$ for all $k$ and $f$, $\tilde f$ are injective.
 Lemma~\ref{lem:spacing} gives $\log D_n(\sigma)=\log D_n(\sum_kw_k\delta_{Ck^{-p}})+o(n^2)$.
 \end{proof}
 

@@ -11,8 +11,8 @@ coefficients of
 Proposition~\ref{prop:imp-lommel} to a relative error below $10^{-14}$ for $n\le400$.
 
 \emph{Rough weights.} Table~\ref{tab:rough} shows the construction of Theorem~\ref{thm:rough-b} for $p=s=2$, the window
-$W=(0.6,1.6)$, three scales $N_i=15,60,240$ (separation by the factor $4$, far below $R_W$) and two values of
-$\varepsilon$, both far above the proved range $\varepsilon\le\gamma_W/16\approx6\cdot10^{-9}$. At each scale the jump
+$\Omega=(0.6,1.6)$, three scales $N_i=15,60,240$ (separation by the factor $4$, far below $R_\Omega$) and two values of
+$\varepsilon$, both far above the proved range $\varepsilon\le\gamma_\Omega/16\approx6\cdot10^{-9}$. At each scale the jump
 $F_m(w)-F_m(v)$ at the selected index $m$ agrees with the first-order prediction $\langle\varphi,\Delta^2m_m^v\rangle$
 to within $2\%$, and the contribution of the other windows is at most $1.4\cdot10^{-3}$. Every jump exceeds, by a factor larger
 than $2$, the largest $|F_n(w)-F_n(v)|$ over the indices $n\in[10,246]$ with $|n-m_i|>2$ for all $i$. The measure was truncated at
@@ -34,7 +34,7 @@ $\varepsilon$ & $N_i$ & $m_i$ & $F_{m_i}(w)-F_{m_i}(v)$ & $\langle\varphi,\Delta
 0.2  & 240 & 238 & $0.2389$ & $0.2403$ & $<10^{-16}$\\
 \bottomrule
 \end{tabular}
-\caption{The construction of Theorem~\ref{thm:rough-b} for $p=s=2$, $W=(0.6,1.6)$, scales $15,60,240$. The largest
+\caption{The construction of Theorem~\ref{thm:rough-b} for $p=s=2$, $\Omega=(0.6,1.6)$, scales $15,60,240$. The largest
 $|F_n(w)-F_n(v)|$ over $n\in[10,246]$ with $|n-m_i|>2$ is $0.026$ for $\varepsilon=0.05$ and $0.103$ for
 $\varepsilon=0.2$. Double precision, $K=9600$ atoms.}
 \label{tab:rough}
@@ -51,8 +51,8 @@ $\sup_s|n^pb_n(s)/c-1|$ and $\sup_s|n^pa_n(s)/(2c)-1|$ are $3.7\cdot10^{-3}$ and
 $3.7\cdot10^{-3}$ and $6.2\cdot10^{-3}$ ($p=2$), at $n=400$, and halve with each doubling of $n$. For $p=1$ the grid extends
 beyond $\Sp=(1,3)$; there the computation illustrates what we expect but have not proved. Finally, for the
 Tricomi--Carlitz comparison in the proof of Corollary~\ref{cor:lattice}(a), the error of
-$\sum_{j\le n}\log(b_j(\frac32)/b^{\mathrm{TC}}_j)$, computed with the value $W_{\mathrm{TC}}=1$ that the computation
-indicates, is $4.1\cdot10^{-4}$ at $n=100$ and $2.6\cdot10^{-5}$ at $n=1600$.
+$\sum_{j\le n}\log(b_j(\frac32)/b^{\mathrm{TC}}_j)$, computed with $W_{\mathrm{TC}}=1$ (proof of Corollary~\ref{cor:lattice}),
+is $4.1\cdot10^{-4}$ at $n=100$ and $2.6\cdot10^{-5}$ at $n=1600$.
 
 \begin{table}[ht]
 \centering
