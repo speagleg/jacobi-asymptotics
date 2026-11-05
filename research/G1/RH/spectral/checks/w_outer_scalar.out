@@ -1,0 +1,71 @@
+===== p=1.5 d=-0.3 kappa=0.5: zs = n^p/kappa = 16.0, top node X1 = 7.3687758, c = 1 =====
+  [O1] x = 4.4088451: |F_nat jump - e^(2 pi i t)| = 1.07e-13
+  [O1] x = 32.0: |F_nat jump - e^(2 pi i t)| = 6.42e-15
+  [O1] x = 160.0: |F_nat jump - e^(2 pi i t)| = 3.87e-16
+  [zs] log F_nat at r = 1e-6, 1e-12, 1e-18: ['(-1.812506555 + 1.979077698j)', '(-1.812507121 + 1.979079357j)', '(-1.812507121 + 1.979079357j)'];  exponents: F_k -0.2 (pred -0.2), G 0.2 (pred 0.2)
+  [ctrl] branch -1 on (zs, inf): exponent of |F_nat| at zs = 1.0 (must be nonzero)
+  [ctrl] branch +1 on (zs, inf): exponent of |F_nat| at zs = -1.0 (must be nonzero)
+  [inf] log F_nat on rays pi/4, pi/2, 3pi/4, 0.95pi at R = 1e30: ['(-2.29270283449 + 1.21405976909e-11j)', '(-2.29270283438 + 9.9939506254e-12j)', '(-2.29270283449 + 1.21400258227e-11j)', '(-2.29270283582 + 5.49255398068e-11j)']; spread (incl. R = 1e20) 1.45e-9
+  [inf] exponent of |F_k(iy)| = -0.5 (-1/2; the literal claim -Z(0)-1/2 = d = -0.3), of |G_k(iy)| = 0.5
+  [0] |log(G_k (-z)^d / E_k(0))| at |z| = 1e-4, 1e-8, 1e-12 (arg pi/2): ['0.0281', '0.0013', '6.05e-5']
+  [0] decay exponent of |log G_k(-z)^d - log E_k(0)|: 0.333333 (pred q1 = 1 - 1/p = 0.333333)
+  [0] |log F_k(z) - log F_d(z)| at 1e-4, 1e-8: ['1.83e-12', '1.83e-20']
+  [W5] FP_1: fit (-0.01250001302 - 4.066350751e-11j)  pred zeta(0,a) kappa n^-p = -0.0125;  FP_2: fit (-0.00039062264 - 9.7668848e-7j)  pred -0.000390625
+  [W4] x = 0.37: log W0 = (1.45619781414 - 2.92109191725e-15j); lip phase/(-2 pi i rho1) - 1 = (7.26e-15 + 0.0j)
+  [W4] x = 2.9: log W0 = (-1.02443898292 - 2.26208651399e-15j); lip phase/(-2 pi i rho1) - 1 = (1.84e-14 + 0.0j)
+  [W4] Sigma_v cancellation at z = 1.3 + 0.2i: |lhs - rhs| mod 2 pi i = 3.94e-31
+===== p=1.5 d=-0.3 kappa=-0.3: zs = n^p/kappa = -26.666667, top node X1 = 28.005123, c = 1 =====
+  [O1] x = 7.8853926: |F_nat jump - e^(2 pi i t)| = 1.11e-14
+  [O1] x = 84.015369: |F_nat jump - e^(2 pi i t)| = 9.13e-15
+  [O1] x = 28005.123: |F_nat jump - e^(2 pi i t)| = 7.26e-17
+  [O1] y = -80.0: |jump of F_nat| = 1.05e-15
+  [O1] y = -40.0: |jump of F_nat| = 1.06e-16
+  [O1] y = -13.333333: |jump of F_nat| = 1.96e-15
+  [O1] y = -1.0: |jump of F_nat| = 6.26e-15
+  [zs] log F_nat at r = 1e-6, 1e-12, 1e-18: ['(-0.1965355218 - 2.689288803e-8j)', '(-0.1965355062 - 2.68928577e-14j)', '(-0.1965355062 - 2.819088088e-14j)'];  exponents: F_k -0.2 (pred -0.2), G 0.2 (pred 0.2)
+  [inf] log F_nat on rays pi/4, pi/2, 3pi/4, 0.95pi at R = 1e30: ['(-0.482353746431 + 1.45103949107e-19j)', '(-0.482353746431 + 1.25663706098e-19j)', '(-0.482353746431 + 7.25519745373e-20j)', '(-0.482353746431 + 1.51674928104e-20j)']; spread (incl. R = 1e20) 6.74e-13
+  [inf] exponent of |F_k(iy)| = -0.5 (-1/2; the literal claim -Z(0)-1/2 = d = -0.3), of |G_k(iy)| = 0.5
+  [0] |log(G_k (-z)^d / E_k(0))| at |z| = 1e-4, 1e-8, 1e-12 (arg pi/2): ['0.0168', '0.000782', '3.63e-5']
+  [0] decay exponent of |log G_k(-z)^d - log E_k(0)|: 0.333333 (pred q1 = 1 - 1/p = 0.333333)
+  [0] |log F_k(z) - log F_d(z)| at 1e-4, 1e-8: ['1.1e-12', '1.1e-20']
+  [W5] FP_1: fit (0.007500002813 - 4.432319416e-12j)  pred zeta(0,a) kappa n^-p = 0.0075;  FP_2: fit (-0.00014062474 + 2.1094735e-7j)  pred -0.000140625
+  [W4] x = 0.37: log W0 = (2.6106558231 - 3.04561706325e-15j); lip phase/(-2 pi i rho1) - 1 = (-1.77e-14 + 0.0j)
+  [W4] x = 2.9: log W0 = (-0.763365594999 - 3.32694475761e-15j); lip phase/(-2 pi i rho1) - 1 = (-3.92e-14 + 0.0j)
+  [W4] Sigma_v cancellation at z = 1.3 + 0.2i: |lhs - rhs| mod 2 pi i = 1.97e-31
+===== p=3 d=-0.7 kappa=1.0: zs = n^p/kappa = 64.0, top node X1 = 62.317429, c = 1 =====
+  [O1] x = 42.328042: |F_nat jump - e^(2 pi i t)| = 2.5e-14
+  [O1] x = 9.3676815: |F_nat jump - e^(2 pi i t)| = 2.26e-16
+  [O1] x = 128.0: |F_nat jump - e^(2 pi i t)| = 3.4e-14
+  [O1] x = 640.0: |F_nat jump - e^(2 pi i t)| = 8.75e-15
+  [zs] log F_nat at r = 1e-6, 1e-12, 1e-18: ['(3.291703156 + 3.141558984j)', '(3.291721387 + 3.141592654j)', '(3.291721387 + 3.141592654j)'];  exponents: F_k 0.20002443 (pred 0.2), G -0.20002443 (pred -0.2)
+  [ctrl] branch -1 on (zs, inf): exponent of |F_nat| at zs = 1.0 (must be nonzero)
+  [ctrl] branch +1 on (zs, inf): exponent of |F_nat| at zs = -1.0 (must be nonzero)
+  [inf] log F_nat on rays pi/4, pi/2, 3pi/4, 0.95pi at R = 1e30: ['(-2.70839389656 + 1.03082247859e-9j)', '(-2.70839389632 + 7.27850426385e-10j)', '(-2.70839389618 + 3.80339260987e-10j)', '(-2.70839389622 + 8.57012820876e-11j)']; spread (incl. R = 1e20) 3.12e-6
+  [inf] exponent of |F_k(iy)| = -0.5 (-1/2; the literal claim -Z(0)-1/2 = d = -0.7), of |G_k(iy)| = 0.4999998825
+  [0] |log(G_k (-z)^d / E_k(0))| at |z| = 1e-4, 1e-8, 1e-12 (arg pi/2): ['0.000163', '3.51e-7', '7.56e-10']
+  [0] decay exponent of |log G_k(-z)^d - log E_k(0)|: 0.666675 (pred q1 = 1 - 1/p = 0.666667)
+  [0] |log F_k(z) - log F_d(z)| at 1e-4, 1e-8: ['6.57e-15', '6.57e-23']
+  [W5] FP_1: fit (0.003125000203 + 1.417639217e-13j)  pred zeta(0,a) kappa n^-p = 0.003125;  FP_2: fit (2.4414054e-5 + 1.5258663e-8j)  pred 2.4414062e-5
+  [W4] x = 0.37: log W0 = (2.77541780122 - 2.96123421866e-15j); lip phase/(-2 pi i rho1) - 1 = (2.26e-13 - 5.84e-30j)
+  [W4] x = 2.9: log W0 = (-2.02473553076 - 2.68357883252e-15j); lip phase/(-2 pi i rho1) - 1 = (1.54e-13 + 0.0j)
+  [W4] Sigma_v cancellation at z = 1.3 + 0.2i: |lhs - rhs| mod 2 pi i = 9.86e-32
+===== p=3 d=-0.7 kappa=-0.02: zs = n^p/kappa = -3200.0, top node X1 = 9142.8571, c = 1 =====
+  [O1] x = 130.0813: |F_nat jump - e^(2 pi i t)| = 3.13e-15
+  [O1] x = 11.0117: |F_nat jump - e^(2 pi i t)| = 1.78e-15
+  [O1] x = 27428.571: |F_nat jump - e^(2 pi i t)| = 1.16e-14
+  [O1] x = 9142857.1: |F_nat jump - e^(2 pi i t)| = 2.51e-16
+  [O1] y = -9600.0: |jump of F_nat| = 5.29e-15
+  [O1] y = -4800.0: |jump of F_nat| = 7.55e-15
+  [O1] y = -1600.0: |jump of F_nat| = 9.25e-15
+  [O1] y = -1.0: |jump of F_nat| = 1.2e-14
+  [zs] log F_nat at r = 1e-6, 1e-12, 1e-18: ['(2.350102228 - 3.681669563e-7j)', '(2.350102441 - 3.681668241e-13j)', '(2.350102441 - 9.441289275e-14j)'];  exponents: F_k 0.20000663 (pred 0.2), G -0.20000663 (pred -0.2)
+  [inf] log F_nat on rays pi/4, pi/2, 3pi/4, 0.95pi at R = 1e30: ['(2.72799984629 + 1.02603986413e-9j)', '(2.72799984652 + 7.25519745694e-10j)', '(2.72799984666 + 3.75556655567e-10j)', '(2.72799984671 + 7.5941539328e-11j)']; spread (incl. R = 1e20) 3.12e-6
+  [inf] exponent of |F_k(iy)| = -0.5 (-1/2; the literal claim -Z(0)-1/2 = d = -0.7), of |G_k(iy)| = 0.4999998825
+  [0] |log(G_k (-z)^d / E_k(0))| at |z| = 1e-4, 1e-8, 1e-12 (arg pi/2): ['3.26e-6', '7.02e-9', '1.51e-11']
+  [0] decay exponent of |log G_k(-z)^d - log E_k(0)|: 0.666675 (pred q1 = 1 - 1/p = 0.666667)
+  [0] |log F_k(z) - log F_d(z)| at 1e-4, 1e-8: ['1.31e-16', '1.31e-24']
+  [W5] FP_1: fit (-6.25e-5 + 2.28922987e-20j)  pred zeta(0,a) kappa n^-p = -6.25e-5;  FP_2: fit (9.765625e-9 - 1.2207031e-13j)  pred 9.765625e-9
+  [W4] x = 0.37: log W0 = (2.97286037817 - 3.00077074422e-15j); lip phase/(-2 pi i rho1) - 1 = (-1.11e-11 + 0.0j)
+  [W4] x = 2.9: log W0 = (-1.71899656411 - 3.00603619636e-15j); lip phase/(-2 pi i rho1) - 1 = (-7.58e-12 + 0.0j)
+  [W4] Sigma_v cancellation at z = 1.3 + 0.2i: |lhs - rhs| mod 2 pi i = 1.97e-31
+ALL 125 CHECKS PASSED

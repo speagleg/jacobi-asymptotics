@@ -94,6 +94,12 @@ The arXiv v1 PDF was read via pdftotext. The Anal. Appl. 14 (2016) version was n
 **Also used in:** RH_plt1.md Lemma 1.1′(ii): 5.11.1 + §5.11(ii) with n = 1, applied to Γ(1 − t) with the principal Ln, and to
 Γ(t) on S_lens. RH_plt1b.md §1 (D̃ on S_in; Lemma S(i)–(iii)).
 
+**Also used in: JZC_M3a_H_G12** (added per Rule R review A of G12, F4): 5.11.1 + §5.11(ii) with n = 1 (via Paper 2
+eq:binet-bound) at u = t − δ: |ph u| ≤ |ph t| ≤ φ < π (L1.1) and |u| ≥ |t|/2 ≥ 1 for |t| ≥ 2 (L1.2(b)).
+
+**Also used in: JZC_M3a_H_G3** (added per Rule R review A of G3, F9): 5.11.1 + §5.11(ii), n = 1, at u = t − δ = |δ| − i|t| on
+Σ^s_+, |ph u| < π/2, |u| ≥ |t| ≥ 1.
+
 ## (Van) M. Vanlessen, arXiv:math/0212014 — READ (§1, §4.1–4.3), for RH₁(r)
 "Strong asymptotics of the recurrence coefficients of orthogonal polynomials associated to the generalized Jacobi weight"
 (J. Approx. Theory 125 (2003)). KV's reference [38].
@@ -497,6 +503,11 @@ e.g. Chihara 1978, Ch. I §8 — pointer only, not read). It is proved in full i
 (t = N/z with z ∈ ℂ±, so Im t ≠ 0); 5.5.1 at z = u = −t (any complex u); 5.11.1 for μ(u) in |ph u| ≤ π − δ (Ω_∞ away from the
 positive axis; D̃ only in |ph t| ≤ π/3 + π/24).
 
+**Also used in: JZC_M3a_H_G12** (added per Rule R review A of G12, F4): 5.5.3 at z = −δ ∈ (0, 1), z ∉ ℤ (C1.5, form of L_δ
+only).
+
+**Also used in: JZC_M3a_H_G3** (added per Rule R review A of G3, F9): 5.5.3 at z = −δ ∈ (0, 1).
+
 ## (KMVV-orient, Paper 2) Kuijlaars–McLaughlin–Van Assche–Vanlessen, arXiv:math/0111252v2 §6 — READ (PDF fetched from arxiv.org/pdf/math/0111252v2 on 2026-10-14; text by pdftotext, Figure 3 read from the rendered page 25)
 
 > (p. 24) "Consider the following RHP in the complex ζ-plane, on a contour ΣΨ consisting of three infinite rays,
@@ -696,6 +707,29 @@ not a DLMF hypothesis. E_pgt1 uses them with ν = α ∈ (−1, ∞) fixed (α �
 |ph w| < π/3 (w = 2ζ^{1/2}) for 10.40.1–4, and ph 2(−ζ)^{1/2} ∈ (−π/6, π/6) for 10.17.5–6, 10.17.11–12. DLMF 10.25.2 is used
 in E_pgt1 Cor E.6 for xI′_α(x)/I_α(x) → α as x → 0⁺ and I_α(x) > 0 for small x > 0 (α > −1, so Γ(α+1) > 0).
 
+## (Plan E2 reuse) entries above used by second_order/E2_pgt1.md — no new external source read
+
+The k = 2 instances of formulas already quoted verbatim above: (DLMF-10.40, Paper 2) 10.40.1–10.40.4 and 10.17.1
+(a_2(ν) = (4ν² − 1)(4ν² − 9)/128); (DLMF-10.17, Plan 55) 10.17.5, .6, .8, .11, .12 (b_2(ν) = (4ν² − 1)(4ν² + 15)/128 from 10.17.8);
+(DLMF-9, Paper 2) 9.7.5–9.7.6 with (DLMF-9.7.2, Plan 65) (u_2 = 385/10368, v_2 = −455/10368). The three-term truncations are the
+same asymptotic series with remainder O(z^{−3}), resp. O(ζ^{−3}), in the same sectors. *Hypotheses checked:* as in "(Plan 65 reuse)"
+(ν = α > −1 fixed, α ≥ 1 allowed; |ph w| < π/3 for 10.40.1–4; ph 2(−ζ)^{1/2} ∈ (−π/6, π/6) for 10.17.5–6, .11–.12; the Airy
+sectors of Paper 2 Lemma airy). The values a_2, b_2, u_2, v_2 are checked numerically against mpmath in second_order/checks/
+check_e2_num.out and in REVIEW_PlanE2_B.md. Internal: E_pgt1 (REVIEWED), RH_px §5, Paper 2 Prop. frame F1, F5, Lemmas airy, signs,
+szego; UL Thm UF-lim (REVIEWED, for Cor E2.7).
+
+## (Plan E3) NIST DLMF §5.9(i), (5.9.1) — READ (page dlmf.nist.gov/5.9 fetched 2026-10-20; formula from the TeX alttext)
+
+> (5.9.1) `\frac{1}{\mu}\Gamma\left(\frac{\nu}{\mu}\right)\frac{1}{z^{\nu/\mu}}=\int_{0}^{\infty}\exp\left(-zt^{\mu}\right)t^{\nu-1}\,\mathrm{d}t,`
+> with the conditions "ℜ ν>0, μ>0, and ℜ z>0." and "(The fractional powers have their principal values.)"
+
+**Used in:** second_order/E3.md Lemma F.1′(i), with μ = 1, ν = kp (k ≥ 1, p > 1: Re ν = kp > 0 ✓) and z = m·aₙ, aₙ = 2πin e^{−iπ/p}
+(Re z = 2πmn sin(π/p) > 0 for p > 1 ✓; principal power, arg z = π/2 − π/p ∈ (−π/2, π/2)). Also used there: DLMF 25.2.1 and 25.4.1,
+as quoted in "(DLMF-zeta, Plan 67)" (at s = 1 + kp: Re s > 1 ✓, s ≠ 0, 1 ✓). Reuse otherwise as "(Plan E2 reuse)" and
+"(Plan 67 reuse)" (E3 Lemma E3.5 for 0 < p < 1 uses the sector checks of E_plt1 Lemma E′.3 at k = 2).
+**Also used in: JZC_M3a_H_Hc** (Lemma Hc.2(i)): 5.9.1 with μ = 1, ν = kp, z = m·aₙ, unchanged by δ (the factor e^{2πimδ} is
+outside the integral); hypotheses as above. (added per Rule R review A of the p>1 chain, Hc-1)
+
 ## (DLMF-zeta, Plan 67) NIST DLMF (5.2.1), (25.2.1), (25.4.1) — READ (pages dlmf.nist.gov/5.2, /25.2, /25.4 fetched 2026-10-15 by curl; formulas from the TeX alttext)
 
 > §5.2(i): (5.2.1) `\Gamma\left(z\right)=\int_{0}^{\infty}e^{-t}t^{z-1}\,\mathrm{d}t,` with the condition `\Re z>0`.
@@ -707,6 +741,10 @@ in E_pgt1 Cor E.6 for xI′_α(x)/I_α(x) → α as x → 0⁺ and I_α(x) > 0 f
 (hypothesis Re(kp) > 0: kp > 0 ✓), then 25.2.1 at s = 1 + kp (Re s > 1 ✓); and 25.4.1 at s = 1 + kp (s ≠ 0, 1 ✓) to write
 the result as ζ(−kp)/k. Also Theorem E′.1 (sign of κ_p): ζ(−p) = −2(2π)^{−1−p}sin(πp/2)Γ(1+p)ζ(1+p) < 0 for 0 < p < 1
 (25.4.1 at s = 1 + p; ζ(1+p) > 0 by 25.2.1; Γ(1+p) > 0 by 5.2.1).
+**Also used in: JZC_M3a_H_Hc** (Lemma Hc.2(i)): 25.2.1 at s = 1 + kp for the Fubini bound and |S_k(δ)| ≤ ζ(1+kp); 25.4.1 only at
+δ = 0. (added per Rule R review A of the p>1 chain, Hc-1)
+**Also used in: JZC_M3a_H_G23plt1** (Lemma F.1_δ (iii)): 5.2.1 at Re(kp) > 0 after u ↦ mu, and 25.2.1 at s = 1 + kp (Re s > 1) only
+as the majorant Σ_m m^{−1−kp} for Fubini and for |S_k(δ)| ≤ ζ(1+kp); 25.4.1 not used. (added per Rule R review B, B23-7)
 
 ## (Plan 67 reuse) entries above used by second_order/E_plt1.md
 
@@ -827,3 +865,45 @@ Formulas linearized from the PDF. Hypothesis throughout: "α is a positive numbe
 z^{−1}(1 + O(z^{−2})) and (z² − 4)^{1/4−α}ϕ(z/2)^{2α−3/2} = z^{−1}(1 + O(z^{−2})), so the 1/z coefficient 𝒩₁ of N has
 (𝒩₁)₁₂ = −ie^L and (𝒩₁)₂₁ = ie^{−L}, as used in App. H (Paper II referee 2, m3). (4.24) is the normalising factor at +2 used in
 "The circle at 2" of App. H. With this entry every WLXZ equation cited in Paper II is quoted in this file.
+
+## (JZC M4 reuse) entries above used by spectral/JZC_M4_proof.md — no new external source read
+
+Lemma N.6a (jump data at every order k, p ≠ 1) uses the following entries:
+- (KMVV-orient, Paper 2) and (KMVV): the KMVV Bessel model (6.23)–(6.25) and its large-ζ form (6.28), with the angle freedom
+  (KMVV, angle freedom; Plan 15b) for p < 1;
+- (DLMF-9, Paper 2): the Paper 2 Airy model, from 9.2.1–9.2.12 and 9.7.5–9.7.6;
+- (DLMF-10.40, Paper 2): 10.40.1–10.40.4 and a_k (10.17.1);
+- (DLMF-10.17, Plan 55): 10.17.5–6, 10.17.11–12 and b_k (10.17.8);
+- (DLMF-9.7.2, Plan 65): u_k and v_k, at general k.
+
+The pages were re-read on 2026-10-21 (dlmf.nist.gov/10.17, /10.40, /9.7); the quoted formulas are unchanged.
+
+**Hypotheses checked** (review A F8):
+- ν = α > −1 is fixed and real; the DLMF expansions place no restriction on ν.
+- The expansions are applied to K + 1 terms (Poincaré remainders O(z^{−K−1})) in closed subsectors:
+  - |ph w| ≤ π/2 − δ for 10.40.1, 10.40.3, and |ph w| ≤ 3π/2 − δ for 10.40.2, 10.40.4, where w = 2ζ^{1/2}; for p < 1,
+    δ = θ_L/2 (E_plt1 Lemma E′.3);
+  - ph 2(−ζ)^{1/2} in the sectors of 10.17.5–6 and 10.17.11–12;
+  - |ph Z| ≤ π − δ for 9.7.5–9.7.6, with Z = e^{2πim/3}ζ.
+- `checks/m4_rh_exact.py` asserts, for k ≤ 8, b_k = a_k + (k − ½)a_{k−1} (the term-wise derivative of 10.40.2) and the 9.7.2
+  recurrence for u_k, v_k.
+
+## (Hurwitz-DK, Theorem H Remark 3.3) Hurwitz's formula, as stated in A. Dixit and R. Kumar, "On Hurwitz zeta function and Lommel functions", arXiv:1912.01199v1 (2019-12-03), Theorem 1.1, eq. (1.1) — READ (HTML rendering ar5iv.labs.arxiv.org/html/1912.01199 and abstract page arxiv.org/abs/1912.01199 fetched 2026-10-22 by WebFetch)
+
+> Theorem 1.1 (attributed there to Hurwitz, citing their ref. [23], p. 37, eq. (2.17.3)): for 0 < a ≤ 1 and Re(s) < 0,
+> ζ(s, a) = (2Γ(1−s)/(2π)^{1−s}) { sin(½πs) Σ_{n≥1} cos(2πna)/n^{1−s} + cos(½πs) Σ_{n≥1} sin(2πna)/n^{1−s} }.
+> (Footnote there: also valid for Re(s) < 1 when 0 < a < 1, citing Apostol, Thm 12.6. Not used.)
+
+Verbatim from the PDF (arxiv.org/pdf/1912.01199v1, fetched 2026-10-22): the hypotheses "For $0 < a \le 1$ and Re(s) < 0,"; the
+equation opening "\zeta(s,a) = \frac{2\Gamma(1-s)}{(2\pi)^{1-s}} \left\{"; the introduction "the following formula of Hurwitz
+[23, p. 37, Equation (2.17.3)]"; refs "[23] Titchmarsh, E. C.: The Theory of the Riemann Zeta Function, Clarendon Press, Oxford,
+1986." and "[1] Apostol, T.M.: Introduction to Analytic Number Theory, Springer-Verlag, New York (1998)." The remainder of the
+display (the two series with coefficients sin(½πs), cos(½πs) and cos(2πna)/n^{1−s}, sin(2πna)/n^{1−s}) was read from the
+HTML rendering and is confirmed independently to 5·10⁻⁴² against mpmath's Hurwitz zeta at 48 (p, δ, k) points, with a control
+that fails (spectral/checks/m3a_hurwitz_formula.out). Secondary source (Dixit–Kumar quoting Titchmarsh); DLMF 25.11.9 could
+still not be read (the page truncates under our fetcher).
+
+**Used in: JZC_M3a_H Remark 3.3** (and Remark H of JZC_M3a_H_G23plt1, the Remark in JZC_M3a_H_Hc §2): at s = −kp (k ≥ 1,
+p > 0, so Re s < 0 ✓) and a = 1 + δ (−1 < δ ≤ 0, so 0 < a ≤ 1 ✓). Since cos(2πma) = cos(2πmδ) and sin(2πma) = sin(2πmδ),
+the bracket is −Σ_m sin(πkp/2 − 2πmδ)/m^{1+kp} = −S_k(δ), and 2Γ(1+kp)(2π)^{−1−kp} = (kp/π)Γ(kp)(2π)^{−kp}, so
+ζ(−kp, a) = −(kp/π)Γ(kp)(2π)^{−kp}S_k(δ), i.e. m_k(δ) = ζ(−kp, a)/(kn^{kp}).

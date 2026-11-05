@@ -1,0 +1,229 @@
+% Section 7: Conjectures and open problems.
+\section{Conjectures and open problems}\label{sec:conj}
+
+The theorems of Sections~\ref{sec:equilibrium}--\ref{sec:hurwitz-thm} concern the lattice, Hurwitz lattices and shifted
+Hurwitz lattices, apart from the potential theory of Section~\ref{sec:equilibrium}, which holds for general densities. This section
+states what they and the evidence of Section~\ref{sec:examples} suggest for other node sets, and what is missing for proofs.
+
+\subsection{The natural-index law}\label{sec:conj-law}
+Call $\Lambda$ \emph{regular} if $\lambda_m^{1/p}$ has an asymptotic expansion $m+a-1+\sum_{i\ge1}\gamma_im^{-r_i}$ with
+exponents $0<r_1<r_2<\dotsb\to\infty$, or if $\Lambda$ differs from such a set in finitely many elements. Then $Z_\Lambda$ is
+meromorphic, $Z_\Lambda(0)$ and $Z_\Lambda(-j)$ are defined by continuation, and $w\mapsto Z_\Lambda(-w)-\zeta(-pw,a)$ has
+poles only at points $q$ produced by the corrections $\gamma_im^{-r_i}$ (at $q=r_i/p$ to first order).
+
+\begin{conjecture}[natural-index law]\label{conj:natural}
+Let $\Lambda$ be regular and $N_\Lambda:=n+\frac\alpha2-Z_\Lambda(0)$. Then $n^pb_n/c=(n/N_\Lambda)^pF$, where $F$ has an
+asymptotic expansion in powers of $1/N_\Lambda$ and of the spectral monomials below, with
+\begin{enumerate}
+\item[(a)] no term $N_\Lambda^{-1}$, and the term $f_2N_\Lambda^{-2}$, with $f_2$ as in~\eqref{eq:f2};
+\item[(b)] for $j\ge1$ the term $pW(j)Z_\Lambda(-j)N_\Lambda^{-1-jp}$;
+\item[(c)] for every pole $q\ne-1/p$ of $Z_\Lambda(-w)-\zeta(-pw)$, with residue $R_q$, the term
+$pR_qW(q)\pi\cot(\pi q)N_\Lambda^{-1-pq}$, with the value $-(4c)^q\Lt(q)$ at $q\in-\frac12-\N_0$.
+\end{enumerate}
+Coefficients of coincident exponents add. The statement concerns the leading power of each datum in~(b) and~(c); it
+says nothing about the terms of order $N_\Lambda^{-2-pq}$ (Remark~\ref{rem:sublead}).
+\end{conjecture}
+
+For the lattice, (a) and (b) are Theorem~\ref{thm:N6} (with $Z_\Lambda(0)=-\frac12$, $W(j)p\zeta(-jp)=\varepsilon_j$), and (c)
+is empty. For Bessel zeros the whole expansion is Proposition~\ref{prop:bessel}. For Hurwitz lattices, synthetic
+corrections, smoothed drums and the oscillators $q^N$ the evidence is in Section~\ref{sec:examples}. In the form~(b)--(c) the
+two kinds of spectral data are the residues of one integrand,
+\[
+  \frac pn\cdot\frac1{2\pi i}\int_{\uparrow}-W(w)\,\pi\cot(\pi w)\,Z_\Lambda(-w)\,n^{-wp}\diff w ,
+\]
+at the integers (Theorem~\ref{thm:K}) and at the poles of $Z_\Lambda$ (Proposition~\ref{prop:M12}). The Weyl pole of
+$Z_\Lambda$ is excluded: it is the leading term $n$ of the soft-edge condition, not a correction. A moved Weyl pole, as for
+$\lambda_k=k^p+\kappa$, is included (\S\ref{sec:num-pole}). If a pole meets an integer, the two residues diverge separately
+and their sum produces a term $n^{-1-jp}\log n$; one weak test at $p=m=\frac12$ is consistent with the predicted coefficient.
+
+Two consequences make the law a spectral dictionary. Through $Z_\Lambda(0)$, the $1/n$ coefficient $d_1=-p\alpha/2+pZ_\Lambda(0)$
+reads off the index offset of the spectrum, such as the constant $a$ of a Hurwitz lattice (\S\ref{sec:hurwitz}) or the
+corner and curvature constant of a drum (\S\ref{sec:drums}). Through $Z_\Lambda(-j)$ and the poles, it reads off the
+coefficients of the heat trace of the operator whose spectrum is $\Lambda$, weighted by $W(q)\pi\cot(\pi q)$.
+
+\begin{remark}[subleading pole terms]\label{rem:sublead}
+Each pole also contributes at order $n^{-2-pq}$, one order below its leading term, and this contribution is not removed
+by $\cot(\pi q)=0$. For Bessel zeros at $p=2$ the McMahon correction has $q=\frac12$; its leading term vanishes, and its
+subleading term at $n^{-3}$ cancels the zeta term $2pcZ_\Lambda(-1)$ exactly, which is why Proposition~\ref{prop:bessel} is a
+pure index shift; a pure Hurwitz lattice with the same offset does carry the zeta term at $n^{-3}$. For the synthetic
+family the subleading term is~\eqref{eq:S4} when $q_1\le1$:
+\end{remark}
+
+\begin{conjecture}\label{conj:S4}
+For $\lambda_k=(k+\gamma k^{-m})^p$, $m>0$, $p\ne1$, $q_1=(m+1)/p\le1$, the part linear in $\gamma$ of the $n^{-2-m}$ coefficient
+of $n^pb_n/c$ is $\gamma S$ with $S$ as in~\eqref{eq:S4}.
+\end{conjecture}
+
+Both terms of~\eqref{eq:S4} are of the type that Conjecture~\ref{conj:natural} does not describe: a change of node density
+on the band, and an index shift of a first-order term. In Theorem~\ref{thm:N6} the same shift is visible as the factor
+$(n/N)^p$ in front of every layer. This suggests that every first-order term is to be evaluated at the natural index,
+plus a density term.
+
+\subsection{The natural form to all orders}\label{sec:conj-even}
+\begin{conjecture}\label{conj:S1Nprime}
+For the lattice and $p\ne1$, $F:=(N/n)^pn^pb_n/c$ depends on $n$ only through $N^{-2}$ and the monomials
+$X_j:=\varepsilon_jN^{-1-jp}$: $F=\sum_{\br}c_{\br}(N^{-2})\prod_jX_j^{r_j}$, with each $c_{\br}$ a power series.
+\end{conjecture}
+
+Theorem~\ref{thm:N6} proves the instances $\br=e_j$ to relative order $N^{-3}$ for every $j$ (and $N^{-4}$ for $j=1$) and
+$\br=2e_1$ to relative order $N^{-3}$, with $c_{2e_1}(0)=(3p+1)/(2p)$, and Corollary~\ref{cor:even} proves the instance $\br=0$ to all
+orders. Theorem~\ref{thm:indexshift} gives the leading coefficient of every layer, $c_{\br}(0)=(p+1+S)_{|\br|-1}/(\br!\,p^{|\br|-1})$,
+$S=p|\br|_w$, and shows that each layer is $\prod_jX_j^{r_j}$ times a power series in $N^{-1}$; that this series is even in $N$
+beyond the orders above is open. Theorem~\ref{thm:shift}(ii) shows that the layers $e_1$, $e_2$, $2e_1$ are natural in $N$ to all orders (their coefficients in
+$N$ do not depend on the Szeg\H{o} exponent); their evenness beyond the orders of Theorem~\ref{thm:N6}(ii), and the layers of weight
+$\ge3$, are open. By Remark~\ref{rem:parity} the parity part of the conjecture would follow from Conjecture~\ref{conj:diag}
+(proved to order $M^{-4}$ in Proposition~\ref{prop:diag4}). The numbers
+$(3p+1)/(2p)=1+(p+1)/(2p)$, like $\varepsilon_j$, do not depend on $\alpha$. A closed form for $c_0=F_p$ is known only at
+$(p,\alpha)=(2,-\frac12)$, where it is $(1-x/4)^{-1/2}$ in $x=N^{-2}$. The hard-edge denominators $\prod_k((2k+1)p+2)$ of
+Remark~\ref{rem:N6}(b) suggested a hypergeometric structure in $a'=\frac1p+\frac12$, but the series $F_p$ appears to be divergent:
+evaluating the recursion to order $40$ at $120$--$170$ digits, at $(p,\nu)=(3,0.3)$, the coefficients are small up to $f_{16}\approx-0.031$
+and then grow factorially with oscillating sign ($f_{30}\approx-9.0\cdot10^4$, $f_{40}\approx-1.9\cdot10^{12}$), and Borel--Pad\'e
+transforms at six values of $(p,\nu)$ show a complex-conjugate pair of singularities (scripts in \texttt{checks/large\_order}). These
+statements are numerical; they do not affect Theorem~\ref{thm:N6}, which concerns finite truncations.
+
+\subsection{A general form: weighted Weyl-type spectra}\label{sec:conj-W}
+The theorems of Sections~\ref{sec:shiftsec} and~\ref{sec:hurwitz-thm} suggest a single statement for general node sets, in which
+the Szeg\H{o}-shifted model, the Toda flow and the pole terms of Conjecture~\ref{conj:natural} appear together. Let
+$\sigma:=\sum_kw_k\delta_{1/\lambda_k}$ with:
+\begin{enumerate}
+\item[(W1)] distinct nodes $0<\lambda_1<\lambda_2<\dotsb\to\infty$ (eigenvalues of an operator with multiplicity are merged into one
+node, and the multiplicity goes into the mass);
+\item[(W2)] an index function $\mathfrak n$ with $\mathfrak n(\lambda_k)=k$ and an expansion, differentiable termwise,
+$\mathfrak n(\lambda)=\lambda^{1/p}+\sum_{r\in\mathcal R}A_r\lambda^r+\mathfrak n_0+O(\lambda^{-M})$, with $\mathcal R\subset(-\infty,\frac1p)\setminus\{0\}$
+finite for each $M$ (this excludes fluctuating counting functions, \S\ref{sec:noise});
+\item[(W3)] masses $w_k=\lambda_k^{-s/p}v(\lambda_k)$ with $v(\lambda)=v_0\lambda^\tau(1+\sum_\rho b_\rho\lambda^{-\rho})$, $\rho>0$; we put
+$s_{\mathrm{eff}}:=s-p\tau>1$ and, in this subsection, $\alpha:=(s_{\mathrm{eff}}-1-p)/p$;
+\item[(W4)] $p\ne1$, and (W5) no pole $q$ below is an integer (otherwise a term $n^{-1-pq}\log n$ appears and nothing is claimed from
+that order on).
+\end{enumerate}
+The spectral data are read from $(\Lambda,v)$: the node zeta function $Z(w)=\sum_k\lambda_k^{-w}$, continued by (W2), with
+$Z(0)=\mathfrak n_0-\frac12$; the poles $q=-r$ of $Z(-w)$, $r\in\mathcal R$, with residues $R_q=qA_{-q}$ (the Weyl pole $q=-\frac1p$ is
+excluded); the \emph{density factor} $D(x):=(\mathrm d\mathfrak n/\mathrm d\lambda)/(\frac1p\lambda^{1/p-1})$ at $x=1/\lambda$, which is exactly
+$1-p\sum_qR_qx^{q+1/p}$ up to the error term of (W2); the \emph{mass factor} $V(x):=v(1/x)x^\tau/v_0$; the \emph{band tilt}
+$\log V+\log D=:\sum_\rho B_\rho x^\rho$; and the \emph{Toda times}
+\[
+  t_j:=-\frac{2Z(-j)}j+B_j\quad(j\in\N),\qquad t_\rho:=B_\rho\quad(\rho\notin\N).
+\]
+For the lattice, $Z(0)=-\frac12$, $Z(-j)=\zeta(-jp)$, there are no poles, $D=V=1$, and $t_j$ are the times~\eqref{eq:todatimes}.
+
+\begin{conjecture}\label{conj:W}
+Under (W1)--(W5), with $\beta:=\alpha-2Z(0)-1$, $\nu:=\alpha$ and $N:=n+\frac{\beta+1}2=n+\frac\alpha2-Z(0)$,
+\[
+  \frac{n^pb_n}c\simeq\sum_{\br}\mu_n^{\br}\cD_{\br}(n;\beta,\nu)
+  +\sum_{q\notin\N}pR_qW(q)\pi\cot(\pi q)\Bigl(\frac nN\Bigr)^p\!N^{-1-pq}
+  -\sum_{\rho\notin\N}\frac{p\rho W(\rho)}2\,t_\rho\Bigl(\frac nN\Bigr)^p\!N^{-1-p\rho},
+\]
+with $\mu_{n,j}:=-t_jn^{-jp}$ and the layers~\eqref{eq:decoupled} of the decoupled model $M(\beta,\nu)$. The claim is: the integer and Toda
+layers to every order, each pole and fractional term to relative order $O(N^{-2})$; products of two pole or fractional terms, and of
+such a term with a Toda time, are not claimed.
+\end{conjecture}
+
+The first sum is the decoupled model flowed along the Toda hierarchy (Theorem~\ref{thm:toda}); for $\rho=j\in\N$ the first-order
+Toda response is $\varepsilon_j=pW(j)Z(-j)=-\frac{pjW(j)}2t_j$ at $B_j=0$, so there is one linear response $-\frac{p\rho W(\rho)}2t_\rho$ for
+every time, integer or not. The lattice is Theorem~\ref{thm:N6}; Hurwitz lattices are Theorem~\ref{thm:H} ($\beta=\alpha+2\delta$);
+the shifted Hurwitz lattices are Theorem~\ref{thm:kappa}, at first order in the poles; and Conjecture~\ref{conj:natural} is the first
+order of Conjecture~\ref{conj:W} in each datum. For the Bessel zeros $\lambda_k=(j_{\nu',k}/\pi)^2$, $s=2$, the poles are half-integers,
+where $\cot(\pi q)=0$, and the Toda times computed from the spectral data vanish ($|t_1|<10^{-21}$, $|t_2|<10^{-16}$ at $\nu'=0,1$, the
+precision of the regularised zero sums); so Conjecture~\ref{conj:W} predicts that the measure is the bare model $M(\nu'-1,-\frac12)$,
+which is what Proposition~\ref{prop:bessel} says. In this reading the cancellation at $n^{-3}$ of Remark~\ref{rem:sublead} is the
+statement $t_1=0$. The tests of Conjecture~\ref{conj:W}, with predictions fixed before the measures were computed, are in
+\S\ref{sec:num-W}.
+
+\begin{remark}[multiplicities]\label{rem:mult}
+For an operator spectrum with multiplicities the zeta function in Conjecture~\ref{conj:W} is that of the \emph{distinct} nodes, and the
+multiplicity is a mass factor. With multiplicities counted, already the Weyl exponent is wrong: for the eigenvalues $l(l+1)$ of the
+sphere, with multiplicity $2l+1$, the distinct nodes have $p=2$, and the fits give $n^{-2}b_n\to c(2)$ with $d_1=-2.00000000$ at $s=4$,
+while the spectral zeta function with multiplicities has Weyl exponent $1$. For these nodes $Z(-j)=0$ for every $j\ge1$: with
+$t=l+\frac12\in\frac32+\N_0$, $(t^2-\frac14)^j=\sum_mc_mt^{2m}$, and $\zeta(-2m,\frac32)=\zeta(-2m,\frac12)-2^{-2m}=-2^{-2m}$ for $m\ge0$
+(since $\zeta(s,\frac12)=(2^s-1)\zeta(s)$ and $\zeta(-2m)=0$ for $m\ge1$), so $Z(-j)=-(\frac14-\frac14)^j=0$. The mass and density factors
+cancel, so Conjecture~\ref{conj:W} predicts the bare model $M(1,0)$ at $p=2$; the fits agree at $n^{-1}$, $n^{-2}$, $n^{-3}$ to
+$8\cdot10^{-8}$, and the alternatives ``mass tilt only'' and ``density tilt only'' are excluded.
+\end{remark}
+
+\begin{remark}[the dressing of pole terms]\label{rem:Wprime}
+At $n^{-4}$ the sphere misses $M(1,0)$ by $+0.23132$ (spread $3\cdot10^{-4}$), outside the precision claimed in
+Conjecture~\ref{conj:W}. The probes $k^2\pm\frac14$ (moved Weyl pole $q=\frac12$, residue $R=\mp\frac1{16}$) miss by $\mp0.23131$: the term is
+odd in the residue, so it is of first order in the pole, one order below its leading power $n^{-1-pq}$. It is explained by the following
+refinement, found after this failure: each pole term carries the dressing of the zeta layer continued in the index,
+\[
+  pR_qW(q)\pi\cot(\pi q)\Bigl(\frac nN\Bigr)^pN^{-1-pq}\bigl[1+g(q)N^{-2}+O(N^{-4})\bigr],\qquad g(w):=A(w)+B(w)\nu^2,
+\]
+with $A_j$, $B_j$ of Theorem~\ref{thm:A} read as functions of $w$ (and the same for the fractional times). By Remark~\ref{rem:N6}(d),
+$g$ has a simple pole at $w=\frac12$, where $\cot(\pi w)$ vanishes, with $\Res_{w=1/2}g=-(p+2)^2(p+4)(1-4\nu^2)/(256p)$. So a pole at
+$q=\frac12$, whose leading term vanishes, contributes the finite term
+\[
+  R_{1/2}\,W(\tfrac12)\,\frac{\pi^2(p+2)^2(p+4)(1-4\nu^2)}{256}\,n^{-3-p/2},
+\]
+which is $\frac{3\pi^2}8R_{1/2}=\mp0.2313188$ for the probes at $p=2$, $\nu=0$ (fits $-0.2313059$ with spread $7\cdot10^{-4}$, and $7.7762408$
+against $7.7762407$ for the sphere's $n^{-4}$ coefficient). It vanishes at $\nu=\pm\frac12$ for every $p$, which is why the Lommel measures
+($\nu=-\frac12$) and the earlier tests with $q=\frac12$ poles (all at $\nu=\pm\frac12$) show nothing. The refinement has one test made after
+it was formulated and before the measures were computed: for $k^2+\frac14$ at $s=3.5$ ($\nu=\frac14$) it predicts $+2.9296023$ at $n^{-4}$, the
+fit gives $+2.9296226$ (spread $3.6\cdot10^{-3}$), and the unrefined value $+3.1030915$ is excluded; at $s=2$ ($\nu=-\frac12$) it predicts no
+extra term, as found. The dressing at poles $q\ne\frac12$ is untested. Its premise, that pole terms are the analytically continued
+zeta layer and nothing else, holds in the decoupled model with the pole structure of \S\ref{sec:kappa} (the tilt and the lip factor come
+from one function), and Theorem~\ref{thm:kappa} proves it at leading order.
+\end{remark}
+
+\begin{remark}[a hard-edge companion for branched tilts]\label{rem:companion}
+For a branched tilt $e^{-\mu z^\rho}$, $\rho\notin\mathbb Z$, that does not come from a pole (for example a mass factor), the gauge of
+Lemma~\ref{lem:gauge} splits near $0$ into an analytic part, whose Taylor data are those of the symbolic-$j$ layer of
+Lemma~\ref{lem:N6d}(b) at $j=\rho$, and a remainder $\pm i\tan(\pi\rho)z^\rho$ in $\C_\pm$. In the formal model the remainder acts only through
+the lip jumps at the Bessel scale, and a Mellin computation with the products of the Bessel functions $K_\nu$, $K_\nu'$ gives, besides the
+symbolic-$j$ layer at $j=\rho$, a first-order \emph{companion} term proportional to
+\[
+  (p+2)^{2\rho+1}\Phi_\nu(\rho)\Bigl(\frac nN\Bigr)^{(\rho+1)p}N^{-2\rho-2}\sum_{k\ge0}c_kN^{-k},\qquad
+  \Phi_\nu(\rho)=\frac{\Gamma(-1-2\rho)\Gamma(\nu+\rho+1)}{\Gamma(-\rho)^2\Gamma(\nu-\rho)},
+\]
+with $c_0=(p\rho+2\rho+1)/2$, $c_1=c_3=0$, and each $c_k$ given by a finite exact computation; it is $\beta$-free in $N$. At
+$p=-1$, where $M(\nu-1,\nu)$ is the Laguerre weight, this reproduces the exact branched Laguerre series through $N^{-4}$ identically in
+$(\nu,\rho)$, and pre-registered residues at order $N^{-7}$ at $p=\frac32$ and $3$ hold. The companion is of relative order $N^{-2\rho-1}$; it is
+beyond the precision claimed in Conjecture~\ref{conj:W} for $\rho>\frac12$, which covers all the tests of \S\ref{sec:num-W}, and would
+have to be added for $\rho<\frac12$. That these formal layers are asymptotic expansions for actual measures with branched mass factors is
+not proved. Pole terms have no companion: for them the tilt and the lip factor combine to an analytic gauge.
+\end{remark}
+
+\begin{problem}\label{prob:kernel2}
+Prove that the $N^{-2}$ dressing of a pole term at $q$ is $g(q)$ with $g(w)=A(w)+B(w)\nu^2$ the continuation of $g_j$ (Remark~\ref{rem:Wprime}),
+or find the correct second-order edge kernel. By Remark~\ref{rem:N6}(d) it should combine a polynomial in $\theta=u\frac{\diff}{\diff u}$
+acting on $(1-u)^{-1/2}$ with a multiple of $(1-u)^{1/2}$. The data of Table~\ref{tab:subpole} and of drums are test cases.
+\end{problem}
+
+\subsection{What a proof needs}\label{sec:conj-proof}
+The derivation of Conjecture~\ref{conj:natural}(c) from the analysis of \cite{PaperII} needs that analysis for a node set
+other than the lattice, with three ingredients: the $g$-function of the constrained equilibrium of the $n$-dependent
+continuum node density (Theorem~\ref{thm:Q}); the band factor given by the Cauchy integral of the jump of
+$\log(1-e^{-2\pi it_\kappa})$ for the index function $t_\kappa(z)=\kappa(n^p/z)$ (Proposition~\ref{prop:pert}); and parametrix
+corrections whose first-order dependence on the perturbation is $O(n^{-2-m})$. Under these, the first-order change of
+$n^pb_n/c$ at order $n^{-1-m}$ is the edge shift of~\eqref{eq:Q} for the perturbed density, and
+Proposition~\ref{prop:M12} gives its value. For Hurwitz lattices the index normalisation of the outer function is the gauge
+$(-z)^{-\delta}$ of \S\ref{sec:H-mechanism}, and the shift $-p\delta$ of $d_1$ arises as the Szeg\H{o} shift $\beta'=\alpha+2\delta$
+(Theorem~\ref{thm:H}); for $\lambda_k=(k+\delta)^p+\kappa$, $p>1$, the lattice $g$-function still suffices, and the pole term comes from a
+branched band tilt rather than from the equilibrium (Theorem~\ref{thm:kappa}). For a general Weyl-type node set the template of
+Theorem~\ref{thm:H} needs four pieces: an outer scalar built from a regularised determinant of $\Lambda$ composed with an analytic
+index map, whose normalising gauge has the exponent $-Z_\Lambda(0)-\frac12$ at the hard edge; band-factor moments equal to
+$Z_\Lambda(-j)/(jn^{jp})$; the $n$-dependent equilibrium above; and the linear response of Lemma~\ref{lem:E37} for branched tilts,
+including the companion of Remark~\ref{rem:companion}. For $p<1$ the lattice $g$-function cannot carry the index offset of a shifted
+lattice (\S\ref{sec:kappa}), and the $n$-dependent equilibrium is needed already there.
+
+\begin{remark}[a proved instance of the per-node law]\label{rem:S2}
+Conjecture~\ref{conj:natural}, read at leading order per node, says that one node with $u=4c\lambda n^{-p}<1$ outside the band
+contributes $-p(1-u)^{-1/2}/n$ to $y_n$ when it is removed: this is the derivative of the soft-edge condition of
+Remark~\ref{rem:Q}(c). For one atom $k_0^{-p}$ of $\sigma_{p,s}$ this is proved, uniformly for $u_n=4c(k_0/n)^p\le1-\eta$, with
+error $O(n^{-1-\epsilon})$, $\epsilon=\min(2p,1)$ for $p<1$ and $\epsilon=1$ for $p\ge1$, from the rank-one update of the Hankel
+matrices and a contraction argument for the minimal solution of the recurrence at the deleted node; the proof uses only the
+first-order expansions of $a_n$ and $b_n$.
+% TODO: this is Theorem S2' of research/G1/RH/spectral/SPEC.md Sec. 3.2 (reviewed), not in any paper; outside the
+% sources requested for this paper. Either include it with proof or cite it once it is written up.
+\end{remark}
+
+\subsection{Further problems}\label{sec:conj-further}
+(a) \emph{The case $p=1$.} Drums and the measures $\sum_kk^{-s}\delta_{1/k}$ have $p=1$, where the two cotangents of
+Theorem~\ref{thm:K} merge and \cite{PaperII} uses a different hard-edge analysis; Section~\ref{sec:drums} indicates that the
+dictionary persists. (b) \emph{Higher layers.} The layers $\mu_1\mu_2$, $\mu_2^2$, $\mu_1^3$ control the coefficients below
+$n^{-2-3p}$ and are not computed, and their shift (Theorem~\ref{thm:shift}(ii) for weight $\ge3$) is open; it would follow from the
+linear independence of the products $\prod_j\zeta(-jp)^{r_j}$ over $\mathbb Q(p)$, or from a version of Lemma~\ref{lem:frame} for the
+tilted measures of Theorem~\ref{thm:toda}, in which the $\mu_j$ are free parameters. (c) \emph{Irregular spectra.} For spectra with displacements of the order of the spacing
+there is no deterministic expansion; Section~\ref{sec:noise} suggests that the variance of the irregular part is
+$n\int\kappa(\omega)S_h(\omega)\diff\omega/\pi$ with a universal kernel spectrum $\kappa$. A closed form for $\kappa$, presumably from
+the Airy kernel of the soft edge, is open, as is a proof that rigidity at wavelengths of two to forty spacings sets the
+noise.

@@ -1,0 +1,152 @@
+% Section 7: Conjecture W, its evidence and open problems (from archive/sec7.tex Sec. 7.3 and archive/sec6.tex Sec. 6.5, trimmed;
+% memos JZC_W.md (Conj W: CONJECTURE (NUMERICAL); W': CONJECTURE), JZC_W_BT.md).
+\section{Weyl-type spectra: Conjecture W}\label{sec:weyl}
+
+\subsection{The statement}\label{sec:conj-W}
+Let $\sigma:=\sum_kw_k\delta_{1/\lambda_k}$ with:
+\begin{enumerate}
+\item[(W1)] distinct nodes $0<\lambda_1<\lambda_2<\dotsb\to\infty$ (eigenvalues with multiplicity are merged into one node, and the multiplicity
+goes into the mass);
+\item[(W2)] an index function $\mathfrak n$ with $\mathfrak n(\lambda_k)=k$ and a termwise differentiable expansion
+$\mathfrak n(\lambda)=\lambda^{1/p}+\sum_{r\in\mathcal R}A_r\lambda^r+\mathfrak n_0+O(\lambda^{-M})$, $\mathcal R\subset(-\infty,\frac1p)\setminus\{0\}$ finite for
+each $M$ (this excludes fluctuating counting functions);
+\item[(W3)] masses $w_k=\lambda_k^{-s/p}v(\lambda_k)$, $v(\lambda)=v_0\lambda^\tau(1+\sum_\rho b_\rho\lambda^{-\rho})$, $\rho>0$, with
+$s_{\mathrm{eff}}:=s-p\tau>1$ and, in this section, $\alpha:=(s_{\mathrm{eff}}-1-p)/p$;
+\item[(W4)] $p\ne1$; (W5) non-resonance for the coefficients claimed: if a pole $q$ below is an integer, the integer term and the pole term
+merge into $n^{-1-pq}\log n$, and no claim is made at $n^{-1-pq}$ and beyond for that family of terms (several test measures below have
+integer poles).
+\end{enumerate}
+The spectral data are: $Z(w)=\sum_k\lambda_k^{-w}$, continued by (W2), with $Z(0)=\mathfrak n_0-\frac12$; the poles $q=-r$ of $Z(-w)$, $r\in\mathcal R$,
+with residues $R_q=qA_{-q}$ (the Weyl pole $-\frac1p$ excluded); the density factor $D(x):=\mathfrak n'(\lambda)/(\frac1p\lambda^{1/p-1})$ and the
+mass factor $V(x):=v(1/x)x^\tau/v_0$ at $x=1/\lambda$, with $\log V+\log D=:\sum_\rho B_\rho x^\rho$; and the \emph{Toda times}
+\[
+  t_j:=-\frac{2Z(-j)}j+B_j\quad(j\in\N),\qquad t_\rho:=B_\rho\quad(\rho\notin\N).
+\]
+For the lattice, $Z(0)=-\frac12$, $Z(-j)=\zeta(-jp)$, there are no poles, $D=V=1$, and $t_j$ are the times~\eqref{eq:todatimes}.
+
+\begin{conjecture}\label{conj:W}
+Under \textup{(W1)--(W5)}, with $\beta:=\alpha-2Z(0)-1$, $\nu:=\alpha$ and $N:=n+\frac{\beta+1}2=n+\frac\alpha2-Z(0)$,
+\[
+  \frac{n^pb_n}c\simeq\sum_{\br}\mu_n^{\br}\cD_{\br}(n;\beta,\nu)
+  +\sum_{q\notin\N}pR_qW(q)\pi\cot(\pi q)\Bigl(\frac nN\Bigr)^p\!N^{-1-pq}
+  -\sum_{\rho\notin\N}\frac{p\rho W(\rho)}2\,t_\rho\Bigl(\frac nN\Bigr)^p\!N^{-1-p\rho},
+\]
+with $\mu_{n,j}:=-t_jn^{-jp}$ and the layers~\eqref{eq:decoupled} of $M(\beta,\nu)$. The claim is: the integer and Toda layers to every order, each
+pole and fractional term to relative order $O(N^{-2})$; products of two pole or fractional terms, and of such a term with a Toda time, are not
+claimed.
+\end{conjecture}
+
+The first sum is $M(\beta,\nu)$ flowed along the Toda hierarchy (Theorem~\ref{thm:toda}); since $\varepsilon_j=pW(j)Z(-j)=-\frac{pjW(j)}2t_j$ at
+$B_j=0$, there is one linear response $-\frac{p\rho W(\rho)}2t_\rho$ for every time, integer or not. At first order in each datum the conjecture is
+the dictionary~\eqref{eq:dictionary} of the introduction. \emph{Proved cases:} the lattice (Theorem~\ref{thm:N6}, Corollary~\ref{cor:even}),
+Hurwitz lattices (Theorem~\ref{thm:H}), and the shifted Hurwitz lattices at first order in the poles (Theorem~\ref{thm:kappa}). \emph{Exact
+case:} for $\lambda_k=(j_{\nu',k}/\pi)^2$, $s=2$, the poles are half-integers, where $\cot(\pi q)=0$, and the Toda times computed from the spectral
+data vanish to the precision of the regularised sums ($|t_1|<10^{-21}$); so the conjecture predicts the bare model $M(\nu'-1,-\frac12)$, which is
+Proposition~\ref{prop:bessel}. \emph{Multiplicities:} for the sphere, nodes $l(l+1)$ with multiplicity $2l+1$, the distinct nodes have $p=2$ (with
+multiplicities counted the Weyl exponent would be $1$), and $Z(-j)=0$ for every $j\ge1$: with $t=l+\frac12$, $(t^2-\frac14)^j$ is even in $t$ and
+$\zeta(-2m,\frac32)=-2^{-2m}$, so $Z(-j)=-(\frac14-\frac14)^j=0$; mass and density factors cancel, and the conjecture predicts the bare model
+$M(1,0)$.
+
+\subsection{Evidence fixed in advance}\label{sec:evidence}
+For node sets with poles, with $Z(0)\ne-\frac12$ and with masses that are not pure powers, every coefficient was predicted from the spectral data
+alone (regularised $Z(0)$, $Z(-j)$, residues, density and mass factors) and the recursion of \S\ref{sec:recursion} at $40$ digits. The
+predictions were written to a file before the measures were computed, and the test script checks this from file modification times. That order
+is self-attested: the predictions, the test script, its output and the statement of the conjecture entered the public repository in a single
+commit, so the repository history does not by itself show that the predictions came first. The conjecture has no fitted constant. The
+recurrence coefficients, $n\le1600$, were computed by a binary128 Stieltjes kernel from atoms, masses and a Gauss--Jacobi tail rule given in
+double precision; the tail treats the nodes beyond the last atom as a pure power. A later audit with atoms at $40$ digits and an exact
+continuum tail (script \texttt{refit\_data}; not independently reviewed) changed no verdict below and sharpened several fits. The
+coefficients were obtained by least-squares fits of $n$-windows after subtraction of the exactly known terms. A coefficient passes if
+$|\text{fit}-\text{prediction}|\le\max(3\cdot\text{spread},2\cdot10^{-6}(1+|\text{prediction}|))$; the alternatives are the conjecture with one
+piece switched off (no Szeg\H{o} shift, no pole term, no $Z(-j)$, no density or mass tilt, no natural-index shift of the pole terms). Of $41$
+coefficients, $40$ pass; the exception is the sphere at $n^{-4}$, outside the claimed precision. Not every pass is a test: in $11$ of the $40$
+passing rows some alternative is also within $10$ tolerances, no alternative is available, or the tolerance exceeds the predicted value, so
+that the prediction $0$ would pass as well; $29$ passes exclude every alternative by more than $10$ tolerances (script
+\texttt{w\_test\_discrimination}). The non-discriminating rows are mostly the deepest coefficients ($n^{-3}$ and $n^{-3.5}$ at $p=P=1.5$) and
+the rows $p=0.6$; the script output lists all eleven. The families are (A) $\lambda_k=k^p+ak^{p-1}$, a
+Hurwitz offset $a/p$ plus decaying corrections, $Z(0)=-\frac12-\frac ap$, poles at $q_i=(i-1)/p$; (B) Bessel zeros $(j_{\nu',k}/\pi)^P$,
+$Z(0)=-\frac{\nu'}2-\frac14$, poles at $(2i-1)/P$; (M2) nodes $l^{3/2}$ with masses $(2l+1)l^{-3}$, a fractional time $\rho=\frac23$; (M1) the sphere,
+$s=4$. Table~\ref{tab:W} shows a selection.
+
+\begin{table}[ht]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrrr}
+\toprule
+measure & coeff. & prediction & fit (spread) & difference & next alternative\\
+\midrule
+A: $p=1.5$, $a=-\frac34$ & $n^{-2}$ & $+0.0984431$ & $+0.0984431$ $(3\cdot10^{-5})$ & $-3\cdot10^{-9}$ & no pole: $1392$\\
+ & $n^{-2.5}$ & $+0.2215758$ & $+0.2215749$ $(4\cdot10^{-5})$ & $-9\cdot10^{-7}$ & no $Z(-j)$: $1912$\\
+A: $p=3$, $a=-0.6$ & $n^{-2}$ & $+0.1347742$ & $+0.1347742$ $(5\cdot10^{-9})$ & $+5\cdot10^{-10}$ & no pole: $31968$\\
+ & $n^{-3}$ & $+0.0452648$ & $+0.0452649$ $(2.7\cdot10^{-6})$ & $+1.0\cdot10^{-7}$ & no pole: $1208$\\
+A: $p=0.6$, $a=-0.3$ & $n^{-2}$ & $+0.1329122$ & $+0.1327116$ $(1.1\cdot10^{-3})$ & $-2.0\cdot10^{-4}$ & no pole: $27$\\
+B: $\nu'=0$, $P=1.5$ & $n^{-2}$ & $+0.1957151$ & $+0.1957150$ $(1.4\cdot10^{-5})$ & $-1.3\cdot10^{-7}$ & no pole: $562$\\
+B: $\nu'=0$, $P=3$ & $n^{-2}$ & $+0.0742502$ & $+0.0742502$ $(3\cdot10^{-9})$ & $+5\cdot10^{-10}$ & no pole: $10692$\\
+ & $n^{-3}$ & $+0.0049259$ & $+0.0049264$ $(1.2\cdot10^{-5})$ & $+4.8\cdot10^{-7}$ & no shift: $276$\\
+M2 & $n^{-2}$ & $+0.1180556$ & $+0.1180558$ $(3.8\cdot10^{-6})$ & $+2.7\cdot10^{-7}$ & no mass tilt: $21830$\\
+M1 (sphere) & $n^{-3}$ & $-5$ & $-4.99999992$ $(3\cdot10^{-6})$ & $8\cdot10^{-8}$ & one tilt only: $12851$\\
+ & $n^{-4}$ & $+7.5449219$ & $+7.776241$ $(3.3\cdot10^{-4})$ & $+0.23132$ & not claimed\\
+\bottomrule
+\end{tabular}
+\caption{Conjecture~\ref{conj:W} against fits (scripts \texttt{w\_predict}, \texttt{w\_test}); the last column gives the miss of the closest
+alternative in units of the tolerance. The rows $p=0.6$ are the weakest tests. The fit-free residual check (script \texttt{w\_resid}) fails
+in $3$ of $41$ rows: the sphere's $n^{-4}$ (shown) and the non-discriminating $n^{-3.5}$ rows of $A$, $p=1.5$, $a=-\frac34$, and of $B$,
+$\nu'=0$, $P=1.5$ (not shown).}
+\label{tab:W}
+\end{table}
+
+The $n^{-1}$ coefficients test the Szeg\H{o} shift $\beta=\alpha-2Z(0)-1$ at $Z(0)\ne-\frac12$: they agree to $10^{-8}$ or better, and $\beta=\alpha$ is
+excluded by $10^3$--$10^5$ tolerances. For the Bessel anchor at $P=2$ the bare model reproduces the coefficients $n^{-1},\dots,n^{-4}$ of the
+closed form to $2\cdot10^{-21}$. Before this test, the pole law alone (the second sum of the conjecture) had been checked on synthetic lattices
+$\lambda_k=(k+\gamma k^{-m})^p$ with the cotangent identified from one row and six further rows predicted before they were computed
+(again self-attested), which agree to $4\cdot10^{-5}$ or
+better in the windows $n\ge200$ (scripts \texttt{spec\_pole}, \texttt{spec\_gamma}).
+
+\begin{remark}[the sphere at $n^{-4}$ and a refinement]\label{rem:Wprime}
+At $n^{-4}$ the sphere misses $M(1,0)$ by $+0.23132$; the probes $k^2\pm\frac14$ (moved Weyl pole $q=\frac12$, $R=\mp\frac1{16}$) miss by $\mp0.23131$,
+so the term is of first order in the pole, one order below its leading power. It is explained by a refinement found after this failure: each
+pole term carries the dressing of the zeta layer continued in the index, $[1+g(q)N^{-2}+O(N^{-4})]$ with $g(w)=A(w)+B(w)\nu^2$ and $A_j,B_j$ of
+Theorem~\ref{thm:A}. Since $B_j$ has the factor $1/(2j-1)$, $g$ has a pole at $w=\frac12$, where $\cot(\pi w)$ vanishes, and a pole at $q=\frac12$
+contributes the finite term $R_{1/2}W(\frac12)\pi^2(p+2)^2(p+4)(1-4\nu^2)n^{-3-p/2}/256$, which is $\frac{3\pi^2}8R_{1/2}=\mp0.2313188$ for the
+probes (fits $-0.2313059$ and $+0.2313179$, spread $7\cdot10^{-4}$) and gives $7.7762407$ for the sphere (fit $7.7762408$). It vanishes at $\nu=\pm\frac12$, which is
+why the Lommel measures show nothing. The refinement has one test made after it was formulated and before the measure was computed: for
+$k^2+\frac14$ at $s=3.5$ it predicts $+2.9296023$ at $n^{-4}$, the fit gives $+2.9296226$ (spread $3.6\cdot10^{-3}$), and the unrefined value
+$+3.1030915$ is excluded (scripts \texttt{w\_probe}, \texttt{w\_probe2}). The refinement is a conjecture; Theorem~\ref{thm:kappa} proves its premise
+(pole terms are the continued zeta layer) only at leading order. For branched mass tilts that do not come from a pole, the formal model has in
+addition a hard-edge companion term of relative order $N^{-2\rho-1}$, beyond the claimed precision for $\rho>\frac12$ (all tests above); it is not
+proved for actual measures.
+\end{remark}
+
+\begin{remark}[further directions]\label{rem:further}
+The following are numerical or heuristic and are not used. \emph{Drums} ($p=1$, outside the theorems): for smoothed Dirichlet spectra of planar
+domains, rescaled to unit Weyl density, the perimeter, a pole at $q=-\frac12$ where $W$ has a pole and $\cot(\pi q)=0$, appears at order
+$n^{-1/2}$ with the $0\cdot\infty$ limit $-\pi\beta/(2\sqrt2)$ of the pole weight, $\beta=\mathcal P/\sqrt{4\pi\mathcal A}$, to $10^{-5}$ for four
+domains, and the corner and curvature constant enters through $pZ(0)$ (script \texttt{spec\_corners}). \emph{Anharmonic oscillators}
+$-\frac{\diff^2}{\diff q^2}+q^N$: the pole term is the rational number $\frac{N-1}{6(N+2)}$, conditionally on the second-order Bohr--Sommerfeld
+condition, and is reproduced to between $10^{-10}$ and $7\cdot10^{-8}$ (script \texttt{spec\_homog}).
+% TODO (citation): the second-order Bohr--Sommerfeld (Dunham) term is not quoted in the project's citation record.
+\emph{Irregular spectra}: if the nodes deviate from a smooth node function by a fraction of the spacing, the expansion is replaced by noise of
+relative size $n^{-1/2}$ (scripts \texttt{spec\_jitter}, \texttt{spec\_stats}). \emph{Large order}: the integer layer $F_p$ appears to be
+divergent, with factorially growing coefficients and a complex-conjugate pair of Borel singularities (scripts in \texttt{checks/large\_order}).
+\end{remark}
+
+\subsection{Open problems}\label{sec:open}
+\begin{problem}\label{prob:open}
+\begin{enumerate}
+\item[(a)] \emph{Conjecture~\ref{conj:W} beyond the shifted Hurwitz family.} For a general Weyl-type node set the template of
+Theorem~\ref{thm:H} needs an outer scalar built from a regularised determinant of $\Lambda$ composed with an analytic index map, with
+normalising gauge exponent $-Z_\Lambda(0)-\frac12$ at the hard edge; band-factor moments $Z_\Lambda(-j)/(jn^{jp})$; and the linear response of
+Lemma~\ref{lem:E37} for branched tilts. For $p<1$ the lattice $g$-function cannot carry the index offset (\S\ref{sec:kappa}), and the
+$n$-dependent equilibrium of Proposition~\ref{prop:Q} is needed already for $\lambda_k=k^p+\kappa$. Products of pole terms are open even for
+the shifted Hurwitz lattices.
+\item[(b)] \emph{All layers in natural form.} Show that $(N/n)^pn^pb_n/c$ depends on $n$ only through $N^{-2}$ and the monomials
+$X_j=\varepsilon_jN^{-1-jp}$. Proved: the integer layer (Corollary~\ref{cor:even}), the leading coefficient of every layer
+(Theorem~\ref{thm:indexshift}), and the instances of Theorem~\ref{thm:N6}(ii). The shift of the layers of weight $\ge3$ would follow from the
+linear independence of $\prod_j\zeta(-jp)^{r_j}$ over $\mathbb Q(p)$, or from a version of the second-frame argument for the tilted measures of
+Theorem~\ref{thm:toda}; the parity would follow from the evenness of the diagonal layer (Remark~\ref{rem:diag}).
+\item[(c)] \emph{The second-order edge kernel.} Prove that the $N^{-2}$ dressing of a pole term at $q$ is the continuation $g(q)$
+(Remark~\ref{rem:Wprime}), or find the correct kernel; by the factor $1/(2j-1)$ it should combine $(1-u)^{-1/2}$ with $(1-u)^{1/2}$. The case $p=1$,
+where the two cotangents of Theorem~\ref{thm:K} merge, is open.
+\end{enumerate}
+\end{problem}

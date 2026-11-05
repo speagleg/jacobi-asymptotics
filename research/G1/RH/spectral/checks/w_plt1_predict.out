@@ -1,0 +1,64 @@
+w_plt1_predict.py run at 2026-10-22 16:11:11 MDT
+
+=== p0.6_k+0.0: lam_k = (k -0.3)^0.6 +0.0, s = 2.0: alpha = 0.6666666667, beta' = 0.06666666667, dN = 0.5333333333; Toda mu_j = 2Z(-j)/j - B_j: 1: -0.0126973278, 2: 0.02496409422, 3: 0.01215581782
+  n^-1.0: EQ =              -0.32  [W pieces: model -0.32]
+  n^-1.6: EQ =  -0.00327174090335  [W pieces: toda mu1 -0.0032717409]  | alternatives: no shift -0.003271740903, no density -0.003271740903, no share -0.003271740903
+
+=== p0.6_k+0.5: lam_k = (k -0.3)^0.6 +0.5, s = 2.0: alpha = 0.6666666667, beta' = 0.06666666667, dN = 0.5333333333; Toda mu_j = 2Z(-j)/j - B_j: 1: 0.1206360055, 2: 0.05194876365, 3: 0.0450566912
+  n^-0.6: EQ =    -0.601233757989  [W pieces: pole q=-0.6667 -0.60123376]
+  n^-1.0: EQ =              -0.32  [W pieces: model -0.32]
+  n^-1.2: EQ =     0.284021596371  [W pieces: pole q=0.3333 0.043033575]  | alternatives: W1 0.04303357521
+  n^-1.6: EQ =     0.415874078952  [W pieces: toda mu1 0.031084474; pole-shift q=-0.6667 0.38478961]  | alternatives: no shift 0.03108447384, no density 0.3299835421, no share 0.4674084011
+  n^-1.8: EQ =    -0.106449894069  [W pieces: pole q=1.333 0.010267158]  | alternatives: W1 0.01026715799
+
+=== p0.6_k-0.5: lam_k = (k -0.3)^0.6 -0.5, s = 2.0: alpha = 0.6666666667, beta' = 0.06666666667, dN = 0.5333333333; Toda mu_j = 2Z(-j)/j - B_j: 1: -0.1460306611, 2: 0.06464609145, 3: -0.02709371946
+  n^-0.6: EQ =     0.601233757989  [W pieces: pole q=-0.6667 0.60123376]
+  n^-1.0: EQ =              -0.32  [W pieces: model -0.32]  | alternatives: naive -0.5089881575
+  n^-1.2: EQ =     0.284021596371  [W pieces: pole q=0.3333 0.043033575]  | alternatives: W1 0.04303357521
+  n^-1.6: EQ =    -0.422417560758  [W pieces: toda mu1 -0.037627956; pole-shift q=-0.6667 -0.38478961]  | alternatives: no shift -0.03762795565, no density -0.3365270239, no share -0.4739518829
+  n^-1.8: EQ =     0.106449894069  [W pieces: pole q=1.333 -0.010267158]  | alternatives: W1 -0.01026715799
+
+=== p0.6_O (odd part, kappa = 0.5) ===
+  n^-0.6: EQ =    -0.601233757989
+  n^-1.0: EQ =                  0  | alternatives: naive 0.09449407874
+  n^-1.6: EQ =     0.419145819855  | alternatives: no shift 0.03435621474, no share 0.470680142, no density 0.333255283
+  n^-1.8: EQ =    -0.106449894069  | alternatives: W1 0.01026715799
+
+=== p0.6_E (even part, kappa = 0.5) ===
+  n^-1.0: EQ =                  0  | alternatives: naive -0.09449407874
+  n^-1.2: EQ =     0.284021596371  | alternatives: W1 0.04303357521
+
+  p = 0.6: c = 0.429452684277702; [x^m]A = 1.0, -0.7, 0.385, -0.168, 0.0546875, -0.009856
+
+=== p0.75_k+0.0: lam_k = (k -0.3)^0.75 +0.0, s = 2.0: alpha = 0.3333333333, beta' = -0.2666666667, dN = 0.3666666667; Toda mu_j = 2Z(-j)/j - B_j: 1: 0.01756081938, 2: 0.02347827433
+  n^-1.0: EQ =             -0.275  [W pieces: model -0.275]
+  n^-1.75: EQ =   0.00603586267569  [W pieces: toda mu1 0.0060358627]  | alternatives: no shift 0.006035862676, no density 0.006035862676, no share 0.006035862676
+
+=== p0.75_k+0.5: lam_k = (k -0.3)^0.75 +0.5, s = 2.0: alpha = 0.3333333333, beta' = -0.2666666667, dN = 0.3666666667; Toda mu_j = 2Z(-j)/j - B_j: 1: -0.01577251395, 2: 0.02392535069
+  n^-0.75: EQ =    -0.572853174263  [W pieces: pole q=-0.3333 -0.57285317]
+  n^-1.0: EQ =             -0.275  [W pieces: model -0.275]
+  n^-1.5: EQ =     0.229712531484  [W pieces: pole q=0.6667 -0.043754768]  | alternatives: W1 -0.0437547679
+  n^-1.75: EQ =     0.309648045035  [W pieces: toda mu1 -0.0054212008; pole-shift q=-0.3333 0.31506925]  | alternatives: no shift -0.00542120081, no density 0.2523627276, no share 0.3783904259
+  n^-2.25: EQ =    -0.060156138436  [W pieces: pole q=1.667 -0.015596036]  | alternatives: W1 -0.01559603589
+
+=== p0.75_k-0.5: lam_k = (k -0.3)^0.75 -0.5, s = 2.0: alpha = 0.3333333333, beta' = -0.2666666667, dN = 0.3666666667; Toda mu_j = 2Z(-j)/j - B_j: 1: 0.05089415272, 2: 0.006364531308
+  n^-0.75: EQ =     0.572853174263  [W pieces: pole q=-0.3333 0.57285317]
+  n^-1.0: EQ =             -0.275  [W pieces: model -0.275]  | alternatives: naive -0.5726376972
+  n^-1.5: EQ =     0.229712531484  [W pieces: pole q=0.6667 -0.043754768]  | alternatives: W1 -0.0437547679
+  n^-1.75: EQ =    -0.297576319684  [W pieces: toda mu1 0.017492926; pole-shift q=-0.3333 -0.31506925]  | alternatives: no shift 0.01749292616, no density -0.2402910023, no share -0.3663187006
+  n^-2.25: EQ =     0.060156138436  [W pieces: pole q=1.667 0.015596036]  | alternatives: W1 0.01559603589
+
+=== p0.75_O (odd part, kappa = 0.5) ===
+  n^-0.75: EQ =    -0.572853174263
+  n^-1.0: EQ =                  0  | alternatives: naive 0.1488188486
+  n^-1.75: EQ =     0.303612182359  | alternatives: no shift -0.01145706349, no share 0.3723545633, no density 0.2463268649
+  n^-2.25: EQ =    -0.060156138436  | alternatives: W1 -0.01559603589
+
+=== p0.75_E (even part, kappa = 0.5) ===
+  n^-1.0: EQ =                  0  | alternatives: naive -0.1488188486
+  n^-1.5: EQ =     0.229712531484  | alternatives: W1 -0.0437547679
+
+  p = 0.75: c = 0.458282539410327; [x^m]A = 1.0, -0.625, 0.2734375, -0.078125, 0.007781982422, 0.004699707031
+
+wrote /home/claude/speagleg/jacobi-asymptotics/tmp/w_plt1_cache/predictions.json at 2026-10-22 16:12:42 MDT
+ALL 8 CHECKS PASSED

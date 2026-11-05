@@ -1,0 +1,18 @@
+mu3 coefficient E3 = 30*c**3*p ; mu1^3 coefficient = 0 ; mu1 mu2 coefficient = 0
+d1 = 1/2 - s/2 ; d/dmu1 = c*p ; mu1^2 coefficient E11 = 0 ; mu2 coefficient E2 = 6*c**2*p
+A_0 mu-dependence: Matrix([[0, 0], [0, 0]])
+n^{-1-2p} coefficient e_2(p, s) = 4 zeta(-p)^2 E11 + zeta(-2p) E2:
+  p = 0.5, s = 2: e_2 = -0.0416666666667
+  p = 0.5, s = 3: e_2 = -0.0416666666667
+  p = 0.5, s = 1.5: e_2 = -0.0416666666667
+  p = 0.75, s = 2: e_2 = -0.0240861404222
+  p = 0.75, s = 3: e_2 = -0.0240861404222
+  p = 0.6, s = 2: e_2 = -0.0363765986761
+  p = 0.6, s = 3: e_2 = -0.0363765986761
+  p = 0.3, s = 2: e_2 = -0.0406378377818
+e(mu) = c p M(4c) to weighted order 3 (asserted)
+eps_k = binom(2k, k) p c^k zeta(-kp), k = 1, 2, 3 (asserted)
+p = 1/2: c^2 = 1/6, eps_2 = -1/24 = -p/12 (asserted)
+p = 1/3: c^3 = 1/20, eps_3 = -1/36 = -p/12 (asserted)
+A_r(mu) - A_r = gauge residue shift to weighted order 3 (asserted)
+ALL ASSERTIONS PASSED

@@ -1,0 +1,172 @@
+% Section 7: Hurwitz lattices (from research/G1/RH/spectral/JZC_M3a_H.md and its chain; the shifted family from
+% JZC_W_outer.md, JZC_W_kappa.md, JZC_W_BT.md).
+\section{Hurwitz lattices}\label{sec:hurwitz-thm}
+
+For the Hurwitz lattice $\lambda_k=(k+\delta)^p$ the node zeta function is $Z_\Lambda(w)=\zeta(pw,a)$, $a:=1+\delta$, so the dictionary
+of \S\ref{sec:dictionary} predicts the natural index $n+\frac\alpha2-\zeta(0,a)=n+\frac\alpha2+\frac12+\delta$ and the zeta terms with
+$\zeta(-jp,a)$ in place of $\zeta(-jp)$. This section proves it. The mechanism is an index transfer: the offset $\delta$ does not
+change the Bessel order of the hard edge, it changes only the Szeg\H{o} exponent, $\alpha\mapsto\beta'=\alpha+2\delta$; the Hurwitz
+problem is the decoupled model $M(\alpha+2\delta,\alpha)$ of \S\ref{sec:decoupled}, and Theorem~\ref{thm:shift} converts the shifted
+Szeg\H{o} exponent into the shifted natural index.
+
+\subsection{Statement}\label{sec:H-statement}
+\begin{theorem}[Hurwitz lattices]\label{thm:H}
+Let $p>0$, $p\ne1$, $-1<\delta\le0$ (with $\delta<0$ if $p<1$), $a:=1+\delta$, $1<s<1+2p$, and
+\[
+  \sigma^\delta:=\sum_{k\ge1}(k+\delta)^{-s}\,\delta_{(k+\delta)^{-p}} ,
+\]
+the measure $\sigma_\Lambda$ of~\eqref{eq:sigmaL} for $\lambda_k=(k+\delta)^p$. Put $\beta':=\alpha+2\delta$,
+$\mu^\delta_{n,j}:=2\zeta(-jp,a)/(jn^{jp})$, $N_\delta:=n+\frac\alpha2+\frac12+\delta$ and $\varepsilon_j(\delta):=\binom{2j}jp\,c^j\zeta(-jp,a)$.
+\begin{enumerate}
+\item[(i)] \emph{Reduction.} For all $K,J,B\ge1$, the recurrence coefficients of $\sigma^\delta$ satisfy
+\[
+  \frac{n^pb_n}c=\sum_{|\br|\le B}(\mu^\delta_n)^{\br}\,\cD_{\br,K}(n;\beta',\alpha)+O\bigl(n^{-K-1}+n^{-2-(B+1)p}+n^{-1-(J+1)p}\bigr),
+\]
+with the layers $\cD_{\br,K}(n;\beta,\nu)$ of the decoupled model~\eqref{eq:decoupled}, truncated at order $n^{-K}$.
+\item[(ii)] \emph{Natural form.} In $N_\delta$, the integer layer is that of the lattice to all orders,
+$\cD_0(n;\beta',\alpha)=(n/N_\delta)^pF_p(N_\delta;\alpha)$, and the layers $e_1$, $e_2$, $2e_1$ are those of the lattice to all orders, with
+$\zeta(-jp)$ replaced by $\zeta(-jp,a)$. For every $j\ge1$ the layer $e_j$ is $(n/N_\delta)^p\varepsilon_j(\delta)N_\delta^{-1-jp}(1+g_jN_\delta^{-2}+O(N_\delta^{-4}))$.
+In particular, expansion~\eqref{eq:thmA} of Theorem~\ref{thm:A} holds for $\sigma^\delta$ with $N$ replaced by $N_\delta$ and
+$\varepsilon_j$ by $\varepsilon_j(\delta)$, with the same $f_2,f_4,f_6,g_j,g_{1,4}$ and the same remainder.
+\end{enumerate}
+\end{theorem}
+
+At $\delta=0$ this is Theorem~\ref{thm:N6}. The $1/n$ coefficient is $-p(\alpha+1)/2-p\delta=-\frac{s-1}2-p\delta$, the first prediction tested
+in Table~\ref{tab:hurwitz}, and the $n^{-1-p}$ coefficient is $\varepsilon_1(\delta)=2pc\,\zeta(-p,a)$. The layers of weight $\ge3$ ($\mu_3$,
+$\mu_1\mu_2$, $\mu_1^3$) are given by~(i), but their natural form beyond the orders of Lemma~\ref{lem:N6d} is open, as for the lattice.
+Nothing is claimed for $\delta>0$: then $t=\delta$, in the index variable $t=nz^{-1/p}$ of \cite{PaperII}, is a zero of the
+interpolating function that carries no mass (a ``phantom node''), and the pole removal of \cite[Section~5]{PaperII} fails there.
+Nothing is claimed at $p=1$ with $\delta\ne0$.
+
+\emph{The constants.} The proof produces the band-factor moments as Fourier sums (step (H-c) below),
+\begin{equation}\label{eq:fourier}
+  m_k(\delta)=-\frac p\pi\Gamma(kp)(2\pi n)^{-kp}S_k(\delta),\qquad S_k(\delta):=\sum_{m\ge1}\frac{\sin(\pi kp/2-2\pi m\delta)}{m^{1+kp}} ,
+\end{equation}
+and $\mu^\delta_{n,k}=2m_k(\delta)$. Their identification with Hurwitz zeta values is Hurwitz's formula, which we use in the form
+stated in \cite[Theorem~1.1]{DixitKumar} (where it is quoted from Titchmarsh): \emph{for $0<a\le1$ and $\Re s<0$,}
+\[
+  \zeta(s,a)=\frac{2\Gamma(1-s)}{(2\pi)^{1-s}}\Bigl\{\sin\frac{\pi s}2\sum_{m\ge1}\frac{\cos(2\pi ma)}{m^{1-s}}
+  +\cos\frac{\pi s}2\sum_{m\ge1}\frac{\sin(2\pi ma)}{m^{1-s}}\Bigr\}.
+\]
+We apply it at $s=-kp$, where $\Re s=-kp<0$, and $a=1+\delta\in(0,1]$. Since $\cos(2\pi ma)=\cos(2\pi m\delta)$,
+$\sin(2\pi ma)=\sin(2\pi m\delta)$ and $\sin(-\pi kp/2)=-\sin(\pi kp/2)$, the bracket is $-S_k(\delta)$, and
+$2\Gamma(1+kp)(2\pi)^{-1-kp}=\frac{kp}\pi\Gamma(kp)(2\pi)^{-kp}$. Hence $\zeta(-kp,a)=-\frac{kp}\pi\Gamma(kp)(2\pi)^{-kp}S_k(\delta)=kn^{kp}m_k(\delta)$,
+which is the normalisation of Theorem~\ref{thm:H}. (The formula also agrees with direct evaluation of $\zeta(-kp,a)$ to $5\cdot10^{-42}$
+at $48$ parameter points, script \texttt{m3a\_hurwitz\_formula}.)
+
+\subsection{The index transfer and the \texorpdfstring{$\alpha$}{alpha}-frame}\label{sec:H-mechanism}
+In the variable $t=nz^{-1/p}$ the Hurwitz nodes sit at $t\in a+\N_0$, and the mass at a node is still $n^{p}t^{-s}$ up to the
+constant of \cite{PaperII}; so the weight on the band, its power $z^\alpha$ and the Bessel order are unchanged, and only the phase
+changes, $\theta=\pi t\mapsto\theta_\delta=\pi(t-\delta)$. Interpolation is done with $\sin\pi(t-\delta)$ and $1/\Gamma(t-\delta)$, so the
+outer scalar of \cite{PaperII} is built from
+\[
+  j_\delta(t):=\operatorname{Ln}\Gamma(t-\delta)-(t-\delta-\tfrac12)\log t+t-\tfrac12\log2\pi
+  =j(t-\delta)+(t-\delta-\tfrac12)\operatorname{Log}(1-\delta/t)+\delta ,
+\]
+where $j=j_0$ is the Binet function of \cite{PaperII}. Nothing changes at the hard edge ($t\to\infty$), but at $z=\infty$ ($t\to0$) the
+outer scalar $F_\delta$ now behaves like $C_\delta(-z)^{\delta}$ with $C_\delta\ne0$. Normalising by the gauge
+\[
+  F^\natural:=F_\delta\,(-z)^{-\delta}
+\]
+restores the normalisation at infinity, at fixed degree, scale and $g$-function, and moves the power $(-z)^{-2\delta}$ into the
+band weight: the Szeg\H{o} exponent becomes $\beta'=\alpha+2\delta=\alpha-2Z_\Lambda(0)-1$. On the lips in the hard-edge disc the
+gauge leaves the phase $e^{\pm2\pi i\delta}$, so the $(2,1)$ entry of the lip jump is $\omega^\natural e^{-4\zeta^{1/2}}$ with
+$\omega^\natural=\omega^{(\beta')}e^{\pm2\pi i\delta}$, whose boundary values on the band are $e^{\mp i\pi\beta'}e^{\pm2\pi i\delta}=e^{\mp i\pi\alpha}$.
+This is the data of a Bessel model of order $\alpha$ glued to the Szeg\H{o} function of $x^{\beta'}$: the decoupled model
+$M(\beta',\alpha)$.
+
+The hard-edge comparison must therefore be made in the \emph{$\alpha$-frame}: the local parametrix is the Bessel model of
+order $\alpha$, and $\beta'$ enters only through the quotient $\rho^\natural=\rho^{(\alpha)}/G$, with
+$G:=(-z)^{-\delta}D_{x^{2\delta}}$, $D$ the Szeg\H{o} function on $[0,4c]$. By the formula $D_{x^{b}}(z)^2=(4cz/\Upsilon(z))^{b}$ of \cite{PaperII},
+$|G|=|4c/\Upsilon|^\delta$ with $\Upsilon=(z^{1/2}+(z-4c)^{1/2})^2$, $\Upsilon(0)=-4c$, so $G$ is bounded above and below near $0$
+uniformly in $n$, for every real $\beta'$. A comparison in a $\beta'$-frame (Bessel order $\beta'$) would fail: the a-priori bound
+$|z|^{-|\beta'|/2}$ is not square integrable at $0$ once $|\beta'|\ge1$, which happens for $\delta$ near $-1$.
+
+\subsection{Outline of the proof}\label{sec:H-proof}
+The proof follows \cite[Sections~5--10]{PaperII} and Section~\ref{sec:natural}, in six steps.
+\begin{enumerate}
+\item[(H-a)] \emph{Interpolation.} The lemmas of \cite[Section~5]{PaperII} with $t\mapsto t-\delta$: node masses as residues, and the top
+node $X_1=(n/a)^p>n^p$, so that the expansion at infinity holds for $|z|>X_1$ and the contour and the far-arc bounds are taken
+with constants that depend also on $a$.
+\item[(H-b)] \emph{Outer scalar and a-priori bound.} By the shift identity for $j_\delta$, every bound on $j_\delta$ reduces to the Binet
+bound of \cite{PaperII} on $j$; this gives the sector bounds of the outer scalar ($p>1$: Binet cut; $p<1$: seam version) and its
+behaviour $C_\delta(-z)^\delta$ at infinity. The a-priori bound $|Q|\le C_{n,\eta}|z|^{-|\alpha|/2-\eta}$ near $0$ and the $L^2$ boundary
+values follow by the column factorisation of \cite[Appendix~C]{PaperII}, with the exponent of the lattice, $|\alpha|/2$, because $G$
+is bounded above and below.
+\item[(H-c)] \emph{Band factor.} The jump densities of the Binet cut ($p>1$) or of the seams ($p<1$) are
+$2\Im\operatorname{Log}(1-e^{-2\pi i(t_+-\delta)})$; their moments are~\eqref{eq:fourier}, by \cite[(5.9.1), (5.2.1), (25.2.1)]{DLMF} and
+absolute convergence, with the Fubini bounds of Lemma~\ref{lem:Fprime}, uniformly in $\delta$. The gauge of
+Lemma~\ref{lem:gauge} then holds with $\mu^\delta_n$ on both circles.
+\item[(H-d)] \emph{Index transfer.} With $F^\natural$ in place of the outer scalar, the jumps are those of $M(\beta',\alpha)$ with the
+Hurwitz band factor, as in \S\ref{sec:H-mechanism}. This is exact algebra on the jumps of \cite[Section~5]{PaperII}.
+\item[(H-e)] \emph{Hard edge and small norm.} In the $\alpha$-frame the comparison of \cite[Section~7]{PaperII} holds verbatim, and the
+order-$K$ small-norm expansion of Proposition~\ref{prop:N6c} holds with the circle jumps $\Delta_k(\beta',\alpha)$; Lemmas~\ref{lem:N6a}
+and~\ref{lem:N6b} hold for $M(\beta,\nu)$, since $\beta$ enters only through $\rho^2=\phi^{2(\beta+1)}$ and $\phi^{-2(\beta+1)}$, bounded above
+and below on the circles. For $p<1$ the glued hard-edge parametrix of \cite[Section~10]{PaperII} is rebuilt with the gauged weight,
+using a Cauchy-difference bound on the seam band factor that is uniform in $\delta$. The step to~(i) also needs the linear
+response of Lemma~\ref{lem:E37} for $M(\beta,\nu)$; it holds with $d_1=-p(\beta+1)/2$, by the same computation with the residue at $0$
+depending on $\nu$ only and the shift at $4c$ on $\beta$ only (verified by exact computer algebra, script \texttt{m3a\_e37\_decoupled}).
+\item[(H-f)] \emph{Natural form.} Exact computer algebra for $M(\beta,\nu)$, identically in $(p,\nu,\beta)$: the integer layer is
+$\beta$-free in $N=n+\frac{\beta+1}2$ to order $N^{-4}$, and the first-order zeta layer, for $j=1,2,3$ and for symbolic $j$, is
+$\varepsilon_jN^{-1-jp}(1+g_jN^{-2}+O(N^{-4}))$ with $\beta$-free $g_j=A_j+B_j\nu^2$ (scripts \texttt{m4\_shift\_exact}, \texttt{m3a\_g5\_exact}).
+\end{enumerate}
+Part~(i) is (H-a)--(H-e) followed by the proof of Theorem~\ref{thm:N6}(i). Part~(ii) is~(i) with~(H-f) and Theorem~\ref{thm:shift}
+at $(\beta,\nu)=(\alpha+2\delta,\alpha)$: by Theorem~\ref{thm:shift}(i) the integer layer in $N_\delta=n+\frac{\beta'+1}2$ is the $\beta$-free series
+$F_p(N_\delta;\alpha)$, the same as for the lattice in its own natural index, and by Theorem~\ref{thm:shift}(ii) the same holds for the
+layers $e_1,e_2,2e_1$. The estimates of steps (H-a)--(H-e) are written out in the notes of the repository named in the data availability
+statement; here we only list them. Numerically, the model $M(\alpha+2\delta,\alpha)$ with the Hurwitz $\mu^\delta$ reproduces all $36$
+stored fits of Hurwitz lattices of \S\ref{sec:hurwitz}, and excludes the alternatives (Bessel order moved with $\beta'$, no Szeg\H{o}
+shift, lattice $\mu$) (script \texttt{m3a\_hd\_model}).
+
+\subsection{Shifted Hurwitz lattices}\label{sec:kappa}
+The first node sets with poles of $Z_\Lambda$ that we can treat are the Hurwitz lattices shifted by a constant,
+$\lambda_k=(k+\delta)^p+\kappa$. For $p>1$, $Z_\Lambda(0)=-\frac12-\delta$ does not depend on $\kappa$, and $w\mapsto Z_\Lambda(-w)$ has the
+moved Weyl pole $q=1-\frac1p$, with residue $R_q=-\kappa q/p$, and further poles at $q_m=m-\frac1p$, $m\ge2$, whose terms are
+$O(n^{-2p})$. The pole law of Conjecture~\ref{conj:natural}(c) predicts the term $pR_qW(q)\pi\cot(\pi q)n^{-p}=-2(2-p)c\kappa\,n^{-p}$
+(\S\ref{sec:num-pole}).
+
+\begin{theorem}[shifted Hurwitz lattices]\label{thm:kappa}
+Let $p>1$, $-1<\delta\le0$, $a=1+\delta$, $\kappa\ne0$ with $\kappa>-a^p$, $1<s<1+2p$, and
+$\sigma^{\delta,\kappa}:=\sum_k\lambda_k^{-s/p}\delta_{1/\lambda_k}$ with $\lambda_k=(k+\delta)^p+\kappa$. Then, with $\beta'=\alpha+2\delta$,
+\[
+  \frac{n^pb_n}c=\sum_{0\le k<1+p}d_k(p,\beta',\alpha)\,n^{-k}-2(2-p)\,c\,\kappa\,n^{-p}+O(n^{-1-p}).
+\]
+Equivalently, the $n^{-k}$ coefficients with $k<p$ do not depend on $\kappa$ and are those of Theorem~\ref{thm:H}, and the
+coefficient of $n^{-p}$ is that of the Hurwitz lattice plus the pole term $pR_qW(q)\pi\cot(\pi q)$ of
+Conjecture~\ref{conj:natural}(c).\footnote{The last step of the proof, the first-order response of the model to the branched tilt
+(the splitting of the gauge of a tilt $e^{-\mu z^\rho}$ into an analytic part with the Taylor data of the symbolic-$j$ layer at $j=\rho$
+and a remainder $\pm i\tan(\pi\rho)z^\rho$), and the proposition that uses it, were re-read independently just before this
+draft was assembled; no mathematical error was found, and the minor corrections from that reading were still being incorporated
+into the underlying notes at the time of writing.}
+\end{theorem}
+
+By Theorem~\ref{thm:shift}, $\sum_kd_k(p,\beta',\alpha)n^{-k}=(n/N_\delta)^p(1+f_2N_\delta^{-2}+f_4N_\delta^{-4}+\dotsb)$, so the integer part is
+the lattice's natural form in $N_\delta$, and the pole term sits at the same natural index. For $1<p<2$ the pole term lies between
+$d_1/n$ and $d_2/n^2$; at $p=2$ its coefficient vanishes.
+
+\begin{proof}[Outline]
+The index map is a M\"obius change of variable: $\kappa$-nodes satisfy $t_\kappa(z)=k+\delta$ with $t_\kappa=t\circ\zeta_\kappa$,
+$\zeta_\kappa(z)=z/(1-\kappa z/n^p)$. Composing the Hurwitz outer scalar with $\zeta_\kappa$ gives a scalar with the right jumps, which,
+unlike the Hurwitz one, behaves like $C(-z)^{-1/2}$ at infinity: the exponent at infinity of an unnormalised outer scalar is not an
+invariant. The invariant is the exponent of the normalising gauge at the hard edge. We take the gauge
+$G_\kappa=(-z)^{-\delta}\exp\mathcal C[\rho_1]$, where $\rho_1=t-t_\kappa$ is minus the index offset and $\mathcal C$ a Cauchy transform on
+$(-\infty,0)$; then the normalised scalar tends to a nonzero constant at infinity, and at the hard edge
+$G_\kappa=(-z)^{-\delta}E_\kappa(0)(1+O(n^{1-p}|z|^{1-1/p}))$, so the Szeg\H{o} shift is $\beta'=\alpha+2\delta$, independent of $\kappa$.
+The jumps are those of $M(\beta',\alpha)$ with a band factor $H_n^\kappa$ and an extra lip factor $e^{\pm2\pi i\rho_1}$. The integer powers of
+$\log H_n^\kappa$ give the Toda parameters $2Z_\Lambda(-j)/j$ minus the density coefficients (the gauge supplies the term
+$\kappa^j\zeta(0,a)$), and the branched part is the tilt $\sum_m2\pi\cot(\pi q_m)a_m(z/n^p)^{q_m}$, $a_m=-R_{q_m}/q_m$. The branched tilt
+and the lip factor come from one function, analytic across $(-\delta_0,0)$, so the circle jumps stay meromorphic (Lemma~\ref{lem:N6b})
+and no further hard-edge term arises. The a-priori bound, the $\alpha$-frame comparison and the small-norm expansion are transferred
+from steps (H-b)--(H-e); for $1<p<2$ the H\"older exponent of the band factor at $0$ drops below $\frac12$, but every use of it
+survives because the lip coefficient carries the gauge only through a factor with exponent $\frac12$. The first-order response of
+the model to the tilt $z^{q}$ is the symbolic-$j$ layer of Lemma~\ref{lem:N6d}(b) continued to $j=q$, so that a tilt $e^{\tau x^q}$ of the
+weight contributes $-\frac{pqW(q)}2\tau(n/N_\delta)^pN_\delta^{-1-pq}$ at leading order; for $\tau=2\pi\cot(\pi q)a_1$ this is exactly $pR_qW(q)\pi\cot(\pi q)(n/N_\delta)^pN_\delta^{-1-pq}$.
+\end{proof}
+
+The proof gives more: up to $O(n^{-2p})$, $n^pb_n/c$ is the full double series of $M(\beta',\alpha)$ with the Toda parameters of
+$\Lambda$, plus for each pole the first-order layer of Lemma~\ref{lem:N6d}(b) continued to $j=q_m$, evaluated at the tilt
+$\tau_m=2\pi\cot(\pi q_m)a_m$. It says nothing about products of pole terms. Fits at $(p,\delta,\kappa)=(2.5,-0.3,\pm0.3)$ and $(1.5,-0.4,0.4)$ confirm $d_1$, $d_2$ of $M(\alpha+2\delta,\alpha)$ to
+$10^{-10}$ and $5\cdot10^{-8}$, and the $n^{-p}$ term to $4\cdot10^{-7}$; the Szeg\H{o} exponent read from the behaviour of the
+unnormalised scalar at infinity is excluded (script \texttt{w\_outer\_e2e}). For $p<1$ the route
+fails: the gauge density $\rho_1$ is of size $|\kappa|n^{(1-p)(2+p)/p}$ on the Bessel scale, so the lattice $g$-function cannot carry
+it; the rows $p=0.6$ and $p=0.3$ of \S\ref{sec:num-pole} are therefore evidence, not instances of Theorem~\ref{thm:kappa}.

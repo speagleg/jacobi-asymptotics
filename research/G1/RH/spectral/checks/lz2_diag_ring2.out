@@ -1,0 +1,4 @@
+sha256 lz2_diag_ring2.py: 3c24119c62eecaadc159354f76fa868e2647f3bb3c2c9f05133f5bc9aa10eaed
+omega=0.6: measured inst. freq (median, |.|) 0.290 rad/n; predicted 2pi dZ/dn at k* (median) 3.784; corr(meas,pred) over n = 0.022; rms D = 0.318
+omega=1.0: measured inst. freq (median, |.|) 0.472 rad/n; predicted 2pi dZ/dn at k* (median) 3.286; corr(meas,pred) over n = 0.016; rms D = 0.387
+omega=1.6: measured inst. freq (median, |.|) 0.741 rad/n; predicted 2pi dZ/dn at k* (median) 2.722; corr(meas,pred) over n = -0.004; rms D = 0.449

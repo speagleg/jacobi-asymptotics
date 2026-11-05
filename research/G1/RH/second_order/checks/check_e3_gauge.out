@@ -1,0 +1,4 @@
+e(M) - e(0) = M4*c*p  (asserted = c p M(4c); M4p and M0 drop out)
+Res_4c - A_r = Matrix([[M4*c**2*p*(M4*c - alpha - 1), -I*M4*c**2*p*(M4*c - alpha - 2)], [-I*M4*c**2*p*(M4*c - alpha), -M4*c**2*p*(M4*c - alpha - 1)]])  (asserted)
+Q_k(4c) = c^(k-1) k binom(2k,k)/2 for k < 40 (asserted); eps_k = binom(2k,k) p c^k zeta(-kp) for all k
+ALL ASSERTIONS PASSED

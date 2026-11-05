@@ -1,0 +1,31 @@
+p=1.5 d=-0.7: sup|T| over 8 circle points, n = [8, 16, 32]:
+   J1  : ['9.603e-6', '1.296e-6', '1.666e-7']  exponent (last doubling) 2.96
+   J2  : ['1.222e-6', '5.697e-8', '2.566e-9']  exponent (last doubling) 4.472
+   mod : ['0.0004313', '0.0001504', '5.288e-5']  exponent (last doubling) 1.508
+   lat : ['0.0008894', '0.0003151', '0.0001115']  exponent (last doubling) 1.499
+   quadrature N=16 vs N=48, max relative: 3.38e-20
+p=3.0 d=-0.3: sup|T| over 8 circle points, n = [8, 16, 32]:
+   J1  : ['4.113e-8', '6.411e-10', '1.001e-11']  exponent (last doubling) 6.0
+   J2  : ['1.17e-10', '2.462e-13', '4.85e-16']  exponent (last doubling) 8.987
+   mod : ['7.456e-6', '9.332e-7', '1.167e-7']  exponent (last doubling) 3.0
+   lat : ['3.057e-5', '3.823e-6', '4.779e-7']  exponent (last doubling) 3.0
+   quadrature N=16 vs N=48, max relative: 2.57e-15
+p=1.25 d=0.0: sup|T| over 8 circle points, n = [8, 16, 32]:
+   J1  : ['8.891e-5', '1.552e-5', '2.724e-6']  exponent (last doubling) 2.51
+   J2  : ['2.258e-6', '1.992e-7', '1.585e-8']  exponent (last doubling) 3.651
+   mod : ['0.003987', '0.001683', '0.0007085']  exponent (last doubling) 1.248
+   lat : ['8.891e-5', '1.552e-5', '2.724e-6']  exponent (last doubling) 2.51
+   quadrature N=16 vs N=48, max relative: 3.1e-17
+p=0.6 d=-0.5: sup|T| over 9 circle points, n = [8, 16, 32, 64]:
+   J1  : ['0.003059', '0.001349', '0.0005857', '0.0002536']  exponent (last doubling) 1.208
+   J2  : ['4.532e-5', '3.342e-5', '1.32e-5', '4.376e-6']  exponent (last doubling) 1.593
+   mod : ['0.01814', '0.0113', '0.007151', '0.004585']  exponent (last doubling) 0.6412
+   lat : ['0.06247', '0.04055', '0.02645', '0.01732']  exponent (last doubling) 0.611
+   quadrature N=16 vs N=48, max relative: 5.34e-20
+p=0.75 d=-0.3: sup|T| over 9 circle points, n = [8, 16, 32, 64]:
+   J1  : ['0.001541', '0.0005279', '0.0001822', '6.342e-5']  exponent (last doubling) 1.523
+   J2  : ['0.0001412', '3.314e-5', '7.308e-6', '1.572e-6']  exponent (last doubling) 2.217
+   mod : ['0.003282', '0.001563', '0.0007979', '0.0004295']  exponent (last doubling) 0.8935
+   lat : ['0.02979', '0.01732', '0.01017', '0.006002']  exponent (last doubling) 0.7608
+   quadrature N=16 vs N=48, max relative: 1.41e-17
+ALL 34 CHECKS PASSED

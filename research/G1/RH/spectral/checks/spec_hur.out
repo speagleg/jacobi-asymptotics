@@ -1,0 +1,15 @@
+p=0.6 s=2.0 d=-0.5 a=0.5: d1 fit -0.19999996 (2.7e-07) pred -0.20000000 | n^-1-p fit +0.0306156 (8.4e-05) Hurwitz eps1(a) +0.0306142 diff +1.4e-06 | unshifted eps1 -0.0899767
+   n^-1-2p fit +0.0202282 (6.5e-02) Hurwitz eps2(a) +0.0205428 diff -3.1e-04 | unshifted -0.0363766
+ALL 2 CHECKS PASSED
+p=0.6 s=2.0 d=0.5 a=1.5: d1 fit -0.80000024 (5.2e-06) pred -0.80000000 | n^-1-p fit -0.3093739 (1.4e-04) Hurwitz eps1(a) -0.3093855 diff +1.2e-05 | unshifted eps1 -0.0899767
+   n^-1-2p fit -0.2709586 (4.2e-02) Hurwitz eps2(a) -0.2684568 diff -2.5e-03 | unshifted -0.0363766
+ALL 2 CHECKS PASSED
+p=0.6 s=2.0 d=1.0 a=2.0: d1 fit -1.10000058 (1.4e-05) pred -1.10000000 | n^-1-p fit -0.6053087 (3.3e-04) Hurwitz eps1(a) -0.6053199 diff +1.1e-05 | unshifted eps1 -0.0899767
+   n^-1-2p fit -0.7044411 (2.5e-02) Hurwitz eps2(a) -0.7003232 diff -4.1e-03 | unshifted -0.0363766
+ALL 2 CHECKS PASSED
+p=0.75 s=3.0 d=1.0 a=2.0: d1 fit -1.75000033 (4.7e-06) pred -1.75000000 | n^-1-p fit -0.7792824 (1.3e-03) Hurwitz eps1(a) -0.7792930 diff +1.1e-05 | unshifted eps1 -0.0918692
+ALL 2 CHECKS PASSED
+p=1.5 s=2.0 d=0.5 a=1.5: d1 fit -1.25000000 (9.3e-08) pred -1.25000000 | n^-1-p fit -0.5724408 (5.5e-03) Hurwitz eps1(a) -0.5726348 diff +1.9e-04 | unshifted eps1 -0.0432947
+ALL 2 CHECKS PASSED
+p=1.5 s=2.0 d=1.0 a=2.0: d1 fit -2.00000000 (4.2e-07) pred -2.00000000 | n^-1-p fit -1.7415677 (5.6e-03) Hurwitz eps1(a) -1.7421117 diff +5.4e-04 | unshifted eps1 -0.0432947
+ALL 2 CHECKS PASSED

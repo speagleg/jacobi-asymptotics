@@ -1,0 +1,47 @@
+sha256 shift_toda.py: 8968fc5e582928781bb323cda873969383797086ac4df3919b721bdb81389202
+sha256 shift_common.py: 1a4c1c70a5e4c0b976aa39e339dcc4dbde6f32607c7f4cd02b0a4d979d3f023a
+[1] identity: (L) 1 time(s), total order <= 6: closed form = series reversion for all 6 monomials: holds -> PASS
+[2] CONTROL (must fail): (L) control 1 time(s): coefficient 1/(2p) reproduces some order >= 2 monomial: fails -> PASS
+[3] CONTROL (must fail): (L) control 1 time(s): exponent p + 2 + S reproduces some order >= 2 monomial: fails -> PASS
+[4] identity: (L) 2 time(s), total order <= 5: closed form = series reversion for all 20 monomials: holds -> PASS
+[5] CONTROL (must fail): (L) control 2 time(s): coefficient 1/(2p) reproduces some order >= 2 monomial: fails -> PASS
+[6] CONTROL (must fail): (L) control 2 time(s): exponent p + 2 + S reproduces some order >= 2 monomial: fails -> PASS
+[7] identity: (L) 3 time(s), total order <= 4: closed form = series reversion for all 34 monomials: holds -> PASS
+[8] CONTROL (must fail): (L) control 3 time(s): coefficient 1/(2p) reproduces some order >= 2 monomial: fails -> PASS
+[9] CONTROL (must fail): (L) control 3 time(s): exponent p + 2 + S reproduces some order >= 2 monomial: fails -> PASS
+   (L) 368s
+[10] identity: (S) H_j(2b, b) = C(2j, j) b^j, j <= 15: holds -> PASS
+[11] identity: (S) G_j(2b, b) = C(2j, j) j/(j+1) b^{j+1}, j <= 15: holds -> PASS
+[12] identity: (S) the hard-edge line a = 2b is invariant under every flow j <= 10: holds -> PASS
+[13] CONTROL (must fail): (S) control: the line a = 3b is invariant (j = 2): fails -> PASS
+[14] identity: (H) hodograph solves the reduced flows, exponents (1,), to order 5: holds -> PASS
+[15] identity: (H) its Taylor coefficients are the LB coefficients (exponents (1,), order 5): holds -> PASS
+[16] identity: (H) hodograph solves the reduced flows, exponents (1, 2), to order 4: holds -> PASS
+[17] identity: (H) its Taylor coefficients are the LB coefficients (exponents (1, 2), order 4): holds -> PASS
+[18] identity: (H) hodograph solves the reduced flows, exponents (2, 3), to order 3: holds -> PASS
+[19] identity: (H) its Taylor coefficients are the LB coefficients (exponents (2, 3), order 3): holds -> PASS
+   (H) 52s
+[20] identity: (D) exponents (1,), order <= 7 (7 monomials, 0 commutation checks): coefficients below n^-|beta| vanish (b and alpha): holds -> PASS
+[21] identity: (D) exponents (1,): the n^-|beta| coefficient of n^p b_n is LB, for generic A_i, B_i: holds -> PASS
+[22] identity: (D) exponents (1,): alpha's leading parts are twice b's (hard-edge line a = 2b preserved): holds -> PASS
+[23] identity: (D) exponents (2,), order <= 6 (6 monomials, 0 commutation checks): coefficients below n^-|beta| vanish (b and alpha): holds -> PASS
+[24] identity: (D) exponents (2,): the n^-|beta| coefficient of n^p b_n is LB, for generic A_i, B_i: holds -> PASS
+[25] identity: (D) exponents (2,): alpha's leading parts are twice b's (hard-edge line a = 2b preserved): holds -> PASS
+[26] identity: (D) exponents (3,), order <= 5 (5 monomials, 0 commutation checks): coefficients below n^-|beta| vanish (b and alpha): holds -> PASS
+[27] identity: (D) exponents (3,): the n^-|beta| coefficient of n^p b_n is LB, for generic A_i, B_i: holds -> PASS
+[28] identity: (D) exponents (3,): alpha's leading parts are twice b's (hard-edge line a = 2b preserved): holds -> PASS
+[29] identity: (D) exponents (1, 2), order <= 5 (20 monomials, 10 commutation checks): coefficients below n^-|beta| vanish (b and alpha): holds -> PASS
+[30] identity: (D) exponents (1, 2): the n^-|beta| coefficient of n^p b_n is LB, for generic A_i, B_i: holds -> PASS
+[31] identity: (D) exponents (1, 2): alpha's leading parts are twice b's (hard-edge line a = 2b preserved): holds -> PASS
+[32] identity: (D) exponents (1, 3), order <= 4 (14 monomials, 6 commutation checks): coefficients below n^-|beta| vanish (b and alpha): holds -> PASS
+[33] identity: (D) exponents (1, 3): the n^-|beta| coefficient of n^p b_n is LB, for generic A_i, B_i: holds -> PASS
+[34] identity: (D) exponents (1, 3): alpha's leading parts are twice b's (hard-edge line a = 2b preserved): holds -> PASS
+[35] identity: (D) exponents (1, 2, 3), order <= 4 (34 monomials, 26 commutation checks): coefficients below n^-|beta| vanish (b and alpha): holds -> PASS
+[36] identity: (D) exponents (1, 2, 3): the n^-|beta| coefficient of n^p b_n is LB, for generic A_i, B_i: holds -> PASS
+[37] identity: (D) exponents (1, 2, 3): alpha's leading parts are twice b's (hard-edge line a = 2b preserved): holds -> PASS
+[38] CONTROL (must fail): (D) control: alpha_n = 0 initially: leads of order >= 2 are LB: fails -> PASS
+[39] CONTROL (must fail): (D) control: alpha_n = 3 n^-p (1 + ...) initially: leads of order >= 2 are LB: fails -> PASS
+   (D) 9s
+[40] identity: (A0) first-order j = 1 lead (= A0*p/2 in engine units) equals E3.7's p/2 iff A0 = 1: holds -> PASS
+ALL 40 CHECKS PASSED (31 identities, 9 controls; failures: 0)
+EXIT 0

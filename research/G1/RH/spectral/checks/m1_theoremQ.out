@@ -1,0 +1,13 @@
+   Phi vs direct U': at z = 1.5a, -sqrt((z-a)/z) Phi/(z-a) = -0.55794623, central difference of U = -0.55794601, rel diff 3.9e-7
+   direct potential: U - l on band ['-2.8e-7', '1.0e-7'];  on (a,Y) ['-0.02324', '-0.4544', '-1.46']
+power:0.6: y sigma decreasing on grid: True;  a = 1.71781073711;  nu explicit vs balayage: max rel diff 1.68e-21;  nu/sigma ['1.686e-5', '0.01193', '0.1005', '0.3525', '0.8438'];  total mass 1.0;  Phi(z) on (a,Y): ['0.1529', '0.83', '1.133']
+   Phi vs direct U': at z = 1.5a, -sqrt((z-a)/z) Phi/(z-a) = -0.21703811, central difference of U = -0.21703798, rel diff 6.3e-7
+   direct potential: U - l on band ['-1.8e-7', '6.6e-8'];  on (a,Y) ['-0.009479', '-0.2108', '-0.8244']
+power:1.5: y sigma decreasing on grid: True;  a = 2.2650893724;  nu explicit vs balayage: max rel diff 1.37e-21;  nu/sigma ['0.00219', '0.0763', '0.2487', '0.5147', '0.8903'];  total mass 0.999999999991;  Phi(z) on (a,Y): ['0.06315', '0.4257', '0.7991']
+   Phi vs direct U': at z = 1.5a, -sqrt((z-a)/z) Phi/(z-a) = -0.44037343, central difference of U = -0.44037324, rel diff 4.4e-7
+   direct potential: U - l on band ['-5.6e-8', '1.4e-8'];  on (a,Y) ['-0.01552', '-0.3283', '-1.181']
+drum: y sigma decreasing on grid: True;  a = 1.6717105344;  nu explicit vs balayage: max rel diff 2.97e-21;  nu/sigma ['0.0003777', '0.03736', '0.1729', '0.4397', '0.8698'];  total mass 0.999999999988;  Phi(z) on (a,Y): ['0.1029', '0.6375', '1.042']
+   Phi vs direct U': at z = 1.5a, -sqrt((z-a)/z) Phi/(z-a) = -2.8289641, central difference of U = -2.8289629, rel diff 4.3e-7
+   direct potential: U - l on band ['3.3e-7', '2.2e-7'];  on (a,Y) ['-0.01144', '-0.2545', '-0.9945']
+log: y sigma decreasing on grid: True;  a = 0.209725602646;  nu explicit vs balayage: max rel diff 3.44e-21;  nu/sigma ['0.002461', '0.07489', '0.2428', '0.5074', '0.8881'];  total mass 0.999999999992;  Phi(z) on (a,Y): ['0.07623', '0.5138', '0.9634']
+ALL 32 CHECKS PASSED

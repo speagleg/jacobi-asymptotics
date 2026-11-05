@@ -1,0 +1,24 @@
+sha256 m4_rh_exact.py: 1e2904089fa3053cd6a7249dd4cd61492be3bb9c90b46c0932ff2507c9d9ffcc
+DLMF coefficient identities (k <= 8): b_k = a_k + (k-1/2) a_{k-1}; u_k recurrence; v_k = (6k+1)/(1-6k) u_k
+  soft edge done (3s)
+  hard edge done (27s)
+  order 1 done (27s)
+  order 2 done (49s)
+  order 3 done (85s)
+  order 4 done (148s)
+  order 5 done (226s)
+  order 6 done (327s)
+d1 + p(alpha+1)/2 == 0 identically: True
+d2 - E2 == 0 identically: True
+f1 == 0 identically: True
+f2 - (-(p+2)alpha^2/8 + (p+1)/12) == 0 identically: True
+f3 == 0 identically: True
+f4 - closed form == 0 identically: True
+f5 == 0 identically: True
+f6 - closed form == 0 identically: True
+f1 = 0
+f2 = -(3*alpha**2*p + 6*alpha**2 - 2*p - 2)/24
+f3 = 0
+f4 = -(45*alpha**4*p**4 + 180*alpha**4*p**3 + 180*alpha**4*p**2 + 300*alpha**2*p**3 + 900*alpha**2*p**2 + 600*alpha**2*p - 24*p**4 - 208*p**3 - 404*p**2 - 232*p - 12)/(5760*p*(3*p + 2))
+ALL IDENTITIES HOLD
+EXIT 0

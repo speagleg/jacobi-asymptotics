@@ -1,0 +1,4 @@
+p=1.5 s=2.0: predicted exponent -2.333333; local slopes -2.327747 -2.330534 -2.331932 -2.332632
+p=2.0 s=2.0: predicted exponent -2.000000; local slopes -1.996407 -1.998200 -1.999099 -1.999549
+p=2.0 s=3.0: predicted exponent -4.000000; local slopes -3.985674 -3.992812 -3.996400 -3.998198
+p=3.0 s=2.0: predicted exponent -1.666667; local slopes -1.664671 -1.665667 -1.666166 -1.666416

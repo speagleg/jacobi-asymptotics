@@ -1,0 +1,5 @@
+      case    s |     n^-2 fit     (hr) |  index-shift      diff | lattice d2_0
+ Dirichlet  2.0 |    +0.194359  3.3e-03 |    +0.194444  -8.6e-05 |    +0.368056
+ Dirichlet  3.0 |    -0.325156  1.5e-02 |    -0.326389  +1.2e-03 |    +0.055556
+   Neumann  2.0 |    +0.055537  4.4e-03 |    +0.055556  -1.9e-05 |    +0.368056
+ALL 3 CHECKS PASSED

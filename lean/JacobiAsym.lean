@@ -50,3 +50,9 @@ import JacobiAsym.GenWeights
 import JacobiAsym.Spacing
 import JacobiAsym.GeneralAtoms
 import JacobiAsym.Paper1Corollaries
+import JacobiAsym.NaturalIndex
+import JacobiAsym.PathCounts
+import JacobiAsym.SpectralConstants
+import JacobiAsym.SoftEdge
+import JacobiAsym.Uvarov
+import JacobiAsym.TodaTilt

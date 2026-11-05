@@ -1,0 +1,46 @@
+sha256 shift_exact.py: 013c3c7376ffac52b4e10d801f7e6957e02ecdaac49e05214d8d005ff324b5f9
+sha256 shift_common.py: 1a4c1c70a5e4c0b976aa39e339dcc4dbde6f32607c7f4cd02b0a4d979d3f023a
+sha256 w2_engine.py: 8e69b2e33912b097cf6cf8abd27df0c9c0910735395e29c8292e4b2506bca02d
+sha256 shift_predictions.json: ac50dc6812012d37994267aaf9e619312fb06ed5d037b66e35babaff7293a1d8
+engine R3 {'DECOUPLE': '1', 'PVAL': '3/2', 'AVAL': '-1/5', 'BVAL': '-7/10', 'J1VAL': '1/3', 'J2VAL': '1', 'E1': '5', 'E2': '1', 'KORD': '5', 'SHI': '26', 'NT': '18'}: cached output eng_R3_34105110a447.json
+registration 2026-10-23T08:32:31-06:00 predates the engine output (2026-10-23T08:35:57)
+[1] identity: R3 LB nat[e1^0 e2^1][N^-1] = 3/4: holds -> PASS
+[2] identity: R3 LB nat[e1^1 e2^0][N^-1] = 1/4: holds -> PASS
+[3] identity: R3 LB nat[e1^1 e2^1][N^-2] = 9/16: holds -> PASS
+[4] identity: R3 LB nat[e1^2 e2^0][N^-2] = 7/96: holds -> PASS
+[5] identity: R3 LB nat[e1^2 e2^1][N^-3] = 5/16: holds -> PASS
+[6] identity: R3 LB nat[e1^3 e2^0][N^-3] = 5/216: holds -> PASS
+[7] identity: R3 LB nat[e1^3 e2^1][N^-4] = 715/4608: holds -> PASS
+[8] identity: R3 LB nat[e1^4 e2^0][N^-4] = 143/18432: holds -> PASS
+[9] identity: R3 LB nat[e1^4 e2^1][N^-5] = 7/96: holds -> PASS
+[10] identity: R3 LB nat[e1^5 e2^0][N^-5] = 7/2592: holds -> PASS
+   (46 LB coefficients compared; the zero coefficients below the leading order are asserted silently, all hold)
+[11] CONTROL (must fail): R3 control e1^1 e2^1: shift coefficient 1/(2p): fails -> PASS
+[12] CONTROL (must fail): R3 control e1^1 e2^1: exponent p + 2 + S: fails -> PASS
+[13] CONTROL (must fail): R3 control e1^2 e2^0: shift coefficient 1/(2p): fails -> PASS
+[14] CONTROL (must fail): R3 control e1^2 e2^0: exponent p + 2 + S: fails -> PASS
+[15] CONTROL (must fail): R3 control e1^2 e2^1: shift coefficient 1/(2p): fails -> PASS
+[16] CONTROL (must fail): R3 control e1^2 e2^1: exponent p + 2 + S: fails -> PASS
+[17] CONTROL (must fail): R3 control e1^3 e2^0: shift coefficient 1/(2p): fails -> PASS
+[18] CONTROL (must fail): R3 control e1^3 e2^0: exponent p + 2 + S: fails -> PASS
+[19] CONTROL (must fail): R3 control e1^3 e2^1: shift coefficient 1/(2p): fails -> PASS
+[20] CONTROL (must fail): R3 control e1^3 e2^1: exponent p + 2 + S: fails -> PASS
+[21] CONTROL (must fail): R3 control e1^4 e2^0: shift coefficient 1/(2p): fails -> PASS
+[22] CONTROL (must fail): R3 control e1^4 e2^0: exponent p + 2 + S: fails -> PASS
+[23] CONTROL (must fail): R3 control e1^4 e2^1: shift coefficient 1/(2p): fails -> PASS
+[24] CONTROL (must fail): R3 control e1^4 e2^1: exponent p + 2 + S: fails -> PASS
+[25] CONTROL (must fail): R3 control e1^5 e2^0: shift coefficient 1/(2p): fails -> PASS
+[26] CONTROL (must fail): R3 control e1^5 e2^0: exponent p + 2 + S: fails -> PASS
+   nat[e1^0 e2^1] = ['0', '3/4', '0', '373/1200', '0', '-599/360000']
+   nat[e1^1 e2^0] = ['0', '1/4', '0', '173/600', '0', '65341/480000']
+   nat[e1^1 e2^1] = ['0', '0', '9/16', '0', '1691/19200', '0']
+   nat[e1^2 e2^0] = ['0', '0', '7/96', '0', '39493/115200', '0']
+   nat[e1^2 e2^1] = ['0', '0', '0', '5/16', '0', '-51407/92160']
+   nat[e1^3 e2^0] = ['0', '0', '0', '5/216', '0', '1563269/4147200']
+   nat[e1^3 e2^1] = ['0', '0', '0', '0', '715/4608', '0']
+   nat[e1^4 e2^0] = ['0', '0', '0', '0', '143/18432', '0']
+   nat[e1^4 e2^1] = ['0', '0', '0', '0', '0', '7/96']
+   nat[e1^5 e2^0] = ['0', '0', '0', '0', '0', '7/2592']
+   nat[e1^5 e2^1] = ['0', '0', '0', '0', '0', '0']
+ALL 26 CHECKS PASSED (10 identities, 16 controls; failures: 0)
+EXIT 0

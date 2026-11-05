@@ -1,0 +1,10 @@
+sha256 m4_zeta_exact2.py: badda6a534fbf621c2bbef3eca6c7822b26d13493a655a1655860449a8bab9f4
+sha256 m4_rh_exact2.py: 2d18e25944304c02b2a38290bfe36013727e6e99fe7ae6032ba6aa2cdb5cbc06
+symbolic Taylor data of Q_j/C(2j,j) at 0 and 4 agree with the integer-j polynomials (j <= 8, m <= 9)
+   (850s)
+lead N^-(1+jp) = p j/2 identically: True
+N^-(2+jp) = 0 identically: True
+N^-(3+jp)/N^-(1+jp) = A_j + B_j alpha^2 identically: True
+N^-(4+jp) = 0 identically: True
+ALL IDENTITIES HOLD
+EXIT 0

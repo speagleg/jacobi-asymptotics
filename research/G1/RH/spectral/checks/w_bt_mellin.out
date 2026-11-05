@@ -1,0 +1,14 @@
+sha256 w_bt_mellin.py: 6af99a03c75b2f1e641a47f21002e5fe127169f97cb500d35ad249ef442b9d71
+[ 1] numerical: K'_nu by (K_{nu-1}+K_{nu+1})/(-2) equals mp.diff (nu = 0.3, w = 0.7), rel < 1e-25: holds -> PASS
+[ 2] numerical: (1) K(s) closed form vs quadrature at 6 (s, nu): max rel dev 3.46e-15 < 1e-12 (tanh-sinh at the endpoint singularity w^(s-1-2|nu|) limits the precision): holds -> PASS
+[ 3] CONTROL (must fail): (1) control: closed form without the factor Gamma(s/2)/Gamma(s) 2^{s-1}... (i.e. sqrt(pi)Gamma(s/2+nu)Gamma(s/2-nu)/4): FAILS -> PASS
+[ 4] numerical: (2) recurrence q(s), M_3 and M_2 reductions vs quadrature at 3 (s, nu): max rel dev 3.94e-31 < 1e-20: holds -> PASS
+[ 5] numerical: (3) tan(pi rho) sin(pi(rho-nu)) K(2rho+2) = -2^(2rho) pi^2 Phi_nu(rho) at 4 points: max rel dev 2.07e-30: holds -> PASS
+[ 6] CONTROL (must fail): (3) control: sin(pi(rho+nu)): FAILS -> PASS
+[ 7] numerical: (4) frame: M zeta^(s3/4)(2pi)^(s3/2) Phi = sum s3 Xi_k s3 (2 zeta^(1/2))^-k at zeta = 400, 11 terms (dev 1.38e-16 < 1e-14): holds -> PASS
+[ 8] numerical: (4) L(zeta) closed form vs its definition from Phi_nu (real and lip-ray zeta, nu = 0.3, -0.6): max rel dev 3.29e-31 < 1e-25: holds -> PASS
+[ 9] CONTROL (must fail): (4) control: K^2 and K'^2 swapped: FAILS -> PASS
+[10] numerical: (5) lip integrals (rays at arg s = +/- pi/3, n = 100, delta = 0.3) = 2 sin(pi(rho-nu)) int_0^delta x^rho F(-x) dx: max rel dev 2.12e-9 < 1e-7 (quadrature-limited; arc term ~e^-31): holds -> PASS
+[11] CONTROL (must fail): (5) control: 2 cos(pi(rho-nu)) in place of 2 sin: FAILS -> PASS
+total 11 checks
+ALL 11 CHECKS PASSED

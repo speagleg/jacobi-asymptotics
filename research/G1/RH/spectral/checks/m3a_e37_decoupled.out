@@ -1,0 +1,53 @@
+sha256 m3a_e37_decoupled.py: abe3c16ba5f2f5b1b72bee54d0f3300ef9a780d787e8d701e536cf650e20ef2f
+sha256 m4_rh_exact2.py: 2d18e25944304c02b2a38290bfe36013727e6e99fe7ae6032ba6aa2cdb5cbc06
+B_r = Matrix([[5*p/12, -5*I*p/12], [-5*I*p/12, -5*p/12]])
+A_r = Matrix([[(12*beta**2*p + 24*beta*p + 11*p + 2)/48, -I*(12*beta**2*p + 48*beta*p + 49*p + 2)/48], [-I*(12*beta**2*p + p + 2)/48, -(12*beta**2*p + 24*beta*p + 11*p + 2)/48]])
+A_0 = Matrix([[(2*alpha - 1)*(2*alpha + 1)*(p + 2)/16, I*(2*alpha - 1)*(2*alpha + 1)*(p + 2)/16], [I*(2*alpha - 1)*(2*alpha + 1)*(p + 2)/16, -(2*alpha - 1)*(2*alpha + 1)*(p + 2)/16]])
+lowest Laurent order over all entries: -1 at 0, -2 at 4c
+[ 1] identity: no z^{-2} or deeper term at 0; no w^{-3} or deeper at 4c (all entries): holds -> PASS
+[ 2] identity: Laurent data stable under truncation SHI 10 -> 14: holds -> PASS
+[ 3] identity: A_r, B_r are nu-free (soft edge sees only beta): holds -> PASS
+[ 4] identity: A_0 is beta-free (hard edge sees only nu): holds -> PASS
+[ 5] identity: at beta = nu: (A_r, B_r, A_0) = check_e3_gauge.py data (c = 1): holds -> PASS
+[ 6] CONTROL (must fail): A_r(beta) = A_r(nu), i.e. soft edge independent of beta: FAILS -> PASS
+[ 7] identity: engine d1 = -p(beta+1)/2: holds -> PASS
+   (model data: 7s)
+[ 8] identity: det G(4c) = 1: holds -> PASS
+[ 9] identity: G(4c) B_r G(4c)^{-1} = B_r: holds -> PASS
+[10] identity: [G(0), A_0(beta, nu)] = 0 (Res_0 does not move): holds -> PASS
+[11] CONTROL (must fail): G(4c) commutes with A_r (Res_4c would not move): FAILS -> PASS
+[12] identity: e(0) = d1 = -p(beta+1)/2 (residue route = engine): holds -> PASS
+[13] identity: E3.7 for M(beta, nu): e(M) - e(0) = c p M(4c), all orders in mu (M4p, M0 drop out): holds -> PASS
+   e(M) - e(0) = M4*p
+[14] CONTROL (must fail): control: e(M) - e(0) = c p M(0): FAILS -> PASS
+[15] identity: full shift Res_4c - A_r = M4 c^2 p [[M4c-beta-1, ...]] (Szego exponent beta): holds -> PASS
+[16] CONTROL (must fail): control: full shift with the Bessel order nu in place of beta: FAILS -> PASS
+[17] identity: Q_k(4c) = c^(k-1) k C(2k,k)/2 for k < 40 (combinatorial, beta/nu-free): holds -> PASS
+   (route 1: 8s)
+[18] identity: j=1: d1 at mu = 0 is -p(beta+1)/2: holds -> PASS
+[19] identity: j=1: first-order mu_j response of the 1/n coefficient = p Q_j(4): holds -> PASS
+[20] identity: j=1: second- and third-order responses vanish (exactly linear to order 3): holds -> PASS
+[21] CONTROL (must fail): j=1: control: first-order response = 0 (mu_j invisible): FAILS -> PASS
+   (route 2, j=1: 5s)
+[22] identity: j=2: d1 at mu = 0 is -p(beta+1)/2: holds -> PASS
+[23] identity: j=2: first-order mu_j response of the 1/n coefficient = p Q_j(4): holds -> PASS
+[24] identity: j=2: second- and third-order responses vanish (exactly linear to order 3): holds -> PASS
+[25] CONTROL (must fail): j=2: control: first-order response = 0 (mu_j invisible): FAILS -> PASS
+[26] CONTROL (must fail): j=2: control: first-order response = p Q_j(0): FAILS -> PASS
+   (route 2, j=2: 6s)
+[27] identity: j=3: d1 at mu = 0 is -p(beta+1)/2: holds -> PASS
+[28] identity: j=3: first-order mu_j response of the 1/n coefficient = p Q_j(4): holds -> PASS
+[29] identity: j=3: second- and third-order responses vanish (exactly linear to order 3): holds -> PASS
+[30] CONTROL (must fail): j=3: control: first-order response = 0 (mu_j invisible): FAILS -> PASS
+[31] CONTROL (must fail): j=3: control: first-order response = p Q_j(0): FAILS -> PASS
+   (route 2, j=3: 6s)
+[32] identity: j=sym: d1 at mu = 0 is -p(beta+1)/2: holds -> PASS
+[33] identity: j=sym: first-order mu_j response of the 1/n coefficient = p Q_j(4): holds -> PASS
+[34] identity: j=sym: second- and third-order responses vanish (exactly linear to order 3): holds -> PASS
+[35] CONTROL (must fail): j=sym: control: first-order response = 0 (mu_j invisible): FAILS -> PASS
+[36] CONTROL (must fail): j=sym: control: first-order response = p Q_j(0): FAILS -> PASS
+   (route 2, j=sym: 22s)
+total 47s
+ALL IDENTITIES HOLD
+ALL 36 CHECKS PASSED
+EXIT 0

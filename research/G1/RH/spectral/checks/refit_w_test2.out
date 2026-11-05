@@ -1,0 +1,22 @@
+sha256 refit_w.py: 0528abbd8eb4a249fc1708184e1f151519d22367ead572ef8153597d869e9a0c
+sha256 refit_data.py: 4306268527ea40277e508e1323c7df13fdfc352e4e3e5a83c4bbb224365016cc
+sha256 w2_data.py: 8c7cc6f8c99b61315ec9c17ed6298c2071e27174e76b60d09b8c06f11ee74357
+refit_w.py test run at 2026-10-23 09:20:49 MDT
+   [refit data new_M1__d96054a65744ab53.txt: 322039 records, 148s]
+=== M1: M1 sphere l(l+1), mult 2l+1, s=4.0 (old wM1_s4.0__035bd86925b23ff0.txt; new tmp/refit/new_M1__*) ===
+  M1: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 8.7e-16, 3.2e-17, 2.9e-17, 1.5e-15, 2.7e-15;  max n^4|dy| = 1.8e-02;  noise sigma_y old 8.9e-16, new 6.6e-20
+  M1 n^-1.0  : W -2.000000000 | old -2.000000000 (3.1e-07) diff +3.9e-11 PASS | new -2.000000000 (3.1e-07) diff +3.9e-11 [0.00 tol] PASS | new - old +5.5e-14   alts(new): beta=alpha 166667 tol
+  M1 n^-2.0  : W +3.250000000 | old +3.250000000 (1.1e-06) diff -2.4e-10 PASS | new +3.250000000 (1.1e-06) diff -1.2e-10 [0.00 tol] PASS | new - old +1.2e-10   alts(new): beta=alpha 264706 tol
+  M1 n^-3.0  : W -5.000000000 | old -4.999999922 (3.3e-06) diff +7.8e-08 PASS | new -5.000000000 (3.1e-06) diff +3.6e-10 [0.00 tol] PASS | new - old -7.8e-08   alts(new): beta=alpha 333333 tol; no density tilt 12851 tol; no mass tilt 12851 tol
+  M1 n^-4.0  : W +7.544921875 | old +7.776240753 (3.3e-04) diff +2.3e-01 FAIL | new +7.776240698 (7.9e-06) diff +2.3e-01 [9794.91 tol] FAIL | new - old -5.5e-08   alts(new): beta=alpha 287676 tol; no density tilt 22855 tol; no mass tilt 42445 tol
+  M1 W' n^-4.0  : W +7.776240728 | old +7.776240753 (3.3e-04) diff +2.5e-08 PASS | new +7.776240698 (7.9e-06) diff -3.0e-08 [0.00 tol] PASS | new - old -5.5e-08   (3 pi^2/128 = 0.2313189; new fit - M(1,0) = +0.2313188)
+   [refit data new_A06__228d9c0d6541c220.txt: 671534 records, 381s]
+=== A06: A p=0.6 a=-0.3 s=2.0 (old wA_p0.6_a-0.3_s2.0__70f0008f2907639d.txt; new tmp/refit/new_A06__*) ===
+  A06: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 1.5e-14, 5.7e-14, 2.1e-13, 4.7e-13, 5.7e-14;  max n^2.8|dy| = 2.0e-04;  noise sigma_y old 1.7e-15, new 7.3e-21
+  A06 n^-1.0  : W -0.200000000 | old -0.200000010 (3.1e-05) diff -1.0e-08 PASS | new -0.200000023 (3.1e-05) diff -2.3e-08 [0.00 tol] PASS | new - old -1.3e-08   alts(new): beta=alpha 3225 tol
+  A06 n^-1.6  : W +0.085466387 | old +0.085463646 (3.7e-04) diff -2.7e-06 PASS | new +0.085461033 (3.7e-04) diff -5.4e-06 [0.00 tol] PASS | new - old -2.6e-06   alts(new): no zeta 77 tol
+  A06 n^-2.0  : W +0.132912190 | old +0.132711546 (1.1e-03) diff -2.0e-04 PASS | new +0.132705625 (1.1e-03) diff -2.1e-04 [0.06 tol] PASS | new - old -5.9e-06   alts(new): beta=alpha 83 tol; no pole 27 tol
+  A06 n^-2.2  : W -0.162246723 | old -0.162156604 (1.5e-03) diff +9.0e-05 PASS | new -0.162184649 (1.5e-03) diff +6.2e-05 [0.01 tol] PASS | new - old -2.8e-05   alts(new): no zeta 36 tol
+  A06 n^-2.6  : W -0.062675350 | old -0.059651637 (2.8e-02) diff +3.0e-03 PASS | new -0.062255102 (1.8e-02) diff +4.2e-04 [0.01 tol] PASS | new - old -2.6e-03   alts(new): beta=alpha 2 tol; no zeta 1 tol
+  A06 n^-2.8  : W -0.234632618 | old -0.228070939 (9.3e-02) diff +6.6e-03 PASS | new -0.234511775 (1.6e-02) diff +1.2e-04 [0.00 tol] PASS | new - old -6.4e-03   alts(new): no zeta 5 tol
+ALL 10 CHECKS PASSED

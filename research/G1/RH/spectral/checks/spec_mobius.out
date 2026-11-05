@@ -1,0 +1,8 @@
+m=1: D_m(phi_* sigma) = 5.3056444940495   D_m(varying weight) = 5.3056444940495   rel 0.0
+m=2: D_m(phi_* sigma) = 0.621303143489605   D_m(varying weight) = 0.621303143489605   rel 2.4e-50
+m=3: D_m(phi_* sigma) = 0.00149343909445123   D_m(varying weight) = 0.00149343909445123   rel 2.7e-49
+m=4: D_m(phi_* sigma) = 7.48769419233173e-8   D_m(varying weight) = 7.48769419233173e-8   rel 1.5e-48
+m=5: D_m(phi_* sigma) = 4.01577224275322e-14   D_m(varying weight) = 4.01577224275322e-14   rel 2.5e-46
+m=6: D_m(phi_* sigma) = 3.5841861679327e-22   D_m(varying weight) = 3.5841861679327e-22   rel 4.7e-45
+m=7: D_m(phi_* sigma) = 1.81419740352334e-32   D_m(varying weight) = 1.81419740352334e-32   rel 4.6e-43
+ALL ASSERTIONS PASSED

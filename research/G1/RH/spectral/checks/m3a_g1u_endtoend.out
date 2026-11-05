@@ -1,0 +1,34 @@
+p=1.5 s=1.75 delta=-0.8 (alpha=-0.500, beta'=-2.100), K = (160000, 320000):
+   d1   : fit +0.8250000 (half-range 6.6e-09) | M(beta', alpha) +0.8250000 | dev/tol 0.000
+          K -> 2K: +0.8250000 -> +0.8250000 (diff 7.9e-11)
+   d2   : fit +0.6661447 (half-range 3.5e-05) | M(beta', alpha) +0.6661458 | dev/tol 0.010
+          K -> 2K: +0.6661447 -> +0.6661456 (diff 8.8e-07)
+   eps1 : fit -0.0366556 (half-range 1.1e-03) | M(beta', alpha) -0.0366492 | dev/tol 0.002
+          K -> 2K: -0.0366556 -> -0.0366495 (diff 6.1e-06)
+   control d1 (lattice, delta ignored): -0.3750000, dev/tol 120000.0 (must be > 10)
+   control d2 (H2: beta = nu = alpha + 2 delta): -1.1538542, dev/tol 17101.1 (must be > 10)
+p=1.5 s=1.75 delta=-0.5 (alpha=-0.500, beta'=-1.500), K = (160000, 320000):
+   d1   : fit +0.3750000 (half-range 5.7e-09) | M(beta', alpha) +0.3750000 | dev/tol 0.000
+          K -> 2K: +0.3750000 -> +0.3750000 (diff 3.6e-10)
+   d2   : fit +0.2161454 (half-range 3.4e-05) | M(beta', alpha) +0.2161458 | dev/tol 0.005
+          K -> 2K: +0.2161454 -> +0.2161457 (diff 3.7e-07)
+   eps1 : fit +0.0279811 (half-range 1.0e-03) | M(beta', alpha) +0.0279877 | dev/tol 0.002
+          K -> 2K: +0.0279811 -> +0.0279868 (diff 5.7e-06)
+   control d1 (lattice, delta ignored): -0.3750000, dev/tol 75000.0 (must be > 10)
+   control d2 (H2: beta = nu = alpha + 2 delta): -0.6588542, dev/tol 8528.6 (must be > 10)
+p=3.0 s=2.5 delta=-0.8 (alpha=-0.500, beta'=-2.100), K = (160000, 320000):
+   d1   : fit +1.6500000 (half-range 1.0e-10) | M(beta', alpha) +1.6500000 | dev/tol 0.000
+          K -> 2K: +1.6500000 -> +1.6500000 (diff 6.2e-14)
+   d2   : fit +1.9920833 (half-range 2.1e-08) | M(beta', alpha) +1.9920833 | dev/tol 0.000
+          K -> 2K: +1.9920833 -> +1.9920833 (diff 9.0e-11)
+   d3   : fit +2.1507287 (half-range 1.3e-05) | M(beta', alpha) +2.1507292 | dev/tol 0.000
+          K -> 2K: +2.1507287 -> +2.1507287 (diff 2.6e-08)
+   control d1 (lattice, delta ignored): -0.7500000, dev/tol 240000.0 (must be > 10)
+   control d2 (H2: beta = nu = alpha + 2 delta): -0.6079167, dev/tol 26000.0 (must be > 10)
+p=3.0 s=2.5 delta=-0.5 (alpha=-0.500, beta'=-1.500), K = (160000,):
+   d1   : fit +0.7500000 (half-range 4.9e-12) | M(beta', alpha) +0.7500000 | dev/tol 0.000
+   d2   : fit +0.5520833 (half-range 9.9e-10) | M(beta', alpha) +0.5520833 | dev/tol 0.000
+   d3   : fit +0.3776042 (half-range 9.4e-07) | M(beta', alpha) +0.3776042 | dev/tol 0.000
+   control d1 (lattice, delta ignored): -0.7500000, dev/tol 150000.0 (must be > 10)
+   control d2 (H2: beta = nu = alpha + 2 delta): -0.6979167, dev/tol 12500.0 (must be > 10)
+ALL 29 CHECKS PASSED

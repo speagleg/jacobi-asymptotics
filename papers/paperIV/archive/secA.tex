@@ -1,0 +1,89 @@
+% Appendix A: Reproducibility.
+\section{Reproducibility}\label{app:repro}
+
+All scripts are in the directory \texttt{research/G1/RH/spectral/checks} of the repository named in the data
+availability statement, next to their stored outputs (\texttt{.out}). They use the project's toolkit (quadruple-precision
+recurrence coefficients, cached under names that include a hash of the node array and of $(p,s,K)$, so that a changed
+measure never reuses a cache), \texttt{mpmath} and \texttt{sympy}. The scripts that test a prediction end with assertions
+on it and print a line of the form ``ALL $n$ CHECKS PASSED'' or ``ALL IDENTITIES HOLD''.
+
+\subsection*{Exact computer algebra (Lemma~\ref{lem:N6d})}
+The outputs begin with the SHA-256 hashes of the scripts that produced them:
+\begin{center}
+\small
+\begin{tabular}{ll}
+\toprule
+script & SHA-256\\
+\midrule
+\texttt{m4\_rh\_exact.py} & \texttt{1e2904089fa3053cd6a7249dd4cd6149}\\
+ & \texttt{2be3bb9c90b46c0932ff2507c9d9ffcc}\\
+\texttt{m4\_zeta\_exact.py} & \texttt{3df62305bba0a4801a767c252eeee000}\\
+ & \texttt{31e499f7c80a36946542fea6cd834041}\\
+\texttt{m4\_rh\_exact2.py} & \texttt{143a308b8744bfccf3110c3a3f4a60a8}\\
+ & \texttt{f192268b0f65f78b64bf8bd76c116521}\\
+\texttt{m4\_zeta\_exact2.py} & \texttt{badda6a534fbf621c2bbef3eca6c7822}\\
+ & \texttt{b26d13493a655a1655860449a8bab9f4}\\
+\bottomrule
+\end{tabular}
+\end{center}
+The runs and what they assert, identically in the symbols:
+\begin{center}
+\small
+\begin{tabular}{lp{4.2cm}p{5.6cm}}
+\toprule
+output & configuration & content\\
+\midrule
+\texttt{m4\_rh\_exact\_k4.out} & $K=4$ & Lemma~\ref{lem:N6d}(a) to $f_4$\\
+\texttt{m4\_rh\_exact\_k6.out} & $K=6$ & Lemma~\ref{lem:N6d}(a): $d_1$, $d_2$, $f_1=f_3=f_5=0$, $f_2,f_4,f_6$\\
+\texttt{m4\_zeta\_exact.out} & $K=5$, $j=1,\dots,5$ & Lemma~\ref{lem:N6d}(b) for integer $j$; $g_{1,4}$\\
+\texttt{m4\_zeta\_exact2\_A.out} & $K=4$, $j$ symbolic & Lemma~\ref{lem:N6d}(b) for all $j$\\
+\texttt{m4\_zeta\_exact2\_B.out} & $K=5$, second order in $\mu_1$ & Lemma~\ref{lem:N6d}(c)\\
+\bottomrule
+\end{tabular}
+\end{center}
+The first two runs also assert the coefficient identities $b_k=a_k+(k-\frac12)a_{k-1}$ (the termwise derivative of
+\cite[(10.40.2)]{DLMF}) and the recursion for $u_k$, $v_k$ of \cite[(9.7.2)]{DLMF} for $k\le8$; the symbolic run \texttt{m4\_zeta\_exact2\_A} asserts the
+Taylor data of $Q_j/\binom{2j}j$ against the integer polynomials for $j\le8$.
+
+\subsection*{Floating-point scripts}
+\begin{center}
+\small
+\begin{tabular}{lp{10cm}}
+\toprule
+used in & scripts\\
+\midrule
+Remark~\ref{rem:Q-checks} & \texttt{m1\_theoremQ}, \texttt{m1\_edge}\\
+\S\ref{sec:kernel} & \texttt{spec\_kernel} (parts K0, K, P, Q), \texttt{m2\_thmK\_plt1}\\
+\S\ref{sec:bessel} & \texttt{spec\_lommel}\\
+Remark~\ref{rem:N6}(b) & \texttt{m4\_rh4}, \texttt{m4\_f8\_denominator}\\
+\S\ref{sec:num-lattice} & \texttt{m4\_natural\_index}, \texttt{m4\_f4\_lattice}, \texttt{m4\_zeta\_lattice}\\
+\S\ref{sec:hurwitz} & \texttt{spec\_hur}, \texttt{spec\_hur\_d2}, \texttt{spec\_shift\_hi}, \texttt{spec\_hur\_small}\\
+\S\ref{sec:num-pole} & \texttt{spec\_pole}, \texttt{spec\_gamma}, \texttt{spec\_kappa}, \texttt{spec\_kappa\_fit},
+  \texttt{spec\_mobius}, \texttt{spec\_mobius\_pred}, \texttt{spec\_resonance}\\
+\S\ref{sec:num-subpole} & \texttt{spec\_subpole}\\
+\S\ref{sec:drums} & \texttt{spec\_corners}\\
+\S\ref{sec:quartic} & \texttt{spec\_quartic}, \texttt{spec\_qN}, \texttt{spec\_homog}\\
+\S\ref{sec:shift-proof} & \texttt{m4\_shift\_exact}, \texttt{sigma\_frame\_exact} (exact), \texttt{m4\_shift\_num},
+  \texttt{sigma\_frame\_num}\\
+\S\ref{sec:toda} & \texttt{m4\_toda}, \texttt{m4\_diag}\\
+\S\ref{sec:conj-even} & \texttt{large\_order/large\_order}, \texttt{large\_order/borel}\\
+Theorem~\ref{thm:H} & \texttt{m3a\_hurwitz\_formula}, \texttt{m3a\_e37\_decoupled}, \texttt{m3a\_g5\_exact} (exact),
+  \texttt{m3a\_hd\_model}\\
+Theorem~\ref{thm:kappa} & \texttt{w\_outer\_e2e}\\
+\S\ref{sec:num-W}, \S\ref{sec:conj-W} & \texttt{w\_predict}, \texttt{w\_test}, \texttt{w\_resid}, \texttt{w\_probe}, \texttt{w\_probe2}\\
+\S\ref{sec:noise} & \texttt{spec\_jitter}, \texttt{spec\_window}, \texttt{spec\_edgekernel}, \texttt{spec\_stats},
+  \texttt{spec\_stats\_summary}, \texttt{spec\_noiselin}, \texttt{spec\_kernelfft}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The shell script \texttt{run\_all.sh} in the same directory regenerates the outputs from scratch in dependency order
+(readers of other scripts' caches last), including the five exact runs (about $35$ minutes) and the coefficient
+computations (one to two and a half minutes per measure with $n\le1600$ on two cores). The scripts \texttt{spec\_quartic},
+\texttt{spec\_qN}, \texttt{spec\_corners}, \texttt{spec\_edgekernel}, \texttt{spec\_noiselin} and \texttt{spec\_kernelfft} are not in
+\texttt{run\_all.sh} and are run individually.
+The scripts listed for Sections~\ref{sec:shiftsec} and~\ref{sec:hurwitz-thm}, \S\ref{sec:conj-even} and \S\ref{sec:num-W} are
+not in \texttt{run\_all.sh} either and are run individually; the measures of \S\ref{sec:num-W} are cached outside the repository.
+% TODO: add the scripts of Sections 6, 7, 8.5, 9.2 to run_all.sh (the W caches live in tmp/w_cache, gitignored).
+% TODO: add the six scripts above to run_all.sh, and store the post-processing of spec_kernelfft (the variance
+% integral quoted in Section 6.8) as an output, before the tag is made.

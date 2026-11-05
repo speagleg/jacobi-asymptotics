@@ -1,0 +1,114 @@
+JZC M3a, H-a: Hurwitz interpolation problem.  n = 3, alpha = -0.3 (s = 1 + p + alpha p), dps 60
+
+== p=1.5 d=0.0: a = 1.0, top node X_1 = (n/a)^p = 5.196152423, n^p = 5.196152423
+Ha.1 sector |arg z| < theta_w: zero count 5.0, Hurwitz nodes with |t| in (0.5, 5.5): 5
+Ha.1 sector |arg z| < 0.95pi: zero count 5.0, Hurwitz nodes with |t| in (0.5, 5.5): 5
+Ha.2 c_(i+1)/c_i at i = 71: 5.19615242271 vs X_1 = 5.19615242271 (n^p = 5.1961524)
+Ha.2 extraction on |z| = 2X_1: b/(n^2p b_n^2) - 1 = (2.37e-29 + 4.09e-61j), a/(n^p a_n) - 1 = (-2.17e-28 - 1.09e-59j)   (b_n^2 = 0.00875785402804, a_n = 0.149634206572)
+Ha.4 top node X_1: mass n^p a^-s = 5.19615242271; Res W/(e^(2i theta_d)-1) = (5.19615242271 - 4.39369012255e-52j)
+Ha.5 R continuous at X_1..X_3 (lens and saturated formulas)
+
+== p=1.5 d=-0.3: a = 0.7, top node X_1 = (n/a)^p = 8.872271477, n^p = 5.196152423
+Ha.1 sector |arg z| < theta_w: zero count 5.0, Hurwitz nodes with |t| in (0.5, 5.5): 5
+Ha.1 sector |arg z| < 0.95pi: zero count 5.0, Hurwitz nodes with |t| in (0.5, 5.5): 5
+Ha.2 c_(i+1)/c_i at i = 71: 8.87227147726 vs X_1 = 8.87227147726 (n^p = 5.1961524)
+Ha.2 extraction on |z| = 2X_1: b/(n^2p b_n^2) - 1 = (1.96e-29 + 5.41e-61j), a/(n^p a_n) - 1 = (-2.55e-28 - 5.72e-59j)   (b_n^2 = 0.011781712337, a_n = 0.169550590637)
+   CONTROL on |z| = (n^p + X_1)/2 (< X_1): b/(n^2p b_n^2) - 1 = (-1.56 + 6.48e-62j): fails as required
+Ha.4 top node X_1: mass n^p a^-s = 10.7952051513; Res W/(e^(2i theta_d)-1) = (10.7952051513 - 2.52972390642e-48j)
+   CONTROL lattice phase: Res = (-1.3958e-22 - 2.5297e-48j): fails as required
+Ha.5 R continuous at X_1..X_3 (lens and saturated formulas); CONTROL lattice kappa: max eps|R|/|R_d| = 0.506: fails as required
+
+== p=1.5 d=-0.9: a = 0.1, top node X_1 = (n/a)^p = 164.3167673, n^p = 5.196152423
+Ha.1 sector |arg z| < theta_w: zero count 5.0, Hurwitz nodes with |t| in (0.5, 5.5): 5
+Ha.1 sector |arg z| < 0.95pi: zero count 5.0, Hurwitz nodes with |t| in (0.5, 5.5): 5
+Ha.2 c_(i+1)/c_i at i = 71: 164.316767252 vs X_1 = 164.316767252 (n^p = 5.1961524)
+Ha.2 extraction on |z| = 2X_1: b/(n^2p b_n^2) - 1 = (1.31e-29 - 1.58e-58j), a/(n^p a_n) - 1 = (-1.92e-27 - 1.22e-56j)   (b_n^2 = 0.0228512454685, a_n = 0.22251726001)
+   CONTROL on |z| = (n^p + X_1)/2 (< X_1): b/(n^2p b_n^2) - 1 = (-1.04 - 3.59e-60j): fails as required
+Ha.4 top node X_1: mass n^p a^-s = 583.017890964; Res W/(e^(2i theta_d)-1) = (583.017890964 - 1.11235333532e-39j)
+   CONTROL lattice phase: Res = (-2.3392e-38 - 1.1124e-39j): fails as required
+Ha.5 R continuous at X_1..X_3 (lens and saturated formulas); CONTROL lattice kappa: max eps|R|/|R_d| = 0.852: fails as required
+
+== p=3.0 d=-0.3: a = 0.7, top node X_1 = (n/a)^p = 78.71720117, n^p = 27.0
+Ha.1 sector |arg z| < theta_w: zero count 5.0, Hurwitz nodes with |t| in (0.5, 5.5): 5
+Ha.1 sector |arg z| < 0.95pi: zero count 5.0, Hurwitz nodes with |t| in (0.5, 5.5): 5
+Ha.2 c_(i+1)/c_i at i = 71: 78.7172011662 vs X_1 = 78.7172011662 (n^p = 27.0)
+Ha.2 extraction on |z| = 2X_1: b/(n^2p b_n^2) - 1 = (1.38e-29 + 1.33e-59j), a/(n^p a_n) - 1 = (-1.41e-27 - 1.06e-56j)   (b_n^2 = 0.000626365012651, a_n = 0.0309520862119)
+   CONTROL on |z| = (n^p + X_1)/2 (< X_1): b/(n^2p b_n^2) - 1 = (-1.1 - 4.06e-61j): fails as required
+Ha.4 top node X_1: mass n^p a^-s = 81.5755179813; Res W/(e^(2i theta_d)-1) = (81.5755179813 - 3.14144139547e-41j)
+   CONTROL lattice phase: Res = (-3.6626e-28 - 3.1414e-41j): fails as required
+Ha.5 R continuous at X_1..X_3 (lens and saturated formulas); CONTROL lattice kappa: max eps|R|/|R_d| = 1.05: fails as required
+
+== p=3.0 d=-0.9: a = 0.1, top node X_1 = (n/a)^p = 27000.0, n^p = 27.0
+Ha.1 sector |arg z| < theta_w: zero count 5.0, Hurwitz nodes with |t| in (0.5, 5.5): 5
+Ha.1 sector |arg z| < 0.95pi: zero count 5.0, Hurwitz nodes with |t| in (0.5, 5.5): 5
+Ha.2 c_(i+1)/c_i at i = 71: 27000.0 vs X_1 = 27000.0 (n^p = 27.0)
+Ha.2 extraction on |z| = 2X_1: b/(n^2p b_n^2) - 1 = (1.26e-29 + 7.82e-56j), a/(n^p a_n) - 1 = (-2.34e-25 - 8.77e-51j)   (b_n^2 = 0.00241439251601, a_n = 0.0540837518853)
+   CONTROL on |z| = (n^p + X_1)/2 (< X_1): b/(n^2p b_n^2) - 1 = (-1.0 + 1.55e-57j): fails as required
+Ha.4 top node X_1: mass n^p a^-s = 33990.9861184; Res W/(e^(2i theta_d)-1) = (33990.9861184 - 1.83020786758e-37j)
+   CONTROL lattice phase: Res = (-2.0595e-37 - 1.8302e-37j): fails as required
+Ha.5 R continuous at X_1..X_3 (lens and saturated formulas); CONTROL lattice kappa: max eps|R|/|R_d| = 2.61: fails as required
+
+== p=0.6 d=0.0: a = 1.0, top node X_1 = (n/a)^p = 1.933182045, n^p = 1.933182045
+Ha.1 sector |arg z| < theta_w: zero count 5.0, Hurwitz nodes with |t| in (0.5, 5.5): 5
+   CONTROL sector 0.95pi (contains arg z = +-pi p): count 15.0 = nodes 5 + non-nodes t = d - m on both rays 10: fails as required
+Ha.2 c_(i+1)/c_i at i = 71: 1.93318204493 vs X_1 = 1.93318204493 (n^p = 1.933182)
+Ha.2 extraction on |z| = 2X_1: b/(n^2p b_n^2) - 1 = (5.07e-29 - 3.37e-61j), a/(n^p a_n) - 1 = (-2.02e-28 + 3.81e-61j)   (b_n^2 = 0.0427361480844, a_n = 0.377189658333)
+Ha.4 top node X_1: mass n^p a^-s = 1.93318204493; Res W/(e^(2i theta_d)-1) = (1.93318204493 + 4.86173068583e-62j)
+Ha.5 R continuous at X_1..X_3 (lens and saturated formulas)
+
+== p=0.6 d=-0.3: a = 0.7, top node X_1 = (n/a)^p = 2.394494969, n^p = 1.933182045
+Ha.1 sector |arg z| < theta_w: zero count 5.0, Hurwitz nodes with |t| in (0.5, 5.5): 5
+   CONTROL sector 0.95pi (contains arg z = +-pi p): count 15.0 = nodes 5 + non-nodes t = d - m on both rays 10: fails as required
+Ha.2 c_(i+1)/c_i at i = 71: 2.39449496859 vs X_1 = 2.39449496859 (n^p = 1.933182)
+Ha.2 extraction on |z| = 2X_1: b/(n^2p b_n^2) - 1 = (4.17e-29 + 1.34e-61j), a/(n^p a_n) - 1 = (-1.92e-28 + 7.79e-62j)   (b_n^2 = 0.0496778831818, a_n = 0.401468729932)
+   CONTROL on |z| = (n^p + X_1)/2 (< X_1): b/(n^2p b_n^2) - 1 = (-3.31 + 1.38e-62j): fails as required
+Ha.4 top node X_1: mass n^p a^-s = 3.20799391632; Res W/(e^(2i theta_d)-1) = (3.20799391632 + 8.26494216591e-62j)
+   CONTROL lattice phase: Res = (-8.6185e-18 - 1.2154e-62j): fails as required
+Ha.5 R continuous at X_1..X_3 (lens and saturated formulas); CONTROL lattice kappa: max eps|R|/|R_d| = 0.152: fails as required
+
+== p=0.6 d=-0.9: a = 0.1, top node X_1 = (n/a)^p = 7.696136341, n^p = 1.933182045
+Ha.1 sector |arg z| < theta_w: zero count 5.0, Hurwitz nodes with |t| in (0.5, 5.5): 5
+   CONTROL sector 0.95pi (contains arg z = +-pi p): count 15.0 = nodes 5 + non-nodes t = d - m on both rays 10: fails as required
+Ha.2 c_(i+1)/c_i at i = 71: 7.69613634073 vs X_1 = 7.69613634073 (n^p = 1.933182)
+Ha.2 extraction on |z| = 2X_1: b/(n^2p b_n^2) - 1 = (1.89e-29 - 9.16e-61j), a/(n^p a_n) - 1 = (-2.11e-28 + 3.61e-61j)   (b_n^2 = 0.0646178770233, a_n = 0.446437265826)
+   CONTROL on |z| = (n^p + X_1)/2 (< X_1): b/(n^2p b_n^2) - 1 = (-1.5 - 2.14e-62j): fails as required
+Ha.4 top node X_1: mass n^p a^-s = 50.8478685529; Res W/(e^(2i theta_d)-1) = (50.8478685529 - 4.2713433259e-47j)
+   CONTROL lattice phase: Res = (-1.8538e-38 - 4.2713e-47j): fails as required
+Ha.5 R continuous at X_1..X_3 (lens and saturated formulas); CONTROL lattice kappa: max eps|R|/|R_d| = 0.281: fails as required
+
+Controls (each must fail):
+  Ha.2 p=1.5 d=-0.3 extraction on circle |z| = (n^p + X_1)/2: failed (required)
+  Ha.4 p=1.5 d=-0.3 lattice-phase residue at X_1: failed (required)
+  Ha.4 p=1.5 d=-0.3 lattice-phase residue at X_2: failed (required)
+  Ha.4 p=1.5 d=-0.3 lattice-phase residue at X_3: failed (required)
+  Ha.5 p=1.5 d=-0.3 lattice kappa removes the poles: failed (required)
+  Ha.2 p=1.5 d=-0.9 extraction on circle |z| = (n^p + X_1)/2: failed (required)
+  Ha.4 p=1.5 d=-0.9 lattice-phase residue at X_1: failed (required)
+  Ha.4 p=1.5 d=-0.9 lattice-phase residue at X_2: failed (required)
+  Ha.4 p=1.5 d=-0.9 lattice-phase residue at X_3: failed (required)
+  Ha.5 p=1.5 d=-0.9 lattice kappa removes the poles: failed (required)
+  Ha.2 p=3.0 d=-0.3 extraction on circle |z| = (n^p + X_1)/2: failed (required)
+  Ha.4 p=3.0 d=-0.3 lattice-phase residue at X_1: failed (required)
+  Ha.4 p=3.0 d=-0.3 lattice-phase residue at X_2: failed (required)
+  Ha.4 p=3.0 d=-0.3 lattice-phase residue at X_3: failed (required)
+  Ha.5 p=3.0 d=-0.3 lattice kappa removes the poles: failed (required)
+  Ha.2 p=3.0 d=-0.9 extraction on circle |z| = (n^p + X_1)/2: failed (required)
+  Ha.4 p=3.0 d=-0.9 lattice-phase residue at X_1: failed (required)
+  Ha.4 p=3.0 d=-0.9 lattice-phase residue at X_2: failed (required)
+  Ha.4 p=3.0 d=-0.9 lattice-phase residue at X_3: failed (required)
+  Ha.5 p=3.0 d=-0.9 lattice kappa removes the poles: failed (required)
+  Ha.1 p=0.6 d=0.0 sector 0.95pi count = #nodes: failed (required)
+  Ha.1 p=0.6 d=-0.3 sector 0.95pi count = #nodes: failed (required)
+  Ha.2 p=0.6 d=-0.3 extraction on circle |z| = (n^p + X_1)/2: failed (required)
+  Ha.4 p=0.6 d=-0.3 lattice-phase residue at X_1: failed (required)
+  Ha.4 p=0.6 d=-0.3 lattice-phase residue at X_2: failed (required)
+  Ha.4 p=0.6 d=-0.3 lattice-phase residue at X_3: failed (required)
+  Ha.5 p=0.6 d=-0.3 lattice kappa removes the poles: failed (required)
+  Ha.1 p=0.6 d=-0.9 sector 0.95pi count = #nodes: failed (required)
+  Ha.2 p=0.6 d=-0.9 extraction on circle |z| = (n^p + X_1)/2: failed (required)
+  Ha.4 p=0.6 d=-0.9 lattice-phase residue at X_1: failed (required)
+  Ha.4 p=0.6 d=-0.9 lattice-phase residue at X_2: failed (required)
+  Ha.4 p=0.6 d=-0.9 lattice-phase residue at X_3: failed (required)
+  Ha.5 p=0.6 d=-0.9 lattice kappa removes the poles: failed (required)
+all 33 controls failed as required
+ALL 298 CHECKS PASSED

@@ -1,0 +1,23 @@
+sha256 w_exact_gauge.py: d2208e9b0b8040ec41fc0f80a1af03121ac45bfdccc65f3c9ebb75e4be8e3ded
+sha256 w_exact_engine.py: 54ad07279b4f891908985a8c8782413aee89007b6b0caf976f51b470d7af14e8
+[ 1] identity: (i) [w^m] M_rho(4+w) = C(2rho,rho) rho(rho-1)..(rho-m)/(4^{m+1}(1/2)_{m+1}), m <= 8, symbolic rho: holds -> PASS
+[ 2] CONTROL (must fail): (i) control: (1/2)_m in place of (1/2)_{m+1}: FAILS -> PASS
+[ 3] identity: (ii) [z^m] A_rho = C(2rho,rho) prod_{i<=m} (rho-i)/(2(2rho-2i-1)), m <= 8, symbolic rho: holds -> PASS
+   max rel. deviation: decomposition near 0 1.89e-40; Taylor series at 4 7.07e-41
+[ 4] identity: (ii) M_rho = A_rho + tan(pi rho) z^{rho-1/2}(4-z)^{-1/2} (4 rho x 4 z, quad at 40 digits, rel. dev < 1e-20): holds -> PASS
+[ 5] identity: (i) M_rho(4+w) = its Taylor series (4 rho x 2 w, rel. dev < 1e-20): holds -> PASS
+[ 6] CONTROL (must fail): (ii) control: sin(pi rho) in place of tan(pi rho) (rel. dev < 1e-6 somewhere): FAILS -> PASS
+[ 7] CONTROL (must fail): (ii) control: no branched term (rel. dev < 1e-6 somewhere): FAILS -> PASS
+   R M_br / (i tan(pi rho) z^rho) at Im z > 0, < 0, > 0, < 0: ['(1.0 + 0.0j)', '(-1.0 + 0.0j)', '(1.0 + 6.1676817e-42j)', '(-1.0 + 6.1676817e-42j)']
+[ 8] identity: (iii) R M_br = s i tan(pi rho) z^rho with s = +1 (Im z > 0), -1 (Im z < 0): holds -> PASS
+[ 9] identity: (iv) W(rho) = C(2rho,rho) c^rho (Legendre duplication): holds -> PASS
+[10] identity: (iv) c p M(4c) (-t) = -(p rho W(rho)/2) t: holds -> PASS
+   route 2 (41s): d1 = -p*(beta + 1)/2, first-order = j*p/2
+[11] identity: (v) d1 = -p(beta+1)/2 (decoupled): holds -> PASS
+[12] identity: (v) first-order mu response of the 1/n coefficient = p j/2 (per mu C(2j,j)), identically in (p, nu, beta, j): holds -> PASS
+[13] identity: (v) second- and third-order responses of the 1/n coefficient vanish identically: holds -> PASS
+[14] CONTROL (must fail): (v) control: first-order response = 0: FAILS -> PASS
+total 14 checks
+ALL IDENTITIES HOLD
+ALL 14 CHECKS PASSED
+EXIT 0

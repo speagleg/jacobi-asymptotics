@@ -412,7 +412,9 @@ Theorem E.1 gives (E_1), i.e. (E_ε) with ε = 1, at every (p, s) with p > 1, s 
 - **(E) for 0 < p < 1** (GAP): Γ's poles enter the slit plane; Paper 2's seam scalar. The numerics (SECOND §1) show
   remainders n^{−1−p}, which the present scheme would have to produce from the seam (the H_n of the seam geometry is not
   flat to o(1/n) near 0: (O3) only gives |z|(1 + log(1/|z|)) there).
-- **d₂** (second order): would need Δ₂ and the O(n^{−p}) part of H_n, which enters Δ₁ and hence n^pb_n/c at order
+- **d₂** (second order): *Plan E2 (2026-10-20, REVIEWED): CLOSED for p > 1 — E2_pgt1.md Thm E2.1, d₂ = (p+1)(s−1)²/(8p) −
+  (p+2)(s−1−p)²/(8p²) + (p+1)/12, remainder O(n^{−min(3,1+p)}). The n^{−1−p} term for 1 < p < 2 remains open (E2 Remark E2.14).*
+  Original text: would need Δ₂ and the O(n^{−p}) part of H_n, which enters Δ₁ and hence n^pb_n/c at order
   n^{−1−p}; so for 1 < p < 2 the remainder O(n⁻²) of Theorem E.1 presumably contains an n^{−1−p} term below an n⁻² term
   (HEURISTIC; consistent with the SECOND §1 fit basis {n^{−1−i−jp}} and with the slow drift in check_e_rate.out).
 - **Rule L** (novelty) not done: second-order RH expansions for varying weights with hard + soft edges are standard

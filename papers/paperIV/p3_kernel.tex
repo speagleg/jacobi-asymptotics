@@ -1,0 +1,144 @@
+% Section 3: the band, the soft edge and the kernel (from archive/sec3.tex and archive/sec4.tex, compressed; the proof of
+% Theorem Q is in pA_equilibrium.tex).
+\section{The band, the soft edge and the kernel}\label{sec:kernel}
+
+At leading order the zeros of $P_n$, rescaled by $n^p$, follow the equilibrium measure of unit mass constrained by the continuum
+density of the nodes \cite{Rakhmanov,DragnevSaff,PaperI}. In the edge variable $y=n^p\cdot(\text{node})$ the lattice nodes have density
+$\sigma(y)=\frac1py^{-1/p-1}$, of infinite mass at the hard edge $0$. This section fixes the band by that problem, shows that its soft
+edge carries the poles of the node zeta function with the weight $\pi\cot(\pi q)$, and proves Theorem~\ref{thm:B}.
+
+\subsection{The constrained equilibrium with an infinite-mass hard edge}\label{sec:thmQ}
+For constraints of finite mass with compact support and no external field, the endpoint equation and the structure of the
+solution below are known \cite{BeckermannKuijlaars2001,BeckermannHelart} (see Section~\ref{sec:literature}). We need the case of a
+constraint of infinite mass at a hard edge, where that theory does not apply. Let $0<Y\le\infty$ and let $\sigma$ be a density on $(0,Y]$
+with
+\begin{enumerate}
+\item[(H1)] $\sigma$ positive and locally H\"older continuous on $(0,Y)$;
+\item[(H2)] $y\mapsto y\sigma(y)$ strictly decreasing on $(0,Y)$;
+\item[(H3)] if $Y=\infty$, $\int_1^\infty\sigma(y)\log y\diff y<\infty$.
+\end{enumerate}
+By (H2), $\int_0\sigma=\infty$. The \emph{constrained equilibrium problem} is to minimise $I(\mu)=\iint\log|x-y|^{-1}\diff\mu\diff\mu$ over
+positive $\mu$ on $[0,Y]$ with $\mu([0,Y])=1$ and $\mu\le\sigma$; the \emph{soft-edge condition} is
+\begin{equation}\label{eq:Q}
+  F(a):=\int_a^Y\sigma(y)\Bigl(1-\frac ay\Bigr)^{-1/2}\diff y=1 .
+\end{equation}
+
+\begin{proposition}\label{prop:Q}
+Assume \textup{(H1)--(H3)}. Equation~\eqref{eq:Q} has exactly one root $a\in(0,Y)$. With $s(y):=\sigma(y)\sqrt{y/(y-a)}$ and
+\begin{equation}\label{eq:nu}
+  \nu(x):=\frac1\pi\sqrt{\frac{a-x}x}\int_a^Y\frac{s(y)}{y-x}\diff y\qquad(0<x<a),
+\end{equation}
+the measure $\mu:=\nu\diff x|_{[0,a]}+\sigma\diff y|_{[a,Y]}$ has unit mass, $0<\nu<\sigma$ on $(0,a)$, its potential is constant on
+$[0,a]$ and strictly smaller on $(a,Y]$, and $\mu$ is the unique solution of the constrained equilibrium problem.
+\end{proposition}
+
+The proof (Appendix~\ref{app:Q}) is self-contained: the density is obtained from a per-point Cauchy-transform identity, and uniqueness
+uses only the positivity of the logarithmic energy of signed measures of mass zero, which holds without compact support
+\cite[Lemma~3.3]{PaperI}. When $\sigma$ is H\"older of order $>\frac12$ near $a$, the proof also gives the edge behaviour
+$\sigma-\nu=C\sqrt{a-x}\,(1+o(1))$ with an explicit $C>0$ (Remark~\ref{rem:Qedge}).
+
+\begin{corollary}[the lattice]\label{cor:Q1}
+For $\sigma(y)=\frac1py^{-1/p-1}$ on $(0,\infty)$ the root of~\eqref{eq:Q} is $a=4c(p)$.
+\end{corollary}
+
+\begin{proof}
+(H1)--(H3) hold, and~\eqref{eq:Q} reads $a^{-1/p}\frac1pB(\frac1p,\frac12)=1$, i.e.\ $a^{1/p}=\sqrt\pi\,\Gamma(\frac1p+1)/\Gamma(\frac1p+\frac12)$,
+which is $a=4c(p)$ by~\eqref{eq:cp}.
+\end{proof}
+
+This is the lattice problem of \cite[Theorem~1.3]{PaperI} in the edge variable; its edge $4c$ is the soft edge of the band of
+\cite{PaperII}. In node language, \eqref{eq:Q} says $\frac1n\sum_{u_k<1}(1-u_k)^{-1/2}\approx1$ with $u_k=a\lambda_k/n^p$: the edge is fixed
+by the per-node quantity $L(u):=(1-u)^{-1/2}\mathbf 1_{u<1}$, summed over the saturated nodes.
+
+\subsection{The soft edge carries the poles}\label{sec:M12}
+
+\begin{lemma}\label{lem:K0}
+For $\Re w<0$,
+$\Lt(w):=\int_0^\infty u^{-w-1}L(u)\diff u=B\bigl(-w,\tfrac12\bigr)=-\pi\cot(\pi w)\,\Gamma(w+\frac12)/(\sqrt\pi\,\Gamma(w+1))$. $\Lt$
+continues meromorphically to $\C$, its poles in $\Re w\ge0$ are simple, at $w=j\in\N_0$, with $-\Res_{w=j}\Lt=\binom{2j}j4^{-j}$, and
+\begin{equation}\label{eq:Lt-W}
+  -(4c)^q\,\Lt(q)=W(q)\,\pi\cot(\pi q).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+$\int_0^1u^{-w-1}(1-u)^{-1/2}\diff u=B(-w,\frac12)$ \cite[(5.12.1)]{DLMF}; the reflection formula \cite[(5.5.3)]{DLMF} gives
+$\sqrt\pi\Gamma(-w)/\Gamma(\frac12-w)=-\pi\cot(\pi w)\Gamma(w+\frac12)/(\sqrt\pi\Gamma(w+1))$, and $\Gamma(j+\frac12)/(\sqrt\pi j!)=\binom{2j}j4^{-j}$.
+\end{proof}
+
+The two analytic continuations $\mp i|1-u|^{-1/2}$ of $(1-u)^{-1/2}$ to $u>1$ have Mellin transforms with $-\pi e^{\pm i\pi w}/\sin(\pi w)$; their
+average is $L$, and the average of the transforms is $-\pi\cot(\pi w)$: the cotangent is the signature of truncating the per-node law at the
+edge. At $q\in-\frac12-\N_0$ the right side of~\eqref{eq:Lt-W} is a limit $0\cdot\infty$, defined by the left side.
+
+Let $\mathcal N$ be a $C^1$ counting function on $[\lambda_0,\infty)$, $\lambda_0>0$, $\mathcal N'>0$, with
+$\mathcal N'(\lambda)=\sum_{k<K}\rho_kc_{\rho_k}\lambda^{\rho_k-1}+O(\lambda^{\rho_K-1})$ for every $K$, exponents $1/p=\rho_0>\rho_1>\dotsb$,
+$c_{1/p}=1$. Then $Z_{\mathcal N}(-w):=\int\lambda^w\diff\mathcal N(\lambda)$ is meromorphic with poles at $q=-\rho$ and residues $R_q=-\rho c_\rho$;
+the Weyl pole is $q=-1/p$. Assume that no pole sits at a positive integer.
+
+\begin{proposition}\label{prop:M12}
+As $A\to0^+$,
+\begin{equation}\label{eq:M12a}
+  \int_{\lambda_0}^\infty L(A\lambda)\diff\mathcal N(\lambda)\sim-\sum_qR_q\Lt(q)A^q+\sum_{j\ge0}\binom{2j}j4^{-j}Z_{\mathcal N}(-j)A^j,
+\end{equation}
+with remainder $O(A^{-\rho_K})$ after the terms with $q,j<-\rho_K$. The root of $\int L(A\lambda)\diff\mathcal N(\lambda)=n$, written
+$A=4c(1+\eta)n^{-p}$, satisfies
+\begin{equation}\label{eq:M12b}
+  \eta=\frac pn\Bigl[\sum_{j\ge0}W(j)Z_{\mathcal N}(-j)n^{-jp}+\sum_{q\ne-1/p}R_qW(q)\,\pi\cot(\pi q)\,n^{-pq}\Bigr]+O(\eta^2).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For one power, the substitution $u=A\lambda$ and the Taylor expansion of $(1-u)^{-1/2}$ on $[0,A\lambda_0]$ give
+$\int_{\lambda_0}^{1/A}(1-A\lambda)^{-1/2}\rho c_\rho\lambda^{\rho-1}\diff\lambda=\rho c_\rho[A^{-\rho}B(\rho,\frac12)-\sum_j\binom{2j}j4^{-j}A^j\lambda_0^{\rho+j}/(\rho+j)]$,
+first for $\rho>0$, then for $\rho\notin-\N$ by continuation; the first term is $-R_q\Lt(q)A^q$. The remainder of the expansion of $\mathcal N'$
+is split at $\lambda=1/(2A)$ and gives the integer terms up to $O(A^{-\rho_K})$, whose coefficients collect into the continued values
+$Z_{\mathcal N}(-j)$. The Weyl pole contributes $n(1+\eta)^{-1/p}$ by Corollary~\ref{cor:Q1}; by~\eqref{eq:Lt-W} and
+$\binom{2j}j4^{-j}(4c)^j=W(j)$ the rest at $\eta=0$ is the bracket of~\eqref{eq:M12b}, and the implicit function theorem gives~\eqref{eq:M12b}.
+\end{proof}
+
+The values $Z_{\mathcal N}(-j)$ depend on the cutoff $\lambda_0$; they are not the values $Z_\Lambda(-j)$ of a node set, which enter through
+the band factor (Theorem~\ref{thm:K}). What~\eqref{eq:M12b} contributes for a node set is the pole part: the weight $W(q)\pi\cot(\pi q)$ of
+each non-Weyl pole. Numerically, for $\lambda_k=(k+\gamma k^{-m})^p$ at four values of $(p,m)$ the first-order pole term of the root agrees
+with $pR_qW(q)\pi\cot(\pi q)$ to between $10^{-8}$ and $10^{-6}$ (script \texttt{m1\_edge}).
+
+\subsection{The band-factor functional}\label{sec:en}
+For $p>1$ the function $G$ of the band factor has a jump $i\fe$ on $(-\infty,0)$, exponentially small near $0$ and tending to
+$\pi(1-2/p)$ at $-\infty$; for $0<p<1$ it jumps across the seams $\arg z=\pm\vartheta$, $\vartheta=\pi p/2$, by
+$\fj(|z|)=-\log(1-e^{-2\pi n|z|^{-1/p}})$ \cite[Lemmas~8.1, 10.1]{PaperII}. For $f$ analytic near these contours put
+$\mathcal M_n[f]:=\frac1{2\pi}\int_{-\infty}^0\fe(y)f(y)\diff y$ ($p>1$) and
+$\mathcal M_n[f]:=\frac1\pi\int_0^\infty\fj(r)\Im[e^{i\vartheta}f(re^{i\vartheta})]\diff r$ ($p<1$), so that $\mathcal M_n[y^{-k-1}]=m_k$. Since
+$\sum_jQ_j(4c)y^{-j-1}=k_c(y):=y^{-2}(1-4c/y)^{-3/2}$ for $|y|>4c$, the \emph{band-factor functional}
+\begin{equation}\label{eq:en}
+  e_n:=2cp\,\mathcal M_n[k_c]
+\end{equation}
+is the untruncated version of the zeta terms $cpM_{\mu_n}(4c)=2cp\sum_km_kQ_k(4c)$ of Lemma~\ref{lem:E37}.
+
+\begin{theorem}\label{thm:K}
+Let $p>0$, $p\ne1$, $0<c_0<1$. Then \textup{(i)} $e_n=2cp\sum_{k\le K}m_kQ_k(4c)+O(n^{-(K+1)p})$ for every $K$;
+\textup{(ii)} $e_n$ is the Mellin--Barnes integral of Theorem~\ref{thm:B}; \textup{(iii)} $e_n=\sum_{j\le J}\varepsilon_jn^{-jp}+O(n^{-(J+1)p})$.
+\end{theorem}
+
+\begin{proof}
+(i) Split at $|y|=2(4c+2)$: on the far part expand $k_c$ to $K$ terms; the near parts are $O(e^{-n/C})$ \cite[Lemmas~8.1(i), 10.1]{PaperII}.
+
+(ii), $p>1$. For $\Re w>0$ the computation of Lemma~\ref{lem:Fprime} with $k$ replaced by $w$ and \cite[(25.4.1)]{DLMF} give
+\[
+  \int_0^\infty\fe(-r)r^{-w-1}\diff r=\frac{2\pi}w\,\zeta(-wp)\,n^{-wp}\Bigl[\sin(\pi w)\cot\frac{\pi wp}2-\cos(\pi w)\Bigr].
+\]
+Insert the Mellin--Barnes representation $(1+x)^{-3/2}=\frac1{2\pi i}\int_{(c_1)}\Gamma(-t)\Gamma(\frac32+t)\Gamma(\frac32)^{-1}x^t\diff t$
+($x>0$, $-\frac32<c_1<0$), the Mellin inversion of the Beta integral \cite[(5.12.3)]{DLMF}, into $r^{-1/2}(r+4c)^{-3/2}=r^{-2}(1+4c/r)^{-3/2}$, put
+$w=t+1$ and exchange the integrals; with $\Gamma(1-w)/w=\pi/(\sin(\pi w)\Gamma(1+w))$ the factors collect into
+$pW(w)\zeta(-wp)n^{-wp}\pi[\cot(\pi wp/2)-\cot(\pi w)]$. For $0<p<1$ the seam density has Mellin transform $p(2\pi n)^{-wp}\Gamma(wp)\zeta(1+wp)$,
+the same representation applies with $\arg(4c/r)$ rotated to $\pi-\vartheta$, and the angular factor
+$\sin(\pi w-\frac{\pi wp}2)/(\sin(\pi w)\sin\frac{\pi wp}2)=\cot\frac{\pi wp}2-\cot(\pi w)$ gives the same kernel.
+
+(iii) On vertical lines the kernel decays like $e^{-\min(p,2)\pi|\Im w|}$ and $\zeta(-wp)W(w)$ grows polynomially, so the contour moves to the
+right. The poles of $-\pi\cot(\pi w)$ at $w=j$ give $\varepsilon_jn^{-jp}$; the poles of $\cot(\pi wp/2)$ at $w=2l/p$ lie on the zeros of
+$\zeta(-2l)$ and are removable.
+\end{proof}
+
+So the band factor contributes exactly the integer residues of $-\pi\cot(\pi w)$; the poles of $\zeta(-wp)$ and the point $w=0$ lie to the
+left of the strip (the term $p\zeta(0)$ of $d_1$ comes from the index normalisation of the frame, not from $e_n$). The residue sum is asymptotic
+only, since $\zeta(-jp)$ grows factorially. At $p=1$ the two cotangents coincide, which is where the constructions of \cite{PaperII} change.
+The quadrature of $e_n$ and the integral agree to all $16$ printed digits at six values of $(p,n)$ (scripts \texttt{spec\_kernel},
+\texttt{m2\_thmK\_plt1}).

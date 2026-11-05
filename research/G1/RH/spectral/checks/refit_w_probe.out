@@ -1,0 +1,49 @@
+sha256 refit_w.py: 0528abbd8eb4a249fc1708184e1f151519d22367ead572ef8153597d869e9a0c
+sha256 refit_data.py: fbeeb9332fd5779c370c32b79470cca04b13541e6a2db59a394dd650de7a1b36
+sha256 w2_data.py: 8c7cc6f8c99b61315ec9c17ed6298c2071e27174e76b60d09b8c06f11ee74357
+refit_w.py probe run at 2026-10-23 08:28:09 MDT
+   [refit data new_H2__9eaaac395001bb9e.txt: 322039 records, 154s]
+=== H2: K p=2.0 d=0.5 kappa=0.0 s=3.0 (old wK_p2.0_d0.5_k0.0_s3.0__b4e8d10f3848492c.txt) ===
+  H2: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 5.9e-16, 8.5e-16, 8.7e-16, 4.1e-16, 2.6e-16;  max n^4|dy| = 1.7e-03;  noise sigma_y old 8.9e-16, new 6.0e-20
+  H2 n^-1.0  : W -2.000000000 | old -2.000000000 (4.2e-07) diff +6.8e-11 PASS | new -2.000000000 (4.2e-07) diff +6.8e-11 [0.00 tol] PASS | new - old -4.8e-14
+  H2 n^-2.0  : W +3.250000000 | old +3.250000000 (1.9e-06) diff -1.6e-10 PASS | new +3.250000000 (1.9e-06) diff -2.4e-10 [0.00 tol] PASS | new - old -7.9e-11
+  H2 n^-3.0  : W -5.616850275 | old -5.616850111 (6.1e-06) diff +1.6e-07 PASS | new -5.616850274 (6.1e-06) diff +8.7e-10 [0.00 tol] PASS | new - old -1.6e-07
+  H2 n^-4.0  : W +10.629173250 | old +10.629176606 (2.0e-04) diff +3.4e-06 PASS | new +10.629173151 (1.7e-05) diff -9.9e-08 [0.00 tol] PASS | new - old -3.5e-06   W' +10.629173250: new diff -9.9e-08 (0.01 tol)
+   [refit data new_K2p__95b81430c11137e7.txt: 322039 records, 150s]
+=== K2p: K p=2.0 d=0.0 kappa=0.25 s=3.0 (old wK_p2.0_d0.0_k0.25_s3.0__45ac4d6711fcbdb7.txt) ===
+  K2p: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 2.3e-17, 3.9e-17, 1.1e-16, 6.4e-16, 2.3e-15;  max n^4|dy| = 1.5e-02;  noise sigma_y old 9.2e-16, new 3.2e-20
+  K2p n^-1.0  : W -1.000000000 | old -1.000000000 (7.5e-08) diff +8.6e-12 PASS | new -1.000000000 (7.5e-08) diff +7.2e-12 [0.00 tol] PASS | new - old -1.4e-12
+  K2p n^-2.0  : W +1.000000000 | old +1.000000000 (2.2e-07) diff +3.5e-11 PASS | new +1.000000000 (2.2e-07) diff -2.0e-11 [0.00 tol] PASS | new - old -5.5e-11
+  K2p n^-3.0  : W -1.462637706 | old -1.462637547 (1.7e-06) diff +1.6e-07 PASS | new -1.462637706 (5.3e-07) diff +3.7e-10 [0.00 tol] PASS | new - old -1.6e-07
+  K2p n^-4.0  : W +2.139016141 | old +1.907710235 (6.8e-04) diff -2.3e-01 FAIL | new +1.907697259 (1.5e-06) diff -2.3e-01 [36845.76 tol] FAIL | new - old -1.3e-05   W' +1.907697288: new diff -2.9e-08 (0.01 tol)
+   [refit data new_K2m__ac8b72df395017dc.txt: 322039 records, 299s]
+=== K2m: K p=2.0 d=0.0 kappa=-0.25 s=3.0 (old wK_p2.0_d0.0_k-0.25_s3.0__c7f3f97b695583de.txt) ===
+  K2m: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 9.4e-17, 3.6e-16, 7.4e-16, 2.0e-16, 1.3e-15;  max n^4|dy| = 8.3e-03;  noise sigma_y old 8.8e-16, new 2.9e-20
+  K2m n^-1.0  : W -1.000000000 | old -1.000000000 (2.4e-09) diff -2.5e-13 PASS | new -1.000000000 (2.4e-09) diff +1.1e-14 [0.00 tol] PASS | new - old +2.7e-13
+  K2m n^-2.0  : W +1.000000000 | old +1.000000000 (1.2e-08) diff -3.5e-11 PASS | new +1.000000000 (1.2e-08) diff -1.4e-13 [0.00 tol] PASS | new - old +3.5e-11
+  K2m n^-3.0  : W -0.537362294 | old -0.537362291 (5.2e-07) diff +2.4e-09 PASS | new -0.537362293 (1.1e-07) diff +2.4e-10 [0.00 tol] PASS | new - old -2.2e-09
+  K2m n^-4.0  : W -0.174172391 | old +0.057145518 (5.0e-04) diff +2.3e-01 FAIL | new +0.057146437 (1.2e-06) diff +2.3e-01 [67006.40 tol] FAIL | new - old +9.2e-07   W' +0.057146462: new diff -2.6e-08 (0.01 tol)
+   [refit data new_L2__fbadbb9b0bcf9374.txt: 322039 records, 352s]
+=== L2: K p=2.0 d=0.0 kappa=0.0 s=3.0 (old wK_p2.0_d0.0_k0.0_s3.0__1ee3339642e6b20e.txt) ===
+  L2: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 1.6e-16, 3.2e-16, 9.4e-17, 6.9e-16, 2.6e-15;  max n^4|dy| = 1.7e-02;  noise sigma_y old 9.6e-16, new 3.0e-20
+  L2 n^-1.0  : W -1.000000000 | old -1.000000000 (3.9e-08) diff +3.2e-12 PASS | new -1.000000000 (3.9e-08) diff +2.5e-12 [0.00 tol] PASS | new - old -6.9e-13
+  L2 n^-2.0  : W +1.000000000 | old +1.000000000 (8.7e-08) diff +7.6e-12 PASS | new +1.000000000 (8.6e-08) diff -3.6e-12 [0.00 tol] PASS | new - old -1.1e-11
+  L2 n^-3.0  : W -1.000000000 | old -0.999999951 (9.9e-07) diff +4.9e-08 PASS | new -1.000000000 (1.3e-07) diff +4.8e-11 [0.00 tol] PASS | new - old -4.9e-08
+  L2 n^-4.0  : W +0.982421875 | old +0.982425100 (3.9e-04) diff +3.2e-06 PASS | new +0.982421867 (2.4e-07) diff -7.9e-09 [0.00 tol] PASS | new - old -3.2e-06   W' +0.982421875: new diff -7.9e-09 (0.00 tol)
+  kappa-even part n^-4 (old): fit -0.000001235 (2.7e-04)  W +0.000000000  excess -1.24e-06
+  kappa-even part n^-4 (new): fit -0.000000021 (1.1e-06)  W +0.000000000  excess -2.15e-08
+   [refit data new_K2p_s2__cd5ff5ccda1de0f3.txt: 324087 records, 375s]
+=== K2p_s2: K p=2.0 d=0.0 kappa=0.25 s=2.0 (old wK_p2.0_d0.0_k0.25_s2.0__038aa4c98cc5ff92.txt) ===
+  K2p_s2: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 8.0e-17, 5.3e-17, 2.0e-16, 3.6e-16, 8.0e-16;  max n^4|dy| = 5.3e-03;  noise sigma_y old 1.0e-15, new 1.7e-20
+  K2p_s2 W' n^-1.0  : W -0.500000000 | old -0.500000000 (2.7e-08) diff +2.9e-12 PASS | new -0.500000000 (2.7e-08) diff +3.7e-12 [0.00 tol] PASS | new - old +8.4e-13
+  K2p_s2 W' n^-2.0  : W +0.312500000 | old +0.312499999 (1.1e-07) diff -1.3e-09 PASS | new +0.312500000 (1.1e-07) diff -1.0e-11 [0.00 tol] PASS | new - old +1.3e-09
+  K2p_s2 W' n^-3.0  : W -0.650137706 | old -0.650137659 (3.9e-06) diff +4.7e-08 PASS | new -0.650137706 (2.8e-07) diff +5.8e-11 [0.00 tol] PASS | new - old -4.7e-08
+  K2p_s2 W' n^-4.0  : W +0.699390883 | old +0.699409490 (1.6e-03) diff +1.9e-05 PASS | new +0.699390862 (6.7e-07) diff -2.1e-08 [0.01 tol] PASS | new - old -1.9e-05   W (unrefined) +0.699390883: 0 tol
+   [refit data new_K2p_s35__c026b1b577055d30.txt: 321655 records, 331s]
+=== K2p_s35: K p=2.0 d=0.0 kappa=0.25 s=3.5 (old wK_p2.0_d0.0_k0.25_s3.5__5266c45f68fcbec6.txt) ===
+  K2p_s35: |y_old - y_new| at n = 200, 400, 800, 1200, 1600: 2.4e-17, 1.1e-16, 6.0e-18, 1.7e-16, 1.6e-15;  max n^4|dy| = 1.1e-02;  noise sigma_y old 8.5e-16, new 3.8e-20
+  K2p_s35 W' n^-1.0  : W -1.250000000 | old -1.250000000 (1.2e-07) diff +2.0e-11 PASS | new -1.250000000 (1.2e-07) diff +1.3e-11 [0.00 tol] PASS | new - old -6.9e-12
+  K2p_s35 W' n^-2.0  : W +1.390625000 | old +1.390625000 (4.0e-07) diff +8.5e-11 PASS | new +1.390625000 (3.9e-07) diff -3.8e-11 [0.00 tol] PASS | new - old -1.2e-10
+  K2p_s35 W' n^-3.0  : W -1.986075206 | old -1.986074933 (5.3e-06) diff +2.7e-07 PASS | new -1.986075206 (1.0e-06) diff +2.9e-10 [0.00 tol] PASS | new - old -2.7e-07
+  K2p_s35 W' n^-4.0  : W +2.929602325 | old +2.929622638 (3.6e-03) diff +2.0e-05 PASS | new +2.929602271 (2.6e-06) diff -5.4e-08 [0.01 tol] PASS | new - old -2.0e-05   W (unrefined) +3.103091465: 22075 tol
+ALL 24 CHECKS PASSED

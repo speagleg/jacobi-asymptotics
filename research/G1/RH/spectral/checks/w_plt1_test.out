@@ -1,0 +1,60 @@
+w_plt1_test.py run at 2026-10-22 17:09:26 MDT | predictions written 2026-10-22 16:12:42
+measure p=0.6 delta=-0.3 kappa=+0.0 s=2.0 K=320000: K_p0.6_d-0.3_k+0.0_s2.0_K320000__006fc9732f34222d.txt (cached, 0 s)
+measure p=0.6 delta=-0.3 kappa=+0.5 s=2.0 K=320000: K_p0.6_d-0.3_k+0.5_s2.0_K320000__5d3f650d93c28a29.txt (cached, 0 s)
+measure p=0.6 delta=-0.3 kappa=-0.5 s=2.0 K=320000: K_p0.6_d-0.3_k-0.5_s2.0_K320000__184949214e69db6d.txt (cached, 0 s)
+measure p=0.75 delta=-0.3 kappa=+0.0 s=2.0 K=320000: K_p0.75_d-0.3_k+0.0_s2.0_K320000__c3430377eaddf9d6.txt (cached, 0 s)
+measure p=0.75 delta=-0.3 kappa=+0.5 s=2.0 K=320000: K_p0.75_d-0.3_k+0.5_s2.0_K320000__8a0ca1c8a901984c.txt (cached, 0 s)
+measure p=0.75 delta=-0.3 kappa=-0.5 s=2.0 K=320000: K_p0.75_d-0.3_k-0.5_s2.0_K320000__1efcd8f599d4cdb7.txt (cached, 0 s)
+measure p=0.6 delta=-0.3 kappa=+0.5 s=2.0 K=640000: K_p0.6_d-0.3_k+0.5_s2.0_K640000__2b20888049b336e7.txt (cached, 0 s)
+=== p0.6_k+0.0 ===
+  n^-1.0   : fit -0.319997964 (half-range 7.6e-04)  EQ -0.320000000  diff +2.0e-06  tol 2.3e-03  PASS
+  n^-1.6   : fit -0.003180256 (half-range 3.8e-04)  EQ -0.003271741  diff +9.1e-05  tol 1.1e-03  PASS
+=== p0.6_k+0.5 ===
+  n^-0.6   : fit -0.601219950 (half-range 5.1e-04)  EQ -0.601233758  diff +1.4e-05  tol 1.5e-03  PASS
+  n^-1.0   : fit -0.320040025 (half-range 1.2e-03)  EQ -0.320000000  diff -4.0e-05  tol 3.6e-03  PASS
+  n^-1.2   : fit +0.284014492 (half-range 5.5e-04)  EQ +0.284021596  diff -7.1e-06  tol 1.6e-03  PASS   | alternatives: W1: +0.0430336 (147 tol)
+  n^-1.6   : fit +0.415871514 (half-range 7.1e-03)  EQ +0.415874079  diff -2.6e-06  tol 2.1e-02  PASS   | alternatives: no shift: +0.0310845 (18 tol); no density: +0.3299835 (4 tol); no share: +0.4674084 (2 tol)
+  n^-1.8   : fit -0.106606349 (half-range 2.7e-03)  EQ -0.106449894  diff -1.6e-04  tol 8.0e-03  PASS   | alternatives: W1: +0.0102672 (15 tol)
+     truncation K -> 2K at n^-0.6: -0.601219950 -> -0.601219950 (diff 9.8e-11, tol/10 1.5e-04)
+     truncation K -> 2K at n^-1.0: -0.320040025 -> -0.320040037 (diff 1.2e-08, tol/10 3.6e-04)
+     truncation K -> 2K at n^-1.2: +0.284014492 -> +0.284014445 (diff 4.7e-08, tol/10 1.6e-04)
+     truncation K -> 2K at n^-1.6: +0.415871514 -> +0.415836771 (diff 3.5e-05, tol/10 2.1e-03)
+     truncation K -> 2K at n^-1.8: -0.106606349 -> -0.106621204 (diff 1.5e-05, tol/10 8.0e-04)
+=== p0.6_k-0.5 ===
+  n^-0.6   : fit +0.601225072 (half-range 5.2e-04)  EQ +0.601233758  diff -8.7e-06  tol 1.6e-03  PASS
+  n^-1.0   : fit -0.319956455 (half-range 5.1e-04)  EQ -0.320000000  diff +4.4e-05  tol 1.5e-03  PASS   | alternatives: naive: -0.5089882 (123 tol)
+  n^-1.2   : fit +0.284030365 (half-range 1.6e-04)  EQ +0.284021596  diff +8.8e-06  tol 4.8e-04  PASS   | alternatives: W1: +0.0430336 (502 tol)
+  n^-1.6   : fit -0.423047416 (half-range 2.5e-03)  EQ -0.422417561  diff -6.3e-04  tol 7.4e-03  PASS   | alternatives: no shift: -0.0376280 (52 tol); no density: -0.3365270 (12 tol); no share: -0.4739519 (7 tol)
+  n^-1.8   : fit +0.106372828 (half-range 5.3e-03)  EQ +0.106449894  diff -7.7e-05  tol 1.6e-02  PASS   | alternatives: W1: -0.0102672 (7 tol)
+=== p0.6_O ===
+  n^-0.6   : fit -0.601223271 (half-range 5.1e-04)  EQ -0.601233758  diff +1.0e-05  tol 1.5e-03  PASS
+  n^-1.0   : fit -0.000011624 (half-range 8.1e-04)  EQ +0.000000000  diff -1.2e-05  tol 2.4e-03  PASS   | alternatives: naive: +0.0944941 (39 tol)
+  n^-1.6   : fit +0.419096766 (half-range 3.2e-03)  EQ +0.419145820  diff -4.9e-05  tol 9.6e-03  PASS   | alternatives: no shift: +0.0343562 (40 tol); no share: +0.4706801 (5 tol); no density: +0.3332553 (9 tol)
+  n^-1.8   : fit -0.106250532 (half-range 3.6e-03)  EQ -0.106449894  diff +2.0e-04  tol 1.1e-02  PASS   | alternatives: W1: +0.0102672 (11 tol)
+=== p0.6_E ===
+  n^-1.0   : fit -0.000038005 (half-range 1.2e-03)  EQ +0.000000000  diff -3.8e-05  tol 3.5e-03  PASS   | alternatives: naive: -0.0944941 (27 tol)
+  n^-1.2   : fit +0.284023478 (half-range 6.1e-04)  EQ +0.284021596  diff +1.9e-06  tol 1.8e-03  PASS   | alternatives: W1: +0.0430336 (132 tol)
+=== p0.75_k+0.0 ===
+  n^-1.0   : fit -0.274999095 (half-range 1.1e-04)  EQ -0.275000000  diff +9.0e-07  tol 3.4e-04  PASS
+  n^-1.75  : fit +0.006013684 (half-range 5.8e-04)  EQ +0.006035863  diff -2.2e-05  tol 1.7e-03  PASS
+=== p0.75_k+0.5 ===
+  n^-0.75  : fit -0.572850393 (half-range 6.2e-04)  EQ -0.572853174  diff +2.8e-06  tol 1.9e-03  PASS
+  n^-1.0   : fit -0.274990071 (half-range 4.8e-05)  EQ -0.275000000  diff +9.9e-06  tol 1.4e-04  PASS
+  n^-1.5   : fit +0.229634822 (half-range 3.2e-03)  EQ +0.229712531  diff -7.8e-05  tol 9.6e-03  PASS   | alternatives: W1: -0.0437548 (28 tol)
+  n^-1.75  : fit +0.309662047 (half-range 3.8e-03)  EQ +0.309648045  diff +1.4e-05  tol 1.1e-02  PASS   | alternatives: no shift: -0.0054212 (27 tol); no density: +0.2523627 (5 tol); no share: +0.3783904 (6 tol)
+  n^-2.25  : fit -0.060086877 (half-range 1.5e-03)  EQ -0.060156138  diff +6.9e-05  tol 4.6e-03  PASS   | alternatives: W1: -0.0155960 (10 tol)
+=== p0.75_k-0.5 ===
+  n^-0.75  : fit +0.572834505 (half-range 2.5e-04)  EQ +0.572853174  diff -1.9e-05  tol 7.5e-04  PASS
+  n^-1.0   : fit -0.274999912 (half-range 1.3e-04)  EQ -0.275000000  diff +8.8e-08  tol 3.8e-04  PASS   | alternatives: naive: -0.5726377 (778 tol)
+  n^-1.5   : fit +0.229741583 (half-range 2.8e-04)  EQ +0.229712531  diff +2.9e-05  tol 8.5e-04  PASS   | alternatives: W1: -0.0437548 (320 tol)
+  n^-1.75  : fit -0.297651895 (half-range 3.2e-04)  EQ -0.297576320  diff -7.6e-05  tol 9.6e-04  PASS   | alternatives: no shift: +0.0174929 (329 tol); no density: -0.2402910 (60 tol); no share: -0.3663187 (72 tol)
+  n^-2.25  : fit +0.060140199 (half-range 1.4e-03)  EQ +0.060156138  diff -1.6e-05  tol 4.3e-03  PASS   | alternatives: W1: +0.0155960 (10 tol)
+=== p0.75_O ===
+  n^-0.75  : fit -0.572844366 (half-range 4.4e-04)  EQ -0.572853174  diff +8.8e-06  tol 1.3e-03  PASS
+  n^-1.0   : fit -0.000001046 (half-range 7.2e-05)  EQ +0.000000000  diff -1.0e-06  tol 2.2e-04  PASS   | alternatives: naive: +0.1488188 (687 tol)
+  n^-1.75  : fit +0.303622499 (half-range 2.1e-03)  EQ +0.303612182  diff +1.0e-05  tol 6.2e-03  PASS   | alternatives: no shift: -0.0114571 (51 tol); no share: +0.3723546 (11 tol); no density: +0.2463269 (9 tol)
+  n^-2.25  : fit -0.060110398 (half-range 1.3e-03)  EQ -0.060156138  diff +4.6e-05  tol 3.9e-03  PASS   | alternatives: W1: -0.0155960 (11 tol)
+=== p0.75_E ===
+  n^-1.0   : fit -0.000001344 (half-range 5.3e-05)  EQ +0.000000000  diff -1.3e-06  tol 1.6e-04  PASS   | alternatives: naive: -0.1488188 (937 tol)
+  n^-1.5   : fit +0.229713874 (half-range 1.3e-03)  EQ +0.229712531  diff +1.3e-06  tol 3.8e-03  PASS   | alternatives: W1: -0.0437548 (72 tol)
+ALL 48 CHECKS PASSED

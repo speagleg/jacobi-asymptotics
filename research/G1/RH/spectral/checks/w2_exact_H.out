@@ -1,0 +1,10 @@
+sha256 w2_exact.py: befee036ba88cac13a58b863739d7caee61d3b361717168aaa974ef303e255c6
+sha256 w2_engine.py: 8e69b2e33912b097cf6cf8abd27df0c9c0910735395e29c8292e4b2506bca02d
+engine config {'DECOUPLE': '1', 'E1': '1', 'E2': '1', 'KORD': '4', 'SHI': '16', 'PVAL': '3/2'}: 1414s
+[1] identity: e1 e2: N^-3 = 0 (p = 3/2): holds -> PASS
+[2] identity: e1 e2: N^-4 is beta-free (p = 3/2): holds -> PASS
+[3] identity: j = k = 1: N^-4 = p^2 h2/2 (JZC_M4_proof h2, p = 3/2): holds -> PASS
+h(j,k) := e1 e2 natural N^-4 at p = 3/2: j*k*(378*alpha**2*j**3*k - 189*alpha**2*j**3 + 756*alpha**2*j**2*k**2 + 567*alpha**2*j**2*k - 693*alpha**2*j**2 + 378*alpha**2*j*k**3 + 567*alpha**2*j*k**2 + 672*alpha**2*j*k - 672*alpha**2*j - 189*alpha**2*k**3 - 693*alpha**2*k**2 - 672*alpha**2*k - 882*alpha**2 + 54*j**5*k - 27*j**5 + 162*j**4*k**2 + 333*j**4*k - 207*j**4 + 216*j**3*k**3 + 792*j**3*k**2 + 462*j**3*k - 456*j**3 + 162*j**2*k**4 + 792*j**2*k**3 + 636*j**2*k**2 + 50*j**2*k - 238*j**2 + 54*j*k**5 + 333*j*k**4 + 462*j*k**3 + 50*j*k**2 - 368*j*k + 128*j - 27*k**5 - 207*k**4 - 456*k**3 - 238*k**2 + 128*k + 420)/(512*(2*j - 1)*(2*k - 1))
+symmetric in (j, k): True
+ALL IDENTITIES HOLD
+EXIT 0

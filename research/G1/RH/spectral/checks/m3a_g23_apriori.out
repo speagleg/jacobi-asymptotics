@@ -1,0 +1,32 @@
+[A] p=0.5 s=1.25 (alpha=-0.5) d=0.0: max |U_j2|/I1 = 0.09224, max I1/I2 = 1.0; exponent of |U_j2(iy)| (1e-16 -> 1e-24): -0.5, -0.5; in the lens (arg phi_1/2): -0.5 (alpha+2d = -0.5)
+[A] p=0.5 s=1.25 (alpha=-0.5) d=-0.5: max |U_j2|/I1 = 0.06535, max I1/I2 = 1.0; exponent of |U_j2(iy)| (1e-16 -> 1e-24): -0.5, -0.5; in the lens (arg phi_1/2): -0.5 (alpha+2d = -1.5)
+[A] p=0.5 s=1.25 (alpha=-0.5) d=-0.9: max |U_j2|/I1 = 0.01527, max I1/I2 = 1.0; exponent of |U_j2(iy)| (1e-16 -> 1e-24): -0.5, -0.5; in the lens (arg phi_1/2): -0.5 (alpha+2d = -2.3)
+[A] p=0.5 s=1.8 (alpha=0.6) d=0.0: max |U_j2|/I1 = 0.03307, max I1/I2 = 0.9074; exponent of |U_j2(iy)| (1e-16 -> 1e-24): -8.923063e-11, -6.4631228e-11; in the lens (arg phi_1/2): 3.8330132e-11 (alpha+2d = 0.6)
+[A] p=0.5 s=1.8 (alpha=0.6) d=-0.5: max |U_j2|/I1 = 0.02433, max I1/I2 = 0.8757; exponent of |U_j2(iy)| (1e-16 -> 1e-24): -7.9302974e-11, -5.6046562e-11; in the lens (arg phi_1/2): 3.4065595e-11 (alpha+2d = -0.4)
+[A] p=0.5 s=1.8 (alpha=0.6) d=-0.9: max |U_j2|/I1 = 0.00215, max I1/I2 = 0.8914; exponent of |U_j2(iy)| (1e-16 -> 1e-24): -6.9234263e-11, -4.7060051e-11; in the lens (arg phi_1/2): 2.9740463e-11 (alpha+2d = -1.2)
+[A] p=0.75 s=1.375 (alpha=-0.5) d=0.0: max |U_j2|/I1 = 0.1082, max I1/I2 = 1.0; exponent of |U_j2(iy)| (1e-16 -> 1e-24): -0.5, -0.5; in the lens (arg phi_1/2): -0.5 (alpha+2d = -0.5)
+[A] p=0.75 s=1.375 (alpha=-0.5) d=-0.5: max |U_j2|/I1 = 0.05766, max I1/I2 = 1.0; exponent of |U_j2(iy)| (1e-16 -> 1e-24): -0.5, -0.5; in the lens (arg phi_1/2): -0.5 (alpha+2d = -1.5)
+[A] p=0.75 s=1.375 (alpha=-0.5) d=-0.9: max |U_j2|/I1 = 0.006385, max I1/I2 = 1.0; exponent of |U_j2(iy)| (1e-16 -> 1e-24): -0.5, -0.5; in the lens (arg phi_1/2): -0.5 (alpha+2d = -2.3)
+[A] p=0.3 s=1.15 (alpha=-0.5) d=0.0: max |U_j2|/I1 = 0.08322, max I1/I2 = 1.0; exponent of |U_j2(iy)| (1e-16 -> 1e-24): -0.5, -0.5; in the lens (arg phi_1/2): -0.5 (alpha+2d = -0.5)
+[A] p=0.3 s=1.15 (alpha=-0.5) d=-0.5: max |U_j2|/I1 = 0.06769, max I1/I2 = 1.0; exponent of |U_j2(iy)| (1e-16 -> 1e-24): -0.5, -0.5; in the lens (arg phi_1/2): -0.5 (alpha+2d = -1.5)
+[A] p=0.3 s=1.15 (alpha=-0.5) d=-0.9: max |U_j2|/I1 = 0.025, max I1/I2 = 1.0; exponent of |U_j2(iy)| (1e-16 -> 1e-24): -0.5, -0.5; in the lens (arg phi_1/2): -0.5 (alpha+2d = -2.3)
+[A] p=0.3 s=1.45 (alpha=0.5) d=0.0: max |U_j2|/I1 = 0.03546, max I1/I2 = 0.9463; exponent of |U_j2(iy)| (1e-16 -> 1e-24): -2.9439447e-9, -2.2829543e-9; in the lens (arg phi_1/2): -1.2260354e-10 (alpha+2d = 0.5)
+[A] p=0.3 s=1.45 (alpha=0.5) d=-0.5: max |U_j2|/I1 = 0.0288, max I1/I2 = 0.9197; exponent of |U_j2(iy)| (1e-16 -> 1e-24): -2.735819e-9, -2.091741e-9; in the lens (arg phi_1/2): -1.1393593e-10 (alpha+2d = -0.5)
+[A] p=0.3 s=1.45 (alpha=0.5) d=-0.9: max |U_j2|/I1 = 0.01023, max I1/I2 = 0.9013; exponent of |U_j2(iy)| (1e-16 -> 1e-24): -2.4869747e-9, -1.8517382e-9; in the lens (arg phi_1/2): -1.0357256e-10 (alpha+2d = -1.3)
+[X] p=0.5 s=1.25 d=-0.5 arg=0.0982: |S_A - S_B|/|S_A| = 3.22e-40
+[X] p=0.5 s=1.25 d=-0.5 arg=1.57: |S_A - S_B|/|S_A| = 2.49e-40
+[X] p=0.75 s=2.125 d=-0.9 arg=0.147: |S_A - S_B|/|S_A| = 1.51e-39
+[X] p=0.75 s=2.125 d=-0.9 arg=1.57: |S_A - S_B|/|S_A| = 3.82e-40
+[L](a) p=0.5 s=1.25 d=-0.5: max |R(X_k+) - R(X_k-)|/|R| = 6.9e-12 (eps = 1e-12; the Cauchy sum itself jumps by 6.04e+10); control (lattice theta): min jump/|R| = 5.07e+9
+[L](a) p=0.75 s=2.125 d=-0.9: max |R(X_k+) - R(X_k-)|/|R| = 6.06e-12 (eps = 1e-12; the Cauchy sum itself jumps by 1.07e+11); control (lattice theta): min jump/|R| = 1.07e+10
+[L](a) p=0.3 s=1.15 d=-0.25: max |R(X_k+) - R(X_k-)|/|R| = 1.2e-11 (eps = 1e-12; the Cauchy sum itself jumps by 6.61e+10); control (lattice theta): min jump/|R| = 3.18e+9
+[L](c) arcs: lower bound 0.79212 holds on all samples
+[O] p=0.3 d=-0.25: max |F_d/F_0 - 1| (off the lens, 4 angles next to the seams; F~ in the lens): |z|=1e-4: 5.88e-6, |z|=1e-8: 5.88e-10
+[W] p=0.3 d=-0.25: next to the seams max|chi_d| at |z| = 1..1e5: 0.5802; at 1e8: 5.39e-8, 1e12: 5.39e-12; max|F(-z)^-d/C_d - 1|: 1e8 1.11e-8, 1e12 1.11e-12; Plemelj |chi_out - chi_in - chi_+| at 1e3 = 5.51e-23
+[O] p=0.3 d=-0.8: max |F_d/F_0 - 1| (off the lens, 4 angles next to the seams; F~ in the lens): |z|=1e-4: 2.23e-5, |z|=1e-8: 2.23e-9
+[W] p=0.3 d=-0.8: next to the seams max|chi_d| at |z| = 1..1e5: 0.7472; at 1e8: 6.8e-8, 1e12: 6.8e-12; max|F(-z)^-d/C_d - 1|: 1e8 2.74e-8, 1e12 2.74e-12; Plemelj |chi_out - chi_in - chi_+| at 1e3 = 6.98e-23
+[O] p=0.6 d=-0.25: max |F_d/F_0 - 1| (off the lens, 4 angles next to the seams; F~ in the lens): |z|=1e-4: 1.12e-5, |z|=1e-8: 1.12e-9
+[W] p=0.6 d=-0.25: next to the seams max|chi_d| at |z| = 1..1e5: 0.2459; at 1e8: 3.13e-8, 1e12: 3.13e-12; max|F(-z)^-d/C_d - 1|: 1e8 1.59e-8, 1e12 1.59e-12; Plemelj |chi_out - chi_in - chi_+| at 1e3 = 3.11e-24
+[O] p=0.6 d=-0.8: max |F_d/F_0 - 1| (off the lens, 4 angles next to the seams; F~ in the lens): |z|=1e-4: 1.49e-5, |z|=1e-8: 1.49e-9
+[W] p=0.6 d=-0.8: next to the seams max|chi_d| at |z| = 1..1e5: 0.4821; at 1e8: 6.57e-8, 1e12: 6.57e-12; max|F(-z)^-d/C_d - 1|: 1e8 2.97e-8, 1e12 2.97e-12; Plemelj |chi_out - chi_in - chi_+| at 1e3 = 5.67e-23
+ALL 132 CHECKS PASSED

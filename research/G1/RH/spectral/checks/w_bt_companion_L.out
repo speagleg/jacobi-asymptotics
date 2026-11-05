@@ -1,0 +1,19 @@
+sha256 w_bt_companion.py: f5440ba4710c01db0a0bbcade6473ee9c13138990fdf1567c12937affd9d7df2
+sha256 w_bt_core.py: 116335d94b6b12b7122883eb017f3cc0a95447e756f8731f3a1a2f969366df52
+sha256 w_bt_engine.py: 67a700f4a4a5caa8cf620a3b0b6820a3d47f93bb43bb6c1a2c40b3d0b1372154
+sha256 w_exact_lag.py: bfeac6c812fcddad0dff281531e6036bf45a3e1e0e4fb0bfac6dfcabccaf9e30
+   p = -1 companion (217s)
+[ 1] identity: (L) odd-shift Mellin part vanishes: holds -> PASS
+[ 2] identity: (L) raw companion has no n^{-2rho-1} term (the n^{+1} part of Lambda cancels in the extraction): holds -> PASS
+[ 3] identity: (L) derived c_0 = exact Laguerre rat_0 (identically in nu, rho): holds -> PASS
+[ 4] identity: (L) derived c_1 = exact Laguerre rat_1 (identically in nu, rho): holds -> PASS
+[ 5] identity: (L) derived c_2 = exact Laguerre rat_2 (identically in nu, rho): holds -> PASS
+[ 6] identity: (L) derived c_3 = exact Laguerre rat_3 (identically in nu, rho): holds -> PASS
+[ 7] identity: (L) derived c_4 = exact Laguerre rat_4 (identically in nu, rho): holds -> PASS
+[ 8] CONTROL (must fail): (L) control: c_2 = Laguerre rat_2 with rho -> -rho: FAILS -> PASS
+[ 9] CONTROL (must fail): (L) control: R_in -> I in the lip integrand reproduces rat_2: FAILS -> PASS
+[10] CONTROL (must fail): (L) control: K^2 moments dropped reproduces rat_2 (rat_0 comes from the K K' moment alone): FAILS -> PASS
+   c_4 (p = -1) = (j + 1)*(45*alpha**4*j**4 + 450*alpha**4*j**3 + 1665*alpha**4*j**2 + 2880*alpha**4*j + 2025*alpha**4 - 30*alpha**2*j**6 - 390*alpha**2*j**5 - 2040*alpha**2*j**4 - 5190*alpha**2*j**3 - 6210*alpha**2*j**2 - 2700*alpha**2*j + 5*j**8 + 92*j**7 + 698*j**6 + 2840*j**5 + 6725*j**4 + 9308*j**3 + 6972*j**2 + 2160*j)/(11520*(2*j + 3)*(2*j + 5))
+total 10 checks (518s)
+ALL IDENTITIES HOLD
+ALL 10 CHECKS PASSED

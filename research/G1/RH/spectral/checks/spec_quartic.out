@@ -1,0 +1,9 @@
+A = 0.556417894449382; HO basis om = 12.92: relative change 4000 -> 5000 basis: max over K <= 1200: 2.9e-16, at K <= 800: 2.9e-16
+E_1..E_4 = [ 1.06036209  3.79967303  7.45569794 11.64474551]  (known ground state 1.0603620905)
+WKB fit on 200 < K <= 900: B = -0.0476724854, C = 0.011977 (one-term B = -0.0476724461); residual at K=1000: +5.2e-13
+gamma = -A B = +0.02652582 (pi gamma = 0.08333333; 1/12 = 0.08333333);  predicted d1 = +0.16666667;  eps1 = 2pcZ(-1) = +0.00081435 (Z(-1) = +0.00055903)
+d2 predictions: shift-only +0.192708;  + pi gamma (pole law) +0.276042;  - pi gamma (sign flipped) +0.109375
+d1 fit +0.16666667 (8.2e-09)
+d2 fit (after d1, eps1) +0.276010 (1.0e-05);  minus pole-law prediction -3.1e-05
+eps1 fit +0.000012 (3.0e-03) vs +0.000814
+ALL 4 CHECKS PASSED

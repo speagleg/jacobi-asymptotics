@@ -1,0 +1,17 @@
+sha256 refit_spec.py: a28bae7cc67102e207e9bd71f45ce147cf7f2598ca0add3aa0eb4e007a6bcb0c
+sha256 refit_data.py: 4306268527ea40277e508e1323c7df13fdfc352e4e3e5a83c4bbb224365016cc
+sha256 w2_data.py: 8c7cc6f8c99b61315ec9c17ed6298c2071e27174e76b60d09b8c06f11ee74357
+   [refit data lat_p0.6_s2.0_d0.0_K320000__71a569622ad7307f.txt: 671534 records, 290s]
+   [refit data kap_p0.6_s2.0_k1.0__b32a9ff90944c5d6.txt: 671534 records, 415s]
+p=0.6 kappa=1.0 old: L = -1.20342 (half-range 1.3e-01)  candidate -1.20247  ratio 1.0008
+p=0.6 kappa=1.0 new: L = -1.20247 (half-range 1.4e-05)  candidate -1.20247  ratio 1.0000
+   |dy| kappa measure at n = 50, 200, 800, 1500: 5.3e-07, 1.2e-07, 3.1e-06, 3.9e-08; lattice: 1.6e-16, 1.2e-14, 1.8e-13, 7.4e-13
+   mobius ratio (old) at n = 50, 200, 800, 1500: 0.954507, 0.982330, 0.993054, 0.995264
+   mobius ratio (new) at n = 50, 200, 800, 1500: 0.954512, 0.982328, 0.992910, 0.995267
+   [refit data lat_p0.3_s2.0_d0.0_K320000__30d7b592ef157f0e.txt: 671534 records, 310s]
+   [refit data kap_p0.3_s2.0_k1.0__81781802c6271552.txt: 671534 records, 355s]
+p=0.3 kappa=1.0 old: L = -1.22311 (half-range 7.4e-01)  candidate -1.22262  ratio 1.0004
+p=0.3 kappa=1.0 new: L = -1.22264 (half-range 4.0e-04)  candidate -1.22262  ratio 1.0000
+   |dy| kappa measure at n = 50, 200, 800, 1500: 3.4e-04, 3.4e-04, 7.2e-05, 5.5e-05; lattice: 2.3e-14, 4.1e-14, 7.0e-13, 5.3e-13
+   mobius ratio (old) at n = 50, 200, 800, 1500: 0.858599, 0.904159, 0.936031, 0.947423
+   mobius ratio (new) at n = 50, 200, 800, 1500: 0.859858, 0.905879, 0.936543, 0.946967

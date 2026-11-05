@@ -388,8 +388,38 @@ Pairings: repo a_n = α_{n−1}, so "a_n/(2b_n)" = α_{n−1}/(2b_n) (coefficien
 | Prop UP-w (Plan 69) | uniform b-law on window compacts; uniform a-law on window compacts avoiding s = 1 + p; sup n^pα_n bounded on every window compact | PROVED-mod-cite; GAP UP-1+p: uniform a-*limit* near 1 + p for p ≤ 1 (limit only); Plan 69, REVIEWED | TAIL.md §2 |
 | Prop TB-Q, TB-A, Cor TB-C (Plan 69) | Paper 2's comparison frame, p > 0, 1 < s < 1 + 2p: μ_m((Mn, ∞)) ≤ CM^{−p/2} for M ≤ c₁n^{2/p}; ≤ CM^{−ϑ_*} for all M, ϑ_* = (s−1)/(s(1+2/p)+2) | PROVED-mod-cite (Paper 2 §§5–7, App. A–D; C–D Thm 4.4 via T3(b); TC: + Lemma TL); GAP TB-opt (optimal exponent below the Bessel scale in II's frame, p ≤ 1); Plan 69, REVIEWED | TAIL.md §3 |
 | Prop TB-P (Plan 69) | p > 1, every s > 1: QLP (a)–(c) | PROVED-mod-cite (= G1 §3.16 Thm QLP for p > 1, REVIEWED); Q-frame dictionary = presentation note; Plan 69, REVIEWED | TAIL.md §3.5 |
+| Thm E2.1, Cor E2.7 (Plan E2) | p > 1, s > 1: n^pb_n/c = 1 − (s−1)/(2n) + d₂/n² + O(n^{−min(3,1+p)}), d₂ = (p+1)(s−1)²/(8p) − (p+2)(s−1−p)²/(8p²) + (p+1)/12 (p = 2: (s²+6s−11)/16 for every s); Christoffel function at the hard edge λ_n(0; σ_{p,s}) = C n^{−(p+2)(s−1)/p}(1 + o(1)) | PROVED-mod-cite (E_pgt1 inputs; DLMF k = 2 coefficients, RH/CITATIONS "(Plan E2 reuse)"; Cor E2.7 also UL Thm UF-lim) + exact computer algebra (check_e2_sym); Rule R ACCEPT WITH FIXES (REVIEW_PlanE2_A.md, REVIEW_PlanE2_B.md), fixes applied — REVIEWED 2026-10-20. p = 1: d₂(1, s) − 1/12 PROVED-mod-cite at s ∈ {3/2, 5/2} (E_p1 Thm E1.6), NUMERICAL otherwise; n^{−1−p} term for 1 < p < 2: now Thm E3.1 | research/G1/RH/second_order/E2_pgt1.md, checks/check_e2_*.out |
+| Thm E3.1, E3.2, Cor E3.3, E3.4, Lemma E3.7 (Plan E3) | p > 1: n^pb_n/c = 1 − (s−1)/(2n) + d₂/n² + κ_pn^{−1−p} + O(n⁻³), κ_p = 2pcζ(−p). 0 < p < 1, K = ⌊1/p⌋: n^pb_n/c = 1 − (s−1)/(2n) + Σ_{j≤K}ε_jn^{−1−jp} + d₂n⁻² + O(n^{−2−p} + n^{−1−(K+1)p}), ε_j = C(2j, j)pc^jζ(−jp) (s-independent); n⁻² coefficient d₂ (same closed form as p > 1) if 1/p ∉ ℕ, d₂ − p/12 at p = 1/j (j ≥ 2); n^{−1−jp} coefficient ε_j whenever (j−1)p < 1, p ≠ 1/j. Key lemma: the order-1/n response to the tilt e^{−Σμ_kx^k} is exactly cp·M_μ(4c) (gauge residue identity) | PROVED-mod-cite (E_pgt1, E_plt1, E2 inputs; DLMF 5.9.1, 25.2.1, 25.4.1, RH/CITATIONS "(Plan E3)") + exact computer algebra (check_e3_gauge, check_e3_mu); Rule R ACCEPT WITH FIXES (REVIEW_PlanE3_A.md, REVIEW_PlanE3_B.md), fixes applied — REVIEWED 2026-10-20. Open: p = 1 for s ∉ {3/2, 5/2} (conjectured d₂(1, s) − 1/12); α_n second order | research/G1/RH/second_order/E3.md, checks/check_e3_*.out |
+| Lemma U, Thm S2′ (SPEC) | Deleting one atom x₀ = k₀^{−p} (mass k₀^{−s}) of σ_{p,s}, p > 0: n·(n^pb_n(σ′)/c − n^pb_n(σ)/c) = −p(1 − u_n)^{−1/2} + O(n^{−ε}), u_n = 4c(k₀/n)^p ≤ 1 − η, uniformly in k₀; ε = min(2p, 1) (p < 1), 1 (p ≥ 1). Proof: reversed Uvarov (rank-one Hankel update) + minimal-solution contraction; inputs only the b_n, α_n expansions | PROVED-mod-cite (E_pgt1 Thm E.1, E_plt1 Thm E′.1, E_p1 Thm E1.10, all REVIEWED; no external citation); Rule R ACCEPT WITH FIXES (REVIEW_SPEC_A.md), fixes applied — REVIEWED 2026-10-20. Context (CONJECTURE/NUMERICAL): the node-zeta law S1 for measures on reciprocal spectra, SPEC §§1–2 | research/G1/RH/spectral/SPEC.md §3.2, checks/spec_*.out |
 
 Novelty UNCHECKED (Prop 3.1 classical, not claimed; UL.md Lemma V and Prop SV elementary, not claimed).
+
+### 2.11 Spectral dictionary (research/G1/RH/spectral/; Paper IV sources; added 2026-11-05)
+
+Rows added after an adversarial review found that none of these results were registered here. Labels are copied from the
+notes' own status headers; nothing is upgraded. All Rule R readers for this section were subagents of one orchestrating session
+(see the review files), and several results have a **single** reader; the "Readers" column says which. Novelty per
+NOVELTY_Q / NOVELTY_TODA / NOVELTY_ZETA / NOVELTY_JZC.
+
+| Result | Statement (short) | Label | Readers | Where |
+|---|---|---|---|---|
+| Thm Q, Cor Q.1, Prop M1.2 | constrained equilibrium with an infinite-mass hard-edge constraint, unit mass, no external field: ν on [0, a], σ on [a, Y]; a = 4c for the lattice | PROVED + REVIEWED (no external input; energy positivity = Paper I Lemma 3.3). Rule C open: Plemelj–Privalov used for (iii) boundary values, NOT QUOTED. Novelty PARTIALLY KNOWN (Beckermann–Kuijlaars 2001, finite mass) | 2 (A, B) | JZC_M1.md |
+| Thm K (p > 1), Thm K′ (p < 1) | the band-factor functional e_n as a Mellin–Barnes integral with kernel π[cot(πwp/2) − cot(πw)] | PROVED-mod-cite (Mellin–Barnes for (1 + x)^{−3/2} NOT QUOTED); **NOT REVIEWED** | 0 | SPEC.md §3.14, JZC_M2.md |
+| Thm N.6 (Lemmas N.6a–d) | double expansion of n^pb_n/c in 1/n and μ_n; natural forms; explicit expansion to O(n⁻⁷ + n^{−2−3p}) | PROVED-mod-cite + REVIEWED | 2 (A, B) | JZC_M4_proof.md |
+| Thm Σ, Cor Σ.1–Σ.2 | decoupled model M(β, ν): (n/N)^pF_p(N; ν²), N = n + (β + 1)/2, F_p β-free (formal, all orders) | PROVED-mod-cite (Lemma F (ii)) + REVIEWED | 1 (A) | JZC_SIGMA.md |
+| Thm H [JZC] (Hurwitz lattices) | λ_k = (k + δ)^p: double expansion = M(α + 2δ, α) with ζ(−jp, 1 + δ); **not** item 11's Theorem H, see §6 | (i) PROVED-mod-cite, every memo link REVIEWED; note status DRAFT, assembled | links: 1–2 | JZC_M3a_H*.md |
+| Lemma T.1, T.2 | Toda hierarchy for exponential tilts; formal identities via a Baire argument | PROVED + REVIEWED | 1 (A) | JZC_TODA.md |
+| Lemma T.A, T.B, Thm T, T_H, Cor T.3 | transfer of N.6 / H (i) to tilted measures; formal Toda hierarchy for the layers | PROVED-mod-cite + REVIEWED. **Scope:** the "cite" is the whole RH chain (E_pgt1, E_plt1, RH_px, G1u) transferred by a table; the reader checked only how the weight enters those rows, not the rows line by line | 1 (A) | JZC_TODA.md |
+| Thm SH, Prop DR, Lemmas LB, D, R, H | index-shift law (Lagrange–Bürmann of (n/x)^p); dressings | SH, DR: PROVED-mod-cite (Theorem T) + REVIEWED; LB, D, R, H: PROVED + REVIEWED. Cor SH.2 at fractional exponents also rests on JZC_W2 Prop 2.1 (iii), NOT REVIEWED. R5: 10 of 23 registered TD predictions untestable (JZC_SHIFT §4.2) | 1 (A) | JZC_SHIFT.md |
+| P K.12, Prop K.12′ (κ-family, p > 1) | λ_k = (k + δ)^p + κ: W at first order in the poles, pole term −2(2 − p)cκ n^{−p} | PROVED-mod-cite + REVIEWED (WE.1 by review B) | 2 (A; B for WE.1) | JZC_W_kappa.md |
+| JZC_W_plt1 Prop 1–3 (κ-family, p < 1) | closed-form edge a_ε = 4c(1 − εa_ε)^{1−p/2}; sign conditions; frame | **NOT REVIEWED.** Prop 1 PROVED (elementary); Prop 2: κ > 0 PROVED-mod-cite, **κ < 0 GAP** (Liouville step, relabelled 2026-11-05); Prop 3 (iv) PROOF SKETCH | 0 | JZC_W_plt1.md |
+| JZC_W2 Prop 2.1, Thm 2.5 | W at second order in the poles | NOT REVIEWED | 0 | JZC_W2.md |
+| Conjecture W, W′, W_<1 | general Weyl-type spectra | CONJECTURE (NUMERICAL); pre-registration self-attested by mtimes only, not ordered in git (JZC_W.md §2) | – | JZC_W*.md |
+
+**Lean (Plan L1, lean/SPECTRAL_PLAN.md, sorry-free):** Cor Q.1's computation (`softF_eq_one_iff`); Lemma R (`pathH_two_mul`,
+`pathG_two_mul`); Lemma U in full (`logDetDiff_add_atom_kernel`, `log_jb2_sub`); Paper IV's W(1/p) = 1, W(j) = C(2j,j)c^j, the
+Theorem D pole constant and Lemma K0 (`SpectralConstants`); Q_k(4c) (`tiltQ_four_mul`); the equivalence of Paper IV's natural form
+with E2.1's form to O(n⁻³) (`naturalForm_iff_E21`). The asymptotic theorems themselves are not formalized.
 
 ## 3. Dependency summary
 
@@ -544,6 +574,14 @@ and asked for item 11 to be named as the primary route. That changes no label; i
     n^pb_n = c(1 − (s−1)/(2n) + κ_pn^{−1−p} + O(n^{−1−2p} + n^{−2})), κ_p = 2pc(p)ζ(−p), the same κ_p for α_n and the chain
     (none in α_n/(2b_n)); all constants of Conjecture P62 for 0 < p < 1; g(p) = 0 for p < 1. With Plans 65–66, (E) now holds
     for every p > 0. Still open: k₁ at p = 1 for s ∉ {3/2, 5/2}; the n^{−1−2p} coefficient and d₂ (p ≠ 1, 2).
+    *Update (Plan E2, 2026-10-20, REVIEWED; E2_pgt1.md):* d₂ is PROVED-mod-cite for every p > 1, s > 1 (closed form above, Thm E2.1),
+    hence also the hard-edge Christoffel exponent −(p+2)(s−1)/p (Cor E2.7). Still open: d₂ for 0 < p < 1 and at p = 1 for s ∉ {3/2, 5/2}
+    (conjectured value d₂(1, s) − 1/12, E2 Remark E2.10); the n^{−1−2p} coefficient (0 < p < 1); the n^{−1−p} coefficient for 1 < p < 2
+    (conjectured κ_p, E2 Remark E2.14).
+    *Update (Plan E3, 2026-10-20, REVIEWED; E3.md):* the n^{−1−p} coefficient for p > 1 is κ_p (Thm E3.1, remainder O(n⁻³));
+    for 0 < p < 1 the n^{−1−jp} coefficients are ε_j = C(2j, j)pc^jζ(−jp) (Thm E3.2, Cor E3.4; in particular the n^{−1−2p}
+    coefficient 6pc²ζ(−2p)), and d₂ is PROVED-mod-cite (Cor E3.3: the p > 1 closed form if 1/p ∉ ℕ, d₂ − p/12 at p = 1/j, j ≥ 2).
+    Still open: p = 1 for s ∉ {3/2, 5/2} (conjectured d₂(1, s) − 1/12, the j = 1 case of d₂ − p/12); second order of α_n.
 14. Lemma R1's η, J are non-explicit (proof by contradiction) (§3.6 R-b). *Update:* explicit (but tiny) constants in the
     window version R1W (§3.10) and for the a-law R1a (§3.12); sharp constants (phase model 4/π, 8/π²) open.
 15. Novelty searches (Rule L): first pass done 2026-10-14 (research/program/novelty_*.md; summary in
@@ -689,7 +727,7 @@ No name was changed. Where a name means different things, the meaning is fixed b
 | **Lemma S vs Theorem S** | G3′ Lemma S (index shift, §4); G3′ Theorem S (SPC_ℂ⁺ ⇒ G3′, rhfree/RHFREE.md §3) and S′ (RHFREE2); RH_plt1b Lemma S(iii) (seam); Lemma Sat (G3′ §5.2), Sat_p, Sat_p⁺ (G1). |
 | **N** | G3′ Proposition N (counting information does not decide G3′, §5) and Theorems N′, N″, N‴; Lemma N and Cor. N1 (inertia bound, rhfree/RHFREE2 §2); N₀ (smooth counting function); N(T) (zero counting). |
 | **P** | (1) "Law P" (the target law). (2) citation **(P)** = Beckermann–Kalyagin–Matos–Wielonsky Lemma 2.1 (G2 CITATIONS), as in "PROVED-mod-cite (P)". (3) item 11 Lemma P (α ≥ 2β), Lean `lemmaP`. (4) G3′ Corollary P (RH + (V) ⇒ G3′, §9.1; the G3′ §0 row is named "P"). (5) Lemmas P1–P3 (rhfree/RHPRIME). (6) Lemma PC, PC′ (rhfree). (7) RH_zeta.md E1(iv) "the positivity lemma (P)" = the same citation (P) (G2 CITATIONS: "Positivity of logarithmic energy"). Since Plan 47 (P) is replaced in G2 by **Lemma EP** (energy positivity, G2 §1). (8) G1 §3.1 P_n = Heine measure; p = the exponent. |
-| **H** | item 11 Theorem H (p ∈ {1,2}); G2 Theorem H_all; Lean named input `TheoremHPure`; Theorem H_L and Corollary H_L-ζ; item 11 Lemmas H1–H7; G3′ Lemma H (determinantal deletion, §5.2); G2 Cor. H-input. |
+| **H** | **Not** JZC_M3a_H's "Theorem H" (Hurwitz lattices, §2.11), which is unrelated and written Thm H [JZC] here. item 11 Theorem H (p ∈ {1,2}); G2 Theorem H_all; Lean named input `TheoremHPure`; Theorem H_L and Corollary H_L-ζ; item 11 Lemmas H1–H7; G3′ Lemma H (determinantal deletion, §5.2); G2 Cor. H-input. |
 | **R** | Rule R (review); G1 Conjecture R and Theorem R (§§3.2, 3.6) with Lemmas R1, R2; G3′ Lemma R (pair factors under thinning, §7). |
 | **L** | G1 Theorem L (localization at scale Mn, §3.8) and Lemma LP; G3′ Theorem L′ (log-gap condition, §4.1) and G3′-L (lower bound); L(j) = j²x̃_j (slow factor of the smooth ζ model, G3′ §1) and item 11's L in H_L. |
 | **T** | G3′ Theorem T, T′ (thinning, §7); G1 hypothesis (T3) and Theorems T3-conv, T3-sv, T3a, T3-avg, T3-all, T3-log; Lemma Tr (G3′ §4.1). |

@@ -1,0 +1,11 @@
+sha256 w2_exact.py: befee036ba88cac13a58b863739d7caee61d3b361717168aaa974ef303e255c6
+sha256 w2_engine.py: 8e69b2e33912b097cf6cf8abd27df0c9c0910735395e29c8292e4b2506bca02d
+engine config {'DECOUPLE': '1', 'E1': '4', 'E2': '0', 'KORD': '4', 'SHI': '14', 'PVAL': '5/2'}: 249s
+[1] identity: e1^4: N^-0 = 0 (p = 5/2): holds -> PASS
+[2] identity: e1^4: N^-1 = 0 (p = 5/2): holds -> PASS
+[3] identity: e1^4: N^-2 = 0 (p = 5/2): holds -> PASS
+[4] identity: e1^4: N^-3 = 0 (p = 5/2): holds -> PASS
+[5] identity: e1^4: N^-4 = Lagrange(m=4) in eps-form (p = 5/2): holds -> PASS
+e1^4 N^-4 = 5*j**4*(20*j + 7)*(20*j + 9)*(20*j + 11)/6144
+ALL IDENTITIES HOLD
+EXIT 0

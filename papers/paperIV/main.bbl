@@ -1,0 +1,140 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{10}
+
+\bibitem{BeckermannGuettel}
+Bernhard Beckermann and Stefan G{\"u}ttel, \emph{Superlinear convergence of the
+  rational {A}rnoldi method for the approximation of matrix functions}, 2012,
+  Numer. Math.
+
+\bibitem{BeckermannHelart}
+Bernhard Beckermann and Thomas Helart, \emph{On the sharpness of the weighted
+  {B}ernstein--{W}alsh inequality, with applications to the superlinear
+  convergence of conjugate gradients}, 2017, arXiv:1707.07871.
+
+\bibitem{BeckermannKuijlaars2001}
+Bernhard Beckermann and Arno B.~J. Kuijlaars, \emph{Superlinear convergence of
+  conjugate gradients}, SIAM J. Numer. Anal. \textbf{39} (2001).
+
+\bibitem{BeckermannKuijlaars2002}
+\bysame, \emph{Superlinear {CG} convergence for special right-hand sides},
+  Electron. Trans. Numer. Anal. \textbf{14} (2002), 1--19.
+
+\bibitem{BleherIts}
+Pavel Bleher and Alexander Its, \emph{Asymptotics of the partition function of
+  a random matrix model}, Ann. Inst. Fourier (Grenoble) \textbf{55} (2005),
+  1943--2000.
+
+\bibitem{Bouttier}
+J.~Bouttier, \emph{Enumeration of maps}, 2011, arXiv:1104.3003.
+
+\bibitem{BuyarovRakhmanov}
+V.~S. Buyarov and E.~A. Rakhmanov, \emph{Families of equilibrium measures in an
+  external field on the real axis}, Sb. Math. \textbf{190} (1999), no.~6,
+  791--802, doi:10.1070/sm1999v190n06ABEH000407.
+
+\bibitem{ChungLeePark}
+Seok-Young Chung, Sujin Lee, and Young~Woong Park, \emph{Complex zeros of
+  {B}essel function derivatives and associated orthogonal polynomials}, 2024,
+  arXiv:2406.09746.
+
+\bibitem{DixitKumar}
+Atul Dixit and Rahul Kumar, \emph{On {H}urwitz zeta function and {L}ommel
+  functions}, 2019, arXiv:1912.01199.
+
+\bibitem{DLMF}
+\emph{{NIST Digital Library of Mathematical Functions}},
+  \url{https://dlmf.nist.gov}, release of 15 September 2026.
+
+\bibitem{DragnevSaff}
+P.~D. Dragnev and E.~B. Saff, \emph{Constrained energy problems with
+  applications to orthogonal polynomials of a discrete variable}, J. Anal.
+  Math. \textbf{72} (1997), 223--259.
+
+\bibitem{Ercolani}
+N.~M. Ercolani, \emph{Caustics, counting maps and semi-classical asymptotics},
+  2009, arXiv:0912.1904.
+
+\bibitem{EMP}
+Nicholas~M. Ercolani, Kenneth D. T.-R. McLaughlin, and Virgil~U. Pierce,
+  \emph{Random matrices, graphical enumeration and the continuum limit of
+  {T}oda lattices}, 2006, arXiv:math-ph/0606010.
+
+\bibitem{FilipukVanAsscheZhang}
+Galina Filipuk, Walter Van~Assche, and Lun Zhang, \emph{The recurrence
+  coefficients of semi-classical {L}aguerre polynomials and the fourth
+  {P}ainlev\'e equation}, J. Phys. A \textbf{45} (2012), 205201,
+  doi:10.1088/1751-8113/45/20/205201; arXiv:1105.5229.
+
+\bibitem{FoulquieMoreno}
+A.~Foulqui{\'e}~Moreno, A.~Mart{\'\i}nez-Finkelshtein, and V.~L. Sousa,
+  \emph{On a conjecture of {A}. {M}agnus concerning the asymptotic behavior of
+  the recurrence coefficients of the generalized {J}acobi polynomials}, 2009,
+  arXiv:0905.2753.
+
+\bibitem{KonopelchenkoMAM}
+B.~Konopelchenko, L.~Mart{\'\i}nez~Alonso, and E.~Medina, \emph{On the singular
+  sector of the {H}ermitian random matrix model in the large {$N$} limit},
+  2010, arXiv:1005.4773.
+
+\bibitem{KMVV}
+A.~B.~J. Kuijlaars, K.~T.-R. McLaughlin, W.~Van~Assche, and M.~Vanlessen,
+  \emph{The {R}iemann--{H}ilbert approach to strong asymptotics for orthogonal
+  polynomials on $[-1,1]$}, Adv. Math. \textbf{188} (2004), 337--398,
+  arXiv:math/0111252v2.
+
+\bibitem{KuijlaarsTibboel}
+A.~B.~J. Kuijlaars and P.~M.~J. Tibboel, \emph{The asymptotic behaviour of
+  recurrence coefficients for orthogonal polynomials with varying exponential
+  weights}, 2007, arXiv:0708.3956.
+
+\bibitem{Magnus}
+Alphonse~P. Magnus, \emph{Asymptotics for the simplest generalized {J}acobi
+  polynomials recurrence coefficients from {F}reud's equations: numerical
+  explorations}, 1994, arXiv:math/9403214.
+
+\bibitem{MuruganVanZylWatanabe}
+Jeff Murugan, Hendrik J.~R. Van~Zyl, and Masataka Watanabe, \emph{Spectral
+  topology and universal {K}rylov dynamics}, 2026, arXiv:2608.07258.
+
+\bibitem{Rakhmanov}
+E.~A. Rakhmanov, \emph{Equilibrium measure and the distribution of zeros of the
+  extremal polynomials of a discrete variable}, Sb. Math. \textbf{187} (1996),
+  no.~8, 1213--1228.
+
+\bibitem{PaperI}
+G.~Speagle, \emph{Hankel determinants of discrete measures with power-law
+  atoms, and of zeta values}, 2026, Preprint.
+
+\bibitem{PaperII}
+\bysame, \emph{Recurrence coefficients of discrete measures with power-law
+  atoms: pointwise asymptotics and the $1/n$ term}, 2026, Preprint.
+
+\bibitem{Paper3}
+\bysame, \emph{Stability and instability of recurrence asymptotics for discrete
+  measures with power-law atoms}, 2026, Preprint.
+
+\bibitem{StovicekSwiderski}
+Pavel {\v{S}}{\v{t}}ov{\'\i}{\v{c}}ek and Grzegorz {\'S}widerski, \emph{On
+  positive {J}acobi matrices with compact inverses}, 2024, arXiv:2409.19644.
+
+\bibitem{VA}
+W.~Van~Assche, \emph{Compact {J}acobi matrices: from {S}tieltjes to {K}rein and
+  {$M(a,b)$}}, Ann. Fac. Sci. Toulouse Math. (6) (1996), 195--215, Num\'ero
+  sp\'ecial Stieltjes; arXiv:math/9510214.
+
+\bibitem{VanAsscheToda}
+Walter Van~Assche, \emph{Orthogonal polynomials, {T}oda lattices and
+  {P}ainlev\'e equations}, 2022, arXiv:2202.11017.
+
+\bibitem{WuLinXuZhao}
+Xiao-Bo Wu, Yu~Lin, Shuai-Xia Xu, and Yu-Qiu Zhao, \emph{Uniform asymptotics
+  for discrete orthogonal polynomials on infinite nodes with an accumulation
+  point}, 2014, arXiv:1410.3948.
+
+\end{thebibliography}

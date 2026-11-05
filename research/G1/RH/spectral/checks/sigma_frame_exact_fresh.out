@@ -1,0 +1,22 @@
+sha256 sigma_frame_exact.py: 80fb7e89659f2f7c3f9f2335584a8ed19723a998287c4fd18f21e5612055318e
+sha256 m4_shift_exact.py: c5bf8bb1a9743a0710e409964758c169d573b58ff33cee996a5adc22f0d2349d
+  soft edge done (4s)
+  hard edge done (129s)
+  order 1 done (130s)
+  order 2 done (169s)
+  order 3 done (234s)
+  order 4 done (588s)
+engine done, KORD = 4 (588s); cached as d_K4_SHI18_c5bf8bb1a9743a07.txt
+[1] FI  B(n+gamma; alpha-2gamma, alpha) = (1+gamma/n)^p B(n; alpha, alpha), orders 0..4: HOLDS identically
+[2] FI general base  B(n+gamma; beta-2gamma, alpha) = (1+gamma/n)^p B(n; beta, alpha), orders 0..4: HOLDS identically
+[3] FL  dB/dn - 2 dB/dbeta = (p/n) B, orders 1..4: HOLDS identically
+[4] Bessel point p=2, alpha=beta=-1/2: B(n) = (n/N)^2 (1-1/(4N^2))^(-1/2), N = n+1/4, orders 0..4: HOLDS  (d_k = [1, -1/2, 5/16, -3/16, 31/256])
+CONTROL (must fail) C1 half Szego shift beta = alpha - gamma: fails at order 1 (residual -gamma*p/2) -> PASS
+CONTROL (must fail) C2 wrong sign beta = alpha + 2 gamma: fails at order 1 (residual -2*gamma*p) -> PASS
+CONTROL (must fail) C3 no frame factor (1+gamma/n)^p: fails at order 1 (residual gamma*p) -> PASS
+CONTROL (must fail) C4 no index shift (gauge only, n-frame): fails at order 1 (residual gamma*p) -> PASS
+CONTROL (must fail) C5 Bessel order moved too (nu = beta = alpha - 2 gamma): fails at order 2 (residual gamma*(alpha - gamma)*(p + 2)/2) -> PASS
+CONTROL (must fail) C6 frame factor exponent 2p: fails at order 1 (residual -gamma*p) -> PASS
+6 controls; total time 589s
+ALL IDENTITIES HOLD, ALL CONTROLS FAIL
+EXIT 0

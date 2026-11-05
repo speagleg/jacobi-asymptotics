@@ -1,0 +1,13 @@
+sha256 w_bt_companion.py: f5440ba4710c01db0a0bbcade6473ee9c13138990fdf1567c12937affd9d7df2
+sha256 w_bt_core.py: 116335d94b6b12b7122883eb017f3cc0a95447e756f8731f3a1a2f969366df52
+sha256 w_bt_engine.py: 67a700f4a4a5caa8cf620a3b0b6820a3d47f93bb43bb6c1a2c40b3d0b1372154
+sha256 w_exact_lag.py: bfeac6c812fcddad0dff281531e6036bf45a3e1e0e4fb0bfac6dfcabccaf9e30
+[ 1] identity: (Q) side +: C(-z)^q = (tau -/+ i pi sigma) z^q with tau = C cos(pi q), pi sigma = C sin(pi q): holds -> PASS
+[ 2] identity: (Q) side +: mu tan(pi q) + pi sigma = 0 for the composite factor (no lip mismatch): holds -> PASS
+[ 3] identity: (Q) side -: C(-z)^q = (tau -/+ i pi sigma) z^q with tau = C cos(pi q), pi sigma = C sin(pi q): holds -> PASS
+[ 4] identity: (Q) side -: mu tan(pi q) + pi sigma = 0 for the composite factor (no lip mismatch): holds -> PASS
+[ 5] identity: (Q) W_outer P W-out.5/6 data tau_m = 2 pi cot(pi q) a, sigma_m = 2a: tau tan(pi q) = pi sigma: holds -> PASS
+[ 6] CONTROL (must fail): (Q) control: a genuine tilt (sigma = 0) has a mismatch: FAILS -> PASS
+total 6 checks (16s)
+ALL IDENTITIES HOLD
+ALL 6 CHECKS PASSED

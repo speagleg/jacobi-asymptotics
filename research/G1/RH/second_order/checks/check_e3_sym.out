@@ -1,0 +1,9 @@
+d/dlam of the 1/n coefficient of n^p b_n/c: c*p
+d/dlam of the 1/n^2 coefficient (a cross term, contributes at n^{-2-p}): I*p*(a12 + a21)*(alpha + 1)/2
+kappa_p = 2 p c(p) zeta(-p):
+  p = 1.25: kappa_p = -0.0654819768548
+  p = 1.5: kappa_p = -0.0432946949656
+  p = 1.75: kappa_p = -0.0205551918988
+  p = 2.0: kappa_p = 0.0
+  p = 3.0: kappa_p = 0.0344606348544
+ALL ASSERTIONS PASSED

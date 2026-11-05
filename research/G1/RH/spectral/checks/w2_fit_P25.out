@@ -1,0 +1,77 @@
+sha256 w2_fit.py: 23fb082b24e42bfc0566721336e2337efeac762c99f7b664eb8b435059636e74
+sha256 w2_data.py: 8c7cc6f8c99b61315ec9c17ed6298c2071e27174e76b60d09b8c06f11ee74357
+sha256 w2_common.py: de18f9d85f6c77f7a355b37f35a8443f59007bad2dbdc21821ce77796ea137bd
+sha256 w2_predictions.json: 1e95b7f64424615e5134323f82705f597c34a38ea4a3431b9e6a91048fdb7f4e
+predictions registered 2026-10-22 16:56:01 MDT; this run started 2026-10-22 18:00:12 MDT
+  [1] Rule X: predictions written before this run: PASS
+   [data data_p5|2_d-1|4_k2|5_s2_K100_e7e5173b1985f2bf.txt: 148s]
+  [2] P25a Rule X: data file newer than predictions (data_p5|2_d-1|4_k2|5_s2_K100_e7e5173b1985f2bf.txt, tail model 3): PASS
+=== P25a: p=5/2 d=-1/4 kappa=2/5 s=2 (alpha=-3/5, beta'=-11/10) ===
+   residual y - P (all e <= emax) at n = 150, 300, 600, 1200: -1.392e-17, -5.368e-20, -2.077e-22, -8.055e-25   (x n^8.0: -3.568, -3.522, -3.488, -3.463)
+   n^-5.0: fit +0.2473860475 (half-range 2.2e-09)  registered +0.2473860475  diff +3.86e-13 = 0.00 tol   [second+third-order part +0.089732 = 13842526 tol]
+  [3] P25a n^-5.0: registered prediction (all orders in the times): PASS
+  [4] P25a n^-5.0: alternative A0 none must miss by > 10 tol: PASS
+      alternative A0 none      : +0.1576539710  misses by 13842526.1 tol (asserted > 10)
+  [5] P25a n^-5.0: alternative A1 Toda-only must miss by > 10 tol: PASS
+      alternative A1 Toda-only : +0.2749959171  misses by 4259238.8 tol (asserted > 10)
+  [6] P25a n^-5.0: alternative A2 exp must miss by > 10 tol: PASS
+      alternative A2 exp       : +0.1921663081  misses by 8518477.6 tol (asserted > 10)
+  [7] P25a n^-5.0: alternative A3 square must miss by > 3 tol: PASS
+      alternative A3 square    : +0.2266786452  misses by 3194429.1 tol (asserted > 3)
+   n^-6.0: fit -0.9912056981 (half-range 5.9e-07)  registered -0.9912056985  diff +3.86e-10 = 0.00 tol   [second+third-order part -0.518206 = 290844 tol]
+  [8] P25a n^-6.0: registered prediction (all orders in the times): PASS
+      alternative A0 none      : -0.4729994769  misses by 290843.6 tol
+      alternative A1 Toda-only : -1.0544327641  misses by 35486.2 tol
+      alternative A2 exp       : -0.6440092672  misses by 194864.2 tol
+      alternative A3 square    : -0.8150190576  misses by 98884.9 tol
+   [data data_p5|2_d-1|4_k-2|5_s2_K100_408c33d86947bfd5.txt: 149s]
+  [9] P25b Rule X: data file newer than predictions (data_p5|2_d-1|4_k-2|5_s2_K100_408c33d86947bfd5.txt, tail model 3): PASS
+=== P25b: p=5/2 d=-1/4 kappa=-2/5 s=2 (alpha=-3/5, beta'=-11/10) ===
+   residual y - P (all e <= emax) at n = 150, 300, 600, 1200: -1.392e-17, -5.533e-20, -2.187e-22, -8.613e-25   (x n^8.0: -3.568, -3.630, -3.673, -3.703)
+   n^-5.0: fit +0.2473860475 (half-range 3.0e-09)  registered +0.2473860475  diff +7.51e-14 = 0.00 tol   [second+third-order part +0.089732 = 9967945 tol]
+  [10] P25b n^-5.0: registered prediction (all orders in the times): PASS
+  [11] P25b n^-5.0: alternative A0 none must miss by > 10 tol: PASS
+      alternative A0 none      : +0.1576539710  misses by 9967944.8 tol (asserted > 10)
+  [12] P25b n^-5.0: alternative A1 Toda-only must miss by > 10 tol: PASS
+      alternative A1 Toda-only : +0.2749959171  misses by 3067059.9 tol (asserted > 10)
+  [13] P25b n^-5.0: alternative A2 exp must miss by > 10 tol: PASS
+      alternative A2 exp       : +0.1921663081  misses by 6134119.9 tol (asserted > 10)
+  [14] P25b n^-5.0: alternative A3 square must miss by > 3 tol: PASS
+      alternative A3 square    : +0.2266786452  misses by 2300294.9 tol (asserted > 3)
+   n^-6.0: fit -1.0967925704 (half-range 8.3e-07)  registered -1.0967925705  diff +9.85e-11 = 0.00 tol   [second+third-order part -0.553402 = 222639 tol]
+  [15] P25b n^-6.0: registered prediction (all orders in the times): PASS
+      alternative A0 none      : -0.5433907249  misses by 222639.5 tol
+      alternative A1 Toda-only : -1.1647123860  misses by 27324.9 tol
+      alternative A2 exp       : -0.7261323899  misses by 149120.6 tol
+      alternative A3 square    : -0.9088740549  misses by 75601.6 tol
+   [data data_p5|2_d-1|4_k1|5_s2_K100_1e58ce63e6ae7c99.txt: 147s]
+  [16] P25c Rule X: data file newer than predictions (data_p5|2_d-1|4_k1|5_s2_K100_1e58ce63e6ae7c99.txt, tail model 3): PASS
+=== P25c: p=5/2 d=-1/4 kappa=1/5 s=2 (alpha=-3/5, beta'=-11/10) ===
+   residual y - P (all e <= emax) at n = 150, 300, 600, 1200: -3.270e-18, -1.262e-20, -4.884e-23, -1.896e-25   (x n^8.0: -0.838, -0.828, -0.820, -0.815)
+   n^-5.0: fit +0.0661962776 (half-range 4.8e-10)  registered +0.0661962776  diff +3.56e-13 = 0.00 tol   [second+third-order part +0.022433 = 15443123 tol]
+  [17] P25c n^-5.0: registered prediction (all orders in the times): PASS
+  [18] P25c n^-5.0: alternative A0 none must miss by > 10 tol: PASS
+      alternative A0 none      : +0.0437632585  misses by 15443123.1 tol (asserted > 10)
+  [19] P25c n^-5.0: alternative A1 Toda-only must miss by > 10 tol: PASS
+      alternative A1 Toda-only : +0.0730987450  misses by 4751730.2 tol (asserted > 10)
+  [20] P25c n^-5.0: alternative A2 exp must miss by > 10 tol: PASS
+      alternative A2 exp       : +0.0523913428  misses by 9503460.4 tol (asserted > 10)
+  [21] P25c n^-5.0: alternative A3 square must miss by > 3 tol: PASS
+      alternative A3 square    : +0.0610194271  misses by 3563797.6 tol (asserted > 3)
+   n^-6.0: fit -0.2313682364 (half-range 1.3e-07)  registered -0.2313682367  diff +3.14e-10 = 0.00 tol   [second+third-order part -0.125152 = 313387 tol]
+  [22] P25c n^-6.0: registered prediction (all orders in the times): PASS
+      alternative A0 none      : -0.1062161343  misses by 313387.0 tol
+      alternative A1 Toda-only : -0.2465884094  misses by 38112.1 tol
+      alternative A2 exp       : -0.1475020975  misses by 210004.9 tol
+      alternative A3 square    : -0.1887880608  misses by 106622.8 tol
+  [23] kappa-structure n^-5.0: fit(+k) = fit(-k) (even in kappa): PASS
+   kappa^2 coefficient at n^-5.0: fitted +1.50991475 +- 6.6e-08, registered +1.50991475 (of which first order (q2) +0.94908927, second order (q1^2) +0.56082548)
+  [24] kappa^2 coefficient at n^-5.0 = registered: PASS
+  [25] kappa^2 coefficient at n^-5.0: first-order-only value must miss by > 10 tol: PASS
+   [data data_p5|2_d-1|4_k2|5_s2_K200_e966f3cdee4197fc.txt: 294s]
+   tail control P25a n^-5.0: Kfac 200 fit +0.2473860475 vs Kfac 100 +0.2473860475 (diff -9.4e-16, 0.00 tol)
+  [26] tail control P25a n^-5.0: Kfac 100 and 200 agree within tol: PASS
+   tail control P25a n^-6.0: Kfac 200 fit -0.9912056981 vs Kfac 100 -0.9912056981 (diff -1.2e-12, 0.00 tol)
+  [27] tail control P25a n^-6.0: Kfac 100 and 200 agree within tol: PASS
+ALL 27 CHECKS PASSED
+EXIT 0

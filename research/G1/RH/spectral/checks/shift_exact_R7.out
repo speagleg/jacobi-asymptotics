@@ -1,0 +1,22 @@
+sha256 shift_exact.py: 013c3c7376ffac52b4e10d801f7e6957e02ecdaac49e05214d8d005ff324b5f9
+sha256 shift_common.py: 1a4c1c70a5e4c0b976aa39e339dcc4dbde6f32607c7f4cd02b0a4d979d3f023a
+sha256 w2_engine.py: 8e69b2e33912b097cf6cf8abd27df0c9c0910735395e29c8292e4b2506bca02d
+sha256 shift_predictions2.json: 795a1d41b2272f56ebd483d374de606344d14c174b350ea03e5796a0130c1647
+engine R7 {'DECOUPLE': '1', 'PVAL': '5/2', 'E1': '1', 'E2': '1', 'KORD': '4', 'SHI': '16'}: 584s
+registration 2026-10-23T09:02:55-06:00 predates the engine output (2026-10-23T09:12:43)
+   (0 LB coefficients compared; the zero coefficients below the leading order are asserted silently, all hold)
+[1] identity: R7 TD nat[e1^0 e2^1][N^-0] = 0: holds -> PASS
+[2] identity: R7 TD nat[e1^0 e2^1][N^-1] = 5*k/4: holds -> PASS
+[3] identity: R7 TD nat[e1^1 e2^0][N^-0] = 0: holds -> PASS
+[4] identity: R7 TD nat[e1^1 e2^0][N^-1] = 5*j/4: holds -> PASS
+[5] identity: R7 TD nat[e1^1 e2^1][N^-0] = 0: holds -> PASS
+[6] identity: R7 TD nat[e1^1 e2^1][N^-1] = 0: holds -> PASS
+[7] identity: R7 TD nat[e1^1 e2^1][N^-2] = 5*j*k*(5*j + 5*k + 7)/16: holds -> PASS
+[8] identity: R7 TD nat[e1^1 e2^1][N^-3] = 0: holds -> PASS
+[9] identity: R7 TD nat[e1^1 e2^1][N^-4] = j*k*(6750*alpha**2*j**3*k - 3375*alpha**2*j**3 + 13500*alpha**2*j**2*k**2 + 4725*alpha**2*j**2*k - 8775*alpha**2*j**2 + 6750*alpha**2*j*k**3 + 4725*alpha**2*j*k**2 + 4320*alpha**2*j*k - 5400*alpha**2*j - 3375*alpha**2*k**3 - 8775*alpha**2*k**2 - 5400*alpha**2*k - 5346*alpha**2 + 1250*j**5*k - 625*j**5 + 3750*j**4*k**2 + 5375*j**4*k - 3625*j**4 + 5000*j**3*k**3 + 13000*j**3*k**2 + 2650*j**3*k - 5200*j**3 + 3750*j**2*k**4 + 13000*j**2*k**3 + 1100*j**2*k**2 - 2090*j**2*k - 330*j**2 + 1250*j*k**5 + 5375*j*k**4 + 2650*j*k**3 - 2090*j*k**2 - 3248*j*k + 1744*j - 625*k**5 - 3625*k**4 - 5200*k**3 - 330*k**2 + 1744*k + 2772)/((3072*j - 1536)*(2*k - 1)): holds -> PASS
+[10] CONTROL (must fail): R7 control: bare shift law (no dressing) at nat[e1^1 e2^1][N^-4]: fails -> PASS
+   nat[e1^0 e2^1] = ['0', '5*k/4', '0', 'k*(675*alpha**2*k**2 + 270*alpha**2*k + 486*alpha**2 + 125*k**4 + 450*k**3 + 50*k**2 - 44*k - 252)/(384*(2*k - 1))', '0']
+   nat[e1^1 e2^0] = ['0', '5*j/4', '0', 'j*(675*alpha**2*j**2 + 270*alpha**2*j + 486*alpha**2 + 125*j**4 + 450*j**3 + 50*j**2 - 44*j - 252)/(384*(2*j - 1))', '0']
+   nat[e1^1 e2^1] = ['0', '0', '5*j*k*(5*j + 5*k + 7)/16', '0', 'j*k*(6750*alpha**2*j**3*k - 3375*alpha**2*j**3 + 13500*alpha**2*j**2*k**2 + 4725*alpha**2*j**2*k - 8775*alpha**2*j**2 + 6750*alpha**2*j*k**3 + 4725*alpha**2*j*k**2 + 4320*alpha**2*j*k - 5400*alpha**2*j - 3375*alpha**2*k**3 - 8775*alpha**2*k**2 - 5400*alpha**2*k - 5346*alpha**2 + 1250*j**5*k - 625*j**5 + 3750*j**4*k**2 + 5375*j**4*k - 3625*j**4 + 5000*j**3*k**3 + 13000*j**3*k**2 + 2650*j**3*k - 5200*j**3 + 3750*j**2*k**4 + 13000*j**2*k**3 + 1100*j**2*k**2 - 2090*j**2*k - 330*j**2 + 1250*j*k**5 + 5375*j*k**4 + 2650*j*k**3 - 2090*j*k**2 - 3248*j*k + 1744*j - 625*k**5 - 3625*k**4 - 5200*k**3 - 330*k**2 + 1744*k + 2772)/(1536*(2*j - 1)*(2*k - 1))']
+ALL 10 CHECKS PASSED (9 identities, 1 controls; failures: 0)
+EXIT 0

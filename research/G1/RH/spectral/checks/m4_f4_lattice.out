@@ -1,0 +1,6 @@
+p=2.0 alpha=+0.00 (s=3.0): N^-3 -6.4e-10 (4e-09);  f4 fit +0.044921952 (1e-06)  closed form +0.044921875  diff +7.7e-08
+p=2.0 alpha=+1.00 (s=5.0): N^-3 -2.1e-09 (8e-09);  f4 fit -0.064452710 (2e-06)  closed form -0.064453125  diff +4.2e-07
+p=4.0 alpha=+0.00 (s=5.0): N^-3 -9.8e-11 (1e-09);  f4 fit +0.083271330 (3e-07)  closed form +0.083271329  diff +2.9e-10
+p=4.0 alpha=+1.00 (s=9.0): N^-3 -8.1e-10 (3e-09);  f4 fit -0.108692879 (9e-07)  closed form -0.108692956  diff +7.7e-08
+p=2.5 alpha=+0.50 (s=4.75): N^-3 -4.0e-08 (6e-08);  f4 fit +0.029254295 (1e-04)  closed form +0.029206272  diff +4.8e-05
+ALL 10 CHECKS PASSED

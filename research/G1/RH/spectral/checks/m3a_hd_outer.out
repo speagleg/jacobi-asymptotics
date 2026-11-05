@@ -1,0 +1,8 @@
+p=1.5 d=0.0: log F_d(z) - d log(-z) at |z| = R2 (arg z = pi/2): (-2.43579669973 + 1.25663703854e-15j);  spread over 3 rays 7.51e-16;  drift R1 -> R2 3.13e-10;  fitted exponent of |F_d(iy)| -8.485449995e-12
+p=1.5 d=-0.3: log F_d(z) - d log(-z) at |z| = R2 (arg z = pi/2): (-1.40007192484 + 1.25663703145e-15j);  spread over 3 rays 7.51e-16;  drift R1 -> R2 3.13e-10;  fitted exponent of |F_d(iy)| -0.3
+p=1.5 d=-0.7: log F_d(z) - d log(-z) at |z| = R2 (arg z = pi/2): (0.687189151924 + 1.25663699353e-15j);  spread over 3 rays 7.51e-16;  drift R1 -> R2 3.13e-10;  fitted exponent of |F_d(iy)| -0.7
+p=3.0 d=0.0: log F_d(z) - d log(-z) at |z| = R2 (arg z = pi/2): (-4.85717788651 + 7.25519745694e-8j);  spread over 3 rays 3.79e-8;  drift R1 -> R2 6.72e-5;  fitted exponent of |F_d(iy)| -3.159615143e-6
+p=3.0 d=-0.3: log F_d(z) - d log(-z) at |z| = R2 (arg z = pi/2): (-2.8001126673 + 7.25519745694e-8j);  spread over 3 rays 3.79e-8;  drift R1 -> R2 6.72e-5;  fitted exponent of |F_d(iy)| -0.3000031596
+p=3.0 d=-0.7: log F_d(z) - d log(-z) at |z| = R2 (arg z = pi/2): (1.3673673148 + 7.25519745694e-8j);  spread over 3 rays 3.79e-8;  drift R1 -> R2 6.72e-5;  fitted exponent of |F_d(iy)| -0.7000031596
+exploratory p=1.5 d=+0.5: b_d(-1e40) = -2.09439510239 (formula b_inf -2.09439510239); fitted exponent of |F_d(iy)| 0.4999998307
+ALL 34 CHECKS PASSED

@@ -1,0 +1,43 @@
+p=2.0 s=2.0 m=1.0: q=0.5000 q1=1.0000  lead pole coef -0.000000  zeta terms [(2.0, -2.467401)]
+   subleading coefficient of n^-2.0 (per unit g): S = -1.233702 (half-range 9.6e-07)
+   prediction: Jacobian -1.233701 + shifted pole +0.000000 = -1.233701;  S - pred = -1.10e-06   (q1 <= 1)
+   collision with the zeta layer at n^-2.0: total first-order coefficient (zeta + subleading) = -3.701103
+p=2.2 s=2.0 m=1.0: q=0.4545 q1=0.9091  lead pole coef -0.451693  zeta terms [(2.2, -2.145629)]
+   subleading coefficient of n^-2.0 (per unit g): S = -0.777016 (half-range 7.0e-05)
+   prediction: Jacobian -1.208137 + shifted pole +0.431161 = -0.776976;  S - pred = -4.04e-05   (q1 <= 1)
+p=2.5 s=2.0 m=1.0: q=0.4000 q1=0.8000  lead pole coef -1.020765  zeta terms [(2.5, -1.706781)]
+   subleading coefficient of n^-2.0 (per unit g): S = -0.258693 (half-range 1.6e-05)
+   prediction: Jacobian -1.177385 + shifted pole +0.918689 = -0.258696;  S - pred = +2.76e-06   (q1 <= 1)
+p=3.0 s=2.0 m=1.0: q=0.3333 q1=0.6667  lead pole coef -1.813799  zeta terms [(3.0, -1.033819)]
+   subleading coefficient of n^-2.0 (per unit g): S = +0.371552 (half-range 1.3e-06)
+   prediction: Jacobian -1.139949 + shifted pole +1.511499 = +0.371551;  S - pred = +1.64e-06   (q1 <= 1)
+p=4.0 s=2.0 m=1.0: q=0.2500 q1=0.5000  lead pole coef -3.141593  zeta terms []
+   subleading coefficient of n^-2.0 (per unit g): S = +1.261975 (half-range 4.0e-07)
+   prediction: Jacobian -1.094220 + shifted pole +2.356194 = +1.261975;  S - pred = +3.01e-09   (q1 <= 1)
+p=3.0 s=2.0 m=2.0: q=0.6667 q1=1.0000  lead pole coef +4.135276  zeta terms [(3.0, -6.202914)]
+   subleading coefficient of n^-3.0 (per unit g): S = -8.270517 (half-range 2.6e-05)
+   prediction: Jacobian -4.135276 + shifted pole -4.135276 = -8.270552;  S - pred = +3.50e-05   (q1 <= 1)
+   collision with the zeta layer at n^-3.0: total first-order coefficient (zeta + subleading) = -14.473432
+p=1.8 s=2.0 m=1.0: q=0.5556 q1=1.1111  lead pole coef +0.553948  zeta terms [(1.8, -2.844526)]
+   subleading coefficient of n^-2.0 (per unit g): S = -1.847995 (half-range 2.9e-04)
+   prediction: Jacobian -1.264755 + shifted pole -0.584722 = -1.849477;  S - pred = +1.48e-03   (q1 > 1)
+p=1.8 s=3.0 m=1.0: q=0.5556 q1=1.1111  lead pole coef +0.553948  zeta terms [(1.8, -2.844526)]
+   subleading coefficient of n^-2.0 (per unit g): S = -2.432630 (half-range 3.0e-04)
+   prediction: Jacobian -1.264755 + shifted pole -1.169445 = -2.434200;  S - pred = +1.57e-03   (q1 > 1)
+p=1.5 s=2.0 m=1.0: q=0.6667 q1=1.3333  lead pole coef +1.813799  zeta terms [(1.5, -3.721313), (3.0, -0.721495)]
+   subleading coefficient of n^-2.0 (per unit g): S = -3.398740 (half-range 1.4e-02)
+   prediction: Jacobian -1.325936 + shifted pole -2.116099 = -3.442036;  S - pred = +4.33e-02   (q1 > 1)
+p=1.25 s=2.0 m=1.0: q=0.8000 q1=1.6000  lead pole coef +4.324031  zeta terms [(1.25, -5.759236), (2.5, -1.117932)]
+   subleading coefficient of n^-2.0 (per unit g): S = -6.542252 (half-range 2.6e-01)
+   prediction: Jacobian -1.397343 + shifted pole -5.621241 = -7.018584;  S - pred = +4.76e-01   (q1 > 1)
+p=2.5 s=2.0 m=2.0: q=0.8000 q1=1.2000  lead pole coef +10.182097  zeta terms [(2.5, -11.98976)]
+   subleading coefficient of n^-3.0 (per unit g): S = -15.706376 (half-range 1.8e-02)
+   prediction: Jacobian -4.448734 + shifted pole -11.200307 = -15.649041;  S - pred = -5.73e-02   (q1 > 1)
+ALL 17 CHECKS PASSED
+p=3.0 s=3.0 m=1.0: q=0.3333 q1=0.6667  lead pole coef -1.813799  zeta terms [(3.0, -1.033819)]
+   subleading coefficient of n^-2.0 (per unit g): S = +1.883052 (half-range 1.4e-06)
+   prediction: Jacobian -1.139949 + shifted pole +3.022999 = +1.883050;  S - pred = +1.77e-06   (q1 <= 1)
+p=2.5 s=3.0 m=1.0: q=0.4000 q1=0.8000  lead pole coef -1.020765  zeta terms [(2.5, -1.706781)]
+   subleading coefficient of n^-2.0 (per unit g): S = +0.659993 (half-range 1.5e-05)
+   prediction: Jacobian -1.177385 + shifted pole +1.837378 = +0.659993;  S - pred = +6.65e-07   (q1 <= 1)
+ALL 4 CHECKS PASSED

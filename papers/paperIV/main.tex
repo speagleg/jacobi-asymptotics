@@ -1,0 +1,94 @@
+\documentclass[11pt]{amsart}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage[margin=1.15in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{mainthm}{Theorem}
+\renewcommand{\themainthm}{\Alph{mainthm}}
+\newtheorem*{conjW*}{Conjecture W}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+\numberwithin{table}{section}
+\setlength{\emergencystretch}{3em}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\diff}{\,\mathrm{d}}
+\newcommand{\kp}{\mathsf k_p}
+\newcommand{\Lt}{\widetilde L}
+\newcommand{\cD}{\mathfrak D}
+\newcommand{\cA}{\mathfrak A}
+\newcommand{\fe}{\mathfrak e}
+\newcommand{\fj}{\mathfrak j}
+\newcommand{\br}{\mathbf r}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\PV}{PV}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+\title[Spectral zeta values in recurrence coefficients]{Spectral zeta values in the recurrence coefficients of reciprocal
+spectra}
+\author{Gordon Speagle}
+\date{October 2026}
+
+\subjclass[2020]{Primary 42C05; Secondary 47B36, 30E15, 11M35, 37K10}
+\keywords{Orthogonal polynomials, Jacobi matrices, recurrence coefficients, discrete measures, spectral zeta functions,
+Hurwitz zeta function, Riemann--Hilbert problems, Mellin transforms, Toda hierarchy}
+
+\begin{document}
+
+\begin{abstract}
+For an increasing sequence $\Lambda=\{\lambda_m\}$ with $\lambda_m\sim m^p$ we study the recurrence coefficients of the
+measure $\sum_m\lambda_m^{-s/p}\delta_{1/\lambda_m}$. For the lattice $\lambda_m=m^p$ and every $p\ne1$ we prove that
+$n^pb_n/c(p)$ has a double expansion in $1/N$ and in monomials $N^{-1-jp}$ whose coefficients are the spectral zeta values
+$\zeta(-jp)$, in the natural index $N=n+\frac\alpha2-\zeta(0)$, $\alpha=(s-1-p)/p$. The integer layer is even in $1/N$ to all
+orders, the first zeta terms carry exact dressings $\varepsilon_jN^{-1-jp}(1+g_jN^{-2})$, and the first-order zeta terms come from a
+band-factor functional that is a Mellin--Barnes integral with kernel $\pi[\cot(\pi wp/2)-\cot(\pi w)]$ in which the zeta values act as Toda times. For Hurwitz
+lattices $(m+\delta)^p$ the offset shifts only the Szeg\H{o} exponent of the hard edge, so $N$ moves by $\delta$ and $\zeta(-jp)$
+becomes $\zeta(-jp,1+\delta)$; for $(m+\delta)^p+\kappa$, $p>1$, the pole of the spectral zeta function contributes
+$pR_qW(q)\pi\cot(\pi q)\,n^{-p}$. For general Weyl-type spectra we conjecture that the Jacobi coefficients are a decoupled
+Bessel--Szeg\H{o} model flowed along the Toda hierarchy with spectral-zeta times, plus cotangent-weighted pole terms, and we test
+this with predictions written before the measures were computed. Several of the analytic estimates are only outlined here; we state
+which.
+\end{abstract}
+
+\maketitle
+
+\input{p1_intro}
+\input{p2_frame}
+\input{p3_kernel}
+\input{p4_main}
+\input{p5_structure}
+\input{p6_hurwitz}
+\input{p7_weyl}
+\input{p8_lit}
+\appendix
+\input{pA_equilibrium}
+\input{pB_repro}
+
+\section*{Acknowledgements}
+The research and the exposition were developed with the assistance of an AI system (Claude, Anthropic); the author
+takes responsibility for the content.
+
+\section*{Data and code availability}
+{\raggedright The scripts that produced the exact identities and the numbers quoted in this paper, with their outputs, are
+available in the repository \url{https://github.com/speagleg/jacobi-asymptotics}; Appendix~\ref{app:repro} lists them.
+% TODO: tag (v1.0-paper4) to be fixed when the paper is frozen; the branch at drafting time is plan-e2-d2.
+\par}
+
+\bibliographystyle{amsplain}
+\bibliography{refs}
+
+\end{document}

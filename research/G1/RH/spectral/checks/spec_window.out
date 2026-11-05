@@ -1,0 +1,20 @@
+k*(n) = n * 0.4059
+window [1,300] fit from n>=100: d1 +1.1592376 (1.2e+04) pred -0.5000 | eps1 +414.736029 (4.4e+06) pred(reg Z) -0.085216 unjittered -0.089977
+window [1,300] fit from n>=200: d1 +1.6629802 (1.2e+04) pred -0.5000 | eps1 +16.354867 (4.4e+06) pred(reg Z) -0.085216 unjittered -0.089977
+window [1,300] fit from n>=400: d1 +16.2785437 (9.4e+03) pred -0.5000 | eps1 +4914.587647 (3.7e+06) pred(reg Z) -0.085216 unjittered -0.089977
+window [1,300] fit from n>=800: d1 -5.2135269 (3.7e+02) pred -0.5000 | eps1 -1236.957608 (1.5e+05) pred(reg Z) -0.085216 unjittered -0.089977
+  residual RMS [50,100): 1.75e-02
+  residual RMS [100,200): 1.32e-02
+  residual RMS [200,400): 8.00e-03
+  residual RMS [400,800): 5.28e-03
+  residual RMS [800,1600): 1.38e-04
+k*(n) = n * 0.4059
+window [20000,320000] fit from n>=100: d1 -0.4999465 (4.3e-02) pred -0.5000 | eps1 -0.079862 (1.6e+01) pred(reg Z) -0.239292 unjittered -0.089977
+window [20000,320000] fit from n>=200: d1 -0.4999288 (4.3e-02) pred -0.5000 | eps1 -0.075920 (1.6e+01) pred(reg Z) -0.239292 unjittered -0.089977
+window [20000,320000] fit from n>=400: d1 -0.4997639 (4.4e-02) pred -0.5000 | eps1 -0.037277 (1.6e+01) pred(reg Z) -0.239292 unjittered -0.089977
+window [20000,320000] fit from n>=800: d1 -0.4869983 (4.6e+00) pred -0.5000 | eps1 +3.511754 (2.0e+03) pred(reg Z) -0.239292 unjittered -0.089977
+  residual RMS [50,100): 9.12e-10
+  residual RMS [100,200): 2.14e-09
+  residual RMS [200,400): 3.21e-08
+  residual RMS [400,800): 9.66e-08
+  residual RMS [800,1600): 3.34e-07

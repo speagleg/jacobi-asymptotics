@@ -1,0 +1,168 @@
+% Section 4: proof of Theorem A (from archive/sec5.tex, compressed; closed forms f6, g14, h2 moved to pB_repro.tex).
+\section{Proof of Theorem~\ref{thm:A}: the residue recursion}\label{sec:natural}
+
+We extend the analysis of \cite{PaperII} to every order $K$ in $1/n$ and every order $B$ in the band-factor parameters. Strategy: the band
+factor is a tilt (Lemma~\ref{lem:Fprime}), tilts act on the jump data by an entire gauge (Lemma~\ref{lem:gauge}), so every coefficient of
+the expansion is an entire function of the tilt parameters $\mu$ with $n$-independent Taylor coefficients; these are computed by a
+finite residue recursion in exact arithmetic. The analytic part is the order-$K$ version of estimates proved at order $1$ in
+\cite{PaperII} and at order $2$ in the notes behind Section~\ref{sec:frame}.
+
+\subsection{The recursion}\label{sec:recursion}
+We use, for $p\ne1$, the clockwise circles $\partial U_0$, $\partial U_r$ around $0$ and $4c$, the local maps $f$ (hard edge) and
+$\tilde\varphi$ (soft edge) and the Szeg\H{o} quotients $\rho$, $\omega$ of \cite[Sections~8--10]{PaperII}. Let
+$M:=\frac1{\sqrt2}\bigl(\begin{smallmatrix}1&i\\i&1\end{smallmatrix}\bigr)$, let $\circ$ be the entrywise product, let $a_k=a_k(\alpha)$,
+$b_k=b_k(\alpha)$ be the coefficients of the Bessel expansions \cite[(10.17.1), (10.17.8)]{DLMF} and $u_k,v_k$ those of the Airy expansions
+\cite[(9.7.2)]{DLMF}, and
+\[
+  \Xi_k:=M^{-1}\Bigl(M\circ\begin{pmatrix}(-1)^ka_k&a_k\\(-1)^kb_k&b_k\end{pmatrix}\Bigr),\qquad
+  X_k:=M^{-1}\Bigl(M\circ\begin{pmatrix}u_k&(-1)^ku_k\\v_k&(-1)^kv_k\end{pmatrix}\Bigr).
+\]
+
+\begin{proposition}[jumps, meromorphy and small norm to every order]\label{prop:N6c}
+Let $p\ne1$ and $K,J\ge1$.
+\begin{enumerate}
+\item[(a)] On $\partial U_0\cup\partial U_r$ the jump of the error matrix is $I+\sum_{k\le K}\Delta_kn^{-k}+O(n^{-K-1})$ uniformly, with
+$\Delta_k^0=(2f^{1/2})^{-k}P_0^\infty\rho^{\sigma_3}(\sigma_3\Xi_k\sigma_3)\rho^{-\sigma_3}(P_0^\infty)^{-1}$ on $\partial U_0$,
+$\Delta_k^r=(-1/\tilde\varphi)^kP_0^\infty(-\omega)^{-\sigma_3/2}X_k(-\omega)^{\sigma_3/2}(P_0^\infty)^{-1}$ on $\partial U_r$, and
+$\Delta_k=G_{\mu_n}\Delta_k^{\mathrm{mod}}G_{\mu_n}^{-1}+O(n^{-(J+1)p})$.
+\item[(b)] $\Delta_k^{\mathrm{mod}}$ is meromorphic in $U_0$ and $U_r$, and $\Delta_k^\mu:=G_\mu\Delta_k^{\mathrm{mod}}G_\mu^{-1}$ has Laurent
+coefficients that are entire in $\mu$.
+\item[(c)] Define near each $e\in\{0,4c\}$, $\mathsf R_{\mathrm{in}}^{(0)}:=I$ and for $m\ge1$
+\begin{equation}\label{eq:recursion}
+\begin{gathered}
+  \mathsf F_m(\mu):=\sum_{j=1}^m\mathsf R_{\mathrm{in}}^{(m-j)}(\mu)\Delta_j^\mu,\qquad
+  \mathsf R_{\mathrm{out}}^{(m)}(\mu):=\sum_{e}\bigl(\text{principal part of }\mathsf F_m(\mu)\text{ at }e\bigr),\\
+  \mathsf R_{\mathrm{in}}^{(m)}(\mu):=\mathsf R_{\mathrm{out}}^{(m)}(\mu)-\mathsf F_m(\mu),\qquad
+  \mathsf R_1^{(m)}(\mu):=\Res_0\mathsf F_m(\mu)+\Res_{4c}\mathsf F_m(\mu).
+\end{gathered}
+\end{equation}
+Then $\mathsf R_1=\sum_{m\le K}\mathsf R_1^{(m)}(\mu_n)n^{-m}+O(n^{-K-1}+n^{-1-(J+1)p})$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+(a) For $k=1$ this is \cite[Lemmas~9.1, 9.2, 10.6]{PaperII}; for general $k$ one takes $K+1$ terms of the Bessel \cite[(10.40.1)--(10.40.4),
+(10.17.5)--(10.17.12)]{DLMF} and Airy \cite[(9.7.5)--(9.7.6)]{DLMF} expansions of the local models of \cite[\S6]{KMVV}, whose remainders are
+$O(n^{-K-1})$ uniformly since the arguments are of size $n$ on the circles; the sign pattern $(-1)^k$ is the same in every sector because it
+sits on the column carrying $e^{-\xi}$. The $n$-dependence of the weight is Lemma~\ref{lem:Fprime} at order $J$, and the conjugation is
+Lemma~\ref{lem:gauge}. (b) For $p>1$, $\Delta_k$ is a limit of functions analytic in the punctured disc that grow at most polynomially at the
+centre. For $p<1$, where the glued hard-edge parametrix carries seam jumps, one checks that $\Delta_k$ has no jump: $X_k$ lies in
+$\operatorname{span}\{I,\sigma_2\}$ for even $k$ and in $\operatorname{span}\{\sigma_3,i\sigma_1\}$ for odd $k$, so conjugation by $i\sigma_2$
+gives $(-1)^k$, which cancels the sign change of $\tilde\varphi^k$ (and likewise at the hard edge). (c) Induction on $m$ in the small-norm
+equation $\mathsf R=I+\mathcal C(\mathsf R_-(J-I))$, with the Cauchy operator bounded uniformly in $n$ as in \cite[Propositions~9.5,
+10.8]{PaperII}: the term of order $n^{-m}$ is the Cauchy integral of $\mathsf F_m(\mu_n)$ over the clockwise circles, which by the residue
+theorem is $\mathsf R^{(m)}_{\mathrm{out}}$ outside and $\mathsf R^{(m)}_{\mathrm{in}}$ inside the discs.
+\end{proof}
+
+Define $\cD_K(n;\mu):=((Q_1)_{12}(Q_1)_{21})^{1/2}/c$, expanded to order $n^{-K}$, with $Q_1=P_1+\sum_{m\le K}\mathsf R_1^{(m)}(\mu)n^{-m}$, and
+write $\cD_K(n;\mu)=\sum_{\br}\mu^{\br}\cD_{\br,K}(n)$. A polynomial in $1/n$ is \emph{written in natural form} when it is re-expanded in
+$1/N$; a layer $\mu^{\br}$ carries $n^{-|\br|_wp}$, $|\br|_w:=\sum_jjr_j$.
+
+\begin{lemma}[exact algebra]\label{lem:N6d}
+The recursion~\eqref{eq:recursion} and the extraction $\cD_K$ give, identically in the symbols:
+\begin{enumerate}
+\item[(a)] $\mu=0$, $K=6$: $\cD_{0,6}(n)=(n/N)^p[1+f_2N^{-2}+f_4N^{-4}+f_6N^{-6}+O(N^{-7})]$, with no $N^{-1},N^{-3},N^{-5}$ terms;
+\item[(b)] first order in $\mu_j$, $j\ge1$ a symbol, $K=4$: the $n^{-1}$ coefficient per unit $\binom{2j}j\mu_j$ is $pj/2$ ($c=1$), and in
+natural form the layer is a multiple of $N^{-1-jp}[1+g_jN^{-2}+O(N^{-4})]$ with no $N^{-1}$, $N^{-3}$ term; the same holds at $K=5$ for
+$j=1,\dots,5$, and for $j=1$ the $N^{-4}$ coefficient of the bracket is $g_{1,4}$;
+\item[(c)] second order in $\mu_1$, $K=5$: per unit $\mu_1^2$ the natural form has no $N^{-1-2p}$ term, the coefficient $p(3p+1)/2$ at
+$N^{-2-2p}$, no $N^{-3-2p}$ and $N^{-5-2p}$ term, and $p^2h_2$ at $N^{-4-2p}$,
+\end{enumerate}
+with $f_2,g_j$ as in Theorem~\ref{thm:A},
+\begin{equation}\label{eq:f4}
+  f_4=\frac{(p+1)(6p^3+46p^2+55p+3)}{1440\,p(3p+2)}-\frac{5(p+1)(p+2)\alpha^2}{96(3p+2)}-\frac{p(p+2)^2\alpha^4}{128(3p+2)},
+\end{equation}
+and $f_6$, $g_{1,4}$, $h_2$ as in~\eqref{eq:f6}--\eqref{eq:h2} of Appendix~\ref{app:repro}.
+\end{lemma}
+
+\begin{proof}
+With $c=1$ every input is rational in $(p,\alpha)$: the local maps have convergent series with rational coefficients, $\pi$ cancels in $f$,
+the square roots are of series with leading coefficient $1$ or a perfect square, and the factors $2^{-1/2}$ occur in conjugate pairs. The
+recursion runs on truncated Laurent series over $\mathbb Q(p,\alpha)[i]$; every series carries the index of its highest exactly known
+coefficient and every principal part checks that it is fully known, otherwise the run stops. For (b), $\partial_{\mu_j}\Delta_k^\mu|_{\mu=0}=
+[\mathcal G_j,\Delta_k^{\mathrm{mod}}]$ with $\mathcal G_j=\mathsf T\bigl(\begin{smallmatrix}0&-(z-4)Q_j/2\\-zQ_j/2&0\end{smallmatrix}\bigr)\mathsf T^{-1}$,
+and the Taylor data of $Q_j/\binom{2j}j$ at $0$ and $4$ are rational in $j$ (from $\sum_jQ_j(z)t^j=t/((1-zt)\sqrt{1-4t})$), so (b) is a
+computation over $\mathbb Q(p,\alpha,j)[i]$. For (c) the gauge is taken to second order. Since $\mu_j$ enters only as $c^j\mu_j$, the ratios are
+independent of $c$. The scripts and their hashes are listed in Appendix~\ref{app:repro}.
+\end{proof}
+
+For $j=1$, $g_1=(p+1)(p^2+3p-2)/(24p)+(p+2)(p^2+2p+2)\alpha^2/(8p)$.
+
+\subsection{The theorem}\label{sec:N6}
+\begin{theorem}\label{thm:N6}
+Let $p>0$, $p\ne1$, $s>1$, and $K,J,B\ge1$.
+\begin{enumerate}
+\item[(i)] $\displaystyle\frac{n^pb_n}c=\sum_{|\br|\le B}\mu_n^{\br}\cD_{\br,K}(n)+O\bigl(n^{-K-1}+n^{-2-(B+1)p}+n^{-1-(J+1)p}\bigr)$,
+the sum over multi-indices $\br=(r_1,\dots,r_J)$.
+\item[(ii)] $\cD_{0,6}$, $\mu_{n,j}\cD_{e_j,4}$ and $\mu_{n,1}^2\cD_{2e_1,5}$ are, in natural form,
+$(n/N)^p[1+f_2N^{-2}+f_4N^{-4}+f_6N^{-6}+O(N^{-7})]$, $(n/N)^p\varepsilon_jN^{-1-jp}[1+g_jN^{-2}+O(N^{-4})]$ (for $j=1$:
+$1+g_1N^{-2}+g_{1,4}N^{-4}+O(N^{-5})$), and $(n/N)^p\varepsilon_1^2N^{-2-2p}[\frac{3p+1}{2p}+h_2N^{-2}+O(N^{-4})]$, the brackets free of odd powers of $1/N$ to the
+orders shown.
+\item[(iii)] With $K=6$, $B=2$ and $J\ge6/p-1$, expansion~\eqref{eq:thmA} holds.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) By~\eqref{eq:extract} and Proposition~\ref{prop:N6c}(c), each coefficient of $\cD_K(n;\mu)$ is a polynomial in the entries of the
+$\mathsf R_1^{(i)}(\mu)$, entire in $\mu$ and independent of $n$, and Taylor's theorem in $\mu$ applies coefficientwise. The $n^0$
+coefficient is $1$ for all $\mu$ and the $n^{-1}$ coefficient is exactly linear in $\mu$ (Lemma~\ref{lem:E37}); hence $\cD_{\br,K}=O(n^{-2})$
+for $|\br|\ge2$, and the Taylor remainder after order $B$ is $O(|\mu_n|^{B+1}n^{-2})=O(n^{-2-(B+1)p})$. (ii) is Lemma~\ref{lem:N6d} with
+$\mu_{n,j}\binom{2j}jpc^jj/2=\varepsilon_jn^{-jp}$. (iii) Keep $\br=0$ at $K=6$, $\br=e_j$ for $1+jp<\min(7,2+3p)$ and $\br=2e_1$; the other
+layers with $|\br|\ge2$ are $O(n^{-2-3p})$, and the bracket errors of~(ii) are $O(n^{-7}+n^{-2-3p})$ in each range of $p$.
+\end{proof}
+
+A term $CN^{-e}$ of~\eqref{eq:thmA} is a coefficient of $n^pb_n/c$ exactly when $e<\min(7,2+3p)$ (Table~\ref{tab:visible}); the others are
+identities of the layers but not coefficients of $b_n$, because the uncomputed layers $\mu_1\mu_2$, $\mu_1^3$ enter at $n^{-2-3p}$.
+Theorem~\ref{thm:N6} by itself does not prove evenness to all orders; that is Corollary~\ref{cor:even}. Evaluated numerically at $40$ digits to
+order $8$, the recursion also gives $f_8(3,0)=1311857/632311515$ and $f_8(2,0)=3899/2^{21}$ after rational recognition; the denominators
+$(3p+2)$, $(3p+2)^2(5p+2)$, \dots\ come from the factors $1/(\frac1p+\frac12+k)$ of the hard-edge local map (scripts \texttt{m4\_rh4},
+\texttt{m4\_f8\_denominator}).
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+term & exponent $e$ & a coefficient of $n^pb_n/c$ for\\
+\midrule
+$f_2N^{-2}$, $f_4N^{-4}$, $f_6N^{-6}$ & $2,4,6$ & all $p\ne1$; $p>\frac23$; $p>\frac43$\\
+$\varepsilon_jN^{-1-jp}$ & $1+jp$ & $(j-3)p<1$ and $1+jp<7$\\
+$\varepsilon_1g_1N^{-3-p}$, $\varepsilon_1g_{1,4}N^{-5-p}$ & $3+p$, $5+p$ & $\frac12<p<4$; $\frac32<p<2$\\
+$\varepsilon_2g_2N^{-3-2p}$ & $3+2p$ & $1<p<2$\\
+$\frac{3p+1}{2p}\varepsilon_1^2N^{-2-2p}$ & $2+2p$ & $p<\frac52$\\
+\bottomrule
+\end{tabular}
+\caption{Which terms of~\eqref{eq:thmA} are coefficients of $b_n$ ($p\ne1$). The terms $\varepsilon_jg_jN^{-3-jp}$ ($j\ge3$) never are at $B=2$.
+Coincident exponents merge: at $p=1/j_0$, $\varepsilon_{j_0}N^{-2}$ merges with $f_2N^{-2}$, and $f_2+\varepsilon_{j_0}=f_2-p/12$.}
+\label{tab:visible}
+\end{table}
+
+\subsection{An exact anchor: Bessel zeros}\label{sec:bessel}
+For $\mu>-1$ let $j_{\mu,k}$ be the positive zeros of $J_\mu$ and $\lambda_k:=(j_{\mu,k}/\pi)^2$; for $p=s=2$, $\mu=\frac12$ gives the lattice
+$k^2$.
+
+\begin{proposition}\label{prop:bessel}
+For $p=s=2$ and $n\ge1$, with $N:=n+\mu/2$,
+\[
+  \frac{n^2b_n}{c(2)}=\frac{4n^2}{(2n+\mu)\sqrt{(2n+\mu)^2-1}}=\Bigl(\frac nN\Bigr)^2\Bigl(1-\frac1{4N^2}\Bigr)^{-1/2}.
+\]
+\end{proposition}
+
+\begin{proof}
+The Lommel polynomials of order $\nu=\mu+1$ satisfy $xh_n=h_{n+1}+\beta_n^2h_{n-1}$ with $\beta_n^2=1/(4(n+\nu-1)(n+\nu))$, and their Jacobi
+operator has spectrum the closure of $\{\pm1/j_{\nu-1,k}\}$ \cite[\S3]{VA}; the measure is symmetric with masses proportional to
+$j_{\nu-1,k}^{-2}$.
+% TODO (citation): VA Sec. 3 is quoted only for the recurrence and the spectrum. The masses ~ j^{-2} follow from the
+% partial fractions of the m-function -2 nu J_nu(1/x)/J_{nu-1}(1/x); this is done in PaperII Remark 9.6 only for
+% nu = 3/2 (via DLMF 10.16.1, 4.22.3). For general nu quote the Mittag-Leffler expansion of J_nu/J_{nu-1}
+% (DLMF 10.21-type) before submission; until then the identification is checked numerically (spec_lommel, 1e-15).
+The quadratic transformation of symmetric measures (as in \cite[Remark~9.6]{PaperII}) gives $b_n^{(y)}=\beta_{2n-1}\beta_{2n}$ for the image in
+$y=x^2$, and $c(2)=\pi^2/16$.
+\end{proof}
+
+Here $\alpha=-\frac12$, and $j_{\mu,k}=\pi(k+\frac\mu2-\frac14)+O(1/k)$ gives $Z_\Lambda(0)=\zeta(0,\frac\mu2+\frac34)=-\frac\mu2-\frac14$, so
+$N=n+\frac\alpha2-Z_\Lambda(0)$: the natural index of the dictionary, exactly.
+% TODO (citation): McMahon's expansion (DLMF 10.21.19) is not quoted in the project's citation record.
+The bare function $(1-\frac1{4N^2})^{-1/2}=1+\frac1{8N^2}+\frac3{128N^4}+\frac5{1024N^6}+\dotsb$ is even, and its coefficients are
+$f_2,f_4,f_6$ at $(p,\alpha)=(2,-\frac12)$. The closed form agrees with the Jacobi coefficients computed from the zeros to
+$1.6\cdot10^{-15}$ (script \texttt{spec\_lommel}).

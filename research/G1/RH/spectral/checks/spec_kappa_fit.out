@@ -1,0 +1,4 @@
+p=0.6 kappa=1.0: L = -1.20342 (half-range 1.3e-01)   -2(2-p)c kappa = -1.20247   ratio 1.0008
+p=0.6 kappa=0.5: L = -0.60154 (half-range 3.8e-02)   -2(2-p)c kappa = -0.60123   ratio 1.0005
+p=0.3 kappa=1.0: L = -1.22311 (half-range 7.4e-01)   -2(2-p)c kappa = -1.22262   ratio 1.0004
+ALL 3 CHECKS PASSED

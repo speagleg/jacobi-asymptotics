@@ -1,0 +1,9 @@
+sha256 refit_subpole.py: 9211fdc73a14b86bcf5040028ad006b5e4e436c90d25cc7315fe561a9e3fe958
+sha256 refit_data.py: 4306268527ea40277e508e1323c7df13fdfc352e4e3e5a83c4bbb224365016cc
+   [refit data lat_p2.0_s2.0_d0.0__cd72abf127d4ad12.txt: 324087 records, 309s]
+   [refit data gam_p2.0_s2.0_g0.25_m1.0__aa787dec55db9ee8.txt: 324087 records, 178s]
+   [refit data gam_p2.0_s2.0_g-0.25_m1.0__a9fea70945937298.txt: 324087 records, 142s]
+   [refit data gam_p2.0_s2.0_g0.5_m1.0__7f9fdc10693a6f92.txt: 324087 records, 142s]
+   [refit data gam_p2.0_s2.0_g-0.5_m1.0__325ee0c2a757b80c.txt: 324087 records, 142s]
+p=2 s=2 m=1 old: S = -1.233701646 (half-range 9.6e-07)  prediction -1.233700550 (= -pi^2/8 = -1.233700550)  S - pred = -1.10e-06
+p=2 s=2 m=1 new: S = -1.233700550 (half-range 3.7e-10)  prediction -1.233700550 (= -pi^2/8 = -1.233700550)  S - pred = +3.72e-10

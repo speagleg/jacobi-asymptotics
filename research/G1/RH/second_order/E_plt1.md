@@ -425,6 +425,8 @@ Theorem E′.1 gives (E_ε) with ε = p at every (p, s), 0 < p < 1, s > 1. Hence
   response to the quadratic weight factor, plus the second-order response to the linear one) and the n⁻² coefficient d₂
   (needs Δ₂, the second Bessel/Airy corrections, and the second-order small-norm term). By Lemma F.1 the full asymptotic
   series of n^pb_n/c is plausibly in the exponents {1 + i + jp}, as SECOND §1's fit basis assumes (HEURISTIC).
+  *Update (Plan E3, REVIEWED; E3.md):* the n^{−1−jp} coefficients are ε_j = C(2j, j)pc^jζ(−jp) (the second-order response to
+  the linear factor vanishes; the first-order response is exactly linear in the tilt, Lemma E3.7), and d₂ is proved (Cor E3.3).
 - **p = 1** (not treated; E_pgt1 §9, worked on separately). Note only: at p = 1, λ_n = 2ζ(−1)/n = −1/(6n) is of the same
   order as 1/n, so the "n^{−1−p}" term becomes part of d₂; this is consistent with E_pgt1 §9's H_n = 1 + z/(6n).
 - **Rule L** (novelty) not done. The ζ(−kp) constants are the Euler–Maclaurin/zeta-regularisation constants of the node

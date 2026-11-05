@@ -1,0 +1,203 @@
+% Section 1: Introduction.
+\section{Introduction}\label{sec:intro}
+
+\subsection{Setting}\label{sec:setting}
+Let $p>0$, $s>1$, and let $\Lambda=\{\lambda_m\}_{m\ge1}$ be an increasing sequence of positive numbers with
+$\lambda_m\sim m^p$. We call $\Lambda$ a \emph{node set} and study the discrete measure on its reciprocals
+\begin{equation}\label{eq:sigmaL}
+  \sigma_\Lambda:=\sum_{m\ge1}\lambda_m^{-s/p}\,\delta_{1/\lambda_m}.
+\end{equation}
+For the \emph{lattice} $\lambda_m=m^p$ this is the measure $\sigma_{p,s}=\sum_kk^{-s}\delta_{k^{-p}}$ of the earlier
+papers of this series \cite{PaperI,PaperII,Paper3}. Let $P_n$ be the monic orthogonal polynomials of $\sigma_\Lambda$;
+they satisfy
+\begin{equation}\label{eq:rec}
+  xP_n=P_{n+1}+a_nP_n+b_n^2P_{n-1}\qquad(n\ge0,\ b_0:=0,\ b_n>0),
+\end{equation}
+and $a_n,b_n$ are the entries of the Jacobi matrix whose spectrum is $\{1/\lambda_m\}\cup\{0\}$. With
+\begin{equation}\label{eq:cp}
+  I(p):=\frac{\sqrt\pi}{2}\,\frac{\Gamma(\frac1p+\frac12)}{\Gamma(\frac1p+1)},\qquad
+  c(p):=\frac14\Bigl(\frac{\pi}{2I(p)}\Bigr)^{p},
+\end{equation}
+the lattice satisfies the pointwise law $n^pb_n\to c(p)$, $n^pa_n\to2c(p)$, with rate $O(1/n)$ and an explicit $1/n$
+term for every $p>0$ \cite[Theorems~1.2 and~1.4]{PaperII}. We write $c=c(p)$,
+\begin{equation}\label{eq:alpha-y}
+  \alpha:=\frac{s-1-p}{p},\qquad y_n:=\frac{n^pb_n}{c}-1,
+\end{equation}
+so that $\alpha>-1$ is the Bessel order of the hard edge at $0$ in \cite{PaperII}. The questions of this paper are:
+how does the expansion of $y_n$ continue, and how does it depend on $\Lambda$? The organising object is the
+\emph{node zeta function}
+\begin{equation}\label{eq:Z}
+  Z_\Lambda(w):=\sum_{m\ge1}\lambda_m^{-w},
+\end{equation}
+continued meromorphically from $\Re w>1/p$; for the lattice $Z_\Lambda(w)=\zeta(pw)$. Two quantities recur: the
+numbers
+\begin{equation}\label{eq:W}
+  W(q):=\binom{2q}{q}c^q=\frac{(4c)^q\,\Gamma(q+\frac12)}{\sqrt\pi\,\Gamma(q+1)}\qquad(q\in\C\setminus\{-\tfrac12,-\tfrac32,\dots\}),
+\end{equation}
+which satisfy $W(1/p)=1$ for every $p$ (this is the definition \eqref{eq:cp} of $c$), and the coefficients
+\begin{equation}\label{eq:epsj}
+  \varepsilon_j:=W(j)\,p\,\zeta(-jp)=\binom{2j}{j}p\,c^j\zeta(-jp)\qquad(j\ge1),
+\end{equation}
+so that $\varepsilon_1=\kp:=2pc\,\zeta(-p)$ is the constant of \cite[Theorem~1.4(ii)]{PaperII}.
+
+\subsection{Results}\label{sec:results}
+The first result is an expansion of the lattice coefficients far beyond the $1/n$ term. Its form is simplest in the
+shifted index
+\begin{equation}\label{eq:N}
+  N:=n+\frac\alpha2+\frac12 .
+\end{equation}
+The rational functions $f_4,f_6$ of $(p,\alpha)$ and $g_{1,4}$ are given in \eqref{eq:f4}--\eqref{eq:g14}.
+
+\begin{mainthm}[the lattice to order $n^{-7}+n^{-2-3p}$]\label{thm:A}
+Let $p>0$, $p\ne1$, $s>1$. The recurrence coefficients of $\sigma_{p,s}$ satisfy
+\begin{multline}\label{eq:thmA}
+  \frac{n^pb_n}{c}=\Bigl(\frac nN\Bigr)^p\Bigl[1+\frac{f_2}{N^2}+\frac{f_4}{N^4}+\frac{f_6}{N^6}
+  +\frac{\varepsilon_1}{N^{1+p}}\Bigl(1+\frac{g_1}{N^2}+\frac{g_{1,4}}{N^4}\Bigr)\\
+  +\sum_{j\ge2}\frac{\varepsilon_j}{N^{1+jp}}\Bigl(1+\frac{g_j}{N^2}\Bigr)
+  +\frac{3p+1}{2p}\,\frac{\varepsilon_1^2}{N^{2+2p}}\Bigr]
+  +O\bigl(n^{-7}+n^{-2-3p}\bigr),
+\end{multline}
+where the sum is over the finitely many $j\ge2$ with $1+jp<\min(7,2+3p)$,
+\[
+  f_2=\frac{p+1}{12}-\frac{(p+2)\alpha^2}{8},\qquad g_j=A_j+B_j\alpha^2,\qquad
+  B_j=\frac{(p+2)\bigl(j^2p^2+(j+1)p+2\bigr)}{8(2j-1)p},
+\]
+\[
+  A_j=\frac{j^2(j^2+2j-2)p^3+2(j+1)(2j^2-1)p^2+(5j^2+2j-6)p+2(j-2)}{24(2j-1)p}.
+\]
+\end{mainthm}
+
+Theorem~\ref{thm:A} is the case $K=6$, $B=2$ of Theorem~\ref{thm:N6}, which gives a double expansion of
+$n^pb_n/c$ in $1/n$ and in the parameters $\mu_{n,j}=2\zeta(-jp)/(jn^{jp})$ of the band factor, to every order, through
+a finite residue recursion. Its proof combines the third-order Riemann--Hilbert analysis of \cite{PaperII}, extended
+to order $K$, with exact computer algebra over $\mathbb Q(p,\alpha)$ and, for the zeta terms, over
+$\mathbb Q(p,\alpha,j)$ with $j$ a symbol. Three structural facts are visible in~\eqref{eq:thmA}: the shift
+$n\mapsto N$ absorbs the whole $1/n$ term and the $(s-1)^2$ part of the $n^{-2}$ term; every layer computed is even in
+$1/N$; and the first-order zeta terms are dressed by an even factor $1+g_jN^{-2}+\dotsb$ with $g_j$ quadratic in $\alpha$.
+Theorem~\ref{thm:D} below explains the first two to all orders for the integer layer.
+Not every displayed term is a coefficient of $b_n$ for every $p$: Table~\ref{tab:visible} lists which are.
+
+The second result explains the zeta coefficients. The band factor of \cite{PaperII} enters the first-order
+correction through one linear functional $e_n$ (Section~\ref{sec:kernel}), whose asymptotic series is
+$\sum_j\varepsilon_jn^{-jp}$.
+
+\begin{mainthm}[the zeta layer as a Mellin--Barnes integral]\label{thm:B}
+Let $p>0$, $p\ne1$, and $0<c_0<1$. The band-factor functional $e_n$ of the lattice satisfies
+\[
+  e_n=\frac1{2\pi i}\int_{c_0-i\infty}^{c_0+i\infty}p\,W(w)\,\zeta(-wp)\,n^{-wp}\,
+  \pi\Bigl[\cot\frac{\pi wp}2-\cot(\pi w)\Bigr]\diff w ,
+\]
+and, for every $J\ge1$, $e_n=\sum_{j\le J}\varepsilon_jn^{-jp}+O(n^{-(J+1)p})$. The kernel $-\pi\cot(\pi w)W(w)(4c)^{-w}$
+is the Mellin transform of the truncated per-node law $(1-u)^{-1/2}\mathbf 1_{u<1}$ (Lemma~\ref{lem:K0}).
+\end{mainthm}
+
+The third result is on the side of potential theory. In the variable $x=n^p\cdot(\text{node})$, the $n$ nodes that
+carry the polynomial $P_n$ have the continuum density $\sigma(y)=\frac1py^{-1/p-1}$, and the zero distribution of
+$P_n$ is the equilibrium measure of unit mass constrained by $\sigma$ \cite{Rakhmanov,DragnevSaff,PaperI}. For constraints of finite
+mass with compact support and no external field, the endpoint equation and the structure of the solution are known
+\cite{BeckermannKuijlaars2001,BeckermannHelart} (Section~\ref{sec:literature}). We solve the problem in a new setting, a constraint of
+infinite mass at a hard edge, for every constraint with $y\sigma(y)$ decreasing, and give the density in closed form.
+
+\begin{mainthm}[constrained equilibrium]\label{thm:C}
+Let $\sigma$ be a positive, locally H\"older continuous density on $(0,Y]$, $0<Y\le\infty$, with $y\sigma(y)$ strictly
+decreasing and, if $Y=\infty$, $\int_1^\infty\sigma(y)\log y\diff y<\infty$. Then the soft-edge condition
+$\int_a^Y\sigma(y)(1-a/y)^{-1/2}\diff y=1$ has exactly one root $a\in(0,Y)$, and the constrained equilibrium measure is
+$\nu\diff x|_{[0,a]}+\sigma\diff y|_{[a,Y]}$ with the explicit density $\nu$ of~\eqref{eq:nu}, $0<\nu<\sigma$. For the
+lattice $a=4c(p)$. For a counting function $\mathcal N(\lambda)\sim\sum_\rho c_\rho\lambda^\rho$, the root
+$a_n=4c(1+\eta_n)n^{-p}$ of $\int(1-a_n\lambda)^{-1/2}\mathbf 1_{a_n\lambda<1}\diff\mathcal N(\lambda)=n$ satisfies
+\[
+  n\eta_n=p\sum_{j\ge0}W(j)Z_{\mathcal N}(-j)n^{-jp}+p\sum_qR_qW(q)\,\pi\cot(\pi q)\,n^{-pq}+O(n\eta_n^2),
+\]
+the second sum over the poles $q\ne-1/p$ of $Z_{\mathcal N}(-w)=\int\lambda^{w}\diff\mathcal N(\lambda)$, with residues
+$R_q$ (Proposition~\ref{prop:M12}).
+\end{mainthm}
+
+The proof of the equilibrium statement uses no input from outside this series: the positivity of the logarithmic energy of
+signed measures of mass zero, without compact support, is \cite[Lemma~3.3]{PaperI}.
+
+The fourth result explains the natural index and the evenness. In the residue recursion the exponent $\alpha$ plays two roles,
+the Bessel order $\nu$ of the hard edge and the Szeg\H{o} exponent $\beta$ of the weight; separating them gives formal series
+$B(n;\beta,\nu)=\sum_kd_k(p,\beta,\nu)n^{-k}$, the integer layer of a decoupled model (Section~\ref{sec:shiftsec}), with
+$B(n;\alpha,\alpha)$ the integer layer of the lattice.
+
+\begin{mainthm}[shift and evenness]\label{thm:D}
+Identically in $(p,\beta,\nu)$, $B(n;\beta,\nu)=(n/N)^pF_p(N;\nu)$ with $N=n+\frac{\beta+1}2$ and a formal series $F_p$ that does not
+depend on $\beta$; moreover $F_p(N;\nu)=1+\sum_{k\ge1}f_{2k}(p,\nu^2)N^{-2k}$ is even in $N$ and in $\nu$. The zeta layers of weight at
+most two ($\mu_1$, $\mu_2$, $\mu_1^2$) obey the same shift. In particular, for the lattice and every $p\ne1$, the integer layer of
+$n^pb_n/c$ is $(n/N)^p(1+f_2N^{-2}+f_4N^{-4}+\dotsb)$ to every order, with no odd powers of $1/N$.
+\end{mainthm}
+
+This is Theorem~\ref{thm:shift} with Corollary~\ref{cor:even}. The evenness comes from an exact reflection
+$d_k(p,-\beta-2,\nu)=(-1)^kd_k(p,\beta,\nu)$ (Theorem~\ref{thm:reflect}, by the grading argument of \cite{KuijlaarsTibboel}); the shift is proved by steepest descent of the same lattice
+problem in a second frame, of non-integer index $n+\gamma$, in which the Szeg\H{o} exponent is $\alpha-2\gamma$ and the Bessel order is
+still $\alpha$ (Lemma~\ref{lem:frame}), and by comparing the two expansions of $b_n$. In the same model the zeta layers are Toda flows
+of the integer layers of $b_n$ and $a_n$, with the times $-2\zeta(-jp)/j$ (Theorem~\ref{thm:toda}): tilting the lattice by
+$e^{\sum\tau_jx^j}$ changes only these times, and a Baire-category argument turns the exact Toda equations of the tilted measures into
+identities between the layers; the method is that of \cite{EMP} for varying weights, here for a fixed measure. At the hard edge the
+dispersionless limit of this flow is a family of Hopf equations, and their characteristics give the leading term of every zeta layer in
+closed form, by the genus-zero mechanism of map enumeration \cite{Ercolani,EMP} in this new setting: to leading order in $1/n$ at each order in the times,
+$n^pb_n/c$ is $(n/x)^p$ with $x=n-\frac1p\sum_j\varepsilon_jx^{-jp}$, so the zeta times act as an implicit shift of the index
+(Theorem~\ref{thm:indexshift}). The diagonal integer layer of $a_n$ is centred at $N+\frac12$, even and independent of the Szeg\H{o}
+exponent to order $N^{-4}$ (Proposition~\ref{prop:diag4}).
+
+The fifth result treats the first node sets other than the lattice. For the Hurwitz lattice $\lambda_k=(k+\delta)^p$ the offset
+$\delta$ changes only the Szeg\H{o} exponent, $\beta'=\alpha+2\delta$, at fixed Bessel order, and Theorem~\ref{thm:D} turns this into a
+shifted natural index.
+
+\begin{mainthm}[Hurwitz lattices]\label{thm:E}
+Let $p\ne1$, $-1<\delta\le0$ ($\delta<0$ if $p<1$), $a=1+\delta$ and $1<s<1+2p$. For $\sigma_\Lambda$ with $\lambda_k=(k+\delta)^p$, the
+double expansion of $n^pb_n/c$ is that of the decoupled model with $(\beta,\nu)=(\alpha+2\delta,\alpha)$ and band-factor parameters
+$2\zeta(-jp,a)/(jn^{jp})$. Consequently expansion~\eqref{eq:thmA} holds with $N$ replaced by $N_\delta=n+\frac\alpha2+\frac12+\delta$ and
+$\zeta(-jp)$ by $\zeta(-jp,a)$, with the same $f_{2k}$, $g_j$; the integer layer and the zeta layers of weight at most two are those of
+the lattice in $N_\delta$ to all orders.
+\end{mainthm}
+
+For the shifted lattices $\lambda_k=(k+\delta)^p+\kappa$, $p>1$, whose node zeta function has a pole at $q=1-\frac1p$, we prove that
+$n^pb_n/c$ is the Hurwitz expansion plus the pole term $-2(2-p)c\kappa n^{-p}=pR_qW(q)\pi\cot(\pi q)n^{-p}$ of Theorem~\ref{thm:C}, up
+to $O(n^{-1-p})$ (Theorem~\ref{thm:kappa}).
+
+\subsection{The spectral dictionary}\label{sec:dictionary}
+For the lattice, Theorems~\ref{thm:A} and~\ref{thm:B} identify the coefficients of $b_n$ with values of $\zeta$, and
+Theorem~\ref{thm:E} does the same for Hurwitz lattices with values of $\zeta(\cdot,a)$. For a general node set the
+Riemann--Hilbert analysis has not been carried out, and we formulate what the theorems and the numerical evidence suggest
+(Section~\ref{sec:conj}). In the natural index $N_\Lambda:=n+\frac\alpha2-Z_\Lambda(0)$
+(which is~\eqref{eq:N} for the lattice, $\zeta(0)=-\frac12$), the expansion of $n^pb_n/c$ should read, at leading
+order in each spectral datum,
+\[
+  \Bigl(\frac n{N_\Lambda}\Bigr)^{\!p}\Bigl[1+\frac{f_2}{N_\Lambda^2}+\dotsb
+  +\sum_{j\ge1}\frac{W(j)\,p\,Z_\Lambda(-j)}{N_\Lambda^{1+jp}}
+  +\sum_q\frac{p\,R_q\,W(q)\,\pi\cot(\pi q)}{N_\Lambda^{1+pq}}+\dotsb\Bigr],
+\]
+the second sum running over the poles $q$ of $Z_\Lambda(-w)-\zeta(-pw)$, with $w$-residues $R_q$. The integer residues
+of $\pi\cot(\pi w)W(w)pZ_\Lambda(-w)$ are the zeta terms of Theorem~\ref{thm:B}; its residues at the poles of $Z_\Lambda$
+are the pole terms of Theorem~\ref{thm:C}. In a refined form (Conjecture~\ref{conj:W}) the expansion is the decoupled model with Szeg\H{o} exponent $\alpha-2Z_\Lambda(0)-1$,
+flowed along the Toda hierarchy with times read off from $Z_\Lambda(-j)$ and from the density and mass of the nodes, plus the pole
+terms; it is proved for Hurwitz lattices and, at first order in the poles, for their constant shifts, and was tested on nine further
+measures with predictions fixed before the measures were computed (\S\ref{sec:num-W}); one coefficient outside its claimed
+precision failed and led to a refinement (Remark~\ref{rem:Wprime}). The dictionary is exact for the measures on reciprocal squared
+Bessel zeros (Proposition~\ref{prop:bessel}), it reads the index offset of the spectrum from $Z_\Lambda(0)$, and it
+predicts, for the eigenvalues of $-\frac{\diff^2}{\diff q^2}+q^N$ with $N$ even, an $n^{-2}$ shift equal to
+$(N-1)/(6(N+2))$ (Section~\ref{sec:quartic}). For drums at $p=1$, outside the range of the theorems, the perimeter
+appears at order $n^{-1/2}$ and the corners at order $n^{-1}$, as the kernel predicts (Section~\ref{sec:drums}). The
+dictionary has a limit: subleading terms of each pole, one order lower, are not given by it
+(Remark~\ref{rem:sublead}), and for spectra whose nodes deviate from a smooth node function by a fraction of the
+spacing the expansion is replaced by noise of relative size $n^{-1/2}$, whose variance appears numerically to be set by the
+spectral form factor (Section~\ref{sec:noise}).
+
+\subsection{Organisation and notation}\label{sec:organisation}
+Section~\ref{sec:prior} restates the results of the earlier papers that are used, together with two results of the
+same project that extend them by one order. Section~\ref{sec:equilibrium} proves Theorem~\ref{thm:C},
+Section~\ref{sec:kernel} proves Theorem~\ref{thm:B}, and Section~\ref{sec:natural} proves Theorem~\ref{thm:A} and its
+general form. Section~\ref{sec:shiftsec} introduces the decoupled model and proves Theorem~\ref{thm:D}, the Toda
+structure of the zeta layers and the index-shift law. Section~\ref{sec:hurwitz-thm} proves Theorem~\ref{thm:E} and the theorem on shifted Hurwitz
+lattices; the analytic estimates of these two sections are transfers of those of \cite{PaperII}, which we outline and do not
+reproduce. Section~\ref{sec:examples} collects the examples and the numerical evidence, including the pre-registered tests of
+Conjecture~\ref{conj:W}, and Section~\ref{sec:conj} the conjectures. Section~\ref{sec:literature} relates the results to the
+literature. Appendix~\ref{app:repro} lists the scripts.
+
+Throughout, $p>0$ and $c=c(p)$; $\alpha$, $y_n$, $W$, $\varepsilon_j$, $N$ are as in \eqref{eq:alpha-y}--\eqref{eq:N}.
+The Bessel order $\alpha$ is that of \cite{PaperII}, and $\kp=\varepsilon_1$; the constant $\kappa_p$ of
+\cite{PaperI} does not occur. We write $\binom{2q}{q}=\Gamma(2q+1)/\Gamma(q+1)^2$ for complex $q$. The letter $N$
+denotes the natural index, except in Section~\ref{sec:quartic}, where $q^N$ is a potential. Constants $C$ may change
+from line to line. Numbers obtained by fitting floating-point data are quoted with the spread of the fit over
+fit windows and nuisance exponents in parentheses; such a spread is not an error bound.

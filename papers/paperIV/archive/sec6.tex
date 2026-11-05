@@ -1,0 +1,385 @@
+% Section 6: Examples and numerical evidence.
+\section{Examples and numerical evidence}\label{sec:examples}
+
+This section tests Theorem~\ref{thm:N6} on the lattice and collects the evidence for the conjectures of
+Section~\ref{sec:conj} on other node sets. No proof uses it. The computations are floating-point; the scripts and their
+stored outputs are listed in Appendix~\ref{app:repro}.
+
+\emph{Method.} The coefficients $b_n$, $n\le1600$, are computed in quadruple precision by adding the atoms
+$1/\lambda_m$, $m\le K$, one at a time and restoring tridiagonal form by plane rotations, with a Gauss--Jacobi rule for the
+continuous tail beyond $K$; $K$ is $100$ to $200$ times the largest $n$. Expansion coefficients are obtained by
+least-squares fits of $n$-windows ($n\ge200$, $400$, $800$ or mid-range windows) after subtracting the terms that are known
+exactly, with a pool of nuisance exponents; the number in parentheses is the spread of the fitted value over windows and
+pools. When a prediction was formed after looking at some of the data, we say which rows were used to form it; those
+rows are not evidence for it.
+
+\subsection{The lattice in natural form}\label{sec:num-lattice}
+Table~\ref{tab:natural} maps the lattice coefficients to $F(N):=(N/n)^pn^pb_n/c$, subtracts $1+f_2N^{-2}+\sum_j\varepsilon_jN^{-1-jp}$
+and fits the remainder. The $N^{-1}$ and $N^{-2}$ residuals re-confirm $d_1$ and $d_2$. The $N^{-3}$ residual is zero
+to the precision of the tail windows, against lattice $n^{-3}$ coefficients of size $0.1$ to $1$ (for example $-0.267$ at
+$p=1.5$, $s=2$); its sign follows $\alpha$ at $p=1.5$, but the large-$n$ end of the data is noise-dominated at this scale,
+and mid-range windows $n\in[10,400]$ give $N^{-3}$ coefficients below $4\cdot10^{-8}$ in all cases of
+Table~\ref{tab:f4}. Theorem~\ref{thm:N6} proves the absence of the $N^{-3}$ term for $p>1$.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{rrrrrr}
+\toprule
+$p$ & $s$ & $\alpha$ & $N^{-1}$ residual & $N^{-2}$ residual & $N^{-3}$ residual\\
+\midrule
+1.5 & 2 & $-\frac13$ & $-4\cdot10^{-11}$ & $+1.5\cdot10^{-7}$ & $-3.0\cdot10^{-4}$ $(2\cdot10^{-4})$\\
+1.5 & 3 & $+\frac13$ & $+5\cdot10^{-11}$ & $-1.6\cdot10^{-7}$ & $+3.2\cdot10^{-4}$ $(2\cdot10^{-4})$\\
+1.25 & 2 & $-0.2$ & $+4\cdot10^{-11}$ & $-1.5\cdot10^{-7}$ & $+5.2\cdot10^{-4}$ $(4\cdot10^{-4})$\\
+2.5 & 2 & $-0.6$ & $-2\cdot10^{-11}$ & $+5\cdot10^{-8}$ & $-6\cdot10^{-5}$ $(6\cdot10^{-5})$\\
+3 & 2 & $-\frac23$ & $+2\cdot10^{-12}$ & $-4\cdot10^{-9}$ & $+2.3\cdot10^{-6}$ $(5\cdot10^{-7})$\\
+1.5 & 2.5 & $0$ & $+2\cdot10^{-12}$ & $-7\cdot10^{-9}$ & $+1.3\cdot10^{-5}$ $(2\cdot10^{-5})$\\
+2 & 3 & $0$ & $-2\cdot10^{-13}$ & $+4\cdot10^{-10}$ & $-3\cdot10^{-7}$ $(3\cdot10^{-7})$\\
+\bottomrule
+\end{tabular}
+\caption{Residual coefficients of $F(N)-1-f_2N^{-2}-\sum_j\varepsilon_jN^{-1-jp}$ for the lattice, tail windows
+$n\ge200,400$ (script \texttt{m4\_natural\_index}).}
+\label{tab:natural}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{rrrrr}
+\toprule
+$p$ & $\alpha$ & $f_4$ fitted & $f_4$, \eqref{eq:f4} & difference\\
+\midrule
+2 & 0 & $0.044921952$ $(1\cdot10^{-6})$ & $0.044921875$ & $7.7\cdot10^{-8}$\\
+2 & 1 & $-0.064452710$ $(2\cdot10^{-6})$ & $-0.064453125$ & $4.2\cdot10^{-7}$\\
+4 & 0 & $0.083271330$ $(3\cdot10^{-7})$ & $0.083271329$ & $2.9\cdot10^{-10}$\\
+4 & 1 & $-0.108692879$ $(9\cdot10^{-7})$ & $-0.108692956$ & $7.7\cdot10^{-8}$\\
+2.5 & 0.5 & $0.029254295$ $(1\cdot10^{-4})$ & $0.029206272$ & $4.8\cdot10^{-5}$\\
+\bottomrule
+\end{tabular}
+\caption{The $N^{-4}$ coefficient of the lattice, mid-range windows (script \texttt{m4\_f4\_lattice}). The polynomial
+$f_4(2,\alpha)=(23-40\alpha^2-16\alpha^4)/512$ was first read off fits of this kind; the exact computation of
+Lemma~\ref{lem:N6d} was built independently.}
+\label{tab:f4}
+\end{table}
+
+For the zeta layer, after subtracting the integer layer and the bare terms $\varepsilon_jN^{-1-jp}$, mid-range fits at
+$p\in\{1.5,2.5\}$ give an $N^{-2-p}$ coefficient below $4\cdot10^{-7}$ and an $N^{-3-p}$ coefficient equal to $\varepsilon_1g_1$
+within $4\cdot10^{-6}$ to $6\cdot10^{-5}$, with spreads $8\cdot10^{-4}$ to $10^{-2}$ (script \texttt{m4\_zeta\_lattice}); at
+$p=1.5$ the values $g_1=95/288$ ($\alpha=0$) and $22/9$ ($\alpha=1$) were first seen in these fits.
+
+\subsection{Hurwitz lattices}\label{sec:hurwitz}
+For $-1<\delta\le0$ (and $\delta<0$ if $p<1$) and $1<s<1+2p$ the statements tested here are Theorem~\ref{thm:H}; the rows with $a\ge\frac32$
+($\delta>0$) or $s\ge1+2p$ are outside it, and all rows predate the theorem.
+For $\lambda_m=(m+\delta)^p$, $\delta>-1$, one has $Z_\Lambda(w)=\zeta(pw,a)$ with $a=1+\delta$, so $Z_\Lambda(-j)=\zeta(-jp,a)$ and
+$Z_\Lambda(0)=\frac12-a$. The natural-index law of Section~\ref{sec:conj} predicts the $1/n$ coefficient
+$d_1=-\frac{s-1}2-p\delta$ and the $n^{-1-p}$ coefficient $2pc\,\zeta(-p,a)$ in place of $\kp$. Table~\ref{tab:hurwitz}
+compares both with fits; the lattice value $\kp$ is excluded in every row.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{rrrrrrr}
+\toprule
+$p$ & $s$ & $a$ & $d_1$ fitted & $d_1$ predicted & $n^{-1-p}$ fitted & $2pc\,\zeta(-p,a)$\\
+\midrule
+0.6 & 2 & $\frac12$ & $-0.19999996$ & $-0.2$ & $+0.0306156$ $(8\cdot10^{-5})$ & $+0.0306142$\\
+0.6 & 2 & $\frac32$ & $-0.80000024$ & $-0.8$ & $-0.309374$ $(1.4\cdot10^{-4})$ & $-0.309386$\\
+0.6 & 2 & $2$ & $-1.10000058$ & $-1.1$ & $-0.605309$ $(3\cdot10^{-4})$ & $-0.605320$\\
+0.75 & 3 & $2$ & $-1.75000033$ & $-1.75$ & $-0.779282$ $(1.3\cdot10^{-3})$ & $-0.779293$\\
+1.5 & 2 & $\frac32$ & $-1.25000000$ & $-1.25$ & $-0.57244$ $(5.5\cdot10^{-3})$ & $-0.57263$\\
+1.5 & 2 & $2$ & $-2.00000000$ & $-2$ & $-1.74157$ $(5.6\cdot10^{-3})$ & $-1.74211$\\
+\bottomrule
+\end{tabular}
+\caption{Hurwitz lattices (script \texttt{spec\_hur}). The lattice values of the $n^{-1-p}$ coefficient are $-0.0899767$
+($p=0.6$), $-0.0918692$ ($p=0.75$) and $-0.0432947$ ($p=1.5$).}
+\label{tab:hurwitz}
+\end{table}
+
+The $n^{-2}$ coefficients of Hurwitz lattices at $p=0.6$ ($a=\frac12,\frac32,2$), $0.75$ and $1.5$ agree with the
+index-shifted lattice value $d_2+\frac{p(p+1)}2\delta^2-(p+1)\delta d_1$ to between $2\cdot10^{-6}$ and $3\cdot10^{-5}$
+(spreads $3\cdot10^{-5}$ to $9\cdot10^{-4}$), for shifts of size $0.3$ to $3$ (script \texttt{spec\_hur\_d2}). At $p=1.5$ the
+rule ``the lattice expansion as a function of $n+\delta$, multiplied by $(n/(n+\delta))^p$, with every $\zeta(-jp)$ replaced by
+$\zeta(-jp,a)$'' also predicts the $n^{-3}$ coefficients ($\delta=-\frac12,\frac12,1$; agreement within the fit ranges,
+$1\cdot10^{-4}$ to $1.3\cdot10^{-2}$, relative $3\cdot10^{-4}$ to $2\cdot10^{-3}$ of the shifts; this uses the fitted lattice
+$d_3$) and the $n^{-3.5}$ coefficients, where the alternative ``zeta terms unshifted'' is excluded at $\delta=\frac12,1$
+(script \texttt{spec\_shift\_hi}). At $p=\frac13$ and $\frac14$ ($\delta=-\frac12$) the first two, resp.\ three, coefficients
+$2pc\,\zeta(-p,a)$, $6pc^2\zeta(-2p,a)$, $20pc^3\zeta(-3p,a)$ agree to between $4\cdot10^{-7}$ and $3\cdot10^{-4}$, and at
+$p=\frac13$ the merged $n^{-2}$ coefficient requires the term $\frac13\zeta(-1,a)$: without it the fit is off by seven
+spreads (script \texttt{spec\_hur\_small}).
+
+\subsection{The pole law on synthetic lattices}\label{sec:num-pole}
+For $\lambda_k=(k+\gamma k^{-m})^p$ the counting function is unchanged at order $k^0$, and to first order in $\gamma$,
+$Z_\Lambda(-w)=\zeta(-pw)+pw\gamma\zeta(m+1-pw)+O(\gamma^2)$ has a new pole at $q=m/p$ with residue $R=-m\gamma/p$. The pole
+law (Conjecture~\ref{conj:natural}(c)) predicts the term $pRW(q)\pi\cot(\pi q)n^{-1-pq}=-m\gamma W(m/p)\pi\cot(\pi m/p)n^{-1-m}$ in
+$n^pb_n/c$. Table~\ref{tab:pole} compares it with fits of $n(y_n-y_n^{\mathrm{lat}})$ after subtraction of the first-order
+zeta terms $pW(j)\delta Z(-j)n^{-jp}$. For $m=1$, $W(1/p)=1$, so the rows test the cotangent; the rows $m=\frac12$ test
+$W$ as well.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{rrrrrl}
+\toprule
+$p$ & $m$ & $\cot(\pi m/p)$ & predicted & fitted, $n\ge200$ / $400$ / $800$ & role\\
+\midrule
+0.6, 1.5 & 1 & $-0.5774$ & $+0.906900$ & $+0.906900$ & identification\\
+1.25 & 1 & $-1.3764$ & $+2.162016$ & $+2.162016$ / $+2.162017$ / $+2.162022$ & prediction\\
+1.8 & 1 & $-0.1763$ & $+0.276974$ & $+0.276974$ / $+0.276974$ / $+0.276973$ & prediction\\
+0.8 & 1 & $+1$ & $-1.570796$ & $-1.570783$ / $-1.570792$ / $-1.570813$ & prediction\\
+0.75 & 1 & $+0.5774$ & $-0.906900$ & $-0.906866$ / $-0.906885$ / $-0.906954$ & prediction\\
+1.5 & $\frac12$ & $+0.5774$ & $-0.424704$ & $-0.424703$ / $-0.424697$ / $-0.424630$ & prediction\\
+1.25 & $\frac12$ & $+0.3249$ & $-0.235183$ & $-0.235177$ / $-0.235112$ / $-0.232695$ & prediction\\
+\bottomrule
+\end{tabular}
+\caption{The pole law, $s=2$, $\gamma=\frac12$ (scripts \texttt{spec\_pole}, \texttt{spec\_gamma}). The kernel $\pi\cot(\pi w)$ was identified from
+the first row; the predictions of the other rows were fixed before the corresponding measures were computed. For $m=\frac12$,
+$W(m/p)=0.9366$ ($p=1.5$) and $0.9216$ ($p=1.25$). The $n\ge800$ windows drift where few points remain.}
+\label{tab:pole}
+\end{table}
+
+\emph{A constant shift.} For $\lambda_k=k^p+\kappa$ the index offset grows like $k^{1-p}$, and the expansion changes at
+relative order $n^{-p}$, not $n^{-1-p}$. To first order, $Z_\Lambda(-w)=\zeta(-pw)+\kappa w\zeta(p(1-w))$ has its Weyl pole moved
+to $q=1-1/p$, with residue $-\kappa q/p$, and the pole law gives $-2(2-p)c\kappa\,n^{-p}$ in $n^pb_n/c$, using
+$W(-1/p)=p\tan(\pi/p)/\pi$. Fits of the $n^{-p}$ coefficient give $-1.20342$ $(0.13)$, $-0.60154$ $(0.04)$, $-1.22311$ $(0.74)$
+at $(p,\kappa)=(0.6,1),(0.6,\frac12),(0.3,1)$, against $-1.20247$, $-0.60123$, $-1.22262$ (script \texttt{spec\_kappa\_fit}); the
+first row was the identification point, and at $p=0.3$ the spread is $60\%$ of the value, so that row is not evidence.
+For $p>1$ the law is now Theorem~\ref{thm:kappa} (with $\delta=0$); the rows here have $p<1$, where it is not proved.
+The Hankel determinants of the shifted measure are those of the old nodes with an $m$-dependent weight: since
+$\varphi(y)=y/(1+\kappa y)$ satisfies $\varphi(a)-\varphi(b)=(a-b)/((1+\kappa a)(1+\kappa b))$, Heine's formula gives
+$D_m(\sigma_\kappa)=D_m((1+\kappa y)^{-2(m-1)}\sigma')$ with $\sigma'=(1+\kappa y)^{-s/p}\sigma$, and a first-order expansion of
+$\log D_m$ in $\kappa$ reproduces the law, with a relative gap that decays like $\kappa n^{-p}$ (script \texttt{spec\_mobius\_pred}).
+
+\subsection{The subleading pole term}\label{sec:num-subpole}
+The pole law gives the leading power $n^{-1-pq}$ of a pole. The same pole contributes at $n^{-2-pq}$, and this term is
+not removed when $\cot(\pi q)=0$ (Remark~\ref{rem:sublead}). For the family of \S\ref{sec:num-pole}, the part linear in
+$\gamma$ of the $n^{-2-m}$ coefficient of $n^pb_n/c$, isolated by antisymmetrising in $\gamma\in\{\pm\frac14,\pm\frac12\}$ and
+Richardson extrapolation, is compared in Table~\ref{tab:subpole} with
+\begin{equation}\label{eq:S4}
+  S=-\frac{mpq_1}2W(q_1)+\mathcal L\,\frac{(1+m+p)\,d_1}p,\qquad q_1:=\frac{m+1}p,\qquad
+  \mathcal L:=-mW(q)\pi\cot(\pi q),
+\end{equation}
+per unit $\gamma$, with $d_1=-(s-1)/2$. The first term is the response to the change of node density $\log|t'|$, a tilt
+$\propto z^{q_1}$ branched at the hard edge; the second is the leading pole term evaluated at the shifted index
+$n+(s-1)/(2p)=n+\delta_N$.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{rrrrrrl}
+\toprule
+$p$ & $s$ & $m$ & $q_1$ & $S$ fitted & \eqref{eq:S4} & role\\
+\midrule
+2 & 2 & 1 & 1 & $-1.233702$ $(1\cdot10^{-6})$ & $-1.233701$ & identification\\
+2.5 & 2 & 1 & 0.8 & $-0.258693$ $(2\cdot10^{-5})$ & $-0.258696$ & identification\\
+3 & 2 & 1 & 0.667 & $+0.371552$ $(1\cdot10^{-6})$ & $+0.371551$ & identification\\
+2.2 & 2 & 1 & 0.909 & $-0.777016$ $(7\cdot10^{-5})$ & $-0.776976$ & prediction\\
+4 & 2 & 1 & 0.5 & $+1.261975$ $(4\cdot10^{-7})$ & $+1.261975$ & prediction\\
+3 & 2 & 2 & 1 & $-8.270517$ $(3\cdot10^{-5})$ & $-8.270552$ & prediction\\
+3 & 3 & 1 & 0.667 & $+1.883052$ $(1\cdot10^{-6})$ & $+1.883050$ & prediction\\
+2.5 & 3 & 1 & 0.8 & $+0.659993$ $(2\cdot10^{-5})$ & $+0.659993$ & prediction\\
+1.8 & 2 & 1 & 1.111 & $-1.847995$ $(3\cdot10^{-4})$ & $-1.849477$ & see text\\
+1.5 & 2 & 1 & 1.333 & $-3.39874$ $(1.4\cdot10^{-2})$ & $-3.44204$ & see text\\
+1.25 & 2 & 1 & 1.6 & $-6.54$ $(0.26)$ & $-7.02$ & see text\\
+\bottomrule
+\end{tabular}
+\caption{The subleading pole coefficient (script \texttt{spec\_subpole}). At $p=2$, $\mathcal L=0$ and $S=-W(1)=-\pi^2/8$.}
+\label{tab:subpole}
+\end{table}
+
+For $q_1\le1$ the formula holds to the fit precision in the eight rows; three of them were used to form it. For $q_1>1$
+the exponents crowd near $p=1$ and the fits depend on the nuisance pool: refits of the stored data over twenty pools
+(windows $n\ge150$ to $600$, three to seven nuisance exponents) give medians minus prediction of $-2\cdot10^{-3}$ ($p=1.5$),
+$+3\cdot10^{-3}$ ($p=1.8$) and $-9\cdot10^{-2}$ ($p=2.5$, $m=2$), with signs depending on the pool. The same decomposition, at
+$p=2$, $m=1$, gives a nonzero $n^{-3}$ coefficient $-3.70\gamma$ for this family; for Bessel zeros (\S\ref{sec:bessel}),
+whose index correction at $p=2$ is tied to the offset, the corresponding terms cancel, and the expansion is the pure
+index shift of Proposition~\ref{prop:bessel}.
+
+\subsection{Conjecture~\ref{conj:W}: predictions before fits}\label{sec:num-W}
+To test Conjecture~\ref{conj:W} on node sets with poles, with $Z(0)\ne-\frac12$, and with masses that are not pure powers, every
+coefficient was predicted from the spectral data alone (regularised $Z(0)$ and $Z(-j)$, residues, density and mass factors) and the
+recursion of \S\ref{sec:recursion} at $40$ digits (Toda responses by central differences), and the predictions were stored before
+any of the nine measures was computed; the test script asserts the time stamps. The conjecture has no fitted constant. The
+alternatives are the conjecture with one piece switched off: no Szeg\H{o} shift ($\beta=\alpha$), no pole term, no $Z(-j)$, no density or
+mass tilt, no natural-index shift of the pole terms. A coefficient passes if $|\text{fit}-\text{prediction}|\le\max(3\cdot\text{spread},
+2\cdot10^{-6}(1+|\text{prediction}|))$. Of the $41$ coefficients tested, $40$ pass; the exception is the sphere at $n^{-4}$, outside the
+claimed precision (Remark~\ref{rem:Wprime}). Table~\ref{tab:W} shows a selection.
+
+The families are: (A) $\lambda_k=k^p+ak^{p-1}$, $s=2$, which is a Hurwitz offset $\delta=a/p$ plus decaying corrections, so
+$Z(0)=-\frac12-\frac ap$, with poles at $q_i=(i-1)/p$; (B) Bessel zeros $\lambda_k=(j_{\nu',k}/\pi)^P$, $s=2$, with $Z(0)=-\frac{\nu'}2-\frac14$
+and poles at $q=(2i-1)/P$ (the residues use McMahon's expansion, checked against computed zeros to $5\cdot10^{-26}$); (M2) the nodes
+$l^{3/2}$ with masses $(2l+1)l^{-s}$, $s=3$, a mass factor with the fractional time $\rho=\frac23$; (M1) the sphere, nodes $l(l+1)$ with
+multiplicity $2l+1$, $s=4$.
+
+\begin{table}[ht]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrrr}
+\toprule
+measure & coeff. & prediction & fit (spread) & difference & next alternative\\
+\midrule
+A: $p=1.5$, $a=-\frac34$ & $n^{-2}$ & $+0.0984431$ & $+0.0984431$ $(3\cdot10^{-5})$ & $-3\cdot10^{-9}$ & no pole: $1392$\\
+ & $n^{-2.5}$ & $+0.2215758$ & $+0.2215749$ $(4\cdot10^{-5})$ & $-9\cdot10^{-7}$ & no $Z(-j)$: $1912$\\
+ & $n^{-3}$ & $+0.0699377$ & $+0.0699393$ $(1.1\cdot10^{-3})$ & $+1.6\cdot10^{-6}$ & no tilt: $25$\\
+A: $p=1.5$, $a=0.6$ & $n^{-2}$ & $+1.0955036$ & $+1.0955031$ $(1.6\cdot10^{-4})$ & $-5\cdot10^{-7}$ & no pole: $150$\\
+A: $p=3$, $a=-0.6$ & $n^{-2}$ & $+0.1347742$ & $+0.1347742$ $(5\cdot10^{-9})$ & $+5\cdot10^{-10}$ & no pole: $31968$\\
+ & $n^{-3}$ & $+0.0452648$ & $+0.0452649$ $(2.7\cdot10^{-6})$ & $+1.0\cdot10^{-7}$ & no shift: $1466$\\
+A: $p=0.6$, $a=-0.3$ & $n^{-1.6}$ & $+0.0854664$ & $+0.0854637$ $(3.7\cdot10^{-4})$ & $-3\cdot10^{-6}$ & no $Z(-j)$: $77$\\
+ & $n^{-2}$ & $+0.1329122$ & $+0.1327116$ $(1.1\cdot10^{-3})$ & $-2.0\cdot10^{-4}$ & no pole: $27$\\
+B: $\nu'=0$, $P=1.5$ & $n^{-2}$ & $+0.1957151$ & $+0.1957150$ $(1.4\cdot10^{-5})$ & $-1.3\cdot10^{-7}$ & no pole: $562$\\
+B: $\nu'=1$, $P=1.5$ & $n^{-2.5}$ & $-0.0664936$ & $-0.0664957$ $(5\cdot10^{-4})$ & $-2\cdot10^{-6}$ & no $Z(-j)$: $42$\\
+B: $\nu'=0$, $P=3$ & $n^{-2}$ & $+0.0742502$ & $+0.0742502$ $(3\cdot10^{-9})$ & $+5\cdot10^{-10}$ & no pole: $10692$\\
+ & $n^{-3}$ & $+0.0049259$ & $+0.0049264$ $(1.2\cdot10^{-5})$ & $+4.8\cdot10^{-7}$ & no shift: $276$\\
+M2 & $n^{-2}$ & $+0.1180556$ & $+0.1180558$ $(3.8\cdot10^{-6})$ & $+2.7\cdot10^{-7}$ & no mass tilt: $21830$\\
+ & $n^{-3}$ & $+0.1900476$ & $+0.1900481$ $(1.1\cdot10^{-3})$ & $+4.8\cdot10^{-7}$ & no shift: $90$\\
+M1 (sphere) & $n^{-3}$ & $-5$ & $-4.99999992$ $(3\cdot10^{-6})$ & $8\cdot10^{-8}$ & one tilt only: $12851$\\
+ & $n^{-4}$ & $+7.5449219$ & $+7.776241$ $(3.3\cdot10^{-4})$ & $+0.23132$ & not claimed\\
+\bottomrule
+\end{tabular}
+\caption{Conjecture~\ref{conj:W} against fits (scripts \texttt{w\_predict}, \texttt{w\_test}). The last column gives the miss of the
+closest alternative in units of the tolerance. The row $a=0.6$ has $\delta=0.4>0$, outside Theorem~\ref{thm:H}; the rows $p=0.6$ are the
+weakest tests. Fit-free residuals $n^e(y_n-\sum_{e'<e}W_{e'}n^{-e'})-W_e$ at $n=200,400,800,1600$ decay in the rows shown except the sphere's $n^{-4}$ (script
+\texttt{w\_resid}).}
+\label{tab:W}
+\end{table}
+
+The $n^{-1}$ coefficients test the Szeg\H{o} shift $\beta=\alpha-2Z(0)-1$ at $Z(0)\ne-\frac12$: they agree to $10^{-8}$ or better, and $\beta=\alpha$
+is excluded by $10^3$--$10^5$ tolerances. The $n^{-3}$ rows of the families A and B test, beyond Conjecture~\ref{conj:natural}, the natural-index
+shift of the pole terms with $Z(0)\ne-\frac12$ and the density tilt as a fractional Toda time. At $q_1=\frac43$ (family A, $p=1.5$) the agreement
+is $2\cdot10^{-6}$--$3\cdot10^{-5}$ against spreads of $10^{-3}$: consistent, not precise. For the Bessel anchor at $P=2$
+(Proposition~\ref{prop:bessel}) the prediction of Conjecture~\ref{conj:W}, the bare model $M(\nu'-1,-\frac12)$, reproduces the coefficients
+$n^{-1},\dots,n^{-4}$ of the exact closed form to $2\cdot10^{-21}$. The probes of Remark~\ref{rem:Wprime} were designed after the sphere's
+$n^{-4}$ failure (script \texttt{w\_probe}); the two measures $k^2+\frac14$ at $s=2$ and $s=3.5$ were then computed after the predictions of the
+refinement had been stored (script \texttt{w\_probe2}).
+
+\subsection{Drums}\label{sec:drums}
+Let $\lambda$ run over the Dirichlet eigenvalues of a planar domain of area $\mathcal A$ and perimeter $\mathcal P$,
+rescaled to $\tilde\lambda=\mathcal A\lambda/4\pi$, so that the counting function is
+$\tilde\lambda-\beta\tilde\lambda^{1/2}+c_0+(\text{fluctuations})$ with $\beta=\mathcal P/\sqrt{4\pi\mathcal A}$; the
+constant $c_0=Z(0)$ carries corners and curvature ($\frac14$ for rectangles, $\frac13$ for the equilateral triangle,
+$\frac16$ for smooth simply connected domains). We take $p=1$, $s=2$, which is outside the range of the theorems. A
+\emph{smoothed drum} is the node set defined by the counting function without fluctuations, $\mathcal N(\lambda_k)=k-\frac12-c_0$.
+The perimeter is a pole of $Z(-w)$ at $q=-\frac12$ with residue $\beta/2$, where $\cot(\pi q)=0$ and $W$ has a pole; the
+limit $W(q)\pi\cot(\pi q)\to-\pi(4c)^{-1/2}$ of \eqref{eq:Lt-W} gives the prediction
+$n(y_n-y_n^{\mathrm{lat}})\supset-\frac{\pi\beta}{2\sqrt2}n^{1/2}$, which is the first term of Remark~\ref{rem:drum-root}.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+smoothed drum & $\beta$ & fitted $n^{1/2}$ coefficient & $-\pi\beta/(2\sqrt2)$\\
+\midrule
+square & $1.128379$ & $-1.253317$ $(1\cdot10^{-5})$ & $-1.253314$\\
+equilateral triangle & $1.286074$ & $-1.428473$ $(1\cdot10^{-5})$ & $-1.428469$\\
+disk & $1$ & $-1.110722$ $(7\cdot10^{-6})$ & $-1.110721$\\
+golden rectangle & $1.161199$ & $-1.289770$ $(1\cdot10^{-5})$ & $-1.289767$\\
+\bottomrule
+\end{tabular}
+\caption{The perimeter term at $p=1$ (script \texttt{spec\_corners}). The prediction, made before the run, was that no
+$n^{1/2}$ term occurs, which forgot the pole of $W$; the value in the last column is the $0\cdot\infty$ limit of the same
+formula, with no free parameter.}
+\label{tab:drums}
+\end{table}
+
+The corner term is isolated by comparing two smoothed drums with the same $\beta$ (the square's) and $c_0=\frac14$,
+$\frac13$: the $n^0$ coefficient of the difference is $0.0833487$ $(2\cdot10^{-5})$, against $\Delta c_0=\frac1{12}$, as the term
+$pZ(0)$ of the dictionary requires. The absolute $n^0$ coefficient has median $c_0+\frac12+\frac{\pi^2}{16}\beta^2$ over fits
+in all smoothed drums, to $2\cdot10^{-4}$, but single fits of it are unstable; the $\beta^2$ part is the second term of
+Remark~\ref{rem:drum-root}, i.e.\ it is produced by solving the continuum soft-edge condition exactly rather than to first
+order. For the actual eigenvalues of the golden rectangle, the deviation from the smoothed drum has mean near $0$ and a
+standard deviation growing like $n^{0.55}$: the counting fluctuations of the spectrum dominate everything below the
+perimeter term (\S\ref{sec:noise}).
+
+\subsection{Anharmonic oscillators}\label{sec:quartic}
+For the eigenvalues $E_K$ ($K\ge1$) of $-\frac{\diff^2}{\diff q^2}+q^N$ on $\R$, $N\ge4$ even, the semiclassical
+quantisation reads $K-\frac12=AE^{a}+BE^{-a}+O(E^{-3a})$, $a=\frac12+\frac1N$, with
+$A=\frac1\pi\int_{-1}^1\sqrt{1-t^N}\diff t=\frac2{\pi N}B(\frac1N,\frac32)$. With $p:=1/a=2N/(N+2)$ and $\lambda_K:=A^pE_K$,
+\[
+  \lambda_K^{1/p}=k'+\gamma/k'+O(k'^{-3}),\qquad k'=K-\tfrac12,\qquad\gamma=-AB,
+\]
+a Hurwitz lattice with $a=\frac12$ plus an index correction with $m=1$, whose pole $q=1/p$ has $W(q)=1$ and
+$\cot(\pi/p)=-\tan(\pi/N)\ne0$. (For Bessel zeros, and for linear potentials, the poles of $Z(-w)$ sit at half-integers,
+where the cotangent vanishes; here it does not.) The predictions are $d_1=-\frac{s-1}2+\frac p2$ ($Z(0)=\zeta(0,\frac12)=0$), no $n^{-1-p}$ term (the
+heat-trace exponents of $q^N$ contain no integer, so $Z(-1)=0$), and an $n^{-2}$ coefficient equal to the Hurwitz-shifted
+lattice value plus the pole term $-\gamma\pi\cot(\pi/p)=AB\pi\cot(\pi/p)$.
+
+\emph{The pole term is rational.} If the second-order quantisation condition
+\[
+  \frac1\pi\int_{-q_+}^{q_+}\sqrt{E-V}\diff q-\frac1{24\pi}\,\partial_E^2\int_{-q_+}^{q_+}V'(q)^2(E-V)^{-1/2}\diff q=K-\tfrac12+O(E^{-3a})
+\]
+holds, then for $V=q^N$ the substitutions $q=E^{1/N}t$, $u=t^N$ give $B=-\frac N{12\pi}e(e-1)B(2-\frac1N,\frac12)$ with
+$e=\frac32-\frac1N$, and the reflection formulas collapse the product to
+\[
+  AB=-\frac{(N-1)\cot(\pi/N)}{6\pi(N+2)},\qquad\text{hence}\qquad AB\,\pi\cot\frac\pi p=\frac{N-1}{6(N+2)},
+\]
+since $\pi/p=\pi/2+\pi/N$. The cotangent of the kernel cancels the $\cot(\pi/N)$ of the semiclassical coefficient. The
+values are $\frac1{12},\frac5{48},\frac7{60},\frac18,\frac{11}{84}$ for $N=4,\dots,12$; with $B$ fitted from exact eigenvalues they
+are reproduced to between $10^{-10}$ and $7\cdot10^{-8}$ (script \texttt{spec\_homog}); at $N=4$ the fitted
+$B=-0.0476724854$ equals $-1/(12\pi A)$ to $4\cdot10^{-10}$.
+% TODO (citation): the second-order Bohr--Sommerfeld (Dunham) term is not quoted in the project's citation record;
+% its coefficient -1/(24 pi) is checked numerically at N = 4 (B/(5 I_6) = -1/(24 pi)).
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{rrrrrr}
+\toprule
+$N$ & $d_1$ fitted (predicted) & $n^{-1-p}$ fitted & $n^{-2}$ fitted & predicted & without pole term\\
+\midrule
+4 & $+0.16666667$ $(\frac16)$ & $1\cdot10^{-5}$ $(3\cdot10^{-3})$ & $+0.276010$ $(1\cdot10^{-5})$ & $+0.276042$ & $+0.192708$\\
+6 & $+0.25000000$ $(\frac14)$ & $5\cdot10^{-5}$ $(2\cdot10^{-3})$ & $+0.315918$ $(3\cdot10^{-5})$ & $+0.315972$ & $+0.211806$\\
+\bottomrule
+\end{tabular}
+\caption{Oscillators $-\frac{\diff^2}{\diff q^2}+q^N$, $s=2$, eigenvalues from a banded harmonic-oscillator basis converged to
+$3\cdot10^{-16}$ for $K\le1200$, with the semiclassical series beyond (scripts \texttt{spec\_quartic}, \texttt{spec\_qN}). With the
+sign of the pole term reversed the predictions would be $0.109375$ and $0.107639$.}
+\label{tab:quartic}
+\end{table}
+
+\subsection{Irregular spectra}\label{sec:noise}
+If the nodes deviate from a smooth node function by a fixed fraction of the spacing, the expansion is replaced by an
+irregular component. For iid jitter $\lambda_m=(m+\xi_m)^p$, $\xi_m$ uniform on $(-0.3,0.3)$, the residual of $y_n$ after a smooth
+fit has root mean square of order $n^{-1/2}$ (for example $1.3\cdot10^{-2}$ on $[100,200)$ and $4.2\cdot10^{-3}$ on $[800,1600)$ at
+$p=0.6$), and the fitted $d_1$ is meaningless. Jitter confined to nodes deep inside the band for all $n$ considered is
+invisible (root mean square $10^{-9}$ to $3\cdot10^{-7}$), and jitter confined to the first $300$ nodes stops producing noise once
+the soft-edge threshold $\lambda\approx n^p/(4c)$ has passed them (scripts \texttt{spec\_jitter}, \texttt{spec\_window}).
+
+\emph{Single-node kernel.} Moving node $k_0\in\{100,200,400,600\}$ by $\pm0.05$ and following
+$F(n;k_0):=[D(+h)-D(-h)]/(2h)$, $D=n(y_n-y_n^{\mathrm{lat}})$, in $\tau=(n-n_*)/n_*^{1/3}$, where $n_*$ is the index at which
+the node crosses the edge, gives one curve for all $k_0$: outside the band ($\tau\ge2$) it is the derivative of the per-node
+law $-p(1-u)^{-1/2}$ to $1$--$3\%$; near $\tau=0$ it stays finite; inside the band it oscillates with a period of about ten
+nodes, and its sums over $n$ nearly cancel (script \texttt{spec\_edgekernel}).
+
+\emph{Two ensembles.} Replacing the first $3000$ nodes of the lattice ($p=0.6$, $s=2$) by unfolded eigenphases of random
+unitary matrices or by a Poisson bridge gives the root mean square of $D$ in Table~\ref{tab:noise}. Both grow like $n^{1/2}$
+(exponents $0.50$ and $0.52$), and the Poisson amplitude is larger by the stable factor $3.3$--$4.0$. The noise is not a
+linear statistic realisation by realisation (correlations between $-0.04$ and $0.47$ between $D$ and its linearisation), but the
+linearisation has the same root mean square in every window (script \texttt{spec\_noiselin}). The power spectrum of the
+linear kernel, measured with sinusoidal displacements $\epsilon\sin(2\pi k/\Lambda_0)$, scales as $n\kappa(\omega)$ with
+$\kappa(\omega)\propto\omega$ for small $\omega$ (script \texttt{spec\_kernelfft}). The formula
+$\Var D\approx n\int_0^\pi\kappa(\omega)S_h(\omega)\diff\omega/\pi$, with displacement spectrum
+$S_h=K(\omega)/(4\sin^2(\omega/2))$, $K=1$ (Poisson) and $K=\min(\omega/2\pi,1)$ (unitary ensemble), predicts a ratio $3.95$ and
+root mean squares $5.67$, $8.02$, $11.36$ (unitary) and $22.5$, $31.7$, $44.9$ (Poisson) on the last three windows, against the
+measured $5.38$, $7.46$, $11.56$ and $20.8$, $28.3$, $41.8$ for one seed.
+% NOTE: the predicted values come from a post-processing step described in spec_kernelfft.py; the stored output
+% spec_kernelfft.out lists the kernel spectrum only. Store the post-processing output before submission.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+$n$-window & unitary eigenphases & Poisson bridge & ratio\\
+\midrule
+$[50,100)$ & $2.67\pm0.36$ & $8.7\pm2.5$ & $3.3$\\
+$[100,200)$ & $3.76\pm0.34$ & $15.0\pm4.8$ & $4.0$\\
+$[200,400)$ & $5.38\pm0.18$ & $19.3\pm3.4$ & $3.6$\\
+$[400,800)$ & $7.40\pm0.33$ & $26.3\pm2.1$ & $3.6$\\
+$[800,1600)$ & $10.68\pm0.50$ & $39.8\pm5.1$ & $3.7$\\
+\bottomrule
+\end{tabular}
+\caption{Root mean square of $n(y_n-y_n^{\mathrm{lat}})$, mean and standard deviation over five seeds (scripts
+\texttt{spec\_stats}, \texttt{spec\_stats\_summary}).}
+\label{tab:noise}
+\end{table}

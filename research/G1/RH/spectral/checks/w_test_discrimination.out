@@ -1,0 +1,17 @@
+sha256 w_test_discrimination.py: c8066d0715bb97831e6ad0ec9eb93baefb7e8b6c2c04e88098f5fb9fee73a2ce
+sha256 w_test.out: c88127a02c468b52017ee4148e13f4372cbaf10c299751dcf23b159ae75f22ab
+rows: 41  PASS: 40  FAIL: 1
+PASS rows that discriminate W from every reported alternative: 29
+PASS rows that do NOT discriminate: 11
+   A15m n^-3.5: within 10 tol: beta=alpha (5 tol), no zeta (2 tol)
+   A15p n^-3.5: within 10 tol: beta=alpha (4 tol), no zeta (8 tol)
+   A06 n^-2.6: within 10 tol: beta=alpha (1 tol), no zeta (1 tol); tol 8.5e-02 >= |W| = 6.3e-02 (W = 0 would pass)
+   A06 n^-2.8: within 10 tol: no zeta (1 tol); tol 2.8e-01 >= |W| = 2.3e-01 (W = 0 would pass)
+   M2 n^-1.0: no alternative reported
+   M2 n^-3.5: within 10 tol: no zeta (1 tol); tol 8.8e-02 >= |W| = 5.8e-02 (W = 0 would pass)
+   B0_15 n^-2.5: within 10 tol: no zeta (3 tol)
+   B0_15 n^-3.0: within 10 tol: beta=alpha (5 tol), no pole (0 tol), no density tilt (0 tol), no shift (0 tol)
+   B0_15 n^-3.5: within 10 tol: beta=alpha (0 tol), no zeta (0 tol); tol 2.8e+00 >= |W| = 1.2e-03 (W = 0 would pass)
+   B1_15 n^-3.0: within 10 tol: beta=alpha (8 tol), no pole (3 tol), no density tilt (1 tol), no shift (3 tol)
+   B1_15 n^-3.5: within 10 tol: beta=alpha (0 tol), no zeta (0 tol); tol 2.7e+00 >= |W| = 1.6e-01 (W = 0 would pass)
+EXIT 0
