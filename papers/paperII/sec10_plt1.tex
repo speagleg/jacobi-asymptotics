@@ -10,9 +10,9 @@ of Lemma~\ref{lem:binetcut} does not exist, and the outer scalar is the seam con
 Second, the band factor of that construction is not constant to $o(1/n)$ near the band: modulo constants it equals
 $e^{-\mathsf d_nz}$ up to a factor $1+O(n^{-2p})$, with $\mathsf d_n:=2\zeta(-p)n^{-p}$ (Lemma~\ref{lem:plt1-band}). We show that
 everything else survives. The hard edge is handled by a classical Bessel parametrix whose square root of the weight is
-glued along the seams, with super-small jumps there (\S\ref{sec:plt1-param}); and the factor $e^{-\mathsf d_nz}$ changes,
-among the residues that enter $a_n$ and $b_n$, only the Airy residue, by an amount linear in $\mathsf d_n$ that is
-computed exactly (\S\ref{sec:plt1-second}).
+glued along the seams, with super-small jumps there (\S\ref{sec:plt1-param}). Among the residues that enter $a_n$ and
+$b_n$, the factor $e^{-\mathsf d_nz}$ changes only the Airy residue, by an amount linear in $\mathsf d_n$ that we compute
+exactly (\S\ref{sec:plt1-second}).
 
 \emph{Standing assumptions.} Throughout this section $0<p<1$, $s>1$ and $\ell\equiv1$, so that $\sigma=\sigma_{p,s}$,
 $r_n\equiv1$ and $\alpha=(s-1-p)/p>-1$ is arbitrary. As in Section~\ref{sec:classical}, $\Lambda\equiv0$ is analytic of
@@ -244,14 +244,16 @@ $\check A$ is on the seams, where, by~\eqref{eq:plt1-rho-props},
   \check A_{\mathrm{in}}^{-1}\check A_{\mathrm{out}}=f^{-\sigma_3/4}M^{-1}e^{-\mathfrak j(|z|)\sigma_3}Mf^{\sigma_3/4},\qquad
   |\check A_{\mathrm{in}}^{-1}\check A_{\mathrm{out}}-I|\le C|z|^{-1/2}\mathfrak j(|z|),
 \]
-in place of~\eqref{eq:A-jump}; there is no jump on $(-2\delta,0)$. Since $\mathfrak j(r)\le2e^{-2\pi nr^{-1/p}}$ and
-$|\mathfrak j'(r)|\le Cnr^{-1-1/p}e^{-2\pi nr^{-1/p}}$ on $(0,2\delta]$, and the boundary values of $G$ on the seams have
-derivatives bounded by $Cn^C$ (by~\eqref{eq:plt1-repr}, $\partial_z\mathfrak K(\zeta,z)=-\partial_\zeta(\zeta-z)^{-1}$, and an integration by parts
-writes $G'$ as the Cauchy integral over the two seams of $\pm\mathfrak j'$, which is $O(e^{-n/C})$ with its derivative on
-the seam segments in $\mathbb D(0,2\delta)$ and $O(1/r)$ beyond, so the boundary values of $G'$ there are $O(\log n)$), the Cauchy integral $\check A^{\mathrm s}$ over the
-two seam segments in $\mathbb D(0,2\delta)$ of $\check A_{\mathrm{in}}(\check A_{\mathrm{in}}^{-1}\check A_{\mathrm{out}}-I)$ (with the
-orientation of the seams) has a $C^1$ density of norm $O(e^{-n/C})$ that vanishes to infinite order at $0$. The rest of
-the argument is that of Lemma~\ref{lem:classical-param}(i).
+in place of~\eqref{eq:A-jump}; there is no jump on $(-2\delta,0)$. On $(0,2\delta]$ we have
+$\mathfrak j(r)\le2e^{-2\pi nr^{-1/p}}$ and $|\mathfrak j'(r)|\le Cnr^{-1-1/p}e^{-2\pi nr^{-1/p}}$. The boundary values of
+$G$ on the seams have derivatives bounded by $Cn^C$. Indeed, by~\eqref{eq:plt1-repr} and
+$\partial_z\mathfrak K(\zeta,z)=-\partial_\zeta(\zeta-z)^{-1}$, an integration by parts writes $G'$ as the Cauchy integral
+over the two seams of $\pm\mathfrak j'$; this density is $O(e^{-n/C})$ with its derivative on the seam segments in
+$\mathbb D(0,2\delta)$ and $O(1/r)$ beyond, so the boundary values of $G'$ there are $O(\log n)$. Hence the Cauchy integral
+$\check A^{\mathrm s}$ over the two seam segments in $\mathbb D(0,2\delta)$ of
+$\check A_{\mathrm{in}}(\check A_{\mathrm{in}}^{-1}\check A_{\mathrm{out}}-I)$ (with the orientation of the seams) has a $C^1$
+density of norm $O(e^{-n/C})$ that vanishes to infinite order at $0$. The rest of the argument is that of
+Lemma~\ref{lem:classical-param}(i).
 
 (ii) On the band and the lips the computation is that of Lemma~\ref{lem:classical-param}(ii): the lips lie in
 $\{\frac34\thlip\le|\arg z|\le\frac54\thlip\}\subset\Sin$, where $\rho_n^{-2}=e^{\pm i\pi\alpha}\omega$, and they are
@@ -299,13 +301,13 @@ Lemma~\ref{lem:plt1-param}(i); Lemmas~\ref{lem:sumbound} and~\ref{lem:lenssector
 lens $\zeta=n^2f$ lies in $|\arg\zeta|<\pi-\thlip$, where the column sizes of $\Psi_\alpha$ are those stated before
 Lemma~\ref{lem:plt1-param}. Inside the lens the continuation of $\Psi_\alpha$ from the central sector has first column
 $\zeta^{\alpha/2}$ times an entire function and second column equal to that of $\Psi_\alpha$ in the thin sectors, as
-before. The two cases of the identification then go through unchanged: for $\alpha>-\frac12$, $\mathsf R$ is continuous up
+before. The two cases of the identification then go through unchanged. For $\alpha>-\frac12$, $\mathsf R$ is continuous up
 to $\Sigma_{\mathsf R}$ off the vertices (the seams included, by Lemma~\ref{lem:plt1-param}(ii) and the continuity of $Q$
-across them) and Lemma~\ref{lem:cauchy-arcs}(c) applies to $\mathsf R-I$; for $-1<\alpha\le-\frac12$,
-Proposition~\ref{prop:frame}(vii) applies because $|\alpha|<1$, the parametrix satisfies
-$|\check P_0^{\pm1}(z)|\le C_n|z|^{-|\alpha|/2}$ near $0$ by the bounds on $\Psi_\alpha^{\pm1}$, and the comparison with
-\S\ref{sec:tool-cd}(b) on $\Sigma\cup\Sigma_{\mathsf R}$ is the same, the jumps of $\check P_0$ on the seams being bounded
-with bounded inverses.
+across them), and Lemma~\ref{lem:cauchy-arcs}(c) applies to $\mathsf R-I$. For $-1<\alpha\le-\frac12$,
+Proposition~\ref{prop:frame}(vii) applies because $|\alpha|<1$, and the parametrix satisfies
+$|\check P_0^{\pm1}(z)|\le C_n|z|^{-|\alpha|/2}$ near $0$ by the bounds on $\Psi_\alpha^{\pm1}$. The comparison with
+\S\ref{sec:tool-cd}(b) on $\Sigma\cup\Sigma_{\mathsf R}$ is then the same, since the jumps of $\check P_0$ on the seams are
+bounded with bounded inverses.
 \end{proof}
 
 \subsection{\texorpdfstring{The $1/n$ term}{The 1/n term}}\label{sec:plt1-second}

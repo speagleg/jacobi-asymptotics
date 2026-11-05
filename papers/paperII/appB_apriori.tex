@@ -4,7 +4,7 @@
 
 The comparison argument of Section~\ref{sec:hardedge} applies \cite[Theorem~4.4]{CD} (\S\ref{sec:tool-cd}(b)) to
 $Q$, and its hypothesis is that the boundary values of $Q-I$ are Cauchy integrals of $L^2$ functions. This appendix
-verifies it: it proves item (vii) of Proposition~\ref{prop:frame}, that $Q_\pm$ and $(Q^{-1})_\pm$ belong to
+verifies the hypothesis. It proves item (vii) of Proposition~\ref{prop:frame}, that $Q_\pm$ and $(Q^{-1})_\pm$ belong to
 $I+\dC(L^2(\Sigma))$, together with a pointwise bound on $Q$ near $0$. The a priori bound of
 Proposition~\ref{prop:apriori} holds for every $\alpha>-1$; the restriction $|\alpha|<1$ enters item (vii) only through
 Corollary~\ref{cor:L2}, where the bound has to be square integrable at $0$.
@@ -41,8 +41,8 @@ denote these extensions. We use only Cauchy's integral formula, Green's formula 
 \end{lemma}
 
 \begin{proof}
-(a) By Cauchy--Schwarz it suffices to show $\int_\Gamma|s-z|^{-2}|\diff s|\le4C_\Sigma/\mathfrak d$ with $\mathfrak d=
-\mathrm{dist}(z,\Gamma)$. Split $\Gamma$ into the shells $\{2^k\mathfrak d\le|s-z|<2^{k+1}\mathfrak d\}$, $k\ge0$; the
+(a) By Cauchy--Schwarz it suffices to show $\int_\Gamma|y-z|^{-2}|\diff y|\le4C_\Sigma/\mathfrak d$ with $\mathfrak d=
+\mathrm{dist}(z,\Gamma)$. Split $\Gamma$ into the shells $\{2^k\mathfrak d\le|y-z|<2^{k+1}\mathfrak d\}$, $k\ge0$; the
 $k$-th contributes at most $C_\Sigma2^{k+1}\mathfrak d\,(2^k\mathfrak d)^{-2}$, and the sum is $4C_\Sigma/\mathfrak d$.
 
 (b) Analyticity near $\mathcal V$ is clear, since $\mathfrak k$ vanishes there. By a partition of unity we may assume
@@ -63,10 +63,10 @@ limits $\Cauchy_\pm\mathfrak k$ of \S\ref{sec:tool-cd}.
 
 (c) Fix $z\notin\Gamma$. For small $\rho$ and large $R$ apply Cauchy's integral formula to $\mathfrak F$ on the open set
 $\mathbb D(0,R)\setminus\bigl(\Gamma\cup\bigcup_{z_0\in\mathcal V}\overline{\mathbb D(z_0,\rho)}\bigr)$, whose boundary consists of the two sides
-of the arcs of $\Gamma$ outside the small discs, the circles $|s-z_0|=\rho$ and the circle $|s|=R$; $\mathfrak F$ is continuous on
+of the arcs of $\Gamma$ outside the small discs, the circles $|y-z_0|=\rho$ and the circle $|y|=R$; $\mathfrak F$ is continuous on
 the closure (taken separately on the two sides of each arc). The two sides of an arc contribute
-$\frac1{2\pi i}\int(\mathfrak F_+-\mathfrak F_-)(s)\diff s/(s-z)$, the left side being traversed in the direction of the arc. As $\rho\to0$
-the small circles contribute at most $\sum_{z_0}2\rho\sup_{|s-z_0|=\rho}|\mathfrak F(s)|/|z-z_0|\to0$ (for $\rho\le|z-z_0|/2$), and the
+$\frac1{2\pi i}\int(\mathfrak F_+-\mathfrak F_-)(y)\diff y/(y-z)$, the left side being traversed in the direction of the arc. As $\rho\to0$
+the small circles contribute at most $\sum_{z_0}2\rho\sup_{|y-z_0|=\rho}|\mathfrak F(y)|/|z-z_0|\to0$ (for $\rho\le|z-z_0|/2$), and the
 arc integrals converge to $\Cauchy(\mathfrak F_+-\mathfrak F_-)(z)$ because $\mathfrak F_+-\mathfrak F_-\in L^2(\Gamma)\subset L^1(\Gamma)$. As $R\to\infty$ the large
 circle contributes $O(1/R)$. Hence $\mathfrak F(z)=\Cauchy(\mathfrak F_+-\mathfrak F_-)(z)$. Taking boundary values from either side,
 $\mathfrak F_\pm=\Cauchy_\pm(\mathfrak F_+-\mathfrak F_-)$ wherever the non-tangential limits $\Cauchy_\pm$ exist, i.e.\ almost everywhere.
@@ -107,31 +107,31 @@ Inside the lens the Cauchy sum~\eqref{eq:U-sum} has poles that $R$ removes; we m
 sector by the residue theorem and bound the boundary integral. Take $z$ with $0<\arg z<\varphi_1$; the case $\arg z<0$ is the mirror image. In $\Ob^+$, $R_{j2}=U_{j2}-U_{j1}We^{-2i\theta}\upsilon_+$
 by~\eqref{eq:R}. Put
 \[
-  \mathcal K_j(s):=\frac{U_{j1}(s)W(s)}{e^{2i\theta(s)}-1},\qquad s\in\mathcal G:=\{s:\ r<|s|<\delta_{\mathrm s},\ |\arg s|<\thlip\},
+  \mathcal K_j(y):=\frac{U_{j1}(y)W(y)}{e^{2i\theta(y)}-1},\qquad y\in\mathcal G:=\{y:\ r<|y|<\delta_{\mathrm s},\ |\arg y|<\thlip\},
 \]
 where $\delta_{\mathrm s}$ and $r$ are chosen with $t(\delta_{\mathrm s}),t(r)\in\N+\frac12$, and $r<\frac12|z|$, $|z|<\frac12\delta_{\mathrm s}$. Since
 $e^{-2i\theta}\upsilon_+=1/(e^{2i\theta}-1)$, we have $R_{j2}(z)=U_{j2}(z)-\mathcal K_j(z)$. The function $\mathcal K_j$ is meromorphic on a neighbourhood of $\overline{\mathcal G}$: $W$ is
 analytic there (Lemma~\ref{lem:weightdomain}), and $e^{2i\theta}=1$ only where $t\in\mathbb Z$, i.e.\ at the nodes (the points with
-$t\in-\N$ have $|\arg s|=\pi p>\thlip$). At a node, $e^{2i\theta(s)}-1=2i\theta'(X_k)(s-X_k)(1+O(s-X_k))$, so
+$t\in-\N$ have $|\arg y|=\pi p>\thlip$). At a node, $e^{2i\theta(y)}-1=2i\theta'(X_k)(y-X_k)(1+O(y-X_k))$, so
 $\Res_{X_k}\mathcal K_j=U_{j1}(X_k)W(X_k)/(2i\theta'(X_k))=w(X_k)U_{j1}(X_k)$. The residue theorem on $\partial\mathcal G$ (positively
 oriented) and~\eqref{eq:U-sum} give
 \begin{equation}\label{eq:R-contour}
-  R_{j2}(z)=\sum_{X_k\notin\mathcal G}\frac{w(X_k)U_{j1}(X_k)}{z-X_k}-\frac1{2\pi i}\oint_{\partial\mathcal G}\frac{\mathcal K_j(s)\diff s}{s-z}.
+  R_{j2}(z)=\sum_{X_k\notin\mathcal G}\frac{w(X_k)U_{j1}(X_k)}{z-X_k}-\frac1{2\pi i}\oint_{\partial\mathcal G}\frac{\mathcal K_j(y)\diff y}{y-z}.
 \end{equation}
 We bound the terms. (1) The nodes with $X_k\ge\delta_{\mathrm s}$ are finitely many and at distance $\ge\delta_{\mathrm s}/2$ from $z$; those with $X_k\le r$
 contribute at most $\frac2{|z|}\sum_{X_k\le r}w(X_k)|U_{j1}(X_k)|$, which tends to $0$ as $r\to0$. (2) On the ray
-$\arg s=\thlip$, $|e^{2i\theta}-1|^{-1}=|e^{-2i\theta}|/|1-e^{-2i\theta}|\le2\exp(-2\pi n|s|^{-1/p}\sin(\thlip/p))$ by~\eqref{eq:imtheta},
-which beats $|W(s)|\le C|s|^{\alpha-\eta}$ (Lemmas~\ref{lem:bandweight}, \ref{lem:pottersector}(ii)); and $|s-z|\ge|s|\sin(\thlip-\varphi_1)$.
-So this part is bounded. (3) On the ray $\arg s=-\thlip$ we write $1/(e^{2i\theta}-1)=-1-e^{2i\theta}/(1-e^{2i\theta})$, where now
-$|e^{2i\theta}|<1$ is super-small, so $\mathcal K_j=-U_{j1}W+(\text{bounded})$. Since $|s-z|\ge(|s|+|z|)/C$,
+$\arg y=\thlip$, $|e^{2i\theta}-1|^{-1}=|e^{-2i\theta}|/|1-e^{-2i\theta}|\le2\exp(-2\pi n|y|^{-1/p}\sin(\thlip/p))$ by~\eqref{eq:imtheta},
+which beats $|W(y)|\le C|y|^{\alpha-\eta}$ (Lemmas~\ref{lem:bandweight}, \ref{lem:pottersector}(ii)); and $|y-z|\ge|y|\sin(\thlip-\varphi_1)$.
+So this part is bounded. (3) On the ray $\arg y=-\thlip$ we write $1/(e^{2i\theta}-1)=-1-e^{2i\theta}/(1-e^{2i\theta})$, where now
+$|e^{2i\theta}|<1$ is super-small, so $\mathcal K_j=-U_{j1}W+(\text{bounded})$. Since $|y-z|\ge(|y|+|z|)/C$,
 \[
   \int_0^{\delta_{\mathrm s}}\frac{|W(\rho e^{-i\thlip})|\diff\rho}{\rho+|z|}\le C\int_0^{\delta_{\mathrm s}}\frac{\rho^{\alpha-\eta}\diff\rho}{\rho+|z|}\le C|z|^{-\eta}(1+|z|^{\alpha}),
 \]
-because $\alpha-\eta>-1$. (4) On the arcs $|s|=r$ and $|s|=\delta_{\mathrm s}$, $|t|\in\N+\frac12$. For such $t=u+iv$ we have
+because $\alpha-\eta>-1$. (4) On the arcs $|y|=r$ and $|y|=\delta_{\mathrm s}$, $|t|\in\N+\frac12$. For such $t=u+iv$ we have
 $|e^{2\pi it}-1|\ge1/C>0$: if $|v|\ge\frac14$ this is clear, and if $|v|<\frac14$ then $u$ is at distance at least $\frac38$ from
-$\mathbb Z$, so $|e^{2\pi it}-1|=2e^{-\pi v}|\sin\pi t|\ge2e^{-\pi/4}\sin(3\pi/8)$. Hence $|\mathcal K_j|\le C|W|\le C|s|^{\alpha-\eta}$
-there. The arc $|s|=r$ has length $\le2\thlip r$ and $|s-z|\ge\frac12|z|$, so its contribution is $\le Cr^{1+\alpha-\eta}/|z|\to0$
-as $r\to0$; the arc $|s|=\delta_{\mathrm s}$ contributes a bounded amount. Letting $r\to0$ in~\eqref{eq:R-contour} proves the bound for
+$\mathbb Z$, so $|e^{2\pi it}-1|=2e^{-\pi v}|\sin\pi t|\ge2e^{-\pi/4}\sin(3\pi/8)$. Hence $|\mathcal K_j|\le C|W|\le C|y|^{\alpha-\eta}$
+there. The arc $|y|=r$ has length $\le2\thlip r$ and $|y-z|\ge\frac12|z|$, so its contribution is $\le Cr^{1+\alpha-\eta}/|z|\to0$
+as $r\to0$; the arc $|y|=\delta_{\mathrm s}$ contributes a bounded amount. Letting $r\to0$ in~\eqref{eq:R-contour} proves the bound for
 $0<\arg z<\varphi_1$. For $z\in\Ob\cap \mathbb D(0,\delta_{\mathrm s}/2)$ with $\varphi_1\le|\arg z|<\frac54\thlip$, $R_{j2}=U_{j2}-U_{j1}We^{\mp2i\theta}\upsilon_\pm$
 is bounded by Lemma~\ref{lem:sumbound} plus a super-small term.
 \end{proof}
@@ -153,17 +153,17 @@ and those sums are controlled by Lemmas~\ref{lem:sumbound} and~\ref{lem:lenssect
 determinant $1$; so $\det Q=1$ and $Q^{-1}$ has the same entries up to sign and order.
 
 (i) Let $\eta>0$ and $|z|<\delta_{\mathrm s}/2$ (the annulus $\delta_{\mathrm s}/2\le|z|<\delta$ is covered by~(ii)). By~\eqref{eq:VM} and~\eqref{eq:Q},
-$Q$ is a constant diagonal matrix times $U\,M\,D_W^{\sigma_3}$. We use: $|e^{\pm n\varphi}|\le e^{Cn|z|^{1/2}}\le C$ (Lemma~\ref{lem:signs}(iii)); $|F|^{\pm1}\le C$ outside
+$Q$ is a constant diagonal matrix times $U\,\mathcal T\,D_W^{\sigma_3}$. We use: $|e^{\pm n\varphi}|\le e^{Cn|z|^{1/2}}\le C$ (Lemma~\ref{lem:signs}(iii)); $|F|^{\pm1}\le C$ outside
 the lens and $|\tilde F|^{\pm1}\le C$ in the lens near $0$ (Definition~\ref{def:outer-admissible}(e)); $|D_W(z)|^{\pm1}\le C|z|^{\pm\alpha/2-\eta}$
 (Lemma~\ref{lem:szego}(vi)); $|1/W(z)|\le C|z|^{-\alpha-\eta}$ in the lens (Lemmas~\ref{lem:bandweight},
 \ref{lem:pottersector}(ii)); and $U_{j1}$ bounded.
 
-\emph{Outside the lens} ($z\in\Oinf$), $|\arg z|\ge\frac34\thlip>\varphi_1$ and $M=e^{n\varphi\sigma_3}F^{\sigma_3}$. The first column of
+\emph{Outside the lens} ($z\in\Oinf$), $|\arg z|\ge\frac34\thlip>\varphi_1$ and $\mathcal T=e^{n\varphi\sigma_3}F^{\sigma_3}$. The first column of
 $Q$ is a constant times $U_{\cdot1}e^{n\varphi}FD_W$, of size $\le C|z|^{\alpha/2-\eta}$; the second is a constant times
 $U_{\cdot2}e^{-n\varphi}F^{-1}D_W^{-1}$, of size $\le C|z|^{-\eta}(1+|z|^\alpha)|z|^{-\alpha/2-\eta}$ by Lemma~\ref{lem:sumbound}. Both are
 $\le C|z|^{-|\alpha|/2-2\eta}$.
 
-\emph{In the lens} $\Ob^\pm$, $UM=R\,e^{n\varphi\sigma_3}A_\pm\tilde F^{\sigma_3}$, and
+\emph{In the lens} $\Ob^\pm$, $U\mathcal T=R\,e^{n\varphi\sigma_3}A_\pm\tilde F^{\sigma_3}$, and
 $e^{n\varphi\sigma_3}A_\pm=\bigl(\begin{smallmatrix}e^{n\varphi}&0\\\mp e^{n\varphi}/W&e^{-n\varphi}\end{smallmatrix}\bigr)$. The first column of
 $R$ is that of $U$, and the second is bounded by Lemma~\ref{lem:lenssector}. Hence the first column of $Q$ is at most
 $C(1+|z|^{-\alpha-2\eta}(1+|z|^\alpha))|z|^{\alpha/2-\eta}\le C|z|^{-|\alpha|/2-3\eta}$, and the second is at most
@@ -174,7 +174,7 @@ and diagonal factors in~\eqref{eq:R}--\eqref{eq:V}, $F$, $\tilde F$ and $D_W$ is
 for the poles of $U$ and of $\upsilon_\pm$ at the nodes, which cancel in $R$ (Step~1 of \S\ref{sec:frame-transf}). Near $4c$ the
 only singular factors are $\tilde F\sim(4c-z)^{-1/2}$ and $D_W\sim(4c-z)^{1/2}$, and they occur only in the product
 $\tilde FD_W$, whose square $(\tilde FD_W)^2=\wn z^\alpha r_n\omega$ is bounded above and below on $\mathbb D(4c,\eps)$
-(Lemma~\ref{lem:szego}(vi)(b)). At the remaining vertices ($4c\pm ih_0$, $n^p+\delta'\pm ih_0$, $n^p+\delta'$) all factors are
+(Lemma~\ref{lem:szego}(vi)(b)). At the remaining vertices ($4c\pm i\mathsf H_0$, $n^p+\delta'\pm i\mathsf H_0$, $n^p+\delta'$) all factors are
 analytic and bounded. At $\infty$, $Q\to I$ by Lemma~\ref{lem:normalisation}. (iii) follows from the same description and
 Lemma~\ref{lem:jumpsV}.
 \end{proof}

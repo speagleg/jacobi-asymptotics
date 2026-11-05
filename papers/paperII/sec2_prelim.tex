@@ -9,7 +9,7 @@ This section fixes conventions and collects the inputs of the proofs. The only i
 stated in \S\S\ref{sec:tool-wlxz}--\ref{sec:tool-dlmf}, with its hypotheses and the equation numbers of the source,
 so that the later sections can refer to it by subsection and part.
 
-\emph{Notation used throughout.} The data are $p>0$, $s>1$ and $\ell$; the function $\Lambda$, the modulus
+\emph{Notation used throughout.} The data are $p>0$, $s>1$ and $\ell$. The function $\Lambda$, the modulus
 $\varepsilon_\Lambda$ and the notion ``analytic of angle $\vartheta$'' are those of Definition~\ref{def:analytic}, and
 $c=c(p)$ is given by \eqref{eq:cp}. The Bessel order of the hard edge is $\alpha:=(s-1-p)/p$, so that $\alpha>-1$ for
 every $s>1$. Sections~\ref{sec:frame} and~\ref{sec:outer} hold for every $\alpha>-1$ and every $\ell$ that is analytic
@@ -40,8 +40,8 @@ degree $j+1$, orthonormality gives
 \end{equation}
 In matrix form, \eqref{eq:rec-orth} says that the Jacobi matrix of $\sigma$ is the symmetric tridiagonal matrix
 $\mathcal J(\sigma)$ with diagonal $(a_0,a_1,\dots)$ and off-diagonal $(b_1,b_2,\dots)$. The monic form
-\eqref{eq:rec-monic} corresponds to the non-symmetric matrix $J=J(\sigma)$ with $J_{n,n}=a_n$, $J_{n,n+1}=1$ and
-$J_{n+1,n}=b_{n+1}^2$; this is the form used in Section~\ref{sec:shift}. The ratio $a_n/(2b_n)$ always pairs the
+\eqref{eq:rec-monic} corresponds to the non-symmetric matrix $\mathcal J^{\mathrm m}=\mathcal J^{\mathrm m}(\sigma)$ with $\mathcal J^{\mathrm m}_{n,n}=a_n$, $\mathcal J^{\mathrm m}_{n,n+1}=1$ and
+$\mathcal J^{\mathrm m}_{n+1,n}=b_{n+1}^2$; this is the form used in Section~\ref{sec:shift}. The ratio $a_n/(2b_n)$ always pairs the
 diagonal entry at $P_n$ with the off-diagonal entry $b_n$ between $P_{n-1}$ and $P_n$; both are read off from the same
 Riemann--Hilbert matrix of degree $n$ (Proposition~\ref{prop:frame}(viii)).
 
@@ -121,7 +121,7 @@ This subsection and the next three state the external results used in Sections~\
 the appendices. They are needed only from Section~\ref{sec:frame} on. Throughout, the Cauchy transform on an oriented
 contour $\Sigma$ is
 \[
-  \Cauchy f(z):=\frac1{2\pi i}\int_\Sigma\frac{f(s)\diff s}{s-z},\qquad z\in\C\setminus\Sigma,
+  \Cauchy f(z):=\frac1{2\pi i}\int_\Sigma\frac{f(y)\diff y}{y-z},\qquad z\in\C\setminus\Sigma,
 \]
 and $\Cauchy_\pm f$ are its non-tangential boundary values from the left ($+$) and the right ($-$) of $\Sigma$, so that
 $\Cauchy_+-\Cauchy_-=1$. For a jump matrix $v$ on $\Sigma$ we write $\Cauchy_vf:=\Cauchy_-\bigl(f(v-I)\bigr)$. The
@@ -177,7 +177,7 @@ left endpoint; the hypotheses it needs are checked there.
 
 \emph{(a) The model.} Let $\alpha>-1$ and let $\Sigma_\Psi$ consist of the rays $\gamma_1:\arg\zeta=2\pi/3$,
 $\gamma_2:\arg\zeta=\pi$ and $\gamma_3:\arg\zeta=-2\pi/3$, all oriented towards the origin, with the $+$ side on the
-left \cite[Figure~3]{KMVV}. The function
+left \cite[Figure~3]{KMVV}; here $\zeta$ is the local variable of the model, not the Riemann zeta function of~\S\ref{sec:tool-dlmf}(e). The function
 \[
   \Psi_\alpha(\zeta)=\begin{pmatrix}I_\alpha(2\zeta^{1/2}) & \frac i\pi K_\alpha(2\zeta^{1/2})\\[1mm]
   2\pi i\zeta^{1/2}I_\alpha'(2\zeta^{1/2}) & -2\zeta^{1/2}K_\alpha'(2\zeta^{1/2})\end{pmatrix},\qquad|\arg\zeta|<2\pi/3
@@ -218,19 +218,19 @@ entries have at most a square-root singularity at the endpoint and it is analyti
 \cite[proof of Proposition~6.5]{KMVV}. In Section~\ref{sec:hardedge} this argument is applied only to a prefactor that
 does not involve the weight.
 
-\emph{(d) A Fisher--Hartwig point in the bulk.} For a band weight $|x|^{2\alpha+1}h(x)$ near an interior point, with $h$
+\emph{(d) A Fisher--Hartwig point in the bulk.} For a band weight $|x|^{2\alpha+1}\mathfrak v(x)$ near an interior point, with $\mathfrak v$
 analytic and zero-free and $\alpha>-1$, Kuijlaars and Vanlessen \cite[\S5]{KV} build a local parametrix from a
 model problem $\Psi$ with constant jumps on the rays $\arg\zeta=(j-1)\pi/4$ \cite[(5.17)--(5.20)]{KV}. Vanlessen
-\cite[(4.26)--(4.33)]{Van} solves it with $I_\nu$, $K_\nu$ and $H^{(1,2)}_\nu$ of the orders $\nu\in\{\alpha,\alpha+1\}$. It
-has $\det\Psi=1$ \cite[(4.53)]{Van} and the behaviour at $0$ of \cite[(5.21)--(5.22)]{KV}; the jumps on the four lip rays are lower triangular
-\cite[(5.18), (5.20)]{KV}, and the parametrix is
-$O\bigl(\begin{smallmatrix}1&|z|^{2\alpha+1}\\1&|z|^{2\alpha+1}\end{smallmatrix}\bigr)$ as $z\to0$ if $\alpha<-\frac12$, while
+\cite[(4.26)--(4.33)]{Van} solves it with $I_\nu$, $K_\nu$ and $H^{(1,2)}_\nu$ of the orders $\nu\in\{\alpha,\alpha+1\}$. The
+model has $\det\Psi=1$ \cite[(4.53)]{Van} and the behaviour at $0$ of \cite[(5.21)--(5.22)]{KV}, and its jumps on the four
+lip rays are lower triangular \cite[(5.18), (5.20)]{KV}. As $z\to0$ the parametrix is
+$O\bigl(\begin{smallmatrix}1&|z|^{2\alpha+1}\\1&|z|^{2\alpha+1}\end{smallmatrix}\bigr)$ if $\alpha<-\frac12$, while
 for $\alpha>-\frac12$ it is $O(1)$ outside the lens and
 $O\bigl(\begin{smallmatrix}|z|^{-2\alpha-1}&1\\|z|^{-2\alpha-1}&1\end{smallmatrix}\bigr)$ inside \cite[(5.4)--(5.5)]{KV}. As $\zeta\to\infty$ in each
 quadrant, $\Psi(\zeta)=\frac1{\sqrt2}\bigl(\begin{smallmatrix}1&-i\\-i&1\end{smallmatrix}\bigr)(I+O(1/\zeta))e^{\pi
 i\sigma_3/4}e^{-i\zeta\sigma_3}C_q$ with a constant matrix $C_q$ \cite[(4.43)--(4.46)]{Van}. The parametrix is
 $E_n\Psi(nf)W^{-\sigma_3}e^{-n\varphi\sigma_3}$, with $f$ of \cite[(5.6)]{KV}, $W$ of \cite[(5.9)]{KV}, and the
-prefactor $E_n$ of \cite[(5.26)--(5.30)]{KV}, which is analytic by the argument of \cite[p.~19]{KV}; the factor $h$ is
+prefactor $E_n$ of \cite[(5.26)--(5.30)]{KV}, which is analytic by the argument of \cite[p.~19]{KV}; the factor $\mathfrak v$ is
 absorbed into $W$ as in \cite[\S4.1]{Van}. Only the construction is used, in Section~\ref{sec:pone}; the theorems of
 \cite{KV,Van} on orthogonal polynomials are not applied.
 
@@ -255,10 +255,10 @@ extensions of $A_\pm,B_\pm$, then}
 $B=I+B_1/z+B_2/z^2+O(z^{-3})$ as $z\to\infty$, then with $\mathcal E:=A_-(v_A-v_B)v_B^{-1}B_-^{-1}\in L^1(\Sigma)$
 (take $r=r'=2$),
 \begin{equation}\label{eq:CD-moments}
-  A_1-B_1=-\frac1{2\pi i}\int_\Sigma\mathcal E(s)\diff s,\qquad
-  A_2-B_2=-\frac1{2\pi i}\int_\Sigma s\mathcal E(s)\diff s+(A_1-B_1)B_1 .
+  A_1-B_1=-\frac1{2\pi i}\int_\Sigma\mathcal E(y)\diff y,\qquad
+  A_2-B_2=-\frac1{2\pi i}\int_\Sigma y\mathcal E(y)\diff y+(A_1-B_1)B_1 .
 \end{equation}
-For the proof, write $v_Av_B^{-1}-I=(v_A-v_B)v_B^{-1}$; for $|z|>\max_\Sigma|s|$ expand $1/(s-z)=-\sum_{j\ge0}s^jz^{-j-1}$ in
+For the proof, write $v_Av_B^{-1}-I=(v_A-v_B)v_B^{-1}$; for $|z|>\max_\Sigma|y|$ expand $1/(y-z)=-\sum_{j\ge0}y^jz^{-j-1}$ in
 $\Cauchy\mathcal E(z)$ and compare with $AB^{-1}=I+(A_1-B_1)z^{-1}+\bigl(A_2-B_2-(A_1-B_1)B_1\bigr)z^{-2}+O(z^{-3})$.
 This is the mechanism of \cite[Proposition~4.9]{CD}, whose proof identifies $\mu=Q_-$ and $\tilde\mu=\tilde Q_-$.
 Formula (4.14) of \cite{CD} is printed without the factor $v_B^{-1}$; it agrees with \eqref{eq:CD-moments} when
@@ -276,8 +276,8 @@ $\|(1-\Cauchy_{\tilde v})^{-1}\|_{L^2\to L^2}\le K$ and $\|\Cauchy_v-\Cauchy_{\t
 exists and has norm at most $2K$, since the inner factor is $1$ minus an operator of norm at most $\frac12$. In
 \cite{CD} the smallness comes from $\|v-\tilde v\|_{L^\infty(\Sigma)}\to0$.
 
-\emph{(e) Proposition~4.6 of \cite{CD}} (attributed there to Deift and Zhou). The operators $(1-\Cauchy_{h_n})^{-1}$
-are bounded uniformly in $n$ if and only if the inhomogeneous problem $m_+=m_-h_n+g$ on $\Sigma$,
+\emph{(e) Proposition~4.6 of \cite{CD}} (attributed there to Deift and Zhou). The operators $(1-\Cauchy_{v_n})^{-1}$
+are bounded uniformly in $n$ if and only if the inhomogeneous problem $m_+=m_-v_n+g$ on $\Sigma$,
 $m_\pm\in\dC(L^2(\Sigma))$, is uniquely solvable for every $g\in L^2(\Sigma)$ with $\|m_\pm\|_{L^2}\le C\|g\|_{L^2}$, $C$
 independent of $n$ and $g$. We use only the direction ``solvable with bounds $\Rightarrow$ bounded inverse'', and we
 re-prove it in Appendix~\ref{app:resolvent}.
@@ -317,7 +317,7 @@ dots an entire function of $z^2$; (10.28.2) $\mathcal W\{K_\nu,I_\nu\}(z)=1/z$, 
 $I_\nu(z)=\frac1\pi\int_0^\pi e^{z\cos\theta}\cos(\nu\theta)\diff\theta-\frac{\sin(\nu\pi)}\pi\int_0^\infty e^{-z\cosh t-\nu t}\diff t$
 and (10.32.9) $K_\nu(z)=\int_0^\infty e^{-z\cosh t}\cosh(\nu t)\diff t$.
 
-\emph{(d) Large argument} (\S\S10.17, 10.40, $\nu$ fixed). The coefficients are, by (10.17.1) and (10.17.8),
+\emph{(d) Large argument} (\S\S10.17, 10.40, $\nu$ fixed). The coefficients (the notation of \cite{DLMF}, unrelated to the recurrence coefficients $a_n,b_n$) are, by (10.17.1) and (10.17.8),
 \begin{gather*}
   a_k(\nu)=\frac{(4\nu^2-1^2)(4\nu^2-3^2)\cdots(4\nu^2-(2k-1)^2)}{k!\,8^k},\\
   b_k(\nu)=\frac{(4\nu^2-1^2)\cdots(4\nu^2-(2k-3)^2)\,(4\nu^2+4k^2-1)}{k!\,8^k},

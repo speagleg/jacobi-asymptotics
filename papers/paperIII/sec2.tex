@@ -3,13 +3,13 @@
 
 This section collects the tools used in every later section. After fixing conventions (\S\ref{sec:conv}) we restate
 the results imported from \cite{PaperI} and \cite{PaperII} (\S\ref{sec:imports}); a reader who accepts these
-statements can read the rest of the paper without the earlier ones. We then prove two facts about slowly varying
+statements can read the rest of the paper without the earlier papers. We then prove two facts about slowly varying
 sequences (\S\ref{sec:prelim-sv}), the first-variation formulas (\S\ref{sec:fv}) with bounds on their second-order
 remainders (\S\ref{sec:lr}), and the two localisation properties of the spectral weights (\S\ref{sec:loc}). The proofs
 are short and, apart from the second-order bounds, of a standard kind.
 
 \subsection{Conventions}\label{sec:conv}
-Throughout, $\sigma=\sum_{k\ge1}w_k\delta_{x_k}$ with distinct atoms $x_k\in(0,1]$, weights $w_k>0$ and
+Throughout, $\sigma$ denotes a measure $\sum_{k\ge1}w_k\delta_{x_k}$ with distinct atoms $x_k\in(0,1]$, weights $w_k>0$ and
 $\|w\|_1:=\sum_kw_k<\infty$, except where a more general positive measure on $[0,\infty)$ is allowed explicitly. Such
 a $\sigma$ has infinite support and finite moments, so its monic orthogonal polynomials $P_n$ exist for all $n\ge0$
 and satisfy \eqref{eq:rec}. The orthonormal polynomials $p_n:=P_n/\sqrt{h_n}$ satisfy
@@ -240,9 +240,9 @@ $\dot a_n=\langle\varphi,\Delta\cE_n\rangle$. The bound follows from $|q_jq_{j+1
 \end{proof}
 
 \begin{lemma}[derivative of the spectral vectors]\label{lem:qdot}
-For $m\ge0$, with $\alpha_m:=\langle\varphi,m_m\rangle$,
+For $m\ge0$, with $\chi_m:=\langle\varphi,m_m\rangle$,
 \[
-  \dot q_m=\tfrac12\varphi q_m-\Proj_m(\varphi q_m)-\tfrac12\alpha_mq_m .
+  \dot q_m=\tfrac12\varphi q_m-\Proj_m(\varphi q_m)-\tfrac12\chi_mq_m .
 \]
 \end{lemma}
 
@@ -250,13 +250,13 @@ For $m\ge0$, with $\alpha_m:=\langle\varphi,m_m\rangle$,
 Since $q_m=w(t)^{1/2}p_m(x)$ and $\deg\dot p_m\le m$, we have $\dot q_m=\frac12\varphi q_m+r$ with $r$ in the span of
 $q_0,\dots,q_m$. For $j<m$ the same reasoning gives $\dot q_j-\frac12\varphi q_j\perp q_m$, so differentiating
 $\langle q_m,q_j\rangle=0$ gives $\langle r,q_j\rangle=-\langle\varphi q_m,q_j\rangle$. Differentiating
-$\langle q_m,q_m\rangle=1$ gives $\langle r,q_m\rangle=-\frac12\alpha_m$. Hence $r=-\Proj_m(\varphi q_m)-\frac12\alpha_mq_m$.
+$\langle q_m,q_m\rangle=1$ gives $\langle r,q_m\rangle=-\frac12\chi_m$. Hence $r=-\Proj_m(\varphi q_m)-\frac12\chi_mq_m$.
 \end{proof}
 
 \subsection{Second-order bounds}\label{sec:lr}
 The first-variation formulas are exact derivatives; to use them for a perturbation $e^\varphi$ of fixed size one
-needs the second derivative. The next lemma bounds it with absolute constants, for every base measure. It is the
-reason why the constructions of Section~\ref{sec:rough} need no information about the perturbed measures.
+needs the second derivative. The next lemma bounds it with absolute constants, for every base measure. Because of this uniformity, the
+constructions of Section~\ref{sec:rough} need no information about the perturbed measures.
 
 For a bounded real $\varphi$ put $\varepsilon:=\frac12(\sup\varphi-\inf\varphi)$. Write
 $\Delta^2m_N:=m_N-2m_{N-1}+m_{N-2}$ and $F_N:=\log(b_N^2/b_{N-1}^2)$ for $N\ge2$. A superscript $v$ denotes quantities
@@ -281,41 +281,41 @@ $g(1)-g(0)-\dot g(0)=\int_0^1(1-t)\ddot g(t)\diff t$.
 
 \emph{Second derivative of $\log h_m$.} By Lemma~\ref{lem:fv} and Lemma~\ref{lem:qdot},
 \[
-  \dot\alpha_m=2\langle\varphi q_m,\dot q_m\rangle=\|\varphi q_m\|^2-\alpha_m^2-2\|\Proj_m(\varphi q_m)\|^2,
+  \dot\chi_m=2\langle\varphi q_m,\dot q_m\rangle=\|\varphi q_m\|^2-\chi_m^2-2\|\Proj_m(\varphi q_m)\|^2,
 \]
 since $\Proj_m$ is an orthogonal projection. Because $q_m$ is orthogonal to the range of $\Proj_m$, the vectors
-$\Proj_m(\varphi q_m)$, $\alpha_mq_m$ and the rest of $\varphi q_m$ are pairwise orthogonal, and Bessel's inequality
-gives $\|\Proj_m(\varphi q_m)\|^2\le\|\varphi q_m\|^2-\alpha_m^2=\Var_{m_m}(\varphi)$. Hence
+$\Proj_m(\varphi q_m)$, $\chi_mq_m$ and the rest of $\varphi q_m$ are pairwise orthogonal, and Bessel's inequality
+gives $\|\Proj_m(\varphi q_m)\|^2\le\|\varphi q_m\|^2-\chi_m^2=\Var_{m_m}(\varphi)$. Hence
 \[
-  |\dot\alpha_m|\le\Var_{m_m}(\varphi)\le\sum_k\varphi(k)^2m_m(k)\le\varepsilon^2 .
+  |\dot\chi_m|\le\Var_{m_m}(\varphi)\le\sum_k\varphi(k)^2m_m(k)\le\varepsilon^2 .
 \]
 
-\emph{(i) and (ii).} By \eqref{eq:fv-b}, $\frac{\diff^2}{\diff t^2}\log b_n^2=\dot\alpha_n-\dot\alpha_{n-1}$, of absolute
-value at most $2\varepsilon^2$, and $\ddot F_N=\dot\alpha_N-2\dot\alpha_{N-1}+\dot\alpha_{N-2}$, of absolute value at most
+\emph{(i) and (ii).} By \eqref{eq:fv-b}, $\frac{\diff^2}{\diff t^2}\log b_n^2=\dot\chi_n-\dot\chi_{n-1}$, of absolute
+value at most $2\varepsilon^2$, and $\ddot F_N=\dot\chi_N-2\dot\chi_{N-1}+\dot\chi_{N-2}$, of absolute value at most
 $4\varepsilon^2$. Taylor's formula gives (i) and (ii), since $\int_0^1(1-t)\diff t=\frac12$.
 
 \emph{(iii).} Put $\gamma_m:=\langle\varphi q_m,q_{m+1}\rangle$. By \eqref{eq:rec-vec},
 $\langle(x-a_n)\varphi,m_n\rangle=b_{n+1}\gamma_n+b_n\gamma_{n-1}$, so \eqref{eq:fv-a} reads
-$\dot a_n=b_{n+1}\gamma_n-b_n\gamma_{n-1}$. By \eqref{eq:fv-b}, $\dot b_m=\frac12(\alpha_m-\alpha_{m-1})b_m$; in particular
+$\dot a_n=b_{n+1}\gamma_n-b_n\gamma_{n-1}$. By \eqref{eq:fv-b}, $\dot b_m=\frac12(\chi_m-\chi_{m-1})b_m$; in particular
 $|\dot b_m|\le\varepsilon b_m$, so $b_m(t)\le e^{\varepsilon t}b_m(0)$. Put $u:=\varphi q_m$, $u':=\varphi q_{m+1}$,
 $\Proj:=I-\Proj_{m+2}$, $S_m:=\langle\Proj_mu,\Proj_mu'\rangle$ and $R_m:=\langle\Proj u,\Proj u'\rangle$. Decomposing
 along the range of $\Proj_m$, $q_m$, $q_{m+1}$ and the range of $\Proj$ (pairwise orthogonal), and using
 Lemma~\ref{lem:qdot} twice, one finds
 \[
-  \langle\dot q_m,u'\rangle=\tfrac12\langle u,u'\rangle-S_m-\tfrac12\alpha_m\gamma_m,\qquad
-  \langle u,\dot q_{m+1}\rangle=\tfrac12\langle u,u'\rangle-S_m-\alpha_m\gamma_m-\tfrac12\alpha_{m+1}\gamma_m,
+  \langle\dot q_m,u'\rangle=\tfrac12\langle u,u'\rangle-S_m-\tfrac12\chi_m\gamma_m,\qquad
+  \langle u,\dot q_{m+1}\rangle=\tfrac12\langle u,u'\rangle-S_m-\chi_m\gamma_m-\tfrac12\chi_{m+1}\gamma_m,
 \]
-and $\langle u,u'\rangle=S_m+\alpha_m\gamma_m+\gamma_m\alpha_{m+1}+R_m$. Adding,
-$\dot\gamma_m=R_m-S_m+\frac12(\alpha_{m+1}-\alpha_m)\gamma_m$, and therefore
+and $\langle u,u'\rangle=S_m+\chi_m\gamma_m+\gamma_m\chi_{m+1}+R_m$. Adding,
+$\dot\gamma_m=R_m-S_m+\frac12(\chi_{m+1}-\chi_m)\gamma_m$, and therefore
 \[
-  \ddot a_n=b_{n+1}\Gamma_n-b_n\Gamma_{n-1},\qquad \Gamma_m:=R_m-S_m+(\alpha_{m+1}-\alpha_m)\gamma_m .
+  \ddot a_n=b_{n+1}\Gamma_n-b_n\Gamma_{n-1},\qquad \Gamma_m:=R_m-S_m+(\chi_{m+1}-\chi_m)\gamma_m .
 \]
 We claim $|\Gamma_m|\le\varepsilon^2$. By the Cauchy--Schwarz inequality, first in $\ell^2$ and then in $\R^2$,
 $|R_m-S_m|\le(\|\Proj u\|^2+\|\Proj_mu\|^2)^{1/2}(\|\Proj u'\|^2+\|\Proj_mu'\|^2)^{1/2}$. By the orthogonal decomposition,
-$\|\Proj u\|^2+\|\Proj_mu\|^2=\|u\|^2-\alpha_m^2-\gamma_m^2\le\varepsilon^2-\alpha_m^2-\gamma_m^2$, and likewise for $u'$
-with $\alpha_{m+1}$. By the inequality between the geometric and arithmetic means,
-$|R_m-S_m|\le\varepsilon^2-\gamma_m^2-\frac12(\alpha_m^2+\alpha_{m+1}^2)$, while
-$|(\alpha_{m+1}-\alpha_m)\gamma_m|\le\gamma_m^2+\frac14(|\alpha_m|+|\alpha_{m+1}|)^2\le\gamma_m^2+\frac12(\alpha_m^2+\alpha_{m+1}^2)$.
+$\|\Proj u\|^2+\|\Proj_mu\|^2=\|u\|^2-\chi_m^2-\gamma_m^2\le\varepsilon^2-\chi_m^2-\gamma_m^2$, and likewise for $u'$
+with $\chi_{m+1}$. By the inequality between the geometric and arithmetic means,
+$|R_m-S_m|\le\varepsilon^2-\gamma_m^2-\frac12(\chi_m^2+\chi_{m+1}^2)$, while
+$|(\chi_{m+1}-\chi_m)\gamma_m|\le\gamma_m^2+\frac14(|\chi_m|+|\chi_{m+1}|)^2\le\gamma_m^2+\frac12(\chi_m^2+\chi_{m+1}^2)$.
 Adding proves the claim. Hence $|\ddot a_n(t)|\le\varepsilon^2(b_n(t)+b_{n+1}(t))\le\varepsilon^2e^{\varepsilon t}(b_n+b_{n+1})(v)$,
 and Taylor's formula with $\dot a_n(0)=\langle\varphi,\Delta\cE_n^v\rangle$ (Lemma~\ref{lem:toda}) gives (iii), because
 $\int_0^1(1-t)\varepsilon^2e^{\varepsilon t}\diff t=e^\varepsilon-1-\varepsilon$.
@@ -419,46 +419,46 @@ gives the first bound. For $|y|\ge1$, $|T_j(y)|=\cosh(j\operatorname{arccosh}|y|
 the second.
 
 \begin{lemma}[polynomial tail localisation]\label{lem:TL}
-Let $\sigma=\sum_kw_k\delta_{k^{-p}}$ with $c'k^{-s}\le w_k\le C'k^{-s}$ for all $k$, where $s>1$ and $0<c'\le C'$. For
-$n\ge2$ put $T':=\lceil16pn^3\rceil$ and $T'':=\lceil T'n^{2/p}\rceil$. Then $K_{n+1}(k)\le68^2(n+1)^2(C'/c')(T''/k)^s$ for
-every $k\ge T''$, and for every integer $T\ge T''$ and $n'\in\{n-1,n\}$,
+Let $\sigma=\sum_kw_k\delta_{k^{-p}}$ with $c_-k^{-s}\le w_k\le C_+k^{-s}$ for all $k$, where $s>1$ and $0<c_-\le C_+$. For
+$n\ge2$ put $L':=\lceil16pn^3\rceil$ and $L'':=\lceil L'n^{2/p}\rceil$. Then $K_{n+1}(k)\le68^2(n+1)^2(C_+/c_-)(L''/k)^s$ for
+every $k\ge L''$, and for every integer $L\ge L''$ and $n'\in\{n-1,n\}$,
 \[
-  m_{n'}\bigl((T,\infty)\bigr)\le\frac{68^2(n+1)^2(C'/c')}{s-1}\,T''^{\,s}\,T^{1-s}.
+  m_{n'}\bigl((L,\infty)\bigr)\le\frac{68^2(n+1)^2(C_+/c_-)}{s-1}\,L''^{\,s}\,L^{1-s}.
 \]
 \end{lemma}
 
 \begin{proof}
-Put $\bar x:=x_{T'}$ and $\underline x:=x_{T''}$, so that $\underline x/\bar x\le(T'/T'')^p\le n^{-2}\le\frac14$. Let $\deg P\le n$ and write $\|P\|_{[\underline x,\bar x]}$
+Put $\bar x:=x_{L'}$ and $\underline x:=x_{L''}$, so that $\underline x/\bar x\le(L'/L'')^p\le n^{-2}\le\frac14$. Let $\deg P\le n$ and write $\|P\|_{[\underline x,\bar x]}$
 for the maximum of $|P|$ on $[\underline x,\bar x]$. Mapping $[\underline x,\bar x]$ affinely onto $[-1,1]$, \eqref{eq:cheb} gives $|P'|\le
 4n^3\|P\|_{[\underline x,\bar x]}/(\bar x-\underline x)\le8n^3\|P\|_{[\underline x,\bar x]}/\bar x$ on $[\underline x,\bar x]$. Consecutive atoms in $[\underline x,\bar x]$ are at distance $x_j-x_{j+1}\le
-pj^{-p-1}\le p\bar x/T'$, so every point of $[\underline x,\bar x]$ is within $p\bar x/T'$ of an atom, and
-$\|P\|_{[\underline x,\bar x]}\le\max|P(x_j)|+(8pn^3/T')\|P\|_{[\underline x,\bar x]}$, the maximum over $T'\le j\le T''$. Since $T'\ge16pn^3$,
-$\|P\|_{[\underline x,\bar x]}\le2\max_{T'\le j\le T''}|P(x_j)|$. For $0\le x\le\underline x$ the affine image $y=(\underline x+\bar x-2x)/(\bar x-\underline x)$ satisfies
+pj^{-p-1}\le p\bar x/L'$, so every point of $[\underline x,\bar x]$ is within $p\bar x/L'$ of an atom, and
+$\|P\|_{[\underline x,\bar x]}\le\max|P(x_j)|+(8pn^3/L')\|P\|_{[\underline x,\bar x]}$, the maximum over $L'\le j\le L''$. Since $L'\ge16pn^3$,
+$\|P\|_{[\underline x,\bar x]}\le2\max_{L'\le j\le L''}|P(x_j)|$. For $0\le x\le\underline x$ the affine image $y=(\underline x+\bar x-2x)/(\bar x-\underline x)$ satisfies
 $1\le y\le1+4\underline x/\bar x\le1+4n^{-2}$, and $T_n(1+\eta)=\cosh(n\operatorname{arccosh}(1+\eta))\le e^{n\sqrt{2\eta}}\le e^{\sqrt8}<17$ for
-$\eta\le4n^{-2}$. By \eqref{eq:cheb}, $|P(x)|\le34(n+1)\|P\|_{[\underline x,\bar x]}$. Hence, if $k\ge T''$ and $P(x_k)=1$, then
-$1\le68(n+1)\max_{T'\le j\le T''}|P(x_j)|$, so $\int P^2\diff\sigma\ge\min_{j\le T''}w_j/(68(n+1))^2\ge c'T''^{-s}/(68(n+1))^2$.
-By \eqref{eq:christoffel}, $K_{n+1}(k)=w_k\mathsf K_{n+1}(x_k)\le68^2(n+1)^2(C'/c')(T''/k)^s$. Finally
-$m_{n'}\le K_{n'+1}\le K_{n+1}$ for $n'\le n$, and $\sum_{k>T}k^{-s}\le T^{1-s}/(s-1)$.
+$\eta\le4n^{-2}$. By \eqref{eq:cheb}, $|P(x)|\le34(n+1)\|P\|_{[\underline x,\bar x]}$. Hence, if $k\ge L''$ and $P(x_k)=1$, then
+$1\le68(n+1)\max_{L'\le j\le L''}|P(x_j)|$, so $\int P^2\diff\sigma\ge\min_{j\le L''}w_j/(68(n+1))^2\ge c_-L''^{-s}/(68(n+1))^2$.
+By \eqref{eq:christoffel}, $K_{n+1}(k)=w_k\mathsf K_{n+1}(x_k)\le68^2(n+1)^2(C_+/c_-)(L''/k)^s$. Finally
+$m_{n'}\le K_{n'+1}\le K_{n+1}$ for $n'\le n$, and $\sum_{k>L}k^{-s}\le L^{1-s}/(s-1)$.
 \end{proof}
 
 \begin{lemma}[one power for all $M$]\label{lem:allM}
 Let $s\in\Sp$, let $m_n$ be the spectral weights of $\sigma_{p,s}$, and put
 \[
-  \vartheta_*=\vartheta_*(p,s):=\frac{s-1}{4+(2+2/p)s}.
+  \omega_*=\omega_*(p,s):=\frac{s-1}{4+(2+2/p)s}.
 \]
-Then $0<\vartheta_*<\min(p/2,s-1)$, $\vartheta_*$ increases with $s$, and there are $C$ and $n_0$ such that
-$m_{n'}((Mn,\infty))\le CM^{-\vartheta_*}$ for all $n\ge n_0$, $n'\in\{n-1,n\}$ and $M\ge1$.
+Then $0<\omega_*<\min(p/2,s-1)$, $\omega_*$ increases with $s$, and there are $C$ and $n_0$ such that
+$m_{n'}((Mn,\infty))\le CM^{-\omega_*}$ for all $n\ge n_0$, $n'\in\{n-1,n\}$ and $M\ge1$.
 \end{lemma}
 
 \begin{proof}
-Put $B:=3+(2+2/p)s$, so that $\vartheta_*=(s-1)/(B+1)$, and $\gamma_1:=1/\vartheta_*=(B+1)/(s-1)$; then
-$\gamma_1>2+2/p$, and $\vartheta_*<(s-1)p/(2s)<p/2$. The map $M\mapsto m_{n'}((Mn,\infty))$ is non-increasing. For $1\le
-M\le\gamma_*n^{2/p}$ use Proposition~\ref{prop:imp-tail} and $M^{-p/2}\le M^{-\vartheta_*}$. For $\gamma_*n^{2/p}\le M\le
-n^{\gamma_1}$, monotonicity and Proposition~\ref{prop:imp-tail} give the bound $C\gamma_*^{-p/2}n^{-1}\le C\gamma_*^{-p/2}M^{-\vartheta_*}$,
-since $M^{\vartheta_*}\le n$. For $M\ge n^{\gamma_1}$ apply Lemma~\ref{lem:TL} with $c'=C'=1$ and $T:=\lfloor Mn\rfloor\ge
-Mn/2$; since $T''\le(16p+2)n^{3+2/p}$ and $\gamma_1+1>3+2/p$, we have $T\ge T''$ for large $n$, and
-$\{k>Mn\}\subset\{k>T\}$. This gives $m_{n'}((Mn,\infty))\le Cn^2n^{(3+2/p)s}(Mn)^{1-s}=Cn^BM^{-(s-1)}$, and
-$n^BM^{-(s-1)}=n^BM^{-B\vartheta_*}M^{-\vartheta_*}\le M^{-\vartheta_*}$ because $M^{\vartheta_*}\ge n$.
+Put $B:=3+(2+2/p)s$, so that $\omega_*=(s-1)/(B+1)$, and $\gamma_1:=1/\omega_*=(B+1)/(s-1)$; then
+$\gamma_1>2+2/p$, and $\omega_*<(s-1)p/(2s)<p/2$. The map $M\mapsto m_{n'}((Mn,\infty))$ is non-increasing. For $1\le
+M\le\gamma_*n^{2/p}$ use Proposition~\ref{prop:imp-tail} and $M^{-p/2}\le M^{-\omega_*}$. For $\gamma_*n^{2/p}\le M\le
+n^{\gamma_1}$, monotonicity and Proposition~\ref{prop:imp-tail} give the bound $C\gamma_*^{-p/2}n^{-1}\le C\gamma_*^{-p/2}M^{-\omega_*}$,
+since $M^{\omega_*}\le n$. For $M\ge n^{\gamma_1}$ apply Lemma~\ref{lem:TL} with $c_-=C_+=1$ and $L:=\lfloor Mn\rfloor\ge
+Mn/2$; since $L''\le(16p+2)n^{3+2/p}$ and $\gamma_1+1>3+2/p$, we have $L\ge L''$ for large $n$, and
+$\{k>Mn\}\subset\{k>L\}$. This gives $m_{n'}((Mn,\infty))\le Cn^2n^{(3+2/p)s}(Mn)^{1-s}=Cn^BM^{-(s-1)}$, and
+$n^BM^{-(s-1)}=n^BM^{-B\omega_*}M^{-\omega_*}\le M^{-\omega_*}$ because $M^{\omega_*}\ge n$.
 \end{proof}
 
 \begin{lemma}\label{lem:usat}

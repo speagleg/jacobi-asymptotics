@@ -3,7 +3,7 @@
 
 \subsection{Setting}\label{sec:setting}
 Let $p>0$, $s>1$, and let $\Lambda=\{\lambda_m\}_{m\ge1}$ be an increasing sequence of positive numbers with
-$\lambda_m\sim m^p$. We study the discrete measure on the reciprocals of $\Lambda$,
+$\lambda_m\sim m^p$ (this $\Lambda$ is a node set, not the analytic function $\Lambda$ of \cite[Definition~1.1]{PaperII}). We study the discrete measure on the reciprocals of $\Lambda$,
 \begin{equation}\label{eq:sigmaL}
   \sigma_\Lambda:=\sum_{m\ge1}\lambda_m^{-s/p}\,\delta_{1/\lambda_m},
 \end{equation}
@@ -27,7 +27,7 @@ continued meromorphically from $\Re w>1/p$; for the lattice $Z_\Lambda(w)=\zeta(
   W(q):=\binom{2q}{q}c^q=\frac{(4c)^q\,\Gamma(q+\frac12)}{\sqrt\pi\,\Gamma(q+1)},\qquad
   \varepsilon_j:=W(j)\,p\,\zeta(-jp)\quad(j\ge1).
 \end{equation}
-$W(1/p)=1$ is the definition of $c$, and $\varepsilon_1=\kp:=2pc\,\zeta(-p)$ is the constant of \cite[Theorem~1.4(ii)]{PaperII}.
+$W(1/p)=1$ is the definition of $c$, and $\varepsilon_1=\kp:=2pc\,\zeta(-p)$ is the constant of \cite[Theorem~1.4(ii)]{PaperII}, where it is defined for $0<p<1$; we use the same formula for every $p\ne1$.
 The question of this paper is how the expansion of $n^pb_n/c$ continues beyond the $1/n$ term, and how it depends on
 $\Lambda$. The answer is that its coefficients are spectral data of $\Lambda$: the values $Z_\Lambda(-j)$ and $Z_\Lambda(0)$ and the
 poles of $Z_\Lambda$.
@@ -41,9 +41,9 @@ Put $\mu_{n,j}:=2\zeta(-jp)/(jn^{jp})$ and define the \emph{natural index}
 \begin{mainthm}[zeta values in the Jacobi coefficients of the lattice]\label{thm:A}
 Let $p>0$, $p\ne1$, $s>1$.
 \begin{enumerate}
-\item[(i)] \emph{Double expansion.} For all $K,J,B\ge1$,
+\item[(i)] \emph{Double expansion.} For all $K,J,T\ge1$,
 \[
-  \frac{n^pb_n}c=\sum_{|\br|\le B}\mu_n^{\br}\,\cD_{\br,K}(n)+O\bigl(n^{-K-1}+n^{-2-(B+1)p}+n^{-1-(J+1)p}\bigr),
+  \frac{n^pb_n}c=\sum_{|\br|\le T}\mu_n^{\br}\,\cD_{\br,K}(n)+O\bigl(n^{-K-1}+n^{-2-(T+1)p}+n^{-1-(J+1)p}\bigr),
 \]
 where the sum is over multi-indices $\br=(r_1,\dots,r_J)$, $\mu_n^{\br}=\prod_{j\le J}\mu_{n,j}^{r_j}$ and the \emph{layers} $\cD_{\br,K}$ are polynomials in $1/n$ of degree at most $K$ with
 coefficients rational in $(p,\alpha)$, independent of the zeta values and computed by a finite residue recursion.
@@ -123,10 +123,10 @@ than the Weyl pole $-1/p$, with residues $R_q$, $pR_qW(q)\pi\cot(\pi q)n^{-1-pq}
 Mellin signature of truncating the per-node law at the soft edge (Lemma~\ref{lem:K0}, Proposition~\ref{prop:M12}). For a general Weyl-type
 spectrum we conjecture (Conjecture~\ref{conj:W}) that $n^pb_n/c$ is the decoupled model with Szeg\H{o} exponent $\alpha-2Z_\Lambda(0)-1$,
 flowed along the Toda hierarchy with times $-2Z_\Lambda(-j)/j$ corrected by the density and mass of the nodes, plus these pole terms. The
-conjecture is proved for the families of Theorems~\ref{thm:A}--\ref{thm:D} (for Theorem~\ref{thm:D} at first order in the poles; in the sense
-of the next paragraph and \S\ref{sec:organisation}), it is exact for reciprocal squared Bessel zeros (Proposition~\ref{prop:bessel}), and it
-was tested on nine further measures with predictions written before the measures were computed (an order attested by file times, not by
-the repository history; \S\ref{sec:evidence}).
+conjecture is proved for the families of Theorems~\ref{thm:A}--\ref{thm:D} (for Theorem~\ref{thm:D} at first order in the poles), in the
+sense of the paragraph \emph{Status of the proofs} in \S\ref{sec:organisation}. It is exact for reciprocal squared Bessel zeros
+(Proposition~\ref{prop:bessel}). It was tested on nine further measures with predictions written before the measures were computed; that
+order is attested by file times, not by the repository history (\S\ref{sec:evidence}).
 
 \subsection{What is new}\label{sec:new}
 As far as we know (Section~\ref{sec:literature}), the following are new: an asymptotic expansion of recurrence coefficients whose
@@ -139,7 +139,7 @@ and we need only its infinite-mass hard-edge case (Proposition~\ref{prop:Q}); th
 weights \cite{BleherIts,KuijlaarsTibboel}, and our reflection uses the grading argument of \cite{KuijlaarsTibboel}; the Toda hierarchy for
 tilts is classical \cite{VanAsscheToda}, its use to organise the coefficients of an expansion is the method of \cite{EMP}, and its
 dispersionless limit is the genus-zero mechanism of \cite{Ercolani}. Exact special cases with explicit recurrence coefficients (Lommel and
-Tricomi--Carlitz polynomials) are classical; nobody we know of reads them through zeta values.
+Tricomi--Carlitz polynomials) are classical; we know of no work that reads them through zeta values.
 
 \subsection{Organisation and notation}\label{sec:organisation}
 Section~\ref{sec:frame} recalls the frame of \cite{PaperII}. Section~\ref{sec:kernel} contains the potential theory that fixes the band and
@@ -156,7 +156,7 @@ every order), which extend \cite{PaperII} and are written out in research notes 
 the transfer to the second frame behind Corollary~\ref{cor:even} and Theorem~\ref{thm:C}; the transfer to tilted measures behind
 Theorem~\ref{thm:toda} and the index-shift law; and the estimates (H-a)--(H-e) and the outline of the proof of Theorem~\ref{thm:D}. These
 results, including Theorem~\ref{thm:A}(i)--(ii), Theorem~\ref{thm:C} and Theorem~\ref{thm:D}, are therefore proved modulo those written-out
-estimates, which have been checked only by the computational and AI-assisted review described in the repository and not by an
+estimates. The written-out estimates have been checked only by the computational and AI-assisted review described in the repository, not by an
 independent human referee. The case $p<1$ of Theorem~\ref{thm:K}, and hence of Theorem~\ref{thm:B}, has had no independent check. The
 analytic estimates behind Sections~\ref{sec:structure} and~\ref{sec:hurwitz} are transfers of those of \cite{PaperII} and of
 Section~\ref{sec:natural}; we outline them and do not reproduce them.

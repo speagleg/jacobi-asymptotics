@@ -7,9 +7,9 @@ first-variation estimate is needed, because the Jacobi matrices of $\sigma$ and 
 factorisation of Lemma~\ref{lem:imp-chain}. This section uses that factorisation beyond the pointwise transfer of
 \cite{PaperII}: for the converse direction and a point mass at $0$ (Proposition~\ref{prop:converse}), and for the
 product identity (Proposition~\ref{prop:product}), which with the chain-limit statement of
-Lemma~\ref{lem:imp-chain}(ii) gives Theorem~\ref{thm:s}(i). Together with a comparison lemma for perturbations of
-relative size $O(1/k)$ and two explicit measures, it determines the averaged $1/n$ coefficient on lattices of
-exponents (Corollary~\ref{cor:lattice}). Finally it relates the pointwise $1/n$ coefficients at $s$ and $s+p$
+Lemma~\ref{lem:imp-chain}(ii) gives Theorem~\ref{thm:s}(i). Combined with a comparison lemma for perturbations of
+relative size $O(1/k)$ and two explicit measures, the factorisation determines the averaged $1/n$ coefficient on
+lattices of exponents (Corollary~\ref{cor:lattice}). Finally, it relates the pointwise $1/n$ coefficients at $s$ and $s+p$
 (Proposition~\ref{prop:transfer}). In this section $\sigma$ is a positive Borel measure on $[0,\infty)$ with infinite
 support and finite moments, $u_n,l_n$ are as in \eqref{eq:chain}, and $\tilde a_n,\tilde b_n$ are the coefficients of
 $x\sigma$.
@@ -47,10 +47,10 @@ $x(\sigma+m_0\delta_0)=x\sigma$. By Theorem~\ref{thm:imp-shift} and the first pa
 equivalent to the law for $x\sigma$.
 \end{proof}
 
-The first statement also follows from the proposition of Dai, Piao and Qiao quoted in the introduction: with
+The first statement also follows from the proposition of Dai, Piao and Qiao quoted in the introduction. With
 $\mathsf g_n:=u_n/\tilde a_n\in(0,1)$ one has $\tilde b_n^2/(\tilde a_{n-1}\tilde a_n)=(1-\mathsf g_{n-1})\mathsf g_n$, so
-these numbers form a chain sequence with parameter sequence $(\mathsf g_n)$, and the hypothesis makes them tend to
-$\frac14$; by \cite[Proposition~2.1]{DPQ}, $\mathsf g_n\to\frac12$, which gives $n^pu_n\to c'$ and $n^pl_{n+1}\to c'$. For
+these numbers form a chain sequence with parameter sequence $(\mathsf g_n)$. The hypothesis makes them tend to
+$\frac14$, so $\mathsf g_n\to\frac12$ by \cite[Proposition~2.1]{DPQ}; this gives $n^pu_n\to c'$ and $n^pl_{n+1}\to c'$. For
 discrete measures with positive summable weights and bounded, strictly decreasing, non-negative atoms, the first
 statement of Proposition~\ref{prop:converse} has been formalised in the Lean~4 proof assistant, with a general positive
 scale sequence whose consecutive ratios tend to $1$ in place of $n^p$.
@@ -135,7 +135,7 @@ $\sum_{j=1}^n\log(j^2b_j(s)/c(2))=-\frac{s-1}2\log n+C(s)+o(1)$.
 \end{corollary}
 
 \begin{proof}
-(a) Let $\psi^{(1)}$ be the Tricomi--Carlitz measure with parameter $\alpha=1$: by \cite[(1.4)--(1.5)]{WLXZ} it is the
+(a) Let $\psi^{(1)}$ be the Tricomi--Carlitz measure with parameter $t_0=1$: by \cite[(1.4)--(1.5)]{WLXZ} it is the
 symmetric measure with mass $(k+1)^{k-1}e^{-k}/k!$ at each of the points $\pm(k+1)^{-1/2}$, $k\ge0$, and the
 Tricomi--Carlitz polynomials $f_n=f^{(1)}_n$ are orthogonal with respect to it. By \cite[(1.9)]{WLXZ} their leading
 coefficient is $\prod_{k<n}(k+1)/(k+1)=1$, so they are monic, and \cite[(1.6)]{WLXZ} reads
@@ -154,6 +154,9 @@ e^{-1/12}k^{-3/2}$, which have the same coefficients as $\sigma_{\mathrm{TC}}$:
   \sum_{j=1}^n\log\frac{b_j(3/2)}{b^{\mathrm{TC}}_j}=-\frac12\log\frac{\zeta(3/2)}{\sqrt{2\pi}\,W_{\mathrm{TC}}}+O(1/n),
   \qquad W_{\mathrm{TC}}:=\sum_jv_j .
 \]
+In fact $W_{\mathrm{TC}}=1$: the tree function $y(x):=\sum_{j\ge1}j^{j-1}x^j/j!$ satisfies $y=xe^{y}$ on $[0,1/e]$, and
+$y=1$ is the only solution of $y=e^{y-1}$, so $W_{\mathrm{TC}}=y(1/e)=1$ (the Borel distribution with parameter $1$ has
+total mass $1$).
 Since $\log(2jb^{\mathrm{TC}}_j)=-\frac12\log(1+\frac1{2j})=-\frac1{4j}+O(j^{-2})$, this gives (a) for $s=\frac32$. By
 Theorem~\ref{thm:s}(i) with $p=1$, $\sum_{j\le n}\log(b_j(s+1)/b_j(s))=-\frac12\log n+\mathrm{const}+o(1)$, so the
 coefficient decreases by $\frac12$ at each step.

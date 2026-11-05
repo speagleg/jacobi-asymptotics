@@ -2,51 +2,51 @@
 \section{Proof of Proposition~\ref{prop:Q}}\label{app:Q}
 
 By (H2), $g(y):=\sqrt y\,\sigma(y)=y\sigma(y)/\sqrt y$ is strictly decreasing and $\sigma(y)\ge y_0\sigma(y_0)/y$ for $y<y_0$; if $Y=\infty$, (H3)
-gives $\int^\infty\sigma<\infty$ and $y\sigma(y)\to0$. Write $U^\mu(z)=\int\log|z-x|^{-1}\diff\mu(x)$.
+gives $\int^\infty\sigma<\infty$ and $y\sigma(y)\to0$. Write $U^\chi(z)=\int\log|z-x|^{-1}\diff\chi(x)$.
 
-\emph{The root.} Substituting $y=au$, $F(a)=\int_1^{Y/a}a\sigma(au)(1-1/u)^{-1/2}\diff u$. For fixed $u$, $a\sigma(au)=(au\,\sigma(au))/u$ is strictly
-decreasing in $a$ by (H2), and the upper limit decreases, so $F$ is strictly decreasing; on $[a_0,a_1]\subset(0,Y)$, $a\sigma(au)\le a_0\sigma(a_0u)$, so
-$F$ is continuous by dominated convergence. As $a\to0$, $F(a)\ge\int_a^Y\sigma\to\infty$. If $Y<\infty$, $F(a)\to0$ as $a\to Y$. If $Y=\infty$, split
-at $2a$: $\int_{2a}^\infty\le\sqrt2\int_{2a}^\infty\sigma\to0$, and $\int_a^{2a}\le a\sigma(a)\int_1^2(1-1/u)^{-1/2}\diff u\to0$.
+\emph{The root.} Substituting $y=Eu$, $F(E)=\int_1^{Y/E}E\sigma(Eu)(1-1/u)^{-1/2}\diff u$. For fixed $u$, $E\sigma(Eu)=(Eu\,\sigma(Eu))/u$ is strictly
+decreasing in $E$ by (H2), and the upper limit decreases, so $F$ is strictly decreasing; on $[E_0,E_1]\subset(0,Y)$, $E\sigma(Eu)\le E_0\sigma(E_0u)$, so
+$F$ is continuous by dominated convergence. As $E\to0$, $F(E)\ge\int_E^Y\sigma\to\infty$. If $Y<\infty$, $F(E)\to0$ as $E\to Y$. If $Y=\infty$, split
+at $2E$: $\int_{2E}^\infty\le\sqrt2\int_{2E}^\infty\sigma\to0$, and $\int_E^{2E}\le E\sigma(E)\int_1^2(1-1/u)^{-1/2}\diff u\to0$.
 
-\emph{The density.} Let $S(z):=\int_a^Ys(y)(z-y)^{-1}\diff y$, $\tilde G(z):=((z-a)/z)^{1/2}S(z)$ (principal branch) and $G(z):=\int(z-x)^{-1}\diff\mu(x)$.
-For fixed $y\in(a,Y)$ put
+\emph{The density.} Let $S(z):=\int_E^Y\tilde\sigma(y)(z-y)^{-1}\diff y$, $\tilde G(z):=((z-E)/z)^{1/2}S(z)$ (principal branch) and $G(z):=\int(z-x)^{-1}\diff\chi(x)$.
+For fixed $y\in(E,Y)$ put
 \[
-  k_y(z):=\frac{((z-a)/z)^{1/2}-\sqrt{(y-a)/y}}{z-y},\qquad \rho_y(x):=\frac1\pi\sqrt{\frac{a-x}x}\,\frac1{y-x}>0\quad(0<x<a).
+  k_y(z):=\frac{((z-E)/z)^{1/2}-\sqrt{(y-E)/y}}{z-y},\qquad \rho_y(x):=\frac1\pi\sqrt{\frac{E-x}x}\,\frac1{y-x}>0\quad(0<x<E).
 \]
-The singularity of $k_y$ at $y$ is removable, so $k_y$ is analytic off $[0,a]$, $O(|z|^{-1/2})$ at $0$, bounded at $a$, and
-$\sim(1-\sqrt{(y-a)/y})/z$ at infinity; it jumps by $-2\pi i\rho_y$ on $(0,a)$. By Liouville's theorem $k_y(z)=\int_0^a\rho_y(x)(z-x)^{-1}\diff x$,
-and $\rho_y$ has mass $1-\sqrt{(y-a)/y}$. Since $\sigma=s\sqrt{(y-a)/y}$, Fubini's theorem (all terms positive, $|z-x|^{-1}\le|\Im z|^{-1}$,
-$\int s(1-\sqrt{(y-a)/y})\le F(a)$) gives
+The singularity of $k_y$ at $y$ is removable, so $k_y$ is analytic off $[0,E]$, $O(|z|^{-1/2})$ at $0$, bounded at $E$, and
+$\sim(1-\sqrt{(y-E)/y})/z$ at infinity; it jumps by $-2\pi i\rho_y$ on $(0,E)$. By Liouville's theorem $k_y(z)=\int_0^E\rho_y(x)(z-x)^{-1}\diff x$,
+and $\rho_y$ has mass $1-\sqrt{(y-E)/y}$. Since $\sigma=\tilde\sigma\sqrt{(y-E)/y}$, Fubini's theorem (all terms positive, $|z-x|^{-1}\le|\Im z|^{-1}$,
+$\int \tilde\sigma(1-\sqrt{(y-E)/y})\le F(E)$) gives
 \[
-  \tilde G(z)=\int_a^Ys(y)\Bigl[\frac{\sqrt{(y-a)/y}}{z-y}+k_y(z)\Bigr]\diff y=\int_a^Y\frac{\sigma(y)\diff y}{z-y}+\int_0^a\frac{\nu(x)\diff x}{z-x}=G(z),
+  \tilde G(z)=\int_E^Y\tilde\sigma(y)\Bigl[\frac{\sqrt{(y-E)/y}}{z-y}+k_y(z)\Bigr]\diff y=\int_E^Y\frac{\sigma(y)\diff y}{z-y}+\int_0^E\frac{\psi(x)\diff x}{z-x}=G(z),
 \]
-because $\int s(y)\rho_y(x)\diff y=\nu(x)$. Hence $\mu$ has mass $\int s=F(a)=1$, $\Re G(x\pm i0)=0$ on $(0,a)$, and $\nu>0$. With $R(y):=\sqrt{y(y-a)}$,
-$R\sigma=s(y-a)$ gives $\tilde G=R(z)^{-1}[F(a)+\int\sigma R(z-y)^{-1}\diff y]$, so also
-$\pi\sqrt{x(a-x)}\,\nu(x)=1-\int_a^Y\sigma(y)\sqrt{y(y-a)}(y-x)^{-1}\diff y$ by~\eqref{eq:Q}. For the upper bound write $s=g\cdot(y-a)^{-1/2}$ and use
-$\int_a^\infty(y-a)^{-1/2}(y-x)^{-1}\diff y=\pi(a-x)^{-1/2}$: $\nu(x)<g(a)/\sqrt x\le g(x)/\sqrt x=\sigma(x)$.
+because $\int \tilde\sigma(y)\rho_y(x)\diff y=\psi(x)$. Hence $\chi$ has mass $\int \tilde\sigma=F(E)=1$, $\Re G(x\pm i0)=0$ on $(0,E)$, and $\psi>0$. With $R(y):=\sqrt{y(y-E)}$,
+$R\sigma=\tilde\sigma(y-E)$ gives $\tilde G=R(z)^{-1}[F(E)+\int\sigma R(z-y)^{-1}\diff y]$, so also
+$\pi\sqrt{x(E-x)}\,\psi(x)=1-\int_E^Y\sigma(y)\sqrt{y(y-E)}(y-x)^{-1}\diff y$ by~\eqref{eq:Q}. For the upper bound write $\tilde\sigma=g\cdot(y-E)^{-1/2}$ and use
+$\int_E^\infty(y-E)^{-1/2}(y-x)^{-1}\diff y=\pi(E-x)^{-1/2}$: $\psi(x)<g(E)/\sqrt x\le g(x)/\sqrt x=\sigma(x)$.
 
-\emph{The potential.} On $(0,a)$, $U^\mu$ is constant because $\Re G=0$. For $z\in(a,Y)$, $\varphi:=U^\mu-\ell$ satisfies $\varphi(a)=0$ and
-$\varphi'(z)=-((z-a)/z)^{1/2}H(z)$, $H(z):=\PV\!\int_a^Ys(y)(z-y)^{-1}\diff y$, which exists since $\sigma$ is locally H\"older. With $s=g(y-a)^{-1/2}$,
+\emph{The potential.} On $(0,E)$, $U^\chi$ is constant because $\Re G=0$. For $z\in(E,Y)$, $\varphi:=U^\chi-\ell$ satisfies $\varphi(E)=0$ and
+$\varphi'(z)=-((z-E)/z)^{1/2}H(z)$, $H(z):=\PV\!\int_E^Y\tilde\sigma(y)(z-y)^{-1}\diff y$, which exists since $\sigma$ is locally H\"older. With $\tilde\sigma=g(y-E)^{-1/2}$,
 \[
-  H(z)=\int_a^Y\frac{(g(y)-g(z))(y-a)^{-1/2}}{z-y}\diff y+g(z)\,\PV\!\!\int_a^Y\frac{(y-a)^{-1/2}}{z-y}\diff y ;
+  H(z)=\int_E^Y\frac{(g(y)-g(z))(y-E)^{-1/2}}{z-y}\diff y+g(z)\,\PV\!\!\int_E^Y\frac{(y-E)^{-1/2}}{z-y}\diff y ;
 \]
 the first integrand is positive since $g$ decreases, and the principal value is $0$ if $Y=\infty$ and
-$(z-a)^{-1/2}\log\frac{\sqrt{Y-a}+\sqrt{z-a}}{\sqrt{Y-a}-\sqrt{z-a}}>0$ if $Y<\infty$. Hence $\varphi<0$ on $(a,Y]$.
+$(z-E)^{-1/2}\log\frac{\sqrt{Y-E}+\sqrt{z-E}}{\sqrt{Y-E}-\sqrt{z-E}}>0$ if $Y<\infty$. Hence $\varphi<0$ on $(E,Y]$.
 
-\emph{Uniqueness.} Since $\log^+|x-y|\le\log(1+x)+\log(1+y)$ and (H3) bounds the logarithmic moment of every $\mu'\le\sigma$, $I(\mu')>-\infty$ for every
-competitor. Let $\mu'\le\sigma$ have unit mass and $I(\mu')<\infty$, $\tau:=\mu'-\mu$. Then $I(\mu')-I(\mu)=I(\tau)+2\int(U^\mu-\ell)\diff\tau$. The
-integrand vanishes on $[0,a]$ ($U^\mu$ is continuous, the density of $\mu$ being at most $g(a)x^{-1/2}$ on $(0,a)$ and bounded on $[a,Y]$); on
-$(a,Y]$, $\tau\le0$ and $U^\mu-\ell<0$, so the integral is $\ge0$. The signed measure $\tau$ has mass $0$ and
-$\iint|\log|x-y||\diff|\tau|\diff|\tau|<\infty$ (the positive part by (H3), the negative part by the density bound and $I(\mu')<\infty$), so
-$I(\tau)\ge0$ with equality only if $\tau=0$, by \cite[Lemma~3.3]{PaperI}.\qed
+\emph{Uniqueness.} Since $\log^+|x-y|\le\log(1+x)+\log(1+y)$ and (H3) bounds the logarithmic moment of every $\chi'\le\sigma$, $I(\chi')>-\infty$ for every
+competitor. Let $\chi'\le\sigma$ have unit mass and $I(\chi')<\infty$, $\upsilon:=\chi'-\chi$. Then $I(\chi')-I(\chi)=I(\upsilon)+2\int(U^\chi-\ell)\diff\upsilon$. The
+integrand vanishes on $[0,E]$ ($U^\chi$ is continuous, the density of $\chi$ being at most $g(E)x^{-1/2}$ on $(0,E)$ and bounded on $[E,Y]$); on
+$(E,Y]$, $\upsilon\le0$ and $U^\chi-\ell<0$, so the integral is $\ge0$. The signed measure $\upsilon$ has mass $0$ and
+$\iint|\log|x-y||\diff|\upsilon|\diff|\upsilon|<\infty$ (the positive part by (H3), the negative part by the density bound and $I(\chi')<\infty$), so
+$I(\upsilon)\ge0$ with equality only if $\upsilon=0$, by \cite[Lemma~3.3]{PaperI}.\qed
 
 \begin{remark}\label{rem:Qedge}
-Under~\eqref{eq:Q}, $\nu(a^-)=\sigma(a)$, so $\mu$ is continuous at $a$; without~\eqref{eq:Q}, $\nu$ acquires a multiple of $(a-x)^{-1/2}$. If $\sigma$
-is H\"older of order $>\frac12$ near $a$, then $\sigma-\nu=C\sqrt{a-x}(1+o(1))$ with $C=-h(a)/(\pi\sqrt a)>0$,
-$h(a):=\int_a^Y(g(y)-g(a))(y-a)^{-3/2}\diff y-2g(a)(Y-a)^{-1/2}\mathbf 1_{Y<\infty}$. The density and potential steps use only that $g$ is
+Under~\eqref{eq:Q}, $\psi(E^-)=\sigma(E)$, so $\chi$ is continuous at $E$; without~\eqref{eq:Q}, $\psi$ acquires a multiple of $(E-x)^{-1/2}$. If $\sigma$
+is H\"older of order $>\frac12$ near $E$, then $\sigma-\psi=C\sqrt{E-x}(1+o(1))$ with $C=-h(E)/(\pi\sqrt E)>0$,
+$h(E):=\int_E^Y(g(y)-g(E))(y-E)^{-3/2}\diff y-2g(E)(Y-E)^{-1/2}\mathbf 1_{Y<\infty}$. The density and potential steps use only that $g$ is
 decreasing; (H2) enters through the monotonicity of $F$. The hypotheses are not necessary but cannot simply be dropped: in a discretised energy
-minimisation, a constraint with a dip below the edge gives three roots of~\eqref{eq:Q} and two bands. The root, the two forms of $\nu$, the
+minimisation, a constraint with a dip below the edge gives three roots of~\eqref{eq:Q} and two bands. The root, the two forms of $\psi$, the
 mass and the inequalities were checked by quadrature for the lattice at $p=0.6$, $1.5$ and two further densities (script
 \texttt{m1\_theoremQ}).
 \end{remark}

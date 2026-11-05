@@ -130,11 +130,11 @@ used). For Theorem~\ref{thm:analytic}: the formulation of the discrete Riemann--
 \cite{WLXZ}, as a pattern only; the Bessel model of Kuijlaars, McLaughlin, Van Assche and Vanlessen \cite[\S6]{KMVV};
 Theorem~4.4 of Conway and Deift \cite{CD}, together with the argument of their Theorem~4.7 and Proposition~4.9 and one
 direction of their Proposition~4.6, which we re-prove; and special-function facts from \cite{DLMF}.
-Theorem~\ref{thm:onen} uses in addition the classical Bessel parametrix \cite[(6.42)--(6.53)]{KMVV}, and at $p=1$ the
-steepest-descent analysis of the Tricomi--Carlitz problem \cite[\S\S3--6]{WLXZ}, with the weight multiplied by an
-explicit analytic factor, and the Fisher--Hartwig parametrix of Kuijlaars and Vanlessen \cite[\S5]{KV} in the form of
-Vanlessen \cite[\S4]{Van}. In particular, at $p=1$ it relies on two steps of the analysis of \cite{WLXZ} that we do not
-prove again: the exponential bounds for the jumps on the lens and saturated contours, uniformly up to the largest node,
+Theorem~\ref{thm:onen} uses in addition the classical Bessel parametrix \cite[(6.42)--(6.53)]{KMVV}. At $p=1$ it also
+uses the steepest-descent analysis of the Tricomi--Carlitz problem \cite[\S\S3--6]{WLXZ}, with the weight multiplied by
+an explicit analytic factor, and the Fisher--Hartwig parametrix of Kuijlaars and Vanlessen \cite[\S5]{KV} in the form
+of Vanlessen \cite[\S4]{Van}. In particular, at $p=1$ the proof relies on two steps of the analysis of \cite{WLXZ}
+that we do not prove again: the exponential bounds for the jumps on the lens and saturated contours, uniformly up to the largest node,
 which are justified there only briefly, and the uniform boundedness of the Cauchy operator on the final contour used in
 their small-norm argument (Section~\ref{sec:pone}). The Laurent coefficients used for $p\ne1$ were computed by hand and checked by
 exact symbolic expansion, and the Tricomi--Carlitz coefficients used at $p=1$ by exact computer algebra.
@@ -197,10 +197,10 @@ logarithmic singularity at $x=1$'', and they compare the problem with the Legend
 behind Riemann--Hilbert problems. The comparison argument of Section~\ref{sec:hardedge} is theirs \cite[Theorem~4.7 and
 Proposition~4.9]{CD}. We add a comparison model built from the Szeg\H{o} function of the full weight, a uniform resolvent
 bound for a Bessel edge of any order $|\alpha|<1$, and the treatment of an arbitrary analytic slowly varying factor.
-Deift and Piorkowski \cite{DP} extended \cite{CD} to the weight $\log\frac{2}{1-x}$ and write, about a comparison with a
-weight that has a simple zero at the endpoint: ``the crucial Theorem~4.7 in [4] requires a different proof in this
-case: now one needs to control the behaviour of the Cauchy operator acting on spaces with Muckenhoupt weights''
-\cite[\S1]{DP}, [4] being \cite{CD}. This is consistent with our restriction to $|\alpha|<1$ in the comparison step
+Deift and Piorkowski \cite{DP} extended \cite{CD} to the weight $\log\frac{2}{1-x}$. About a comparison with a weight
+that has a simple zero at the endpoint they write that ``the crucial Theorem~4.7 in [4] requires a different proof in
+this case: now one needs to control the behaviour of the Cauchy operator acting on spaces with Muckenhoupt weights''
+\cite[\S1]{DP}; their [4] is \cite{CD}. This is consistent with our restriction to $|\alpha|<1$ in the comparison step
 (Remark~\ref{rem:alpha-ge-1}). Other approaches are Piorkowski's parametrix-free method, which needs an a priori
 estimate for the exact solution \cite{Pio}; the $\bar\partial$ methods of McLaughlin and Miller \cite{MM} and of
 Trogdon \cite{Tro}, which assume finitely many Lipschitz derivatives of the weight; the approximation of a smooth symbol
@@ -210,8 +210,9 @@ asymptotics of Levin and Lubinsky \cite{LL}, without Riemann--Hilbert methods.
 \emph{Special cases.} The Hankel determinants of zeta values in Corollary~\ref{cor:pure} were studied by
 Monien \cite{Monien} and by Haynes and Zudilin \cite{HaynesZudilin}; for $q=1$ Monien reports a full asymptotic
 expansion, found numerically by D.~Zagier and not proved. The Tricomi--Carlitz polynomials, orthogonal on the points $\pm1/\sqrt{k+t_0}$,
-have explicit recurrence coefficients \cite[\S3]{VA} and uniform asymptotics \cite{WLXZ}; for $t_0=1$ the masses differ from those of $\sigma_{1,3/2}$ by a factor
-$1+1/(12k)+O(k^{-2})$, which is the basis of Corollary~\ref{cor:tc} and of our treatment of $p=1$.
+have explicit recurrence coefficients \cite[\S3]{VA} and uniform asymptotics \cite{WLXZ}. For $t_0=1$ their masses differ
+from those of $\sigma_{1,3/2}$ by a factor $1+1/(12k)+O(k^{-2})$; this is the basis of Corollary~\ref{cor:tc} and of
+our treatment of $p=1$.
 
 \subsection{Method}\label{sec:strategy}
 The elementary part of the proof of Theorem~\ref{thm:analytic} is the Christoffel shift, Theorem~\ref{thm:shift}: the
@@ -221,14 +222,15 @@ new. The shift reduces the theorem to $1<s<1+2p$, where the Bessel order $\alpha
 $(-1,1)$ (Theorem~\ref{thm:window}). In the variable $z=n^px$, where $\mu^*$ has the band $(0,4c(p))$ and the saturated
 region $(4c(p),\infty)$, we build one Riemann--Hilbert frame for all $p>0$ (Section~\ref{sec:frame}). The cases $p>1$, $p=1$ and $p<1$ differ only in the outer function that removes the
 Gamma-function growth of the node masses (Section~\ref{sec:outer}). At the hard
-edge we compare the problem, following Conway and Deift, with a Bessel model built from the Szeg\H{o} function of the
-whole band weight; the two differ on the lips of the lens by $o(1)$, and for $|\alpha|<1$ a uniform resolvent bound and
-Bessel localisation turn this into an $O(1/n)$ error in the coefficients (Section~\ref{sec:hardedge}).
+edge we follow Conway and Deift and compare the problem with a Bessel model built from the Szeg\H{o} function of the
+whole band weight. The two problems differ on the lips of the lens by $o(1)$, and for $|\alpha|<1$ a uniform resolvent
+bound and Bessel localisation turn this difference into an $O(1/n)$ error in the coefficients
+(Section~\ref{sec:hardedge}).
 
 For the $1/n$ term of pure powers the classical Bessel parametrix is available. For $p>1$ the global parametrix
-contributes exactly $c(p)^2$ and $2c(p)$ to the functionals that extract $b_n^2$ and $a_n$, the hard-edge correction is
-annihilated by both, and the $1/n$ term comes from the Airy correction at the soft edge (Sections~\ref{sec:classical}
-and~\ref{sec:second}). For $0<p<1$ the band factor is $\exp(-2\zeta(-p)x+O(x^2))$ up to constants; it enters
+contributes exactly $c(p)^2$ and $2c(p)$ to the functionals that extract $b_n^2$ and $a_n$. Both functionals annihilate
+the hard-edge correction, and the $1/n$ term comes from the Airy correction at the soft edge
+(Sections~\ref{sec:classical} and~\ref{sec:second}). For $0<p<1$ the band factor is $\exp(-2\zeta(-p)x+O(x^2))$ up to constants; it enters
 through the Airy correction, at order $n^{-1-p}$ and equally in $b_n$ and $a_n$ (Section~\ref{sec:plt1}). At $p=1$ the
 classical construction fails at the hard edge (Remark~\ref{rem:quotient-p1}). We then work in the symmetric variable
 $x^{1/2}$ of \cite{WLXZ}, where $0$ is an interior Fisher--Hartwig point, and show that the recurrence coefficients of the

@@ -63,7 +63,7 @@ and~\eqref{eq:airy-infty}, carried one term further.
 \begin{proof}
 (a) In $|\arg\zeta|<2\pi/3$, \cite[(6.23)]{KMVV} expresses $\Psi_\alpha$ through $I_\alpha$, $K_\alpha$ and their
 derivatives at $w=2\zeta^{1/2}$, and $|\mathrm{ph}\,w|<\pi/3$, inside the sectors of (10.40.1)--(10.40.4). With the first
-coefficients $a_1(\alpha)=(4\alpha^2-1)/8$ and $b_1(\alpha)=(4\alpha^2+3)/8$ these give, entrywise with relative errors
+coefficients $a_1(\alpha)=(4\alpha^2-1)/8$ and $b_1(\alpha)=(4\alpha^2+3)/8$ (written $a_1$, $b_1$ below; they are not recurrence coefficients) these give, entrywise with relative errors
 $O(w^{-2})$, $\Psi_\alpha e^{-w\sigma_3}=(2\pi\zeta^{1/2})^{-\sigma_3/2}\bigl[M+w^{-1}\frac1{\sqrt2}
 \bigl(\begin{smallmatrix}-a_1&ia_1\\-ib_1&b_1\end{smallmatrix}\bigr)\bigr]$. Since
 \[
@@ -295,23 +295,23 @@ $k=1,2$, where
 \begin{proof}
 By Proposition~\ref{prop:classical}(iii),
 \[
-  \mathsf R(z)-I=\frac1{2\pi i}\int_{\Sigma_{\mathsf R}}\frac{(J_{\mathsf R}-I)(s)}{s-z}\diff s
-  +\frac1{2\pi i}\int_{\Sigma_{\mathsf R}}\frac{(\mathsf R_--I)(J_{\mathsf R}-I)(s)}{s-z}\diff s .
+  \mathsf R(z)-I=\frac1{2\pi i}\int_{\Sigma_{\mathsf R}}\frac{(J_{\mathsf R}-I)(y)}{y-z}\diff y
+  +\frac1{2\pi i}\int_{\Sigma_{\mathsf R}}\frac{(\mathsf R_--I)(J_{\mathsf R}-I)(y)}{y-z}\diff y .
 \]
 By Cauchy--Schwarz and Proposition~\ref{prop:classical}(ii), (iv) the second integral is at most
 $\|\mathsf R_--I\|_{L^2}\|J_{\mathsf R}-I\|_{L^2}/(2\pi d)=O(n^{-2})$. In the first, the arcs inside $U_0$ contribute
 $O(n^{-K})$ and the remaining arcs off the circles $O(e^{-n/C})$; by Lemma~\ref{lem:circle-jumps} the circles contribute
 \[
-  \frac1n\cdot\frac1{2\pi i}\oint_{\mathrm{cw}}\frac{\Delta^{\mathrm{mod}}(s)}{s-z}\diff s+O(n^{-2}+n^{-1-p}),
+  \frac1n\cdot\frac1{2\pi i}\oint_{\mathrm{cw}}\frac{\Delta^{\mathrm{mod}}(y)}{y-z}\diff y+O(n^{-2}+n^{-1-p}),
 \]
 where $\Delta^{\mathrm{mod}}$ is $\Delta_0^{\mathrm{mod}}$ on $\partial U_0$ and $\Delta_r^{\mathrm{mod}}$ on $\partial U_r$, both circles
 oriented clockwise; and $n^{-1-p}\le n^{-2}$ since $p>1$. For $z$ outside the discs, by Lemma~\ref{lem:laurent} the
-clockwise integrals equal minus the sums of the residues of $\Delta^{\mathrm{mod}}(s)/(s-z)$ at $s=0$ and $s=4c$, that is,
+clockwise integrals equal minus the sums of the residues of $\Delta^{\mathrm{mod}}(y)/(y-z)$ at $y=0$ and $y=4c$, that is,
 $\mathfrak A_0/z+\mathfrak A_r/(z-4c)+\mathfrak B_r/(z-4c)^2$. For the coefficients at infinity,
-$\mathsf R_k=-\frac1{2\pi i}\int_{\Sigma_{\mathsf R}}\mathsf R_-(J_{\mathsf R}-I)s^{k-1}\diff s$ with the same splitting; on the far arcs
-$|s|^{k-1}\le Cn^p$ is absorbed by $e^{-n/C}$, and $-\frac1{2\pi i}\oint_{\mathrm{cw}}\Delta^{\mathrm{mod}}(s)s^{k-1}\diff s$ is the sum of the
-residues of $\Delta^{\mathrm{mod}}(s)s^{k-1}$, which is $\mathfrak A_0+\mathfrak A_r$ for $k=1$ and $4c\mathfrak A_r+\mathfrak B_r$ for $k=2$
-(the simple pole at $0$ is removed by the factor $s$).
+$\mathsf R_k=-\frac1{2\pi i}\int_{\Sigma_{\mathsf R}}\mathsf R_-(J_{\mathsf R}-I)y^{k-1}\diff y$ with the same splitting; on the far arcs
+$|y|^{k-1}\le Cn^p$ is absorbed by $e^{-n/C}$, and $-\frac1{2\pi i}\oint_{\mathrm{cw}}\Delta^{\mathrm{mod}}(y)y^{k-1}\diff y$ is the sum of the
+residues of $\Delta^{\mathrm{mod}}(y)y^{k-1}$, which is $\mathfrak A_0+\mathfrak A_r$ for $k=1$ and $4c\mathfrak A_r+\mathfrak B_r$ for $k=2$
+(the simple pole at $0$ is removed by the factor $y$).
 \end{proof}
 
 \subsection{\texorpdfstring{Proof of Theorem~\ref{thm:onen} for $p>1$}{Proof of Theorem 1.4 for p>1}}\label{sec:second-proof}
@@ -361,7 +361,7 @@ $\nu=\frac32$ the orthogonality measure $\mu$ is identified as follows. By the B
 \cite[(10.6.1)]{DLMF}, $\mathsf u_n:=\sqrt{n+\nu}\,J_{\nu+n}(1/x)$ solves $x\mathsf u_n=\beta_{n+1}\mathsf
 u_{n+1}+\beta_n\mathsf u_{n-1}$ for $n\ge0$ (with $\beta_0:=[2\sqrt{\nu(\nu-1)}]^{-1}$), and it is square summable by
 \cite[(10.2.2)]{DLMF}. For $x\notin\R$ the resolvent vector $(\mathcal J-x)^{-1}e_0$ of the Jacobi matrix $\mathcal J$
-solves the same recurrence for $n\ge1$ and is square summable, and such solutions form a line, since the Wronskian
+solves the same recurrence for $n\ge1$ and is square summable. Such solutions form a line, since the Wronskian
 $\beta_n(\mathsf u_n\tilde{\mathsf u}_{n-1}-\mathsf u_{n-1}\tilde{\mathsf u}_n)$ of two of them is constant and tends to $0$. Hence
 $\int(t-x)^{-1}\diff\mu(t)$, the first entry of the resolvent, equals $-\mathsf u_0/(\beta_0\mathsf u_{-1})=-2\nu
 J_\nu(1/x)/J_{\nu-1}(1/x)$. For $\nu=\frac32$ this is $-3(z^{-1}-\cot z)$ with $z=1/x$ \cite[(10.16.1),

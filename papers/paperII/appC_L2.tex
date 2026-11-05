@@ -18,9 +18,9 @@ values of $\Cauchy$ on $\Gamma$ as in \S\ref{sec:tool-cd}. By compactness and tr
 \end{equation}
 A finite union of $C^2$ arcs is a Carleson curve, so $\Cauchy_\pm$ are bounded on $L^2(\Gamma)$ by \S\ref{sec:tool-cd}(a). For
 $\lambda>0$ the dilation $(\mathsf D_\lambda\mathfrak h)(z):=\lambda^{-1/2}\mathfrak h(z/\lambda)$ is unitary from $L^2(\Gamma)$ onto
-$L^2(\lambda\Gamma)$, and since $\diff s/(s-z)$ is invariant under $(s,z)\mapsto(\lambda s,\lambda z)$, $\mathsf D_\lambda$
+$L^2(\lambda\Gamma)$, and since $\diff y/(y-z)$ is invariant under $(y,z)\mapsto(\lambda y,\lambda z)$, $\mathsf D_\lambda$
 intertwines the Cauchy operators of $\Gamma$ and $\lambda\Gamma$. The same holds for the operators below, whose kernels
-are $\diff s/(s-z)$ times a function of $(s/|s|,\,z/|z|,\,|z|/|s|)$.
+are $\diff y/(y-z)$ times a function of $(y/|y|,\,z/|z|,\,|z|/|y|)$.
 
 We use one elementary bound repeatedly. Let $\mathfrak k$ be measurable on $(0,\infty)$ with
 \[
@@ -38,24 +38,24 @@ with kernels that are bounded on a bounded set are Hilbert--Schmidt, and we use 
 \begin{lemma}[Power-weighted Cauchy operator on a star]\label{lem:star-power}
 Let $\Gamma$ be a star and $|\beta|<\frac12$. Then the operators
 \[
-  \mathfrak h\ \longmapsto\ |z|^{\beta}\,\Cauchy_\pm\bigl(|s|^{-\beta}\mathfrak h\bigr)(z)
+  \mathfrak h\ \longmapsto\ |z|^{\beta}\,\Cauchy_\pm\bigl(|y|^{-\beta}\mathfrak h\bigr)(z)
 \]
 are bounded on $L^2(\Gamma)$, with a norm $N_\beta$ that depends only on $\beta$ and $\Gamma$. The same bound holds on
 $\lambda\Gamma$ for every $\lambda>0$, on every subset $\Gamma'\subset\lambda\Gamma$ (functions supported on, and
-evaluated on, $\Gamma'$), and for the weights $z^{\beta}$, $s^{-\beta}$ (any fixed continuous branches of the argument
-on each arc) in place of $|z|^\beta$, $|s|^{-\beta}$, with $N_\beta$ multiplied by $e^{4\pi|\beta|}$.
+evaluated on, $\Gamma'$), and for the weights $z^{\beta}$, $y^{-\beta}$ (any fixed continuous branches of the argument
+on each arc) in place of $|z|^\beta$, $|y|^{-\beta}$, with $N_\beta$ multiplied by $e^{4\pi|\beta|}$.
 \end{lemma}
 
 \begin{proof}
 We split off the plain Cauchy operator, which is bounded, and compare the remainder, which has a kernel
 regular on the diagonal, with its analogue on the star of tangent rays.
 
-Write $T_\pm\mathfrak h:=|z|^\beta\Cauchy_\pm(|s|^{-\beta}\mathfrak h)=\Cauchy_\pm\mathfrak h+R\mathfrak h$, where
+Write $T_\pm\mathfrak h:=|z|^\beta\Cauchy_\pm(|y|^{-\beta}\mathfrak h)=\Cauchy_\pm\mathfrak h+R\mathfrak h$, where
 \[
-  (R\mathfrak h)(z)=\frac1{2\pi i}\int_\Gamma\Bigl(\frac{|z|^\beta}{|s|^\beta}-1\Bigr)\frac{\mathfrak h(s)\diff s}{s-z}.
+  (R\mathfrak h)(z)=\frac1{2\pi i}\int_\Gamma\Bigl(\frac{|z|^\beta}{|y|^\beta}-1\Bigr)\frac{\mathfrak h(y)\diff y}{y-z}.
 \]
 The kernel of $R$ is bounded near the diagonal of each arc (see below), so $R\mathfrak h$ has no boundary-value
-ambiguity, and it suffices to bound $R$. In arc-length coordinates, $z=\gamma_i(r)$, $s=\gamma_j(\rho)$, the kernel of
+ambiguity, and it suffices to bound $R$. In arc-length coordinates, $z=\gamma_i(r)$, $y=\gamma_j(\rho)$, the kernel of
 $R$ is
 \[
   \mathfrak r_{ij}(\rho,r)=\frac1{2\pi i}\Bigl(\frac{|\gamma_i(r)|^\beta}{|\gamma_j(\rho)|^\beta}-1\Bigr)
@@ -87,7 +87,7 @@ difference, $\gamma_j'(\rho)(\rho e^{i\theta_j}-re^{i\theta_i})-e^{i\theta_j}(\g
 $O(\rho(\rho+r))+O(\rho^2+r^2)$ by \eqref{eq:star-geom}. For $i=j$ the flat term is $1/(\rho-r)$, and
 $\gamma_j(\rho)-\gamma_j(r)=(\rho-r)(\gamma_j'(\rho)+O(\rho-r))$, so $\gamma_j'(\rho)/(\gamma_j(\rho)-\gamma_j(r))=
 (\rho-r)^{-1}(1+O(\rho-r))$, which gives $\mathfrak e_{jj}=O(1)$. Here the factor $\gamma_j'(\rho)$, i.e.\ the arc-length
-element $\diff s=\gamma_j'(\rho)\diff\rho$, must be kept: without it the difference is only $O(r/|\rho-r|)$ on a single
+element $\diff y=\gamma_j'(\rho)\diff\rho$, must be kept: without it the difference is only $O(r/|\rho-r|)$ on a single
 arc. Hence the difference kernel is at most $C(1+(r/\rho)^\beta)$, and
 $\iint_{[0,R]^2}(1+(r/\rho)^{2\beta})\diff\rho\diff r<\infty$ for $|\beta|<\frac12$: it is Hilbert--Schmidt.
 
@@ -101,15 +101,15 @@ $e^{2\pi|\beta|}$ on either side.
 Let $\Gamma$ be a star and fix on each arc a continuous branch $\mathrm{l}(z)=\log|z|+i\arg z$ of the logarithm. Then the
 operator
 \[
-  (L\mathfrak h)(z):=\frac1{2\pi i}\int_\Gamma\bigl(\mathrm l(z)-\mathrm l(s)\bigr)\frac{\mathfrak h(s)\diff s}{s-z}
+  (L\mathfrak h)(z):=\frac1{2\pi i}\int_\Gamma\bigl(\mathrm l(z)-\mathrm l(y)\bigr)\frac{\mathfrak h(y)\diff y}{y-z}
 \]
 is bounded on $L^2(\Gamma)$, with the same norm on $\lambda\Gamma$ for every $\lambda>0$ and on subsets.
 \end{lemma}
 
 \begin{proof}
 The kernel is regular on the diagonal, since $\mathrm l$ is Lipschitz in arc length away from $0$ and the factor
-$\mathrm l(z)-\mathrm l(s)$ vanishes at $s=z$; we split it into the part with $\log|z|-\log|s|$ and the part with
-$\arg z-\arg s$.
+$\mathrm l(z)-\mathrm l(y)$ vanishes at $y=z$; we split it into the part with $\log|z|-\log|y|$ and the part with
+$\arg z-\arg y$.
 
 \emph{The modulus part.} On the star of rays its kernel is $\mathfrak k_{ij}(\rho/r)/r$ with
 \[
@@ -132,7 +132,7 @@ $\iint_{[0,R]^2}(1+\log^2(r/\rho))\diff\rho\diff r<\infty$.
 bounded. For $i\ne j$ the numerator is bounded and the denominator is at least $(\rho+r)/C_\Gamma$, so the kernel is at most
 $C/(\rho+r)=C\,\mathfrak k(\rho/r)/r$ with $\mathfrak k(u)=(1+u)^{-1}$, $\|\mathfrak k\|_*=\pi$.
 
-Both parts are bounded on $L^2(\Gamma)$. The kernel depends on $(s,z)$ only through $s/|s|$, $z/|z|$ and $|z|/|s|$,
+Both parts are bounded on $L^2(\Gamma)$. The kernel depends on $(y,z)$ only through $y/|y|$, $z/|z|$ and $|z|/|y|$,
 so the operator commutes with $\mathsf D_\lambda$ and the bound holds on $\lambda\Gamma$.
 \end{proof}
 

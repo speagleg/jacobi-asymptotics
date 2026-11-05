@@ -60,13 +60,13 @@ $\usat(p)<1$ in Lemma~\ref{lem:usat}.
 Let $p>0$ and $s>1$.
 \begin{enumerate}
 \item[\textup{(i)}] Let $0<\tau_1<\tau_2$ with $\tau_2>\usat(p)$; every $\tau_2\ge1$ qualifies, for example
-  $[\tau_1,\tau_2]=[0.6,1.6]$. There is $\gamma_W>0$, depending only on $p,\tau_1,\tau_2$ and given by an integral
+  $[\tau_1,\tau_2]=[0.6,1.6]$. There is $\gamma_\Omega>0$, depending only on $p,\tau_1,\tau_2$ and given by an integral
   over the arcsine law \eqref{eq:window-constants}, with the following property. For every
-  $\varepsilon\in(0,\gamma_W/16]$ there are integers $N_1<N_2<\cdots$ and numbers
+  $\varepsilon\in(0,\gamma_\Omega/16]$ there are integers $N_1<N_2<\cdots$ and numbers
   $\varepsilon_k\in\{-\varepsilon,0,\varepsilon\}$, vanishing outside $\bigcup_i[\tau_1N_i,\tau_2N_i]$, such that the
   weights $w_k=k^{-s}e^{\varepsilon_k}$ satisfy
   \[
-    \limsup_{n\to\infty}\log\frac{b_n^2}{b_{n-1}^2}\ge\frac{\varepsilon\gamma_W}{4}.
+    \limsup_{n\to\infty}\log\frac{b_n^2}{b_{n-1}^2}\ge\frac{\varepsilon\gamma_\Omega}{4}.
   \]
 \item[\textup{(ii)}] Let $\ia\in(0,1]$ be the number defined in \eqref{eq:ia} and $\gamma_{\mathrm a}:=c(p)\ia/2$.
   For every $\varepsilon\in(0,\ia/16]$ there are $\varepsilon_k\in\{-\varepsilon,0,\varepsilon\}$ such that the weights
@@ -83,7 +83,7 @@ Let $p>0$ and $s>1$.
 \end{enumerate}
 \end{theorem}
 
-Numerically $\ia\approx0.314$, while the proved constant $\gamma_W$ is very small (about $10^{-7}$ for $p=2$ and
+Numerically $\ia\approx0.314$, while the proved constant $\gamma_\Omega$ is very small (about $10^{-7}$ for $p=2$ and
 $[0.6,1.6]$); the effect itself is of size about $\varepsilon$ (Remark~\ref{rem:constants} and
 Section~\ref{sec:numerics}). The only analytic input of Theorem~\ref{thm:rough} is the pure-power law without rate,
 \cite[Corollary~1.3]{PaperII}.
@@ -115,9 +115,10 @@ Let $p>0$.
 \end{enumerate}
 \end{theorem}
 
-Part (i) uses only the limits of \cite[Corollary~1.3]{PaperII}; parts (ii) and (iii) also use \tailbound{}. Summing
-the $1/n$ expansion that a pointwise statement would give, part (ii) says that, in logarithmic Ces\`aro mean, the
-coefficient of $1/n$ in $n^pb_n(s)/c(p)$ decreases in $s$ with slope exactly $-\frac12$. An anchor fixes it at $p=1$.
+Part (i) uses only the limits of \cite[Corollary~1.3]{PaperII}; parts (ii) and (iii) also use \tailbound{}. In
+logarithmic Ces\`aro mean, part (ii) says that the coefficient of $1/n$ in $n^pb_n(s)/c(p)$ decreases in $s$ with slope
+exactly $-\frac12$ (sum the $1/n$ expansion that a pointwise statement would give). An explicit anchor fixes the
+coefficient at $p=1$.
 
 \begin{corollary}[the averaged $1/n$ coefficient at $p=1$]\label{cor:p1}
 For every $s>1$ there is $C(s)\in\R$ such that the coefficients of $\sigma_{1,s}=\sum_kk^{-s}\delta_{1/k}$ satisfy
@@ -133,8 +134,8 @@ Equivalently, with $D_n(s):=\det\bigl(\zeta(s+i+j)\bigr)_{0\le i,j\le n-1}$,
 For $p=1$ and $s\in\frac32+\N_0$ the first statement is proved without the bound of \tailbound{}, and so is its
 analogue for $p=2$ and $s\in2+2\N_0$ (Corollary~\ref{cor:lattice}). The pointwise $1/n$ term is known for every
 $p>0$: $n^pb_n(s)=c(p)(1-\frac{s-1}{2n}+O(n^{-1-\min(p,1)}))$ by \cite[Theorem~1.4]{PaperII}, restated as
-Theorem~\ref{thm:imp-second} below. Its sum gives the logarithmic mean up to $o(1)$, with a constant that it does not
-determine; at $p=1$ it yields the first statement of Corollary~\ref{cor:p1}. The proof given here does not use the
+Theorem~\ref{thm:imp-second} below. Summing this expansion gives the logarithmic mean up to $o(1)$, but not the
+additive constant; at $p=1$ it yields the first statement of Corollary~\ref{cor:p1}. The proof given here does not use the
 pointwise $1/n$ term, and Theorem~\ref{thm:s}(ii) adds the exact differences of the constants.
 
 \subsection{Context}\label{sec:context}
@@ -180,7 +181,7 @@ orthogonality and recurrence are recorded by Wu, Lin, Xu and Zhao \cite[(1.4)--(
 Lommel case \cite[Remark~1.6]{PaperII}, which rests on the recurrence recorded by Van Assche \cite[\S3]{VA}.
 
 \subsection{Method}\label{sec:method}
-Everything rests on one device. Along a path of weights $w(t)=v\,e^{t\varphi}$, the first variation of $\log h_n$ is
+All proofs use one device. Along a path of weights $w(t)=v\,e^{t\varphi}$, the first variation of $\log h_n$ is
 the average of $\varphi$ against the spectral weights $m_n(k)=w_k(t)p_n(x_k)^2$ of the orthonormal polynomial $p_n$
 (Lemma~\ref{lem:fv}). Two facts locate these weights: the atoms $k<n/M_0$ are saturated, so that $m_n$ is
 exponentially small there (Lemma~\ref{lem:saturation}), and for pure powers $m_n$ lives at indices $k\asymp n$, where its
@@ -205,5 +206,5 @@ $P_{n-1}$ and $P_n$, as in \eqref{eq:rec}.
 Constants $C,C'$ are positive and may change from line to line; the letter $c$ is reserved for $c(p)$, and $c_1$
 for the lower-bound constant of the weights in \S\ref{sec:context}. Symbols local to this paper are the smoothing error
 $\rho_\ell$ and head margin $M_0$ (Section~\ref{sec:sv} and Lemma~\ref{lem:saturation}), the window constants
-$\iota_W,\gamma_W$ and the number $\ia$ (Section~\ref{sec:rough}), the arcsine tail $T_p$ (Lemma~\ref{lem:arcsine}), the exponent $\vartheta_*$ (Lemma~\ref{lem:allM}),
+$\iota_\Omega,\gamma_\Omega$ and the number $\ia$ (Section~\ref{sec:rough}), the arcsine tail $T_p$ (Lemma~\ref{lem:arcsine}), the exponent $\omega_*$ (Lemma~\ref{lem:allM}),
 and $\Phi_n,\Theta_n$ (Section~\ref{sec:s}).

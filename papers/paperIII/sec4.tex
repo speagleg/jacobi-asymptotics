@@ -4,62 +4,62 @@
 This section proves Theorem~\ref{thm:rough}. Throughout, $s>1$ is fixed, $v_k:=k^{-s}$ is the pure power, a
 superscript $v$ marks quantities of $\sigma_{p,s}$, and $w=ve^\varphi$ with $\varphi$ taking the values $0,\pm\varepsilon$.
 
-The mechanism is the following. By Lemma~\ref{lem:lr}, $\log(b_N^2/b_{N-1}^2)$ and $a_N$ move, to first order, by
+By Lemma~\ref{lem:lr}, $\log(b_N^2/b_{N-1}^2)$ and $a_N$ move, to first order, by
 the pairing of $\varphi$ with $\Delta^2m_N^v$ and with $\Delta\cE_N^v$, up to a remainder of order $\varepsilon^2$ that holds
 for every base measure. For the pure power these two vectors stay of size $\asymp1$ (after the natural scaling) on a
-window of indices of size $N$; this follows from the arcsine limit of Lemma~\ref{lem:arcsine}, because a
+window of indices of size $N$. This follows from the arcsine limit of Lemma~\ref{lem:arcsine}: a
 degenerate vector would force the spectral weights to concentrate near three points
 (Lemmas~\ref{lem:window} and~\ref{lem:akernel}). Choosing $\varphi=\pm\varepsilon$ with the sign of that vector on the
 window produces a first-order response of size $\asymp\varepsilon$, which the remainder cannot cancel when
-$\varepsilon$ is small. Repeating this on widely separated windows gives infinitely many such responses, and the
-windows do not interact: the first-order term is evaluated at the pure power, where the other windows lie either in
+$\varepsilon$ is small. Repeating this on widely separated windows gives infinitely many such responses. The
+windows do not interact, because the first-order term is evaluated at the pure power, where the other windows lie either in
 the saturated head (Corollary~\ref{cor:head}) or beyond $Mn$, where the arcsine limit leaves little mass.
 
 \subsection{Windows and the non-degeneracy of the second difference}\label{sec:window}
-A \emph{window} is a pair $W=(\tau_1,\tau_2)$ with $0<\tau_1<\tau_2$; put $W_N:=\N\cap[\tau_1N,\tau_2N]$. It is
+A \emph{window} is a pair $\Omega=(\tau_1,\tau_2)$ with $0<\tau_1<\tau_2$; put $\Omega_N:=\N\cap[\tau_1N,\tau_2N]$. It is
 \emph{admissible} if $\tau_2>\usat(p)$. Let $Z:=\{-2,0,2\}$, and put
 \begin{equation}\label{eq:window-constants}
 \begin{gathered}
-  I_W:=(\tau_2^{-p},\tau_1^{-p})\cap(0,4c),\qquad \Theta_W:=\{\theta\in(0,\pi):\ 2c(1+\cos\theta)\in I_W\},\\
-  \iota_W:=\frac1\pi\int_{\Theta_W}\dist(2\cos\theta,Z)^2\diff\theta,\qquad \delta_W:=\frac{\iota_W}{32},\qquad
-  J_W:=\Bigl\lceil\frac2{\delta_W}\Bigr\rceil,\qquad \gamma_W:=\frac{\delta_W}{J_W^2}.
+  I_\Omega:=(\tau_2^{-p},\tau_1^{-p})\cap(0,4c),\qquad \Xi_\Omega:=\{\theta\in(0,\pi):\ 2c(1+\cos\theta)\in I_\Omega\},\\
+  \iota_\Omega:=\frac1\pi\int_{\Xi_\Omega}\dist(2\cos\theta,Z)^2\diff\theta,\qquad \delta_\Omega:=\frac{\iota_\Omega}{32},\qquad
+  J_\Omega:=\Bigl\lceil\frac2{\delta_\Omega}\Bigr\rceil,\qquad \gamma_\Omega:=\frac{\delta_\Omega}{J_\Omega^2}.
 \end{gathered}
 \end{equation}
-These depend only on $p,\tau_1,\tau_2$. The window is admissible if and only if $I_W\ne\emptyset$, since
-$\tau_2^{-p}<4c$ is $\tau_2>\usat$. Then $\iota_W>0$: the map $\theta\mapsto2c(1+\cos\theta)$ takes $(0,\pi)$ onto
-$(0,4c)$, so $\Theta_W$ is a non-empty open set, and the integrand vanishes only at $\theta\in\{0,\pi/2,\pi\}$. By
+These depend only on $p,\tau_1,\tau_2$. The window is admissible if and only if $I_\Omega\ne\emptyset$, since
+$\tau_2^{-p}<4c$ is $\tau_2>\usat$. Then $\iota_\Omega>0$: the map $\theta\mapsto2c(1+\cos\theta)$ takes $(0,\pi)$ onto
+$(0,4c)$, so $\Xi_\Omega$ is a non-empty open set, and the integrand vanishes only at $\theta\in\{0,\pi/2,\pi\}$. By
 Lemma~\ref{lem:usat}, every window with $\tau_2\ge1$ is admissible.
 
 Since $\arc_{4c}$ is the image of $\diff\theta/\pi$ under $y=2c(1+\cos\theta)$, and $(y-2c)/c=2\cos\theta$,
 \begin{equation}\label{eq:iota-arc}
-  \iota_W=\int_{I_W}\dist\bigl((y-2c)/c,Z\bigr)^2\diff\arc_{4c}(y).
+  \iota_\Omega=\int_{I_\Omega}\dist\bigl((y-2c)/c,Z\bigr)^2\diff\arc_{4c}(y).
 \end{equation}
 
 \begin{lemma}[window non-degeneracy]\label{lem:window}
-Let $W$ be admissible. There is $N_0$ such that every $N\ge N_0$ has some $m\in[N-J_W+1,N]$ with
+Let $\Omega$ be admissible. There is $N_0$ such that every $N\ge N_0$ has some $m\in[N-J_\Omega+1,N]$ with
 \[
-  \bigl\|\Delta^2m^v_m|_{W_N}\bigr\|_1\ge\gamma_W .
+  \bigl\|\Delta^2m^v_m|_{\Omega_N}\bigr\|_1\ge\gamma_\Omega .
 \]
 \end{lemma}
 
-The proof is by contradiction. If the second differences are small on $W_N$ for $J_W$ consecutive indices, then so are
-the first differences, so $|q_N|$, $|q_{N-1}|$ and $|q_{N-2}|$ nearly agree on $W_N$. The three-term recurrence then
-forces the rescaled atoms in $W_N$, weighted by $m_{N-1}$, to lie near the three points $Z$, which contradicts the
-arcsine limit, whose mass on $I_W$ is spread out.
+The proof is by contradiction. If the second differences are small on $\Omega_N$ for $J_\Omega$ consecutive indices, then so are
+the first differences, so $|q_N|$, $|q_{N-1}|$ and $|q_{N-2}|$ nearly agree on $\Omega_N$. The three-term recurrence then
+forces the rescaled atoms in $\Omega_N$, weighted by $m_{N-1}$, to lie near the three points $Z$, which contradicts the
+arcsine limit, whose mass on $I_\Omega$ is spread out.
 
 \begin{proof}
-Write $S:=W_N$, $\delta:=\delta_W$, $J:=J_W$, $\gamma:=\gamma_W$, $D_m:=m_m-m_{m-1}$, and drop the superscript $v$.
+Write $S:=\Omega_N$, $\delta:=\delta_\Omega$, $J:=J_\Omega$, $\gamma:=\gamma_\Omega$, $\Delta m_m:=m_m-m_{m-1}$, and drop the superscript $v$.
 Suppose that $\|\Delta^2m_m|_S\|_1<\gamma$ for every $m\in[N-J+1,N]$.
 
-\emph{Step 1: first differences are small on $S$.} For $m\in[N-J,N]$, $D_N-D_m=\sum_{j=m+1}^N\Delta^2m_j$, so
-$\|(D_N-D_m)|_S\|_1\le(N-m)\gamma$. Also $m_N-m_{N-J}=\sum_{m=N-J+1}^ND_m$ has $\|\cdot|_S\|_1\le2$. Hence
-$J\|D_N|_S\|_1\le2+\gamma J(J-1)/2$, that is, $\|D_N|_S\|_1\le2/J+(J-1)\gamma/2$, and since
-$D_{N-1}=D_N-\Delta^2m_N$, also $\|D_{N-1}|_S\|_1\le2/J+(J+1)\gamma/2$. As $2/J\le\delta$ and $\gamma=\delta/J^2$, both
+\emph{Step 1: first differences are small on $S$.} For $m\in[N-J,N]$, $\Delta m_N-\Delta m_m=\sum_{j=m+1}^N\Delta^2m_j$, so
+$\|(\Delta m_N-\Delta m_m)|_S\|_1\le(N-m)\gamma$. Also $m_N-m_{N-J}=\sum_{m=N-J+1}^N\Delta m_m$ has $\|\cdot|_S\|_1\le2$. Hence
+$J\|\Delta m_N|_S\|_1\le2+\gamma J(J-1)/2$, that is, $\|\Delta m_N|_S\|_1\le2/J+(J-1)\gamma/2$, and since
+$\Delta m_{N-1}=\Delta m_N-\Delta^2m_N$, also $\|\Delta m_{N-1}|_S\|_1\le2/J+(J+1)\gamma/2$. As $2/J\le\delta$ and $\gamma=\delta/J^2$, both
 are at most $2\delta$.
 
 \emph{Step 2: the moduli nearly agree on $S$.} Put $e:=|q_{N-2}|-|q_{N-1}|$ and $e':=|q_N|-|q_{N-1}|$. Since
-$(\alpha-\beta)^2\le|\alpha^2-\beta^2|$ for $\alpha,\beta\ge0$, $\sum_{k\in S}e_k^2\le\|D_{N-1}|_S\|_1\le2\delta$ and
-$\sum_{k\in S}e_k'^2\le\|D_N|_S\|_1\le2\delta$.
+$(\lambda-\mu)^2\le|\lambda^2-\mu^2|$ for $\lambda,\mu\ge0$, $\sum_{k\in S}e_k^2\le\|\Delta m_{N-1}|_S\|_1\le2\delta$ and
+$\sum_{k\in S}e_k'^2\le\|\Delta m_N|_S\|_1\le2\delta$.
 
 \emph{Step 3: the recurrence on $S$.} Fix $k\in S$, let $\epsilon_k:=\sgn(q_{N-1}(k)q_{N-2}(k))$ (with $\sgn0:=1$),
 and $t_k:=x_k-a_{N-1}-b_{N-1}\epsilon_k$. We claim
@@ -72,9 +72,9 @@ $b_N|q_N(k)|=\bigl|(x_k-a_{N-1})|q_{N-1}(k)|-b_{N-1}\epsilon_k|q_{N-2}(k)|\bigr|
 Hence $\bigl|b_N|q_N(k)|-|t_k||q_{N-1}(k)|\bigr|\le b_{N-1}|e_k|$, and $b_N|q_N(k)|=b_N|q_{N-1}(k)|+b_Ne'_k$, which
 proves the claim. Now $||t_k|-b_N|=\dist(t_k,\{\pm b_N\})\ge\dist(x_k-a_{N-1},\tilde Z)$ with
 $\tilde Z:=\{\pm b_{N-1}\pm b_N\}$. Put $\bar b:=\max(b_N,b_{N-1})$, $y_k:=(x_k-a_{N-1})/\bar b$ and $Z_N:=\tilde
-Z/\bar b$. Squaring the claim, using $(\alpha+\beta)^2\le2\alpha^2+2\beta^2$ and Step~2, and summing over $S$:
+Z/\bar b$. Squaring the claim, using $(\lambda+\mu)^2\le2\lambda^2+2\mu^2$ and Step~2, and summing over $S$:
 \begin{equation}\label{eq:concentration}
-  \sum_{k\in S}m_{N-1}(k)\,\dist(y_k,Z_N)^2\le2\bigl(\|e|_S\|_2^2+\|e'|_S\|_2^2\bigr)\le8\delta=\iota_W/4 .
+  \sum_{k\in S}m_{N-1}(k)\,\dist(y_k,Z_N)^2\le2\bigl(\|e|_S\|_2^2+\|e'|_S\|_2^2\bigr)\le8\delta=\iota_\Omega/4 .
 \end{equation}
 
 \emph{Step 4: the arcsine limit contradicts \eqref{eq:concentration} for large $N$.} Put $n:=N-1$ and $Y_k:=n^px_k$.
@@ -83,70 +83,70 @@ $n^pa_{N-1}\to2c$ and $n^p\bar b\to c$, so $\phi_N\to\phi$, $\phi(Y):=(Y-2c)/c$,
 $Z_N\to Z$ in the Hausdorff distance. Since $\dist(\cdot,Z_N)$ is $1$-Lipschitz and differs from $\dist(\cdot,Z)$ by
 at most the Hausdorff distance, $\dist(\phi_N,Z_N)^2\to\dist(\phi,Z)^2$ uniformly on compact sets. By
 \eqref{eq:iota-arc} and monotone convergence there is a continuous $h$ with $0\le h\le1$, compact support in the open
-interval $I_W$, and $\int h\,\dist(\phi,Z)^2\diff\arc_{4c}\ge\iota_W/2$. Now $k\in S$ if and only if $Y_k$ lies in
+interval $I_\Omega$, and $\int h\,\dist(\phi,Z)^2\diff\arc_{4c}\ge\iota_\Omega/2$. Now $k\in S$ if and only if $Y_k$ lies in
 $[(n/(\tau_2N))^p,(n/(\tau_1N))^p]$, whose endpoints tend to $\tau_2^{-p}$ and $\tau_1^{-p}$; so for large $N$ the
 support of $h$ lies inside this interval, and $\mathbf 1_S(k)\ge h(Y_k)$ for all $k$. Hence the left side of
 \eqref{eq:concentration} is at least $\int G_N\diff\nu_{n,0}$ with $G_N:=h\,\dist(\phi_N,Z_N)^2$ and $\nu_{n,0}$ as in
 Lemma~\ref{lem:arcsine}. The functions $G_N$ converge uniformly on $[0,\infty)$ to the bounded continuous function
-$G:=h\,\dist(\phi,Z)^2$, so $\int G_N\diff\nu_{n,0}\to\int G\diff\arc_{4c}\ge\iota_W/2$ by Lemma~\ref{lem:arcsine}. For
+$G:=h\,\dist(\phi,Z)^2$, so $\int G_N\diff\nu_{n,0}\to\int G\diff\arc_{4c}\ge\iota_\Omega/2$ by Lemma~\ref{lem:arcsine}. For
 $N$ large this contradicts \eqref{eq:concentration}.
 \end{proof}
 
 \subsection{The off-diagonal coefficients}\label{sec:rough-b}
-Recall $F_N=\log(b_N^2/b_{N-1}^2)$. For an admissible window $W$ put
+Recall $F_N=\log(b_N^2/b_{N-1}^2)$. For an admissible window $\Omega$ put
 \[
-  M_W:=\max\Bigl(1,\bigl(4c\sin^2(\pi\gamma_W/32)\bigr)^{-1/p}\Bigr),\qquad
-  R_W:=\max\bigl(\tau_2/\tau_1,\ \tau_2M_0,\ M_W/\tau_1\bigr).
+  M_\Omega:=\max\Bigl(1,\bigl(4c\sin^2(\pi\gamma_\Omega/32)\bigr)^{-1/p}\Bigr),\qquad
+  R_\Omega:=\max\bigl(\tau_2/\tau_1,\ \tau_2M_0,\ M_\Omega/\tau_1\bigr).
 \]
-Since $T_p$ of \eqref{eq:Tp} is non-increasing and $T_p((4c\sin^2(\pi\gamma_W/32))^{-1/p})=\gamma_W/16$, we have
-$T_p(M_W)\le\gamma_W/16$.
+Since $T_p$ of \eqref{eq:Tp} is non-increasing and $T_p((4c\sin^2(\pi\gamma_\Omega/32))^{-1/p})=\gamma_\Omega/16$, we have
+$T_p(M_\Omega)\le\gamma_\Omega/16$.
 
 \begin{theorem}\label{thm:rough-b}
-Let $W$ be admissible, let $N_0$ be as in Lemma~\ref{lem:window}, and let $N_1<N_2<\cdots$ be integers with
-$N_1\ge\max(N_0,2J_W+2)$, $\tau_2N_i<\tau_1N_{i+1}$, and either
-\textup{(A)} $N_{i+1}/N_i\to\infty$, or \textup{(B)} $N_{i+1}>R_WN_i$ for every $i$. For each $i$ pick
-$m_i\in[N_i-J_W+1,N_i]$ as in Lemma~\ref{lem:window}. Let $\varepsilon\in(0,\gamma_W/16]$ and
+Let $\Omega$ be admissible, let $N_0$ be as in Lemma~\ref{lem:window}, and let $N_1<N_2<\cdots$ be integers with
+$N_1\ge\max(N_0,2J_\Omega+2)$, $\tau_2N_i<\tau_1N_{i+1}$, and either
+\textup{(A)} $N_{i+1}/N_i\to\infty$, or \textup{(B)} $N_{i+1}>R_\Omega N_i$ for every $i$. For each $i$ pick
+$m_i\in[N_i-J_\Omega+1,N_i]$ as in Lemma~\ref{lem:window}. Let $\varepsilon\in(0,\gamma_\Omega/16]$ and
 \[
-  \varepsilon_k:=\varepsilon\,\sgn\bigl(\Delta^2m^v_{m_i}(k)\bigr)\quad(k\in W_{N_i},\ i\ge1),\qquad
+  \varepsilon_k:=\varepsilon\,\sgn\bigl(\Delta^2m^v_{m_i}(k)\bigr)\quad(k\in \Omega_{N_i},\ i\ge1),\qquad
   \varepsilon_k:=0\quad\text{otherwise},
 \]
-with $\sgn0:=1$. Then $w_k:=k^{-s}e^{\varepsilon_k}$ satisfies $\liminf_iF_{m_i}(w)\ge\varepsilon\gamma_W/2$ in case
-\textup{(A)}, and $\liminf_iF_{m_i}(w)\ge\varepsilon\gamma_W/4$ in case \textup{(B)}.
+with $\sgn0:=1$. Then $w_k:=k^{-s}e^{\varepsilon_k}$ satisfies $\liminf_iF_{m_i}(w)\ge\varepsilon\gamma_\Omega/2$ in case
+\textup{(A)}, and $\liminf_iF_{m_i}(w)\ge\varepsilon\gamma_\Omega/4$ in case \textup{(B)}.
 \end{theorem}
 
 \begin{proof}
-The windows $W_{N_i}$ are disjoint, so $\varphi:=(\varepsilon_k)$ takes values in $\{0,\pm\varepsilon\}$. Fix $i$, write
-$m:=m_i$, and let $H_i:=\bigcup_{j<i}W_{N_j}\subset[1,\tau_2N_{i-1}]$ and
-$T_i:=\bigcup_{j>i}W_{N_j}\subset[\tau_1N_{i+1},\infty)$ be the other windows.
+The windows $\Omega_{N_i}$ are disjoint, so $\varphi:=(\varepsilon_k)$ takes values in $\{0,\pm\varepsilon\}$. Fix $i$, write
+$m:=m_i$, and let $H_i:=\bigcup_{j<i}\Omega_{N_j}\subset[1,\tau_2N_{i-1}]$ and
+$U_i:=\bigcup_{j>i}\Omega_{N_j}\subset[\tau_1N_{i+1},\infty)$ be the other windows.
 
 \emph{Linearisation.} Lemma~\ref{lem:lr}(ii), applied along the direct path $ve^{t\varphi}$, gives
 $F_m(w)\ge F_m(v)+\langle\varphi,\Delta^2m^v_m\rangle-2\varepsilon^2$.
 
 \emph{Own window and cross terms.} By the choice of the signs,
-$\langle\varphi,\Delta^2m^v_m\rangle=\varepsilon\|\Delta^2m^v_m|_{W_{N_i}}\|_1+E_i$, where the first term is at least
-$\varepsilon\gamma_W$ by Lemma~\ref{lem:window}, and the cross term $E_i:=\langle\varphi\mathbf 1_{H_i\cup T_i},
+$\langle\varphi,\Delta^2m^v_m\rangle=\varepsilon\|\Delta^2m^v_m|_{\Omega_{N_i}}\|_1+E_i$, where the first term is at least
+$\varepsilon\gamma_\Omega$ by Lemma~\ref{lem:window}, and the cross term $E_i:=\langle\varphi\mathbf 1_{H_i\cup U_i},
 \Delta^2m_m^v\rangle$ satisfies
-$|E_i|\le\varepsilon\bigl(m^v_m+2m^v_{m-1}+m^v_{m-2}\bigr)(H_i\cup T_i)$.
+$|E_i|\le\varepsilon\bigl(m^v_m+2m^v_{m-1}+m^v_{m-2}\bigr)(H_i\cup U_i)$.
 
-\emph{Head.} Let $m'\in\{m,m-1,m-2\}$; then $N_i-J_W-1\le m'\le N_i$, so $m'\ge N_i/2$. For $k\in H_i$,
-$k/m'\le2\tau_2N_{i-1}/N_i$, which tends to $0$ in case (A) and is less than $2\tau_2/R_W\le2/M_0$ in case (B). So, for
+\emph{Head.} Let $m'\in\{m,m-1,m-2\}$; then $N_i-J_\Omega-1\le m'\le N_i$, so $m'\ge N_i/2$. For $k\in H_i$,
+$k/m'\le2\tau_2N_{i-1}/N_i$, which tends to $0$ in case (A) and is less than $2\tau_2/R_\Omega\le2/M_0$ in case (B). So, for
 $i$ large, $H_i\subset[1,2m'/M_0]$, and Corollary~\ref{cor:head} (with $c_1=1$, $A=s$, $\|v\|_1=\zeta(s)$) gives
 $m^v_{m'}(H_i)\le\zeta(s)m'^{s+1}(m'+1)^2e^{-2m'}\to0$.
 
-\emph{Tail.} In case (A) fix $M\ge1$. For $i$ large, $\tau_1N_{i+1}>MN_i\ge Mm'$, so $T_i\subset(Mm',\infty)$ and,
-by Lemma~\ref{lem:arcsine}, $\limsup_im^v_{m'}(T_i)\le T_p(M)$; as $M$ is arbitrary, $m^v_{m'}(T_i)\to0$. In case (B),
-$\tau_1N_{i+1}>\tau_1R_WN_i\ge M_Wm'$, so $\limsup_im^v_{m'}(T_i)\le T_p(M_W)\le\gamma_W/16$.
+\emph{Tail.} In case (A) fix $M\ge1$. For $i$ large, $\tau_1N_{i+1}>MN_i\ge Mm'$, so $U_i\subset(Mm',\infty)$ and,
+by Lemma~\ref{lem:arcsine}, $\limsup_im^v_{m'}(U_i)\le T_p(M)$; as $M$ is arbitrary, $m^v_{m'}(U_i)\to0$. In case (B),
+$\tau_1N_{i+1}>\tau_1R_\Omega N_i\ge M_\Omega m'$, so $\limsup_im^v_{m'}(U_i)\le T_p(M_\Omega)\le\gamma_\Omega/16$.
 
-\emph{Conclusion.} Hence $\limsup_i|E_i|$ is $0$ in case (A) and at most $4\varepsilon\gamma_W/16$ in case (B). By
-Theorem~\ref{thm:imp-pure}, $b_m(v)/b_{m-1}(v)\to1$, so $F_m(v)\to0$. With $\varepsilon\le\gamma_W/16$ we have
-$2\varepsilon^2\le\varepsilon\gamma_W/8$, and therefore $\liminf_iF_{m_i}(w)$ is at least
-$\varepsilon\gamma_W(1-\frac18)$ in case (A) and $\varepsilon\gamma_W(1-\frac18-\frac14)$ in case (B); in particular it
-is at least $\varepsilon\gamma_W/2$ and $\varepsilon\gamma_W/4$, respectively.
+\emph{Conclusion.} Hence $\limsup_i|E_i|$ is $0$ in case (A) and at most $4\varepsilon\gamma_\Omega/16$ in case (B). By
+Theorem~\ref{thm:imp-pure}, $b_m(v)/b_{m-1}(v)\to1$, so $F_m(v)\to0$. With $\varepsilon\le\gamma_\Omega/16$ we have
+$2\varepsilon^2\le\varepsilon\gamma_\Omega/8$, and therefore $\liminf_iF_{m_i}(w)$ is at least
+$\varepsilon\gamma_\Omega(1-\frac18)$ in case (A) and $\varepsilon\gamma_\Omega(1-\frac18-\frac14)$ in case (B); in particular it
+is at least $\varepsilon\gamma_\Omega/2$ and $\varepsilon\gamma_\Omega/4$, respectively.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:rough}\textup{(i)}]
 Integers $N_i$ as in Theorem~\ref{thm:rough-b} exist (choose them recursively), the weights constructed there are of
-the stated form, and $\limsup_nF_n(w)\ge\liminf_iF_{m_i}(w)\ge\varepsilon\gamma_W/4$.
+the stated form, and $\limsup_nF_n(w)\ge\liminf_iF_{m_i}(w)\ge\varepsilon\gamma_\Omega/4$.
 \end{proof}
 
 \subsection{The diagonal coefficients}\label{sec:rough-a}
@@ -201,9 +201,9 @@ two terms is at least $c\ia/2$; and $\|n^p\Delta\cE_n\|_1\ge\|N^p\Delta\cE_n\|_1
 \begin{theorem}\label{thm:rough-a}
 Let $\varepsilon\in(0,\ia/16]$. Let $N_0$ be as in Lemma~\ref{lem:akernel}, and choose integers $n_1<n_2<\cdots$ with
 $\|n_i^p\Delta\cE^v_{n_i}\|_1\ge\gamma_{\mathrm a}$, $n_1\ge\max(N_0,2)$ and $n_{i+1}\ge(i+1)^2M_0n_i$. Put
-$W_i:=\N\cap[n_i/M_0,\,in_i]$,
+$\Omega_i:=\N\cap[n_i/M_0,\,in_i]$,
 \[
-  \varepsilon_k:=(-1)^i\varepsilon\,\sgn\bigl(\Delta\cE^v_{n_i}(k)\bigr)\quad(k\in W_i),\qquad\varepsilon_k:=0\quad
+  \varepsilon_k:=(-1)^i\varepsilon\,\sgn\bigl(\Delta\cE^v_{n_i}(k)\bigr)\quad(k\in \Omega_i),\qquad\varepsilon_k:=0\quad
   \text{otherwise},
 \]
 and $w_k:=k^{-s}e^{\varepsilon_k}$. Then $(-1)^i\bigl(n_i^pa_{n_i}(w)-2c\bigr)\ge\varepsilon\gamma_{\mathrm a}/2-o(1)$ as
@@ -212,9 +212,9 @@ $i\to\infty$.
 
 \begin{proof}
 The indices $n_i$ exist, because every pair $\{N,N+1\}$ with $N\ge N_0$ contains one. The windows are disjoint: the
-right end $in_i$ of $W_i$ is less than the left end $n_{i+1}/M_0\ge(i+1)^2n_i$ of $W_{i+1}$. Fix $i$ and put
-$A_i:=\N\setminus W_i=[1,n_i/M_0)\cup(in_i,\infty)$. Every other window lies in $A_i$: for $j<i$,
-$W_j\subset[1,(i-1)n_{i-1}]$ and $(i-1)n_{i-1}\le(i-1)n_i/(i^2M_0)<n_i/M_0$; for $j>i$, $W_j\subset[n_{i+1}/M_0,\infty)$
+right end $in_i$ of $\Omega_i$ is less than the left end $n_{i+1}/M_0\ge(i+1)^2n_i$ of $\Omega_{i+1}$. Fix $i$ and put
+$A_i:=\N\setminus \Omega_i=[1,n_i/M_0)\cup(in_i,\infty)$. Every other window lies in $A_i$: for $j<i$,
+$\Omega_j\subset[1,(i-1)n_{i-1}]$ and $(i-1)n_{i-1}\le(i-1)n_i/(i^2M_0)<n_i/M_0$; for $j>i$, $\Omega_j\subset[n_{i+1}/M_0,\infty)$
 and $n_{i+1}/M_0>in_i$.
 
 \emph{Off-window mass.} By Lemma~\ref{lem:toda} and Theorem~\ref{thm:imp-pure}, for $n$ large and every $A\subset\N$,
@@ -236,7 +236,7 @@ $\varphi=(\varepsilon_k)$, gives
 \]
 By the choice of signs, and because $\varphi$ vanishes on $A_i$ except on the other windows,
 \[
-  (-1)^in_i^p\langle\varphi,\Delta\cE^v_{n_i}\rangle\ge\varepsilon\,n_i^p\|\Delta\cE^v_{n_i}|_{W_i}\|_1
+  (-1)^in_i^p\langle\varphi,\Delta\cE^v_{n_i}\rangle\ge\varepsilon\,n_i^p\|\Delta\cE^v_{n_i}|_{\Omega_i}\|_1
   -\varepsilon\,n_i^p\|\Delta\cE^v_{n_i}|_{A_i}\|_1\ge\varepsilon(\gamma_{\mathrm a}-2\omega_i).
 \]
 
@@ -264,15 +264,15 @@ $\liminf$ of $n^pa_n$ differ by at least $\varepsilon\gamma_{\mathrm a}$.
 \end{proof}
 
 \begin{remark}[size of the constants]\label{rem:constants}
-The constants of Theorem~\ref{thm:rough} are far from the size of the effect. For $p=2$ and $W=(0.6,1.6)$ a quadrature
-gives $\iota_W\approx0.2345$, hence $J_W=273$, $\gamma_W\approx9.8\cdot10^{-8}$ and $R_W\approx1.1\cdot10^8$; for
-$p=1$, $\iota_W\approx0.127$ and $\gamma_W\approx1.6\cdot10^{-8}$. Numerically, for the pure power with $p=s=2$, the
-minimum of $\|\Delta^2m_m|_{W_N}\|_1$ over $m\in[N-7,N]$ is $1.06$, $1.09$ and $1.09$ for $N=100,200,300$, and
+The constants of Theorem~\ref{thm:rough} are far from the size of the effect. For $p=2$ and $\Omega=(0.6,1.6)$ a quadrature
+gives $\iota_\Omega\approx0.2345$, hence $J_\Omega=273$, $\gamma_\Omega\approx9.8\cdot10^{-8}$ and $R_\Omega\approx1.1\cdot10^8$; for
+$p=1$, $\iota_\Omega\approx0.127$ and $\gamma_\Omega\approx1.6\cdot10^{-8}$. Numerically, for the pure power with $p=s=2$, the
+minimum of $\|\Delta^2m_m|_{\Omega_N}\|_1$ over $m\in[N-7,N]$ is $1.06$, $1.09$ and $1.09$ for $N=100,200,300$, and
 separation by a factor $4$ already suffices (Section~\ref{sec:numerics}). The loss comes from the contradiction in
-Lemma~\ref{lem:window}, which costs the factor $J_W^2$. For the diagonal, a grid quadrature gives $\ia\approx0.314$,
-and the observed first-order response $\varepsilon\|n^p\Delta\cE_n^v|_W\|_1$ is about $0.8\,\varepsilon c(p)$ for $p=s=2$,
+Lemma~\ref{lem:window}, which costs the factor $J_\Omega^2$. For the diagonal, a grid quadrature gives $\ia\approx0.314$,
+and the observed first-order response $\varepsilon\|n^p\Delta\cE_n^v|_\Omega\|_1$ is about $0.8\,\varepsilon c(p)$ for $p=s=2$,
 about ten times the guaranteed $\varepsilon\gamma_{\mathrm a}/2$. None of these numerical values is used in the proofs,
-which use only $\iota_W>0$ and $\ia>0$.
+which use only $\iota_\Omega>0$ and $\ia>0$.
 \end{remark}
 
 \begin{remark}[the law to accuracy $\varepsilon^2$]\label{rem:accuracy}
@@ -293,9 +293,9 @@ $ve^\varphi$.
 
 \begin{remark}[admissibility]\label{rem:admissible}
 The condition $\tau_2>\usat$ is necessary for this mechanism. If $\tau_2\le\usat$ and $m-N$ stays bounded, the image
-of $W_N$ under $k\mapsto m^px_k$ lies in $[(m/(\tau_2N))^p,\infty)$, whose left end tends to $\tau_2^{-p}\ge4c$; since
-$\arc_{4c}$ has no mass beyond $4c$ and no atom, Lemma~\ref{lem:arcsine} gives $m^v_m(W_N)\to0$, so
-$\|\Delta^2m^v_m|_{W_N}\|_1\to0$ and the first-order gain disappears. In the variable $u=k/N$ of Proposition~\ref{prop:imp-eq},
+of $\Omega_N$ under $k\mapsto m^px_k$ lies in $[(m/(\tau_2N))^p,\infty)$, whose left end tends to $\tau_2^{-p}\ge4c$; since
+$\arc_{4c}$ has no mass beyond $4c$ and no atom, Lemma~\ref{lem:arcsine} gives $m^v_m(\Omega_N)\to0$, so
+$\|\Delta^2m^v_m|_{\Omega_N}\|_1\to0$ and the first-order gain disappears. In the variable $u=k/N$ of Proposition~\ref{prop:imp-eq},
 such windows lie in $(0,\usat]$, where the equilibrium density $\rho^*$ equals $1$; the argument just given shows that
 they carry asymptotically no spectral weight.
 \end{remark}

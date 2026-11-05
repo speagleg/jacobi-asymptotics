@@ -7,14 +7,14 @@
 \section{\texorpdfstring{Pure powers with $p=1$}{Pure powers with p=1}}\label{sec:pone}
 
 At $p=1$ neither of the two hard-edge constructions used so far gives the $1/n$ term. The classical parametrix of
-Section~\ref{sec:classical} needs a square root of the band weight continued across $(-\delta,0)$ with a small jump,
-and at $p=1$ the continued lens scalar jumps there by the unimodular factor $-e^{-2i\theta}$, which is not close to $1$,
-while the continued band factor $H_n=e^{2j(n/z)}$ has double poles at $z=-n/m$, $m\in\N$, which accumulate at $0$
+Section~\ref{sec:classical} needs a square root of the band weight continued across $(-\delta,0)$ with a small jump.
+At $p=1$ the continued lens scalar jumps there by the unimodular factor $-e^{-2i\theta}$, which is not close to $1$,
+and the continued band factor $H_n=e^{2j(n/z)}$ has double poles at $z=-n/m$, $m\in\N$, which accumulate at $0$
 (Remark~\ref{rem:quotient-p1}). The comparison parametrix of Section~\ref{sec:hardedge} avoids any continuation, but it
 controls the hard edge only up to $O(1/n)$, without a $1/n$ term. This section proves Theorem~\ref{thm:onen} for $p=1$
 in a different variable, the symmetric variable $y=\pm x^{1/2}$ in which \cite{WLXZ} treat the Tricomi--Carlitz
-polynomials. There the hard edge becomes an interior point of the band, every jump outside three small circles can be
-made $O(N^{-3})$, and a second-order expansion on the circles gives a $1/N$ term whose coefficient is known to exist
+polynomials. There the hard edge becomes an interior point of the band, and every jump outside three small circles can
+be made $O(N^{-3})$. A second-order expansion on the circles then gives a $1/N$ term whose coefficient is known to exist
 but is not computed. Its value is then fixed by two elementary facts, which do not use the Riemann--Hilbert analysis: an
 exact comparison with the Tricomi--Carlitz measure at $s=\frac32$ (\S\ref{sec:pone-tc}), and a bound on how the norms
 $h_n$ depend on $s$ (\S\ref{sec:pone-sdiff}). The comparison with Tricomi--Carlitz also gives the second-order term at
@@ -51,10 +51,10 @@ $\mathsf e_{2m+1}=-R_{2m+2}(0)/R_{2m}(0)=u_m$, and then $l_m=a_m-u_m=\mathsf e_{
 \end{proof}
 
 For $\sigma_s$ we take $\nu_s:=\frac12\sum_{k\ge1}k^{-s}(\delta_{k^{-1/2}}+\delta_{-k^{-1/2}})$, with nodes $\pm k^{-1/2}$.
-Two facts make this variable suitable. The equilibrium problem of $\nu_s$ at the scale $N^{1/2}$ has a band
-$(-2,2)$ that contains the image of the hard edge as its midpoint $0$ \cite[(2.1)]{WLXZ}, and the factor $k^{-(s-3/2)}$
+Two facts make this variable suitable. First, the equilibrium problem of $\nu_s$ at the scale $N^{1/2}$ has a band
+$(-2,2)$ that contains the image of the hard edge as its midpoint $0$ \cite[(2.1)]{WLXZ}. The factor $k^{-(s-3/2)}$
 of the weights becomes $|y|^{2s-3}=|y|^{2(\alpha+1/2)}$, a Fisher--Hartwig singularity at an interior point of the band,
-for which an explicit local model exists \cite[\S5]{KV}, \cite[\S4]{Van}. And at $p=1$ the index function is
+for which an explicit local model exists \cite[\S5]{KV}, \cite[\S4]{Van}. Second, at $p=1$ the index function is
 $t=N/z^2$ in the rescaled variable $z=N^{1/2}y$, so the poles of $\Gamma(t)$ lie on the imaginary axis, which carries
 no jump. The price is that the symmetric chain has a term $(-1)^N/N$, coming from the phase of the band at $0$; it
 cancels when we fold back to $a_m$ and $b_m$.
@@ -246,11 +246,11 @@ $\mathsf e_N=1/(N+1)$, and that of $x\sigma_{\mathrm{TC}}$ is given by Lemma~\re
 Lemma~\ref{lem:pone-fold}; expanding gives the constants.
 \end{proof}
 
-The mechanism behind $-\frac1{24}$ is visible in the proof: the Stirling term $1/(12k)$ of the weights is the polynomial
-factor $1+x/12$, which shifts $\log h_n$ by exactly $a_n/12+O(n^{-2})$, and $a_n-a_{n-1}\approx-n^{-2}$; the remainder
+The proof shows where $-\frac1{24}$ comes from. The Stirling term $1/(12k)$ of the weights is the polynomial
+factor $1+x/12$, which shifts $\log h_n$ by exactly $a_n/12+O(n^{-2})$, and $a_n-a_{n-1}\approx-n^{-2}$. The remainder
 $x^2/288$ shifts $\log h_n$ by an amount that is the same at $n$ and $n-1$ up to $O(n^{-3})$, and so drops out of $b_n$.
 For $s\notin\frac32+\N_0$ the weight $k^{-s}$ is not of the form $(1+\epsilon x)e^{O(x^2)}$ times a measure with known
-coefficients, and the comparison gives nothing; for those $s$ we need the Riemann--Hilbert analysis below.
+coefficients, and the comparison gives nothing. For those $s$ we need the Riemann--Hilbert analysis below.
 
 \subsection{Differences in the exponent}\label{sec:pone-sdiff}
 
@@ -353,10 +353,10 @@ transformations, the auxiliary functions $D$, $\tilde D$, $\hat D$, $E$ and the 
 \cite{WLXZ}; what is new is the Stirling truncation, the Fisher--Hartwig factor in the global parametrix, the reduction
 of the Airy parametrices to those of \cite[\S6.1]{WLXZ}, the Fisher--Hartwig parametrix at $0$ with a structured bound on
 its mismatch, and the behaviour at $0$ needed to identify $\mathsf X$ with the solution of its jump problem. The proof
-relies on the analysis of \cite{WLXZ} at two points that we do not prove again: the bound $O(e^{-cN})$ for the jumps on
-the lens and saturated contours uniformly up to the largest node, which \cite[(5.8), (6.34)]{WLXZ} assert with a brief
-justification, and the uniform boundedness on $L^2(\Sigma_{\mathsf X})$ of the Cauchy operator, which their small-norm
-step after \cite[(6.35)]{WLXZ} uses. So Proposition~\ref{prop:pone-first}, and with it the case $p=1$ of
+relies on two points of the analysis of \cite{WLXZ} that we do not prove again. The first is the bound $O(e^{-cN})$ for
+the jumps on the lens and saturated contours uniformly up to the largest node, which \cite[(5.8), (6.34)]{WLXZ} assert
+with a brief justification. The second is the uniform boundedness on $L^2(\Sigma_{\mathsf X})$ of the Cauchy operator,
+which their small-norm step after \cite[(6.35)]{WLXZ} uses. So Proposition~\ref{prop:pone-first}, and with it the case $p=1$ of
 Theorem~\ref{thm:onen}, depends on that analysis being correct. The same dependence does not arise for $p\ne1$. The
 consequence $N\mathsf e_N=1+O(1/N)$ gives a second proof of Corollary~\ref{cor:pure} at $p=1$.
 
@@ -404,9 +404,9 @@ $g_\pm(2)=\frac l2\pm\frac{\pi i}4$ (proof of \cite[Proposition~4.2]{WLXZ}); sin
 $\int_2^\infty\psi=\frac14$, we get $\varphi_+(0)=-\frac{\pi i}2$. Conjugation by $e^{-N\varphi_+(0)\sigma_3}=i^{N\sigma_3}$
 fixes the diagonal and multiplies the off-diagonal entries by $(-1)^N$, which gives the term $(-1)^N\Delta^{(0)}_{\mathrm o}$.
 At $\pm2$ no such phase occurs, because the Airy phases $\tilde\varphi$, $\hat\varphi$ of \cite[(2.4), (4.28)]{WLXZ}
-vanish at $\pm2$ (although $\varphi_+(2)=-\frac{\pi i}4$). The rest of the proof (Appendix~\ref{app:pone-jumps}) expands the
-three factors of the band weight that depend on $N$, $e^{j(N/z^2)}=1+z^2/(12N)+O(N^{-2})$ on the circles, $\mathsf Q_m$ and
-$\mathcal D_{\mathrm q}$, to first order.
+vanish at $\pm2$ (although $\varphi_+(2)=-\frac{\pi i}4$). The rest of the proof (Appendix~\ref{app:pone-jumps}) expands to
+first order the three factors of the band weight that depend on $N$: $e^{j(N/z^2)}=1+z^2/(12N)+O(N^{-2})$ on the circles,
+$\mathsf Q_m$ and $\mathcal D_{\mathrm q}$.
 
 \begin{proposition}[Second-order small norm]\label{prop:pone-S1}
 With the circles oriented as in Proposition~\textup{\ref{prop:pone-first}},
@@ -469,7 +469,7 @@ $\mathsf f_0(s)=\frac12-s$, and~\eqref{eq:pone-fold-b} gives
   nb_n(\sigma_s)=\frac12\Bigl(1-\frac{s-1}{2n}+O(n^{-2})\Bigr),\qquad na_n(\sigma_s)=1-\frac s{2n}+O(n^{-2}),
 \end{equation}
 which is Theorem~\ref{thm:onen} at $p=1$, since $c(1)=\frac12$ and $s-1+p=s$. Dividing,
-$a_n/(2b_n)=1-1/(2n)+O(n^{-2})$, and $\frac12(n+s-1)^{-1}=\frac1{2n}(1-\frac{s-1}n+O(n^{-2}))$ gives the last form of
+$a_n/(2b_n)=1-1/(2n)+O(n^{-2})$, and $\frac12(n+\frac{s-1}2)^{-1}=\frac1{2n}(1-\frac{s-1}{2n}+O(n^{-2}))$ gives the last form of
 $b_n$ in Theorem~\ref{thm:onen}. \qed
 
 The value of $d(s)$ was not obtained from a residue computation: Theorem~\ref{thm:pone-chain} gives only the existence
@@ -480,7 +480,8 @@ $s=\frac32$, which is elementary.
 The constant $\mathsf f_1(s)$ of the alternating term of the symmetric chain is not determined by the argument above,
 since it cancels in $a_n$ and $b_n$. Corollary~\ref{cor:tc} gives $\mathsf f_1(\frac32)=0$ and $\mathsf f_1(\frac52)=-3$,
 and the numerical values in Section~\ref{sec:numerics} support $\mathsf f_1(s)=-3(s-\frac32)$ for all $s>1$
-(Section~\ref{sec:further}). It is the contribution of the off-diagonal part of the first correction $Y_S$ of the
-Fisher--Hartwig model, through the contour integral $\Xi_{\mathrm o}$, which we have not evaluated. It enters the chain $u_n$ of $\sigma_s$: by Lemma~\ref{lem:pone-fold},
+(Section~\ref{sec:further}). The constant $\mathsf f_1$ is the contribution of the off-diagonal part of the first correction
+$Y_S$ of the Fisher--Hartwig model, through the contour integral $\Xi_{\mathrm o}$, which we have not evaluated. It enters
+the chain $u_n$ of $\sigma_s$: by Lemma~\ref{lem:pone-fold},
 $nu_{n-1}(\sigma_s)=n\mathsf e_{2n-1}=\frac12\bigl(1+(\frac32-s-\mathsf f_1)/(2n)\bigr)+O(n^{-2})$.
 \end{remark}
