@@ -1,0 +1,4 @@
+p=1.5 s=2.0: E=2.333333; E2 slope - shifted prediction: -1.02e-05 -2.41e-06 -4.11e-07 +2.42e-07 | E2 slope + E: +5.59e-03 +2.80e-03 +1.40e-03 +7.01e-04
+p=2.0 s=2.0: E=2.000000; E2 slope - shifted prediction: -6.99e-06 -1.68e-06 -2.62e-07 +2.63e-07 | E2 slope + E: +3.59e-03 +1.80e-03 +9.01e-04 +4.51e-04
+p=2.0 s=3.0: E=4.000000; E2 slope - shifted prediction: -4.71e-05 -1.20e-05 -3.36e-06 -5.24e-07 | E2 slope + E: +1.43e-02 +7.19e-03 +3.60e-03 +1.80e-03
+p=3.0 s=2.0: E=1.666667; E2 slope - shifted prediction: -5.58e-06 -1.58e-06 -1.13e-07 +2.38e-07 | E2 slope + E: +2.00e-03 +1.00e-03 +5.01e-04 +2.51e-04

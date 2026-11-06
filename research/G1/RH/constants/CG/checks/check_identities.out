@@ -1,0 +1,20 @@
+I1 p=0.5  |f'(0)|*c(p+2)^2-1 = 1.46e-9 (quadrature at x=1e-8, error O(x))   pi^2C*^2 vs target: 4.59e-41
+I1 p=0.7  |f'(0)|*c(p+2)^2-1 = 1.22e-9 (quadrature at x=1e-8, error O(x))   pi^2C*^2 vs target: 2.3e-41
+I1 p=1.0  |f'(0)|*c(p+2)^2-1 = 1.0e-9 (quadrature at x=1e-8, error O(x))   pi^2C*^2 vs target: 3.44e-41
+I1 p=1.5  |f'(0)|*c(p+2)^2-1 = 7.92e-10 (quadrature at x=1e-8, error O(x))   pi^2C*^2 vs target: 8.04e-41
+I1 p=2.0  |f'(0)|*c(p+2)^2-1 = 6.75e-10 (quadrature at x=1e-8, error O(x))   pi^2C*^2 vs target: 2.3e-41
+I1 p=3.0  |f'(0)|*c(p+2)^2-1 = 5.5e-10 (quadrature at x=1e-8, error O(x))   pi^2C*^2 vs target: 1.15e-41
+I2 al=-0.5  det/target-1 = 0.0   series vs besseli: 0.0 4.59e-41
+I2 al=-0.9  det/target-1 = 0.0   series vs besseli: 1.15e-41 0.0
+I2 al=0.0  det/target-1 = 0.0   series vs besseli: 0.0 4.59e-41
+I2 al=0.3  det/target-1 = 0.0   series vs besseli: 0.0 4.59e-41
+I2 al=1.7  det/target-1 = 0.0   series vs besseli: 0.0 2.3e-41
+I2 al=4.0  det/target-1 = 2.3e-41   series vs besseli: 8.97e-44 0.0
+I3 a=-0.5 n=10  (1/K)/formula - 1 = -2.3e-41 ; n^{a+1}/K = 1.5905463 vs G(a+1)G(a+2) = 1.5707963
+I3 a=-0.5 n=200  (1/K)/formula - 1 = 2.3e-41 ; n^{a+1}/K = 1.5717784 vs G(a+1)G(a+2) = 1.5707963
+I3 a=0.25 n=10  (1/K)/formula - 1 = 2.3e-41 ; n^{a+1}/K = 1.0114221 vs G(a+1)G(a+2) = 1.0269568
+I3 a=0.25 n=200  (1/K)/formula - 1 = 2.3e-41 ; n^{a+1}/K = 1.0261558 vs G(a+1)G(a+2) = 1.0269568
+I3 a=2.0 n=10  (1/K)/formula - 1 = 0.0 ; n^{a+1}/K = 9.0909091 vs G(a+1)G(a+2) = 12.0
+I3 a=2.0 n=200  (1/K)/formula - 1 = 0.0 ; n^{a+1}/K = 11.822078 vs G(a+1)G(a+2) = 12.0
+I4 F*Wtilde/(ups wn^{1/2}(-z)^{al/2}) - 1 = 2.3e-41
+ALL PASS

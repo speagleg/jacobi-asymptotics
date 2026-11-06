@@ -421,6 +421,16 @@ NOVELTY_Q / NOVELTY_TODA / NOVELTY_ZETA / NOVELTY_JZC.
 Theorem D pole constant and Lemma K0 (`SpectralConstants`); Q_k(4c) (`tiltQ_four_mul`); the equivalence of Paper IV's natural form
 with E2.1's form to O(n⁻³) (`naturalForm_iff_E21`). The asymptotic theorems themselves are not formalized.
 
+### 2.12 Hard-edge constants (research/G1/RH/constants/; added 2026-11-05)
+
+Leads 1.1–1.2 of the connections survey (research/program/CONNECTIONS.md, not published). Rule R readers are subagents of
+one orchestrating session.
+
+| Result | Statement (short) | Label | Readers | Where |
+|---|---|---|---|---|
+| Thm C (Conjecture C) | p > 0, s > 1: h_n = (2π/p)·c^{2n+1}(c^{1/p}/n)^{s−1}Γ(n+1)^{−2p}(1 + o(1)); equivalently Σ_{j≤n}log(j^pb_j/c) = −((s−1)/2)log n − ½log ζ(s) + ½log(2π/p) + ((s−1+p)/(2p))log c + o(1). On the window 1 < s < 1 + 2p also with a slowly varying factor ℓ of angle ϑ > 0 (h_n multiplied by ℓ(n)) | PROVED-mod-cite (Paper II thm:window, prop:moments, prop:frame, lem:outer, lem:binetcut, lem:seam, lem:corner, lem:pottersector; Paper III lem:telescope; DLMF 5.11.1, 5.12.1, 5.5.1) + REVIEWED; no rate proved. Novelty UNCHECKED | 1 (R1) | constants/C/C.md, review/REVIEW_C_R1.md |
+| Thm A, B, C, Lemma L (Conjecture CG) | p > 0, s > 1, ζ = (s−1)/p: Christoffel function at the accumulation point λ_m(0; σ_{p,s}) = (Γ(ζ)Γ(ζ+1)/p)(c(p)(p+2)²)^ζ m^{−(p+2)ζ}(1 + O(1/m)) (A: p ≠ 1; C: p = 1; B: p = 1, s ∈ {3/2, 5/2} via Tricomi–Carlitz). Equals the squared MINRES residual of CG on diag(k^{−p}) with right-hand side k^{−s/2}. The exponent for p > 1 was Cor E2.7 (C unspecified); new here: C, the rate, p ≤ 1. Lemma L: λ_m(0; gμ)/λ_m(0; μ) → 1 if g → 1 at 0. Conjecture (NUMERICAL): λ_m = C·N^{−E}(1 + o(1/m)), N = m + (s−1)/(2p) | A, B, C: PROVED-mod-cite (Paper II prop:classical, prop:plt1-small, lem:classical-param, lem:plt1-param, prop:frame, prop:pone-first, lem:pone-mismatch, lem:pone-tc; KMVV §6; WLXZ; Kuijlaars–Vanlessen; Vanlessen; DLMF 4.13, 5.5.1, 5.11.1, 10.25.2) + REVIEWED; Lemma L: PROVED + REVIEWED. Novelty UNCHECKED | 2 (R1: A, B, L; R2: C) | constants/CG/CG.md, review/REVIEW_CG_R1.md, REVIEW_CG_R2.md |
+
 ## 3. Dependency summary
 
 ### 3.1 External citations → results

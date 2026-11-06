@@ -1,0 +1,56 @@
+s=1.35 M=120 prec=5000 bits
+  max rel radius of lambda_m: 3.68e-858
+  m=  10  r_m-1 = -0.017212443   m(r_m-1) = -0.17212443
+  m=  20  r_m-1 = -0.0088906089   m(r_m-1) = -0.17781218
+  m=  40  r_m-1 = -0.0045187225   m(r_m-1) = -0.18074890
+  m=  80  r_m-1 = -0.0022780161   m(r_m-1) = -0.18224128
+  m= 120  r_m-1 = -0.0015228530   m(r_m-1) = -0.18274236
+  Richardson K= 4: lim r_m - 1 = -3.4092e-13  (ball radius 3.2e-851)
+  Richardson K= 8: lim r_m - 1 = 5.5527e-22  (ball radius 3.9e-846)
+  Richardson K=12: lim r_m - 1 = 4.7873e-29  (ball radius 6.8e-842)
+  Richardson K=16: lim r_m - 1 = 8.2507e-36  (ball radius 3.2e-838)
+  Richardson K=20: lim r_m - 1 = 3.8783e-42  (ball radius 5.8e-835)
+  Richardson K=12 of m(r_m-1) (1/m coefficient): -0.18375000   F7 prediction for r_m normalised with m, -3*zeta^2/2: -0.18375000
+  lambda_M mid (for precision-doubling comparison): 0.02515690355185066236825336253172350285968
+s=1.35 M=120 prec=10000 bits
+  max rel radius of lambda_m: 2.60e-2363
+  m=  10  r_m-1 = -0.017212443   m(r_m-1) = -0.17212443
+  m=  20  r_m-1 = -0.0088906089   m(r_m-1) = -0.17781218
+  m=  40  r_m-1 = -0.0045187225   m(r_m-1) = -0.18074890
+  m=  80  r_m-1 = -0.0022780161   m(r_m-1) = -0.18224128
+  m= 120  r_m-1 = -0.0015228530   m(r_m-1) = -0.18274236
+  Richardson K= 4: lim r_m - 1 = -3.4092e-13  (ball radius 2.2e-2356)
+  Richardson K= 8: lim r_m - 1 = 5.5527e-22  (ball radius 2.8e-2351)
+  Richardson K=12: lim r_m - 1 = 4.7873e-29  (ball radius 4.8e-2347)
+  Richardson K=16: lim r_m - 1 = 8.2507e-36  (ball radius 2.3e-2343)
+  Richardson K=20: lim r_m - 1 = 3.8783e-42  (ball radius 4.1e-2340)
+  Richardson K=12 of m(r_m-1) (1/m coefficient): -0.18375000   F7 prediction for r_m normalised with m, -3*zeta^2/2: -0.18375000
+  lambda_M mid (for precision-doubling comparison): 0.02515690355185066236825336253172350285968
+s=4.2 M=120 prec=5000 bits
+  max rel radius of lambda_m: 4.79e-849
+  m=  10  r_m-1 = -0.74439968   m(r_m-1) = -7.4439968
+  m=  20  r_m-1 = -0.51394577   m(r_m-1) = -10.278915
+  m=  40  r_m-1 = -0.31053487   m(r_m-1) = -12.421395
+  m=  80  r_m-1 = -0.17212210   m(r_m-1) = -13.769768
+  m= 120  r_m-1 = -0.11891998   m(r_m-1) = -14.270397
+  Richardson K= 4: lim r_m - 1 = -1.0554e-6  (ball radius 3.6e-842)
+  Richardson K= 8: lim r_m - 1 = -2.3508e-12  (ball radius 4.5e-837)
+  Richardson K=12: lim r_m - 1 = -3.6231e-18  (ball radius 7.9e-833)
+  Richardson K=16: lim r_m - 1 = -5.0599e-24  (ball radius 3.7e-829)
+  Richardson K=20: lim r_m - 1 = -7.1567e-30  (ball radius 6.7e-826)
+  Richardson K=12 of m(r_m-1) (1/m coefficient): -15.360000   F7 prediction for r_m normalised with m, -3*zeta^2/2: -15.360000
+  lambda_M mid (for precision-doubling comparison): 2.235415596265834664266706990621143287191e-17
+s=4.2 M=120 prec=10000 bits
+  max rel radius of lambda_m: 3.38e-2354
+  m=  10  r_m-1 = -0.74439968   m(r_m-1) = -7.4439968
+  m=  20  r_m-1 = -0.51394577   m(r_m-1) = -10.278915
+  m=  40  r_m-1 = -0.31053487   m(r_m-1) = -12.421395
+  m=  80  r_m-1 = -0.17212210   m(r_m-1) = -13.769768
+  m= 120  r_m-1 = -0.11891998   m(r_m-1) = -14.270397
+  Richardson K= 4: lim r_m - 1 = -1.0554e-6  (ball radius 2.6e-2347)
+  Richardson K= 8: lim r_m - 1 = -2.3508e-12  (ball radius 3.2e-2342)
+  Richardson K=12: lim r_m - 1 = -3.6231e-18  (ball radius 5.5e-2338)
+  Richardson K=16: lim r_m - 1 = -5.0599e-24  (ball radius 2.6e-2334)
+  Richardson K=20: lim r_m - 1 = -7.1567e-30  (ball radius 4.7e-2331)
+  Richardson K=12 of m(r_m-1) (1/m coefficient): -15.360000   F7 prediction for r_m normalised with m, -3*zeta^2/2: -15.360000
+  lambda_M mid (for precision-doubling comparison): 2.235415596265834664266706990621143287191e-17

@@ -204,7 +204,7 @@ The work is written up as a series of four papers, each built around one questio
 | | Title | Question | Status |
 |---|---|---|---|
 | I | [Hankel determinants of discrete measures with power-law atoms, and of zeta values](papers/paper1/main.pdf) | What is the $n^2$ term of $\log D_n$? (result 1) | release candidate, 19 pp ([`ARXIV.md`](papers/paper1/ARXIV.md)) |
-| II | [Recurrence coefficients of discrete measures with power-law atoms: pointwise asymptotics and the $1/n$ term](papers/paperII/main.pdf) | Does each $n^pb_n$ converge, how fast, and what is the next term? (results 2, 3) | draft, 105 pp; all sections refereed (two separate AI referee passes) |
+| II | [Recurrence coefficients of discrete measures with power-law atoms: pointwise asymptotics and the $1/n$ term](papers/paperII/main.pdf) | Does each $n^pb_n$ converge, how fast, and what is the next term? (results 2, 3) | draft, 106 pp; all sections refereed (two separate AI referee passes) |
 | III | [Stability and instability of recurrence asymptotics for discrete measures with power-law atoms](papers/paperIII/main.pdf) | Which weights keep the law, and which break it? (results 4, 5) | draft, 29 pp |
 | IV | [Spectral zeta values in the recurrence coefficients of reciprocal spectra](papers/paperIV/main.pdf) | How does the expansion continue beyond $1/n$, and how does it depend on the spectrum? (result 7) | draft, 24 pp; main proofs partly outlined, not yet refereed as a paper |
 

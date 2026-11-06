@@ -1,0 +1,25 @@
+  tot += quad(f, lo, hi, limit=100)[0]
+p=0.5  c=0.408248290464
+  n=  10 N_s=   3  S_n-pred=+4.981e-02  M_n=-6.656e-02  log(X_n(2pi n)^p)=+1.164e-01  n*that=+1.1637  (tail<8.1e-08)
+  n=  20 N_s=   7  S_n-pred=+1.439e-01  M_n=+6.352e-02  log(X_n(2pi n)^p)=+8.033e-02  n*that=+1.6065  (tail<2.0e-08)
+  n=  40 N_s=  15  S_n-pred=-9.633e-02  M_n=-1.522e-01  log(X_n(2pi n)^p)=+5.585e-02  n*that=+2.2340  (tail<5.1e-09)
+  n=  80 N_s=  30  S_n-pred=-6.845e-02  M_n=-1.075e-01  log(X_n(2pi n)^p)=+3.903e-02  n*that=+3.1223  (tail<1.3e-09)
+  n= 160 N_s=  60  S_n-pred=-4.858e-02  M_n=-7.595e-02  log(X_n(2pi n)^p)=+2.737e-02  n*that=+4.3792  (tail<3.2e-10)
+p=1.0  c=0.500000000000
+  n=  10 N_s=   4  S_n-pred=-3.581e-01  M_n=-3.748e-01  log(X_n(2pi n)^p)=+1.665e-02  n*that=+0.1665  (tail<6.7e-08)
+  n=  20 N_s=   9  S_n-pred=-2.557e-01  M_n=-2.640e-01  log(X_n(2pi n)^p)=+8.332e-03  n*that=+0.1666  (tail<1.7e-08)
+  n=  40 N_s=  19  S_n-pred=-1.821e-01  M_n=-1.863e-01  log(X_n(2pi n)^p)=+4.166e-03  n*that=+0.1667  (tail<4.2e-09)
+  n=  80 N_s=  39  S_n-pred=-1.295e-01  M_n=-1.316e-01  log(X_n(2pi n)^p)=+2.083e-03  n*that=+0.1667  (tail<1.0e-09)
+  n= 160 N_s=  79  S_n-pred=-9.198e-02  M_n=-9.302e-02  log(X_n(2pi n)^p)=+1.042e-03  n*that=+0.1667  (tail<2.6e-10)
+p=2.0  c=0.616850275068
+  n=  10 N_s=   6  S_n-pred=+2.008e-01  M_n=+2.008e-01  log(X_n(2pi n)^p)=-7.715e-09  n*that=-0.0000  (tail<2.5e-08)
+  n=  20 N_s=  12  S_n-pred=-5.869e-02  M_n=-5.869e-02  log(X_n(2pi n)^p)=-1.929e-09  n*that=-0.0000  (tail<6.3e-09)
+  n=  40 N_s=  25  S_n-pred=+7.958e-02  M_n=+7.958e-02  log(X_n(2pi n)^p)=-4.828e-10  n*that=-0.0000  (tail<1.6e-09)
+  n=  80 N_s=  50  S_n-pred=-1.254e-01  M_n=-1.254e-01  log(X_n(2pi n)^p)=-1.122e-10  n*that=-0.0000  (tail<4.0e-10)
+  n= 160 N_s= 101  S_n-pred=-6.263e-02  M_n=-6.263e-02  log(X_n(2pi n)^p)=-2.811e-11  n*that=-0.0000  (tail<9.9e-11)
+p=3.0  c=0.689212697089
+  n=  10 N_s=   7  S_n-pred=+1.333e-01  M_n=+1.333e-01  log(X_n(2pi n)^p)=-2.298e-05  n*that=-0.0002  (tail<7.1e-09)
+  n=  20 N_s=  14  S_n-pred=+1.674e-01  M_n=+1.674e-01  log(X_n(2pi n)^p)=-2.872e-06  n*that=-0.0001  (tail<1.8e-09)
+  n=  40 N_s=  28  S_n-pred=+6.827e-02  M_n=+6.827e-02  log(X_n(2pi n)^p)=-3.591e-07  n*that=-0.0000  (tail<4.4e-10)
+  n=  80 N_s=  57  S_n-pred=-1.490e-02  M_n=-1.490e-02  log(X_n(2pi n)^p)=-4.490e-08  n*that=-0.0000  (tail<1.1e-10)
+  n= 160 N_s= 114  S_n-pred=+2.461e-02  M_n=+2.461e-02  log(X_n(2pi n)^p)=-5.614e-09  n*that=-0.0000  (tail<2.8e-11)

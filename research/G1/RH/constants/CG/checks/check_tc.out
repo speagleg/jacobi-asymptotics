@@ -1,0 +1,15 @@
+T1 sum v_j - 1 = -7.7788e-62
+T2 max|b_k^2 - 1/(2k(2k+1))| = 6.48e-63   x-sigma:  3.24e-63   a_k: 5.19e-62  h0 = 1.0  h0(x sigma) = 0.5
+T3 K_m(TC) closed form check m=5: 0.0
+T3 K_m(TC) closed form check m=17: 0.0
+T3 K_m(x TC) term formula check m=5: 1.56e-61
+T3 K_m(x TC) term formula check m=17: 0.0
+T3 s=1.5: K_m(nu) m^{-E} = 0.7522668827 ; sqrt(2pi)/C = 0.752252778064 ; claimed lead 0.752252778064
+T3 s=2.5: K_m(nu) m^{-E} = 0.222927326619 ; sqrt(2pi)/C = 0.222889712019 ; claimed lead 0.222889712019
+T4 s=1.5 m=10  lambda(sigma)/(sqrt(2pi) lambda(nu)) - 1 = 0.0005953
+T4 s=1.5 m=20  lambda(sigma)/(sqrt(2pi) lambda(nu)) - 1 = 0.0001524
+T4 s=1.5 m=20  lambda(sigma)/(sqrt(2pi) lambda(nu)) - 1 = 0.0001524
+T4 s=2.5 m=10  lambda(sigma)/(sqrt(2pi) lambda(nu)) - 1 = 0.001629
+T4 s=2.5 m=20  lambda(sigma)/(sqrt(2pi) lambda(nu)) - 1 = 0.0004359
+T4 s=2.5 m=20  lambda(sigma)/(sqrt(2pi) lambda(nu)) - 1 = 0.0004359
+ALL PASS
