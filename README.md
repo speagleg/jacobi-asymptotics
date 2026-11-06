@@ -24,12 +24,13 @@ logarithmic energy with an upper constraint. In the repository this limit statem
 One application: the Hankel determinants $\det_{1\le i,j\le n}\zeta(a(i+j)+b)$ of zeta values are Hankel determinants
 of such a measure. Haynes and Zudilin expected $\log\det\zeta(a(i+j)+b) = -an^2\log n + O(n^2)$ and proved the upper
 bound $-\tfrac a2 n^2\log n+O(n^2)$; Monien described a heuristic and numerical evidence (due to Zagier) for $a=1$. Result 1
-below proves the asymptotics, with the $n^2$ term, for every real $a>0$ with $2a+b>1$.
+below proves the asymptotics, with the $n^2$ term, for every real $a>0$ with $2a+b>1$. Result 8 adds the term linear
+in $n$, so these determinants are known up to $o(n)$.
 
 > **Status in one paragraph.** Nothing here has been refereed by a journal yet. The work was developed with an AI
 > assistant (Claude, Anthropic), and every proof went through at least one separate AI referee pass whose reports are in
 > the repository. The averaged result (1) is **machine-checked in Lean 4**, as are several exact identities and
-> elementary lemmas behind results 3 and 7. The pointwise results (2–4, 7) and the counterexamples in 5 rely on published
+> elementary lemmas behind results 3 and 7. The pointwise results (2–4, 7, 8) and the counterexamples in 5 rely on published
 > Riemann–Hilbert asymptotics, which are cited, not re-proved. Paper IV (result 7) is a draft whose main proofs are partly
 > outlined. Details are under [How much to trust these results](#how-much-to-trust-these-results).
 
@@ -48,6 +49,7 @@ Throughout, $\sigma_{p,s} = \sum_k k^{-s}\,\delta_{k^{-p}}$ (pure powers), with 
 | 5 | **Christoffel shift and sharpness.** The law passes from $s$ to $s+p$; bounded but irregular weights can break it | proved (shift); proved using cited results (counterexamples) | [Paper II](papers/paperII/main.pdf) §3, [Paper III](papers/paperIII/main.pdf) |
 | 6 | **Zeta zeros.** For the measure built from the zeros of $\zeta$, the averaged law is equivalent to a statement about close pairs of zeros | proved, using cited results on zeta zeros; the law itself is open | [`research/G3prime/`](research/G3prime/PROOF.md) |
 | 7 | **Zeta values in the expansion.** Beyond $1/n$, the coefficients of $n^pb_n/c(p)$ are spectral zeta values $\zeta(-jp)$; in the natural index $N=n+\frac{s-1}{2p}$ the integer part is even in $1/N$; Hurwitz and shifted lattices | second-order terms proved using cited results (repository notes); Paper IV's theorems partly outlined; general spectra conjectured | [Paper IV](papers/paperIV/main.pdf) (draft), [`research/G1/RH/`](research/G1/RH/second_order/E3.md) |
+| 8 | **Two exact constants.** The constant in the norms $h_n$ (so $\log D_n$ and the zeta-value Hankel determinants to $o(n)$), and the exact convergence constant of CG/MINRES on $\mathrm{diag}(k^{-p})$ with right-hand side $k^{-s/2}$ | proved, using cited Riemann–Hilbert results (repository notes; not yet in a paper); prior work partly found, see below | [`research/G1/RH/constants/`](research/G1/RH/constants/) |
 
 ---
 
@@ -159,6 +161,37 @@ term. For general Weyl-type spectra this is Conjecture W, tested numerically. *S
 algebra and the equilibrium problem in full; the analytic estimates behind its main theorems are outlined in the paper
 and written out only in repository notes (the paper's "Status of the proofs" paragraph lists which). Its numerical
 predictions were recorded before the test measures were computed, but that order is attested only by file times.
+
+### 8. Two exact constants (repository notes)
+
+*The norms.* For every $p>0$ and $s>1$ the monic norms $h_n=\int P_n^2\,d\sigma_{p,s}$ satisfy
+
+$$h_n=\frac{2\pi}{p}\,c^{2n+1}\Bigl(\frac{c^{1/p}}{n}\Bigr)^{s-1}\Gamma(n+1)^{-2p}\,(1+o(1)),\qquad c=c(p).$$
+
+Equivalently $\sum_{j\le n}\log(j^pb_j/c)=-\frac{s-1}2\log n-\frac12\log\zeta(s)+\frac12\log\frac{2\pi}p+\frac{s-1+p}{2p}\log c+o(1)$.
+Since $D_n=\prod_{k<n}h_k$, this fixes the term linear in $n$ of $\log D_n$, so $\log\det\zeta(p(i+j)+s)$ is known up to $o(n)$. The proof reduces to
+one value of $s$ for each $p$ using Paper III's ratio theorem, and reads the constant off Paper II's outer parametrix. No rate
+is proved. Note: [`constants/C/C.md`](research/G1/RH/constants/C/C.md) (one referee pass).
+
+*Conjugate gradients.* With $\zeta=(s-1)/p$, the Christoffel function at the accumulation point 0 satisfies
+
+$$\lambda_m(0;\sigma_{p,s})=\min_{\deg P<m,\,P(0)=1}\int P^2\,d\sigma_{p,s}
+=\frac{\Gamma(\zeta)\Gamma(\zeta+1)}{p}\bigl(c(p)(p+2)^2\bigr)^{\zeta}\,m^{-(p+2)\zeta}\,\bigl(1+O(1/m)\bigr).$$
+
+This is the squared MINRES residual after $m$ steps on the diagonal operator with eigenvalues $k^{-p}$ and right-hand side
+$k^{-s/2}$. Since CG and MINRES are optimal among Krylov methods, it is the exact speed limit, in the residual norm, of every Krylov method on
+this problem (a power-law spectrum with a power-law source condition). Velikanov and Yarotsky (JMLR 2024) proved the
+exponent with an upper-bound constant; for $p>1$ the exponent was already Corollary E2.7 here. Added now: the constant, the rate
+and $p\le1$. Numerically, centring at $N=m+\frac{s-1}{2p}$ removes the $1/m$ term (not proved). Note:
+[`constants/CG/CG.md`](research/G1/RH/constants/CG/CG.md) (two referee passes).
+
+*Status:* proved, using the Riemann–Hilbert citations of result 2 and Paper II's parametrices; not yet in a paper.
+*Prior work* (literature search, [`NOVELTY_C.md`](research/G1/RH/constants/C/NOVELTY_C.md),
+[`NOVELTY_CG.md`](research/G1/RH/constants/CG/NOVELTY_CG.md)): for $p=2$, $s\in\{2,4,6\}$ the norm formula follows from
+Krattenthaler's exact Hankel products of Bernoulli numbers (appendix to Fukuhara–Yang, 2007); for $p=1$, $s\in\{2,3\}$ it
+matches Monien and Zagier's numerical expansions. The general case was not found. The CG upper bound $O(m^{-(p+2)\zeta})$ follows
+from Velikanov–Yarotsky for every $p>0$; no exact constant was found, but Hanke (1996), which treats $p=1,2$, has not been read.
+The comparison lemma used for CG is a form of Nevai's comparison principle.
 
 ---
 

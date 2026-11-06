@@ -4,7 +4,7 @@
 lem:corner, lem:pottersector, and the frame lemmas cited inline: lem:interp, eq:Y-extract, lem:normalisation,
 lem:szego, lem:gfunction, lem:signs, lem:bandweight, def:outer-admissible; Paper III lem:telescope; DLMF 5.11.1 +
 §5.11(ii), 5.12.1, 5.5.1 — quoted in research/G1/RH/CITATIONS.md entries (DLMF), (DLMF-2), (DLMF-5.11, Plan 51))
-+ REVIEWED (Rule R: review/REVIEW_C_R1.md, findings F1–F3 applied 2026-11-05). Novelty UNCHECKED (Rule L not done).
++ REVIEWED (Rule R: review/REVIEW_C_R1.md, findings F1–F3 applied 2026-11-05). Novelty (Rule L, 2026-11-06, NOVELTY_C.md): POSSIBLY-NEW for general (p, s); p = 2, s ∈ {2, 4, 6} KNOWN implicitly (Krattenthaler's exact Hankel products, App. A of arXiv:math/0608372, read first-hand); p = 1, s ∈ {2, 3} conjectured numerically by Monien–Zagier.
 References to Papers II/III are by LaTeX label.
 Branch `g1-constants`, 2026-11-05. Scripts and outputs: `checks/`.
 
@@ -241,4 +241,4 @@ constants.
 
 None for (C) as stated. Rule R done (review/REVIEW_C_R1.md; F1–F3 applied, F4 resolved in Paper II commit 2d0bb9a).
 The rate is not claimed: the proof gives o(1); numerically O(1/n) for p ≥ 1 and O(n^{−p}) for 0 < p < 1 (confirmed
-independently by the reviewer at (2.5,6) and (0.7,1.6)). Novelty: UNCHECKED (Rule L literature search not done).
+independently by the reviewer at (2.5,6) and (0.7,1.6)). Novelty: see NOVELTY_C.md (Rule L, 2026-11-06).

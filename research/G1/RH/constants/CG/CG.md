@@ -7,7 +7,7 @@ Agent CG, branch `g1-constants`, 2026-11-05. Proof note; checks in `checks/`.
 | Part | Statement | Label |
 |---|---|---|
 | A | Conjecture CG for every **p ≠ 1** and every **s > 1**, with relative error O(1/m) | **PROVED-mod-cite + REVIEWED** (review/REVIEW_CG_R1.md; Paper II Props. `prop:classical`, `prop:plt1-small`, Lemmas `lem:classical-param`, `lem:plt1-param`, `lem:bandfactor`, `lem:plt1-band`, Prop. `prop:frame`; through them KMVV §6 and DLMF) |
-| L | Localisation lemma: λ_m(0; gμ)/λ_m(0; μ) → 1 if g → 1 at 0 (comparable weights, compact Jacobi matrices) | **PROVED + REVIEWED** (elementary, self-contained); novelty UNCHECKED (likely of Máté–Nevai–Totik comparison type, review F6) |
+| L | Localisation lemma: λ_m(0; gμ)/λ_m(0; μ) → 1 if g → 1 at 0 (comparable weights, compact Jacobi matrices) | **PROVED + REVIEWED** (elementary, self-contained); novelty PARTIALLY KNOWN: Nevai's comparison principle; the accumulation-point setting not found as a statement (NOVELTY_CG.md §3) |
 | B | Conjecture CG at **p = 1, s ∈ {3/2, 5/2}** (relative error o(1)) | **PROVED-mod-cite + REVIEWED** (review/REVIEW_CG_R1.md; Paper II Lemma `lem:pone-tc` ← Carlitz/WLXZ (1.4)–(1.9); DLMF 4.13.1, 4.13.2, 4.13.5, 5.5.1, 5.11.1) |
 | C | Conjecture CG at **p = 1 for every s > 1**, relative error O(1/m) (closes GAP-1 of §6) | **PROVED-mod-cite + REVIEWED** (review/REVIEW_CG_R2.md; §9; Paper II Prop. `prop:pone-first`, Lemmas `lem:pone-weight`, `lem:pone-fh`, `lem:pone-mismatch` ← WLXZ, KV §5, Van §4; inherits Paper II's stated dependence on WLXZ (5.8), (6.34) and the Cauchy-operator bound after (6.35)) |
 | Cor E2.7 | the exponent E for p > 1 (C unspecified) was already in second_order/E2_pgt1.md Cor E2.7 (REVIEWED) | see §10 (REVIEWED, R2): new here are the explicit C, the O(1/m) rate, p < 1 and p = 1 |
@@ -16,7 +16,7 @@ Agent CG, branch `g1-constants`, 2026-11-05. Proof note; checks in `checks/`.
 
 Rule R: §§0–5, 7–8 REVIEWED in review/REVIEW_CG_R1.md (no errors, no serious gaps; fixes F1–F7 applied 2026-11-05, see LOG).
 §9 (Theorem C) and §10 REVIEWED in review/REVIEW_CG_R2.md (no errors, no gaps; nits N1–N5 applied 2026-11-05).
-Novelty: UNCHECKED/POSSIBLY-NEW (see §1).
+Novelty (Rule L, 2026-11-06, NOVELTY_CG.md): constant POSSIBLY-NEW pending Hanke, Numer. Algorithms 11 (1996) (unread); the upper bound O(m^{−E}) for every p > 0 follows from Velikanov–Yarotsky Thm 4.10; N-centring NOT FOUND.
 
 ---
 
