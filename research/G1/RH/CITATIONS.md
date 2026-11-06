@@ -53,6 +53,8 @@ contours meeting at 0.
 > Here we need the fact that D(z)/W(z) and W(z)/D(z) remain bounded as z → 0, which follows from (5.9) and Lemma 4.2.
 > Then we see from (5.26) that En is also analytic in a neighborhood of Uδ."
 
+**Also used in: constants/CG/CG.md §9** (GAP-1 closure, p = 1): (5.9) (W = (−z)^a in sector II), (5.26)–(5.30) (structure of 𝖡_N, det 1), (5.22) (column sizes); exponent α_KV = a = s − 3/2 > −1/2, interior FH point 0 of the WLXZ band with ψ(0) = 1/(3π) > 0 (hypotheses as checked in Paper II App. H).
+
 ## (WLXZ-v1) Wu–Lin–Xu–Zhao, arXiv:1410.3948v1 — READ (§§1–7), for Theorem RH₁
 
 The arXiv v1 PDF was read via pdftotext. The Anal. Appl. 14 (2016) version was not read. Hypothesis throughout:
@@ -101,6 +103,8 @@ eq:binet-bound) at u = t − δ: |ph u| ≤ |ph t| ≤ φ < π (L1.1) and |u| �
 Σ^s_+, |ph u| < π/2, |u| ≥ |t| ≥ 1.
 
 **Also used in: constants/C/C.md** (Conjecture C; Rule R review R1, F2): 5.11.1 + §5.11(ii) for real z → ∞ (|ph z| = 0, sec = 1), giving log N! = N log N − N + ½log(2πN) + O(1/N) in Lemma 3(iv) and 2p log Γ(n+1) = 2pn log n − 2pn + p log(2πn) + O(1/n) in §5.
+
+**Also used in: constants/CG/CG.md §4** (Theorem B): 5.11.1 for real z → ∞, via Paper II eq. `eq:pone-weight` (k^{−3/2} = √(2π)e^{j(k)}v_k, j(k) → 0), with 5.5.1 as quoted in (DLMF-5.11, Plan 51); and §9 [P2]: D(ir) = e^{j(N/r²)} → 1.
 
 ## (Van) M. Vanlessen, arXiv:math/0212014 — READ (§1, §4.1–4.3), for RH₁(r)
 "Strong asymptotics of the recurrence coefficients of orthogonal polynomials associated to the generalized Jacobi weight"
@@ -194,6 +198,8 @@ removability step (Prop. 6.5, quoted above) needs:
 - at most square-root growth — RH_px Lemma 3.4 gives D_w/W̃ bounded for Hölder h.
 
 (This reading of what the step needs is ours, not KMVV's.)
+
+**Also used in: constants/CG/CG.md §§2–3** (Theorem A): the Bessel model (6.23) through Paper II Lemma `lem:classical-param`, at α = (s−1−p)/p > −1 (hypothesis of KMVV §6).
 
 ## (WLXZ-v1, additional quotes for RH_px; Rule R F5) — read in 1410.3948.txt
 
@@ -388,6 +394,8 @@ principal-branch sentence) quotes above. **Used in:** route2/ROUTE2_p1.md §3.2 
 {0} is never an integer and 10.27.4 applies as written; ζ^{1/2}I_ν(ζe^{−πi/2}) = ζ^{ν+1/2}E_ν(ζ) with E_ν entire for arg ζ ∈
 (−π/2, π) (principal branch of (½w)^ν).
 
+**Also used in: constants/CG/CG.md §3 S4 and §9 step G4**: (10.25.2) for β₁, β₂ (orders α, α ± 1) and for I_{a±1/2} at small argument (ν = a ± ½ > −1, not a negative integer, so Γ(ν+1) ≠ ∞).
+
 ## (DLMF-5.11, Plan 51) NIST DLMF §§5.5(i), 5.11 — READ (web pages dlmf.nist.gov/5.5 and /5.11, re-fetched 2026-10-14), for Plan 51 (route2/ROUTE2_plt1.md §3.2)
 
 (Distinct name: the "(DLMF)" entry above quotes 5.11 for Plans 10–15; this entry re-verifies it and adds 5.5.1.)
@@ -487,6 +495,8 @@ NUMERICAL cross-check: `route2/checks/check_bnd_fold.out` [2]: g(−z) − g(z) 
 D̂(−z) = D̃(z) lines are tautological (same expression on both sides), so those two parities rest on the analytic branch argument
 (Rule R F9). Convention (Rule R F4): WLXZ's Y uses the residue form (2.14), Y₁₂ = Σwπ/(z − x_k) = −2πi·C(πν) in the FIK convention
 of ROUTE2_bnd Lemma F0; the two differ by a constant diagonal conjugation.
+
+**Also used in: constants/CG/CG.md §9** (α_W = 1 > 0): (2.1) (ψ(0) = 1/(3π)), (2.3), (2.6) (D in Ω∞), (3.1), (3.4), (4.19) (E), with (3.11), (4.1), (4.12), (5.1) from the entries above (Ω∞ case: R = U, Q = T, V = n^{(α−1/2)σ₃}Q(ED)^{σ₃}).
 
 ## (Fold-attrib, Plan 53) quadratic transformation of orthogonal polynomials — NOT READ, NOT USED AS INPUT (attribution only)
 
@@ -804,6 +814,8 @@ G_TC = e^{−L}(z² − 4)^{−1}H_N^{−1} and "(6.14) exact for the model" are
 second_order/checks/check_e1_models.out [1]); Lemma E1.7(ii) ((2.1), (2.3), (4.3) and g_±(2): φ₊(0) = −iπ/2); Prop E1.8 ((6.36) with
 (6.35), (6.37), via RH₁(r) §7). Hypotheses checked: α_W = 1 > 0; the disc radius ε and lens are those of RH₁/RH₁(r).
 
+**Also used in: constants/CG/CG.md §4** (Theorem B: (1.3)–(1.9), α_W = 1 > 0) and §9 (the constant L of (5.9) context: e^L = √2 i e/√π at α_W = 1).
+
 ## (Van, Plan 66) further quotes — read in arXiv:math/0212014 (PDF re-fetched 2026-10-15, text by pdftotext -layout), §4.2–4.3
 
 > §4.2: "We construct a solution Ψ_λ of this RH problem out of the modified Bessel functions I_{λ±1/2} and K_{λ±1/2}, and out of
@@ -829,6 +841,8 @@ an argument with phase in [−π/4, π/4] on the closed sector, so DLMF 10.17.5�
 Lemma E1.7(ii) (the structure of Remark 4.4: the only n-dependence besides the model argument is the unimodular phase, here
 e^{Nφ_{KV,+}(0)σ₃} = i^{Nσ₃}). KV (5.23), (5.26)–(5.30) (entry "(KV)") are the same construction at an interior point with
 analytic factor h. Numerical check of the sector formulas and the two-term structure: check_e1_models.out [4].
+
+**Also used in: constants/CG/CG.md §9 step G3–G4**: (4.27) (first column in sector II, λ = a > −1/2, evaluated as the boundary value on arg ζ = π/2) and (4.53) (det = 1).
 
 ## (Plan 66 reuse) entries above used by second_order/E_p1.md
 
@@ -913,3 +927,19 @@ still not be read (the page truncates under our fetcher).
 p > 0, so Re s < 0 ✓) and a = 1 + δ (−1 < δ ≤ 0, so 0 < a ≤ 1 ✓). Since cos(2πma) = cos(2πmδ) and sin(2πma) = sin(2πmδ),
 the bracket is −Σ_m sin(πkp/2 − 2πmδ)/m^{1+kp} = −S_k(δ), and 2Γ(1+kp)(2π)^{−1−kp} = (kp/π)Γ(kp)(2π)^{−kp}, so
 ζ(−kp, a) = −(kp/π)Γ(kp)(2π)^{−kp}S_k(δ), i.e. m_k(δ) = ζ(−kp, a)/(kn^{kp}).
+
+
+## (DLMF-4.13, constants/CG) NIST DLMF §4.13 — READ (page dlmf.nist.gov/4.13 fetched 2026-11-05; Rule R review R1 of CG.md, F1)
+
+> (4.13.1) "The Lambert W-function W(z) is the solution of the equation W e^W = z." "On the z-interval [0, ∞) there is one real
+> solution, and it is nonnegative and increasing. On the z-interval (−e^{−1}, 0) there are two real solutions, one increasing and the
+> other decreasing. We call the increasing solution for which W(z) ≥ W(−e^{−1}) = −1 the principal branch and denote it by W₀(z)."
+> (4.13.2) "Properties include: W₀(−e^{−1}) = W_{±1}(−e^{−1} ∓ 0i) = −1, W₀(0) = 0, W₀(e) = 1."
+> (4.13.5) "W₀(z) = Σ_{n=1}^∞ ((−n)^{n−1}/n!) zⁿ, |z| < e^{−1}."
+
+(Text and TeX alttext extracted from the page HTML by curl; in the alttext of 4.13.5 the condition is cut at the "<" sign, and
+"|z| < e^{−1}" is taken from a second fetch of the same page (WebFetch text rendering).)
+
+**Used in: constants/CG/CG.md §4** (Theorem B, total mass h₀(σ_TC) = Σ_j j^{j−1}e^{−j}/j! = 1): 4.13.5 at z = −x with 0 ≤ x < 1/e
+(inside |z| < e^{−1}) gives Σ n^{n−1}xⁿ/n! = −W₀(−x); x ↑ 1/e by monotone convergence on the left and continuity of W₀ on
+[−1/e, 0] (inverse of the continuous increasing map w ↦ we^w on [−1, 0], 4.13.1) on the right, with W₀(−1/e) = −1 (4.13.2).

@@ -1,0 +1,2 @@
+p=2 s=3 r_40-1=-0.048222  Richardson(K=10) limit-1=-8.519e-17  precision-doubling diff=1.13e-297
+p=3 s=8 r_40-1=-0.2813  Richardson(K=10) limit-1=-1.881e-10  precision-doubling diff=2.65e-200
