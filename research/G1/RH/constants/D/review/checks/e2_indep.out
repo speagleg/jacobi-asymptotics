@@ -1,0 +1,16 @@
+g2 - E/2 = 0
+G coefficient of u^3 = 0
+D coeff u^0: 0
+D coeff u^1: 0
+D coeff u^2: 0
+D coeff u^3: -(alpha + 1)*(p + 2)*(2*alpha**2*p**2 + 5*alpha**2*p + 2*alpha**2 + 4*alpha*p**2 + 10*alpha*p + 4*alpha + 3*p**2 + 4*p + 1)/(12*(3*p + 2))
+D coeff u^4: (alpha + 1)*(p + 2)*(2*alpha**2*p**2 + 5*alpha**2*p + 2*alpha**2 + 4*alpha*p**2 + 10*alpha*p + 4*alpha + 3*p**2 + 4*p + 1)/(8*(3*p + 2))
+D coeff u^5: -(alpha + 1)*(p + 2)*(405*alpha**4*p**4 + 1800*alpha**4*p**3 + 2340*alpha**4*p**2 + 720*alpha**4*p + 1620*alpha**3*p**4 + 7200*alpha**3*p**3 + 9360*alpha**3*p**2 + 2880*alpha**3*p + 3360*alpha**2*p**4 + 20700*alpha**2*p**3 + 34080*alpha**2*p**2 + 12240*alpha**2*p + 3480*alpha*p**4 + 27000*alpha*p**3 + 49440*alpha*p**2 + 18720*alpha*p + 1416*p**4 + 14912*p**3 + 16276*p**2 + 3488*p - 12)/(28800*p*(3*p + 2))
+final u^1 coeff: 0
+e2 = (alpha + 1)*(p + 2)*(2*alpha**2*p**2 + 5*alpha**2*p + 2*alpha**2 + 4*alpha*p**2 + 10*alpha*p + 4*alpha + 3*p**2 + 4*p + 1)/(24*(3*p + 2))
+final u^3 coeff = 0
+e2 - claim = 0
+e2(p=2,s=2) = 1/16 0.0625
+e2(p=2,s=3) = 7/16 0.4375
+e2(p=3,s=5/2) = 25/192 0.13020833333333334
+e2(p=5/2,s=4) = 37467/38000 0.9859736842105263

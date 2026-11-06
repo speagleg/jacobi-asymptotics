@@ -185,6 +185,15 @@ exponent with an upper-bound constant; for $p>1$ the exponent was already Coroll
 and $p\le1$. Numerically, centring at $N=m+\frac{s-1}{2p}$ removes the $1/m$ term (not proved). Note:
 [`constants/CG/CG.md`](research/G1/RH/constants/CG/CG.md) (two referee passes).
 
+*Follow-ups* ([`constants/D/D.md`](research/G1/RH/constants/D/D.md), one referee pass): the norm formula holds with rate
+$1+e/n+\dots$, $e$ explicit; centring at $N$ removes the $1/m$ term of the CG constant (proved for $p>1/3$, $p\ne1$, with an explicit
+$N^{-2}$ coefficient for $p>1$); and the constant $K$ of $\log D_n$ satisfies an exact functional equation in $s$ whose solution is a
+Barnes $G$-function times a part that numerically does not depend on $s$. That part has a closed form at $p=1$ and $p=2$
+(conjectural except $p=2$, $s\in2+2\mathbb N$). At $p=1$ this gives the Monien–Zagier constant,
+$\det_{1\le i,j\le n}\zeta(i+j)\sim A^{(0)}\bigl(\tfrac{2n+1}{e^{3/2}}\bigr)^{-(n+\frac12)^2}$ with
+$A^{(0)}=e^{1/12}2^{1/6}3^{1/8}/A^3=0.66359780\dots$ ($A$ = Glaisher's constant), confirmed to 30 digits by a direct fit; the value
+0.35147 printed in the literature disagrees with its own sample determinants. For $p\notin\{1,2\}$ no closed form was found.
+
 *Status:* proved, using the Riemann–Hilbert citations of result 2 and Paper II's parametrices; not yet in a paper.
 *Prior work* (literature search, [`NOVELTY_C.md`](research/G1/RH/constants/C/NOVELTY_C.md),
 [`NOVELTY_CG.md`](research/G1/RH/constants/CG/NOVELTY_CG.md)): for $p=2$, $s\in\{2,4,6\}$ the norm formula follows from

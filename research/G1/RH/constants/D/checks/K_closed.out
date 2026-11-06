@@ -1,0 +1,8 @@
+checks/K_p1.out: p=1.0 s=2.0  K_numeric - K_closed = 2.087e-21
+checks/K_p1.out: p=1.0 s=2.5  K_numeric - K_closed = 1.656e-21
+checks/K_p1.out: p=1.0 s=3.0  K_numeric - K_closed = 1.239e-19
+checks/K_p2_quick.out: p=2.0 s=2.0  K_numeric - K_closed = 5.818e-21
+checks/K_p2_quick.out: p=2.0 s=2.5  K_numeric - K_closed = 3.335e-22
+checks/K_p2_quick.out: p=2.0 s=3.0  K_numeric - K_closed = -4.935e-21
+checks/K_p2_quick.out: p=2.0 s=4.0  K_numeric - K_closed = 6.218e-21
+checks/K_p2_quick.out: p=2.0 s=4.5  K_numeric - K_closed = 1.703e-21
