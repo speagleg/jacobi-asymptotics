@@ -49,7 +49,7 @@ Throughout, $\sigma_{p,s} = \sum_k k^{-s}\,\delta_{k^{-p}}$ (pure powers), with 
 | 5 | **Christoffel shift and sharpness.** The law passes from $s$ to $s+p$; bounded but irregular weights can break it | proved (shift); proved using cited results (counterexamples) | [Paper II](papers/paperII/main.pdf) §3, [Paper III](papers/paperIII/main.pdf) |
 | 6 | **Zeta zeros.** For the measure built from the zeros of $\zeta$, the averaged law is equivalent to a statement about close pairs of zeros | proved, using cited results on zeta zeros; the law itself is open | [`research/G3prime/`](research/G3prime/PROOF.md) |
 | 7 | **Zeta values in the expansion.** Beyond $1/n$, the coefficients of $n^pb_n/c(p)$ are spectral zeta values $\zeta(-jp)$; in the natural index $N=n+\frac{s-1}{2p}$ the integer part is even in $1/N$; Hurwitz and shifted lattices | second-order terms proved using cited results (repository notes); Paper IV's theorems partly outlined; general spectra conjectured | [Paper IV](papers/paperIV/main.pdf) (draft), [`research/G1/RH/`](research/G1/RH/second_order/E3.md) |
-| 8 | **Two exact constants.** The constant in the norms $h_n$ (so $\log D_n$ and the zeta-value Hankel determinants to $o(n)$), and the exact convergence constant of CG/MINRES on $\mathrm{diag}(k^{-p})$ with right-hand side $k^{-s/2}$ | proved, using cited Riemann–Hilbert results (repository notes; not yet in a paper); novelty unchecked | [`research/G1/RH/constants/`](research/G1/RH/constants/) |
+| 8 | **Two exact constants.** The constant in the norms $h_n$ (so $\log D_n$ and the zeta-value Hankel determinants to $o(n)$), and the exact convergence constant of CG/MINRES on $\mathrm{diag}(k^{-p})$ with right-hand side $k^{-s/2}$ | proved, using cited Riemann–Hilbert results (repository notes; not yet in a paper); prior work partly found, see below | [`research/G1/RH/constants/`](research/G1/RH/constants/) |
 
 ---
 
@@ -185,8 +185,13 @@ exponent with an upper-bound constant; for $p>1$ the exponent was already Coroll
 and $p\le1$. Numerically, centring at $N=m+\frac{s-1}{2p}$ removes the $1/m$ term (not proved). Note:
 [`constants/CG/CG.md`](research/G1/RH/constants/CG/CG.md) (two referee passes).
 
-*Status:* proved, using the Riemann–Hilbert citations of result 2 and Paper II's parametrices; not yet in a paper. A
-literature search for prior work is in progress, so novelty is unchecked.
+*Status:* proved, using the Riemann–Hilbert citations of result 2 and Paper II's parametrices; not yet in a paper.
+*Prior work* (literature search, [`NOVELTY_C.md`](research/G1/RH/constants/C/NOVELTY_C.md),
+[`NOVELTY_CG.md`](research/G1/RH/constants/CG/NOVELTY_CG.md)): for $p=2$, $s\in\{2,4,6\}$ the norm formula follows from
+Krattenthaler's exact Hankel products of Bernoulli numbers (appendix to Fukuhara–Yang, 2007); for $p=1$, $s\in\{2,3\}$ it
+matches Monien and Zagier's numerical expansions. The general case was not found. The CG upper bound $O(m^{-(p+2)\zeta})$ follows
+from Velikanov–Yarotsky for every $p>0$; no exact constant was found, but Hanke (1996), which treats $p=1,2$, has not been read.
+The comparison lemma used for CG is a form of Nevai's comparison principle.
 
 ---
 

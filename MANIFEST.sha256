@@ -115,6 +115,8 @@ c575a63da56ad15782cb4efb3ddf085eaf88bbe5fd4d07a21ca5a9887659680a  research/G1/RH
 c89bd69f744b84dc92f3ffd2da14491131c69492e10325d81b16ac4a2d02f729  research/G1/RH/constants/C/checks/hn_vs_frame.py
 47bbaa73a1474d480af401a5ce6c36a392fbc1fda8a04647cdf5a682224fabf9  research/G1/RH/constants/C/checks/identity_F.out
 36ed34d1ba6b3a79594f1c09519d73e5fc857524d91ffd2740945378a9d55f2e  research/G1/RH/constants/C/checks/identity_F.py
+8417fe2b5cae9558d19f29fa47c6e91843a817315cfef1a81152f7e0aedcea08  research/G1/RH/constants/C/checks/krattenthaler_p2.out
+eeaa5f16ecced4b642a0a67faa7047f22b500d440ac69e4d4a9d612b2e15683b  research/G1/RH/constants/C/checks/krattenthaler_p2.py
 253e92718335f45b21df07187a8b947ad484590afa60ca69f5db8b2bda38e683  research/G1/RH/constants/C/checks/xn_freeform.out
 14aef694e092a249997f2104bf613caf357439988e8c6a3c92f9cc0d70661323  research/G1/RH/constants/C/checks/xn_freeform.py
 43c62d7580e522733cf244dccb5ee969f023a97c8549bb892544f954216c6144  research/G1/RH/constants/C/checks/xn_plt1_large.out
