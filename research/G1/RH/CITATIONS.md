@@ -100,6 +100,8 @@ eq:binet-bound) at u = t − δ: |ph u| ≤ |ph t| ≤ φ < π (L1.1) and |u| �
 **Also used in: JZC_M3a_H_G3** (added per Rule R review A of G3, F9): 5.11.1 + §5.11(ii), n = 1, at u = t − δ = |δ| − i|t| on
 Σ^s_+, |ph u| < π/2, |u| ≥ |t| ≥ 1.
 
+**Also used in: constants/C/C.md** (Conjecture C; Rule R review R1, F2): 5.11.1 + §5.11(ii) for real z → ∞ (|ph z| = 0, sec = 1), giving log N! = N log N − N + ½log(2πN) + O(1/N) in Lemma 3(iv) and 2p log Γ(n+1) = 2pn log n − 2pn + p log(2πn) + O(1/n) in §5.
+
 ## (Van) M. Vanlessen, arXiv:math/0212014 — READ (§1, §4.1–4.3), for RH₁(r)
 "Strong asymptotics of the recurrence coefficients of orthogonal polynomials associated to the generalized Jacobi weight"
 (J. Approx. Theory 125 (2003)). KV's reference [38].
@@ -294,6 +296,8 @@ the comparison problem. We use only the easy direction of Proposition 4.6, which
 **Used in:** RH_zeta_close.md §1.4 Lemma W (Mellin–Parseval, the PV symbol −π cot πs from 5.12.3 and 5.5.3), and §1.2 (the
 local form Ψ = Ψ̂ζ^{−σ₃/4}S for α = −½). RH_plt1.md Lemma 1.1′ (5.5.3: the identity D_up = t^{t−½}e^{−t}e^{iπt}Γ(1−t)/(i√(2π))).
 
+**Also used in: constants/C/C.md** (Rule R review R1, F2): 5.12.1 with a = 1/p > 0, b = ½ > 0, i.e. ∫₀¹(1 − v^p)^{−1/2}dv = (1/p)B(1/p, ½) = Γ(1/p)Γ(½)/(pΓ(1/p + ½)), in Lemma 3(i).
+
 ## (KMVV, additional quotes for Plan 14; Rule R F2) — read in math/0111252v2 (pdftotext)
 
 > "(c) For α < 0, the matrix function Ψ(ζ) has the following behavior as ζ → 0: Ψ(ζ) = O([[|ζ|^{α/2}, |ζ|^{α/2}],
@@ -398,6 +402,8 @@ principal-branch sentence) quotes above. **Used in:** route2/ROUTE2_p1.md §3.2 
 **Used in:** route2/ROUTE2_plt1.md Lemma X0(i): |μ(t)| ≤ sec²(½ph t)·|B₂|/(2|t|) (first neglected term, n = 1) on |ph t| ≤ π/2,
 |t| ≥ 1 (hypothesis: |ph t| ≤ π − δ with δ = π/2 ✓); LogΓ(t) = LogΓ(1 + t) − Log t on Re t ≥ 0 (5.5.1, principal branches
 agreeing on (0, ∞)) for |t| < 1; Lemma LW1′_{<1} (|log D̃| = |μ(t)| ≤ C/|t| on |ph t| ≤ π/4). Same use as RH_plt1b Lemma S.
+**Also used in: constants/C/C.md** (Rule R review R1, F2): 5.5.1 at z = 1/p > 0, Γ(1/p)/p = Γ(1/p + 1), in Lemma 3(i).
+
 ## (Christoffel-attrib, Plan 52) Christoffel's theorem / Darboux (LU ↔ UL) transformation of Jacobi matrices — NOT READ, NOT USED AS INPUT (attribution only)
 
 The transfer formulas of route2/ROUTE2_alpha.md §2 (Lemma CT: monic OPs of x·σ are (P_{n+1} + g_nP_n)/x with

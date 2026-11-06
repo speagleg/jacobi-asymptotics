@@ -1,0 +1,8 @@
+p=0.5 n=  160 log(X_n(2pi n)^p)=+2.73702e-02  n^p*that=+0.34621
+p=0.5 n=  320 log(X_n(2pi n)^p)=+1.92418e-02  n^p*that=+0.34421
+p=0.5 n=  640 log(X_n(2pi n)^p)=+1.35500e-02  n^p*that=+0.34279
+p=0.5 n= 1280 log(X_n(2pi n)^p)=+9.55041e-03  n^p*that=+0.34169
+p=0.75 n=  160 log(X_n(2pi n)^p)=+5.46142e-03  n^p*that=+0.24569
+p=0.75 n=  320 log(X_n(2pi n)^p)=+3.24359e-03  n^p*that=+0.24541
+p=0.75 n=  640 log(X_n(2pi n)^p)=+1.92609e-03  n^p*that=+0.24508
+p=0.75 n= 1280 log(X_n(2pi n)^p)=+1.14108e-03  n^p*that=+0.24419

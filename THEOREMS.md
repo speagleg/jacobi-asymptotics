@@ -421,6 +421,15 @@ NOVELTY_Q / NOVELTY_TODA / NOVELTY_ZETA / NOVELTY_JZC.
 Theorem D pole constant and Lemma K0 (`SpectralConstants`); Q_k(4c) (`tiltQ_four_mul`); the equivalence of Paper IV's natural form
 with E2.1's form to O(n⁻³) (`naturalForm_iff_E21`). The asymptotic theorems themselves are not formalized.
 
+### 2.12 Hard-edge constants (research/G1/RH/constants/; added 2026-11-05)
+
+Leads 1.1–1.2 of the connections survey (research/program/CONNECTIONS.md, not published). Rule R readers are subagents of
+one orchestrating session.
+
+| Result | Statement (short) | Label | Readers | Where |
+|---|---|---|---|---|
+| Thm C (Conjecture C) | p > 0, s > 1: h_n = (2π/p)·c^{2n+1}(c^{1/p}/n)^{s−1}Γ(n+1)^{−2p}(1 + o(1)); equivalently Σ_{j≤n}log(j^pb_j/c) = −((s−1)/2)log n − ½log ζ(s) + ½log(2π/p) + ((s−1+p)/(2p))log c + o(1). On the window 1 < s < 1 + 2p also with a slowly varying factor ℓ of angle ϑ > 0 (h_n multiplied by ℓ(n)) | PROVED-mod-cite (Paper II thm:window, prop:moments, prop:frame, lem:outer, lem:binetcut, lem:seam, lem:corner, lem:pottersector; Paper III lem:telescope; DLMF 5.11.1, 5.12.1, 5.5.1) + REVIEWED; no rate proved. Novelty UNCHECKED | 1 (R1) | constants/C/C.md, review/REVIEW_C_R1.md |
+
 ## 3. Dependency summary
 
 ### 3.1 External citations → results
